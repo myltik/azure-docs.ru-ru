@@ -1,13 +1,14 @@
 # Обзор
 ## [Что такое шлюз приложений?](application-gateway-introduction.md)
 ## [Шлюз приложений: часто задаваемые вопросы](application-gateway-faq.md)
-## [Брандмауэр веб-приложения](application-gateway-webapplicationfirewall-overview.md)
+## [Брандмауэр веб-приложения](application-gateway-web-application-firewall-overview.md)
+### [Основные наборы правил и правила](application-gateway-crs-rulegroups-rules.md)
 ## [Мониторинг работоспособности](application-gateway-probe-overview.md)
 ## [Маршрутизация URL-адресов](application-gateway-url-route-overview.md)
 ## [Несколько сайтов](application-gateway-multi-site-overview.md)
 ## [Сквозное шифрование SSL](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Ограничения служб](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Ограничения служб](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Начало работы
 ## Создание шлюза приложений
 ### Для общего доступа
@@ -23,6 +24,8 @@
 ## Настройка брандмауэра веб-приложения
 ### [Портал](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+## Настройка правил брандмауэра веб-приложения
+### [Портал](application-gateway-customize-waf-rules-portal.md)
 ## Настройка разгрузки SSL
 ### [Портал](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)

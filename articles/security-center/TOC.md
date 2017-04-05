@@ -30,8 +30,8 @@
 #### [Route traffic through NGFW only (Маршрутизировать трафик только через NGFW)](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Рекомендации по службе SQL](security-center-sql-service-recommendations.md)
-#### [Enable auditing on SQL databases](security-center-enable-auditing-on-sql-databases.md)
-#### [Enable auditing on SQL servers](security-center-enable-auditing-on-sql-servers.md)
+#### [Включение аудита и обнаружения угроз для баз данных SQL](security-center-enable-auditing-on-sql-databases.md)
+#### [Включение аудита и обнаружения угроз на серверах SQL Server](security-center-enable-auditing-on-sql-servers.md)
 #### [Включение прозрачного шифрования данных](security-center-enable-transparent-data-encryption.md)
 
 ### [Рекомендации по виртуальным машинам](security-center-virtual-machine-recommendations.md)
@@ -74,8 +74,3 @@
 ## [Обзор службы](https://azure.microsoft.com/services/security-center/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=security-center)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

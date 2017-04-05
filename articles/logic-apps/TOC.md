@@ -16,9 +16,9 @@
 ### [Добавление пользовательского кода с помощью Функций Azure](logic-apps-azure-functions.md)
 ### [Циклы, области действия и индивидуальная обработка данных](logic-apps-loops-and-scopes.md)
 ### [Создание определений приложений логики](logic-apps-author-definitions.md)
+### [Вызов, активация или вложение приложений логики](logic-apps-http-endpoint.md)
 ### [Создание настраиваемых API для приложений логики](logic-apps-create-api-app.md)
 ### [Вызов настраиваемых API для приложений логики](logic-apps-custom-hosted-api.md)
-### [Вызов конечных точек приложений логики в качестве триггеров](logic-apps-http-endpoint.md)
 ### [Обработка ошибок и исключений](logic-apps-exception-handling.md)
 ### [Обработка типов содержимого](logic-apps-content-type.md)
 ### [Защита приложений логики](logic-apps-securing-a-logic-app.md)
@@ -47,6 +47,7 @@
 ### [Интеграция Enterprise с X12](logic-apps-enterprise-integration-x12.md)
 ### [Кодирование X12](logic-apps-enterprise-integration-x12-encode.md)
 ### [Декодирование X12](logic-apps-enterprise-integration-x12-decode.md)
+### [Аварийное восстановление](logic-apps-enterprise-integration-b2b-business-continuity.md)
 
 ## Доступ к локальным данным
 ### [Подключение к локальным данным](logic-apps-gateway-connection.md)
@@ -69,6 +70,7 @@
 
 ## Примеры, сценарии и пошаговые руководства
 ### [Обзор](logic-apps-examples-and-scenarios.md)
+### [Создание панели мониторинга социальных сетей без сервера](logic-apps-scenario-social-serverless.md)
 ### [Вызов приложений логики с помощью Функций Azure](logic-apps-scenario-function-sb-trigger.md)
 ### [Добавление обработки ошибок и исключений](logic-apps-scenario-error-and-exception-handling.md)
 ### [Обработка B2B](logic-apps-enterprise-integration-b2b.md)

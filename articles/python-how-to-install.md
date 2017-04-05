@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: f4c30c4653d8a14c7bf68ec6935c26725c6f623c
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: c2d6999c6c6e8d9168e2417309207dd14bf4f6f2
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -43,13 +44,13 @@ Azure SDK для Python включает компоненты для разра�
 Существует несколько способов получить CPython:
 
 * непосредственно с сайта [www.python.org][www.python.org];
-* из известных дистрибутивов, таких как [www.continuum.io][www.continuum.io], [www.enthought.com][www.enthought.com] или [www.activestate.com][www.activestate.com];
+* у известного поставщика дистрибутивов, например [www.continuum.io][www.continuum.io], [www.enthought.com][www.enthought.com] или [www.activestate.com][www.activestate.com].
 * Построение из исходного кода!
 
 При отсутствии особой необходимости мы рекомендуем использовать первые два варианта.
 
 ## <a name="sdk-installation-on-windows-linux-and-macos-client-libraries-only"></a>Установка пакета SDK в Windows, Linux и MacOS (только клиентские библиотеки)
-Если вы уже установили Python, вы можете использовать pip для установки пакета всех клиентских библиотек в существующей среде Python 2.7 или Python 3.3+. При этом будут скачаны пакеты из [индекса пакетов Python][индекса пакетов Python] (PyPI).
+Если вы уже установили Python, вы можете использовать pip для установки пакета всех клиентских библиотек в существующей среде Python 2.7 или Python 3.3+. При этом будут скачаны пакеты из [индекса пакетов Python][Python Package Index] (PyPI).
 
 Могут потребоваться права администратора:
 
@@ -88,7 +89,7 @@ Azure SDK для Python включает компоненты для разра�
 ```
 
 ## <a name="getting-more-packages"></a>Получение дополнительных пакетов
-[Индекс пакета Python][индекса пакетов Python] предлагает широкий выбор библиотек Python.  Если вы решили установить дистрибутив, то получите основную часть нужного кода для самых различных сценариев — от веб-разработки до технических вычислений.
+[Индекс пакета Python][Python Package Index] (PyPI) предлагает широкий выбор библиотек Python.  Если вы решили установить дистрибутив, то получите основную часть нужного кода для самых различных сценариев — от веб-разработки до технических вычислений.
 
 ## <a name="python-tools-for-visual-studio"></a>Средства Python для Visual Studio
 [Инструменты Python для Visual Studio][Инструменты Python для Visual Studio] (PTVS) представляют собой бесплатный подключаемый модуль с открытым исходным кодом от корпорации Майкрософт, который превращает Visual Studio в полноценную интегрированную среду разработки Python.
@@ -110,7 +111,7 @@ PTVS работает с установленными экземплярами V
 
 Первый сценарий позволяет создавать полнофункциональные веб-приложения, использующие преимущества возможностей Azure PaaS, такие как [хранилище BLOB-объектов](virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [хранилище очередей](storage/storage-python-how-to-use-queue-storage.md), [Хранилище таблиц](storage/storage-python-how-to-use-table-storage.md) и т. д., через оболочки Pythonic для интерфейсов REST API Azure. Они совершенно одинаково работают в Windows, Mac и Linux.  Можно также использовать эти клиентские библиотеки из вашей локальной машины или виртуальной машины Linux в Azure.
 
-При сценарии с виртуальной машиной вы просто запускаете выбранную виртуальную машину Linux (Ubuntu, CentOS, Suse), а затем выполняете нужные компоненты и управляете ими.  В качестве примера можно запустить [IPython][IPython] REPL/notebook на компьютере Windows, Mac или Linux и указать в браузере многопроцессорную виртуальную машину Linux или Windows с запущенной подсистемой IPython в Azure. Дополнительные сведения см. в руководстве по [IPython Notebook в Azure](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+При сценарии с виртуальной машиной вы просто запускаете выбранную виртуальную машину Linux (Ubuntu, CentOS, Suse), а затем выполняете нужные компоненты и управляете ими.  В качестве примера можно запустить REPL или Notebook [IPython][IPython] на компьютере Windows, Mac либо Linux и указать в браузере многопроцессорную виртуальную машину Linux или Windows с запущенной подсистемой IPython в Azure. Дополнительные сведения см. в руководстве по [IPython Notebook в Azure](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Дополнительные сведения о способах настройки виртуальной машины Linux см. в руководстве по [созданию виртуальной машины Linux](virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -122,50 +123,45 @@ PTVS работает с установленными экземплярами V
 * [Пакет SDK Azure для Python — ReadTheDocs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 * [Пакет SDK Azure для Python — GitHub](https://github.com/Azure/azure-sdk-for-python)
 * [Официальные примеры кода Azure для Python](https://azure.microsoft.com/documentation/samples/?platform=python)
-* [Распространяемая среда аналитики Python][Распространяемая среда аналитики Python]
-* [Распространяемый набор Enthought Python][Распространяемый набор Enthought Python]
-* [Распространяемый набор ActiveState Python][Распространяемый набор ActiveState Python]
-* [SciPy — набор научных библиотек Python][SciPy — набор научных библиотек Python]
-* [NumPy — библиотека числовых значений для Python][NumPy — библиотека числовых значений для Python]
-* [Django Project — зрелая веб-платформа/CMS][Django Project — зрелая веб-платформа/CMS]
-* [IPython — расширенный интерфейс REPL/Notebook для Python][IPython — расширенный интерфейс REPL/Notebook для Python]
+* [Распространяемая среда аналитики Python][Continuum Analytics Python Distribution]
+* [Распространяемый набор Enthought Python][Enthought Python Distribution]
+* [Распространяемый набор ActiveState Python][ActiveState Python Distribution]
+* [SciPy — набор научных библиотек Python][SciPy - A suite of Scientific Python libraries]
+* [NumPy — библиотека числовых значений для Python][NumPy - A numerics library for Python]
+* [Django Project — зрелая веб-платформа или CMS][Django Project - A mature web framework/CMS]
+* [IPython — расширенное использование REPL и Notebook для Python][IPython - an advanced REPL/Notebook for Python]
 * [IPython Notebook в Azure](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Средства Python для Visual Studio на GitHub][Средства Python для Visual Studio на GitHub]
+* [Средства Python для Visual Studio на сайте GitHub][Python Tools for Visual Studio on GitHub]
 * [Центр по разработке для Python](/develop/python/)
 
-[Распространяемая среда аналитики Python]: http://continuum.io
-[Распространяемый набор Enthought Python]: http://www.enthought.com
-[Распространяемый набор ActiveState Python]: http://www.activestate.com
+[Continuum Analytics Python Distribution]: http://continuum.io
+[Enthought Python Distribution]: http://www.enthought.com
+[ActiveState Python Distribution]: http://www.activestate.com
 [www.python.org]: http://www.python.org
 [www.continuum.io]: http://continuum.io
 [www.enthought.com]: http://www.enthought.com
 [www.activestate.com]: http://www.activestate.com
-[SciPy — набор научных библиотек Python]: http://www.scipy.org
-[NumPy — библиотека числовых значений для Python]: http://www.numpy.org
-[Django Project — зрелая веб-платформа/CMS]: http://www.djangoproject.com
-[IPython — расширенный интерфейс REPL/Notebook для Python]: http://ipython.org
+[SciPy - A suite of Scientific Python libraries]: http://www.scipy.org
+[NumPy - A numerics library for Python]: http://www.numpy.org
+[Django Project - A mature web framework/CMS]: http://www.djangoproject.com
+[IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [IPython]: http://ipython.org
-[IPython Notebook в Azure]: virtual-machines-linux-jupyter-notebook.md
-[Облачные службы]: cloud-services-python-ptvs.md
-[веб-сайтах]: web-sites-python-ptvs-django-mysql.md
+[IPython Notebook on Azure]: virtual-machines-linux-jupyter-notebook.md
+[Cloud Services]: cloud-services-python-ptvs.md
+[Websites]: web-sites-python-ptvs-django-mysql.md
 [Инструменты Python для Visual Studio]: http://aka.ms/ptvs
-[Средства Python для Visual Studio на GitHub]: https://github.com/microsoft/ptvs
-[индекса пакетов Python]: http://pypi.python.org/pypi
-[Пакет Microsoft Azure SDK для Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
-[Пакет Microsoft Azure SDK для Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
-[Настройка виртуальной машины Linux через портал Azure]: create-and-configure-opensuse-vm-in-portal.md
-[Использование интерфейса командной строки Azure]: crossplat-cmd-tools.md
-[Создание виртуальной машины с ОС Linux]: virtual-machines-linux-quick-create-cli.md
-[Создание веб-сайтов с помощью Django]: web-sites-python-create-deploy-django-app.md
-[Создание веб-сайтов с помощью Bottle]: web-sites-python-create-deploy-bottle-app.md
-[Создание веб-сайтов с помощью Flask]: web-sites-python-create-deploy-flask-app.md
-[Настройка Python для веб-сайтов Azure]: web-sites-python-configure.md
-[Хранилище таблиц]: storage-python-how-to-use-table-storage.md
-[Хранилище очередей]: storage-python-how-to-use-queue-storage.md
-[Хранилище BLOB-объектов]: storage-python-how-to-use-blob-storage.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Python Tools for Visual Studio on GitHub]: https://github.com/microsoft/ptvs
+[Python Package Index]: http://pypi.python.org/pypi
+[Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
+[Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
+[Setting up a Linux VM via the Azure portal]: create-and-configure-opensuse-vm-in-portal.md
+[How to use the Azure Command-Line Interface]: crossplat-cmd-tools.md
+[Create a Virtual Machine Running Linux]: virtual-machines-linux-quick-create-cli.md
+[Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
+[Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md
+[Creating Websites with Flask]: web-sites-python-create-deploy-flask-app.md
+[Configuring Python with Azure Websites]: web-sites-python-configure.md
+[table storage]: storage-python-how-to-use-table-storage.md
+[queue storage]: storage-python-how-to-use-queue-storage.md
+[blob storage]: storage-python-how-to-use-blob-storage.md
 

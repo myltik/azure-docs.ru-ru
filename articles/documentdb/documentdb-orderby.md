@@ -2,8 +2,9 @@
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: c5fc68fb25a4cb2166e0c0a72871d16c71397852
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0ca716857733290fad4278e3be5059408bb75393
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -123,17 +124,12 @@ DocumentDB поддерживает сортировку по одиночном
 При отображении сообщения об ошибке о том, что Order By не поддерживается, проверьте, используется ли версия [пакета SDK](documentdb-sdk-dotnet.md), которая поддерживает Order By. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Скопируйте [проект образцов Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) и запустите упорядочение данных! 
+Скопируйте [проект образцов GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) и запустите упорядочение данных! 
 
 ## <a name="references"></a>Ссылки
 * [Справочник по запросам DocumentDB](documentdb-sql-query.md)
 * [Справочник по политике индексации DocumentDB](documentdb-indexing-policies.md)
 * [Справочник по языку SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 * [Образцы Order By в DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/23/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: dbd4dd3cadf162ea18d58639d31589f7b9b8efc3
-ms.openlocfilehash: 2dfdcd08501a63d62ec6ba565d1abc7d42c8c680
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 4e3840f68c93998a52fa2956c2ea9d0976e0f627
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -54,7 +54,11 @@ PS C:\>Connect-ServiceFabricCluster
 Примеры подключения к удаленному кластеру или кластеру, защищенному с помощью Azure Active Directory, сертификатов X509 или Windows Active Directory, см. в статье [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md).
 
 ## <a name="upload-the-application-package"></a>Загрузка пакета приложения
-Отправка пакета приложения означает, что он помещается в расположение, доступное внутренним компонентам Service Fabric. Если вы хотите проверить пакет приложения локально, используйте командлет [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage).  Команда [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) передает пакет приложения в хранилище образов кластера. Командлет **Get-ImageStoreConnectionStringFromClusterManifest** , являющийся частью модуля PowerShell пакета SDK для Service Fabric, позволяет получить строку подключения хранилища образов.  Чтобы импортировать модуль пакета SDK, выполните следующую команду.
+Отправка пакета приложения означает, что он помещается в расположение, доступное внутренним компонентам Service Fabric.
+Если вы хотите проверить пакет приложения локально, используйте командлет [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage).
+
+Команда [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) передает пакет приложения в хранилище образов кластера.
+Командлет **Get-ImageStoreConnectionStringFromClusterManifest** , являющийся частью модуля PowerShell пакета SDK для Service Fabric, позволяет получить строку подключения хранилища образов.  Чтобы импортировать модуль пакета SDK, выполните следующую команду.
 
 ```powershell
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
@@ -65,7 +69,8 @@ Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\Se
 Следующая команда выводит содержимое пакета приложения:
 
 ```powershell
-PS C:\> tree /f 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+PS C:\> $path = 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+PS C:\> tree /f $path
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
 C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
@@ -91,14 +96,52 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
             Settings.xml
 ```
 
+Если пакет приложения большой или имеет большое количество файлов, его можно [сжать](service-fabric-package-apps.md#compress-a-package). Сжатие уменьшает размер и количество файлов.
+Побочный эффект заключается в том, что регистрация и отмена регистрации типа приложения работают быстрее. Время загрузки может увеличиться, особенно если требуется сжать пакет. 
+
+Чтобы сжать пакет, используйте команду [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage). Сжатие можно выполнить отдельно от загрузки с помощью флага `SkipCopy` или во время операции загрузки. Применить сжатие к сжатому пакету невозможно.
+Чтобы распаковать пакет, используйте команду [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) с параметром `UncompressPackage`.
+
+Следующий командлет сжимает пакет, не копируя его в хранилище образов. Теперь пакет содержит ZIP-файлы для пакетов `Code` и `Config`. Приложение и манифесты служб не сжимаются, так как они используются для множества внутренних операций (совместный доступ к пакетам, извлечение имени типа или версии приложения для некоторых проверок и т. д.). Сжатие манифеста снизит эффективность таких операций.
+
+```
+PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
+PS C:\> tree /f $path
+Folder PATH listing for volume OSDisk
+Volume serial number is 0459-2393
+C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\PKG\DEBUG
+|   ApplicationManifest.xml
+|
+└───Stateless1Pkg
+       Code.zip
+       Config.zip
+       ServiceManifest.xml
+```
+
+Для больших пакетов приложений сжатие занимает некоторое время. Для получения наилучших результатов используйте быстрый SSD-диск. Время сжатия и размер сжатого пакета также зависят от содержимого пакета.
+Ниже приведена статистика сжатия для некоторых пакетов, отражающая первоначальный и сжатый размер, а также время сжатия.
+
+|Исходный размер (МБ)|Число файлов|Время сжатия|Размер сжатого пакета (МБ)|
+|----------------:|---------:|---------------:|---------------------------:|
+|100|100|00:00:03.3547592|60|
+|512|100|00:00:16.3850303|307|
+|1024|500|00:00:32.5907950|615|
+|2048|1000|00:01:04.3775554|1231|
+|5012|100|00:02:45.2951288|3074|
+
+При необходимости после сжатия пакет можно загрузить в один или несколько кластеров Service Fabric. Для сжатых и несжатых пакетов используется одинаковый механизм развертывания. Если пакет сжат, он хранится в хранилище образов кластера именно в таком виде, а перед запуском приложения распаковывается на целевом узле.
+
+
 Следующий пример передает пакет в папку MyApplicationV1 хранилища образов:
 
 ```powershell
-PS C:\> $path = 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))
+PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)) -TimeoutSec 1800
 ```
 
 Если вы не укажете параметр *-ApplicationPackagePathInImageStore*, пакет приложения будет скопирован в папку Debug хранилища образов.
+
+Время, необходимое для загрузки пакета, зависит от нескольких факторов. Некоторые из них: число файлов в пакете, размер пакета и размеры файлов. Скорость сетевого подключения между исходным компьютером и кластером Service Fabric также влияет на время загрузки. Время ожидания по умолчанию для [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) — 30 минут.
+В зависимости от указанных факторов время ожидания может увеличиться. При сжатии пакета в вызове копирования необходимо также учитывать время сжатия.
 
 В статье [Общие сведения о параметре ImageStoreConnectionString](service-fabric-image-store-connection-string.md) вы найдете дополнительные сведения о хранилище образов и строке подключения к этому хранилищу.
 
@@ -112,11 +155,12 @@ PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
 Register application type succeeded
 ```
 
-MyApplicationV1 — это папка в хранилище образов, в которой находится пакет приложения. Тип приложения с именем MyApplicationType и версией&1;.0.0 (оба параметра находятся в манифесте приложения) зарегистрирован в кластере.
+MyApplicationV1 — это папка в хранилище образов, в которой находится пакет приложения. Тип приложения с именем MyApplicationType и версией 1.0.0 (оба параметра находятся в манифесте приложения) зарегистрирован в кластере.
 
-Команда [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) возвращает данные только после того, как система успешно зарегистрирует пакет приложения. Продолжительность регистрации зависит от размера и содержимого пакета приложения. При необходимости можно увеличить время ожидания, указав параметр **-TimeoutSec** (по умолчанию время ожидания составляет 60 секунд).  Если размер пакета настолько большой, что приводит к превышению времени ожидания, используйте параметр **-Async**.
+Команда [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) возвращает данные только после того, как система успешно зарегистрирует пакет приложения. Продолжительность регистрации зависит от размера и содержимого пакета приложения. При необходимости можно увеличить время ожидания, указав параметр **-TimeoutSec** (по умолчанию время ожидания составляет 60 секунд).
 
-Чтобы вывести список зарегистрированных версий типов приложения и их состояние регистрации, используйте команду [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype).
+Если размер пакета настолько большой, что приводит к превышению времени ожидания, используйте параметр **-Async**. Эта команда возвращается, когда кластер принимает команду register, и при необходимости обработка продолжается.
+Чтобы вывести список зарегистрированных версий типов приложения и их состояние регистрации, используйте команду [Get-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/get-servicefabricapplicationtype). Эта команда используется, чтобы определить, что регистрация выполнена.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -196,6 +240,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```powershell
 PS C:\> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
+
 ## <a name="remove-an-application-package-from-the-image-store"></a>Удаление пакета приложения из хранилища образов
 Если пакет приложения больше не нужен, его можно удалить из хранилища образов, чтобы освободить системные ресурсы.
 
@@ -224,6 +269,32 @@ PS C:\> Get-ServiceFabricClusterManifest
 
     [...]
 ```
+
+В статье [Общие сведения о параметре ImageStoreConnectionString](service-fabric-image-store-connection-string.md) вы найдете дополнительные сведения о хранилище образов и строке подключения к этому хранилищу.
+
+### <a name="deploy-large-application-package"></a>Развертывание пакета приложения большего размера
+Проблема. Время ожидания выполнения команды [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) истекает для пакета большого приложения (несколько ГБ).
+Попробуйте выполнить следующее.
+- Задайте большее время ожидания для команды [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) с помощью параметра `TimeoutSec`. По умолчанию время ожидания составляет 30 минут.
+- Проверьте сетевое подключение между исходным компьютером и кластером. Если подключение медленное, рассмотрите возможность использовать машину с лучшим сетевым соединением.
+Возможно, клиентский компьютер находится не в одном регионе с кластером, тогда перейдите на компьютер, который находится с ним в одном регионе или в регионе поблизости.
+- Проверьте, достигнуто ли внешнее регулирование. Например, если хранилище образов настроено для использования хранилища Аzure, загрузку можно регулировать.
+
+Проблема. Загрузка пакета завершена успешно, но время ожидания для выполнения команды [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) истекает.
+Попробуйте выполнить следующее.
+- [Выполните сжатие пакета](service-fabric-package-apps.md#compress-a-package) перед копированием в хранилище образов.
+Сжатие уменьшает размер и число файлов, что, в свою очередь, снижает объем трафика и работу, которую необходимо выполнить Service Fabric. Операция загрузки может выполняться медленнее (особенно при выполнении сжатия), но регистрация и отмена регистрации типа приложения выполняются быстрее.
+- Задайте большее время ожидания для выполнения команды [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) с помощью параметра `TimeoutSec`.
+- Задайте параметр `Async` для команды [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). Эта команда возвращается, когда кластер принимает команду, и подготовка продолжается асинхронно.
+По этой причине здесь нет необходимости указывать большее значение времени ожидания.
+
+### <a name="deploy-application-package-with-many-files"></a>Развертывание пакета приложения с несколькими файлами
+Проблема. Время ожидания для выполнения команды [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) истекает для пакета приложения с несколькими файлами (несколько тысяч).
+Попробуйте выполнить следующее.
+- [Выполните сжатие пакета](service-fabric-package-apps.md#compress-a-package) перед копированием в хранилище образов. Сжатие уменьшает количество файлов.
+- Задайте большее время ожидания для выполнения команды [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) с помощью параметра `TimeoutSec`.
+- Задайте параметр `Async` для команды [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). Эта команда возвращается, когда кластер принимает команду, и подготовка продолжается асинхронно.
+По этой причине здесь нет необходимости указывать большее значение времени ожидания. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)

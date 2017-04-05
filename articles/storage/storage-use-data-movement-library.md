@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 229007db52de53cd50f4d86c145b87d6c2ecf399
-ms.openlocfilehash: e1baa43957ced78b1e25fd632661be2385530db3
-ms.lasthandoff: 01/28/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 2ba94e4dd931b6d385101c7dadccfa3583b5296e
+ms.lasthandoff: 03/27/2017
 
 
 ---

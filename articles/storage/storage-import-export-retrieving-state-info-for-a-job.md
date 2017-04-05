@@ -1,6 +1,6 @@
 ---
-title: "Получение сведений о состоянии задания импорта и экспорта Azure | Документация Майкрософт"
-description: "Узнайте, как получить сведения о состоянии для заданий службы импорта и экспорта Microsoft Azure."
+title: "Получение сведений о состоянии для задания импорта и экспорта Azure | Документация Майкрософт"
+description: "Узнайте, как получить сведения о состоянии заданий службы импорта и экспорта Microsoft Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: d8156439cc81a88172d5af97c31147b6ceb23ff6
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/16/2017
 
 В следующих разделах описаны сведения, возвращаемые операцией `Get Job`.
 
-## <a name="job-states"></a>Состояния заданий
+## <a name="job-states"></a>Состояния задания
 В таблице и на схеме состояний ниже описаны состояния, через которые проходит задание в течение своего жизненного цикла. Текущее состояние задания можно определить, вызвав операцию `Get Job`.
 
 ![JobStates](./media/storage-import-export-retrieving-state-info-for-a-job/JobStates.png "JobStates")
@@ -91,6 +91,7 @@ ms.lasthandoff: 02/16/2017
 ## <a name="faulted-states"></a>Состояния сбоя
 Если жизненный цикл задания или диска не развивается должным образом, задание или диск переходит в состояние `Faulted`. В этом случае рабочая группа связывается с клиентом по электронной почте или по телефону. После устранения проблемы задание или диск будут выведены из состояния `Faulted` и переведены в соответствующее состояние.
 
-## <a name="see-also"></a>См. также
-[Использование REST API службы импорта и экспорта Azure](storage-import-export-using-the-rest-api.md)
+## <a name="next-steps"></a>Дальнейшие действия
+
+* [Использование REST API службы импорта и экспорта Azure](storage-import-export-using-the-rest-api.md)
 

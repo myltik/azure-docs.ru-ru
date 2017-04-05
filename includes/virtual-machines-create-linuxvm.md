@@ -37,7 +37,7 @@
     ```
    
    > [!NOTE]
-   > Для виртуальной машины Linux в `vm create` необходимо указать параметр `-e`. После создания виртуальной машины включить протокол SSH невозможно. Дополнительные сведения см. в статье [Использование SSH с Linux в Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   > Для виртуальной машины Linux в `vm create` необходимо указать параметр `-e`. После создания виртуальной машины включить протокол SSH невозможно. Дополнительные сведения см. в статье [Использование SSH с Linux в Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 5. Вы можете проверить атрибуты виртуальной машины с помощью команды `azure vm show`. В следующем примере предоставляются сведения о виртуальной машине с именем `myVM`:
 
@@ -53,9 +53,4 @@
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения обо всех командах Azure CLI 1.0 для управления виртуальной машиной см. в статье [Get started with Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (Приступая к работе с Azure CLI 2.0 (предварительная версия)).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

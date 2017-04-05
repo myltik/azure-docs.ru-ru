@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 1a2a08a844f1502d970cb7686d512387263d1d13
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 9a2e9b7809b00ae2b60e152bc240ab2ef775c7bf
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -67,10 +67,7 @@ ms.lasthandoff: 03/21/2017
 2. Чтобы создать среду тестирования, выполните действия, описанные в документе "Создание кластеров под управлением Linux в HDInsight". Остановитесь перед созданием кластера и вместо этого выберите **Необязательная конфигурация**.
 3. В колонке "Необязательная конфигурация" выберите **Связанные учетные записи хранения**.
 4. Выберите **Добавить ключ к хранилищу данных**и при появлении запроса выберите учетную запись хранения, которая была определена с помощью сценария PowerShell на шаге 1. Щелкните **Выбрать** на каждой колонке. Наконец, создайте кластер.
-5. После создания кластера подключитесь к нему с помощью протокола **SSH**. Если вы не знакомы с использованием SSH c HDInsight, ознакомьтесь с одним из следующих документов:
-
-   * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-   * [Использование SSH с HDInsight (Hadoop) из Bash на платформе Windows 10, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+5. После создания кластера подключитесь к нему с помощью протокола **SSH**. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 6. В сеансе SSH используйте следующую команду для копирования файлов из связанной учетной записи хранения в новую учетную запись хранения по умолчанию. Замените CONTAINER данными контейнера, возвращенными PowerShell. Замените __ACCOUNT__ именем учетной записи. Замените путь к данным на путь к файлу данных.
 
@@ -109,10 +106,7 @@ ms.lasthandoff: 03/21/2017
 
 Мы рекомендуем использовать сертификат открытого ключа, так как он более безопасен по сравнению с паролем. При использовании сертификата создается пара подписанных ключей (открытый и закрытый), после чего открытый ключ указывается при создании кластера. При подключении к серверу с помощью SSH проверка подлинности подключения выполняется с помощью закрытого ключа на клиентском компьютере.
 
-Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях:
-
-* [Использование SSH с HDInsight из клиентов Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Использование SSH с HDInsight из клиентов Linux, Unix и OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### <a name="cluster-customization"></a>Настройка кластера
 **Действия сценария**, используемые в кластерах под управлением Linux, должны быть записаны в сценарий Bash. Действия сценариев можно использовать не только во время создания кластера, но и для настройки после запуска кластера (для кластеров под управлением Linux). Дополнительные сведения см. в разделах [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md) и [Разработка действий сценариев с помощью HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -220,8 +214,8 @@ Ambari имеет систему предупреждений, которые м
       hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 * [Узнайте, как создавать кластеры HDInsight под управлением Linux](hdinsight-hadoop-provision-linux-clusters.md)
-* [Подключитесь к кластеру под управлением Linux с помощью SSH из клиента Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Подключитесь к кластеру под управлением Linux с помощью SSH из клиента Linux, Unix или Mac](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Подключитесь к HDInsight с помощью протокола SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 * [Выполняйте управление кластером под управлением Linux с помощью Ambari](hdinsight-hadoop-manage-ambari.md)
 

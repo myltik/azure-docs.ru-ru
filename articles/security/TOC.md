@@ -33,6 +33,8 @@
 ### [Центр безопасности Azure](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Введение в службу интеграции журналов Azure](security-azure-log-integration-overview.md)
 #### [Приступая к работе со службой интеграции журналов Azure](security-azure-log-integration-get-started.md)
+#### [Интеграция журналов аудита Azure Active Directory](security-azure-log-integration-ad.md)
+#### [Интеграция оповещений центра безопасности](security-azure-log-integration-security-center.md)
 #### [Часто задаваемые вопросы](security-azure-log-integration-faq.md)
 
 ## Управление удостоверениями
@@ -44,7 +46,7 @@
 #### [Защита мобильных приложений и веб-приложений PaaS с помощью служб приложений](security-paas-applications-using-app-services.md)
 
 ## Интернет вещей
-### [Защита развернутой службы Интернета вещей](../iot-suite/iot-suite-security-deployment.md)
+### [Защита развертывания Интернета вещей](../iot-suite/iot-suite-security-deployment.md)
 ### [Рекомендации по обеспечению безопасности Интернета вещей](../iot-suite/iot-security-best-practices.md)
 
 ## Архитектура безопасности

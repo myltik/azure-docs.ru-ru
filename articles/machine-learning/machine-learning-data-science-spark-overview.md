@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 1d3336e7e2e3ec84ab85a8f494717a75f77982b3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 379b32f4e533f48f1593a97e73737a0c5bfb9135
+ms.lasthandoff: 03/29/2017
 
 
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 03/17/2017
 | tip_amount |Сумма чаевых |
 | tolls_amount |Дорожные пошлины |
 | total_amount |Общая сумма |
-| tipped |Чаевые (0 — нет,&1; — да) |
+| tipped |Чаевые (0 — нет, 1 — да) |
 | tip_class |Класс чаевых (0: 0 долларов, 1: 0–5 долларов, 2: 6–10 долларов, 3: 11–20 долларов, 4: >20 долларов) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Выполнение кода из записной книжки Jupyter в кластере Spark
@@ -155,9 +155,9 @@ ms.lasthandoff: 03/17/2017
 
 ![Просмотр записных книжек Jupyter](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
-Выберите PySpark, чтобы открыть каталог, содержащий несколько примеров предварительно подготовленных записных книжек на основе API PySpark. Записные книжки с примерами кода для этой группы статьей о Spark доступны в репозитории [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Выберите PySpark, чтобы открыть каталог, содержащий несколько примеров предварительно подготовленных объектов Notebook на основе API PySpark. Объекты Notebook с примерами кода для этой группы статьей о Spark доступны на сайте [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
-Записные книжки можно непосредственно из [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) отправить на сервер Jupyter Notebook в кластере Spark. На домашней странице записной книжки Jupyter нажмите кнопку **Отправить** в правой части экрана. Откроется окно проводника. Здесь вы можете вставить URL-адрес Github (необработанное содержимое) для записной книжки и нажать кнопку **Открыть**. 
+Объекты Notebook можно передать непосредственно из [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) на сервер Jupyter Notebook в кластере Spark. На домашней странице записной книжки Jupyter нажмите кнопку **Отправить** в правой части экрана. Откроется окно проводника. Здесь вы можете вставить URL-адрес GitHub (необработанное содержимое) для Notebook и нажать кнопку **Открыть**. 
 
 В списке файлов Jupyter отобразится имя файла с кнопкой **Отправить**. Нажмите кнопку **Отправить** . Записная книжка импортирована. Повторите эти действия для отправки остальных записных книжек из этого руководства.
 

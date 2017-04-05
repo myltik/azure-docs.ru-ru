@@ -1,5 +1,5 @@
 ---
-title: "Восстановление задания экспорта Azure | Документация Майкрософт"
+title: "Восстановление задания экспорта инструмента импорта и экспорта Azure версии 1 | Документация Майкрософт"
 description: "Узнайте, как восстановить задание экспорта, созданное и выполняемое с помощью службы импорта и экспорта Azure."
 author: muralikk
 manager: syadav
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
-ms.openlocfilehash: 7ae819a662230a7ca7da6f7bc5bbb3b3f940074e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: cab61ee993306e830ae899ed639929b0ee7fba82
+ms.lasthandoff: 03/30/2017
 
 
 ---
 # <a name="repairing-an-export-job"></a>Исправление задания экспорта
-После завершения задания экспорта вы можете локально выполнить следующие задачи с помощью средства импорта и экспорта Microsoft Azure:  
+После завершения задания экспорта вы можете локально выполнить следующие задачи с помощью инструмента импорта и экспорта Microsoft Azure:  
   
 1.  загрузить любые файлы, которые служба импорта и экспорта Azure не смогла экспортировать;  
   
@@ -30,7 +30,11 @@ ms.lasthandoff: 02/16/2017
   
 Для использования этой возможности требуется подключение к службе хранилища Azure.  
   
-Для восстановления задания экспорта используется команда **RepairExport**. Можно определить следующие параметры.  
+Для восстановления задания экспорта используется команда **RepairExport**.
+
+## <a name="repairexport-parameters"></a>Параметры RepairExport
+
+Для команды **RepairExport** можно определить следующие параметры.  
   
 |Параметр|Описание|  
 |---------------|-----------------|  
@@ -45,7 +49,7 @@ ms.lasthandoff: 02/16/2017
 |**/ ManifestFile:<файл_манифеста_диска\>**|необязательный параметр. Путь к файлу манифеста экспортируемого диска. Этот файл создается службой импорта и экспорта Windows Azure и сохраняется на экспортируемом диске, а если указано отдельно — еще и в большом двоичном объекте в учетной записи хранения, связанной с заданием.<br /><br /> Содержимое файлов на экспортируемом диске проверяется с помощью MD5-хэшей, содержащихся в этом файле. Все файлы, в которых обнаружатся повреждения, будут повторно загружены и записаны в целевые каталоги.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Использование режима RepairExport для исправления проблем, возникших при экспорте  
-С помощью средства импорта и экспорта Azure вы можете скачать файлы, которые не удалось экспортировать. Файл журнала копирования будет содержать список файлов, которые не удалось экспортировать.  
+С помощью инструмента импорта и экспорта Azure вы можете скачать файлы, которые не удалось экспортировать. Файл журнала копирования будет содержать список файлов, которые не удалось экспортировать.  
   
 Среди прочего, возможны следующие причины проблем при экспорте:  
   
@@ -53,7 +57,7 @@ ms.lasthandoff: 02/16/2017
   
 -   изменение ключа учетной записи хранения во время передачи.  
   
-Перед запуском средства в режиме **RepairExport** следует подключить к компьютеру диск, содержащий экспортированные файлы. Затем запустите средство импорта и экспорта Azure, указав путь к этому диску с помощью параметра `/d`. Также необходимо указать путь к загруженному файлу журнала копирования диска. Следующий пример командной строки запускает средство для восстановления всех файлов, которые не удалось экспортировать:  
+Перед запуском средства в режиме **RepairExport** следует подключить к компьютеру диск, содержащий экспортированные файлы. Затем запустите инструмент импорта и экспорта Azure, указав путь к этому диску с помощью параметра `/d`. Также необходимо указать путь к загруженному файлу журнала копирования диска. Следующий пример командной строки запускает средство для восстановления всех файлов, которые не удалось экспортировать:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
@@ -80,12 +84,12 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
   
 Файл журнала копирования указывает на сбой при загрузке службой импорта и экспорта Windows Azure одного из блоков большого двоичного объекта в файл на экспортируемом диске. Остальные компоненты файла загружены успешно, и длина файла установлена правильно. В этом случае средство откроет файл на диске, загрузит блок из учетной записи хранения и запишет этот блок длиной 65536 в файл, начиная со смещения 65536.  
   
-## <a name="using-repairexport-to-validate-drive-contents"></a>Использование режима RepairExport для проверки содержимого диска  
+## <a name="using-repairexport-to-validate-drive-contents"></a>Использование RepairExport для проверки содержимого диска  
 Также средство импорта и экспорта Azure в режиме **RepairExport** можно использовать для проверки правильности содержимого на диске. Файл манифеста на каждом экспортируемом диске содержит MD5-хэши всего содержимого диска.  
   
 Служба импорта и экспорта Azure может в процессе экспорта сохранять эти файлы манифеста в учетную запись хранения. Расположение файлов манифеста можно получить после завершения задания с помощью команды [получения задания](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Дополнительные сведения о формате файла манифеста диска см. в статье [Формат файла манифеста службы импорта и экспорта](storage-import-export-file-format-metadata-and-properties.md).  
   
-В следующем примере показано, как запустить средство импорта и экспорта Azure с параметрами **/ManifestFile** и **/CopyLogFile**:  
+В следующем примере показано, как запустить инструмент импорта и экспорта Azure с параметрами **/ManifestFile** и **/CopyLogFile**.  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log /ManifestFile:G:\9WM35C3U.manifest  
@@ -129,31 +133,34 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
 ``` 
   
 Завершив процесс восстановления, средство считывает каждый файл, указанный в файле манифеста, и проверяет целостность этих файлов с помощью MD5-хэшей. Если использовать указанный выше манифест, будут проверены следующие компоненты.  
+
+```  
+G:\pictures\city\redmond.jpg, offset 0, length 3584  
   
-G:\pictures\city\redmond.jpg, смещение 0, длина 3584  
+G:\pictures\city\redmond.jpg, offset 3584, length 3584  
   
-G:\pictures\city\redmond.jpg, смещение 3584, длина 3584  
-  
-G:\pictures\city\redmond.jpg, смещение 7168, длина 3584  
+G:\pictures\city\redmond.jpg, offset 7168, length 3584  
   
 G:\pictures\city\redmond.jpg.properties  
   
-G:\pictures\wild\canyon.jpg, смещение 0, длина 2721  
+G:\pictures\wild\canyon.jpg, offset 0, length 2721  
   
-G:\pictures\wild\canyon.jpg, смещение 2721, длина 2721  
+G:\pictures\wild\canyon.jpg, offset 2721, length 2721  
   
-G:\pictures\wild\canyon.jpg, смещение 5442, длина 2721  
+G:\pictures\wild\canyon.jpg, offset 5442, length 2721  
   
-G:\pictures\wild\canyon.jpg, смещение 8163, длина 2721  
+G:\pictures\wild\canyon.jpg, offset 8163, length 2721  
   
 G:\pictures\wild\canyon.jpg.properties  
-  
+```
+
 Средство загрузит заново любой компонент, который не прошел проверку, и запишет его в тот же файл на диске.  
   
-## <a name="see-also"></a>См. также  
-[Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)  (Настройка средства импорта и экспорта Azure)  
-[Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)  (Подготовка жестких дисков к заданию импорта)  
-[Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)  (Просмотр состояния задания с помощью файлов журнала копирования)  
-[Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)  (Восстановление задания импорта)  
-[Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md) (Устранение неполадок со средством импорта и экспорта Azure)
+## <a name="next-steps"></a>Дальнейшие действия
+ 
+* [Настройка средства импорта и экспорта Azure](storage-import-export-tool-setup-v1.md)   
+* [Подготовка жестких дисков для задания импорта](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Просмотр состояния задания с помощью файлов журнала копирования](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Подготовка задания импорта](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Устранение неполадок со средством импорта и экспорта Azure](storage-import-export-tool-troubleshooting-v1.md)
 

@@ -129,10 +129,5 @@
 2. В контекстном меню выберите команду **Завершение работы** или **Настройки**, чтобы открыть страницу конфигурации виртуальной машины. На этой странице нажмите кнопку **Завершение работы**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о создании виртуальных машин см. в статьях [Создание виртуальной машины с ОС Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) и [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Дополнительные сведения о создании виртуальных машин см. в статьях [Создание виртуальной машины с ОС Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) и [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

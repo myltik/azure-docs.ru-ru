@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
-ms.openlocfilehash: db7066fb87175caa165d741b63f9b0e3f9ed851c
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2faab833724bf4bb3f3262517e1d724868f7524d
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -39,8 +40,8 @@ ms.openlocfilehash: db7066fb87175caa165d741b63f9b0e3f9ed851c
 * [Tutorial: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Руководство. Создание конвейера для копирования данных с помощью шаблона Azure Resource Manager)
 * [Tutorial: Create a pipeline to process data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md) (Руководство. Создание конвейера для обработки данных с помощью шаблона Azure Resource Manager)
 
-## <a name="data-factory-templates-on-github"></a>Шаблоны фабрики данных на GitHub
-Ознакомьтесь со следующими шаблонами быстрого запуска Azure на Github:
+## <a name="data-factory-templates-on-github"></a>Шаблоны фабрики данных на сайте GitHub
+Ознакомьтесь со следующими шаблонами быстрого запуска Azure на сайте GitHub:
 
 * [Create a Data factory to copy data from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) (Создание фабрики данных для копирования данных из хранилища BLOB-объектов Azure в Базу данных SQL Azure)
 * [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) (Создание фабрики данных с действием Hive в кластере Azure HDInsight)
@@ -252,9 +253,4 @@ ms.openlocfilehash: db7066fb87175caa165d741b63f9b0e3f9ed851c
 > Сейчас экспорт шаблонов для существующих фабрик данных не поддерживается. Однако планируется реализовать такую возможность.
 >
 >
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

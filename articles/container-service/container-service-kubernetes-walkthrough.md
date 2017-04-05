@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d342e21e8e0bd78b713f3a6b2f7b3c319185eb43
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e4f47341554e2de514c8be2f5c85983d09bbb760
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/22/2017
 ![Схема кластера Kubernetes в Аzure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## <a name="prerequisites"></a>Предварительные требования
-В этом пошаговом руководстве предполагается, что вы установили и настроили [Azure CLI 2.0](/cli/azure/install-az-cli2). Также необходимо, чтобы открытый ключ RSA ( SSH) находился в `~/.ssh/id_rsa.pub`. Если его у вас нет, ознакомьтесь с инструкциями для [OS X и Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) или [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md).
+В этом пошаговом руководстве предполагается, что вы установили и настроили [Azure CLI 2.0](/cli/azure/install-az-cli2). Также необходимо, чтобы открытый ключ RSA ( SSH) находился в `~/.ssh/id_rsa.pub`. Если его у вас нет, ознакомьтесь с инструкциями для [OS X и Linux](../virtual-machines/linux/mac-create-ssh-keys.md) или [Windows](../virtual-machines/linux/ssh-from-windows.md).
 
 
 

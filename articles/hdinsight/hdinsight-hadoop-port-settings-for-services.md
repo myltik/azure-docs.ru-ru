@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: dd14aed9-ec25-4bb3-a20c-e29562735a7d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b65e9e6b196965a7df1e4979219117fb87cedbd7
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 693e3aebad339b1a9b5e0afbe7770197ea70dcf6
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -40,9 +42,9 @@ ms.openlocfilehash: b65e9e6b196965a7df1e4979219117fb87cedbd7
 
 | служба | Порт | Протокол | Описание |
 | --- | --- | --- | --- | --- |
-| sshd |22 |SSH |Подключает клиенты к sshd на основном головном узле. См. статью [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
-| sshd |22 |SSH |Подключение клиентов к SSHD на граничном узле (только HDInsight Premium). См. статью [Приступая к работе с R Server в HDInsight (предварительная версия)](hdinsight-hadoop-r-server-get-started.md). |
-| sshd |23 |SSH |Подключает клиенты к sshd на дополнительном головном узле. См. статью [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
+| sshd |22 |SSH |Подключает клиенты к sshd на основном головном узле. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |22 |SSH |Подключает клиенты к SSHD на граничном узле. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |23 |SSH |Подключает клиенты к sshd на дополнительном головном узле. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Веб-интерфейс Ambari. См. статью [Управление кластерами HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md). |
 | Ambari |443 |HTTPS |REST API Ambari. См. статью [Управление кластерами HDInsight с помощью REST API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). |
 | WebHCat |443 |HTTPS |REST API HCatalog. См. статьи [Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-pig-curl.md), [Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-pig-curl.md) и [Выполнение заданий MapReduce с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-mapreduce-curl.md). |
@@ -138,10 +140,5 @@ ms.openlocfilehash: b65e9e6b196965a7df1e4979219117fb87cedbd7
 | --- | --- | --- | --- | --- |
 | Broker |Рабочие узлы |9092 |[Сетевой протокол Kafka](http://kafka.apache.org/protocol.html) |Используется для связи с клиентами |
 | &nbsp; |Узлы Zookeeper |2181 |&nbsp; |Порт, используемый клиентами для подключения к ZooKeeper |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -18,9 +18,9 @@ ms.date: 03/20/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: c43648dae95d90d0ee9f3d6b5bedfad7ab4889ca
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: eb3af43b8a13eaaebfa9147848383ff889119d97
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/22/2017
 ## <a name="prerequisites"></a>Предварительные требования
 
 
-* **Открытый ключ RSA (SSH).** При развертывании на портале или с помощью одного из шаблонов быстрого запуска Azure необходимо предоставить открытый ключ RSA (SSH), используемый для аутентификации в виртуальных машинах Службы контейнеров Azure. Инструкции по созданию ключей RSA (SSH) см. в соответствующих статьях для [OS X, Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) или [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Открытый ключ RSA (SSH).** При развертывании на портале или с помощью одного из шаблонов быстрого запуска Azure необходимо предоставить открытый ключ RSA (SSH), используемый для аутентификации в виртуальных машинах Службы контейнеров Azure. Инструкции по созданию ключей RSA (SSH) см. в соответствующих статьях для [OS X, Linux](../virtual-machines/linux/mac-create-ssh-keys.md) или [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 * **Секрет и идентификатор клиента субъекта-службы.** Дополнительные сведения и рекомендации в разделе [Сведения о субъекте-службе Azure Active Directory для кластера Kubernetes в службе контейнеров Azure](container-service-kubernetes-service-principal.md).
 

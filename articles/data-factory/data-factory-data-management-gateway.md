@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: abnarain
 translationtype: Human Translation
-ms.sourcegitcommit: 3d66640481d8e1f96d3061077f0c97da5fa6bf4e
-ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: dfa78d1773afd0094ff98a5761a771101016ee13
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -130,20 +130,25 @@ ms.lasthandoff: 02/02/2017
 ### <a name="ports-and-firewall"></a>Порты и брандмауэр
 Описанные здесь рекомендации относятся к двум брандмауэрам: к **корпоративному брандмауэру**, работающему на центральном маршрутизаторе организации, и к **брандмауэру Windows**, настроенному в качестве управляющей программы на локальном компьютере, на котором установлен шлюз.  
 
-![брандмауэры](./media/data-factory-data-management-gateway/firewalls.png)
+![брандмауэры](./media/data-factory-data-management-gateway/firewalls2.png)
 
 На уровне корпоративного брандмауэра необходимо настроить следующие домены и исходящие порты:
 
 | Имена доменов | порты; | Описание |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Прослушиватели ретрансляции служебной шины по протоколу TCP (порт 443 требуется для получения маркера контроля доступа). |
-| *.servicebus.windows.net |9350-9354, 5671 |Дополнительный ретранслятор служебной шины по протоколу TCP |
-| *.core.windows.net |443 |HTTPS |
-| *.clouddatahub.net |443 |HTTPS |
-| graph.windows.net |443 |HTTPS |
-| login.windows.net |443 |HTTPS |
+| *.servicebus.windows.net |443, 80 |Используется для связи с серверной частью службы перемещения данных. |
+| *.core.windows.net |443 |Используется для промежуточного копирования с помощью большого двоичного объекта Azure (если оно настроено).|
+| *frontend.clouddatahub.net |443 |Используется для связи с серверной частью службы перемещения данных. |
+
 
 Эти исходящие порты, как правило, включены на уровне брандмауэра Windows. В противном случае домены и порты можно соответствующим образом настроить на компьютере шлюза.
+
+> [!NOTE]
+> 1. В зависимости от того, какие источники и приемники используются, может потребоваться добавить в список разрешений корпоративного брандмауэра или брандмауэра Windows дополнительные домены и исходящие порты.
+> 2. Для некоторых облачных баз данных (например, [База данных SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) и т. д.) может потребоваться добавить в список разрешений брандмауэра IP-адрес компьютера шлюза.
+>
+>
+
 
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>Копирование данных из источника данных в приемник данных
 Убедитесь, что правила брандмауэра в корпоративном брандмауэре, брандмауэре Windows на компьютере шлюза и в самом хранилище данных активированы надлежащим образом. Активация этих правил позволяет шлюзу успешно подключаться как к источнику, так и к приемнику. Активируйте правила для каждого хранилища данных, задействованного в операции копирования.
@@ -152,6 +157,12 @@ ms.lasthandoff: 02/02/2017
 
 * Разрешите исходящий трафик **TCP** через порт **1433** для брандмауэра Windows и корпоративного брандмауэра.
 * в параметрах брандмауэра Azure SQL Server добавить IP-адрес компьютера шлюза в список разрешенных IP-адресов.
+
+> [!NOTE]
+> Если брандмауэр блокирует исходящий порт 1433, то шлюз не сможет напрямую получить доступ к SQL Azure. В этом случае можно использовать [промежуточное копирования](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) в базу данных SQL Azure или хранилище данных SQL Azure. Тогда для перемещения данных понадобится только протокол HTTPS (порт 443).
+>
+>
+
 
 ### <a name="proxy-server-considerations"></a>Рекомендации для прокси-сервера
 Если для доступа в Интернет в среде вашей корпоративной сети используется прокси-сервер, настройте шлюз управления данными для применения соответствующих параметров прокси-сервера. Прокси-сервер можно настроить на этапе начальной регистрации.
@@ -186,7 +197,7 @@ ms.lasthandoff: 02/02/2017
 >
 >
 
-### <a name="configure-proxy-server-settings"></a>Настройка параметров прокси-сервера 
+### <a name="configure-proxy-server-settings"></a>Настройка параметров прокси-сервера
 Если для HTTP-прокси выбран вариант конфигурации **Использовать системный прокси**, шлюз использует параметры прокси-сервера, заданные в файлах diahost.exe.config и diawp.exe.config.  Если в файлах diahost.exe.config и diawp.exe.config параметры прокси-сервера не заданы, шлюз подключается к облачной службе напрямую, не используя прокси-сервер. Ниже приводится процедура обновления файла конфигурации diahost.exe.config.  
 
 1. В проводнике создайте резервную копию исходного файла C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config.
@@ -211,7 +222,7 @@ ms.lasthandoff: 02/02/2017
 
 > [!IMPORTANT]
 > Не забудьте обновить **оба** файла (diahost.exe.config и diawp.exe.config).  
-     
+
 
 Кроме того, необходимо также убедиться, что Microsoft Azure входит в белый список в вашей компании. Список допустимых IP-адресов Microsoft Azure можно скачать из [Центра загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -260,12 +271,12 @@ ms.lasthandoff: 02/02/2017
 1. Запустите Windows PowerShell на компьютере шлюза.
 2. Перейдите в папку C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
 3. Выполните следующую команду, чтобы отключить функцию автоматического обновления.   
-    
+
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -off
     ```
 4. Чтобы снова включить ее:
-    
+
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -on  
     ```
@@ -367,8 +378,8 @@ ms.lasthandoff: 02/02/2017
                 "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
                 "gatewayName": "adftutorialgateway"
             }
-        }
-    }
+         }
+     }
     ```
 Если для доступа к порталу используется компьютер, отличный от компьютера шлюза, необходимо убедиться в том, что диспетчер учетных данных может подключиться к компьютеру шлюза. Если приложению не удается подключиться к компьютеру шлюза, вы не сможете задать учетные данные для источника данных и проверить подключение к нему.  
 
@@ -387,7 +398,7 @@ ms.lasthandoff: 02/02/2017
 
 1. Запустите модуль **Azure PowerShell** в режиме администратора.
 2. Войдите в учетную запись Azure, выполнив следующую команду и введя свои учетные данные Azure.
-    
+
     ```PowerShell
     Login-AzureRmAccount
     ```
@@ -414,7 +425,7 @@ ms.lasthandoff: 02/02/2017
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. В Azure PowerShell перейдите в папку **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Выполните сценарий **RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде. Этот сценарий регистрирует агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
+1. В Azure PowerShell перейдите в папку **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Выполните сценарий**RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде. Этот сценарий регистрирует агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -435,13 +446,13 @@ ms.lasthandoff: 02/02/2017
 Вы можете удалить шлюз, используя командлет **Remove-AzureRmDataFactoryGateway**, или обновить описание шлюза, используя командлет **Set-AzureRmDataFactoryGateway**. Дополнительную информацию о синтаксисе и другую информацию об этих командлетах см. в "Справочных материалах по командлетам фабрики данных".  
 
 ### <a name="list-gateways-using-powershell"></a>Вывод списка шлюзов с помощью PowerShell
-    
+
 ```PowerShell
 Get-AzureRmDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 ```
 
 ### <a name="remove-gateway-using-powershell"></a>Удаление шлюза с помощью PowerShell
-    
+
 ```PowerShell
 Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```

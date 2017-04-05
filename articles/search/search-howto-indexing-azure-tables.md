@@ -15,8 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
-ms.openlocfilehash: b7f6c92867e3fabe07312539ec8dfd2d3525f02e
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 66e6fec16aab7764b05b616efc0fccbfb2d0595e
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -60,8 +61,8 @@ ms.openlocfilehash: b7f6c92867e3fabe07312539ec8dfd2d3525f02e
 Учетные данные для таблицы можно указать одним из описанных ниже способов. 
 
 - **Строка подключения учетной записи хранения с полным доступом**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Строку подключения можно получить на портале Azure, перейдя в колонку учетной записи хранения и щелкнув "Параметры" > "Ключи" (для классических учетных записей хранения) или "Параметры" > "Ключи доступа" (для учетных записей хранения Azure Resource Manager).
-- Строка подключения с **подписанным URL-адресом (SAS) учетной записи хранения**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. Подписанный URL-адрес должен иметь разрешения "Список" и "Чтение" для контейнеров (в данном случае — таблиц) и объектов (строк таблицы).
--  **Подписанный URL-адрес таблицы**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. Подписанный URL-адрес должен иметь разрешения "Список" и "Чтение" для таблицы.
+- Строка подключения с **подписанным URL-адресом (SAS) учетной записи хранения**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl`. Подписанный URL-адрес должен иметь разрешения "Список" и "Чтение" для контейнеров (в данном случае — таблиц) и объектов (строк таблицы).
+-  **Подписанный URL-адрес таблицы**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r`. Подписанный URL-адрес должен иметь разрешения на запрос (чтение) для таблицы.
 
 Дополнительные сведения о подписанных URL-адресах см. в статье [Использование подписанных URL-адресов (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -134,9 +135,4 @@ ms.openlocfilehash: b7f6c92867e3fabe07312539ec8dfd2d3525f02e
 
 ## <a name="help-us-make-azure-search-better"></a>Помогите нам усовершенствовать службу поиска Azure
 Если вам нужна какая-либо функция или у вас есть идеи, которые можно было бы реализовать, сообщите об этом на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

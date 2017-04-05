@@ -9,16 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 6cb0da6d7b3aafeb9a8079b427e31c66811a6281
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -165,6 +166,16 @@ Livy обеспечивает высокую доступность задани
 2. В левой области навигации щелкните **Livy**, а затем щелкните **Configs** (Конфигурации).
 
 3. В разделе **livy-default** добавьте имя свойства `livy.file.local-dir-whitelist` и присвойте ему значение **"/"**, если вы хотите разрешить полный доступ к файловой системе. Если вы хотите разрешить доступ только к конкретному каталогу, то в качестве значения свойства укажите путь к этому каталогу.
+
+## <a name="troubleshooting"></a>Устранение неполадок
+
+Ниже приведены некоторые проблемы, которые могут возникнуть при использовании Livy для отправки удаленных заданий в кластеры Spark.
+
+### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>Использование внешних JAR-файлов из дополнительных хранилищ не поддерживается
+
+**Проблема.** При выполнении с помощью Livy задания Spark, ссылающегося на внешний JAR-файл из дополнительного хранилища, связанного с кластером, происходит сбой.
+
+**Решение.** Обеспечьте наличие JAR-файла, который будет использоваться, в хранилище по умолчанию, связанном с кластером HDInsight.
 
 
 ## <a name="seealso"></a>Дополнительные материалы

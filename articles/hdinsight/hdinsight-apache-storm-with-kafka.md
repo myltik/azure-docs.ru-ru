@@ -8,6 +8,7 @@ manager: paulettm
 editor: cgronlun
 ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/20/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3f0d284e122704ba01676c4b0028e196fe47bca8
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: dcda5e27cbcadff054c8085b72a1b6fb1c07b889
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Совместное использование Apache Kafka (предварительная версия) и Storm в HDInsight
@@ -40,11 +41,7 @@ Apache Kafka — это решение для обмена сообщениям
 
 * Текстовый редактор или Java IDE.
 
-* Клиент SSH (вам потребуются команды `ssh` и `scp`). Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
-  
-  * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-  * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+* SSH-клиент (требуются команды `ssh` и `scp`). Дополнительные сведения см. в разделе [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-the-clusters"></a>Создание кластеров
 
@@ -133,11 +130,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
    
     При появлении запроса введите пароль, который использовался при создании кластеров.
    
-    Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
-   
-    * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Во время установления SSH-подключения к кластеру Kafka используйте следующие команды, чтобы задать переменные для имени для входа по протоколу HTTP и имени кластера. Эти значения используются в других шагах в этом разделе.
 
@@ -238,12 +231,8 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
   ```
 
     При появлении запроса введите пароль, который использовался при создании кластеров.
-
-    Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
-
-    * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+   
+    См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Чтобы запустить сценарий `set-env-variables.sh`, выполните следующие команды из SSH-подключения к кластеру Storm:
 

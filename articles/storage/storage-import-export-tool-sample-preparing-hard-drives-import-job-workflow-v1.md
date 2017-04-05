@@ -1,5 +1,5 @@
 ---
-title: "Пример рабочего процесса подготовки жестких дисков для задания импорта | Документация Майкрософт"
+title: "Пример рабочего процесса подготовки жестких дисков для задания импорта инструмента импорта и экспорта Azure версии 1 | Документация Майкрософт"
 description: "Ознакомьтесь с пошаговым руководством, чтобы изучить полный процесс подготовки дисков для задания импорта в службе импорта и экспорта Azure."
 author: muralikk
 manager: syadav
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: ee7a8c9ae4cda5b67184100dd37ee4e0384aff26
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 313f8c1f3962a943b4c98c530c324ff28aa84c10
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/16/2017
   
 `5TB + 30GB + 25GB + 10GB = 5TB + 65GB`  
   
-Для нашего примера будет достаточно двух жестких дисков объемом в 3 ТБ каждый. Однако, так как исходный каталог `H:\Video` содержит 5 ТБ данных, а емкость одного жесткого диска составляет 3 ТБ, прежде чем запустить средство импорта и экспорта Microsoft Azure, необходимо разбить `H:\Video` на два каталога меньшего размера: `H:\Video1` и `H:\Video2`. На этом шаге создаются приведенные ниже исходные каталоги.  
+Для нашего примера будет достаточно двух жестких дисков объемом в 3 ТБ каждый. Однако, так как исходный каталог `H:\Video` содержит 5 ТБ данных, а емкость одного жесткого диска составляет 3 ТБ, прежде чем запустить инструмент импорта и экспорта Microsoft Azure, необходимо разбить `H:\Video` на два каталога меньшего размера: `H:\Video1` и `H:\Video2`. На этом шаге создаются приведенные ниже исходные каталоги.  
   
 |Расположение|Размер|Целевой виртуальный каталог или большой двоичный объект.|  
 |--------------|----------|-------------------------------------------|  
@@ -74,7 +74,7 @@ ms.lasthandoff: 02/16/2017
   
 Кроме того, для всех файлов можно задать следующие метаданные.  
   
--   **UploadMethod:** Microsoft Azure Import/Export Service  
+-   **UploadMethod:** Microsoft Azure Import/Export service  
   
 -   **DataSetName:** SampleData  
   
@@ -85,7 +85,7 @@ ms.lasthandoff: 02/16/2017
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>  
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>  
     <DataSetName>SampleData</DataSetName>  
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
@@ -110,7 +110,7 @@ ms.lasthandoff: 02/16/2017
 </Properties>  
 ```
   
-Теперь все готово к запуску средства импорта и экспорта Azure для подготовки двух жестких дисков. Обратите внимание на следующее.  
+Теперь все готово к запуску инструмента импорта и экспорта Azure для подготовки двух жестких дисков. Обратите внимание на следующее.  
   
 -   Первый диск подключается как диск X.  
   
@@ -131,38 +131,50 @@ ms.lasthandoff: 02/16/2017
     WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
 ```
 
-Для первого диска дважды запустите средство импорта и экспорта Azure, чтобы скопировать два исходных каталога.  
+## <a name="copy-sessions---first-drive"></a>Сеансы копирования — первый диск
+
+Для первого диска дважды запустите инструмент импорта и экспорта Azure, чтобы скопировать два исходных каталога.  
+
+**Первый сеанс копирования**
   
 ```
-## First copy session for first drive  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
 
+**Второй сеанс копирования**
+
 ```  
-## Second copy session for first drive  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
 ```
+
+## <a name="copy-sessions---second-drive"></a>Сеансы копирования — второй диск
+ 
+Для второго диска трижды запустите инструмент импорта и экспорта Azure: по одному разу для каждого исходного каталога и один раз для изолированного файла образа Blu-Ray™.  
   
-Для второго диска трижды запустите средство импорта и экспорта Azure: по одному разу для каждого исходного каталога и один раз для изолированного файла образа Blu-Ray™.  
-  
+**Первый сеанс копирования** 
+
 ```
-## First copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Video2 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:y /format /encrypt /srcdir:H:\Video2 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
   
+**Второй сеанс копирования**
+
 ```
-## Second copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Music /srcdir:\\bigshare\john\music /dstdir:music/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```  
   
+**Третий сеанс копирования**  
+
 ```
-## Third copy session  
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
-  
+
+## <a name="copy-session-completion"></a>Завершение сеанса копирования
+
 После того, как сеансы копирования будут завершены, можно будет отключить оба диска от компьютера копирования и доставить их в соответствующий центр обработки данных Microsoft Azure. При создании задания импорта на [портале управления Microsoft Azure](https://manage.windowsazure.com/) вы передадите два файла журнала, `FirstDrive.jrn` и `SecondDrive.jrn`.  
   
-## <a name="see-also"></a>См. также  
-[Подготовка жестких дисков для задания импорта](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-[Краткий справочник по часто используемым командам](storage-import-export-tool-quick-reference-v1.md) 
+## <a name="next-steps"></a>Дальнейшие действия
+
+* [Подготовка жестких дисков для задания импорта](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Краткий справочник по часто используемым командам](storage-import-export-tool-quick-reference-v1.md) 
 

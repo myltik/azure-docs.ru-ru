@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 3d04be3d2427bc59d24bfaad227730991b61265b
-ms.openlocfilehash: 162147607baa36de0487cebc06e7ada20f3dd0c0
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 41774c7f1c038ee017d719e59ed79fb68999dac8
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -41,10 +41,10 @@ ms.lasthandoff: 02/11/2017
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 ## <a name="export-your-database"></a>Экспорт базы данных
-Командлет [New AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796\(v=azure.300\).aspx) отправляет к службе запрос на экспорт базы данных. Операция экспорта может занять некоторое время в зависимости от размера базы данных.
+Командлет [New AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) отправляет к службе запрос на экспорт базы данных. Операция экспорта может занять некоторое время в зависимости от размера базы данных.
 
 > [!IMPORTANT]
-> Для получения транзакционно согласованного BACPAC-файла сначала [создайте копию базы данных](sql-database-copy-powershell.md), а затем экспортируйте эту копию.
+> Для получения транзакционно согласованного BACPAC-файла сначала [создайте копию базы данных](scripts/sql-database-copy-database-to-new-server-powershell.md), а затем экспортируйте эту копию.
 > 
 > 
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/11/2017
 
 
 ## <a name="monitor-the-progress-of-the-export-operation"></a>Отслеживание хода выполнения операции экспорта
-Состояние запроса после выполнения командлета [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx) можно проверить, выполнив командлет [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx). Если выполнить его немедленно после запроса, то обычно возвращается сообщение **Состояние: выполняется**. Отображение сообщения **Состояние: выполнен** означает, что экспорт завершен.
+Состояние запроса после выполнения командлета [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com//powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport) можно проверить, выполнив командлет [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus). Если выполнить его немедленно после запроса, то обычно возвращается сообщение **Состояние: выполняется**. Отображение сообщения **Состояние: выполнен** означает, что экспорт завершен.
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 
@@ -104,17 +104,17 @@ ms.lasthandoff: 02/11/2017
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Чтобы узнать, как импортировать базу данных Azure SQL с помощью PowerShell, ознакомьтесь с разделом [Импорт BACPAC-файла для создания новой базы данных SQL Azure с помощью PowerShell](sql-database-import-powershell.md).
+* Чтобы узнать, как импортировать базу данных Azure SQL с помощью PowerShell, ознакомьтесь с разделом [Импорт BACPAC-файла для создания новой базы данных SQL Azure с помощью PowerShell](scripts/sql-database-import-from-bacpac-powershell.md).
 * Чтобы узнать об импорте BACPAC-файла в базу данных SQL Azure с помощью SQLPackage, см. [эту статью](sql-database-import-sqlpackage.md).
 * Чтобы узнать об импорте BACPAC-файла в базу данных SQL Azure с помощью портала Azure, см. [эту статью](sql-database-import-portal.md).
 * Описание процесса миграции базы данных SQL Server в базу данных SQL Azure, включая рекомендации по его использованию, см. в [этой статье](sql-database-cloud-migrate.md).
-* Дополнительные сведения о длительном периоде удержания резервных копий базы данных SQL Azure как альтернативе экспорту базы данных для создания архива см. в статье [Хранение резервных копий базы данных SQL Azure до&10; лет](sql-database-long-term-retention.md).
+* Дополнительные сведения о длительном периоде удержания резервных копий базы данных SQL Azure как альтернативе экспорту базы данных для создания архива см. в статье [Хранение резервных копий базы данных SQL Azure до 10 лет](sql-database-long-term-retention.md).
 * Чтобы узнать об импорте BACPAC-файла в базу данных SQL Server, ознакомьтесь с разделом [Импорт файла BACPAC для создания новой пользовательской базы данных](https://msdn.microsoft.com/library/hh710052.aspx)
 
 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-* [New-AzureRmSqlDatabaseExport](https://msdn.microsoft.com/library/azure/mt707796\(v=azure.300\).aspx)
-* [Get-AzureRmSqlDatabaseImportExportStatus](https://msdn.microsoft.com/library/azure/mt707794\(v=azure.300\).aspx)
+* [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport)
+* [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus)
 
 

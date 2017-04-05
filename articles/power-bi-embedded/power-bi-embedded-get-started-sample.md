@@ -16,9 +16,9 @@ ms.workload: powerbi
 ms.date: 03/02/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 4f60937f9a9dd0e7d9939f85d1a9d442a4b7f266
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: beadcbfa4907d68a687ec5144136132d8b0439e1
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -44,9 +44,8 @@ ms.lasthandoff: 03/14/2017
 2. Откройте файл **PowerBI-embedded.sln** в Visual Studio. Может потребоваться выполнить команду **Update-Package** в консоли диспетчера пакетов NuGET, чтобы обновить пакеты, используемые в этом решении.
 3. Выполните сборку решения.
 4. Запустите консольное приложение **ProvisionSample** . В примере консольного приложения необходимо подготовить рабочую область и импортировать файл PBIX.
-5. Чтобы подготовить новую **рабочую область**, выберите вариант 5, **Provision a new workspace in an existing workspace collection** (Подготовить новую рабочую область в имеющейся коллекции рабочих областей).
+5. Чтобы подготовить новую **рабочую область**, выберите вариант 2, **Report management** (Управление отчетами), затем выберите вариант 3, **Import PBIX Desktop file into a workspace** (Импорт PBIX-файла рабочего стола в рабочую область).
 
-    ![](media/powerbi-embedded-get-started-sample/console-option-5.png)
 6. Введите имя **коллекции рабочих областей** и **ключ доступа**. Их можно получить на **портале Azure**. Дополнительные сведения о том, как получить **ключ доступа**, см. в разделе [Просмотр ключей доступа для вызова API Power BI](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) статьи "Начало работы с Microsoft Power BI Embedded".
 
     ![](media/powerbi-embedded-get-started-sample/azure-portal.png)

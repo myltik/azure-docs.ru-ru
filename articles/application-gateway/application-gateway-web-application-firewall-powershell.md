@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: bcff92a362c7f8ad1c69b93af07d77e0d03b6a92
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 52b7728c3fc702e37f5c5fe3d6544117a11464e8
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -98,11 +99,11 @@ $gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled 
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
-Эта команда обновляет шлюз приложений, добавляя брандмауэр веб-приложения. Рекомендуется ознакомиться с [диагностикой шлюза приложений](application-gateway-diagnostics.md) , чтобы понять, как просматривать журналы шлюза приложений. Из-за особенностей системы безопасности WAF необходимо регулярно просматривать журналы, чтобы понимать состояние безопасности веб-приложений.
+Эта команда обновляет шлюз приложений, добавляя в него брандмауэр веб-приложения. Рекомендуется ознакомиться с [диагностикой шлюза приложений](application-gateway-diagnostics.md) , чтобы понять, как просматривать журналы шлюза приложений. Из-за особенностей системы безопасности WAF необходимо регулярно просматривать журналы, чтобы понимать состояние безопасности веб-приложений.
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>Создание шлюза приложений с брандмауэром веб-приложения
 
-Ниже от начала до конца описывается процесс создания шлюза приложений с брандмауэром веб-приложения.
+Ниже полностью описывается процесс создания шлюза приложений с брандмауэром веб-приложения.
 
 Убедитесь, что у вас установлена последняя версия Azure PowerShell. Дополнительные сведения см. в статье [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
 
@@ -298,6 +299,9 @@ $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enab
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
 ```
 
+> [!NOTE]
+> Для защиты шлюзов приложений, созданных с помощью базовой конфигурации брандмауэра веб-приложения, настраивается CRS 3.0.
+
 ## <a name="get-application-gateway-dns-name"></a>Получение DNS-имени шлюза приложений
 
 После создания шлюза следует настроить внешний интерфейс для обмена данными. Если вы используете общедоступный IP-адрес, шлюзу приложений требуется динамически назначаемое непонятное имя DNS. Чтобы гарантировать попадание пользователей на шлюз приложений, можно использовать запись CNAME, чтобы указать общедоступную конечную точку шлюза приложений. [Настройка пользовательского имени домена в Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Получите информацию о шлюзе приложений и соответствующее IP- или DNS-имя с помощью элемента PublicIPAddress, связанного со шлюзом приложений. DNS-имя шлюза приложений должно использоваться для создания записи CNAME, указывающей двум веб-приложениям на это DNS-имя. Использование записи A не рекомендуется, так как виртуальный IP-адрес может измениться после перезапуска приложения шлюза.
@@ -330,12 +334,7 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Узнайте, как настроить ведение журнала диагностики и как регистрировать в журнале события, которые обнаружил или предотвратил брандмауэр веб-приложения, посетив страницу [диагностикой шлюза приложений](application-gateway-diagnostics.md)
+Узнайте, как настроить ведение журнала диагностики и как регистрировать в журнале события, которые обнаружил или предотвратил брандмауэр веб-приложения, посетив страницу [Мониторинг работоспособности серверной части, ведение журнала диагностики и метрики для шлюза приложений](application-gateway-diagnostics.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

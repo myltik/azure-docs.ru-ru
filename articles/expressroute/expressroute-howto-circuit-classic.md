@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2017
+ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 62ecd4cc2eed8623cab75777605d621e16b99977
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: efdec32e565bf1d11b562d283e56bd8ed5d292b9
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-an-expressroute-circuit"></a>Создание и изменение канала ExpressRoute
+# <a name="create-and-modify-an-expressroute-circuit-using-powershell-classic"></a>Создание и изменение канала ExpressRoute с помощью PowerShell (классическая модель)
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager — PowerShell](expressroute-howto-circuit-arm.md)
@@ -44,20 +44,25 @@ ms.lasthandoff: 03/14/2017
 ### <a name="step-1-review-the-prerequisites-and-workflow-articles"></a>Шаг 1. Ознакомьтесь со статьями о предварительных условиях и процедурах
 Не забудьте изучить [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.  
 
-### <a name="step-2-install-the-latest-versions-of-the-azure-powershell-modules"></a>Шаг 2. Установите последние версии модулей Azure PowerShell
-Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+### <a name="step-2-install-the-latest-versions-of-the-azure-service-management-sm-powershell-modules"></a>Шаг 2. Установите последние версии модулей PowerShell для управления службами Azure
+Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>Шаг 3. Войдите в учетную запись Azure и выберите подписку
-1. В командной строке Windows PowerShell с повышенными привилегиями выполните следующий командлет.
-   
+1. Откройте консоль PowerShell с повышенными правами и подключитесь к своей учетной записи. Для подключения используйте следующий пример кода:
+
+        Login-AzureRmAccount
+
+2. Просмотрите подписки учетной записи.
+
+        Get-AzureRmSubscription
+
+3. При наличии нескольких подписок выберите подписку, которую вы хотите использовать.
+
+        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+4. Затем воспользуйтесь следующим командлетом, чтобы добавить подписку Azure в PowerShell для классической модели развертывания.
+
         Add-AzureAccount
-2. В появившемся окне входа выполните вход в свою учетную запись.
-3. Получите список своих подписок.
-   
-        Get-AzureSubscription
-4. Выберите подписку, которую нужно использовать.
-   
-        Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Создание и предоставление канала ExpressRoute
 ### <a name="step-1-import-the-powershell-modules-for-expressroute"></a>Шаг 1. Импорт модулей PowerShell для ExpressRoute
@@ -183,7 +188,7 @@ ms.lasthandoff: 03/14/2017
 > 
 
 ### <a name="step-8-link-a-virtual-network-to-an-expressroute-circuit"></a>Шаг 8. Связывание виртуальной сети с каналом ExpressRoute
-Теперь свяжите виртуальную сеть с каналом ExpressRoute. Пошаговые инструкции см. в статье [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md). Инструкции по созданию виртуальной сети для ExpressRoute с помощью классической модели развертывания см. в статье [Настройка виртуальной сети для ExpressRoute на классическом портале](expressroute-howto-vnet-portal-classic.md).
+Теперь свяжите виртуальную сеть с каналом ExpressRoute. Пошаговые инструкции см. в статье [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md). Инструкции по созданию виртуальной сети для ExpressRoute с помощью классической модели развертывания см. в статье [Создание виртуальной сети для ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Получение состояния канала ExpressRoute
 Вы можете получить эти сведения в любое время с помощью командлета `Get-AzureCircuit` . Если этот командлет вызывается без параметров, выводится список всех каналов.

@@ -1,6 +1,6 @@
 ---
-title: "Устранение неполадок со средством импорта и экспорта Azure | Документация Майкрософт"
-description: "Узнайте о распространенных проблемах, с которыми пользователи могут столкнуться при использовании средства импорта и экспорта, и о том, как их устранить."
+title: "Устранение неполадок с инструментом импорта и экспорта Azure | Документация Майкрософт"
+description: "Узнайте о некоторых распространенных проблемах, возникающих при использовании инструмента импорта и экспорта Azure, и о том, как их устранить."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 9aca8aad3f268bf21f3bad9fa22821f5d825f99d
-ms.openlocfilehash: 53755e0048cfd80d9f930419a105893e5b34dc41
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 43b5d5a57df6bdda57a31ff0330ec6eff7aa732c
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
-# <a name="troubleshooting-the-azure-import-export-tool"></a>Устранение неполадок со средством импорта и экспорта Azure
-В случае возникновения проблем средство импорта и экспорта Microsoft Azure возвращает сообщения об ошибках. В этом разделе приведены некоторые распространенные проблемы, с которыми могут столкнуться пользователи.  
+# <a name="troubleshooting-the-azure-importexport-tool"></a>Устранение неполадок со средством импорта и экспорта Azure
+В случае возникновения проблем инструмент импорта и экспорта Microsoft Azure возвращает сообщения об ошибках. В этом разделе приведены некоторые распространенные проблемы, с которыми могут столкнуться пользователи.  
   
 ## <a name="a-copy-session-fails-what-i-should-do"></a>Сеанс копирования завершается ошибкой, что мне делать?  
  Если сеанс копирования завершается ошибкой, существует два варианта.  
@@ -38,10 +38,11 @@ ms.lasthandoff: 02/16/2017
 ## <a name="i-lost-the-journal-file-can-i-still-create-the-job"></a>Файл журнала утерян, могу ли я по-прежнему создать задание?  
  Файл журнала для диска содержит полную информацию о копировании данных на этот диск. Он необходим для добавления дополнительных файлов на диск и будет использоваться для создания задания импорта. Если файл журнала утерян, то необходимо повторить все сеансы копирования для диска.  
   
-## <a name="see-also"></a>См. также  
- [Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)  (Настройка средства импорта и экспорта Azure)  
- [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)  (Подготовка жестких дисков к заданию импорта)  
- [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)  (Просмотр состояния задания с помощью файлов журнала копирования)  
- [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)  (Исправление задания импорта)  
- [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md) (Исправление задания экспорта)
+## <a name="next-steps"></a>Дальнейшие действия
+ 
+* [Настройка средства импорта и экспорта Azure](storage-import-export-tool-setup-v1.md)   
+* [Подготовка жестких дисков для задания импорта](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Просмотр состояния задания с помощью файлов журнала копирования](storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Подготовка задания импорта](storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Подготовка задания экспорта](storage-import-export-tool-repairing-an-export-job-v1.md)
 

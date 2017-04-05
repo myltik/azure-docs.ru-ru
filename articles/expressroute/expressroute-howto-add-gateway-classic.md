@@ -1,5 +1,5 @@
 ---
-title: "Настройка шлюза виртуальной сети для ExpressRoute с помощью PowerShell | Документация Майкрософт"
+title: "Настройка шлюза виртуальной сети для ExpressRoute с помощью PowerShell в Azure (классическая модель) | Документация Майкрософт"
 description: "Узнайте, как настроить шлюз виртуальной сети для виртуальной сети на основе классической модели развертывания с помощью командлетов PowerShell для настройки ExpressRoute."
 documentationcenter: na
 services: expressroute
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2016
+ms.date: 03/21/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 2a0db85dc5699b362aa6a920cc26c40bdfdfc28d
-ms.openlocfilehash: 1679bc2f2344ce3dd78599a1e6a8e2cc974ee905
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: badec4e0b542db52f34db3c50f7d906ed6a5a377
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-classic-deployment-model-and-powershell"></a>Настройка шлюза виртуальной сети для ExpressRoute с помощью классической модели развертывания и PowerShell
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Настройка шлюза виртуальной сети для ExpressRoute с помощью PowerShell (классическая модель)
 > [!div class="op_single_selector"]
 > * [Resource Manager — PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Классическая модель: PowerShell](expressroute-howto-add-gateway-classic.md)
@@ -31,6 +31,8 @@ ms.lasthandoff: 12/14/2016
 > 
 
 Эта статья содержит инструкции по добавлению, изменению размера и удалению шлюза виртуальной сети для существующей виртуальной сети. Приведенные действия по настройке предназначены для виртуальных сетей, созданных с помощью **классической модели развертывания** , которые будут использоваться в конфигурации ExpressRoute. 
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **О моделях развертывания Azure**
 

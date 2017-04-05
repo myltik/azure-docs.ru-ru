@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 653c9a04016c0157b2107710e170ba63b3a499f7
-ms.openlocfilehash: 38f68d6df19d24492a234933e10d5d5cf34d1b23
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 3539da8afe5781d74cbf723090050b767373f268
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -103,7 +103,7 @@ ms.lasthandoff: 01/05/2017
 ##### <a name="data-sources"></a>Источники данных
 В следующей таблице приведены источники данных, которые поддерживаются в табличных моделях 1200, развернутых на сервере служб Azure Analysis Services предварительной версии.
 
-| **Облако** | **Локальная система** |
+| **Облако** | **Локальный (требуется шлюз данных)** |
 | --- | --- |
 | База данных SQL |SQL Server |
 | Хранилище данных SQL |APS |
@@ -114,7 +114,8 @@ ms.lasthandoff: 01/05/2017
 Чтобы подключиться к источникам данных, для моделей данных в Azure Analysis Services могут требоваться не те поставщики данных, что для SQL Server Analysis Services. Требования к поставщику данных зависят от источника данных (облачного или локального) и типа модели данных ("в памяти" или режим прямых запросов). Дополнительные сведения см. в статье [Datasource connections](analysis-services-datasource.md) (Подключение к источникам данных).
 
 ### <a name="client-connections"></a>Клиентские подключения
-Power BI Embedded пока не поддерживается в предварительной версии.
+
+Клиентским приложениям требуется последняя версия [поставщиков данных](analysis-services-data-providers.md) клиента для подключения к службам Azure Analysis Services.
 
 Книги Excel с активными подключениями к серверу служб Azure Analysis Services, а также книги, сохраненные в OneDrive или SharePoint Online, не поддерживаются.
 

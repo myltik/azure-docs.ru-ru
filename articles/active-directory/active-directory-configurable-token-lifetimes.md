@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: c239c12dd9fcc849a6b90ec379ebb8690bd049fc
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 7d0c5f83d907af9109e27d69806d6106d4bc3214
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/17/2017
 Важно различать конфиденциальные и общедоступные клиентские приложения. Дополнительные сведения о различных типах клиентов см. в разделе [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Время жизни маркера для маркеров обновления конфиденциального клиента
-Конфиденциальные клиенты — это такие клиентские приложения, которые могут безопасно хранить клиентский пароль (секрет), с помощью которого можно подтвердить, что запросы поступают от клиентского приложения, а не от вредоносного субъекта. Например, веб-приложение является конфиденциальным клиентом, так как оно может хранить секрет клиента на веб-сервере, и потому он остается невидимым. Так как такие последовательности достаточно безопасные, для них по умолчанию устанавливается более продолжительное время жизни маркеров, и этот срок нельзя изменить с помощью политик.
+Конфиденциальные клиенты — это такие клиентские приложения, которые могут безопасно хранить клиентский пароль (секрет), с помощью которого можно подтвердить, что запросы поступают от клиентского приложения, а не от вредоносного субъекта. Например, веб-приложение является конфиденциальным клиентом, так как оно может хранить секрет клиента на веб-сервере, и потому он остается невидимым. Так как такие последовательности достаточно безопасные, для них по умолчанию устанавливается время жизни выпускаемых маркеров обновления `until-revoked`, и этот срок нельзя изменить с помощью политики или отменить при необязательном сбросе пароля.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Время жизни маркеров для маркеров обновления общедоступного клиента
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 03/17/2017
     Connect-AzureAD -Confirm
     ```
 
-3. Чтобы просмотреть все политики, которые созданы в организации, выполните следующую команду. Эту команду следует выполнять после большинства операций в наших примерах. Также она позволит получить **идентификатор объекта** нужной политики.
+3. Чтобы просмотреть все политики, которые созданы в организации, выполните следующую команду. Эту команду следует выполнять после большинства операций в наших примерах. Также она позволит получить ** *** для политик.
 
     ```PowerShell
     Get-AzureADPolicy
@@ -243,9 +243,8 @@ ms.lasthandoff: 03/17/2017
     Если вы решили, что созданная в этом примере политика для службы недостаточно строгая, и хотите, чтобы срок действия однофакторных маркеров обновления истекал через 2 дня, выполните следующую команду:
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
-
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>Пример создания политики для входа в веб-службы
 
@@ -274,7 +273,7 @@ ms.lasthandoff: 03/17/2017
     2.  Получив **идентификатор объекта** субъекта-службы, выполните следующую команду:
 
         ```PowerShell
-        Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -300,7 +299,7 @@ ms.lasthandoff: 03/17/2017
    Получив **идентификатор объекта** приложения, выполните следующую команду:
 
         ```PowerShell
-        Add-AzureADApplicationPolicy -ObjectId <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
         ```
 
 
@@ -330,13 +329,13 @@ ms.lasthandoff: 03/17/2017
     2.  Получив **идентификатор объекта** субъекта-службы, выполните следующую команду:
 
             ```PowerShell
-            Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
             ```
         
 3. Задайте значение false для флага `IsOrganizationDefault`:
 
     ```PowerShell
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Создайте новую политику организации по умолчанию:
@@ -380,7 +379,7 @@ Get-AzureADPolicy
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> [Необязательный параметр] |**Идентификатор объекта** для нужной политики. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Необязательный параметр] |**Идентификатор объекта (ИД)** для нужной политики. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -388,12 +387,12 @@ Get-AzureADPolicy
 Возвращает список приложений и субъектов-служб, связанных с политикой.
 
 ```PowerShell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
+Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**Идентификатор объекта** для нужной политики. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для нужной политики. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -401,12 +400,12 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of Policy>
 Обновляет существующую политику.
 
 ```PowerShell
-Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
+Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**Идентификатор объекта** для нужной политики. |`-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для нужной политики. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Строка c именем политики. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code> [Необязательный параметр] |Переведенный в строку массив JSON, который содержит все правила политики. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code> [Необязательный параметр] |Если присвоено значение true, политика устанавливается как политика по умолчанию для организации. Если присвоено значение false — параметр игнорируется. |`-IsOrganizationDefault $true` |
@@ -419,12 +418,12 @@ Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
 Удаляет указанную политику.
 
 ```PowerShell
- Remove-AzureADPolicy -ObjectId <ObjectId of Policy>
+ Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**Идентификатор объекта** для нужной политики. | `-ObjectId <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для нужной политики. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -435,12 +434,12 @@ Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName <string>
 Связывает указанную политику с приложением.
 
 ```PowerShell
-Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <ObjectId of Policy>
+Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**Идентификатор объекта** для приложения. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**Идентификатор объекта** для политики. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -449,12 +448,12 @@ Add-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -RefObjectId <O
 Возвращает политику, назначенную для приложения.
 
 ```PowerShell
-Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
+Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**Идентификатор объекта** для приложения. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -462,12 +461,12 @@ Get-AzureADApplicationPolicy -ObjectId <ObjectId of Application>
 Удаляет политику из приложения.
 
 ```PowerShell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <ObjectId of Policy>
+Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**Идентификатор объекта** для приложения. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**Идентификатор объекта** для политики. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -479,12 +478,12 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of Application> -PolicyId <O
 Связывает указанную политику с субъектом-службой.
 
 ```PowerShell
-Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
+Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**Идентификатор объекта** для приложения. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**Идентификатор объекта** для политики. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -493,12 +492,12 @@ Add-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal> -RefO
 Возвращает все политики, связанные с указанным субъектом-службой.
 
 ```PowerShell
-Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
+Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**Идентификатор объекта** для приложения. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -506,11 +505,11 @@ Get-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>
 Удаляет политику из указанного субъекта-службы.
 
 ```PowerShell
-Remove-AzureADServicePrincipalPolicy -ObjectId <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
+Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
 | Параметры | Описание | Пример |
 | --- | --- | --- |
-| <code>&#8209;ObjectId</code> |**Идентификатор объекта** для приложения. | `-ObjectId <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**Идентификатор объекта (ИД)** для приложения. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**Идентификатор объекта** для политики. | `-PolicyId <ObjectId of Policy>` |
 

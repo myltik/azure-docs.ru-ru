@@ -17,9 +17,9 @@ ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 463e2a8af1fd319b396c6a769896344cac5f9f32
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 87d500d886feb2dbd61d15d5a980ab2c4018c2f2
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -213,7 +213,7 @@ ms.lasthandoff: 03/14/2017
 
 **Резервное копирование виртуальных машин Azure:**
 
-* **Linux**: служба архивации Azure поддерживает весь [список дистрибутивов, рекомендуемых для использования в Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) , за исключением CoreOS Linux.  Другие собственные дистрибутивы Linux также должны работать, если агент виртуальной машины доступен на виртуальной машине и есть поддержка Python.
+* **Linux**: служба архивации Azure поддерживает весь [список дистрибутивов, рекомендуемых для использования в Azure](../virtual-machines/linux/endorsed-distros.md) , за исключением CoreOS Linux.  Другие собственные дистрибутивы Linux также должны работать, если агент виртуальной машины доступен на виртуальной машине и есть поддержка Python.
 * **Windows Server**: версии до Windows Server 2008 R2 не поддерживаются.
 
 
