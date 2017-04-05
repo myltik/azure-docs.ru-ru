@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 02/10/2017
 ms.author: vturecek
+redirect_url: /azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc0a7dfa74e9100a61fbc45fda908e9227cf54da
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: 73b7e1c0cb93ae7c54780a3aab837b0e5bcdb0a0
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -34,19 +36,13 @@ ms.openlocfilehash: dc0a7dfa74e9100a61fbc45fda908e9227cf54da
 Само приложение веб-API не меняется. Оно не отличается от приложений веб-API, которые вы писали ранее. Кроме того, можно просто переместить сюда большую часть кода приложения. Если раньше вы использовали IIS, процесс размещения приложения может немного отличаться от привычного. Прежде чем мы перейдем к размещению, начнем с более привычного действия — создания приложения веб-API.
 
 ## <a name="create-the-application"></a>Создание приложения
-Для начала в Visual Studio 2015 создайте новое приложение Service Fabric с одной службой без отслеживания состояния:
-
-![Создание нового приложения Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+Для начала создайте в Visual Studio 2015 приложение Service Fabric с одной службой без отслеживания состояния.
 
 Доступен шаблон Visual Studio для службы без отслеживания состояния с использованием веб-API. В этом руководстве мы с нуля создадим проект веб-API, который покажет, какие результаты можно получить, выбрав этот шаблон.
 
 Выберите пустой проект службы без отслеживания состояния, чтобы научиться создавать проект веб-API с нуля. Или воспользуйтесь шаблоном веб-API службы без отслеживания состояния.  
 
-![Создание единой службы без отслеживания состояния](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
-
 На первом шаге потребуется задействовать некоторые пакеты NuGet для веб-API. Нужный нам пакет — Microsoft.AspNet.WebApi.OwinSelfHost. В нем содержатся все необходимые пакеты веб-API и пакеты *размещения* . Это будет важно в дальнейшем.
-
-![Создание веб-API с помощью диспетчера пакетов NuGet](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
 После установки пакетов можно начать создание базовой структуры проекта веб-API. Если вы уже использовали веб-API, структура проекта покажется очень знакомой. Начните с добавления каталога `Controllers` и контроллера простых значений.
 
@@ -626,16 +622,12 @@ namespace WebService
 }
 ```
 
-Теперь все элементы на своих местах и приложение веб-API должно выглядеть аналогично обычному приложению веб-API с точками входа интерфейса API Reliable Services и хостом OWIN.
-
-![Веб-API с точками входа API Reliable Services и хостом OWIN](media/service-fabric-reliable-services-communication-webapi/webapi-projectstructure.png)
+Теперь все элементы на своих местах, и приложение веб-API должно выглядеть как типичное приложение веб-API с точками входа API Reliable Services и узлом OWIN.
 
 ## <a name="run-and-connect-through-a-web-browser"></a>Запуск и подключение через веб-браузер
 Если это еще не сделано, [настройте среду разработки](service-fabric-get-started.md).
 
 Теперь можно построить и развернуть службу. Нажмите клавишу **F5** в Visual Studio, чтобы выполнить построение и развертывание приложения. В окне "События диагностики" вы увидите сообщение о том, что веб-сервер открыт по адресу http://localhost:8281/.
-
-![Окно "События диагностики" в Visual Studio](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
 
 > [!NOTE]
 > Если порт уже открыт в результате работы другого процесса на компьютере, может появиться сообщение об ошибке. Это значит, что прослушиватель не удалось открыть. В этом случае попробуйте использовать другой порт в конфигурации конечной точки в файле ServiceManifest.xml.
@@ -671,10 +663,5 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Отладка приложения Service Fabric с помощью Visual Studio](service-fabric-debugging-your-application.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

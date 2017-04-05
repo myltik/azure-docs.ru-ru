@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 88956ec33009bfd6ce5047085f6d7512d951edee
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -30,6 +31,7 @@ ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
 * Если вы подключаете существующий диск, его VHD-файл должен быть доступен в учетной записи хранения Azure. Можно использовать VHD, уже находящийся там, если он не подключен к другой виртуальной машине, или передать свой VHD-файл в учетную запись хранения.
 
 Вы также можете [присоединить диск данных с помощью Powershell](virtual-machines-windows-attach-disk-ps.md).
+
 
 
 ## <a name="find-the-virtual-machine"></a>Поиск виртуальной машины
@@ -54,7 +56,7 @@ ms.openlocfilehash: 40375aa411920f966aa6923f0899ca2f88a9ed39
 1. Подключитесь к виртуальной машине. Указания см. в статье [Как подключиться к виртуальной машине Azure под управлением Windows и войти в систему](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. После входа в систему на виртуальной машине откройте **Диспетчер сервера**. В области слева выберите **Файловые службы и службы хранилища**.
    
-    ![Откройте диспетчер сервера.](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
+    ![Откройте диспетчер сервера.](./windows/classic/media/attach-disk/fileandstorageservices.png)
 3. Разверните меню и выберите **Диски**.
 4. В разделе **Диски** перечислены все диски. В большинстве случаев присутствует диск 0, диск 1 и диск 2. Диск 0 — это диск операционной системы, диск 1 — временный диск, а диск 2 — диск данных, который вы только что подключили к виртуальной машине. Новый диск данных будет отображаться в качестве раздела **Неизвестный**. Щелкните диск правой кнопкой мыши и выберите пункт **Инициализировать**.
 5. Появится уведомление о том, что при инициализации диска все данные будут очищены. Щелкните **Да** , чтобы подтвердить ознакомление с предупреждением и инициализировать диск. После завершения операции раздел будет иметь значение **GPT**. Щелкните диск правой кнопкой мыши еще раз и выберите пункт **Новый том**.
@@ -91,13 +93,14 @@ fsutil behavior query DisableDeleteNotify
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
+                
+После удаления данных с диска можно обеспечить правильную очистку после операций TRIM, запустив дефрагментацию с помощью TRIM.
+
+```
+defrag.exe <volume:> -l
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Если вашему приложению нужно использовать диск D для хранения данных, вы можете [изменить букву временного диска Windows](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
+Если вашему приложению нужно использовать диск D для хранения данных, вы можете [изменить букву временного диска Windows](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 

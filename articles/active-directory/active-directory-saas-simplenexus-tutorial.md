@@ -11,28 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/08/2017
+ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
-ms.openlocfilehash: a4478283ef6ab949cc73322db908347a626c12d8
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: da3b1e506e603b1f5e3660f31c6d939d77cd2938
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Учебник. Интеграция Azure Active Directory с SimpleNexus
 Цель данного учебника — показать интеграцию Azure и SimpleNexus.  
+
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-* действующая подписка на Azure;
-* подписка SimpleNexus с активированной функцией единого входа.
+* Действующая подписка на Azure
+* подписка SimpleNexus с поддержкой единого входа.
 
 После завершения этого руководства пользователи Azure AD, назначенные SimpleNexus, будут иметь возможность единого входа в приложение на веб-сайте компании SimpleNexus (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
 1. Включение интеграции приложений для SimpleNexus 
-2. Настройка единого входа
+2. Настройка единого входа. 
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
@@ -41,7 +42,8 @@ ms.lasthandoff: 12/14/2016
 ## <a name="enabling-the-application-integration-for-simplenexus"></a>Включение интеграции приложений для SimpleNexus 
 В этом разделе показано, как включить интеграцию приложений для SimpleNexus.
 
-### <a name="to-enable-the-application-integration-for-simplenexus-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для SimpleNexus, выполните следующие действия:
+**Чтобы включить интеграцию приложений для SimpleNexus, выполните следующее.**
+
 1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
    
     ![Active Directory](./media/active-directory-saas-simplenexus-tutorial/IC700993.png "Active Directory")
@@ -68,11 +70,12 @@ ms.lasthandoff: 12/14/2016
    
     ![Simple Nexus](./media/active-directory-saas-simplenexus-tutorial/IC809578.png "Simple Nexus")
    
-## <a name="configuring-single-sign-on"></a>Настройка единого входа
+## <a name="configure-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в SimpleNexus со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
+**Чтобы настроить единый вход, выполните следующие действия:**
+
 1. На классическом портале Azure на странице интеграции с приложением **SimpleNexus** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
     ![Настройка единого входа](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Настройка единого входа")
@@ -89,29 +92,29 @@ ms.lasthandoff: 12/14/2016
    
     ![Настройка единого входа](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Настройка единого входа")
    
-    > [!NOTE]
-    > Единый вход должна включить группа поддержки SimpleNexus.
-    > 
+    >[!NOTE]
+    >Единый вход должна включить группа поддержки SimpleNexus. 
     > 
 
 5. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
     ![Настройка единого входа](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Настройка единого входа")
    
-## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
 
-Чтобы пользователи Azure AD могли выполнять вход в SimpleNexus, они должны быть подготовлены для работы с SimpleNexus.  
+Чтобы пользователи Azure AD могли выполнять вход в SimpleNexus, они должны быть подготовлены для работы с SimpleNexus.
+
 В случае SimpleNexus подготовка выполняется вручную администратором клиента.
 
-> [!NOTE]
-> Вы можете использовать любые другие инструменты создания учетных записей пользователей SimpleNexus или API, предоставляемые SimpleNexus для подготовки учетных записей пользователей AAD.
-> 
+>[!NOTE]
+>Вы можете использовать любые другие инструменты создания учетных записей пользователей SimpleNexus или API, предоставляемые SimpleNexus для подготовки учетных записей пользователей AAD. 
 > 
 
-## <a name="assigning-users"></a>Назначение пользователей
+## <a name="assign-users"></a>Назначить пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-### <a name="to-assign-users-to-simplenexus-perform-the-following-steps"></a>Чтобы назначить пользователей SimpleNexus, выполните следующие действия:
+**Чтобы назначить пользователей SimpleNexus, выполните следующее.**
+
 1. На классическом портале Azure создайте тестовую учетную запись.
 2. На странице интеграции с приложением **SimpleNexus** нажмите кнопку **Назначить пользователей**.
    

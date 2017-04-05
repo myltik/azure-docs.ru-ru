@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 03/23/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a12d3a5c25decdc88df0c9f9b3216bfaae33d5a6
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: e4cbc9b0c9532d56376c4fabebcde8c64cb0474b
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -80,7 +80,7 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>Маркеры ресурсов
 
 Маркеры ресурсов предоставляют доступ к ресурсам приложения в базе данных. Маркеры ресурсов.
-- предоставляют доступ к определенным коллекциям, документам, вложениям, хранимым процедурам, триггерам и определяемым пользователем функциям (UDF);
+- предоставляют доступ к определенным коллекциям, ключам секции, документам, вложениям, хранимым процедурам, триггерам и определяемым пользователем функциям (UDF);
 - создаются, когда [пользователю](#users) предоставляются [разрешения](#permissions) на доступ к определенному ресурсу;
 - создаются повторно, когда в отношении ресурса разрешения выполняется вызов POST, GET или PUT;
 - используют хэш, который маркер ресурса специально создал для пользователя, ресурса и разрешения;
@@ -105,9 +105,9 @@ Database database = await client.CreateDatabaseAsync(
 
     ![Рабочий процесс маркеров ресурсов DocumentDB](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
- Создание маркеров ресурсов и управление ими осуществляется собственными клиентскими библиотеками DocumentDB. Однако, если используется REST, то необходимо создать заголовки запросов и аутентификации. Дополнительные сведения о создании заголовков аутентификации для REST см. в статье [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Управление доступом к ресурсам DocumentDB) или в [репозитории исходного кода для наших пакетов SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
- 
- Пример службы среднего уровня, используемой для создания маркеров ресурсов или в качестве брокера, см. в [репозитории приложения ResourceTokenBroker](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
+Создание маркеров ресурсов и управление ими осуществляется собственными клиентскими библиотеками DocumentDB. Однако, если используется REST, то необходимо создать заголовки запросов и аутентификации. Дополнительные сведения о создании заголовков аутентификации для REST см. в статье [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Управление доступом к ресурсам DocumentDB) или в [репозитории исходного кода для наших пакетов SDK](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+
+Пример службы среднего уровня, используемой для создания маркеров ресурсов или в качестве брокера, см. в [репозитории приложения ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
 <a id="users"></a>
 
@@ -184,5 +184,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 * Дополнительные сведения о безопасности базы данных DocumentDB см. в статье [DocumentDB: безопасность базы данных NoSQL](documentdb-nosql-database-security.md).
 * Сведения об управлении главными ключами и ключами только для чтения см. в статье [Управление учетной записью DocumentDB](documentdb-manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 * Сведения о создании маркеров авторизации DocumentDB см. в статье [Access Control on DocumentDB Resources](https://docs.microsoft.com/en-us/rest/api/documentdb/access-control-on-documentdb-resources) (Управление доступом к ресурсам DocumentDB).
-
 

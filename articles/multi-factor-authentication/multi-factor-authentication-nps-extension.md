@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/13/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9c587378bc8ffe43f6153c6424748e814c7a1d89
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 34919221a82a024bd3a1d09c1def6040ff6c55e1
+ms.lasthandoff: 03/23/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Интеграция имеющейся инфраструктуры NPS со службой Многофакторной идентификации Azure (общедоступная предварительная версия)
@@ -80,7 +80,7 @@ Windows Server 2008 R2 SP1 или более поздней версии, в 
 -    Предоставляет пользователю в сети доступ к закрытому ключу сертификата.
 -    Перезапускает расширение NPS.
 
-Если вы не намерены использовать собственные сертификаты (вместо самозаверяющих сертификатов, которые создает скрипт PowerShell), запустите скрипт PowerShell для завершения установки.
+Если вы не намерены использовать собственные сертификаты (вместо самозаверяющих сертификатов, которые создает скрипт PowerShell), запустите скрипт PowerShell для завершения установки. Если установить это расширение на нескольких серверах, у каждого из них должен быть собственный сертификат, чтобы при обновлении сертификатов не возникал простой. 
 
 ## <a name="configure-your-nps-extension"></a>Настройка расширения NPS
 

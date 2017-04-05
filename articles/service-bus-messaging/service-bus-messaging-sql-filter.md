@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: c983a1cb4120e22834ffd2924b113b198f9b04e1
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: c5127a457e99772a52b76e28e7fd3a3e4dd861b0
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -221,7 +222,7 @@ ms.openlocfilehash: c983a1cb4120e22834ffd2924b113b198f9b04e1
   
     -   `property IS NULL` возвращает значение `true`, если свойство не существует или его значение равно `null`.  
   
-Семантика оценки свойства:  
+### <a name="property-evaluation-semantics"></a>Семантика оценки свойств  
   
 -   При попытке вычислить несуществующее системное свойство будет вызвано исключение [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception).  
   
@@ -273,7 +274,7 @@ ms.openlocfilehash: c983a1cb4120e22834ffd2924b113b198f9b04e1
 +---+---+---+---+  
 ```  
   
-Семантики привязки операторов:  
+### <a name="operator-binding-semantics"></a>Семантика привязки операторов
   
 -   Операторы сравнения, такие как `>`, `>=`, `<`, `<=`, `!=`, и `=` следуют той же семантике, что и операторы C#: связываются повышения типов данных и неявные преобразования.  
   
@@ -283,8 +284,3 @@ ms.openlocfilehash: c983a1cb4120e22834ffd2924b113b198f9b04e1
 
 - [SQLFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) (Класс SQLFilter)
 - [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) (Класс SQLRuleAction)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

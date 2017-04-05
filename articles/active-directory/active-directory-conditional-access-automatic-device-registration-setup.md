@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 6a7e0964a3a6e9be534a6bd683446d3da5edcecd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
+ms.openlocfilehash: 96fb170e7a079fbb4bcfb4a6b1e98970a709406f
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -87,7 +87,8 @@ Azure AD Connect выполняет следующие функции:
 | Шаг 1. Настройка точки подключения службы | ![Проверка][1]                            | ![Проверка][1]                    | ![Проверка][1]        |
 | Шаг 2. Настройка выдачи утверждений           |                                        | ![Проверка][1]                    | ![Проверка][1]        |
 | Шаг 3. Включение поддержки устройств с ОС, отличными от Windows 10      |                                        |                                | ![Проверка][1]        |
-
+| Шаг 4. Контроль развертывания     | ![Проверка][1]                            | ![Проверка][1]                    | ![Проверка][1]        |
+| Шаг 5. Проверка зарегистрированных устройств          | ![Проверка][1]                            | ![Проверка][1]                    | ![Проверка][1]        |
 
 
 
@@ -292,8 +293,13 @@ Azure AD Connect выполняет следующие функции:
         Value = "http://<verified-domain-name>/adfs/services/trust/"
     );
 
-> [!NOTE]
-> Утверждение issuerID для компьютера, включенное в предыдущее правило, должно содержать одно из проверенных доменных имен в Azure AD. Здесь нельзя использовать URL-адрес службы AD FS.
+
+В приведенном выше утверждении
+
+- `$<domain>` — URL-адрес службы AD FS,
+- `<verified-domain-name>` — заполнитель, который необходимо заменить одним из проверенных доменных имен в Azure AD.
+
+
 
 Дополнительные сведения о проверенных доменных именах см. в статье [Добавление имени личного домена в Azure Active Directory](active-directory-add-domain.md).  
 Чтобы получить список проверенных доменов компании, можно использовать командлет [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain). 

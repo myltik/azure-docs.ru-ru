@@ -1,6 +1,6 @@
 ---
 title: "Использование REST API службы импорта и экспорта Azure | Документация Майкрософт"
-description: "Узнайте, как использовать REST API службы импорта и экспорта Azure."
+description: "Узнайте, где найти документацию по использованию REST API службы импорта и экспорта Azure, включая практические руководства и справочные материалы."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 675aef8ec0f9344d2b3073021e83856c2fb34b7c
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: e4f5ca289f4bd87574e448d37a1154b222f221f5
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -38,7 +39,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 В запросах к службе импорта и экспорта необходимо указать параметр `api-version` со значением `2016-11-01`.
 
-## <a name="in-this-section"></a>В этом разделе
+## <a name="importexport-service-operations"></a>Операции службы импорта и экспорта
 
 [Создание задания импорта](storage-import-export-creating-an-import-job.md)
 
@@ -50,15 +51,11 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 [Отмена и удаление заданий](storage-import-export-cancelling-and-deleting-jobs.md)
 
-[Резервное копирование манифестов диска](storage-import-export-backing-up-drive-manifests.md)
+[Архивация манифестов дисков](storage-import-export-backing-up-drive-manifests.md)
 
 [Диагностика и восстановление после ошибок для заданий импорта и экспорта](storage-import-export-diagnostics-and-error-recovery.md)
 
-## <a name="see-also"></a>См. также
- [Storage Import/Export REST](/rest/api/storageimportexport) (Справочник по API REST служб хранилища импорта и экспорта)
+## <a name="next-steps"></a>Дальнейшие действия
 
-
-
-<!--HONumber=Dec16_HO3-->
-
+* [Storage Import/Export REST](/rest/api/storageimportexport) (Справочник по API REST служб хранилища импорта и экспорта)
 

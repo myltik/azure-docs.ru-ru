@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: f0292efd50721ef58028df778052eb0ed6fcda84
-ms.openlocfilehash: 724eba50b7428b0012e8f062e264ce057e2a5287
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 0dac2cc79de884def8d4cf0ee89dc2f645d35b34
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -26,12 +27,15 @@ ms.openlocfilehash: 724eba50b7428b0012e8f062e264ce057e2a5287
 ## <a name="introduction"></a>Введение
 Stream Analytics предоставляет журналы двух типов: 
 * [журналы действий](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), которые всегда включены и содержат информацию об операциях, выполняемых заданиями;
-* [журналы диагностики](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), которые настраиваются пользователем и содержат более полную информацию обо всем, что происходит с заданием после его создания, при обновлении, выполнении и вплоть до удаления.
+* [журналы диагностики](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), которые настраиваются и содержат более полную информацию обо всем, что происходит с заданием после его создания, при обновлении, выполнении и вплоть до удаления.
+
+> [!NOTE]
+> Следует отметить, что за использование таких служб, как служба хранилища Azure, концентратор событий и Log Analytics, для анализа несоответствующих данных будет взиматься плата согласно модели ценообразования для этих служб.
 
 ## <a name="how-to-enable-diagnostic-logs"></a>Как включить журналы диагностики
 По умолчанию журналы диагностики **отключены**. Чтобы включить их, выполните следующее.
 
-Войдите на портал Azure и перейдите к колонке задания потоковой передачи. Выберите колонку "Журналы диагностики" в разделе "Мониторинг".
+Войдите на портал Azure и перейдите в колонку "Задание потоковой передачи". В разделе "Мониторинг" перейдите в колонку "Журналы диагностики".
 
 ![Перемещение к колонке журналов диагностики](./media/stream-analytics-job-diagnostic-logs/image1.png)  
 
@@ -45,7 +49,7 @@ Stream Analytics предоставляет журналы двух типов:
 
 Настройте требуемую цель архивации (учетная запись хранения, концентратор событий, Log Analytics) и выберите категории журналов, которые нужно собирать ("Выполнение", "Разработка"). Сохраните новую конфигурацию системы диагностики.
 
-После сохранения конфигурация вступит в силу примерно через 10 минут. После этого журналы начнут отображаться в настроенной цели архивации, которую можно просмотреть в колонке "Журналы диагностики".
+После сохранения конфигурации требуется около 10 минут, чтобы она вступила в силу. После этого журналы начнут появляться в настроенный цели архивации (которую можно увидеть в колонке "Журналы диагностики").
 
 ![Перемещение к колонке журналов диагностики](./media/stream-analytics-job-diagnostic-logs/image4.png)
 
@@ -68,11 +72,11 @@ Stream Analytics предоставляет журналы двух типов:
 Имя | Описание
 ------- | -------
 time | Метка времени журнала (в формате UTC).
-resourceId | Идентификатор ресурса (прописными буквами), с которым была выполнена операция. Содержит идентификатор подписки, группу ресурсов и имя задания. Например, `/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB`
-category | Категория журнала, `Execution` или `Authoring`.
-operationName | Имя операции, добавленной в журнал. Например, `Send Events: SQL Output write failure to mysqloutput`
-status | Состояние операции. Например, `Failed, Succeeded`.
-уровень | Уровень ведения журнала. Например, `Error, Warning, Informational`
+resourceId | Идентификатор ресурса (прописными буквами), с которым была выполнена операция. Содержит идентификатор подписки, группу ресурсов и имя задания. Например, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+category | Категория журнала, **Execution** (Выполнение) или **Authoring** (Разработка).
+operationName | Имя операции, добавленной в журнал. Например, **Send Events: SQL Output write failure to mysqloutput** (События отправки: ошибка записи выходных данных SQL в mysqloutput).
+status | Состояние операции. Например, **Failed, Succeeded** ("Сбой", "Успешно выполнено").
+уровень | Уровень ведения журнала. Например, **Error, Warning, Informational** ("Ошибка", "Предупреждение", "Информация").
 properties | Сведения о записи журнала, сериализованные в строку JSON. Дополнительные сведения представлены ниже.
 
 ### <a name="execution-logs-properties-schema"></a>Схема свойств журналов выполнения
@@ -86,7 +90,7 @@ properties | Сведения о записи журнала, сериализо
 ------- | -------
 Источник | Имя входных или выходных данных задания, в которых обнаружена ошибка.
 Сообщение | Сообщение, связанное с ошибкой.
-Тип | Тип ошибки. Например, `DataConversionError, CsvParserError, ServiceBusPropertyColumnMissingError` и т. д.
+Тип | Тип ошибки. Например **DataConversionError, CsvParserError и ServiceBusPropertyColumnMissingError**.
 Данные | Содержит данные, полезные для точного поиска источника ошибки. Значение может быть усечено в зависимости от размера.
 
 В зависимости от значения **operationName** ошибки данных будут иметь следующую схему:
@@ -102,7 +106,7 @@ properties | Сведения о записи журнала, сериализо
 -------- | --------
 Ошибка | (Необязательно.) Сведения об ошибке, обычно сведения об исключении (при наличии).
 Сообщение| Сообщение журнала.
-Тип | Тип сообщения, соответствующий внутренней классификации ошибок: например, JobValidationError, BlobOutputAdapterInitializationFailure и т. д.
+Тип | Тип сообщения, соответствующий внутренней классификации ошибок: например, **JobValidationError, BlobOutputAdapterInitializationFailure** и т. д.
 Идентификатор корреляции | Идентификатор [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier), однозначно определяющий выполнение задания. Все записи журнала выполнения, созданные с момента запуска задания и до его остановки, будет иметь одинаковое значение Correlation ID.
 
 
@@ -113,10 +117,5 @@ properties | Сведения о записи журнала, сериализо
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

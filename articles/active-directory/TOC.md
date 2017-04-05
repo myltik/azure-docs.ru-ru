@@ -128,7 +128,6 @@
 
 ## Управление устройствами
 ### [Регистрация устройств](active-directory-device-registration-overview.md)
-#### [Управление автоматической регистрацией](active-directory-device-registration.md)
 #### [Настройка](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [Локальное развертывание](active-directory-device-registration-on-premises-setup.md)
 #### [Часто задаваемые вопросы](active-directory-device-registration-faq.md)
@@ -159,9 +158,8 @@
 
 #### Публикация приложений
 ##### [Портал Azure](application-proxy-publish-azure-portal.md)
-##### [Классический портал](active-directory-application-proxy-publish.md)
+##### [Классический портал.](active-directory-application-proxy-publish.md)
 
-#### [PingAccess для Azure AD](application-proxy-ping-access.md)
 #### [Безопасность](application-proxy-security-considerations.md)
 #### [Сети](application-proxy-network-topology-considerations.md)
 #### [Удаленный рабочий стол](application-proxy-publish-remote-desktop.md)
@@ -174,7 +172,8 @@
 #### [Пользовательские домены](active-directory-application-proxy-custom-domains.md)
 #### [Доступ к приложениям](active-directory-appssoaccess-whatis.md)
 ##### [Портал Azure](application-proxy-sso-azure-portal.md)
-#### [Единый вход](active-directory-application-proxy-sso-using-kcd.md)
+#### [Единый вход с применением ограниченного делегирования Kerberos](active-directory-application-proxy-sso-using-kcd.md)
+#### [Единый вход с применением заголовков](application-proxy-ping-access.md)
 #### [Приложения с поддержкой утверждений](active-directory-application-proxy-claims-aware-apps.md)
 #### [Приложения Native Client](active-directory-application-proxy-native-client.md)
 #### [Пользовательская домашняя страница](application-proxy-office365-app-launcher.md)

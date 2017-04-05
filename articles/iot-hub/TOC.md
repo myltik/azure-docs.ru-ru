@@ -100,9 +100,17 @@
 ### [Adafruit Feather HUZZAH ESP8266](iot-hub-arduino-huzzah-esp8266-get-started.md)
 #### [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
 #### [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
+#### [Визуализация данных в Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+#### [Визуализация данных в веб-приложениях](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Создание прогноза погоды с помощью Машинного обучения Azure](iot-hub-weather-forecast-machine-learning.md)
+
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
 #### [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
+#### [Визуализация данных в Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+#### [Визуализация данных в веб-приложениях](iot-hub-live-data-visualization-in-web-apps.md)
+#### [Создание прогноза погоды с помощью Машинного обучения Azure](iot-hub-weather-forecast-machine-learning.md)
+
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Урок 1. Настройка устройства

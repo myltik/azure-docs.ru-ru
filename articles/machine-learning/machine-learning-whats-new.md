@@ -12,15 +12,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
-ms.openlocfilehash: c3662dee7feb6373dd733300a9af2fc112ab270f
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 551b977b90612ddbfa1514a9c2358ebf8179c385
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Новые возможности Машинного обучения Azure
+
+### <a name="the-march-2017-release-of-microsoft-azure-machine-learning-updates-provides-the-following-feature"></a>Обновления для Машинного обучения Microsoft Azure за март 2017 года обеспечивают следующее.
+
+
+
+* Выделенная емкость для заданий службы выполнения пакетов (BES) машинного обучения Azure
+
+    Для обработки пул пакетной службы машинного обучения использует [пакетную службу Azure](../batch/batch-technical-overview.md), чтобы предоставить пользователям управление масштабированием службы выполнения пакетов машинного обучения Azure. Обработка в пуле пакетной службы дает возможность создавать пулы пакетной службы Azure, в которые можно отправлять пакетные задания и выполнять их предсказуемым образом.
+
+    Дополнительные сведения см. в разделе [Пакетные службы Azure для обработки заданий машинного обучения](machine-learning-dedicated-capacity-for-bes-jobs.md).
+
+
 ### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>Обновления для машинного обучения Microsoft Azure за август 2016 года обеспечивают приведенные ниже возможности.
 * Классическими веб-службами теперь можно управлять на новом портале [веб-служб машинного обучения Microsoft Azure](https://services.azureml.net/), который предоставляет возможность централизованно управлять всеми аспектами веб-службы.    
   * На нем предоставляется [статистика использования](machine-learning-manage-new-webservice.md) веб-службы.
@@ -40,10 +53,5 @@ ms.openlocfilehash: c3662dee7feb6373dd733300a9af2fc112ab270f
 * Предоставляется новая страница тестирования службы пакетного выполнения, на которой можно использовать примеры данных и журнал отправки заданий.
 
 Кроме того, обновлена студия машинного обучения. Теперь вы можете развертывать веб-службы с помощью новой модели или продолжать использовать классическую модель развертывания. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

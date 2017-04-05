@@ -1,10 +1,10 @@
 ---
-title: "Настройка маршрутизации для канала ExpressRoute | Документация Майкрософт"
+title: "Как настроить маршрутизацию (пиринг) для канала ExpressRoute с помощью PowerShell в Azure (модель Resource Manager) | Документация Майкрософт"
 description: "В этой статье описана процедура создания и подготовки частного пиринга, общедоступного пиринга и пиринга Microsoft для канала ExpressRoute, а также показано, как проверить состояние, обновить или удалить пиринги для канала."
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
-ms.author: ganesr
+ms.date: 03/21/2017
+ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: ec79ec654505f3e082f9ff106ce24801eae66faf
-ms.openlocfilehash: c33270d17cd32e32fac926f62441f0787c056a3e
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 160560fcc3d586d2bbcba67d2f7c60cfed26f5c3
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Создание и изменение маршрутизации для канала ExpressRoute
+# <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Создание и изменение пиринга для канала ExpressRoute с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager — PowerShell](expressroute-howto-routing-arm.md)
@@ -40,8 +40,8 @@ ms.lasthandoff: 03/02/2017
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Предварительные требования для настройки
-* Вам потребуются последние модули Azure PowerShell версии 1.0 или более поздней. 
-* Прежде чем приступить к настройке, обязательно изучите [предварительные требования](expressroute-prerequisites.md), [требования к маршрутизации](expressroute-routing.md) и [рабочие процессы](expressroute-workflows.md).
+* Потребуется установить последнюю версию командлетов PowerShell для Azure Resource Manager. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Прежде чем приступать к настройке, обязательно изучите [предварительные требования](expressroute-prerequisites.md), [требования к маршрутизации](expressroute-routing.md) и [рабочие процессы](expressroute-workflows.md).
 * Вам потребуется активный канал ExpressRoute. Приступая к работе, [создайте канал ExpressRoute](expressroute-howto-circuit-arm.md) ; он должен быть затем включен на стороне поставщика услуг подключения. Для выполнения описанных ниже командлетов канал ExpressRoute должен быть подготовлен и включен.
 
 Эти инструкции распространяются только на каналы от поставщиков, предоставляющих услуги подключения второго уровня. Если вы работаете с поставщиком, предлагающим услуги третьего уровня (обычно IPVPN, типа MPLS), ваш поставщик услуг подключения выполнит настройку и управление конфигурацией самостоятельно.
@@ -65,7 +65,7 @@ ms.lasthandoff: 03/02/2017
    
         Install-AzureRM
    
-    Импортируйте все модули AzureRM.* в рамках диапазона известных семантических версий
+    Импортируйте все модули AzureRM.* в рамках диапазона известных семантических версий.
    
         Import-AzureRM
    
@@ -73,11 +73,11 @@ ms.lasthandoff: 03/02/2017
    
         Import-Module AzureRM.Network 
    
-    Войдите в свою учетную запись
+    Войдите в свою учетную запись.
    
         Login-AzureRmAccount
    
-    Выберите подписку, необходимую для создания канала ExpressRoute
+    Выберите подписку для создания канала ExpressRoute.
    
         Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 2. Создайте канал ExpressRoute.
@@ -126,27 +126,27 @@ ms.lasthandoff: 03/02/2017
      
     Чтобы настроить общедоступный пиринг Azure для своего канала, выполните следующий командлет.
      
-         Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+          Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
      
-         Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+          Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
      
     Если вы решили использовать MD5-хэш, используйте следующий командлет:
      
-         Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+          Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+
      
-         Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-     
-     > [!IMPORTANT]
-     > Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
-     > 
-     > 
+   > [!IMPORTANT]
+   > Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
+   > 
+   >
+
 
 ### <a name="to-view-azure-private-peering-details"></a>Просмотр сведений о частном пиринге Azure
 Для получения сведений о конфигурации можно использовать следующий командлет:
 
-        $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-        Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt    
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt    
 
 
 ### <a name="to-update-azure-private-peering-configuration"></a>Обновление конфигурации частного пиринга Azure
@@ -182,7 +182,7 @@ ms.lasthandoff: 03/02/2017
    
         Install-AzureRM
    
-    Импортируйте все модули AzureRM.* в рамках диапазона известных семантических версий
+    Импортируйте все модули AzureRM.* в рамках диапазона известных семантических версий.
    
         Import-AzureRM
    
@@ -190,11 +190,11 @@ ms.lasthandoff: 03/02/2017
    
         Import-Module AzureRM.Network 
    
-    Войдите в свою учетную запись
+    Войдите в свою учетную запись.
    
         Login-AzureRmAccount
    
-    Выберите подписку, необходимую для создания канала ExpressRoute
+    Выберите подписку для создания канала ExpressRoute.
    
         Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 2. Создайте канал ExpressRoute.
@@ -233,37 +233,40 @@ ms.lasthandoff: 03/02/2017
         Peerings                         : []    
 4. Настройте для канала общедоступный пиринг Azure.
    
-    Прежде чем продолжить, убедитесь, что у вас есть следующие сведения.
+       Make sure that you have the following information before you proceed further.
    
    * Подсеть /30 для основной ссылки. Это должен быть допустимый префикс общедоступного адреса IPv4.
    * Подсеть /30 для дополнительной ссылки. Это должен быть допустимый префикс общедоступного адреса IPv4.
    * Действительный идентификатор виртуальной локальной сети для установки пиринга. Идентификатор не должен использоваться ни одним другим пирингом в канале.
    * Номер AS для пиринга. Можно использовать 2-байтовые и 4-байтовые номера AS.
    * Хэш MD5, если вы решите его использовать. **Это необязательно**.
-     
-     Чтобы настроить общедоступный пиринг Azure для своего канала, выполните следующий командлет.
-     
-       Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
-     
-       Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-     
-     Если вы решили использовать MD5-хэш, используйте следующий командлет:
-     
-       Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
-     
-       Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-    > [!IMPORTANT]
-    > Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
+    
+    Чтобы настроить общедоступный пиринг Azure для своего канала, выполните следующий командлет.
+     
+          Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
+
+          Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+     
+    Если вы решили использовать MD5-хэш, используйте следующий командлет:
+     
+          Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
+
+          Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+
+     
+> [!IMPORTANT]
+> Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
+> 
+>
 
 
 ### <a name="to-view-azure-public-peering-details"></a>Просмотр сведений об общедоступном пиринге Azure
-Для получения сведений о конфигурации можно использовать следующий командлет:
+Для получения сведений о конфигурации можно использовать следующий командлет.
 
-        $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-        Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
-
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
 
 ### <a name="to-update-azure-public-peering-configuration"></a>Обновление конфигурации общедоступного пиринга Azure
 С помощью указанного ниже командлета можно обновить любую часть конфигурации.
@@ -275,13 +278,13 @@ ms.lasthandoff: 03/02/2017
 В приведенном выше примере идентификатор виртуальной локальной сети канала обновлен с 200 до 600.
 
 ### <a name="to-delete-azure-public-peering"></a>Удаление общедоступного пиринга Azure
-Для удаления конфигурации пиринга выполните следующий командлет:
+Для удаления конфигурации пиринга выполните следующий командлет.
 
     Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ## <a name="microsoft-peering"></a>Пиринг Майкрософт
-В этом разделе описано, как создать, получить, обновить и удалить конфигурацию пиринга Microsoft для канала ExpressRoute. 
+В этом разделе описано, как создать, получить, обновить и удалить конфигурацию пиринга Майкрософт для канала ExpressRoute. 
 
 ### <a name="to-create-microsoft-peering"></a>Создание пиринга Майкрософт
 1. Импортируйте модуль PowerShell для ExpressRoute.
@@ -292,7 +295,7 @@ ms.lasthandoff: 03/02/2017
    
         Install-AzureRM
    
-    Импортируйте все модули AzureRM.* в рамках диапазона известных семантических версий
+    Импортируйте все модули AzureRM.* в рамках диапазона известных семантических версий.
    
         Import-AzureRM
    
@@ -300,11 +303,11 @@ ms.lasthandoff: 03/02/2017
    
         Import-Module AzureRM.Network 
    
-    Войдите в свою учетную запись
+    Войдите в свою учетную запись.
    
         Login-AzureRmAccount
    
-    Выберите подписку, необходимую для создания канала ExpressRoute
+    Выберите подписку для создания канала ExpressRoute.
    
         Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 2. Создайте канал ExpressRoute.
@@ -352,32 +355,32 @@ ms.lasthandoff: 03/02/2017
    * Объявленные префиксы: необходимо предоставить список всех префиксов, которые вы планируете объявить во время сеанса BGP. Допускаются только общедоступные префиксы IP-адресов. Если планируется отправить набор префиксов, можно отправить список значений, разделенных запятыми. Эти префиксы должны быть зарегистрированы в RIR/IRR на ваше имя.
    * Клиент ASN: для объявления префиксов, не зарегистрированных с номером AS для пиринга, можно указать номер AS, с которым они зарегистрированы. **Это необязательно**.
    * Имя реестра маршрутизации: можно указать RIR/IRR, в котором зарегистрированы номер AS и префиксы.
-   * MD5-хэш, если вы решите его использовать. **Это необязательно.**
+   * Хэш MD5, если вы решите его использовать. **Это необязательно.**
      
-     Чтобы настроить пиринг Майкрософт для своего канала, выполните следующий командлет:
+      Чтобы настроить пиринг Майкрософт для своего канала, выполните следующий командлет:
      
-       Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+          Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
      
-       Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+          Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ### <a name="to-get-microsoft-peering-details"></a>Получение сведений о пиринге Майкрософт
-Для получения сведений о конфигурации можно использовать следующий командлет:
+Для получения сведений о конфигурации можно использовать следующий командлет.
 
-        $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-        Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 
 ### <a name="to-update-microsoft-peering-configuration"></a>Обновление конфигурации пиринга Майкрософт
 С помощью указанного ниже командлета можно обновить любую часть конфигурации.
 
-        Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+    Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
 ### <a name="to-delete-microsoft-peering"></a>Удаление пиринга Майкрософт
-Для удаления конфигурации пиринга выполните следующий командлет:
+Для удаления конфигурации пиринга выполните следующий командлет.
 
     Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 

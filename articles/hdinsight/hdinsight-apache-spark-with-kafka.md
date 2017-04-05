@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
-ms.openlocfilehash: 0cb9d65e33bf6f6b67e2a74b7e4634aba3f2359b
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: c56decc1f7603795e027ce20363c387c593999ae
+ms.lasthandoff: 03/25/2017
 
 ---
 # <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>Использование Apache Spark и Kafka (предварительная версия) в HDInsight
@@ -33,11 +34,7 @@ Apache Spark можно использовать для двунаправлен
 
 * Подписка Azure
 
-* Клиент SSH (вам потребуются команды `ssh` и `scp`). Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях.
-
-    * [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X.](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-    * [Использование SSH с HDInsight под управлением Linux в Windows.](hdinsight-hadoop-linux-use-ssh-windows.md)
+* SSH-клиент (требуются команды `ssh` и `scp`). Дополнительные сведения см. в разделе [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * [cURL](https://curl.haxx.se/) — кроссплатформенная служебная программа, используемая для создания HTTP-запросов.
 
@@ -117,7 +114,7 @@ Apache Kafka в HDInsight не предоставляет доступ к бро
 
 Каждая ячейка в проекте содержит комментарии или текстовый раздел, в котором объясняется, что делает код.
 
-##<a name="a-idkafkahostsakafka-host-information"></a><a id="kafkahosts"></a>Сведения об узле Kafka
+##<a id="kafkahosts"></a>Сведения об узле Kafka
 
 При создании приложения, которое работает с Kafka в HDInsight, сначала нужно получить сведения о брокере Kafka и узле Zookeeper для кластера Kafka. Эти сведения используются клиентскими приложениями для обмена данными с Kafka.
 

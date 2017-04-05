@@ -12,65 +12,52 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 03/01/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bf3274f69cae8ec463fd158178394c7ba662ae75
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 5ff7c4ee612fd1261d85870be4d6fcbd66b64735
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Добавление Azure Active Directory с помощью подключенных служб в Visual Studio
-## <a name="overview"></a>Обзор
-Azure Active Directory (Azure AD) позволяет обеспечить единый вход для веб-приложений ASP.NET MVC или проверку подлинности AD в службах веб-API. С проверкой подлинности Azure AD пользователи смогут подключаться к вашим веб-приложениям, используя свои учетные записи Azure AD. В число преимуществ проверки подлинности Azure AD с веб-API входит усиленная защита данных при использовании API из веб-приложения. С Azure AD вам не придется управлять отдельной системой проверки подлинности с отдельным управлением пользователями и учетными записями.
+Azure Active Directory (Azure AD) позволяет обеспечить единый вход для веб-приложений ASP.NET MVC или проверку подлинности Active Directory в службах веб-API. Благодаря проверке подлинности Azure Active Directory пользователи смогут подключаться к вашим веб-приложениям, используя свои учетные записи Azure Active Directory. В число преимуществ проверки подлинности Azure Active Directory с веб-API входит усиленная защита данных при использовании API из веб-приложения. С Azure AD вам не придется управлять отдельной системой проверки подлинности с отдельным управлением пользователями и учетными записями.
 
-## <a name="supported-project-types"></a>Поддерживаемые типы проектов
-С помощью диалогового окна подключенных служб можно подключаться к Azure AD в проектах следующих типов:
+## <a name="prerequisites"></a>Предварительные требования
+- Учетная запись Azure. Если у вас ее нет, [зарегистрируйтесь для работы с бесплатной пробной версией](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-* Проекты ASP.NET MVC
-* Проекты веб-API ASP.NET
+### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Подключение к Azure Active Directory с помощью диалогового окна подключенных служб
+1. В Visual Studio создайте или откройте проект ASP.NET MVC или проект веб-API ASP.NET.
 
-### <a name="connect-to-azure-ad-using-the-connected-services-dialog"></a>Подключение к Azure AD с помощью диалогового окна подключенных служб
-1. Убедитесь в наличии учетной записи Azure. Если у вас нет учетной записи Azure, вы можете зарегистрироваться и получить [бесплатную пробную версию](http://go.microsoft.com/fwlink/?LinkId=518146).
-2. В Visual Studio откройте контекстное меню узла **Ссылки** в своем проекте и выберите пункт **Добавить подключенные службы**.
-3. Выберите **аутентификацию Azure AD** и нажмите кнопку **Настроить**.
+1. В обозревателе решений щелкните правой кнопкой мыши узел **Подключенные службы** и выберите в контекстном меню пункт **Добавить подключенную службу**.
+
+1. На странице **Подключенные службы** выберите пункт **Проверка подлинности через Azure Active Directory**.
    
-    ![Выберите "Добавить проверку подлинности Azure AD"](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
-4. На первой странице мастера **Настроить аутентификацию Azure AD** установите флажок **Настройка единого входа с помощью Azure AD**.
+    ![Страница "Подключенные службы"](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
+
+1. На странице **Введение** мастера **настройки проверки подлинности Azure AD** нажмите кнопку **Далее**.
    
-    Если в проекте настроена другая конфигурация проверки подлинности, мастер предупредит, что продолжение его работы приведет к отключению предыдущей конфигурации.
+    ![Страница "Введение"](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
+
+1. На странице **Единый вход** мастера **настройки проверки подлинности Azure AD** выберите домен в раскрывающемся списке **Домен**. Список доменов включает все домены, доступные для учетных записей, которые указаны в диалоговом окне параметров учетной записи. Если вы не нашли искомый домен, введите имя домена, например `mydomain.onmicrosoft.com`, вручную. Вы можете создать новое приложение Azure Active Directory или использовать параметры уже существующего приложения Azure Active Directory. По завершении нажмите кнопку **Далее**.
    
-    ![Настройка Azure AD с помощью мастера](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
-5. На второй странице выберите домен из раскрывающегося списка **Домены** . Список доменов включает все домены, доступные для учетных записей, которые указаны в диалоговом окне параметров учетной записи. Если вы не нашли искомый домен, введите имя домена, например mydomain.onmicrosoft.com, вручную. Вы можете выбрать параметр для создания нового приложения Azure AD или использовать параметры уже существующего приложения Azure AD. 
+    ![Страница "Единый вход"](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
+
+1. На странице **Доступ к каталогу** мастера **настройки проверки подлинности Azure AD** установите флажок **Чтение данных каталога**. 
    
-   ![Настройка Azure AD с помощью мастера](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
-6. На третьей странице мастера убедитесь в том, что установлен флажок **Чтение данных каталога** . Мастер заполнит **секрет клиента**. 
-   
-    ![Настройка Azure AD с помощью мастера](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
-7. Нажмите кнопку **Готово** . Диалоговое окно добавляет код конфигурации и ссылки, необходимые для включения проверки подлинности Azure AD в вашем проекте. Домен AD появится на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-8. Просмотрите открывшуюся в браузере страницу «Приступая к работе». Здесь приведена информация о дальнейших действиях. Сведения о том, какие изменения внесены в ваш проект, приведены в статье «Что произошло». Если вы хотите убедиться, что все сработало, откройте один из измененных файлов конфигурации и убедитесь, что в нем есть все параметры, упомянутые в статье «Что произошло». Например, в основной файл web.config проекта ASP.NET MVC будут добавлены следующие параметры:
-   
-        <appSettings> 
-            <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
-            <add key="ida:AADInstance" value="https://login.windows.net/" />
-            <add key="ida:Domain" value="Your selected domain" />
-            <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
-            <add key="ida:PostLogoutRedirectUri" value="The default redirect URI from the project" />
-        </appSettings>
+    ![Страница "Доступ к каталогу"](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
+
+1. Нажмите кнопку **Готово**, чтобы добавить код конфигурации и ссылки, необходимые для включения проверки подлинности Azure AD в вашем проекте. Домен Active Directory отобразится на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. В Visual Studio появится статья [Что произошло](#how-your-project-is-modified), в которой показано, как проект был изменен. Если вы хотите проверить, все ли сработало, откройте один из измененных файлов конфигурации и убедитесь, что в нем присутствуют все параметры, упомянутые в статье. 
 
 ## <a name="how-your-project-is-modified"></a>Какие изменения произойдут в проекте
-При запуске мастера Visual Studio добавляет в проект Azure AD и соответствующие ссылки. В файлы конфигурации и файлы кода в проекте вносятся изменения, обеспечивающие поддержку Azure AD. Конкретные изменения, производимые Visual Studio, зависят от типа вашего проекта. Подробные сведения о том, как изменяются проекты ASP.NET MVC, см. в статье [Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты MVC)](http://go.microsoft.com/fwlink/p/?LinkID=513809). Эти же сведения о проектах веб-API см. в статье [Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты WebApi)](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+При запуске мастера Visual Studio добавляет в проект Azure Active Directory и соответствующие ссылки. В файлы конфигурации и файлы кода в проекте вносятся изменения, обеспечивающие поддержку Azure AD. Конкретные изменения, производимые Visual Studio, зависят от типа вашего проекта. Подробные сведения о том, как изменяются проекты ASP.NET MVC, см. в статье [Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты MVC)](http://go.microsoft.com/fwlink/p/?LinkID=513809). Эти же сведения о проектах веб-API см. в статье [Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты WebApi)](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Задавайте вопросы и получайте справку:
-
-* [Форум MSDN: Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
-* [Документация по Azure AD](https://azure.microsoft.com/documentation/services/active-directory/)
-* [Записи блога: общие сведения об Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [Форум MSDN по Azure Active Directory](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
+* [Документация по Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
+* [Introduction to Windows Azure Active Directory](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx) (Общие сведения о Microsoft Azure Active Directory)
 
 

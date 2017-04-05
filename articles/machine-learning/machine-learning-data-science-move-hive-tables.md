@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
-ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 88c919b64513c8441ab73e2750e7ddfb12fcb63e
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -45,7 +46,7 @@ ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
 * **распаковать** все CSV-файлы; а затем
 * **передать** их в контейнер по умолчанию (или соответствующий контейнер) в учетной записи хранения Azure, которая создана с помощью процедуры, описанной в разделе [Настройка кластеров Azure HDInsight Hadoop для процесса обработки и анализа данных группы](machine-learning-data-science-customize-hadoop-cluster.md) . Процесс отправки CSV-файла в контейнер по умолчанию в учетной записи хранения описан на этой [странице](machine-learning-data-science-process-hive-walkthrough.md#upload).
 
-## <a name="a-namesubmitahow-to-submit-hive-queries"></a><a name="submit"></a>Отправка запросов Hive
+## <a name="submit"></a>Отправка запросов Hive
 Инструменты для отправки запросов Hive:
 
 1. [Отправка запросов Hive через командную строку Hadoop в головной узел кластера Hadoop](#headnode)
@@ -56,7 +57,7 @@ ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
 
 Отправляя запрос Hive, вы можете указать также место назначения, в которое будут отправлены результаты обработки запроса. Местом назначения может быть экран, локальный файл в головном узле или большой двоичный объект Azure.
 
-### <a name="a-nameheadnodea-1-submit-hive-queries-through-hadoop-command-line-in-headnode-of-hadoop-cluster"></a><a name="headnode"></a> 1. Отправка запросов Hive через командную строку Hadoop в головной узел кластера Hadoop
+### <a name="headnode"></a> 1. Отправка запросов Hive через командную строку Hadoop в головной узел кластера Hadoop
 Отправка сложных запросов Hive непосредственно в головном узле кластера Hadoop обычно позволяет получить ответ быстрее, чем при использовании редактора Hive или сценариев Azure PowerShell.
 
 Войдите в головной узел кластера Hadoop, откройте командную строку Hadoop на рабочем столе головного узла и введите команду `cd %hive_home%\bin`.
@@ -116,14 +117,14 @@ ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
 
 ![Создание рабочей области](./media/machine-learning-data-science-move-hive-tables/output-hive-results-3.png)
 
-### <a name="a-namehive-editora-2-submit-hive-queries-with-the-hive-editor"></a><a name="hive-editor"></a> 2. Отправка запросов Hive с помощью редактора Hive
+### <a name="hive-editor"></a> 2. Отправка запросов Hive с помощью редактора Hive
 Вы также можете использовать консоль запросов (редактор Hive). Для этого введите в веб-браузер URL-адрес в таком формате: *https://&#60;имя кластера Hadoop>.azurehdinsight.net/Home/HiveEditor*. Чтобы увидеть эту консоль, необходимо выполнить вход, а для этого вам потребуются ваши учетные данные для кластера Hadoop.
 
-### <a name="a-namepsa-3-submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a> 3. Отправка запросов Hive с помощью команд PowerShell Azure
+### <a name="ps"></a> 3. Отправка запросов Hive с помощью команд PowerShell Azure
 Для отправки запросов Hive также можно использовать PowerShell. Инструкции см. в статье [Отправка заданий Hadoop в HDInsight](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
-## <a name="a-namecreate-tablesacreate-hive-database-and-tables"></a><a name="create-tables"></a>Создание базы данных и таблиц Hive
-Запросы Hive доступны для общего использования в [репозитории GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) , откуда их можно скачать.
+## <a name="create-tables"></a>Создание базы данных и таблиц Hive
+Запросы Hive доступны для общего использования в [репозитории GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql), откуда их можно скачать.
 
 Ниже приведен запрос Hive, который создает таблицу Hive.
 
@@ -149,19 +150,19 @@ ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
 * **&#60;storage location>** — хранилище Azure для хранения данных таблиц Hive. Если не указывать параметр *LOCATION &#60;storage location>*, база данных и таблицы сохраняются в каталоге *hive/warehouse/* в контейнере по умолчанию для кластера Hive. Если вы хотите указать место хранения, то оно должно находиться в пределах контейнера по умолчанию для базы данных и таблиц. Это расположение необходимо указать относительно контейнера кластера по умолчанию в формате *wasb:///&#60;каталог 1>/* или *wasb:///&#60;каталог 1>/&#60;каталог 2>/* и т. д. После выполнения запроса в контейнере по умолчанию создаются соответствующие каталоги.
 * **TBLPROPERTIES("skip.header.line.count"="1")**. Если файл данных содержит строку заголовка, необходимо добавить это свойство **в конец** запроса *create table*. В противном случае строка заголовка загружается в таблицу в качестве записи. Если в файле данных нет строки заголовка, в запросе эту конфигурацию можно пропустить.
 
-## <a name="a-nameload-dataaload-data-to-hive-tables"></a><a name="load-data"></a>Загрузка данных в таблицы Hive
+## <a name="load-data"></a>Загрузка данных в таблицы Hive
 Ниже приведен запрос Hive, который загружает данные в таблицу Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **&#60;path to blob data>**. Если файл BLOB-объекта, который необходимо передать в таблицу Hive, расположен в контейнере по умолчанию для кластера HDInsight Hadoop, параметр *&#60;path to blob data>* следует указать в формате *wasb:///&#60;каталог в контейнере>/&#60;имя файла большого двоичного объекта>*. В дополнительном контейнере кластера Hadoop под управлением службы HDInsight также может быть файл большого двоичного объекта. В этом случае параметр *&#60;path to blob data>* должен иметь формат *wasb://&#60;имя контейнера name>@&#60;storage имя учетной записи хранения>.blob.core.windows.net/&#60;имя файла большого двоичного объекта>*.
+* **&#60;path to blob data>**. Если файл BLOB-объекта, который необходимо передать в таблицу Hive, расположен в контейнере по умолчанию для кластера HDInsight Hadoop, параметр *&#60;path to blob data>* следует указать в формате *wasb:///&#60;каталог в контейнере>/&#60;имя файла большого двоичного объекта>*. В дополнительном контейнере кластера Hadoop под управлением службы HDInsight также может быть файл большого двоичного объекта. В этом случае *&#60;путь_к_данным_большого_двоичного_объекта>* необходимо указать в формате *wasb://&#60;имя_контейнера>@&#60;имя_учетной_записи_хранения>.blob.core.windows.net/&#60;имя_файла_большого_двоичного_объекта>*.
 
   > [!NOTE]
   > Данные большого двоичного объекта, которые необходимо отправить в таблицу Hive, должны находиться в контейнере по умолчанию или в дополнительном контейнере учетной записи хранения для кластера Hadoop. В противном случае запрос *LOAD DATA* завершается ошибкой доступа к данным.
   >
   >
 
-## <a name="a-namepartition-orcaadvanced-topics-partitioned-table-and-store-hive-data-in-orc-format"></a><a name="partition-orc"></a>Дополнительные разделы: секционированные таблицы и хранение данных Hive в формате ORC
+## <a name="partition-orc"></a>Дополнительные разделы: секционированные таблицы и хранение данных Hive в формате ORC
 При большом объеме данных секционирование таблицы полезно для запросов, в рамках которых требуется сканировать только несколько секций таблицы. Например, целесообразно секционировать данные журнала веб-сайта по датам.
 
 Помимо секционирования таблиц Hive данные Hive также удобно хранить в формате ORC. Дополнительную информацию об использовании формата ORC см. в <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">разделе о том, как использование ORC-файлов повышает производительность при чтении, записи и обработке данных Hive</a>.
@@ -186,7 +187,7 @@ ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
     from <database name>.<partitioned table name>
     where <partitionfieldname>=<partitionfieldvalue> and ...;
 
-### <a name="a-nameorcastore-hive-data-in-orc-format"></a><a name="orc"></a>Хранение данных Hive в формате ORC
+### <a name="orc"></a>Хранение данных Hive в формате ORC
 Вы не можете загружать данные непосредственно из хранилища BLOB-объектов в таблицы Hive в формате ORC. Ниже приведены действия, которые необходимо выполнить, чтобы загрузить данные из больших двоичных объектов Azure в таблицы Hive в формате ORC.
 
 Создайте внешнюю таблицу **В ВИДЕ ТЕКСТОВОГО ФАЙЛА** и загрузите в нее данные из хранилища больших двоичных объектов.
@@ -235,9 +236,4 @@ ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
 После выполнения этой процедуры у вас должна быть готовая к использованию таблица с данными в формате ORC.  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

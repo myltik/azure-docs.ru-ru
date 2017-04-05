@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d5633ffdaba2fa881c2c42361860048cd478a502
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fb9d9d06eb746e720a17d87d7ab45c29c6543e8f
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -75,7 +75,7 @@ ms.lasthandoff: 03/09/2017
 
 ### <a name="activity-log"></a>Журнал действий
 
-Щелкните **Журнал действий**, чтобы просмотреть выполненные с кэшем действия. Также можно использовать фильтрацию, чтобы развернуть это представление, включив в него другие ресурсы. Дополнительные сведения о работе с журналами аудита см. в статьях [Просмотр журналов событий и аудита](../monitoring-and-diagnostics/insights-debugging-with-events.md) и [Операции аудита с помощью Resource Manager](../azure-resource-manager/resource-group-audit.md). Дополнительные сведения о мониторинге событий кэша Redis для Azure см. в разделе [Операции и оповещения](cache-how-to-monitor.md#operations-and-alerts).
+Щелкните **Журнал действий**, чтобы просмотреть выполненные с кэшем действия. Также можно использовать фильтрацию, чтобы развернуть это представление, включив в него другие ресурсы. Дополнительные сведения об использовании журналов аудита см. в статье [Просмотр журналов действий для аудита действий с ресурсами](../azure-resource-manager/resource-group-audit.md). Дополнительные сведения о мониторинге событий кэша Redis для Azure см. в разделе [Операции и оповещения](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a>Управление доступом (IAM)
 

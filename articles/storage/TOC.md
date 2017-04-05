@@ -45,11 +45,11 @@
 
 ## Хранилище дисков 
 ### [Создание виртуальной машины с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-### [Создание виртуальной машины Linux с помощью Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-### [Подключение управляемого диска к виртуальной машине Windows с помощью PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
-### [Добавление управляемого диска к виртуальной машине Linux](../virtual-machines/virtual-machines-linux-add-disk.md)
-### [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-### [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+### [Создание виртуальной машины Linux с помощью Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
+### [Подключение управляемого диска к виртуальной машине Windows с помощью PowerShell](../virtual-machines/windows/attach-disk-ps.md)
+### [Добавление управляемого диска к виртуальной машине Linux](../virtual-machines/linux/add-disk.md)
+### [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+### [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 # Практическое руководство
 ## [Создание учетной записи хранения](storage-create-storage-account.md)
@@ -74,8 +74,8 @@
 ### [Диски и VHD для виртуальных машин Windows](storage-about-disks-and-vhds-windows.md)
 ### [Диски и VHD для виртуальных машин Linux](storage-about-disks-and-vhds-linux.md)
 ### [Обзор управляемых дисков Azure](storage-managed-disks-overview.md)
-### [Перенос виртуальных машин Azure на управляемые диски Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
-### [Перенос из AWS и других платформ на управляемые диски](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Перенос виртуальных машин Azure на управляемые диски Azure](../virtual-machines/windows/migrate-to-managed-disks.md)
+### [Перенос из AWS и других платформ на управляемые диски](../virtual-machines/windows/on-prem-to-azure.md)
 ### [Часто задаваемые вопросы о дисках виртуальных машин Azure IaaS](storage-faq-for-disks.md)
 ### Хранилище класса Premium
 #### [Высокопроизводительное хранилище класса Premium для дисков виртуальных машин](storage-premium-storage.md)
@@ -162,7 +162,7 @@
 #### [Получение сведений о состоянии задания](storage-import-export-retrieving-state-info-for-a-job.md)
 #### [Перечисление заданий](storage-import-export-enumerating-jobs.md)
 #### [Отмена и удаление заданий](storage-import-export-cancelling-and-deleting-jobs.md)
-#### [Резервное копирование манифестов диска](storage-import-export-backing-up-drive-manifests.md)
+#### [Архивация манифестов диска](storage-import-export-backing-up-drive-manifests.md)
 #### [Диагностика и восстановление после ошибок для заданий импорта и экспорта](storage-import-export-diagnostics-and-error-recovery.md)
 # Справочные материалы
 ## [PowerShell](/powershell/storage)
@@ -201,6 +201,7 @@
 ## Обозреватель хранилищ Azure
 ### [Обозреватель хранилищ (предварительная версия)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Управление большими двоичными объектами с помощью обозревателя хранилищ (предварительная версия)](../vs-azure-tools-storage-explorer-blobs.md)
+### [Использование обозревателя хранилищ (предварительная версия) с хранилищем файлов Azure](../vs-azure-tools-storage-explorer-files.md)
 
 ## Пакеты NuGet
 ### [Клиентская библиотека хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

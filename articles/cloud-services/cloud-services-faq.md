@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
-ms.openlocfilehash: c169f9ab2eead732ad0fe5579caaa1b4b015732b
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 7287cb1709b7c863cd046edfb995e23455398ec2
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -61,12 +61,39 @@ Azure не позволяет удалить сертификат, пока он
 ### <a name="disable-ssl-30"></a>Отключение SSL 3.0
 Для отключения SSL 3.0 и использования безопасности TLS создайте задачу запуска, описанную в этой записи блога: https://azure.microsoft.com/en-us/blog/how-to-disable-ssl-3-0-in-azure-websites-roles-and-virtual-machines/.
 
-## <a name="scale-a-cloud-service"></a>Масштабирование облачной службы
+### <a name="add-nosniff-to-your-website"></a>Добавление **nosniff** на веб-сайт
+Чтобы помешать клиентам сканировать типы MIME, добавьте соответствующий параметр в файл *web.config*.
+
+```xml
+<configuration>
+   <system.webServer>
+      <httpProtocol>
+         <customHeaders>
+            <add name="X-Content-Type-Options" value="nosniff" />
+         </customHeaders>
+      </httpProtocol>
+   </system.webServer>
+</configuration>
+```
+
+Его можно также добавить как параметр в службах IIS. Используйте следующую команду из статьи [Распространенные задачи запуска](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe).
+
+```cmd
+%windir%\system32\inetsrv\appcmd set config /section:httpProtocol /+customHeaders.[name='X-Content-Type-Options',value='nosniff']
+```
+
+### <a name="customize-iis-for-a-web-role"></a>Настройка IIS для веб-роли
+Используйте сценарий запуска IIS из статьи [Распространенные задачи запуска](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe).
+
+## <a name="scaling"></a>Масштабирование
 ### <a name="i-cannot-scale-beyond-x-instances"></a>Не удается выполнить масштабирование на более чем X экземпляров
 В вашей подписке Azure есть ограничение на количество используемых ядер. При использовании всех доступных ядер масштабирование не сработает. Например, если установлено ограничение в 100 ядер, это означает, что в облачной службе можно создать 100 экземпляров виртуальной машины размера A1 или 50 экземпляров виртуальной машины размера A2.
 
-## <a name="troubleshooting"></a>Устранение неполадок
+## <a name="networking"></a>Сеть
 ### <a name="i-cant-reserve-an-ip-in-a-multi-vip-cloud-service"></a>Не удается зарезервировать IP-адрес в облачной службе с несколькими виртуальными IP-адресами
 Сначала убедитесь, что экземпляр виртуальной машины, для который вы пытаетесь зарезервировать IP-адрес, включен. Во-вторых, убедитесь, что вы используете зарезервированные IP-адреса и для промежуточного, и для рабочего развертываний. **Не изменяйте** параметры во время обновления развертывания.
 
+## <a name="remote-desktop"></a>Удаленный рабочий стол
+### <a name="how-do-i-remote-desktop-when-i-have-an-nsg"></a>Как использовать удаленный рабочий стол при наличии NSG?
+Добавьте в NSG правило, которое переадресовывает порт **20000**.
 

@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0d6756dcc5b47898575002cd7336b8d4d5200e08
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: eab8b66bc4a9cf3090ee81f9bb47430aaf26eeee
+ms.lasthandoff: 03/24/2017
 
 ---
 
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Настройка метода маршрутизации трафика по географическому расположению с помощью диспетчера трафика
 
-Метод маршрутизации трафика по географическому расположению позволяет направлять трафик на определенные конечные точки на основе географического расположения, из которого получен запрос. В этом руководстве показано, как создать профиль диспетчера трафика с использованием этого метода маршрутизации и настроить конечные точки для приема трафика из определенных географических регионов. 
+Метод маршрутизации трафика по географическому расположению позволяет направлять трафик на определенные конечные точки на основе географического расположения, из которого получен запрос. В этом руководстве показано, как создать профиль диспетчера трафика с использованием этого метода маршрутизации и настроить конечные точки для приема трафика из определенных географических регионов.
 
 ## <a name="create-a-traffic-manager-profile"></a>Создание профиля диспетчера трафика 
 
@@ -62,8 +62,6 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-
-- Узнайте о [методе взвешенной маршрутизации трафика](traffic-manager-configure-weighted-routing-method.md).
-- Узнайте о [маршрутизации по производительности](traffic-manager-configure-performance-routing-method.md).
+- Узнайте больше о [методе географической маршрутизации трафика](traffic-manager-routing-methods.md#geographic-traffic-routing-method).
 - Узнайте, как [проверить параметры диспетчера трафика](traffic-manager-testing-settings.md).
 
