@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 44786974a86a8cef9bfbaa9ea2a131b11747b01e
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 275b1cd91347fdfcc36e0e8a6448ccd8818a507d
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -84,7 +85,7 @@ ms.lasthandoff: 03/18/2017
 3. Щелкните кластер, в котором установлено приложение.
 4. В колонке **Параметры** в категории **Общие** щелкните **Приложения**. В колонке **Установленные приложения** вы увидите приложение **Hue**.
 5. Выберите приложение **Hue** в списке, чтобы просмотреть его свойства.  
-6. Щелкните ссылку на веб-страницу, чтобы проверить веб-сайт. Откройте конечную точку HTTP в браузере, чтобы проверить веб-интерфейс Hue. Откройте конечную точку SSH с помощью [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) или другого [SSH-клиента](hdinsight-hadoop-linux-use-ssh-unix.md).
+6. Щелкните ссылку на веб-страницу, чтобы проверить веб-сайт. Откройте конечную точку HTTP в браузере, чтобы проверить веб-интерфейс Hue. Откройте конечную точку SSH с помощью SSH. См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="troubleshoot-the-installation"></a>Устранение неполадок, связанных с установкой
 Состояние установки приложения можно наблюдать в уведомлении портала (щелкните значок колокольчика в верхней части портала).

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
-ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 666d0f655a0705423d025b88a1f457b866008ab9
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Мониторинг API-интерфейсов с помощью службы управления API Azure, концентраторов событий и Runscope
@@ -262,7 +262,7 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 Для этого применена [существующая клиентская библиотека для службы Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha), которая упрощает передачу экземпляров `HttpRequestMessage` и `HttpResponseMessage` в соответствующую службу. Чтобы получить доступ к Runscope API, нужна учетная запись и ключ API. Инструкции по получению ключа API см. в видео [Creating Applications to Access Runscope API](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) (Создание приложений для доступа к API Runscope).
 
 ## <a name="complete-sample"></a>Полный пример
-[Исходный код](https://github.com/darrelmiller/ApimEventProcessor) и тесты для этого примера доступны на GitHub. Чтобы запустить этот пример, вам потребуются [служба управления API](api-management-get-started.md), [подключенный к ней концентратор событий](api-management-howto-log-event-hubs.md) и [учетная запись хранения](../storage/storage-create-storage-account.md).   
+[Исходный код](https://github.com/darrelmiller/ApimEventProcessor) и тесты для этого примера доступны на сайте GitHub. Чтобы запустить этот пример, вам потребуются [служба управления API](api-management-get-started.md), [подключенный к ней концентратор событий](api-management-howto-log-event-hubs.md) и [учетная запись хранения](../storage/storage-create-storage-account.md).   
 
 Пример представляет собой простое консольное приложение, которое прослушивает события, поступающие от концентратора событий, преобразует их в объекты `HttpRequestMessage` и `HttpResponseMessage`, а затем пересылает их на API-интерфейс Runscope.
 

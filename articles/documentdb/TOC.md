@@ -85,6 +85,7 @@
 
 
 ## Интеграция
+### [Подключение к Spark](documentdb-spark-connector.md)
 ### [Развертывание веб-сайта в службе приложений Azure](documentdb-create-documentdb-website.md)
 ### [Вход в приложения с помощью Logic Apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Привязка к функциям Azure](../azure-functions/functions-bindings-documentdb.md)

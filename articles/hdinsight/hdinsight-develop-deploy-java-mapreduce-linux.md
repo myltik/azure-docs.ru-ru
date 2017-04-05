@@ -9,6 +9,7 @@ documentationcenter:
 tags: azure-portal
 ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
@@ -16,9 +17,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
-ms.openlocfilehash: e9b31ebc4c63cb779c8573511101aef991cbbe4a
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: a8623991dda4192d700d35ef3970d416e315c5c6
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 02/21/2017
 
 Узнайте, как создать приложение MapReduce на Java с помощью Apache Maven, развернуть его и запустить в кластере HDInsight Hadoop под управлением Linux.
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 или более поздней версии (или эквивалент, например OpenJDK).
     
@@ -244,7 +245,7 @@ ms.lasthandoff: 02/21/2017
    > [!NOTE]
    > Файл `wordcountjava-1.0-SNAPSHOT.jar` является uberjar, который содержит не только задание WordCount, но и зависимости, необходимые заданию во время выполнения.
 
-## <a name="a-iduploadaupload-the-jar"></a><a id="upload"></a>Загрузка файла JAR
+## <a id="upload"></a>Загрузка файла JAR
 
 Воспользуйтесь следующей командой, чтобы загрузить файл JAR в головной узел HDInsight:
 
@@ -260,12 +261,9 @@ ms.lasthandoff: 02/21/2017
 > Если для защиты учетной записи SSH использовался пароль, будет предложено его ввести. Если использовался ключ SSH, возможно, нужно будет использовать параметр `-i` и указать путь к закрытому ключу. Например, `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 
-## <a name="a-namerunarun-the-mapreduce-job"></a><a name="run"></a>Выполнение задания MapReduce
+## <a name="run"></a>Выполнение задания MapReduce
 
-1. Подключитесь к HDInsight через SSH, как описано в следующих статьях.
-   
-   * [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+1. Подключитесь к HDInsight с помощью протокола SSH. См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. В сеансе SSH используйте следующую команду для запуска приложения MapReduce:
    
@@ -287,7 +285,7 @@ ms.lasthandoff: 02/21/2017
         zelus   1
         zenith  2
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
+## <a id="nextsteps"></a>Дальнейшие действия
 
 В этом документе объясняется, как разработать задание MapReduce на Java. Чтобы узнать о других методах работы с HDInsight, см. следующие документы.
 

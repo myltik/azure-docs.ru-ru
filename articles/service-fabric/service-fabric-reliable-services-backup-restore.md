@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
-ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: babda2a4ad7dade942a0c7ece84a6f1d65bd3453
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -240,7 +240,7 @@ class MyCustomActorService : ActorService
 Важно убедиться, что для критически важных данных создается резервная копия и их можно восстановить. Это можно сделать, вызвав командлет **Invoke-ServiceFabricPartitionDataLoss** в PowerShell, что может стать причиной потери данных в определенной секции, чтобы проверить работоспособность архивации и восстановления данных для вашей службы.  Можно также программно вызвать потерю данных и восстановить их из этого события.
 
 > [!NOTE]
-> Пример реализации резервного копирования и восстановления можно найти в приложении Web Reference на Github. Подробные сведения см. в описании службы Inventory.Service.
+> Пример реализации функций архивации и восстановления можно найти в эталонном веб-приложении на сайте GitHub. Подробные сведения см. в описании службы Inventory.Service.
 > 
 > 
 

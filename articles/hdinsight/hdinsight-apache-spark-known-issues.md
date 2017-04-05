@@ -9,15 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 03/24/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2ba5f280b38622b6a0c966d76617cd5698420b92
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -26,13 +28,14 @@ ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
 В этом документе отслеживаются все известные проблемы с общедоступной предварительной версией Spark HDInsight.  
 
 ## <a name="livy-leaks-interactive-session"></a>Утечка интерактивного сеанса Livy
-При перезапуске Livy во время работы интерактивного сеанса (из Ambari или в связи с перезагрузкой виртуальной машины headnode 0) происходит утечка сеанса интерактивного задания. Из-за этого новые задания застревают в состоянии "Принято" и не могут быть запущены.
+При перезапуске Livy во время работы интерактивного сеанса (из Ambari или в связи с перезагрузкой виртуальной машины headnode 0) произойдет утечка сеанса интерактивного задания. Из-за этого новые задания застревают в состоянии "Принято" и не могут быть запущены.
 
 **Устранение.**
 
 Для решения этой проблемы выполните указанные ниже действия.
 
-1. Подключитесь к головному узлу по протоколу SSH. Дополнительные сведения для клиентов Windows см. в статье [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md), а для клиентов Linux, Unix или OS X — в статье [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md). 
+1. Подключитесь к головному узлу по протоколу SSH. См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+
 2. Выполните следующую команду, чтобы найти идентификаторы приложений для интерактивных заданий, запущенных из Livy: 
    
         yarn application –list
@@ -61,6 +64,14 @@ ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
 3. В Ambari измените путь размещения журнала Spark на каталог с разрешениями 777.  
 4. Выполните команду spark-submit как sudo.  
 
+## <a name="spark-phoenix-connector-is-not-supported"></a>Соединитель Spark-Phoenix не поддерживается
+
+В настоящее время в кластере HDInsight Spark не поддерживается соединитель Spark-Phoenix.
+
+**Устранение.**
+
+Вместо него необходимо использовать соединитель Spark-HBase. Инструкции см. в записи блога [HDinsight – How to use Spark-HBase connector?](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/) (HDinsight: как использовать соединитель Spark-HBase?)
+
 ## <a name="issues-related-to-jupyter-notebooks"></a>Проблемы, связанные с записными книжками Jupyter
 Ниже приведены некоторые известные проблемы, связанные с записными книжками Jupyter.
 
@@ -72,7 +83,7 @@ ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
 
 **Устранение.**
 
-Появление этой ошибки не означает, что данные повреждены или утрачены.  Записные книжки по-прежнему хранятся на диске в каталоге `/var/lib/jupyter`, и вы можете получить к ним доступ, подключившись к кластеру по протоколу SSH. Дополнительные сведения для клиентов Windows см. в статье [Использование SSH с HDInsight (Hadoop) в PuTTY на базе Windows](hdinsight-hadoop-linux-use-ssh-windows.md), а для клиентов Linux, Unix или OS X — в статье [Использование SSH с HDInsight (Hadoop) на платформе Windows, Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+Появление этой ошибки не означает, что данные повреждены или утрачены.  Записные книжки по-прежнему хранятся на диске в каталоге `/var/lib/jupyter`, и вы можете получить к ним доступ, подключившись к кластеру по протоколу SSH. См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 После подключения к кластеру с помощью SSH во избежание потери важных данных записные книжки можно скопировать из кластера на локальный компьютер (с помощью SCP или WinSCP), тем самым создав резервную копию. Затем вы сможете использовать туннель SSH к головному узлу через порт 8001, чтобы получить доступ к Jupyter без прохождения через шлюз.  В Jupyter можно очистить выходные данные записной книжки и повторно сохранить их, чтобы уменьшить ее размер.
 
@@ -124,10 +135,5 @@ ms.openlocfilehash: 6c81d978e470754f5c0a737aba0437e105949099
 ### <a name="manage-resources"></a>Управление ресурсами
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

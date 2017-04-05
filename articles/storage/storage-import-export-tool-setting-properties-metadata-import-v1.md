@@ -1,6 +1,6 @@
 ---
-title: "Настройка свойств и метаданных с помощью службы импорта и экспорта Azure | Документация Майкрософт"
-description: "Сведения об указании свойств и метаданных, используемых для настройки целевых больших двоичных объектов, при запуске инструмента импорта и экспорта для подготовки дисков."
+title: "Настройка свойств и метаданных с помощью инструмента импорта и экспорта Azure версии 1 | Документация Майкрософт"
+description: "Узнайте, как указать свойства и метаданные, используемые для настройки целевых больших двоичных объектов, при запуске инструмента импорта и экспорта Azure для подготовки дисков. Приведенная информация относится к инструменту импорта и экспорта версии 1."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
-ms.openlocfilehash: 8e1152a03eee01244dd469586848c396a7f689cc
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 6455ce57572f9ec36d0ebae88c1ddd9f40f237bf
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/16/2017
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>  
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>  
     <DataSetName>SampleData</DataSetName>  
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
@@ -69,6 +69,7 @@ ms.lasthandoff: 02/16/2017
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
   
-## <a name="see-also"></a>См. также  
-[Формат файла свойств и файла метаданных службы импорта и экспорта](storage-import-export-file-format-metadata-and-properties.md)
+## <a name="next-steps"></a>Дальнейшие действия
+
+* [Формат файла свойств и метаданных службы импорта и экспорта](storage-import-export-file-format-metadata-and-properties.md)
 

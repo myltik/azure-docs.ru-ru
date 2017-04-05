@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
-ms.openlocfilehash: ab58592b7dc55dee1f95338b4931fa76e9146a43
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 226d34f9cd762682b2c9e84bf5c32eecf9982b4b
+ms.lasthandoff: 03/29/2017
 
 
 ---

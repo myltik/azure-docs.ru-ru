@@ -57,16 +57,19 @@
 #### Начало работы
 ##### [C# в Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java в Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Жизненный цикл Reliable Services](service-fabric-reliable-services-lifecycle.md)
+#### [Жизненный цикл Reliable Services (C#)](service-fabric-reliable-services-lifecycle.md)
+#### [Жизненный цикл Reliable Services (Java)](service-fabric-reliable-services-lifecycle-java.md)
 #### [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
 #### [Использование надежных коллекций](service-fabric-work-with-reliable-collections.md)
 #### [Настройка](service-fabric-reliable-services-configuration.md)
 #### [Уведомления](service-fabric-reliable-services-notifications.md)
 #### [Резервное копирование и восстановление](service-fabric-reliable-services-backup-restore.md)
 #### [Обмен данными с помощью Reliable Services](service-fabric-reliable-services-communication.md)
-#### [Безопасное взаимодействие с Reliable Services](service-fabric-reliable-services-secure-communication.md)
+#### [Безопасное взаимодействие с Reliable Services (C#)](service-fabric-reliable-services-secure-communication.md)
+#### [Безопасное взаимодействие с Reliable Services (Java)](service-fabric-reliable-services-secure-communication-java.md)
 ##### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
-##### [Удаленное взаимодействие со службой](service-fabric-reliable-services-communication-remoting.md)
+##### [Удаленное взаимодействие со службой (C#)](service-fabric-reliable-services-communication-remoting.md)
+##### [Удаленное взаимодействие со службой (Java)](service-fabric-reliable-services-communication-remoting-java.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
 ##### [Обратный прокси-сервер](service-fabric-reverseproxy.md)
 #### [Расширенное использование](service-fabric-reliable-services-advanced-usage.md)
@@ -104,6 +107,7 @@
 #### [Управление кластером с помощью интерфейса командной строки Azure](service-fabric-azure-cli.md) 
 #### [Обеспечение безопасности кластера](service-fabric-cluster-security.md)
 #### [Аварийное восстановление](service-fabric-disaster-recovery.md)
+#### [Различия между функциями Linux и Windows](service-fabric-linux-windows-differences.md)
 
 ### Кластеры в Azure
 #### Создание кластера в Azure

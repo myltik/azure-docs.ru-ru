@@ -37,8 +37,8 @@
 
 # Сопутствующие материалы
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
+## [Обработка данных с помощью пакетной службы и фабрики данных](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Решения для пакетной службы и высокопроизводительных вычислений в облаке Azure](batch-hpc-solutions.md)
-## [Большие вычисления в Azure: технические ресурсы](big-compute-resources.md)
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/batch/)
@@ -48,5 +48,8 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Примеры кода C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Примеры кода Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Примеры интерфейса командной строки](batch-cli-samples.md)
+## [Вычислительные ресурсы для больших данных](big-compute-resources.md)
 ## [Блог](https://blogs.technet.microsoft.com/windowshpc/)
+
 

@@ -81,14 +81,14 @@ Azure позволяет создавать ресурсы, такие как в
 
 При создании виртуальной машины из образа в службе Azure Marketplace вы фактически работаете с шаблонами. Шаблоны Azure Resource Manager являются декларативными файлами нотации объектов JavaScript (JSON), которые могут использоваться для создания сложных сред приложений, включающих виртуальные машины, хранилища, виртуальные сети и т. д. Вы можете ознакомиться с дополнительными сведениями об использовании [шаблонов Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md), а также узнать, как [создавать собственные шаблоны](../articles/resource-group-authoring-templates.md).
 
-Вы также можете создавать собственные пользовательские образы и передавать их с помощью интерфейса командной строки [Azure CLI](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), чтобы быстро создавать пользовательские виртуальные машины в соответствии со своими потребностями.
+Вы также можете создавать собственные пользовательские образы и передавать их с помощью интерфейса командной строки [Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) или [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), чтобы быстро создавать пользовательские виртуальные машины в соответствии со своими потребностями.
 
 ## <a name="availability-sets"></a>Группы доступности
 Группа доступности — это логическая группа виртуальных машин, которая позволяет Azure понять структуру вашего приложения, чтобы обеспечить избыточность и доступность. Для обеспечения высокой доступности приложения и достижения показателя [99,95 % уровня обслуживания (SLA) Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) рекомендуется создать в группе доступности не менее двух виртуальных машин. Если отдельная виртуальная машина использует [хранилище Azure класса Premium](../articles/storage/storage-premium-storage.md), соглашение об уровне обслуживания Azure применяется для внеплановых мероприятий обслуживания. Группа доступности включает в себя две дополнительные группы, обеспечивающие защиту от сбоев оборудования и позволяющие безопасно применять обновления, — это домены сбоя и домены обновления.
 
 ![Схема конфигурации домена обновления и домена сбоя](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-Вы можете ознакомиться с дополнительными сведениями об управлении доступностью [виртуальных машин Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) и [виртуальных машин Windows](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Вы можете ознакомиться с дополнительными сведениями об управлении доступностью [виртуальных машин Linux](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) и [виртуальных машин Windows](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="fault-domains"></a>Домены сбоя
 Домен сбоя — это логическая группа базового оборудования, которое совместно использует общий источник питания и сетевой коммутатор, аналогично стойке в локальном центре обработки данных. При создании виртуальных машин в группе доступности платформа Azure автоматически распределяет их между такими доменами сбоя. Данный подход ограничивает влияние потенциальных сбоев физического оборудования, сети или электропитания.
@@ -101,9 +101,4 @@ Azure позволяет создавать ресурсы, такие как в
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь вы можете использовать функции доступности и избыточности для создания среды Azure. Рекомендации см. в статье [Контрольный список для обеспечения доступности](../articles/best-practices-availability-checklist.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

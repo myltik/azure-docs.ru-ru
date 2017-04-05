@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/12/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 0997b2c2eec9070cf8043b09e69d0a4d1ae6e56a
-ms.openlocfilehash: 668ab8121a40aa2300d5cb13e561745fc51b545f
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: bc3013541fdb32f252339140fe61ff7c515a264e
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -135,7 +136,7 @@ ms.openlocfilehash: 668ab8121a40aa2300d5cb13e561745fc51b545f
 ## <a name="create-vm-from-original-hard-disk"></a>Создание виртуальной машины из исходного жесткого диска
 Чтобы создать виртуальную машину из исходного виртуального жесткого диска, используйте [этот шаблон Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). Этот шаблон развертывает виртуальную машину в существующую виртуальную сеть, используя URL-адрес виртуального жесткого диска из использованной выше команды. Нажмите кнопку **Развернуть в Azure**.
 
-![Развертывание виртуальной машины из шаблона Github](./media/virtual-machines-windows-troubleshoot-recovery-disks/deploy-template-from-github.png)
+![Развертывание виртуальной машины из шаблона GitHub](./media/virtual-machines-windows-troubleshoot-recovery-disks/deploy-template-from-github.png)
 
 Шаблон загружается на портал Azure для развертывания. Введите имя для новой виртуальной машины и укажите существующие ресурсы Azure, а затем вставьте URL-адрес исходного виртуального жесткого диска. Чтобы начать развертывание, щелкните **Приобрести**.
 
@@ -151,8 +152,4 @@ ms.openlocfilehash: 668ab8121a40aa2300d5cb13e561745fc51b545f
 При возникновении проблем с подключением к виртуальной машине ознакомьтесь со статьей [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Для устранения проблем с доступом к приложениям, выполняющимся на виртуальной машине, прочитайте статью [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Дополнительные сведения об использовании Resource Manager вы найдете в статье [Общие сведения об Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-<!--HONumber=Dec16_HO3-->
-
 

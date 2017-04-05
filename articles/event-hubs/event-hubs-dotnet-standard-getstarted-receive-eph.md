@@ -1,6 +1,6 @@
 ---
-title: "Получение событий из концентраторов событий Azure с помощью .NET Standard | Документация Майкрософт"
-description: "Основные сведения о получении сообщений с помощью EventProcessorHost в .NET Standard."
+title: "Получение событий от концентраторов событий Azure с помощью .NET Standard | Документация Майкрософт"
+description: "Основные сведения о получении сообщений с помощью узла EventProcessorHost в .NET Standard"
 services: event-hubs
 documentationcenter: na
 author: jtaubensee
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/27/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 65ed5164b8d010453ed34e8b8cdf68915e136007
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: c86a1feee02bbf8580a40119ac140528217e435d
+ms.lasthandoff: 03/28/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* [Microsoft Visual Studio 2015 или Microsoft Visual Studio 2017](http://www.visualstudio.com). В примерах в этом руководстве используется Visual Studio 2015, но также поддерживается Visual Studio 2017.
+* [Microsoft Visual Studio 2015 или Microsoft Visual Studio 2017](http://www.visualstudio.com). В примерах в этом руководстве используется Visual Studio 2017, но также поддерживается Visual Studio 2015.
 * [Инструментарий Visual Studio 2015 или Visual Studio 2017 для .NET Core](http://www.microsoft.com/net/core).
 * Подписка Azure.
 * Пространство имен концентраторов событий Azure.
@@ -53,32 +53,9 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="create-a-console-application"></a>Создание консольного приложение
 
-1. Запустите Visual Studio. В меню **Файл** выберите команду **Создать**, а затем — **Проект**. Создайте консольное приложение .NET Core.
+Запустите Visual Studio. В меню **Файл** выберите команду **Создать**, а затем — **Проект**. Создайте консольное приложение .NET Core.
 
-    ![Новый проект][2]
-
-2. В окне обозревателя решений дважды щелкните файл **project.json**, чтобы открыть его в редакторе Visual Studio.
-3. Добавьте строку `"portable-net45+win8"` в объявление `"imports"` в разделе `"frameworks"`. Этот раздел теперь должен выглядеть следующим образом. Эта строка необходима из-за зависимости хранилища Azure от OData:
-
-    ```json
-    "frameworks": {
-      "netcoreapp1.0": {
-        "imports": [
-          "dnxcore50",
-          "portable-net45+win8"
-        ]
-      }
-    }
-    ```
-
-4. В меню **Файл** выберите **Сохранить все**.
-
-Обратите внимание, что в этом учебнике показано, как создать приложение .NET Core. Если вы хотите охватить всю платформу .NET Framework, добавьте следующую строку кода в раздел `"frameworks"` файла project.json.
-
-```json
-"net451": {
-},
-```
+![Новый проект][2]
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Добавление пакета NuGet для концентраторов событий
 
@@ -93,9 +70,9 @@ ms.lasthandoff: 03/22/2017
 2. Откройте файл SimpleEventProcessor.cs и добавьте в его начало следующие операторы `using`.
 
     ```csharp
-    using System.Text;
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
     ```
 
 3. Реализуйте интерфейс `IEventProcessor`. Замените все содержимое класса `SimpleEventProcessor` следующим кодом:
@@ -141,6 +118,7 @@ ms.lasthandoff: 03/22/2017
     ```csharp
     using Microsoft.Azure.EventHubs;
     using Microsoft.Azure.EventHubs.Processor;
+    using System.Threading.Tasks;
     ```
 
 2. Добавьте в класс `Program` константы для строки подключения концентраторов событий, имени концентратора событий, имени контейнера учетной записи хранения, имени учетной записи хранения и ключа учетной записи хранения. Добавьте следующий код, заменив заполнители соответствующими значениями.

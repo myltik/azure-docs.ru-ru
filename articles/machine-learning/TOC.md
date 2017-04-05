@@ -114,7 +114,6 @@
 #### [Использование запросов Hive](machine-learning-data-science-create-features-hive.md)
 #### [Выбор компонентов TDSP](machine-learning-data-science-select-features.md)
 ### Создание и обучение моделей
-#### [Преобразование в оценку](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Управление жизненным циклом эксперимента](machine-learning-version-control.md)
 #### [Управление итерациями](machine-learning-manage-experiment-iterations.md)
 #### [Создание моделей с помощью PowerShell](machine-learning-create-models-and-endpoints-with-powershell.md)
@@ -133,19 +132,20 @@
 ##### [Создание пользовательских модулей R](machine-learning-custom-r-modules.md)
 ##### [Выполнение скриптов Python](machine-learning-execute-python-scripts.md)
 
-## Модели развертывания и потребления
+## Ввод модели в эксплуатацию
 ### [Обзор](machine-learning-deploy-consume-web-service-guide.md)
 ### Развертывание моделей
-#### [Принцип работы](machine-learning-model-progression-experiment-to-web-service.md)
 #### [Развертывание веб-службы](machine-learning-publish-a-machine-learning-web-service.md)
+#### [Принцип работы](machine-learning-model-progression-experiment-to-web-service.md)
+#### [Подготовка к развертыванию](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Использование внешних данных](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Развертывание в нескольких регионах](machine-learning-how-to-deploy-to-multiple-regions.md)
 #### [Использование параметров веб-службы](machine-learning-web-service-parameters.md)
 #### [Включение ведения журналов](machine-learning-web-services-logging.md)
 ### Управление веб-службами
-#### [Создание конечных точек](machine-learning-create-endpoint.md)
 #### [Использование портала веб-служб](machine-learning-manage-new-webservice.md)
 #### [Управление с помощью интерфейсов API](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [Создание конечных точек](machine-learning-create-endpoint.md)
 #### [Масштабирование](machine-learning-scaling-webservice.md)
 ### Повторное обучение моделей
 #### [Обзор](machine-learning-retrain-machine-learning-model.md)
@@ -198,12 +198,6 @@
 #### [Обнаружение аномалий](machine-learning-apps-anomaly-detection-api.md)
 #### [Текстовая аналитика](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-#### Рекомендации
-##### [Обзор](machine-learning-recommendation-api-sample-application.md)
-##### [Краткое руководство](machine-learning-recommendation-api-quick-start-guide.md)
-##### [Справочные материалы](machine-learning-recommendation-api-documentation.md)
-##### [Использование JavaScript](machine-learning-recommendation-api-javascript-integration.md)
-##### [Часто задаваемые вопросы](machine-learning-recommendation-api-faq.md)
 #### Диагностическое обслуживание
 ##### [Обзор](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [Архитектура](cortana-analytics-architecture-predictive-maintenance.md)

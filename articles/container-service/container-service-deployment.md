@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2464901d22bb91cbf396ef60f4bda6d979b578b7
-ms.openlocfilehash: 003d975f57d63bcb95d6b0de9dcfaf8816fcdd6f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
+ms.lasthandoff: 04/03/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Развертывание решения для размещения контейнера Docker с помощью портала Azure
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/02/2017
 
 * **Подписка Azure.** Если у вас ее нет, зарегистрируйтесь, чтобы [воспользоваться бесплатной пробной версией](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-* **Открытый ключ RSA (SSH).** При развертывании на портале или с помощью одного из шаблонов быстрого запуска Azure необходимо предоставить открытый ключ, используемый для аутентификации в виртуальных машинах Службы контейнеров Azure. Инструкции по созданию ключей RSA (SSH) см. в соответствующих статьях для [OS X, Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) или [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+* **Открытый ключ RSA (SSH).** При развертывании на портале или с помощью одного из шаблонов быстрого запуска Azure необходимо предоставить открытый ключ, используемый для аутентификации в виртуальных машинах Службы контейнеров Azure. Инструкции по созданию ключей RSA (SSH) см. в соответствующих статьях для [OS X, Linux](../virtual-machines/linux/mac-create-ssh-keys.md) или [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 * **Секрет и идентификатор клиента субъекта-службы (только для Kubernetes).** Дополнительные сведения и рекомендации по созданию субъекта-службы Azure Active Directory см. в разделе [Сведения о субъекте-службе Azure Active Directory для кластера Kubernetes в службе контейнеров Azure](container-service-kubernetes-service-principal.md).
 

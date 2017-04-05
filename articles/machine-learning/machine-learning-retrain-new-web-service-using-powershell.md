@@ -12,25 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
-ms.openlocfilehash: e971bd36f9245032296537ea3e0b64e5f3e18ddd
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 32e3ff626e0f4afe80dac11eccbdaa3146d39c31
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="retrain-a-new-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Переобучение новой веб-службы с помощью командлетов управления PowerShell для машинного обучения
+# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Переобучение нового экземпляра Resource Manager с помощью командлетов PowerShell для управления машинным обучением
 При переобучении новой веб-службы следует обновить определение прогнозной веб-службы, чтобы оно ссылалось на новую обученную модель.  
 
 ## <a name="prerequisites"></a>Предварительные требования
-Вы уже настроили обучающий и прогнозный эксперименты, как показано в статье [Программное переобучение моделей машинного обучения](machine-learning-retrain-models-programmatically.md). 
+Необходимо настроить обучающий и прогнозный эксперименты, как показано в статье [Программное переобучение моделей машинного обучения](machine-learning-retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
 > Прогнозный эксперимент развернут в виде веб-службы машинного обучения на основе Azure Resource Manager (новой веб-службы). Для развертывания новой веб-службы у вас должен быть достаточный уровень разрешений в подписке, в которую выполняется развертывание веб-службы. Дополнительные сведения см. в статье [Управление веб-службой с помощью портала веб-служб машинного обучения Azure](machine-learning-manage-new-webservice.md). 
-
-
 
 Дополнительную информацию о развертывании веб-служб см. в статье [Развертывание веб-службы машинного обучения Azure](machine-learning-publish-a-machine-learning-web-service.md).
 

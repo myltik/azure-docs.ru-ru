@@ -46,11 +46,12 @@
 ### [Вопросы безопасности](best-practices-resource-manager-security.md)
 ## Задание политик ресурсов
 ### [Что представляют собой политики ресурсов?](resource-manager-policy.md)
-### [Назначение политик и управление ими](resource-manager-policy-create-assign.md)
+### [Назначение политики с помощью портала](resource-manager-policy-portal.md)
+### [Назначение политики с помощью скрипта](resource-manager-policy-create-assign.md)
 ### [Политики тегов ресурсов](resource-manager-policy-tags.md)
 ### [Политики хранения](resource-manager-policy-storage.md)
-### [Политики виртуальных машин Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Политики виртуальных машин Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Политики виртуальных машин Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Политики виртуальных машин Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Аудит и устранение неполадок
 ### [Устранение стандартных ошибок развертывания](resource-manager-common-deployment-errors.md)
 ### [Просмотр журналов действий](resource-group-audit.md)

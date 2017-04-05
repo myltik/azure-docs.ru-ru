@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: eedaefeed1a704f7816e71ef7b2dddda2268a90f
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -127,24 +127,16 @@ ms.lasthandoff: 03/14/2017
 
 #### <a name="cluster-upgrade-workflow"></a>Рабочий процесс обновления кластера
 
-1. Скачайте последнюю версию пакета отсюда: [Создание кластера под управлением Windows Server и управление им](service-fabric-cluster-creation-for-windows-server.md).
-2. Подключитесь к кластеру с любой виртуальной машины, на которой есть доступ администратора ко всем ВМ, перечисленным в качестве узлов в файле конфигурации кластера. Виртуальная машина, на которой выполняется этот скрипт, может и не входить в кластер.
+1. Выполните командлет Get-ServiceFabricClusterUpgrade из одного из узлов в кластере и запишите значение TargetCodeVersion.
+2. Выполните следующую команду с компьютера, подключенного к Интернету, чтобы получить список всех версий, совместимых с обновлением, для текущей версии и скачайте соответствующий пакет с помощью связанных ссылок для загрузки.
 
     ```powershell
 
-    ###### Connect to the cluster
-    $ClusterName= "mysecurecluster.something.com:19000"
-    $CertThumbprint= "70EF5E22ADB649799DA3C8B6A6BF7FG2D630F8F3"
-    Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
-        -X509Credential `
-        -ServerCertThumbprint $CertThumbprint  `
-        -FindType FindByThumbprint `
-        -FindValue $CertThumbprint `
-        -StoreLocation CurrentUser `
-        -StoreName My
+    ###### Get list of all upgrade compatible packages  
+    Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1> 
     ```
 
-3. Скопируйте скачанный пакет в хранилище образов кластера.
+3. Подключитесь к кластеру с любой виртуальной машины, на которой есть доступ администратора ко всем ВМ, перечисленным в качестве узлов в файле конфигурации кластера. Виртуальная машина, на которой выполняется этот скрипт, может и не входить в кластер.
 
     ```powershell
 
@@ -155,8 +147,9 @@ ms.lasthandoff: 03/14/2017
     Copy-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab -ImageStoreConnectionString "fabric:ImageStore"
 
     ```
+4. Скопируйте скачанный пакет в хранилище образов кластера.
 
-4. Зарегистрируйте скопированный пакет.
+5. Зарегистрируйте скопированный пакет.
 
     ```powershell
 
@@ -167,7 +160,7 @@ ms.lasthandoff: 03/14/2017
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
-5. Запустите обновление кластера до доступной версии.
+6. Запустите обновление кластера до доступной версии.
 
     ```Powershell
 
@@ -197,6 +190,13 @@ ms.lasthandoff: 03/14/2017
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
 ```
+
+### <a name="cluster-certificate-config-upgrade"></a>Обновление конфигурации сертификата кластера  
+Сертификат кластера используется для аутентификации между узлами кластера, поэтому смену сертификата следует выполнять с особой осторожностью, так как из-за сбоя заблокируется связь между узлами кластера.  
+С технической точки зрения поддерживаются два варианта:  
+
+1. Единое обновление сертификата. Путь обновления: ''сертификат А (основной) -> сертификат B (основной) -> сертификат C (основной) ->...''.   
+2. Двойное обновление сертификата. Путь обновления ''сертификат А (основной) -> сертификат А (основной) и В (дополнительный) -> сертификат В (основной) -> сертификат В (основной) и С (дополнительный) -> сертификат C (основной)->…''.
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

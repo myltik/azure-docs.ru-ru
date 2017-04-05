@@ -6,7 +6,7 @@
 | [Дополнительные администраторы](../articles/billing-add-change-azure-subscription-administrator.md) на подписку |Без ограничений |Без ограничений |
 | [Учетные записи хранилища](../articles/storage/storage-create-storage-account.md) на подписку |200 |200<sup>2</sup> |
 | [Групп ресурсов](../articles/azure-resource-manager/resource-group-overview.md) на подписку |800 |800 |
-| [наборов доступности](../articles/virtual-machines/virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) на подписку |2000 на регион |2000 на регион |
+| [наборов доступности](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) на подписку |2000 на регион |2000 на регион |
 | Операций чтения API диспетчера ресурсов |15 000 в час |15 000 в час |
 | Операций записи API диспетчера ресурсов |1200 в час |1200 в час |
 | Размер запроса API диспетчера ресурсов |4 194 304 байтов |4 194 304 байтов |
@@ -24,9 +24,4 @@
 > <!-- -->
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

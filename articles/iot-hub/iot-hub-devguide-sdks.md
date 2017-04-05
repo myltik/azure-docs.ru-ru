@@ -12,18 +12,30 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 03/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: 27aa7abee8051ab7d10e9a5da4dd54f4a50eaaa7
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: ff08ea2b6231b2344244b14e44bcfd9acd065508
+ms.lasthandoff: 03/27/2017
 
 
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>Общие сведения о пакетах SDK для Azure IoT и их использование
-## <a name="azure-iot-device-sdk"></a>Пакет SDK для устройств Azure IoT
+
+Существуют три категории пакетов SDK для работы с Центром Интернета вещей.
+
+* **Пакеты SDK для устройств** позволяют создавать приложения, работающие на ваших устройствах Интернета вещей. Эти приложения отправляют данные телеметрии в центр Интернета вещей и при необходимости получают из него сообщения.
+
+* **Пакеты SDK для служб** позволяют управлять Центром Интернета вещей и при необходимости отправлять сообщения на устройства Интернета вещей.
+
+* **Пакеты SDK для шлюза** позволяют создавать шлюзы, чтобы подключать устройства, не использующие ни один из поддерживаемых протоколов, или чтобы обрабатывать сообщения на границе, если это необходимо.
+
+Пакеты SDK предоставляются для поддержки нескольких языков программирования.
+
+## <a name="azure-iot-device-sdks"></a>Пакеты SDK для устройств Azure IoT
+
 Пакеты SDK для устройств центра Microsoft Azure IoT содержат код, упрощающий построение устройств и приложений, которые подключаются к службам центра IoT и управляются с помощью этих служб.
 
 В GitHub для скачивания доступны следующие пакеты SDK для устройств Azure IoT:
@@ -39,10 +51,12 @@ ms.lasthandoff: 03/02/2017
 > 
 > 
 
-## <a name="os-platform-and-hardware-compatibility"></a>Платформа ОС и совместимость оборудования
+### <a name="os-platform-and-hardware-compatibility"></a>Платформа ОС и совместимость оборудования
+
 Дополнительные сведения о совместимости пакета SDK с определенными устройствами см. в [каталоге устройств, сертифицированных по программе Microsoft Azure Certified for IoT][lnk-certified].
 
-## <a name="azure-iot-service-sdk"></a>Пакет SDK для служб Azure IoT
+## <a name="azure-iot-service-sdks"></a>Пакеты SDK для служб Azure IoT
+
 Пакеты SDK для службы Интернета вещей Azure содержат код, который облегчает создание приложений, взаимодействующих непосредственно с Центром Интернета вещей, для управления устройствами и безопасностью.
 
 В GitHub для скачивания доступны следующие пакеты SDK для служб Azure IoT:
@@ -55,15 +69,15 @@ ms.lasthandoff: 03/02/2017
 
 > [!NOTE]
 > Сведения об установке двоичных файлов и зависимостей на компьютере для разработки с помощью диспетчера пакетов, зависящего от языка или платформы, см. в файле сведений в репозиториях GitHub.
-> 
-> 
 
-## <a name="azure-iot-gateway-sdk"></a>Пакет SDK для шлюза IoT Azure
+## <a name="azure-iot-gateway-sdks"></a>Пакеты SDK для шлюза Azure IoT
+
 Этот пакет SDK для шлюза IoT Azure содержит инфраструктуру и модули, предназначенные для создания решений шлюза IoT. Вы можете расширить пакет SDK, чтобы создавать шлюзы, адаптированные к любому комплексному сценарию.
 
 [Пакет SDK для шлюза Azure IoT][lnk-gateway-sdk] можно скачать с сайта GitHub.
 
 ## <a name="online-api-reference-documentation"></a>Справочная документация по API в Интернете
+
 Ниже приведен список ссылок на электронную справочную документацию по API для библиотек шлюзов, служб и устройств Интернета вещей Azure.
 
 * [Интернет вещей (IoT) .NET][lnk-dotnet-ref]
@@ -76,6 +90,7 @@ ms.lasthandoff: 03/02/2017
 * [Пакет SDK для шлюза Azure IoT][lnk-gateway-ref]
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Другие справочные статьи в руководстве для разработчиков Центра Интернета вещей:
 
 * [IoT Hub endpoints][lnk-devguide-endpoints] (Конечные точки Центра Интернета вещей)
@@ -100,10 +115,10 @@ ms.lasthandoff: 03/02/2017
 [lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
 [lnk-c-ref]: https://azure.github.io/azure-iot-sdk-c/index.html
 [lnk-java-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device
-[lnk-node-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.7/index.html
+[lnk-node-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.8/index.html
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
 [lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth
-[lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.7/index.html
+[lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.8/index.html
 [lnk-gateway-ref]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md

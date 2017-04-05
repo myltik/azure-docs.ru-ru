@@ -12,23 +12,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 03/27/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: a27ec9e1ebfde3493e41c493b85c0dc7f0ada2a0
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 80ad4ee51dc03c588e9da6a3277120c685839a2b
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Перемещение данных в локальную базу данных Oracle и обратно с помощью фабрики данных Azure
-В этой статье описано использование действия копирования в фабрике данных для перемещения данных в Oracle из другого хранилища данных и обратно. В этой статье мы продолжим тему о [действиях перемещения данных](data-factory-data-movement-activities.md) , в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
+В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure перемещать данные в локальную базу данных Oracle и обратно. Это продолжение статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования. 
 
+Данные можно скопировать из любого поддерживаемого в качестве источника хранилища данных в базу данных Oracle или из базы данных Oracle в любое поддерживаемое в качестве приемника хранилище данных. Список хранилищ данных, которые поддерживаются в качестве источников и приемников для действия копирования, см. в таблице [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
+
+## <a name="prerequisites"></a>Предварительные требования
 Фабрика данных поддерживает подключение к локальным источникам Oracle с помощью шлюза управления данными. Сведения о шлюзе управления данными см. в статье [Шлюз управления данными](data-factory-data-management-gateway.md), а пошаговые инструкции по настройке шлюза для перемещения данных с использованием конвейера — в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
 
+Шлюз является обязательным, даже если база данных Oracle размещается на виртуальной машине Azure IaaS. Шлюз можно установить на той же ВМ IaaS, на которой размещается хранилище данных, или на другой ВМ. Важно, чтобы шлюз мог подключиться к базе данных.
+
 > [!NOTE]
-> Шлюз является обязательным, даже если база данных Oracle размещается на виртуальной машине Azure IaaS. Шлюз можно установить на той же ВМ IaaS, на которой размещается хранилище данных, или на другой ВМ. Важно, чтобы шлюз мог подключиться к базе данных.
->
+> Советы по устранению неполадок, связанных со шлюзом или подключением, см. в разделе [Устранение неполадок в работе шлюза](data-factory-data-management-gateway.md#troubleshooting-gateway-issues).
 
 ## <a name="supported-versions-and-installation"></a>Поддерживаемые версии и установка
 Соединитель Oracle поддерживает две версии драйверов:
@@ -39,23 +43,118 @@ ms.lasthandoff: 03/18/2017
     > В настоящее время драйвер Майкрософт для Oracle поддерживает копирование данных из базы данных Oracle, но не поддерживает запись к базу данных Oracle. Обратите внимание, что этот драйвер не поддерживает возможность тестирования подключения на вкладке "Диагностика" в шлюзе управления данными. Кроме того, для проверки подключения можно воспользоваться мастером копирования.
     >
 
-- **Поставщик данных Oracle для .NET**. Шлюз управления данными версии 2.7 или более поздней версии содержит этот компонент, поэтому не нужно устанавливать его отдельно. Если используется шлюз версии, предшествующей версии 2.7, рекомендуется установить последнюю версию шлюза [отсюда](https://www.microsoft.com/download/details.aspx?id=39717). Версию шлюза можно найти на странице справки диспетчера конфигурации шлюза управления данными (выполните поиск "шлюз управления данными").
+- **Поставщик данных Oracle для .NET**: для копирования данных в базу данных Oracle и из нее также можно использовать поставщик данных Oracle. Входит в состав [компонентов доступа к данным Oracle для Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Установите соответствующую версию (32- или 64- разрядную) на компьютере, на котором установлен шлюз. [Поставщик данных Oracle для .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) может обращаться к Oracle Database 10g версии 2 или более поздней версии.
 
-## <a name="copy-data-wizard"></a>Мастер копирования данных
-Самый простой способ создать конвейер, копирующий данные в базу данных Oracle или из нее в любое поддерживаемое хранилище-приемник, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
+    Если вы выбрали "XCopy Installation" (Установка XCopy), то следуйте инструкциям в файле readme.htm. Мы советуем выбрать установщик через пользовательский интерфейс (а не через XCopy).
+    
+    После установки поставщика **перезапустите** на компьютере службу узла шлюза управления данными, используя приложение "Службы" или диспетчер конфигурации шлюза управления данными.  
 
+## <a name="getting-started"></a>Приступая к работе
+Создать конвейер с действием копирования, который перемещает данные из локальной базы данных Oracle или в нее, можно с помощью различных инструментов и интерфейсов API.
+
+Проще всего создать конвейер с помощью **мастера копирования**. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
+
+Также для создания конвейера можно использовать следующие инструменты: **портал Azure**, **Visual Studio**, **Azure PowerShell**, **шаблон Azure Resource Manager**, **API .NET** и **REST API**. Пошаговые инструкции по созданию конвейера с действием копирования см. в [руководстве по действию копирования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+
+Независимо от того, используются инструменты или интерфейсы API, для создания конвейера, который перемещает данные из источника данных в приемник, выполняются следующие шаги. 
+
+1. Создайте **связанные службы**, чтобы связать входные и выходные данные с фабрикой данных.
+2. Создайте **наборы данных**, которые представляют входные и выходные данные для операции копирования. 
+3. Создайте **конвейер** с действием копирования, который принимает входной набор данных и возвращает выходной набор данных. 
+
+Если вы используете мастер, то он автоматически создает определения JSON для сущностей фабрики данных (связанных служб, наборов данных и конвейера). При использовании инструментов и интерфейсов API (за исключением API .NET) вы самостоятельно определяете эти сущности фабрики данных в формате JSON.  Примеры с определениями JSON для сущностей фабрики данных, которые используются для копирования данных в локальную базу данных Oracle и обратно, см. в разделе [Примеры JSON](#json-examples) далее в этой статье. 
+
+Следующие разделы содержат сведения о свойствах JSON, которые используются для определения сущностей фабрики данных. 
+
+## <a name="linked-service-properties"></a>Свойства связанной службы
+В следующей таблице содержится описание элементов JSON, которые относятся к связанной службе Oracle.
+
+| Свойство | Описание | Обязательно |
+| --- | --- | --- |
+| type |Для свойства type необходимо задать значение **OnPremisesOracle** |Да |
+| driverType | Укажите, какой драйвер следует использовать для копирования данных в базу данных Oracle и из нее. Допустимые значения: **Майкрософт** или **ODP** (по умолчанию). Дополнительные сведения о драйверах см. в разделе [Поддерживаемые версии и установка](#supported-versions-and-installation). | Нет |
+| connectionString | В свойстве connectionString указываются сведения, необходимые для подключения к экземпляру базы данных Oracle. | Да |
+| gatewayName | Имя шлюза, который будет использоваться для подключения к локальному серверу Oracle. |Да |
+
+**Пример: использование драйвера Майкрософт**
+```json
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
+        "type": "OnPremisesOracle",
+        "typeProperties": {
+            "driverType": "Microsoft",
+            "connectionString":"Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
+
+**Пример: использование драйвера ODP**
+
+Допустимые форматы приведены на [этом сайте](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
+
+```json
+{
+    "name": "OnPremisesOracleLinkedService",
+    "properties": {
+        "type": "OnPremisesOracle",
+        "typeProperties": {
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<hostname>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<SID>)));
+User Id=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
+}
+```
+
+## <a name="dataset-properties"></a>Свойства набора данных
+Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Такие разделы, как структура, доступность и политика набора данных JSON, одинаковы для всех видов наборов данных (Oracle, большие двоичные объекты Azure, таблицы Azure и т. д.).
+
+Раздел typeProperties во всех типах наборов данных разный. В нем содержатся сведения о расположении данных в хранилище данных. Раздел typeProperties набора данных с типом OracleTable обладает следующими свойствами.
+
+| Свойство | Описание | Обязательно |
+| --- | --- | --- |
+| tableName |Имя таблицы в базе данных Oracle, на которое ссылается связанная служба. |Нет (если указан параметр **oracleReaderQuery** объекта **OracleSource**) |
+
+## <a name="copy-activity-properties"></a>Свойства действия копирования
+Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Свойства (включая имя, описание, входные и выходные таблицы, политику и т. д.) доступны для всех типов действий.
+
+> [!NOTE]
+> Действие копирования принимает только один набор входных данных и возвращает только один набор выходных.
+
+В свою очередь свойства, доступные в разделе typeProperties действия, зависят от конкретного типа действия. Для действия копирования они различаются в зависимости от типов источников и приемников.
+
+### <a name="oraclesource"></a>OracleSource
+Если источник относится к типу **OracleSource**, в разделе **typeProperties** для действия копирования доступны следующие свойства:
+
+| Свойство | Описание | Допустимые значения | Обязательно |
+| --- | --- | --- | --- |
+| oracleReaderQuery |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Например, select * from MyTable <br/><br/>Если не указано другое, то выполняется следующая инструкция SQL: select * from MyTable |Нет (если для свойства **tableName** задано значение **dataset**). |
+
+### <a name="oraclesink"></a>OracleSink
+**OracleSink** поддерживает следующие свойства:
+
+| Свойство | Описание | Допустимые значения | Обязательно |
+| --- | --- | --- | --- |
+| writeBatchTimeout |Время ожидания до выполнения операции пакетной вставки, пока не завершится срок ее действия. |Интервал времени<br/><br/> Пример: 00:30:00 (30 минут). |Нет |
+| writeBatchSize |Вставляет данные в таблицу SQL, когда размер буфера достигает значения writeBatchSize. |Целое число (количество строк) |Нет (значение по умолчанию — 100) |
+| sqlWriterCleanupScript |Укажите запрос на выполнение действия копирования, позволяющий убедиться в том, что данные конкретного среза очищены. |Инструкция запроса. |Нет |
+| sliceIdentifierColumnName |Укажите имя столбца, в которое действие копирования добавляет автоматически созданный идентификатор среза. Этот идентификатор используется для очистки данных конкретного среза при повторном запуске. |Имя столбца с типом данных binary(32). |Нет |
+
+## <a name="json-examples"></a>Примеры JSON
 Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Вы узнаете, как копировать данные между базой данных Oracle и хранилищем BLOB-объектов Azure. Тем не менее данные можно копировать в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемников. Это делается с помощью действия копирования в фабрике данных Azure.   
 
-## <a name="sample-copy-data-from-oracle-to-azure-blob"></a>Пример копирования данных из Oracle в хранилище BLOB-объектов Azure
-В этом примере показано, как скопировать данные из локальной базы данных Oracle в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать **непосредственно** в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемников. Это делается с помощью действия копирования в фабрике данных Azure.  
+## <a name="example-copy-data-from-oracle-to-azure-blob"></a>Пример копирования данных из Oracle в большой двоичный объект Azure
 
 Образец состоит из следующих сущностей фабрики данных.
 
-1. Связанная служба типа [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
-2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. Входной [набор данных](data-factory-create-datasets.md) типа [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
-4. Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) в качестве источника и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) в качестве приемника.
+1. Связанная служба типа [OnPremisesOracle](data-factory-onprem-oracle-connector.md#linked-service-properties).
+2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. Входной [набор данных](data-factory-create-datasets.md) типа [OracleTable](data-factory-onprem-oracle-connector.md#dataset-properties).
+4. Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [OracleSource](data-factory-onprem-oracle-connector.md#copy-activity-properties) в качестве источника и [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) в качестве приемника.
 
 В примере данные из локальной таблицы Oracle ежечасно копируются в хранилище BLOB-объектов. Дополнительные сведения о различных свойствах, используемых в примере, см. в документации, ссылки на которую приведены в разделах после примеров.
 
@@ -233,16 +332,16 @@ ms.lasthandoff: 03/18/2017
 }
 ```
 
-## <a name="sample-copy-data-from-azure-blob-to-oracle"></a>Пример копирования данных из BLOB-объекта Azure в Oracle
+## <a name="example-copy-data-from-azure-blob-to-oracle"></a>Пример копирования данных из большого двоичного объекта Azure в Oracle
 В этом примере показано, как скопировать данные из хранилища BLOB-объектов Azure в локальную базу данных Oracle. Однако данные можно **напрямую** копировать из любого указанного [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) источника, используя действие копирования в фабрике данных Azure.  
 
 Образец состоит из следующих сущностей фабрики данных.
 
-1. Связанная служба типа [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
-2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
-3. Входной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. Выходной [набор данных](data-factory-create-datasets.md) типа [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties).
-5. [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) в качестве источника и [OracleSink](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) в качестве приемника.
+1. Связанная служба типа [OnPremisesOracle](data-factory-onprem-oracle-connector.md#linked-service-properties).
+2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
+3. Входной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+4. Выходной [набор данных](data-factory-create-datasets.md) типа [OracleTable](data-factory-onprem-oracle-connector.md#dataset-properties).
+5. [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) в качестве источника и [OracleSink](data-factory-onprem-oracle-connector.md#copy-activity-properties) в качестве приемника.
 
 В примере данные из хранилища BLOB-объектов каждый час копируются в таблицу в локальной базе данных Oracle. Дополнительные сведения о различных свойствах, используемых в примере, см. в документации, ссылки на которую приведены в разделах после примеров.
 
@@ -405,85 +504,6 @@ ms.lasthandoff: 03/18/2017
 }
 ```
 
-## <a name="oracle-linked-service-properties"></a>Свойства связанной службы Oracle
-В следующей таблице содержится описание элементов JSON, которые относятся к связанной службе Oracle.
-
-| Свойство | Описание | Обязательно |
-| --- | --- | --- |
-| type |Для свойства type необходимо задать значение **OnPremisesOracle** |Да |
-| driverType | Укажите, какой драйвер следует использовать для копирования данных в базу данных Oracle и из нее. Допустимые значения: **Майкрософт** или **ODP** (по умолчанию). Дополнительные сведения о драйверах см. в разделе [Поддерживаемые версии и установка](#supported-versions-and-installation). | Нет |
-| connectionString | В свойстве connectionString указываются сведения, необходимые для подключения к экземпляру базы данных Oracle. | Да |
-| gatewayName | Имя шлюза, который будет использоваться для подключения к локальному серверу Oracle. |Да |
-
-Дополнительные сведения о настройке учетных данных для локального источника данных Oracle см. в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
-
-**Пример: использование драйвера Майкрософт**
-```JSON
-{
-    "name": "OnPremisesOracleLinkedService",
-    "properties": {
-        "type": "OnPremisesOracle",
-        "typeProperties": {
-            "driverType": "Microsoft",
-            "connectionString":"Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;",
-            "gatewayName": "<gateway name>"
-        }
-    }
-}
-```
-
-**Пример: использование драйвера ODP**
-
-Другие допустимые форматы приведены на [этом сайте](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
-```JSON
-{
-    "name": "OnPremisesOracleLinkedService",
-    "properties": {
-        "type": "OnPremisesOracle",
-        "typeProperties": {
-            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<hostname>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<SID>)));
-User Id=<username>;Password=<password>;",
-            "gatewayName": "<gateway name>"
-        }
-    }
-}
-```
-
-## <a name="oracle-dataset-type-properties"></a>Свойства типа "Набор данных Oracle"
-Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Такие разделы, как структура, доступность и политика набора данных JSON, одинаковы для всех видов наборов данных (Oracle, большие двоичные объекты Azure, таблицы Azure и т. д.).
-
-Раздел typeProperties во всех типах наборов данных разный. В нем содержатся сведения о расположении данных в хранилище данных. Раздел typeProperties набора данных с типом OracleTable обладает следующими свойствами.
-
-| Свойство | Описание | Обязательно |
-| --- | --- | --- |
-| tableName |Имя таблицы в базе данных Oracle, на которое ссылается связанная служба. |Нет (если указан параметр **oracleReaderQuery** объекта **OracleSource**) |
-
-## <a name="oracle-copy-activity-type-properties"></a>Свойства типа "Действие копирования Oracle"
-Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Свойства (включая имя, описание, входные и выходные таблицы, политику и т. д.) доступны для всех типов действий.
-
-> [!NOTE]
-> Действие копирования принимает только один набор входных данных и возвращает только один набор выходных.
->
->
-
-В свою очередь свойства, доступные в разделе typeProperties действия, зависят от конкретного типа действия. Для действия копирования они различаются в зависимости от типов источников и приемников.
-
-### <a name="oraclesource"></a>OracleSource
-Если источник относится к типу **OracleSource**, в разделе **typeProperties** для действия копирования доступны следующие свойства:
-
-| Свойство | Описание | Допустимые значения | Обязательно |
-| --- | --- | --- | --- |
-| oracleReaderQuery |Используйте пользовательский запрос для чтения данных. |Строка запроса SQL. Например: select *from MyTable <br/><br/>Если не указано другое, выполняется следующая инструкция SQL: select* from MyTable |Нет (если для свойства **tableName** задано значение **dataset**). |
-
-### <a name="oraclesink"></a>OracleSink
-**OracleSink** поддерживает следующие свойства:
-
-| Свойство | Описание | Допустимые значения | Обязательно |
-| --- | --- | --- | --- |
-| writeBatchTimeout |Время ожидания до выполнения операции пакетной вставки, пока не завершится срок ее действия. |Интервал времени<br/><br/> Пример: 00:30:00 (30 минут). |Нет |
-| writeBatchSize |Вставляет данные в таблицу SQL, когда размер буфера достигает значения writeBatchSize. |Целое число (количество строк) |Нет (значение по умолчанию — 100) |
-| sqlWriterCleanupScript |Укажите запрос на выполнение действия копирования, позволяющий убедиться в том, что данные конкретного среза очищены. |Инструкция запроса. |Нет |
-| sliceIdentifierColumnName |Укажите имя столбца, в которое действие копирования добавляет автоматически созданный идентификатор среза. Этот идентификатор используется для очистки данных конкретного среза при повторном запуске. |Имя столбца с типом данных binary(32). |Нет |
 
 ## <a name="troubleshooting-tips"></a>Советы по устранению неполадок
 ### <a name="problem-1-net-framework-data-provider"></a>Проблема 1: поставщик данных .NET Framework
@@ -518,8 +538,6 @@ User Id=<username>;Password=<password>;",
 
     "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
-
-[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### <a name="type-mapping-for-oracle"></a>Сопоставление типов для Oracle
 Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа:
@@ -557,9 +575,12 @@ User Id=<username>;Password=<password>;",
 
 > [!NOTE]
 > При использовании драйвера Майкрософт типы данных **INTERVAL YEAR TO MONTH** и **INTERVAL DAY TO SECOND** не поддерживаются.
->
 
-[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+## <a name="map-source-to-sink-columns"></a>Сопоставление столбцов источника и приемника
+Дополнительные сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в разделе [Сопоставление столбцов исходного набора данных со столбцами целевого набора данных](data-factory-map-columns.md).
+
+## <a name="repeatable-read-from-relational-sources"></a>Повторяющиеся операции чтения из реляционных источников
+При копировании данных из реляционных хранилищ важно помнить о повторяемости, чтобы избежать непредвиденных результатов. В фабрике данных Azure можно вручную повторно выполнить срез. Вы можете также настроить для набора данных политику повтора, чтобы при сбое срез выполнялся повторно. При повторном выполнении среза в любом случае необходимо убедиться в том, что считываются те же данные, независимо от того, сколько раз выполняется срез. Ознакомьтесь с разделом [Повторяющиеся операции чтения из реляционных источников](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Производительность и настройка
 Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.

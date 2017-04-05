@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/01/2017
-ms.author: babanisa
+ms.date: 03/27/2017
+ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: abcb0eee979853948cf6d981ff8f3a457eeeeef0
-ms.openlocfilehash: 87c0f3eab8c09c79de06c2e806830b2f67ea5732
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b0484b2d4f6474be728531fbda65896f30eccc4
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Журналы диагностики концентраторов событий
 
 Для концентраторов событий Azure можно просмотреть журналы двух типов.
-* **[Журналы действий](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Эти журналы содержат сведения об операциях, выполняемых с заданием. Эти журналы всегда включены.
+* **[Журналы действий](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Эти журналы содержат сведения об операциях, выполняемых с заданием. Данные журналы всегда включены.
 * **[Журналы диагностики](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Вы можете настроить журналы диагностики, чтобы получать более подробные сведения обо всем, что происходит с заданием. Журналы диагностики охватывают действия с момента создания задания до его удаления, включая обновления и действия, которые происходят во время выполнения задания.
 
 ## <a name="turn-on-diagnostic-logs"></a>Включение журналов диагностики
-По умолчанию журналы диагностики **отключены**. Во как их можно включить.
+По умолчанию журналы диагностики **отключены**. Включение журналов диагностики
 
 1.    На портале Azure перейдите в колонку задания потоковой передачи.
 
@@ -77,13 +77,13 @@ resourceId | Идентификатор ресурса Azure Resource Manager.
 eventHub | Полное имя концентратора событий (включает в себя имя пространства имен).
 partitionId | Секция концентратора событий, в которую записываются данные.
 archiveStep | ArchiveFlushWriter
-startTime | Время начала сбоя
+startTime | Время начала сбоя.
 failures | Количество произошедших сбоев.
-durationInSeconds | Продолжительность сбоя
-Message | Сообщение об ошибке
+durationInSeconds | Продолжительность сбоя.
+Message | Сообщение об ошибке.
 category | ArchiveLogs
 
-Ниже приведен пример строки JSON архивного журнала.
+Ниже приведен пример строки JSON журнала архивирования.
 
 ```json
 {
@@ -109,13 +109,13 @@ category | ArchiveLogs
 Имя | Описание
 ------- | -------
 ActivityId | Внутренний идентификатор, используемый для отслеживания.
-EventName | Имя операции             
+EventName | Имя операции.     
 resourceId | Идентификатор ресурса Azure Resource Manager.
-SubscriptionId | Идентификатор подписки
-EventTimeString | Время операции
-EventProperties | Свойства операции
-Состояние | Состояние операции.
-Вызывающий объект | Объект, вызвавший операцию (портал Azure или клиент управления).
+SubscriptionId | Идентификатор подписки.
+EventTimeString | Время операции.
+EventProperties | Свойства операции.
+Status | Состояние операции.
+Caller | Объект, вызвавший операцию (портал Azure или клиент управления).
 category | OperationalLogs
 
 Ниже приведен пример строки JSON журнала операций.

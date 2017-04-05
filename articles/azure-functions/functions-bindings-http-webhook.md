@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: d405c58bf658222ceb72cc2b73e71f2ae1e1ed8d
-ms.openlocfilehash: ce7534b9ff675e1ae0902ba936e1ea897d80d936
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 06958522139d621f86afd8bf25128ee64cf822b3
+ms.lasthandoff: 03/29/2017
 
 
 ---

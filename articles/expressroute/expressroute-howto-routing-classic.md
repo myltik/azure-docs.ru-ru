@@ -1,10 +1,10 @@
 ---
-title: "Настройка маршрутизации для канала ExpressRoute при классической модели развертывания с помощью PowerShell | Документация Майкрософт"
+title: "Как настроить маршрутизацию (пиринг) для канала ExpressRoute в Azure (классическая модель) | Документация Майкрософт"
 description: "В этой статье описана процедура создания и подготовки частного пиринга, общедоступного пиринга и пиринга Microsoft для канала ExpressRoute, а также показано, как проверить состояние, обновить или удалить пиринги для канала."
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
-ms.author: ganesr
+ms.date: 03/21/2017
+ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
-ms.openlocfilehash: 66c06ab6beb5e1de9cba25382834f4f9f209fa2f
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 6315e0fda231f2bfd3a92cf03cea7cd558bfda37
+ms.lasthandoff: 03/24/2017
 
 
 ---
-# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Создание и изменение маршрутизации для канала ExpressRoute
+# <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Создание и изменение пиринга для канала ExpressRoute (классическая модель)
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [Resource Manager — PowerShell](expressroute-howto-routing-arm.md)
@@ -35,13 +35,15 @@ ms.lasthandoff: 12/14/2016
 
 В этой статье описано, как создавать настройку маршрутизации ExpressRoute и управлять ей, используя командлеты PowerShell и классическую модель развертывания. Ниже описывается, как проверить состояние, обновить или удалить и отозвать пиринги для канала ExpressRoute.
 
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
+
 **О моделях развертывания Azure**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Предварительные требования для настройки
-* Вам потребуется последняя версия модулей Azure PowerShell. Последнюю версию модуля PowerShell можно загрузить из раздела PowerShell на [странице загрузок Azure](https://azure.microsoft.com/downloads/). Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell приведены в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) . 
-* Прежде чем приступить к настройке, обязательно изучите [предварительные требования](expressroute-prerequisites.md), [требования к маршрутизации](expressroute-routing.md) и [рабочие процессы](expressroute-workflows.md).
+* Потребуется установить последнюю версию командлетов PowerShell для управления службами Azure. Дополнительные сведения см. в разделе [Приступая к работе с командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Прежде чем приступать к настройке, обязательно изучите [предварительные требования](expressroute-prerequisites.md), [требования к маршрутизации](expressroute-routing.md) и [рабочие процессы](expressroute-workflows.md).
 * Вам потребуется активный канал ExpressRoute. Перед тем как продолжить, [создайте канал ExpressRoute](expressroute-howto-circuit-classic.md) и включите его на стороне поставщика услуг подключения. Для выполнения описанных ниже командлетов канал ExpressRoute должен быть подготовлен и включен.
 
 > [!IMPORTANT]
@@ -49,7 +51,26 @@ ms.lasthandoff: 12/14/2016
 > 
 > 
 
-Для каждого канала ExpressRoute можно настроить один, два или три пиринга (частный пиринг Azure, общедоступный пиринг Azure и пиринг Microsoft). Пиринги можно настраивать в любом порядке, главное, выполнять их конфигурацию по очереди. 
+Для каждого канала ExpressRoute можно настроить один, два или три пиринга (частный пиринг Azure, общедоступный пиринг Azure и пиринг Microsoft). Пиринги можно настраивать в любом порядке, главное, выполнять их конфигурацию по очереди.
+
+
+### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Войдите в учетную запись Azure и выберите подписку
+1. Откройте консоль PowerShell с повышенными правами и подключитесь к своей учетной записи. Для подключения используйте следующий пример кода:
+
+        Login-AzureRmAccount
+
+2. Просмотрите подписки учетной записи.
+
+        Get-AzureRmSubscription
+
+3. При наличии нескольких подписок выберите подписку, которую вы хотите использовать.
+
+        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+4. Затем воспользуйтесь следующим командлетом, чтобы добавить подписку Azure в PowerShell для классической модели развертывания.
+
+        Add-AzureAccount
+
 
 ## <a name="azure-private-peering"></a>Частный пиринг Azure
 В этом разделе описано, как создать, получить, обновить и удалить конфигурацию частного пиринга Azure для канала ExpressRoute. 
@@ -93,13 +114,13 @@ ms.lasthandoff: 12/14/2016
    * Номер AS для пиринга. Можно использовать 2-байтовые и 4-байтовые номера AS. Для этого пиринга можно использовать частный номер AS. Не используйте номер 65515.
    * Хэш MD5, если вы решите его использовать. **Это необязательно**.
      
-     Чтобы настроить общедоступный пиринг Azure для своего канала, выполните следующий командлет.
+    Чтобы настроить общедоступный пиринг Azure для своего канала, выполните следующий командлет.
      
-       New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+          New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
      
-     Если вы решили использовать MD5-хэш, используйте следующий командлет:
+    Если вы решили использовать MD5-хэш, используйте следующий командлет:
      
-       New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+          New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
@@ -183,13 +204,13 @@ ms.lasthandoff: 12/14/2016
    * Номер AS для пиринга. Можно использовать 2-байтовые и 4-байтовые номера AS.
    * Хэш MD5, если вы решите его использовать. **Это необязательно**.
      
-     Чтобы настроить общедоступный пиринг Azure для своего канала, выполните следующий командлет.
+    Чтобы настроить общедоступный пиринг Azure для своего канала, выполните следующий командлет.
      
-       New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+          New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
      
-     Если вы решили использовать MD5-хэш, используйте следующий командлет:
+    Если вы решили использовать MD5-хэш, используйте следующий командлет:
      
-       New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+          New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
      
      > [!IMPORTANT]
      > Номер AS должен быть указан в качестве ASN пиринга, а не ASN клиента.
@@ -272,9 +293,9 @@ ms.lasthandoff: 12/14/2016
    * Имя реестра маршрутизации: можно указать RIR/IRR, в котором зарегистрированы номер AS и префиксы.
    * Хэш MD5, если вы решите его использовать. **Это необязательно.**
      
-     Чтобы настроить пиринг Microsoft для своего канала, выполните следующий командлет:
+    Чтобы настроить пиринг Microsoft для своего канала, выполните следующий командлет:
      
-       New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+          New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 ### <a name="to-view-microsoft-peering-details"></a>Просмотр сведений о пиринге Майкрософт
 Для получения сведений о конфигурации можно использовать следующий командлет:
@@ -298,7 +319,7 @@ ms.lasthandoff: 12/14/2016
 ### <a name="to-update-microsoft-peering-configuration"></a>Обновление конфигурации пиринга Майкрософт
 С помощью указанного ниже командлета можно обновить любую часть конфигурации.
 
-        Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+    Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 ### <a name="to-delete-microsoft-peering"></a>Удаление пиринга Майкрософт
 Для удаления конфигурации пиринга выполните следующий командлет:

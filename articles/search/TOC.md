@@ -34,7 +34,6 @@
 ## Управление
 ### Администрирование Поиска Azure
 #### [Портал Azure](search-manage.md)
-#### [REST](search-get-started-management-api.md)
 #### [PowerShell](search-manage-powershell.md)
 ### [Мониторинг использования и статистики](search-monitor-usage.md)
 ### [Поиск в аналитике трафика](search-traffic-analytics.md)
@@ -85,8 +84,3 @@
 ### [Форум](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Поиск Azure и GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 03/14/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: cbe7011f827418c1094c4e262e016cb93d6d224c
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: dcf089d680249d0a2f9d748b315076d91c8c78e8
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -70,6 +70,7 @@ ms.lasthandoff: 03/17/2017
 
 Служба Logic Apps также поддерживает интеграцию со многими службами, включая Функции Azure, управление API Azure, службы приложений Azure и пользовательские конечные точки HTTP, например REST и SOAP.
 
+* [Создание панели мониторинга сведений о клиентах в режиме реального времени с помощью Функций Azure и Azure Logic Apps](logic-apps-scenario-social-serverless.md)
 * [Вызов Функций Azure из приложений логики](../logic-apps/logic-apps-azure-functions.md)
 * [Сценарий. Активация приложений логики с помощью Функций Azure](logic-apps-scenario-function-sb-trigger.md)
 * [Блог. Вызов конечных точек SOAP из приложения логики](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)

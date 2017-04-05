@@ -16,6 +16,7 @@
 ### [Балансировка нагрузки контейнеров DC/OS](container-service-load-balancing.md)
 ### [Оркестратор для пользователей или приложений в DC/OS](container-service-application-specific-marathon.md)
 ### [Добавление общего файлового ресурса](container-service-dcos-fileshare.md)
+### [Использование реестра контейнеров Azure](container-service-dcos-acr.md)
 ### Отслеживание DC/OS
 #### [Отслеживание с помощью ELK](container-service-monitoring-elk.md)
 #### [Отслеживание с помощью OMS](container-service-monitoring-oms.md)
@@ -36,6 +37,7 @@
 ## Управление с помощью Docker Swarm
 ### [Docker и Docker Compose](container-service-docker-swarm.md)
 ### [Непрерывная интеграция с Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
+## [Безопасные контейнеры](container-service-security.md)
 # Справочные материалы
 ## [Azure CLI 2.0](/cli/azure/acs)
 ## [REST](/rest/api/compute/containerservices)
@@ -43,3 +45,4 @@
 ## [Доступность регионов](https://azure.microsoft.com/regions/services/)
 ## [Цены](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-service)

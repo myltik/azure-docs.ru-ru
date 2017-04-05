@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 03/24/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 75b7cee2485d1d68fee8dcd65ade84995dcdb9be
-ms.openlocfilehash: fc5bc67fd38fe8a8c4499257a29bc0f0ec71468c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 32b12bcb7410fcc74450422767e9d92fef38ebdc
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/03/2017
 > 
 > 
 
-Эта статья поможет вам связать виртуальные сети с каналами Azure ExpressRoute с помощью модели развертывания Resource Manager и PowerShell. Виртуальные сети могут входить в одну и ту же подписку или в разные подписки.
+Эта статья поможет вам связать виртуальные сети с каналами Azure ExpressRoute с помощью модели развертывания Resource Manager и PowerShell. Виртуальные сети могут входить в одну и ту же подписку или в разные подписки. В этой статье также показано, как обновить связь виртуальной сети. 
 
 **О моделях развертывания Azure**
 
@@ -147,6 +147,18 @@ ms.lasthandoff: 02/03/2017
 **Освобождение разрешений на подключение**
 
 Разрешение можно освободить, удалив подключение, связывающее канал ExpressRoute и виртуальную сеть.
+
+## <a name="modify-a-virtual-network-connection"></a>Изменение подключения к виртуальной сети
+Вы можете изменить определенные свойства подключения к виртуальной сети. 
+
+### <a name="update-the-connection-weight"></a>Изменение веса подключения
+Виртуальная сеть может подключаться к нескольким каналам ExpressRoute. Одинаковый префикс может быть получен из нескольких каналов ExpressRoute. Чтобы выбрать подключение для отправки трафика, предназначенного для этого префикса, можно изменить значение *RoutingWeight* подключения. Трафик будет отправляться через подключение с самым высоким значением *RoutingWeight*.
+
+    $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "MyVirtualNetworkConnection" -ResourceGroupName "MyRG"
+    $connection.RoutingWeight = 100
+    Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
+
+Диапазон значений *RoutingWeight*: 0 до 32 000. Значение по умолчанию — 0. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
