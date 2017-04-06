@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: dc8e9647d99b39cdee36ec11e144452326e2d968
 ms.openlocfilehash: 99a3e44730737a9e1b3db8eead6dfe181382962b
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,16 +33,16 @@ ms.openlocfilehash: 99a3e44730737a9e1b3db8eead6dfe181382962b
 >
 > При использовании HDInsight 3.4 или более поздней версии см. сведения о подключении к кластеру HDInsight и выполнении заданий MapReduce: [Использование MapReduce с Hadoop в HDInsight с помощью SSH](hdinsight-hadoop-use-mapreduce-ssh.md).
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Предварительные требования
+## <a id="prereq"></a>Предварительные требования
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 * Кластер HDInsight на платформе Windows (Hadoop в HDInsight).
 * Клиентский компьютер под управлением Windows 10, Windows 8 или Windows 7.
 
-## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>Подключение к удаленному рабочему столу
+## <a id="connect"></a>Подключение к удаленному рабочему столу
 Запустите протокол удаленного рабочего стола для кластера HDInsight, а затем выполните подключение, следуя инструкциям раздела [Подключение к кластерам HDInsight с использованием RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-## <a name="a-idhadoopause-the-hadoop-command"></a><a id="hadoop"></a>Использование команды Hadoop
+## <a id="hadoop"></a>Использование команды Hadoop
 После подключения к рабочему столу кластера HDInsight сделайте следующее, чтобы выполнить задание MapReduce с помощью команды Hadoop:
 
 1. На рабочем столе HDInsight запустите **командную строку Hadoop**. Откроется новое окно командной строки в каталоге **c:\apps\dist\hadoop-&lt;номер_версии>**.
@@ -89,10 +91,10 @@ ms.openlocfilehash: 99a3e44730737a9e1b3db8eead6dfe181382962b
         wretched        6
         wriggling       1
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Сводка
+## <a id="summary"></a>Сводка
 Как видите, команда Hadoop позволяет с легкостью выполнять задания MapReduce в кластере HDInsight и просматривать выходные данные задания.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
+## <a id="nextsteps"></a>Дальнейшие действия
 Общая информация о заданиях MapReduce в HDInsight:
 
 * [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md)
@@ -101,9 +103,4 @@ ms.openlocfilehash: 99a3e44730737a9e1b3db8eead6dfe181382962b
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
