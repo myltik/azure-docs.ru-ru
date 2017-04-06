@@ -374,7 +374,7 @@ ms.lasthandoff: 03/01/2017
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Цены на службу приложений]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Цены службы приложений]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Автоматическое масштабирование]: ../app-service-web/web-sites-scale.md
 [службы приложений Azure]: ../app-service/app-service-value-prop-what-is.md
