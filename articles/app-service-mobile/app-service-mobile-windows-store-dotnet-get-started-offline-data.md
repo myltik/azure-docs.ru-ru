@@ -35,7 +35,7 @@ ms.lasthandoff: 03/09/2017
 Для работы с этим руководством требуется следующее:
 
 * Visual Studio 2013 в Windows 8.1 или более поздней версии;
-* Выполнение заданий на странице [Создание приложения для Windows][create a windows app].
+* Выполнение заданий на странице [Создание приложения Windows][Создание приложения Windows].
 * [Хранилище SQLite для мобильных служб Azure][sqlite store nuget]
 * [SQLite для разработки универсальной платформы Windows](http://www.sqlite.org/downloads)
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 03/09/2017
 
 <!-- URLs. -->
 [Автономная синхронизация данных в мобильных приложениях Azure]: app-service-mobile-offline-data-sync.md
-[create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
+[Создание приложения Windows]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921

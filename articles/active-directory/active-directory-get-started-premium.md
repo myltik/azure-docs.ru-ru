@@ -3,8 +3,8 @@ title: "Приступая к работе с Azure Active Directory Premium"
 description: "Раздел, где объясняется, как подписаться на выпуск Azure Active Directory Premium на веб-сайте корпоративного лицензирования."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: curtand
+author: curtand
+manager: femila
 ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services
