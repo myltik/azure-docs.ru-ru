@@ -1206,7 +1206,7 @@ ms.lasthandoff: 03/21/2017
 * [Разработка программ MapReduce на Java для Hadoop в HDInsight на платформе Linux][hdinsight-develop-mapreduce]
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
-[website-get-started]: ../app-service-web/web-sites-dotnet-get-started.md
+[website-get-started]: ../app-service-web/app-service-web-get-started-dotnet.md
 
 
 
