@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,16 +33,16 @@ ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
 >
 > При использовании HDInsight 3.4 или более поздней версии см. сведения о выполнении интерактивных заданий Pig непосредственно в кластере из командной строки: [Use Pig with HDInsight and SSH](hdinsight-hadoop-use-pig-ssh.md) (Использование Pig в HDInsight с помощью SSH).
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Предварительные требования
+## <a id="prereq"></a>Предварительные требования
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 * Кластер HDInsight на платформе Windows (Hadoop в HDInsight).
 * Клиентский компьютер под управлением Windows 10, Windows 8 или Windows 7.
 
-## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>Подключение к удаленному рабочему столу
+## <a id="connect"></a>Подключение к удаленному рабочему столу
 Запустите протокол удаленного рабочего стола для кластера HDInsight, а затем выполните подключение, следуя инструкциям раздела [Подключение к кластерам HDInsight с использованием RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-## <a name="a-idpigause-the-pig-command"></a><a id="pig"></a>Использование команды Pig
+## <a id="pig"></a>Использование команды Pig
 1. Установив подключение к удаленному рабочему столу, запустите **командную строку Hadoop** с помощью значка на рабочем столе.
 2. Для выполнения команды Pig используйте следующее:
 
@@ -116,10 +118,10 @@ ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
         (ERROR,6)
         (FATAL,2)
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Сводка
+## <a id="summary"></a>Сводка
 Как вы видите, команда Pig позволяет интерактивно выполнять операции MapReduce или задания Pig Latin, хранимые в пакетном файле.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Дальнейшие действия
+## <a id="nextsteps"></a>Дальнейшие действия
 Общая информация о Pig в HDInsight:
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
@@ -128,9 +130,4 @@ ms.openlocfilehash: 3cf91abf83359f2157d0f8cd53e0b450bfd58d80
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

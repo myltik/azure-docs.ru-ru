@@ -25,7 +25,7 @@ ms.lasthandoff: 02/10/2017
 
 Узнайте больше об учетных записях DocumentDB в нескольких регионах в этом видео из цикла "Пятница с Azure" от Скотта Хенсельмана (Scott Hanselman) и главного технического руководителя Картика Рамана (Karthik Raman).
 
->[!ВИДЕО https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
 ## <a name="introduction"></a>Введение
 

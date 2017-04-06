@@ -34,7 +34,7 @@ ms.lasthandoff: 03/22/2017
 <br>
 Ниже приведена блок-схема с последовательностью действий во время переноса.
 
-![Снимок экрана с последовательностью операций переноса](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](./media/virtual-machines-windows-migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-plan-for-migration"></a>Шаг 1. Планирование миграции
 Ниже приведено несколько рекомендаций для оценки переноса ресурсов IaaS из классической модели в модель Resource Manager.
