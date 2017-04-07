@@ -250,7 +250,7 @@ ms.lasthandoff: 03/29/2017
 2. В колонке **Все параметры** в разделе **Параметры учетной записи** выберите **Свойства**. 
 3. Обратите внимание на значения в колонке **Свойства**.
 
- ![Колонка "Свойства" учетной записи службы автоматизации](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+![Колонка "Свойства" учетной записи службы автоматизации](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
 
 ### <a name="create-a-run-as-account-powershell-script"></a>Создание сценария PowerShell для учетной записи запуска от имени
 Этот сценарий PowerShell включает в себя поддержку следующих конфигураций:
@@ -415,7 +415,6 @@ ms.lasthandoff: 03/29/2017
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
-
 
         # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
