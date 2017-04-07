@@ -272,7 +272,7 @@ ms.lasthandoff: 03/22/2017
 В примере используются переменные [стандартных параметров решения](operations-management-suite-solutions-solution-file.md#parameters), что является общепринятой практикой для решений, в отличие от жестко программируемых значений в определениях ресурсов.
 
     {
-        "$schema": "http://schemas.microsoft.org/azure/deploymentTemplate?api-version=2015-01-01#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
         "parameters": {
           "workspaceName": {
