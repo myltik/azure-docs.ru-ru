@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/05/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
@@ -115,167 +115,172 @@ ms.lasthandoff: 03/29/2017
 
 **Связанная служба PostgreSQL**
 
-    {
-        "name": "OnPremPostgreSqlLinkedService",
-        "properties": {
-            "type": "OnPremisesPostgreSql",
-            "typeProperties": {
-                "server": "<server>",
-                "database": "<database>",
-                "schema": "<schema>",
-                "authenticationType": "<authentication type>",
-                "username": "<username>",
-                "password": "<password>",
-                "gatewayName": "<gatewayName>"
-            }
+```json
+{
+    "name": "OnPremPostgreSqlLinkedService",
+    "properties": {
+        "type": "OnPremisesPostgreSql",
+        "typeProperties": {
+            "server": "<server>",
+            "database": "<database>",
+            "schema": "<schema>",
+            "authenticationType": "<authentication type>",
+            "username": "<username>",
+            "password": "<password>",
+            "gatewayName": "<gatewayName>"
         }
     }
-
+}
+```
 **Связанная служба хранилища BLOB-объектов Azure**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
-        }
-      }
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
     }
-
+    }
+}
+```
 **Входной набор данных PostgreSQL**
 
 В примере предполагается, что вы уже создали таблицу MyTable в PostgreSQL и она содержит столбец с именем timestamp для данных временных рядов.
 
 Если параметру external присвоить значение true, фабрика данных воспримет этот набор данных как внешний и созданный не в результате какого-либо действия в этой службе.
 
-    {
-        "name": "PostgreSqlDataSet",
-        "properties": {
-            "type": "RelationalTable",
-            "linkedServiceName": "OnPremPostgreSqlLinkedService",
-            "typeProperties": {},
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
+```json
+{
+    "name": "PostgreSqlDataSet",
+    "properties": {
+        "type": "RelationalTable",
+        "linkedServiceName": "OnPremPostgreSqlLinkedService",
+        "typeProperties": {},
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
             }
         }
     }
-
+}
+```
 
 **Выходной набор данных BLOB-объекта Azure**
 
 Данные записываются в новый BLOB-объект каждый час (frequency: hour, interval: 1). Путь к папке с BLOB-объектом и имя файла вычисляются динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц, день и час времени начала.
 
-    {
-        "name": "AzureBlobPostgreSqlDataSet",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/postgresql/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ]
+```json
+{
+    "name": "AzureBlobPostgreSqlDataSet",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/postgresql/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 **Конвейер с действием копирования**
 
 Конвейер содержит действие копирования, которое использует входные и выходные наборы данных и выполняется ежечасно. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, заданный для свойства **query** , выбирает данные из таблицы public.usstates в базе данных PostgreSQL.
 
-    {
-        "name": "CopyPostgreSqlToBlob",
-        "properties": {
-            "description": "pipeline for copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "RelationalSource",
-                            "query": "select * from \"public\".\"usstates\""
-                        },
-                        "sink": {
-                            "type": "BlobSink"
-                        }
+```json
+{
+    "name": "CopyPostgreSqlToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+                        "query": "select * from \"public\".\"usstates\""
                     },
-                    "inputs": [
-                        {
-                            "name": "PostgreSqlDataSet"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobPostgreSqlDataSet"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "PostgreSqlToBlob"
-                }
-            ],
-            "start": "2014-06-01T18:00:00Z",
-            "end": "2014-06-01T19:00:00Z"
-        }
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "PostgreSqlDataSet"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobPostgreSqlDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "PostgreSqlToBlob"
+            }
+        ],
+        "start": "2014-06-01T18:00:00Z",
+        "end": "2014-06-01T19:00:00Z"
     }
-
+}
+```
 ## <a name="type-mapping-for-postgresql"></a>Сопоставление типов для PostgreSQL
 Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа:
 
@@ -286,46 +291,46 @@ ms.lasthandoff: 03/29/2017
 
 | Тип базы данных PostgreSQL | Псевдонимы PostgresSQL | Тип .NET Framework |
 | --- | --- | --- |
-| abstime | |Datetime |
+| abstime | |Datetime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [ (n) ] | |Byte[], String |
+| bit [ (n) ] | |Byte[], String | &nbsp;
 | bit varying [ (n) ] |varbit |Byte[], String |
 | Логическое |bool |Логическое |
-| box | |Byte[], String |
-| bytea | |Byte[], String |
+| box | |Byte[], String |&nbsp;
+| bytea | |Byte[], String |&nbsp;
 | character [ (n) ] |char [ (n) ] |Строка |
 | character varying [ (n) ] |varchar [ (n) ] |Строка |
-| cid | |Строка |
-| cidr | |Строка |
-| circle | |Byte[], String |
-| дата | |Datetime |
-| daterange | |Строка |
+| cid | |Строка |&nbsp;
+| cidr | |Строка |&nbsp;
+| circle | |Byte[], String |&nbsp;
+| дата | |Datetime |&nbsp;
+| daterange | |Строка |&nbsp;
 | double precision |float8 |Double |
-| inet | |Byte[], String |
-| intarry | |Строка |
-| int4range | |Строка |
-| int8range | |Строка |
+| inet | |Byte[], String |&nbsp;
+| intarry | |Строка |&nbsp;
+| int4range | |Строка |&nbsp;
+| int8range | |Строка |&nbsp;
 | целое число |int, int4 |Int32 |
-| interval [ fields ] [ (p) ] | |Timespan |
-| json | |Строка |
-| jsonb | |Byte[] |
-| line | |Byte[], String |
-| lseg | |Byte[], String |
-| macaddr | |Byte[], String |
-| money; | |Decimal |
+| interval [ fields ] [ (p) ] | |Timespan |&nbsp;
+| json | |Строка |&nbsp;
+| jsonb | |Byte[] |&nbsp;
+| line | |Byte[], String |&nbsp;
+| lseg | |Byte[], String |&nbsp;
+| macaddr | |Byte[], String |&nbsp;
+| money; | |Decimal |&nbsp;
 | numeric [ (p, s) ] |decimal [ (p, s) ] |Decimal |
-| numrange | |Строка |
-| oid | |Int32 |
-| path | |Byte[], String |
-| pg_lsn | |Int64 |
-| point | |Byte[], String |
-| polygon | |Byte[], String |
+| numrange | |Строка |&nbsp;
+| oid | |Int32 |&nbsp;
+| path | |Byte[], String |&nbsp;
+| pg_lsn | |Int64 |&nbsp;
+| point | |Byte[], String |&nbsp;
+| polygon | |Byte[], String |&nbsp;
 | real; |float4 |Single |
 | smallint; |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |Строка |
+| text | |Строка |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Сопоставление столбцов источника и приемника
 Дополнительные сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в разделе [Сопоставление столбцов исходного набора данных со столбцами целевого набора данных](data-factory-map-columns.md).

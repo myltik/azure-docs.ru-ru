@@ -62,6 +62,8 @@ $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceG
 
 ```powershell
 $sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
+Set-AzureRmCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
+$sc = New-AzureStorageContainer -Name logs
 ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Выполнение устранения неполадок с ресурсами Наблюдателя за сетями
@@ -72,7 +74,7 @@ $sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -Re
 > Командлет `Start-AzureRmNetworkWatcherResourceTroubleshooting` выполняется длительное время. Это может занять несколько минут.
 
 ```powershell
-Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)logs"
+Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
 ```
 
 После выполнения командлета Наблюдатель за сетями просматривает ресурсы, чтобы проверить их работоспособность. Он возвращает результаты в оболочку и сохраняет журналы результатов в указанной учетной записи хранения.
