@@ -14,12 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2017
+ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: edfdba3105aba1079d3c707e7320770c4a999a32
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 747b75cf813144fe64c650c4a8d1148ee1d86d9d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -83,7 +83,8 @@ Spark в HDInsight включает следующие компоненты, д�
 * [Ядро Spark](https://spark.apache.org/docs/1.5.1/). Включает ядро Spark, Spark SQL, потоковые API-интерфейсы Spark, GraphX и MLlib.
 * [Anaconda](http://docs.continuum.io/anaconda/)
 * [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
-* [Портативный компьютер Jupyter](https://jupyter.org)
+* [Записная книжка Jupyter](https://jupyter.org)
+* [Записная книжка Zeppelin](http://zeppelin-project.org/)
 
 Spark в HDInsight, кроме того, включает [драйвер ODBC](http://go.microsoft.com/fwlink/?LinkId=616229) для подключения к кластерам Spark в HDInsight из таких средств бизнес-аналитики, как Microsoft Power BI и Tableau.
 

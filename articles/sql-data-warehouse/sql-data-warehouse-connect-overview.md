@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 106b9e8b5fd3461655527004fa7a65bbab9b3182
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: c3c30e51b81886ebc875df7c815a17dfa633a5f8
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +28,7 @@ ms.openlocfilehash: 106b9e8b5fd3461655527004fa7a65bbab9b3182
 ## <a name="find-your-server-name"></a>Поиск имени сервера
 Чтобы подключиться к хранилищу данных SQL, прежде всего нужно знать, как найти имя вашего сервера.  Например, имя сервера в следующем примере — sample.database.windows.net. Чтобы найти полное имя сервера, сделайте следующее.
 
-1. Откройте [портал Azure][Azure portal].
+1. Перейдите на [портал Azure][Azure portal].
 2. Щелкните **Базы данных SQL** 
 3. Щелкните базу данных, к которой вы хотите подключиться.
 4. Найдите полное имя сервера.
@@ -72,11 +74,11 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Чтобы подключиться и отправить запрос с помощью Visual Studio, см. инструкции в статье [Запросы к хранилищу данных SQL Azure (Visual Studio)][Query with Visual Studio]. Подробные сведения о способах проверки подлинности см. в статье [Аутентификация в хранилище данных SQL Azure][Authentication to Azure SQL Data Warehouse].
+Чтобы подключиться и отправить запрос с помощью Visual Studio, см. инструкции в статье [Подключение к хранилищу данных SQL с помощью Visual Studio и SSDT][Query with Visual Studio]. Подробные сведения о способах проверки подлинности см. в статье [Проверка подлинности в хранилище данных SQL Azure][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->
-[Запросы к хранилищу данных SQL Azure (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
-[Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
@@ -89,15 +91,10 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 [DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
 
 <!--Other-->
-[Портал Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-connect-overview/get-server-name.png
 
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

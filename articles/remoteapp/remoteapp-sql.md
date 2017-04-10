@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 24d41c7eb6b5bd34c07d21318740ecf4c6db2d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sql-azure-with-azure-remoteapp"></a>Использование SQL Azure с Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -56,10 +57,5 @@ ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
 * Большая задержка в сети при передаче данных с устройства в Azure. Для повышения производительности перейдите на наилучшее и самое быстрое сетевое подключение, которое возможно. Используйте [azurespeed.com](http://azurespeed.com/) как общее средство для проверки задержки передачи данных с вашего устройства в центр обработки данных Azure.  
 * Клиентское приложение, размещенное в Azure RemoteApp, перегружено. Выберите другой тарифный план, например «Премиум». Это повысит производительность. Или понаблюдайте за ресурсами, которые использует ваше приложение: во время активного сеанса нажмите одновременно клавиши CTRL+ALT+END. Откроется экран SAS. Выберите диспетчер задач и наблюдайте за использованием ресурсов для приложения.
 * SQL Server сильно загружен или не оптимизирован. Следуйте рекомендациям SQL для устранения неполадок. 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

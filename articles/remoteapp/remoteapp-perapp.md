@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 20f9e9b31498f20c2a27f0d82d434abad73d2454
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Публикация приложений для отдельных пользователей в коллекции Azure RemoteApp (предварительная версия)
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -102,10 +103,5 @@ ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
 
 ## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>Вы еще не попробовали предварительную версию функции?
 Если вы не участвовали в оценке предварительной версии этой функции, отправьте запрос на доступ с помощью этого [опроса](http://www.instant.ly/s/AY83p) .
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

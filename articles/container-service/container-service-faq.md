@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 03/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 682ebb212f9056f3704a6de5dde8d3a35681108f
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a70b82770a13231ee59ac768deb45b232f95687d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ ms.lasthandoff: 03/18/2017
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Советуете ли вы использовать конкретный оркестратор в Службе контейнеров Azure? 
 Обычно мы не советуем использовать конкретный оркестратор. Если вы уже работали с одним из поддерживаемых оркестраторов, вы можете применить этот опыт в Службе контейнеров Azure. Но на основе тенденций в данных DC/OS эффективно использовать для рабочих нагрузок Интернета вещей и больших данных, Kubernetes подходит для облачных рабочих нагрузок, а Docker Swarm отличается возможностью интеграции со средствами Docker и своей простотой.
 
-В зависимости от сценария использования вы также можете создавать пользовательские решения по работе с контейнерами и управлять ими с помощью других служб Azure. К этим службам относятся [Виртуальные машины](../virtual-machines/virtual-machines-linux-azure-overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [веб-приложения](../app-service-web/app-service-web-overview.md) и [пакетная служба](../batch/batch-technical-overview.md).  
+В зависимости от сценария использования вы также можете создавать пользовательские решения по работе с контейнерами и управлять ими с помощью других служб Azure. К этим службам относятся [Виртуальные машины](../virtual-machines/linux/overview.md), [Service Fabric](../service-fabric/service-fabric-overview.md), [веб-приложения](../app-service-web/app-service-web-overview.md) и [пакетная служба](../batch/batch-technical-overview.md).  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Какова разница между Службой контейнеров Azure и модулем ACS? 
 Служба контейнеров Azure — это служба Azure с поддержкой соглашения об уровне обслуживания, различными возможностями на портале Azure, программами командной строки и API-интерфейсами Azure. Она позволяет быстро развертывать кластеры, на которых запущены стандартные средства оркестрации контейнеров, и управлять ими, не требуя при этом сложных конфигураций. 
@@ -55,7 +55,7 @@ ms.lasthandoff: 03/18/2017
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Как создавать ключи SSH для кластера?
 
-Чтобы создать для кластера пару ключей SSH RSA (открытый и закрытый), используемых для проверки подлинности виртуальных машин, можно воспользоваться стандартными средствами операционной системы. Пошаговые инструкции см. в руководстве для [OS X, Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) или [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md). 
+Чтобы создать для кластера пару ключей SSH RSA (открытый и закрытый), используемых для проверки подлинности виртуальных машин, можно воспользоваться стандартными средствами операционной системы. Пошаговые инструкции см. в руководстве для [OS X, Linux](../virtual-machines/linux/mac-create-ssh-keys.md) или [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
 Если для развертывания кластера службы контейнеров используются [команды Azure CLI 2.0](container-service-create-acs-cluster-cli.md), то ключи SSH создаются автоматически.
 
@@ -66,6 +66,12 @@ ms.lasthandoff: 03/18/2017
 
 Если для развертывания кластера Kubernetes используются [команды Azure CLI 2.0](container-service-create-acs-cluster-cli.md), то учетные данные субъекта-службы создаются автоматически.
 
+### <a name="how-large-a-cluster-can-i-create"></a>Кластер какого размера можно создать?
+Можно создать кластер с 1, 3 или 5 основными узлами. Можно выбрать до 100 узлов агентов.
+
+> [!IMPORTANT]
+> Для больших кластеров и в зависимости от размера виртуальных машин, выбранных для узлов, может потребоваться увеличить квоту на число ядер в подписке. Чтобы увеличить квоту, [отправьте запрос в службу поддержки](../azure-supportability/how-to-create-azure-support-request.md). Это бесплатная услуга. Если вы используете [бесплатную учетную запись Azure](https://azure.microsoft.com/free/), вам доступно ограниченное количество вычислительных ядер Azure.
+> 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Как увеличить количество главных узлов после создания кластера? 
 После создания кластера число главных узлов фиксировано. Его изменить нельзя. Во время создания кластера рекомендуется выбрать несколько главных узлов. Это позволит обеспечить высокую доступность.

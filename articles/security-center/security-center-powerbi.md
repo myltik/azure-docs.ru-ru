@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
-ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,12 +29,12 @@ ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
 ## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Доступ к Power BI с помощью панели мониторинга центра безопасности Azure
 Для доступа к отчетам Power BI также можно использовать панель мониторинга центра безопасности Azure. Для этого выполните следующие действия.
 
-1. На панели мониторинга **центра безопасности Azure** нажмите кнопку **Открыть в Power BI**.
+1. На панели мониторинга **центра безопасности Azure** нажмите кнопку **Power BI**.
 
-    ![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
-2. Справа откроется колонка **Просмотреть в Power BI** , как показано ниже.
+    ![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10-2017.png)
+2. Справа откроется колонка **Power BI**, как показано на следующем снимке экрана:
 
-    ![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
+    ![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
 3. При создании информационной панели Power BI впервые в колонке **Просмотреть в Power BI** можно выбрать один из следующих вариантов.
 
    * **Панель мониторинга с ценной информацией о безопасности**. Это информационная панель, предоставляющая сведения о состоянии безопасности, потоках и событиях обнаружения. Этот вариант рекомендуется использовать при разработке и операциях, так как при этом требуется анализировать состояние безопасности и обнаруженные оповещения в рамках подписок.
@@ -119,9 +120,4 @@ ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
 * [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
 * [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 * [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

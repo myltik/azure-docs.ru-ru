@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: dd504c95e22d322707c55818815b09d8a36c7ca4
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
+ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Общие сведения о частных реестрах контейнеров Docker
@@ -48,9 +48,7 @@ ms.lasthandoff: 03/24/2017
 
 
 ## <a name="key-concepts"></a>Основные понятия
-* **Реестр.** Создайте один или несколько реестров контейнеров в своей подписке Azure. Для создания реестра используется стандартная [учетная запись хранения](../storage/storage-introduction.md) Azure в том же расположении. Создание реестра в том же расположении Azure, где находятся развертывания, позволяет воспользоваться преимуществами локального хранилища образов контейнеров с доступом по сети.
-
-  Имя регистра задается в корневом домене. Оно зависит от клиента [Azure Active Directory](../active-directory/active-directory-howto-tenant.md) в подписке. Например, если учетная запись организации находится в домене Contoso, полное доменное имя реестра имеет формат `myregistry-contoso.azurecr.io`.
+* **Реестр.** Создайте один или несколько реестров контейнеров в своей подписке Azure. Для создания реестра используется стандартная [учетная запись хранения](../storage/storage-introduction.md) Azure в том же расположении. Создание реестра в том же расположении Azure, где находятся развертывания, позволяет воспользоваться преимуществами локального хранилища образов контейнеров с доступом по сети. Полное имя реестра имеет формат `myregistry.azurecr.io`.
 
   [Контроль доступа](container-registry-authentication.md) к реестру контейнеров осуществляется с помощью [субъекта-службы](../active-directory/active-directory-application-objects.md) на основе Azure Active Directory или предоставленной учетной записи администратора. Чтобы пройти проверку подлинности с помощью реестра, используется стандартная команда `docker login`.
 

@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 34a9d187eecec185e2b8d6977baea267ca9e60e5
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -61,6 +61,7 @@ Site Recovery помогает реализовать защиту и восст
 | Dynamics CRM |Да |Скоро |Да |Скоро |
 | Oracle |Y (испытан корпорацией Майкрософт) |Y (испытан корпорацией Майкрософт) |Y (испытан корпорацией Майкрософт) |Y (испытан корпорацией Майкрософт) |
 | Файловый сервер Windows |Да |Да |Да |Да |
+| Citrix XenApp и XenDesktop |Недоступно |Да |Недоступно |Да |
 
 ## <a name="replicate-active-directory-and-dns"></a>Репликация Active Directory и DNS
 Инфраструктура Active Directory и DNS необходима для большинства корпоративных приложений. Во время аварийного восстановления эти компоненты инфраструктуры необходимо защитить и восстановить перед восстановлением рабочих нагрузок и приложений.
@@ -143,6 +144,17 @@ Azure Site Recovery обеспечивает аварийное восстано
 -    Возможность тестирования планов восстановления в изолированной среде для детализации аварийного восстановления.
 
 [Дополнительные сведения](https://aka.ms/asr-iis) о защите веб-фермы IIS.
+
+## <a name="protect-citrix-xenapp-and-xendesktop"></a>Защита Citrix XenApp и XenDesktop
+Site Recovery обеспечивает защиту развертывания Citrix XenApp и XenDesktop благодаря следующим возможностям:
+
+* Защита развертывания Citrix XenApp и XenDesktop путем репликации различных уровней развертывания (включая DNS-сервер AD, сервер базы данных SQL, контроллер доставки Citrix, сервер StoreFront, XenApp Master (VDA), сервер лицензирования Citrix XenApp) в Azure.
+* Упрощение миграции в облако благодаря использованию Site Recovery для переноса развертывания Citrix XenApp и XenDesktop в Azure.
+* Упрощение тестирования Citrix XenApp и XenDesktop благодаря созданию реплики рабочей среды по запросу для тестирования и отладки.
+* Это решение применяется только для операционной системы виртуальных рабочих столов Windows Server, а не для виртуальных рабочих столов клиента, так как их лицензирование в Azure не поддерживается. 
+Дополнительные сведения о лицензировании рабочих столов клиента и сервера в Azure см. [здесь](https://azure.microsoft.com/en-us/pricing/licensing-faq/).
+
+Сведения о защите развертывания Citrix XenApp и XenDesktop см. [здесь](https://aka.ms/citrix-xenapp-xendesktop-with-asr).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Проверьте, соблюдены ли предварительные требования](site-recovery-prereq.md) 

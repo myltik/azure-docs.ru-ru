@@ -9,23 +9,25 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start create
 ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/13/2017
+ms.date: 04/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: be5839e04fae457b889db11dffe56f31afe723a5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: c0c6cdf8aa48568b7a4468dd87b2896f94fc1bf6
+ms.lasthandoff: 04/04/2017
 
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Создание базы данных SQL Azure на портале Azure
 
 Это краткое руководство содержит пошаговые инструкции по созданию базы данных SQL на портале Azure.  База данных SQL Azure — это база данных как услуга, которая позволяет запускать и масштабировать высокодоступные базы данных SQL Server в облаке.  В этом кратком руководстве объясняется, как начать работу, создав новую базу данных SQL с помощью портала Azure.
+
+Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
 ## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
 
@@ -43,10 +45,10 @@ ms.lasthandoff: 03/28/2017
 
     ![Создание базы данных — 1](./media/sql-database-get-started/create-database-1.png)
 
-3. Заполните форму базы данных SQL, указав следующую информацию, как показано на предыдущем рисунке. 
-   - Имя базы данных — используйте **mySampleDatabase**.
-   - Группа ресурсов — используйте **myResourceGroup**.
-   - Источник. Выберите **Пример (AdventureWorksLT)**.
+3. Заполните форму базы данных SQL, указав следующую информацию, как показано на предыдущем рисунке.     
+   - имя базы данных — **mySampleDatabase**;
+   - группа ресурсов — **myResourceGroup**;
+   - источник — **пример (AdventureWorksLT)**.
 
 4. Щелкните **Сервер**, чтобы создать и настроить новый сервер для новой базы данных. Заполните **форму для создания сервера**, указав глобально уникальное имя сервера, имя для входа администратора сервера и выбранный вами пароль. 
 
@@ -82,7 +84,7 @@ ms.lasthandoff: 03/28/2017
 
 4. Нажмите кнопку **ОК**, а затем щелкните **X**, чтобы закрыть страницу **Параметры брандмауэра**.
 
-Теперь можно подключиться к базе данных и ее серверу с помощью SQL Server Management Studio или другого средства по своему усмотрению.
+Теперь можно подключиться к базе данных и ее серверу с помощью SQL Server Management Studio или другого средства по своему усмотрению с этого IP-адреса, используя учетную запись администратора сервера, созданную ранее.
 
 ## <a name="query-the-sql-database"></a>Отправка запросов к базе данных SQL
 
@@ -103,7 +105,7 @@ ms.lasthandoff: 03/28/2017
 5. После проверки подлинности в области редактора запросов введите следующий запрос.
 
    ```
-   SELECT pc.Name as CategoryName, p.name as ProductName
+   SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
    FROM SalesLT.ProductCategory pc
    JOIN SalesLT.Product p
    ON pc.productcategoryid = p.productcategoryid;

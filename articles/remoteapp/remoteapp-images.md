@@ -14,14 +14,15 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
-ms.openlocfilehash: 21ae6458d1d65698c0c8fc7081696cb7406a918c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 348306795fd3c8275b21e4ec6dceae408916bf72
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-is-in-the-azure-remoteapp-template-images"></a>Что входит в образы шаблонов Azure RemoteApp?
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -111,10 +112,5 @@ ms.openlocfilehash: 21ae6458d1d65698c0c8fc7081696cb7406a918c
 > **Юридическая информация**. Этот образ не включает в себя лицензию Microsoft Office и *не может использоваться в производственных целях*. Образ Office 2013 профессиональный плюс предназначен исключительно для пробного использования. Если вам нужно использовать приложения Office в Azure RemoteApp в рабочей среде, используйте образ Office 365 профессиональный плюс. Дополнительные сведения о лицензировании Office см. в статье [Использование Office с Azure RemoteApp](remoteapp-o365.md).
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

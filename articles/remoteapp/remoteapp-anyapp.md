@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84aaff1f1e8a92583107295643e0ada81376fab0
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Запуск любых приложений Windows на любом устройстве с помощью Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -121,10 +122,5 @@ ms.openlocfilehash: 84aaff1f1e8a92583107295643e0ada81376fab0
 Теперь, когда вы научились создавать коллекции, попробуйте создать [коллекцию, которая использует Office 365](remoteapp-tutorial-o365anywhere.md). Вы также можете создать [гибридную коллекцию ](remoteapp-create-hybrid-deployment.md), получающую доступ к локальной сети.
 
 <!--Image references-->
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

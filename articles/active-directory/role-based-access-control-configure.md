@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/17/2017
+ms.date: 03/27/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c3e3e407eb6a05b208863443bb8ccf3cba701b23
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 9bbacea92e54609818d69173fafcea2ee8f849d3
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -27,6 +27,8 @@ ms.lasthandoff: 03/22/2017
 > * [Управление доступом по ресурсам](role-based-access-control-configure.md)
 
 Контроль доступа на основе ролей (RBAC) Azure обеспечивает точное управление доступом для Azure. С помощью RBAC можно предоставлять пользователям доступ, необходимый только для выполнения поставленных перед ними задач. Эта статья поможет вам приступить к работе с RBAC на портале Azure. Дополнительные сведения о том, как RBAC помогает управлять доступом, см. в статье [Начало работы с управлением доступом на портале Azure](role-based-access-control-what-is.md).
+
+В рамках каждой подписки вы можете назначить до 2000 ролей. 
 
 ## <a name="view-access"></a>Просмотр прав доступа
 Вы можете увидеть, у кого есть доступ к ресурсу, группе ресурсов или подписке, в основной колонке на [портале Azure](https://portal.azure.com). Например, мы хотим узнать, кто имеет доступ к одной из наших групп ресурсов.

@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ae869be6ed9f304629498f416ffdda96252bdf9c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bcd8b3b7fb44a28d7184d14969eb998ce07c8e53
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -86,6 +86,7 @@ ms.lasthandoff: 03/16/2017
 > Если произошла ошибка доступа, возможно, у вас есть несколько наборов учетных данных Майкрософт и вы использовали для входа неправильный набор. На портале повторите процедуру выхода и входа.
 
 На портале откроется представление данных телеметрии из приложения.
+
 ![Снимок экрана, где отображается страница с обзором Application Insights](./media/app-insights-asp-net/66.png)
 
 Щелкните любую диаграмму, чтобы просмотреть подробные сведения.
