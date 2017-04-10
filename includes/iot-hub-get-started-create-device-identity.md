@@ -6,7 +6,7 @@
     ```
     npm install -g iothub-explorer@latest
     ```
-2. Затем выполните следующую команду для входа в Центр. Не забудьте заменить `{iot hub connection string}` ранее скопированной строкой подключения к Центру Интернета вещей.
+2. Затем выполните приведенную ниже команду для входа в Центр. Замените `{iot hub connection string}` ранее скопированной строкой подключения к Центру Интернета вещей:
 
     ```
     iothub-explorer login "{iot hub connection string}"
@@ -21,7 +21,7 @@
 
 ![][img-identity]
 
-Способы создания удостоверений устройства программными средствами описаны в статье [Getting started with IoT Hub][lnk-getstarted] (Приступая к работе с Центром Интернета вещей Azure).
+Способы создания удостоверений устройства программными средствами описаны в статье [Подключение виртуального устройства к Центру Интернета вещей с помощью .NET][lnk-getstarted].
 
 <!-- images and links -->
 [img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png

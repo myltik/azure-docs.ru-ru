@@ -1,4 +1,4 @@
-**[Коллекция Cortana Intelligence](http://gallery.cortanaintelligence.com)** — это управляемый сообществом сайт для поиска и обмена решениями, созданными с помощью Cortana Intelligence Suite.
+**[Коллекция Cortana Intelligence](http://gallery.cortanaintelligence.com)** — это управляемый сообществом сайт для поиска и обмена решениями, созданными с помощью Cortana Intelligence Suite.
 Коллекция содержит множество ресурсов, которые можно использовать для разработки собственных аналитических решений.
 
 <!-- On the new DOCS platform, this is a dropdown, not tabs, which doesn't work well in this context. So I'm just removing it for now.
@@ -16,8 +16,3 @@
 > 
 > 
 -->
-
-
-<!--HONumber=Nov16_HO3-->
-
-
