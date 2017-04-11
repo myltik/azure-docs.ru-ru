@@ -3,7 +3,7 @@ title: "Как использовать табличное хранилище Az
 description: "Информация об использовании табличного хранилища Azure с пакетом SDK для WebJob Создавайте таблицы, добавляйте в них сущности и считывайте существующие таблицы."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 451432cc-c780-4310-85d3-84f44fe48afe

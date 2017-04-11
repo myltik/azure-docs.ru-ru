@@ -3,7 +3,7 @@ title: "Как использовать хранилище больших дво
 description: "Информация об использовании хранилища больших двоичных объектов Azure с пакетом SDK для WebJob Вызов процесса при появлении нового большого двоичного объекта в контейнере и обработка подозрительных больших двоичных объектов."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: 
 ms.assetid: bf32f919-f7bc-4aaa-916e-461c02f2e26c

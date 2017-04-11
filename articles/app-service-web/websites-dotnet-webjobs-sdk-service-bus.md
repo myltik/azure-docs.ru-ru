@@ -3,7 +3,7 @@ title: "Как использовать Azure Service Bus с пакетом SDK 
 description: "Информация об использовании очередей и разделов Azure Service Bus с пакетом SDK для WebJob"
 services: app-service\web, service-bus
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 2114a934-135b-42b8-871c-6cc040214e76

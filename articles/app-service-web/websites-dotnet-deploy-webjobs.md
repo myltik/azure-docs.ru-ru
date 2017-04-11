@@ -3,7 +3,7 @@ title: "Развертывание веб-заданий с помощью Visua
 description: "Узнайте, как развернуть веб-задания Azure в веб-приложениях службы приложений Azure с помощью Visual Studio."
 services: app-service
 documentationcenter: 
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755

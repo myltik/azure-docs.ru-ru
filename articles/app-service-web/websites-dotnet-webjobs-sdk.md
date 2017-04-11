@@ -3,7 +3,7 @@ title: "Информация о пакете SDK веб-заданий"
 description: "Общие сведения о пакете SDK веб-заданий. В данном материале объясняется, что из себя представляет пакет инструментов SDK и в каких ситуациях он может оказаться полезным, а также приводятся примеры программного кода."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: 8281267b-572b-4b14-a328-6704493ea682
