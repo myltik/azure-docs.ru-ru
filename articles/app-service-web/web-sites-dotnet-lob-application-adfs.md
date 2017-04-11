@@ -15,9 +15,9 @@ ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 29b7146837f8a88baebd67fc448954f01388d67b
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 22fe6397120c36e1aa716f4711fbe9e7c72d17e8
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -87,24 +87,27 @@ ms.lasthandoff: 11/17/2016
 4. В App_Start\Startup.Auth.cs замените такие статические определения строк:  
    
    <pre class="prettyprint">
-private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"]; <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+   private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+   <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
    
    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
    </pre>
-5. Теперь внесите соответствующие изменения в файл Web.config. Откройте файл Web.config и измените такие параметры приложения:  <pre class="prettyprint">
+5. Теперь сделайте соответствующие изменения в файле Web.config. Откройте файл Web.config и измените такие параметры приложения:  
+   
+   <pre class="prettyprint">
    &lt;appSettings&gt;
    &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
    &lt;add key="webpages:Enabled" value="false" /&gt;
    &lt;add key="ClientValidationEnabled" value="true" /&gt;
    &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
-   <mark><del>&lt;add key="ida:Wtrealm" value="[Введите универсальный код ресурса (URI) ИД приложения WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
+   <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
    <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
-   <mark><del>&lt;add key="ida:Tenant" value="[Введите имя клиента, например contoso.onmicrosoft.com]" /&gt;</del></mark>
+   <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
    <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
-   <mark>&lt;add key="ida:ADFS" value="[Введите полное доменное имя службы AD FS, например adfs.contoso.com]" /&gt;</mark>
+   <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
    
    &lt;/appSettings&gt;
    </pre>
@@ -136,7 +139,7 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
    
    <pre class="prettyprint">
    &lt;appSettings&gt;
-   &lt;add key="ida:RPIdentifier" value="<mark>[например, https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
+   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
    &lt;/appSettings&gt;</pre>
 
 После завершения операции вы получите два идентификатора RP, настроенных в проекте: один для среды отладки в Visual Studio, а второй для опубликованного веб-приложения в Azure. Доверие с проверяющей стороной (RP) будет необходимо настроить для каждой из двух сред в AD FS. Во время отладки параметры приложения в файле Web.config используются, чтобы ваша конфигурация **отладки** работала с AD FS. При его публикации (по умолчанию публикуется конфигурация **Выпуск** ) отправляется измененный файл Web.config, в котором содержатся изменения параметров приложения в файле Web.Release.config.
@@ -208,7 +211,16 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
     
     <pre class="prettyprint">
     c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"] => add( store = "_OpaqueIdStore", types = ("<mark>http://contoso.com/internal/sessionid</mark>"), query = "{0};{1};{2};{3};{4}", param = "useEntropy", param = c1.Value, param = c1.OriginalIssuer, param = "", param = c2.Value);
+    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+     => add(
+         store = "_OpaqueIdStore",
+         types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+         query = "{0};{1};{2};{3};{4}",
+         param = "useEntropy",
+         param = c1.Value,
+         param = c1.OriginalIssuer,
+         param = "",
+         param = c2.Value);
     </pre>
     
     Настраиваемое правило должно выглядеть, как на этом снимке экрана.
@@ -243,7 +255,7 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 
 ![](./media/web-sites-dotnet-lob-application-adfs/9-test-debugging.png)
 
-После входа с правами пользователя в домен AD развертывания AD FS должна опять отобразиться домашняя страница с сообщением **Hello, <User Name>!**  ("Добро пожаловать, <имя_пользователя>!") в углу. Вот что у меня получается.
+После входа с правами пользователя в домен AD развертывания AD FS должна опять отобразиться домашняя страница с сообщением **Hello, <User Name>!** ("Добро пожаловать, &lt;имя_пользователя&gt;!") в углу. Вот что у меня получается.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/11-test-debugging-success.png)
 
@@ -267,7 +279,9 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
    
     <pre class="prettyprint">
     <mark>[Authorize(Roles="Test Group")]</mark>
-    public ActionResult About() { ViewBag.Message = "Страница описания вашего приложения.";
+    public ActionResult About()
+    {
+        ViewBag.Message = "Your application description page.";
    
         return View();
     }
@@ -287,8 +301,12 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
     При анализе этой ошибки в средстве просмотра событий на сервере AD FS можно увидеть такое сообщение об исключении:  
    
     <pre class="prettyprint">
-   Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>один клиентский сеанс браузера сделал 6 запросов за последние 11 секунд.</mark> Обратитесь к администратору за дополнительной информацией.
-   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)  </pre>
+    Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details.
+       at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+       at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
+    </pre>
    
     Это происходит потому, что по умолчанию MVC возвращает сообщение об ошибке "401 — Не авторизовано", когда роли пользователя не авторизованы. В результате активируется запрос на повторную проверку подлинности к поставщику удостоверений(AD FS). Так как пользователь уж прошел проверку подлинности, AD FS возвращается на ту же страницу, которая издает другую ошибку 401, создавая цикл перенаправления. Можно переопределить метод `HandleUnauthorizedRequest` в AuthorizeAttribute с помощью простой логики, чтобы отображать более содержательную информацию вместо продолжения цикла перенаправления.
 5. Создайте файл в проекте AuthorizeAttribute.cs и вставьте в него приведенный ниже код.
