@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2d6999c6c6e8d9168e2417309207dd14bf4f6f2
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: be8fed81757d3a7467707e4e0fdf1fd5734e0f07
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -109,11 +109,11 @@ PTVS работает с установленными экземплярами V
 2. Запуск приложения на виртуальной машине Linux
 3. Разработка и публикация на веб-сайтах Azure с помощью Git
 
-Первый сценарий позволяет создавать полнофункциональные веб-приложения, использующие преимущества возможностей Azure PaaS, такие как [хранилище BLOB-объектов](virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [хранилище очередей](storage/storage-python-how-to-use-queue-storage.md), [Хранилище таблиц](storage/storage-python-how-to-use-table-storage.md) и т. д., через оболочки Pythonic для интерфейсов REST API Azure. Они совершенно одинаково работают в Windows, Mac и Linux.  Можно также использовать эти клиентские библиотеки из вашей локальной машины или виртуальной машины Linux в Azure.
+Первый сценарий позволяет создавать полнофункциональные веб-приложения, использующие преимущества возможностей Azure PaaS, такие как [хранилище BLOB-объектов](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [хранилище очередей](storage/storage-python-how-to-use-queue-storage.md), [Хранилище таблиц](storage/storage-python-how-to-use-table-storage.md) и т. д., через оболочки Pythonic для интерфейсов REST API Azure. Они совершенно одинаково работают в Windows, Mac и Linux.  Можно также использовать эти клиентские библиотеки из вашей локальной машины или виртуальной машины Linux в Azure.
 
-При сценарии с виртуальной машиной вы просто запускаете выбранную виртуальную машину Linux (Ubuntu, CentOS, Suse), а затем выполняете нужные компоненты и управляете ими.  В качестве примера можно запустить REPL или Notebook [IPython][IPython] на компьютере Windows, Mac либо Linux и указать в браузере многопроцессорную виртуальную машину Linux или Windows с запущенной подсистемой IPython в Azure. Дополнительные сведения см. в руководстве по [IPython Notebook в Azure](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+При сценарии с виртуальной машиной вы просто запускаете выбранную виртуальную машину Linux (Ubuntu, CentOS, Suse), а затем выполняете нужные компоненты и управляете ими.  В качестве примера можно запустить REPL или Notebook [IPython][IPython] на компьютере Windows, Mac либо Linux и указать в браузере многопроцессорную виртуальную машину Linux или Windows с запущенной подсистемой IPython в Azure. Дополнительные сведения см. в руководстве по [IPython Notebook в Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Дополнительные сведения о способах настройки виртуальной машины Linux см. в руководстве по [созданию виртуальной машины Linux](virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Дополнительные сведения о способах настройки виртуальной машины Linux см. в руководстве по [созданию виртуальной машины Linux](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 С помощью развертывания Git можно разработать веб-приложение Python и опубликовать его на веб-сайте Azure из любой операционной системы.  При принудительной отправке репозитория в Azure автоматически создается виртуальная среда, а pip устанавливает требуемые пакеты.
 
@@ -130,7 +130,7 @@ PTVS работает с установленными экземплярами V
 * [NumPy — библиотека числовых значений для Python][NumPy - A numerics library for Python]
 * [Django Project — зрелая веб-платформа или CMS][Django Project - A mature web framework/CMS]
 * [IPython — расширенное использование REPL и Notebook для Python][IPython - an advanced REPL/Notebook for Python]
-* [IPython Notebook в Azure](virtual-machines/virtual-machines-linux-jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [IPython Notebook в Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Средства Python для Visual Studio на сайте GitHub][Python Tools for Visual Studio on GitHub]
 * [Центр по разработке для Python](/develop/python/)
 

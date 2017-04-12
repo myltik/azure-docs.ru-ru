@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 101d0b2733a43b99b32efae8a9510ffca2a2e467
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -125,7 +125,7 @@ ms.lasthandoff: 01/31/2017
 > Эти команды предполагают, что контекст текущей учетной записи хранения уже настроен в PowerShell.   Дополнительные сведения о настройке PowerShell см. в статье о [настройке Azure PowerShell](marketplace-publishing-powershell-setup.md).  
 > 
 > ### <a name="create-a-storage-account-by-using-the-command-line-tool-for-mac-and-linux"></a>Создание учетной записи хранения с помощью программы командной строки для Mac и Linux
-> В [программе командной строки Linux](../virtual-machines/virtual-machines-linux-cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)создайте учетную запись хранения следующим образом.
+> В [программе командной строки Linux](../virtual-machines/linux/cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)создайте учетную запись хранения следующим образом.
 > 
 > 
 
