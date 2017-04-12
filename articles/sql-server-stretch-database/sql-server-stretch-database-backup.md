@@ -1,78 +1,10 @@
 ---
-title: "Резервное копирование баз данных с поддержкой Stretch | Документация Майкрософт"
-description: "Узнайте, как создавать резервные копии баз данных, поддерживающих перенос."
-services: sql-server-stretch-database
-documentationcenter: 
-author: Antvgski
-manager: johnmac
-editor: douglasl
-ms.assetid: a196f858-ef8f-47b5-b9db-bb7db98d48bd
-ms.service: sql-server-stretch-database
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2017
-ms.author: douglasl
+redirect_url: /sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database
+redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 68aeee33dbbba67e2a24300db62bf6bcdc627ea5
-
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a37f1243e49dd17bdd72c3566f01792a08f8b6b9
+ms.lasthandoff: 04/10/2017
 
 ---
-# <a name="backup-stretch-enabled-databases"></a>Архивация баз данных с поддержкой переноса
-Резервные копии баз данных позволяют восстановить данные после различного рода сбоев, ошибок и аварий.  
-
-* Необходимо создавать резервные копии баз данных SQL Server с поддержкой Stretch.  
-* Microsoft Azure автоматически архивирует удаленные данные, которые база данных Stretch перенесла из SQL Server в Azure.  
-
-> [!NOTE]
-> Архивация — лишь часть полноценного решения, обеспечивающего высокий уровень доступности и непрерывность бизнес-процессов. Дополнительные сведения о высоком уровне доступности см. в [этой статье](https://msdn.microsoft.com/library/ms190202.aspx).
-> 
-> 
-
-## <a name="back-up-your-sql-server-data"></a>Архивация данных SQL Server
-Чтобы создавать резервные копии баз данных с поддержкой Stretch, можно использовать те же самые методы резервного копирования SQL Server. Дополнительные сведения см. в разделе [Резервное копирование и восстановление баз данных SQL Server](https://msdn.microsoft.com/library/ms187048.aspx).
-
-Резервные копии базы данных SQL Server с поддержкой переноса содержат только локальные и пригодные для переноса на момент архивации данные. \(Пригодные данные — это данные, которые не были перенесены, но будут перенесены в Azure в соответствии с параметрами переноса таблиц.\) Это **неполная** резервная копия, не включающая в себя уже перенесенные в Azure данные.  
-
-## <a name="back-up-your-remote-azure-data"></a>Архивация удаленных данных Azure
-Microsoft Azure автоматически архивирует удаленные данные, которые база данных Stretch перенесла из SQL Server в Azure.  
-
-### <a name="azure-reduces-the-risk-of-data-loss-with-automatic-backup"></a>Azure уменьшает риск потери данных с помощью автоматической архивации
-Служба базы данных SQL Server Stretch в Azure защищает удаленные базы данных с помощью автоматического создания моментальных снимков хранилища по крайней мере каждые 8 часов. Каждый моментальный снимок хранится в течение 7 дней, что обеспечивает ряд возможных точек восстановления.  
-
-### <a name="azure-reduces-the-risk-of-data-loss-with-geo-redundancy"></a>Azure уменьшает риск потери данных за счет геоизбыточности
-Резервные копии баз данных Azure хранятся в геоизбыточной службе хранилища Azure (RA\-GRS) и, следовательно, геоизбыточны по умолчанию. Геоизбыточное хранилище реплицирует данные в дополнительный регион, который находится в сотнях километров от основного региона. В основном и дополнительном регионах данные реплицируются трижды на разных доменах сбоя и доменах обновления. Это гарантирует, что данные будут доступны даже при полном региональном сбое или аварии, когда один из регионов Azure станет недоступен.
-
-### <a name="a-namestretchrpoastretch-database-reduces-the-risk-of-data-loss-for-your-azure-data-by-retaining-migrated-rows-temporarily"></a><a name="stretchRPO"></a>База данных Stretch снижает риск потери данных Azure за счет временного хранения перенесенных строк
-После того, как база данных Stretch перенесет пригодные строки из SQL Server в Azure, она хранит их в промежуточной таблице не менее 8 часов. В случае восстановления резервной копии базы данных Azure база данных Stretch использует строки, сохраненные в промежуточной таблице, для согласования баз данных SQL Server и Azure.
-
-После восстановления резервной копии данных Azure необходимо выполнить хранимую процедуру [sys.sp_rda_reauthorize_db](https://msdn.microsoft.com/library/mt131016.aspx) для повторного подключения базы данных SQL Server с поддержкой Stretch к удаленной базе данных Azure. При выполнении **sys.sp_rda_reauthorize_db** база данных Stretch автоматически согласовывает базы данных SQL Server и Azure.
-
-Чтобы увеличить период временного хранения в промежуточной таблице данных, перенесенных базой данных Stretch, выполните хранимую процедуру [sys.sp_rda_set_rpo_duration](https://msdn.microsoft.com/library/mt707766.aspx) и укажите число часов больше 8. Чтобы решить, как долго следует хранить данные, учтите следующие факторы:
-
-* частота автоматической архивации Azure (по крайней мере каждые 8 часов);
-* время, необходимое для распознавания возникшей проблемы и принятия решения о восстановлении резервной копии;
-* длительность операции восстановления Azure.
-
-> [!NOTE]
-> Увеличение объема данных, которые база данных Stretch временно хранит в промежуточной таблице, увеличивает требуемый объем пространства SQL Server.
-> 
-> 
-
-Чтобы узнать, сколько часов данные, перенесенные базой данных Stretch, хранятся в промежуточной таблице в настоящее время, выполните хранимую процедуру [sys.sp_rda_get_rpo_duration](https://msdn.microsoft.com/library/mt707767.aspx).
-
-## <a name="see-also"></a>Дополнительные материалы
-[Управляйте растяжением баз данных и устраняйте неполадки](sql-server-stretch-database-manage.md)
-
-[sys.sp_rda_reauthorize_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
-
-[Архивация и восстановление баз данных SQL Server](https://msdn.microsoft.com/library/ms187048.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

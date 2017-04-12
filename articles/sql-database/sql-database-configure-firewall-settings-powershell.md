@@ -1,80 +1,9 @@
 ---
-title: "PowerShell: настройка правил брандмауэра для базы данных SQL Azure | Документация Майкрософт"
-description: "Узнайте, как настроить правила брандмауэра на уровне сервера для IP-адресов, по которым получается доступ к базам данных SQL Azure, с использованием PowerShell."
-services: sql-database
-documentationcenter: 
-author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 30dcea72-61c1-48b6-8e1d-b1db2eb61567
-ms.service: sql-database
-ms.custom: authentication and authorization
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 08/09/2016
-ms.author: sstein
+redirect_url: /azure/sql-database/sql-database-firewall-configure
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: a88c38f01b62dee9454f612e795b6722db2547e8
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6b7fda37e69a9d1c634fead2608bb56cdc94c4e1
+ms.lasthandoff: 04/12/2017
 
-
----
-# <a name="configure-azure-sql-database-server-level-firewall-rules-by-using-powershell"></a>Настройка правил брандмауэра уровня сервера базы данных SQL с помощью PowerShell
-
-Для подключения к серверам и базам данных в Базе данных SQL Azure используются правила брандмауэра. На сервере Базы данных SQL для базы данных master или пользовательской базы данных можно определить параметры брандмауэра уровня сервера и базы данных, которые будут выборочно разрешать доступ к базе данных.
-
-> [!IMPORTANT]
-> Чтобы приложения из Azure могли подключаться к серверу базы данных, необходимо разрешить подключения Azure. Дополнительные сведения о правилах брандмауэра и о том, как разрешить подключения из Azure, см. в разделе [Брандмауэр Базы данных SQL Azure](sql-database-firewall-configure.md). Если вы создаете подключения внутри облака Azure, вам, возможно, придется открыть дополнительные TCP-порты. Дополнительные сведения см. в разделе "Версия 12 Базы данных SQL: внешняя и внутренняя программа" статьи [Порты, кроме 1433, для ADO.NET 4.5 и Базы данных SQL версии 12](sql-database-develop-direct-route-ports-adonet-v12.md).
-> 
-> 
-
-[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
-
-## <a name="create-server-firewall-rules"></a>Создание правил брандмауэра для сервера
-Правила брандмауэра уровня сервера можно создавать, обновлять и удалять с помощью Azure PowerShell.
-
-Чтобы создать правило брандмауэра на уровне сервера, выполните командлет [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx). В следующем примере показано, как задать диапазон IP-адресов на сервере Contoso.
-
-    New-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' -ServerName 'Contoso' -FirewallRuleName "ContosoFirewallRule" -StartIpAddress '192.168.1.1' -EndIpAddress '192.168.1.10'        
-
-Чтобы изменить новое правило брандмауэра на уровне сервера, выполните командлет [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789\(v=azure.300\).aspx). В следующем примере показано, как изменить диапазон допустимых IP-адресов для правила с именем ContosoFirewallRule.
-
-    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' -StartIPAddress 192.168.1.4 -EndIPAddress 192.168.1.10 -FirewallRuleName 'ContosoFirewallRule' -ServerName 'Contoso'
-
-Чтобы удалить новое правило брандмауэра на уровне сервера, выполните командлет [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588\(v=azure.300\).aspx). В следующем примере показано, как удалить правило с именем ContosoFirewallRule.
-
-    Remove-AzureRmSqlServerFirewallRule -FirewallRuleName 'ContosoFirewallRule' -ServerName 'Contoso'
-
-
-## <a name="manage-firewall-rules-by-using-powershell"></a>Управление правилами брандмауэра с помощью PowerShell
-Для управления правилами брандмауэра можно также использовать PowerShell. Дополнительные сведения см. в следующих статьях:
-
-* [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx)
-* [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588\(v=azure.300\).aspx)
-* [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789\(v=azure.300\).aspx)
-* [Get-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586\(v=azure.300\).aspx)
-
-## <a name="next-steps"></a>Дальнейшие действия
-Информацию о том, как использовать Transact-SQL для создания правил брандмауэра уровня сервера и уровня базы данных, см. в разделе [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью TSQL](sql-database-configure-firewall-settings-tsql.md).
-
-Информацию о том, как создавать правила брандмауэра уровня сервера с помощью других методов, см. в следующих разделах.
-
-* [Настройка правила брандмауэра уровня сервера базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md)
-* [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью REST API](sql-database-configure-firewall-settings-rest.md)
-
-Руководство по созданию базы данных см. в статье [Краткое руководство. Начало работы с базой данных SQL Azure](sql-database-get-started.md).
-Дополнительные сведения о подключении к базе данных SQL Azure из приложений с открытым кодом или приложений сторонних производителей см. в статье [Библиотеки подключений для Базы данных SQL и SQL Server](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-Общие сведения о навигации по базам данных см. в статье [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](https://msdn.microsoft.com/library/azure/ee336235.aspx).
-
-## <a name="additional-resources"></a>Дополнительные ресурсы
-* [Защита базы данных](sql-database-security-overview.md)
-* [Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных Azure SQL](https://msdn.microsoft.com/library/bb510589)
-
-<!--Image references-->
-[1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
-[2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
-<!--anchors-->
+--- 
 

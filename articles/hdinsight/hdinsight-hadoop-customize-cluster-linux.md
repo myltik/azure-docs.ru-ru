@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 1f64380b0bd271658c0f06e01a9b013ae4e25636
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 02a978402c8067105900ac50a2796000f8eef67f
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/25/2017
 > [!IMPORTANT]
 > Использовать действия скриптов в уже работающем кластере можно только в кластерах HDInsight под управлением Linux.
 >
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 
 Действия сценариев можно опубликовать в Azure Marketplace как приложение HDInsight. В некоторых примерах в этом документе показано, как можно установить приложение HDInsight с помощью команд действия сценария PowerShell и пакета SDK для .NET. Дополнительные сведения о приложениях HDInsight см. в статье [Публикация приложений HDInsight в Azure Marketplace](hdinsight-apps-publish-applications.md).

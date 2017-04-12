@@ -16,22 +16,22 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: bc052dd441661b18c3ada71e5c79c88ab0ecbc10
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 187642db18806f4034dcecf4c25b5c71028fdfe3
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="about-images-for-linux-virtual-machines"></a>Об образах виртуальных машин Linux
 > [!IMPORTANT]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения об образах, использующих модель Resource Manager, см. [здесь](../../virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения об образах, использующих модель Resource Manager, см. [здесь](../cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../../../includes/virtual-machines-common-classic-about-images.md)]
 
 ## <a name="working-with-images"></a>Работа с образами
 Для управления образами, доступными по вашей подписке Azure, вы можете использовать интерфейс командной строки Azure (Azure CLI) для Mac, Linux и Windows. Вы также можете решить некоторые задачи на портале Azure, однако командная строка предоставляет больше возможностей.
 
-Примеры использования этих инструментов приведены в разделе [Основные команды Azure CLI в Linux и Mac](../../virtual-machines-linux-cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Примеры использования этих инструментов приведены в разделе [Основные команды Azure CLI в Linux и Mac](../cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы можете [передать собственный образ](create-upload-vhd.md).

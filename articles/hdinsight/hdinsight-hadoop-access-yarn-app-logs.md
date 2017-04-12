@@ -17,9 +17,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: bd9133fde0c3ebfd915c8ae33daa6d0113b37889
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 059fd9c1578cb987aec09a2f72099a0472c9b119
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -27,8 +27,8 @@ ms.lasthandoff: 02/07/2017
 В данном документе рассказывается, как получить доступ к журналам приложений YARN (Yet Another Resource Negotiator), завершившим работу в кластере Hadoop под управлением Windows в Azure HDInsight.
 
 > [!IMPORTANT]
-> Информация, содержащаяся в данном документе, относится только к кластерам HDInsight под управлением Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Сведения о доступе к журналам YARN в кластерах HDInsight под управлением Linux см. в статье [Доступ к журналам приложений YARN в HDInsight под управлением Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md).
-> 
+> Информация, содержащаяся в данном документе, относится только к кластерам HDInsight под управлением Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Сведения о доступе к журналам YARN в кластерах HDInsight под управлением Linux см. в статье [Доступ к журналам приложений YARN в HDInsight под управлением Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md).
+>
 
 
 ### <a name="prerequisites"></a>Предварительные требования
@@ -70,9 +70,9 @@ YARN поддерживает несколько моделей программ
 
 
 ## <a name="yarn-resourcemanager-ui"></a>Пользовательский интерфейс YARN ResourceManager
-Пользовательский интерфейс YARN ResourceManager работает на головном узле кластера. Для доступа к нему можно использовать панель мониторинга портала Azure. 
+Пользовательский интерфейс YARN ResourceManager работает на головном узле кластера. Для доступа к нему можно использовать панель мониторинга портала Azure.
 
-1. Войдите на [портал Azure](https://portal.azure.com/). 
+1. Войдите на [портал Azure](https://portal.azure.com/).
 2. В меню слева последовательно щелкните **Обзор** и **Кластеры HDInsight**, а затем выберите кластер под управлением Windows, в котором размещены нужные журналы приложений YARN.
 3. В меню вверху щелкните **Панель мониторинга**. В новой вкладке браузера откроется страница **Консоль запросов HDInsight**.
 4. В **консоли запросов HDInsight** щелкните **Yarn UI** (Пользовательский интерфейс Yarn).

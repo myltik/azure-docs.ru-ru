@@ -17,9 +17,9 @@ ms.date: 02/17/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: db0f94bdeefac577765586f6b07ba13f9cfd2867
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 75368be1bb5da28df8bc29ca2d8811a822c0816e
+ms.lasthandoff: 04/11/2017
 
 ---
 # <a name="analyze-twitter-data-using-hive-on-linux-based-hdinsight"></a>Анализ данных Twitter с помощью Hive в HDInsight на платформе Linux
@@ -29,13 +29,13 @@ ms.lasthandoff: 03/01/2017
 > [!IMPORTANT]
 > Действия, описанные в этом документе, были протестированы на кластере HDInsight под управлением Linux.
 >
-> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 * **Кластер Azure HDInsight на основе Linux**. Информацию о создании кластера см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hdinsight-hadoop-linux-tutorial-get-started.md), содержащей указания по созданию кластера.
 * **Клиент SSH**. Дополнительная информация об использовании SSH с HDInsight на основе Linux приведена в следующих статьях:
-  
+
   * [Использование SSH с Hadoop под управлением Linux в HDInsight в Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
   * [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 * **Python** и [pip](https://pypi.python.org/pypi/pip)
@@ -51,7 +51,7 @@ Twitter позволяет получать [данные для каждого 
 2. Щелкните **Создать новое приложение**.
 
 3. Введите **Имя**, **Описание**, **Веб-сайт**. В поле **Веб-сайт** можно использовать URL-адрес. В следующей таблице приведены некоторые примеры значений:
-   
+
    | Поле | Значение |
    |:--- |:--- |
    | Имя |MyHDInsightApp |
@@ -80,29 +80,29 @@ Twitter позволяет получать [данные для каждого 
 
 > [!NOTE]
 > Так как Python уже установлен, в кластере HDInsight выполняются следующие действия.
-> 
-> 
+>
+>
 
 1. Подключитесь к кластеру HDInsight с помощью протокола SSH:
-   
+
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
+
     Если для защиты учетной записи SSH используется пароль, то предлагается ввести его. Если используется открытый ключ, может потребоваться использовать параметр `-i` , чтобы указать соответствующий закрытый ключ. Например, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
-   
+
     Дополнительная информация об использовании SSH с HDInsight на основе Linux приведена в следующих статьях:
-   
+
    * [Использование SSH с Hadoop под управлением Linux в HDInsight в Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
    * [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. По умолчанию на головном узле HDInsight не установлена служебная программа **pip** . Используйте следующую команду для ее установки, а затем обновите эту служебную программу:
-   
+
    ```bash
    sudo apt-get install python-pip
    sudo pip install --upgrade pip
    ```
 
 3. Чтобы установить [Tweepy](http://www.tweepy.org/) и [Progressbar](https://pypi.python.org/pypi/progressbar/2.2), используйте следующие команды:
-   
+
    ```bash
    sudo apt-get install python-dev libffi-dev libssl-dev
    sudo apt-get remove python-openssl
@@ -111,17 +111,17 @@ Twitter позволяет получать [данные для каждого 
 
    > [!NOTE]
    > Биты удаления python-openssl, установки python-dev, libffi-dev, libssl-dev, pyOpenSSL и requests[security] позволяют избежать предупреждения InsecurePlatform при подключении к Twitter через SSL из Python.
-   > 
+   >
    > Tweepy v3.2.0 используется для предотвращения [ошибки](https://github.com/tweepy/tweepy/issues/576) , которая может произойти при обработке твитов.
 
 4. Создайте файл **gettweets.py** с помощью следующей команды:
-   
+
    ```bash
    nano gettweets.py
    ```
 
 5. В качестве содержимого файла **gettweets.py** добавьте следующий текст. Вместо заполнителей **consumer\_secret**, **consumer\_key**, **access/\_token**, and **access\_token\_secret** введите данные из своего приложения Twitter.
-   
+
    ```python
    #!/usr/bin/python
 
@@ -179,13 +179,13 @@ Twitter позволяет получать [данные для каждого 
 6. Нажмите клавиши **Ctrl + X**, а затем **Y** (Да) для сохранения файла.
 
 7. Чтобы запустить файл и скачать твиты, выполните следующую команду:
-   
+
     ```bash
     python gettweets.py
     ```
-   
+
     Должен появиться индикатор выполнения, который дойдет до 100 % по мере скачивания и сохранения твитов в файл.
-   
+
    > [!NOTE]
    > Если индикатор хода выполнения перемещается очень медленно, то следует изменить фильтр, чтобы отслеживать популярные темы. При наличии множества доступных твитов по отфильтровываемой теме вы сможете быстро получить 10 000 необходимых записей.
 
@@ -203,13 +203,13 @@ Twitter позволяет получать [данные для каждого 
 ## <a name="run-the-hiveql-job"></a>Выполнение задания HiveQL
 
 1. Используйте следующую команду, чтобы создать файл, содержащий инструкции HiveQL:
-   
+
    ```bash
    nano twitter.hql
    ```
 
     В качестве содержимого файла добавьте следующий текст:
-   
+
    ```hiveql
    set hive.exec.dynamic.partition = true;
    set hive.exec.dynamic.partition.mode = nonstrict;
@@ -318,7 +318,7 @@ Twitter позволяет получать [данные для каждого 
 
 2. Нажмите клавиши **Ctrl + X**, а затем **Y** (Да) для сохранения файла.
 3. Выполните приведенную ниже команду, чтобы запустить код HiveQL в файле:
-   
+
    ```bash
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql
    ```
@@ -326,7 +326,7 @@ Twitter позволяет получать [данные для каждого 
     Эта команда запускает файл **twitter.hql**. После выполнения запроса отобразится строка `jdbc:hive2//localhost:10001/>`.
 
 4. В командной строке Beeline выполните следующий код, чтобы убедиться, что вы можете выбрать данные из таблицы **tweets**, созданной HiveQL из файла **twitter.hql**:
-   
+
    ```hiveql
    SELECT name, screen_name, count(1) as cc
        FROM tweets

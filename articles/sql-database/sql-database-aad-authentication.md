@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 03/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 01294f8f8fdaa65a5f33dbf6d35c0baa342cacc8
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 154cd7eec65559ec2263a12b8977ec0af0a78743
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -39,12 +39,11 @@ ms.lasthandoff: 03/24/2017
 Для настройки и использования проверки подлинности Azure Active Directory выполните следующие действия.
 
 1. Создайте и заполните каталог Azure AD.
-2. Разместите свою базу данных в Базе данных SQL Azure версии 12. (Необязательно для хранилища данных SQL.)
-3. Свяжите или измените каталог Active Directory, который сейчас связан с вашей подпиской Azure (этот шаг можно пропустить).
-4. Создайте учетную запись администратора Azure Active Directory для сервера Azure SQL Server или [хранилища данных SQL Azure](https://azure.microsoft.com/services/sql-data-warehouse/).
-5. Настройте клиентские компьютеры.
-6. Создайте учетные записи пользователей автономной базы данных в базе данных, сопоставленной с удостоверениями Azure AD.
-7. Подключитесь к базе данных с помощью удостоверений Azure AD.
+2. Свяжите или измените каталог Active Directory, который сейчас связан с вашей подпиской Azure (этот шаг можно пропустить).
+3. Создайте учетную запись администратора Azure Active Directory для сервера Azure SQL Server или [хранилища данных SQL Azure](https://azure.microsoft.com/services/sql-data-warehouse/).
+4. Настройте клиентские компьютеры.
+5. Создайте учетные записи пользователей автономной базы данных в базе данных, сопоставленной с удостоверениями Azure AD.
+6. Подключитесь к базе данных с помощью удостоверений Azure AD.
 
 > [!NOTE]
 > Сведения о создании и заполнении каталога Azure AD, а также настройке Azure AD с помощью базы данных SQL Azure и хранилища данных SQL см. в статье [Настройка аутентификации Azure Active Directory и управление ею с использованием базы данных SQL или хранилища данных SQL](sql-database-aad-authentication-configure.md).

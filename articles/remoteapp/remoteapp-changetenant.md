@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 5326c779d766e075a54f5ec43f92b6c5c973be8b
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1199ca2378cfe4adba2d591bfab204113b4a0468
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="change-the-azure-active-directory-tenant-in-azure-remoteapp"></a>Смена клиента Azure Active Directory в Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -48,10 +49,5 @@ Azure RemoteApp использует Azure Active Directory (Azure AD), чтоб
 8. Снова выполните вход и вернитесь в раздел **Параметры > Подписки**. Выберите свою подписку и щелкните **Изменить каталог**. Выберите клиента Azure AD, которого вы хотите использовать.
 
 Теперь вы можете использовать новый клиент Azure AD для контроля доступа к подписке Azure и настройки доступа пользователей в удаленном приложении Azure RemoteApp.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

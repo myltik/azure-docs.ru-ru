@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: a37804025cbd298ef2b98c84b5cc59c0cba07dd9
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 75b0f8d6b25a80f11002b683152cfb294cbb68bd
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="requirements-for-azure-remoteapp-images"></a>Требования к образам Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -36,7 +37,7 @@ Azure RemoteApp использует образ Windows Server 2012 R2 для р
 
 * Пользовательские приложения не хранят данные локально, в образе. Эти образы не имеют состояний и должны содержать только приложения.
 * Образ не содержит данных, которые могут быть потеряны.
-* Размер образа должен быть кратен&1; МБ. В противном случае при попытке отправить образ произойдет сбой.
+* Размер образа должен быть кратен 1 МБ. В противном случае при попытке отправить образ произойдет сбой.
 * Размер образа не должен превышать 127 ГБ.
 * он должен быть помещен в VHD-файл (файлы VHDX в настоящее время не поддерживаются).
 * Виртуальный жесткий диск VHD не должен быть виртуальной машиной 2 поколения.
@@ -50,10 +51,5 @@ Azure RemoteApp использует образ Windows Server 2012 R2 для р
 * Отправка VHD из цепочки моментальных снимков не поддерживается.
 
 Сведения о создании образов для Azure RemoteApp см. в статье [Создание образа Azure RemoteApp](remoteapp-imageoptions.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

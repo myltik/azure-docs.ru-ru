@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 537fbe37b0ee21cb5d2c9f1ba437ac178850fee2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a486dcb3f994cd78311ee86521a6792a4d57438e
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="troubleshoot-creating-azure-remoteapp-hybrid-collections"></a>Устранение неполадок создания гибридных коллекций Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -71,10 +72,5 @@ ms.openlocfilehash: 537fbe37b0ee21cb5d2c9f1ba437ac178850fee2
 
 ## <a name="what-domain-name-did-you-specify-when-you-created-your-collection"></a>Какое имя домена было указано при создании коллекции?
 Созданное или добавленное имя домена должно быть внутренним именем домена (а не именем домена Azure AD) и иметь разрешимый формат DNS (contoso.local). Например, если у вас имеется внутреннее имя Active Directory (contoso.local) и имя участника-пользователя Active Directory (contoso.com), при создании коллекции необходимо использовать внутреннее имя.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8057e9ce27f9df3e9455d48d9c8196033612c8f3
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 0e82c639ea7bfceb89f0cf9c59ab657a951f2d5f
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-app-v-apps-in-azure-remoteapp"></a>Работа с приложением App-V в Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -41,10 +42,5 @@ ms.openlocfilehash: 8057e9ce27f9df3e9455d48d9c8196033612c8f3
 | Глобально (машина). |Предварительная публикация или отслеживание с помощью сервера публикации. |Для обновления приложения необходимо обновить образ Azure (огромный). Занимает место в образе. | |
 
  Создав пользовательский образ и гибридную коллекцию, опубликуйте приложение, назначьте пользователей — и можете пользоваться своими приложениями App-V, размещенными в Azure RemoteApp, где угодно и на любом устройстве.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
