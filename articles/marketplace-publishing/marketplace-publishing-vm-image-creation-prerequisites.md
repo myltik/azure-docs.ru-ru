@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8c2dbd0a79a616e291c974c16d20d423cbb25ce2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -51,17 +52,5 @@ ms.openlocfilehash: 8c2dbd0a79a616e291c974c16d20d423cbb25ce2
 * Разработка в облаке означает, что все этапы разработки выполняются удаленно на VHD, который находится в Azure.
 * Для локальной разработки VHD необходимо загрузить и разработать в локальной инфраструктуре. Такой вариант возможен, но не рекомендуется. Обратите внимание на то, что локальная разработка для Windows и SQL требует соответствующих локальных лицензионных ключей. Невозможно добавить или установить SQL Server после создания виртуальной машины. Кроме того, в вашем предложении должен использоваться утвержденный образ SQL с портала Azure. При выборе локальной разработки некоторые действия нужно будет выполнить не так, как при разработке в облаке. Соответствующие сведения см. в статье [Локальная разработка образа виртуальной машины для Azure Marketplace](marketplace-publishing-vm-image-creation-on-premise.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
-Теперь, когда вы ознакомились со списком обязательных компонентов и выполнили необходимые задачи, можете переходить к созданию образа виртуальной машины для предложения, как описано в [руководстве по публикации образа виртуальной машины](marketplace-publishing-vm-image-creation.md).
-
-## <a name="see-also"></a>Дополнительные материалы
-* [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
-* [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
