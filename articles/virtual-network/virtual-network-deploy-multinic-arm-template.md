@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9f9908466dbfd471bc881387c0968c924140c67b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/21/2017
     },
     ```
 
-6. Обратите внимание, что **vmSize** содержит значение *Standard_DS3*. С несколькими сетевыми адаптерами разрешается использовать только определенные размеры виртуальных машин. Чтобы проверить, какие размеры виртуальных машин поддерживают несколько сетевых интерфейсов, ознакомьтесь со статьями о размерах виртуальных машин [под управлением Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+6. Обратите внимание, что **vmSize** содержит значение *Standard_DS3*. С несколькими сетевыми адаптерами разрешается использовать только определенные размеры виртуальных машин. Чтобы проверить, какие размеры виртуальных машин поддерживают несколько сетевых интерфейсов, ознакомьтесь со статьями о размерах виртуальных машин [под управлением Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 7. Прокрутите вниз до **ресурсов** и обратите внимание на первый элемент. Он описывает учетную запись хранения. Эта учетная запись хранения будет использоваться для дисков данных, используемых в каждой виртуальной машине баз данных. В этом сценарии у каждой виртуальной машины баз данных есть диск ОС, который размещен в обычном хранилище, и два диска данных, размещенных в хранилище SSD (хранилище класса Premium).
 

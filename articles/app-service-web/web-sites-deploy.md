@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: cephalin;dariac
 translationtype: Human Translation
-ms.sourcegitcommit: 283b1cfda82b4f96ad5148c522a4c9833cb4c381
-ms.openlocfilehash: 4b3b96e9c5d7a4ff99c803aa356dcb5ad6997978
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 99ec39d3f0f6e82409de571db1e7c7c9468eb068
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="deploy-your-app-to-azure-app-service"></a>Развертывание приложения в службе приложений Azure
 Эта статья поможет вам определить лучший способ развертывания файлов для веб-приложения, серверной части мобильного приложения или приложения API в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Здесь же приводятся ссылки на статьи с пошаговыми инструкциями, относящимися к выбранному вами способу.
 
-## <a name="a-nameoverviewaazure-app-service-deployment-overview"></a><a name="overview"></a>Общие сведения о развертывании службы приложений Azure
+## <a name="overview"></a>Общие сведения о развертывании службы приложений Azure
 Служба приложений Azure поддерживает платформы приложений (ASP.NET, PHP, Node.js и т. д.). Некоторые платформы активированы по умолчанию, в то время как для активации других, например Java и Python, может потребоваться небольшая настройка параметров. Кроме того, можно изменить настройки платформы приложения, например версию PHP или разрядность среды выполнения. Дополнительные сведения см. в статье [Настройка приложения в службе приложений Azure](web-sites-configure.md).
 
 Так как о веб-сервере и платформе приложений можно не беспокоиться, развертывание приложения в службе приложений сводится к развертыванию кода, двоичных файлов, файлов содержимого и соответствующей им структуры каталогов в каталог [**/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) в Azure (или в каталог веб-заданий **/site/wwwroot/App_Data/Jobs/**). Служба приложений поддерживает три разных способа развертывания. Все методы развертывания в этой статье используют один из следующих процессов. 
@@ -43,7 +44,7 @@ ms.openlocfilehash: 4b3b96e9c5d7a4ff99c803aa356dcb5ad6997978
 > 
 > 
 
-## <a name="a-nameftpadeploy-manually-by-uploading-files-with-ftp"></a><a name="ftp"></a>Развертывание вручную путем отправки файлов с помощью FTP
+## <a name="ftp"></a>Развертывание вручную путем отправки файлов с помощью FTP
 Если вы привыкли копировать веб-содержимое на веб-сервер вручную, для копирования файлов можно использовать служебную программу [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol), например проводник или [FileZilla](https://filezilla-project.org/).
 
 Копирование файлов вручную имеет следующие преимущества:
@@ -59,12 +60,12 @@ ms.openlocfilehash: 4b3b96e9c5d7a4ff99c803aa356dcb5ad6997978
 * Нет встроенного журнала развертываний для устранения неполадок с развертываниями.
 * Развертывание может занимать много времени, поскольку многие инструменты FTP не предоставляют возможности копирования по методу diff-only и просто копируют все файлы.  
 
-### <a name="a-namehowtoftpahow-to-upload-files-with-ftp"></a><a name="howtoftp"></a>Отправка файлов с помощью FTP
+### <a name="howtoftp"></a>Отправка файлов с помощью FTP
 [Портал Azure](https://portal.azure.com) содержит все сведения, необходимые для подключения к каталогам вашего приложения с помощью FTP и FTPS.
 
 * [Развертывание приложения в службе приложений Azure с помощью FTP или FTPS](app-service-deploy-ftp.md)
 
-## <a name="a-namedropboxadeploy-by-syncing-with-a-cloud-folder"></a><a name="dropbox"></a>Развертывание путем синхронизации с папкой в облаке
+## <a name="dropbox"></a>Развертывание путем синхронизации с папкой в облаке
 Хорошая альтернатива [копированию файлов вручную](#ftp) — синхронизация файлов и папок со службой приложений из облачной службы хранения, например OneDrive и Dropbox. При синхронизации с папкой в облаке для развертывания применяется способ с использованием Kudu (ознакомьтесь с разделом [Обзор способов развертывания](#overview)).
 
 Развертывание путем синхронизации с папкой в облаке имеет следующие преимущества:
@@ -78,12 +79,12 @@ ms.openlocfilehash: 4b3b96e9c5d7a4ff99c803aa356dcb5ad6997978
 * При откате в случае возникновения ошибок отсутствует возможность управления версиями.
 * Нет автоматического развертывания, требуется ручная синхронизация.
 
-### <a name="a-namehowtodropboxahow-to-deploy-by-syncing-with-a-cloud-folder"></a><a name="howtodropbox"></a>Пошаговая инструкция по развертыванию путем синхронизации с папкой в облаке
+### <a name="howtodropbox"></a>Пошаговая инструкция по развертыванию путем синхронизации с папкой в облаке
 На [портале Azure](https://portal.azure.com)можно указать папку для синхронизации содержимого в облачном хранилище OneDrive или Dropbox, работать с кодом приложения и содержимым указанной папки, а также синхронизировать службу приложений одним щелчком кнопки.
 
 * [Синхронизация содержимого из папки в облаке со службами приложений Azure](app-service-deploy-content-sync.md). 
 
-## <a name="a-namecontinuousdeploymentadeploy-continuously-from-a-cloud-based-source-control-service"></a><a name="continuousdeployment"></a>Постоянное развертывание из облачной службы управления версиями
+## <a name="continuousdeployment"></a>Постоянное развертывание из облачной службы управления версиями
 Если команда разработчиков использует облачную службу управления исходным кодом, например [Visual Studio Team Services](http://www.visualstudio.com/), [GitHub](https://www.github.com) или [BitBucket](https://bitbucket.org/), то службу приложений можно настроить для интеграции с репозиторием и включить непрерывного развертывание. 
 
 Развертывание из облачной службы управления версиями имеет следующие преимущества:
@@ -97,14 +98,14 @@ ms.openlocfilehash: 4b3b96e9c5d7a4ff99c803aa356dcb5ad6997978
 
 * Требуется знание соответствующей службы SCM.
 
-### <a name="a-namevstsahow-to-deploy-continuously-from-a-cloud-based-source-control-service"></a><a name="vsts"></a>Постоянное развертывание из облачной службы управления версиями
+### <a name="vsts"></a>Постоянное развертывание из облачной службы управления версиями
 На [портале Azure](https://portal.azure.com)можно настроить непрерывное развертывание из GitHub, Bitbucket и Visual Studio Team Services.
 
 * [Непрерывное развертывание в службе приложений Azure](app-service-continuous-deployment.md) 
 
 Чтобы узнать, как вручную настроить непрерывное развертывание из облачного репозитория, которого нет списке на портале Azure (например, [GitLab](https://gitlab.com/)), см. раздел [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps) (Настройка непрерывного развертывания вручную).
 
-## <a name="a-namelocalgitdeploymentadeploy-from-local-git"></a><a name="localgitdeployment"></a>Развертывание из локального репозитория Git
+## <a name="localgitdeployment"></a>Развертывание из локального репозитория Git
 Если команда разработчиков использует локальную службу управления исходными кодами (SCM) на основе Git, ее можно использовать как источник развертывания для службы приложений. 
 
 Преимущества развертывания из локального репозитория Git:
@@ -118,7 +119,7 @@ ms.openlocfilehash: 4b3b96e9c5d7a4ff99c803aa356dcb5ad6997978
 * Требуется знание соответствующей системы SCM.
 * Нет готовых решений для постоянного развертывания. 
 
-### <a name="a-namevstsahow-to-deploy-from-local-git"></a><a name="vsts"></a>Развертывание из локального Git
+### <a name="vsts"></a>Развертывание из локального Git
 На [портале Azure](https://portal.azure.com)можно настроить развертывание локального репозитория Git.
 
 * [Развертывание локального репозитория Git в службе приложений Azure](app-service-deploy-local-git.md). 
@@ -146,20 +147,20 @@ Visual Studio поддерживает все три способа развер
 * Интегрированный обозреватель Azure.
 * Развертывание по методу diff-only. 
 
-### <a name="a-namevsahow-to-deploy-from-visual-studio-directly"></a><a name="vs"></a>Как выполнить развертывание напрямую из Visual Studio
-* [Начало работы с Azure и ASP.NET](web-sites-dotnet-get-started.md). Создание и развертывание простого веб-проекта ASP.NET MVC с помощью Visual Studio и веб-развертывания.
+### <a name="vs"></a>Как выполнить развертывание напрямую из Visual Studio
+* [Начало работы с Azure и ASP.NET](app-service-web-get-started-dotnet.md). Создание и развертывание простого веб-проекта ASP.NET MVC с помощью Visual Studio и веб-развертывания.
 * [Развертывание веб-заданий Azure с помощью Visual Studio](websites-dotnet-deploy-webjobs.md). Как настроить проекты консольных приложений для их развертывания как заданий WebJob.  
 * [Развертывание безопасного приложения ASP.NET MVC 5 с членством, OAuth и базой данных SQL в веб-приложения](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Создание и развертывание веб-проекта ASP.NET MVC с базой данных SQL с помощью Visual Studio, веб-развертывания и Entity Framework Code First Migrations.
 * [Веб-развертывание ASP.NET с помощью Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Серия учебников из 12 частей, в которой рассматривается более полный список задач развертывания, чем в других ресурсах из этого списка. Некоторые функции развертывания Azure были добавлены уже после написания учебника, но отсутствующие данные приведены в примечаниях, добавленных позже.
 * [Развертывание веб-сайта ASP.NET в Azure с помощью Visual Studio 2012 непосредственно из репозитория Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Описание способов развертывания веб-проекта ASP.NET в Visual Studio с использованием подключаемого модуля Git для применения кода к Git и подключения Azure к репозиторию Git. При запуске Visual Studio 2013 поддержка Git доступна по умолчанию и не требует установки подключаемого модуля.
 
-### <a name="a-nameaztkahow-to-deploy-using-the-azure-toolkits-for-eclipse-and-intellij-idea"></a><a name="aztk"></a>Развертывание с использованием наборов средств Azure для Eclipse и IntelliJ IDEA
+### <a name="aztk"></a>Развертывание с использованием наборов средств Azure для Eclipse и IntelliJ IDEA
 Корпорация Майкрософт позволяет развертывать веб-приложения в Azure непосредственно из Eclipse и IntelliJ, используя [набор инструментов Azure для Eclipse](../azure-toolkit-for-eclipse.md) и [набор инструментов Azure для IntelliJ](../azure-toolkit-for-intellij.md). В следующих учебниках описано, какие действия необходимо выполнить, чтобы развернуть простой пример веб-приложения Hello World в Azure с помощью IDE:
 
 * [Создание веб-приложения Hello World для Azure в Eclipse](app-service-web-eclipse-create-hello-world-web-app.md) В этом учебнике показано, как с помощью набора средств Azure для Eclipse создать и развернуть веб-приложение Hello World для Azure.
 * [Создание веб-приложения Hello World для Azure в IntelliJ](app-service-web-intellij-create-hello-world-web-app.md) В этом учебнике показано, как с помощью набора средств Azure для IntelliJ создать и развернуть веб-приложение Hello World для Azure.
 
-## <a name="a-nameautomateaautomate-deployment-by-using-command-line-tools"></a><a name="automate"></a>Автоматизация развертывания с помощью программ командной строки
+## <a name="automate"></a>Автоматизация развертывания с помощью программ командной строки
 Если вы предпочитаете использовать в качестве среды разработки командную строку терминала, вы можете написать сценарии задач развертывания для приложения службы приложений с помощью программ командной строки. 
 
 Развертывания с помощью программ командной строки имеют следующие преимущества:
@@ -172,20 +173,15 @@ Visual Studio поддерживает все три способа развер
 
 * Не подходит для разработчиков, которые предпочитают графический интерфейс пользователя.
 
-### <a name="a-nameautomatehowahow-to-automate-deployment-with-command-line-tools"></a><a name="automatehow"></a>Автоматизация развертывания с помощью программ командной строки
+### <a name="automatehow"></a>Автоматизация развертывания с помощью программ командной строки
 
 Список программ командной строки и ссылки на руководства см. в статье [Автоматизация развертывания приложения Azure с помощью программ командной строки](app-service-deploy-command-line.md). 
 
-## <a name="a-namenextstepsanext-steps"></a><a name="nextsteps"></a>Дальнейшие действия
+## <a name="nextsteps"></a>Дальнейшие действия
 В некоторых сценариях вам может понадобиться возможность простого переключения между тестовой или рабочей версиями вашего приложения. Дополнительную информацию см. в разделе [Промежуточное развертывание в веб-приложения](web-sites-staged-publishing.md).
 
 Наличие резервного копирования и плана восстановления является важной частью рабочего процесса развертывания. Сведения о функции резервного копирования и восстановления в службе приложений см. в статье [Резервное копирование веб-приложений](web-sites-backup.md).  
 
 Дополнительную информацию о том, как с помощью средств управления доступом на основе ролей в Azure управлять доступом к развертыванию службы приложений, см. в статье [RBAC и публикация веб-приложений](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

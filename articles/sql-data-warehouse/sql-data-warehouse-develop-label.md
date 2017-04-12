@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c72cd2c80d9fcee3d9340c23a629451c54c9156
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 9e75bbe528a427724a623305fbd45e2277e9d0af
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -49,19 +51,14 @@ WHERE   r.[label] = 'My Query Label'
 > 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные советы по разработке см. в статье [общие сведения о разработке][общие сведения о разработке].
+Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[общие сведения о разработке]: sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

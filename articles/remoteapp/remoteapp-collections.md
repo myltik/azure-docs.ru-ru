@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7c526faeef2418cfbbca7948004691e127327020
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 7891ce3b04cd5978440dd8af73dc95d1d123ed92
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-kind-of-collection-do-you-need-for-azure-remoteapp"></a>Какой вид коллекции требуется для Azure RemoteApp?
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -90,10 +91,5 @@ Azure RemoteApp поддерживает как учетные записи Ма
 Я думаю, что с этим мы разобрались, теперь осталось лишь создать вашу первую коллекцию Azure RemoteApp.
 
 [Создайте облачную](remoteapp-create-cloud-deployment.md) или [гибридную коллекцию](remoteapp-create-hybrid-deployment.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

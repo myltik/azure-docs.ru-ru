@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -17,9 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2d72731304aee0952abbb1f3b2c24b620118fc6c
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 272b5eade0a80b1f46af4e4df1c7801d86fee175
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,7 +44,7 @@ ms.lasthandoff: 03/18/2017
 2. Подготовьте все необходимые исправления в виде скриптов Transact-SQL.
 3. Создайте транзакционно согласованную копию базы данных-источника для миграции. В нее не должны вноситься дальнейшие изменения (такие изменения можно применить вручную после завершения миграции). Существует множество методов замораживания базы данных — от запрета подключения клиента до создания [моментального снимка базы данных](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Разверните скрипты Transact-SQL для применения исправлений к копии базы данных.
-5. [Экспортируйте](sql-database-export-sqlpackage.md) копию базы данных в BACPAC-файл на локальном диске.
+5. [Экспортируйте](sql-database-export.md) копию базы данных в BACPAC-файл на локальном диске.
 6. [Импортируйте](sql-database-import-sqlpackage.md) BACPAC-файл как новую базу данных SQL Azure, используя некоторые средства импорта BACPAC, в том числе SQLPackage.exe, который является рекомендуемым средством для повышения производительности.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Оптимизация производительности передачи данных во время миграции 

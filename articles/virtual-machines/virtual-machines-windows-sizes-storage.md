@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: a17064f4d25e0f8cf406451e2d227d72511ac171
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 586b77c357f64f853374a7ba59e766b015d572c2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,13 +34,13 @@ ms.lasthandoff: 03/24/2017
 
 
 ## <a name="other-sizes"></a>Остальные размеры
-- [Универсальные](virtual-machines-windows-sizes-general.md)
-- [Оптимизированные для вычислений](virtual-machines-windows-sizes-compute.md)
+- [Универсальные](windows/sizes-general.md)
+- [Оптимизированные для вычислений](windows/sizes-compute.md)
 - [Оптимизированные для памяти](virtual-machines-windows-sizes-memory.md)
-- [Оптимизированные для GPU](virtual-machines-windows-sizes-gpu.md)
-- [Для высокопроизводительных вычислений](virtual-machines-windows-sizes-hpc.md)
+- [Оптимизированные для GPU](windows/sizes-gpu.md)
+- [Для высокопроизводительных вычислений](windows/sizes-hpc.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](virtual-machines-windows-acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
+Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](windows/acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
 
 

@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a4de014f80bb7acfc91fb0c2f4c36fa659463db4
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d1cd23eac464d48ebc6dd618c52c252444b47e21
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -64,20 +66,15 @@ Azure Stream Analytics — это сложная полностью управ�
 <!--Image references-->
 
 <!--Article references-->
-[Проектные решения и методики программирования для хранилища данных SQL]: sql-data-warehouse-overview-develop/
+[development overview]: sql-data-warehouse-overview-develop/
 
-[Фабрика данных Azure]: sql-data-warehouse-integrate-azure-data-factory.md
-[Машинное обучение Azure]: sql-data-warehouse-integrate-azure-machine-learning.md
+[Azure Data Factory]: sql-data-warehouse-integrate-azure-data-factory.md
+[Azure Machine Learning]: sql-data-warehouse-integrate-azure-machine-learning.md
 [Azure Stream Analytics]: sql-data-warehouse-integrate-azure-stream-analytics.md
 [Power BI]: sql-data-warehouse-integrate-power-bi.md
-[Партнеры]: sql-data-warehouse-partner-business-intelligence.md
+[Partners]: sql-data-warehouse-partner-business-intelligence.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

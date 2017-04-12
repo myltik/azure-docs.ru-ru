@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 04/07/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9fc53417c40225c87d3849cbe51712849e5cc93a
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 3fa7b8d053d0193352776e94d2ab4796ba05e166
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/03/2017
 Azure Service Fabric упрощает процесс обновления облачных приложений за счет того, что обновляются только измененные службы, кроме того, в процессе обновления отслеживается работоспособность приложения. При обнаружении проблем автоматически выполняется откат к предыдущей версии приложения. Обновление приложений Service Fabric выполняется *без времени простоя*, так как приложение можно обновить без времени простоя. В этом учебнике описывается развертывание последовательного обновления из Visual Studio.
 
 ## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Шаг 1. Построение и публикация примера приложения Visual Objects
-Во-первых, скачайте приложение [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) с сайта GitHub. Затем выполните сборку приложения и опубликуйте его. Для этого щелкните правой кнопкой мыши проект приложения **VisualObjects** и выберите в меню Service Fabric команду **Опубликовать**.
+Во-первых, скачайте приложение [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) с сайта GitHub. Затем выполните сборку приложения и опубликуйте его. Для этого щелкните правой кнопкой мыши проект приложения **VisualObjects** и выберите в меню Service Fabric команду **Опубликовать**.
 
 ![Контекстное меню для приложения Service Fabric][image1]
 

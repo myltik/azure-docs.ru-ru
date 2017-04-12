@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e696906adf604ebdb665a7a29fd1bba25095e842
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: fbf33ea6a6362857bf4bc92055cabd9b099a6d0c
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/25/2017
 * Кластер HDInsight на основе Linux (Hadoop в HDInsight).
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Клиент SSH. Клиент SSH должен входить в состав операционных систем Linux, Unix и Mac OS. Пользователи Windows должны загрузить отдельный клиент, например [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -60,42 +60,42 @@ ms.lasthandoff: 03/25/2017
 ## <a id="hadoop"></a>Использование команд Hadoop
 
 1. После подключения к кластеру HDInsight используйте следующую команду **Hadoop** , чтобы запустить задание MapReduce:
-   
+
     ```
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
     ```
 
     При этом запустится класс **wordcount**, содержащийся в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **/example/data/gutenberg/davinci.txt**, а выходные данные сохраняются в **/example/data/WordCountOutput**.
-   
+
     > [!NOTE]
     > Дополнительную информацию об этом задании MapReduce и примере данных см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
 
 2. Задание выдает информацию о ходе обработки, а по завершении задания возвращает информацию, аналогичную приведенной ниже:
-   
+
         File Input Format Counters
         Bytes Read=1395666
         File Output Format Counters
         Bytes Written=337623
 
 3. После завершения используйте следующую команду, чтобы вывести список выходных файлов, сохраненных в **wasb://example/data/WordCountOutput**.
-   
+
     ```
     hdfs dfs -ls /example/data/WordCountOutput
     ```
-   
+
     Должно отобразиться два файла: **_SUCCESS** и **part-r-00000**. Файл **part-r-00000** содержит выходные данные этого задания.
-   
+
     > [!NOTE]
     > Некоторые задания MapReduce могут разделять результаты на несколько файлов **part-r-№№№№№** . В этом случае используйте суффикс №№№№№, чтобы определить порядок файлов.
 
 4. Чтобы просмотреть выходные данные, используйте следующую команду:
-   
+
     ```
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
-   
+
     Она отобразит список слов, содержащихся в файле **wasb://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого из них. Ниже приведен пример данных, содержащихся в файле.
-   
+
         wreathed        3
         wreathing       1
         wreaths         1
@@ -118,5 +118,4 @@ ms.lasthandoff: 03/25/2017
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
-
 

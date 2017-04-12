@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 83c063bb003ccda80ba6c1a74aadcd624d77ae47
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2a1e1004a4dab48aed75740a24ff5556242eaa67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,12 +62,12 @@ ms.lasthandoff: 03/21/2017
 Инструкции по развертыванию примера кода для нового веб-приложения в службе приложений см. в одном из руководств из приведенного ниже раскрывающегося списка. Вам понадобится бесплатная учетная запись Azure
 
 > [!div class="op_single_selector"]
-> * [Развертывание первого HTML-сайта в Azure за пять минут](app-service-web-get-started-html-cli-nodejs.md)
-> * [Развертывание первого веб-приложения ASP.NET в Azure за пять минут](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [Развертывание первого веб-приложения PHP в Azure за пять минут](app-service-web-get-started-php-cli-nodejs.md)
-> * [Развертывание первого веб-приложения Node.js в Azure за пять минут](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [Развертывание первого веб-приложения Python в Azure за пять минут](app-service-web-get-started-python-cli-nodejs.md)
+> * [Развертывание первого веб-приложения ASP.NET в Azure за пять минут](app-service-web-get-started-dotnet.md)
+> * [Развертывание первого веб-приложения PHP в Azure за пять минут](app-service-web-get-started-php.md)
+> * [Развертывание первого веб-приложения Node.js в Azure за пять минут](app-service-web-get-started-nodejs.md)
 > * [Развертывание первого веб-приложения Java в Azure за пять минут](app-service-web-get-started-java.md)
+> * [Развертывание первого веб-приложения Python в Azure за пять минут](app-service-web-get-started-python.md)
+> * [Развертывание первого HTML-сайта в Azure за пять минут](app-service-web-get-started-html.md)
 > 
 > 
 

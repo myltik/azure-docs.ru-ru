@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 91e061820e8edc81bca395dc78d3e1e840b21438
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: da4bb7fcbb45afed5d45f4d48c0b90e44503daf8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +45,7 @@ ms.openlocfilehash: 91e061820e8edc81bca395dc78d3e1e840b21438
    
     ![][4]
 2. В этом пошаговом руководстве представлены инструкции по развертыванию веб-приложения или облачной службы (приложение Azure). Создайте новый проект облачной службы Azure или новый проект MVC ASP.NET. Убедитесь в том, что проект предназначен для платформы .NET Framework 4 или более поздней версии. Если вы создаете проект облачной службы, добавьте рабочую роль и веб-роль MVC ASP.NET.
-   Если вы хотите создать веб-приложение, выберите шаблон проекта **Веб-приложение ASP.NET**, а затем — **MVC**. Дополнительные сведения см. в статье [Развертывание веб-приложения ASP.NET в службе приложений Azure с помощью Visual Studio](../app-service-web/web-sites-dotnet-get-started.md).
+   Если вы хотите создать веб-приложение, выберите шаблон проекта **Веб-приложение ASP.NET**, а затем — **MVC**. Дополнительные сведения см. в статье [Развертывание веб-приложения ASP.NET в службе приложений Azure с помощью Visual Studio](../app-service-web/app-service-web-get-started-dotnet.md).
 3. Откройте контекстное меню для этого решения и выберите пункт **Зафиксировать**.
    
     ![][7]
@@ -232,9 +233,4 @@ ms.openlocfilehash: 91e061820e8edc81bca395dc78d3e1e840b21438
 [45]: ./media/cloud-services-continuous-delivery-use-vso-git/SyncChanges2.PNG
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

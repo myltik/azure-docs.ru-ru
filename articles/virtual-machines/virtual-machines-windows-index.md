@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 4933d4ea33fd7299b220f90f8f904ae71c446e0c
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: b0f97779c2cf8bf3e7535afa8a2ab1ee45958ad1
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -29,13 +29,13 @@ ms.lasthandoff: 03/25/2017
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
 ## <a name="overview"></a>Обзор
-[About Azure virtual machines (Сведения о виртуальных машинах Azure)](virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[About Azure virtual machines (Сведения о виртуальных машинах Azure)](windows/about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Вопросы и ответы по виртуальным машинам Azure, созданным при помощи классической модели развертывания](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Сравнение службы приложений Azure, виртуальных машин, Service Fabric и облачных служб](../app-service-web/choose-web-site-cloud-service-vm.md)
 
-[Виртуальные машины и контейнеры в Azure](virtual-machines-windows-containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Виртуальные машины и контейнеры в Azure](windows/containers.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="environment-setup"></a>Настройка среды
 [Бесплатная учетная запись](https://azure.microsoft.com/free/)
@@ -54,13 +54,13 @@ ms.lasthandoff: 03/25/2017
 ## <a name="plan"></a>План
 [About images for virtual machines (Образы виртуальных машин)](windows/classic/about-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Размеры виртуальных машин](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Размеры виртуальных машин](windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Виртуальные машины серии A (для ресурсоемких вычислений) и серии H](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Виртуальные машины серии A (для ресурсоемких вычислений) и серии H](windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Плановое обслуживание виртуальных машин Azure](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Плановое обслуживание виртуальных машин Azure](windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Руководство по реализации служб инфраструктуры Azure](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Руководство по реализации служб инфраструктуры Azure](windows/infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [How to configure an availability set for virtual machines in the classic deployment model (Создание группы доступности для виртуальных машин в классической модели развертывания)](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 03/25/2017
 
 [Создание и передача виртуального жесткого диска Windows Server в Azure](windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Автоматизация развертывания виртуальной машины Azure с помощью Chef](virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Автоматизация развертывания виртуальной машины Azure с помощью Chef](windows/chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Create Windows virtual machines with Powershell and the classic deployment model (Создание виртуальных машин Windows с помощью PowerShell и классической модели развертывания)](windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -88,12 +88,12 @@ ms.lasthandoff: 03/25/2017
 
 [Custom Script extension for Windows virtual machines (Расширение Custom Script для виртуальных машин Windows)](windows/classic/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Техническое руководство по поддерживаемому платформой переносу из классической модели в модель Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+[Техническое руководство по поддерживаемому платформой переносу из классической модели в модель Azure Resource Manager](windows/migration-classic-resource-manager-deep-dive.md)
 
 ## <a name="configure"></a>Настройка
-[Сброс пароля или службы удаленных рабочих столов для виртуальной машины Windows](virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Сброс пароля или службы удаленных рабочих столов для виртуальной машины Windows](windows/reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Обзор расширений и компонентов виртуальной машины](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Обзор расширений и компонентов виртуальной машины](windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Установка и настройка Symantec Endpoint Protection на виртуальной машине Windows](windows/classic/install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 03/25/2017
 
 [How to detach a disk from a Windows virtual machine (Отключение диска от виртуальной машины Windows)](windows/classic/detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Использование диска D в качестве диска данных в виртуальной машине Windows](virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Использование диска D в качестве диска данных в виртуальной машине Windows](windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="networking"></a>Сеть
 [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md)
@@ -131,7 +131,7 @@ ms.lasthandoff: 03/25/2017
 [Веб-приложение Hello World на Django на виртуальной машине Windows Server](windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="workloads"></a>Рабочие нагрузки
-[Пакет HPC](virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Пакет HPC](windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [MongoDB](windows/classic/install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -155,11 +155,11 @@ ms.lasthandoff: 03/25/2017
 [Справочная документация по командлетам PowerShell для управления службами Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
 ## <a name="troubleshooting"></a>Устранение неполадок
-[Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин в Azure](virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин в Azure](windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Устранение неполадок в классическом развертывании при создании виртуальной машины Windows в Azure](windows/classic/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 

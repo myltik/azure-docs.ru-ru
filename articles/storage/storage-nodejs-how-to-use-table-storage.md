@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: b9041713f3d084fde77a34ef7956a2c59312245e
-ms.openlocfilehash: d9008f6232ca2442edce2a3cae88f0b3d2be2f14
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 70830309c33d4a94fc1eb5abb85cba26c8623f88
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: d9008f6232ca2442edce2a3cae88f0b3d2be2f14
 
 В примерах кода в этом разделе предполагается, что приложение Node.js уже создано. Инструкции по созданию приложения Node.js в Azure см. в любой из следующих статей:
 
-* [Создание веб-приложения Node.js в службе приложений Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
+* [Создание веб-приложения Node.js в службе приложений Azure](../app-service-web/app-service-web-get-started-nodejs.md)
 * [Создание и развертывание веб-приложения Node.js в Azure с использованием WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
 * [Создание и развертывание приложения Node.js в облачной службе Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (с помощью Windows PowerShell)
 
@@ -195,7 +196,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 1. Получите ETag обновляемого объекта. Он возвращается в составе `response` для всех операций с сущностями и может быть извлечен с помощью `response['.metadata'].etag`.
 > 2. При выполнении операции обновления с сущностью предварительно добавьте информацию ETag, извлеченную для новой сущности. Например:
 >
->       entity2['.metadata'].etag = currentEtag;
+>         entity2['.metadata'].etag = currentEtag;
 > 3. Выполните операцию обновления. Если сущность была изменена с момента получения значения ETag, например, другим экземпляром вашего приложения, будет возвращена ошибка `error` , указывающая, что определенное в запросе условие обновления не выполнено.
 >
 >
@@ -457,17 +458,8 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [OData.org]: http://www.odata.org/
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure portal]: portal.azure.com
 
-[Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
-[Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [Веб-приложение Node.js, использующее службу таблиц Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
-[Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+[Create and deploy a Node.js application to an Azure website]: ../app-service-web/app-service-web-get-started-nodejs.md
 

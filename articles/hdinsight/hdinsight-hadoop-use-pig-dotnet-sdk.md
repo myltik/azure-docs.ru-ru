@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 03/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: db01dd7ff7590c6cb43b5f8bc39674f585160856
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 10e2f35bdaf1b6e00e3d8dde34dd5809a89cde30
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -37,18 +37,18 @@ ms.lasthandoff: 03/07/2017
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Visual Studio 2012, 2013, 2015 или 2017.
 
 ## <a name="create-the-application"></a>Создание приложения
 
-Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. 
+Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET.
 
 1. В Visual Studio откройте меню **Файл** и выберите **Создать**, а затем — **Проект**.
 
 2. Для нового проекта введите или выберите следующие значения.
-   
+
    | Свойство | Значение |
    | ------ | ------ |
    | Категория | Templates/Visual C#/Windows |
@@ -60,11 +60,11 @@ ms.lasthandoff: 03/07/2017
 4. В меню **Сервис** выберите пункт **Диспетчер пакетов библиотеки** или **Диспетчер пакетов Nuget**, а затем — **Консоль диспетчера пакетов**.
 
 5. Чтобы установить пакеты SDK для .NET, выполните следующую команду:
-   
+
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
 6. В обозревателе решений дважды щелкните **Program.cs** , чтобы открыть файл. Замените имеющийся код следующим.
-   
+
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;
     using Microsoft.Azure.Management.HDInsight.Job.Models;
@@ -117,7 +117,7 @@ ms.lasthandoff: 03/07/2017
         }
     }
     ```
-    
+
 7. Чтобы запустить приложение, нажмите клавишу **F5**.
 
 8. Чтобы завершить работу приложения, нажмите клавишу **ВВОД**.

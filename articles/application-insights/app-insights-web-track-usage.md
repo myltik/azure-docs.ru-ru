@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 06/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f86986fea6fc48a4a6ed09022e8026e0645dfc56
-ms.openlocfilehash: 971558d287191c6b7b5ea9d135e6fe37c904aa76
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 8e32014147c322e09af08e5c05d83aea13041a4c
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -317,10 +318,6 @@ Application Insights старается автоматически опреде�
 * [Использование API. Обзор][api]
 * [Справочник по JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
-## <a name="video"></a>Видео
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
-> 
-> 
 
 <!--Link references-->
 
@@ -334,10 +331,5 @@ Application Insights старается автоматически опреде�
 [portal]: http://portal.azure.com/
 [windows]: app-insights-windows-get-started.md
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

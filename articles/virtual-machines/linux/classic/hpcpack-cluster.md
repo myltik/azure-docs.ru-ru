@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 28426f048205e7cf836375d8b8855e06d5de807e
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 868026150e81347aa3a7914f63bc19c3a878c586
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/27/2017
 * **Шаблон Azure Resource Manager**. Чтобы автоматизировать процесс создания кластера в модели развертывания с помощью Resource Manager, используйте шаблон из Azure Marketplace или шаблон для быстрого начала работы от сообщества. Например, шаблон [кластера пакета HPC для рабочих нагрузок Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) из Azure Marketplace создает полную инфраструктуру кластера пакета HPC для рабочих нагрузок высокопроизводительных вычислительных систем Linux.
 * **Скрипт PowerShell**. Используйте [скрипт развертывания IaaS пакета Microsoft HPC](../../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) (**New-HpcIaaSCluster.ps1**) для автоматизации полного развертывания кластера в рамках классической модели развертывания. Этот скрипт Azure PowerShell использует образ виртуальной машины пакета HPC в Azure Marketplace для быстрого развертывания и предоставляет исчерпывающий набор параметров конфигурации для развертывания вычислительных узлов Linux.
 
-Общие сведения о вариантах развертывания кластера пакета HPC в Azure см. в статье [Варианты создания кластера высокопроизводительных вычислений (HPC) в Azure и управления им с помощью пакета Microsoft HPC](../../virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Общие сведения о вариантах развертывания кластера пакета HPC в Azure см. в статье [Варианты создания кластера высокопроизводительных вычислений (HPC) в Azure и управления им с помощью пакета Microsoft HPC](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="prerequisites"></a>Предварительные требования
 * **Подписка Azure**. Вы можете использовать подписку на глобальную службу Azure или Azure для Китая. Если ее нет, можно создать [бесплатную учетную запись](https://azure.microsoft.com/pricing/free-trial/) всего за несколько минут.
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/27/2017
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
     
     > [!TIP]
-    > Чтобы использовать сеть Azure RDMA с виртуальной машиной, размер которой поддерживает RDMA, укажите образ SUSE Linux Enterprise Server 12 HPC или образ CentOS для HPC из каталога Azure Marketplace. Дополнительные сведения см. в статье [Виртуальные машины серии A (для ресурсоемких вычислений) и серии H](../../virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Чтобы использовать сеть Azure RDMA с виртуальной машиной, размер которой поддерживает RDMA, укажите образ SUSE Linux Enterprise Server 12 HPC или образ CentOS для HPC из каталога Azure Marketplace. Дополнительные сведения см. в статье [Виртуальные машины серии A (для ресурсоемких вычислений) и серии H](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     > 
     > 
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 03/27/2017
    > 
 
 ## <a name="connect-to-the-head-node"></a>Подключение к головному узлу
-Когда развертывание кластера пакета HPC в Azure будет завершено, [подключитесь к виртуальной машине головного узла с помощью удаленного рабочего стола](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), используя учетные данные домена, которые вы указали при развертывании кластера (например, *hpc\\clusteradmin*). Управление кластером осуществляется из головного узла.
+Когда развертывание кластера пакета HPC в Azure будет завершено, [подключитесь к виртуальной машине головного узла с помощью удаленного рабочего стола](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), используя учетные данные домена, которые вы указали при развертывании кластера (например, *hpc\\clusteradmin*). Управление кластером осуществляется из головного узла.
 
 На головном узле запустите диспетчер кластеров HPC, чтобы проверить состояние кластера пакета HPC. Вы можете управлять вычислительными узлами Linux и отслеживать их так же, как и вычислительными узлами Windows. Например, в разделе **Управление ресурсами** вы видите узлы Linux (эти узлы развернуты с использованием шаблона **LinuxNode**).
 
@@ -269,7 +269,7 @@ clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rd
 * Веб-портал HPC
 * Интерфейс REST API
 
-Отправка заданий в кластер в Azure с помощью пользовательского интерфейса пакета HPC и веб-портала HPC аналогична отправке заданий для вычислительных узлов Windows. См. статьи, посвященные [диспетчеру заданий пакета HPC](https://technet.microsoft.com/library/ff919691.aspx) и [отправке заданий с локального клиентского компьютера](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Отправка заданий в кластер в Azure с помощью пользовательского интерфейса пакета HPC и веб-портала HPC аналогична отправке заданий для вычислительных узлов Windows. См. статьи, посвященные [диспетчеру заданий пакета HPC](https://technet.microsoft.com/library/ff919691.aspx) и [отправке заданий с локального клиентского компьютера](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Сведения об отправке заданий с помощью REST API см. в статье [Создание и отправка заданий с помощью REST API в пакете Microsoft HPC](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Чтобы узнать, как отправлять задания с клиента Linux, см. пример на языке Python в [пакете SDK для пакета HPC](https://www.microsoft.com/download/details.aspx?id=47756).
 
@@ -299,7 +299,7 @@ clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.net/rd
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Попробуйте масштабировать кластер, чтобы увеличить количество узлов, или запустите в кластере рабочую нагрузку Linux. Пример см. в статье [Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](hpcpack-cluster-namd.md).
-* Для запуска рабочих нагрузок MPI используйте кластер с [поддержкой RDMA и высокопроизводительных виртуальных машин](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). С примером можно ознакомиться в статье [Выполнение заданий OpenFoam в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC](hpcpack-cluster-openfoam.md).
+* Для запуска рабочих нагрузок MPI используйте кластер с [поддержкой RDMA и высокопроизводительных виртуальных машин](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). С примером можно ознакомиться в статье [Выполнение заданий OpenFoam в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC](hpcpack-cluster-openfoam.md).
 * Дополнительные сведения о работе с узлами Linux в локальном кластере пакета HPC см. в [руководстве TechNet](https://technet.microsoft.com/library/mt595803.aspx).
 
 <!--Image references-->

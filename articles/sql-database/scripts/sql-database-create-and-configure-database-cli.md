@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 04/04/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2e65b7a5c44c240c1bc7dea8119c821a7bca2120
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 7a8a6c634cb4be2da654a971d9412f981d4e0e8a
+ms.lasthandoff: 04/11/2017
 
 ---
 
@@ -49,7 +49,7 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
 | [az sql server create](/cli/azure/sql/server#create) | Создает логический сервер, на котором размещена база данных SQL. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall#create) | Создает правило брандмауэра, чтобы разрешить доступ ко всем базам данных SQL на сервере по введенному диапазону IP-адресов. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Создает правило брандмауэра, чтобы разрешить доступ ко всем базам данных SQL на сервере по введенному диапазону IP-адресов. |
 | [az sql db create](/cli/azure/sql/db#create) | Создает базу данных SQL на логическом сервере. |
 | [az group delete](/cli/azure/resource#delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 

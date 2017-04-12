@@ -26,7 +26,7 @@
 ###[Распределение кэша с помощью кластеризации](cache-how-to-premium-clustering.md)
 ## Автоматизация
 ###[Развертывание и управление с помощью PowerShell](cache-howto-manage-redis-cache-powershell.md)
-###[Развертывание и управление с помощью интерфейса командной строки Azure](cache-manage-cli.md)
+###[Развертывание и управление с помощью интерфейса командной строки Azure](cli-samples.md)
 ###[Подготовка кэша Redis](cache-redis-cache-arm-provision.md)
 ###[Подготовка веб-приложения с использованием кэша Redis](cache-web-app-arm-with-redis-cache-provision.md)
 ## Интеграция с ASP.NET

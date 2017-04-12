@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3dbeba840501f395c9bad07109fe8ea47947a5fa
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a84aa7e3ac7de717c2a628abcf6f5f11b05411e8
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-add-a-user-to-your-azure-remoteapp-collection"></a>Добавление пользователя в коллекцию Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -60,10 +61,5 @@ ms.openlocfilehash: 3dbeba840501f395c9bad07109fe8ea47947a5fa
 
 ## <a name="office-365-proplus-user-account-information"></a>Данные учетных записей пользователей для Office 365 профессиональный плюс
 При работе с образом шаблона Office 365 профессиональный плюс *или* пользовательским образом шаблона, использующим Office 365, разрешается добавлять только тех пользователей Azure Active Directory, у которых есть подписки Office 365 для домена организации по умолчанию. Дополнительные сведения см. в статье [Использование Office с Azure RemoteApp](remoteapp-o365.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

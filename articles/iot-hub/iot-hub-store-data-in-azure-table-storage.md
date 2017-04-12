@@ -16,16 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: de47a15dd4009b9a33a53fd981bc178eaa50c035
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ef5d4af5d5dad2b548ab01be5ba9c4769b21416a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Сохранение сообщений Центра Интернета вещей, содержащих такие сведения, как данные датчиков, в хранилище таблиц Azure
 
-> [!Note]
-> Прежде чем приступить к работе с данным руководством, ознакомьтесь со статьей [Подключение Adafruit Feather HUZZAH ESP8266 к Центру Интернета вещей Azure в облаке](/iot-hub-arduino-huzzah-esp8266-get-started.md). В [этом руководстве](/iot-hub-arduino-huzzah-esp8266-get-started.md) описывается настройка устройства Интернета вещей и Центра Интернета вещей, а также развертывание примера приложения для выполнения на устройстве. Приложение отправляет собранные с датчиков данные в Центр Интернета вещей.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-will-learn"></a>Новые знания
 
@@ -39,7 +38,7 @@ ms.lasthandoff: 03/30/2017
 
 ## <a name="what-you-will-need"></a>Необходимые условия
 
-- Ознакомьтесь с руководством о [подключении платы ESP8266 к Центру Интернета вещей Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md), по завершении которого у вас должны быть:
+- Ознакомьтесь с руководством о [подключении платы ESP8266 к Центру Интернета вещей Azure](iot-hub-arduino-huzzah-esp8266-get-started.md), по завершении которого у вас должны быть:
   - Активная подписка Azure.
   - Центр Интернета вещей Azure в подписке;
   - работающее приложение, отправляющее сообщения в Центр Интернета вещей Azure.
@@ -205,6 +204,4 @@ ms.lasthandoff: 03/30/2017
 
 Вы успешно создали учетную запись хранения Azure и приложение-функцию Azure для сохранения сообщений, поступающих в Центр Интернета вещей, в хранилище таблиц Azure.
 
-Чтобы продолжить знакомство с центром IoT и изучить другие сценарии IoT, см. следующие ресурсы:
-
-- [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

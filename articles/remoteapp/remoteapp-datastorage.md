@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 6cc74e3d3bd704dab1a43b66374b51c1f3e2a0a2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 75d5415d33324d957617426e75909a6c6c58b1f9
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="never-store-sensitive-data-on-custom-images"></a>Не храните конфиденциальные данные в пользовательских образах
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -47,10 +48,5 @@ ms.openlocfilehash: 6cc74e3d3bd704dab1a43b66374b51c1f3e2a0a2
 * Никогда не сохраняйте конфиденциальные данные, которые могут быть утеряны, на создаваемом пользовательском образе.
 * Конфиденциальные данные всегда должны находиться на отдельном файловом сервере, в отдельной виртуальной машине Azure в облаке вне экземпляров виртуальных машин, в которых размещаются приложения в Azure RemoteApp. 
 * Пользовательские данные хранятся на диске профиля пользователя
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

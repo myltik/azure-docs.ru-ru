@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: ranjithr;wadeh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 802a6126302a30aefae5841f42d8b9d782065638
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 79e5329332c457c738c082277ee7b79eb8ead049
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Рекомендации и руководство по устранению неполадок приложений Node в веб-приложениях Azure
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-В этой статье описываются рекомендации и способы устранения неполадок [приложений Node](app-service-web-nodejs-get-started.md), запущенных в веб-приложениях Azure (с помощью [iisnode](https://github.com/azure/iisnode)).
+В этой статье описываются рекомендации и способы устранения неполадок [приложений Node](app-service-web-get-started-nodejs.md), запущенных в веб-приложениях Azure (с помощью [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Будьте осторожны при выполнении действий по устранению неполадок на рабочем сайте. Действия по устранению неполадок приложения рекомендуется выполнять на нерабочем сайте. Например, настройте там промежуточный слот, а когда проблема будет решена, замените промежуточный слот на рабочий.
@@ -252,16 +253,11 @@ http.createServer(function (req, res) {
 ## <a name="more-resources"></a>Дополнительные ресурсы
 Дополнительные сведения о приложениях Node.js в службе приложений Azure см. по следующим ссылкам.
 
-* [Приступая к работе с веб-приложениями Node.js в службе приложений Azure](app-service-web-nodejs-get-started.md)
+* [Приступая к работе с веб-приложениями Node.js в службе приложений Azure](app-service-web-get-started-nodejs.md)
 * [Отладка веб-приложения Node.js в службе приложений Azure](web-sites-nodejs-debug.md)
 * [Использование модулей Node.js с приложениями Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js (Веб-приложения службы приложений Azure: Node.js)](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Центр разработчиков Node.js.](../nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console (Обзор сверхсекретной консоли для отладки Kudu)](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

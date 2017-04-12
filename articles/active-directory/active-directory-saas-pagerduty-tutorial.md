@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: d78e5a50f5c0416aa5f7caa92d51f688abb1efcc
-ms.openlocfilehash: adfc80090c732fc0dfa2fa35056451921d242f6a
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a7fae61f9b2dc400cbbd7054c11ec622f8683ccb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: adfc80090c732fc0dfa2fa35056451921d242f6a
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
 1. Включение интеграции приложений для PagerDuty
-2. Настройка единого входа
+2. Настройка единого входа.
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
@@ -62,7 +63,7 @@ ms.openlocfilehash: adfc80090c732fc0dfa2fa35056451921d242f6a
    
    ![PagerDuty](./media/active-directory-saas-pagerduty-tutorial/IC778530.png "PagerDuty")
    
-## <a name="configuring-single-sign-on"></a>Настройка единого входа
+## <a name="configure-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в PagerDuty со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
 
@@ -112,10 +113,11 @@ ms.openlocfilehash: adfc80090c732fc0dfa2fa35056451921d242f6a
    ![Настройка единого входа](./media/active-directory-saas-pagerduty-tutorial/IC778538.png "Настройка единого входа")
    
 
-## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
 
 Чтобы пользователи Azure AD могли выполнять вход в PagerDuty, они должны быть подготовлены для PagerDuty.  
-В случае с PagerDuty подготовка выполняется вручную.
+
+* В случае с PagerDuty подготовка выполняется вручную.
 
 **Чтобы подготовить учетные записи пользователей, выполните следующие действия.**
 
@@ -128,17 +130,17 @@ ms.openlocfilehash: adfc80090c732fc0dfa2fa35056451921d242f6a
    
    ![Пригласить команду](./media/active-directory-saas-pagerduty-tutorial/IC778540.png "Пригласить команду")
    
-   > [!NOTE]
-   > Все добавленные пользователи получат приглашение создать учетную запись PagerDuty.
+   >[!NOTE]
+   >Все добавленные пользователи получат приглашение создать учетную запись PagerDuty.
    > 
    > 
 
-> [!NOTE]
-> Вы можете использовать любые другие инструменты создания учетных записей пользователя PagerDuty или API, предоставляемые PagerDuty для подготовки учетных записей пользователя AAD.
+>[!NOTE]
+>Вы можете использовать любые другие инструменты создания учетных записей пользователя PagerDuty или API, предоставляемые PagerDuty для подготовки учетных записей пользователя AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Назначение пользователей
+## <a name="assign-users"></a>Назначить пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
 **Чтобы назначить пользователей Pagerduty, выполните следующие действия:**
@@ -153,9 +155,8 @@ ms.openlocfilehash: adfc80090c732fc0dfa2fa35056451921d242f6a
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
+## <a name="additional-resources"></a>Дополнительные ресурсы
 
-
-
-<!--HONumber=Feb17_HO1-->
-
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

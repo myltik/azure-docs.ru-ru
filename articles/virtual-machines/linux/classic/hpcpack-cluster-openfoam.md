@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: a779dd05623e84250d5595311d7d87d83f1298ad
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 2f92ebd82e5ac64f921e236a77657a1abc478a7c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -41,7 +41,7 @@ OpenFOAM (англ. Open Field Operation and Manipulation) — это пакет
   
   **Дополнительные сведения**
   
-  * Предварительные требования к использованию вычислительных узлов Linux RDMA в Azure см. в статье [Виртуальные машины серии A (для ресурсоемких вычислений) и серии H](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Предварительные требования к использованию вычислительных узлов Linux RDMA в Azure см. в статье [Виртуальные машины серии A (для ресурсоемких вычислений) и серии H](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   * Если вы выбрали вариант развертывания скрипта Powershell, развертывайте все вычислительные узлы Linux в пределах одной облачной службы, чтобы использовать сетевое подключение RDMA.
   * После развертывания узлов Linux установите SSH-подключение для выполнения дополнительных задач администрирования. Сведения о SSH-подключении для каждой виртуальной машины Linux можно найти на портале Azure.  
 * **Intel MPI**. Для запуска OpenFOAM на вычислительных узлах SLES 12 HPC в Azure вам потребуется установить библиотеку среды выполнения Intel MPI Library 5, которую можно скачать с сайта [Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (Среда выполнения Intel MPI 5 предустановлена в образах на основе CentOS для HPC.)  Позже установите Intel MPI на вычислительные узлы Linux, если это будет необходимо. Для этого после регистрации на сайте Intel перейдите по ссылке в письме с подтверждением на соответствующую веб-страницу. Затем скопируйте ссылку для скачивания TGZ-файла для соответствующей версии Intel MPI. В этой статье используется Intel MPI версии 5.0.3.048.

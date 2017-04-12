@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4debed5ceed2c94b2e5b666d6fcebec5667bfda7
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 806634bb66ebb538020f1ffa693704433fc43352
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -30,7 +30,7 @@ Refernce article:
 
 В этой статье демонстрируется подключение нового и существующего дисков, созданных в классической модели развертывания, к виртуальной машине Windows на портале Azure.
 
-Вы также можете [подключить диск данных к виртуальной машине Linux на портале Azure](../../virtual-machines-linux-attach-disk-portal.md).
+Вы также можете [подключить диск данных к виртуальной машине Linux на портале Azure](../../linux/attach-disk-portal.md).
 
 Прежде чем подключить диск, ознакомьтесь со следующими советами.
 

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: f6c8c895f406187f2bc525a60ca7e53f12e99d77
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6bc820657da4a72455d76f38dbdb06fe50b0c895
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -162,8 +162,8 @@ Visual Studio и Eclipse оснащены инструментами для на
 ## <a name="but-what-about"></a>А как насчет...?
 * [Конфиденциальность и хранение](app-insights-data-retention-privacy.md) — данные телеметрии хранятся на защищенных серверах Azure.
 * Производительность — влияние очень незначительно. Данные телеметрии передаются в пакетном режиме.
-* [Поддержка](app-insights-get-dev-support.md) — вы можете воспользоваться программой поддержки Azure. Ответы от наших разработчиков вы можете получить на интерактивных форумах. В крайнем случае мы предоставим вам индивидуальную помощь.
 * [Цены](app-insights-pricing.md) — начать работу можно бесплатно, и при небольших объемах такой режим сохраняется.
+
 
 ## <a name="video"></a>Видео
 

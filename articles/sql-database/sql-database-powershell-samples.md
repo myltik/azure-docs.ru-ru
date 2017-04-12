@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 8057747aea2725abf3b37481858c7902ff8fe4da
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b864fd14b6341541302c13222a1650cb21da40af
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -30,19 +30,19 @@ ms.lasthandoff: 03/30/2017
 | |  |
 |---|---|
 |**Создание отдельной базы данных и эластичного пула**||
-| [Создание отдельной базы данных и настройка правила брандмауэра](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2ftoc.json) | Создает отдельную базу данных SQL Azure и настраивает правило брандмауэра уровня сервера. |
-| [Создание эластичных пулов и перемещение баз данных в составе пулов](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2ftoc.json) | Создает эластичные пулы и перемещает базы данных в составе пулов, а также изменяет уровни производительности.|
+| [Создание отдельной базы данных и настройка правила брандмауэра](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает отдельную базу данных SQL Azure и настраивает правило брандмауэра уровня сервера. |
+| [Создание эластичных пулов и перемещение баз данных в составе пулов](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает эластичные пулы и перемещает базы данных в составе пулов, а также изменяет уровни производительности.|
 |**Настройка георепликации и отработка отказа**||
-| [Настройка и отработка отказа отдельной базы данных с помощью активной георепликации](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2ftoc.json)| Настраивает активную георепликацию для отдельной базы данных SQL Azure и выполняет для нее отработку отказа на вторичную реплику. |
-| [Настройка и отработка отказа базы данных в составе пула с помощью активной георепликации](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2ftoc.json)| Настраивает активную георепликацию для базы данных SQL Azure в составе эластичного пула и выполняет для нее отработку отказа на вторичную реплику. |
+| [Настройка и отработка отказа отдельной базы данных с помощью активной георепликации](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Настраивает активную георепликацию для отдельной базы данных SQL Azure и выполняет для нее отработку отказа на вторичную реплику. |
+| [Настройка и отработка отказа базы данных в составе пула с помощью активной георепликации](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Настраивает активную георепликацию для базы данных SQL Azure в составе эластичного пула и выполняет для нее отработку отказа на вторичную реплику. |
 |**Масштабирование отдельных баз данных и эластичного пула**||
-| [Масштабирование отдельной базы данных](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2ftoc.json) | Отслеживает метрики производительности базы данных SQL Azure, масштабирует ее до более высокого уровня производительности и создает правило генерации оповещений для одной из метрик производительности. |
-| [Масштабирование эластичного пула](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2ftoc.json) | Отслеживает метрики производительности эластичного пула, масштабирует его до более высокого уровня производительности и создает правило генерации оповещений для одной из метрик производительности.  |
+| [Масштабирование отдельной базы данных](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Отслеживает метрики производительности базы данных SQL Azure, масштабирует ее до более высокого уровня производительности и создает правило генерации оповещений для одной из метрик производительности. |
+| [Масштабирование эластичного пула](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Отслеживает метрики производительности эластичного пула, масштабирует его до более высокого уровня производительности и создает правило генерации оповещений для одной из метрик производительности.  |
 | **Аудит и обнаружение угроз** |
-| [Настройка аудита и обнаружения угроз](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2ftoc.json)| Настраивает политики аудита и обнаружения угроз для базы данных SQL Azure. |
+| [Настройка аудита и обнаружения угроз](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Настраивает политики аудита и обнаружения угроз для базы данных SQL Azure. |
 | **Восстановление, копирование и импорт базы данных**||
-| [Восстановление базы данных](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2ftoc.json)| Восстанавливает базу данных SQL Azure из геоизбыточной резервной копии и восстанавливает последнюю резервную копию удаленной базы данных SQL Azure. |
-| [Копирование базы данных на новый сервер](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2ftoc.json)| Создает копию существующей базы данных SQL Azure на новом сервере SQL Azure. |
-| [Импорт базы данных из BACPAC-файла](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2ftoc.json)| Импортирует базу данных из BACPAC-файла на сервер SQL Azure. |
+| [Восстановление базы данных](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Восстанавливает базу данных SQL Azure из геоизбыточной резервной копии и восстанавливает последнюю резервную копию удаленной базы данных SQL Azure. |
+| [Копирование базы данных на новый сервер](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Создает копию существующей базы данных SQL Azure на новом сервере SQL Azure. |
+| [Импорт базы данных из BACPAC-файла](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Импортирует базу данных из BACPAC-файла на сервер SQL Azure. |
 |||
 

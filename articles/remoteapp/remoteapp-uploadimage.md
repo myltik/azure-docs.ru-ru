@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: ericor
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: b948a8c0394fffcfa63b5b48646639118cba8953
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: dcf897cfb03316312613a641f1758cd4636d06b7
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="upload-a-custom-image-for-azure-remoteapp"></a>Отправка пользовательского образа для Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -53,10 +54,5 @@ ms.openlocfilehash: b948a8c0394fffcfa63b5b48646639118cba8953
 * Убедитесь, что вы используете Windows PowerShell, а не Azure PowerShell. Следует установить модуль Azure PowerShell, так как некоторые модули нужны во время процесса отправки.
 * Никогда не изменяйте скрипт; для вашего удобства существуют проверки.
 * Если VHD-файл будет заблокирован во время отправки, скопируйте файл или переместите его в новое расположение и повторите попытку отправки. Возможно, какой-то процесс Windows препятствует отправке.  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

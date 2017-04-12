@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9a92490239f22bd4c57c902ac53898aff1adf530
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f39840ab2fb31775c9703799393d8c386a8451ee
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/17/2017
 ## <a name="install-new-software-on-a-platform-image-at-deployment-time"></a>Установка нового программного обеспечения в образ платформы во время развертывания
 Образ платформы в данном контексте — это образ операционной системы из Azure Marketplace, например Ubuntu 16.04, Windows Server 2012 R2 и т. п.
 
-Новое программное обеспечение можно установить в образ платформы, используя [расширения виртуальной машины](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Расширение виртуальной машины — это программное обеспечение, выполняемое при развертывании виртуальной машины. Используя расширение пользовательских сценариев, вы можете выполнить любой код во время развертывания. [Здесь](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) приведен пример шаблона Azure Resource Manager, который использует [расширение DSC в Azure](virtual-machine-scale-sets-dsc.md) для установки приложений IIS и .NET MVC, интегрированных с автоматическим масштабированием Azure.
+Новое программное обеспечение можно установить в образ платформы, используя [расширения виртуальной машины](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Расширение виртуальной машины — это программное обеспечение, выполняемое при развертывании виртуальной машины. Используя расширение пользовательских сценариев, вы можете выполнить любой код во время развертывания. [Здесь](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) приведен пример шаблона Azure Resource Manager, который использует [расширение DSC в Azure](virtual-machine-scale-sets-dsc.md) для установки приложений IIS и .NET MVC, интегрированных с автоматическим масштабированием Azure.
 
 Преимуществом такого подхода является определенный уровень разделения кода приложения и операционной системы, позволяющий хранить приложение отдельно. Разумеется, это также означает большее число динамических частей и более продолжительное развертывание виртуальной машины, если сценарию требуется скачать и настроить много компонентов.
 

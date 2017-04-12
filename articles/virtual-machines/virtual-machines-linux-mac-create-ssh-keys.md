@@ -1,64 +1,10 @@
 ---
-title: "Создание и использование пары ключей SSH для виртуальных машин Linux в Azure | Документация Майкрософт"
-description: "Сведения о создании и использовании пары из открытого и закрытого ключей SSH для виртуальных машин Linux в Azure с целью повышения безопасности процесса проверки подлинности."
-services: virtual-machines-linux
-documentationcenter: 
-author: iainfoulds
-manager: timlt
-editor: 
-tags: azure-resource-manager
-ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/07/2017
-ms.author: iainfou
-experimental: true
-experiment_id: rasquill-ssh-20170308
+redirect_url: /azure/virtual-machines/linux/mac-create-ssh-keys
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 796e3ac201657bc5d596a71f034629fa2ebde7c7
-ms.lasthandoff: 03/10/2017
-
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 0bb9b95b74ef4ddedbe8f882e2ec52b29e413e98
+ms.lasthandoff: 04/03/2017
 
 ---
-
-# <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Как создать и использовать пару из открытого и закрытого ключей SSH для виртуальных машин Linux в Azure
-С помощью пары ключей Secure Shell (SSH) в Azure можно создавать виртуальные машины, использующие ключи SSH для проверки подлинности, что позволяет обойтись без использования паролей для входа. В этой статье показано, как быстро создать и использовать пару файлов открытого и закрытого ключей в формате SSH-RSA для виртуальных машин Linux. Подробные указания и дополнительные примеры использования, например на классическом портале, см. в [руководстве по созданию пары ключей SSH и сертификатов](virtual-machines-linux-create-ssh-keys-detailed.md).
-
-## <a name="create-an-ssh-key-pair"></a>Создание пары ключей SSH
-Чтобы создать файлы открытого и закрытого ключей SSH, используйте команду `ssh-keygen`. По умолчанию они создаются в каталоге `~/.ssh`, но при появлении запроса вы можете указать другое расположение и дополнительную парольную фразу (пароль для доступа к файлу закрытого ключа). Выполните приведенную ниже команду, указав при появлении запросов собственные данные.
-
-```bash
-ssh-keygen -t rsa -b 2048 
-```
-
-## <a name="use-the-ssh-key-pair"></a>Использование пары ключей SSH
-По умолчанию открытый ключ виртуальной машины хранится в файле `~/.ssh/id_rsa.pub`, если только вы не изменили это расположение во время его создания. При создании виртуальной машины с помощью [Azure CLI 2.0](/cli/azure) расположение этого открытого ключа можно указать во время выполнения команды [az vm create](/cli/azure/vm#create) с помощью параметра `--ssh-key-path`. Если вы копируете содержимое файла открытого ключа и вставляете его на портале Azure или в шаблоне Resource Manager, в этом содержимом не должно быть дополнительных пробелов. Например, при использовании OS X, чтобы скопировать содержимое файла открытого ключа (по умолчанию **~/.ssh/id_rsa.pub**), вы можете передать его в **pbcopy** (или другие аналогичные программы Linux, например `xclip`). 
-
-Если вы не работали с открытым ключом SSH, чтобы просмотреть его, выполните команду `cat`, заменив параметр `~/.ssh/id_rsa.pub` расположением файла собственного открытого ключа.
-
-```bash
-cat ~/.ssh/id_rsa.pub
-```
-
-С помощью открытого ключа вы можете подключиться к своей виртуальной машине по протоколу SSH, используя ее IP-адрес или DNS-имя (не забудьте заменить параметры `azureuser` и `myvm.westus.cloudapp.azure.com`, показанные в примере команды ниже, именем администратора и полным доменным именем или IP-адресом).
-
-```bash
-ssh azureuser@myvm.westus.cloudapp.azure.com
-```
-
-Если при создании пары ключей вы указали парольную фразу, введите ее при появлении запроса во время входа в систему. (Сервер добавляется в папку `~/.ssh/known_hosts`. Если не изменять открытый ключ на виртуальной машине Azure или не удалять имя сервера из файла `~/.ssh/known_hosts`, запрос на подключение повторно не отображается.)
-
-## <a name="next-steps"></a>Дальнейшие действия
-
-По умолчанию в настройках виртуальных машин Azure, созданных с помощью ключей SSH, пароли отключены, за счет чего атаки методом подбора более затратные и поэтому более сложные. В этой статье описано создание простой пары ключей SSH для быстрого использования. Дополнительные сведения о создании пары ключей SSH или дополнительных сертификатов, используемых на классическом портале, см. в [этом руководстве](virtual-machines-linux-create-ssh-keys-detailed.md).
-
-Виртуальные машины, использующие пару ключей SSH, можно создать с помощью портала Azure, интерфейса командной строки и шаблонов.
-
-* [Создание виртуальной машины Linux в Azure с помощью портала](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Создание виртуальной машины Linux с помощью Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Создание защищенной виртуальной машины Linux с помощью шаблона Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

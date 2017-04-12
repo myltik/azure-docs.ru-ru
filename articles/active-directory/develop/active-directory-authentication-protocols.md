@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0b035ad1505e45c8c0820c825ff609df6e6100f0
-ms.openlocfilehash: 20642b0c1864cede5326e98f6ce3145314acc49a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: dd673ba36689c83021a27d593139f0676b0c5e79
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -26,12 +27,10 @@ ms.openlocfilehash: 20642b0c1864cede5326e98f6ce3145314acc49a
 ## <a name="authentication-protocols-articles-and-reference"></a>Статьи и другие справочные материалы по протоколам проверки подлинности
 * [Важные сведения об откате ключа подписи в Azure AD](active-directory-signing-key-rollover.md) — дополнительные сведения об откате ключа подписи Azure AD, изменениях, которые можно вносить для автоматического обновления ключа, и порядок обновления самых распространенных сценариев приложений.
 * [Поддерживаемые типы маркеров и утверждений](active-directory-token-and-claims.md) — сведения об утверждениях в маркерах, издаваемых Azure AD.
-* [Метаданные федерации](https://msdn.microsoft.com/library/azure/dn195592.aspx) — узнайте, как находить и интерпретировать документы метаданных, создаваемые Azure AD.
-* [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) — сведения о реализации протокола OAuth 2.0 в Azure AD.
-* [OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx) — сведения об использовании протокола авторизации OAuth 2.0 для проверки подлинности.
-* [Справочник по протоколу SAML](https://msdn.microsoft.com/library/azure/dn195591.aspx) — сведения о профилях единого входа и единого выхода SAML в Azure AD.
-* [WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) — сведения о WS-Federation 1.2 в Azure AD.
-* [Устранение неполадок протоколов проверки подлинности](https://msdn.microsoft.com/library/azure/dn195584.aspx) — узнайте, как предотвратить возникновение проблем, интерпретировать и устранять ошибки при использовании Azure AD.
+* [Метаданные федерации](active-directory-federation-metadata.md) — узнайте, как находить и интерпретировать документы метаданных, создаваемые Azure AD.
+* [OAuth 2.0 в Azure AD](active-directory-protocols-oauth-code.md) — сведения о реализации протокола OAuth 2.0 в Azure AD.
+* [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) — сведения об использовании протокола авторизации OAuth 2.0 для проверки подлинности.
+* [Справочник по протоколу SAML](active-directory-saml-protocol-reference.md) — сведения о профилях единого входа и единого выхода SAML в Azure AD.
 
 ## <a name="see-also"></a>См. также
 [Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
@@ -39,10 +38,5 @@ ms.openlocfilehash: 20642b0c1864cede5326e98f6ce3145314acc49a
 [Использование Azure AD для проверки подлинности](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Примеры кода Active Directory](active-directory-code-samples.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

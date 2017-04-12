@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 74bba898d2a4f5e35b2312dd28cb515a2e159df2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a9a305e4c07e2c348b1c1503d53f1da05da57966
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="app-requirements"></a>Требования к приложениям
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -59,10 +60,5 @@ Azure RemoteApp поддерживает потоковую передачу 32-
 * Чтобы добиться максимальной доступности ЦП для всех пользователей, отключите [фоновые задачи ](https://msdn.microsoft.com/library/aa380665.aspx) или создайте нересурсоемкие и эффективные фоновые задачи.
 * Следует настроить [использование потока](https://msdn.microsoft.com/library/aa383520.aspx) приложения для многопользовательской и многопроцессорной среды.
 * Чтобы оптимизировать производительность, рекомендуется [определить](https://msdn.microsoft.com/library/aa380798.aspx) для приложений, выполняются ли они в сеансе клиента.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

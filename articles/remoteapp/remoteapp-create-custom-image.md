@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e28f4004e3cafcfa09309ff0143c83af5fa5493a
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c5b87c3a814b816e8bdc28d3e22b64c2197579af
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-create-a-custom-template-image-for-azure-remoteapp"></a>Создание настраиваемого образа шаблона для Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -130,7 +131,7 @@ Azure RemoteApp использует образ шаблона Windows Server 20
    
      HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
 3. Если сборка образа выполняется внутри виртуальной машины Azure, переименуйте файл **\%windir%\Panther\Unattend.xml**, так как он будет блокировать скрипт отправки, который используется позже во время работы. Измените имя этого файла на Unattend.old, чтобы его можно было найти в случае, если потребуется вернуться к предыдущему развертыванию.
-4.  Перейдите в Центр обновления Windows и установите все важные обновления. Центр обновления Windows может потребоваться запустить несколько раз, чтобы скачать все обновления. (Иногда после установки само обновление необходимо обновить.)
+4. Перейдите в Центр обновления Windows и установите все важные обновления. Центр обновления Windows может потребоваться запустить несколько раз, чтобы скачать все обновления. (Иногда после установки само обновление необходимо обновить.)
 5. Обработайте образ командой SYSPREP. В командной строке с повышенными привилегиями выполните следующую команду:
    
    **C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**.
@@ -142,10 +143,5 @@ Azure RemoteApp использует образ шаблона Windows Server 20
 
 * [Создание гибридной коллекции RemoteApp](remoteapp-create-hybrid-deployment.md)
 * [Создание облачной коллекции RemoteApp](remoteapp-create-cloud-deployment.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

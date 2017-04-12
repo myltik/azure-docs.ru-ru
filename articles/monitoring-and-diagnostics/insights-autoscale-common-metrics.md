@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/6/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 376e3ff9078cf0b53493dbfee9273c415da04e52
-ms.openlocfilehash: fa978644f2cd95b8eb21687e90d16d0df22b3d44
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bc9d9aa1cbe704de5f7fb960f1467aa522acd0b5
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: fa978644f2cd95b8eb21687e90d16d0df22b3d44
 
 Если выборка или передача определенной метрики осуществляется с частотой, которая не соответствует вашим требованиям, можно обновить конфигурацию системы диагностики.
 
-Если это так, то см. сведения о настройке и обновлении расширения системы диагностики виртуальной машины Azure для включения метрики с использованием PowerShell в статье [Включение системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md). В этой статье также содержится пример файла конфигурации системы диагностики.
+Если это так, то см. сведения о настройке и обновлении расширения системы диагностики виртуальной машины Azure для включения метрики с использованием PowerShell в статье [Включение системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell](../virtual-machines/windows/ps-extensions-diagnostics.md). В этой статье также содержится пример файла конфигурации системы диагностики.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Метрики уровня узла для виртуальных машин под управлением Windows и Linux, развернутых с помощью Resource Manager
 Следующие метрики уровня узла генерируются по умолчанию для виртуальной машины и масштабируемого набора виртуальных машин Azure в экземплярах Windows и Linux. Эти метрики описывают виртуальную машину Azure, но собираются из узла виртуальной машины Azure, а не через агент, установленный на гостевой виртуальной машине. Эти метрики можно использовать в правилах автомасштабирования. 
@@ -196,10 +197,5 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 > Для служебной шины концепции группы ресурсов не существует, но Azure Resource Manager создает группу ресурсов по умолчанию на регион. Группа ресурсов обычно имеет формат Default-ServiceBus-[region]. Например, Default-ServiceBus-EastUS, Default-ServiceBus-WestUS, Default-ServiceBus-AustraliaEast и т. д.
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

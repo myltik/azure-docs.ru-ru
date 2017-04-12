@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: a1d6dba724b93d1ea05474b8680bf2226c23bddc
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: be140e86047cae304bfb5c32c5cdd9135413df82
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -287,9 +287,5 @@ ms.lasthandoff: 03/30/2017
 
 Вы успешно подключили плату Sparkfun ESP8266 Thing Dev к Центру Интернета вещей и отправили данные, полученные от датчика. 
 
-Чтобы продолжить знакомство с центром IoT и изучить другие сценарии IoT, см. следующие ресурсы:
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
-- [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
-- [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
-- [Visualize real-time sensor data from Azure IoT Hub using Power BI](iot-hub-live-data-visualization-in-power-bi.md) (Использование Power BI для визуализации данных, получаемых Центром Интернета вещей от датчика в режиме реального времени).
-- [Visualize real-time sensor data from Azure IoT Hub using Azure Web Apps](iot-hub-live-data-visualization-in-web-apps.md) (Использование веб-приложений Azure для визуализации данных, получаемых Центром Интернета вещей от датчика в режиме реального времени).

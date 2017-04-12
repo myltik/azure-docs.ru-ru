@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 59619d78959f9fcc3144a30af883021a8f5f3044
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: b245c889513e3527960bf9ed1f9360ea84bff758
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-create-a-cloud-collection-of-azure-remoteapp"></a>Создание облачной коллекции Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -104,10 +105,5 @@ ms.openlocfilehash: 59619d78959f9fcc3144a30af883021a8f5f3044
 
 ### <a name="help-us-help-you"></a>Помогите нам помочь вам
 Вы знаете, что можете не только оценивать эту статью и оставлять комментарии ниже, но и вносить в нее изменения? Чего-то не хватает? Что-то неправильно? Что-то изложено непонятно? Чтобы внести изменения, прокрутите страницу вверх и щелкните **Edit on GitHub** (Изменить на GitHub). Мы просмотрим ваши предложения, и когда мы их одобрим, вы увидите изменения и улучшения здесь.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

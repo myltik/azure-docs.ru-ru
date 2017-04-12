@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: efb9e68256765873eb2776637d1a9469af6e46d6
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,6 +29,7 @@ ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
 > * [Пакет SDK для Java](data-lake-store-get-started-java-sdk.md)
 > * [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
 > * [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -86,7 +88,7 @@ ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
    * В первом случае, чтобы настроить доступ, щелкните **Предоставить разрешение**. Этот вариант возможен, только если пользователь, который создал учетную запись Data Lake Store, также является администратором хранилища ключей Azure.
    * Другой вариант — выполнить командлет PowerShell, отображаемый в колонке. В этом случае нужно быть владельцем хранилища ключей Azure или иметь возможность предоставлять разрешения на него. Выполнив командлет, вернитесь в колонку и нажмите кнопку **Включить** для настройки доступа.
 
-## <a name="a-namecreatefolderacreate-folders-in-azure-data-lake-store-account"></a><a name="createfolder"></a>Создание папок в учетной записи хранения озера данных Azure
+## <a name="createfolder"></a>Создание папок в учетной записи хранения озера данных Azure
 Чтобы хранить данные и управлять ими, вы можете создать папки в своей учетной записи хранения озера данных.
 
 1. Откройте только что созданную учетную запись хранения озера данных. В левой панели щелкните **Обзор**, щелкните **Data Lake Store** и затем в колонке Data Lake Store щелкните имя учетной записи, в которой нужно создать папки. Если учетная запись была закреплена на начальной панели, щелкните элемент этой учетной записи.
@@ -101,14 +103,14 @@ ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
    
     ![Создание папок в учетной записи Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Создание папок в учетной записи Data Lake")
 
-## <a name="a-nameuploaddataaupload-data-to-azure-data-lake-store-account"></a><a name="uploaddata"></a>Передача данных в учетную запись хранилища озера данных Azure
+## <a name="uploaddata"></a>Передача данных в учетную запись хранилища озера данных Azure
 Данные можно передавать в учетную запись хранения озера данных Azure непосредственно на корневой уровень или в папку, созданную в учетной записи. На снимке экрана ниже выполните необходимые действия, чтобы передать файл во вложенную папку из колонки **Обозреватель данных** . На этом снимке экрана файл передается во вложенную папку, показанную в адресной строке (выделена красным прямоугольником).
 
 Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ![Отправка данных](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Отправка данных")
 
-## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Свойства и действия, доступные на сохраненных данных
+## <a name="properties"></a>Свойства и действия, доступные на сохраненных данных
 Щелкните добавленный файл, чтобы открыть колонку **Свойства** . В этой колонке показываются свойства, связанные с этим файлом, и действия, которые можно с ним выполнять. Также можно скопировать полный путь к файлу в вашей учетной записи хранения озера данных Azure, выделенный красным прямоугольником на снимке экрана ниже.
 
 ![Свойства данных](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Свойства данных")
@@ -133,10 +135,5 @@ ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
 * [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Доступ к журналам диагностики Azure Data Lake Store](data-lake-store-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 6eb692f7c3374f9073944b8c4c0f34af2ed35b3c
-ms.lasthandoff: 01/19/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9068e0e92e15491d3377a1b8f42071b56373396e
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/19/2017
 Действия сценариев предназначены для настройки кластеров Azure HDInsight. Для этого либо задаются параметры конфигурации кластера, либо в кластере устанавливаются дополнительные службы, инструменты или другое программное обеспечение. Действия сценария можно использовать во время создания кластера или в работающем кластере.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="what-are-script-actions"></a>Что такое действия сценариев?
 
@@ -167,7 +167,7 @@ echo "Getting ready to install Foo"
 >&2 echo "An error occurred installing Foo"
 ```
 
-Эта команда перенаправляет данные из STDOUT (значение&1;, которое является значением по умолчанию, поэтому не указано здесь) в STDERR (2). Дополнительные сведения о перенаправлении ввода-вывода см. на странице [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Эта команда перенаправляет данные из STDOUT (значение 1, которое является значением по умолчанию, поэтому не указано здесь) в STDERR (2). Дополнительные сведения о перенаправлении ввода-вывода см. на странице [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Дополнительные сведения о просмотре журналов, созданных действиями скрипта, см. в статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
@@ -282,7 +282,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * __ресурсе с общедоступным URI__, например OneDrive, Dropbox и т. д.;
 
-* __учетной записи Azure Data Lake Store__, связанной с кластером HDInsight. Дополнительные сведения об использовании Azure Data Lake Store с HDInsight см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). 
+* __учетной записи Azure Data Lake Store__, связанной с кластером HDInsight. Дополнительные сведения об использовании Azure Data Lake Store с HDInsight см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
     > [!NOTE]
     > Кластер HDInsight субъекта-службы с доступом к Data Lake Store должен иметь доступ на чтение к скрипту.
@@ -373,5 +373,4 @@ fi
 * Узнайте, как [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md)
 * Используйте [справочник по пакету SDK .NET для HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) , чтобы узнать больше о создании приложений .NET, которые управляют HDInsight.
 * Используйте [REST API HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) , чтобы узнать, как использовать REST для выполнения операций управления кластерами HDInsight.
-
 

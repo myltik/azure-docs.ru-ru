@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 7dc79fad1a87f015475cd2643c8bec55192b2a15
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9782358e59e54070c26e05c641c02c4010af5f68
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -114,19 +114,23 @@ ms.lasthandoff: 03/28/2017
 
 ## <a name="supported-browsers"></a>Поддерживаемые браузеры
 
-
-| ОС                     | Браузеры                 | Поддержка |
-| :--                    | :--                      | :-:     |
+| ОС                     | Браузеры                 | Поддержка     |
+| :--                    | :--                      | :-:         |
 | Windows 10                 | IE, Edge                 | ![Проверка][1] |
 | Windows 10                 | Chrome                   | Скоро |
 | Windows 8, Windows 8.1            | IE                       | ![Проверка][1] |
+| Windows 8, Windows 8.1            | Chrome                   | ![Проверка][1] |
 | Windows 7                  | IE                       | ![Проверка][1] |
-| iOS                     | Safari                   | ![Проверка][1] |
+| Windows 7                  | Chrome                   | ![Проверка][1] |
+| iOS                    | Safari                   | ![Проверка][1] |
 | Android                | Chrome                   | ![Проверка][1] |
-| Windows Phone               | IE, Edge                 | ![Проверка][1] |
+| Windows Phone          | IE, Edge                 | ![Проверка][1] |
 | Windows Server 2016    | IE, Edge                 | ![Проверка][1] |
+| Windows Server 2016    | Chrome                   | Скоро |
 | Windows Server 2012 R2 | IE                       | ![Проверка][1] |
-| Windows Server 2008 R2     | IE                       | ![Проверка][1] |
+| Windows Server 2012 R2 | Chrome                   | ![Проверка][1] |
+| Windows Server 2008 R2 | IE                       | ![Проверка][1] |
+| Windows Server 2008 R2 | Chrome                   | ![Проверка][1] |
 | MacOS                 | Safari                   | ![Проверка][1] |
 | MacOS                 | Chrome                   | Скоро |
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: genli;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 26ea5c6f867165a25dd5aecb01d0a0ce3b213a51
-ms.openlocfilehash: 707d666eb6c23fb926c31711daddfb22979513bc
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d7924d8aade1ea582faa0f319f8c1d16d5461fbc
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/25/2017
 ### <a name="solution"></a>Решение
 Большая часть неполадок, связанных с агентом или расширением на виртуальных машинах Linux, вызваны проблемами с устаревшим агентом виртуальной машины. Чтобы устранить эту проблему, следуйте приведенным ниже общим рекомендациям.
 
-1. Выполните указания по [обновлению агента виртуальной машины Linux ](../virtual-machines/virtual-machines-linux-update-agent.md).
+1. Выполните указания по [обновлению агента виртуальной машины Linux ](../virtual-machines/linux/update-agent.md).
 
  >[!NOTE]
  >Мы *настоятельно рекомендуем* обновлять агент только посредством репозитория дистрибутивов. Мы не рекомендуем скачивать код агента непосредственно с портала GitHub и обновлять его. Если последняя версия агента для вашего дистрибутива недоступна, обратитесь в службу поддержки дистрибутива, чтобы получить инструкции по установке последней версии агента. Чтобы проверить наличие последней версии агента, перейдите на страницу [агента Linux для Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) в репозитории GitHub.

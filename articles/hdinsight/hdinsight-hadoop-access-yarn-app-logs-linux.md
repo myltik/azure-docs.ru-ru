@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 1d568bc6ab8f2801d575d726352f4c68e1f9277a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: a1a2102f2d26a3e739d2112e2e05332a708227d8
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/25/2017
 В данном документе рассказывается, как получить доступ к журналам приложений YARN, завершивших работу в кластере Hadoop в Azure HDInsight.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Кластер HDInsight под управлением Linux.
@@ -58,7 +58,7 @@ YARN поддерживает несколько моделей программ
 
 где *user* — имя пользователя, запустившего приложение, а *applicationId*— уникальный идентификатор приложения, назначенный диспетчером ресурсов YARN.
 
-Сводные журналы не могут считываться напрямую, так как они записаны в [TFile][T-file], [двоичном формате][binary-format], индексированном контейнером. Чтобы отобразить эти журналы для интересующих вас приложений или контейнеров в виде обычного текста, необходимо использовать журналы YARN ResourceManager или средства CLI. 
+Сводные журналы не могут считываться напрямую, так как они записаны в [TFile][T-file], [двоичном формате][binary-format], индексированном контейнером. Чтобы отобразить эти журналы для интересующих вас приложений или контейнеров в виде обычного текста, необходимо использовать журналы YARN ResourceManager или средства CLI.
 
 ## <a name="yarn-cli-tools"></a>Средства CLI для YARN
 
@@ -78,12 +78,12 @@ YARN поддерживает несколько моделей программ
 
 1. В веб-браузере перейдите на сайт https://имя_кластера.azurehdinsight.net. Параметр CLUSTERNAME нужно заменить именем кластера HDInsight.
 2. В списке служб в левой части страницы выберите **YARN**.
-   
+
     ![Выбранные службы Yarn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
 3. В раскрывающемся списке **Быстрые ссылки** выберите один из главных узлов кластера, а затем щелкните **Журнал Resource Manager**.
-   
+
     ![Быстрые ссылки для Yarn](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
-   
+
     Отобразится список ссылок на журналы YARN.
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
