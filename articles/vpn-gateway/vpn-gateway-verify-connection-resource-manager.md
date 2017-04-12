@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: b5bad71095e4b7e3b26df15780467526200ffa10
 ms.openlocfilehash: 68d94a6402b1497f65c4d03fb987ba800e86c2a3
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -34,14 +35,20 @@ ms.openlocfilehash: 68d94a6402b1497f65c4d03fb987ba800e86c2a3
 
 ### <a name="log-in-to-your-azure-account"></a>Вход в учетную запись Azure
 1. Откройте консоль PowerShell с повышенными привилегиями и подключитесь к своей учетной записи.
-   
-        Login-AzureRmAccount
+
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Просмотрите подписки учетной записи.
-   
-        Get-AzureRmSubscription 
+
+  ```powershell
+  Get-AzureRmSubscription
+  ``` 
 3. Укажите подписку, которую нужно использовать.
-   
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 
 ### <a name="verify-your-connection"></a>Проверка подключения
 
@@ -56,27 +63,30 @@ ms.openlocfilehash: 68d94a6402b1497f65c4d03fb987ba800e86c2a3
 
 ### <a name="log-in-to-your-azure-account"></a>Вход в учетную запись Azure
 1. Откройте консоль PowerShell с повышенными привилегиями и подключитесь к своей учетной записи.
-   
-        Login-AzureRmAccount
+
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. Просмотрите подписки учетной записи.
-   
-        Get-AzureRmSubscription 
+
+  ```powershell
+  Get-AzureRmSubscription 
+  ```
 3. Укажите подписку, которую нужно использовать.
-   
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. Выполните вход, чтобы использовать командлеты для управления службами для классической модели развертывания.
 
-        Add-AzureAccount
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ### <a name="verify-your-connection"></a>Проверка подключения
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * В виртуальные сети можно добавлять виртуальные машины. Инструкции см. в статье о [создании виртуальной машины](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

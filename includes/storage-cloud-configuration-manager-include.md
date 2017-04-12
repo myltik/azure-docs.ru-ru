@@ -3,7 +3,7 @@
 Для ссылки на пакет CloudConfigurationManager добавьте следующую директиву `using`:
 
 ```csharp
-using Microsoft.Azure;    //Namespace for CloudConfigurationManager
+using Microsoft.Azure; //Namespace for CloudConfigurationManager
 ```
 
 Ниже приведен пример, в котором показано получение строки подключения из файла конфигурации.
@@ -15,9 +15,4 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 ```
 
 Использование диспетчера конфигураций Azure не является обязательным. Вы также можете использовать API, например [класс ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) для .NET Framework.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

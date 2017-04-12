@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "хранение данных в облаке, данные, хранящиеся в облаке, облачная служба Интернета вещей"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: ffed0c2e-b092-40e1-9113-8196ec057d67
 ms.service: iot-hub
 ms.devlang: c

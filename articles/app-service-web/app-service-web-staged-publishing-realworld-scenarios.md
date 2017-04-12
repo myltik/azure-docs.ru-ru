@@ -17,6 +17,7 @@ ms.author: sumuth
 translationtype: Human Translation
 ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
 ms.openlocfilehash: 5284022ea473db893800b0f64b5bf4f811d994aa
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -164,7 +165,7 @@ ms.openlocfilehash: 5284022ea473db893800b0f64b5bf4f811d994aa
     * prefix. Only numbers, letters, and underscores please!
     */
     $table_prefix = getenv('DB_PREFIX');
-```
+    ```
 
 #### <a name="use-relative-paths"></a>Использование относительных путей
 В завершение следует настроить в приложении WordPress относительные пути. WordPress хранит сведения об URL-адресах в базе данных. Использование абсолютных путей усложняет перемещение из одной среды в другую, так как базу данных необходимо обновлять при каждом перемещении из локальной среды в промежуточную и из промежуточной в рабочую. Чтобы снизить вероятность возникновения проблем, вызванных обновлением базы данных при каждом переносе ресурсов из одной среды в другую, используйте [подключаемый модуль для создания путей относительно корневого элемента](https://wordpress.org/plugins/root-relative-urls/), который можно установить с помощью панели мониторинга администратора WordPress.
@@ -442,9 +443,4 @@ require_once(ABSPATH. 'wp-settings.php');
 [Настройка промежуточных сред для веб-приложений в службе приложений Azure](web-sites-staged-publishing.md)
 
 [Блокирование веб-доступа к непроизводственным областям развертывания](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

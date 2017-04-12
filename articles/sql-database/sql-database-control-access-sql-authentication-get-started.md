@@ -59,7 +59,7 @@ ms.lasthandoff: 03/10/2017
 2. Выполните вход на [портал Azure](https://portal.azure.com/).
 3. На странице **входа** введите учетные данные своей подписки.
    
-   ![Вход](./media/sql-database-get-started/login.png)
+   ![Вход](./media/sql-database-get-started-portal/login.png)
 
 
 <a name="create-logical-server-bk"></a>
@@ -84,11 +84,11 @@ ms.lasthandoff: 03/10/2017
 
 1. Откройте SQL Server Management Studio и подключитесь к серверу в качестве администратора сервера, используя проверку подлинности SQL Server и учетную запись администратора сервера.
 
-   ![Подключение к серверу](./media/sql-database-get-started/connect-to-server.png)
+   ![Подключение к серверу](./media/sql-database-get-started-portal/connect-to-server.png)
 
 2. Щелкните **Подключить**.
 
-   ![Подключение к серверу установлено](./media/sql-database-get-started/connected-to-server.png)
+   ![Подключение к серверу установлено](./media/sql-database-get-started-portal/connected-to-server.png)
 
 3. В обозревателе объектов разверните узел **Безопасность**, а затем — **Имена для входа**, чтобы просмотреть существующие для сервера имена для входа. На новом сервере есть только имя для входа для учетной записи администратора сервера.
 

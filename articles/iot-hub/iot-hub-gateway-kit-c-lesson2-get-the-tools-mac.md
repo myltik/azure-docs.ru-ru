@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "разработка для Интернета вещей, программное обеспечение Интернета вещей, облачные службы Интернета вещей, ПО Интернета вещей, Azure CLI, установка Python на компьютере Mac, установка git на компьютере Mac, запуск инструмента Gulp, установка Node.js на компьютере Mac"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 94e538ef-9857-4023-9c3c-e92a0be7c395
 ms.service: iot-hub
 ms.devlang: c

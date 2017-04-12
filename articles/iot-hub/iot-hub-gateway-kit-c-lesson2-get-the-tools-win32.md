@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "разработка для Интернета вещей, облачная служба Интернета вещей, программное обеспечение Интернета вещей, Azure CLI, ПО Интернета вещей, установка git в Windows, запуск инструмента Gulp, установка Node.js в Windows, установка Npm в Windows, установка Python в Windows"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 18ae6ee4-574a-4d5f-9838-ca2a78165628
 ms.service: iot-hub
 ms.devlang: c
