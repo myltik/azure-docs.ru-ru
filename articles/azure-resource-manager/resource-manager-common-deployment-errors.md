@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: bfbb3356454b9ef8b1834d03e7b76de9860a12c9
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -679,13 +679,13 @@ Resource Manager выявляет циклические зависимости 
 
 | Ошибка | Статьи |
 | --- | --- |
-| Ошибки расширений пользовательских скриптов |[Устранение неполадок расширений для виртуальных машин Windows](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение неполадок расширения виртуальной машины Linux](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Ошибки при подготовке образа операционной системы |[Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Windows в Azure](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Linux в Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Ошибки выделения ресурсов |[Устранение неполадок в классическом развертывании при создании виртуальной машины Windows в Azure](../virtual-machines/virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин Linux в Azure](../virtual-machines/virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Ошибки Secure Shell (SSH) при попытке подключения |[Устранение неполадок с подключением Secure Shell к виртуальной машине Azure под управлением Linux](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Ошибки при подключении к приложению, выполняющемуся на виртуальной машине |[Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](../virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](../virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| Ошибки при подключении к удаленному рабочему столу |[Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](../virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Ошибки подключения, устраняемые путем повторного развертывания |[Повторное развертывание виртуальной машины на новом узле Azure](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Ошибки расширений пользовательских скриптов |[Устранение неполадок расширений для виртуальных машин Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение неполадок расширения виртуальной машины Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Ошибки при подготовке образа операционной системы |[Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Windows в Azure](../virtual-machines/windows/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение неполадок в развертывании Resource Manager при создании виртуальной машины Linux в Azure](../virtual-machines/linux/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Ошибки выделения ресурсов |[Устранение неполадок в классическом развертывании при создании виртуальной машины Windows в Azure](../virtual-machines/windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение ошибок выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин Linux в Azure](../virtual-machines/linux/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Ошибки Secure Shell (SSH) при попытке подключения |[Устранение неполадок с подключением Secure Shell к виртуальной машине Azure под управлением Linux](../virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Ошибки при подключении к приложению, выполняющемуся на виртуальной машине |[Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](../virtual-machines/windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />или<br />[Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](../virtual-machines/linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Ошибки при подключении к удаленному рабочему столу |[Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Ошибки подключения, устраняемые путем повторного развертывания |[Повторное развертывание виртуальной машины на новом узле Azure](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Ошибки облачной службы |[Устранение неполадок, которые могут возникнуть при развертывании облачной службы](../cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
 В следующей таблице перечислены разделы по устранению неполадок для служб Azure. Они посвящены проблемам, связанным с развертыванием или настройкой ресурсов. Если вам нужна помощь в устранении неполадок во время выполнения, см. документацию для соответствующей службы Azure.

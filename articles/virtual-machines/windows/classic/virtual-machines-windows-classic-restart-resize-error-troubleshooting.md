@@ -16,15 +16,16 @@ ms.date: 01/10/2017
 ms.devlang: na
 ms.author: delhan
 translationtype: Human Translation
-ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
-ms.openlocfilehash: 6bae5c227fb45b1a6ed25c4eb7aac2048fc856c1
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 95b12674f3e7d3d63421be6098c72d87cab562b6
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure
 > [!div class="op_single_selector"]
 > * [Классический](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-> * [Диспетчер ресурсов](../../virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [Диспетчер ресурсов](../restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 > 
 > 
 
@@ -82,11 +83,6 @@ ms.openlocfilehash: 6bae5c227fb45b1a6ed25c4eb7aac2048fc856c1
 Если существующая облачная служба не связана с виртуальной сетью на основе региона, следует удалить виртуальные машины из существующей облачной службы и воссоздать их в новой облачной службе с помощью дисков. Не забывайте, что новая облачная служба будет иметь новое имя и новый виртуальный IP-адрес. Следовательно, эти данные потребуется обновить для всех зависимостей, которые используют эту информацию о существующей облачной службе.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-При возникновении проблем во время создания виртуальной машины Windows в Azure ознакомьтесь со статьей, посвященной [устранению неполадок в развертывании](../../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
+При возникновении проблем во время создания виртуальной машины Windows в Azure ознакомьтесь со статьей, посвященной [устранению неполадок в развертывании](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

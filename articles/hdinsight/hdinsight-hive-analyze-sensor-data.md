@@ -17,9 +17,9 @@ ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
-ms.openlocfilehash: 58881fd4608deddd8390cf4905b31a57f526e492
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d25038c05e50e4abc51dd2af829477f8f90dd3ed
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/18/2017
 Узнайте, как анализировать данные датчика с помощью консоли запросов Hive с HDInsight (Hadoop), а затем наглядно представлять данные в Microsoft Excel с помощью Power View.
 
 > [!IMPORTANT]
-> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows. Для версий ниже HDInsight 3.4 кластер HDInsight доступен только в Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows. Для версий ниже HDInsight 3.4 кластер HDInsight доступен только в Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 
 В этом примере мы будем использовать Hive для обработки исторических данных, полученных системами отопления, вентиляции и кондиционирования воздуха, чтобы определить системы, которые не в состоянии надежно поддерживать заданную температуру. Вы научитесь:
@@ -42,22 +42,21 @@ ms.lasthandoff: 01/18/2017
 ## <a name="prerequisites"></a>Предварительные требования
 * Кластер HDInsight (Hadoop). Сведения о создании кластера см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-provision-clusters.md).
 * Microsoft Excel 2013
-  
+
   > [!NOTE]
   > Microsoft Excel используется для визуализации данных с помощью [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
-  > 
-  > 
+  >
+  >
 * [Драйвер Microsoft Hive ODBC.](http://www.microsoft.com/download/details.aspx?id=40886)
 
 ## <a name="to-run-the-sample"></a>Запуск образца
 1. Откройте веб-браузер и перейдите по следующему URL-адресу: Замените `<clustername>` на имя вашего кластера HDInsight.
-   
+
          https://<clustername>.azurehdinsight.net
-   
+
     В ответ на запрос выполните аутентификацию с помощью имени пользователя и пароля администратора, использованных при подготовке данного кластера.
 2. На открывшейся веб-странице выберите вкладку **Getting Started Gallery** (Коллекция для начала работы), а затем в категории **Solutions with Sample Data** (Решения с примером данных) щелкните пример **Анализ данных датчиков**.
-   
+
     ![Рисунок коллекции для начала работы](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 3. Следуйте инструкциям, представленным на веб-странице, чтобы закончить образец.
-
 

@@ -17,21 +17,21 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: b6830f422b914722b8381a69c73cf8b02e107115
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 937f4735f2babf6582787ed860e79d8e09ea3b7e
+ms.lasthandoff: 04/11/2017
 
 
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>Сбор дампов кучи в хранилище больших двоичных объектов для отладки и анализа служб Hadoop
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Дампы кучи содержат снимок памяти приложения, включая значения переменных на момент создания дампа. Поэтому они очень полезны для диагностики проблем, возникающих во время выполнения. Сборка дампов кучи для служб Hadoop может выполняться автоматически, после чего они помещаются в учетную запись хранилища больших двоичных объектов Azure в раздел HDInsightHeapDumps/. 
+Дампы кучи содержат снимок памяти приложения, включая значения переменных на момент создания дампа. Поэтому они очень полезны для диагностики проблем, возникающих во время выполнения. Сборка дампов кучи для служб Hadoop может выполняться автоматически, после чего они помещаются в учетную запись хранилища больших двоичных объектов Azure в раздел HDInsightHeapDumps/.
 
 Сбор дампов кучи для различных служб нужно включать на отдельных кластерах. По умолчанию эта функция отключена. Размер дампов кучи может быть большим, поэтому мы советуем следить за учетной записью хранилища больших двоичных объектов после включения сбора.
 
 > [!IMPORTANT]
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Сведения в этой статье применимы только к HDInsight, работающей под управлением Windows. Сведения о HDInsight под управлением Linux см. в статье [Включение дампов кучи для служб Hadoop в HDInsight, работающей под управлением Linux (предварительная версия)](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Сведения в этой статье применимы только к HDInsight, работающей под управлением Windows. Сведения о HDInsight под управлением Linux см. в статье [Включение дампов кучи для служб Hadoop в HDInsight, работающей под управлением Linux (предварительная версия)](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
 
 ## <a name="eligible-services-for-heap-dumps"></a>Службы с возможностью включения дампов кучи

@@ -17,9 +17,9 @@ ms.date: 03/21/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: b4f2f1195887d8b64599e82334ab36b21eef1d1d
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: dcc248d398f2e2aa0f563a0868e80b1e7ee6a3fb
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Использование Azure PowerShell для выполнения заданий Pig в HDInsight
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/22/2017
 * **Кластер Azure HDInsight**.
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * **Рабочая станция с Azure PowerShell**.
 
@@ -61,13 +61,13 @@ Azure PowerShell предоставляет *командлеты* , позво�
     [!code-powershell[main](../../powershell_scripts/hdinsight/use-pig/use-pig.ps1?range=5-51)]
 
 1. Откройте командную строку Windows PowerShell. Перейдите к расположению файла **pigjob.ps1** , а затем используйте следующую команду для запуска сценария:
-   
+
         .\pigjob.ps1
-   
+
     Вам будет предложено войти в свою подписку Azure. Затем вам будет предложено ввести данные HTTPS, имя и пароль учетной записи администратора для кластера HDInsight.
 
 2. После завершения задания должна быть возвращена информация следующего вида.
-   
+
         Start the Pig job ...
         Wait for the Pig job to complete ...
         Display the standard output ...
@@ -104,5 +104,4 @@ Azure PowerShell предоставляет *командлеты* , позво�
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
-
 

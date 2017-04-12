@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/22/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 00fa4810e41bdbc19d0a2663cfe1437c6e678ab3
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 53092b0cfcf2bf9a09b36f6425724669f770e7fb
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,8 +27,8 @@ ms.lasthandoff: 03/25/2017
 С помощью этого документа вы ознакомитесь с основами управления и мониторинга топологий Storm, работающих в Storm в кластерах HDInsight.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этой статье, вам потребуется Storm под управлением Linux в кластере HDInsight. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
-> 
+> Для выполнения действий, описанных в этой статье, вам потребуется Storm под управлением Linux в кластере HDInsight. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
+>
 > Сведения о развертывании и мониторинге топологий в HDInsight под управлением Windows см. в статье [Развертывание топологий Apache Storm в HDInsight под управлением Windows и управление ими](hdinsight-storm-deploy-monitor-topology.md).
 
 
@@ -78,20 +78,20 @@ ms.lasthandoff: 03/25/2017
 ## <a name="submit-a-topology-ssh-and-the-storm-command"></a>Отправка топологии: SSH и команда Storm
 
 1. Подключитесь к кластеру HDInsight с помощью SSH. Замените **USERNAME** именем пользователя SSH. Замените **CLUSTERNAME** именем кластера HDInsight.
-   
+
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
+
     Дополнительные сведения об использовании SSH для подключения к кластеру HDInsight см. в разделе [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Запустите пример топологии, используя следующую команду:
-   
+
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
-   
+
     Эта команда запускает пример топологии WordCount в кластере. Эта топология случайным образом формирует предложения и подсчитывает количество вхождений каждого слова в предложениях.
-   
+
    > [!NOTE]
    > При отправке топологии в кластер необходимо сначала скопировать jar-файл, содержащий кластер, а затем воспользоваться командой `storm`. Чтобы скопировать файл в кластер, можно использовать команду `scp`. Например, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
-   > 
+   >
    > Пример WordCount и другие начальные примеры использования Storm уже включены в ваш кластер в `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
 ## <a name="submit-a-topology-programmatically"></a>Отправка топологии: программный метод
@@ -187,11 +187,11 @@ ms.lasthandoff: 03/25/2017
 
 * **Topology summary**(Сводка по топологии) — основная информация о топологии.
 * **Topology actions**(Действия с топологией) — действия управления, которые можно выполнять с топологией.
-  
+
   * **Activate**(Включить) — возобновление обработки отключенной топологии.
   * **Deactivate**(Отключить) — приостановка выполняемой топологии.
   * **Rebalance**(Повторная балансировка) — корректировка параллелизма топологии. После изменения числа узлов в кластере необходимо выполнить повторную балансировку топологий. Эта операция позволяет топологии скорректировать параллелизм для компенсации увеличения или уменьшения количества узлов в кластере.
-    
+
     Дополнительные сведения см. в статье <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a> (Общие сведения о параллелизме топологии Storm).
   * **Kill**(Удалить) — останавливает выполнение топологии Storm по истечении заданного времени ожидания.
 * **Topology stats**(Статистика топологии) — статистика по топологии. С помощью ссылок в столбце **Window** (Окно) можно установить интервал времени для оставшихся записей на странице.
@@ -245,5 +245,4 @@ ms.lasthandoff: 03/25/2017
 Теперь, когда вы узнали, как развертывать и отслеживать топологии с помощью панели мониторинга Storm, можно переходить к [разработке топологий на основе Java с помощью Maven](hdinsight-storm-develop-java-topology.md).
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
-
 

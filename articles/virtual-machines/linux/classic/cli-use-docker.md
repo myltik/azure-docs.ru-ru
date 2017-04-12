@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 96d88513eb4817b208d45883ed0c926921c7c10e
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)
 > [!IMPORTANT] 
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения об использовании расширения виртуальной машины Docker с моделью Resource Manager см. [здесь](../../virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Дополнительные сведения об использовании расширения виртуальной машины Docker с моделью Resource Manager см. [здесь](../dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-В этой статье показано, как создать виртуальную машину с расширением виртуальных машин Docker в режиме управления службами (asm) в интерфейсе командной строки Azure на любой платформе. [Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных и вычислений при использовании общих ресурсов. Можно использовать расширение виртуальной машины Docker и [агент Linux для Azure](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для создания виртуальной машины Docker, в которой можно разместить любое количество контейнеров для приложений в Azure. Обзорное обсуждение контейнеров и их преимуществ см. на [доске по Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+В этой статье показано, как создать виртуальную машину с расширением виртуальных машин Docker в режиме управления службами (asm) в интерфейсе командной строки Azure на любой платформе. [Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных и вычислений при использовании общих ресурсов. Можно использовать расширение виртуальной машины Docker и [агент Linux для Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для создания виртуальной машины Docker, в которой можно разместить любое количество контейнеров для приложений в Azure. Обзорное обсуждение контейнеров и их преимуществ см. на [доске по Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 ## <a name="how-to-use-the-docker-vm-extension-with-azure"></a>Использование расширения виртуальных машин Docker в Azure
 Чтобы использовать расширения виртуальных машин Docker в Azure, необходимо установить версию [интерфейса командной строки Azure](https://github.com/Azure/azure-sdk-tools-xplat) (Azure CLI) более позднюю, чем 0.8.6 (на момент написания статьи текущей версией является 0.10.0). Вы можете установить CLI Azure на компьютерах под управлением Mac, Linux и Windows.
@@ -56,10 +56,10 @@ ms.lasthandoff: 03/27/2017
 ### <a name="install-docker-and-use-the-docker-vm-extension-for-azure"></a>Установка Docker и использование расширения виртуальных машин Docker для Azure
 Следуйте [инструкции по установке Docker](https://docs.docker.com/installation/#installation) для того, чтобы установить Docker локально на вашем компьютере.
 
-Для использования Docker на виртуальной машине Azure в образе Linux, который используется для нее, необходимо установить [агент виртуальных машин Linux для Azure](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). В настоящее время это обеспечивается только двумя типами образов:
+Для использования Docker на виртуальной машине Azure в образе Linux, который используется для нее, необходимо установить [агент виртуальных машин Linux для Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). В настоящее время это обеспечивается только двумя типами образов:
 
 * образ Ubuntu из коллекции образов Azure или
-* пользовательский образ Linux, созданный вами, с установленным и настроенным агентом виртуальных машин Linux для Azure. Дополнительные сведения о создании собственной виртуальной машины с агентом Azure см. в [руководстве пользователя агента Linux для Azure](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* пользовательский образ Linux, созданный вами, с установленным и настроенным агентом виртуальных машин Linux для Azure. Дополнительные сведения о создании собственной виртуальной машины с агентом Azure см. в [руководстве пользователя агента Linux для Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="using-the-azure-image-gallery"></a>Использование коллекции образов Azure
 В сеансе Bash или сеансе терминала используйте команду
@@ -181,5 +181,5 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 [руководству пользователя Docker]:https://docs.docker.com/userguide/
 
-[Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure]:../../virtual-machines-linux-docker-compose-quickstart.md
+[Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure]:../docker-compose-quickstart.md
 

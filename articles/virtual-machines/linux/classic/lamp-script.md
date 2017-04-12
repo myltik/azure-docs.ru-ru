@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 3c1877f0dd560894099fb7c50c30846c2cc720b3
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1c1591079bf09da6fbe50d848b05ec7791657e04
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="deploy-a-lamp-app-using-the-azure-customscript-extension-for-linux"></a>Развертывание приложения LAMP с помощью расширения Azure CustomScript для Linux#
 > [!IMPORTANT] 
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Сведения о развертывании стека LAMP с помощью модели Resource Manager см. [здесь](../../virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Сведения о развертывании стека LAMP с помощью модели Resource Manager см. [здесь](../create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Расширение Microsoft Azure CustomScript для Linux позволяет использовать для настройки виртуальных машин произвольный код, написанный на одном из языков сценариев, которые поддерживаются виртуальной машиной (например, Python и Bash). Это обеспечивает гибкую автоматизацию развертывания приложения на нескольких виртуальных машинах.
 
@@ -105,6 +105,6 @@ ms.lasthandoff: 03/27/2017
 
 [Расширения Azure для Linux (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Linux и вычисления с открытым кодом в Azure](../../virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Linux и вычисления с открытым кодом в Azure](../opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 

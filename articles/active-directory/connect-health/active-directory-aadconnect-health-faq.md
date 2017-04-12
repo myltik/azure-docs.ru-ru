@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 04/04/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 6ad2194a71e0d36ba4a0b9a46ca6dbcd58b619ff
-ms.openlocfilehash: 06a8b79f0740e902bb7f9412b449a98b2f0167ea
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
+ms.openlocfilehash: 233691d19aa2553744f92af17f7ecf9fda2290e0
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Часто задаваемые вопросы об Azure AD Connect Health
@@ -67,7 +67,7 @@ ms.lasthandoff: 02/16/2017
 
 Следующие значения являются приблизительными:
 
-* Загрузка ЦП: увеличение примерно на&1;–5 %.
+* Загрузка ЦП: увеличение примерно на 1–5 %.
 * Потребление памяти: до 10 % от общего объема системной памяти.
 
 > [!NOTE]
@@ -75,7 +75,7 @@ ms.lasthandoff: 02/16/2017
 >
 >
 
-* Хранилище локального буфера для агентов Azure AD Connect Health: около&20; МБ.
+* Хранилище локального буфера для агентов Azure AD Connect Health: около 20 МБ.
 * Для серверов AD FS мы советуем выделить 1,024 МБ (1 ГБ) дискового пространства для канала аудита AD FS, чтобы агенты Azure AD Connect Health могли обработать все данные аудита до того, как они будут перезаписаны.
 
 **Потребуется ли перезагружать серверы во время установки агентов Azure AD Connect Health?**
@@ -139,26 +139,10 @@ ms.lasthandoff: 02/16/2017
 
 Оповещения Azure AD Connect Health разрешаются при условии успешного завершения. Агенты Azure AD Connect Health периодически обнаруживают условия успешного завершения и сообщают о них службе. Для нескольких оповещений подавление осуществляется на основе времени. Иными словами, если одно и то же условие ошибки не наблюдается в течение 72 часов с момента создания оповещения, оповещение разрешается автоматически.
 
-## <a name="migration-questions"></a>Вопросы, связанные с переносом данных
-
-Этот раздел относится только к пользователям, которые были уведомлены о предстоящем переносе данных Azure AD Connect Health.
-
-**Вопрос. Потребуется ли после переноса повторно регистрировать агенты и перенастраивать параметры уведомлений?**
-
-Нет, сведения о регистрации агентов и параметры уведомлений будут перемещены в рамках переноса данных.
-
-**Вопрос. Через какое время после переноса данные начнут отображаться на портале?**
-
-Данные начнут отображаться на портале в течение одного часа после переноса.
-
-**Вопрос. Что произойдет с существующими активными оповещениями?**
-
-Все применимые оповещения будут повторно активированы в течение одного часа после переноса данных.
-
 ## <a name="related-links"></a>Связанные ссылки
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
-* [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+* [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
 * [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
 * [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)

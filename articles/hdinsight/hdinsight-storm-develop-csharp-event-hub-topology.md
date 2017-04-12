@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 23bdde763de6f437a0dec74c51722cbcfc19b141
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: bd44ba6795bc89ff4d250caf38520a72dd37c448
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/07/2017
 * **EventHubWriter**— случайным образом генерирует данные и записывает их в службу концентраторов событий
 * **EventHubReader** считывает данные из концентраторов событий и записывает их в журналы Storm.
 
-> [!NOTE] 
+> [!NOTE]
 > Этот же проект на языке Java рассматривается в статье [Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## <a name="scpnet"></a>SCP.NET
@@ -46,7 +46,7 @@ ms.lasthandoff: 03/07/2017
 Пакет NuGet Microsoft.SCP.Net.SDK, используемый в проекте, должен соответствовать основному номеру версии Storm, установленной в кластере HDInsight. В HDInsight версий 3.3 и 3.4 используется Storm 0.10.x, следовательно, для таких кластеров нужно использовать версию SCP.NET 0.10.x.x. В кластере HDInsight версии 3.5 используется Storm 1.0.x., следовательно для таких кластеров нужно использовать версию SCP.NET 1.0.x.x.
 
 > [!IMPORTANT]
-> В HDInsight 3.4 и более поздних версий используется только операционная система Linux. См. дополнительные сведения о [прекращении сопровождения HDInsight в ОС Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> В HDInsight 3.4 и более поздних версий используется только операционная система Linux. См. дополнительные сведения о [прекращении сопровождения HDInsight в ОС Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 В HDInsight 3.4 и более поздних версий использует Mono для запуска топологий C#. Большинство возможностей будут нормально работать с Mono. Тем не менее вам следует просмотреть документ о [совместимости Mono](http://www.mono-project.com/docs/about-mono/compatibility/), чтобы определить потенциальные проблемы с совместимостью.
 
@@ -198,12 +198,12 @@ topologyBuilder.SetJavaBolt(
 Служба концентраторов событий используется в качестве источника данных для этого примера. Используйте сведения в разделе **Создание концентратора событий** статьи [Приступая к работе с концентраторами событий](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
 1. Создав концентратор событий, просмотрите его колонку на портале Azure и щелкните **Политики общего доступа**. Воспользуйтесь ссылкой **+ Добавить**, чтобы добавить следующие политики.
-   
+
    | Имя | Разрешения |
    | --- | --- |
    | writer |Отправка |
    | reader |Прослушивание |
-   
+
     ![политики](./media/hdinsight-storm-develop-csharp-event-hub-topology/sas.png)
 
 2. Выберите политики **reader** и **writer**. Скопируйте и сохраните значения **первичного ключа** для обеих политик, так как они будут использоваться позже.
@@ -215,7 +215,7 @@ topologyBuilder.SetJavaBolt(
 2. Скачайте решение из [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
 3. В проекте **EventHubWriter** откройте файл **App.config**. Используйте сведения из концентратора событий, настроенного ранее, чтобы указать значения следующих ключей:
-   
+
    | Ключ | Значение |
    | --- | --- |
    | EventHubPolicyName |writer (если для политики с разрешением на *отправку* указано другое имя, используйте его). |
@@ -231,7 +231,7 @@ topologyBuilder.SetJavaBolt(
 1. Откройте проект **EventHubReader**.
 
 2. Для **EventHubReader** откройте файл **App.config**. Используйте сведения из концентратора событий, настроенного ранее, чтобы указать значения следующих ключей:
-   
+
    | Ключ | Значение |
    | --- | --- |
    | EventHubPolicyName |reader (если для политики с разрешением на *прослушивание* указано другое имя, используйте его). |
@@ -245,15 +245,15 @@ topologyBuilder.SetJavaBolt(
 ## <a name="deploy-the-topologies"></a>Развертывание топологий
 
 1. В **обозревателе решений** щелкните правой кнопкой мыши проект **EventHubReader** и выберите пункт **Submit to Storm on HDInsight** (Отправить в Storm в HDInsight).
-   
+
     ![отправить в storm](./media/hdinsight-storm-develop-csharp-event-hub-topology/submittostorm.png)
 
 2. В диалоговом окне **Submit Topology** (Отправка топологии) выберите свой **кластер Storm**. Разверните узел **Дополнительные конфигурации**, выберите **Java File Paths** (Пути к файлам Java), щелкните **...** и укажите каталог, содержащий скачанный ранее JAR-файл. Теперь нажмите кнопку **Отправить**.
-   
+
     ![изображение диалогового окна отправки](./media/hdinsight-storm-develop-csharp-event-hub-topology/submit.png)
 
 3. После отправки топологии отобразится **средство просмотра топологий Storm**. Чтобы просмотреть статистику для топологии, выберите топологию **EventHubReader** в левой панели.
-   
+
     ![пример представления хранилища](./media/hdinsight-storm-develop-csharp-event-hub-topology/topologyviewer.png)
 
 4. В **обозревателе решений** щелкните правой кнопкой мыши проект **EventHubWriter** и выберите пункт **Submit to Storm on HDInsight** (Отправить в Storm в HDInsight).
@@ -267,7 +267,7 @@ topologyBuilder.SetJavaBolt(
 8. Чтобы открыть страницу **Сводка компонентов** для объекта bolt, дважды щелкните компонент **LogBolt** на схеме.
 
 9. В разделе **Executors** (Исполнители) выберите одну из ссылок в столбце **Порт**. Отобразятся данные, записанные компонентом. Записанные данные аналогичны приведенным ниже:
-   
+
         2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
         2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
         2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
@@ -289,5 +289,4 @@ topologyBuilder.SetJavaBolt(
 * [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [Руководство по программированию для SCP](hdinsight-storm-scp-programming-guide.md)
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
-
 

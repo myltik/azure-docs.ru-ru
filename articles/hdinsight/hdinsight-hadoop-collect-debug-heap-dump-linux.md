@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
-ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 1ebc02bd1b467f48be559114cfe740567498cdf4
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/18/2017
 
 
 > [!IMPORTANT]
-> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a name="whichServices"></a>Службы
 Вы можете включить дампы кучи для следующих служб:

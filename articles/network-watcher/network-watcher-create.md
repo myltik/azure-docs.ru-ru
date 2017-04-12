@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: a39ce143796408f8e44b0d2c877e631e92473462
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 7d8eb5972d35eac6cb55fc393090cfcc21ec341c
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -25,58 +25,8 @@ ms.lasthandoff: 03/28/2017
 
 Наблюдатель за сетями — это региональная служба, обеспечивающая мониторинг и диагностику условий на уровне сетевого сценария на платформе Azure. Мониторинг на уровне сценария позволяет диагностировать проблемы в сети с помощью комплексного представления сетевого уровня. Инструменты диагностики сети и визуализации, доступные в Наблюдателе за сетями, помогают понять, как работает сеть в Azure, диагностировать ее и получить ценную информацию.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
-## <a name="register-the-preview-capability"></a>Регистрация возможностей предварительной версии
-
-Сейчас Наблюдатель за сетями находится на этапе предварительной версии. Чтобы использовать функции этого компонента, его нужно зарегистрировать. Для этого выполните следующие командлеты PowerShell.
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Чтобы проверить, была ли регистрация успешно завершена, выполните приведенный ниже командлет PowerShell.
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace  Microsoft.Network
-```
-
-Если компонент был правильно зарегистрирован, выходные данные должны выглядеть следующим образом.
-
-```
-FeatureName         ProviderName      RegistrationState
------------         ------------      -----------------
-AllowNetworkWatcher Microsoft.Network Registered
-```
-
-### <a name="instructions-for-cli-10"></a>Инструкции для интерфейса командной строки 1.0
-
-Для регистрации выполните следующие команды.
-
-```CLI
-azure feature register  Microsoft.Network AllowNetworkWatcher
-azure provider register Microsoft.Network
-```
-
-Чтобы проверить, была ли регистрация успешно завершена, выполните приведенную ниже команду интерфейса командной строки.
-
-```CLI
-azure feature show Microsoft.Network AllowNetworkWatcher
-```
-
-Если компонент был правильно зарегистрирован, выходные данные должны выглядеть следующим образом.
-
-```CLI
-info:    Executing command feature show
-data:    Feature Name:       AllowNetworkWatcher
-data:    Provider Name:      Microsoft.Network
-data:    Registration State: Registered
-info:    feature show command OK
-```
-
 > [!NOTE]
-> Наблюдатель за сетями в настоящее время поддерживает только интерфейс командной строки 1.0, поэтому приведены инструкции по созданию нового экземпляра Наблюдателя за сетями именно для этой версии. Для регистрации поставщика с помощью интерфейса командной строки 2.0 используйте `az feature register -n AllowNetworkWatcher --namespace Microsoft.Network`.
+> Наблюдатель за сетями в настоящее время поддерживает только интерфейс командной строки 1.0, поэтому приведены инструкции по созданию нового экземпляра Наблюдателя за сетями именно для этой версии.
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Создание Наблюдателя за сетями на портале
 

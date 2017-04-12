@@ -1,67 +1,10 @@
 ---
-title: "Использование Azure CLI в Windows | Документация Майкрософт"
-description: "Использование Azure CLI в Windows"
-services: virtual-machines-windows
-documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 
-ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 02/14/2017
-ms.author: nepeters
+redirect_url: /azure/virtual-machines/windows/cli-options
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: eb2fff3b72646e63c53054a246a47c18df414c60
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 55940946a711a3f56d6de5712bc8e8d79bf35ba2
+ms.lasthandoff: 03/31/2017
 
 ---
-
-# <a name="using-the-azure-cli-on-windows"></a>Использование Azure CLI в Windows
-
-Интерфейс командной строки Azure (CLI) представляет собой интерфейс командной строки и среду скриптов для создания ресурсов Azure и управления ими. Azure CLI доступен для операционной системы Mac OS X, Linux и Windows. Для этих операционных систем команды CLI идентичны. Однако синтаксис конкретного скрипта операционной системы может отличаться.
-
-В этом документе представлены сведения об установке Azure CLI и его запуске в Windows, а также сведения о синтаксисе для каждого сценария. Подробную документацию по Azure CLI см. [здесь]( https://docs.microsoft.com/en-us/cli/azure/overview).
-
-## <a name="windows-subsystem-for-linux"></a>Подсистема Windows для Linux
-
-Подсистема Windows для Linux предоставляет среду Ubuntu Linux для юбилейного выпуска Windows 10. Включив подсистему Windows для Linux, вы можете воспользоваться Bash для создания и выполнения скриптов Azure CLI. Благодаря этой возможности скрипты Azure CLI можно использовать в Mac OS X, Linux и Windows, не изменяя их.
-
-Чтобы использовать Azure CLI в подсистеме Windows для Linux, выполните следующие задания.
-
-|Задача | Указания |
-|---|---|
-| Включение подсистемы Windows для Linux | [Документация по установке подсистемы Windows для Linux](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
-| Установка Azure CLI |[Install the CLI on WSL/Ubuntu 14.04](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#ubuntu) (Установка интерфейса командной строки в подсистеме Windows для Linux или в Ubuntu 14.04)|
-
-## <a name="powershell"></a>PowerShell
-
-Azure CLI можно запускать в собственном коде в Windows. В такой конфигурации пакет Azure CLI устанавливается в операционной системе Windows, а команды можно выполнять из PowerShell. В такой конфигурации команды и скрипты Azure CLI можно выполнять в любой поддерживаемой версии Windows, но для этого потребуется синтаксис скрипта для конкретной платформы. Поэтому скрипты не обязательно совместно использовать в Mac OS X, Linux и Windows, не изменяя их.
-
-[Установите Azure CLI в Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#windows), следуя инструкциям, для использования Azure CLI в Windows.
-
-## <a name="docker-image"></a>Образ Docker
-
-При использовании Docker для Windows можно запустить образ Docker, содержащий Azure CLI. Этот образ создан на основе Linux и позволяет работать с Bash.  При использовании Docker для Windows и образа Azure CLI скрипты нужно совместно использовать в Mac OS X, Linux и Windows. 
-
-Чтобы использовать Azure CLI на основе Docker для Windows, убедитесь, что Docker для Windows работает, и выполните следующую команду.
-
-```bash
-docker run -it azuresdk/azure-cli-python:latest bash
-```
-
-После завершения начнется сеанс Bash, в котором предварительно скачаны средства Azure CLI.
-
-## <a name="next-steps"></a>Дальнейшие действия
-
-[Примеры сценариев интерфейса командной строки для виртуальных машин Azure](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-[Примеры сценариев интерфейса командной строки для веб-приложений Azure](../app-service-web/app-service-cli-samples.md)
-
-[Примеры сценариев интерфейса командной строки для SQL Azure](../sql-database/sql-database-cli-samples.md)
 

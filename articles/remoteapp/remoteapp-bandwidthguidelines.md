@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b44fcb6cca30acbd5771a0301f72faa7d9105849
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: df3586781ca7ebaaf574a877b96887187add0222
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="azure-remoteapp-network-bandwidth---general-guidelines-if-you-cant-test-your-own"></a>Пропускная способность сети Azure RemoteApp — общие рекомендации (если невозможно провести свои тесты)
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -45,10 +46,5 @@ ms.openlocfilehash: b44fcb6cca30acbd5771a0301f72faa7d9105849
 * [Оценка использования пропускной способности сети Azure RemoteApp](remoteapp-bandwidth.md)
 * [Azure RemoteApp — как пропускная способность сети и качество взаимодействия связаны друг с другом?](remoteapp-bandwidthexperience.md)
 * [Azure RemoteApp — тест использования пропускной способности сети в рамках распространенных сценариев](remoteapp-bandwidthtests.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
