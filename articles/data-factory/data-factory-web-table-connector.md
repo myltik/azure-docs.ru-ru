@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/29/2017
 
 Сейчас фабрика данных поддерживает только перемещение данных из веб-таблицы в другие хранилища данных, но не наоборот.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Сейчас этот веб-соединитель поддерживает только извлечение содержимого таблицы из HTML-страницы. Чтобы извлечь данные из конечной точки HTTP (HTTPS), используйте [соединитель HTTP](data-factory-http-connector.md).
 
 ## <a name="getting-started"></a>Приступая к работе
