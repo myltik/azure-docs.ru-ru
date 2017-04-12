@@ -64,7 +64,7 @@ ms.lasthandoff: 03/10/2017
 2. Выполните вход на [портал Azure](https://portal.azure.com/).
 3. На странице **входа** введите учетные данные своей подписки.
    
-   ![Вход](./media/sql-database-get-started/login.png)
+   ![Вход](./media/sql-database-get-started-portal/login.png)
 
 
 <a name="create-logical-server-bk"></a>
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/10/2017
 
 2. После установки введите в поле поиска Windows текст **Microsoft SQL Server Management Studio** и нажмите клавишу **ВВОД**, чтобы запустить приложение SSMS.
 
-   ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
+   ![SQL Server Management Studio](./media/sql-database-connect-query-ssms/ssms.png)
 
 3. В диалоговом окне **Подключение к серверу** выберите один из методов проверки подлинности Active Directory и укажите сведения для проверки подлинности. Сведения о выборе метода см. в статьях [Подключение к базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md) и [Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL](sql-database-ssms-mfa-authentication.md).
 

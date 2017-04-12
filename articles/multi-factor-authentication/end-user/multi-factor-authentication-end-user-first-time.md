@@ -13,12 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 03/15/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
 ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
 ms.openlocfilehash: 6dafec65b2e8091954cae39994d0013d9fd06558
-
+ms.lasthandoff: 12/22/2016
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Настройка учетной записи для двухфакторной проверки подлинности
@@ -97,9 +98,4 @@ ms.openlocfilehash: 6dafec65b2e8091954cae39994d0013d9fd06558
 * Изменение выбранных параметров и [управление параметрами двухфакторной проверки подлинности](multi-factor-authentication-end-user-manage-settings.md).
 * Настройка [паролей приложений](multi-factor-authentication-end-user-app-passwords.md) для собственных приложений устройств, которые не поддерживают двухфакторную проверку подлинности.
 * Знакомство [с приложением Microsoft Authenticator](microsoft-authenticator-app-how-to.md), которое обеспечивает быструю и надежную проверку подлинности, даже когда отсутствует мобильная связь.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

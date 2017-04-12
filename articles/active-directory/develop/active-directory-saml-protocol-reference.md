@@ -38,4 +38,3 @@ Azure Active Directory предоставляет клиентские и общ
 
 Сведения о документах метаданных федерации, публикуемых в Azure AD, см. в статье [Метаданные федерации](active-directory-federation-metadata.md).
 
-

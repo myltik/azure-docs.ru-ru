@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "разработка для Интернета вещей, программное обеспечение Интернета вещей, облачные службы Интернета вещей, ПО Интернета вещей, Azure CLI, установка git в Ubuntu, запуск инструмента Gulp, установка Node.js в Ubuntu"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 0bac1412-385b-4255-a33f-9d44c35feb3e
 ms.service: iot-hub
 ms.devlang: c

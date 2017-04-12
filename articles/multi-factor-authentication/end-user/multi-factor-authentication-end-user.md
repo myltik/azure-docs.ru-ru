@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 03/15/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
 ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
 ms.openlocfilehash: dd9b0692dbc044e4bed26cfe7e9e4be11450a595
-
+ms.lasthandoff: 12/22/2016
 
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Что для меня означает Azure Multi-Factor Authentication
@@ -46,10 +47,5 @@ ms.openlocfilehash: dd9b0692dbc044e4bed26cfe7e9e4be11450a595
 | [Изменение параметров](multi-factor-authentication-end-user-manage-settings.md) |Описание способа изменения параметров, включая номер телефона или предпочтительный метод регистрации. |
 | [Справка о паролях приложений](multi-factor-authentication-end-user-app-passwords.md) |Информация о создании и использовании паролей приложений. |
 | [Использование мобильного приложения](microsoft-authenticator-app-how-to.md) |Приложение Microsoft Authenticator доступно для [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
