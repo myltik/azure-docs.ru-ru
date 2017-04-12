@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 99c972b4adf1dedbc556b20cdc7587edeb7f50e0
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 62bafc9bc58811cd9bd314639e3c2a609f4935d3
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -94,7 +94,7 @@ ms.lasthandoff: 03/09/2017
 
 С вертикальным масштабированием дело обстоит иначе. Имеющееся количество виртуальных машин всегда остается неизменным, а увеличивается или уменьшается их мощность. Мощность измеряется по объему памяти, скорости ЦП, дисковому пространству и т. д.  Вертикальное масштабирование связано с дополнительными ограничениями. Оно зависит от доступности оборудования большего размера, что, в свою очередь, зависит от региона. К тому же при таком масштабировании быстро достигается верхнее ограничение. Обычно при вертикальном масштабировании требуется запускать и останавливать виртуальную машину.
 
-Дополнительные сведения см. в статье [Вертикальное масштабирование виртуальной машины Azure c помощью службы автоматизации Azure](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Дополнительные сведения см. в статье [Вертикальное масштабирование виртуальной машины Azure c помощью службы автоматизации Azure](../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="methods-of-access"></a>Варианты доступа
 Автомасштабирование можно настроить с помощью следующих инструментов:

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5a5ad526513c7adf9b8274acec7d89fe375f43fc
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: cab03e7765dc7116a7f974833871fae652e8363c
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-redirection-in-azure-remoteapp"></a>Использование перенаправления в удаленном приложении Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -115,10 +116,5 @@ ms.openlocfilehash: 5a5ad526513c7adf9b8274acec7d89fe375f43fc
 6. Дважды щелкните **Разрешить перенаправление RDP других поддерживаемых устройств RemoteFX USB на этом компьютере**.
 7. Выберите **Включено**, а затем выберите **Administrators and Users in the RemoteFX USB Redirection Access Rights** (Администраторы и пользователи в правах доступа перенаправления RemoteFX USB).
 8. Нажмите кнопку **ОК**.  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 022a910e5acfe12c03348df4476cc17f13c5c1d3
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 304ba7c5057b27c459bccbb75d3a711567757675
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="troubleshoot-creating-remoteapp-cloud-collections"></a>Устранение неполадок при создании облачных коллекций RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -45,10 +46,5 @@ ms.openlocfilehash: 022a910e5acfe12c03348df4476cc17f13c5c1d3
     PlatformImageTrialModeOnly
 
 Если вы видите эту ошибку, обычно это означает, что учетная запись обновлена до платной, но вы пытаетесь использовать образ, предоставленный Майкрософт, который допустим только в пробной версии службы. В этом случае попробуйте повторно создать облачную коллекцию, но обязательно укажите правильный образ.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

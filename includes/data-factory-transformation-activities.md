@@ -6,6 +6,7 @@
 | [Pig](../articles/data-factory/data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](../articles/data-factory/data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Потоковая передача Hadoop](../articles/data-factory/data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
+| [Spark](../articles/data-factory/data-factory-spark.md) | HDInsight [Hadoop] |
 | [Действия машинного обучения: выполнение пакета и обновление ресурса](../articles/data-factory/data-factory-azure-ml-batch-execution-activity.md) |Azure |
 | [Хранимая процедура](../articles/data-factory/data-factory-stored-proc-activity.md) |Azure SQL, хранилище данных Azure SQL или SQL Server |
 | [Аналитика озера данных U-SQL](../articles/data-factory/data-factory-usql-activity.md) |Аналитика озера данных Azure |
@@ -16,9 +17,4 @@
 > Можно создать настраиваемое действие для выполнения сценариев R в кластере HDInsight, где установлена среда R. Ознакомьтесь с примером в репозитории GitHub [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) (Запуск сценария R с помощью фабрики данных Azure).
 > 
 > 
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

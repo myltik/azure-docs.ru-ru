@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: acfba48585b960a1ce39b77e35d292189aa9732b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -50,8 +50,8 @@ ms.lasthandoff: 03/18/2017
 >[!IMPORTANT]
 > Чтобы создать защищенный кластер, передайте файл с открытым ключом SSH для передачи при вызове `az acs create`. Вы также можете создать ключи с помощью интерфейса командной строки Azure 2.0 и передать их, используя параметр `--generate-ssh-keys`. Или вы можете указать путь к ключам с помощью параметра `--ssh-key-value` (расположение по умолчанию в Linux `~/.ssh/id_rsa.pub` и Windows `%HOMEPATH%\.ssh\id_rsa.pub`, которое можно изменить).
 <!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
-> Чтобы создать открытый и закрытый ключ SSH в Linux, см. инструкции в статье [Создание ключей SSH для виртуальных машин Linux в ОС Linux и Mac в Azure](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
-> Чтобы создать открытый и закрытый ключ SSH в Windows, см. инструкции в статье [Использование SSH с Windows в Azure](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Чтобы создать открытый и закрытый ключ SSH в Linux, см. инструкции в статье [Создание ключей SSH для виртуальных машин Linux в ОС Linux и Mac в Azure](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Чтобы создать открытый и закрытый ключ SSH в Windows, см. инструкции в статье [Использование SSH с Windows в Azure](../virtual-machines/linux/ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 
 1. Сначала введите команду [az login](/cli/azure/#login) в окно терминала, чтобы войти в подписку Azure с помощью интерфейса командной строки Azure: 
 

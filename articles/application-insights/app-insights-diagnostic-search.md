@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5e3cf1407079a166fbe5e24abae2248ef467ebbb
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 08390472c6480200751f37028fef594fb055f118
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -165,7 +165,7 @@ ms.lasthandoff: 03/16/2017
 * Выполнять трасcировку журналов, используя избранную платформу ведения журнала в [.NET](app-insights-asp-net-trace-logs.md) или [Java](app-insights-java-trace-logs.md). Благодаря этому можно будет выполнить поиск в журнале трассировки и сопоставить результаты с просмотрами страниц, исключениями и другими событиями. 
 * [Создавать код](app-insights-api-custom-events-metrics.md) для отправки пользовательских событий, сведений о просмотрах страниц и исключениях. 
 
-[Подробнее об отправке журналов и пользовательских данных телеметрии в Application Insights](app-insights-search-diagnostic-logs.md).
+[Подробнее об отправке журналов и пользовательских данных телеметрии в Application Insights](app-insights-asp-net-trace-logs.md).
 
 ## <a name="questions"></a>Вопросы и ответы
 ### <a name="limits"></a>Какой объем данных сохраняется?
@@ -173,7 +173,7 @@ ms.lasthandoff: 03/16/2017
 Ознакомьтесь со [сводной таблицей ограничений](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Как просмотреть данные POST в запросах к серверу?
-Мы не заносим в журнал данные POST автоматически, но вы можете использовать [вызовы TrackTrace или вызовы журнала](app-insights-search-diagnostic-logs.md). Поместите данные POST в параметр сообщения. Сообщения нельзя отфильтровать тем же способом, как это делается для свойств, но предельный размер больше.
+Мы не заносим в журнал данные POST автоматически, но вы можете использовать [вызовы TrackTrace или вызовы журнала](app-insights-asp-net-trace-logs.md). Поместите данные POST в параметр сообщения. Сообщения нельзя отфильтровать тем же способом, как это делается для свойств, но предельный размер больше.
 
 ## <a name="video"></a>Видео
 
@@ -181,7 +181,7 @@ ms.lasthandoff: 03/16/2017
 
 ## <a name="add"></a>Дальнейшие действия
 * [Создание сложных запросов в Analytics](app-insights-analytics-tour.md)
-* [Журналы, исключения и пользовательские средства диагностики для ASP.NET в Application Insights](app-insights-search-diagnostic-logs.md)
+* [Журналы, исключения и пользовательские средства диагностики для ASP.NET в Application Insights](app-insights-asp-net-trace-logs.md)
 * [Наблюдение за доступностью и скоростью реагирования веб-сайта](app-insights-monitor-web-app-availability.md)
 * [Устранение неполадок](app-insights-troubleshoot-faq.md)
 

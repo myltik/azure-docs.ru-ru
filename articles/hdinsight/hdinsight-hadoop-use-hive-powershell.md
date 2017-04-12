@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 8f3fc05668fb9c89aa1854e592e0cbced11fe7dc
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: fc805414427982f3b43010f694618657f3e54a29
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,11 +36,11 @@ ms.lasthandoff: 03/22/2017
 * **Кластер Azure HDInsight**. Не имеет значения, какой кластер используется — под управлением Windows или Linux.
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * <seg>
   **Рабочая станция с Azure PowerShell**.</seg>
-  
+
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a name="run-hive-queries-using-azure-powershell"></a>Выполнение запросов Hive с помощью Azure PowerShell
@@ -64,13 +64,13 @@ Azure PowerShell предоставляет *командлеты* , позво�
     [!code-powershell[main](../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=5-42)]
 
 2. Откройте новую командную строку **Azure PowerShell** . Перейдите к расположению файла **hivejob.ps1** , а затем используйте следующую команду для запуска сценария:
-   
+
         .\hivejob.ps1
-   
+
     При запуске сценария будет предложено ввести имя кластера, данные HTTPS и учетной записи администратора для кластера. Вам также может быть предложено выполнить вход в свою подписку Azure.
 
 3. После завершения задания должна быть возвращена информация следующего вида.
-   
+
         Display the standard output...
         2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
         2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
@@ -88,9 +88,9 @@ Azure PowerShell предоставляет *командлеты* , позво�
 
    > [!NOTE]
    > Для более длинных запросов HiveQL вы можете использовать командлет Azure PowerShell **Here-Strings** или файлы сценариев HiveQL. В приведенном ниже отрывке кода показано, как использовать командлет **Invoke-Hive** для запуска файла сценария HiveQL. Файл сценария HiveQL необходимо передать в wasbs://.
-   > 
+   >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
-   > 
+   >
    > Дополнительные сведения о командлете **Here-Strings** см. <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">здесь</a>.
 
 ## <a name="troubleshooting"></a>Устранение неполадок
@@ -122,5 +122,4 @@ Get-AzureRmHDInsightJobOutput `
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
-
 

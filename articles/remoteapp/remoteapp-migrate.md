@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 456175d718898287496d9e19cae8da259fba2e8e
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 39dd726078c4dcc55063300bdca998ad822feadd
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-migrate-data-into-and-out-of-azure-remoteapp"></a>Как перенести данные в службу Azure RemoteApp и из нее
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -60,10 +61,5 @@ ms.openlocfilehash: 456175d718898287496d9e19cae8da259fba2e8e
 
 ## <a name="copy-files-by-using-drive-redirection"></a>Копирование файлов с помощью перенаправления дисков
 Если вы включили [перенаправление дисков](remoteapp-redirection.md), то вы уже создали подключенный диск для пользователей. В этом случае они могут сжать файлы в ZIP-файл на подключенном диске, а затем сохранить его на локальном компьютере.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

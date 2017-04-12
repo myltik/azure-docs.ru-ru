@@ -15,9 +15,9 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f79068d5d1bb28762640545ebf13784b7070440e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6041c627d87f0223b9c718f3883a709ff81c28e1
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/25/2017
 Если вы занимаетесь разработкой решений для Azure, для работы с PowerShell в Visual Studio доступны дополнительные средства и ресурсы. Ознакомьтесь с разделом [Средства PowerShell для Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## <a name="generating-the-publish-scripts"></a>Создание сценариев публикации
-Чтобы создать сценарии публикации для виртуальной машины, на которой будет размещен веб-сайт, при создании проекта воспользуйтесь [этими инструкциями](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Можно также [создать сценарии публикации для веб-приложений в службе приложений Azure](app-service-web/web-sites-dotnet-get-started.md).
+Чтобы создать сценарии публикации для виртуальной машины, на которой будет размещен веб-сайт, при создании проекта воспользуйтесь [этими инструкциями](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Можно также [создать сценарии публикации для веб-приложений в службе приложений Azure](app-service-web/app-service-web-get-started-dotnet.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Сценарии, создаваемые в Visual Studio
 Visual Studio создает в решении папку **PublishScripts** , в которой хранятся два файла Windows PowerShell: сценарий публикации для виртуальной машины или веб-сайта и модуль с функциями, которые можно использовать в сценариях. Visual Studio также создает файл в формате JSON, в котором хранятся сведения о развертываемом проекте.

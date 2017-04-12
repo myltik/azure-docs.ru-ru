@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: fc2a181a301ca56e41f586428e2994fcdf6d704d
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Подключение диска данных к виртуальной машине Linux
 > [!IMPORTANT] 
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. См. статью о том, как [присоединить диск данных, используя модель развертывания с помощью Resource Manager](../../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. См. статью о том, как [присоединить диск данных, используя модель развертывания с помощью Resource Manager](../add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 К виртуальным машинам Azure можно присоединять пустые диски и диски с данными. В обоих случаях диски — это VHD-файлы, которые размещаются в учетной записи хранения Azure. Как и при добавлении диска к машине Linux, после присоединения диск нужно инициализировать и отформатировать, чтобы подготовить его к использованию. В этой статье подробно описывается присоединение пустых дисков и дисков с данными к виртуальным машинам, а также рассматривается, как затем инициализировать и отформатировать новый диск.
 
@@ -229,10 +229,10 @@ ms.lasthandoff: 03/27/2017
 * [Вход в виртуальную машину под управлением ОС Linux][Logon]
 * [Отсоединение диска от виртуальной машины Linux](detach-disk.md)
 * [Команды Azure CLI в режиме управления службами Azure (ASM)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Настройка программного RAID-массива в Linux](../../virtual-machines-linux-configure-raid.md)
-* [Настройка диспетчера логических томов на виртуальной машине Linux в Azure](../../virtual-machines-linux-configure-lvm.md)
+* [Настройка программного RAID-массива в Linux](../configure-raid.md)
+* [Настройка диспетчера логических томов на виртуальной машине Linux в Azure](../configure-lvm.md)
 
 <!--Link references-->
-[Agent]:../../virtual-machines-linux-agent-user-guide.md
-[Logon]:../../virtual-machines-linux-mac-create-ssh-keys.md
+[Agent]:../agent-user-guide.md
+[Logon]:../mac-create-ssh-keys.md
 

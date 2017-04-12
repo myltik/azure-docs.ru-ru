@@ -1,8 +1,10 @@
 Убедиться в успешном выполнении подключения можно с помощью командлета `Get-AzureRmVirtualNetworkGatewayConnection` с параметром `-Debug` или без него. 
 
 1. Используйте командлет из следующего примера, подставив свои значения. При появлении запроса выберите "A", чтобы выполнить команду All (Все). В примере `-Name` ссылается на имя созданного подключения, которое требуется проверить.
-   
-        Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+
+  ```powershell
+  Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
+  ```
 2. После завершения работы командлета просмотрите результаты. В следующем примере показано, что подключение установлено (состояние "Подключено"), а также указан объем полученных и отправленных данных в байтах.
    
         Body:
@@ -30,9 +32,4 @@
             "ingressBytesTransferred": 33509044,
             "egressBytesTransferred": 4142431
           }
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

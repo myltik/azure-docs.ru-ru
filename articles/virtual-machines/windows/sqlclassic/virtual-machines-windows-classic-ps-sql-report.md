@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8f62547316e4ecc02da0341aab94010d880115f8
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/25/2017
 * **Подписка Azure**: проверьте, какое количество ядер доступно в вашей подписке Azure. При создании виртуальной машины рекомендуемого размера **A3** необходимо **4** доступных ядра. При использовании виртуальной машины размера **A2** необходимо **2** доступных ядра.
   
   * Чтобы проверить ограничение для числа ядер в подписке, на классическом портале Azure щелкните элемент «ПАРАМЕТРЫ» на левой панели, а затем выберите «ИСПОЛЬЗОВАНИЕ» в меню вверху.
-  * Для увеличения квоты на ядра обратитесь в [службу поддержки Azure](https://azure.microsoft.com/support/options/). Дополнительные сведения о размере виртуальной машины см. в разделе [Размеры виртуальных машин в Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Для увеличения квоты на ядра обратитесь в [службу поддержки Azure](https://azure.microsoft.com/support/options/). Дополнительные сведения о размере виртуальной машины см. в разделе [Размеры виртуальных машин в Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Сценарии Windows PowerShell**: в данном разделе предполагается, что вы обладаете базовыми навыками работы с Windows PowerShell. Дополнительные сведения об использовании Windows PowerShell см. в следующих разделах:
   
   * [Запуск Windows PowerShell в Windows Server](https://technet.microsoft.com/library/hh847814.aspx)

@@ -17,9 +17,9 @@ ms.date: 02/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: bd3032b3df92c43b6cc6431eff19bd7cc0cc47bd
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 6c92292a67d14ac43c0fe5dbe7e14672c74b216b
+ms.lasthandoff: 04/11/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Анализ данных о задержке рейсов с помощью Hive в HDInsight на платформе Linux
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/25/2017
 Узнайте, как анализировать данные о задержке рейсов с помощью Hive в HDInsight под управлением Linux, а затем экспортировать их в Базу данных SQL Azure с помощью Sqoop.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ### <a name="prerequisites"></a>Предварительные требования
 
@@ -42,44 +42,44 @@ ms.lasthandoff: 03/25/2017
 1. Перейдите на страницу [бюро транспортной статистики при администрации по исследованиям и инновационным технологиям][rita-website].
 
 2. На странице выберите следующие значения:
-   
+
    | Имя | Значение |
    | --- | --- |
    | Фильтр года |2013 |
    | Период фильтра |Январь |
    | Поля |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Очистите все остальные поля. |
 
-3. Щелкните элемент **Загрузить**. 
+3. Щелкните элемент **Загрузить**.
 
 ## <a name="upload-the-data"></a>Передача данных
 
 1. Воспользуйтесь следующей командой, чтобы передать ZIP-файл в головной узел кластера HDInsight:
-   
+
     ```
     scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
     ```
-   
+
     Замените **FILENAME** именем ZIP-файла. Замените **USERNAME** именем для входа SSH для кластера HDInsight. Замените CLUSTERNAME именем кластера HDInsight.
-   
+
    > [!NOTE]
    > Если для аутентификации входа посредством SSH используется пароль, будет предложено ввести пароль. Если используется открытый ключ, может потребоваться использовать параметр `-i` и указать путь к соответствующему закрытому ключу. Например, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. После завершения передачи подключитесь к кластеру с помощью SSH:
-   
+
     ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
-   
+
     Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 3. После установления подключения используйте следующую команду, чтобы распаковать ZIP-файл:
-   
+
     ```
     unzip FILENAME.zip
     ```
-   
+
     Она извлечет в CSV-файл, размер которого приблизительно 60 МБ.
 
 4. Используйте следующую команду для создания каталога в хранилище HDInsight, затем скопируйте данный файл в этот каталог.
-   
+
     ```
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
     hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
@@ -90,13 +90,13 @@ ms.lasthandoff: 03/25/2017
 Выполните следующие действия для импорта данных из CSV-файла в таблицу Hive с именем **Delays**.
 
 1. Для создания и редактирования нового файла **flightdelays.hql** выполните следующую команду.
-   
+
     ```
     nano flightdelays.hql
     ```
-   
+
     В качестве содержимого файла добавьте следующий текст.
-   
+
     ```hiveql
     DROP TABLE delays_raw;
     -- Creates an external table over the csv file
@@ -160,22 +160,22 @@ ms.lasthandoff: 03/25/2017
 2. Нажмите клавиши **Ctrl + X**, а затем **Y** (Да) для сохранения файла.
 
 3. Используйте следующую команду для запуска Hive и выполнения файла **flightdelays.hql**.
-   
+
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
     ```
-   
+
    > [!NOTE]
    > В этом примере используется `localhost`, так как вы подключены к головному узлу кластера HDInsight, на котором выполняется HiveServer2.
 
 4. По завершении выполнения сценария __flightdelays.hql__ используйте следующую команду, чтобы открыть интерактивный сеанс Beeline:
-   
+
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
     ```
 
 5. При появлении командной строки `jdbc:hive2://localhost:10001/>` используйте приведенный ниже запрос, чтобы извлечь информацию из импортированных данных о задержке рейсов.
-   
+
     ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
     ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
@@ -185,7 +185,7 @@ ms.lasthandoff: 03/25/2017
     WHERE weather_delay IS NOT NULL
     GROUP BY origin_city_name;
     ```
-   
+
     Вы получите список городов, рейсы в которых задержаны из-за погодных условий, а также среднее время задержки. Он будет сохранен в `/tutorials/flightdelays/output`. Позже Sqoop считает данные из этого расположения и экспортирует их в базу данных SQL Azure.
 
 6. Чтобы выйти из Beeline, введите `!quit` в командной строке.
@@ -205,19 +205,19 @@ ms.lasthandoff: 03/25/2017
 1. Используйте SSH для подключения к кластеру HDInsight под управлением Linux и выполните следующие действия в сеансе SSH.
 
 2. Используйте следующую команду для установки FreeTDS:
-   
+
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
 3. После установки используйте следующую команду для подключения к серверу базы данных SQL. Замените **serverName** именем сервера базы данных SQL. Замените **adminLogin** и **adminPassword** именем для входа и паролем для базы данных SQL. Замените **databaseName** именем базы данных.
-   
+
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
-   
+
     Должен появиться результат, аналогичный приведенному ниже тексту.
-   
+
     ```
     locale is "en_US.UTF-8"
     locale charset is "UTF-8"
@@ -227,7 +227,7 @@ ms.lasthandoff: 03/25/2017
     ```
 
 4. В командной строке `1>` введите следующее:
-   
+
     ```
     CREATE TABLE [dbo].[delays](
     [origin_city_name] [nvarchar](50) NOT NULL,
@@ -236,18 +236,18 @@ ms.lasthandoff: 03/25/2017
     ([origin_city_name] ASC))
     GO
     ```
-   
+
     Если вводится инструкция `GO`, то оцениваются предыдущие инструкции. Будет создана таблица **delays** с кластеризованным индексом.
-   
+
     Используйте следующую команду для проверки создания таблицы:
-   
+
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
-   
+
     Выход аналогичен приведенному ниже:
-   
+
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
     databaseName       dbo     delays      BASE TABLE
@@ -258,34 +258,34 @@ ms.lasthandoff: 03/25/2017
 ## <a name="export-data-with-sqoop"></a>Экспорт данных с помощью Sqoop
 
 1. Чтобы проверить, видно ли в Sqoop базу данных SQL, используйте следующую команду:
-   
+
     ```
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
-   
+
     Эта команда выводит список баз данных, включая базу данных, в которой вы создали таблицу delays ранее.
 
 2. Для экспорта данных из hivesampletable в таблицу mobiledata используйте следующую команду:
-   
+
     ```
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
-   
+
     Sqoop подключается к базе данных, содержащей таблицу delays, и экспортирует данные из каталога `/tutorials/flightdelays/output` в эту таблицу.
 
 3. После выполнения команды используйте следующую команду для подключения к базе данных с помощью TSQL:
-   
+
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
-   
+
     После установления подключения используйте следующие инструкции для проверки экспорта данных в таблицу mobiledata:
-   
+
     ```
     SELECT * FROM delays
     GO
     ```
-    
+
     Вы увидите список данных в таблице. Введите `exit` для выхода из служебной программы tsql.
 
 ## <a id="nextsteps"></a> Дальнейшие действия
@@ -321,7 +321,4 @@ ms.lasthandoff: 03/25/2017
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
-
-
-
 

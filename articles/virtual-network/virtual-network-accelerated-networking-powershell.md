@@ -17,9 +17,9 @@ ms.date: 09/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: 2dd6e9ba1d08d3528cdf8194e1e338422361d1d5
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5edba79e5c65f0e9411a418ac1a121fd938feff2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/28/2017
 * **Создание виртуальной машины.** Сетевой интерфейс с включенным повышением производительности сети можно подключить к виртуальной машине при ее создании. Этого нельзя сделать для имеющейся виртуальной машины.
 * **Регионы.** Эта функция доступна только в таких регионах Azure, как западно-центральная часть США и Западная Европа. Набор поддерживаемых регионов будет расширяться в будущем.
 * **Поддерживаемые операционные системы.** Microsoft Windows Server 2012 R2 и Windows Server 2016 Technical Preview 5. Вскоре будет добавлена поддержка Linux и Windows Server 2012.
-* **Размер виртуальной машины.** Standard_D15_v2 и Standard_DS15_v2 — единственные поддерживаемые размеры экземпляров виртуальных машин. Дополнительные сведения см. в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Набор поддерживаемых размеров экземпляров виртуальных машин будет расширяться в будущем.
+* **Размер виртуальной машины.** Standard_D15_v2 и Standard_DS15_v2 — единственные поддерживаемые размеры экземпляров виртуальных машин. Дополнительные сведения см. в статье [Размеры виртуальных машин в Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Набор поддерживаемых размеров экземпляров виртуальных машин будет расширяться в будущем.
 
 Сведения об изменениях этих ограничений будут публиковаться на [этой странице](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 

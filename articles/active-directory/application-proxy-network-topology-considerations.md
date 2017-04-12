@@ -11,20 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 4b21bf6bc1be59facd503000a4f83a56189d55d3
-ms.openlocfilehash: aea1b35348bec0affe2288ff683e0320e2b0f714
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6869453e0776405841890978eef97f549be97541
+ms.lasthandoff: 04/03/2017
 
 
 ---
 
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Аспекты топологии сети при использовании прокси приложения Azure Active Directory
-> [!NOTE]
-> Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md).
->
 
 В этой статье рассматриваются аспекты топологии сети при использовании прокси приложения Azure Active Directory для публикации и удаленного доступа к приложениям.
 
@@ -88,7 +85,6 @@ ms.lasthandoff: 02/28/2017
 
 > [!NOTE]
 В некоторых сценариях необходимо оптимизировать прыжки 2 и 3, чтобы получить нужные характеристики задержки. Например, если между сетью и центром обработки данных Azure настроено подключение VPN или ExpressRoute, этот сценарий позволяет оптимизировать оба этих прыжка.
->
 
 ### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>Шаблон 2. Использование подключения ExpressRoute с общедоступным пирингом
 
@@ -110,7 +106,7 @@ ms.lasthandoff: 02/28/2017
 
 Все больше организаций перемещают сети в размещенные среды. В этой ситуации приложения также могут мигрировать в размещенную среду, оставаясь в пределах корпоративной сети и домена. В шаблонах, которые описаны в предыдущем разделе, можно учесть новое расположение приложения.
 
-Возможно, вас также заинтересует использование групп соединителей для целевых приложений, находящихся в разных расположениях и сетях. Если вы рассматриваете этот вариант, перейдите на страницу [Доменные службы Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds).
+Возможно, вас также заинтересует использование групп соединителей для целевых приложений, находящихся в разных расположениях и сетях. Если вы рассматриваете этот вариант, перейдите на страницу [Доменные службы Azure Active Directory](../active-directory-domain-services/active-directory-ds-overview.md).
 
 ## <a name="common-scenarios"></a>Распространенные сценарии
 
@@ -173,8 +169,9 @@ ms.lasthandoff: 02/28/2017
 ![Схема размещения с очертаниями континентов и траекторией прыжков в этом варианте использования](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Включение прокси приложения](active-directory-application-proxy-enable.md)<br>
-[Единый вход с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)<br>
-[Работа с условным доступом](active-directory-application-proxy-conditional-access.md)<br>
-[Устранение неполадок прокси-сервера приложений](active-directory-application-proxy-troubleshoot.md)
+
+- [Включение прокси приложения](active-directory-application-proxy-enable.md)
+- [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
+- [Включение условного доступа](active-directory-application-proxy-conditional-access.md)
+- [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
 

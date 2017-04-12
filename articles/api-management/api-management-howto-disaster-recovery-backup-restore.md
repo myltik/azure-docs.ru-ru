@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 1c812fc31011b57f2cdb357574877d6b7125280f
-ms.openlocfilehash: c5ae5049588d5bc7628442942e71f182a425fead
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c0413f9c83fd6dceb4a1d956c0f32712e29bdc58
+ms.lasthandoff: 03/31/2017
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Реализация аварийного восстановления с помощью функций резервного копирования и восстановления службы в Azure API Management
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/10/2017
 В первую очередь необходимо создать приложение Azure Active Directory. Войдите на [классический портал Azure](http://manage.windowsazure.com/) , используя подписку, включающую экземпляр службы управления API, и перейдите на вкладку **Приложения** , чтобы открыть используемый по умолчанию каталог Azure Active Directory.
 
 > [!NOTE]
-> Если этот каталог не отображается в вашей учетной записи, обратитесь к администратору подписки Azure, чтобы получить необходимые разрешения для учетной записи. Сведения о расположении каталога по умолчанию см. в разделе "Найдите каталог по умолчанию на классическом портале Azure." статьи [Создание рабочего или учебного удостоверения в Azure Active Directory для использования с виртуальными машинами Windows](../virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Если этот каталог не отображается в вашей учетной записи, обратитесь к администратору подписки Azure, чтобы получить необходимые разрешения для учетной записи. Сведения о расположении каталога по умолчанию см. в разделе "Найдите каталог по умолчанию на классическом портале Azure." статьи [Создание рабочего или учебного удостоверения в Azure Active Directory для использования с виртуальными машинами Windows](../virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 

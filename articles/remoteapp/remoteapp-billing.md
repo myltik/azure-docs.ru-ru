@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 4558a91c7f1e1f5ee825e167e20988878d164862
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 18c369c4e8ccf828c35ec4a964e61f13613f899b
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-stop-being-billed-for-azure-remoteapp"></a>Как остановить выставление счетов за Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -34,10 +35,5 @@ ms.openlocfilehash: 4558a91c7f1e1f5ee825e167e20988878d164862
 3. Повторите эти действия для каждой коллекции в подписке. 
 
 Удаление каждой коллекции может занять несколько минут.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

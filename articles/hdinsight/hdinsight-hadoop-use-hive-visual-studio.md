@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 0627155a86f961531cfb11c0d8dc7a66eafbf0cf
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 125531d8d52d4e27951a9e6cae0c50582c5b110e
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,12 +36,12 @@ ms.lasthandoff: 03/07/2017
 * Кластер Azure HDInsight (Hadoop в HDInsight).
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Одна из следующих версий Visual Studio:
-  
+
     * Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921)
-  
+
     * Visual Studio 2015 (любой выпуск)
 
     * Visual Studio 2017 (любой выпуск)
@@ -62,16 +62,16 @@ ms.lasthandoff: 03/07/2017
    STORED AS TEXTFILE LOCATION '/example/data/';
    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
    ```
-   
+
     Эти операторы выполняют следующие действия.
-   
+
    * `DROP TABLE`: если таблица существует, эта инструкция удаляет ее.
 
    * `CREATE EXTERNAL TABLE`: создает новую "внешнюю" таблицу в Hive. Внешние таблицы хранят только определение самой таблицы в Hive, в то время как данные остаются в исходном расположении.
-     
+
      > [!NOTE]
      > Внешние таблицы необходимо использовать в тех случаях, когда ожидается, что исходные данные будут обновляться внешним источником, таким как автоматизированный процесс передачи данных или другой операцией MapReduce, при этом нужно, чтобы запросы Hive использовали самые последние данные.
-     > 
+     >
      > Удаление внешней таблицы **не** приводит к удалению данных, будет удалено только определение таблицы.
 
    * `ROW FORMAT`: инструкции по форматированию данных для Hive. В данном случае поля всех журналов разделены пробелом.
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/07/2017
 6. Запросы Hive можно также отправлять без создания проекта. С помощью **обозревателя сервера** разверните узлы **Azure** > **HDInsight**, щелкните правой кнопкой мыши сервер HDInsight, а затем выберите **Написать запрос Hive**.
 
 7. Отобразится документ **temp.hql** , в который нужно добавить следующие операторы HiveQL:
-   
+
    ```hiveql
    set hive.execution.engine=tez;
    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -103,9 +103,9 @@ ms.lasthandoff: 03/07/2017
    ```
 
     Эти операторы выполняют следующие действия.
-   
+
    * `CREATE TABLE IF NOT EXISTS`: создает таблицу, если она не существует. Так как не используется ключевое слово `EXTERNAL`, эта инструкция создает внутреннюю таблицу. Внутренние таблицы хранятся в хранилище данных Hive и управляются Hive.
-     
+
      > [!NOTE]
      > В отличие от таблиц `EXTERNAL`, удаление внутренней таблицы приводит к удалению ее базовых данных.
 

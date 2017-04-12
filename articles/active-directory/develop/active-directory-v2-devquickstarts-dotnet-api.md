@@ -1,5 +1,5 @@
 ---
-title: "Добавление функции входа в веб-API .NET MVC с помощью конечной точки Azure AD версии&2;.0 | Документация Майкрософт"
+title: "Добавление функции входа в веб-API .NET MVC с помощью конечной точки Azure AD версии 2.0 | Документация Майкрософт"
 description: "Как создать веб-API .NET MVC, принимающий маркеры доступа личных учетных записей Майкрософт, а также рабочих и учебных учетных записей."
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
-ms.openlocfilehash: af75c0016d4c64c13c971abc80d0c56542a0db3e
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: d063ea881c82b158a196cb5f63e7514777732846
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: af75c0016d4c64c13c971abc80d0c56542a0db3e
 Используя конечную точку Azure Active Directory версии 2.0, вы можете защитить веб-API с помощью маркеров доступа [OAuth 2.0](active-directory-v2-protocols.md) и позволить пользователям входить в систему с помощью личной, рабочей или учебной учетной записи Майкрософт для безопасного доступа к веб-API.
 
 > [!NOTE]
-> Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии&2;.0.  Чтобы определить, следует ли вам использовать конечную точку версии&2;.0, ознакомьтесь с [ограничениями версии&2;.0](active-directory-v2-limitations.md).
+> Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0.  Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
 >
 >
 
@@ -37,7 +38,7 @@ ms.openlocfilehash: af75c0016d4c64c13c971abc80d0c56542a0db3e
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
-Скелет приложения включает в себя весь код шаблона простого API, но в нем отсутствуют все компоненты, связанные с удостоверениями. Если не хотите следовать учебнику, вместо этого можно клонировать или [скачать готовый пример](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip).
+Скелет приложения включает в себя весь код шаблона простого API, но в нем отсутствуют все компоненты, связанные с удостоверениями. Если не хотите следовать учебнику, вместо этого можно клонировать или [скачать готовый пример](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip).
 
 ```
 git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -77,7 +78,7 @@ public partial class Startup
 }
 ```
 
-* Откройте файл `App_Start\Startup.Auth.cs` и реализуйте метод `ConfigureAuth(…)`, который настраивает веб-API для приема маркеров доступа из конечной точки версии&2;.0.
+* Откройте файл `App_Start\Startup.Auth.cs` и реализуйте метод `ConfigureAuth(…)`, который настраивает веб-API для приема маркеров доступа из конечной точки версии 2.0.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
@@ -143,7 +144,7 @@ public IEnumerable<TodoItem> Get()
   * Ваш `ida:Audience` — это **идентификатор приложения** , введенный на портале.
 
 ## <a name="configure-the-client-app"></a>Настройка клиентского приложения
-Чтобы увидеть службу To Do List в действии, необходимо настроить To Do List Client для получения маркеров от конечной точки версии&2;.0 и выполнения вызовов службы.
+Чтобы увидеть службу To Do List в действии, необходимо настроить To Do List Client для получения маркеров от конечной точки версии 2.0 и выполнения вызовов службы.
 
 * Откройте файл `App.config` проекта TodoListClient и введите значения конфигурации в разделе `<appSettings>`.
   * Идентификатор приложения `ida:ClientId` , скопированный на портале.
@@ -161,14 +162,9 @@ public IEnumerable<TodoItem> Get()
 
 Дополнительные ресурсы:
 
-* [Руководство разработчика версии&2;.0 >>](active-directory-appmodel-v2-overview.md)
+* [Руководство разработчика версии 2.0 >>](active-directory-appmodel-v2-overview.md)
 * [Тег StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Получение обновлений системы безопасности для наших продуктов
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

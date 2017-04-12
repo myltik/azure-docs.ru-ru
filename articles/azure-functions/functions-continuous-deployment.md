@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 66753c80223e33c3add9d37aa4d81656472391ca
-ms.openlocfilehash: e1a869d3c3512f32eab7840f5abc17abd8ce8004
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: dbcee4d57448c6f25de24d5995b85849d6d82f77
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: e1a869d3c3512f32eab7840f5abc17abd8ce8004
 Непрерывное развертывание очень удобно для проектов, которые часто обновляются несколькими участниками. Этот процесс также обеспечивает поддержку системы управления версиями в коде функций. В настоящее время поддерживаются следующие источники развертывания:
 
 * [Bitbucket;](https://bitbucket.org/)
-* [Dropbox](https://bitbucket.org/)
+* [Dropbox](https://www.dropbox.com/)
 * [локальный репозиторий Git;](../app-service-web/app-service-deploy-local-git.md)
 * внешний репозиторий Git;
 * [GitHub]
@@ -141,9 +142,4 @@ ms.openlocfilehash: e1a869d3c3512f32eab7840f5abc17abd8ce8004
     При запросе укажите имя пользователя и пароль для развертывания приложения-функции.  
 
 [GitHub]: https://github.com/
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

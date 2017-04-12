@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ed1db5521a17988d7936c53afcfe565cc7ba1a38
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -227,7 +227,7 @@ ms.lasthandoff: 03/01/2017
 
    ![][19]
 8. Нажмите кнопку **ОК**.
-9. Теперь необходимо настроить ресурсы Azure для нового веб-приложения. Выполните все шаги по [созданию веб-приложения](../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) и [созданию ресурсов Azure](../app-service-web/web-sites-dotnet-get-started.md#create-the-azure-resources). Затем вернитесь к этому учебнику и перейдите к следующему шагу.
+9. Теперь необходимо настроить ресурсы Azure для нового веб-приложения. Выполните все шаги по [созданию веб-приложения](../app-service-web/app-service-web-get-started-dotnet.md) и [созданию ресурсов Azure](../app-service-web/app-service-web-get-started-dotnet.md). Затем вернитесь к этому учебнику и перейдите к следующему шагу.
 10. В обозревателе решений щелкните правой кнопкой мыши **Модели**, а затем выберите **Добавить** и **Класс**. В поле **Имя** введите **Product.cs**. Нажмите кнопку **Добавить**.
 
     ![][17]
@@ -395,7 +395,7 @@ ms.lasthandoff: 03/01/2017
 Прежде чем перейти к следующему шагу, закройте оба приложения.
 
 ## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>Развертывание проекта ProductsPortal в веб-приложении Azure
-Следующий шаг — преобразование внешнего интерфейса **ProductsPortal** в веб-приложение Azure. Сначала разверните проект **ProductsPortal**, выполнив все инструкции из раздела [о развертывании веб-проекта в Azure](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-azure). По завершении развертывания вернитесь к этому руководству и перейдите к следующему шагу.
+Следующий шаг — преобразование внешнего интерфейса **ProductsPortal** в веб-приложение Azure. Сначала разверните проект **ProductsPortal**, выполнив все инструкции из раздела [о развертывании веб-проекта в Azure](../app-service-web/app-service-web-get-started-dotnet.md). По завершении развертывания вернитесь к этому руководству и перейдите к следующему шагу.
 
 > [!NOTE]
 > Если веб-проект **ProductsPortal** запустится после развертывания автоматически, в окне браузера может появиться сообщение об ошибке. Это ожидаемое поведение, и означает, что приложение **ProductsServer** еще не запущено.

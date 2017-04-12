@@ -1,0 +1,43 @@
+---
+title: "Размеры виртуальных машин Linux в Azure, оптимизированных для хранилища | Документация Майкрософт"
+description: "Список различных размеров виртуальных машин Linux в Azure, оптимизированных для хранилища."
+services: virtual-machines-linux
+documentationcenter: 
+author: cynthn
+manager: timlt
+editor: 
+tags: azure-resource-manager,azure-service-management
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 03/22/2017
+ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6036b3e6e51d456fd8c5bcc770b944b0fe27227d
+ms.lasthandoff: 04/03/2017
+
+
+---
+
+# <a name="storage-optimized-linux-vm-sizes"></a>Размеры виртуальных машин Linux, оптимизированных для хранилища
+
+[!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
+
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+
+## <a name="other-sizes"></a>Остальные размеры
+- [Универсальные](../windows/sizes-general.md)
+- [Оптимизированные для вычислений](../windows/sizes-compute.md)
+- [Оптимизированные для памяти](../windows/sizes-memory.md)
+- [GPU](../windows/sizes-gpu.md)
+- [Для высокопроизводительных вычислений](../windows/sizes-hpc.md)
+
+## <a name="next-steps"></a>Дальнейшие действия
+Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](../windows/acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
+

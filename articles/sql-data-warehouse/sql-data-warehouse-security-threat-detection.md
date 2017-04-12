@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fa2425a3341d27b8f68fbcfd849018106d737319
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -51,7 +53,7 @@ ms.openlocfilehash: fa2425a3341d27b8f68fbcfd849018106d737319
 
 ## <a name="explore-anomalous-data-warehouse-activities-upon-detection-of-a-suspicious-event"></a>Анализ подозрительной активности в хранилище данных при обнаружении подозрительного события
 1. При обнаружении подозрительной активности в базе данных вы получите уведомление по электронной почте. <br/>
-    В электронном сообщении будет содержаться информация о подозрительном событии безопасности, включая характер подозрительной активности, имя базы данных и сервера, а также время, когда произошло событие. Кроме того, в сообщении приводится информация о возможных причинах возникновения события, а также рекомендуемые действия по поиску и устранению потенциальной угрозы безопасности базы данных.<br/>
+   В электронном сообщении будет содержаться информация о подозрительном событии безопасности, включая характер подозрительной активности, имя базы данных и сервера, а также время, когда произошло событие. Кроме того, в сообщении приводится информация о возможных причинах возникновения события, а также рекомендуемые действия по поиску и устранению потенциальной угрозы безопасности базы данных.<br/>
    
     ![Область навигации][4]
 2. В этом электронном сообщении щелкните ссылку **Журнал аудита SQL Azure** , которая запустит классический портал Azure, на котором будут показаны соответствующие записи аудита, зафиксированные примерно во время возникновения подозрительного события.
@@ -82,9 +84,4 @@ ms.openlocfilehash: fa2425a3341d27b8f68fbcfd849018106d737319
 [7]: ./media/sql-data-warehouse-security-threat-detection/7_td_audit_records_open_excel.png
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: a0e80acad4e8db2177e699f90f7296c64b38e718
-ms.openlocfilehash: da7102882b9dcf7db1285c0ec004ce1ad3859853
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0fcfcc53641ebdf8a668b353db8eebb3bc64795d
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: da7102882b9dcf7db1285c0ec004ce1ad3859853
 
 В этом учебнике демонстрируется один из способов использования масштабируемых вычислительных ресурсов в Azure, доступных по требованию, для запуска ресурсоемких приложений, который также называют "ускорением в облако".
 
-В этом учебнике предполагается, что у читателя нет опыта работы с вычислительными кластерами или пакетом HPC 2012 R2. Оно предназначено только для того, чтобы помочь вам быстро развернуть кластер вычислений для демонстрационных целей. Рекомендации и инструкции по развертыванию гибридного кластера с пакетом HPC большего масштаба в рабочей среде и использованию пакета HPC 2016 см. в [подробном руководстве](http://go.microsoft.com/fwlink/p/?LinkID=200493). Другие сценарии использования пакета HPC, включая автоматизированное развертывание кластера в виртуальных машинах Azure, см. в статье [Варианты создания в Azure кластера HPC под управлением Windows и управления им с помощью пакета HPC](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+В этом учебнике предполагается, что у читателя нет опыта работы с вычислительными кластерами или пакетом HPC 2012 R2. Оно предназначено только для того, чтобы помочь вам быстро развернуть кластер вычислений для демонстрационных целей. Рекомендации и инструкции по развертыванию гибридного кластера с пакетом HPC большего масштаба в рабочей среде и использованию пакета HPC 2016 см. в [подробном руководстве](http://go.microsoft.com/fwlink/p/?LinkID=200493). Другие сценарии использования пакета HPC, включая автоматизированное развертывание кластера в виртуальных машинах Azure, см. в статье [Варианты создания в Azure кластера HPC под управлением Windows и управления им с помощью пакета HPC](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="prerequisites"></a>Предварительные требования
 * **Подписка Azure.** Если ее нет, можно за пару минут создать [бесплатную учетную запись](https://azure.microsoft.com/free/).
@@ -269,7 +270,7 @@ ms.openlocfilehash: da7102882b9dcf7db1285c0ec004ce1ad3859853
 ## <a name="next-steps"></a>Дальнейшие действия
 * Изучите документацию по [пакету HPC](https://technet.microsoft.com/library/cc514029).
 * Сведения о настройке гибридного развертывания кластера пакета HPC в большом масштабе см. в статье [Ускорение в экземпляры рабочих ролей Azure с помощью пакета Microsoft HPC](http://go.microsoft.com/fwlink/p/?LinkID=200493).
-* Другие способы создания кластера пакета HPC в Azure, включая использование шаблонов Azure Resource Manager, см. в статье [Варианты создания в Azure кластера HPC под управлением Windows и управления им с помощью пакета HPC](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Другие способы создания кластера пакета HPC в Azure, включая использование шаблонов Azure Resource Manager, см. в статье [Варианты создания в Azure кластера HPC под управлением Windows и управления им с помощью пакета HPC](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Дополнительные сведения о больших вычислениях и облачных решениях HPC в Azure см. в статье [Большие вычисления в Azure: технические ресурсы для пакетных и высокопроизводительных вычислений](../batch/big-compute-resources.md).
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -308,9 +309,4 @@ ms.openlocfilehash: da7102882b9dcf7db1285c0ec004ce1ad3859853
 [stop_node2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node2.png
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

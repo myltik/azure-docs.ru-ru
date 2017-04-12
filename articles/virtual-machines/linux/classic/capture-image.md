@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4f4013225e3ea7afb34628bab47ec3b1432bb2b2
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 691caf95971ccdd37b12bbc178627f25b228a782
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Запись классической виртуальной машины Linux в виде образа
 > [!IMPORTANT]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Узнайте, как [выполнить эти действия с помощью модели Resource Manager](../../virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Узнайте, как [выполнить эти действия с помощью модели Resource Manager](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 В этой статье показано, как записать классическую виртуальную машину Azure под управлением Linux, чтобы использовать ее в качестве образа при создании других виртуальных машин. Данный образ виртуальной машины включает в себя диск операционной системы и прочие диски данных, присоединенные к виртуальной машине. Он не включает в себя сетевую конфигурацию, поэтому ее необходимо настроить при создании другой виртуальной машины из образа.
 
@@ -34,7 +34,7 @@ Azure хранит образ в папке **Images** (Образы) вмест
 В шагах этой статьи предполагается, что вы уже создали виртуальную машину Azure, используя классическую модель развертывания, и настроили операционную систему, а также присоединили диски данных. Если необходимо создать виртуальную машину, то прочтите статью [Создание виртуальной машины Linux с помощью интерфейса командной строки Azure][How to Create a Linux Virtual Machine].
 
 ## <a name="capture-the-virtual-machine"></a>Запись виртуальной машины
-1. [Подключитесь к виртуальной машине](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) с помощью выбранного клиента SSH.
+1. [Подключитесь к виртуальной машине](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) с помощью выбранного клиента SSH.
 2. В окне SSH введите следующую команду. Выходные данные `waagent` могут незначительно отличаться в зависимости от версии этой служебной программы.
 
     ```bash
@@ -98,7 +98,7 @@ Azure хранит образ в папке **Images** (Образы) вмест
 
 Кроме того, с помощью [классического портала Azure][Azure classic portal] можно создать настраиваемую виртуальную машину, выбрав метод **Из коллекции** и указав образ, который вы создали. Дополнительные сведения см. в статье [Создание виртуальной машины Linux с помощью интерфейса командной строки Azure][How to Create a Custom Virtual Machine].
 
-**См. также:** [Руководство пользователя агента Linux для Azure](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+**См. также:** [Руководство пользователя агента Linux для Azure](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [Azure classic portal]:http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md

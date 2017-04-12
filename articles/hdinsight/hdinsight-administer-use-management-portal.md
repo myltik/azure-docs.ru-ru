@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 58011fe25a96edfe2744990180b2f2866537bd37
-ms.openlocfilehash: ec35e177d1bb94671b1703020c9aa863a3805af1
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 316a3b6bd0ff32213df4baa9f722ff36ecc41d22
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/07/2017
 Эта статья посвящена только кластерам HDInsight под управлением Windows. Сведения об управлении кластерами на платформе Linux см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure](hdinsight-administer-use-portal-linux.md).
 
 > [!IMPORTANT]
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 
 ## <a name="prerequisites"></a>Предварительные требования

@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 5267ed6a2d9278b79e9fb98c1067eceae819cb6f
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 262acf8150b5065c3b7b79494856b2bdadd4e4ba
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -47,8 +47,8 @@ ms.lasthandoff: 03/22/2017
 
 |Имя|Описание|
 |---|---|
-|adminUsername|Имя пользователя администратора. Оно должно удовлетворять [соответствующим требованиям Azure](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|adminPassword|Пароль администратора. Он должен удовлетворять соответствующим [требованиям Azure](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUsername|Имя пользователя администратора. Оно должно удовлетворять [соответствующим требованиям Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+|adminPassword|Пароль администратора. Он должен удовлетворять соответствующим [требованиям Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|DNS-имя для PublicIPAddressName1. DNS-имя будет разрешено на один из общедоступных IP-адресов, назначенных виртуальной машине. Имя должно быть уникальным в пределах региона Azure (расположения), в котором создается виртуальная машина.|
 |dnsLabelPrefix1|DNS-имя для PublicIPAddressName2. DNS-имя будет разрешено на один из общедоступных IP-адресов, назначенных виртуальной машине. Имя должно быть уникальным в пределах региона Azure (расположения), в котором создается виртуальная машина.|
 |OSVersion|Версия ОС Windows или Linux для виртуальной машины. Операционная система — это исправленный образ выбранной версии ОС Windows или Linux.|
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/22/2017
 
     Независимо от выбранного варианта развертывания шаблона вам нужно указать значения для параметров, перечисленных в разделе с описанием [параметров](#parameters). Если вы хотите указать параметры с помощью [файла параметров](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json), скопируйте его содержимое из GitHub в новый файл на компьютере. Измените значения в файле. Используйте созданный файл в качестве значения для параметра `-TemplateParameterFile`.
     
-    Чтобы определить допустимые значения для параметров OSVersion, ImagePublisher и imageOffer, выполните шаги, описанные в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Чтобы определить допустимые значения для параметров OSVersion, ImagePublisher и imageOffer, выполните шаги, описанные в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](../virtual-machines/windows/cli-ps-findimage.md).
 
     >[!TIP]
     >Если вы не знаете, доступен ли параметр dnslabelprefix, введите `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` команду. Если параметр доступен, команда вернет значение `True`.
@@ -96,7 +96,7 @@ ms.lasthandoff: 03/22/2017
 
     Независимо от выбранного варианта развертывания шаблона вам нужно указать значения для параметров, перечисленных в разделе с описанием [параметров](#parameters). Если вы хотите указать параметры с помощью [файла параметров](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json), скопируйте его содержимое из GitHub в новый файл на компьютере. Измените значения в файле. Используйте созданный файл в качестве значения для параметра `--parameters-file` (-e).
     
-    Чтобы определить допустимые значения для параметров OSVersion, ImagePublisher и imageOffer, выполните шаги, описанные в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Чтобы определить допустимые значения для параметров OSVersion, ImagePublisher и imageOffer, выполните шаги, описанные в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](../virtual-machines/windows/cli-ps-findimage.md).
 
 2. Развернув виртуальную машину, подключитесь к ней и добавьте в развернутую операционную систему частные IP-адреса, выполнив действия, описанные в этой статье в разделе [Добавление IP-адреса в операционную систему виртуальной машины](#os-config). Не добавляйте в операционную систему общедоступные IP-адреса.
 

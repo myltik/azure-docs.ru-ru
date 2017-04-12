@@ -16,9 +16,9 @@ ms.date: 10/10/2016
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 5bb3a67c999c1d41c50b2b660a97a53125511633
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 87e888bf3d7355b36c42e8787abe9bf1cb191fcd
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/25/2017
 Для виртуальных машин Windows необходимо включить расширение виртуальной машины *Microsoft Monitoring Agent*.
 Для виртуальных машин Linux необходимо включить расширение виртуальной машины *Агент OMS для Linux*.
 
-Подробнее о [расширениях виртуальной машины Azure](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и [агенте для Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Подробнее о [расширениях виртуальной машины Azure](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и [агенте для Linux](../virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 При использовании агента для сбора данных журнала необходимо настроить [источники данных в Log Analytics](log-analytics-data-sources.md), указав, какие данные журналов и метрик следует собирать.
 
@@ -397,18 +397,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 6. Просмотрите состояние агента Microsoft Monitoring Agent. Для этого на виртуальной машине в окне PowerShell с повышенными правами введите следующий код `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
 7. Просмотрите файлы журнала установки агента Microsoft Monitoring Agent в папке `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
 
-Подробные сведения см. в статье об [устранении неполадок расширений для виртуальных машин Windows](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Подробные сведения см. в статье об [устранении неполадок расширений для виртуальных машин Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="troubleshooting-linux-virtual-machines"></a>Устранение неполадок на виртуальных машинах Linux
 Если расширение агента виртуальной машины *Агент OMS для Linux* не устанавливается или не создает отчеты, можно выполнить следующие действия для решения проблемы.
 
 1. Если состояние расширения *неизвестно*, убедитесь, что агент виртуальной машины Azure установлен и работает правильно, просмотрев файл журнала агента ВМ `/var/log/waagent.log`.
    * Если журнал не создан, значит агент виртуальной машины не установлен.
-   * [Установите агент виртуальной машины Azure на виртуальной машине Linux](../virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   * [Установите агент виртуальной машины Azure на виртуальной машине Linux](../virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 2. В случае возникновения других неполадок просмотрите файлы журнала расширения ВМ "Агент OMS для Linux" в папке `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` и `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`.
 3. Если расширение исправно, но данные не отправляются, просмотрите файлы журнала агента OMS для Linux в папке `/var/opt/microsoft/omsagent/log/omsagent.log`.
 
-Подробные сведения см. в статье [Устранение неполадок расширения виртуальной машины Linux](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Подробные сведения см. в статье [Устранение неполадок расширения виртуальной машины Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Настройте [источники данных в Log Analytics](log-analytics-data-sources.md) чтобы указать, какие данные журналов и метрик следует собирать.

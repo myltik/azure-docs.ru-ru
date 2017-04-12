@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 90e443fe69afdda8786dd00ffb32e9680a476cd4
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: ee480f4382a93a2420f7c73f7259ce1f0a03d595
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -92,7 +92,7 @@ ms.lasthandoff: 03/25/2017
 ## <a name="general-recommendations-and-best-practices"></a>Общие рекомендации
 * При использовании SQL Server Enterprise Edition минимальный размер, рекомендуемый для виртуальной машины, — **A3** . Размер виртуальной машины **A4** рекомендуется использовать для развертывания бизнес-аналитики SQL Server в службах Analysis Services и Reporting Services.
   
-    Сведения о текущих размерах виртуальных машин см. в разделе [Размеры виртуальных машин в Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    Сведения о текущих размерах виртуальных машин см. в разделе [Размеры виртуальных машин в Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * В рамках управления дисками рекомендуется хранить данные, журналы и файлы резервных копий на дисках, отличных от **C:** и **D:**. Например, создайте диски данных **E:** и **F:**.
   
   * Политика кэширования диска для диска по умолчанию **C:**не является оптимальным выбором для работы с данными.

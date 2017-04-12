@@ -1,38 +1,10 @@
 ---
-title: "Примеры PowerShell для виртуальной машины Azure | Документация Майкрософт"
-description: "Примеры PowerShell для виртуальной машины Azure."
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 03/01/2017
-ms.author: nepeters
+redirect_url: /azure/virtual-machines/linux/powershell-samples
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 4973a78b069e27e0ca30a9b82389992fb9c10ff2
-ms.lasthandoff: 03/10/2017
-
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6e531778090896fdc70c317b23906d2122a603ba
+ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="azure-virtual-machine-powershell-samples"></a>Примеры PowerShell для виртуальной машины Azure
 
-Ниже приведена таблица с ссылками на примеры сценариев PowerShell, которые позволяют создавать виртуальные машины Linux и управлять ими.
-
-| | |
-|---|---|
-|**Создание виртуальных машин**||
-| [Создание полностью настроенной виртуальной машины](./scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Создает группу ресурсов, виртуальную машину и все связанные ресурсы.|
-| [Создание виртуальной машины с помощью Docker](./scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Создает виртуальную машину, настраивает ее в качестве узла Docker и запускает контейнер NGINX. |
-| [Создание виртуальной машины с помощью NGINX](./scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Создает виртуальную машину и использует расширение пользовательских скриптов Azure для установки NGINX. |
-| [Создание виртуальной машины с помощью WordPress](./scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Создает виртуальную машину и использует расширение пользовательских скриптов Azure для установки WordPress. |
-|**Мониторинг виртуальных машин**||
-| [Мониторинг виртуальной машины с помощью Operations Management Suite](./scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Создает виртуальную машину, устанавливает агент Operations Management Suite и регистрирует виртуальную машину в рабочей области OMS.  |
-| | |

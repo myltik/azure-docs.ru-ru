@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 06639080dec485395d6821c371a4f792c7c02845
-ms.openlocfilehash: 5e3ac3a08ea3e5c72082dcc7faa209d848acf2fe
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: b986fc881a39ca3a28d6f5f968cefe19c05b5dc5
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -40,7 +41,7 @@ ms.openlocfilehash: 5e3ac3a08ea3e5c72082dcc7faa209d848acf2fe
 - **Брандмауэр базы данных SQL.** Для защиты данных брандмауэр базы данных SQL запрещает любой доступ к серверу базы данных или базам данных, пока не будут указаны компьютеры, которые имеют разрешение. Дополнительные сведения см. в статье о [брандмауэрах](sql-database-firewall-configure.md).
 
 ## <a name="what-collations-are-supported"></a>Поддерживаемые параметры сортировки
-Параметры сортировки базы данных по умолчанию, используемые базой данных SQL Microsoft Azure, — это **SQL_LATIN1_GENERAL_CP1_CI_AS**, где **LATIN1_GENERAL** — английский язык (США), **CP1** — кодовая страница 1252, **CI** выполняется без учета регистра, а **AS** означает, что учитываются диакритические знаки. Нельзя изменить параметры сортировки для баз данных версии&12;. Дополнительные сведения о настройке параметров сортировки см. в статье [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+Параметры сортировки базы данных по умолчанию, используемые базой данных SQL Microsoft Azure, — это **SQL_LATIN1_GENERAL_CP1_CI_AS**, где **LATIN1_GENERAL** — английский язык (США), **CP1** — кодовая страница 1252, **CI** выполняется без учета регистра, а **AS** означает, что учитываются диакритические знаки. Дополнительные сведения о настройке параметров сортировки см. в статье [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>Требования к именованию объектов базы данных
 
@@ -67,10 +68,5 @@ ms.openlocfilehash: 5e3ac3a08ea3e5c72082dcc7faa209d848acf2fe
 - Ознакомьтесь со сведениями о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб**. Общие сведения об уровнях служб см. в статье [Уровни служб базы данных SQL для отдельных баз данных и пулов эластичных баз данных](sql-database-service-tiers.md).
 - Общие сведения о методах защиты в базе данных SQL см. в [этой статье](sql-database-security-overview.md).
 - Сведения о доступности драйверов и поддержке для базы данных SQL см. в статье [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 1fea38ed4caacfee0c69d024b1ea6dbdcbccaf1d
-ms.openlocfilehash: 0f558871b2dfc85d2713c3511829dcbf41aea17b
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: e30297bd0cc65105c92d6428035d2e6c156448af
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -339,21 +340,11 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
-[Создание веб-приложения Node.js в службе приложений Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Создание веб-приложения Node.js в службе приложений Azure]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Веб-приложение Node.js, использующее службу таблиц Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
-
-[Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
-[plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
-[quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
 
 [Построение и развертывание приложения Node.js в облачной службе Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Создание и развертывание веб-приложения Node.js в Azure с использованием WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

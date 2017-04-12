@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2017
+ms.date: 03/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e43a6ea9510c481518becb52cc571ec62e3b151d
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f7748dba30c6e0332c166feda25f4aaa93c06efa
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,19 +29,21 @@ ms.lasthandoff: 03/21/2017
 > * [Пакет SDK для Java](data-lake-store-get-started-java-sdk.md)
 > * [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
 > * [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-> [!NOTE]
-> Для передачи и скачивания больших объемов данных (больших файлов, большого количества файлов или и того, и другого) мы рекомендуем использовать [пакет SDK для Python](data-lake-store-get-started-python.md), [пакет SDK для .NET](data-lake-store-get-started-net-sdk.md) или [Azure PowerShell](data-lake-store-get-started-powershell.md). Они имеют повышенную производительность, так как используют несколько потоков для параллельной передачи данных.
-> 
->  
-
 Узнайте, как с помощью интерфейса командной строки Azure создать учетную запись хранилища озера данных Azure и выполнять базовые операции, такие как создание папок, передача и скачивание файлов данных, удаление учетной записи и т. д. Дополнительные сведения о Data Lake Store см. в [обзоре Data Lake Store](data-lake-store-overview.md).
 
 Интерфейс командной строки (CLI) Azure реализован в Node.js. Его можно использовать на любой платформе, которая поддерживает Node.js, включая Windows, Mac и Linux. Azure CLI имеет открытый исходный код. Исходный код управляется с помощью GitHub по адресу <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. В этой статье описывается только использование Azure CLI с хранилищем озера данных. См. дополнительные сведения в [общем руководстве по Azure CLI][azure-command-line-tools].
+
+
+> [!NOTE]
+> Для передачи и скачивания больших объемов данных (больших файлов, большого количества файлов или и того, и другого) мы рекомендуем использовать [пакет SDK для Python](data-lake-store-get-started-python.md), [пакет SDK для .NET](data-lake-store-get-started-net-sdk.md) или [Azure PowerShell](data-lake-store-get-started-powershell.md). Они имеют повышенную производительность, так как используют несколько потоков для параллельной передачи данных.
+> 
+>
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этой статьей необходимо иметь следующее:
@@ -50,10 +52,13 @@ ms.lasthandoff: 03/21/2017
 * **Интерфейс командной строки Azure CLI** — сведения об установке и настройке CLI Azure см. в статье [Установка Azure CLI](../cli-install-nodejs.md). Обязательно перезагрузите компьютер после установки интерфейса командной строки.
 
 ## <a name="authentication"></a>Аутентификация
+
 В этой статье используется более простой подход к проверке подлинности в службе Data Lake Store, в которую выполняется вход от имени пользователя. Уровень доступа к учетной записи Data Lake Store и файловой системе зависит от уровня доступа пользователя, который вошел в систему. Существуют разные способы проверки подлинности в Data Lake Store, включая **проверку подлинности пользователя** и **проверку подлинности с взаимодействием между службами**. Инструкции и дополнительные сведения о проверке подлинности см. в статье, посвященной [проверке подлинности приложений Data Lake Store с помощью Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="login-to-your-azure-subscription"></a>Вход в подписку Azure
+
 1. Выполните действия, описанные в статье, посвященной [подключению к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md), и подключитесь к подписке с помощью метода `azure login`.
+
 2. Перечислите подписки, связанные с учетной записью, используя команду `azure account list`.
    
         info:    Executing command account list

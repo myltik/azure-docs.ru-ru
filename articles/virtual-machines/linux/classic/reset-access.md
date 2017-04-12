@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: a6f4ce009048fd5f81c2f1d2982e4011e4de70ee
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -193,6 +193,6 @@ ms.lasthandoff: 03/27/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения об использовании командлетов Azure PowerShell или шаблонов Azure Resource Manager для сброса пароля или ключа SSH, исправления конфигурации SSH и проверки согласованности диска см. в [документации по расширению VMAccess на портале GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 * Для сброса пароля или ключа SSH для виртуальной машины Linux, развернутой в классической модели развертывания, можно также использовать [портал Azure](https://portal.azure.com) . Использовать портал для виртуальной машины Linux, развернутой в модели развертывания Resource Manager, пока невозможно.
-* В статье [Обзор расширений и компонентов виртуальной машины](../../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) приводятся дополнительные сведения об использовании расширений для виртуальных машин Azure.
+* В статье [Обзор расширений и компонентов виртуальной машины](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) приводятся дополнительные сведения об использовании расширений для виртуальных машин Azure.
 
 

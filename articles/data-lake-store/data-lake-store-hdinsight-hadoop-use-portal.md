@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: f7c977dc2e385819dada976afa9497e9a20fd90c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 2aa5542dc095beaf951bad2b0361a3acc4468f2d
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/22/2017
 >
 >
 
-В этой статье описывается, как с помощью портала Azure создать кластер HDInsight с доступом к Azure Data Lake Store. В поддерживаемых типах кластеров можно использовать Data Lake Store в качестве учетной записи хранения по умолчанию или дополнительной учетной записи хранения. 
+В этой статье описывается, как с помощью портала Azure создать кластер HDInsight с доступом к Azure Data Lake Store. В поддерживаемых типах кластеров можно использовать Data Lake Store в качестве учетной записи хранения по умолчанию или дополнительной учетной записи хранения.
 
 Если Data Lake Store используется в качестве дополнительного хранилища, то учетной записью хранения по умолчанию для кластеров остается хранилище BLOB-объектов Azure, а файлы кластера (например, журналы) по-прежнему записываются в хранилище по умолчанию. Однако данные, требующие обработки, могут храниться в учетной записи Data Lake Store. Использование Data Lake Store в качестве дополнительной учетной записи хранения не влияет на производительность либо возможность выполнять чтение или запись в хранилище из кластера.
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 03/22/2017
 * **Субъект-служба Azure Active Directory**. В этом руководстве приведены инструкции по созданию субъекта-службы в Azure Active Directory (Azure AD). Чтобы создать субъект-службу, необходимо быть администратором Azure AD. Если вы являетесь администратором, то можете пропустить это предварительное требование и продолжить работу с руководством.
 
     >[!NOTE]
-    >Создать субъект-службу может только администратор Azure AD. Администратор Azure AD должен сначала создать субъект-службу, после чего вы сможете создать кластер HDInsight, использующий Data Lake Store. При создании субъекта-службы также необходимо использовать сертификат, как описано в разделе [Создание субъекта-службы с использованием сертификата](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+    >Создать субъект-службу может только администратор Azure AD. Администратор Azure AD должен сначала создать субъект-службу, после чего вы сможете создать кластер HDInsight, использующий Data Lake Store. При создании субъекта-службы также необходимо использовать сертификат, как описано в разделе [Создание субъекта-службы с использованием сертификата](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
     >
 
 ## <a name="create-an-hdinsight-cluster-with-access-to-a-data-lake-store"></a>Создание кластера HDInsight с доступом к Data Lake Store
@@ -78,20 +78,20 @@ ms.lasthandoff: 03/22/2017
 
     ![Добавление субъекта-службы в кластер HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Добавление субъекта-службы в кластер HDInsight")
 
-    
+
     На снимке экрана выше показан путь к корневой папке /clusters/myhdiadlcluster, где *myhdiadlcluster* — это имя создаваемого кластера. Убедитесь, что папка */clusters* существует в учетной записи Data Lake Store. Папка *myhdiadlcluster* создается вместе с кластером. Аналогично, если корневая папка — это */hdinsight/clusters/data/myhdiadlcluster*, убедитесь, что папка */hdinsight/clusters/data/* существует в учетной записи Data Lake Store.
 
-5. Щелкните **Доступ к Data Lake Store** для настройки доступа между учетной записью Data Lake Store и кластером HDInsight. Инструкции доступны в разделе [Создание кластеров HDInsight, использующих Data Lake Store, с помощью портала Azure](#configure-access-between-hdinsight-cluster-and-data-lake-store). 
+5. Щелкните **Доступ к Data Lake Store** для настройки доступа между учетной записью Data Lake Store и кластером HDInsight. Инструкции доступны в разделе [Создание кластеров HDInsight, использующих Data Lake Store, с помощью портала Azure](#configure-access-between-hdinsight-cluster-and-data-lake-store).
 
 
-### <a name="create-a-cluster-with-data-lake-store-as-additional-storage"></a>Создание кластера HDInsight, использующего Data Lake Store в качестве дополнительного хранилища 
+### <a name="create-a-cluster-with-data-lake-store-as-additional-storage"></a>Создание кластера HDInsight, использующего Data Lake Store в качестве дополнительного хранилища
 
 1. Войдите на [портал Azure](https://portal.azure.com).
 
 2. Выполните действия, описанные в разделе [Создание кластеров под управлением Linux в HDInsight с помощью портала Azure](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md), чтобы начать подготовку кластера HDInsight.
 
 3. В колонке **Хранилище** в разделе **Тип первичного хранилища** выберите **Служба хранилища Azure**.
- 
+
 4. В разделе **Метод выбора** выполните одно из следующих действий.
 
     * Выберите **Мои подписки**, чтобы указать учетную запись хранения, которая является частью вашей подписки Azure, а затем выберите учетную запись хранения.
@@ -132,7 +132,7 @@ ms.lasthandoff: 03/22/2017
 
 7. В колонке **Доступ к Data Lake Store** щелкните **Доступ**. По умолчанию открывается колонка **Выбор разрешений для файла**. В ней отображены все учетные записи Data Lake Store в вашей подписке.
 
-8. Выберите учетную запись Data Lake Store, которую требуется связать с кластером. 
+8. Выберите учетную запись Data Lake Store, которую требуется связать с кластером.
 
     **При использовании Data Lake Store в качестве хранилища по умолчанию** следует назначить разрешения на двух уровнях.
 

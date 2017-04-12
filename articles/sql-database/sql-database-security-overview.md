@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: b7c6a2bcdf975233d7afe6c20bd886cfcc02de2a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3efb68c12cd05fc0c4ac68497f8c20d1c671df82
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/17/2017
 Полный обзор функций безопасности, доступных для всех видов SQL, см. в статье [Центр обеспечения безопасности для базы данных SQL Azure и ядра СУБД SQL Server](https://msdn.microsoft.com/library/bb510589). Дополнительные сведения также см. в [технической документации по безопасности и базе данных SQL Azure](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF-файл).
 
 ## <a name="protect-data"></a>Защита данных
-База данных SQL обеспечивает защиту данных, шифруя передаваемые данные с использованием протокола [TLS](https://support.microsoft.com/en-us/kb/3135244), неактивные данные с использованием [прозрачного шифрования данных](http://go.microsoft.com/fwlink/?LinkId=526242) и используемые данные с помощью функции [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
+База данных SQL обеспечивает защиту данных, шифруя передаваемые данные с использованием протокола [TLS](https://support.microsoft.com/kb/3135244), неактивные данные с использованием [прозрачного шифрования данных](http://go.microsoft.com/fwlink/?LinkId=526242) и используемые данные с помощью функции [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >Во время каждого сеанса передачи данных в Базу данных SQL Azure и из нее все подключения к базе должны быть зашифрованы (SSL/TLS). В строке подключения приложения необходимо настроить параметры шифрования подключения, а также указать *отсутствие* доверия сертификату сервера (это происходит автоматически при копировании строки подключения из классического портала Azure), в противном случае подключение не будет проверять подлинность сервера и будет уязвимо для атак типа "злоумышленник в середине". Например, для драйвера ADO.NET это параметры **Encrypt=True** и **TrustServerCertificate=False**. 

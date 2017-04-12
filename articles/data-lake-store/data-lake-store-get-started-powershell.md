@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: ebe8724d73769eb55e40b8af2056880a5a4007ce
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: c00aa4a2e79522a6817a135965f6c218b08e26f8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,6 +29,7 @@ ms.lasthandoff: 01/24/2017
 > * [Пакет SDK для Java](data-lake-store-get-started-java-sdk.md)
 > * [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
 > * [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -180,7 +181,7 @@ ms.lasthandoff: 01/24/2017
 
 ### <a name="further-tuning"></a>Дополнительные настройки
 
-Вам могут потребоваться дополнительные настройки, так как вы работаете с файлами разного размера. Вычисления выше подходят, если размер всех или большинства файлов больше 10 ГБ или ближе к этому показателю. Однако если у вас есть множество файлов разных размеров (меньше&10; ГБ), можно уменьшить значение параметра PerFileThreadCount. Сделав так, мы увеличим значение ConcurrentFileCount. Таким образом, если предположить, что большая часть файлов меньше 5 ГБ, можно повторно выполнить вычисления:
+Вам могут потребоваться дополнительные настройки, так как вы работаете с файлами разного размера. Вычисления выше подходят, если размер всех или большинства файлов больше 10 ГБ или ближе к этому показателю. Однако если у вас есть множество файлов разных размеров (меньше 10 ГБ), можно уменьшить значение параметра PerFileThreadCount. Сделав так, мы увеличим значение ConcurrentFileCount. Таким образом, если предположить, что большая часть файлов меньше 5 ГБ, можно повторно выполнить вычисления:
 
     PerFileThreadCount = 10 + ((5GB - 2.5GB) / 256MB) = 20
 

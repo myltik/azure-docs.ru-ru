@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/20/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c530f08842efde1ab87cfd111f1957ae685748f3
-ms.openlocfilehash: 77d3cb18c52a10236eb40e6ffde1ed9e2753af3f
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 885180e9759d0702d4e0988a7a1b4eb9097d4433
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -92,7 +93,7 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 Для [создания сертификата](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate)можно использовать Java.
 
 ### <a name="linux"></a>Linux
-В [этой](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) статье рассматривается создание сертификатов с использованием SSH.
+В [этой](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) статье рассматривается создание сертификатов с использованием SSH.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Передайте сертификат вашей службы на классический портал Azure](cloud-services-configure-ssl-certificate.md) (или [на портал Azure](cloud-services-configure-ssl-certificate-portal.md)).
@@ -103,10 +104,5 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 > Портал Azure не использует сертификаты управления для доступа к API, обращаясь вместо этого к учетным записям пользователей.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

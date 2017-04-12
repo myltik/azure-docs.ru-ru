@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: a7e7b2dee8aad6112bf253f0396b174287d2d469
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 951a421a2ea7e8bea4d082f03ad85695d3a8063e
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="free-30-day-trial-of-azure-remoteapp"></a>Бесплатная пробная версия Azure RemoteApp на 30 дней
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -37,10 +38,5 @@ ms.openlocfilehash: a7e7b2dee8aad6112bf253f0396b174287d2d469
 Не хотите ждать? Посмотрите краткое видео о [создании облачного развертывания](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
 
 Хотите отправить отзыв? Задайте вопросы на [форумах обсуждений](https://feedback.azure.com/forums/247748-azure-remoteapp/). Если у вас есть [план поддержки Azure](https://azure.microsoft.com/support/plans/), вы можете отправить обращение в службу поддержки. Любой пользователь может отправить отзыв на [форуме отзывов](https://feedback.azure.com/forums/247748-azure-remoteapp/).  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

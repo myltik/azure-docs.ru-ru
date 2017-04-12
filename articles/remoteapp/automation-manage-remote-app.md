@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e21af65ecb6f0ce70048846a9786271dd4cc985
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 59ac11f153c0bd74a1106400dbbf5790968b657c
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="managing-azure-remoteapp-using-azure-automation"></a>Управление удаленными приложениями Azure RemoteApp с помощью службы автоматизации Azure
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -42,10 +43,5 @@ ms.openlocfilehash: 3e21af65ecb6f0ce70048846a9786271dd4cc985
 Теперь, когда вы познакомились с основами службы автоматизации Azure и способами ее использования для управления удаленными приложениями Azure, пройдите по ссылкам, чтобы получить дополнительные сведения о службе автоматизации Azure.
 
 * Изучите [руководство по началу работы](../automation/automation-first-runbook-graphical.md) со службой автоматизации Azure.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

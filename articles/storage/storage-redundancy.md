@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 349be81b5d1d5ccc1510360974b4e3b10471cf7f
-ms.openlocfilehash: 13cd31bdce89ae898a6e22a1d27b5aed819ccc0a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 72e07c4fd686feee5045ef3b9a504d2ea41f8675
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -108,6 +109,7 @@ LRS стоит меньше всего и обеспечивает самый н
 | Юго-Восточная часть Австралии |Восточная часть Австралии |
 | Южная Индия |Центральная Индия |
 | Центральная Индия |Южная Индия |
+| Западная Индия |Южная Индия |
 | Правительство штата Айова |Правительство штата Вирджиния |
 | Правительство штата Вирджиния |Правительство штата Айова |
 | Центральная Канада |Восточная Канада |
@@ -140,10 +142,5 @@ LRS стоит меньше всего и обеспечивает самый н
 * [Целевые показатели масштабируемости и производительности хранилища Azure](storage-scalability-targets.md)
 * [Варианты избыточности и геоизбыточное хранилище с доступом для чтения службы хранилища Microsoft Azure ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [Документ SOSP — служба хранилища Azure: высокодоступная облачная служба хранилища со строгой согласованностью](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1fd8fe3847299d98a55a16ab400b43be074a5f33
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 0dbf6a121c07d7d1340898f51a38c3572e57b3a2
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -29,10 +29,11 @@ ms.lasthandoff: 03/22/2017
 > * [Пакет SDK для Java](data-lake-store-get-started-java-sdk.md)
 > * [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
 > * [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
-> 
+>
 
 Узнайте, как с помощью [пакета SDK .NET для Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) выполнять базовые операции, такие как создание папок, отправка и скачивание файлов данных и т. д. Дополнительные сведения об Azure Data Lake Store см. в [этой статье](data-lake-store-overview.md).
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 03/22/2017
 1. Откройте Visual Studio и создайте консольное приложение.
 2. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
 3. В окне **Новый проект**введите или выберите следующие значения.
-   
+
    | Свойство | Значение |
    | --- | --- |
    | Категория |Templates/Visual C#/Windows |
@@ -57,35 +58,35 @@ ms.lasthandoff: 03/22/2017
    | Имя |CreateADLApplication |
 4. Нажмите кнопку **ОК** , чтобы создать проект.
 5. Добавьте пакеты Nuget в проект.
-   
+
    1. В обозревателе решений щелкните правой кнопкой мыши имя проекта и выберите пункт **Управление пакетами NuGet**.
    2. На вкладке **Диспетчер пакетов NuGet** в поле **Источник пакета** выберите **nuget.org** и установите флажок **Включить предварительные выпуски**.
    3. Найдите и установите следующие пакеты NuGet:
-      
+
       * `Microsoft.Azure.Management.DataLake.Store` — в этом руководстве используется версия 1.0.4.
       * `Microsoft.Azure.Management.DataLake.StoreUploader` — в этом руководстве используется предварительная версия 1.0.1.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` — в этом руководстве используется версия 2.2.11.
-        
+
         ![Добавление источника Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Создание учетной записи Azure Data Lake")
    4. Закройте **Диспетчер пакетов Nuget**.
 6. Откройте файл **Program.cs**, удалите существующий код и включите следующие инструкции, чтобы добавить ссылки на пространства имен.
-   
+
         using System;
         using System.IO;
     с помощью System.Security.Cryptography.X509Certificates; // требуется, только если вы используете приложение Azure AD, созданное с помощью сертификатов и System.Threading;
-   
+
         using Microsoft.Azure.Management.DataLake.Store;
     с помощью Microsoft.Azure.Management.DataLake.Store.Models; с помощью Microsoft.Azure.Management.DataLake.StoreUploader; с помощью Microsoft.IdentityModel.Clients.ActiveDirectory; с помощью Microsoft.Rest.Azure.Authentication;
 
 7. Объявите переменные, как показано ниже, и укажите уже имеющиеся имена Data Lake Store и группы ресурсов. Кроме того, убедитесь, что локальный путь и имя файла, которые вы указываете, существуют на компьютере. После объявлений пространств имен добавьте приведенный ниже фрагмент кода.
-   
+
         namespace SdkSample
         {
             class Program
             {
                 private static DataLakeStoreAccountManagementClient _adlsClient;
                 private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-   
+
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
@@ -112,7 +113,7 @@ ms.lasthandoff: 03/22/2017
 
 ### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>При использовании проверки подлинности пользователя (рекомендуется для этого руководства)
 
-Примените этот фрагмент кода к существующему собственному приложению Azure AD для **интерактивной** проверки подлинности приложения. Это значит, что вам будет предложено ввести учетные данные Azure. 
+Примените этот фрагмент кода к существующему собственному приложению Azure AD для **интерактивной** проверки подлинности приложения. Это значит, что вам будет предложено ввести учетные данные Azure.
 
 Для удобства использования в приведенном ниже фрагменте кода для идентификатора клиента и URI перенаправления используются значения по умолчанию, которые работают в любой подписке Azure. Мы советуем вам использовать этот подход для быстрого завершения работы с этим руководством. В приведенном ниже фрагменте кода просто введите значение для идентификатора клиента. Его можно получить с помощью инструкций, указанных в статье [Аутентификация пользователей в Data Lake Store с помощью Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
@@ -135,7 +136,7 @@ ms.lasthandoff: 03/22/2017
     // Service principal / appplication authentication with client secret / key
     // Use the client ID of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
+
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientSecret = "<AAD-application-client-secret>";
@@ -143,12 +144,13 @@ ms.lasthandoff: 03/22/2017
     var creds = await ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential);
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>При использовании проверки подлинности с помощью сертификата со взаимодействием между службами
-Приведенный ниже фрагмент можно использовать для проверки подлинности приложения в **неинтерактивном режиме** с помощью сертификата приложения Azure Active Directory или субъекта-службы. Примените этот фрагмент кода к существующему [приложению Azure AD с помощью сертификатов](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+
+Приведенный ниже фрагмент можно использовать для проверки подлинности приложения в **неинтерактивном режиме** с помощью сертификата приложения Azure Active Directory или субъекта-службы. Примените этот фрагмент кода к существующему [приложению Azure AD с помощью сертификатов](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
+
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
     var clientCert = <AAD-application-client-certificate>
@@ -204,7 +206,7 @@ ms.lasthandoff: 03/22/2017
 `DataLakeStoreUploader` поддерживает рекурсивную отправку и загрузку между расположением локального файла и расположением файла Data Lake Store.    
 
 ## <a name="get-file-or-directory-info"></a>Получение сведений о файле или каталоге
-В следующем фрагменте представлен метод `GetItemInfo` , с помощью которого можно получить сведения о файле или каталоге в Data Lake Store. 
+В следующем фрагменте представлен метод `GetItemInfo` , с помощью которого можно получить сведения о файле или каталоге в Data Lake Store.
 
     // Get file or directory info
     public static async Task<FileStatusProperties> GetItemInfo(string path)
@@ -222,7 +224,7 @@ ms.lasthandoff: 03/22/2017
     }
 
 ## <a name="concatenate-files"></a>Сцепление файлов
-В следующем фрагменте представлен метод `ConcatenateFiles` , используемый для сцепления файлов. 
+В следующем фрагменте представлен метод `ConcatenateFiles` , используемый для сцепления файлов.
 
     // Concatenate files
     public static Task ConcatenateFiles(string[] srcFilePaths, string destFilePath)
@@ -261,5 +263,4 @@ ms.lasthandoff: 03/22/2017
 * [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Data Lake Store .NET Reference (Справочник по пакету SDK .NET для Data Lake Store)](https://msdn.microsoft.com/library/mt581387.aspx)
 * [Data Lake Store REST Reference (Справочник по REST для Data Lake Store)](https://msdn.microsoft.com/library/mt693424.aspx)
-
 

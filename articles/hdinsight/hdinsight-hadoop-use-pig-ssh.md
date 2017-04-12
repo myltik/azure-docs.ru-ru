@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 4fe50acbbf9424275c5746b3bdabc79b08b027d3
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 22862d87562e9d9ec9d509eab2f65c850f4aa6d6
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/25/2017
 * Кластер HDInsight на основе Linux (Hadoop в HDInsight).
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * Клиент SSH. Клиент SSH должен входить в состав Linux, Unix и Mac OS. Пользователи Windows должны загрузить отдельный клиент, например [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -59,24 +59,24 @@ ms.lasthandoff: 03/25/2017
 
 ## <a id="pig"></a>Использование команды Pig
 1. После установления соединения запустите интерфейс командной строки Pig с помощью следующей команды.
-   
+
         pig
-   
+
     Через некоторое время отобразится командная строка `grunt>` .
 2. Введите следующую инструкцию.
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
-   
+
     Эта команда загружает содержимое файла sample.log в LOGS. Вы можете просмотреть содержимое файла следующим образом.
-   
+
         DUMP LOGS;
 3. Затем преобразуйте данные следующим образом, применив регулярное выражение для извлечения из каждой записи только информации об уровне ведения журнала.
-   
+
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-   
+
     Вы можете использовать **DUMP** , чтобы просмотреть данные после преобразования. В этом случае используйте `DUMP LEVELS;`.
 4. Продолжайте применение преобразований с помощью следующих инструкций. Используйте `DUMP` для просмотра результатов преобразования после каждого шага.
-   
+
     <table>
     <tr>
     <th>Инструкция</th><th>Действие</th>
@@ -95,25 +95,25 @@ ms.lasthandoff: 03/25/2017
     </tr>
     </table>
 5. Можно также сохранить результаты преобразования с помощью оператора `STORE` . Например, следующий оператор сохраняет `RESULT` в каталог **/example/data/pigout** в используемом по умолчанию контейнере хранилища для кластера.
-   
+
         STORE RESULT into 'wasbs:///example/data/pigout';
-   
+
    > [!NOTE]
    > Данные хранятся в указанном каталоге в файлах с именем **part-№№№№№**. Если каталог уже существует, появится сообщение об ошибке.
-   > 
-   > 
+   >
+   >
 6. Чтобы выйти из командной строки grunt, введите следующий оператор.
-   
+
         QUIT;
 
 ### <a name="pig-latin-batch-files"></a>Пакетные файлы Pig Latin
 Вы также можете использовать команду Pig для выполнения кода Pig Latin, содержащегося в файле.
 
 1. После выхода из командной строки grunt используйте следующую команду, чтобы связать STDIN с файлом с именем **pigbatch.pig**. Этот файл будет создан в домашнем каталоге учетной записи, которая использовалась для входа в сеанс SSH.
-   
+
         cat > ~/pigbatch.pig
 2. Введите или вставьте следующие строки, а когда все будет готово, используйте клавиши CTRL+D.
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
@@ -122,11 +122,11 @@ ms.lasthandoff: 03/25/2017
         RESULT = order FREQUENCIES by COUNT desc;
         DUMP RESULT;
 3. Используйте следующую команду, чтобы запустить файл **pigbatch.pig** с помощью команды Pig.
-   
+
         pig ~/pigbatch.pig
-   
+
     После завершения пакетного задания вы должны увидеть следующий результат, который должен быть таким же, как при использовании `DUMP RESULT;` в предыдущих шагах.
-   
+
         (TRACE,816)
         (DEBUG,434)
         (INFO,96)
@@ -146,5 +146,4 @@ ms.lasthandoff: 03/25/2017
 
 * [Использование Hive с Hadoop в HDInsight](hdinsight-use-hive.md)
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
-
 

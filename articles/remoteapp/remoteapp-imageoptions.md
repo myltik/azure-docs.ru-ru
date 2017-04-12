@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 12f27315348040ac897c1ff286b54d38e9950c7d
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: f2decec5385ffab59a441cdc28da80371b579df7
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="create-an-azure-remoteapp-image"></a>Создание образа Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -36,10 +37,5 @@ ms.openlocfilehash: 12f27315348040ac897c1ff286b54d38e9950c7d
 * Можно использовать один из [шаблонов образов](remoteapp-images.md) , которые предлагаются в составе подписки RemoteApp. Они создаются и обслуживаются специалистами RemoteApp и содержат стандартные приложения (например, из набора Office), которые можно предложить пользователям. Обратите внимание на то, что для рабочего развертывания можно использовать только образ Office 365 профессиональный плюс.
 
 Независимо от источника и способа создания образа необходимо понимать [требования к приложениям](remoteapp-appreqs.md) для их эффективной работы в среде RemoteApp. Затем нужно создать [облачную](remoteapp-create-cloud-deployment.md) или [гибридную](remoteapp-create-hybrid-deployment.md) коллекцию.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

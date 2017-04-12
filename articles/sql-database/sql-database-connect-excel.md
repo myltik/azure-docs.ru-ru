@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: jhubbard
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 0bab2cde451687311936ee74f304580a2a3b4b5e
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 26be621cb3190a69ca4a9bb26c2e4643e50474dd
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/14/2017
 
 Чтобы начать работу, вам понадобится база данных SQL в Azure. Если база данных отсутствует, чтобы настроить ее с помощью демонстрационных данных, см. статью [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](sql-database-get-started.md). Следуя инструкциям в этой статье, вы импортируете демонстрационные данные в Excel, но те же действия можно выполнять и с собственными данными.
 
-Вам также понадобится копия Excel. В этой статье используется [Microsoft Excel 2016](https://products.office.com/en-US/).
+Вам также понадобится копия Excel. В этой статье используется [Microsoft Excel 2016](https://products.office.com/).
 
 ## <a name="connect-excel-to-a-sql-database-and-create-an-odc-file"></a>Подключение Excel к базе данных SQL и создание ODC-файла
 1. Чтобы подключить Excel к базе данных SQL, откройте программу Excel, а затем создайте новую книгу или откройте существующую.

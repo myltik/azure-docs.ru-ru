@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/25/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 5818efb315a0452beea03cde1adc657a9520dcac
-ms.openlocfilehash: 1fe3f3a697618bec5d314c6ebf161da37efc1346
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 28f100276511c1ae978466870ff48f885dd53c28
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -27,13 +27,11 @@ ms.lasthandoff: 03/01/2017
 
 >[!NOTE]
 >Функция прокси приложения доступна только после обновления службы Azure Active Directory до выпуска Premium или Basic. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md).
->
 
 С помощью модуля Azure AD PowerShell можно определить URL-адреса пользовательской домашней страницы для тех случаев, когда пользователи должны переходить на определенную страницу в приложении, например *https://expenseApp-contoso.msappproxy.net/login/login.aspx*.
 
 >[!NOTE]
 >Когда вы предоставляете пользователям доступ к опубликованным приложениям, эти приложения отображаются на [панели доступа Azure AD](active-directory-saas-access-panel-introduction.md) и в [средстве запуска приложений Office 365](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
->
 
 Пользователь, открывающий это приложение, по умолчанию перенаправляется на корневой URL-адрес домена опубликованного приложения. Обычно целевой страницей считается URL-адрес домашней страницы приложения. Например, для серверного приложения http://ExpenseApp публикуется URL-адрес *https://expenseApp-contoso.msappproxy.net*. По умолчанию для домашней страницы указан URL-адрес *https://expenseApp-contoso.msappproxy.net*.
 
@@ -139,6 +137,6 @@ ms.lasthandoff: 03/01/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Настройка удаленного доступа к SharePoint с помощью прокси приложения Azure AD](application-proxy-enable-remote-access-sharepoint.md)<br>
-[Enable Application Proxy in the Azure portal](https://github.com/Microsoft/azure-docs-pr/blob/master/articles/active-directory/active-directory-application-proxy-enable.md) (Включение прокси приложения на портале Azure)
+- [Настройка удаленного доступа к SharePoint с помощью прокси приложения Azure AD](application-proxy-enable-remote-access-sharepoint.md)
+- [Включение прокси приложения на портале Azure](active-directory-application-proxy-enable.md)
 

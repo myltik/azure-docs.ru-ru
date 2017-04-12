@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 6cb781b9bc0cfe672e2734661be958d4794e08d8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d15ab88be778b8cc081e07fb95fbd99164f18ba1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -79,7 +79,7 @@ ms.lasthandoff: 03/07/2017
 Поздравляем! Вы успешно установили подключение к базе данных SQL Azure при помощи C++ и ODBC в Windows. Чтобы сделать то же самое для платформы Linux, см. сведения дальше в этой статье. 
 
 ## <a id="Linux"></a>Шаг 5. Подключение из приложения Linux C/C++
-Возможно, вы еще не знаете об этом, но теперь в Visual Studio можно разрабатывать приложения C++ для Linux. Об этой новой возможности можно прочитать в записи блога [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) (Разработка Visual C++ для Linux). Чтобы создавать приложения для Linux, необходим удаленный компьютер, на котором запущен дистрибутив Linux. Если у вас нет такого компьютера, его можно быстро настроить при помощи [виртуальных машин Linux Azure](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Возможно, вы еще не знаете об этом, но теперь в Visual Studio можно разрабатывать приложения C++ для Linux. Об этой новой возможности можно прочитать в записи блога [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) (Разработка Visual C++ для Linux). Чтобы создавать приложения для Linux, необходим удаленный компьютер, на котором запущен дистрибутив Linux. Если у вас нет такого компьютера, его можно быстро настроить при помощи [виртуальных машин Linux Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Для выполнения инструкций этого руководства предположим, что у вас настроен дистрибутив Linux Ubuntu 16.04. Описанные здесь действия также должны работать для Ubuntu 15.10, Red Hat 6 и Red Hat 7. 
 

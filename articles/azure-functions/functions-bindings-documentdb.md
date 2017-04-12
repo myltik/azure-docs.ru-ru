@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e476a80a3846b8c80c35d6803d5518727f008824
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2ac78606f851068fa0fb7dcab3bac1c629b9cdb3
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -153,7 +153,7 @@ module.exports = function (context) {
 Обратите внимание на следующее.
 
 * Задайте для параметра `createIfNotExists` значение `true`, чтобы создать базу данных и коллекцию, если она не существует. По умолчанию используется значение `false`. Коллекции создаются с использованием зарезервированной пропускной способности, с которой связаны ценовые требования. Дополнительные сведения см. в статье [DocumentDB. Цены](https://azure.microsoft.com/pricing/details/documentdb/).
-* Значение свойства `connection` должно соответствовать имени параметра приложения, указывающего на конечную точку учетной записи DocumentDB (со значением `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). При создании учетной записи DocumentDB в пользовательском интерфейсе портала Функций автоматически создается параметр приложения. Чтобы использовать существующую учетную запись DocumentDB, необходимо [настроить этот параметр приложения вручную](). 
+* Значение свойства `connection` должно соответствовать имени параметра приложения, указывающего на конечную точку учетной записи DocumentDB (со значением `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). При создании учетной записи DocumentDB в пользовательском интерфейсе портала Функций автоматически создается параметр приложения. Чтобы использовать существующую учетную запись DocumentDB, необходимо [настроить этот параметр приложения вручную](functions-how-to-use-azure-function-app-settings.md). 
 
 ## <a name="output-usage"></a>Использование выходной привязки
 В этом разделе показано, как использовать выходную привязку DocumentDB в коде функции.

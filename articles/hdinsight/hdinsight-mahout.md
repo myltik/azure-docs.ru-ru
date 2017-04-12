@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
-ms.openlocfilehash: fdca3ed832dc0895a04dc3fda2dcf863d8938d8a
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4ee75cac7fb4c8e6903b73150ec7b1acfc9cb9f9
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -35,9 +35,10 @@ Mahout — это библиотека [машинного обучения][ml]
 * Кластер HDInsight под управлением Linux. Дополнительные сведения о создании кластера см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][getstarted].
 
 > [!IMPORTANT]
-> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
-* **Рабочая станция с Azure PowerShell.**.
+* <seg>
+  **Рабочая станция с Azure PowerShell**.</seg>
 
     > [!IMPORTANT]
     > Поддержка Azure PowerShell для управления ресурсами HDInsight с помощью диспетчера служб Azure (ASM) объявлена **устаревшей** и будет прекращена с 1 января 2017 г. В описанных в этом документе инструкциях используются новые командлеты HDInsight, которые работают с Azure Resource Manager.
@@ -349,7 +350,7 @@ $context = New-AzureStorageContext `
     -StorageAccountName $storageAccountName `
     -StorageAccountKey $storageAccountKey
 
-#Azure PowerShell can't delete blobs using wildcard, 
+#Azure PowerShell can't delete blobs using wildcard,
 #so have to get a list and delete one at a time
 # Start with the output
 $blobs = Get-AzureStorageBlob -Container $container -Context $context -Prefix "example/out"

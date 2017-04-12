@@ -17,9 +17,9 @@ ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: b5fafb9603957a93a0ca8fbc6dd53798070641a4
-ms.openlocfilehash: da013207a2c804898d1a93dfd7875ed2a2deed22
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 96a7410ec90d31e565ea8338d908564c209c6a4f
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/16/2017
 Информация, приведенная в этой статье, относится только к кластерам HDInsight под управлением Windows. О кластерах под управлением Linux читайте в статье [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
 
 > [!IMPORTANT]
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 Кластеры HDInsight можно настраивать множеством других способов, например включая дополнительные учетные записи хранения Azure, изменяя файлы конфигурации Hadoop (core-site.xml, hive-site.xml и т. д.) или добавляя общие библиотеки (например, Hive, Oozie) в стандартные расположения в кластере. Эти настройки можно внести с помощью Azure PowerShell, пакета SDK для Azure для HDInsight .NET или на портале Azure. Дополнительные сведения см. в статье [Создание кластеров Hadoop в HDInsight][hdinsight-provision-cluster].
 
@@ -76,7 +76,7 @@ HDInsight предоставляет несколько скриптов для 
         <tr><td>URI-адрес сценария</td>
             <td>Укажите URI для сценария, который вызывается для настройки кластера. s</td></tr>
         <tr><td>Головной/рабочий</td>
-            <td>Укажите узлы (**Головной** или **Рабочий**), на которых выполняется скрипт настройки.</b>.
+            <td>Укажите узлы (**Головной** или **Рабочий**), на которых выполняется скрипт настройки</b>.
         <tr><td>Параметры</td>
             <td>Укажите параметры, если они требуются для сценария.</td></tr>
     </table>

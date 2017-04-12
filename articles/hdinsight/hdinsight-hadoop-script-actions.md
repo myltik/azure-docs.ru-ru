@@ -17,9 +17,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6c468c8ed0d817a32c343d55cac780b904ee8668
-ms.openlocfilehash: 6cedd18c22bcd97f7fb2b6926bdf637fe9f04ab4
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 989f45eed033409b1ade183827719acdd9a4b0b4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/07/2017
 
 
 > [!IMPORTANT]
-> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows. Для версий ниже HDInsight 3.4 кластер HDInsight доступен только в Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Сведения об использовании действий скриптов в кластерах на платформе Linux см. в статье, посвященной [разработке действий скриптов с помощью HDInsight в Linux](hdinsight-hadoop-script-actions-linux.md).
+> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Windows. Для версий ниже HDInsight 3.4 кластер HDInsight доступен только в Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Сведения об использовании действий скриптов в кластерах на платформе Linux см. в статье, посвященной [разработке действий скриптов с помощью HDInsight в Linux](hdinsight-hadoop-script-actions-linux.md).
 >
 >
 

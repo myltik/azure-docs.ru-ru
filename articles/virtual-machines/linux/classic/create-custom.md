@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: c4d29c453d22a2765f0884c11d98d84676b3bf32
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 8ddbacbbb70c0cf1a2537fab4d981a316610a4d7
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>Как создать виртуальную машину Linux с помощью Azure CLI 1.0
 > [!IMPORTANT] 
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Версия для модели развертывания с помощью Resource Manager доступна [здесь](../../virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Версия для модели развертывания с помощью Resource Manager доступна [здесь](../create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 В этой статье описано создание виртуальной машины Linux с помощью Azure CLI 1.0 и классической модели развертывания. Мы используем образ Linux из раздела **ОБРАЗЫ** в Azure. Команды Azure CLI 1.0 позволяют настраивать, помимо прочих, следующие параметры.
 

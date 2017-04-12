@@ -16,16 +16,15 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: bf685e4c59117497e27ff7e2ef7b3b39caac6d4a
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6a99749a96a6239428e5b018a26a6e8fd440c9d2
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Визуализация данных, поступающих от датчиков в реальном времени, из Центра Интернета вещей с помощью Power BI
 
-> [!NOTE]
-> Прежде чем приступить к работе с данным руководством, ознакомьтесь со статьей [Подключение Adafruit Feather HUZZAH ESP8266 к Центру Интернета вещей Azure в облаке](/iot-hub-arduino-huzzah-esp8266-get-started.md). В [этом руководстве](/iot-hub-arduino-huzzah-esp8266-get-started.md) описывается настройка устройства Интернета вещей и Центра Интернета вещей, а также развертывание примера приложения для выполнения на устройстве. Приложение отправляет собранные с датчиков данные в Центр Интернета вещей.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-learn"></a>Что вы узнаете
 
@@ -170,8 +169,4 @@ ms.lasthandoff: 03/30/2017
 Вы успешно использовали Power BI для визуализации данных, полученных от датчика в режиме реального времени, из Центра Интернета вещей Azure.
 Но это не единственный способ для визуализации данных из Центра Интернета вещей Azure. Дополнительные сведения см. в статье [Визуализация данных, поступающих от датчиков в реальном времени, из Центра Интернета вещей с помощью веб-приложений Azure](iot-hub-live-data-visualization-in-web-apps.md).
 
-Чтобы продолжить знакомство с центром IoT и изучить другие сценарии IoT, см. следующие ресурсы:
-
-- [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
-- [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
-
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

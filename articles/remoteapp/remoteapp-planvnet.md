@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 71537845edcca85a7d0722dd32264da9f6b579e9
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1eb8115b13fb18074b4c4726b69e3d9faf387c32
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-plan-your-virtual-network-for-azure-remoteapp"></a>Планирование виртуальной сети для Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -56,10 +57,5 @@ Azure RemoteApp развертывает виртуальные машины Azu
 
 ## <a name="virtual-network-with-forced-tunneling"></a>Виртуальная сеть с принудительным туннелированием
 [Принудительное туннелирование](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) теперь поддерживается во всех новых коллекциях Azure RemoteApp. Миграция существующих коллекций на поддерживающие принудительное туннелирование в настоящее время не предусмотрена.  Чтобы получить коллекцию с поддержкой принудительного туннелирования, необходимо удалить все существующие коллекции, использующие виртуальную сеть, привязанную к Azure RemoteApp, а затем создать новую коллекцию. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

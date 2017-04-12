@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: fef0d6007aa3f9357d7288033220a7d5d6eb5a49
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 5322840700dca3902286f62f62e44bb3746a6148
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -38,19 +38,19 @@ ms.lasthandoff: 03/22/2017
 Выполните следующие действия, чтобы реализовать сценарий, описанный в этой статье.
 
 1. [Установите и настройте интерфейс командной строки Azure](../cli-install-nodejs.md), следуя инструкциям в соответствующей статье, а затем войдите в свою учетную запись Azure.
-2. [Создайте группу ресурсов](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) *contosofabrikam*, как описано выше.
+2. [Создайте группу ресурсов](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) *contosofabrikam*, как описано выше.
 
     ```azurecli
     azure group create contosofabrikam westcentralus
     ```
 
-3. [Создайте группу доступности](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-an-availability-set) для двух виртуальных машин. В рамках данного сценария воспользуйтесь следующей командой.
+3. [Создайте группу доступности](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-an-availability-set) для двух виртуальных машин. В рамках данного сценария воспользуйтесь следующей командой.
 
     ```azurecli
     azure availset create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
     ```
 
-4. [Создайте виртуальную сеть](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) *myVNet* и подсеть *mySubnet*.
+4. [Создайте виртуальную сеть](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) *myVNet* и подсеть *mySubnet*.
 
     ```azurecli
     azure network vnet create --resource-group contosofabrikam --name myVnet --address-prefixes 10.0.0.0/16  --location westcentralus
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/22/2017
     azure network vnet subnet create --resource-group contosofabrikam --vnet-name myVnet --name mySubnet --address-prefix 10.0.0.0/24
     ```
 
-5. [Создайте подсистему балансировки нагрузки](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-load-balancer-and-ip-pools) *mylb*.
+5. [Создайте подсистему балансировки нагрузки](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-load-balancer-and-ip-pools) *mylb*.
 
     ```azurecli
     azure network lb create --resource-group contosofabrikam --location westcentralus --name mylb
@@ -79,7 +79,7 @@ ms.lasthandoff: 03/22/2017
     azure network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrkamfe
     ```
 
-8. Создайте внутренние пулы адресов, *contosopool* и *fabrikampool*, [пробу](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-load-balancer-health-probe)  - *HTTP* и правила балансировки нагрузки, *HTTPc* и *HTTPf*.
+8. Создайте внутренние пулы адресов, *contosopool* и *fabrikampool*, [пробу](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-load-balancer-health-probe)  - *HTTP* и правила балансировки нагрузки, *HTTPc* и *HTTPf*.
 
     ```azurecli
     azure network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool
@@ -91,13 +91,13 @@ ms.lasthandoff: 03/22/2017
     azure network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPf --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrkamfe --backend-address-pool-name fabrikampool
     ```
 
-9. Выполните приведенную ниже команду и проверьте выходные данные, чтобы убедиться, что [подсистема балансировки нагрузки](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#verify-the-load-balancer) создана правильно.
+9. Выполните приведенную ниже команду и проверьте выходные данные, чтобы убедиться, что [подсистема балансировки нагрузки](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#verify-the-load-balancer) создана правильно.
 
     ```azurecli
     azure network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. [Создайте общедоступный IP-адрес](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address) *myPublicIp* и [учетную запись хранения](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) *mystorageaccont1* для первой виртуальной машины VM1, как показано ниже.
+10. [Создайте общедоступный IP-адрес](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address) *myPublicIp* и [учетную запись хранения](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) *mystorageaccont1* для первой виртуальной машины VM1, как показано ниже.
 
     ```azurecli
     azure network public-ip create --resource-group contosofabrikam --location westcentralus --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic
@@ -105,7 +105,7 @@ ms.lasthandoff: 03/22/2017
     azure storage account create --location westcentralus --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. [Создайте сетевой интерфейс](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-an-nic-to-use-with-the-linux-vm) для VM1 и добавьте вторую IP-конфигурацию — *VM1-ipconfig2*. Затем [создайте виртуальную машину](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms), как показано ниже.
+11. [Создайте сетевой интерфейс](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-an-nic-to-use-with-the-linux-vm) для VM1 и добавьте вторую IP-конфигурацию — *VM1-ipconfig2*. Затем [создайте виртуальную машину](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms), как показано ниже.
 
     ```azurecli
     azure network nic create --resource-group contosofabrikam --location westcentralus --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1

@@ -4,9 +4,9 @@ hide_bc: true
 title: "Документация по Microsoft Azure"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 355f6d4457668459676aeafb39701e65bb6673df
-ms.lasthandoff: 04/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 6156ec5732cb9f24d762afe12a678fabe9c93069
+ms.lasthandoff: 04/10/2017
 
 ---
 <div id="main" class="v2">
@@ -2600,10 +2600,10 @@ ms.lasthandoff: 04/08/2017
                                                     <a href="https://pypi.python.org/pypi/azure">Пакет SDK для Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/index">Начало работы</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Начало работы</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/index">Справочник по API</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Справочник по API</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/samples/?platform=python">Получение примеров</a>
@@ -2809,7 +2809,7 @@ ms.lasthandoff: 04/08/2017
                                                     <a href="http://aka.ms/webpi-azure-cli">Скачать Azure CLI для Windows</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/index">Справочные материалы</a>
+                                                    <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Справочные материалы</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2832,7 +2832,7 @@ ms.lasthandoff: 04/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/index">Инструменты Visual Studio для Azure</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Инструменты Visual Studio для Azure</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">Загрузка</a>
@@ -2904,10 +2904,10 @@ ms.lasthandoff: 04/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com/index">Обозреватель хранилищ</a>
+                                                    <a href="http://storageexplorer.com">Обозреватель хранилищ</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/index">Начало работы</a>
+                                                    <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Начало работы</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Загрузка для Linux</a>

@@ -16,16 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 8c25b8f558aae638a95d6e7186e19e77d02edbb2
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: df1cf03bc452b76569bdca030b60719d6d2f29f3
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Использование обозревателя Центра Интернета вещей для обмена сообщениями между устройством и Центром Интернета вещей
 
-> [!NOTE]
-> Прежде чем приступить к работе с данным руководством, ознакомьтесь со статьей [Подключение Adafruit Feather HUZZAH ESP8266 к Центру Интернета вещей Azure в облаке](/iot-hub-arduino-huzzah-esp8266-get-started.md). В [этом руководстве](/iot-hub-arduino-huzzah-esp8266-get-started.md) описывается настройка устройства Интернета вещей и Центра Интернета вещей, а также развертывание примера приложения для выполнения на устройстве. Приложение отправляет собранные с датчиков данные в Центр Интернета вещей.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 В [обозревателе Центра Интернета вещей](https://github.com/azure/iothub-explorer) доступно несколько команд, которые упрощают управление Центром Интернета вещей. В этом руководстве объясняется, как использовать обозреватель Центра Интернета вещей для обмена сообщениями между устройством и Центром Интернета вещей.
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 03/30/2017
 
 ## <a name="what-you-need"></a>Необходимые элементы
 
-- Ознакомьтесь с руководством о [подключении платы ESP8266 к Центру Интернета вещей Azure](/iot-hub-arduino-huzzah-esp8266-get-started.md), по завершении которого у вас должны быть:
+- Ознакомьтесь с руководством о [подключении платы ESP8266 к Центру Интернета вещей Azure](iot-hub-arduino-huzzah-esp8266-get-started.md), по завершении которого у вас должны быть:
   - Активная подписка Azure.
   - Центр Интернета вещей Azure в подписке;
   - клиентское приложение, которое отправляет сообщения в Центр Интернета вещей Azure.
@@ -86,6 +85,4 @@ ms.lasthandoff: 03/30/2017
 
 Вы узнали, как отслеживать сообщения, отправляемые из устройства Интернета вещей в облако Центра Интернета вещей, и отправлять сообщения из этого облака на устройство.
 
-Чтобы продолжить знакомство с центром IoT и изучить другие сценарии IoT, см. следующие ресурсы:
-
-- [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -15,9 +15,9 @@ ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 960880e44ad4de74339df7d0786dd8aa34962e3f
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: a67637d149a84313270c03d21acf8a9c1870be05
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -85,8 +85,6 @@ ms.lasthandoff: 03/15/2017
 Как отмечалось ранее, пользовательская оценка реализуется с профилей оценки, определенных в схеме индекса.
 
 В этом примере показана схема индекса с двумя профилями оценки (`boostGenre`, `newAndHighlyRated`). Любой запрос к этому индексу, включающий профиль в качестве параметра запроса, будет использовать профиль для оценки результирующего набора.
-
-[Ознакомьтесь с этим примером](search-get-started-scoring-profiles.md).
 
     {
       "name": "musicstoreindex",

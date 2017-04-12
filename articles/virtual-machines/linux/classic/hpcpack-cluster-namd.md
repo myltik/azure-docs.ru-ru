@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1e1e3b405d752c459ecfc7f74fbdafc148c147b5
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f46facee3e45704f74a13db7a18274f5ce90ceff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -61,7 +61,7 @@ ms.lasthandoff: 03/27/2017
    ![Открытые и закрытые ключи][keys]
 
 ### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>Добавление пары ключей в кластер HPC
-1. [Подключитесь к головному узлу виртуальной машины с помощью удаленного рабочего стола](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), используя учетные данные домена, указанные при развертывании кластера (например, hpc\clusteradmin). Управление кластером осуществляется из головного узла.
+1. [Подключитесь к головному узлу виртуальной машины с помощью удаленного рабочего стола](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), используя учетные данные домена, указанные при развертывании кластера (например, hpc\clusteradmin). Управление кластером осуществляется из головного узла.
 2. С помощью стандартных процедур Windows Server создайте учетную запись пользователя домена в домене Active Directory кластера. Например, на головном узле можно использовать инструмент Active Directory «Пользователи и компьютеры». В приведенных в этой статье примерах предполагается, что вы создаете пользователя hpcuser в домене hpclab (hpclab\hpcuser).
 3. Добавьте пользователя домена в кластер пакета HPC в качестве пользователя кластера. Инструкции см. в статье [Add or remove cluster users](https://technet.microsoft.com/library/ff919330.aspx) (Добавление и удаление пользователей кластера).
 4. Создайте файл с именем C:\cred.xml и скопируйте в него данные ключей RSA. Пример можно найти в файлах примеров в конце этой статьи.

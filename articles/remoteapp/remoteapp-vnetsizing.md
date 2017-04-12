@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 0639e19423adc842a708982997852fb8d10df779
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 9375981db64ec4a1ae523e958423b5f5787cec33
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sizing-information-for-a-vnet-in-azure-remoteapp"></a>Выбор размера виртуальной сети при работе в среде Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -33,10 +34,5 @@ ms.openlocfilehash: 0639e19423adc842a708982997852fb8d10df779
 
 * [Переход с личной виртуальной сети на виртуальную сеть Azure](remoteapp-migratevnet.md)
 * [Проверка виртуальной сети Azure для использования с Azure RemoteApp](remoteapp-vnet.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

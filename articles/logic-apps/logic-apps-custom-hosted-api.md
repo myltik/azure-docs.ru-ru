@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 05/31/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: fc509ef8b30fadb6e026f346d4adbd6ef759624a
-ms.openlocfilehash: 74aae9f757f56e94b583069a1fdee7efaafe467c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 9d169bcc0b1e89866d04cced474ee9c0e6ba6952
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/16/2017
 
 ## <a name="deploy-your-web-app"></a>Развертывание веб-приложения
 
-Прежде всего необходимо развернуть API в качестве веб-приложения службы приложений Azure. Узнайте о [базовом развертывании при создании веб-приложения ASP.NET](../app-service-web/web-sites-dotnet-get-started.md). Хотя из приложения логики можно вызвать любой интерфейс API, для получения наилучших результатов рекомендуется добавить метаданные Swagger для легкой интеграции с действиями приложения логики. Узнайте о [добавлении метаданных Swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
+Прежде всего необходимо развернуть API в качестве веб-приложения службы приложений Azure. Узнайте о [базовом развертывании при создании веб-приложения ASP.NET](../app-service-web/app-service-web-get-started-dotnet.md). Хотя из приложения логики можно вызвать любой интерфейс API, для получения наилучших результатов рекомендуется добавить метаданные Swagger для легкой интеграции с действиями приложения логики. Узнайте о [добавлении метаданных Swagger](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui).
 
 ### <a name="api-settings"></a>Параметры API
 
