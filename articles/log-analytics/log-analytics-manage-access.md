@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
@@ -78,7 +78,7 @@ ms.lasthandoff: 03/10/2017
 Существует две модели разрешений, которые позволяют управлять доступом к рабочей области Log Analytics:
 
 1. Устаревшие роли пользователей в Log Analytics.
-2. [Доступ на основе ролей Azure.](../active-directory/role-based-access-control-configure.md) 
+2. [Доступ на основе ролей Azure.](../active-directory/role-based-access-control-configure.md)
 
 В следующей таблице представлены права доступа, которые можно назначить с помощью каждой модели разрешений.
 
@@ -101,13 +101,14 @@ ms.lasthandoff: 03/10/2017
 | Добавление и удаление решений по управлению                        | Запись группы ресурсов <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Изменение ценовой категории                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Просмотр данных на плитках *службы архивации* и *службы Site Recovery* | Администратор или соадминистратор | Имеет доступ к ресурсам, развернутым с использованием классической модели развертывания |
- 
+
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Управление доступом к службе Log Analytics с помощью разрешений Azure
 Чтобы предоставить доступ к рабочей области Log Analytics с помощью разрешений Azure, следуйте указаниям в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
 
 Если у вас есть по крайней мере разрешение на чтение Azure в рабочей области Log Analytics, вы можете открыть портал OMS, щелкнув задачу **Портал OMS** при просмотре рабочей области Log Analytics.
 
-При открытии портала Log Analytics вы переключаетесь на использование устаревших ролей пользователей Log Analytics. Если у вас нет назначения роли на портале Log Analytics, то служба [проверяет имеющиеся разрешения Azure в рабочей области](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource). Назначение ролей на портале Log Analytics определяется следующим образом.
+При открытии портала Log Analytics вы переключаетесь на использование устаревших ролей пользователей Log Analytics. Если у вас нет назначения роли на портале Log Analytics, то служба [проверяет имеющиеся разрешения Azure в рабочей области](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
+Назначение ролей на портале Log Analytics определяется следующим образом.
 
 | Условия                                                   | Назначенная роль пользователя Log Analytics | Примечания |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -119,7 +120,7 @@ ms.lasthandoff: 03/10/2017
 | Для управляемых подписок поставщика облачных решений (CSP) <br> Учетная запись, используемая для входа в систему, находится в Azure Active Directory, привязанном к рабочей области | Администратор | Обычно это клиент CSP |
 | Для управляемых подписок поставщика облачных решений (CSP) <br> Учетная запись, используемая для входа в систему, не находится в Azure Active Directory, привязанном к рабочей области | Участник | Обычно это CSP |
 
-<sup>1</sup> Дополнительные сведения об определении ролей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../active-directory/role-based-access-control-custom-roles.md). При оценке ролей действие `*` не эквивалентно действию `Microsoft.OperationalInsights/workspaces/*`. 
+<sup>1</sup> Дополнительные сведения об определении ролей см. в статье [Создание пользовательских ролей для управления доступом на основе ролей в Azure](../active-directory/role-based-access-control-custom-roles.md). При оценке ролей действие `*` не эквивалентно действию `Microsoft.OperationalInsights/workspaces/*`.
 
 Некоторые моменты в отношении портала Azure, которые следует учитывать:
 

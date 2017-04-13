@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
 ms.openlocfilehash: 813120692232096275f3a7500c3b54e16af26b77
+ms.lasthandoff: 11/17/2016
 
 ---
 
@@ -197,9 +198,4 @@ vSphere ESXi Host версий 5.5 и 6.0.
 * Используйте [поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных об узле VMware.
 * [Создавайте собственные панели мониторинга](log-analytics-dashboards.md), отображающие данные об узле VMware.
 * [Создавайте оповещения](log-analytics-alerts.md), информирующие о возникновении определенных событий узла VMware.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
