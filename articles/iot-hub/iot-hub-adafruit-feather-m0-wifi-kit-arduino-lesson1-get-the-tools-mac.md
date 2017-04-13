@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "инструменты для разработки Arduino, разработка для Интернета вещей, программное обеспечение Интернета вещей, ПО Интернета вещей, установка git на компьютере Mac, установка Node.js на компьютере Mac"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: 0262f3dd-0259-4eb0-962f-9fb534f8359e
 ms.service: iot-hub
 ms.devlang: arduino

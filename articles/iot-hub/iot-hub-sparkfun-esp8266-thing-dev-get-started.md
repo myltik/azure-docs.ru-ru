@@ -24,6 +24,8 @@ ms.lasthandoff: 04/12/2017
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Подключение Sparkfun ESP8266 Thing Dev к Центру Интернета вещей в облаке Azure
 
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
+
 ![Подключение DHT22 и Thing Dev к Центру Интернета вещей](media/iot-hub-sparkfun-thing-dev-get-started/1_connection-hdt22-thing-dev-iot-hub.png)
 
 ## <a name="what-you-will-do"></a>Выполняемая задача

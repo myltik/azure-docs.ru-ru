@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "подключение Arduino к облаку, Центр Интернета вещей Azure, облако Интернета вещей, создание устройства Центра Интернета вещей Azure, облако Arduino"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: 5edc690b-7a1d-4ebc-b011-ff27bfffe6e8
 ms.service: iot-hub
 ms.devlang: arduino
