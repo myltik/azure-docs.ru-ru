@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2017
+ms.date: 4/13/2017
 ms.author: johnkem
 translationtype: Human Translation
 ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
+ms.lasthandoff: 12/22/2016
 
 
 ---
@@ -377,7 +378,7 @@ ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
                         "resourceUri": "[variables('vmID')]",
                         "metricName": "[variables('metricName')]"
                     },
-                    "operator": "[parameters('operator')]",
+                    "operator": "[variables('operator')]",
                     "threshold": "[variables('threshold')]",
                     "windowSize": "[variables('windowSize')]",
                     "timeAggregation": "[variables('aggregation')]"
@@ -403,10 +404,5 @@ ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Узнайте больше об оповещениях](insights-receive-alert-notifications.md)
 * [Добавьте параметры диагностики](monitoring-enable-diagnostic-logs-using-template.md) в шаблон Resource Manager.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
