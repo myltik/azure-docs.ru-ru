@@ -19,6 +19,7 @@
 ## Сервер службы архивации Azure
 ### [Подготовка рабочих нагрузок сервера резервного копирования Azure на портале Azure](backup-azure-microsoft-azure-backup.md)
 ### [Подготовка рабочих нагрузок сервера резервного копирования Azure на классическом портале](backup-azure-microsoft-azure-backup-classic.md)
+### [Резервное копирование сервера VMware с помощью сервера резервного копирования Azure](backup-azure-backup-server-vmware.md)
 ### [Резервное копирование Exchange Server с помощью сервера резервного копирования Azure](backup-azure-exchange-mabs.md)
 ### [Резервное копирование фермы SharePoint с помощью сервера резервного копирования Azure](backup-azure-backup-sharepoint-mabs.md)
 ### [Резервное копирование баз данных SQL Server с помощью сервера резервного копирования Azure](backup-azure-sql-mabs.md)

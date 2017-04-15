@@ -30,7 +30,6 @@
 # Практическое руководство
 ## Планирование и проектирование
 ### [Углубленная диагностика для веб-приложений и служб](app-insights-devops.md)
-### [Аналитические средства для разработчиков в Application Insights и HockeyApp](app-insights-developer-analytics.md)
 ### [Мониторинг производительности в веб-приложениях](app-insights-web-monitor-performance.md)
 ### [Анализ использования с помощью Application Insights](app-insights-overview-usage.md)
 ### [Разделение ресурсов Application Insights](app-insights-separate-resources.md)
@@ -39,6 +38,7 @@
 
 ## Настройка
 ### Таблицы Azure
+#### [Профилировщик](app-insights-profiler.md)
 #### [Диагностика](app-insights-azure-diagnostics.md)
 
 ### ASP.NET:
@@ -139,11 +139,6 @@
 
 ## [Цены](https://azure.microsoft.com/pricing/details/application-insights/)  
 
-## [Примеры и пошаговые руководства](app-insights-code-samples.md)
-### [Пошаговое руководство. Включение телеметрии для Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
-### [Пошаговое руководство. Экспорт в SQL с использованием Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
-### [Пример кода. Анализ экспортированных данных](app-insights-code-sample-export-telemetry-sql-database.md)
-
 ## Новости
 
 ### [Блог](https://azure.microsoft.com/blog/tag/application-insights/)
@@ -156,7 +151,7 @@
 ### [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [Мнение пользователей](https://visualstudio.uservoice.com/forums/357324-application-insights)
-### [Поддержка](app-insights-get-dev-support.md)
+### [Поддержка](https://azure.microsoft.com/support/)
 
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
 

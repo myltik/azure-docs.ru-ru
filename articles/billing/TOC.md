@@ -1,6 +1,7 @@
 # Приступая к работе
 ## [Предотвращение непредвиденных расходов](billing-getting-started.md)
 ## [Регистрация с помощью учетной записи Office 365](billing-use-existing-office-365-account-azure-subscription.md)
+## [Оформление подписки на Office 365 с помощью учетной записи Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Ограничения и квоты](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # Практическое руководство
 ## Отслеживание использования и затрат
@@ -33,8 +34,3 @@
 
 # Ресурсы
 ## [Обратитесь в службу поддержки.](../azure-supportability/how-to-create-azure-support-request.md)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

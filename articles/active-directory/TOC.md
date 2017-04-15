@@ -81,6 +81,7 @@
 ### [Именованные сети](active-directory-known-networks-azure-portal.md)
 ### [Перенос отчетов](active-directory-reporting-migration.md)
 ### [Сохранение](active-directory-reporting-retention.md)
+### [Задержки](active-directory-reporting-latencies-azure-portal.md)
 ### [Часто задаваемые вопросы](active-directory-reporting-faq.md)
 ### Устранение неполадок
 #### [Отсутствующие данные аудита](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -109,8 +110,9 @@
 ##### [Аномальные попытки входа](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [Управление паролями](active-directory-manage-passwords.md)
-### [Изменение своего пароля](active-directory-passwords-update-your-own-password.md)
-### [Настройка самостоятельного сброса пароля](active-directory-passwords.md)
+### [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
+### [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
+### [Самостоятельный сброс паролей для администраторов](active-directory-passwords.md)
 ### [Общие сведения об управлении паролями](active-directory-passwords-how-it-works.md)
 ### [Общие сведения о политиках и ограничениях](active-directory-passwords-policy.md)
 ### Сброс паролей
@@ -155,19 +157,12 @@
 ### [Предоставление удаленного доступа к приложениям](active-directory-application-proxy-get-started.md)
 #### [Использование прокси приложения](active-directory-application-proxy-enable.md)
 #### [Общие сведения о соединителях](application-proxy-understand-connectors.md)
-
-#### Публикация приложений
-##### [Портал Azure](application-proxy-publish-azure-portal.md)
-##### [Классический портал.](active-directory-application-proxy-publish.md)
-
+#### [Публикация приложений](application-proxy-publish-azure-portal.md)
 #### [Безопасность](application-proxy-security-considerations.md)
 #### [Сети](application-proxy-network-topology-considerations.md)
 #### [Удаленный рабочий стол](application-proxy-publish-remote-desktop.md)
 #### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-
-#### Публикация в отдельных сетях
-##### [Портал Azure](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Классический портал.](active-directory-application-proxy-connectors.md)
+#### [Публикация в отдельных сетях](active-directory-application-proxy-connectors-azure-portal.md)
 #### [Прокси-серверы](application-proxy-working-with-proxy-servers.md)
 #### [Пользовательские домены](active-directory-application-proxy-custom-domains.md)
 #### [Доступ к приложениям](active-directory-appssoaccess-whatis.md)
@@ -181,6 +176,11 @@
 #### [Автоматическая установка](active-directory-application-proxy-silent-installation.md)
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Устранение неполадок](active-directory-application-proxy-troubleshoot.md)
+#### С помощью классического портала
+##### [Скачивание соединителей](application-proxy-enable-classic-portal.md)
+##### [Публикация приложений](active-directory-application-proxy-publish.md)
+##### [Использование соединителей](active-directory-application-proxy-connectors.md)
+
 
 ### Управление корпоративными приложениями
 #### [Назначение пользователей](active-directory-coreapps-assign-user-azure-portal.md)
@@ -200,8 +200,21 @@
 #### [Самостоятельный доступ к приложениям](active-directory-self-service-application-access.md)
 #### [Сертификаты для единого входа](active-directory-sso-certs.md)
 #### [Ограничения клиента](active-directory-tenant-restrictions.md)
+#### [Использование SCIM подготовки пользователей](active-directory-scim-provisioning.md)
 
-### [Использование SCIM подготовки пользователей](active-directory-scim-provisioning.md)
+### [Устранение неполадок](active-directory-application-troubleshoot-content-map.md)
+#### Разработка приложений
+##### [Настройка и регистрация](active-directory-application-dev-config-content-map.md)
+##### [Разработка](active-directory-application-dev-development-content-map.md)
+#### Управление приложениями
+##### [Конфигурация](active-directory-application-config-content-map.md)
+##### [Вход](active-directory-application-sign-in-content-map.md)
+##### [Подготовка](active-directory-application-provisioning-content-map.md)
+##### [Управление доступом](active-directory-application-access-content-map.md)
+##### [Панель доступа](active-directory-application-access-panel-content-map.md)
+##### [Прокси приложения](active-directory-application-proxy-content-map.md)
+##### [Условный доступ](active-directory-application-conditional-access-content-map.md)
+
 ### [Библиотека документов](active-directory-apps-index.md)
 
 ## Управление каталогом
@@ -315,6 +328,12 @@
 ### [Изменение хэш-алгоритма подписи](active-directory-federation-sha256-guidance.md)
 
 ## [Устранение неполадок](active-directory-troubleshooting.md)
+
+## Развертывание подтверждения концепции Azure AD (PoC)
+### [Сборник тренировочных заданий по PoC: введение](active-directory-playbook-intro.md)
+### [Сборник тренировочных заданий по PoC: ингредиенты](active-directory-playbook-ingredients.md)
+### [Сборник тренировочных заданий по PoC: реализация](active-directory-playbook-implementation.md)
+### [Сборник тренировочных заданий по PoC: стандартные блоки](active-directory-playbook-building-blocks.md)
 
 
 # Справочные материалы

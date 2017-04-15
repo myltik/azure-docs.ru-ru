@@ -17,8 +17,9 @@
 ### [Java в Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# в Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Развертывание приложений в локальном кластере](service-fabric-get-started-with-a-local-cluster.md)
+## [Создание изолированного кластера](service-fabric-get-started-standalone-cluster.md)
 
-# Практическое руководство
+# Практическое руководство:
 ## Создание приложения
 ### [Примеры и сценарии](service-fabric-patterns-and-scenarios.md)
 ### Основы
@@ -145,6 +146,7 @@
 ### Развертывание или удаление приложений
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+#### [API-интерфейсы FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 ### [Обзор обновления приложения](service-fabric-application-upgrade.md)
 ### [Настройка обновления приложения](service-fabric-visualstudio-configure-upgrade.md)
 ### [Параметры обновления приложений](service-fabric-application-upgrade-parameters.md)
@@ -208,9 +210,9 @@
 ### [Перемещение служб](service-fabric-cluster-resource-manager-movement-cost.md)
 
 # Справочные материалы
-## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
-## [API Java](/java/api/microsoft.servicefabric.services)
-## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [PowerShell](/powershell/module/ServiceFabric/)
+## [API Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicefabric)
 
 # Ресурсы

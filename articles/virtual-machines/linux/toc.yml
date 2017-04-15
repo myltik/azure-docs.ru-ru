@@ -39,6 +39,8 @@
     href: azure-vm-network-overview.md
   - name: "наборы масштабирования виртуальных машин;"
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
+  - name: "Служба метаданных экземпляров" 
+    href: ../virtual-machines-instancemetadataservice-overview.md
   - name: "Контейнеры"
     href: containers.md
   - name: "Диспетчер ресурсов"

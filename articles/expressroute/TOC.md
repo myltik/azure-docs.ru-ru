@@ -14,7 +14,7 @@
 ## [Требования к маршрутизации](expressroute-routing.md)
 ## [Требования к NAT](expressroute-nat.md)
 ## [Требования к QoS](expressroute-qos.md)
-## [Перенос каналов из классического развертывания в развертывание с помощью Resource Manager](expressroute-move.md)
+## [Перенос цепей из классической модели развертывания в модель развертывания Resource Manager](expressroute-move.md)
 
 # Практическое руководство
 ## Создание и изменение канала
@@ -29,6 +29,7 @@
 ## [Настройка шлюза виртуальной сети для ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
 ## [Настройка параллельных подключений ExpressRoute и "сеть — сеть"](expressroute-howto-coexist-resource-manager.md)
 ## [Перемещение каналов из классического развертывания в развертывание с помощью Resource Manager](expressroute-howto-move-arm.md)
+## [Перенос связанных виртуальных сетей из классической модели развертывания в модель развертывания Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Настройка маршрутизатора для ExpressRoute
 ### [Настройка маршрутизатора](expressroute-config-samples-routing.md)
 ### [Примеры конфигурации маршрутизатора для NAT](expressroute-config-samples-nat.md)

@@ -103,6 +103,7 @@
 #### [Визуализация данных в Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Визуализация данных в веб-приложениях](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Создание прогноза погоды с помощью Машинного обучения Azure](iot-hub-weather-forecast-machine-learning.md)
+#### [Управление устройствами с помощью средства iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
@@ -110,6 +111,7 @@
 #### [Визуализация данных в Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Визуализация данных в веб-приложениях](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Создание прогноза погоды с помощью Машинного обучения Azure](iot-hub-weather-forecast-machine-learning.md)
+#### [Управление устройствами с помощью средства iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
@@ -138,56 +140,15 @@
 ### [Моделирование в Linux](iot-hub-linux-gateway-sdk-get-started.md)
 ### [Моделирование в Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 ## Использование начального набора шлюза Интернета вещей
-### [Имитация устройства](iot-hub-gateway-kit-c-sim-get-started.md)
-#### Урок 1. Настройка NUC
-##### [Настройка Intel NUC в качестве шлюза Интернета вещей](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+### Настройка начального набора шлюза Интернета вещей
+#### [Настройка Intel NUC в качестве шлюза Интернета вещей](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+#### [Подключение шлюза Интернета вещей к Центру Интернета вещей](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+#### [Использование шлюза Интернета вещей для преобразования данных](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-#### Урок 2. Создание Центра Интернета вещей
-##### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
-##### [Получение инструментов (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
-##### [Получение инструментов (MacOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
-##### [Создание Центра Интернета вещей и регистрация устройства](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 
-#### Урок 3. Получение сообщений из имитации устройства
-##### [Настройка и запуск примера приложения BLE](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
-##### [Чтение сообщений из Центра Интернета вещей](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
-
-#### Урок 4. Сохранение сообщений в Хранилище таблиц Azure
-##### [Создание учетной записи хранения Azure и приложения-функции Azure](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
-##### [Чтение сообщений, сохраненных в Хранилище таблиц Azure](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
-
-#### [Урок 5. Создание первого модуля шлюза Azure IoT](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-#### [Устранение неполадок](iot-hub-gateway-kit-c-sim-troubleshooting.md)
-
-### [Устройство SensorTag](iot-hub-gateway-kit-c-get-started.md)
-#### Урок 1. Настройка NUC
-##### [Настройка Intel NUC в качестве шлюза Интернета вещей](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-
-#### Урок 2. Создание Центра Интернета вещей
-##### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
-##### [Получение инструментов (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
-##### [Получение инструментов (MacOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
-##### [Создание Центра Интернета вещей и регистрация устройства](iot-hub-gateway-kit-c-lesson2-register-device.md)
-
-#### Урок 3. Получение сообщений из имитации устройства
-##### [Настройка и запуск примера приложения BLE](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
-##### [Чтение сообщений из Центра Интернета вещей](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-#### Урок 4. Сохранение сообщений в Хранилище таблиц Azure
-##### [Создание учетной записи хранения Azure и приложения-функции Azure](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
-##### [Чтение сообщений, сохраненных в Хранилище таблиц Azure](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
-
-#### [Урок 5. Создание первого модуля шлюза Azure IoT](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-##### [Устранение неполадок](iot-hub-gateway-kit-c-troubleshooting.md)
-
-## [Использование пакета SDK для устройств Azure IoT для C](iot-hub-device-sdk-c-intro.md)
-### [Использование IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
-### [Использование сериализатора](iot-hub-device-sdk-c-serializer.md)
-
-# Практическое руководство
+# Практическое руководство:
 ## План
 ### [Сравнение Центра Интернета вещей с концентраторами событий](iot-hub-compare-event-hubs.md)
 ### [Масштабирование своего решения](iot-hub-scaling.md)
@@ -211,6 +172,9 @@
 #### [Пакеты SDK для устройств и служб](iot-hub-devguide-sdks.md)
 #### [Поддержка MQTT](iot-hub-mqtt-support.md)
 #### [Глоссарий](iot-hub-devguide-glossary.md)
+### [Использование пакета SDK для устройств Azure IoT для C](iot-hub-device-sdk-c-intro.md)
+#### [Использование IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
+#### [Использование сериализатора](iot-hub-device-sdk-c-serializer.md)
 ### Обработка сообщений с устройства в облако
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
@@ -268,8 +232,8 @@
 ## [Предварительная версия Azure CLI 2.0](/cli/azure/iot)
 ## [.NET (служба)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (устройства)](/dotnet/api/microsoft.azure.devices.client)
-## [Java (служба)](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java (устройства)](/java/api/com.microsoft.azure.iothub)
+## [Java (служба)](/java/api/com.microsoft.azure.sdk.iot.service)
+## [Java (устройства)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Пакеты SDK для Центра Интернета вещей Azure](http://azure.github.io/azure-iot-sdks/)
 ## [Пакет SDK для шлюза](http://azure.github.io/azure-iot-gateway-sdk)
 ## [REST (поставщик ресурсов)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

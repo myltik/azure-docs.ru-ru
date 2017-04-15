@@ -16,6 +16,11 @@
 ### [Устранение неполадок и мониторинг](troubleshooting-monitoring.md)
 ### [SAP HANA с одним экземпляром](hana-get-started.md)
 ### [Руководство по развертыванию S/4 HANA или BW/4 HANA](cal-s4h.md)
+### Резервное копирование
+#### [Обзор](sap-hana-backup-guide.md)
+#### [Резервное копирование на уровне файлов](sap-hana-backup-file-level.md)
+#### [Моментальные снимки хранилища](sap-hana-backup-storage-snapshots.md)
+
 ## SAP NetWeaver
 ### [Обзор и архитектура](suse-quickstart.md)
 ### [Планирование и реализация](planning-guide.md)

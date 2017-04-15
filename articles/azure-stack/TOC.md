@@ -8,6 +8,7 @@
 ## Начало работы
 ### [Предварительные условия для развертывания](azure-stack-deploy.md)
 ### [Развертывание](azure-stack-run-powershell-script.md)
+### [Активация порталов](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [Регистрация](azure-stack-register.md)
 ## Практическое руководство
 ### [Подключение к среде подтверждения концепции Azure Stack](azure-stack-connect-azure-stack.md)
@@ -56,6 +57,7 @@
 #### [Обзор службы приложений в Azure Stack](azure-stack-app-service-overview.md)
 #### [Необходимые условия](azure-stack-app-service-before-you-get-started.md)
 #### [Развертывание поставщика ресурсов службы приложений](azure-stack-app-service-deploy.md)
+#### [Автономное развертывание службы приложений](azure-stack-app-service-deploy-offline.md)
 #### [Добавление дополнительных рабочих веб-ролей](azure-stack-app-service-add-worker-roles.md)
 #### [Настройка источников развертывания](azure-stack-app-service-configure-deployment-sources.md)
 #### [Включение FTP в службе приложений в Azure Stack](azure-stack-app-service-enable-ftp.md)
@@ -80,7 +82,7 @@
 ### [Обзор](azure-stack-storage-overview.md)
 ### [Отличия и рекомендации](azure-stack-acs-differences-tp2.md)
 ## Сеть
-### [iDNS для Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+### [iDNS для Azure Stack](azure-stack-understanding-dns.md)
 ### [DNS в Azure Stack](azure-stack-dns.md)
 ### [Основные сведения о VPN-подключениях типа "сеть — сеть"](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## хранилище ключей;

@@ -47,6 +47,7 @@
 ### [Расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Изменение пароля учетной записи службы Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Изменение пароля учетной записи AD DS](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [Включение корзины AD](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
@@ -58,6 +59,7 @@
 
 ## Управление службами федерации
 ### [Управление и настройка](active-directory-aadconnect-federation-management.md)
+### [Федерация нескольких экземпляров Azure AD с одним экземпляром AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
 ## Устранение неполадок

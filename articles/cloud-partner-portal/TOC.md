@@ -9,6 +9,7 @@
 ## Управление виртуальными машинами
 ### [Создание предложения виртуальной машины](./cloud-partner-portal-publish-virtual-machine.md)
 #### [Предварительные требования](./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
+#### [Регистрация учетной записи разработчика Майкрософт](./cloud-partner-portal-dev-center-accounts-registration.md)
 #### [Создание предложения виртуальной машины](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer)
 #### [Форма параметров предложения](./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form)
 #### [Форма номеров SKU](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus)
@@ -21,6 +22,7 @@
 ### [Обновление имеющегося предложения](./cloud-partner-portal-update-existing-offer.md)
 ### [Удаление предложения виртуальной машины или номера SKU](./cloud-partner-portal-delete-an-offer.md)
 ### [Переход на облачный портал для партнеров](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+## [Руководство по Azure Marketplace для продавца](./cloud-partner-portal-seller-guide.md)
 
 ## [Управление потенциальными клиентами и маркетинг](./cloud-partner-portal-marketing-lead-management.md)
 ### [Таблица Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)

@@ -48,16 +48,19 @@
 ### [Индексация больших двоичных объектов JSON](search-howto-index-json-blobs.md)
 ### [Настройка подключений индексатора к SQL Server на виртуальной машине Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Сопоставление полей в индексаторах](search-indexer-field-mappings.md)
-##  Возможности поиска
-### [Простой синтаксис запросов](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-### [Синтаксис запросов Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-### [Примеры запросов с использованием синтаксиса Lucene](search-query-lucene-examples.md)
-### [Синтаксис выражений фильтра](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+##  Поиск 
+### [Принцип работы полнотекстового поиска](search-lucene-query-architecture.md)
+### Построение запросов
+#### [Простой синтаксис запросов](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+#### [Синтаксис запросов Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+#### [Примеры запросов с использованием синтаксиса Lucene](search-query-lucene-examples.md)
+#### [Синтаксис выражений фильтра](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+### Пользовательский поиск
+#### [Языковые анализаторы](https://docs.microsoft.com/rest/api/searchservice/language-support)
+#### [Пользовательские анализаторы](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Профили повышения](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Предложения](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Фасетная навигация](search-faceted-navigation.md)
-### [Языковые анализаторы](https://docs.microsoft.com/rest/api/searchservice/language-support)
-### [Пользовательские анализаторы](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 
 # Справочные материалы
 ## [.NET](/dotnet/api/microsoft.azure.search)
