@@ -27,7 +27,7 @@
 
 ## Управление базами и шаблонами виртуальных машин
 ### [Создание запрашиваемой виртуальной машины](devtest-lab-add-claimable-vm.md)
-### [Создание сред со множеством виртуальных машин с помощью шаблонов Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
+### [Создание сред со множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 ### [Настройка образов Marketplace](devtest-lab-configure-marketplace-images.md)
 ### [Сравнение образов и формул](devtest-lab-comparing-vm-base-image-types.md)
 ### [Управление формулами](devtest-lab-manage-formulas.md)

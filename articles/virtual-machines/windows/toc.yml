@@ -31,10 +31,12 @@
     href: regions-and-availability.md
   - name: "Хранилище"
     href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: "Настройка сети"
+  - name: "Сеть"
     href: network-overview.md
   - name: "наборы масштабирования виртуальных машин;"
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: "Служба метаданных экземпляров" 
+    href: ../virtual-machines-instancemetadataservice-overview.md
   - name: "Контейнеры"
     href: containers.md
   - name: "Диспетчер ресурсов"

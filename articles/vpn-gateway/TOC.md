@@ -24,13 +24,10 @@
 ### [Портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Портал Azure (классический)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-### [Классический портал (классическая модель)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## Настройка подключения между виртуальными сетями для разных моделей развертывания
 ### [Портал Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## Создание сосуществующих подключений типа "сеть — сеть" и ExpressRoute
-### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-### [PowerShell (классическая модель)](../expressroute/expressroute-howto-coexist-classic.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## [Настройка параллельных подключений "сеть —сеть" и ExpressRoute](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Настройка принудительного туннелирования
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (классическая модель)](vpn-gateway-about-forced-tunneling.md)
@@ -50,8 +47,8 @@
 ## [Настройка VPN-шлюза (классическая модель)](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # Справочные материалы
-## [PowerShell](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell (классическая модель)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
+## [PowerShell (классическая модель)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/jj154113)
 

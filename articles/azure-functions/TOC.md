@@ -29,13 +29,13 @@
 ##### [Привязки таблиц](functions-bindings-storage-table.md)
 #### [Триггер таймера](functions-bindings-timer.md)
 #### [Привязка к выходным данным Twilio](functions-bindings-twilio.md)
+### [Определение прокси функций](functions-proxies.md)
 ### [Создание приложения-функции на портале Azure](functions-create-function-app-portal.md) 
-### [Testing Azure Functions](functions-test-a-function.md)
+### [Выполнение запланированного задания очистки](functions-scenario-database-table-cleanup.md)
+### [Тестирование функций Azure](functions-test-a-function.md)
 ### [Локальная разработка и отладка](functions-run-local.md)
 ### [Рекомендации по функциям Azure](functions-best-practices.md)
-### [Выполнение запланированной задачи очистки с помощью функций Azure](functions-scenario-database-table-cleanup.md)
-### [Создание определения OpenAPI (предварительная версия)](functions-api-definition-getting-started.md)
-#### [Справочник по использованию OpenAPI 2.0 в Функциях](functions-api-definition.md)
+### [Создание определения OpenAPI](functions-api-definition-getting-started.md)
 
 ## Управление
 ### [Настройка параметров для приложения-функции](functions-how-to-use-azure-function-app-settings.md)

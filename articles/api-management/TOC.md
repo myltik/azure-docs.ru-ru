@@ -45,6 +45,7 @@
 ### [Управление с помощью службы автоматизации](automation-manage-api-management.md)
 ### [Настройка с помощью Git](api-management-configuration-repository-git.md)
 ### [Мониторинг с помощью Azure Monitor](api-management-howto-use-azure-monitor.md)
+### [Использование контроля доступа на основе ролей](api-management-role-based-access-control.md)
 # Справочные материалы
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST](/rest/api/apimanagement/)

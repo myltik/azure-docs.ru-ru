@@ -79,6 +79,7 @@
 ### [Часто задаваемые вопросы о дисках виртуальных машин Azure IaaS](storage-faq-for-disks.md)
 ### Хранилище класса Premium
 #### [Высокопроизводительное хранилище класса Premium для дисков виртуальных машин](storage-premium-storage.md)
+#### [Переход на хранилище класса Premium с помощью Azure Site Recovery](storage-migrate-to-premium-storage-using-azure-site-recovery.md)
 #### [Проектирование для обеспечения высокой производительности](storage-premium-storage-performance.md)
 ### Стандартное хранилище
 #### [Экономичное хранилище класса Standard, управляемые и неуправляемые диски виртуальных машин](storage-standard-storage.md)

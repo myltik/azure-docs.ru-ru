@@ -1,16 +1,17 @@
 # Обзор
 ## [Что такое служба автоматизации Azure?](automation-intro.md)
 # Начало работы
-## [Создание модуля Runbook](automation-first-runbook-graphical.md)
-## [Создание модуля Runbook PowerShell](automation-first-runbook-textual-powershell.md)
-## [Создание модуля Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
-## [Управление доступом на основе ролей](automation-role-based-access-control.md)
+## Руководство по модулям Runbook
+### [Создание графического модуля Runbook](automation-first-runbook-graphical.md)
+### [Создание модуля Runbook PowerShell](automation-first-runbook-textual-powershell.md)
+### [Создание модуля Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
 # Практическое руководство
-## Настройка проверки подлинности
+## Проверка подлинности и безопасность
 ### [Проверка подлинности в службе автоматизации Azure](automation-security-overview.md)
-### [Учетная запись запуска от имени Azure](automation-sec-configure-azure-runas-account.md)
-### [Управление службами Azure и Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
+### [Настройка учетной записи запуска от имени Azure](automation-sec-configure-azure-runas-account.md)
+### [Настройка учетной записи пользователя Azure AD](automation-sec-configure-aduser-account.md)
+### [Настройка проверки подлинности с помощью AWS](automation-sec-configure-aws-account.md)
+### [Управление доступом на основе ролей](automation-role-based-access-control.md)
 ## Создание модулей Runbook
 ### [Типы Runbook](automation-runbook-types.md)
 ### [Создание и импорт модулей Runbook](automation-creating-importing-runbook.md)
