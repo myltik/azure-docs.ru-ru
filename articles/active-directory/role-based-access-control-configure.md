@@ -15,13 +15,13 @@ ms.workload: identity
 ms.date: 03/27/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 9bbacea92e54609818d69173fafcea2ee8f849d3
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
+ms.lasthandoff: 04/07/2017
 
 
 ---
-# <a name="use-role-assignments-to-manage-access-to-your-azure-subscription-resources"></a>Использование назначений ролей для управления доступом к ресурсам в подписке Azure
+# <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure
 > [!div class="op_single_selector"]
 > * [Управление доступом по пользователям или группам](role-based-access-control-manage-assignments.md)
 > * [Управление доступом по ресурсам](role-based-access-control-configure.md)

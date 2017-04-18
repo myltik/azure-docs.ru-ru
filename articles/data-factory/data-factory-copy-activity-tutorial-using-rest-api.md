@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -49,14 +50,14 @@ ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
   3. Получите значение для **tenant_id**. 
   4. Назначьте приложение **ADFCopyTutorialApp** роли **участника фабрики данных**.  
 * Установите [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
-* Откройте **PowerShell** и выполните приведенные ниже команды. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
+* Откройте **PowerShell** и выполните описанные ниже действия. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
   
   1. Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
     
     ```PowerShell 
     Login-AzureRmAccount
     ```   
-  2. Выполните следующую команду, чтобы просмотреть все подписки для этой учетной записи.
+  2. Чтобы просмотреть все подписки для этой учетной записи, выполните следующую команду:
 
     ```PowerShell     
     Get-AzureRmSubscription
@@ -66,7 +67,7 @@ ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
-  4. Создайте группу ресурсов Azure с именем **ADFTutorialResourceGroup** , выполнив следующую команду в PowerShell.  
+  4. Создайте группу ресурсов Azure с именем **ADFTutorialResourceGroup** , выполнив следующую команду в PowerShell:  
 
     ```PowerShell     
       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -172,10 +173,10 @@ ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
 * Для **linkedServiceName** задано значение **AzureStorageLinkedService**. 
 * Для **folderPath** задано имя контейнера **adftutorial**, а для **fileName** — **emp.txt**.  
 * Для **type** формата установлено значение **TextFormat**.
-* В этом текстовом файле содержатся два поля, **FirstName** и **LastName**, которые разделяются запятой (**columnDelimiter**).    
-* Параметр **availability** имеет значение **hourly** (параметру frequency присваивается значение hour, а параметру interval — значение 1). Следовательно, служба фабрики данных будет искать входные данные в корневом каталоге указанного вами контейнера BLOB-объектов (**adftutorial**) каждый час. 
+* В этом текстовом файле содержатся два поля, **FirstName** и **LastName**, которые разделяются запятой (columnDelimiter).    
+* Параметр **availability** имеет значение **hourly** (параметру frequency присваивается значение hour, а параметру interval — значение 1). Следовательно, служба фабрики данных будет искать входные данные в корневом каталоге указанного вами контейнера BLOB-объектов (adftutorial) каждый час. 
 
-Если параметр **fileName** для входного набора данных не задан, все файлы и большие двоичные объекты из входной папки (**folderPath**) считаются входными данными. Если указать fileName в JSON, только указанный файл или большой двоичный объект рассматриваются как входные данные.
+Если параметр **fileName** для входного набора данных не задан, все файлы и большие двоичные объекты из входной папки (folderPath) считаются входными данными. Если указать fileName в JSON, только указанный файл или большой двоичный объект рассматриваются как входные данные.
 
 Если не указать **fileName** для **выходной таблицы**, то созданные в **folderPath** файлы получают имена в следующем формате: Data.&lt;Guid&gt;.txt (например, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -230,7 +231,7 @@ ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
 * Для **linkedServiceName** задано значение **AzureSqlLinkedService**.
 * **tablename** имеет значение **emp**.
 * В таблице emp в базе данных есть три столбца: **ID**, **FirstName** и **LastName**. ID — это столбец для идентификаторов, поэтому здесь вам нужно указать только значения **FirstName** и **LastName**.
-* Параметр **availability** имеет значение **hourly** (параметру **frequency** присваивается значение **hour**, а параметру **interval** — значение **1**).  Служба фабрики данных каждый час создает срез выходных данных в таблице **emp** в базе данных SQL Azure.
+* Параметр **availability** имеет значение **hourly** (параметру frequency присваивается значение hour, а параметру interval — значение 1).  Служба фабрики данных каждый час создает срез выходных данных в таблице **emp** в базе данных SQL Azure.
 
 ### <a name="pipelinejson"></a>pipeline.json
 
@@ -316,7 +317,7 @@ $adf = "ADFCopyTutorialDF"
 ```
 
 ## <a name="authenticate-with-aad"></a>Проверка подлинности с помощью AAD
-Выполните следующую команду для проверки подлинности с помощью Azure Active Directory (AAD). 
+Выполните следующую команду для аутентификации с помощью Azure Active Directory (AAD): 
 
 ```PowerShell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
@@ -360,7 +361,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 * В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.
 * Если появится сообщение об ошибке**Подписка не зарегистрирована для использования пространства имен Microsoft.DataFactory**, выполните одно из следующих действий и повторите попытку публикации. 
   
-  * В Azure PowerShell выполните следующую команду, чтобы зарегистрировать поставщик фабрики данных Azure: 
+  * Чтобы зарегистрировать поставщик фабрики данных Azure, выполните следующую команду в Azure PowerShell: 
 
     ```PowerShell    
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -428,13 +429,13 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 * Создайте и отправьте текстовый файл **emp.txt** в качестве большого двоичного объекта в контейнер **adftutorial**. 
 * Создайте таблицу с именем **emp** в базе данных SQL Azure, на которую указывает **AzureSqlLinkedService**.
 
-1. Запустите Блокнот, вставьте следующий текст и сохраните его с именем **emp.txt** в папке **C:\ADFGetStartedPSH** на жестком диске. 
+1. Запустите Блокнот. Скопируйте следующий текст и сохраните его с именем **emp.txt** в папке **C:\ADFGetStartedPSH** на жестком диске. 
 
     ```   
     John, Doe
     Jane, Doe
     ```
-2. При помощи таких средств, как [обозреватель хранилища Azure](https://azurestorageexplorer.codeplex.com/), создайте контейнер **adftutorial** и загрузите файл **emp.txt** в этот контейнер.
+2. При помощи таких инструментов, как [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/), создайте контейнер **adftutorial** и передайте файл **emp.txt** в этот контейнер.
    
     ![Обозреватель хранилищ Azure](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
 3. Используйте следующий скрипт SQL, чтобы создать таблицу **emp** в базе данных SQL Azure.  
@@ -456,7 +457,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     Если клиенту не разрешен доступ к серверу Azure SQL Server, то следует настроить брандмауэр вашего сервера Azure SQL Server, чтобы разрешить доступ с вашей машины (IP-адрес). В [этой статье](../sql-database/sql-database-configure-firewall-settings.md) описано, как настроить брандмауэр для сервера Azure SQL Server.
 
 ### <a name="create-input-dataset"></a>Создание входного набора данных
-На этом шаге создается набор данных с именем **AzureBlobInput**, указывающий на контейнер больших двоичных объектов в службе хранилища Azure, которая представлена связанной службой **AzureStorageLinkedService**. Этот контейнер больших двоичных объектов (**adftutorial**) содержит входные данные в файле **emp.txt**. 
+На этом шаге создается набор данных с именем **AzureBlobInput**, указывающий на контейнер больших двоичных объектов в службе хранилища Azure, которая представлена связанной службой **AzureStorageLinkedService**. Этот контейнер (adftutorial) содержит входные данные в файле **emp.txt**. 
 
 1. Назначьте команду переменной с именем **cmd**. 
 
@@ -475,7 +476,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     ```
 
 ### <a name="create-output-dataset"></a>Создание выходного набора данных
-На этом этапе вы создадите выходную таблицу с именем **AzureSqlOutput**. Этот набор данных указывает на таблицу SQL (**emp**) в базе данных SQL Azure (представлена значением **AzureSqlLinkedService**). Конвейер копирует данные из входного большого двоичного объекта в таблицу **emp** . 
+На этом этапе вы создадите выходную таблицу с именем **AzureSqlOutput**. Этот набор данных указывает на таблицу SQL (emp) в базе данных SQL Azure (представлена значением **AzureSqlLinkedService**). Конвейер копирует данные из входного большого двоичного объекта в таблицу **emp** . 
 
 1. Назначьте команду переменной с именем **cmd**.
 
@@ -573,9 +574,4 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

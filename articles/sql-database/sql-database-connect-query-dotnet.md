@@ -1,6 +1,6 @@
 ---
 title: "Подключение к базе данных Azure SQL с помощью .NET (C#) | Документация Майкрософт"
-description: "Используйте приведенный в этом кратком руководстве пример кода, чтобы с помощью Базы данных SQL Azure разработать современное приложение на C# на основе мощной облачной реляционной базы данных."
+description: "В этой статье представлен пример кода .NET, который можно использовать для подключения и выполнения запросов к базе данных SQL Azure."
 services: sql-database
 documentationcenter: 
 author: ajlam
@@ -8,37 +8,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/28/2017
+ms.date: 04/05/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: c6c0c218b8d0456d37a4514238675fd8e75faf9d
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>База данных SQL Azure: подключение и запрос данных с помощью .NET (C#)
 
-С помощью[C# и ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx) вы можете подключаться и отправлять запросы к базе данных SQL Azure. В этом руководстве объясняется, как с помощью C# подключаться к базе данных Azure SQL, а также выполнять запросы и использовать инструкции вставки, обновления и удаления.
+В этом кратком руководстве показано, как, используя [C# и ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx), подключиться к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных на платформах Windows, Mac OS и Ubuntu Linux.
 
 Начальной точкой в руководстве являются ресурсы, созданные в одном из этих кратких руководств:
 
 - [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
 
-## <a name="configure-development-environment"></a>Настройка среды разработки
+## <a name="install-net"></a>Установка .NET
 
-В следующих разделах подробно описывается настройка существующих сред разработки Mac OS, Linux (Ubuntu) и Windows для работы с базой данных SQL Azure.
+### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework и .NET Core**
+
+Выпуск Visual Studio Community 2017 — это полнофункциональная расширяемая бесплатная среда IDE для создания современных приложений для Android, iOS, Windows, а также веб-приложений, приложений базы данных и облачных служб. Вы можете установить полную версию .NET Framework или только .NET Core. Фрагменты кода в кратком руководстве работают с любой из них. Если среда Visual Studio уже установлена на вашем компьютере, то вы можете пропустить следующие действия.
+
+1. Скачайте [установщик](https://go.microsoft.com/fwlink/?LinkId=691978). 
+2. Запустите установщик и выполните указанные действия, чтобы завершить установку.
 
 ### <a name="mac-os"></a>**Mac OS**
 Откройте терминал и перейдите в каталог, в котором вы планируете создать проект .NET Core. Введите следующие команды для установки **brew**, **OpenSSL** и **.NET Core**: 
 
-```C#
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install openssl
@@ -52,20 +57,12 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Откройте терминал и перейдите в каталог, в котором вы планируете создать проект .NET Core. Введите следующие команды для установки **.NET Core**:
 
-```C#
+```bash
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
-
-### <a name="windows"></a>**Windows**
-Установите выпуск Visual Studio Community Edition 2015 и .NET Framework. Если среда Visual Studio уже установлена на вашем компьютере, то вы можете пропустить следующие действия.
-
-Выпуск Visual Studio Community 2015 — это полнофункциональная расширяемая бесплатная IDE для создания современных приложений для Android, iOS, Windows, а также веб-приложений, приложений базы данных и облачных служб.
-
-1. Скачайте [установщик](https://go.microsoft.com/fwlink/?LinkId=691978). 
-2. Запустите установщик и выполните указанные действия, чтобы завершить установку.
 
 ## <a name="get-connection-information"></a>Получение сведений о подключении
 
@@ -309,5 +306,11 @@ namespace ConsoleApplication1
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Документацию по .NET см. в [документации по .NET](https://docs.microsoft.com/dotnet/).
-- Сведения о запросе и изменении данных с помощью Visual Studio Code см. в [документации по Visual Studio Code](https://code.visualstudio.com/docs).
+- Дополнительные сведения о подключении к базе данных SQL с помощью SQL Server Management Studio и выполнении запроса к ней см. [здесь](sql-database-connect-query-ssms.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Visual Studio Code](sql-database-connect-query-vscode.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью PHP](sql-database-connect-query-php.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Node.js](sql-database-connect-query-nodejs.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Java](sql-database-connect-query-java.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Python](sql-database-connect-query-python.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Ruby](sql-database-connect-query-ruby.md).
 

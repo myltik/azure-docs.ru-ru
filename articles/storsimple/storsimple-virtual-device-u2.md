@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 04/07/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/24/2017
 | **Максимальная емкость** |30 TБ |64 ТБ |
 | **Azure** |Standard_A3 (4 ядра, 7 ГБ памяти) |Standard_DS3 (4 ядра, 14 ГБ памяти) |
 | **Совместимость версий** |Версии, на которых запущено предварительное обновление 2 или более поздней версии |Версии, на которых запущено обновление 2 или более поздней версии |
-| **Регионы доступности** |Все регионы Azure |Все регионы Azure, которые поддерживают хранилища класса Premium<br></br> Регионы хранилища класса Premium — это регионы, соответствующие строке *Дисковый накопитель* в списке [служб Azure по регионам](https://azure.microsoft.com/en-us/regions/services). |
+| **Регионы доступности** |Все регионы Azure |Все регионы Azure, которые поддерживают хранилища класса Premium и виртуальные машины DS3 Azure<br></br> Используйте [этот список](https://azure.microsoft.com/en-us/regions/services), чтобы узнать, доступны ли в вашем регионе *виртуальные машины серии DS* и соответствующие *хранилища дисков*. |
 | **Тип хранилища** |Использует хранилище Azure класса Standard для локальных дисков<br></br> Узнайте, как [создать учетную запись хранения класса Standard](../storage/storage-create-storage-account.md) |Использует хранилище Azure класса Premium для локальных дисков<sup>2</sup> <br></br>Узнайте, как [создать учетную запись хранения класса Premium](../storage/storage-premium-storage.md) |
 | **Руководство по рабочим нагрузкам** |Извлечение файлов уровня элемента из резервных копий |Сценарии разработки и тестирования для облака, низкая задержка, рабочие нагрузки с более высокой производительностью  <br></br>Дополнительное устройство для аварийного восстановления |
 

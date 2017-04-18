@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 53bb5d64e27458b4a88981bd20ea4236b31431ec
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/04/2017
 
 ## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Настраиваемые соединители и сертификация для Microsoft Azure
 
-Хотите создать собственные соединители или не удается найти нужный соединитель? Вы можете [расширить платформу приложений логики](../logic-apps/logic-apps-create-api-app.md) и создать приложения API, вызывающие API-интерфейсы или системы, которые не входят в набор стандартных соединителей. Кроме того, вы можете отправить приложения API для сертификации Microsoft Azure, а затем предоставить к ним доступ с помощью Azure. Узнайте больше о сертификации решений [в Microsoft Azure](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+Чтобы вызывать API-интерфейсы, которые запускают пользовательский код или недоступны в качестве соединителей, можно [расширить платформу Logic Apps](../logic-apps/logic-apps-create-api-app.md), создавая приложения API на основе REST как настраиваемые соединители. Если вы хотите сделать пользовательские приложения API открытыми и доступными для использования в Azure, отправьте заявку на участие в [программе Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
 ## <a name="get-help"></a>Получение справки
 

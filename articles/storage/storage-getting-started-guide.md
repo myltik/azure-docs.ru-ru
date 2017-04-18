@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
-ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 6508b5a5d7d654954c68f9390c62a7871c1f032c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -75,7 +75,7 @@ ms.lasthandoff: 02/23/2017
 ## <a name="run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator"></a>Локальный запуск первого приложения службы хранилища Azure в эмуляторе хранения Azure
 [Эмулятор хранения Azure](storage-use-emulator.md) представляет собой локальную среду, имитирующую службы BLOB-объектов, очередей и таблиц Azure в целях разработки. Эмулятор хранения можно использовать для тестирования приложения хранилища локально без создания подписки Azure или учетной записи хранения и не неся никаких затрат.
 
-Чтобы попробовать, давайте создадим простое приложение службы хранилища Azure с помощью одного из образцов проектов Быстрого запуска Azure в Visual Studio. Это руководство посвящено примерам проектов **Хранилище Blob-объектов Azure**, **Хранилище таблиц Azure** и **Хранилище очередей Azure**.
+Чтобы попробовать, давайте создадим простое приложение службы хранилища Azure с помощью одного из образцов проектов быстрого запуска Azure в Visual Studio. Это руководство посвящено примерам проектов **Хранилище Blob-объектов Azure**, **Хранилище таблиц Azure** и **Хранилище очередей Azure**.
 
 1. Запустите Visual Studio.
 2. В меню **Файл** выберите **Новый проект**.

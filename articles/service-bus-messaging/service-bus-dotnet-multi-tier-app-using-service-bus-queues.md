@@ -12,18 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 04/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Многоуровневое приложение .NET, использующее очереди служебной шины Azure
 ## <a name="introduction"></a>Введение
-С Visual Studio и бесплатным пакетом Azure SDK для .NET разрабатывать решения для Microsoft Azure очень просто. В этом руководстве рассматриваются действия по созданию приложения, в котором используется несколько ресурсов Azure, работающих в локальной среде. Предполагается, что у вас нет опыта использования Azure.
+С Visual Studio и бесплатным пакетом Azure SDK для .NET разрабатывать решения для Microsoft Azure очень просто. В этом руководстве рассматриваются действия по созданию приложения, в котором используется несколько ресурсов Azure, работающих в локальной среде.
 
 Вы узнаете следующее:
 
@@ -34,16 +34,16 @@ ms.lasthandoff: 03/01/2017
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-В этом учебнике вы создадите и запустите многоуровневое приложение в облачной службе Azure. Внешний интерфейс реализован с использованием веб-роли MVC ASP.NET, а серверная часть — с помощью рабочей роли, в которой используется очередь служебной шины. Вы также можете создать аналогичное многоуровневое приложение. Его внешний интерфейс будет реализован в виде веб-проекта, развернутого на веб-сайте Azure, а не в облачной службе. Дополнительные сведения о разных способах реализации внешнего интерфейса веб-сайта Azure см. в разделе [Дальнейшие действия](#nextsteps). Кроме того, можно ознакомиться с руководством по [гибридным локальным и облачным приложениям .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+В этом учебнике вы создадите и запустите многоуровневое приложение в облачной службе Azure. Внешний интерфейс реализован с использованием веб-роли MVC ASP.NET, а серверная часть — с помощью рабочей роли, в которой используется очередь служебной шины. Вы также можете создать аналогичное многоуровневое приложение. Его внешний интерфейс будет реализован в виде веб-проекта, развернутого на веб-сайте Azure, а не в облачной службе. Кроме того, можно ознакомиться с руководством по [гибридным локальным и облачным приложениям .NET](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 На следующем рисунке показано завершенное приложение.
 
 ![][0]
 
 ## <a name="scenario-overview-inter-role-communication"></a>Обзор сценария: обмен данными между ролями
-Чтобы отправить заказ на обработку, компоненту внешнего пользовательского интерфейса, выполняющемуся в веб-роли, необходимо взаимодействовать с логикой среднего уровня в рабочей роли. В этом примере в качестве посредника при обмене данными между уровнями выступает служба Service Bus.
+Чтобы отправить заказ на обработку, компоненту внешнего пользовательского интерфейса, выполняющемуся в веб-роли, необходимо взаимодействовать с логикой среднего уровня в рабочей роли. В этом примере в качестве посредника при обмене данными между уровнями выступает служебная шина.
 
-Обмен сообщениями между веб-уровнем и средним уровнем через посредника позволяет разделить два компонента. В отличие от прямого обмена сообщениями (TCP или HTTP), веб-уровень не связан непосредственно со средним уровнем. Вместо этого он передает рабочие единицы в виде сообщений в служебную шину, где они хранятся до тех пор, пока не будут востребованы для обработки средним уровнем.
+Обмен сообщениями между веб-уровнем и средним уровнем через служебную шину позволяет разделить два компонента. В отличие от прямого обмена сообщениями (TCP или HTTP), веб-уровень не связан непосредственно со средним уровнем. Вместо этого он передает рабочие единицы в виде сообщений в служебную шину, где они хранятся до тех пор, пока не будут востребованы для обработки средним уровнем.
 
 В служебной шине обмен сообщениями через брокер реализуется с использованием двух видов сущностей — очередей и разделов. При использовании очередей каждое сообщение, помещенное в очередь, потребляется одним получателем. При использовании разделов каждое опубликованное сообщение становится доступным в рамках подписки, зарегистрированной с помощью этого раздела. Для каждой подписки ведется собственная логическая очередь сообщений. Кроме того, для подписки можно настроить правила фильтрации, с помощью которых ограничивается набор сообщений, передаваемых в очередь подписки. В этом примере используются очереди служебной шины.
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/01/2017
 Прежде чем начать разработку приложения для Azure, подготовьте нужные инструменты и настройте среду разработки.
 
 1. Установите пакет SDK Azure для .NET, скачав его с [этой страницы](https://azure.microsoft.com/downloads/).
-2. В столбце **.NET** щелкните ссылку, соответствующую используемой версии [Visual Studio](http://www.visualstudio.com). На описанных в этом учебнике шагах используется Visual Studio 2015.
+2. В столбце **.NET** щелкните ссылку, соответствующую используемой версии [Visual Studio](http://www.visualstudio.com). В этом руководстве используется Visual Studio 2015, но вы также можете работать с Visual Studio 2017.
 3. При появлении запроса на выполнение или сохранение файла установки щелкните **Выполнить**.
 4. В **установщике веб-платформы** щелкните **Установить**, чтобы продолжить.
 5. После завершения установки у вас будут все компоненты, необходимые для начала разработки приложения. В состав пакета SDK входят инструменты для эффективной разработки приложений Azure в Visual Studio.
@@ -78,7 +78,7 @@ ms.lasthandoff: 03/01/2017
 а затем — добавите код для отправки элементов в очередь служебной шины и отображения сведений о ее состоянии.
 
 ### <a name="create-the-project"></a>Создание проекта
-1. Запустите Microsoft Visual Studio, используя привилегии администратора. Чтобы запустить Visual Studio, используя привилегии администратора, щелкните правой кнопкой мыши значок программы **Visual Studio** и выберите пункт **Запустить от имени администратора**. Для работы эмулятора вычислений Azure, который обсуждается далее в этой статье, требуется запустить Visual Studio с правами администратора.
+1. Запустите Visual Studio, используя привилегии администратора, щелкнув правой кнопкой мыши значок программы **Visual Studio** и выбрав пункт **Запустить от имени администратора**. Для работы эмулятора вычислений Azure, который обсуждается далее в этой статье, требуется запустить Visual Studio с правами администратора.
    
    В меню **Файл** Visual Studio выберите **Создать**, а затем — **Проект**.
 2. В разделе **Установленные шаблоны** области **Visual C#** щелкните **Облако**, а затем — **Облачная служба Azure**. Присвойте проекту имя **MultiTierApp**. Нажмите кнопку **ОК**.
@@ -98,7 +98,7 @@ ms.lasthandoff: 03/01/2017
     ![][16]
 7. В диалоговом окне **Новый проект ASP.NET** нажмите кнопку **ОК**, чтобы создать проект.
 8. В **обозревателе решений** в проекте **FrontendWebRole** щелкните правой кнопкой мыши **Ссылки** и выберите пункт **Управление пакетами NuGet**.
-9. Щелкните вкладку **Обзор** и выполните поиск `Microsoft Azure Service Bus`. Щелкните **Установить**и примите условия использования.
+9. Щелкните вкладку **Обзор** и выполните поиск `Microsoft Azure Service Bus`. Выберите пакет **WindowsAzure.ServiceBus**, щелкните **Установить** и примите условия использования.
    
    ![][13]
    
@@ -362,7 +362,7 @@ ms.lasthandoff: 03/01/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию о Service Bus см. на следующих ресурсах.  
 
-* [Служебная шина Azure][sbmsdn]  
+* [Документация по служебной шине Azure][sbdocs]  
 * [Страница службы служебной шины][sbacom]  
 * [Как использовать очереди служебной шины][sbacomqhowto]  
 
@@ -370,7 +370,7 @@ ms.lasthandoff: 03/01/2017
 
 * [Многоуровневое приложение .NET, использующее таблицы, очереди и большие двоичные объекты хранилища][mutitierstorage]  
 
-[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+[0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
@@ -381,8 +381,8 @@ ms.lasthandoff: 03/01/2017
 [14]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
 [15]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
 [16]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-14.png
-[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+[17]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app.png
+[18]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-app2.png
 
 [19]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
 [20]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
@@ -391,7 +391,7 @@ ms.lasthandoff: 03/01/2017
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
+[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

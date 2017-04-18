@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 71903120a77aa4d8fd58ea600488d3464570b0cb
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Развертывание решения для размещения контейнера Docker с помощью портала Azure
@@ -36,7 +36,11 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* **Подписка Azure.** Если у вас ее нет, зарегистрируйтесь, чтобы [воспользоваться бесплатной пробной версией](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
+* **Подписка Azure.** Если у вас ее нет, зарегистрируйтесь, чтобы [воспользоваться бесплатной пробной версией](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Для более крупных кластеров можно использовать подписку с оплатой по мере использования или другие варианты приобретения.
+
+    > [!NOTE]
+    > Объем использования подписки Azure и [квоты на ресурсы](../azure-subscription-service-limits.md), включая квоты на ядра, могут ограничивать размер развертываемого кластера. Чтобы увеличить квоту, [отправьте запрос в службу поддержки](../azure-supportability/how-to-create-azure-support-request.md). Это бесплатная услуга.
+    >
 
 * **Открытый ключ RSA (SSH).** При развертывании на портале или с помощью одного из шаблонов быстрого запуска Azure необходимо предоставить открытый ключ, используемый для аутентификации в виртуальных машинах Службы контейнеров Azure. Инструкции по созданию ключей RSA (SSH) см. в соответствующих статьях для [OS X, Linux](../virtual-machines/linux/mac-create-ssh-keys.md) или [Windows](../virtual-machines/linux/ssh-from-windows.md). 
 
@@ -109,7 +113,7 @@ ms.lasthandoff: 04/03/2017
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>Создание кластера с помощью шаблона быстрого запуска
 Для развертывания кластера в Службе контейнеров Azure можно использовать шаблоны быстрого запуска Azure. Предоставляемые шаблоны быстрого запуска можно изменять, включив дополнительную или расширенную конфигурацию Azure. Чтобы создать кластер Службы контейнеров Azure с помощью шаблона быстрого запуска Azure, вам потребуется подписка Azure. Если у вас ее нет, зарегистрируйтесь, чтобы [воспользоваться бесплатной пробной версией](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). 
 
-Чтобы развернуть кластер с помощью шаблона или Azure CLI 2.0, выполните приведенные ниже действия (см. [инструкции по установке и настройке](/cli/azure/install-az-cli2.md)).
+Чтобы развернуть кластер с помощью шаблона или Azure CLI 2.0, выполните приведенные ниже действия (см. [инструкции по установке и настройке](/cli/azure/install-az-cli2)).
 
 > [!NOTE] 
 > В системе Windows эти же действия можно выполнить с помощью Azure PowerShell. Инструкции см. далее в этом разделе. Кроме того, шаблон можно развернуть на [портале](../azure-resource-manager/resource-group-template-deploy-portal.md) или с помощью других методов.
