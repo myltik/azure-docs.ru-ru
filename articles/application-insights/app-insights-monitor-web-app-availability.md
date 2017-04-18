@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2017
+ms.date: 04/06/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 153a97154faf65598141f321bcd33c4503fa30b0
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cfe70aa09b21aa914e3705bf7969583c7a1bbd52
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -241,7 +241,10 @@ ms.lasthandoff: 03/21/2017
     Мы используем эти термины как взаимозаменяемые.
 * *Мне нужно использовать тесты доступности на нашем внутреннем сервере, который работает за брандмауэром.*
 
-    Разрешите в брандмауэре запросы с [IP-адресов агентов веб-тестирования](app-insights-ip-addresses.md).
+    Есть два возможных решения:
+    
+    * Разрешите в брандмауэре входящие запросы с [IP-адресов агентов веб-тестирования](app-insights-ip-addresses.md).
+    * Напишите собственный код для периодической проверки внутреннего сервера. Запустите код в виде фонового процесса на тестовом сервере за брандмауэром. Процесс тестирования может отправлять результаты в Application Insights с помощью API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) в основном пакете SDK. Для этого тестовый сервер должен иметь исходящий доступ к конечной точке приема в Application Insights, что представляет гораздо меньшую угрозу безопасности, чем разрешение входящих запросов. Результаты не будут отображаться в колонках веб-тестов доступности, но будут отображаться как результаты в обозревателе метрик, поиска и анализа.
 * *Сбой отправки многошагового веб-теста.*
 
     Максимальный размер — 300 000.
@@ -260,10 +263,6 @@ ms.lasthandoff: 03/21/2017
 
     К сожалению, эта возможность не поддерживается.
 
-## <a name="video"></a>Видео
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
->
->
 
 ## <a name="next"></a>Дальнейшие действия
 [Поиск по журналу диагностики в Application Insights][diagnostic]

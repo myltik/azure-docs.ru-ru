@@ -14,79 +14,84 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
+ms.date: 04/05/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e4f47341554e2de514c8be2f5c85983d09bbb760
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 5c529ae41b42d276d37e6103305e33ed04694e18
+ms.lasthandoff: 04/07/2017
 
 ---
 
 # <a name="get-started-with-a-kubernetes-cluster-in-container-service"></a>Приступая к работе с кластером Kubernetes в службе контейнеров Azure
 
 
-В этой статье показано, как использовать команды Azure CLI 2.0 для создания кластера Kubernetes. После этого можно использовать программу командной строки `kubectl`, чтобы приступить к работе с контейнерами в кластере.
+В этом пошаговом руководстве показано, как с помощью команд Azure CLI 2.0 создать кластер Kubernetes в службе контейнеров Azure. После этого можно использовать программу командной строки `kubectl`, чтобы приступить к работе с контейнерами в кластере.
 
 На следующем рисунке показана архитектура кластера службы контейнеров с одним главным узлом и двумя агентами. Основной узел обслуживает REST API кластера Kubernetes. Узлы агента группируются в группы доступности Azure. На них запускаются контейнеры. Все виртуальные машины размещены в одной частной виртуальной сети и полностью доступны друг для друга.
 
 ![Схема кластера Kubernetes в Аzure](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
 ## <a name="prerequisites"></a>Предварительные требования
-В этом пошаговом руководстве предполагается, что вы установили и настроили [Azure CLI 2.0](/cli/azure/install-az-cli2). Также необходимо, чтобы открытый ключ RSA ( SSH) находился в `~/.ssh/id_rsa.pub`. Если его у вас нет, ознакомьтесь с инструкциями для [OS X и Linux](../virtual-machines/linux/mac-create-ssh-keys.md) или [Windows](../virtual-machines/linux/ssh-from-windows.md).
+В этом пошаговом руководстве предполагается, что вы установили и настроили [Azure CLI 2.0](/cli/azure/install-az-cli2). 
 
-
-
-
-
+В примерах команд предполагается, что вы запускаете Azure CLI в оболочке bash, которая обычно используется в Linux и macOS. При запуске Azure CLI в клиенте Windows синтаксис некоторых скриптов и файлов может отличаться в зависимости от командной оболочки. 
 
 ## <a name="create-your-kubernetes-cluster"></a>Создание кластера Kubernetes
 
-Ниже кратко описаны команды оболочки, использующие Azure CLI 2.0 для создания кластера. Дополнительные сведения см. в разделе [Использование Azure CLI 2.0 для создания кластера Службы контейнеров Azure](container-service-create-acs-cluster-cli.md).
+Ниже кратко описаны команды оболочки, использующие Azure CLI 2.0 для создания кластера. 
 
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 Чтобы создать кластер, необходимо сначала создать группу ресурсов в определенном расположении. Выполните команды, как показано ниже.
 
-```console
+```azurecli
 RESOURCE_GROUP=my-resource-group
 LOCATION=westus
 az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### <a name="create-a-cluster"></a>Создание кластера
-Создав группу ресурсов, можно приступить к созданию кластера в этой группе.
+Создав группу ресурсов, можно приступить к созданию кластера в этой группе. В следующем примере используется параметр `--generate-ssh-keys`, который создает файлы открытого и закрытого ключей SSH, необходимые для развертывания, если они не существуют по умолчанию в каталоге `~/.ssh/`. 
 
-```console
+Эта команда также автоматически создает [субъект-службу Azure Active Directory](container-service-kubernetes-service-principal.md), которую использует кластер Kubernetes в Azure.
+
+```azurecli
 DNS_PREFIX=some-unique-value
 CLUSTER_NAME=any-acs-cluster-name
-az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX
+az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --generate-ssh-keys
 ```
 
-> [!NOTE]
-> Во время развертывания интерфейс командной строки передает `~/.ssh/id_rsa.pub` на виртуальные машины Linux.
->
 
-После выполнения этой команды появится рабочий кластер Kubernetes.
+Через несколько минут команда будет выполнена, и вы получите рабочий кластер Kubernetes.
 
 ### <a name="connect-to-the-cluster"></a>Подключение к кластеру
 
-Ниже перечислены команды Azure CLI для подключения к кластеру Kubernetes с клиентского компьютера с помощью `kubectl`, клиента командной строки Kubernetes. Дополнительные сведения см. в статье [Подключение к кластеру службы контейнеров Azure](container-service-connect.md).
+Для подключения к кластеру Kubernetes с клиентского компьютера используйте [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/) — клиент командной строки Kubernetes. 
 
 Установите `kubectl` с помощью команды ниже, если вы еще этого не сделали.
 
-```console
-az acs kubernetes install-cli
+```azurecli
+sudo az acs kubernetes install-cli
 ```
+> [!TIP]
+> По умолчанию эта команда устанавливает двоичный файл `kubectl` в каталоге `/usr/local/bin/kubectl` в системе Linux и macOS или в каталоге `C:\Program Files (x86)\kubectl.exe` в Windows. Чтобы указать другой путь установки, используйте параметр `--install-location`.
+>
 
-После установки `kubectl` выполните приведенную ниже команду, чтобы скачать конфигурацию главного кластера Kubernetes в файл ~/.kube/config.
+После установки файла `kubectl` убедитесь, что его каталог расположен в системном пути или добавьте его в этот путь. 
 
-```console
+
+Затем выполните приведенную ниже команду, чтобы скачать конфигурацию главного кластера Kubernetes в файл `~/.kube/config`.
+
+```azurecli
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
+Дополнительные варианты установки и настройки `kubectl` см. в статье [Создание удаленного подключения к кластеру Kubernetes, DC/OS или Docker Swarm](container-service-connect.md).
+
 На этом этапе все должно быть готово для доступа к кластеру с компьютера. Попробуйте выполнить следующую команду.
-```console
+
+```bash
 kubectl get nodes
 ```
 
@@ -95,14 +100,14 @@ kubectl get nodes
 ## <a name="create-your-first-kubernetes-service"></a>Создание первой службы Kubernetes
 
 Выполнив инструкции из этого руководства, вы научитесь:
- * развертывать приложение Docker и предоставлять к нему доступ;
- * использовать `kubectl exec` для выполнения команд в контейнере; 
- * получать доступ к панели мониторинга Kubernetes.
+* развертывать приложение Docker и предоставлять к нему доступ;
+* использовать `kubectl exec` для выполнения команд в контейнере; 
+* получать доступ к панели мониторинга Kubernetes.
 
 ### <a name="start-a-simple-container"></a>Запуск простого контейнера
 Чтобы запустить простой контейнер (в данном случае веб-сервер Nginx), выполните приведенную ниже команду.
 
-```console
+```bash
 kubectl run nginx --image nginx
 ```
 
@@ -110,22 +115,22 @@ kubectl run nginx --image nginx
 
 Чтобы просмотреть запущенный контейнер, выполните приведенную команду.
 
-```console
+```bash
 kubectl get pods
 ```
 
 ### <a name="expose-the-service-to-the-world"></a>Предоставление доступа к службе
 Чтобы сделать службу доступной по всему миру, создайте `Service` Kubernetes типа `LoadBalancer`.
 
-```console
+```bash
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
-Тогда Kubernetes создаст правило Azure Load Balancer с общедоступным IP-адресом. Распространение изменений в подсистеме балансировки нагрузки занимает несколько минут. Дополнительные сведения см. в разделе [Балансировка нагрузки контейнеров в кластере Kubernetes в Службе контейнеров Azure](container-service-kubernetes-load-balancing.md).
+В результате выполнения этой команды Kubernetes создаст правило Azure Load Balancer с общедоступным IP-адресом. Распространение изменений в подсистеме балансировки нагрузки занимает несколько минут. Дополнительные сведения см. в разделе [Балансировка нагрузки контейнеров в кластере Kubernetes в Службе контейнеров Azure](container-service-kubernetes-load-balancing.md).
 
 Выполните следующую команду, чтобы посмотреть, как изменится состояние службы `pending` и отобразится внешний IP-адрес.
 
-```console
+```bash
 watch 'kubectl get svc'
 ```
 
@@ -139,7 +144,7 @@ watch 'kubectl get svc'
 ### <a name="browse-the-kubernetes-ui"></a>Обзор пользовательского интерфейса Kubernetes
 Чтобы просмотреть веб-интерфейс Kubernetes, можно использовать:
 
-```console
+```bash
 kubectl proxy
 ```
 Эта команда запускает простой проверенный прокси-сервер на локальном узле. Его можно использовать для просмотра пользовательского веб-интерфейса Kubernetes здесь: [http://localhost:8001/ui](http://localhost:8001/ui). Дополнительные сведения см. в разделе [Использование веб-интерфейса Kubernetes со Службой контейнеров Azure](container-service-kubernetes-ui.md).
@@ -149,20 +154,20 @@ kubectl proxy
 ### <a name="remote-sessions-inside-your-containers"></a>Удаленные сеансы в контейнерах
 Kubernetes позволяет выполнять команды в удаленном контейнере Docker, запущенном в кластере.
 
-```console
+```bash
 # Get the name of your nginx pods
 kubectl get pods
 ```
 
 Используя имя модуля, можно запустить удаленную команду в модуле.  Например:
 
-```console
+```bash
 kubectl exec <pod name> date
 ```
 
 Кроме того, можно получить полностью интерактивный сеанс с помощью флагов `-it`:
 
-```console
+```bash
 kubectl exec <pod name> -it bash
 ```
 

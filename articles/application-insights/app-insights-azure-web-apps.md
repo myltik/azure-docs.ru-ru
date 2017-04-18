@@ -10,13 +10,13 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
+ms.topic: get-started-article
+ms.date: 03/30/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d7a8d669e75991f6707641e4ce53c9b63d04853c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 8d9d39d63209b8ab6884ddeff569687b55591f95
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -52,6 +52,8 @@ ms.lasthandoff: 03/16/2017
 Установите пакет SDK в свое приложение, чтобы воспользоваться более подробными сведениями телеметрии Application Insights. В частности, можно собирать журналы трассировки, [написать код пользовательской телеметрии](app-insights-api-custom-events-metrics.md) и получать более подробные отчеты об исключениях.
 
 1. **В Visual Studio** (2013 года с обновлением 2 или более поздней версии) настройте Application Insights для проекта.
+
+    Щелкните веб-проект правой кнопкой мыши и выберите **Добавить > Application Insights** или **Настроить Application Insights**.
    
     ![Щелкните правой кнопкой мыши веб-проект и выберите добавление или настройку Application Insights.](./media/app-insights-azure-web-apps/03-add.png)
    
@@ -91,11 +93,17 @@ ms.lasthandoff: 03/16/2017
 
 Для более эффективного поиска по данным телеметрии используйте [язык запросов аналитики](app-insights-analytics-tour.md).
 
+## <a name="more-telemetry"></a>Дополнительные данные телеметрии
+
+* [Данные о загрузке веб-страницы](app-insights-javascript.md)
+* [Пользовательская телеметрия](app-insights-api-custom-events-metrics.md)
+
 ## <a name="video"></a>Видео
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Дальнейшие действия
+* [Запуск профилировщика в живом приложении](app-insights-profiler.md).
 * [Включите отправку данных диагностики Azure](app-insights-azure-diagnostics.md) в Application Insights.
 * [Отслеживайте метрики состояния службы](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md), чтобы убедиться, что служба доступна и отвечает на запросы.
 * [Получайте уведомления](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) при возникновении операционных событий или превышении пороговых значений метрик.

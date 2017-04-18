@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 692a0086bd8e0dd6b57de1db0f4e2a9b4f2f0bda
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6e1a1f522b9632c7d162d36ad5baa23d6130f8b6
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -29,11 +30,6 @@ ms.openlocfilehash: 692a0086bd8e0dd6b57de1db0f4e2a9b4f2f0bda
 2. Щелкните **Мониторинг**, чтобы открыть колонку **Мониторинг**. В этой колонке отображено единое представление всех параметров мониторинга и данных. Сначала открывается раздел **Журнал действий** .
    
     ![Навигация по колонке "Мониторинг"](./media/monitoring-get-started/monitor-blade-nav.png)
-   
-   > [!WARNING]
-   > Функции **Уведомления службы** и **Группы уведомлений** отображаются только для пользователей личной предварительной версии.
-   > 
-   > 
    
     В Azure Monitor есть три основных категории данных мониторинга: **журнал действий**, **метрики** и **журналы диагностики**.
 3. Щелкните **Журналом действий** , чтобы отобразить раздел журнала действий.
@@ -88,7 +84,7 @@ ms.openlocfilehash: 692a0086bd8e0dd6b57de1db0f4e2a9b4f2f0bda
     
     ![Колонка "Оповещения" для общедоступной версии](./media/monitoring-get-started/monitor-alerts-nopp.png)
     
-    Здесь вы можете управлять всеми [**оповещениями**](monitoring-overview-alerts.md) для ресурсов Azure, связанными с метриками, событиями журнала действий (в личной предварительной версии), веб-тестами Application Insights (расположения) и упреждающей диагностикой Application Insights. Оповещения могут активировать отправку сообщений по электронной почте или HTTP-запросов POST на URL-адрес объектов webhook.
+    Здесь вы можете управлять всеми [**оповещениями**](monitoring-overview-alerts.md) для ресурсов Azure, Сюда входят оповещения на основе метрик, событий журнала действий, веб-тестов Application Insights (расположения) и упреждающей диагностики Application Insights. Оповещения могут активировать отправку сообщений по электронной почте или HTTP-запросов POST на URL-адрес объектов webhook.
 13. Щелкните **Add metric alert** (Добавить оповещение метрики), чтобы создать оповещение.
     
     ![Add metric alert](./media/monitoring-get-started/monitor-alerts-add.png)
@@ -103,10 +99,5 @@ ms.openlocfilehash: 692a0086bd8e0dd6b57de1db0f4e2a9b4f2f0bda
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Прочитайте [обзор Azure Monitor](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

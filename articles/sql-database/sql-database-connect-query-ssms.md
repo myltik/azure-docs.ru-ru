@@ -10,7 +10,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: development
+ms.custom: quick start manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,15 +18,15 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 7ae47bcce700336206d532b414b7d0eea41d87c5
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Подключайтесь к базе данных Azure SQL и создавайте запросы к ней с помощью SQL Server Management Studio
 
-Используйте [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) для создания ресурсов SQL Server и управления ими с помощью пользовательского интерфейса или скриптов. В этом кратком руководстве объясняется, как с помощью SSMS подключаться к базе данных Azure SQL, а также выполнять запросы и использовать инструкции вставки, обновления и удаления.
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) — это средство управления, используемое для создания и администрирования ресурсов SQL Server с помощью пользовательского интерфейса или скриптов. В этом кратком руководстве показано, как использовать SSMS для подключения к базе данных Azure SQL, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных. 
 
 Начальной точкой в руководстве являются ресурсы, созданные в одном из этих кратких руководств:
 
@@ -43,11 +43,16 @@ ms.lasthandoff: 04/04/2017
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
 3. На странице портала Azure вашей базы данных в области **Основные компоненты** найдите и скопируйте **имя сервера**.
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![Сведения о подключении](./media/sql-database-connect-query-ssms/connection-information.png) 
+
 
 ## <a name="connect-to-the-server-and-your-new-database"></a>Подключение к серверу и новой базе данных
 
-Используйте SQL Server Management Studio для подключения к серверу базы данных SQL Azure.
+Используйте SQL Server Management Studio для подключения к серверу базы данных SQL Azure. 
+
+> [!IMPORTANT]
+> Логический сервер базы данных SQL Azure прослушивает порт 1433. Чтобы подключиться к логическому серверу базы данных SQL Azure из среды, ограничиваемой корпоративным брандмауэром, этот порт должен быть открыт в брандмауэре.
+>
 
 1. Откройте среду SQL Server Management Studio.
 
@@ -57,12 +62,16 @@ ms.lasthandoff: 04/04/2017
    - **Проверка подлинности** — укажите проверку подлинности SQL Server.
    - **Имя входа** — введите учетную запись администратора сервера.
    - **Пароль** — введите пароль учетной записи администратора сервера.
- 
-    <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
 
-3. Щелкните **Подключить**. Откроется окно обозревателя объектов в SSMS. 
+   ![Подключение к серверу](./media/sql-database-connect-query-ssms/connect.png)  
 
-    <img src="./media/sql-database-connect-query-ssms/connected.png" alt="connected to server" style="width: 780px;" />
+3. Щелкните по элементу **Параметры**. В разделе **Подключение к базе данных** введите **mySampleDatabase**, чтобы подключиться к этой базе данных, созданной ранее.
+
+   ![Подключение к базе данных на сервере](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+
+4. Щелкните **Подключить**. Откроется окно обозревателя объектов в SSMS. 
+
+   ![Подключение к серверу установлено](./media/sql-database-connect-query-ssms/connected.png)  
 
 4. В обозревателе объектов разверните **базы данных**, затем выберите **mySampleDatabase**, чтобы просмотреть объекты в образце базы данных.
 
@@ -71,7 +80,7 @@ ms.lasthandoff: 04/04/2017
 С помощью инструкции Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) отправьте запрос на получение данных из базы данных SQL Azure.
 
 1. В обозревателе объектов щелкните правой кнопкой мыши **mySampleDatabase** и выберите пункт **Новый запрос**. Откроется пустое окно запроса, подключенное к базе данных.
-2. В этом окне введите следующий запрос:
+2. В окне запроса введите следующее:
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -88,8 +97,7 @@ ms.lasthandoff: 04/04/2017
 
 С помощью инструкции Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) вставьте данные в базу данных SQL Azure.
 
-1. На панели инструментов щелкните **Новый запрос**. Откроется пустое окно запроса, подключенное к базе данных.
-2. В этом окне введите следующий запрос:
+1. В окне запроса замените предыдущий запрос следующим содержимым:
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -111,7 +119,7 @@ ms.lasthandoff: 04/04/2017
            ,GETDATE() );
    ```
 
-3. На панели инструментов щелкните **Выполнить**, чтобы вставить новую строку в таблице Product.
+2. На панели инструментов щелкните **Выполнить**, чтобы вставить новую строку в таблице Product.
 
     <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
@@ -119,8 +127,7 @@ ms.lasthandoff: 04/04/2017
 
 С помощью инструкции Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) обновите данные в базе данных SQL Azure.
 
-1. На панели инструментов щелкните **Новый запрос**. Откроется пустое окно запроса, подключенное к базе данных.
-2. В этом окне введите следующий запрос:
+1. В окне запроса замените предыдущий запрос следующим содержимым:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -128,7 +135,7 @@ ms.lasthandoff: 04/04/2017
    WHERE Name = 'myNewProduct';
    ```
 
-3. На панели инструментов щелкните **Выполнить**, чтобы обновить указанную строку в таблице Product.
+2. На панели инструментов щелкните **Выполнить**, чтобы обновить указанную строку в таблице Product.
 
     <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
@@ -136,20 +143,25 @@ ms.lasthandoff: 04/04/2017
 
 С помощью инструкции Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) удалите данные из базы данных SQL Azure.
 
-1. На панели инструментов щелкните **Новый запрос**. Откроется пустое окно запроса, подключенное к базе данных.
-2. В этом окне введите следующий запрос:
+1. В окне запроса замените предыдущий запрос следующим содержимым:
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-3. На панели инструментов щелкните **Выполнить**, чтобы удалить указанную строку из таблицы Product.
+2. На панели инструментов щелкните **Выполнить**, чтобы удалить указанную строку из таблицы Product.
 
     <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о решении SSMS см. в статье об [использовании SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-- Сведения о запросе и изменении данных с помощью Visual Studio Code см. в [документации по Visual Studio Code](https://code.visualstudio.com/docs).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Visual Studio Code](sql-database-connect-query-vscode.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью .NET](sql-database-connect-query-dotnet.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью PHP](sql-database-connect-query-php.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Node.js](sql-database-connect-query-nodejs.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Java](sql-database-connect-query-java.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Python](sql-database-connect-query-python.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Ruby](sql-database-connect-query-ruby.md).
 

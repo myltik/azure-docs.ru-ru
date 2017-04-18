@@ -13,40 +13,39 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9df9d10d436ac56c881c9547f3095b630d4cb97f
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ff70484dff03a44d23d2cf34ce115fd57c4b0390
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Создание виртуальной сети с подключением типа "сайт — сайт" с помощью классического портала
-> [!div class="op_single_selector"]
-> * [Resource Manager — портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager — PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Классическая модель — портал Azure](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Классическая модель — классический портал](vpn-gateway-site-to-site-create.md)
->
->
 
-В этой статье мы покажем вам, как создать виртуальную сеть, соединенную с локальной сетью через VPN-подключение типа "сеть — сеть" с помощью шлюза, используя классическую модель развертывания и классический портал. Подключения типа "сеть — сеть" можно использовать для распределенных и гибридных конфигураций.
+Подключение типа "сеть — сеть" (S2S) через VPN-шлюз — это подключение через туннель VPN по протоколу IPsec/IKE (IKEv1 или IKEv2). Для этого типа подключения требуется локальное VPN-устройство, которому назначен общедоступный IP-адрес и которое не расположено за NAT. Подключения типа "сеть — сеть" можно использовать для распределенных и гибридных конфигураций.
 
 ![Схема подключения типа "сеть — сеть" через VPN-шлюз](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
 
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Модели развертывания и способы настройки подключений типа "сеть — сеть"
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+В этой статье мы покажем вам, как создать виртуальную сеть, соединенную с локальной сетью через VPN-подключение типа "сеть — сеть" с помощью шлюза, используя классическую модель развертывания и классический портал. Подключения типа "сеть — сеть" можно использовать для распределенных и гибридных конфигураций. Эту конфигурацию также можно создать для модели развертывания с помощью Resource Manager, выбрав вариант из следующего списка:
 
-Следующая таблица показывает модели развертывания, доступные в настоящее время, и методы для конфигурации "сеть — сеть". Когда появится статья с руководством по конфигурации, мы разместим прямую ссылку на нее в этой таблице.
-
-[!INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
+> [!div class="op_single_selector"]
+> * [Resource Manager — портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Resource Manager — PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Классическая модель — портал Azure](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Классическая модель — классический портал](vpn-gateway-site-to-site-create.md)
+>
+>
 
 #### <a name="additional-configurations"></a>Дополнительные конфигурации
 Если вы хотите объединить виртуальные сети, см. статью [Настройка подключения между виртуальными сетями для классической модели развертывания](virtual-networks-configure-vnet-to-vnet-connection.md). Если вы хотите добавить подключение "сеть — сеть" к виртуальной сети, в которой уже есть подключение, см. статью о [добавлении подключения "сеть — сеть" к виртуальной сети с существующим подключением через VPN-шлюз](vpn-gateway-multi-site.md).
 
 ## <a name="before-you-begin"></a>Перед началом работы
-Перед началом настройки убедитесь, что у вас есть следующее.
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
+Перед началом настройки убедитесь, что у вас есть следующее:
 
 * Совместимое VPN-устройство и пользователь, который может настроить его. См. статью о [VPN-устройствах](vpn-gateway-about-vpn-devices.md). Если вы не умеете настраивать VPN-устройство или не знаете диапазоны IP-адресов в своей локальной сети, вам следует найти того, кто сможет предоставить вам нужную информацию.
 * Внешний общедоступный IP-адрес для VPN-устройства. Этот IP-адрес не может располагаться вне преобразования сетевых адресов (NAT).

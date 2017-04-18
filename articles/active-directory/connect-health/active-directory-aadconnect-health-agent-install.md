@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/12/2017
+ms.date: 04/11/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 7c320a043322fefea1f58301492d4c5a0567320c
-ms.openlocfilehash: 9569a850c6fadd86c408f9e9d4ec6d7d519744e8
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 7aa1363c3d4164edb5199a21e75b2b08a3218bf5
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: 9569a850c6fadd86c408f9e9d4ec6d7d519744e8
 | Исходящие подключения к конечным точкам службы Azure | Во время установки и выполнения агенту требуется подключение к конечным точкам службы Azure AD Connect Health. При блокировке исходящего подключения с помощью брандмауэров убедитесь, что в список разрешенных добавлены следующие конечные точки: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net, порт 5671; </li><li>&#42;.adhybridhealth.azure.com/;</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
 |Исходящие подключения на основе IP-адресов | Дополнительные сведения о фильтрации на основе IP-адресов в брандмауэрах см. в статье о [диапазонах IP-адресов Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
 | Проверка SSL для исходящего трафика отфильтрована или отключена | Операции отправки данных или регистрация агента могут завершиться ошибкой в случае проверки SSL или завершения исходящего трафика на уровне сети. |
-| Порты брандмауэра на сервере с агентом. |Агент требует открытия следующих портов брандмауэра для обмена данными с конечными точками службы Azure AD Health.</br></br><li>Порт TCP или UDP 443</li><li>Порт TCP или UDP 5671</li> |
+| Порты брандмауэра на сервере с агентом. |Агент требует открытия следующих портов брандмауэра для обмена данными с конечными точками службы Azure AD Health.</br></br><li>TCP-порт 443</li><li>TCP-порт 5671</li> |
 | Внесите следующие веб-сайты в список разрешенных, если включена политика усиленной безопасности IE |Если на сервере, на котором будет установлен агент, включена конфигурация усиленной безопасности, потребуется открыть доступ для следующих веб-сайтов:</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Сервер федерации вашей организации должен быть доверенным для Azure Active Directory. (Например, https://sts.contoso.com.)</li> |
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Установка агента Azure AD Connect Health для AD FS
@@ -167,7 +168,7 @@ ms.openlocfilehash: 9569a850c6fadd86c408f9e9d4ec6d7d519744e8
 * AttributeFiltering. Значение $true (по умолчанию) используется, если служба Azure AD Connect не синхронизирует набор атрибутов по умолчанию и была настроена для использования отфильтрованного набора атрибутов. В противном случае используется значение $false.
 * StagingMode. Значение $false (по умолчанию) используется, если сервер Azure AD Connect НЕ находится в промежуточном режиме, $true — если сервер настроен на пребывание в промежуточном режиме.
 
-При появлении запроса на проверку подлинности следует использовать учетную запись глобального администратора (например, admin@domain.onmicrosoft.com), которая использовалась для настройки Azure AD Connect).
+При появлении запроса на аутентификацию следует использовать учетную запись глобального администратора (например, admin@domain.onmicrosoft.com) которая использовалась для настройки Azure AD Connect.
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-ds"></a>Установка агента Azure AD Connect Health для AD DS
 Дважды щелкните скачанный EXE-файл, чтобы начать установку агента. На первом экране щелкните «Установить».
@@ -274,7 +275,7 @@ ms.openlocfilehash: 9569a850c6fadd86c408f9e9d4ec6d7d519744e8
 ## <a name="test-connectivity-to-azure-ad-connect-health-service"></a>Проверка подключения к службе Azure AD Connect Health
 Существуют проблемы, при которых агент Azure AD Connect Health может потерять соединение со службой Azure AD Connect Health. К ним относятся проблемы с сетью, с правами доступа и другие причины.
 
-Если агент не может отправить данные службе Azure AD Connect Health более&2; часов, на портале появится следующее оповещение: "Данные службы работоспособности неактуальны". Чтобы проверить, может ли затронутый агент Azure AD Connect Health передавать данные в службу Azure AD Connect Health, выполните следующую команду PowerShell:
+Если агент не может отправить данные службе Azure AD Connect Health более 2 часов, на портале появится следующее оповещение: "Данные службы работоспособности неактуальны". Чтобы проверить, может ли затронутый агент Azure AD Connect Health передавать данные в службу Azure AD Connect Health, выполните следующую команду PowerShell:
 
     Test-AzureADConnectHealthConnectivity -Role ADFS
 
@@ -301,8 +302,4 @@ ms.openlocfilehash: 9569a850c6fadd86c408f9e9d4ec6d7d519744e8
 * [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

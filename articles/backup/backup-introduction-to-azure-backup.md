@@ -17,9 +17,9 @@ ms.date: 3/13/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: a2452b95c9355957b10477a6e457000f0eba6a9c
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,9 +90,9 @@ ms.lasthandoff: 04/04/2017
 | Компонент | Поддержка Linux (рекомендованная для Azure) |
 | --- | --- |
 | Агент службы архивации Azure |Нет (только агент для Windows) |
-| System Center DPM |Согласованность на уровне файлов только на узле Hyper-V<br/> (недоступно для виртуальной машины Azure) |
-| Сервер службы архивации Azure |Согласованность на уровне файлов только на узле Hyper-V<br/> (недоступно для виртуальной машины Azure) |
-| Служба архивации виртуальных машин Azure IaaS |Да (согласованное резервное копирование с помощью [платформы для предварительного и последующего выполнения скриптов](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)) |
+| System Center DPM |Резервное копирование гостевых виртуальных машин Linux в Hyper-V и VMWare с согласованием файлов<br/> (недоступно для виртуальной машины Azure)<br/> Восстановление виртуальных машин Hyper-V и гостевых виртуальных машин VMWare Linux |
+| Сервер службы архивации Azure |Резервное копирование гостевых виртуальных машин Linux в Hyper-V и VMWare с согласованием файлов<br/> (недоступно для виртуальной машины Azure)<br/> Восстановление виртуальных машин Hyper-V и гостевых виртуальных машин VMWare Linux |
+| Служба архивации виртуальных машин Azure IaaS |Резервное копирование с помощью [платформы для предварительного и последующего выполнения скриптов](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) с согласованием приложений<br/> [Точное восстановление файла](backup-azure-restore-files-from-vm.md)<br/> [Восстановление всех дисков виртуальной машины](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-backed-up-disks)<br/> [Восстановление виртуальных машин](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-new-vm-from-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Использование службы архивации Azure для виртуальных машин хранилища класса "Премиум"
 Служба архивации Azure может защищать виртуальные машины хранилища класса "Премиум". Хранилище Azure "Премиум" — это хранилище на основе твердотельных накопителей (SSD), которое обеспечивает поддержку интенсивных рабочих нагрузок ввода и вывода данных. Хранилище класса "Премиум" хорошо подходит для рабочих нагрузок виртуальных машин. Дополнительные сведения о хранилище класса Premium см. в статье [Хранилище класса «Премиум»: высокопроизводительная служба хранилища для рабочих нагрузок виртуальных машин Azure](../storage/storage-premium-storage.md).
