@@ -31,7 +31,7 @@ ms.lasthandoff: 01/24/2017
 ## <a name="prerequisites"></a>Предварительные требования
 1. Разверните решение для аналитики телеметрии автомобилей, перейдя по следующей ссылке: [https://gallery.cortanaanalytics.com/SolutionTemplate/Vehicle-Telemetry-Analytics-3](https://gallery.cortanaanalytics.com/SolutionTemplate/Vehicle-Telemetry-Analytics-3)  
 2. [Установите Microsoft Power BI Desktop.](http://www.microsoft.com/download/details.aspx?id=45331)
-3. [Подписка Azure.](https://azure.microsoft.com/pricing/free-trial/). Если у вас нет подписки Azure, для начала получите бесплатную подписку Azure.
+3. [Подписка Azure](https://azure.microsoft.com/pricing/free-trial/). Если у вас нет подписки Azure, для начала получите бесплатную подписку Azure.
 4. Учетная запись Microsoft Power BI
 
 ## <a name="cortana-intelligence-suite-components"></a>Компоненты Cortana Intelligence Suite
@@ -167,7 +167,7 @@ ms.lasthandoff: 01/24/2017
 Выберите поле **VIN** и измените тип визуализации на **Карточка**.  
     ![Подключенные автомобили — визуализация "Карточка номера шасси"](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4m.png)  
 
-В наборе данных есть поле с именем MaintenanceLabel. Это поле может иметь значение&0; или&1;. Оно задается моделью машинного обучения Azure, которая включена в решение и интегрирована с механизмом обработки в реальном времени. Значение&1; означает, что автомобилю требуется обслуживание. 
+В наборе данных есть поле с именем MaintenanceLabel. Это поле может иметь значение 0 или 1. Оно задается моделью машинного обучения Azure, которая включена в решение и интегрирована с механизмом обработки в реальном времени. Значение 1 означает, что автомобилю требуется обслуживание. 
 
 Вот как добавить фильтр **уровня страницы** для отображения данных об автомобилях, которым требуется обслуживание. 
 
@@ -320,7 +320,7 @@ ms.lasthandoff: 01/24/2017
 **Скачивание файла конструктора Power BI**
 
 * Предварительно настроенный файл конструктора Power BI входит в состав развертывания.
-* Щелкните узел Power BI в представлении схемы и в области свойств щелкните ссылку **Download the Power BI designer file** (Скачать файл конструктора Power BI). ![Download Power BI Designer (Скачать файл конструктора Power BI)](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+* Щелкните узел Power BI в представлении схемы и в области свойств щелкните ссылку **Download the Power BI designer file** (Скачать файл конструктора Power BI). ![Скачать файл конструктора Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
 * Сохраните файл на локальном компьютере.
 
 **Настройка отчетов Power BI**
