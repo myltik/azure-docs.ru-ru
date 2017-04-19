@@ -3,8 +3,3 @@
 
 Включите в свои вопросы ключевое слово `azure-functions`. [Посетите сайт Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

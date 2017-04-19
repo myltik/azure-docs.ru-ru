@@ -8,8 +8,3 @@
 * [Портал Azure](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [REST API и платформа](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
 * [Потоковая передача VoD](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-
