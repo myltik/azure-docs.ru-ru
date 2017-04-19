@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9faa28a86c9427a83e8ca4485ebcdc8e8dacd93d
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 0288d70bb5c0094b5c738b2d0c597e4c6d38a5aa
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -69,7 +69,7 @@ ms.lasthandoff: 03/03/2017
 #### <a name="verify"></a>Проверка
 1. Откройте командную строку и перейдите в каталог `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Выполните команду `csexport "Name of Connector" %temp%\export.xml /f:x`. Имя соединителя можно найти в службе синхронизации. Это будет имя наподобие "contoso.com — AAD" для Azure AD.
-3. Скопируйте сценарий PowerShell из раздела [CSAnalyzer](#Appendix-CSAnalyzer) в файл `csanalyzer.ps1`.
+3. Скопируйте сценарий PowerShell из раздела [CSAnalyzer](#appendix-csanalyzer) в файл `csanalyzer.ps1`.
 4. Откройте окно PowerShell и перейдите в папку, в которой вы создали сценарий PowerShell.
 5. Выполните команду `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
 6. Теперь у вас есть файл **processedusers1.csv**, который можно просмотреть в Microsoft Excel. В этом файле находятся все изменения, предназначенные для экспорта в Azure AD.

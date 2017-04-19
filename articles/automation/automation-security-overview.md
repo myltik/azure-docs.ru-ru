@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 7224da31e71f3f6c912cd486198135945f90a8a4
-ms.openlocfilehash: aa639886ba3379ef30f9abef8f3dff4acb5b1181
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 1a0258e872449bf2f2f08345cbe86564e28d964e
+ms.lasthandoff: 04/17/2017
 
 
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Общие сведения о проверке подлинности в службе автоматизации Azure  
-С помощью службы автоматизации Azure можно автоматизировать задачи, выполняемые с ресурсами Azure (локально), а также с ресурсами других поставщиков облачных служб, например Amazon Web Services (AWS).  Для выполнения необходимых действий модуль Runbook должен иметь разрешения на безопасный доступ к ресурсам с минимальными правами, требуемыми в рамках подписки. 
- 
+С помощью службы автоматизации Azure можно автоматизировать задачи, выполняемые с ресурсами Azure (локально), а также с ресурсами других поставщиков облачных служб, например Amazon Web Services (AWS).  Для выполнения необходимых действий модуль Runbook должен иметь разрешения на безопасный доступ к ресурсам с минимальными правами, требуемыми в рамках подписки.
+
 В этой статье рассматриваются разные методы проверки подлинности, поддерживаемые службой автоматизации Azure, а также объясняется, как начать работу с одной или несколькими средами, которыми вы хотите управлять.  
 
 ## <a name="automation-account-overview"></a>Общие сведения об учетной записи службы автоматизации
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/02/2017
 
 > [!NOTE]
 > Учетные записи службы автоматизации и содержащиеся в них ресурсы, которые создаются с помощью портала Azure, недоступны на классическом портале Azure. Если требуется управлять этими учетными записями или их ресурсами с помощью Windows PowerShell, необходимо использовать модули диспетчера ресурсов Azure.
-> 
+>
 
 Все задачи, выполняемые с ресурсами с использованием Azure Resource Manager и командлетов Azure в службе автоматизации Azure, должны пройти проверку подлинности в Azure с помощью корпоративных учетных данных (удостоверения Azure Active Directory).  Изначально использовался метод проверки подлинности на основе сертификата в режиме Azure Service Management, но он сопровождался сложной настройкой.  С 2014 года в Azure снова используется проверка подлинности пользователя Azure AD. Это не только упростило настройку учетной записи для проверки подлинности, но и позволило выполнять эту процедуру в неинтерактивном режиме с использованием одной учетной записи Azure, применимой как в классических ресурсах, так и в ресурсах Azure Resource Manager.   
 
@@ -52,10 +52,9 @@ ms.lasthandoff: 03/02/2017
 
 | Метод | Среда | Статья |
 | --- | --- | --- |
-| Учетная запись пользователя Azure AD |Диспетчер ресурсов Azure и управление службами Azure |[Проверка подлинности модулей Runbook с помощью Azure Service Management и Resource Manager](automation-sec-configure-aduser-account.md) |
+| Учетная запись пользователя Azure AD |Диспетчер ресурсов Azure и управление службами Azure |[Проверка подлинности модулей Runbook с помощью Azure Service Management и Resource Manager](automation-create-aduser-account.md) |
 | Учетная запись запуска от имени Azure |Диспетчер ресурсов Azure |[Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени](automation-sec-configure-azure-runas-account.md) |
 | Классическая учетная запись запуска от имени Azure |Управление службами Azure |[Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени](automation-sec-configure-azure-runas-account.md) |
 | Проверка подлинности Windows |Локальный центр обработки данных |[Гибридные компоненты Runbook Worker в службе автоматизации Azure](automation-hybrid-runbook-worker.md) |
-| Учетные данные AWS |Amazon Web Services |[Authenticate Runbooks with Amazon Web Services (AWS) (Проверка подлинности модулей Runbook с помощью Amazon Web Services)](automation-sec-configure-aws-account.md) |
-
+| Учетные данные AWS |Amazon Web Services |[Authenticate Runbooks with Amazon Web Services (AWS) (Проверка подлинности модулей Runbook с помощью Amazon Web Services)](automation-config-aws-account.md) |
 

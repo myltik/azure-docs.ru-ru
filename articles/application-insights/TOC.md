@@ -31,7 +31,7 @@
 ## Планирование и проектирование
 ### [Углубленная диагностика для веб-приложений и служб](app-insights-devops.md)
 ### [Мониторинг производительности в веб-приложениях](app-insights-web-monitor-performance.md)
-### [Анализ использования с помощью Application Insights](app-insights-overview-usage.md)
+### [Анализ использования с помощью Application Insights](app-insights-web-track-usage.md)
 ### [Разделение ресурсов Application Insights](app-insights-separate-resources.md)
 ### [Как работать с Application Insights](app-insights-how-do-i.md)
 
@@ -49,7 +49,6 @@
 #### [Зависимости](app-insights-asp-net-dependencies.md)
 #### [Примечания к выпуску](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-#### [Часто задаваемые вопросы](app-insights-troubleshoot-faq.md)
 
 
 ### J2EE
@@ -92,6 +91,7 @@
 #### [Обзор](app-insights-analytics-tour.md)
 #### [Если использовать метод](app-insights-analytics-using.md)
 #### [Импорт](app-insights-analytics-import.md)
+#### [Диагностика](app-insights-analytics-diagnostics.md)
 
 ## Автоматизация
 
@@ -146,6 +146,7 @@
 ### [Заметки о выпуске пакета SDK](app-insights-release-notes.md)
 ### [Заметки о выпуске средств анализа для разработчиков](app-insights-release-notes-vsix.md)
 
+## [Часто задаваемые вопросы](app-insights-troubleshoot-faq.md)
 
 ## Справка
 ### [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  

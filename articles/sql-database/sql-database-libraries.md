@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
-ms.openlocfilehash: 26140426eb2a5376af003248a0de6685999ac5a2
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: b42d2bd64dbaf44f1be85d687b27ffe47eb0db53
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="connection-libraries-for-sql-database-and-sql-server"></a>Библиотеки подключений для Базы данных SQL и SQL Server
 
-В этой статье приведены все библиотеки и *драйверы*, с помощью которых клиентские программы могут подключиться к базе данных SQL Azure или Microsoft SQL Server.
+В этой статье приведены все библиотеки и *драйверы*, с помощью которых клиентские программы могут подключиться к базе данных SQL Azure или Microsoft SQL Server. 
 
 | Язык | Платформа | Дополнительные ресурсы | Загрузить |
 |:--- |:--- |:--- |:--- |
@@ -38,13 +39,10 @@ ms.openlocfilehash: 26140426eb2a5376af003248a0de6685999ac5a2
 ## <a name="related-links"></a>Связанные ссылки
 
 - [Драйвера SQL Server](https://docs.microsoft.com/sql/connect/sql-server-drivers/) (для подключения с клиента)
-- [Подключение к базе данных SQL с помощью .NET (C#)](sql-database-develop-dotnet-simple.md), ADO.NET
-- [Подключение к базе данных SQL с помощью Node.js](sql-database-develop-nodejs-simple.md)
-- [Подключение к базе данных SQL с помощью Python](sql-database-develop-python-simple.md), pymssql
-- [Подключение к базе данных SQL с помощью Ruby](sql-database-develop-ruby-simple.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+- [Подключение к базе данных SQL с помощью .NET (C#)](sql-database-connect-query-dotnet.md)
+- [Подключение к Базе данных SQL с помощью PHP](sql-database-connect-query-php.md)
+- [Подключение к базе данных SQL с помощью Node.js](sql-database-connect-query-nodejs.md)
+- [Подключение к Базе данных SQL с помощью Java](sql-database-connect-query-java.md)
+- [Подключение к базе данных SQL с помощью Python](sql-database-connect-query-python.md)
+- [Подключение к базе данных SQL с помощью Ruby](sql-database-connect-query-ruby.md)
 

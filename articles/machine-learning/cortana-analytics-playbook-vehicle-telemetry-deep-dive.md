@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
-ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 0a4dba58445cf0fd9fd8f51d443576bacd92251b
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -61,7 +61,7 @@ ms.lasthandoff: 01/24/2017
 | windshield_wiper_status |Указывает, включен ли стеклоочиститель ветрового стекла |Значение true или false |
 | ABS |Указывает, включена ли антиблокировочная система тормозов |Значение true или false |
 | Timestamp |Метка времени создания точки данных |Дата |
-| City |Расположение автомобиля |В этом решении представлены&4; города: Бельвью, Редмонд, Саммамиш и Сиэтл |
+| City |Расположение автомобиля |В этом решении представлены 4 города: Бельвью, Редмонд, Саммамиш и Сиэтл |
 
 Справочный набор данных модели автомобиля позволяет сопоставить VIN с моделью. 
 
@@ -97,11 +97,6 @@ ms.lasthandoff: 01/24/2017
 | XUF99EW9OIQOMV7Q7 |Семейный седан |
 | 8OMCL3LGI7XNCC21U |Автомобиль с откидным верхом |
 | ……. | |
-
-### <a name="to-generate-simulated-data"></a>Создание имитированных данных
-1. Чтобы скачать пакет для симуляции данных, щелкните стрелку в правом верхнем углу узла Vehicle Telematics Simulator (Симулятор телематики автомобиля). Сохраните файлы на локальном компьютере и извлеките их. ![Проект внедрения решения для аналитики телеметрии автомобиля](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telemetry-blueprint.png) *Рис. 2. Проект внедрения решения для аналитики телеметрии автомобиля*
-2. На локальном компьютере перейдите в папку с извлеченным пакетом симулятора телематики автомобиля. ![Папка симулятора телематики автомобиля](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telematics-simulator-folder.png) *Рис. 3. Папка симулятора телематики автомобиля*
-3. Запустите приложение **CarEventGenerator.exe**.
 
 ### <a name="references"></a>Ссылки
 [Решение Visual Studio "Симулятор телематики автомобиля"](http://go.microsoft.com/fwlink/?LinkId=717075) 
@@ -393,11 +388,9 @@ ms.lasthandoff: 01/24/2017
 Щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=717078) , чтобы скачать решение Visual Studio RealtimeDashboardApp для настройки. 
 
 **Чтобы запустить приложение панели мониторинга в реальном времени:**
-
-1. Щелкните узел Power BI в представлении схемы и на панели свойств перейдите по ссылке Download Real-time Dashboard Application (Скачать приложение информационной панели в реальном времени). ![Инструкции по настройке информационной панели Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig15-vehicle-telematics-powerbi-dashboard-setup.png) *Рис. 15. Инструкции по настройке информационной панели Power BI*
-2. Извлеките его и сохраните на локальном компьютере ![Папка RealtimeDashboardApp](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Рис. 16. Папка RealtimeDashboardApp*  
-3. Запустите приложение RealtimeDashboardApp.exe.
-4. Укажите действительные учетные данные Power BI, войдите и нажмите кнопку "Принять". ![Вход в приложение информационной панели в Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Завершение входа в приложение информационной панели в Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+1. Извлеките его и сохраните на локальном компьютере ![Папка RealtimeDashboardApp](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-realtimedashboardapp-folder.png) *Рис. 16. Папка RealtimeDashboardApp*  
+2. Запустите приложение RealtimeDashboardApp.exe.
+3. Укажите действительные учетные данные Power BI, войдите и нажмите кнопку "Принять". ![Вход в приложение информационной панели в Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![Завершение входа в приложение информационной панели в Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *Рис. 17. RealtimeDashboardApp: вход в Power BI*
 

@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: bd3aea04266baebbba1b953d5a2b7c4b2fb41a87
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8d8743529f4f0b9e8c036d328d63bea247279fe3
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -29,11 +29,11 @@ ms.lasthandoff: 03/28/2017
 > Активная георепликация (с доступными для чтения базами данных-получателями) теперь доступна для всех баз данных и всех уровней обслуживания. В апреле 2017 года недоступные для чтения базы данных-получатели будут удалены, и существующие недоступные для чтения базы данных будут автоматически преобразованы в доступные для чтения базы данных-получатели.
 >  
 
- Активную георепликацию можно настроить с помощью [портала Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md) или [REST API (создания или обновления базы данных)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+ Активную георепликацию можно настроить с помощью [портала Azure](sql-database-geo-replication-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md) или [REST API (создания или обновления базы данных)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 Если по какой-либо причине произойдет сбой вашей базы данных-источника (или вам просто потребуется перевести ее в автономный режим), вы можете выполнить *отработку отказа* на любую из доступных баз данных-получателей. При активации отработки отказа в одной из баз данных-получателей все прочие получатели автоматически связываются с новой базой данных-источником.
 
-Отработку отказа на базу данных-получатель можно выполнить с помощью [портала Azure](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API (плановой отработки отказа)](https://msdn.microsoft.com/library/mt575007.aspx) или [REST API (внеплановой отработки отказа)](https://msdn.microsoft.com/library/mt582027.aspx).
+Отработку отказа на базу данных-получатель можно выполнить с помощью [портала Azure](sql-database-geo-replication-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API (плановой отработки отказа)](https://msdn.microsoft.com/library/mt575007.aspx) или [REST API (внеплановой отработки отказа)](https://msdn.microsoft.com/library/mt582027.aspx).
 
 После отработки отказа убедитесь, что для новой базы данных-источника настроены требования аутентификации ваших сервера и базы данных. Дополнительные сведения см. в разделе [Безопасность базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md).
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 03/28/2017
 ## <a name="programmatically-managing-active-geo-replication"></a>Программное управление активной георепликацией
 Как уже говорилось ранее, активной георепликацией можно также управлять программно с помощью Azure PowerShell и REST API. В приведенных ниже таблицах описан доступный для этого набор команд.
 
-* **API Azure Resource Manager и безопасность на основе ролей**. Активная георепликация включает в себя набор [интерфейсов API Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) для управления, в том числе [командлеты PowerShell для Azure Resource Manager](sql-database-geo-replication-powershell.md). Эти интерфейсы API требуют использования групп ресурсов и поддерживают безопасность на основе ролей (RBAC). Дополнительные сведения о том, как реализовать контроль доступа на основе ролей, см. в статье [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md).
+* **API Azure Resource Manager и безопасность на основе ролей**. Активная георепликация включает в себя набор [интерфейсов API Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) для управления, в том числе [командлеты PowerShell для Azure Resource Manager](scripts/sql-database-setup-geodr-and-failover-database-powershell.md). Эти интерфейсы API требуют использования групп ресурсов и поддерживают безопасность на основе ролей (RBAC). Дополнительные сведения о том, как реализовать контроль доступа на основе ролей, см. в статье [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
 > Многие новые функции активной георепликации поддерживаются только в [REST API SQL Azure](../azure-resource-manager/resource-group-overview.md) и [командлетах PowerShell базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) на основе [Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt574084.aspx). [Классический REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) и [командлеты базы данных SQL Azure (классическая модель)](https://msdn.microsoft.com/library/azure/dn546723.aspx) поддерживаются для обратной совместимости, поэтому рекомендуется использовать интерфейсы API на основе Azure Resource Manager. 

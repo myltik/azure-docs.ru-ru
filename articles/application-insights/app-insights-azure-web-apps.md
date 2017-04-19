@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 8d9d39d63209b8ab6884ddeff569687b55591f95
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: c6f25b8cf8c133f44644db1507958b2176efa230
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -107,7 +107,7 @@ ms.lasthandoff: 04/07/2017
 * [Включите отправку данных диагностики Azure](app-insights-azure-diagnostics.md) в Application Insights.
 * [Отслеживайте метрики состояния службы](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md), чтобы убедиться, что служба доступна и отвечает на запросы.
 * [Получайте уведомления](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) при возникновении операционных событий или превышении пороговых значений метрик.
-* Используйте [расширение Application Insights для приложений JavaScript и веб-страниц](app-insights-web-track-usage.md) , чтобы получать данные телеметрии клиентов из браузеров, которые используются для открытия веб-страницы.
+* Используйте [расширение Application Insights для приложений JavaScript и веб-страниц](app-insights-javascript.md) , чтобы получать данные телеметрии клиентов из браузеров, которые используются для открытия веб-страницы.
 * [Настройте веб-тесты доступности](app-insights-monitor-web-app-availability.md) , чтобы получать уведомления о сбоях в работе сайта.
 
 

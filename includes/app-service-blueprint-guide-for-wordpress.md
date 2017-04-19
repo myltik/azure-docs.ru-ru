@@ -6,7 +6,7 @@
 * [Deploy a WordPress web app backend with MySQL replication cluster](/documentation/templates/wordpress-mysql-replication/)
 * [Build your own Master-Master MySQL Cluster using Percona Cluster](/documentation/templates/mysql-ha-pxc/) (Создание собственного кластера "ведущий — ведущий" в MySQL с помощью кластера Percona) и [дополнительные сведения об управлении кластером](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 * [Deploy WordPress backend by MySQL replication cluster with master-slave configuration](/documentation/templates/mysql-replication/)
-* [Deploy a WordPress app backend by SQL Azure DB managed by ProjectNami](/marketplace/partners/projectnami/projectnami/)
+* [Deploy a WordPress app backend by SQL Azure DB managed by ProjectNami](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ProjectNami.ProjectNami?tab=Overview)
 
 ## <a name="troubleshooting-wordpress-application"></a>Устранение неполадок в приложении WordPress
 * [Способы устранения неполадок в приложении WordPress](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
@@ -24,9 +24,4 @@
 * [Использование подключаемого модуля Supercache для ускорения работы приложения WordPress](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
 * [Кэширование сервера с помощью кэширования вывода IIS](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
 * [Включение кэширования браузера для статического содержимого](http://www.iis.net/configreference/system.webserver/staticcontent)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
