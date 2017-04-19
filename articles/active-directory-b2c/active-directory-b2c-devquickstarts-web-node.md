@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/10/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 443516838190ccad408bc2b3b6b63513b3a3041e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a4d9394983539da52105bda6cf06273205f8b0ad
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -40,9 +40,6 @@ ms.lasthandoff: 03/15/2017
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 Готовое приложение приводится в конце этого руководства.
-
-> [!WARNING]
-Теперь используйте для сервера задач веб-API и для клиента, который к нему подключается, один и тот же **идентификатор клиента** / или **идентификатор приложения** и те же политики. Это также верно для руководств по iOS и Android. Если ранее вы создали приложение, следуя инструкциям одного из этих руководств, используйте готовые значения. Новые создавать не нужно.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Создание каталога Azure AD B2C
 

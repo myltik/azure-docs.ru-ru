@@ -4,7 +4,7 @@ description: "Ресурсы-контейнеры учетных данных с
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 3209bf73-c208-425e-82b6-df49860546dd
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 04/14/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: afb6662e1b4af6cf66fd3c8e7b155b5b6bea85ff
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 17b4dc2223d30ef13877efc650b56268b707c4bd
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -88,7 +89,7 @@ ms.openlocfilehash: afb6662e1b4af6cf66fd3c8e7b155b5b6bea85ff
 
 ![Добавление учетных данных на холст](media/automation-credentials/credential-add-canvas.png)
 
-На следующем рисунке показан пример использования учетных данных в графическом Runbook.  В этом случае они используются для аутентификации Runbook для доступа к ресурсам Azure, как описано в разделе [Authenticate Runbooks with Azure AD User account](automation-sec-configure-aduser-account.md)(Проверка подлинности модулей Runbook с помощью учетной записи пользователя Azure AD).  Первое действие получает учетные данные с доступом к подписке Azure.  Затем действие **Add-AzureAccount** использует эти учетные данные для аутентификации любых последующих действий.  Здесь используется [конвейерная связь](automation-graphical-authoring-intro.md#links-and-workflow) , так как **Get-AutomationPSCredential** ожидает один объект.  
+На следующем рисунке показан пример использования учетных данных в графическом Runbook.  В этом случае они используются для аутентификации Runbook для доступа к ресурсам Azure, как описано в разделе [Authenticate Runbooks with Azure AD User account](automation-create-aduser-account.md)(Проверка подлинности модулей Runbook с помощью учетной записи пользователя Azure AD).  Первое действие получает учетные данные с доступом к подписке Azure.  Затем действие **Add-AzureAccount** использует эти учетные данные для аутентификации любых последующих действий.  Здесь используется [конвейерная связь](automation-graphical-authoring-intro.md#links-and-workflow) , так как **Get-AutomationPSCredential** ожидает один объект.  
 
 ![Добавление учетных данных на холст](media/automation-credentials/get-credential.png)
 
@@ -100,10 +101,5 @@ ms.openlocfilehash: afb6662e1b4af6cf66fd3c8e7b155b5b6bea85ff
 * Сведения о различных методах аутентификации в службе автоматизации см. в статье [Обеспечение безопасности в службе автоматизации Azure](automation-security-overview.md).
 * Чтобы начать работу с графическими модулями Runbook, см. инструкции в статье [Первый графический Runbook](automation-first-runbook-graphical.md).
 * Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Мой первый модуль Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md) 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -50,7 +50,7 @@
 ### [Рекомендации по обеспечению безопасности Интернета вещей](../iot-suite/iot-security-best-practices.md)
 
 ## Архитектура безопасности
-### [Классификация данных](azure-security-data-classification.md)
+### [Классификация данных](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
 ### [Аварийное восстановление и высокая доступность для приложений на платформе Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # Сопутствующие материалы

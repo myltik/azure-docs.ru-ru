@@ -26,7 +26,9 @@
 ## Связывание виртуальной сети с каналом ExpressRoute
 ### [Портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-## [Настройка шлюза виртуальной сети для ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)
+## Настройка шлюза виртуальной сети для ExpressRoute
+### [Портал Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Настройка параллельных подключений ExpressRoute и "сеть — сеть"](expressroute-howto-coexist-resource-manager.md)
 ## [Перемещение каналов из классического развертывания в развертывание с помощью Resource Manager](expressroute-howto-move-arm.md)
 ## [Перенос связанных виртуальных сетей из классической модели развертывания в модель развертывания Resource Manager](expressroute-migration-classic-resource-manager.md)

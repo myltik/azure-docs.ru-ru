@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6ed35ca1b83f5f7221824d99817800c1e42e68c1
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 51e4665b6372859021237144a0bf7f6763a2638b
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -55,7 +55,7 @@ ms.lasthandoff: 04/12/2017
    > Если параметр **Изменить пароль** не отображается в окне панели доступа, убедитесь, что для вашей организации настроено [управление паролями в Azure AD](../active-directory/active-directory-passwords-getting-started.md).
    >
    >
-4. На странице **изменения пароля** введите старый пароль, затем введите новый пароль и подтвердите его. 
+4. На странице **изменения пароля** введите старый пароль, затем введите новый пароль и подтвердите его.
 
     ![Создание виртуальной сети для доменных служб Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/12/2017
 Новый пароль вступает в силу в доменных службах Azure Active Directory через несколько минут после изменения. Входить на компьютеры, подключенные к управляемому домену, с помощью нового пароля можно через некоторое время (обычно это 20 минут).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Как изменить свой пароль](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password)
+* [Как изменить свой пароль](../active-directory/active-directory-passwords-update-your-own-password.md#reset-my-password)
 * [Приступая к работе с компонентами управления паролями](../active-directory/active-directory-passwords-getting-started.md)
 * [Включение синхронизации паролей с доменными службами Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Администрирование управляемого домена доменных служб Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)

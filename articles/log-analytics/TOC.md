@@ -48,6 +48,7 @@
 ### [Решение по управлению оповещениями](log-analytics-solution-alert-management.md)
 ## Использование решений
 ### [Обзор решений](log-analytics-add-solutions.md)
+### [Анализ журнала действий](log-analytics-activity.md)
 ### [Оценка AD](log-analytics-ad-assessment.md)
 ### [Состояние репликации AD](log-analytics-ad-replication-status.md)
 ### [Управление оповещениями](log-analytics-solution-alert-management.md)

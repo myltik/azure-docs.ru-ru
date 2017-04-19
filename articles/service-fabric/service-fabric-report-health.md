@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: oanapl
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d986275612b3e5c97636936a5e448dd6d0fcfc4e
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 0e8152e2c26cdb8f1dd96eca781f8e22ca15d9b2
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/17/2016
 > 
 > 
 
-Если схема отчетности определена, отправлять отчеты о работоспособности очень просто. Для отправки отчетов о работоспособности можно использовать [FabricClient](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.aspx), если кластер не является [безопасным](service-fabric-cluster-security.md) или клиент Service Fabric имеет привилегии администратора. Это можно сделать через API с помощью [FabricClient.HealthManager.ReportHealth](https://msdn.microsoft.com/library/system.fabric.fabricclient.healthclient.reporthealth.aspx), через PowerShell или REST. Повысить производительность можно с помощью настройки пакетных отчетов.
+Если схема отчетности определена, отправлять отчеты о работоспособности очень просто. Для отправки отчетов о работоспособности можно использовать [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient), если кластер не является [безопасным](service-fabric-cluster-security.md) или клиент Service Fabric имеет привилегии администратора. Это можно сделать через API с помощью [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), через PowerShell или REST. Повысить производительность можно с помощью настройки пакетных отчетов.
 
 > [!NOTE]
 > Отчеты о работоспособности синхронизированы, и они отображают только проверку на стороне клиента. Когда отчет принимается клиентом работоспособности или объектами `Partition` или `CodePackageActivationContext`, он не сразу попадает в хранилище. Он будет отправлен асинхронно и, возможно, объединен с другими отчетами. Возможно, обработка отчета на сервере не будет выполнена (из-за устаревшего порядкового номера, из-за удаления сущности, к которой должен применяться отчет, и т. д.).
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/17/2016
 > 
 
 Буферизация на клиенте выполняется с учетом уникальности отчетов. Например, если какой-либо неисправный информатор отправляет 100 отчетов в секунду для одного свойства одной сущности, будет использоваться только последняя версия отчета. В очереди клиента существует только один такой отчет. Если настроена пакетная обработка, в хранилище данных о работоспособности за один интервал отправки будет отправляться только один отчет. Используется последний добавленный отчет, который отображает актуальное состояние сущности.
-Все параметры настройки можно указать при создании `FabricClient`. Для этого необходимо передать объект [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) с нужными значениями параметров, связанных с работоспособностью.
+Все параметры настройки можно указать при создании `FabricClient`. Для этого необходимо передать объект [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) с нужными значениями параметров, связанных с работоспособностью.
 
 В следующем примере создается клиент Service Fabric, отчеты которого должны отправляться сразу после их добавления. Если при повторных попытках возникают ошибки или превышено время ожидания, попытки повторяются каждые 40 секунд.
 
@@ -117,12 +117,12 @@ GatewayInformation   : {
 ## <a name="report-from-within-low-privilege-services"></a>Создание отчета из служб с низким уровнем привилегий
 В службах Service Fabric, которые не имеют административного доступа к кластеру, можно передать сведения о работоспособности для записей из текущего контекста с помощью `Partition` или `CodePackageActivationContext`.
 
-* Для служб без отслеживания состояния используйте [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) , чтобы сформировать отчет о текущем экземпляре службы.
-* Для служб с отслеживанием состояния используйте [IStatefulServicePartition.ReportReplicaHealth](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.reportreplicahealth.aspx) , чтобы сформировать отчет о текущей реплике.
-* Используйте [IServicePartition.ReportPartitionHealth](https://msdn.microsoft.com//library/system.fabric.iservicepartition.reportpartitionhealth.aspx) для создания отчетов о текущей сущности секции.
-* Используйте [CodePackageActivationContext.ReportApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportapplicationhealth.aspx) для формирования отчета о текущем приложении.
-* Используйте [CodePackageActivationContext.ReportDeployedApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth.aspx) для создания отчетов о текущем приложении, развернутом на текущем узле.
-* Используйте [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth.aspx) для создания отчетов о пакете службы для текущего приложения, развернутого на текущем узле.
+* Для служб без отслеживания состояния используйте [IStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) , чтобы сформировать отчет о текущем экземпляре службы.
+* Для служб с отслеживанием состояния используйте [IStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) , чтобы сформировать отчет о текущей реплике.
+* Используйте [IServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) для создания отчетов о текущей сущности секции.
+* Используйте [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) для формирования отчета о текущем приложении.
+* Используйте [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) для создания отчетов о текущем приложении, развернутом на текущем узле.
+* Используйте [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) для создания отчетов о пакете службы для текущего приложения, развернутого на текущем узле.
 
 > [!NOTE]
 > На внутреннем уровне `Partition` и `CodePackageActivationContext` содержат клиент работоспособности, который настроен с параметрами по умолчанию. Применяются те же соображения, что и для [клиента работоспособности](service-fabric-report-health.md#health-client) — отчеты объединяются в пакеты и отправляются по таймеру, поэтому объекты должны поддерживаться в рабочем режиме для отправки отчета.
@@ -291,7 +291,7 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Чтобы отправить отчет о работоспособности с помощью REST, создайте запрос POST и передайте его в нужную сущность, включив в тело запроса описание отчета о работоспособности. Ознакомьтесь с примерами отправки [отчетов о работоспособности кластера](https://msdn.microsoft.com/library/azure/dn707640.aspx) и [отчетов о работоспособности службы](https://msdn.microsoft.com/library/azure/dn707640.aspx) с помощью интерфейса REST. Поддерживаются все сущности.
+Чтобы отправить отчет о работоспособности с помощью REST, создайте запрос POST и передайте его в нужную сущность, включив в тело запроса описание отчета о работоспособности. Ознакомьтесь с примерами отправки [отчетов о работоспособности кластера](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) и [отчетов о работоспособности службы](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service) с помощью интерфейса REST. Поддерживаются все сущности.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 На основе данных о работоспособности создатели служб и администраторы кластеров или приложений могут решить, как использовать полученные сведения. Например, они могут настроить оповещения на основе состояния работоспособности для выявления серьезных проблем, которые могут вызвать простои. Кроме того, администраторы могут настроить системы восстановления, чтобы устранять неполадки автоматически.

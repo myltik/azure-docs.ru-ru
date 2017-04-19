@@ -4,7 +4,7 @@ description: "Как получить клиент Azure Active Directory для
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: terrylan
+manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
 3. Вы автоматически войдете в каталог по умолчанию. В противном случае, чтобы сменить каталог, щелкните имя своей учетной записи в правом верхнем углу.
 4. В разделе **Быстрые задачи** выберите **Добавить пользователя**.
 5. В форме добавления пользователя введите следующие данные:
-   
+
    * имя — выберите соответствующие значения;
    * «Имя пользователя» — выберите имя пользователя для этого администратора;
    * профиль — введите соответствующие значения в полях имени, фамилии, должности и подразделения;
@@ -57,16 +58,10 @@ ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
 8. Чтобы изменить временный пароль, войдите на сайт [https://login.microsoftonline.com](https://login.microsoftonline.com), используя учетную запись нового пользователя, и измените пароль по запросу.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Использование подписки организации Azure
-Если вы уже ранее выполнили подписку Azure с помощью своей учетной записи организации, у вас уже есть клиент!  Его можно найти на [портале Azure](https://portal.azure.com), выбрав "Больше служб" и Azure Active Directory.  Вы можете использовать этот клиент по своему усмотрению. 
+Если вы уже ранее выполнили подписку Azure с помощью своей учетной записи организации, у вас уже есть клиент!  Его можно найти на [портале Azure](https://portal.azure.com), выбрав "Больше служб" и Azure Active Directory.  Вы можете использовать этот клиент по своему усмотрению.
 
 ## <a name="start-from-scratch"></a>Создание клиента с нуля
 Если вам не понятно ничего из указанного выше, не беспокойтесь.  Просто перейдите по адресу [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) , чтобы подписаться на Azure для новой организации.  После выполнения процесса вы получите собственный клиент Azure AD с доменным именем, выбранным во время подписки.  Его можно найти на [портале Azure](https://portal.azure.com) в разделе Azure Active Directory, расположенном на панели навигации слева.
 
 При регистрации для получения подписки Azure вам потребуется предоставить информацию о кредитной карте.  Не беспокойтесь, плата за публикацию приложений в Azure AD или создание новых клиентов не взимается.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

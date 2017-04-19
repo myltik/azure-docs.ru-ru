@@ -4,7 +4,7 @@ description: "В этой статье показано, как автомати
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/13/2017
+ms.date: 04/14/2017
 ms.author: tiandert; bwren
 translationtype: Human Translation
-ms.sourcegitcommit: ff1acafaacc40dd8a04b008df7cd479c811a7af0
-ms.openlocfilehash: 62b6c09f749aa36307206e23d36bd86b5b8ce455
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e0b784006b4933fe986890c09afa965934511784
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 62b6c09f749aa36307206e23d36bd86b5b8ce455
 В этой статье мы покажем, как с помощью службы автоматизации Azure подготовить виртуальную машину в подписке Amazon Web Service (AWS) и присвоить виртуальной машине конкретное имя, которое в AWS называется "тегом" виртуальной машины.
 
 ## <a name="prerequisites"></a>Предварительные требования
-Для выполнения инструкций из этой статьи вам понадобится учетная запись службы автоматизации Azure и подписка AWS. Дополнительные сведения о настройке учетной записи службы автоматизации Azure и об указании в ней учетных данных подписки AWS см. в статье [Проверка подлинности модулей Runbook с помощью Amazon Web Services](automation-sec-configure-aws-account.md).  Перед выполнением дальнейших действий необходимо создать эту учетную запись с учетными данными подписки AWS или указать в ней эти учетные данные.
+Для выполнения инструкций из этой статьи вам понадобится учетная запись службы автоматизации Azure и подписка AWS. Дополнительные сведения о настройке учетной записи службы автоматизации Azure и об указании в ней учетных данных подписки AWS см. в статье [Проверка подлинности модулей Runbook с помощью Amazon Web Services](automation-configure-aws-account.md).  Перед выполнением дальнейших действий необходимо создать эту учетную запись с учетными данными подписки AWS или указать в ней эти учетные данные.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Развертывание модуля PowerShell для Amazon Web Services
 В процессе работы наш модуль Runbook для подготовки виртуальной машины будет использовать модуль PowerShell для AWS. Выполните следующие действия, чтобы добавить в учетную запись службы автоматизации модуль, настроенный с учетными данными подписки AWS.  
@@ -113,10 +114,5 @@ ms.openlocfilehash: 62b6c09f749aa36307206e23d36bd86b5b8ce455
 * Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Мой первый модуль Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
 * Чтобы получить дополнительные сведения о типах модулей Runbook, их преимуществах и ограничениях, обратитесь к статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md)
 * Дополнительные сведения о функции поддержки скриптов PowerShell см. в статье [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Встроенная поддержка скриптов PowerShell в службе автоматизации Azure).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

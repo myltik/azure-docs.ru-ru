@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/04/2017
 ms.author: dekapur
 translationtype: Human Translation
-ms.sourcegitcommit: bb93d4dac1853a317bbd6ac70946753f35be264e
-ms.openlocfilehash: bc1dd1d2c378e628094fe717d9c89298aca1f7b4
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: e2b969151876fac34b2a5c05ce050ee6b51004d0
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/06/2017
 
 Существует три способа, с помощью которых служба может сообщить о своей работоспособности:
 
-* С помощью объектов [Partition](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.aspx) или [CodePackageActivationContext](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.aspx).  
+* С помощью объектов [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) или [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext).  
   Используйте объекты `Partition` и `CodePackageActivationContext`, чтобы сообщить сведения о работоспособности элементов, которые являются частью текущего контекста. Например, код, выполняемый в рамках реплики, может передать сведения о работоспособности только для этой реплики, раздела, к которому она принадлежит, и приложения, частью которого она является.
 * C помощью `FabricClient`.   
   `FabricClient` можно использовать для передачи сведений о работоспособности из кода службы в том случае, если кластер не является [безопасным](service-fabric-cluster-security.md) или если служба запущена с правами администратора. В большинстве реальных сценариев это не так. С помощью `FabricClient`можно отправлять сведения о работоспособности для любой сущности, которая является частью кластера. Но в идеале код службы должен сообщать только о работоспособности самой службы.

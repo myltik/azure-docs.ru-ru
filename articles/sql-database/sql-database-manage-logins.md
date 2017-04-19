@@ -10,7 +10,7 @@ editor:
 tags: 
 ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,8 +18,9 @@ ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 5eccb4705cd6c8f6170a48f3b3591518688651f1
-ms.openlocfilehash: c3a45973a04d5082bee777a98f8204ceedc888a5
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: f29b2c1da0d9b761634370f5f08ea942b66d9f1f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -56,10 +57,8 @@ ms.openlocfilehash: c3a45973a04d5082bee777a98f8204ceedc888a5
 - Эти учетные записи могут добавлять и удалять членов в ролях `dbmanager` и `loginmanager`.
 - Эти учетные записи могут просматривать системную таблицу `sys.sql_logins`.
 
-
-
 ### <a name="configuring-the-firewall"></a>Настройка брандмауэра
-Если брандмауэр на уровне сервера настроен для отдельного IP-адреса или диапазона IP-адресов, то **администратор SQL Server** и **администратор Azure Active Directory** смогут подключаться к базе данных master и всем пользовательским базам данных. Первоначальный брандмауэр уровня сервера можно настроить на [портале Azure](sql-database-configure-firewall-settings.md), с помощью [PowerShell](sql-database-configure-firewall-settings-powershell.md) или [REST API](sql-database-configure-firewall-settings-rest.md). После подключения также можно настроить дополнительные правила брандмауэра уровня сервера с помощью инструкции [Transact-SQL](sql-database-configure-firewall-settings-tsql.md).
+Если брандмауэр на уровне сервера настроен для отдельного IP-адреса или диапазона IP-адресов, то **администратор SQL Server** и **администратор Azure Active Directory** смогут подключаться к базе данных master и всем пользовательским базам данных. Первоначальный брандмауэр уровня сервера можно настроить на [портале Azure](sql-database-get-started-portal.md), с помощью [PowerShell](sql-database-get-started-powershell.md) или [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). После подключения также можно настроить дополнительные правила брандмауэра уровня сервера с помощью инструкции [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Путь доступа администратора
 При правильной настройке брандмауэра на уровне сервера **администратор SQL Server** и **администратор Azure Active Directory** смогут подключаться с помощью таких клиентских средств, как SQL Server Management Studio или SQL Server Data Tools. Все функции и возможности доступны только в последних версиях средств. На схеме ниже показана типичная конфигурация для двух учетных записей администраторов.
@@ -69,7 +68,7 @@ ms.openlocfilehash: c3a45973a04d5082bee777a98f8204ceedc888a5
 При использовании открытого порта брандмауэра серверного уровня администраторы могут подключаться к любой базе данных SQL.
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Подключение к базе данных с помощью SQL Server Management Studio
-Пошаговые инструкции по созданию сервера, базы данных, правил брандмауэра на уровне сервера и использованию SQL Server Management Studio для отправки запросов к базе данных см. в руководстве [Начало работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure и SQL Server Management Studio](sql-database-get-started.md).
+Пошаговые инструкции по созданию сервера, базы данных, правил брандмауэра на уровне сервера и использованию SQL Server Management Studio для отправки запросов к базе данных см. в руководстве [Начало работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure и SQL Server Management Studio](sql-database-get-started-portal.md).
 
 > [!IMPORTANT]
 > Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -196,9 +195,4 @@ GRANT ALTER ANY USER TO Mary;
 - Сведения о предоставлении доступа к объекту базы данных см. в [этой статье](https://msdn.microsoft.com/library/ms365327.aspx).
 - Сведения об использовании аутентификации SQL Server см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md).
 - Сведения об использовании аутентификации Azure Active Directory см. в статье [Руководство по базам данных SQL: доступ с аутентификацией Azure AD и правила брандмауэра уровня базы данных](sql-database-control-access-aad-authentication-get-started.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

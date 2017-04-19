@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 629fa1cc52963a844ee3bd7f8031ef2e5c340ae5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: 66d7b336e0e962069bd702b941b87d1127b86e40
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="deploying-password-management-and-training-users-to-use-it"></a>Развертывание компонентов управления паролями и обучение пользователей их использованию
 > [!IMPORTANT]
-> **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -144,8 +144,8 @@ ms.lasthandoff: 03/28/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#reset-your-password).
-* [**Как работает управление паролями**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
+* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md#reset-my-password).
+    * [**Как работает управление паролями**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
 * [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
 * [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
 * [**Аналитика**](active-directory-passwords-get-insights.md) — узнайте об интегрированных функциях отчетности.
