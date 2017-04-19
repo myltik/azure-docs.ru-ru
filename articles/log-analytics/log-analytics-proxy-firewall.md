@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 04/12/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
-ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: cc3ff1ca5e638896df155b55145b300f70f7540a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -41,7 +41,6 @@ ms.lasthandoff: 02/10/2017
 | \*.oms.opinsights.azure.com |443 |Да |
 | \*.blob.core.windows.net |443 |Да |
 | \*.azure-automation.net |443 |Да |
-| ods.systemcenteradvisor.com |443 | |
 
 Далее описано, как настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью панели управления. Эту процедуру необходимо использовать для каждого сервера. Если вам нужно настроить несколько серверов, возможно, проще использовать скрипт для автоматизации этого процесса. Далее описано, [как настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью скрипта](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
@@ -102,7 +101,6 @@ ms.lasthandoff: 02/10/2017
 | \*.ods.opinsights.azure.com |443 |
 | \*.oms.opinsights.azure.com |443 |
 | \*.blob.core.windows.net/\* |443 |
-| ods.systemcenteradvisor.com |443 |
 
 <br>
 Список ресурсов и портов сервера управления:<br>
@@ -112,8 +110,6 @@ ms.lasthandoff: 02/10/2017
 | service.systemcenteradvisor.com |443 | |
 | \*.service.opinsights.azure.com |443 | |
 | \*.blob.core.windows.net |443 |Да |
-| data.systemcenteradvisor.com |443 | |
-| ods.systemcenteradvisor.com |443 | |
 | \*.ods.opinsights.azure.com |443 |Да |
 | \*.azure-automation.net |443 |Да |
 
