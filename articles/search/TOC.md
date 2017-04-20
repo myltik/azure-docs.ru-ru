@@ -18,6 +18,7 @@
 ## [Обработка результатов поиска](search-pagination-page-layout.md)
 ## Руководства
 ### [.NET](search-howto-dotnet-sdk.md)
+### [Предварительный просмотр синонимов .NET](search-synonyms-tutorial-sdk.md)
 ### [Портал](search-get-started-portal.md)
 ### [NodeJS](search-get-started-nodejs.md)
 ### [Java](search-get-started-java.md)
@@ -48,7 +49,7 @@
 ### [Индексация больших двоичных объектов JSON](search-howto-index-json-blobs.md)
 ### [Настройка подключений индексатора к SQL Server на виртуальной машине Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Сопоставление полей в индексаторах](search-indexer-field-mappings.md)
-##  Поиск 
+##  Поиск
 ### [Принцип работы полнотекстового поиска](search-lucene-query-architecture.md)
 ### Построение запросов
 #### [Простой синтаксис запросов](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
@@ -61,6 +62,7 @@
 ### [Профили повышения](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Предложения](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Фасетная навигация](search-faceted-navigation.md)
+### [Предварительный просмотр синонимов](search-synonyms.md)
 
 # Справочные материалы
 ## [.NET](/dotnet/api/microsoft.azure.search)

@@ -2,16 +2,10 @@
 ## [Что такое Operations Management Suite?](operations-management-suite-overview.md)
 ## [Архитектура OMS](operations-management-suite-architecture.md)
 
-# Приступая к работе
-## Информация и аналитика
-### [Регистрация в службе Log Analytics](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Автоматизация и контроль
-### [Мой первый Runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Защита и восстановление
-### [Общие сведения о службе архивации Azure](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Безопасность и соответствие требованиям
-### [Безопасность и аудит](oms-security-getting-started.md)
-### [Защита данных](oms-security-data-security.md)
+# Начало работы
+## Пошаговые руководства
+### [Схема услуги](operations-management-suite-walkthrough-servicemap.md)
+
 
 # Практическое руководство
 

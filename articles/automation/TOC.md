@@ -1,17 +1,20 @@
 # Обзор
 ## [Что такое служба автоматизации Azure?](automation-intro.md)
 # Начало работы
+## [Начало работы со службой автоматизации Azure](automation-offering-get-started.md)
 ## Руководство по модулям Runbook
 ### [Создание графического модуля Runbook](automation-first-runbook-graphical.md)
 ### [Создание модуля Runbook PowerShell](automation-first-runbook-textual-powershell.md)
 ### [Создание модуля Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
 # Практическое руководство
 ## Проверка подлинности и безопасность
-### [Проверка подлинности в службе автоматизации Azure](automation-security-overview.md)
-### [Настройка учетной записи запуска от имени Azure](automation-sec-configure-azure-runas-account.md)
-### [Настройка учетной записи пользователя Azure AD](automation-sec-configure-aduser-account.md)
-### [Настройка проверки подлинности с помощью AWS](automation-sec-configure-aws-account.md)
+### [Создание автономной учетной записи службы автоматизации](automation-create-standalone-account.md)
+### [Создание учетной записи пользователя Azure AD](automation-create-aduser-account.md)
+### [Настройка проверки подлинности с помощью AWS](automation-config-aws-account.md)
+### [Создание учетной записи запуска от имени Azure с помощью PowerShell](automation-update-account-powershell.md)
+### [Проверка настройки учетной записи службы автоматизации](automation-verify-runas-authentication.md)
 ### [Управление доступом на основе ролей](automation-role-based-access-control.md)
+### [Управление учетной записью службы автоматизации](automation-manage-account.md)
 ## Создание модулей Runbook
 ### [Типы Runbook](automation-runbook-types.md)
 ### [Создание и импорт модулей Runbook](automation-creating-importing-runbook.md)
@@ -71,7 +74,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell (классическая модель)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
-## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST](/rest/api/automation)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/azure/mt163781)
 # Ресурсы
 ## [Заметки о выпуске](https://azure.microsoft.com/updates/?product=automation)

@@ -28,7 +28,6 @@
 ## Использование Hadoop для пакетных запросов
 ### [Использование Hive с Hadoop](hdinsight-use-hive.md)
 #### [Использование представления Hive](hdinsight-hadoop-use-hive-ambari-view.md)
-#### [Использование протокола SSH](hdinsight-hadoop-use-hive-ssh.md)
 #### [Использование Beeline](hdinsight-hadoop-use-hive-beeline.md)
 #### [Использование cURL](hdinsight-hadoop-use-hive-curl.md)
 #### [Использование PowerShell](hdinsight-hadoop-use-hive-powershell.md)
@@ -109,6 +108,7 @@
 ### [Использование со Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Использование со Storm](hdinsight-apache-storm-with-kafka.md)
 ## Разработка
+### [Разработка программ MapReduce для потоковой передачи на C#](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Разработка программ Java MapReduce](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Разработка заданий Scalding MapReduce](hdinsight-hadoop-mapreduce-scalding.md)
 ### [Использование инструментов HDInsight для создания приложений Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -199,6 +199,7 @@
 # Сопутствующие материалы
 ## Кластеры Windows
 ### [Перенос кластеров Windows в кластеры Linux](hdinsight-migrate-from-windows-to-linux.md)
+### [Перенос решений .NET в кластеры Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 ### [Запуск примеров Hadoop MapReduce](hdinsight-run-samples.md)
 ### [Использование Solr в кластерах](hdinsight-hadoop-solr-install-linux.md)
 ### [Использование Giraph для обработки крупномасштабных графов](hdinsight-hadoop-giraph-install.md)

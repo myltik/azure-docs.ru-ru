@@ -25,6 +25,16 @@
 ### [командлеты PowerShell для пакетной службы;](batch-powershell-cmdlets-get-started.md)
 ### [Интерфейс командной строки Azure](batch-cli-get-started.md)
 ### [Журналы диагностики пакетной службы](batch-diagnostics.md)
+### [Пакетная аналитика](batch-analytics.md)
+#### [Событие создания пула](batch-pool-create-event.md)
+#### [Событие начала удаления пула](batch-pool-delete-start-event.md)
+#### [Событие завершения удаления пула](batch-pool-delete-complete-event.md)
+#### [Событие начала изменения размера пула](batch-pool-resize-start-event.md)
+#### [Событие завершения изменения размера пула](batch-pool-resize-complete-event.md)
+#### [Событие начала выполнения задачи](batch-task-start-event.md)
+#### [Событие завершения выполнения задачи](batch-task-complete-event.md)
+#### [Событие сбоя выполнения задачи](batch-task-fail-event.md)
+### [Переменные среды вычислительного узла пакетной службы Azure](batch-compute-node-environment-variables.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)

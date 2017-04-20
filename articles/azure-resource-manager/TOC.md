@@ -14,12 +14,15 @@
 ## Создание шаблонов
 ### [Рекомендации по работе с шаблонами](resource-manager-template-best-practices.md)
 ### [Разделы шаблона](resource-group-authoring-templates.md)
+### [Использование ссылок на другие шаблоны](resource-group-linked-templates.md)
 ### [Определение зависимости между ресурсами](resource-group-define-dependencies.md)
+### Цикл копирования для создания нескольких экземпляров
+#### [Базовый синтаксис](resource-group-create-multiple.md)
+#### [Последовательный цикл](resource-manager-sequential-loop.md)
+#### [Копирование свойства](resource-manager-property-copy.md)
 ### [Определение расположения](resource-manager-template-location.md)
 ### [Присвоение тегов](resource-manager-template-tags.md)
 ### [Настройка имени и типа дочернего ресурса](resource-manager-template-child-resource.md)
-### [Создание нескольких экземпляров типа ресурса](resource-group-create-multiple.md)
-### [Использование ссылок на другие шаблоны](resource-group-linked-templates.md)
 ### [Обмен данными о состоянии между связанными шаблонами](best-practices-resource-manager-state.md)
 ### [Схемы проектирования шаблонов](best-practices-resource-manager-design-templates.md)
 ## Развернуть

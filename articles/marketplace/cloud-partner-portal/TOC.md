@@ -23,7 +23,7 @@
 ### [Удаление предложения виртуальной машины или номера SKU](./cloud-partner-portal-delete-an-offer.md)
 ### [Переход на облачный портал для партнеров](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 
-## [Управление потенциальными клиентами и маркетинг](../../cloud-partner-portal/cloud-partner-portal-marketing-lead-management.md)
+## [Получение сведений о потенциальных заказчиках](./cloud-partner-portal-get-customer-leads.md)
 ### [Таблица Azure](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-azure-table.md)
 ### [Dynamics CRM Online](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-dynamics.md)
 ### [Salesforce](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-salesforce.md)
@@ -31,5 +31,4 @@
 
 ## [Управление профилем издателя](./cloud-partner-portal-manage-publisher-profile.md)
 ## [Управление пользователями](./cloud-partner-portal-manage-users.md)
-## [Отправка отзывов](./cloud-partner-portal-give-feedback.md)
 ## [Получение поддержки](./cloud-partner-portal-support-for-cloud-partner-portal.md)

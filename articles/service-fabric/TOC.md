@@ -5,7 +5,7 @@
 ## [Сценарии приложений](service-fabric-application-scenarios.md)
 ## [Архитектура](service-fabric-architecture.md)
 ## [Терминология](service-fabric-technical-overview.md)
-## [Дорожная карта для содержимого](service-fabric-content-roadmap.md)
+## [Руководство](service-fabric-content-roadmap.md)
 
 # Начало работы
 ## Настройка среды разработки
@@ -17,9 +17,10 @@
 ### [Java в Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# в Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Развертывание приложений в локальном кластере](service-fabric-get-started-with-a-local-cluster.md)
-## [Создание изолированного кластера](service-fabric-get-started-standalone-cluster.md)
+## [Создание первого кластера в Azure](service-fabric-get-started-azure-cluster.md)
+## [Создание первого автономного кластера](service-fabric-get-started-standalone-cluster.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## Создание приложения
 ### [Примеры и сценарии](service-fabric-patterns-and-scenarios.md)
 ### Основы
@@ -124,7 +125,6 @@
 #### [Контроль доступа](service-fabric-cluster-security-roles.md)
 #### [Настройка кластера](service-fabric-cluster-fabric-settings.md)
 #### [Добавление или изменение сертификатов кластера](service-fabric-cluster-security-update-certs-azure.md) 
-#### [Пробное бесплатное использование кластера Party Cluster](http://aka.ms/tryservicefabric)
 
 ### Изолированные кластеры
 #### [Планирование и подготовка развертывания](service-fabric-cluster-standalone-deployment-preparation.md)

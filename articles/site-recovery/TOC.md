@@ -5,7 +5,7 @@
 ## [Какие рабочие нагрузки можно защитить?](site-recovery-workload.md)
 ## [Таблица поддержки Site Recovery](site-recovery-support-matrix-to-azure.md)
 ## [Часто задаваемые вопросы](site-recovery-faq.md)
-## [Просмотр введения](https://azure.microsoft.com/resources/videos/index/?services=recovery-manager)
+## [Просмотр введения](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Начало работы
 ## [Репликация виртуальных машин VMware в Azure](site-recovery-vmware-to-azure.md)
@@ -21,7 +21,7 @@
 ### [Рекомендации по сетевой инфраструктуре](site-recovery-network-design.md)
 ### [Планирование ресурсов и масштабирование репликации VMware в Azure](site-recovery-plan-capacity-vmware.md)
 ### [Использование планировщика развертывания для репликации VMware в Azure](site-recovery-deployment-planner.md)
-### [Использование планировщика ресурсов Site Recovery для репликации Hyper-V](site-recovery-capacity-planner.md)
+### [Использование планировщика ресурсов для репликации Hyper-V](site-recovery-capacity-planner.md)
 
 ## Настройка
 ### [Настройка исходной среды](site-recovery-set-up-vmware-to-azure.md)

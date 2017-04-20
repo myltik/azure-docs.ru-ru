@@ -1,4 +1,5 @@
-# [Обзор](active-directory-developers-guide.md)
+# Обзор
+## [Руководство разработчика](active-directory-developers-guide.md)
 ## [Приложения и Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Глоссарий разработчика](active-directory-dev-glossary.md)
 ## [API Graph для AAD](active-directory-graph-api.md)
@@ -39,14 +40,12 @@
 ## [Рекомендации по фирменной символике](active-directory-branding-guidelines.md)
 ## Работа с SAML
 ### [Azure AD и SAML](active-directory-saml-protocol-reference.md)
-### [Просмотр данных SAML, возвращенных службой контроля доступа](active-directory-java-view-saml-returned-by-access-control.md)
 ### [Настройка утверждений](active-directory-saml-claims-customization.md)
 ### [Отладка единого входа на основе SAML](active-directory-saml-debugging.md)
 ### [Протокол единого входа SAML](active-directory-single-sign-on-protocol-reference.md)
 ### [Протокол единого выхода SAML](active-directory-single-sign-out-protocol-reference.md)
 ## Работа с Visual Studio
 ### [Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты MVC)](vs-active-directory-dotnet-getting-started.md)
-### [Что произошло с моим проектом MVC](Visual Studio Azure Active Directory connected service.md)?] (vs-active-directory-dotnet-what-happened
 ### [Ошибка при обнаружении аутентификации](vs-active-directory-error.md)
 ### [Приступая к работе с WebApi](vs-active-directory-webapi-getting-started.md)
 ### [Что произошло с моим проектом WebApi?](vs-active-directory-webapi-what-happened.md)
@@ -59,7 +58,8 @@
 ### [Метаданные федерации](active-directory-federation-metadata.md)
 ### [OAuth](active-directory-protocols-oauth-code.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-# [Конечная точка v2.0](active-directory-appmodel-v2-overview.md)
+### [Вызовы между службами](active-directory-protocols-oauth-service-to-service.md)
+# Конечная точка v2.0
 ## [Обзор](active-directory-appmodel-v2-overview.md)
 ### [Отличия](active-directory-v2-compare.md)
 ### [Типы приложений](active-directory-v2-flows.md)
@@ -82,12 +82,11 @@
 ## Справочные материалы
 ### [Справка по регистрации приложений](active-directory-v2-registration-portal.md)
 ### [Библиотеки аутентификации](active-directory-v2-libraries.md)
+### [Протоколы проверки подлинности v2.0 ](active-directory-v2-protocols.md)
+#### [Справочник по маркерам](active-directory-v2-tokens.md)
+#### [Поток кода авторизации OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
+#### [OpenID Connect](active-directory-v2-protocols-oidc.md)
+#### [Неявный поток](active-directory-v2-protocols-implicit.md)
+#### [Учетные данные клиента OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 ### [Области действия](active-directory-v2-scopes.md)
-### [Справочник по маркерам](active-directory-v2-tokens.md)
-### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-### [Неявный поток](active-directory-v2-protocols-implicit.md)
-### [Поток кода авторизации OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
-### [Учетные данные клиента OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-### [OAuth 2.0 и OpenID](active-directory-v2-protocols.md)
-### [Вызовы между службами](active-directory-protocols-oauth-service-to-service.md)
 # [Примеры](active-directory-code-samples.md)

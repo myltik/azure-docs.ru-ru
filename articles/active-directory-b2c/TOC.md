@@ -1,7 +1,7 @@
 # Обзор
 ## [Обзор](active-directory-b2c-overview.md)
 ## [Типы приложений](active-directory-b2c-apps.md)
-## [Сравнение предварительной и рабочей версии клиента B2C](active-directory-b2c-reference-tenant-type.md)
+## [Доступность в регионах и размещение данных](active-directory-b2c-reference-tenant-type.md)
 
 # Начало работы
 ## [Создание каталога Azure AD B2C](active-directory-b2c-get-started.md)

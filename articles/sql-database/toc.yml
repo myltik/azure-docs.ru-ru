@@ -4,8 +4,6 @@
   items:
   - name: "Сведения о базах данных SQL"
     href: sql-database-technical-overview.md
-  - name: "Сравнение баз данных SQL"
-    href: sql-database-features.md
 - name: "Быстрый запуск"
   expanded: true
   items:
@@ -69,8 +67,12 @@
       href: sql-database-benchmark-overview.md
     - name: "Ограничения"
       href: sql-database-resource-limits.md
-  - name: "Средства"
-    href: sql-database-manage-overview.md
+    - name: "PaaS или IaaS"
+      href: sql-database-paas-vs-sql-server-iaas.md  
+    - name: "Функции"
+      href: sql-database-features.md
+    - name: "Средства"
+      href: sql-database-manage-overview.md
   - name: "Секционирование данных"
     items:
     - name: "Сегментированные базы данных"
@@ -231,10 +233,6 @@
     items:
     - name: "Проверка подлинности в Azure AD"
       href: sql-database-aad-authentication-configure.md
-    - name: "Аудит"
-      href: sql-database-auditing-portal.md
-    - name: "Обнаружение угроз"
-      href: sql-database-threat-detection-portal.md
     - name: "Шифрование: хранилище сертификатов"
       href: sql-database-always-encrypted.md
     - name: "Шифрование: ключ хранилища"
@@ -388,6 +386,8 @@
   items:
   - name: "Часто задаваемые вопросы"
     href: sql-database-faq.md
+  - name: "Открытые наборы данных"
+    href: sql-database-public-data-sets.md  
   - name: "Устранение неполадок подключения"
     href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
   - name: "Цены"
@@ -414,3 +414,5 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: "Пользовательская панель мониторинга эластичного пула"
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+
+

@@ -14,8 +14,7 @@
 ### [Подключение к среде подтверждения концепции Azure Stack](azure-stack-connect-azure-stack.md)
 ### [Добавление образа по умолчанию](azure-stack-add-default-image.md)
 ### [Подготовка виртуальной машины](azure-stack-provision-vm.md)
-### [создать учетную запись хранения;](azure-stack-provision-storage-account.md)
-### [Добавление клиента Azure Stack](azure-stack-add-new-user-aad.md)
+### [Создание учетной записи хранения](azure-stack-provision-storage-account.md)
 ### [Повторное развертывание подтверждения концепции Azure Stack](azure-stack-redeploy.md)
 
 # Управление
@@ -31,15 +30,17 @@
 ## Практическое руководство
 ### [Управление обновлениями](azure-stack-updates.md)
 ### [Мониторинг работоспособности и оповещений](azure-stack-monitor-health.md)
-### [Управление сетевыми ресурсами](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+### [Управление сетевыми ресурсами](azure-stack-viewing-public-ip-address-consumption.md)
 ### [Управление ресурсами хранилища](azure-stack-manage-storage-accounts.md)
 ### [Управление виртуальными машинами Windows Azure Pack](azure-stack-manage-windows-azure-pack.md)
 
 # Безопасность и соответствие требованиям
 ## Практическое руководство
 ### [Управление RBAC](azure-stack-manage-permissions.md)
+### [Добавление пользователей в Azure AD](azure-stack-add-new-user-aad.md)
 ### [Добавление пользователей для AD FS](azure-stack-add-users-adfs.md)
 ### [Создание субъектов-служб](Azure-stack-create-service-principals.md)
+### [Включение поддержки мультитенантности](azure-stack-enable-multitenancy.md)
 
 # Предложение служб
 ## Начало работы

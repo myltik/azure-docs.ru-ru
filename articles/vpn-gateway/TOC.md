@@ -34,10 +34,11 @@
 ## Настройка нескольких подключений типа "сеть — сеть"
 ### [Портал Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell (классическая модель)](vpn-gateway-multi-site.md)
-## [Настройка BGP для VPN-шлюзов Azure с помощью PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+## [Настройка BGP для VPN-шлюза](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Настройка высокодоступных подключений в режиме "активный — активный"](vpn-gateway-activeactive-rm-powershell.md)
 ## [Изменение параметров шлюза локальной сети с помощью PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Проверка подключения VPN-шлюза](vpn-gateway-verify-connection-resource-manager.md)
+## [Проверка пропускной способности VPN для виртуальной сети](vpn-gateway-validate-throughput-to-vnet.md)
 ## [Сброс VPN-шлюза](vpn-gateway-resetgw-classic.md)
 ## Удаление VPN-шлюза
 ### [Портал Azure](vpn-gateway-delete-vnet-gateway-portal.md)

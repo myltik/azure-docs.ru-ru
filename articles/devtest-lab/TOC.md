@@ -19,6 +19,7 @@
 ### [Настройка управления затратами](devtest-lab-configure-cost-management.md)
 ### [Настройка виртуальных сетей](devtest-lab-configure-vnet.md)
 ### [Сведения об общем IP-адресе](devtest-lab-shared-ip.md)
+### [Автоматизация изменения в лабораторной среде с помощью шаблонов и PowerShell](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 
 ## Управление артефактами
 ### [Добавление репозитория артефактов](devtest-lab-add-artifact-repo.md)
