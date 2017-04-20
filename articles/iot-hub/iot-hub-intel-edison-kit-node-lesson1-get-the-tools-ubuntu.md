@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "инструменты для разработки Arduino, разработка для Интернета вещей, программное обеспечение Интернета вещей, ПО Интернета вещей, установка git в Ubuntu, установка Node.js в Ubuntu"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: 9ab5b161-7ec5-41a6-9c5f-4456e4882752
 ms.service: iot-hub
 ms.devlang: nodejs

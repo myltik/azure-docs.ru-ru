@@ -7,6 +7,8 @@ author: shizn
 manager: timlt
 tags: 
 keywords: "управление светодиодным индикатором с помощью raspberry pi, raspberry pi управление индикатором, управлять светодиодным индикатором raspberry pi"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 ms.assetid: 3b42a4ad-0197-42f6-8ca9-04c883e879e8
 ms.service: iot-hub
 ms.devlang: node

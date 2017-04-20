@@ -7,6 +7,8 @@ author: shizn
 manager: timlt
 tags: 
 keywords: "разработка для Интернета вещей, программное обеспечение Интернета вещей, ПО Интернета вещей, установка git в Windows, gulp run, установка node js в Windows, установка npm в Windows, установка python в Windows"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 ms.assetid: b3d88e17-97cc-4f23-85fd-a688fc228eb8
 ms.service: iot-hub
 ms.devlang: node

@@ -7,6 +7,8 @@ author: shizn
 manager: timlt
 tags: 
 keywords: "разработка для Интернета вещей, программное обеспечение Интернета вещей, ПО Интернета вещей, установка git в ubuntu, gulp run, установка node js ubuntu"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 ms.assetid: 4d5e45c0-1db9-4662-a039-99ba26333085
 ms.service: iot-hub
 ms.devlang: node

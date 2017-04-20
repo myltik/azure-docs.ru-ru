@@ -7,6 +7,8 @@ author: shizn
 manager: timlt
 tags: 
 keywords: "хранение данных в облаке, данные, хранящиеся в облаке, облачная служба Интернета вещей"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 ms.assetid: 6c58de85-c5c4-4989-bb5e-08c45c549966
 ms.service: iot-hub
 ms.devlang: node

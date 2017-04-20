@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "инструменты для разработки Arduino, разработка для Интернета вещей, программное обеспечение Интернета вещей, ПО Интернета вещей, установка git в Windows, установка Node.js в Windows"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: 4164b5a1-5a42-4d8a-9ff6-441e79fcc936
 ms.service: iot-hub
 ms.devlang: nodejs

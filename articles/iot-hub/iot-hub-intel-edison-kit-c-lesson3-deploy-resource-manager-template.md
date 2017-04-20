@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "хранение данных в облаке, данные, хранящиеся в облаке, облачная служба Интернета вещей"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
 ms.assetid: 739b82e9-5d4e-4485-8971-f57cbb682faf
 ms.service: iot-hub
 ms.devlang: c

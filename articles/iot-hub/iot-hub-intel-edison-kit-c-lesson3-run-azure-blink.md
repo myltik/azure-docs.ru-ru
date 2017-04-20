@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "облачная служба Интернета вещей, отправка данных в облако с помощью Arduino"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-c-get-started
 ms.assetid: 12672b64-795a-4dfc-86fd-df53ed3eeef7
 ms.service: iot-hub
 ms.devlang: c

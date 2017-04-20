@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "мигающий светодиодный индикатор облако pi, мигающий индикатор из облака"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: e38df29f-f77f-435f-9add-46814297564f
 ms.service: iot-hub
 ms.devlang: c

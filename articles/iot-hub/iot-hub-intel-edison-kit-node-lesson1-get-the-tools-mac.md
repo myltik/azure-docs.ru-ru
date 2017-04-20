@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "инструменты для разработки Arduino, разработка для Интернета вещей, программное обеспечение Интернета вещей, ПО Интернета вещей, установка git на компьютере Mac, установка Node.js на компьютере Mac"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: fb6742be-2825-4524-89f7-8ccb7e7f1de1
 ms.service: iot-hub
 ms.devlang: nodejs

@@ -55,41 +55,44 @@ ms.lasthandoff: 03/06/2017
 
 ```
 private static async void SendDeviceToCloudMessagesAsync()
+{
+    double minTemperature = 20;
+    double minHumidity = 60;
+    Random rand = new Random();
+
+    while (true)
     {
-        double avgWindSpeed = 10; // m/s
-        Random rand = new Random();
+        double currentTemperature = minTemperature + rand.NextDouble() * 15;
+        double currentHumidity = minHumidity + rand.NextDouble() * 20;
 
-        while (true)
+        var telemetryDataPoint = new
         {
-            double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+            deviceId = "myFirstDevice",
+            temperature = currentTemperature,
+            humidity = currentHumidity
+        };
+        var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+        string levelValue;
 
-            var telemetryDataPoint = new
-            {
-                deviceId = "myFirstDevice",
-                windSpeed = currentWindSpeed
-            };
-            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-            string levelValue;
-
-            if (rand.NextDouble() > 0.7)
-            {
-                messageString = "This is a critical message";
-                levelValue = "critical";
-            }
-            else
-            {
-                levelValue = "normal";
-            }
-            
-            var message = new Message(Encoding.ASCII.GetBytes(messageString));
-            message.Properties.Add("level", levelValue);
-            
-            await deviceClient.SendEventAsync(message);
-            Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
-
-            await Task.Delay(1000);
+        if (rand.NextDouble() > 0.7)
+        {
+            messageString = "This is a critical message";
+            levelValue = "critical";
         }
+        else
+        {
+            levelValue = "normal";
+        }
+        
+        var message = new Message(Encoding.ASCII.GetBytes(messageString));
+        message.Properties.Add("level", levelValue);
+        
+        await deviceClient.SendEventAsync(message);
+        Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
+
+        await Task.Delay(1000);
     }
+}
 ```
 
 Этот метод случайным образом добавляет свойство `"level": "critical"` в сообщения, отправляемые устройством. Так мы имитируем сообщение, которое требует немедленных действий со стороны серверной части решения. Приложение устройства передает эту информацию в свойствах сообщения, а не в тексте сообщения, чтобы Центр Интернета вещей смог правильно передать сообщение получателю.

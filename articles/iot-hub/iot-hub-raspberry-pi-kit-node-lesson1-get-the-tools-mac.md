@@ -7,6 +7,8 @@ author: shizn
 manager: timlt
 tags: 
 keywords: "разработка для Интернета вещей, программное обеспечение Интернета вещей, ПО Интернета вещей, установка python mac, установка git в mac, gulp run, установка node js mac"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 ms.assetid: 2ea6d211-c0e8-4ade-ac69-d1c2261d78c4
 ms.service: iot-hub
 ms.devlang: node
