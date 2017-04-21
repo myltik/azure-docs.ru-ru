@@ -1,5 +1,5 @@
 ---
-title: "Обновления схемы от&1; августа&2015; г. Azure Logic Apps | Документация Майкрософт"
+title: "Обновления схемы от 1 августа 2015 г. Azure Logic Apps | Документация Майкрософт"
 description: "Создание определений JSON для Azure Logic Apps с версией схемы 2015-08-01-preview"
 author: stepsic-microsoft-com
 manager: anneta
