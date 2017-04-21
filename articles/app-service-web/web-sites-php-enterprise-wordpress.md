@@ -112,7 +112,7 @@ ms.lasthandoff: 01/24/2017
 Как уже упоминалось в разделе [Архитектура и планирование](#planning), существует два способа миграции веб-сайта WordPress:
 
 * **Экспорт и импорт** — для сайтов, не требующих многих настроек, или если нужно перенести только содержимое.
-* **Резервное копирование и восстановление ** — для сайтов со множеством настроек, где требуется переместить все.
+* **Резервное копирование и восстановление** — для сайтов со множеством настроек, где требуется переместить все.
 
 Воспользуйтесь одним из следующих разделов для миграции сайта.
 
@@ -181,7 +181,7 @@ ms.lasthandoff: 01/24/2017
 * [Включение постоянных ссылок в WordPress](http://www.iis.net/learn/extensions/url-rewrite-module/enabling-pretty-permalinks-in-wordpress)
 * [Как мигрировать и запустить блог WordPress в службе приложений Azure](http://www.kefalidis.me/2012/06/how-to-migrate-and-run-your-wordpress-blog-on-windows-azure-websites/)
 * [Как бесплатно запустить блог WordPress в службе приложений Azure](http://architects.dzone.com/articles/how-run-wordpress-azure)
-* [WordPress on Windows Azure in&2; Minutes or Less](http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/) (WordPress в Azure за&2; минуты или меньше)
+* [WordPress on Windows Azure in 2 Minutes or Less](http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/) (WordPress в Azure за 2 минуты или меньше)
 * [Перемещение блога WordPress в Azure. Часть 1. Создание блога WordPress в Azure](http://www.davebost.com/2013/07/10/moving-a-wordpress-blog-to-windows-azure-part-1)
 * [Перемещение блога WordPress в Azure. Часть 2. Перенос содержимого](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-transferring-your-content)
 * [Перемещение блога WordPress в Azure. Часть 3. Настройка личного домена](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-3-setting-up-your-custom-domain)
