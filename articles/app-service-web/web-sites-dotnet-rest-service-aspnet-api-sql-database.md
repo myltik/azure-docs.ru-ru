@@ -672,7 +672,7 @@ Visual Studio начнет процесс копирования файлов в
 
 Другой способ хранения данных в приложении Azure — использование хранилища Azure, обеспечивающего хранение нереляционных данных в виде BLOB-объектов и таблиц. Дополнительная информация о Web API, ASP.NET MVC и Window Azure содержится по ссылкам ниже.
 
-* [Начало работы с Entity Framework&6; Code First с помощью MVC&5;][EFCodeFirstMVCTutorial]
+* [Начало работы с Entity Framework 6 Code First с помощью MVC 5][EFCodeFirstMVCTutorial]
 * [Введение в ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Первое приложение веб-интерфейса API ASP.NET](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [Отладка WAWS](web-sites-dotnet-troubleshoot-visual-studio.md)
