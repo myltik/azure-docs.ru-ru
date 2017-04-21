@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 translationtype: Human Translation
 ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
 ms.openlocfilehash: 489037b0ff43c7041f3e12a49525184e7eda0290
+ms.lasthandoff: 12/19/2016
 
 
 ---
@@ -96,9 +97,4 @@ ms.openlocfilehash: 489037b0ff43c7041f3e12a49525184e7eda0290
 
 ### <a name="from-a-rest-based-client"></a>Из клиента на основе REST
 Веб-службы Машинного обучения Azure представляют собой интерфейсы API RESTful. Их можно использовать на различных платформах, например .NET, Python, R, Java и т. д. На странице **Consume** (Использование) для веб-службы на [портале веб-служб машинного обучения Microsoft Azure](https://services.azureml.net) размещен пример кода, позволяющий приступить к работе. Дополнительные сведения см. в статье [Как использовать веб-службу машинного обучения Azure, развернутую из эксперимента машинного обучения](machine-learning-consume-web-services.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
