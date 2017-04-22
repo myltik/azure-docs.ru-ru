@@ -101,7 +101,7 @@ class Program
 ## <a name="other-methods"></a>Другие методы
 * [Интерфейс командной строки Azure](../cli-install-nodejs.md)
   
-    При отправке большого двоичного объекта определите свойство *cacheControl* с помощью параметра `-p`.  В этом примере устанавливается срок жизни&3600; секунд (1 час).
+    При отправке большого двоичного объекта определите свойство *cacheControl* с помощью параметра `-p`.  В этом примере устанавливается срок жизни 3600 секунд (1 час).
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
