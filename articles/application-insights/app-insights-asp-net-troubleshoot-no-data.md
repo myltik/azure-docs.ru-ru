@@ -180,7 +180,7 @@ ms.lasthandoff: 03/15/2017
 Город, область и страна определяются по IP-адресу и не всегда являются точными.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Исключение "метод не найден" при выполнении в облачных службах Azure
-Выполняется сборка для .NET 4.6? Версия&4;.6 не поддерживается автоматически в ролях облачных служб Azure. [установите версию 4.6 в каждой роли](../cloud-services/cloud-services-dotnet-install-dotnet.md) .
+Выполняется сборка для .NET 4.6? Версия 4.6 не поддерживается автоматически в ролях облачных служб Azure. [установите версию 4.6 в каждой роли](../cloud-services/cloud-services-dotnet-install-dotnet.md) .
 
 ## <a name="still-not-working"></a>По-прежнему не работает...
 * [Форум Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

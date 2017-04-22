@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/22/2017
     6. Щелкните **Создать**.
     7. После завершения глобального развертывания профиля диспетчера трафика он будет отображен в соответствующей группе ресурсов как один из ресурсов.
 
-![Создание профиля диспетчера трафика](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
+    ![Создание профиля диспетчера трафика](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Добавление конечных точек диспетчера трафика
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 03/22/2017
 5.    Повторите шаги 3 и 4 для следующей конечной точки веб-приложения Azure. Обязательно добавьте ее с **приоритетом** **2**.
 6.    После добавления обе конечные точки отобразятся в колонке **Профиль диспетчера трафика** с наблюдаемым состоянием **В сети**.
 
-![Добавление конечной точки диспетчера трафика](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
+    ![Добавление конечной точки диспетчера трафика](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Использование профиля диспетчера трафика
 1.    На панели поиска портала выполните поиск имени **профиля диспетчера трафика**, созданного в предыдущем разделе. В отображенных результатах щелкните профиль диспетчера трафика.
