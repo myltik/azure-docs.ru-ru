@@ -129,7 +129,7 @@ DPS запрашивает расположение для размещения 
 Дополнительные сведения о решении Redgate Data Platform Studio см. в следующих источниках:
 
 * [Домашняя страница DPS](http://www.dataplatformstudio.com/)
-* [Демонстрационное видео DPS на Channel&9;](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
+* [Демонстрационное видео DPS на Channel 9](https://channel9.msdn.com/Blogs/cloud-with-a-silver-lining/Loading-data-into-Azure-SQL-Datawarehouse-with-Redgate-Data-Platform-Studio)
 
 Общие сведения о других способах переноса и отправки данных в хранилище данных SQL см. в следующих источниках:
 
