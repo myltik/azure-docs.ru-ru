@@ -90,7 +90,7 @@ ms.lasthandoff: 03/07/2017
 * Добавлен новый заголовок "ход выполнения преобразования индекса" в ResourceResponse.
 
 ### <a name="a-name110110httpspypipythonorgpypipydocumentdb110"></a><a name="1.1.0"/>[1.1.0](https://pypi.python.org/pypi/pydocumentdb/1.1.0)
-* Реализована политика индексации версии&2;.
+* Реализована политика индексации версии 2.
 
 ### <a name="a-name101101httpspypipythonorgpypipydocumentdb101"></a><a name="1.0.1"/>[1.0.1](https://pypi.python.org/pypi/pydocumentdb/1.0.1)
 * Добавлена поддержка прокси-подключения.
