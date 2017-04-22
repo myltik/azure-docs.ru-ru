@@ -39,9 +39,9 @@ ms.lasthandoff: 03/06/2017
 
    3. Найдите и установите следующие пакеты NuGet:
 
-    - Microsoft.Rest.ClientRuntime.Azure.Authentication (в этом учебнике используется версия&2;.2.12)
-    - Microsoft.Azure.Management.DataLake.Analytics (в этом учебник используется предварительная версия&2;.1.0)
-    - Microsoft.Azure.Management.DataLake.Store (в этом учебник используется предварительная версия&2;.1.0)
+    - Microsoft.Rest.ClientRuntime.Azure.Authentication (в этом учебнике используется версия 2.2.12)
+    - Microsoft.Azure.Management.DataLake.Analytics (в этом учебник используется предварительная версия 2.1.0)
+    - Microsoft.Azure.Management.DataLake.Store (в этом учебник используется предварительная версия 2.1.0)
 
    4. Закройте **Диспетчер пакетов Nuget**.
 
