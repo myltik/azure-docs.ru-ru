@@ -144,7 +144,7 @@ SerDe — лучший выбор для синтаксического анал
 
 **Для использования пользовательских SerDe выполните следующие действия:**
 
-1. Установите [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Если вы собираетесь использовать развертывание HDInsight в Windows, выберите версию JDK для&64;-разрядной Windows
+1. Установите [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Если вы собираетесь использовать развертывание HDInsight в Windows, выберите версию JDK для 64-разрядной Windows
    
    > [!WARNING]
    > JDK 1.8 не будет работать с этим SerDe.
