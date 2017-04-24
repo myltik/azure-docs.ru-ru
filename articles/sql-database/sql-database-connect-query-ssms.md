@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -41,12 +41,13 @@ ms.lasthandoff: 04/12/2017
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
-3. На странице портала Azure вашей базы данных в области **Основные компоненты** найдите и скопируйте **имя сервера**.
+3. На странице **Обзор** базы данных просмотрите полное имя сервера, как показано на рисунке ниже. Вы можете навести указатель мыши на имя сервера, чтобы отобразился пункт **Щелкните, чтобы скопировать**.
 
    ![Сведения о подключении](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. Если вы забыли данные для входа на сервер базы данных SQL Azure, перейдите к соответствующей странице, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль. 
 
-## <a name="connect-to-the-server-and-your-new-database"></a>Подключение к серверу и новой базе данных
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Подключение к базе данных на логическом сервере базы данных SQL
 
 Используйте SQL Server Management Studio для подключения к серверу базы данных SQL Azure. 
 
@@ -65,7 +66,7 @@ ms.lasthandoff: 04/12/2017
 
    ![Подключение к серверу](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Щелкните по элементу **Параметры**. В разделе **Подключение к базе данных** введите **mySampleDatabase**, чтобы подключиться к этой базе данных, созданной ранее.
+3. Щелкните **Параметры** в диалоговом окне **Подключение к серверу**. В разделе **Подключение к базе данных** введите **mySampleDatabase**, чтобы подключиться к этой базе данных.
 
    ![Подключение к базе данных на сервере](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -73,7 +74,7 @@ ms.lasthandoff: 04/12/2017
 
    ![Подключение к серверу установлено](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. В обозревателе объектов разверните **базы данных**, затем выберите **mySampleDatabase**, чтобы просмотреть объекты в образце базы данных.
+5. В обозревателе объектов разверните **базы данных**, затем выберите **mySampleDatabase**, чтобы просмотреть объекты в образце базы данных.
 
 ## <a name="query-data"></a>Запрос данных
 
@@ -91,7 +92,7 @@ ms.lasthandoff: 04/12/2017
 
 3. На панели инструментов щелкните **Выполнить**, чтобы получить данные из таблиц Product и ProductCategory.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![query](./media/sql-database-connect-query-ssms/query.png)
 
 ## <a name="insert-data"></a>Добавление данных
 
