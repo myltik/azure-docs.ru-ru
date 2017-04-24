@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 02/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: a0340359dff470551a08a8213f3a704f15f78794
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -184,6 +184,54 @@ ms.lasthandoff: 03/16/2017
 
 * Загружает последний пакет SDK для Application Insights на сервер.
 
+## <a name="questions"></a>Вопросы о мониторе состояния
+
+### <a name="what-is-status-monitor"></a>Что такое монитор состояния?
+
+Классическое приложение, установленное на веб-сервер IIS. Оно позволяет инструментировать и настраивать веб-приложения. 
+
+### <a name="when-do-i-use-status-monitor"></a>В каких случаях нужно использовать монитор состояния?
+
+* Для инструментирования любого веб-приложения на сервере IIS (даже если оно уже запущено).
+* Чтобы включить дополнительные данные телеметрии для веб-приложений, [созданных с помощью пакета SDK для Application Insights](app-insights-asp-net.md) во время компиляции. 
+
+### <a name="can-i-close-it-after-it-runs"></a>Можно ли его закрыть после выполнения?
+
+Да. После инструментирования нужных веб-сайтов его можно закрыть.
+
+Монитор состояния не собирает данные телеметрии самостоятельно. Он лишь настраивает веб-приложения и устанавливает некоторые разрешения.
+
+### <a name="what-does-status-monitor-do"></a>Как работает монитор состояния?
+
+При выборе веб-приложения для инструментирования монитор состояния делает следующее:
+
+* Скачивает и помещает сборки Application Insights и CONFIG-файл в папку с двоичными файлами веб-приложений.
+* Изменяет `web.config`, чтобы добавить HTTP-модуль отслеживания Application Insights.
+* Включает профилирование среды CLR для сбора вызовов зависимостей.
+
+### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Нужно ли запускать монитор состояния при каждом обновлении приложения?
+
+Нет, если повторное развертывание выполняется поэтапно. 
+
+Если в процессе публикации вы выбрали параметр Delete existing files (Удалить существующие файлы), для настройки Application Insights необходимо перезапустить монитор состояния.
+
+### <a name="what-telemetry-is-collected"></a>Какие данные телеметрии собираются?
+
+Для приложений, инструментированных во время выполнения с использованием монитора состояния:
+
+* HTTP-запросы;
+* вызовы зависимостей;
+* Исключения
+* Счетчики производительности
+
+Для уже инструментированных приложений во время компиляции:
+
+ * счетчики процессов;
+ * вызовы зависимостей (.NET 4.5) и возвращаемые значения в вызовах зависимостей (.NET 4.6);
+ * значения трассировки стека исключений.
+
+[Подробнее](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+
 ## <a name="video"></a>Видео
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
@@ -212,5 +260,5 @@ ms.lasthandoff: 03/16/2017
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

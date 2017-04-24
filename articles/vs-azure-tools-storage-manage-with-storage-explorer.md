@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
-ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
-ms.lasthandoff: 01/19/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 07b62cd6f6deb0cf3ff1c806204ebc26c773a164
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -58,6 +58,67 @@ Microsoft Azure Storage Explorer (предварительная версия) 
 4. На панели слева отобразятся все учетные записи хранения, связанные с выбранными подписками Azure.
 
     ![Выбранные подписки Azure][4]
+
+## <a name="connect-to-an-azure-stack-subscription"></a>Подключение к подписке Azure Stack
+
+1. Для удаленного доступа к подписке Azure Stack обозревателю хранилищ требуется VPN-подключение. Дополнительные сведения о настройке VPN-подключения в Azure Stack см. в разделе [Подключение c VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn).
+
+2. Для подтверждения концепции Azure Stack необходимо экспортировать корневой сертификат центра сертификации Azure Stack. Откройте `mmc.exe` в MAS-CON01, на хост-компьютере или локальном компьютере Azure Stack с помощью VPN-подключения к Azure Stack. В меню **Файл** выберите **Add/Remove Snap-in** (Добавить или удалить оснастку), затем добавьте **сертификаты** для управления **учетной записью** **локального компьютера**.
+
+   ![Загрузка корневого сертификата Azure Stack с помощью mmc.exe][25]   
+
+   Найдите **AzureStackCertificationAuthority** в разделе **Console Root (Корень консоли)\Certificated (Local Computer) (Cертифицированный (локальный компьютер))\Trusted Root Certification Authorities (Доверенные корневые центры сертификации)\Сертификаты**. Щелкните правой кнопкой мыши элемент, а затем выберите **Все задачи -> Экспорт**. Выполните инструкции в диалоговых окнах, чтобы экспортировать сертификат с **CER-файлами X.509 в кодировке Base64**. Экспортированный сертификат будет использоваться на следующем шаге.   
+
+   ![Экспорт корневого сертификата центра сертификации Azure Stack][26]   
+
+3. В обозревателе хранилищ (предварительная версия) выберите **Изменить**, **SSL-сертификаты**, а затем **Import Certificates** (Импорт сертификатов). Используйте диалоговое окно выбора файла, чтобы найти и открыть сертификат, изученный на предыдущем шаге. После импорта вам будет предложено перезапустить обозреватель хранилищ.
+
+   ![Импорт сертификата в обозреватель хранилищ (предварительная версия)][27]
+
+4. После перезапуска обозревателя хранилищ (предварительная версия) выберите **Изменить** и убедитесь, что установлен флажок **Target Azure Stack** (Целевой объект Azure Stack). В противном случае установите его и перезапустите обозреватель хранилищ, чтобы изменения вступили в силу. Эта настройка необходима для совместимости со средой Azure Stack.
+
+   ![Проверка установки флажка Target Azure Stack (Целевой объект Azure Stack)][28]
+
+5. На панели слева выберите **Manage Accounts** (Управление учетными записями). На панели слева отображаются все учетные записи Microsoft, в которые вы вошли. Чтобы подключиться к учетной записи Azure Stack, выберите **Добавить учетную запись**.
+
+   ![Добавление учетной записи Azure Stack][29]
+
+6. В диалоговом окне **Добавить новую учетную запись** в разделе **Azure environment** (Среда Azure) выберите **Create Custom Environment** (Создать пользовательскую среду), а затем щелкните **Далее**.
+
+7. Введите все необходимые сведения о пользовательской среде Azure Stack, а затем щелкните **Войти**.  Заполните диалоговое окно **Sign in to a Custom Cloud environment** (Вход в пользовательскую облачную среду), чтобы войти с использованием учетной записи, связанной по крайней мере с одной активной подпиской Azure Stack. Ниже приведены подробные сведения о каждом поле диалогового окна.
+
+    * **Имя среды.** Это поле может настраивать пользователь.
+    * **Центр.** Значение должно быть https://login.windows.net. Для китайской версии Azure (Mooncake) используйте адрес https://login.chinacloudapi.cn.
+    * **Sign in resource id** (Идентификатор ресурса для входа). Получите значение, выполнив следующую команду PowerShell:
+
+    Если вы администратор облака:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    Если вы клиент:
+
+    ```powershell
+    PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+    ```
+
+    * **Graph endpoint** (Конечная точка Graph). Значение должно быть https://graph.windows.net. Для китайской версии Azure (Mooncake) используйте адрес https://graph.chinacloudapi.cn.
+    * **ARM resource id** (Идентификатор ресурса ARM). Используйте то же значение, что и для параметра Sign in resource id (Идентификатор ресурса для входа).
+    * **ARM resource endpoint** (Конечная точка ресурса ARM). Примеры конечной точки ресурсов ARM:
+
+    для администратора облака — https://adminmanagement.local.azurestack.external;   
+    для клиента — https://management.local.azurestack.external.
+ 
+    * **Tenant Ids** (Идентификаторы клиента). Необязательное поле. Значение задается, только если необходимо указать каталог.
+
+8. Выполнив вход с помощью учетной записи Azure Stack, на панели слева вы увидите подписки Azure Stack, связанные с этой учетной записью. Выберите подписки Azure Stack, с которыми вы хотите работать, а затем щелкните **Применить**. (Чтобы выбрать все подписки Azure Stack, установите флажок **Все подписки**. Чтобы отменить выбор, снимите флажок.)
+
+   ![Выбор подписок Azure Stack после заполнения диалогового окна Custom Cloud Environment (Пользовательская облачная среда)][30]
+
+9. На панели слева отобразятся все учетные записи хранения, связанные с выбранными подписками Azure Stack.
+
+   ![Список учетных записей хранения, включая учетные записи подписки Azure Stack][31]
 
 ## <a name="work-with-local-development-storage"></a>Работа с локальным хранилищем разработки
 Обозреватель службы хранилища (предварительная версия) позволяет работать с локальным хранилищем с помощью эмулятора хранения Azure. Вы можете написать код и тестировать хранилище, при этом не требуется, чтобы в Azure была развернута учетная запись хранения (так как она эмулируется эмулятором хранения Azure).
@@ -208,4 +269,11 @@ Microsoft Azure Storage Explorer (предварительная версия) 
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/download-storage-emulator.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
+[25]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-certificate-azure-stack.png
+[26]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/export-root-cert-azure-stack.png
+[27]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/import-azure-stack-cert-storage-explorer.png
+[28]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-target-azure-stack.png
+[29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
+[30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
+[31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
 

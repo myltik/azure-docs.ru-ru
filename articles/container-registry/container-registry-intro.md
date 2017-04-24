@@ -18,9 +18,9 @@ ms.date: 11/14/2016
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
-ms.openlocfilehash: 0d3b09fb20f748fe70049c505625d813190e94b0
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 25301f1bbacdf2f1e3d04ed3470eafd31098ea32
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Общие сведения о частных реестрах контейнеров Docker
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/04/2017
 Извлекайте образы из реестра контейнеров Azure и отправляйте их в разные места назначения развертывания:
 
 * **Масштабируемые системы управления**, управляющие контейнерными приложениями в кластерах узлов, в том числе [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) и [Kubernetes](http://kubernetes.io/docs/).
-* **Службы Azure**, поддерживающие создание и выполнение масштабированных приложений, в том числе [служба контейнеров](../container-service/index.md), [служба приложений](/app-service/index.md), [пакетная служба](../batch/index.md) и [Service Fabric](../service-fabric/index.md).
+* **Службы Azure**, поддерживающие создание и выполнение масштабированных приложений, в том числе [служба контейнеров](../container-service/index.md), [служба приложений](/app-service/index.md), [пакетная служба](../batch/index.md), [Service Fabric](../service-fabric/index.md) и т. д.
 
 Разработчики также могут отправлять образы в реестр контейнеров в рамках рабочего процесса разработки контейнера. Например, они могут получить доступ к реестру контейнеров из средства развертывания и обеспечения непрерывной интеграции, например [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) или [Jenkins](https://jenkins.io/).
 

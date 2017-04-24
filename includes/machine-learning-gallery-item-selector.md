@@ -1,7 +1,7 @@
-**[Коллекция Cortana Intelligence](http://gallery.cortanaintelligence.com)** — это управляемый сообществом сайт для поиска и обмена решениями, созданными с помощью Cortana Intelligence Suite.
-Коллекция содержит множество ресурсов, которые можно использовать для разработки собственных аналитических решений.
+**[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com)** — это управляемый сообществом сайт для поиска и обмена решениями, созданными с помощью Cortana Intelligence Suite.
+В коллекции есть множество ресурсов, которые вы можете использовать для разработки собственных аналитических решений.
 
-<!-- On the new DOCS platform, this is a dropdown, not tabs, which doesn't work well in this context. So I'm just removing it for now.
+<!-- On the new DOCS platform, this is a drop-down list, not tabs, which doesn't work well in this context. So I'm just removing it for now.
 
 > [!div class="op_single_selector"]
 > * [Overview](../articles/machine-learning/machine-learning-gallery-how-to-use-contribute-publish.md)

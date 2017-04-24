@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -108,7 +108,7 @@ Application Insights можно использовать с любыми веб-
 
 ![На сайте portal.azure.com откройте ресурс приложения и щелкните "Параметры", а затем "Браузер".](./media/app-insights-javascript/03.png)
 
-*Еще нет данных? Нажмите кнопку**Обновить**в верхней части страницы. По-прежнему нет данных? См. раздел [Устранение неполадок](app-insights-troubleshoot-faq.md).*
+*Еще нет данных? Щелкните **Обновить** в верхней части страницы. По-прежнему нет данных? См. раздел [Устранение неполадок](app-insights-troubleshoot-faq.md).*
 
 Колонка "Браузер" — это [колонка обозревателя метрик](app-insights-metrics-explorer.md) с предустановленными фильтрами и предварительно выбранными параметрами диаграмм. При необходимости можно изменить диапазон времени, фильтры и конфигурацию диаграмм и сохранить результат в избранном. Щелкните **Восстановить значения по умолчанию** , чтобы вернуться к исходной конфигурации колонки.
 
@@ -230,6 +230,6 @@ Application Insights можно использовать с любыми веб-
 ## <a name="next"></a> Дальнейшие действия
 * [Отслеживание использования](app-insights-web-track-usage.md)
 * [Пользовательские события и метрики](app-insights-api-custom-events-metrics.md)
-* [Сборка, измерение и обучение](app-insights-overview-usage.md)
+* [Сборка, измерение и обучение](app-insights-web-track-usage.md)
 
 
