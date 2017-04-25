@@ -51,7 +51,7 @@ ms.lasthandoff: 03/09/2017
 Вам понадобится **Visual Studio 2015 или более поздней версии** для создания примера проекта. Бесплатные и пробные версии Visual Studio можно найти на странице [обзора продуктов Visual Studio][visual_studio].
 
 ### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* 
-Пример [DotNetTutorial][github_dotnettutorial] — это один из многих примеров кода в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Чтобы скачать все примеры, на домашней странице репозитория последовательно выберите **Clone or download > Download ZIP ** (Клонировать или скачать > Скачать ZIP-файл) или щелкните ссылку [azure-batch-samples-master.zip][github_samples_zip] и скачайте их напрямую. После извлечения содержимого ZIP-файла решение будет сохранено в такую папку:
+Пример [DotNetTutorial][github_dotnettutorial] — это один из многих примеров кода в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Чтобы скачать все примеры, на домашней странице репозитория последовательно выберите **Clone or download > Download ZIP** (Клонировать или скачать > Скачать ZIP-файл) или щелкните ссылку [azure-batch-samples-master.zip][github_samples_zip] и скачайте их напрямую. После извлечения содержимого ZIP-файла решение будет сохранено в такую папку:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
