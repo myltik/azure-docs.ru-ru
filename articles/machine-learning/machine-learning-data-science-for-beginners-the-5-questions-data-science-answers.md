@@ -32,13 +32,13 @@ ms.lasthandoff: 02/10/2017
 >
 
 ## <a name="other-videos-in-this-series"></a>Другие видео из этого цикла
-*Обработка и анализ данных для начинающих* — это пять коротких видеороликов об основах обработки и анализа данных, которые займут у вас не более 25 минут. Ознакомьтесь с другими&4; видео:
+*Обработка и анализ данных для начинающих* — это пять коротких видеороликов об основах обработки и анализа данных, которые займут у вас не более 25 минут. Ознакомьтесь с другими 4 видео:
 
 * Видео 1. 5 вопросов, на которые дают ответ обработка и анализ данных.
 * Видео 2. [Готовы ли ваши данные к обработке и анализу?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 мин 56 с)*
 * Видео 3. [Задайте вопрос, на который можно ответить с помощью данных](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 мин 17 с)*
 * Видео 4. [Прогнозирование ответа с помощью простой модели](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 мин 42 с)*
-* Видео 5. [Копирование работы других пользователей для обработки и анализа данных](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) * (3 мин 18 с)*
+* Видео 5. [Копирование работы других пользователей для обработки и анализа данных](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 мин 18 с)*
 
 ## <a name="transcript-the-5-questions-data-science-answers"></a>Расшифровка видео "5 вопросов, на которые дают ответ обработка и анализ данных"
 Привет! Добро пожаловать в цикл видеороликов *Обработка и анализ данных для начинающих*.
