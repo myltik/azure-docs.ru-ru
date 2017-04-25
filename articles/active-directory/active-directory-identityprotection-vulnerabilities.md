@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 04/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 2e229cab7b8a498d3015183d438e2bc2465822aa
 ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -59,10 +60,5 @@ Azure Multi-Factor Authentication обеспечивает второй уров
 
 ## <a name="see-also"></a>Дополнительные материалы
 * [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
