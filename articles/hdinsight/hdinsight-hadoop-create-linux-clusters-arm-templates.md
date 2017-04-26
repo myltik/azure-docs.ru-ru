@@ -1,6 +1,6 @@
 ---
-title: "Создание кластеров Azure HDInsight (Hadoop) с помощью шаблонов | Документация Майкрософт"
-description: "Узнайте о создании кластеров для Azure HDInsight с помощью шаблонов Azure Resource Manager."
+title: "Создание кластеров HDInsight (Hadoop) с помощью шаблонов | Документация Майкрософт"
+description: "Узнайте о создании кластеров для HDInsight с помощью шаблонов Resource Manager."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -17,23 +17,24 @@ ms.workload: big-data
 ms.date: 03/14/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 37567bf014d1deb5bcd36af94924948550d55f8e
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 96a968ea3f7bb8f3fbb8abb9b061bdc885776d68
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="create-hadoop-clusters-in-hdinsight-using-azure-resource-management-templates"></a>Создание кластеров Hadoop в HDInsight с помощью шаблонов Azure Resource Manager
+# <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Создание кластеров Hadoop в HDInsight с помощью шаблонов Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Узнайте, как создавать кластеры HDInsight с помощью шаблонов Azure Resource Manager. Узнайте подробнее [о развертывании приложения с помощью шаблона диспетчера ресурсов Azure](../azure-resource-manager/resource-group-template-deploy.md). Сведения о других инструментах и функциях создания кластера приведены на вкладке в верхней части этой страницы или в разделе [Способы создания кластера](hdinsight-hadoop-provision-linux-clusters.md#cluster-creation-methods).
+В этой статье вы изучите несколько способов создания кластеров Azure HDInsight с помощью шаблонов Azure Resource Manager. Узнайте подробнее [о развертывании приложения с помощью шаблона диспетчера ресурсов Azure](../azure-resource-manager/resource-group-template-deploy.md). Сведения о других инструментах и функциях создания кластеров можно получить, воспользовавшись селектором вкладок в верхней части этой страницы или ознакомившись с разделом [Способы создания кластера](hdinsight-hadoop-provision-linux-clusters.md#cluster-creation-methods).
 
-## <a name="prerequisites"></a>Предварительные требования:
+## <a name="prerequisites"></a>Предварительные требования
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Прежде чем следовать указаниям в этой статье, необходимо подготовить следующее.
+Для выполнения инструкций этой статье понадобится следующее:
 
-* [Подписка Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* <seg>
+  [Подписка Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).</seg>
 * Azure PowerShell и (или) Azure CLI.
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
@@ -41,26 +42,30 @@ ms.lasthandoff: 03/21/2017
 ### <a name="access-control-requirements"></a>Требования к контролю доступа
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## <a name="resource-management-templates"></a>Шаблоны Resource Manager
-Шаблон Resource Manager упрощает создание кластеров HDInsight, их зависимых ресурсов (например учетной записи хранения по умолчанию) и других ресурсов (таких как база данных SQL Azure для использования Apache Sqoop) для приложения и позволяет сделать это с помощью одной скоординированной операции. В шаблоне определяются ресурсы, необходимые для работы приложения, и указываются параметры развертывания в качестве входных значений для различных сред. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания.
+### <a name="resource-manager-templates"></a>Шаблоны диспетчера ресурсов
+Шаблон Resource Manager упрощает создание для приложения приведенных ниже компонентов с помощью отдельной скоординированной операции:
+* кластеры HDInsight и зависимые ресурсы (например, учетная запись хранения по умолчанию);
+* другие ресурсы (например, база данных SQL Azure для использования Apache Sqoop).
 
-Примеры шаблонов HDInsight можно найти в [коллекции шаблонов быстрого запуска Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Используйте кроссплатформенный [VSCode](https://code.visualstudio.com/#alt-downloads) с [расширением Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) или текстовый редактор, чтобы сохранить шаблон в файл на своей рабочей станции. Далее вы узнаете, как вызвать шаблон разными способами.
+В шаблоне определяются ресурсы, необходимые для приложения. Можно также указать параметры развертывания в качестве входных значений для различных сред. Шаблон состоит из кода JSON и выражений, на основе которых можно создавать значения для развертывания.
 
-Дополнительные сведения о шаблоне Resource Manager см. в перечисленных ниже статьях.
+Примеры шаблонов HDInsight можно найти в [коллекции шаблонов быстрого запуска Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight). Используйте кроссплатформенный редактор [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) с [расширением Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) или текстовый редактор, чтобы сохранить шаблон в файл на своей рабочей станции. Далее вы узнаете, как вызвать шаблон разными способами.
 
-* [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](../azure-resource-manager/resource-group-template-deploy.md)
+Дополнительные сведения о шаблонах Resource Manager см. в перечисленных ниже статьях.
+
+* [Шаблоны диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure CLI](../azure-resource-manager/resource-group-template-deploy.md)
 
 ## <a name="generate-templates"></a>Создание шаблонов
 
-С помощью портала Azure можно настроить все параметры кластера и сохранить шаблон перед его развертыванием.  Таким образом вы сможете многократно использовать этот шаблон.
+С помощью портала Azure можно настроить все параметры кластера и сохранить шаблон перед его развертыванием. Затем можно будет многократно использовать этот шаблон.
 
 **Создание шаблона с помощью портала Azure**
 
-1. Выполните вход на [портал Azure](https://portal.azure.com).
+1. Войдите на [портал Azure](https://portal.azure.com).
 2. Щелкните **Создать** в меню слева, выберите **Аналитика** и щелкните **HDInsight**.
 3. Следуя инструкциям, укажите свойства. Можно использовать параметр **Быстрое создание** или **Настраиваемый**.
-4. На вкладке "Сводка" щелкните **Скачать шаблон и параметры**.
+4. На вкладке **Сводка** щелкните **Скачать шаблон и параметры**.
 
     ![Скачивание шаблона Resource Manager для создания кластера HDInsight Hadoop](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download.png)
 
@@ -72,20 +77,18 @@ ms.lasthandoff: 03/21/2017
 
     Чтобы использовать шаблон из библиотеки, щелкните **Больше служб** в меню слева, а затем щелкните **Шаблоны** (в категории **Другое**).
 
-> [!Note]
-> Шаблоны необходимо использовать вместе с файлами параметров.  В противном случае можно получить непредвиденные результаты.  Например, значением свойства clusterKind по умолчанию всегда будет hadoop, несмотря на то, что вы указали перед скачиванием файла шаблона.
+    > [!Note]
+    > Файл шаблона и файл параметров должны использоваться вместе. В противном случае можно получить непредвиденные результаты. Например, значением свойства **clusterKind** по умолчанию всегда будет **hadoop**, несмотря на то, что вы указали перед скачиванием файла шаблона.
 
 
 
 ## <a name="deploy-with-powershell"></a>Развертывание с помощью PowerShell
 
-В следующей процедуре создается кластер Hadoop в HDInsight:
+В этой процедуре создается кластер Hadoop в HDInsight.
 
-**Развертывание кластера с помощью шаблона Resource Manager**
-
-1. Сохраните JSON-файл из [приложения А](#appx-a-arm-template) на своей рабочей станции. В скрипте PowerShell имя файла — *C:\HDITutorials-ARM\hdinsight-arm-template.json*.
+1. Сохраните JSON-файл из [приложения](#appx-a-arm-template) на своей рабочей станции. В сценарии PowerShell имя файла — `C:\HDITutorials-ARM\hdinsight-arm-template.json`.
 2. При необходимости настройте параметры и переменные.
-3. Запустите шаблон с помощью следующего сценария PowerShell:
+3. Запустите шаблон с помощью следующего сценария PowerShell.
 
         ####################################
         # Set these variables
@@ -96,7 +99,7 @@ ms.lasthandoff: 03/21/2017
         #endregion
 
         ####################################
-        # Service names and varialbes
+        # Service names and variables
         ####################################
         #region - service names
         $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -123,7 +126,7 @@ ms.lasthandoff: 03/21/2017
         # Create a resource group
         New-AzureRmResourceGroup -Name $resourceGroupName -Location $Location
 
-        # Create cluster and the dependent storage accounge
+        # Create cluster and the dependent storage account
         $parameters = @{clusterName="$hdinsightClusterName"}
 
         New-AzureRmResourceGroupDeployment `
@@ -135,44 +138,49 @@ ms.lasthandoff: 03/21/2017
         # List cluster
         Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
 
-    Сценарий PowerShell настраивает только имя кластера. Имя учетной записи хранения встроено в шаблон. Появится запрос на ввод пароля пользователя кластера (имя пользователя по умолчанию — *admin*) и пароля пользователя SSH (имя пользователя SSH по умолчанию — *sshuser*).  
+    Сценарий PowerShell настраивает только имя кластера. Имя учетной записи хранения жестко запрограммировано в шаблоне. Вам будет предложено ввести пароль пользователя кластера. Имя пользователя по умолчанию — **admin**. Вам также будет предложено ввести пароль пользователя SSH. Имя пользователя SSH по умолчанию — **sshuser**.  
 
-Дополнительные сведения см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
+Дополнительные сведения см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template).
 
 ## <a name="deploy-with-cli"></a>Развертывание с помощью интерфейса командной строки
-Следующий пример создает кластер и его учетную запись хранения и контейнер, вызывая шаблон Resource Manager:
+В следующем примере используется интерфейс командной строки Azure (CLI). Он создает кластер и его учетную запись хранения и контейнер, вызывая шаблон Resource Manager.
 
     azure login
     azure config mode arm
     azure group create -n hdi1229rg -l "East US"
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-template.json"
 
-Появится запрос на ввод имени кластера, пароля пользователя кластера (имя пользователя по умолчанию — *admin*) и пароля пользователя SSH (имя пользователя SSH по умолчанию — *sshuser*). Для предоставления встроенных параметров выполните следующую команду:
+Вам будет предложено ввести следующие значения.
+* Имя кластера.
+* Пароль пользователя кластера. Имя пользователя по умолчанию — **admin**.
+* Пароль пользователя SSH. Имя пользователя SSH по умолчанию — **sshuser**.
+
+В следующем коде содержатся встроенные параметры.
 
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "c:\Tutorials\HDInsightARM\create-linux-based-hadoop-cluster-in-hdinsight.json" --parameters '{\"clusterName\":{\"value\":\"hdi1229\"},\"clusterLoginPassword\":{\"value\":\"Pass@word1\"},\"sshPassword\":{\"value\":\"Pass@word1\"}}'
 
-## <a name="deploy-with-rest-api"></a>Развертывание с помощью REST API
+## <a name="deploy-with-the-rest-api"></a>Развертывание с помощью REST API
 См. статью [Развертывание ресурсов с использованием шаблонов и REST API Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
 ## <a name="deploy-with-visual-studio"></a>Развертывание с помощью Visual Studio
-С помощью Visual Studio можно создать проект группы ресурсов и развернуть его в Azure, используя пользовательский интерфейс. Можно выбрать тип ресурсов, добавляемых в проект. Эти ресурсы будут автоматически добавляться в шаблон диспетчера ресурсов. Проект также предоставляет сценарий PowerShell для развертывания шаблона.
+ С помощью Visual Studio можно создать проект группы ресурсов и развернуть его в Azure, используя пользовательский интерфейс. Выберите тип ресурсов, добавляемых в проект. Эти ресурсы автоматически добавляются в шаблон Resource Manager. Проект также предоставляет сценарий PowerShell для развертывания шаблона.
 
 Обзорные сведения об использовании групп ресурсов в Visual Studio см. в статье [Создание и развертывание групп ресурсов Azure с помощью Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами создания кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Подробный пример развертывания приложения см. в статье [Предсказуемые подготовка и развертывание микрослужб в Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 * Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](../solution-dev-test-environments.md).
 * Дополнительную информацию о разделах в шаблоне Azure Resource Manager см. в статье [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 * Список функций, которые можно использовать в шаблоне Azure Resource Manager, см. в статье [Функции шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-template-functions.md).
 
-## <a name="appx-a-resource-manager-template"></a>Приложение A: шаблон Resource Manager
+## <a name="appendix-resource-manager-template"></a>Приложение: шаблон Resource Manager
 Следующий шаблон Azure Resource Manager создает кластер Hadoop под управлением Linux с зависимой учетной записью хранения Azure.
 
 > [!NOTE]
-> В примере содержатся сведения о конфигурации для метаданных Hive и Oozie.  Удалите раздел или настройте его перед использованием шаблона.
+> В этом примере содержатся сведения о конфигурации для хранилищ метаданных Hive и Oozie. Удалите раздел или настройте его перед использованием шаблона.
 >
 >
 
