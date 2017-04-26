@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/14/2017
+ms.date: 04/25/2017
 ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
@@ -230,6 +230,10 @@ ms.lasthandoff: 03/17/2017
 * Полный список всех алгоритмов и модулей машинного обучения, доступных в Студии машинного обучения Azure, расположенных в алфавитном порядке, см. в статье [A-Z list of Machine Learning Studio modules][a-z-list] (Полный список модулей Студии машинного обучения) в справке по алгоритмам и модулям Студии машинного обучения.
 * Чтобы скачать и распечатать схему, на которой представлены общие возможности Студии машинного обучения Azure, см. [обзорную схему возможностей Студии машинного обучения Azure](machine-learning-studio-overview-diagram.md).
 
+
+<!-- Reference links -->
+[initialize-model]: https://msdn.microsoft.com/library/azure/dn905812.aspx
+[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
 
 <!-- Media -->
 
