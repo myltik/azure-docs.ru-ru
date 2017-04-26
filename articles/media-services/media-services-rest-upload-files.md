@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: c0ea95ed12a704116e8cdff257dacd7768b45708
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 256f8323d199db98a1267a5139a1ab3f14a3441c
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -310,7 +310,7 @@ AMS также позволяет передавать ресурсы в пак�
 > 
 > 
 
-Дополнительную информацию о работе с большими двоичными объектами службы хранилища Azure см. в статье [API-интерфейс REST службы BLOB-объектов](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
+Дополнительную информацию о работе с большими двоичными объектами службы хранилища Azure см. в статье [API-интерфейс REST службы BLOB-объектов](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Обновление AssetFile
 После отправки файла обновите информацию о размере сущности FileAsset (и другую информацию). Например:

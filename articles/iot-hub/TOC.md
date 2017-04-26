@@ -10,98 +10,21 @@
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
+#### [Python](iot-hub-python-getstarted.md)
 
 ### Использование виртуального шлюза 
 #### [Моделирование в Linux](iot-hub-linux-gateway-sdk-get-started.md)
 #### [Моделирование в Windows](iot-hub-windows-gateway-sdk-get-started.md)
 
 ### Использование физического устройства
-#### [Raspberry Pi с Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
-##### Урок 1. Настройка устройства
-###### [Настройка устройства](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
-###### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-###### [Получение инструментов (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-###### [Получение инструментов (MacOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
-###### [Создание и развертывание приложения для включения индикатора](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
-##### Урок 2. Создание Центра Интернета вещей
-###### [Получение инструментов Azure (Windows 7 и более поздние версии)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
-###### [Получение инструментов Azure (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
-###### [Получение инструментов Azure (MacOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
-###### [Создание Центра Интернета вещей и регистрация Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-##### Урок 3. Отправка сообщений с устройства в облако
-###### [Создание приложения-функции Azure и учетной записи хранения Azure](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
-###### [Запуск примера приложения для отправки сообщений](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
-###### [Чтение сообщений, сохраненных в хранилище](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
-##### Урок 4. Отправка сообщений из облака на устройство
-###### [Запуск примера приложения для получения сообщений](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
-###### [Изменение режима светодиодного индикатора (необязательно)](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
-##### [Устранение неполадок](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
+#### [Приступая к работе с Raspberry Pi 3 (Node.JS)](iot-hub-raspberry-pi-kit-node-get-started.md)
+#### [Подключение устройства Raspberry Pi 3 к Центру Интернета вещей с помощью C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
-#### [Raspberry Pi с C#](iot-hub-raspberry-pi-kit-c-get-started.md)
-##### Урок 1. Настройка устройства
-###### [Настройка устройства](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
-###### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
-###### [Получение инструментов (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
-###### [Получение инструментов (MacOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
-###### [Создание и развертывание приложения для включения индикатора](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
-##### Урок 2. Создание Центра Интернета вещей
-###### [Получение инструментов Azure (Windows 7 и более поздние версии)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
-###### [Получение инструментов Azure (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
-###### [Получение инструментов Azure (MacOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
-###### [Создание Центра Интернета вещей и регистрация Raspberry Pi](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
-##### Урок 3. Отправка сообщений с устройства в облако
-###### [Создание приложения-функции Azure и учетной записи хранения Azure](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md)
-###### [Запуск примера приложения для отправки сообщений](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
-###### [Чтение сообщений, сохраненных в хранилище](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
-##### Урок 4. Отправка сообщений из облака на устройство
-###### [Запуск примера приложения для получения сообщений](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
-###### [Изменение режима светодиодного индикатора (необязательно)](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
-##### [Устранение неполадок](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
+#### [Подключение устройства Intel Edison к Центру Интернета вещей с помощью Node.js](iot-hub-intel-edison-kit-node-get-started.md)
+#### [Подключение устройства Intel Edison к Центру Интернета вещей с помощью C](iot-hub-intel-edison-kit-c-get-started.md)
 
-#### [Intel Edison с Node.js](iot-hub-intel-edison-kit-node-get-started.md)
-##### Урок 1. Настройка устройства
-###### [Настройка устройства](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
-###### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
-###### [Получение инструментов (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md)
-###### [Получение инструментов (MacOS 10.10)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md)
-###### [Создание и развертывание приложения для включения индикатора](iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md)
-##### Урок 2. Создание Центра Интернета вещей
-###### [Получение инструментов Azure (Windows 7 и более поздние версии)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md)
-###### [Получение инструментов Azure (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md)
-###### [Получение инструментов Azure (MacOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
-###### [Создание Центра Интернета вещей и регистрация Raspberry Pi](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
-##### Урок 3. Отправка сообщений с устройства в облако
-###### [Создание приложения-функции Azure и учетной записи хранения Azure](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
-###### [Запуск примера приложения для отправки сообщений](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
-###### [Чтение сообщений, сохраненных в хранилище](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
-##### Урок 4. Отправка сообщений из облака на устройство
-###### [Запуск примера приложения для получения сообщений](iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md)
-###### [Изменение режима светодиодного индикатора (необязательно)](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
-##### [Устранение неполадок](iot-hub-intel-edison-kit-node-troubleshooting.md)
-
-#### [Intel Edison с C#](iot-hub-intel-edison-kit-c-get-started.md)
-##### Урок 1. Настройка устройства
-###### [Настройка устройства](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
-###### [Получение инструментов (Windows 7 и более поздние версии)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
-###### [Получение инструментов (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md)
-###### [Получение инструментов (MacOS 10.10)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md)
-###### [Создание и развертывание приложения для включения индикатора](iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md)
-##### Урок 2. Создание Центра Интернета вещей
-###### [Получение инструментов Azure (Windows 7 и более поздние версии)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md)
-###### [Получение инструментов Azure (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md)
-###### [Получение инструментов Azure (MacOS 10.10)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md)
-###### [Создание Центра Интернета вещей и регистрация Raspberry Pi](iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md)
-##### Урок 3. Отправка сообщений с устройства в облако
-###### [Создание приложения-функции Azure и учетной записи хранения Azure](iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md)
-###### [Запуск примера приложения для отправки сообщений](iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md)
-###### [Чтение сообщений, сохраненных в хранилище](iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md)
-##### Урок 4. Отправка сообщений из облака на устройство
-###### [Запуск примера приложения для получения сообщений](iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md)
-###### [Изменение режима светодиодного индикатора (необязательно)](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
-##### [Устранение неполадок](iot-hub-intel-edison-kit-c-troubleshooting.md)
-
-#### [Adafruit Feather HUZZAH ESP8266 c Arduino IDE](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Плата Sparkfun ESP8266 Thing Dev с Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Подключение Adafruit Feather HUZZAH ESP8266 к Центру Интернета вещей Azure в облаке](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Подключение Sparkfun ESP8266 Thing Dev к Центру Интернета вещей в облаке Azure](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Adafruit Feather M0 с Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### Использование начального набора шлюза Интернета вещей

@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 36cc060273ec4e402a4eecc877ed41889d9ce8ce
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: cd60055833eec98c4bef4680fec9910c347d9d0c
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Отключение диска от виртуальной машины Windows
-Когда диск данных, подключенный к виртуальной машине, больше не нужен, его можно легко отключить. При данной операции происходит удаление диска из виртуальной машины, но не из хранилища. 
+Когда диск данных, подключенный к виртуальной машине, больше не нужен, его можно легко отключить. При данной операции происходит удаление диска из виртуальной машины, но не из хранилища.
 
 > [!WARNING]
-> Если отключить диск, он не удаляется автоматически. Если вы подписаны на хранилище уровня "Премиум", с вас по-прежнему будет взиматься плата за хранение этого диска. Дополнительные сведения см. в разделе [Цены и выставление счетов](../../storage/storage-premium-storage.md#pricing-and-billing). 
-> 
-> 
+> Если отключить диск, он не удаляется автоматически. Если вы подписаны на хранилище уровня "Премиум", с вас по-прежнему будет взиматься плата за хранение этого диска. Дополнительные сведения см. в разделе [Цены и выставление счетов](../../storage/storage-premium-storage.md#pricing-and-billing).
+>
+>
 
-Если вы хотите снова использовать существующие данные на диске, его можно легко повторно подключить как к той же самой, так и к другой виртуальной машине.  
+Если вы хотите снова использовать существующие данные на диске, его можно легко повторно подключить как к той же самой, так и к другой виртуальной машине.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Отключение диска данных с помощью портала
 1. В главном меню портала выберите **Виртуальные машины**.
@@ -46,19 +46,19 @@ ms.lasthandoff: 03/31/2017
 Диск остается в хранилище, но более не подключен к виртуальной машине.
 
 ## <a name="detach-a-data-disk-using-powershell"></a>Отключение диска данных с помощью PowerShell
-В этом примере первая команда возвращает виртуальную машину **MyVM07** в группе ресурсов **RG11** с помощью командлета Get-AzureRmVM. Она сохраняет имя виртуальной машины в переменной **$VirtualMachine** . 
+В этом примере первая команда возвращает виртуальную машину **MyVM07** в группе ресурсов **RG11** с помощью командлета Get-AzureRmVM. Она сохраняет имя виртуальной машины в переменной **$VirtualMachine** .
 
-Вторая команда удаляет диск данных DataDisk3 из этой виртуальной машины. 
+Вторая команда удаляет диск данных DataDisk3 из этой виртуальной машины.
 
 Последняя команда обновляет состояние виртуальной машины, чтобы завершить процесс удаления диска данных.
 
 ```powershell
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
 Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 ```
 
-Дополнительные сведения см. в разделе [Remove-AzureRmVMDataDisk](/powershell/remove-azurermvmdatadisk).
+Дополнительные сведения см. в разделе [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Если вы хотите повторно использовать диск данных, то можете просто [подключить его к другой виртуальной машине](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

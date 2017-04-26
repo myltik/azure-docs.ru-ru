@@ -14,6 +14,7 @@
 ## Настройка подключения "сеть — сеть"
 ### [Портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Интерфейс командной строки Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Портал Azure (классический)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [Классический портал (классическая модель)](vpn-gateway-site-to-site-create.md)
 ## Настройка подключения "точка — сеть"
@@ -38,7 +39,6 @@
 ## [Настройка высокодоступных подключений в режиме "активный — активный"](vpn-gateway-activeactive-rm-powershell.md)
 ## [Изменение параметров шлюза локальной сети с помощью PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ## [Проверка подключения VPN-шлюза](vpn-gateway-verify-connection-resource-manager.md)
-## [Проверка пропускной способности VPN для виртуальной сети](vpn-gateway-validate-throughput-to-vnet.md)
 ## [Сброс VPN-шлюза](vpn-gateway-resetgw-classic.md)
 ## Удаление VPN-шлюза
 ### [Портал Azure](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -46,12 +46,15 @@
 ### [PowerShell (классическая модель)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Создание самозаверяющих корневых сертификатов для подключений типа "точка — сеть"](vpn-gateway-certificates-point-to-site.md)
 ## [Настройка VPN-шлюза (классическая модель)](vpn-gateway-configure-vpn-gateway-mp.md)
+## Устранение неполадок
+### [Проверка пропускной способности VPN для виртуальной сети](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
 ## [PowerShell (классическая модель)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/jj154113)
+## [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/network)
 
 # Сопутствующие материалы
 ## [Виртуальная сеть](/azure/virtual-network/)

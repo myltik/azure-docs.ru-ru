@@ -1,8 +1,3 @@
-Действие копирования в фабрике данных копирует данные из хранилища-источника в хранилище-приемник. Фабрика данных поддерживает приведенные ниже хранилища данных. Данные из любого источника можно записывать в любой приемник. Щелкните название хранилища, чтобы узнать, как скопировать данные из него или в него.
-
-> [!NOTE] 
-> Если необходимо переместить данные в хранилище или из хранилища данных, которое не поддерживается действием копирования, вы можете использовать в фабрике данных **настраиваемое действие**. В нем для копирования и перемещения данных используется логика, которую задаете вы. Сведения о создании и использовании настраиваемого действия см. в статье [Использование настраиваемых действий в конвейере фабрики данных Azure](../articles/data-factory/data-factory-use-custom-activities.md).
-
 | Категория | Хранилище данных | Поддерживается в качестве источника | Поддерживается в качестве приемника |
 |:--- |:--- |:--- |:--- |
 | **Таблицы Azure** |[хранилище BLOB-объектов Azure](../articles/data-factory/data-factory-azure-blob-connector.md) |✓  |✓  |
@@ -34,9 +29,6 @@
 | &nbsp; |[Generic ODBC](../articles/data-factory/data-factory-odbc-connector.md)* |✓  | |
 | &nbsp; |[Salesforce](../articles/data-factory/data-factory-salesforce-connector.md) |✓  | |
 | &nbsp; |[Веб-таблица (таблица на основе HTML)](../articles/data-factory/data-factory-web-table-connector.md) |✓  | |
-| &nbsp; |[GE Historian](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓  | | |
+| &nbsp; |[GE Historian](../articles/data-factory/data-factory-odbc-connector.md#ge-historian-store)* |✓ | | |
 
-> [!NOTE]
-> Хранилища данных, отмеченные звездочкой (*), могут находиться в локальном расположении или в IaaS Azure и требовать установки [шлюза управления данными](../articles/data-factory/data-factory-data-management-gateway.md) на локальном компьютере или компьютере IaaS Azure.
->
->
+

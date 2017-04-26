@@ -7,6 +7,7 @@
 ## [Представление группы безопасности](network-watcher-security-group-view-overview.md)
 ## [Следующий прыжок](network-watcher-next-hop-overview.md)
 ## [Устранение неполадок VPN-подключения](network-watcher-troubleshoot-overview.md)
+## [Ограничения служб](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # Начало работы
 ## [Настройка Наблюдателя за сетями](network-watcher-create.md)
 ## Управление захватом пакетов

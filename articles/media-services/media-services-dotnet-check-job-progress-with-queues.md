@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 0ddac6ef30439e6bea04d63c41662bc49309de2c
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: a9bb00c6f0a691ac3a67d19ada4341d8d94876c1
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/22/2017
 
 * Хранилище очередей не гарантирует доставку по методу FIFO (первым пришел, первым вышел). Дополнительные сведения см. в статье [Очереди Azure и очереди служебной шины: сходства и различия](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 * Хранилище очередей не является службой Push-уведомлений. Необходимо опрашивать очередь.
-* Можно использовать любое количество очередей. Дополнительные сведения см. в статье [REST API службы очередей](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API).
+* Можно использовать любое количество очередей. Дополнительные сведения см. в статье [REST API службы очередей](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
 * Хранилище очередей имеет ряд ограничений и особенностей, которые следует учитывать. Они описаны в статье [Очереди службы хранилища и очереди служебной шины: сходства и различия](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ### <a name="code-example"></a>Примеры кода

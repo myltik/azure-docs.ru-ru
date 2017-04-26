@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: d7a08bb0f4128eb3915658b41843b35613108a98
-ms.openlocfilehash: d544695654ff136ee25856cb4a0309f882057ebb
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 4036c994cb5be68b372a4f244f65a17ce173ecc2
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -214,4 +214,4 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 * В таблице емкости больших двоичных объектов ежедневно добавляются две строки (если пользователь выбрал использование журналов). При этом размер этой таблицы ежедневно увеличивается примерно на 300 байтов.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Включение ведения журнала и доступа к данным журнала хранилища](/rest/api/storageservices/fileservices/Enabling-Storage-Logging-and-Accessing-Log-Data)
+[Включение ведения журнала и доступа к данным журнала хранилища](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)

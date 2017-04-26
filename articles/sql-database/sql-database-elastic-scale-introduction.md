@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
-ms.openlocfilehash: f1f963c1401b785b3d4ee007b6ea61f221f9ec4d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 2a7c761062dcf5da016a2e106274839f5f6c0d13
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -94,7 +94,7 @@ ms.lasthandoff: 02/16/2017
 
 Сведения о том, как преобразовать имеющиеся базы данных, чтобы использовать эти инструменты, см. в статье [Перенос существующих баз данных для масштабирования](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Сведения об особенностях эластичного пула см. в статье [Когда следует использовать эластичный пул?](sql-database-elastic-pool-guidance.md). Вы можете также создать [эластичные пулы](sql-database-elastic-pool-manage-portal.md).  
+Сведения об особенностях эластичного пула см. в статье [Когда следует использовать эластичный пул?](sql-database-elastic-pool.md). Вы можете также создать [эластичные пулы](sql-database-elastic-pool-manage-portal.md).  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

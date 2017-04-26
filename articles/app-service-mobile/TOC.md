@@ -22,7 +22,7 @@
 
 ## Создание веб-приложений
 ### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
-### [PHP](../app-service-web/app-service-web-get-started-php.md)    
+### [PHP](../app-service-web/app-service-web-get-started-php.md)
 ### [Node.js](../app-service-web/app-service-web-get-started-nodejs.md)
 ### [Java](../app-service-web/app-service-web-get-started-java.md)
 ### [Python](../app-service-web/app-service-web-get-started-python.md)
@@ -68,7 +68,7 @@
 #### [Добавление push-уведомлений](app-service-mobile-windows-store-dotnet-get-started-push.md)
 #### [Работа с пакетом SDK для клиента](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-### Xamarin.Android 
+### Xamarin.Android
 #### [Включение автономной синхронизации](app-service-mobile-xamarin-android-get-started-offline-data.md)
 #### [Добавление проверки подлинности](app-service-mobile-xamarin-android-get-started-users.md)
 #### [Добавление push-уведомлений](app-service-mobile-xamarin-android-get-started-push.md)
@@ -78,7 +78,6 @@
 #### [Включение автономной синхронизации](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [Добавление проверки подлинности](app-service-mobile-xamarin-forms-get-started-users.md)
 #### [Добавление push-уведомлений](app-service-mobile-xamarin-forms-get-started-push.md)
-#### [Подключение к службе хранилища Azure в приложении Xamarin.Forms](app-service-mobile-xamarin-forms-blob-storage.md)
 #### [Работа с пакетом SDK для клиента](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
@@ -194,7 +193,6 @@
 ### [Управление приложениями с помощью службы автоматизации Azure](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Интеграция
-### [Подключение к службе хранилища Azure в приложении Xamarin.Forms](app-service-mobile-xamarin-forms-blob-storage.md)
 ### [Доступ к локальным ресурсам с помощью гибридных подключений](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Как отправлять электронную почту с помощью SendGrid и Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -219,10 +217,10 @@
 ## [Портал Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Ресурсы
-## [Цены](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
-## [Форум MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
-## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## [Цены](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [Форум MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## Примеры
 ### [Специалист по эксплуатации](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [Синхронизация структурированных данных](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)

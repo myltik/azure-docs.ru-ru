@@ -1,6 +1,6 @@
 # Обзор
 ## [Что собой представляет SQL Server на виртуальной машине Azure?](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [Цены](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [Цены](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [Часто задаваемые вопросы](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # Начало работы
@@ -48,9 +48,4 @@
 ## [Инструменты SQL Server](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
