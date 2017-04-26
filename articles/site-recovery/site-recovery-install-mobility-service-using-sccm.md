@@ -1,5 +1,5 @@
 ---
-title: "Автоматизация установки Mobility Service для Azure Site Recovery с использованием средств развертывания программного обеспечения | Документация Майкрософт."
+title: "Автоматизация установки Mobility Service для Azure Site Recovery с использованием средств развертывания программного обеспечения | Документация Майкрософт"
 description: "Эта статья поможет вам автоматизировать установку Mobility Service с помощью инструментов развертывания программного обеспечения, таких как System Center Configuration Manager."
 services: site-recovery
 documentationcenter: 
@@ -15,49 +15,49 @@ ms.topic: article
 ms.date: 1/10/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 310f2a2fe793601d22952bf516a812bf4867bbec
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ded45356e6dd22b485adfe7f85ddd0abb21280e5
+ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="automate-mobility-service-installation-using-software-deployment-tools"></a>Автоматизация установки Mobility Service с использованием средств развертывания программного обеспечения
+# <a name="automate-mobility-service-installation-by-using-software-deployment-tools"></a>Автоматизация установки Mobility Service с использованием средств развертывания программного обеспечения
 
-В этой статье приведен пример того, как можно применить System Center Configuration Manager для развертывания Azure Site Recovery Mobility Service в центре обработки данных. Такие средства развертывания программного обеспечения, как System Center Configuration Manager, предоставляют следующие преимущества:
-* планирование развертывания — свежие обновления выполняются в течение запланированного периода обслуживания для обновления программного обеспечения;
-* одновременное масштабное развертывание вплоть до нескольких сотен серверов.
+В этой статье приведен пример того, как можно применить System Center Configuration Manager для развертывания Azure Site Recovery Mobility Service в центре обработки данных. Такие средства развертывания программного обеспечения, как Configuration Manager, предоставляют следующие преимущества:
+* планирование развертывания свежих обновлений на выделенный период обслуживания для обновления программного обеспечения;
+* масштабирование развертывания вплоть до нескольких сотен серверов.
 
 
 > [!NOTE]
 > В этой статье демонстрируется развертывание на примере System Center Configuration Manager 2012 R2. Автоматизировать установку Mobility Service можно также с помощью [службы автоматизации Azure и настройки требуемого состояния](site-recovery-automate-mobility-service-install.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-1. Заранее развернутые в вашей среде средства развертывания программного обеспечения, например System Center Configuration Manager(SCCM).
-  * Создайте две [коллекции устройств](https://technet.microsoft.com/library/gg682169.aspx) — одну для всех **серверов Windows** и еще одну для всех **серверов Linux**, для защиты которых вы будете применять Azure Site Recovery.
-3. Сервер конфигурации, зарегистрированный в Azure Site Recovery.
-4. Защищенная общая сетевая папка, к которой сможет обратиться сервер System Center Configuration Manager.
+1. Установленное в вашей среде средство развертывания программного обеспечения, например Configuration Manager.
+  Создайте две [коллекции устройств](https://technet.microsoft.com/library/gg682169.aspx) — одну для всех **серверов Windows** и другую для всех **серверов Linux**, для защиты которых вы будете применять Site Recovery.
+3. Сервер конфигурации, зарегистрированный в Site Recovery.
+4. Защищенная общая сетевая папка (общая папка SMB), к которой есть доступ с сервера Configuration Manager.
 
-## <a name="deploy-mobility-service-on-computers-running-microsoft-windows-operating-systems"></a>Развертывание Mobility Service на компьютерах под управлением операционных систем Microsoft Windows
+## <a name="deploy-mobility-service-on-computers-running-windows"></a>Развертывание Mobility Service на компьютерах под управлением Windows
 > [!NOTE]
-> В данной статье предполагается, что выполняются следующие условия.
-> 1. Сервер конфигурации имеет IP-адрес 192.168.3.121.
-> 2. Защищенная общая сетевая папка имеет адрес \\\ContosoSecureFS\MobilityServiceInstallers.
+> В этой статье предполагается, что сервер конфигурации использует IP-адрес 192.168.3.121, а защищенная общая сетевая папка имеет адрес \\\ContosoSecureFS\MobilityServiceInstallers.
 
 ### <a name="step-1-prepare-for-deployment"></a>Шаг 1. Подготовка к развертыванию
 1. Создайте в общей сетевой папке каталог с именем **MobSvcWindows**.
-2. Войдите на сервер конфигурации и откройте командную строку администратора.
-3. Выполните следующие команды для создания файла парольной фразы.
+2. Войдите на сервер конфигурации и откройте административную командную строку.
+3. Выполните следующие команды, чтобы создать файл парольной фразы.
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-6. Скопируйте файл MobSvc.passphrase в каталог MobSvcWindows, расположенный в общей сетевой папке.
-5. Теперь перейдите к репозиторию установщика на сервере конфигурации, выполнив такую команду.
+4. Скопируйте файл **MobSvc.passphrase** в каталог **MobSvcWindows**, расположенный в общей сетевой папке.
+5. Перейдите к репозиторию установщика на сервере конфигурации, выполнив такую команду:
 
-  `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+
 6. Скопируйте файл **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** в каталог **MobSvcWindows**, расположенный в общей сетевой папке.
-7. Скопируйте приведенный ниже в файл и сохраните файл под именем **install.bat**, поместив его в каталог **MobSvcWindows**.
-> [!NOTE]
-> Не забудьте заменить в этом скрипте заполнители [CSIP] реальными значениями IP-адреса сервера конфигурации.
+7. Скопируйте приведенный ниже код в файл и сохраните этот файл с именем **install.bat** в каталоге **MobSvcWindows**.
+
+   > [!NOTE]
+   > Замените в этом скрипте заполнители [CSIP] реальными значениями IP-адреса сервера конфигурации.
 
 ```
 Time /t >> C:\Temp\logfile.log
@@ -102,86 +102,93 @@ GOTO :ENDSCRIPT
 
 ```
 
-### <a name="step-2-create-a-package"></a>Шаг 2. Создание пакета
+### <a name="step-2-create-a-package"></a>Шаг 2. Создание пакета
 
-1. Войдите в консоль управления System Center Configuration Manager
-2. Перейдите к разделу **Библиотека программного обеспечения** > **Управление приложениями** > **Пакеты**
-3. Щелкните **Пакеты** правой кнопкой мыши и выберите **Создать пакет**
-4. Введите значения для параметров Имя, Описание, Изготовитель, Язык, Версия.
+1. Войдите в консоль Configuration Manager.
+2. Перейдите к разделу **Библиотека программного обеспечения** > **Управление приложениями** > **Пакеты**.
+3. Щелкните **Пакеты** правой кнопкой мыши и выберите **Создать пакет**.
+4. Введите значения для параметров Имя, Описание, Изготовитель, Язык и Версия.
 5. Установите флажок **Этот пакет содержит исходные файлы**.
-6. Нажмите кнопку **Обзор** и выберите общую сетевую папку, в которой хранится установщик (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
+6. Щелкните **Обзор** и выберите общую сетевую папку, в которой хранится установщик (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)
+  ![Снимок экрана с мастером создания пакета и программы](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)
 
-7. На странице **Выберите тип создаваемой программы** выберите **Стандартная программа** и нажмите кнопку **Далее**.
+7. На странице **Выберите тип создаваемой программы** выберите **Стандартная программа** и щелкните **Далее**.
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
-8. На странице **Укажите сведения об этой стандартной программе** предоставьте следующие данные и нажмите кнопку **Далее**. (Для остальных параметров можно оставить значения по умолчанию).
+  ![Снимок экрана с мастером создания пакета и программы](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
-  ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)   
-| **Имя параметра** | **Значение** |
-|--|--|
-| Имя | Установка Microsoft Azure Mobility Service (Windows) |
-| Команда | install.bat |
-| Программа может запускаться | Независимо от входа пользователя в систему |
+8. На странице **Укажите сведения об этой стандартной программе** предоставьте следующие данные и щелкните **Далее**. (Для остальных параметров можно оставить значения по умолчанию.)
+ 
+  | **Имя параметра** | **Значение** |
+  |--|--|
+  | Имя | Установка Microsoft Azure Mobility Service (Windows) |
+  | Команда | install.bat |
+  | Программа может запускаться | Независимо от входа пользователя в систему |
+
+  ![Снимок экрана с мастером создания пакета и программы](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
+
 9. На следующей странице выберите целевые операционные системы. Mobility Service можно устанавливать только на Windows Server 2012 R2, Windows Server 2012 и Windows Server 2008 R2.
 
-  ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
-10. Дважды нажмите кнопку "Далее", чтобы завершить работу мастера.
+  ![Снимок экрана с мастером создания пакета и программы](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png) 
+
+10. Дважды щелкните **Далее**, чтобы завершить работу мастера.
+
 
 > [!NOTE]
 > Скрипт поддерживает как новые установки агентов Mobility Service, так и обновление уже установленных агентов.
 
-### <a name="step-3-deploy-the-package"></a>Шаг 3. Развертывание пакета
-1. В консоли System Center Configuration Manager щелкните пакет правой кнопкой мыши и выберите команду **Распространить содержимое**
-  ![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+### <a name="step-3-deploy-the-package"></a>Шаг 3. Развертывание пакета
+1. В консоли Configuration Manager щелкните пакет правой кнопкой мыши и выберите команду **Распространить содержимое**.
+  ![Снимок экрана с консолью Configuration Manager](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Выберите **[Точки распространения](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**, на которые следует скопировать эти пакеты.
-3. Когда работа мастера завершится, пакет начинает реплицироваться на выбранные точки распространения.
-4. После завершения распространения пакета щелкните пакет правой кнопкой мыши и выберите **Развернуть**
-  ![deploy-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
-5. Выберите коллекцию устройств Widows Server, созданную на этапе подготовки предварительных требований, в качестве целевой коллекции для развертывания.
+3. Завершите работу мастера. Теперь пакет будет реплицироваться на выбранные точки распространения.
+4. Когда распространение пакета завершится, щелкните пакет правой кнопкой мыши и выберите **Развернуть**.
+  ![Снимок экрана с консолью Configuration Manager](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+5. Выберите коллекцию устройств Windows Server, созданную на этапе подготовки предварительных требований, в качестве целевой коллекции для развертывания.
 
-  ![sccm-select-target-collection](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
-6. На странице **Укажите места распространения содержимого** выберите нужные **Точки распространения**
-7. На странице **Укажите параметры управления процессом развертывания этого программного обеспечения** проверьте, выбрана ли правильная цель.
+  ![Снимок экрана с мастером развертывания программного обеспечения](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
 
-  ![sccm-deploy-select-purpose](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
-8. Выберите расписание в разделе **Укажите расписание этого развертывания**. Дополнительные сведения о [составлении расписания для пакетов](https://technet.microsoft.com/library/gg682178.aspx).
-9. Настройте свойства на странице **Точки распространения** в соответствии с потребностями вашего центра обработки данных и завершите работу мастера.
+6. На странице **Укажите места распространения содержимого** выберите нужные **Точки распространения**.
+7. На странице **Укажите параметры управления процессом развертывания этого программного обеспечения** убедитесь, что выбрана цель **Обязательно**.
+
+  ![Снимок экрана с мастером развертывания программного обеспечения](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
+
+8. Настройте расписание в разделе **Укажите расписание этого развертывания**. Дополнительные сведения см. в статье [Развертывание пакетов и программ в Configuration Manager](https://technet.microsoft.com/library/gg682178.aspx).
+9. Настройте свойства на странице **Точки распространения** в соответствии с потребностями вашего центра обработки данных. Теперь завершите работу мастера.
 
 > [!TIP]
-> Чтобы избежать ненужных перезагрузок, запланируйте установку пакета на период ежемесячного обслуживания или обновления программного обеспечения.
+> Чтобы избежать лишних перезагрузок, запланируйте установку пакета на период ежемесячного обслуживания или обновления программного обеспечения.
 
-Ход развертывания вы можете отслеживать с помощью консоли System Center Configuration Manager, перейдя в раздел **Мониторинг** > **Развертывания** > *[имя_пакета]*
-  ![monitor-sccm](./media/site-recovery-install-mobility-service-using-sccm/report.PNG).
+Ход развертывания можно отслеживать с помощью консоли Configuration Manager. Последовательно выберите пункты **Мониторинг** > **Развертывания** > *[имя пакета]*.
 
-## <a name="deploy-mobility-service-on-computers-running-linux-operating-systems"></a>Развертывание Mobility Service на компьютерах под управлением операционных систем Linux
+  ![Снимок экрана с настройкой отслеживания расписания в Configuration Manager](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
+
+## <a name="deploy-mobility-service-on-computers-running-linux"></a>Развертывание Mobility Service на компьютерах под управлением Linux
 > [!NOTE]
-> В данной статье предполагается, что выполняются следующие условия.
-> 1. Сервер конфигурации имеет IP-адрес 192.168.3.121.
-> 2. Защищенная общая сетевая папка имеет адрес \\\ContosoSecureFS\MobilityServiceInstallers.
+> В этой статье предполагается, что сервер конфигурации использует IP-адрес 192.168.3.121, а защищенная общая сетевая папка имеет адрес \\\ContosoSecureFS\MobilityServiceInstallers.
 
 ### <a name="step-1-prepare-for-deployment"></a>Шаг 1. Подготовка к развертыванию
 1. Создайте в общей сетевой папке каталог с именем **MobSvcLinux**.
-2. Войдите на сервер конфигурации и откройте командную строку администратора.
-3. Выполните следующие команды для создания файла парольной фразы.
+2. Войдите на сервер конфигурации и откройте административную командную строку.
+3. Выполните следующие команды, чтобы создать файл парольной фразы.
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-6. Скопируйте файл MobSvc.passphrase в каталог MobSvcWindows, расположенный в общей сетевой папке.
-5. Теперь перейдите к репозиторию установщика на сервере конфигурации, выполнив такую команду.
+4. Скопируйте файл **MobSvc.passphrase** в каталог **MobSvcLinux**, расположенный в общей сетевой папке.
+5. Перейдите к репозиторию установщика на сервере конфигурации, выполнив такую команду.
 
-  `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+
 6. Скопируйте следующие файлы в каталог **MobSvcLinux**, расположенный в общей сетевой папке.
-  * Microsoft-ASR\_UA\_*version*\_OEL-64\_GA\_*date*\_Release.tar.gz
-  * Microsoft-ASR\_UA\_*version*\_RHEL6-64\_GA\_*date*\_Release.tar.gz
-  * Microsoft-ASR\_UA\_*version*\_RHEL7-64\_GA\_*date*\_Release.tar.gz
-  * Microsoft-ASR\_UA\_*version*\_SLES11-SP3-64\_GA\_*date*\_Release.tar.gz
+   * Microsoft-ASR\_UA\_*version*\_OEL-64\_GA\_*date*\_Release.tar.gz
+   * Microsoft-ASR\_UA\_*version*\_RHEL6-64\_GA\_*date*\_Release.tar.gz
+   * Microsoft-ASR\_UA\_*version*\_RHEL7-64\_GA\_*date*\_Release.tar.gz
+   * Microsoft-ASR\_UA\_*version*\_SLES11-SP3-64\_GA\_*date*\_Release.tar.gz
 
-7. Скопируйте приведенный ниже в файл и сохраните файл под именем **install_linux.sh**, поместив его в каталог **MobSvcLinux**.
-> [!NOTE]
-> Не забудьте заменить в этом скрипте заполнители [CSIP] реальными значениями IP-адреса сервера конфигурации.
+7. Скопируйте приведенный ниже код в файл и сохраните этот файл с именем **install_linux.sh** в каталоге **MobSvcLinux**.
+   > [!NOTE]
+   > Замените в этом скрипте заполнители [CSIP] реальными значениями IP-адреса сервера конфигурации.
 
 ```
 #!/bin/sh
@@ -254,64 +261,69 @@ rm -rf /tm/MobSvc
 exit ${Error}
 ```
 
-### <a name="step-2-create-a-package"></a>Шаг 2. Создание пакета
+### <a name="step-2-create-a-package"></a>Шаг 2. Создание пакета
 
-1. Войдите в консоль управления System Center Configuration Manager
-2. Перейдите к разделу **Библиотека программного обеспечения** > **Управление приложениями** > **Пакеты**
-3. Щелкните **Пакеты** правой кнопкой мыши и выберите **Создать пакет**
-4. Введите значения для параметров Имя, Описание, Изготовитель, Язык, Версия.
+1. Войдите в консоль Configuration Manager.
+2. Перейдите к разделу **Библиотека программного обеспечения** > **Управление приложениями** > **Пакеты**.
+3. Щелкните **Пакеты** правой кнопкой мыши и выберите **Создать пакет**.
+4. Введите значения для параметров Имя, Описание, Изготовитель, Язык и Версия.
 5. Установите флажок **Этот пакет содержит исходные файлы**.
-6. Нажмите кнопку **Обзор** и выберите общую сетевую папку, в которой хранится установщик (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
+6. Щелкните **Обзор** и выберите общую сетевую папку, в которой хранится установщик (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)
+  ![Снимок экрана с мастером создания пакета и программы](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)
 
-7. На странице **Выберите тип создаваемой программы** выберите **Стандартная программа** и нажмите кнопку **Далее**.
+7. На странице **Выберите тип создаваемой программы** выберите **Стандартная программа** и щелкните **Далее**.
 
-  ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
-8. На странице **Укажите сведения об этой стандартной программе** предоставьте следующие данные и нажмите кнопку **Далее**. (Для остальных параметров можно оставить значения по умолчанию).
+  ![Снимок экрана с мастером создания пакета и программы](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
-  ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)   
-| **Имя параметра** | **Значение** |
-|--|--|
-| Имя | Установка Microsoft Azure Mobility Service (Linux) |
-| Команда | ./install_linux.sh |
-| Программа может запускаться | Независимо от входа пользователя в систему |
+8. На странице **Укажите сведения об этой стандартной программе** предоставьте следующие данные и щелкните **Далее**. (Для остальных параметров можно оставить значения по умолчанию.)
 
-9. На следующей странице выберите **Эта программа может запускаться на любой платформе**
-  ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)   
+    | **Имя параметра** | **Значение** |
+  |--|--|
+  | Имя | Установка Microsoft Azure Mobility Service (Linux) |
+  | Команда | ./install_linux.sh |
+  | Программа может запускаться | Независимо от входа пользователя в систему |
 
-10. Дважды нажмите кнопку **Далее**, чтобы завершить работу мастера.
+  ![Снимок экрана с мастером создания пакета и программы](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)
+
+9. На следующей странице выберите **Эта программа может запускаться на любой платформе**.
+  ![Снимок экрана с мастером создания пакета и программы](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)
+
+10. Дважды щелкните **Далее**, чтобы завершить работу мастера. 
+ 
 > [!NOTE]
 > Скрипт поддерживает как новые установки агентов Mobility Service, так и обновление уже установленных агентов.
 
-### <a name="step-3-deploy-the-package"></a>Шаг 3. Развертывание пакета
-1. В консоли System Center Configuration Manager щелкните пакет правой кнопкой мыши и выберите команду **Распространить содержимое**
-  ![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
+### <a name="step-3-deploy-the-package"></a>Шаг 3. Развертывание пакета
+1. В консоли Configuration Manager щелкните пакет правой кнопкой мыши и выберите команду **Распространить содержимое**.
+  ![Снимок экрана с консолью Configuration Manager](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Выберите **[Точки распространения](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**, на которые следует скопировать эти пакеты.
-3. Когда работа мастера завершится, пакет начинает реплицироваться на выбранные точки распространения.
-4. После завершения распространения пакета щелкните пакет правой кнопкой мыши и выберите **Развернуть**
-  ![deploy-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
+3. Завершите работу мастера. Теперь пакет будет реплицироваться на выбранные точки распространения.
+4. Когда распространение пакета завершится, щелкните пакет правой кнопкой мыши и выберите **Развернуть**.
+  ![Снимок экрана с консолью Configuration Manager](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
 5. Выберите коллекцию устройств Linux Server, созданную на этапе подготовки предварительных требований, в качестве целевой коллекции для развертывания.
 
-  ![sccm-select-target-collection](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
-6. На странице **Укажите места распространения содержимого** выберите нужные **Точки распространения**
-7. На странице **Укажите параметры управления процессом развертывания этого программного обеспечения** проверьте, выбрана ли правильная цель.
+  ![Снимок экрана с мастером развертывания программного обеспечения](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
 
-  ![sccm-deploy-select-purpose](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
-8. Выберите расписание в разделе **Укажите расписание этого развертывания**. Дополнительные сведения о [составлении расписания для пакетов](https://technet.microsoft.com/library/gg682178.aspx).
-9. Настройте свойства на странице **Точки распространения** в соответствии с потребностями вашего центра обработки данных и завершите работу мастера.
+6. На странице **Укажите места распространения содержимого** выберите нужные **Точки распространения**.
+7. На странице **Укажите параметры управления процессом развертывания этого программного обеспечения** убедитесь, что выбрана цель **Обязательно**.
+
+  ![Снимок экрана с мастером развертывания программного обеспечения](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
+
+8. Настройте расписание в разделе **Укажите расписание этого развертывания**. Дополнительные сведения см. в статье [Развертывание пакетов и программ в Configuration Manager](https://technet.microsoft.com/library/gg682178.aspx).
+9. Настройте свойства на странице **Точки распространения** в соответствии с потребностями вашего центра обработки данных. Теперь завершите работу мастера.
 
 Mobility Service устанавливается в коллекцию устройств Linux Server согласно настроенному расписанию.
 
-## <a name="other-methods-to-install-mobility-services"></a>Другие методы установки службы Mobility Service
-Дополнительные сведения о других способах установки службы Mobility Service.
+## <a name="other-methods-to-install-mobility-service"></a>Другие методы установки службы Mobility Service
+Вот еще несколько вариантов действий для установки службы Mobility Service.
 * [Ручная установка с использованием графического интерфейса](http://aka.ms/mobsvcmanualinstall)
 * [Ручная установка с использованием командной строки](http://aka.ms/mobsvcmanualinstallcli)
 * [Принудительная установка с использованием сервера конфигурации](http://aka.ms/pushinstall)
 * [Автоматическая установка с использованием службы автоматизации Azure и настройки требуемого состояния](http://aka.ms/mobsvcdscinstall)
 
 ## <a name="uninstall-mobility-service"></a>Удаление службы Mobility Service
-Вы можете создать пакеты SCCM для удаления службы Mobility Service, как и для установки. Чтобы удалить службу Mobility Service, используйте следующий сценарий:
+Вы можете создать пакеты Configuration Manager для удаления службы Mobility Service. Для этого выполните следующий скрипт.
 
 ```
 Time /t >> C:\logfile.log
