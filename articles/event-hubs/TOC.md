@@ -29,7 +29,6 @@
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
 #### [Журналы диагностики](event-hubs-diagnostic-logs.md)
-### [Аутентификация и авторизация](../service-bus-messaging/service-bus-sas.md)
 ### [Руководство по использованию протокола AMQP 1.0](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## управление
 ### [Библиотеки управления концентраторами событий](event-hubs-management-libraries.md)

@@ -4,6 +4,7 @@
 ## [Что такое DocumentDB: API для MongoDB?](documentdb-protocol-mongodb.md)
 ## [Ключевые понятия](documentdb-resources.md)
 ## [Глобальное распределение](documentdb-distribute-data-globally.md)
+## [Отработка отказа между регионами](documentdb-regional-failovers.md)
 ## [Безопасность](documentdb-nosql-database-security.md)
 ## [Анализ совокупной стоимости владения базой данных NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Сценарии
@@ -47,8 +48,7 @@
 ### [Моделирование данных](documentdb-modeling-data.md)
 ### [Автоматическое истечение срока хранения данных](documentdb-time-to-live.md)
 ### [Архивация и восстановление](documentdb-online-backup-and-restore.md)
-### [Отработка отказа между регионами](documentdb-regional-failovers.md)
-### Служба автоматизации
+### Автоматизация
 #### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 #### [Azure CLI 1.0: создание учетной записи](documentdb-automation-resource-manager-cli-nodejs.md)
 #### [Azure CLI 1.0: добавление и удаление регионов](documentdb-automation-region-management.md)

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8dc33077a955052a99b415b1299004cf8a4f217e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: b49e06da0019a50cc8e50c4da47e42c03b44bcc6
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 [Аналитика службы хранилища Azure](storage-analytics.md) предоставляет метрики для всех служб хранилища и журналы для больших двоичных объектов, очередей и таблиц. С помощью [портала Azure](https://portal.azure.com) можно настроить метрики и журналы, записываемые для вашей учетной записи, а также настроить диаграммы, которые обеспечивают визуальное представление данных этих метрик.
 
 > [!NOTE]
-> За изучение данных мониторинга на портале Azure взимается плата. Дополнительные сведения см. в разделе [Аналитика и выставление счетов для хранилища](/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing).
+> За изучение данных мониторинга на портале Azure взимается плата. Дополнительные сведения см. в разделе [Аналитика и выставление счетов для хранилища](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > В настоящий момент файловое хранилище Azure поддерживает метрики Storage Analytics, но не поддерживает ведение журналов.
 >
@@ -153,7 +153,7 @@ ms.lasthandoff: 03/15/2017
 
 Журналы диагностики сохраняются в контейнере BLOB-объектов с именем $logs в вашей учетной записи хранения. Можно просмотреть данные журнала с помощью обозревателя хранилищ, например [Microsoft Storage Explorer](http://storageexplorer.com), или программно, с помощью клиентской библиотеки службы хранилища или PowerShell.
 
-Дополнительные сведения о доступе к контейнеру $logs см. в разделе [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/fileservices/enabling-storage-logging-and-accessing-log-data) (Включение ведения журнала и доступа к данным журнала хранилища).
+Дополнительные сведения о доступе к контейнеру $logs см. в разделе [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data) (Включение ведения журнала и доступа к данным журнала хранилища).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

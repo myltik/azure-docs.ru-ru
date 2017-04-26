@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: c83a5aacca6669c4259365fba9f444ecb1b2a6c9
-ms.openlocfilehash: 1e7393537f6c9e4d6af522dd05f149403a85559e
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9e038bfeee023b26aa80046fe877db007baa1816
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -364,12 +364,12 @@ namespace SqlElasticPoolConsoleApp
     newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
 ## <a name="latency-of-elastic-pool-operations"></a>Задержка операций эластичного пула
-* Изменение минимального или максимального числа eDTU для базы данных обычно завершается за&5; минут или быстрее.
+* Изменение минимального или максимального числа eDTU для базы данных обычно завершается за 5 минут или быстрее.
 * Время изменения размера пула (eDTU) зависит от общего размера всех баз данных в пуле. Изменение занимает порядка 90 минут или меньше на каждые 100 ГБ. Например, если общее пространство, используемое всеми базами данных в пуле, равно 200 ГБ, то ожидаемая задержка при изменении числа eDTU для пула составит до 3 часов.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 *  См. дополнительные сведения о [кодах ошибок](sql-database-develop-error-messages.md) SQL для клиентских приложений базы данных SQL, ошибках подключения к базе данных и других проблемах.
 * [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-* См. дополнительные сведения в руководстве по [использованию эластичного пула](sql-database-elastic-pool-guidance.md).
+* См. дополнительные сведения в руководстве по [использованию эластичного пула](sql-database-elastic-pool.md).
 
 

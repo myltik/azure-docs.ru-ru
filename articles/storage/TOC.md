@@ -67,7 +67,7 @@
 ### [Руководство по проектированию таблиц](storage-table-design-guide.md)
 ### [Примеры](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Использование файлов
-### [Обзор](/rest/api/storageservices/fileservices/File-Service-Concepts)
+### [Обзор](/rest/api/storageservices/File-Service-Concepts)
 ### [Устранение неполадок файлов Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Примеры](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Использование дисков
@@ -180,7 +180,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [BLOB-объекты, очереди, таблицы и файлы](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+### [BLOB-объекты, очереди, таблицы и файлы](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 ### [Поставщик ресурсов](/rest/api/storagerp)
 ### [Импорт и экспорт](/rest/api/storageimportexport)
 

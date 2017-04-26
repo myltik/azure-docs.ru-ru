@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7f23ae904461e754b3871b33ca40c2ff4fcb99f0
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 64c5869f3e66c249fefa9af228fe1b33974cf293
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -57,7 +57,7 @@ ms.lasthandoff: 03/22/2017
 После создания учетной записи аналитики озера данных можно добавить дополнительные учетные записи хранения озера данных и учетные записи хранения Azure. Инструкции см. в разделе [Управление источниками данных учетной записи](data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
 ## <a name="prepare-source-data"></a>Подготовка исходных данных
-В этом руководстве описано, как выполнять обработку журналов поиска.  Журнал поиска может содержаться в хранилище Data Lake Store или в хранилище BLOB-объектов Azure.
+В этом руководстве описано, как выполнять обработку журналов поиска.  Журнал поиска может храниться в хранилище озера данных или в хранилище больших двоичных объектов Azure.
 
 На портале Azure реализован пользовательский интерфейс для копирования файлов с образцами данных, включая файл журнала поиска, в учетную запись Data Lake Store по умолчанию.
 
