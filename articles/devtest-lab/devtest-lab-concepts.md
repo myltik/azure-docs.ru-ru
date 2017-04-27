@@ -15,22 +15,13 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 236d38fcda90643992f66c9b2f4d92180e4463f5
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: 1caea59e71126e934e2e52a1ad7f533ffa7d4b03
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="devtest-labs-concepts"></a>Основные понятия DevTest Labs
-> [!NOTE]
-> Это третья и последняя статья из серии:
->
-> 1. [Что такое DevTest Labs?](devtest-lab-overview.md)
-> 2. [Преимущества DevTest Labs](devtest-lab-why.md)
-> 3. **[Основные понятия DevTest Labs](devtest-lab-concepts.md)**
->
->
-
 ## <a name="overview"></a>Обзор
 Следующий список содержит основные понятия и определения DevTest Labs.
 
@@ -91,10 +82,10 @@ DevTest Labs предусматривает два типа ролей для п
 
 Области имеют иерархическую структуру, поэтому когда пользователю назначаются разрешения на определенном уровне, они автоматически применяются к областям более низкого уровня. Например, если пользователю назначена роль владельца подписки, он имеет доступ ко всем ресурсам в подписке, в том числе ко всем виртуальным машинам, виртуальным сетям и лабораториям. Таким образом, владелец подписки автоматически наследует роль владельца лаборатории. Однако владелец лаборатории не может наследовать роль владельца подписки, так как он имеет доступ к лаборатории, которая находится ниже уровня подписки в рамках иерархии. Поэтому владелец лаборатории не сможет просматривать виртуальные машины, виртуальные сети и другие ресурсы, находящиеся вне лаборатории.
 
-## <a name="arm-templates"></a>Шаблоны ARM
-Все обсуждавшиеся в этой статье компоненты можно настроить с помощью шаблонов Azure Resource Manager (ARM). Шаблоны ARM позволяют определить инфраструктуру и конфигурацию решения Azure и повторно развертывать их в согласованном состоянии.
+## <a name="azure-resource-manager-templates"></a>Шаблоны диспетчера ресурсов Azure
+Все рассмотренные в этой статье компоненты можно настроить с помощью шаблонов Azure Resource Manager, которые позволяют определить инфраструктуру и конфигурацию решения Azure и многократно развертывать его в согласованном состоянии.
 
-[Шаблоны ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) описывают структуру шаблона Azure Resource Manager и свойства, доступные в различных разделах шаблона.
+В статье [Описание структуры и синтаксиса шаблонов Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) рассматривается структура шаблона Azure Resource Manager и свойства, доступные в различных его разделах.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
