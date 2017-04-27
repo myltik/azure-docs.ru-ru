@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3f473836959fbc5d336038a62a95df8db6b7eb7d
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 587a8e225b18ae2a07d766f1a0d75623e44aec9f
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -91,7 +91,7 @@ _Нет. Сейчас резервные копии данных и журнал
 
 В Azure необходимо учитывать, что функция создания моментальных снимков больших двоичных объектов Azure не гарантирует согласованность файловой системы (см. статью [Using blob snapshots with PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/) (Использование моментальных снимков больших двоичных объектов в PowerShell)). В разделе _Согласованность данных SAP HANA при создании моментальных снимков хранилища_ (см. ниже) рассматриваются некоторые вопросы, касающиеся этой функции.
 
-Кроме того, пользователи, которые часто работают с моментальными снимками больших двоичных объектов, должны понимать процесс выставления счетов. Дополнительные сведения см. в статье [Understanding How Snapshots Accrue Charges](/rest/api/storageservices/fileservices/understanding-how-snapshots-accrue-charges) (Общие сведения об увеличении платы при использовании моментальных снимков). Это не так очевидно, как при использовании виртуальных дисков Azure.
+Кроме того, пользователи, которые часто работают с моментальными снимками больших двоичных объектов, должны понимать процесс выставления счетов. Дополнительные сведения см. в статье [Understanding How Snapshots Accrue Charges](/rest/api/storageservices/understanding-how-snapshots-accrue-charges) (Общие сведения об увеличении платы при использовании моментальных снимков). Это не так очевидно, как при использовании виртуальных дисков Azure.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Согласованность данных SAP HANA при создании моментальных снимков хранилища
 
