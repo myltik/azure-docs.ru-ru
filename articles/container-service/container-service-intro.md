@@ -74,6 +74,8 @@ Docker Swarm предоставляет собственные функции к
 
 ![Служба контейнеров Azure, настроенная для использования Swarm.](media/acs-intro/acs-swarm2.png)
 
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
+
 К поддерживаемым средствам для управления контейнерами в кластере Swarm относятся следующие:
 
 * Dokku
