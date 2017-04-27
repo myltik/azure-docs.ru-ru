@@ -17,6 +17,7 @@ ms.author: jucoriol
 translationtype: Human Translation
 ms.sourcegitcommit: c5e05a8693bd000010013922ed6f2a127e998efe
 ms.openlocfilehash: db58703f573c09ba45abed87547c5e80ef58638b
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -53,6 +54,8 @@ ms.openlocfilehash: db58703f573c09ba45abed87547c5e80ef58638b
 - [Создать реестр контейнеров Azure](../container-registry/container-registry-get-started-portal.md)
 - [Создать учетную запись и командный проект Visual Studio Team Services](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 - [Скопировать репозиторий GitHub в свою учетную запись GitHub](https://github.com/jcorioland/MyShop/)
+
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
 
 Вам также понадобится компьютер Ubuntu (14.04 или 16.04) с установленным программным обеспечением Docker. Visual Studio Team Services использует этот компьютер в процессе сборки и выпуска. Этот компьютер можно создать, используя образ, доступный в [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/). 
 
@@ -227,8 +230,3 @@ Visual Studio Team Services позволяет [управлять выпуск�
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о CI/CD с Visual Studio Team Services см. в [обзоре сборки VSTS](https://www.visualstudio.com/docs/build/overview).
-
-
-<!--HONumber=Dec16_HO2-->
-
-
