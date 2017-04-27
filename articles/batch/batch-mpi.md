@@ -11,17 +11,16 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: big-compute
-ms.date: 02/27/2017
+ms.workload: 3/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: a23ae729e20dcf79ada73f7545861356e31b957e
-ms.lasthandoff: 03/09/2017
-
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d533dc2c49974f2ce4ef1d1f6dc12e23ec18877f
+ms.lasthandoff: 04/03/2017
 
 ---
+
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Использование задач с несколькими экземплярами для запуска приложений с интерфейсом передачи сообщений в пакетной службе
 
 Многоэкземплярные задачи позволяют выполнять задачи пакетной службы Azure на нескольких вычислительных узлах одновременно. Эти задачи реализуют в пакетной службе такие сценарии высокопроизводительных вычислений, как приложения интерфейса передачи сообщений (MPI). Из этой статьи вы узнаете, как выполнять задачи с несколькими экземплярами с помощью библиотеки [.NET пакетной службы][api_net].
@@ -50,7 +49,9 @@ ms.lasthandoff: 03/09/2017
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Требования к задачам с несколькими экземплярами
-При выполнении многоэкземплярной задачи требуется, чтобы в пуле был **включен обмен данными между узлами** и **отключено параллельное выполнение задач**. Если запустить многоэкземплярную задачу в пуле с отключенным обменом данными между узлами или со значением параметра *maxTasksPerNode* больше 1, задача не будет запланирована. Вместо этого она будет постоянно находиться в состоянии "Активно". В этом фрагменте кода показано создание такого пула с помощью библиотеки .NET для пакетной службы.
+При выполнении многоэкземплярной задачи требуется, чтобы в пуле был **включен обмен данными между узлами** и **отключено параллельное выполнение задач**. Чтобы отключить параллельное выполнение задач, задайте для свойства [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) значение 1.
+
+В этом фрагменте кода показано, как создать пул для многоэкземплярных задач, используя библиотеку .NET для пакетной службы.
 
 ```csharp
 CloudPool myCloudPool =
@@ -66,7 +67,12 @@ myCloudPool.InterComputeNodeCommunicationEnabled = true;
 myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
-Кроме того, многоэкземплярные задачи могут выполняться *только* на узлах в **пулах, созданных после 14 декабря 2015 года**.
+> [!NOTE]
+> Если запустить многоэкземплярную задачу в пуле с отключенным обменом данными между узлами или со значением параметра *maxTasksPerNode* больше 1, задача не будет запланирована. Вместо этого она будет постоянно находиться в состоянии "Активно". 
+>
+> Многоэкземплярные задачи могут выполняться только на узлах в пулах, созданных после 14 декабря 2015 года.
+>
+>
 
 ### <a name="use-a-starttask-to-install-mpi"></a>Установка MPI с помощью StartTask
 Для выполнения приложений MPI с помощью задачи с несколькими экземплярами на вычислительных узлах в пуле сначала необходимо установить реализацию MPI (например, MS-MPI или Intel MPI). Это хорошая возможность воспользоваться задачей [StartTask][net_starttask], которая выполняется каждый раз при присоединении узла к пулу или его перезапуске. В этом фрагменте кода создается StartTask, указывающий пакет установки MS-MPI в качестве [файла ресурсов][net_resourcefile]. Командная строка задачи запуска выполняется после скачивания файла ресурсов на узел. В этом случае командная строка выполняет автоматическую установку MS-MPI.
@@ -89,7 +95,7 @@ await myCloudPool.CommitAsync();
 ```
 
 ### <a name="remote-direct-memory-access-rdma"></a>Удаленный доступ к памяти (RDMA)
-Если для пула пакетной службы выбран [размер с поддержкой RDMA](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), например А9, то приложение MPI может воспользоваться преимуществами сети RDMA Azure с удаленным доступом к памяти, обеспечивающей высокую производительность и низкие задержки.
+Если для пула пакетной службы выбран [размер с поддержкой RDMA](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), например А9, то приложение MPI может воспользоваться преимуществами сети RDMA Azure с удаленным доступом к памяти, обеспечивающей высокую производительность и низкие задержки.
 
 Сведения о размерах, указанных в качестве "С поддержкой RDMA", см. в следующих статьях:
 
@@ -98,8 +104,8 @@ await myCloudPool.CommitAsync();
   * [Размеры для облачных служб](../cloud-services/cloud-services-sizes-specs.md) (только для Windows)
 * Пулы **VirtualMachineConfiguration**
 
-  * [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
-  * [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
+  * [Размеры виртуальных машин в Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  * [Размеры виртуальных машин в Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
 > Чтобы воспользоваться преимуществами RDMA на [вычислительных узлах Linux](batch-linux-nodes.md), на узлах необходимо использовать **Intel MPI**. Дополнительные сведения о пулах CloudServiceConfiguration и VirtualMachineConfiguration см. в разделе "Пул" статьи [Обзор функций пакетной службы для разработчиков](batch-api-basics.md).
@@ -266,7 +272,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 1. Выполните первые два шага в статье [How to compile and run a simple MS-MPI program][msmpi_howto] (Как скомпилировать и выполнить простую программу MS-MPI). Это поможет выполнить предварительные требования к следующему шагу.
 2. Создайте версию *Выпуск* примера программы MPI [MPIHelloWorld][helloworld_proj]. Это программа, которую будет выполнять на вычислительных узлах задача с несколькими экземплярами.
 3. Создайте ZIP-файл, содержащий файл `MPIHelloWorld.exe` (созданный на шаге 2) и `MSMpiSetup.exe` (скачанный на шаге 1). Вы отправите этот ZIP-файл как пакет приложения на следующем шаге.
-4. Используйте [портал Azure][portal] для создания [приложения](batch-application-packages.md) пакетной службы с именем MPIHelloWorld и укажите ZIP-файл, созданный на предыдущем шаге, в качестве версии&1;.0 пакета приложения. Дополнительные сведения см. в разделе [Передача приложений и управление ими](batch-application-packages.md#upload-and-manage-applications).
+4. Используйте [портал Azure][portal] для создания [приложения](batch-application-packages.md) пакетной службы с именем MPIHelloWorld и укажите ZIP-файл, созданный на предыдущем шаге, в качестве версии 1.0 пакета приложения. Дополнительные сведения см. в разделе [Передача приложений и управление ими](batch-application-packages.md#upload-and-manage-applications).
 
 > [!TIP]
 > Создайте версию *Выпуск* файла `MPIHelloWorld.exe`, чтобы в пакет приложения не нужно было включать какие-либо дополнительные зависимости (например, `msvcp140d.dll` или `vcruntime140d.dll`).
@@ -280,7 +286,7 @@ await subtasks.ForEachAsync(async (subtask) =>
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Введите данные своей учетной записи пакетной службы и учетной записи хранения в `AccountSettings.settings` в проекте **Microsoft.Azure.Batch.Samples.Common**.
 4. **Создайте и запустите** решение MultiInstanceTasks, чтобы выполнить пример приложения MPI на вычислительных узлах в пуле пакетной службы.
-5. *Необязательно.* Используйте [портал Azure][порталportal] или [обозреватель пакетной службы][batch_explorer], чтобы проверить пример пула, задания и задачи (MultiInstanceSamplePool, MultiInstanceSampleJob, MultiInstanceSampleTask), прежде чем удалить ресурсы.
+5. *Необязательно.* Используйте [портал Azure][portal] портал или [обозреватель пакетной службы][batch_explorer], чтобы проверить пример пула, задания и задачи (MultiInstanceSamplePool, MultiInstanceSampleJob, MultiInstanceSampleTask), прежде чем удалить ресурсы.
 
 > [!TIP]
 > Вы можете скачать [Visual Studio Community][visual_studio] бесплатно, если у вас нет Visual Studio.
