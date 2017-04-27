@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: 3e0f8d92495c976040113f8edc0d4c789920c549
 ms.openlocfilehash: e22dca7b666720edfcbfd1b871d98b9468441fbd
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -236,7 +237,7 @@ Azure создает и активирует пространство имен. 
 
 После применения приложения ACS Hello World не забудьте удалить развертывание (сведения об удалении развертывания см. в статье [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 
-## <a name="a-namenextstepsanext-steps"></a><a name="next_steps"></a>Дальнейшие действия
+## <a name="next_steps"></a>Дальнейшие действия
 Сведения о языке SAML (язык разметки заявлений системы безопасности), возвращаемом службой ACS в приложение, см. в статье [Как просматривать SAML, возвращенный службой Azure Access Control][How to view SAML returned by the Azure Access Control Service]. Чтобы продолжить изучение функций ACS и поэкспериментировать с более сложными сценариями, см. документ [Служба Access Control Service 2.0][Access Control Service 2.0].
 
 Кроме того, в этом примере используется параметр **Внедрить сертификат в WAR-файл** . Этот параметр упрощает развертывание сертификата. Если вместо этого вы хотите подписать сертификат отдельно от WAR-файла, можно использовать следующий способ:
@@ -296,10 +297,5 @@ Azure создает и активирует пространство имен. 
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

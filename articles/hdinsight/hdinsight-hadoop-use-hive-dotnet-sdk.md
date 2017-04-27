@@ -149,7 +149,7 @@ ms.lasthandoff: 03/04/2017
 * [Использование Sqoop с HDInsight](hdinsight-use-sqoop-mac-linux.md)
 * [Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
 
