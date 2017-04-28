@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/07/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2e522fabf9be5af7477e556ee0c2bf66f41c28fe
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 78d7ce3bbd3205fd995ba331af08d830097c8156
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -32,10 +32,10 @@ ms.lasthandoff: 03/30/2017
 
 |Расположение|Описание|Размер данных|
 |--------------|-----------------|-----|
-|H:\Video|Коллекция видео.|12 ТБ|
-|H:\Photo|Коллекция фотографий.|30 ГБ|
+|H:\Video\ |Коллекция видео.|12 ТБ|
+|H:\Photo\ |Коллекция фотографий.|30 ГБ|
 |K:\Temp\FavoriteMovie.ISO|Образ диска Blu-Ray™.|25 ГБ|
-|\\\bigshare\john\music|Коллекция музыкальных файлов в сетевой папке.|10 ГБ|
+|\\\bigshare\john\music\|Коллекция музыкальных файлов в сетевой папке.|10 ГБ|
 
 ## <a name="storage-account-destinations"></a>Целевые каталоги в учетной записи хранения
 
@@ -43,10 +43,10 @@ ms.lasthandoff: 03/30/2017
 
 |Источник|Целевой виртуальный каталог или большой двоичный объект.|
 |------------|-------------------------------------------|
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|
-|K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|
-|\\\bigshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
+|H:\Video\ |video/|
+|H:\Photo\ |photo/|
+|K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
+|\\\bigshare\john\music\ |music|
 
 При таком сопоставлении файл `H:\Video\Drama\GreatMovie.mov` будет импортирован в большой двоичный объект `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
@@ -56,27 +56,24 @@ ms.lasthandoff: 03/30/2017
 
 `12TB + 30GB + 25GB + 10GB = 12TB + 65GB`
 
-Для нашего примера будет достаточно двух жестких дисков объемом в 8 ТБ каждый. Однако, так как исходный каталог `H:\Video` содержит 12 ТБ данных, а емкость одного жесткого диска составляет 8 ТБ, вы сможете указать это в файле **dataset.csv**, как показано ниже.
-
-```
-BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
-H:\Video\,https://mystorageaccount.blob.core.windows.net/video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-H:\Photo\,https://mystorageaccount.blob.core.windows.net/photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
-\\myshare\john\music\,https://mystorageaccount.blob.core.windows.net/music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-```
-
-## <a name="attach-drives-and-configure-the-job"></a>Подключение дисков и настройка задания
-
-Следует подключить оба диска к компьютеру и создать на них тома. Затем создайте файл **driveset.csv**.
+Для нашего примера будет достаточно двух жестких дисков объемом в 8 ТБ каждый. Однако, так как исходный каталог `H:\Video` содержит 12 ТБ данных, а емкость одного жесткого диска составляет 8 ТБ, вы сможете указать это в файле **driveset.csv**, как показано ниже.
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 X,Format,SilentMode,Encrypt,
 Y,Format,SilentMode,Encrypt,
 ```
-
 Средство оптимальным образом распределит данные по двум жестким дискам.
+
+## <a name="attach-drives-and-configure-the-job"></a>Подключение дисков и настройка задания
+Следует подключить оба диска к компьютеру и создать на них тома. Затем создайте файл **dataset.csv**:
+```
+BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+H:\Photo\,photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
+\\myshare\john\music\,music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+```
 
 Кроме того, для всех файлов можно задать следующие метаданные.
 
