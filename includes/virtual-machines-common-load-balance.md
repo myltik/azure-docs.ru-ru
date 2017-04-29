@@ -64,8 +64,3 @@ Azure также может распределять нагрузку внутр
 
 Дополнительные сведения см. в статье [Внутренняя балансировка нагрузки](../articles/load-balancer/load-balancer-internal-overview.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

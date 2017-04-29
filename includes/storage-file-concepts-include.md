@@ -30,8 +30,3 @@
   `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
 Способ именования ресурсов, каталогов и файлов описан в статье о [присвоении имен и ссылок на совместно используемые ресурсы, каталоги, файлы и метаданные](http://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

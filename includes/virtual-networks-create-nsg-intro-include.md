@@ -2,8 +2,3 @@
 
 Дополнительные сведения о группах безопасности сети см. в [этой статье](../articles/virtual-network/virtual-networks-nsg.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

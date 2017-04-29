@@ -15,8 +15,3 @@
 8. Сохраните изменения в рабочем процессе.   
    ![Действие служебной шины, изображение 4](./media/connectors-create-api-servicebus/action-4.png)     
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

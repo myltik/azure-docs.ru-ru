@@ -14,8 +14,3 @@
         ![Добавить учетную запись хранения](./media/storsimple-ova-configure-new-storage-account/addnewstorageaccount-include.png)
 4. Только что созданная учетная запись хранения будет отображаться на странице **Настройка** в разделе **Учетные записи хранения**. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -14,8 +14,3 @@
 4. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики:   
    ![MailChimp — шаг 4](./media/connectors-create-api-mailchimp/mailchimp-4.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

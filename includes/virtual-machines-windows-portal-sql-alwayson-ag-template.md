@@ -1,7 +1,2 @@
 В этом учебнике описывается создание решения с помощью портале Azure. Если вы хотите создать это решение на основе шаблона, выберите его из [шаблонов Microsoft Azure на сайте GitHub](http://github.com/Azure/azure-quickstart-templates). Шаблон [создания группы доступности с репликами виртуальной машины SQL Server 2014](http://github.com/Azure/azure-quickstart-templates/tree/master/sqlvm-alwayson-cluster) позволяет создать такое же решение, что в этом учебнике. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

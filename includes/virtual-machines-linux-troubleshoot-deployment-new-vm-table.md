@@ -5,8 +5,3 @@
 | Унив. Linux  |Нет<sup>1</sup> |Да |Нет<sup>3</sup> |Да |
 | Спец. Linux |Да |Нет<sup>2</sup> |Да |Нет<sup>4</sup> |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -4,8 +4,3 @@
 | Шаблоны |Проблемы с кодом при использовании шаблона создания |[Сообщить о проблеме](https://github.com/Azure/azure-webjobs-sdk-templates/issues) |
 | Портал |Проблемы с пользовательским интерфейсом или при работе с ним |[Сообщить о проблеме](https://github.com/ProjectKudu/AzureFunctionsPortal/issues) |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

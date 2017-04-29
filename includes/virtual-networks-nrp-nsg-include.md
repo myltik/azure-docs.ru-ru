@@ -75,8 +75,3 @@
 * Более подробная информация о [группах безопасности сети](../articles/virtual-network/virtual-networks-nsg.md).
 * Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163615.aspx) для групп безопасности сети.
 * Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163580.aspx) для правил безопасности.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

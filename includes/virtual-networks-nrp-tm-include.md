@@ -80,8 +80,3 @@
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 Дополнительные сведения см. в [документации по REST API для диспетчера трафика](https://msdn.microsoft.com/library/azure/mt163664.aspx).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

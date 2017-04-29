@@ -25,8 +25,3 @@
    
    ![Добавление виртуальной машины в существующую облачную службу](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

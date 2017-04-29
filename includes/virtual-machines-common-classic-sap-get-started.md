@@ -35,8 +35,3 @@
 
 [Загрузить руководство](http://go.microsoft.com/fwlink/?LinkID=521971)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

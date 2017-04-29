@@ -14,8 +14,3 @@
 4. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики:   
    ![Facebook — шаг 4](./media/connectors-create-api-facebook/facebook-4.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

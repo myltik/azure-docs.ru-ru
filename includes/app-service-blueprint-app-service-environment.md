@@ -9,8 +9,3 @@
 * [Настраиваемые параметры конфигурации для сред службы приложений, в том числе параметры соответствия требованиям PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [Высокая плотность размещения в службе приложений Azure](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

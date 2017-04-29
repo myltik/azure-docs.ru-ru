@@ -15,8 +15,3 @@
    
    ![Убедитесь, что новая метка DNS задана](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

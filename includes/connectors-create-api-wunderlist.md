@@ -16,8 +16,3 @@
 5. Наконец, нажмите кнопку **Авторизовать**.  
    ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -9,8 +9,3 @@
   * Для работы с большими двоичными объектами службы хранилища Azure см. статью [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](../articles/storage/storage-dotnet-how-to-use-blobs.md).
   * Для хранения реляционных данных см. статью [Подключение к базе данных SQL с помощью .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -77,8 +77,3 @@
 * Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163650.aspx) для виртуальных сетей.
 * Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163618.aspx) для подсетей.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

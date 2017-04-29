@@ -5,8 +5,3 @@
 * Создание проб работоспособности
 
 ![Сценарий использования балансировщика нагрузки](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
-
-
-<!--HONumber=Nov16_HO2-->
-
-

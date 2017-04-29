@@ -17,8 +17,3 @@
        ![Изменение контейнера томов с использованием шаблона пропускной способности 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
    3. Щелкните значок галочки ![значок галочки](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) , чтобы сохранить настройки. Содержимое страницы **Контейнеры томов** будет обновлено с учетом изменений.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

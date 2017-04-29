@@ -32,8 +32,3 @@
 ## <a name="identifying-the-publisher-type-and-typehandlerversion-for-any-extension"></a>Определение значений publisher, type и typeHandlerVersion для любого расширения
 Расширения виртуальной машины Azure публикуются корпорацией Майкрософт и надежными сторонними издателями. Каждое расширение однозначно определяется по значениям publisher, type и typeHandlerVersion. Эти сведения можно определить следующим образом:  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
