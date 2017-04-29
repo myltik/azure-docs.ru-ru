@@ -39,8 +39,3 @@
 * Узнайте об [общедоступных IP-адресах уровня экземпляра](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 * Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163638.aspx) для общедоступных IP-адресов.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

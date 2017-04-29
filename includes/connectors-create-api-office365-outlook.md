@@ -17,8 +17,3 @@
 4. Обратите внимание, что было создано подключение. Теперь перейдите к другим действиям в приложении логики.   
     ![Этап создания подключения Office 365](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

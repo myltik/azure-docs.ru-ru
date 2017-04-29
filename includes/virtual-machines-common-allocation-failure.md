@@ -99,7 +99,7 @@ GeneralError*
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Сценарий выделения: промежуточное и рабочее развертывание (только для "платформы как услуги")
 **Ошибка**
 
-New_General* или New_VMSizeNotSupported*
+New_General *или New_VMSizeNotSupported*
 
 **Причина прикрепления к кластеру**
 
@@ -112,7 +112,7 @@ New_General* или New_VMSizeNotSupported*
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Сценарий выделения: территориальная группа (взаимодействие с виртуальными машинами или службами)
 **Ошибка**
 
-New_General* или New_VMSizeNotSupported*
+New_General *или New_VMSizeNotSupported*
 
 **Причина прикрепления к кластеру**
 
@@ -125,7 +125,7 @@ New_General* или New_VMSizeNotSupported*
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Сценарий выделения: виртуальная сеть на основе территориальной группы
 **Ошибка**
 
-New_General* или New_VMSizeNotSupported*
+New_General *или New_VMSizeNotSupported*
 
 **Причина прикрепления к кластеру**
 
@@ -151,7 +151,7 @@ New_General* или New_VMSizeNotSupported*
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Сценарий выделения: изменение размера виртуальной машины или добавление виртуальных машин в существующую группу доступности
 **Ошибка**
 
-Upgrade_VMSizeNotSupported* или GeneralError*
+Upgrade_VMSizeNotSupported *или GeneralError*
 
 **Причина прикрепления к кластеру**
 
@@ -205,9 +205,4 @@ GeneralError*
 **GeneralError***
 
 "Сервер обнаружил внутреннюю ошибку. Пожалуйста, повторите запрос". Или "Не удалось выполнить выделение ресурсов для службы".
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

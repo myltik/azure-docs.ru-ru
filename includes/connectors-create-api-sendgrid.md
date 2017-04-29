@@ -12,8 +12,3 @@
 3. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики:   
    ![SendGrid — шаг 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

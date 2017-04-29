@@ -14,8 +14,3 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.m
 
 Список текущих значений DWU см. в описании цели уровня обслуживания в статье, посвященной [ограничениям емкости службы](../articles/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

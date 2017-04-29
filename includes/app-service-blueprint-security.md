@@ -16,8 +16,3 @@
   * [Как управлять входящим трафиком в среде службы приложений](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
   * [Безопасное подключение к серверным ресурсам из среды службы приложений](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

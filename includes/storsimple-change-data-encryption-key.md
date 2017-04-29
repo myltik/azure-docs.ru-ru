@@ -66,8 +66,3 @@
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. Укажите ключ шифрования данных службы, полученный на [Шаге 2. Использование Windows PowerShell для StorSimple для изменения ключа шифрования данных службы](#to-initiate-the-service-data-encryption-key-change).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

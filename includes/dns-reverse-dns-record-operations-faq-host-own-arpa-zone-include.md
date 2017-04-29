@@ -16,8 +16,3 @@
 ### <a name="can-i-host-arpa-zones-for-both-ipv4-and-ipv6-addresses-in-azure-dns"></a>Могу ли я разместить в Azure DNS зоны ARPA для адресов IPv4 и IPv6?
 
 Да.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

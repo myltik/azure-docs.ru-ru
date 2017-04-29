@@ -16,8 +16,3 @@
 4. Обратите внимание, что было создано подключение. Теперь перейдите к другим действиям в приложении логики.  
    ![](./media/connectors-create-api-crmonline/dynamics-properties.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

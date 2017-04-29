@@ -189,8 +189,3 @@
 ### <a name="additional-resources"></a>Дополнительные ресурсы
 Дополнительные сведения см. в описании [REST API балансировщика нагрузки](https://msdn.microsoft.com/library/azure/mt163651.aspx).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

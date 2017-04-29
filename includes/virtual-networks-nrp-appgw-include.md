@@ -219,8 +219,3 @@
 ### <a name="additional-resources"></a>Дополнительные ресурсы
 Подробнее об этом см. в описании [REST API шлюза приложений](https://msdn.microsoft.com/library/azure/mt299388.aspx).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

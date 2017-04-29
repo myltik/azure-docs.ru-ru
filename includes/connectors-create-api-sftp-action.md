@@ -27,8 +27,3 @@
    ![Условие действия SFTP, изображение 13](./media/connectors-create-api-sftp/condition-13.png)   
 9. Сохраните изменения в рабочем процессе.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

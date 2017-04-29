@@ -18,8 +18,3 @@
 6. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики:   
    ![Этап создания подключения GoogleDrive](./media/connectors-create-api-googledrive/googledrive-6.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

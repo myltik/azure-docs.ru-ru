@@ -15,8 +15,3 @@
   * Справочник на одной странице.
 * [Устранение неполадок](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

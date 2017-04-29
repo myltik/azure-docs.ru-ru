@@ -16,8 +16,3 @@
 5. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики.  
    ![Подключение к Salesforce, изображение 5](./media/connectors-create-api-salesforce/salesforce-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

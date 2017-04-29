@@ -75,8 +75,3 @@
 ### <a name="additional-resources"></a>Дополнительные ресурсы
 * Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163579.aspx) для сетевых карт.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

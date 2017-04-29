@@ -16,8 +16,3 @@
    ![Условие Salesforce, изображение 7](./media/connectors-create-api-salesforce/condition-7.png)  
 8. Сохраните приложения логики.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
