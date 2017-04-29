@@ -2,11 +2,9 @@
 ``time.nist.gov`` и ``time.windows.com``: используются для проверки синхронизации времени системы с глобальным временем.
 <br/><br/>
 
-URL-адреса для облака Azure для государственных организаций:<br/>
+URL-адреса для облака Azure для государственных организаций:
 
-<ul>
-<li>*.ugv.hypervrecoverymanager.windowsazure.us</li>
-<li>*.ugv.backup.windowsazure.us</li>
-<li>*.ugi.hypervrecoverymanager.windowsazure.us</li>
-<li>*.ugi.backup.windowsazure.us</li>
-</ul>
+- \*\.ugv.hypervrecoverymanager.windowsazure.us
+- \*\.ugv.backup.windowsazure.us
+- \*\.ugi.hypervrecoverymanager.windowsazure.us
+- \*\.ugi.backup.windowsazure.us
