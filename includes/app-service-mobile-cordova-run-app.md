@@ -15,8 +15,3 @@
 Шаги 3–5 можно повторить для других платформ.
 
 [портал Azure]: https://portal.azure.com/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

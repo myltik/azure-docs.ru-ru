@@ -52,8 +52,3 @@
 
 Дополнительные сведения о подписках и учетных записях Azure см. в разделе [Шаг 3. Подключение](/powershell/azureps-cmdlets-docs#step-3-connect).
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

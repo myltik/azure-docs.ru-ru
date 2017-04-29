@@ -26,7 +26,3 @@
 
 [Отправка сообщений из облака на устройства с помощью Центра Интернета вещей]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
 [Начало работы с Центром Интернета вещей]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
-
-<!--HONumber=Dec16_HO1-->
-
-
