@@ -20,8 +20,3 @@
 
 Чтобы просмотреть видеоролик о том, как получить ключ регистрации службы, щелкните [здесь](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -22,8 +22,3 @@
     
      ![Создание виртуальной сети в портале предварительной версии](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

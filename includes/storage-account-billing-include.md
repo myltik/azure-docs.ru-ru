@@ -9,8 +9,3 @@
 
 На странице с [ценами на хранилище Azure](https://azure.microsoft.com/pricing/details/storage/) представлена подробная информация о ценах в зависимости от типа учетной записи, емкости хранилища, репликации и транзакций. Подробные сведения о ценах на исходящие данные см. на странице с [ценами на передачу данных](https://azure.microsoft.com/pricing/details/data-transfers/). Используйте [калькулятор цен на хранилище Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) для оценки затрат.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

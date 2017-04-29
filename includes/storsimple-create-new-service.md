@@ -25,8 +25,3 @@
 
 Чтобы просмотреть видеоролик о том, как создать новую службу диспетчера StorSimple, щелкните [здесь](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
