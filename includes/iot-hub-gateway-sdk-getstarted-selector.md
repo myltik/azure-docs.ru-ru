@@ -71,7 +71,3 @@
 <!-- Links -->
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
-
-<!--HONumber=Dec16_HO1-->
-
-

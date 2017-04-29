@@ -227,8 +227,3 @@
 * [Средство моделирования угроз SDL](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
 * [Эталонная архитектура Центра интернета вещей Microsoft Azure](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

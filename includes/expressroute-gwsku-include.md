@@ -6,8 +6,3 @@
 * HighPerformance.
 * UltraPerformance
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-
