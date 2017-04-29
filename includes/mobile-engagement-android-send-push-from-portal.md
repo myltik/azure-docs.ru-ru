@@ -14,7 +14,7 @@
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Отправка уведомления в приложение
+## <a id="send"></a>Отправка уведомления в приложение
 Теперь мы создадим простую кампанию push-уведомлений, которая будет отправлять push-уведомления в приложение.
 
 1. Перейдите на вкладку **РЕКЛАМНАЯ КАМПАНИЯ** на портале Mobile Engagement.
@@ -41,9 +41,4 @@
 6. Затем щелкните **Активировать** , чтобы активировать кампанию и начать отправку push-уведомлений.
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

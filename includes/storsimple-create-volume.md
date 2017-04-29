@@ -30,8 +30,3 @@
 
 Чтобы просмотреть видео, в котором описывается создание тома StorSimple, щелкните [здесь](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

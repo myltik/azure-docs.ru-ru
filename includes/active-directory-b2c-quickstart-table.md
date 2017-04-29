@@ -6,8 +6,3 @@
 | [Вызов веб-API из веб-приложения .NET](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md) | [Добавление функций регистрации и входа в одностраничное приложение Javascript (Node.JS)](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)| |
 | [Добавление функций регистрации и входа в приложение ASP.NET Core](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | | |
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-

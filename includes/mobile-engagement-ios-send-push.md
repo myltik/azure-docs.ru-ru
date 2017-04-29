@@ -11,7 +11,7 @@
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Отправка уведомления в приложение
+## <a id="send"></a>Отправка уведомления в приложение
 Создадим простую кампанию push-уведомлений, которая отправит push-уведомление в приложение.
 
 1. Перейдите на вкладку **Рекламная кампания** на портале Mobile Engagement.
@@ -39,9 +39,4 @@
 8. Если с вашим устройством iOS связаны часы Apple Watch, уведомление на отображается на Apple Watch:
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

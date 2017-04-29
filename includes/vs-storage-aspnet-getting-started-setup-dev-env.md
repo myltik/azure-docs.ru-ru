@@ -29,8 +29,3 @@
     ![Диалоговое окно подключенной службы](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
 1. В диалоговом окне **Хранилище Azure** выберите нужную учетную запись хранения Azure и нажмите кнопку **Добавить**.
-
-
-<!--HONumber=Dec16_HO3-->
-
-

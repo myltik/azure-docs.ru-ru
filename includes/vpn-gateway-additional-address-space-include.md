@@ -13,8 +13,3 @@
    
     ![Параметры подсети](./media/vpn-gateway-additional-address-space-include/ok.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

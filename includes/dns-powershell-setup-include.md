@@ -46,7 +46,3 @@ New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
-
-<!--HONumber=Dec16_HO3-->
-
-
