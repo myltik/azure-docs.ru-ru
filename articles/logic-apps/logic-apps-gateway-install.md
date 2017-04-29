@@ -15,25 +15,28 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 23b806556667539156ee399e90c7bd4af808804f
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b9971117d5f61669a5161a28c96b11b2fd600b61
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="install-an-on-premises-data-gateway-for-azure-logic-apps"></a>Установка локального шлюза данных для Azure Logic Apps
 
-Локальный шлюз данных поддерживает подключения к следующим источникам данных:
+Локальный шлюз данных поддерживает следующие подключения:
 
 *   BizTalk Server
-*    DB2  
+*   DB2  
 *   Файловая система
 *   Informix
 *   Магический квадрант
-*    База данных Oracle 
+*   MySQL
+*   База данных Oracle 
 *   сервер приложений SAP; 
 *   сервер сообщений SAP;
-*    SQL Server
+*   SharePoint только для HTTP (не для HTTPS)
+*   SQL Server
+*   Teradata
 
 Дополнительные сведения о подключениях, приведенных выше, см. в статье [Список соединителей](https://docs.microsoft.com/azure/connectors/apis-list).
 
@@ -61,7 +64,7 @@ ms.lasthandoff: 03/10/2017
 
 * Чтобы связать локальный шлюз данных с вашей учетной записью на основе Azure Active Directory, вы можете использовать только рабочий или учебный электронный адрес в Azure.
 
-    Если вы используете учетную запись Майкрософт, например @outlook.com, вы можете использовать учетную запись Azure для   [создания рабочего или учебного электронного адреса](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+    Если вы используете учетную запись Майкрософт, например @outlook.com, вы можете использовать учетную запись Azure для   [создания рабочего или учебного электронного адреса](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
 
 ### <a name="install-the-gateway"></a>Установка шлюза
 
@@ -75,7 +78,7 @@ ms.lasthandoff: 03/10/2017
 
     Чтобы настроить шлюз, укажите имя шлюза и ключ восстановления, а затем выберите **Настроить**.
   
-    Укажите ключ восстановления, который содержит как минимум&8; знаков, и сохраните его в надежном месте. Этот ключ понадобится, если вы захотите перенести, восстановить или перехватить связанный с ним шлюз.
+    Укажите ключ восстановления, который содержит как минимум 8 знаков, и сохраните его в надежном месте. Этот ключ понадобится, если вы захотите перенести, восстановить или перехватить связанный с ним шлюз.
 
     Чтобы перенести, восстановить или перехватить существующий шлюз, укажите ключ восстановления, который был указан при создании этого шлюза.
 
