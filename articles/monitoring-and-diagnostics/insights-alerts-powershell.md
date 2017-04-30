@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 62faba3827e9fc33e9788cd2d487adf04d760791
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 50127242cdf156771d0610e58cf2fc41281adae7
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="create-alerts-in-azure-monitor-for-azure-services---powershell"></a>Создание оповещений в Azure Monitor для служб Azure с помощью PowerShell 
+# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Создание оповещений метрик в Azure Monitor для служб Azure с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [Портал](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -30,14 +30,14 @@ ms.lasthandoff: 03/15/2017
 >
 
 ## <a name="overview"></a>Обзор
-В этой статье показано, как настроить оповещения Azure с помощью PowerShell.  
+В этой статье показано, как настроить оповещения метрик Azure с помощью PowerShell.  
 
 Вы можете получать оповещения на основе отслеживания метрик или событий в службах Azure.
 
 * **Значения метрик**. Оповещение активируется, когда значение указанной метрики выходит за рамки заданного порогового значения. То есть сначала оно активируется, когда условие выполняется, а затем — когда условие перестает выполняться.    
-* **События журнала действий**. Оповещение может активироваться при *каждом* событии или только тогда, когда выполняется определенное число событий.
+* **События журнала действий**. Оповещение может активироваться при *каждом* событии или только тогда, когда выполняются определенные события. Чтобы узнать больше об оповещениях журнала действий, [щелкните здесь](monitoring-activity-log-alerts.md).
 
-Для оповещения можно настроить действие, выполняемое при активации оповещения:
+Для оповещения метрики можно настроить действие, выполняемое при его активации:
 
 * отправка уведомлений по электронной почте администратору службы и соадминистраторам;
 * отправка уведомления на указанные дополнительные электронные адреса;
@@ -74,8 +74,8 @@ ms.lasthandoff: 03/15/2017
    ```
 4. Чтобы создать правило, необходимо сначала получить определенные важные сведения.
 
-   * **Идентификатор ресурса** , для которого необходимо задать оповещение.
-   * Доступные **определения метрик** для этого ресурса.
+  * **Идентификатор ресурса** , для которого необходимо задать оповещение.
+  * Доступные **определения метрик** для этого ресурса.
 
      Получить идентификатор ресурса можно на портале Azure. Если ресурс уже создан, выберите его на портале. В следующей колонке в разделе *Параметры* выберите *Свойства*. В следующей колонке отображается поле **Идентификатор ресурса**. Кроме того, для получения идентификатора ресурса можно использовать [Azure Resource Explorer](https://resources.azure.com/).
 
@@ -113,27 +113,14 @@ ms.lasthandoff: 03/15/2017
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Actions $actionEmail, $actionWebhook -Description "alert on any website activity"
     ```
 
-
-1. Чтобы создать оповещение, которое активируется при возникновении определенных условий в журнале действий, используйте следующую команду.
-
-    ```PowerShell
-    $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-    $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://www.contoso.com?token=mytoken
-
-    Add-AzureRmLogAlertRule -Name myLogAlertRule -Location "East US" -ResourceGroup myresourcegroup -OperationName microsoft.web/sites/start/action -Status Succeeded -TargetResourceGroup resourcegroupbeingmonitored -Actions $actionEmail, $actionWebhook
-    ```
-
-    -OperationName соответствует типу события в журнале действий. Примеры: *Microsoft.Compute/virtualMachines/delete*, *microsoft.insights/diagnosticSettings/write*.
-
-    Можно использовать команду PowerShell [Get AzureRmProviderOperation](https://msdn.microsoft.com/library/mt603720.aspx) для получения списка возможных имен операций. Кроме того, можно использовать портал Azure, чтобы запросить журнал действий и найти определенные прошедшие операции, для которых требуется создать оповещение. Операции отображаются в графическом представлении журнала с понятными именами. Найдите в тексте JSON нужную запись и получите значение имя_операции.   
-2. Можно проверить, правильно ли созданы оповещения, просмотрев отдельные правила.
+7. Можно проверить, правильно ли созданы оповещения, просмотрев отдельные правила.
 
     ```PowerShell
     Get-AzureRmAlertRule -Name myMetricRuleWithWebhookAndEmail -ResourceGroup myresourcegroup -DetailedOutput
 
     Get-AzureRmAlertRule -Name myLogAlertRule -ResourceGroup myresourcegroup -DetailedOutput
     ```
-3. Удалите свои оповещения. Приведенные ниже команды удаляют правила, которые были созданы ранее в этой статье.
+8. Удалите свои оповещения. Приведенные ниже команды удаляют правила, которые были созданы ранее в этой статье.
 
     ```PowerShell
     Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myrule
@@ -144,6 +131,7 @@ ms.lasthandoff: 03/15/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Ознакомьтесь с общими сведениями о мониторинге Azure](monitoring-overview.md) , включая типы информации, которую можно собирать и отслеживать.
 * Узнайте больше о [настройке веб-перехватчиков webhook в оповещениях](insights-webhooks-alerts.md).
+* Узнайте больше о [настройке оповещений о событиях журнала действий](monitoring-activity-log-alerts.md).
 * Узнайте больше о [модулях Runbook службы автоматизации Azure](../automation/automation-starting-a-runbook.md).
 * Ознакомьтесь с [обзором сбора журналов диагностики](monitoring-overview-of-diagnostic-logs.md) , чтобы собирать подробные метрики о службе с высокой частотой.
 * Прочитайте [обзор сбора метрики](insights-how-to-customize-monitoring.md) и узнайте, как можно обеспечить, чтобы служба была доступна и отвечала на запросы.
