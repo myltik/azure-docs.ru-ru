@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -94,13 +94,15 @@ ms.lasthandoff: 04/15/2017
 
 Устаревшие роли пользователей Log Analytics управляют доступом только к действиям, выполняемым на [портале Log Analytics](https://mms.microsoft.com).
 
-Для следующих действий на портале Log Analytics также требуются разрешения Azure.
+Разрешения Azure также требуются для следующих действий:
 
 | Действие                                                          | Требуются разрешения Azure | Примечания |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Добавление и удаление решений по управлению                        | Запись группы ресурсов <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Добавление и удаление решений по управлению                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | Изменение ценовой категории                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Просмотр данных на плитках *службы архивации* и *службы Site Recovery* | Администратор или соадминистратор | Имеет доступ к ресурсам, развернутым с использованием классической модели развертывания |
+| Создание рабочей области на портале Azure                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Управление доступом к службе Log Analytics с помощью разрешений Azure
 Чтобы предоставить доступ к рабочей области Log Analytics с помощью разрешений Azure, следуйте указаниям в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
@@ -177,7 +179,7 @@ ms.lasthandoff: 04/15/2017
 4. В диалоговом окне подтверждения нажмите кнопку **Да**.
 
 ### <a name="remove-a-user-from-a-workspace"></a>Удаление пользователя из рабочей области
-Следуйте инструкциям ниже, чтобы удалить пользователя из рабочей области. После удаления пользователя рабочая область останется открытой. Вместо этого они удалят связь между пользователем и рабочей областью. Если пользователь связан с несколькими рабочими областями, он по-прежнему может войти в OMS и просмотреть остальные рабочие области.
+Следуйте инструкциям ниже, чтобы удалить пользователя из рабочей области. После удаления пользователя рабочая область останется открытой. Вместо этого они удалят связь между пользователем и рабочей областью. Если пользователь связан с несколькими рабочими областями, он по-прежнему сможет входить в OMS и просматривать другие рабочие области.
 
 1. На портале OMS щелкните элемент **Параметры**.
 2. Выберите вкладку **Учетные записи**, а затем — **Управление пользователями**.

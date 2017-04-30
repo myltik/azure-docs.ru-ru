@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 02/09/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
-ms.openlocfilehash: 57c7b895579e1c1e86224a60d961721d2d4cf638
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1c8703d64ff45e589a7ce93f1f2176681e1bf331
+ms.lasthandoff: 04/25/2017
 
 
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## <a name="azure-iot-suite"></a>Набор Azure IoT Suite
-Набор Microsoft Azure IoT — это решение корпоративного уровня, которое позволяет быстро приступить к работе с помощью набора расширяемых предварительно настроенных решений. Эти решения подходят для распространенных сценариев Интернета вещей, таких как [удаленный мониторинг][lnk-preconfigured-solutions] и [прогнозное обслуживание][lnk-predictive-maintenance]. Эти решения представляют собой реализацию архитектуры решений IoT, описанной в этой статье.
+Набор Microsoft Azure IoT — это решение корпоративного уровня, которое позволяет быстро приступить к работе с помощью набора расширяемых предварительно настроенных решений. Эти решения подходят для таких распространенных сценариев Интернета вещей, как [Удаленный мониторинг][lnk-preconfigured-solutions], [Прогнозное обслуживание][lnk-predictive-maintenance] и [Подключенная фабрика][lnk-connected-factory]. Эти решения представляют собой реализацию архитектуры решений IoT, описанной в этой статье.
 
 Предварительно настроенные решения являются полными, работающими, комплексными решениями, которые включают в себя следующее:
 
@@ -53,4 +53,4 @@ ms.lasthandoff: 02/09/2017
 [Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
 [Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-
+[lnk-connected-factory]: iot-suite-connected-factory-overview.md

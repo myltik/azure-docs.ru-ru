@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/28/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 22966659db3951316dca11fd555e07a183114062
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c32cb52e4bb7bacde20e21820f277b4e86877e74
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="create-a-nodejs-application-on-web-app"></a>Создание приложения Node.js в веб-приложении
@@ -148,7 +148,7 @@ az appservice plan create --name quickStartPlan --resource-group myResourceGroup
 
 План службы приложений создан. Теперь создайте веб-приложение в рамках этого плана (`quickStartPlan`). Веб-приложение предоставляет место для размещения и развертывания кода, а также URL-адрес для просмотра развернутого приложения. Используйте команду [az appservice web create](/cli/azure/appservice/web#create), чтобы создать веб-приложение.
 
-В приведенной ниже команде замените заполнитель <app_name> уникальным именем приложения. <app_name> будет использоваться по умолчанию в качестве сайта DNS для веб-приложения. Поэтому это имя должно быть уникальным для всех приложений в Azure. Позже можно сопоставить любые пользовательские записи DNS с веб-приложением, прежде чем предоставлять его пользователям.
+В приведенной ниже команде замените заполнитель `<app_name>` уникальным именем приложения. `<app_name>` будет использоваться по умолчанию в качестве сайта DNS для веб-приложения. Поэтому это имя должно быть уникальным для всех приложений в Azure. Позже можно сопоставить любые пользовательские записи DNS с веб-приложением, прежде чем предоставлять его пользователям.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -296,7 +296,7 @@ git push azure master
 
 Для этого войдите на портал [https://portal.azure.com](https://portal.azure.com).
 
-В меню слева выберите **Служба приложений**, а затем щелкните имя своего веб-приложения Azure.
+В меню слева выберите **Службы приложений**, а затем щелкните имя своего веб-приложения Azure.
 
 ![Переход к веб-приложению Azure на портале](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
@@ -321,3 +321,4 @@ git push azure master
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Ознакомьтесь с предварительно созданными [скриптами интерфейса командной строки для веб-приложений](app-service-cli-samples.md).
+

@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ ms.lasthandoff: 04/18/2017
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-net"></a>Установка .NET
+
+В этом разделе предполагается, что у вас уже есть опыт разработки с использованием .NET и вы только начали изучение базы данных SQL Azure. Если вы новичок в разработке с использованием .NET, перейдите на страницу [создания приложения с помощью SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), выберите язык **C#** и операционную систему.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework и .NET Core**
 
@@ -66,7 +68,7 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## <a name="get-connection-information"></a>Получение сведений о подключении
 
-Получите строку подключения на портале Azure. Используйте строку подключения, чтобы подключиться к базе данных SQL Azure.
+Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
@@ -96,7 +98,8 @@ sudo apt-get install dotnet-dev-1.0.1
 1. В среде разработки откройте файл с пустым кодом.
 2. Добавьте ```using System.Data.SqlClient``` в файл кода ([пространство имен System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient.aspx)). 
 
-3. С помощью метода [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) и инструкции Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) отправьте запрос на получение данных из базы данных SQL Azure. Добавление соответствующих значений для сервера
+3. Используйте следующий код, чтобы сделать запрос на 20 основных продуктов по категориям с помощью команды [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) и инструкции [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL. Добавьте соответствующие значения сервера, базы данных, пользователя и пароля.
+
 ```csharp
 using System;
 using System.Data;
@@ -152,7 +155,7 @@ namespace ConsoleApplication1
 
 ## <a name="insert-data"></a>Добавление данных
 
-С помощью метода [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) и инструкции Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) вставьте данные в базу данных SQL Azure.
+Используйте следующий код, чтобы добавить новый продукт в таблицу SalesLT.Product с помощью команды [SqlCommand.ExecuteNonQueryс](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) и инструкции [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL. Добавьте соответствующие значения сервера, базы данных, пользователя и пароля.
 
 ```csharp
 using System;
@@ -207,7 +210,7 @@ namespace ConsoleApplication1
 
 ## <a name="update-data"></a>Обновление данных
 
-С помощью метода [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) и инструкции Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) обновите данные в базе данных SQL Azure.
+Используйте указанный код, чтобы обновить информацию о продукте, применив команду [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx), с помощью инструкции [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL. Добавьте соответствующие значения сервера, базы данных, пользователя и пароля.
 
 ```csharp
 using System;
@@ -257,7 +260,7 @@ namespace ConsoleApplication1
 
 ## <a name="delete-data"></a>Удаление данных
 
-С помощью метода [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) и инструкции Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) удалите данные из базы данных SQL Azure.
+Используйте указанный код, чтобы удалить сведения о продукте с помощью команды [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) и инструкции [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL. Добавьте соответствующие значения сервера, базы данных, пользователя и пароля.
 
 ```csharp
 using System;

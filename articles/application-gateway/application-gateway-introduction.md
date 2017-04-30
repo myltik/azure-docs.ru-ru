@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: d23b400d8e6db66bc596731770a98e2833302543
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: ba9c673676fd0b742eb8bd780b67930333b151b3
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -101,6 +101,9 @@ ms.lasthandoff: 04/04/2017
 
 Цена зависит от почасовой стоимости использования экземпляра шлюза и стоимости обработки данных. Почасовая стоимость использования номера SKU WAF и стандартного номера SKU отличается. Дополнительные сведения см. на [странице цен на шлюз приложений](https://azure.microsoft.com/pricing/details/application-gateway/). Плата за обработку данных остается неизменной.
 
+## <a name="faq"></a>Часто задаваемые вопросы
+
+См. [вопросы и ответы, связанные с использованием шлюза приложений](application-gateway-faq.md).
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Изучив принципы создания шлюза приложений, вы можете [создать шлюз приложений](application-gateway-create-gateway-portal.md) или [разгрузку SSL шлюза приложений](application-gateway-ssl-arm.md) для балансировки нагрузки подключений HTTPS.

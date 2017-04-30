@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 762d8deac1f176e51b54295ef571ae529d338d2c
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c2e78e0191be6ac7d828402859c04c486e8df594
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ Log Analytics — это служба в [Operations Management Suite \(OMS\)](
 ## <a name="is-log-analytics-for-you"></a>Подходит ли вам Log Analytics?
 Если у вас нет средства мониторинга среды Azure, мы рекомендуем использовать [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md). Эта платформа собирает и анализирует данные мониторинга для ресурсов Azure.  Log Analytics может собирать данные Azure Monitor, сопоставлять их с другими данными и на основе полученных результатов предоставлять дополнительный анализ.
 
-Если вы хотите отслеживать локальную среду или уже имеете средство мониторинга, использующие такие решения, как Azure Monitor или System Center Operations Manager, тогда Log Anlalytics представляет значительную ценность.  Эта служба собирает данные непосредственно из агентов, а также из других средств в едином репозитории.  Средства анализа в Log Analytics, такие как поиск по журналам, представления и решения, обрабатывают все собранные данные, предоставляя централизованный анализ всей среды.
+Если вы хотите отслеживать локальную среду или у вас уже есть средство мониторинга, использующие такие решения, как Azure Monitor или System Center Operations Manager, служба Log Anlalytics может быть особенно полезной.  Эта служба собирает данные непосредственно из агентов, а также из других средств в едином репозитории.  Средства анализа в Log Analytics, такие как поиск по журналам, представления и решения, обрабатывают все собранные данные, предоставляя централизованный анализ всей среды.
 
 
 ## <a name="using-log-analytics"></a>Использование Log Analytics

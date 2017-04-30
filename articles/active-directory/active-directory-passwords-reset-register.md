@@ -16,9 +16,9 @@ ms.date: 03/16/2017
 ms.author: joflore
 ms.custom: end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 0f10ad4904b10a9554e949e77f0192edcb8f624f
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: c6d3d9d8f399816928e794e8956bc35825462fb9
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -50,6 +50,7 @@ ms.lasthandoff: 04/12/2017
 * [Изменение своего пароля](active-directory-passwords-update-your-own-password.md)
 * [Страница регистрации для сброса пароля](http://aka.ms/ssprsetup)
 * [Портал сброса паролей](https://passwordreset.microsoftonline.com/)
+* [Не удается войти в учетную запись Майкрософт](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Страница регистрации данных для сброса паролей, на которой отображаются зарегистрированные методы и кнопка "Готово""
 
