@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
-ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 75188a8f74b08d28b92259348626d5734ed4ce6c
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -40,9 +41,11 @@ ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
    2. Выберите **подписку** , которую необходимо связать с лабораторией.
    3. Выберите **расположение** , в котором будет храниться лаборатория.
    4. Выберите **Автоматическое завершение работы** , чтобы включить и определить параметры автоматического завершения работы всех виртуальных машин в лаборатории. 
-   5. Нажмите кнопку **Создать**.
-      
-      ![Колонка создания лаборатории](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+   5. Выберите **Закрепить на панели мониторинга**, чтобы отобразить ярлык лаборатории на панели мониторинга портала.
+   6. Выберите **Параметры автоматизации**, чтобы получить шаблоны Azure Resource Manager для автоматизации настройки. 
+   7. Нажмите кнопку **Создать**.
+    
+    ![Колонка создания лаборатории](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -54,10 +57,5 @@ ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
 * [Создание шаблона лаборатории](devtest-lab-create-template.md).
 * [Создание пользовательских артефактов для виртуальных машин](devtest-lab-artifact-author.md).
 * [Добавление виртуальной машины с артефактами в лабораторию](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

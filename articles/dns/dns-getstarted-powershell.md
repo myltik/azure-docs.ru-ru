@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 627f0004cd4d558150c1603681431e7638caef88
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
+ms.lasthandoff: 04/21/2017
 
 ---
 
@@ -35,6 +35,14 @@ ms.lasthandoff: 03/11/2017
 Зона DNS используется для размещения DNS-записей определенного домена. Чтобы разместить свой домен в Azure DNS, необходимо создать зону DNS для этого доменного имени. Каждая запись DNS для вашего домена создается внутри этой зоны DNS. Наконец, чтобы опубликовать зону DNS в Интернете, необходимо настроить серверы доменных имен для домена. Каждый из этих шагов описан ниже.
 
 При выполнении этих инструкций предполагается, что вы уже установили Azure PowerShell и выполнили вход. Чтобы получить справку, см. статью [Как управлять зонами DNS с помощью PowerShell](dns-operations-dnszones.md).
+
+## <a name="create-the-resource-group"></a>Создание группы ресурсов
+
+Перед созданием зоны DNS создается группа ресурсов, которая будет включать эту зону DNS. Ниже показана команда для создания группы ресурсов.
+
+```powershell
+New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
+```
 
 ## <a name="create-a-dns-zone"></a>Создание зоны DNS
 
@@ -84,6 +92,13 @@ MaxNumberOfRecordSets : 5000
 
 Эти серверы доменных имен необходимо настроить с помощью регистратора доменных имен (у которого было приобретено доменное имя). Регистратор предложит вам вариант настройки серверов доменных имен для домена. Дополнительные сведения см. в статье [Делегирование домена в Azure DNS](dns-domain-delegation.md).
 
+## <a name="delete-all-resources"></a>Удаление всех ресурсов
+
+Чтобы удалить все ресурсы, созданные при работе с этой статьей, сделайте следующее:
+
+```powershell
+Remove-AzureRMResourceGroup -Name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

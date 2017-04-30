@@ -15,15 +15,15 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: f60e1188d1eb8baf8c6d5e77e2ff91a449351e1e
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="create-a-python-application-on-web-app"></a>Создание приложения Python в веб-приложении
 
-В этом кратком руководстве описано, как разработать и развернуть приложение Python в Azure. Мы запустим приложение, используя службу приложений Azure под управлением Linux, а затем создадим и настроим в ней новое веб-приложение с помощью интерфейса командной строки Azure. Затем мы используем Git, чтобы развернуть наше приложение Python в Azure.
+В этом кратком руководстве описано, как разработать и развернуть приложение Python в Azure. Мы запустим приложение, используя службу приложений Azure, а затем создадим и настроим в ней новое веб-приложение с помощью интерфейса командной строки Azure. Затем мы используем Git, чтобы развернуть наше приложение Python в Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/04/2017
 Перед запуском этого примера необходимо скачать и установить следующие компоненты в локальной среде:
 
 1. [Git.](https://git-scm.com/)
-1. [Python.](https://Python.net)
+1. [Python.](https://www.python.org/downloads/)
 1. [Azure CLI 2.0.](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="download-the-sample"></a>Скачивание примера приложения
@@ -59,13 +59,13 @@ cd Python-docs-hello-world
 Запустите приложение в локальной среде, открыв окно терминала с помощью командной строки `Python`, чтобы запустить встроенный веб-сервер Python.
 
 ```bash
-Python -S localhost:8080
+python main.py
 ```
 
 Откройте браузер и перейдите к примеру.
 
 ```bash
-http://localhost:8080
+http://localhost:5000
 ```
 
 На странице отобразится сообщение **Hello World** из примера приложения.
@@ -119,27 +119,34 @@ az group create --name myResourceGroup --location westeurope
 > * SKU ("Бесплатный", "Общий", "Базовый", "Стандартный", "Премиум").
 >
 
-В следующем примере создается план службы приложений с именем `quickStartPlan` ценовой категории **Standard** в рабочих ролях Linux.
+В следующем примере создается план службы приложений с именем `quickStartPlan` ценовой категории **Бесплатный** в рабочих ролях Linux.
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
 ```
 
 После создания плана службы приложений в Azure CLI отображается информация следующего вида.
 
 ```json
 {
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "kind": "linux",
-    "location": "West Europe",
-    "sku": {
-    "capacity": 1,
-    "family": "S",
-    "name": "S1",
-    "tier": "Standard"
-    },
-    "status": "Ready",
-    "type": "Microsoft.Web/serverfarms"
+"appServicePlanName": "quickStartPlan",
+"geoRegion": "North Europe",
+"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+"kind": "app",
+"location": "North Europe",
+"maximumNumberOfWorkers": 1,
+"name": "quickStartPlan",
+"provisioningState": "Succeeded",
+"resourceGroup": "myResourceGroup",
+"sku": {
+  "capacity": 0,
+  "family": "F",
+  "name": "F1",
+  "size": "F1",
+  "tier": "Free"
+},
+"status": "Ready",
+"type": "Microsoft.Web/serverfarms",
 }
 ```
 
@@ -147,7 +154,7 @@ az appservice plan create --name quickStartPlan --resource-group myResourceGroup
 
 План службы приложений создан. Теперь создайте веб-приложение в рамках этого плана (`quickStartPlan`). Веб-приложение предоставляет место для размещения и развертывания кода, а также URL-адрес для просмотра развернутого приложения. Используйте команду [az appservice web create](/cli/azure/appservice/web#create), чтобы создать веб-приложение.
 
-В приведенной ниже команде замените заполнитель <app_name> уникальным именем приложения. <app_name> будет использоваться по умолчанию в качестве сайта DNS для веб-приложения. Поэтому это имя должно быть уникальным для всех приложений в Azure. Позже можно сопоставить любые пользовательские записи DNS с веб-приложением, прежде чем предоставлять его пользователям.
+В приведенной ниже команде замените заполнитель `<app_name>` уникальным именем приложения. `<app_name>` будет использоваться по умолчанию в качестве сайта DNS для веб-приложения. Поэтому это имя должно быть уникальным для всех приложений в Azure. Позже можно сопоставить любые пользовательские записи DNS с веб-приложением, прежде чем предоставлять его пользователям.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -157,19 +164,24 @@ az appservice web create --name <app_name> --resource-group myResourceGroup --pl
 
 ```json
 {
-    "clientAffinityEnabled": true,
-    "defaultHostName": "<app_name>.azurewebsites.net",
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
-    "isDefaultContainer": null,
-    "kind": "app",
-    "location": "West Europe",
-    "name": "<app_name>",
-    "repositorySiteName": "<app_name>",
-    "reserved": true,
-    "resourceGroup": "myResourceGroup",
-    "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "state": "Running",
-    "type": "Microsoft.Web/sites",
+  "clientAffinityEnabled": true,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  "enabledHostNames": [
+    "<app_name>.azurewebsites.net",
+    "<app_name>.scm.azurewebsites.net"
+  ],
+  "hostNames": [
+    "<app_name>.azurewebsites.net"
+  ],
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
+  "kind": "app",
+  "location": "North Europe",
+  "outboundIpAddresses": "13.69.190.80,13.69.191.239,13.69.186.193,13.69.187.34",
+  "resourceGroup": "myResourceGroup",
+  "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+  "state": "Running",
+  "type": "Microsoft.Web/sites",
 }
 ```
 
@@ -185,13 +197,13 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="configure-to-use-python"></a>Настройка использования Python
 
-Используйте команду [az appservice web config update](/cli/azure/app-service/web/config#update), чтобы настроить в веб-приложении использование языка Python версии `7.0.x`.
+Используйте команду [az appservice web config update](/cli/azure/app-service/web/config#update), чтобы настроить в веб-приложении использование языка Python версии `3.4`.
 
 > [!TIP]
 > При такой настройке версии Python будет использоваться контейнер по умолчанию, предоставляемый платформой. Если вы хотите использовать собственный контейнер, ознакомьтесь с командой [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) в справочнике по интерфейсу командной строки CLI.
 
 ```azurecli
-az appservice web config update --name <app_name> --resource-group myResourceGroup
+az appservice web config update --python-version 3.4 --name <app-name> --resource-group myResourceGroup
 ```
 
 ## <a name="configure-local-git-deployment"></a>Настройка локального развертывания Git
@@ -227,28 +239,45 @@ git push azure master
 Во время развертывания служба приложений Azure будет взаимодействовать с Git.
 
 ```bash
-Counting objects: 2, done.
+Counting objects: 18, done.
 Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-Total 2 (delta 1), reused 0 (delta 0)
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (18/18), 4.31 KiB | 0 bytes/s, done.
+Total 18 (delta 4), reused 0 (delta 0)
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '25f18051e9'.
+remote: Preparing deployment for commit id '44e74fe7dd'.
 remote: Generating deployment script.
+remote: Generating deployment script for python Web Site
+remote: Generated deployment script files
 remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+remote: Handling python deployment.
+remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
+remote: Deleting file: 'hostingstart.html'
 remote: Copying file: '.gitignore'
 remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
 remote: Copying file: 'main.py'
-remote: Ignoring: .git
+remote: Copying file: 'README.md'
+remote: Copying file: 'requirements.txt'
+remote: Copying file: 'virtualenv_proxy.py'
+remote: Copying file: 'web.2.7.config'
+remote: Copying file: 'web.3.4.config'
+remote: Detected requirements.txt.  You can skip Python specific steps with a .skipPythonDeployment file.
+remote: Detecting Python runtime from site configuration
+remote: Detected python-3.4
+remote: Creating python-3.4 virtual environment.
+remote: .................................
+remote: Pip install requirements.
+remote: Successfully installed Flask click itsdangerous Jinja2 Werkzeug MarkupSafe
+remote: Cleaning up...
+remote: .
+remote: Overwriting web.config with web.3.4.config
+remote:         1 file(s) copied.
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
-   cc39b1e..25f1805  master -> master
+ * [new branch]      master -> master
 ```
 
 ## <a name="browse-to-the-app"></a>Переход в приложение
@@ -261,14 +290,14 @@ http://<app_name>.azurewebsites.net
 
 Теперь страница, на которой отображается сообщение Hello World, выполняется с использованием нашего кода Python как веб-приложение службы приложений Azure.
 
-
+![]()
 
 ## <a name="updating-and-deploying-the-code"></a>Обновление и развертывание кода
 
-В локальном текстовом редакторе в приложении Python откройте файл `main.py` и внесите небольшое изменение в текстовой строке рядом с `echo`:
+В локальном текстовом редакторе в приложении Python откройте файл `main.py` и внесите небольшое изменение в текстовой строке рядом с инструкцией `return`:
 
 ```python
-echo "Hello Azure!";
+return 'Hello, Azure!'
 ```
 
 Зафиксируйте изменения в Git, а затем отправьте изменения кода в Azure.
@@ -288,7 +317,7 @@ git push azure master
 
 Для этого войдите на портал [https://portal.azure.com](https://portal.azure.com).
 
-В меню слева выберите **Служба приложений**, а затем щелкните имя своего веб-приложения Azure.
+В меню слева выберите **Службы приложений**, а затем щелкните имя своего веб-приложения Azure.
 
 ![Переход к веб-приложению Azure на портале](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
 

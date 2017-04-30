@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/18/2017
 
 Сначала установите последнюю версию[Visual Studio Code](https://code.visualstudio.com/Download) и загрузите [расширение mssql](https://aka.ms/mssql-marketplace). Руководство по установке расширения mssql см. в разделе [об установке VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) и на странице [расширения mssql для Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
-## <a name="configure-vs-code-mac-os-only"></a>Настройка VS Code (только в Mac OS)
+## <a name="configure-vs-code"></a>Настройка кода VS 
 
 ### <a name="mac-os"></a>**Mac OS**
 Для macOS необходимо установить OpenSSL. Это предварительное требование для платформы .NET Core, используемой для расширения mssql. Откройте терминал и введите следующие команды для установки **brew** и **OpenSSL**. 
@@ -49,9 +49,17 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+
+Специальная настройка не требуется.
+
+### <a name="windows"></a>**Windows**
+
+Специальная настройка не требуется.
+
 ## <a name="get-connection-information"></a>Получение сведений о подключении
 
-Получите полное имя сервера для сервера базы данных SQL Azure на портале Azure. Полное имя сервера используется для подключения к серверу с помощью Visual Studio Code.
+Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
@@ -108,7 +116,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="query-data"></a>Запрос данных
 
-С помощью инструкции Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) отправьте запрос на получение данных из базы данных SQL Azure.
+Используйте следующий код, чтобы запросить 20 основных продуктов из категории с помощью инструкции [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL.
 
 1. В окне **редактора** введите в пустое окно запроса следующий запрос:
 
@@ -125,7 +133,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="insert-data"></a>Добавление данных
 
-С помощью инструкции Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) вставьте данные в базу данных SQL Azure.
+Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product с помощью инструкции [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL.
 
 1. В окне **редактора** удалите предыдущий запрос и введите следующий:
 
@@ -153,7 +161,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="update-data"></a>Обновление данных
 
-С помощью инструкции Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) обновите данные в базе данных SQL Azure.
+Используйте следующий код, чтобы обновить новый продукт, добавленный ранее, с помощью инструкции [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL.
 
 1.  В окне **редактора** удалите предыдущий запрос и введите следующий:
 
@@ -167,7 +175,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="delete-data"></a>Удаление данных
 
-С помощью инструкции Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) удалите данные из базы данных SQL Azure.
+Используйте следующий код, чтобы удалить новый продукт, добавленный ранее, с помощью инструкции [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL.
 
 1. В окне **редактора** удалите предыдущий запрос и введите следующий:
 
