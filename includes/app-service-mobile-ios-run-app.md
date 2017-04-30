@@ -6,8 +6,3 @@
    ![Простое приложение в iOS](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
 [портал Azure]: https://portal.azure.com/
-
-
-<!--HONumber=Nov16_HO3-->
-
-
