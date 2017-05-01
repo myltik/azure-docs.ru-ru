@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 01/30/2017
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: d9436796373af55a18c0b6fbfc036bd6616bbe4f
-ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3fd5224983c723faefb8001888ae20e78acdb8ce
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,7 +33,8 @@ ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
 * [инструкция merge][merge statement];
 * соединение join между базами данных
 * [курсоры][cursors];
-* [INSERT..EXEC][INSERT..EXEC];
+* <seg>
+  [INSERT..EXEC][INSERT..EXEC];</seg>
 * предложение output
 * встроенные функции, определяемые пользователем
 * функции с несколькими инструкциями
@@ -90,8 +93,8 @@ ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
 
 Некоторые из этих проблем можно обойти.
 
-## <a name="rowcount-workaround"></a>Обходной путь для @@ROWCOUNT
-Чтобы обойти отсутствие поддержки @@ROWCOUNT,, создайте хранимую процедуру, которая будет извлекать значение счетчика последней строки из sys.dm_pdw_request_steps и затем выполнять `EXEC LastRowCount` после инструкции DML.
+## <a name="rowcount-workaround"></a>Возможное решение для замены @@ROWCOUNT
+Чтобы обойти отсутствие поддержки @@ROWCOUNT, создайте хранимую процедуру, которая будет извлекать значение счетчика последней строки из sys.dm_pdw_request_steps и затем выполнять `EXEC LastRowCount` после инструкции DML.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
@@ -135,9 +138,4 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

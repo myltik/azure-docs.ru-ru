@@ -16,9 +16,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: a90c412d2d66834cd0df3f348fa488b6ce10c898
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 159e41f3d1b43abc830b79e1ea0bed05e05505a2
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/07/2017
 В этом учебнике вы будете получать твиты с помощью API потоковой передачи Twitter, а затем с помощью Apache Hive в Azure HDInsight будете получать список пользователей Twitter, отправивших большинство твитов, которые содержат определенное слово.
 
 > [!IMPORTANT]
-> Действия, описанные в этом документе, требуют наличия кластера HDInsight на основе Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Инструкции по работе с кластером под управлением Linux см. в статье [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data-linux.md).
+> Действия, описанные в этом документе, требуют наличия кластера HDInsight на основе Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Инструкции по работе с кластером под управлением Linux см. в статье [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
@@ -231,7 +231,7 @@ Twitter использует протокол OAuth для обеспечени�
     Write-Host "Completed!" -ForegroundColor Green
     ```
 
-3. Задайте первые&5;-8 переменных сценария:
+3. Задайте первые 5-8 переменных сценария:
 
     Переменная|Описание
     ---|---
@@ -461,7 +461,7 @@ Twitter использует протокол OAuth для обеспечени�
 Используйте приведенный ниже скрипт Windows PowerShell для запуска скрипта Hive. Вам потребуется задать первую переменную.
 
 > [!NOTE]
-> Чтобы использовать tweets и скрипт HiveQL, загруженный в последних двух разделах, установите для переменной $hqlScriptFile значение /tutorials/twitter/twitter.hql. Чтобы использовать те, которые были переданы в общедоступный BLOB-объект ранее, задайте для $hqlScriptFile значение "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
+> Чтобы использовать tweets и скрипт HiveQL, загруженный в последних двух разделах, установите для переменной $hqlScriptFile значение /tutorials/twitter/twitter.hql. Чтобы использовать те, которые были переданы в общедоступный большой двоичный объект, установите для переменной $hqlScriptFile значение wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql.
 
 ```powershell
 #region variables and constants
@@ -563,7 +563,7 @@ Write-Host "==================================" -ForegroundColor Green
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]:hdinsight-hadoop-use-blob-storage.md#access-blobs-using-azure-powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md

@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8c486ca190ae2af650a7fa17843c84538dde8d9
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Группировка по параметрам в хранилище данных SQL
-Предложение [GROUP BY][GROUP BY] используется для объединения данных в сводную выборку строк. Оно имеет также несколько дополнительных параметров, позволяющих выполнять функции, которые не поддерживаются хранилищем данных SQL Azure напрямую.
+Предложение [GROUP BY][GROUP BY] используется для объединения данных в сводный набор строк. Оно имеет также несколько дополнительных параметров, позволяющих выполнять функции, которые не поддерживаются хранилищем данных SQL Azure напрямую.
 
 Доступны следующие параметры:
 
@@ -181,22 +183,17 @@ ORDER BY 1,2,3
 Если разбить этот код на разделы и создать циклическую конструкцию, он станет более управляем и удобен в обслуживании.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные советы по разработке см. в статье [общие сведения о разработке][общие сведения о разработке].
+Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][development overview].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
-[общие сведения о разработке]: sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
 
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

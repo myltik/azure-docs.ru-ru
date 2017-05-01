@@ -1,5 +1,5 @@
 ---
-title: "Учебник. Настройка Workday для входящей синхронизации | Документация Майкрософт"
+title: "Руководство по настройке Workday для входящей синхронизации | Документация Майкрософт"
 description: "Узнайте, как использовать входящую синхронизацию вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
 services: active-directory
 author: jeevansd
@@ -11,24 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 50f75a05cd7e22316be5434c0b37f0f0a2ee8509
-ms.openlocfilehash: 75c7565806c9737a464d9fa3fc34e4d15eb6a16b
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 85375fc872794e50d40190e7be9013bccd3062a2
+ms.lasthandoff: 04/03/2017
 
 
 ---
-# <a name="tutorial-configuring-workday-for-inbound-synchronization"></a>Руководство. Настройка Workday для входящей синхронизации
-> [!NOTE]
-> Azure Active Directory (AD) Premium доступен для клиентов в Китае, использующих доступный по всему миру экземпляр Azure AD.    
-> Служба Microsoft Azure, обслуживаемая компанией 21Vianet в Китае, сейчас не поддерживает AD Premium.    
+# <a name="tutorial-configure-workday-for-inbound-synchronization"></a>Руководство по настройке Workday для входящей синхронизации
+
+Цель этого руководства — показать, какие действия необходимо выполнить в Workday и Microsoft Azure AD для импорта пользователей из Workday в Microsoft Azure AD.    
+
+>[!NOTE]
+>Azure Active Directory (AD) Premium доступен для клиентов в Китае, использующих доступный по всему миру экземпляр Azure AD. Служба Microsoft Azure, обслуживаемая компанией 21Vianet в Китае, сейчас не поддерживает AD Premium.    
 > 
 > 
 
-Цель этого руководства — показать, какие действия необходимо выполнить в Workday и Microsoft Azure AD для импорта пользователей из Workday в Microsoft Azure AD.    
- Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:  
+Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:  
 
 * Действующая подписка на Azure  
 * Клиент в Workday  
@@ -43,10 +44,11 @@ ms.lasthandoff: 02/03/2017
 6. Активация изменений политики безопасности  
 7. Настройка импорта пользователей в Microsoft Azure AD  
 
-## <a name="enabling-the-application-integration-for-workday"></a>Включение интеграции приложений для Workday
+## <a name="enable-the-application-integration-for-workday"></a>Включение интеграции приложений для Workday
 В этом разделе показано, как включить интеграцию приложений для Salesforce.    
 
-### <a name="to-enable-the-application-integration-for-workday-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Workday, выполните следующие действия.
+**Чтобы включить интеграцию приложений для Workday, выполните следующие действия:**
+
 1. На портале управления Azure в левой области навигации нажмите **Active Directory**.    
    
    ![Active Directory](./media/active-directory-saas-inbound-synchronization-tutorial/IC700993.png "Active Directory")  
@@ -64,17 +66,17 @@ ms.lasthandoff: 02/03/2017
    
    ![Рабочий день](./media/active-directory-saas-inbound-synchronization-tutorial/IC701022.png "рабочий день")  
 
-## <a name="creating-an-integration-system-user"></a>Создание пользователя системы интеграции
+## <a name="create-an-integration-system-user"></a>Создание пользователя системы интеграции
 1. В области **Workday Workbench** введите в поле поиска **create user** и щелкните ссылку **Create Integration System User** (Создать пользователя системы интеграции).     
    
    ![создание пользователя](./media/active-directory-saas-inbound-synchronization-tutorial/IC750979.png "создание пользователя")  
-2. Завершите задачу создания пользователя системы интеграции, указав имя пользователя и пароль для нового пользователя системы интеграции.  Оставьте флажок "Запросить новый пароль при следующем входе" снятым, так как этот пользователь будет осуществлять вход в систему программными средствами.    
-
- Оставьте значение по умолчанию 0 для времени ожидания сеанса в минутах, что не позволит сеансам пользователя завершаться раньше времени.    
+2. Завершите задачу создания пользователя системы интеграции, указав имя пользователя и пароль для нового пользователя системы интеграции.  
+ * Не устанавливайте флажок **Require New Password at Next Sign In** (Запросить новый пароль при следующем входе), так как этот пользователь будет осуществлять вход в систему программными средствами.    
+ * Для параметра **Session Timeout Minutes** (Время ожидания сеанса в минутах) оставьте значение по умолчанию 0, что не позволит сеансам пользователя завершаться раньше времени.    
    
    ![Создание пользователя системы интеграции](./media/active-directory-saas-inbound-synchronization-tutorial/IC750980.png "Создание пользователя системы интеграции")  
 
-## <a name="creating-a-security-group"></a>Создание группы безопасности
+## <a name="create-a-security-group"></a>Создание группы безопасности
 Для сценария, описанного в данном руководстве, необходимо создать ничем не ограниченную группу безопасности системы интеграции и назначить ей пользователя.    
 
 1. Введите "создать группу безопасности" в поле поиска, а затем нажмите ссылку "Создать группу безопасности".     
@@ -84,7 +86,7 @@ ms.lasthandoff: 02/03/2017
    
    ![Создание группы безопасности](./media/active-directory-saas-inbound-synchronization-tutorial/IC750982.png "Создание группы безопасности")  
 
-## <a name="assigning-the-integration-system-user-to-the-security-group"></a>Назначение пользователя системы интеграции группе безопасности
+## <a name="assign-the-integration-system-user-to-the-security-group"></a>Назначение пользователя системы интеграции группе безопасности
 1. Введите "изменить группу безопасности" в поле поиска, а затем щелкните ссылку **Изменить группу безопасности**.     
    
    ![Изменение группы безопасности](./media/active-directory-saas-inbound-synchronization-tutorial/IC750983.png "Изменение группы безопасности")  
@@ -95,7 +97,7 @@ ms.lasthandoff: 02/03/2017
    
    ![Группа безопасности системы](./media/active-directory-saas-inbound-synchronization-tutorial/IC750985.png "Группа безопасности системы")  
 
-## <a name="configuring-security-group-options"></a>Настройка параметров группы безопасности
+## <a name="configure-security-group-options"></a>Настройка параметров группы безопасности
 На этом этапе вы предоставляете группе безопасности новые разрешения на выполнение операций Get и Put по отношению объектам, защищенным следующими политиками безопасности домена:  
 
 * External Account Provisioning  
@@ -103,8 +105,6 @@ ms.lasthandoff: 02/03/2017
 * Worker Data: All Positions  
 * Worker Data: Current Staffing Information  
 * Worker Data: Business Title on Worker Profile  
-
-&nbsp;  
 
 1. В поле поиска введите "политики безопасности домена", а затем нажмите ссылку "Политики безопасности домена для функциональной области".     
    
@@ -130,7 +130,7 @@ ms.lasthandoff: 02/03/2017
    
    ![Политики безопасности домена](./media/active-directory-saas-inbound-synchronization-tutorial/IC750991.png "Политики безопасности домена")  
 
-## <a name="activating-security-policy-changes"></a>Активация изменений политики безопасности
+## <a name="activate-security-policy-changes"></a>Активация изменений политики безопасности
 1. Введите "активировать" в поле поиска и затем нажмите ссылку "Активировать ожидающие изменения политики безопасности".    
    
    ![Активация](./media/active-directory-saas-inbound-synchronization-tutorial/IC750992.png "Активация")  
@@ -141,10 +141,11 @@ ms.lasthandoff: 02/03/2017
    
    ![Активация ожидающих изменений безопасности](./media/active-directory-saas-inbound-synchronization-tutorial/IC750994.png "Активация ожидающих изменений безопасности")  
 
-## <a name="configuring-user-import-in-microsoft-azure-ad"></a>Настройка импорта пользователей в Microsoft Azure AD
+## <a name="configure-user-import-in-microsoft-azure-ad"></a>Настройка импорта пользователей в Microsoft Azure AD
 Цель этого раздела — описать настройку Microsoft Azure AD для импорта пользователей из Workday.    
 
-### <a name="to-configure-user-import-in-microsoft-azure-ad-perform-the-following-steps"></a>Чтобы настроить импорт пользователей в Microsoft Azure AD, выполните следующие действия.
+**Чтобы настроить импорт пользователей в Microsoft Azure AD, выполните следующие действия:**
+
 1. На странице интеграции с приложением **Workday** щелкните **Настроить импорт пользователей**, чтобы открыть диалоговое окно **Настройка подготовки к работе**.    
 2. На странице **Параметры и учетные данные администратора** выполните следующие действия и нажмите кнопку "Далее".    
    

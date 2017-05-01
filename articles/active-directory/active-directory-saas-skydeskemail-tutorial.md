@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: fcea07a412de7b35931ff95b01fbe1276302f1ea
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 27f428d4f93e81aa896f958307129b3c1008eb48
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -38,25 +38,25 @@ ms.lasthandoff: 02/03/2017
 * подписка Azure AD;
 * подписка с поддержкой единого входа SkyDesk Email.
 
-> [!NOTE]
-> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+>[!NOTE]
+>Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 > 
 > 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 * Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
+Цель этого руководства — научить вас проверять единый вход Azure AD в тестовой среде. 
 
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление SkyDesk Email из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. Настройка и проверка единого входа Azure AD.
 
-## <a name="adding-skydesk-email-from-the-gallery"></a>Добавление SkyDesk Email из коллекции
+## <a name="add-skydesk-email-from-the-gallery"></a>Добавление SkyDesk Email из коллекции
 Чтобы настроить интеграцию SkyDesk Email с Azure AD, необходимо добавить приложение SkyDesk Email из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить SkyDesk Email из коллекции, выполните указанные ниже действия.**
@@ -81,23 +81,23 @@ ms.lasthandoff: 02/03/2017
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход в Azure AD в SkyDesk Email с использованием тестового пользователя Britta Simon.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в SkyDesk Email с использованием тестового пользователя Britta Simon.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в SkyDesk Email соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в SkyDesk Email.
+Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь в SkyDesk Email соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в SkyDesk Email.
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в SkyDesk Email.
 
-Чтобы настроить и проверить единый вход в Azure AD в SkyDesk Email, вам потребуется выполнить действия в приведенных ниже стандартных блоках.
+Чтобы настроить и проверить единый вход Azure AD в SkyDesk Email, вам потребуется выполнить действия в приведенных ниже стандартных блоках.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя SkyDesk Email](#creating-a-Skydesk-Email-test-user)** требуется для создания пользователя Britta Simon в SkyDesk Email, связанного с соответствующим пользователем в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
 5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-Цель этого раздела — включить единый вход в Azure AD на классическом портале Azure и настроить единый вход в приложение SkyDesk Email.
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить его в приложении SkyDesk Email.
 
 **Чтобы настроить единый вход в Azure AD в SkyDesk Email, выполните указанные ниже действия.**
 
@@ -118,33 +118,33 @@ ms.lasthandoff: 02/03/2017
    
     ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_05.png) 
    
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
-    b. Нажмите кнопку **Далее**.
+  1. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
+  2. Нажмите кнопку **Далее**.
 5. Чтобы включить единый вход в **SkyDesk Email**, выполните указанные ниже действия.
-   1. Войдите в учетную запись SkyDesk Email от имени администратора.
-   2. В меню в верхней части страницы нажмите Setup (Настройка) и выберите пункт Org (Организация). 
+  1. Войдите в учетную запись SkyDesk Email от имени администратора.
+  2. В меню в верхней части страницы нажмите Setup (Настройка) и выберите пункт Org (Организация). 
     
-    ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_51.png)  
-   3. На панели слева выберите пункт Domains (Домены).
+      ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_51.png)  
+  3. На панели слева выберите пункт Domains (Домены).
     
-    ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_53.png)
-   4. Щелкните Add Domain (Добавить домен).
+      ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_53.png)
+  4. Щелкните Add Domain (Добавить домен).
     
-    ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_54.png)
-   5. Введите доменное имя, а затем проверьте домен.
+      ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_54.png)
+  5. Введите доменное имя, а затем проверьте домен.
     
-    ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_55.png)
-   6. На панели слева выберите пункт **SAML Authentication** (Аутентификация SAML).
+      ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_55.png)
+  6. На панели слева выберите пункт **SAML Authentication** (Аутентификация SAML).
     
-    ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_52.png)
+      ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_52.png)
 6. На странице **SAML Authentication** выполните указанные ниже действия.
    
-    ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_56.png)
+      ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_56.png)
    
-   > [!NOTE]
-   > Для использования проверки подлинности на основе SAML у вас должен быть настроен **проверенный домен** или **URL-адрес портала**. Для URL-адреса портала можно настроить уникальное имя.
-   > 
-   > 
+    >[!NOTE]
+    >Для использования проверки подлинности на основе SAML у вас должен быть настроен **проверенный домен** или **URL-адрес портала**. Для URL-адреса портала можно настроить уникальное имя.
+    > 
+    > 
    
     ![Настройка единого входа](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 02/03/2017
    
     ![единого входа Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][20]
@@ -182,12 +182,9 @@ ms.lasthandoff: 02/03/2017
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_05.png) 
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
+  1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+  2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
+  3. Нажмите кнопку **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
    
    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-skydeskemail-tutorial/create_aaduser_06.png) 
@@ -207,7 +204,7 @@ ms.lasthandoff: 02/03/2017
    1. Запишите значение поля **Новый пароль**.
    2. Нажмите **Завершено**.   
 
-### <a name="creating-a-skydesk-email-test-user"></a>Создание тестового пользователя SkyDesk Email
+### <a name="create-a-skydesk-email-test-user"></a>Создание тестового пользователя SkyDesk Email
 В этом разделе описано, как создать пользователя Britta Simon в приложении SkyDesk Email.
 
 1. На левой панели в SkyDesk Email выберите пункт **User Access** (Доступ пользователя), а затем введите свое имя пользователя. 
@@ -218,8 +215,7 @@ ms.lasthandoff: 02/03/2017
 >Если вам нужно массово создать пользователей, обратитесь в службу поддержки SkyDesk Email.
 >
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к SkyDesk Email.
 
 ![Назначение пользователя][200] 
@@ -237,10 +233,10 @@ ms.lasthandoff: 02/03/2017
 4. Из списка пользователей выберите **Britta Simon**.
 5. На панели инструментов внизу щелкните **Назначить**.
    
-    ![Назначение пользователя][205]
+   ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+### <a name="test-single-sign-on"></a>Проверка единого входа
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент SkyDesk Email на панели доступа, вы автоматически войдете в приложение SkyDesk Email.
 

@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/07/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 6d36976712ba1ea5d51f203fc532d7f89c3b0871
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 16e0ec12e48fa0098c696ad70785bd3a817f5bbe
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -40,7 +40,8 @@ ms.lasthandoff: 12/08/2016
 
 Перед началом работы с этим руководством необходимо иметь следующее:
 
-* **Рабочая станция с Azure PowerShell.**.
+* <seg>
+  **Рабочая станция с Azure PowerShell**.</seg>
 * [cURL][curl] (необязательно). Чтобы установить cURL, перейдите на страницу [выпусков и скачиваемых файлов][curl-download].
   
   > [!NOTE]
@@ -63,14 +64,14 @@ ms.lasthandoff: 12/08/2016
 
 **Использование Azure PowerShell**
 
-Ниже приведен сценарий Azure PowerShell для получения данных модуля отслеживания заданий MapReduce *в кластере HDInsight 3.1*.  Основное отличие заключается в том, что мы получаем эти данные от службы YARN (а не от MapReduce).
+Ниже приведен сценарий Azure PowerShell для получения данных модуля отслеживания заданий MapReduce *в кластере HDInsight 3.5*.  Основное отличие заключается в том, что мы получаем эти данные от службы YARN (а не от MapReduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
     $clusterPassword = "<HDInsightClusterPassword>"
 
-    $ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
-    $uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/yarn/components/resourcemanager"
+    $ambariUri = "https://$clusterName.azurehdinsight.net:443"
+    $uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName/services/YARN/components/RESOURCEMANAGER"
 
     $passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
     $creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
@@ -167,9 +168,9 @@ ms.lasthandoff: 12/08/2016
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-documentation]: /documentation/services/hdinsight/
+[hdinsight-documentation]: https://docs.microsoft.com/azure/hdinsight/
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 

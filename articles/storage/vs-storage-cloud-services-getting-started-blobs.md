@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5e508e97f65ecd2d5ba0686b1e089246a9436dff
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: e154c81ef3765a3c006b3c27a979be881f14d0ee
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 5e508e97f65ecd2d5ba0686b1e089246a9436dff
 
 Хранилище больших двоичных объектов Azure — это служба хранения большого количества неструктурированных данных, к которым можно получить доступ практически из любой точки мира по протоколам HTTP или HTTPS. Один большой двоичный объект может быть любого размера. Большими двоичными объектами могут быть изображения, аудио- и видеофайлы, необработанные данные и файлы документов.
 
-Так же как файлы располагаются в папках, большие двоичные объекты хранилища располагаются в контейнерах. После создания хранилища вы можете создать один или несколько контейнеров в нем. Например, можно создать хранилище с именем "Альбом", в нем создать контейнеры "изображения" для хранения картинок и "аудио" для хранения аудиофайлов. После создания контейнеров в них можно отправлять индивидуальные большие двоичные объекты.
+Так же как файлы располагаются в папках, большие двоичные объекты хранилища располагаются в контейнерах. После создания хранилища вы можете создать один или несколько контейнеров в нем. Например, можно создать хранилище с именем "Альбом", в нем создать контейнеры "изображения" для хранения файлов изображений и "аудио" для хранения аудиофайлов. После создания контейнеров в них можно отправлять индивидуальные большие двоичные объекты.
 
 * Дополнительные сведения о программных операциях с большими двоичными объектами см. в статье [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md).
 * Общие сведения о службе хранилища Azure см. в [документации по службе хранилища](https://azure.microsoft.com/documentation/services/storage/).
@@ -55,7 +56,7 @@ ms.openlocfilehash: 5e508e97f65ecd2d5ba0686b1e089246a9436dff
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 4. Получите объект **CloudBlobContainer** , чтобы указать ссылку на определенный контейнер больших двоичных объектов.
    
-        // Get a reference to a container named “mycontainer.”
+        // Get a reference to a container named "mycontainer."
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
 > [!NOTE]
@@ -71,7 +72,7 @@ ms.openlocfilehash: 5e508e97f65ecd2d5ba0686b1e089246a9436dff
 
 Чтобы создать контейнер в учетной записи хранения, необходимо всего лишь добавить вызов **CreateIfNotExistsAsync** , как это сделано в следующем коде.
 
-    // If “mycontainer” doesn’t exist, create it.
+    // If "mycontainer" doesn't exist, create it.
     await container.CreateIfNotExistsAsync();
 
 
@@ -238,10 +239,5 @@ ms.openlocfilehash: 5e508e97f65ecd2d5ba0686b1e089246a9436dff
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

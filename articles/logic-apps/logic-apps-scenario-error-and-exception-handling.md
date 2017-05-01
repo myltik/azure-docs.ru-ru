@@ -17,9 +17,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: db5f70c88eb0b429a8d5d76f192a742f97fdf131
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: b996ed1889ec39de78dcee9bbcb18a5982fc5f7f
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -105,22 +105,22 @@ ms.lasthandoff: 03/09/2017
 
 1. Необходимо получить новую запись о приеме с портала Dynamics CRM Online.
 
-    Триггер, полученный из CRM, содержит следующие сведения: **идентификатор пациента CRM**,  **тип записи**, **состояние записи — новая или обновленная** (логическое значение) и **идентификатор Salesforce**. Параметр **SalesforceId** (идентификатор Salesforce) может иметь значение NULL, так как он используется только для обновлений.
-    Для получения записи CRM используются параметры **PatientID** (идентификатор пациента) и **Тип записи** службы CRM.
+   Триггер, полученный из CRM, содержит следующие сведения: **идентификатор пациента CRM**, **тип записи**, **состояние записи — новая или обновленная** (логическое значение) и **идентификатор Salesforce**. Параметр **SalesforceId** (идентификатор Salesforce) может иметь значение NULL, так как он используется только для обновлений.
+   Для получения записи CRM используются параметры **PatientID** (идентификатор пациента) и **Тип записи** службы CRM.
 
-2. Далее необходимо добавить операцию **InsertLogEntry** для приложения API DocumentDB, как показано ниже.
+2. Далее необходимо добавить операцию **InsertLogEntry** для приложения API DocumentDB, как показано ниже в конструкторе приложений логики.
 
-### <a name="insert-log-entry-designer-view"></a>Представление конструктора для добавления записи журнала
+   **Добавление записи журнала**
 
-![Добавление записи журнала](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Добавление записи журнала](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
-### <a name="insert-error-entry-designer-view"></a>Представление конструктора для добавления записи об ошибке
+   **Добавление записи об ошибке**
 
-![Добавление записи журнала](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Добавление записи журнала](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
-### <a name="check-for-create-record-failure"></a>Проверка на ошибку создания записи
+   **Проверка на наличие ошибки создания записи**
 
-![Условие](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Условие](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Исходный код приложения логики
 

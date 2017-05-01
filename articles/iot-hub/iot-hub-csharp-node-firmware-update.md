@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 03/17/2017
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
-ms.openlocfilehash: a586d437ed7636874d324c9d3fc5274fe9001627
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: c2192328a152e955d182c4a07b391c98a5960964
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/06/2017
 
 Для работы с этим учебником требуется:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 или Visual Studio 2017.
 * Node.js версии 0.12.x или более поздней. <br/>  В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить Node.js для работы с этим учебником в ОС Windows или Linux.
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
@@ -57,16 +57,16 @@ ms.lasthandoff: 02/06/2017
 
     ![Новый проект классического приложения Windows на языке Visual C#][img-createapp]
 
-2. В обозревателе решений щелкните правой кнопкой мыши проект **TriggerFWUpdate** и выберите **Управление пакетами NuGet**.
-3. В окне **Диспетчер пакетов NuGet** нажмите кнопку **Обзор**, найдите **microsoft.azure.devices**, щелкните **Установить**, чтобы установить пакет **Microsoft.Azure.Devices**, и примите условия использования. В результате выполняется скачивание и установка пакета NuGet [SDK для служб Интернета вещей Azure][lnk-nuget-service-sdk] и его зависимостей, а также добавляется соответствующая ссылка.
+1. В обозревателе решений щелкните правой кнопкой мыши проект **TriggerFWUpdate** и выберите **Управление пакетами NuGet…**.
+1. В окне **Диспетчер пакетов NuGet** нажмите кнопку **Обзор**, найдите **microsoft.azure.devices**, щелкните **Установить**, чтобы установить пакет **Microsoft.Azure.Devices**, и примите условия использования. В результате выполняется скачивание и установка пакета NuGet [SDK для служб Интернета вещей Azure][lnk-nuget-service-sdk] и его зависимостей, а также добавляется соответствующая ссылка.
 
     ![Окно "Диспетчер пакетов NuGet"][img-servicenuget]
-4. Добавьте следующие инструкции `using` в начало файла **Program.cs** :
+1. Добавьте следующие инструкции `using` в начало файла **Program.cs** :
    
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. Добавьте следующие поля в класс **Program** . Замените несколько значений заполнителей строкой подключения Центра Интернета вещей, созданного в предыдущем разделе, и идентификатором устройства.
+1. Добавьте следующие поля в класс **Program** . Замените несколько значений заполнителей строкой подключения Центра Интернета вещей, созданного в предыдущем разделе, и идентификатором устройства.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -74,7 +74,7 @@ ms.lasthandoff: 02/06/2017
         static JobClient jobClient;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
-6. Добавьте следующий метод в класс **Program** .
+1. Добавьте следующий метод в класс **Program** .
    
         public static async Task QueryTwinFWUpdateReported()
         {
@@ -82,7 +82,7 @@ ms.lasthandoff: 02/06/2017
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Добавьте следующий метод в класс **Program** .
+1. Добавьте следующий метод в класс **Program** .
 
         public static async Task StartFirmwareUpdate()
         {
@@ -99,7 +99,7 @@ ms.lasthandoff: 02/06/2017
             Console.WriteLine("Invoked firmware update on device.");
         }
 
-7. Наконец, добавьте следующие строки в метод **Main** :
+1. Наконец, добавьте следующие строки в метод **Main** :
    
         registryManager = RegistryManager.CreateFromConnectionString(connString);
         StartFirmwareUpdate().Wait();
@@ -107,7 +107,9 @@ ms.lasthandoff: 02/06/2017
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
         
-8. Выполните сборку решения.
+1. В обозревателе решений откройте **Задать автозагружаемые проекты...** и задайте значение **Запустить** для параметра **Действие** проекта **AddTagsAndQuery**.
+
+1. Выполните сборку решения.
 
 [!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
 
@@ -121,7 +123,9 @@ ms.lasthandoff: 02/06/2017
     ```
 2. В Visual Studio щелкните правой кнопкой мыши проект **TriggerFWUpdate**, запустите его в консольном приложении C#, а затем выберите **Отладка** и **Запустить новый экземпляр**.
 
-3. В консоли отобразится ответ устройства на прямой метод.
+3. В консоли появится ответ устройства на прямой метод.
+
+    ![Успешное обновление встроенного ПО][img-fwupdate]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В этом руководстве вы использовали прямой метод для активации удаленного обновления встроенного ПО на устройстве. Также вы использовали переданные свойства для отслеживания хода обновления встроенного ПО.
@@ -131,6 +135,7 @@ ms.lasthandoff: 02/06/2017
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-firmware-update/servicesdknuget.png
 [img-createapp]: media/iot-hub-csharp-node-firmware-update/createnetapp.png
+[img-fwupdate]: media/iot-hub-csharp-node-firmware-update/fwupdated.png
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

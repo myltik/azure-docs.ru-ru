@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 065e84e8ddee3466834e04fb5d1929652533265a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: cec1bcceea158a20742c7019a266dcefaac4c9cf
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -76,7 +76,7 @@ ms.lasthandoff: 03/25/2017
 Эти действия можно выполнять вручную, вы также можете выполнить все три шага автоматически. Для этого щелкните в нижней части холста эксперимента **Set Up Web Service** (Настроить веб-службу) и выберите **Predictive Web Service** (Прогнозная веб-служба).
 
 > [!TIP]
-> Процесс преобразовании обучающего эксперимента в прогнозный эксперимент подробно описан в статье [Преобразование обучающего эксперимента машинного обучения в прогнозный эксперимент](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+> Процесс преобразовании обучающего эксперимента в прогнозный эксперимент подробно описан в [этой статье](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
 При щелчке **Set Up Web Service**(Настроить веб-службу) происходит следующее.
 

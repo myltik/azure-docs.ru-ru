@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 75eeca842cc31be6807dd6071de6d9a5c327fad3
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 507fb3200fe62aaa813464e5d6152a79907fdef7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -66,7 +66,7 @@ ms.lasthandoff: 03/10/2017
 
 #### <a name="encode-edifact-message-by-agreement-name"></a>Кодирование сообщений EDIFACT по названию соглашения
 
-Если вы решили закодировать сообщения EDIFACT по имени соглашения, откройте список **Имя соглашения X12** и введите или выберите имя соглашения EDIFACT. Введите XML-сообщение для кодирования.
+Если вы решили закодировать сообщения EDIFACT по имени соглашения, откройте список **имен соглашений EDIFACT** и введите или выберите свое имя соглашения EDIFACT. Введите XML-сообщение для кодирования.
 
 ![Введите имя соглашения EDIFACT и XML-сообщение для кодирования.](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
 

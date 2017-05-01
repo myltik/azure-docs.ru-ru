@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: fced31b28b4b8e5835033243719e6eb87aa3f0d4
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 3b9d6eb9bcc4afe0e68920bbd5da7c259ceb0c67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -36,23 +36,23 @@ ms.lasthandoff: 03/24/2017
 У каждой виртуальной машины есть один подключенный диск операционной системы. Он зарегистрирован как диск SATA и обозначается буквой C: по умолчанию. Максимальная емкость этого диска составляет 1023 гигабайта (ГБ). 
 
 ### <a name="temporary-disk"></a>Временный диск
-У каждой виртуальной машины есть временный диск. Он выступает в качестве временного хранилища для приложений и процессов и предназначен только для хранения данных, таких как страничные файлы или файлы подкачки. Данные на временном диске могут быть потеряны во время [обслуживания](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) или при [повторном развертывании виртуальной машины](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Во время обычной перезагрузки виртуальной машины данные на временном диске должны сохраниться.
+У каждой виртуальной машины есть временный диск. Он выступает в качестве временного хранилища для приложений и процессов и предназначен только для хранения данных, таких как страничные файлы или файлы подкачки. Данные на временном диске могут быть потеряны во время [обслуживания](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-planned-vs-unplanned-maintenance) или при [повторном развертывании виртуальной машины](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Во время обычной перезагрузки виртуальной машины данные на временном диске должны сохраниться.
 
-Временный диск обозначается буквой D: по умолчанию и используется для хранения файла подкачки pagefile.sys. Сведения о переназначении буквы этого диска см. в статье [Изменение буквы диска для временного диска Windows](../virtual-machines/virtual-machines-windows-change-drive-letter.md). Размер временного диска зависит от размера виртуальной машины. Чтобы узнать больше, ознакомьтесь с [размерами виртуальных машин Windows](../virtual-machines/virtual-machines-windows-sizes.md).
+Временный диск обозначается буквой D: по умолчанию и используется для хранения файла подкачки pagefile.sys. Сведения о переназначении буквы этого диска см. в статье [Изменение буквы диска для временного диска Windows](../virtual-machines/windows/change-drive-letter.md). Размер временного диска зависит от размера виртуальной машины. Чтобы узнать больше, ознакомьтесь с [размерами виртуальных машин Windows](../virtual-machines/windows/sizes.md).
 
 Дополнительные сведения об использовании временного диска в Azure см. в статье [Общие сведения о временном диске на виртуальных машинах Microsoft Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 
 
 ### <a name="data-disk"></a>Диск данных
-Диск данных — виртуальный жесткий диск, подключенный к виртуальной машине для хранения данных приложений или других необходимых данных. Диски данных регистрируются как диски SCSI и обозначаются любой указанной буквой. Максимальная емкость каждого диска составляет 1023 ГБ. Размер виртуальной машины определяет, сколько дисков данных можно подключить и какой тип хранилища можно использовать для размещения дисков.
+Диск данных — виртуальный жесткий диск, подключенный к виртуальной машине для хранения данных приложений или других необходимых данных. Диски данных регистрируются как диски SCSI и обозначаются любой указанной буквой. Максимальная емкость каждого диска составляет 1023 ГБ. Размер виртуальной машины определяет, сколько дисков данных можно подключить и какой тип хранилища можно использовать для размещения дисков.
 
 > [!NOTE]
-> Дополнительные сведения о емкости виртуальных машин см. в статье [Размеры виртуальных машин Windows](../virtual-machines/virtual-machines-windows-sizes.md).
+> Дополнительные сведения о емкости виртуальных машин см. в статье [Размеры виртуальных машин Windows](../virtual-machines/windows/sizes.md).
 > 
 
 Azure создает диск операционной системы при создании виртуальной машины из образа. Если используется образ, включающий диски данных, при создании виртуальной машины Azure также создает диски данных. В противном случае диски данных добавляются после создания виртуальной машины.
 
-Диски данных можно добавить в виртуальную машину в любое время, **подключив** их к ней. Можно использовать виртуальный жесткий диск, отправленный или скопированный в учетную запись хранения или созданный Azure. Подключая диск данных, вы связываете VHD-файл с виртуальной машиной. VHD-файл "берется в аренду", поэтому его нельзя удалить из хранилища, пока он подключен.
+Диски данных можно добавить в виртуальную машину в любое время, **подключив** их к ней. Можно использовать виртуальный жесткий диск, отправленный или скопированный в учетную запись хранения или созданный Azure. Подключая диск данных, вы связываете VHD-файл с виртуальной машиной. VHD-файл "берется в аренду", поэтому его невозможно удалить из хранилища, пока он подключен.
 
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
@@ -75,8 +75,8 @@ fsutil behavior set DisableDeleteNotify 0
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Подключите диск](../virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , чтобы увеличить емкость хранилища для виртуальной машины.
-* [Передайте образ виртуальной машины Windows в Azure](../virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , чтобы использовать его при создании новой виртуальной машины.
-* [Измените букву временного диска Windows](../virtual-machines/virtual-machines-windows-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) , чтобы приложение могло использовать диск D для данных.
+* [Подключите диск](../virtual-machines/windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , чтобы увеличить емкость хранилища для виртуальной машины.
+* [Передайте образ виртуальной машины Windows в Azure](../virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , чтобы использовать его при создании новой виртуальной машины.
+* [Измените букву временного диска Windows](../virtual-machines/windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) , чтобы приложение могло использовать диск D для данных.
 
 

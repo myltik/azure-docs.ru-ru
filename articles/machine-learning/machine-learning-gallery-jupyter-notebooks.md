@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/31/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 1573ae126f8b76983abe98b37b9ac4072e70d9d0
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ff7d5c372500c2cd392ed65a921d8a994b090f23
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -45,7 +46,7 @@ ms.openlocfilehash: 1573ae126f8b76983abe98b37b9ac4072e70d9d0
 ## <a name="download"></a>Загрузить
 Копию любой записной книжки из коллекции можно загрузить в рабочую область студии машинного обучения.
 
-### <a name="from-the-gallery"></a>Из коллекции
+### <a name="download-from-the-gallery"></a>Скачивание из коллекции
 Чтобы скачать копию записной книжки из коллекции, сделайте следующее.
 
 1. Откройте страницу сведений о записной книжке в коллекции.
@@ -56,7 +57,7 @@ ms.openlocfilehash: 1573ae126f8b76983abe98b37b9ac4072e70d9d0
 
 После нажатия кнопки **Открыть в Studio** записная книжка загружается в рабочую область студии машинного обучения и открывается там. (Если вы еще не вошли в студию, прежде чем записная книжка скопируется в рабочую область, вам будет предложено войти, используя учетную запись Майкрософт.) Позже вы сможете снова найти записную книжку, щелкнув **Notebooks** (Записные книжки) в левой части начальной страницы студии.
 
-### <a name="in-machine-learning-studio"></a>В студии машинного обучения
+### <a name="download-in-machine-learning-studio"></a>Скачивание в студии машинного обучения
 Во время работы в студии машинного обучения можно также открывать те же записные книжки из коллекции:
 
 1. В студии машинного обучения щелкните **+New** (Создать).
@@ -71,10 +72,5 @@ ms.openlocfilehash: 1573ae126f8b76983abe98b37b9ac4072e70d9d0
 **[ПЕРЕЙТИ В КОЛЛЕКЦИЮ >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 7287cb1709b7c863cd046edfb995e23455398ec2
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: a0fd75e0797319aecac29b48df75e7a268063e04
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -95,5 +95,5 @@ Azure не позволяет удалить сертификат, пока он
 
 ## <a name="remote-desktop"></a>Удаленный рабочий стол
 ### <a name="how-do-i-remote-desktop-when-i-have-an-nsg"></a>Как использовать удаленный рабочий стол при наличии NSG?
-Добавьте в NSG правило, которое переадресовывает порт **20000**.
+Добавьте в NSG правила, разрешающие передачу трафика через порты **3389** и **20000**.  Удаленный рабочий стол использует порт **3389**.  В экземплярах облачной службы реализована балансировка нагрузки, поэтому вы не можете напрямую управлять подключением к экземпляру.  Агенты *RemoteForwarder* и *RemoteAccess* управляют трафиком RDP и позволяют клиенту отправлять файлы cookie по RDP и указывать отдельный экземпляр для подключения.  Агентам *RemoteForwarder* и *RemoteAccess* требуется, чтобы порт **20000*** был открыт. При использовании группы безопасности сети он может быть заблокирован.
 

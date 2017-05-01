@@ -1,6 +1,6 @@
 ---
 title: "Библиотеки управления служебной шины Azure | Документация Майкрософт"
-description: "Управление пространствами имен и сущностями служебной шины из .NET"
+description: "Управление пространствами имен служебной шины и сущностями службы сообщений из .NET"
 services: service-bus-messaging
 cloud: na
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/6/2017
+ms.date: 04/03/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
-ms.openlocfilehash: 7b04227327235f788ecf4018b6c159d33113b63d
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: ec9f2fa3d88f59172d320b58287208deb084856f
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -36,9 +37,9 @@ ms.openlocfilehash: 7b04227327235f788ecf4018b6c159d33113b63d
 
 Чтобы приступить к работе с библиотеками управления служебной шины, нужно пройти аутентификацию в Azure Active Directory (AAD). AAD требует аутентификации в качестве субъекта-службы, предоставляющего доступ к вашим ресурсам Azure. Сведения о создании субъекта-службы см. в одной из приведенных ниже статей:  
 
-* [Создание приложения Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Использование интерфейса командной строки Azure для создания субъекта-службы и доступа к ресурсам](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Создание приложения Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Использование интерфейса командной строки Azure для создания субъекта-службы и доступа к ресурсам](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
 В этих руководствах вы получите `AppId` (идентификатор клиента), `TenantId` и `ClientSecret` (ключ аутентификации), которые используются библиотеками управления для аутентификации. Необходимо иметь разрешения роли "Владелец" для группы ресурсов, которую вы хотите использовать.
 
@@ -46,7 +47,7 @@ ms.openlocfilehash: 7b04227327235f788ecf4018b6c159d33113b63d
 
 Шаблон обработки любого ресурса служебной шины соответствует общему протоколу.
 
-1. Получение маркера из Azure Active Directory с помощью библиотеки `Microsoft.IdentityModel.Clients.ActiveDirectory`.
+1. Получение маркера из Azure Active Directory с помощью библиотеки **Microsoft.IdentityModel.Clients.ActiveDirectory**.
     ```csharp
     var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
 
@@ -65,7 +66,7 @@ ms.openlocfilehash: 7b04227327235f788ecf4018b6c159d33113b63d
     };
     ```
 
-1. Присвоение параметрам CreateOrUpdate указанных значений.
+1. Присвоение параметрам `CreateOrUpdate` указанных значений.
     ```csharp
     var queueParams = new QueueCreateOrUpdateParameters()
     {
@@ -82,9 +83,4 @@ ms.openlocfilehash: 7b04227327235f788ecf4018b6c159d33113b63d
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Пример управления для .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Справочник по Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

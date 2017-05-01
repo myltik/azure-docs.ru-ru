@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3b1a347322e2307aadbd287cb2235e39e11f1e79
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
 Интеграция PerformanceCentre с Azure AD обеспечивает следующие преимущества. 
 
 * С помощью Azure AD вы можете контролировать доступ к PerformanceCentre. 
-* Вы можете включить автоматический вход пользователей в PerformanceCentre (единый вход) с использованием учетной записи Azure AD.
+* Вы можете включить автоматический вход пользователей в PerformanceCentre (единый вход) с использованием учетной записи Azure AD.
 * Вы можете управлять учетными записями централизованно — через классический портал Azure Active Directory.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -35,27 +36,27 @@ ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
 Чтобы настроить интеграцию Azure AD с PerformanceCentre, вам потребуется следующее:
 
 * подписка Azure AD;
-* подписка PerformanceCentre с поддержкой единого входа.
+* подписка PerformanceCentre с поддержкой единого входа (SSO).
 
-> [!NOTE]
-> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+>[!NOTE]
+>Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 > 
 > 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 * Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/). 
+* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
+Цель этого руководства — научить вас проверять единый вход Azure AD в тестовой среде.  
 
 Сценарий, описанный в этом учебнике, состоит из следующих основных блоков.
 
 *  Добавление PerformanceCentre из коллекции 
-*  Настройка и проверка единого входа в Azure AD
+*  Настройка и проверка единого входа Azure AD.
 
-## <a name="adding-performancecentre-from-the-gallery"></a>Добавление PerformanceCentre из коллекции
+## <a name="add-performancecentre-from-the-gallery"></a>Добавление PerformanceCentre из коллекции
 Чтобы настроить интеграцию PerformanceCentre с Azure AD, вам потребуется добавить PerformanceCentre из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить PerformanceCentre из коллекции, выполните следующие действия.**
@@ -80,25 +81,25 @@ ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
    
     ![Приложения][500]
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в PerformanceCentre с использованием тестового пользователя Britta Simon.
+## <a name="configure-and-test-azure-ad-sso"></a>Настройка и проверка единого входа Azure AD
+Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в приложение PerformanceCentre с использованием тестового пользователя Britta Simon.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в PerformanceCentre соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в PerformanceCentre.  
+Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь в PerformanceCentre соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в PerformanceCentre.  
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в PerformanceCentre.
 
 **Чтобы настроить и проверить единый вход в Azure AD в PerformanceCentre, вам потребуется выполнить действия в следующих стандартных блоках.**
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя PerformanceCentre](#creating-a-halogen-software-test-user)** требуется для создания пользователя Britta Simon в PerformanceCentre, связанного с представлением этого же пользователя в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы разрешить Britta Simon использовать единый вход в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
 5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложении PerformanceCentre.
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+Цель этого раздела — показать, как включить единый вход Azure AD на классическом портале Azure AD и настроить единый вход в приложении PerformanceCentre.
 
-**Чтобы настроить единый вход Azure AD в PerformanceCentre, выполните следующие действия.**
+**Чтобы настроить единый вход Azure AD в PerformanceCentre, выполните следующие действия:**
 
 1. На классическом портале Azure AD на странице интеграции с приложением **PerformanceCentre** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
    
@@ -140,7 +141,7 @@ ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
     
      ![единого входа Azure AD][16]
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.  
 
 ![Создание пользователя Azure AD][20]
@@ -182,10 +183,10 @@ ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_08.png) 
    
-    1. Запишите значение поля **Новый пароль**.
-    2. Нажмите **Завершено**.   
+   1. Запишите значение поля **Новый пароль**.
+   2. Нажмите **Завершено**.   
 
-### <a name="creating-a-performancecentre-test-user"></a>Создание тестового пользователя PerformanceCentre
+### <a name="create-a-performancecentre-test-user"></a>Создание тестового пользователя в PerformanceCentre
 Цель этого раздела — создать пользователя с именем Britta Simon в PerformanceCentre.
 
 **Чтобы создать пользователя с именем Britta Simon в PerformanceCentre, выполните следующие действия.**
@@ -199,17 +200,18 @@ ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
     ![Создать пользователя][401]
    
    1. Введите необходимые атрибуты для пользователя Britta Simon в соответствующие текстовые поля.
-   > [!IMPORTANT]
-   > Атрибут User Name этого пользователя в PerformanceCentre должен соответствовать имени пользователя в Azure AD.
-   > 
-   > 
+
+    >[!IMPORTANT]
+    >Атрибут User Name этого пользователя в PerformanceCentre должен соответствовать имени пользователя в Azure AD.
+    > 
+    > 
  
    2. Выберите значение **Client Administrator** (Администратор клиента) в поле **Choose Role** (Выберите роль).
    3. Щелкните **Сохранить**.   
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к PerformanceCentre.
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к PerformanceCentre.
 
 ![Назначение пользователя][200] 
 
@@ -229,8 +231,8 @@ ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
    
     ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
+### <a name="test-single-sign-on"></a>Проверка единого входа
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
 
 Щелкнув элемент PerformanceCentre на панели доступа, вы автоматически войдете в приложение PerformanceCentre.
 
@@ -275,10 +277,5 @@ ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
 [402]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_402.png
 
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

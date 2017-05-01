@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2016
+ms.date: 04/03/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d5fb08bbeb5564566808cd8ff6d2e83dec89de6c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -75,10 +76,7 @@ ms.openlocfilehash: d5fb08bbeb5564566808cd8ff6d2e83dec89de6c
 | properties |Да |Значение должно быть пустым {} или может содержать пары "ключ — значение". |
 
 ## <a name="authentication-in-webhooks"></a>Проверка подлинности в веб-перехватчиках
-Существует две формы универсального кода ресурса (URI) для проверки подлинности:
-
-1. Проверка подлинности на основе токенов, заключающаяся в сохранении URI веб-перехватчика с идентификатором токена в качестве параметра запроса. Например, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. Обычная проверка подлинности с использованием имени пользователя и пароля. Например, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+Для webhook может использоваться аутентификация на основе маркеров, заключающаяся в сохранении универсального кода ресурса (URI) webhook с идентификатором маркера в качестве параметра запроса. Например, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Схема полезных данных веб-перехватчика уведомлений автомасштабирования
 При создании уведомлений автомасштабирования в полезные данные веб-перехватчика включаются следующие метаданные:
@@ -128,10 +126,5 @@ ms.openlocfilehash: d5fb08bbeb5564566808cd8ff6d2e83dec89de6c
 | oldCapacity |Да |Текущее (старое) число экземпляров, когда автомасштабирование предпринимает действие масштабирования |
 | newCapacity |Да |Новое число экземпляров, до которого автомасштабирование масштабирует ресурс |
 | properties |Нет |необязательный параметр. Набор пар <ключ, значение> (например, Dictionary <String, String>). Поле свойства не является обязательным. В настраиваемом пользовательском интерфейсе или рабочем процессе на основе приложения логики вы можете вводить ключи и значения для передачи в виде полезных данных. Еще один способ передачи пользовательских свойств обратно в исходящий вызов веб-перехватчика — использование самого универсального кода ресурса (URI) веб-перехватчика (в виде параметров запроса). |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

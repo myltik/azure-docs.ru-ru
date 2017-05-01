@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 04/03/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: f42dfce5409c1751c84ffb658a3c5464780a5a3d
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
+ms.openlocfilehash: cd11ef761a39b47e2426766cba64b3975595f4d4
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -37,6 +37,7 @@ Azure AD Connect является преемником DirSync и Azure AD Sync.
 | --- | --- |
 | 13 апреля 2016 г. |Windows Azure Active Directory Sync (DirSync) и Microsoft Azure Active Directory Sync (Azure AD Sync) объявлены устаревшими. |
 | 13 апреля 2017 г. |Прекращение поддержки. Пользователи не смогут обратиться в службу поддержки, пока не перейдут на Azure AD Connect. |
+|31 декабря 2017 г.|Azure AD больше не будет принимать подключения от Windows Azure Active Directory Sync (DirSync) и Microsoft Azure Active Directory Sync (Azure AD Sync).
 
 ## <a name="how-to-transition-to-azure-ad-connect"></a>Переход на Azure AD Connect
 Если вы используете DirSync, то переход можно выполнить одним из двух способов: это может быть обновление на месте и параллельное развертывание. Обновление на месте рекомендуется для большинства клиентов при наличии последней версии операционной системы и менее чем 50 000 объектов. В других случаях рекомендуется выполнять параллельное развертывание, при котором конфигурация DirSync переносится на новый сервер под управлением Azure AD Connect.
@@ -59,7 +60,7 @@ Azure AD Connect является преемником DirSync и Azure AD Sync.
 Уведомление было также отправлено клиентам, использующим Azure AD Connect с номером сборки 1.0.\*.0 (версии, предшествующие выпуску 1.1). Корпорация Майкрософт рекомендует пользователям обновлять Azure AD Connect до последних выпусков. Функция [автоматического обновления](active-directory-aadconnect-feature-automatic-upgrade.md), представленная в версии 1.1, существенно упрощает эту задачу: благодаря ей у вас всегда будет установлена последняя версия Azure AD Connect.
 
 **Вопрос. Перестанет ли DirSync или Azure AD Sync работать 13 апреля 2017 года?**  
-Нет. Дата прекращения обмена данными между этими продуктами и Azure AD будет объявлена позднее. Как только они станут известны, соответствующие сведения будут опубликованы в этом разделе.
+Служба DirSync (Azure AD Sync) продолжит работу после 13 апреля 2017 г.  Но служба Azure AD больше не будет принимать подключения из DirSync (Azure AD Sync), начиная с 31 декабря 2017 г.
 
 **Вопрос. Какие версии DirSync можно обновить?**  
 Поддерживается обновление любой версии DirSync, которая используется в настоящее время.

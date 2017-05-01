@@ -12,23 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83b12c6daf5422039f3dd95eb9b177b972fad840
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 091ad6068c64bfe06c090430874d23f6ca497b34
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Временные таблицы в хранилище данных SQL
 > [!div class="op_single_selector"]
-> * [Обзор][Обзор]
-> * [Типы данных][Типы данных]
-> * [Распределение][Распределение]
-> * [Индекс][Индекс]
-> * [Секция][Секция]
-> * [Статистика][Статистика]
-> * [Временные][Временные]
+> * [Обзор][Overview]
+> * [Типы данных][Data Types]
+> * [Распределение][Distribute]
+> * [Индекс][Index]
+> * [Секция][Partition]
+> * [Статистика][Statistics]
+> * [Временные таблицы][Temporary]
 > 
 > 
 
@@ -231,26 +233,21 @@ DROP TABLE #stats_ddl;
 В хранилище данных SQL есть несколько ограничений, касающихся реализации временных таблиц.  В настоящее время поддерживаются временные таблицы, которые можно просмотреть только в сеансе.  Глобальные временные таблицы не поддерживаются.  Кроме того, для временных таблиц нельзя создавать представления.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения см. в статьях, посвященных [общим сведениям о таблицах][Обзор], [типам данных таблиц][Типы данных], [распределению][Распределение], [индексированию][Индекс], [секционированию][Секция] и [управлению статистикой таблиц][Статистика].  Рекомендации по использованию хранилища данных SQL Azure см. в [этой статье][Рекомендации по использованию хранилища данных SQL Azure].
+Дополнительные сведения приведены в статьях, посвященным [общим сведениям о таблицах][Overview], [типам данных таблиц][Data Types], [распределению][Distribute], [индексированию][Index] и [секционированию таблиц][Partition], а также [управлению статистикой таблиц][Statistics].  Дополнительные рекомендации см. в статье [Рекомендации по использованию хранилища данных SQL Azure][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Обзор]: ./sql-data-warehouse-tables-overview.md
-[Типы данных]: ./sql-data-warehouse-tables-data-types.md
-[Распределение]: ./sql-data-warehouse-tables-distribute.md
-[Индекс]: ./sql-data-warehouse-tables-index.md
-[Секция]: ./sql-data-warehouse-tables-partition.md
-[Статистика]: ./sql-data-warehouse-tables-statistics.md
-[Временные]: ./sql-data-warehouse-tables-temporary.md
-[Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

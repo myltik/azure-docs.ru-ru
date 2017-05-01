@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: d36b4c1391dad88603ad823055e11c0a4a329c3c
-ms.openlocfilehash: 89e97cb903e04efa77cfc6b02484d28a9ccfe6fb
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 69f1850bfed90392e9a4695e2443ffaa6bfc746d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -62,7 +62,7 @@ ms.lasthandoff: 01/13/2017
 ## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Удаленное подключение к только что подготовленной виртуальной машине Linux
 Вы подготовили виртуальную машину RHEL 7.2 в Azure. Следующий шаг — установка удаленного подключения к этой виртуальной машине.
 
-**Подключение к виртуальной машине RHEL 7.2**. Выполните инструкции из статьи [Как войти в виртуальную машину под управлением Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+**Подключение к виртуальной машине RHEL 7.2**. Выполните инструкции из статьи [Как войти в виртуальную машину под управлением Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Во всех последующих действиях для подключения к виртуальной машине RHEL мы используем SSH-клиент PuTTY. Дополнительные сведения см. на [странице скачивания PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 01/13/2017
 ## <a name="verify-domain-join"></a>Проверка присоединения к домену
 Вы можете быстро проверить, присоединена ли виртуальная машина к управляемому домену. Подключитесь к виртуальной машине, присоединенной к домену, используя SSH и учетную запись пользователя домена, а затем проверьте, правильно ли разрешена учетная запись.
 
-1. В окне терминала PuTTY введите следующую команду, чтобы подключиться к виртуальной машине, присоединенной к домену, с помощью SSH. Используйте учетную запись домена, которая принадлежит к управляемому домену (в нашем примере — 'bob@CONTOSO100.COM').
+1. В окне терминала PuTTY введите следующую команду, чтобы подключиться к виртуальной машине, присоединенной к домену, с помощью SSH. Используйте учетную запись домена, которая принадлежит к управляемому домену (в нашем примере — bob@CONTOSO100.COM).
 
     ssh -l bob@CONTOSO100.COM contoso-rhel.cloudapp.net
 2. Чтобы проверить, правильно ли инициализирована домашняя папка, в окне терминала PuTTY введите такую команду:
@@ -153,7 +153,7 @@ ms.lasthandoff: 01/13/2017
 ## <a name="related-content"></a>Похожий контент
 * [Приступая к работе с доменными службами Azure AD](active-directory-ds-getting-started.md)
 * [Присоединение виртуальной машины Windows Server к управляемому домену](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Как войти в виртуальную машину под управлением Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Как войти в виртуальную машину под управлением Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Installing Kerberos (Установка Kerberos)](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7: Windows Integration Guide (Red Hat Enterprise Linux 7: руководство по интеграции Windows)](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 

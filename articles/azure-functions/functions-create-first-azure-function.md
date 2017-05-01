@@ -1,53 +1,69 @@
 ---
-title: "Создание первой функции Azure | Документация Майкрософт"
-description: "Создайте первую функцию Azure (независимое приложение) менее чем за две минуты."
+title: "Создание первой функции на портале Azure | Документация Майкрософт"
+description: "Вас приветствует Azure. Создайте свою первую функцию Azure на портале Azure."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
 editor: 
 tags: 
-ms.assetid: 4a1669e7-233e-4ea2-9b83-b8624f2dbe59
+ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/14/2016
+ms.date: 04/10/2017
 ms.author: glenga
+ms.custom: welcome-email
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: a797910e286cd2aacf5a8aa6c509e2b0f5f60276
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 7542280ca6dbe1a8d110155e521228d675c0d994
+ms.lasthandoff: 04/12/2017
 
 
 ---
-# <a name="create-your-first-azure-function"></a>Создание первой функции Azure
+# <a name="create-your-first-function-in-the-azure-portal"></a>Создание первой функции на портале Azure
 
-В этой статье показано, как с помощью руководства по быстрому запуску функций Azure на портале можно создать простую функцию "hello world", вызываемую с помощью HTTP-запроса. Дополнительные сведения о функциях Azure см. в статье [Обзор функций Azure](functions-overview.md).
+В этой статье описывается использование Функций Azure для создания функции hello world, которая вызывается с помощью HTTP-запроса. Прежде чем создавать функцию на портале Azure, вы должны создать приложение-функцию для размещения выполнения функции без обращения к серверу.
 
-Вам понадобится учетная запись Azure. Вы можете воспользоваться [бесплатной учетной записью](https://azure.microsoft.com/free/). Также вы можете [поработать с Функциями Azure](https://azure.microsoft.com/try/app-service/functions/) без регистрации в Azure.
+Для работы с этим кратким руководством необходима учетная запись Azure. Вы можете воспользоваться [бесплатной учетной записью](https://azure.microsoft.com/free/). Также вы можете [работать с Функциями Azure](https://azure.microsoft.com/try/app-service/functions/) без регистрации в Azure.
 
-## <a name="create-a-function-from-the-portal-quickstart"></a>Создание функции на портале с помощью средств быстрого запуска
+## <a name="log-in-to-azure"></a>Вход в Azure
 
-1. Перейдите на [портал Функций Azure](https://functions.azure.com/signin) и войдите, используя свою учетную запись Azure. 
- 
-2. Введите уникальное **имя** нового приложения-функции или воспользуйтесь созданным автоматически, выберите предпочтительный **регион**, а затем щелкните **Создать и начать работу**. Допустимое имя может содержать только буквы, цифры и дефисы. Символ подчеркивания (**_**) использовать нельзя.
+Войдите на [портал Azure](https://portal.azure.com/).
 
-3. На вкладке **Быстрый запуск** щелкните **WebHook + API**, выберите язык для функции, а затем щелкните **Создать функцию**. Будет создана предопределенная функция на выбранном вами языке. 
+## <a name="create-a-function-app"></a>Создание приложения-функции
+
+[!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
+
+Дополнительные сведения см. в разделе [Создание приложения-функции на портале Azure](functions-create-function-app-portal.md).
+
+## <a name="create-a-function"></a>Создание функции
+Следуйте инструкциям ниже, чтобы создать функцию в новом приложении-функции с помощью вкладки "Быстрый запуск" в Функциях Azure.
+
+1. Нажмите кнопку **Создать**, затем щелкните **Webhook + API**, выберите язык для функции и щелкните **Create a function** (Создать функцию). С помощью шаблона функции, активируемой HTTP, будет создана функция на выбранном языке.  
    
     ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-4. (Необязательно) На этом этапе быстрой настройки вы можете бегло ознакомиться с возможностями функций Azure на портале. Завершив (или пропустив) этот шаг, вы можете проверить новую функцию, отправив HTTP-запрос.
+После создания функции вы можете проверить ее, отправив HTTP-запрос.
 
 ## <a name="test-the-function"></a>Проверка функции
-[!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
 
-## <a name="watch-the-video"></a>Просмотреть видео
-В этом видео показано, как выполнять основные шаги, описанные в этом руководстве. 
+Так как шаблоны функции содержат рабочий код, вы можете сразу же проверить созданную функцию прямо на портале.
 
-> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-your-first-Azure-Function-simple/player]
-> 
+1. Щелкните созданную функцию в приложении-функции и просмотрите код из шаблона. Обратите внимание, что функция ожидает HTTP-запрос со значением свойства *name*, которое передается либо в тексте сообщения, либо в строке запроса. При выполнении функции это значение возвращается в сообщении с ответом. В примере ниже представлена функция JavaScript.
+   
+2. Нажмите кнопку **Выполнить**, чтобы выполнить функцию. Вы увидите, что выполнение активируется тестовым HTTP-запросом, данные записываются в журналы, а ответ hello... отображается в окне **выходных данных** на вкладке **проверки**.
+ 
+    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
+
+3. В текстовом поле **Текст запроса** измените значение свойства *name* на свое имя и снова нажмите кнопку **Выполнить**. На этот раз ответ в окне **выходных данных** будет содержать ваше имя.   
+
+4. Чтобы запустить выполнение этой же функции в инструменте тестирования HTTP или в другом окне браузера, щелкните **</> Get function URL** (Получить URL-адрес функции), скопируйте URL-адрес запроса и вставьте его в адресную строку браузера или средства. Добавьте значение строки запроса `&name=yourname` в URL-адрес и выполните запрос. В журналы записывается та же информация, а текст ответного сообщения содержит аналогичную строку.
+
+    ![](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

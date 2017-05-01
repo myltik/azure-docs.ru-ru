@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 5e113af94c1ac27d759a75ff35bb9eb29fa08bf6
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f9f29cd20020ec5e6538bf1dd31e89c2f7adcc92
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,6 +33,64 @@ ms.lasthandoff: 03/24/2017
 | [Машинное обучение Azure](#azure-machine-learning-linked-service) |[Действия машинного обучения: выполнение пакета и обновление ресурса](data-factory-azure-ml-batch-execution-activity.md) |
 | [Аналитика озера данных Azure](#azure-data-lake-analytics-linked-service) |[Аналитика озера данных U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [хранилище данных Azure SQL](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[Хранимая процедура](data-factory-stored-proc-activity.md) |
+
+## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>Версии HDInsight, поддерживаемые в фабрике данных Azure
+Azure HDInsight поддерживает несколько версий кластера Hadoop, которые могут быть развернуты в любое время. Каждая из версий создает конкретную версию платформы HortonWorks Data Platform (HDP) и набор компонентов, содержащихся в этой версии. Корпорация Майкрософт продолжает обновлять список поддерживаемых версий HDInsight, чтобы предоставлять последние компоненты и исправления для экосистемы Hadoop. Версия HDInsight 3.2 объявлена нерекомендуемой 01.04.2017. Чтобы узнать больше, ознакомьтесь с [поддерживаемыми версиями HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
+
+Это влияет на существующие фабрики данных Azure, выполняющие действия с кластерами HDInsight 3.2. Мы рекомендуем пользователям следовать указаниям ниже, чтобы обновить затронутые фабрики данных.
+
+### <a name="for-linked-services-pointing-to-your-own-hdinsight-clusters"></a>Связанные службы, указывающие на ваши кластеры HDInsight
+* **Связанные службы HDInsight, указывающие на ваши кластеры HDInsight 3.2 или более ранней версии:**
+
+  Фабрика данных Azure поддерживает отправку заданий в кластеры HDInsight из HDI 3.1 для [последней поддерживаемой версии HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). Тем не менее, после 01.04.2017 вы больше не сможете создавать кластеры HDInsight 3.2 согласно политике рекомендуемых версий, описанной в разделе о [поддерживаемых версиях HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).  
+
+  **Рекомендации** 
+  * Выполните тесты, чтобы убедиться в совместимости действий, использующих эти связанные службы, с [последней поддерживаемой версией HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions), воспользовавшись информацией, приведенной в разделах [Компоненты Hadoop, доступные в разных версиях HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) и [Заметки о выпуске Hortonworks, связанные с версиями HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
+  * Обновите кластер HDInsight 3.2 до [последней поддерживаемой версии HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) для получения последних компонентов и исправлений экосистемы Hadoop. 
+
+* **Связанные службы HDInsight, указывающие на ваши кластеры HDInsight 3.3 или более поздней версии:**
+
+  Фабрика данных Azure поддерживает отправку заданий в кластеры HDInsight из HDI 3.1 для [последней поддерживаемой версии HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions). 
+  
+  **Рекомендации** 
+  * Никаких действий для фабрики данных не требуется. Тем не менее, если используется более ранняя версия HDInsight, мы все равно рекомендуем обновить ее до [последней поддерживаемой версии HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions), чтобы иметь возможность получать последние компоненты и исправления экосистемы Hadoop.
+
+### <a name="for-hdinsight-on-demand-linked-services"></a>Связанные службы кластера HDInsight по запросу
+* **В определении JSON связанных служб HDInsight по запросу указана версия 3.2 или более ранняя версия:**
+  
+  Фабрика данных Azure будет поддерживать создание кластеров HDInsight по запросу версии 3.3 и более поздних версий, начиная с **05.05.2017**. И прекращение поддержки существующих связанных служб кластера HDInsight по запросу версии 3.2 будет отложено до **05.07.2017**.  
+
+  **Рекомендации** 
+  * Выполните тесты, чтобы убедиться в совместимости действий, использующих эти связанные службы, с [последней поддерживаемой версией HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions), воспользовавшись информацией, приведенной в разделах [Компоненты Hadoop, доступные в разных версиях HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) и [Заметки о выпуске Hortonworks, связанные с версиями HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).
+  * До **05.07.2017** обновите свойство Version в определении JSON связанной службы HDI по запросу, указав [последнюю поддерживаемую версию HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions), чтобы иметь возможность получать последние компоненты и исправления экосистемы Hadoop. Подробное описание определения JSON приведено в [примере связанной службы Azure HDInsight по запросу](#azure-hdinsight-on-demand-linked-service). 
+
+* **Версия в связанных службах HDInsight по запросу не указана:**
+  
+  Фабрика данных Azure будет поддерживать создание кластеров HDInsight по запросу версии 3.3 и более поздних версий, начиная с **05.05.2017**. И прекращение поддержки существующих связанных служб кластера HDInsight по запросу версии 3.2 будет отложено до **05.07.2017**. 
+
+  Если до **05.05.2017** оставить это значение пустым, то будут использоваться следующие значения по умолчанию свойств Version и osType. 
+
+  | Свойство | По умолчанию | Обязательно |
+  | --- | --- | --- |
+  Версия    | HDI 3.1 для кластера Windows и HDI 3.2 для кластера Linux.| Нет
+  osType | Значение по умолчанию — Windows. | Нет
+
+  Если оставить это значение пустым после **05.05.2017**, то будут использоваться следующие значения по умолчанию свойств Version и osType.
+
+  | Свойство | По умолчанию | Обязательно |
+  | --- | --- | --- |
+  Версия    | HDI 3.3 для кластера Windows и HDI 3.5 для кластера Linux.    | Нет
+  osType | Значение по умолчанию — Linux.    | Нет
+
+  **Рекомендации** 
+  * До **05.05.2017** обновите связанную службу, явно указав в определении JSON связанных служб HDInsight по запросу ожидаемое сочетание свойств Version и osType. Можно задать для свойства Version значение 3.2, чтобы обеспечить обратную совместимость. 
+  * В период с **05.05.2017** по **05.07.2017** выполните тесты, чтобы убедиться в совместимости действий, использующих эти связанные службы, с [последней поддерживаемой версией HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions), воспользовавшись информацией, приведенной в разделах [Компоненты Hadoop, доступные в разных версиях HDInsight](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) и [Заметки о выпуске Hortonworks, связанные с версиями HDInsight](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions).  
+  * До **05.07.2017** укажите в свойстве Version в определении JSON связанных служб HDInsight по запросу [последнюю поддерживаемую версию HDInsight](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) либо используйте значение по умолчанию (HDInsight 3.5), чтобы иметь возможность получать последние компоненты и исправления экосистемы Hadoop. Подробное описание определения JSON приведено в [примере связанной службы Azure HDInsight по запросу](#azure-hdinsight-on-demand-linked-service).
+
+>[!Note]
+>В настоящее время фабрика данных Azure не поддерживает кластеры HDInsight, использующие Azure Data Lake Store в качестве основного хранилища. Потребуется использовать службу хранилища Azure в качестве основного хранилища для кластеров HDInsight. 
+>  
+>  
 
 ## <a name="on-demand-compute-environment"></a>Среда вычислений по запросу
 В конфигурации такого типа среда вычислений полностью управляется службой фабрики данных Azure. Среда автоматически создается службой фабрики данных перед отправкой задания для обработки данных и удаляется после его выполнения. Вы можете создать связанную службу для среды вычислений по запросу, настроить ее и управлять детализированными параметрами выполнения задания, управления кластером и параметрами действий начальной загрузки.
@@ -165,7 +223,7 @@ ms.lasthandoff: 03/24/2017
 | zookeeperNodeSize |Задает размер узла Zoo Keeper. Значение по умолчанию: Standard_D3. |Нет |
 
 #### <a name="specifying-node-sizes"></a>Указание размеров узлов
-Сведения о строковых значениях, необходимых для задания указанных выше свойств, см. в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-linux-sizes.md). Значения должны соответствовать указанным в статье **командлетам и API**. Как указано в статье, узел данных большого размера (по умолчанию) имеет 7 ГБ памяти, которых может быть недостаточно для вашего сценария. 
+Сведения о строковых значениях, необходимых для задания указанных выше свойств, см. в статье [Размеры виртуальных машин в Azure](../virtual-machines/linux/sizes.md). Значения должны соответствовать указанным в статье **командлетам и API**. Как указано в статье, узел данных большого размера (по умолчанию) имеет 7 ГБ памяти, которых может быть недостаточно для вашего сценария. 
 
 Если вы хотите создать головные узлы и рабочие узлы размера D4, необходимо указать **Standard_D4** в качестве значения для свойств headNodeSize и dataNodeSize. 
 

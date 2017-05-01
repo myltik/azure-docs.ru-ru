@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: overview
 ms.date: 3/1/2017
 ms.author: elbutter
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 7a752bfb349d2730537538f6856fe431204d3329
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 49cbfca4f733356548b6c8f491fead9e2d7fdf5c
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.lasthandoff: 03/04/2017
 В. Где можно выяснить, каким правовым нормам или бизнес-стандартам соответствует хранилище данных SQL?
 
 О. На странице [соответствия требованиям корпорации Майкрософт] доступны различные сертификаты соответствия (такие как SOC и ISO), которые можно отфильтровать по продукту. Сначала выберите сертификат соответствия, а затем в правой части страницы в разделе "Microsoft in-scope cloud services" (Охваченные облачные службы корпорации Майкрософт) разверните "Azure", чтобы просмотреть службы Azure, которые соответствуют выбранным требованиям.
- 
+
 В. Можно ли подключить PowerBI?
 
 О. Да! Служба PowerBI поддерживает прямые запросы, выполняемые из хранилища данных SQL, но она не предназначена для большого количества пользователей или данных в режиме реального времени. В рабочей среде PowerBI рекомендуется использовать службу PowerBI поверх служб Azure Analysis Services или Analysis Service IaaS. 
@@ -41,6 +42,10 @@ ms.lasthandoff: 03/04/2017
 В. Какие ограничения емкости имеет хранилище данных SQL?
 
 О. Текущие ограничения см. на странице [Ограничения емкости хранилища данных SQL]. 
+
+В. Почему операция масштабирования, приостановки или возобновления занимает так много времени?
+
+О. На длительность операций управления вычислениями может влиять ряд факторов. Как правило, продолжительность операций обусловлена откатом транзакций. При инициации операции масштабирования или приостановки блокируются все входящие сеансы, и запросы утрачиваются. Чтобы оставить систему в стабильном состоянии, перед началом операции необходимо выполнить откат транзакций. Чем больше число транзакций и размер их журналов, тем дольше будет задержка операции при восстановлении стабильного состояния системы.
 
 ## <a name="user-support"></a>Поддержка пользователей
 
@@ -113,7 +118,7 @@ ms.lasthandoff: 03/04/2017
 [Ограничения емкости хранилища данных SQL]: ./sql-data-warehouse-service-capacity-limits.md
 [здесь]: ./sql-data-warehouse-tables-data-types.md
 [Неподдерживаемые функции таблиц]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md 
+[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [большим двоичным объектам службы хранилища Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [отправьте запрос на эту функцию]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx

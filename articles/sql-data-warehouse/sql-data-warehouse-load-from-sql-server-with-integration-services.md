@@ -3,7 +3,7 @@ title: "Загрузка данных из SQL Server в хранилище да
 description: "Здесь показано, как создать пакет служб SQL Server Integration Services (SSIS) для перемещения данных из разнообразных источников данных в хранилище данных SQL."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: douglaslms
 manager: jhubbard
 editor: 
 ms.assetid: e2c252e9-0828-47c2-a808-e3bea46c134a
@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
 ms.custom: loading
+ms.date: 03/30/2017
+ms.author: douglasl;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a8c557ea07cbccb913bc47c510f6759dd832c861
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d208f783e5b4e7786350706d8025e6e13f45f0d2
+ms.lasthandoff: 04/03/2017
+
 
 
 ---
@@ -55,14 +56,14 @@ SQL Server Integration Services (SSIS) — это гибкий набор сре
 Для выполнения этих действий необходимо иметь следующее:
 
 1. **SQL Server Integration Services (SSIS).** Службы SSIS — это компонент SQL Server. Для его использования требуется ознакомительная или лицензированная версия SQL Server. Ознакомительную версию SQL Server 2016 можно получить [на этой странице][SQL Server Evaluations].
-2. **Visual Studio** Бесплатный выпуск Visual Studio 2015 Community можно получить [на этой странице][Visual Studio Community].
-3. **SQL Server Data Tools для Visual Studio (SSDT)**. SQL Server Data Tools для Visual Studio 2015 можно получить на [этой странице][Download SQL Server Data Tools (SSDT)].
+2. **Visual Studio**. Бесплатный выпуск Visual Studio Community можно получить [на этой странице][Visual Studio Community].
+3. **SQL Server Data Tools для Visual Studio (SSDT)**. SQL Server Data Tools для Visual Studio можно получить на [этой странице][Download SQL Server Data Tools (SSDT)].
 4. **Образец данных**. В этом руководстве источником данных для загрузки в хранилище данных SQL является образец базы данных AdventureWorks на SQL Server. Образец базы данных AdventureWorks 2014 можно получить на [этой странице][AdventureWorks 2014 Sample Databases].
 5. **База данных хранилища данных SQL и разрешения на ее использование**. В этом руководстве мы будем подключаться к экземпляру хранилища данных SQL и загружать в него данные. Вам потребуются разрешения на создание таблицы и загрузку данных.
 6. **Правило брандмауэра.** Вам следует создать правило брандмауэра в хранилище данных SQL, разрешающее обращения с IP-адреса локального компьютера. Без этого вы не сможете загрузить данные в хранилище данных SQL.
 
 ## <a name="step-1-create-a-new-integration-services-project"></a>Шаг 1. Создание нового проекта служб Integration Services
-1. Запустите Visual Studio 2015.
+1. Запустите Visual Studio.
 2. В меню **Файл** выберите **Создать| Проект**.
 3. Перейдите к типу проекта **Установленные | Шаблоны | Бизнес-аналитика | Службы Integration Services** .
 4. Выберите **Проект служб Integration Services**. Введите **имя** и **расположение**, а затем нажмите кнопку **ОК**.

@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 04/10/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: de7af5419aa423734ad06b236e0edf61fbb0cad1
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
+ms.lasthandoff: 04/11/2017
 
 ---
 
@@ -47,23 +48,44 @@ ms.openlocfilehash: de7af5419aa423734ad06b236e0edf61fbb0cad1
 можно заполнить индекс Поиска Azure тремя отдельными документами, каждый из которых содержит поля "id" и "text".
 
 > [!IMPORTANT]
-> Сейчас эта функциональность доступна в режиме предварительной версии. Она доступна при использовании REST API версии **2015-02-28-Preview**. Помните, что предварительные версии API предназначены для тестирования и ознакомления. Они не должны использоваться в рабочей среде.
+> Функция анализа массива JSON сейчас доступна в режиме предварительного просмотра. Она доступна при использовании REST API версии **2015-02-28-Preview**. Помните, что предварительные версии API предназначены для тестирования и ознакомления. Они не должны использоваться в рабочей среде.
 >
 >
 
 ## <a name="setting-up-json-indexing"></a>Настройка индексирования JSON
-Чтобы индексировать большие двоичные объекты в формате JSON, задайте для параметра конфигурации `parsingMode` значение `json` (для индексации каждого объекта как отдельного документа) или `jsonArray` (если ваши объекты содержат массив JSON).
+Индексирование больших двоичных объектов JSON похоже на обычное извлечение документа. Сначала создайте источник данных так же, как обычно. 
+
+    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+        "name" : "my-blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
+        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
+    }   
+
+Затем создайте целевой индекс поиска, если у вас его еще нет. 
+
+Наконец, создайте индексатор и задайте для параметра `parsingMode` значение `json` (для индексации каждого большого двоичного объекта в виде единого документа) или `jsonArray` (если большой двоичный объект содержит массивы JSON и требуется каждый элемент массива обрабатывать как отдельный документ):
+
+    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
 
     {
       "name" : "my-json-indexer",
-      ... other indexer properties
-      "parameters" : { "configuration" : { "parsingMode" : "json" | "jsonArray" } }
+      "dataSourceName" : "my-blob-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-При необходимости используйте **сопоставление полей** для выбора свойств исходного документа JSON, используемых для заполнения целевого индекса поиска.  Это подробнее описано ниже.
+При необходимости используйте **сопоставление полей** для выбора свойств исходного документа JSON, используемых для заполнения целевого индекса поиска, как показано в следующем разделе.
 
 > [!IMPORTANT]
-> При использовании режима анализа `json` или `jsonArray` служба поиска Azure предполагает, что все большие двоичные объекты в источнике данных будут в формате JSON. Если необходима поддержка как объектов JSON, так и других объектов в одном источнике данных, сообщите нам об этом на [нашем сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> При использовании режима анализа `json` или `jsonArray` служба поиска Azure предполагает, что все большие двоичные объекты в источнике данных содержат JSON. Если необходима поддержка как объектов JSON, так и других объектов в одном источнике данных, сообщите нам об этом на [нашем сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 >
 >
 
@@ -80,7 +102,7 @@ ms.openlocfilehash: de7af5419aa423734ad06b236e0edf61fbb0cad1
         }
     }
 
-Предположим, что у вас есть индекс поиска со следующими полями: `text` типа Edm.String, `date` типа Edm.DateTimeOffset и `tags` типа Collection(Edm.String). Чтобы сопоставить JSON с необходимой формой, используйте следующие сопоставления полей:
+Допустим, что у вас есть индекс поиска со следующими полями: `text` типа `Edm.String`, `date` типа `Edm.DateTimeOffset` и `tags` типа `Collection(Edm.String)`. Чтобы сопоставить JSON с необходимой формой, используйте следующие сопоставления полей:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -99,7 +121,7 @@ ms.openlocfilehash: de7af5419aa423734ad06b236e0edf61fbb0cad1
 >
 >
 
-Если документы JSON содержат только простые свойства верхнего уровня, сопоставление полей может вообще не потребоваться. Например, для следующего документа JSON свойства верхнего уровня "text", "datePublished" и "tags" будут напрямую сопоставляться с соответствующими полями в индексе поиска:
+Если документы JSON содержат только простые свойства верхнего уровня, сопоставление полей может вообще не потребоваться. Например, для следующего документа JSON свойства верхнего уровня "text", "datePublished" и "tags" напрямую сопоставляются с соответствующими полями в индексе поиска:
 
     {
        "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -107,47 +129,9 @@ ms.openlocfilehash: de7af5419aa423734ad06b236e0edf61fbb0cad1
        "tags" : [ "search", "storage", "howto" ]    
      }
 
-## <a name="indexing-nested-json-arrays"></a>Индексирование вложенных массивов JSON
-Что делать, если требуется индексировать массив объектов JSON, но он является вложенным в документ? Можно выбрать, какое свойство содержит массив, с помощью свойства конфигурации `documentRoot` . Например, если большой двоичный объект выглядит следующим образом:
+Ниже приведен полный набор данных индексатора с сопоставленными полями.
 
-    {
-        "level1" : {
-            "level2" : [
-                { "id" : "1", "text" : "Use the documentRoot property" },
-                { "id" : "2", "text" : "to pluck the array you want to index" },
-                { "id" : "3", "text" : "even if it's nested inside the document" }  
-            ]
-        }
-    }
-
-используйте приведенную ниже конфигурацию для индексации массива, указанного в свойстве "level2".
-
-    {
-        "name" : "my-json-array-indexer",
-        ... other indexer properties
-        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
-    }
-
-
-## <a name="request-examples"></a>Примеры запросов
-Чтобы свести все описанное выше вместе, воспользуйтесь приведенными далее примерами данных.
-
-Источник данных:
-
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-        "name" : "my-blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
-        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
-    }   
-
-Индексатор:
-
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -164,11 +148,27 @@ ms.openlocfilehash: de7af5419aa423734ad06b236e0edf61fbb0cad1
         ]
     }
 
+## <a name="indexing-nested-json-arrays"></a>Индексирование вложенных массивов JSON
+Что делать, если требуется индексировать массив объектов JSON, но он является вложенным в документ? Можно выбрать, какое свойство содержит массив, с помощью свойства конфигурации `documentRoot` . Например, если большой двоичный объект выглядит следующим образом:
+
+    {
+        "level1" : {
+            "level2" : [
+                { "id" : "1", "text" : "Use the documentRoot property" },
+                { "id" : "2", "text" : "to pluck the array you want to index" },
+                { "id" : "3", "text" : "even if it's nested inside the document" }  
+            ]
+        }
+    }
+
+используйте приведенную ниже конфигурацию для индексации массива, указанного в свойстве `level2`.
+
+    {
+        "name" : "my-json-array-indexer",
+        ... other indexer properties
+        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+    }
+
 ## <a name="help-us-make-azure-search-better"></a>Помогите нам усовершенствовать службу поиска Azure
 Если вам нужна какая-либо функция или у вас есть идеи, которые можно было бы реализовать, сообщите об этом на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

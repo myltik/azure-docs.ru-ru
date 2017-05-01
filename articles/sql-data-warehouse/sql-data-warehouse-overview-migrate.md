@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 79a2cb3739ebb13792a60a9b55761a054bf89e7a
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e5937f8472492cd1dd77c82ed518a665718623a1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -28,9 +30,9 @@ ms.openlocfilehash: 79a2cb3739ebb13792a60a9b55761a054bf89e7a
 ## <a name="migration-guidance"></a>Руководство по миграции
 Прежде чем начинать перенос, обязательно прочитайте приведенные ниже статьи, чтобы понимать базовые понятия и некоторые отличия между продуктами.
 
-* [Перенос схемы][Перенос схемы]
-* [Перенос данных][Перенос данных]
-* [Перенос кода][Перенос кода]
+* [Перенос схемы][Migrate your schema]
+* [Перенос данных][Migrate your data]
+* [Перенос кода][Migrate your code]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 У группы консультирования клиентов (CAT) также есть полезное руководство по хранилищу данных SQL, которое они публикуют в блогах.  Прочитайте их статью [Migrating data to Azure SQL Data Warehouse in practice][Migrating data to Azure SQL Data Warehouse in practice] (Перенос данных в хранилище данных SQL Azure на практике), чтобы ознакомиться с дополнительными рекомендациями по переносу.
@@ -38,9 +40,9 @@ ms.openlocfilehash: 79a2cb3739ebb13792a60a9b55761a054bf89e7a
 <!--Image references-->
 
 <!--Article references-->
-[Перенос схемы]: sql-data-warehouse-migrate-schema.md
-[Перенос данных]: sql-data-warehouse-migrate-data.md
-[Перенос кода]: sql-data-warehouse-migrate-code.md
+[Migrate your schema]: sql-data-warehouse-migrate-schema.md
+[Migrate your data]: sql-data-warehouse-migrate-data.md
+[Migrate your code]: sql-data-warehouse-migrate-code.md
 
 
 <!--MSDN references-->
@@ -48,9 +50,4 @@ ms.openlocfilehash: 79a2cb3739ebb13792a60a9b55761a054bf89e7a
 
 <!--Other Web references-->
 [Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

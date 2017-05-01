@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 09c18ca6a967c2930ddd2b16d37f0bc606712ea1
-ms.openlocfilehash: fc1c8cb6b7c186e189658cacf218ec7e9261472a
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 05e23ad6bc07293f53e081b905c3a9ce1c91e6f9
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -31,16 +32,22 @@ ms.openlocfilehash: fc1c8cb6b7c186e189658cacf218ec7e9261472a
 * Воспользуйтесь другим браузером.
 * Если вы используете Microsoft Internet Explorer, перейдите на портал Azure с помощью режима просмотра InPrivate. 
   
-  О.    Щелкните **Сервис** ![кнопка "Инструменты"](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Безопасность** > **Просмотр InPrivate**.
+  О. Щелкните **Сервис** ![кнопка "Инструменты"](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Безопасность** > **Просмотр InPrivate**.
   
-  B.    Перейдите на [портал Azure](https://portal.azure.com)и выполните вход.
+  B. Перейдите на [портал Azure](https://portal.azure.com)и выполните вход.
 
 ## <a name="error-message-no-subscriptions-found"></a>Появляется сообщение об ошибке "Подписки не найдены"
 Если у учетной записи нет необходимых разрешений, может появиться сообщение об ошибке **Подписка не найдена**. Убедитесь, что используете для входа правильную учетную запись администратора. Администратор учетной записи имеет доступ только к [центру управления учетной записью](https://account.windowsazure.com/Subscriptions). А администраторы служб и соадминистраторы — только к [порталу Azure](https://portal.azure.com) и классическому порталу Azure.
 
 **Сценарий 1. Сообщение об ошибке получено на [портале Azure](https://portal.azure.com)**
 
-Для устранения этой проблемы [добавьте для учетной записи роль соадминистратора или владельца](billing-add-change-azure-subscription-administrator.md) .
+Чтобы устранить эту проблему:
+
+* Убедитесь, что выбран правильный каталог Azure, щелкнув учетную запись в правом верхнем углу.
+
+![Выберите каталог в верхней правой части портала Azure](./media/billing-cannot-login-subscription/directory-switch.png)
+
+* Если вы выбрали правильный каталог Azure, но по-прежнему возникает ошибка, [добавьте учетную запись в качестве владельца](billing-add-change-azure-subscription-administrator.md).
 
 **Сценарий 2. Сообщение об ошибке получено в [Центре управления учетной записью Azure](https://account.windowsazure.com/Subscriptions)**
 
@@ -57,15 +64,10 @@ ms.openlocfilehash: fc1c8cb6b7c186e189658cacf218ec7e9261472a
 Для устранения этой проблемы воспользуйтесь одним из указанных ниже способов.
 
 * Очистите кэш и удалите файлы cookie Интернета. В Internet Explorer щелкните **Сервис** ![кнопка "Сервис"](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Свойства обозревателя** > **Удалить**. Убедитесь, что установлены флажки для временных файлов, файлов cookie, паролей и журнала браузера. Затем нажмите кнопку "Удалить".
-* Выполните сброс параметров Internet Explorer, чтобы отменить какие-либо персональные настройки. Щелкните **Сервис ** ![кнопка "Сервис"](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Свойства обозревателя** > **Дополнительно**, установите флажок **Удалить личные настройки** и нажмите кнопку **Сброс**.
+* Выполните сброс параметров Internet Explorer, чтобы отменить какие-либо персональные настройки. Щелкните **Сервис**  ![кнопка "Сервис"](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Свойства обозревателя** > **Дополнительно**, установите флажок **Удалить личные настройки** и нажмите кнопку **Сброс**.
 * Перейдите на портал Azure в режиме просмотра InPrivate. Щелкните **Сервис** ![кнопка "Инструменты"](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Безопасность** > **Просмотр InPrivate**.
 
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
 Если вам все еще нужна помощь, [обратитесь в службу поддержки](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409), которая поможет быстро устранить проблему. 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

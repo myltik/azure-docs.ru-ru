@@ -9,7 +9,7 @@ editor:
 tags: 
 ms.assetid: 8e71b04c-bc38-4153-8f83-f2b14faa31d9
 ms.service: sql-database
-ms.custom: overview
+ms.custom: security-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 02/06/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: 8b9b9b70cc7b6a9b89a52523f713b43b74713042
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: e3bafbd9f010550f8b7117de27495b21cadbd3c1
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="azure-sql-database-access-control"></a>Контроль доступа к базе данных SQL Azure
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/17/2017
 
 Служба Базы данных SQL Microsoft Azure доступна только на TCP-порте 1433. Для получения доступа к базе данных Azure со своего компьютера убедитесь, что брандмауэр клиентского компьютера пропускает исходящие подключения по протоколу TCP через порт 1433. Заблокируйте входящие подключения по протоколу TCP через порт 1433, если они не требуются для других приложений. 
 
-В рамках процесса подключения все подключения от виртуальных машин Azure будут перенаправлены на другой IP-адрес и порт, уникальный для каждой рабочей роли. Номер порта находится в диапазоне от 11000 до 11999. Дополнительные сведения о портах TCP см. в статье [Порты, кроме 1433, для ADO.NET 4.5 и Базы данных SQL версии 12](sql-database-develop-direct-route-ports-adonet-v12.md).
+В рамках процесса подключения все подключения от виртуальных машин Azure будут перенаправлены на другой IP-адрес и порт, уникальный для каждой рабочей роли. Номер порта находится в диапазоне от 11000 до 11999. Дополнительные сведения о TCP-портах см. в статье [Порты для ADO.NET 4.5, отличные от порта 1433](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 ## <a name="authentication"></a>Аутентификация
 

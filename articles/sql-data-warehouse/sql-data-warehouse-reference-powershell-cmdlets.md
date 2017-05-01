@@ -16,9 +16,9 @@ ms.custom: reference
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 96ac017b469405e0eb106bf5eb391b5273600ab2
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d30a49a79e74c575dd6daba9a260c18822a26462
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -73,8 +73,8 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 > 
 > 
 
-## <a name="frequently-used-powershell-cmdlets"></a>Часто используемые PowerShell командлеты
-Перечисленные далее командлеты PowerShell часто используются для работы с хранилищем данных SQL Azure.
+## <a name="other-supported-powershell-cmdlets"></a>Другие поддерживаемые командлеты PowerShell
+Перечисленные ниже командлеты PowerShell поддерживаются хранилищем данных SQL Azure.
 
 * [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
 * [Get-AzureRmSqlDeletedDatabaseBackup][Get-AzureRmSqlDeletedDatabaseBackup]
@@ -93,7 +93,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 * [Создание хранилища данных SQL с помощью PowerShell][Create a SQL Data Warehouse using PowerShell]
 * [Восстановление базы данных][Database restore]
 
-Список всех задач, которые можно автоматизировать с помощью PowerShell, см. в статье о [командлетах Базы данных SQL Azure][Azure SQL Database Cmdlets].  Список задач, которые можно автоматизировать с помощью REST, см. в статье [Operations for Azure SQL Databases][Operations for Azure SQL Databases] (Операции для баз данных SQL Azure).
+Другие задачи, которые можно автоматизировать с помощью PowerShell, описаны в статье о [командлетах Базы данных SQL Azure][Azure SQL Database Cmdlets]. Обратите внимание, что хранилище данных SQL Azure поддерживает не все командлеты для базы данных SQL Azure.  Список задач, которые можно автоматизировать с помощью REST, см. в статье [Operations for Azure SQL Databases][Operations for Azure SQL Databases] (Операции для баз данных SQL Azure).
 
 <!--Image references-->
 

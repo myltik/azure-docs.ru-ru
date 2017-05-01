@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 42f3f6a24e423f54ad7bb282404ddc6ff2450cb7
-ms.openlocfilehash: 5b6fdbfa983cd5bb27ddd13860dfe89c5a3681b6
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: db2d6dbdec80e8c443014c72c80172ad3effb82c
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -25,13 +26,13 @@ ms.openlocfilehash: 5b6fdbfa983cd5bb27ddd13860dfe89c5a3681b6
 [Выполняющуюся в памяти OLTP](sql-database-in-memory.md) можно использовать для повышения производительности обработки транзакций, приема данных и сценариев, связанных с временными данными, в базах данных SQL Azure уровня [Премиум](sql-database-service-tiers.md), не повышая ценовую категорию. 
 
 > [!NOTE] 
-> Узнайте, как [Quorum удваивает ключевую рабочую нагрузку на базу данных при одновременном сокращении DTU на 70 % благодаря использованию базы данных SQL](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+> Узнайте, как [Quorum удваивает ключевую рабочую нагрузку на базу данных при одновременном сокращении DTU на 70 % благодаря использованию базы данных SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
 
 
 Выполните следующие действия, чтобы внедрить выполняющуюся в памяти OLTP в существующую базу данных.
 
 ## <a name="step-1-ensure-you-are-using-a-premium-database"></a>Этап 1. Проверка того, что используется база данных уровня "Премиум"
-Выполняющаяся в памяти OLTP поддерживается только в базах данных уровня "Премиум" версии 12. In-Memory поддерживается, если полученное значение равно 1 (не 0):
+Выполняющаяся в памяти OLTP поддерживается только в базах данных уровня "Премиум". In-Memory поддерживается, если полученное значение равно 1 (не 0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
@@ -173,10 +174,5 @@ CREATE PROCEDURE schemaname.procedurename
 * [In-Memory OLTP (оптимизация в памяти)](http://msdn.microsoft.com/library/dn133186.aspx)
 * [Общие сведения о скомпилированных в собственном коде хранимых процедурах](http://msdn.microsoft.com/library/dn133184.aspx)
 * [Помощник по оптимизации памяти](http://msdn.microsoft.com/library/dn284308.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

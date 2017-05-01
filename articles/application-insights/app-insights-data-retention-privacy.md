@@ -1,21 +1,22 @@
 ---
-title: "Хранилища и хранение данных в Application Insights"
+title: "Хранилища и хранение данных в Azure Application Insights | Документация Майкрософт"
 description: "Заявление о политике хранении и конфиденциальности"
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 3dc6373c9aaa01000a7da282e48557f175f040e7
-ms.openlocfilehash: a6588718fdc0b561a70f25ac4d674c5edf08d8cb
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d82f27c9a657a97f23b60ade352e4d2a87166233
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -67,7 +68,7 @@ ms.openlocfilehash: a6588718fdc0b561a70f25ac4d674c5edf08d8cb
 * [Исключения](app-insights-asp-net-exceptions.md) и сбои: **дампы стека**, идентификатор сборки и тип процессора. 
 * [Зависимости](app-insights-asp-net-dependencies.md) : вызовы внешних служб, например REST, SQL и AJAX. URI или строка подключения, длительность, успешное выполнение, команда.
 * [Тесты доступности](app-insights-monitor-web-app-availability.md) : длительность теста и его шагов, ответы.
-* [Журналы трассировки](app-insights-search-diagnostic-logs.md) и [пользовательские данные телеметрии](app-insights-api-custom-events-metrics.md):  - **все данные, которые программно добавляются в журналы или данные телеметрии**.
+* [Журналы трассировки](app-insights-asp-net-trace-logs.md) и [пользовательские данные телеметрии](app-insights-api-custom-events-metrics.md):  - **все данные, которые программно добавляются в журналы или данные телеметрии**.
 
 [Дополнительные сведения](#data-sent-by-application-insights).
 
@@ -198,16 +199,7 @@ Application Insights не фильтрует и не удаляет данные
 ## <a name="credits"></a>Баллы
 Этот продукт содержит данные GeoLite2, созданные MaxMind и доступные на веб-сайте [http://www.maxmind.com](http://www.maxmind.com).
 
-## <a name="a-namevideoavideos"></a><a name="video"></a>Видео
-#### <a name="introduction"></a>Введение
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Application-Insights-Introduction/player]
-> 
-> 
 
-#### <a name="get-started"></a>Начало работы
-> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Getting-Started-with-Application-Insights/player]
-> 
-> 
 
 <!--Link references-->
 
@@ -221,10 +213,5 @@ Application Insights не фильтрует и не удаляет данные
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

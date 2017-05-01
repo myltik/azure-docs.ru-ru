@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 94f9bbcfddf8ea3d5ae9bffcb3c196a30f4bb396
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e37a943c775261a6817169c95a931f1b268305d9
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/28/2017
 ## <a name="view-current-dwu-settings"></a>для просмотра текущих параметров DWU;
 Для просмотра текущих параметров DWU для своих баз данных:
 
-1. Откройте обозреватель объектов SQL Server в Visual Studio 2015.
+1. Откройте обозреватель объектов SQL Server в Visual Studio.
 2. Подключитесь к базе данных master, связанной с логическим сервером базы данных SQL.
 3. Выберите в sys.database_service_objectives динамическое административное представление. Пример: 
 

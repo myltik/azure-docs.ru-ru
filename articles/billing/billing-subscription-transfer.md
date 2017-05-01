@@ -18,9 +18,9 @@ ms.date: 02/28/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0ec56111847300833ba92cc9149e8a276ba2c6c1
-ms.openlocfilehash: af7cabf3d5286dc3cd368db191bc5218cd9c5893
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: e64c0336578be2c1a1126f7459775f47d73f9d6e
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Передача прав владения подпиской Azure другой учетной записи
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/02/2017
 
 * **Можно ли передать все группы ресурсов, виртуальные машины, диски и другие работающие службы?**
 
-  Да, все ресурсы, такие как виртуальные машины, диски и веб-сайты, перейдут к новому владельцу. Тем не менее нельзя передать настроенные [роли администратора](billing-add-change-azure-subscription-administrator.md) и политики [управления доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-configure.md). 
+  Да, все ресурсы, такие как виртуальные машины, диски и веб-сайты, перейдут к новому владельцу. Тем не менее нельзя передавать настроенные [роли администратора](billing-add-change-azure-subscription-administrator.md) и политики [управления доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-configure.md) между разными каталогами.
 
 * <a id="no-button"></a>**Почему не отображается кнопка "Перенос подписки"?**
 

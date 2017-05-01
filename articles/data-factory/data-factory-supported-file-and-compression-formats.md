@@ -12,17 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 03/29/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: edef5fbc015f6b6ba01aa2bfc3d908e6f11159cc
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 06f7b38f5d08f2182f08d38a11dec526042c1828
+ms.lasthandoff: 03/31/2017
 
 
 ---
 
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Форматы файлов и сжатия данных, поддерживаемые фабрикой данных Azure
+*Этот раздел относится к соединителям для следующих компонентов: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [большой двоичный объект Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [файловая система](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) и [SFTP](data-factory-sftp-connector.md).*
+
 Фабрика данных Azure поддерживает следующие форматы файлов:
 
 * [текстовый формат](#text-format);
@@ -47,7 +49,7 @@ ms.lasthandoff: 03/24/2017
 | treatEmptyAsNull |Указывает, следует ли интерпретировать строки со значением NULL или пустые строки как значение NULL при чтении данных из входного файла. |**True (по умолчанию)**<br/>Ложь |Нет |
 
 ### <a name="textformat-example"></a>Пример TextFormat
-В следующем определении JSON для набора данных задаются некоторые необязательные свойства. 
+В следующем определении JSON для набора данных задаются некоторые необязательные свойства.
 
 ```json
 "typeProperties":
@@ -80,7 +82,7 @@ ms.lasthandoff: 03/24/2017
 * Вы копируете данные из текстового файла и хотите пропустить несколько строк в начале, которые не содержат ни данных, ни заголовка. Укажите `skipLineCount`, чтобы задать число пропускаемых строк. Если остальная часть файла содержит строку заголовка, можно также указать `firstRowAsHeader`. Если указаны `skipLineCount` и `firstRowAsHeader`, сначала пропускаются строки, а затем из входного файла считываются данные заголовка.
 
 ## <a name="json-format"></a>Формат JSON
-Чтобы **импортировать JSON-файл "как есть" в базу данных DocumentDB или экспортировать его из нее**, см. раздел [Документы JSON для импорта и экспорта](data-factory-azure-documentdb-connector.md#importexport-json-documents) статьи [Перемещение данных в хранилище данных DocumentDB и из него с помощью фабрики данных Azure](data-factory-azure-documentdb-connector.md). 
+Чтобы **импортировать JSON-файл "как есть" в базу данных DocumentDB или экспортировать его из нее**, см. раздел [Документы JSON для импорта и экспорта](data-factory-azure-documentdb-connector.md#importexport-json-documents) статьи [Перемещение данных в хранилище данных DocumentDB и из него с помощью фабрики данных Azure](data-factory-azure-documentdb-connector.md).
 
 Если требуется проанализировать JSON-файлы или записать данные в формате JSON, задайте для свойства `type` в разделе `format` значение **JsonFormat**. В разделе `format` также можно указать следующие **необязательные** свойства. Инструкции по настройке см. в разделе [Пример JsonFormat](#jsonformat-example).
 
@@ -452,7 +454,7 @@ ms.lasthandoff: 03/24/2017
 * Данные сложных типов (MAP, LIST) не поддерживаются.
 * Parquet-файл имеет следующие варианты сжатия: NONE, SNAPPY, GZIP и LZO. Фабрика данных поддерживает чтение данных из ORC-файла в любом из этих форматов. Для чтения данных используется кодек сжатия из метаданных. Однако при записи в Parquet-файл фабрика данных по умолчанию выбирает SNAPPY. В настоящее время изменить это поведение нельзя.
 
-## <a name="compression-support"></a>Поддержка сжатия 
+## <a name="compression-support"></a>Поддержка сжатия
 Обработка больших наборов данных может привести к возникновению узких мест ввода-вывода и сети. Поэтому использование сжатых данных в хранилищах может не только ускорить передачу данных по сети и освободить место на диске, но также обеспечить и значительное повышение производительности при обработке больших данных. Сейчас сжатие поддерживается для файловых хранилищ данных, таких как хранилище BLOB-объектов Azure или локальная файловая система.  
 
 Чтобы указать сжатие для набора данных, используйте свойство **compression** в наборе данных JSON, как показано в следующем примере.   
@@ -511,3 +513,4 @@ ms.lasthandoff: 03/24/2017
 - [HDFS](data-factory-hdfs-connector.md)
 - [Перемещение данных в локальную файловую систему или из нее с помощью фабрики данных Azure](data-factory-onprem-file-system-connector.md)
 - [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
+

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6a76c399e626ea85581d5f8fb863da878bdbf50b
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 280737097038ff328d487477279ce4f204b0ac0c
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/09/2017
 ## <a name="prerequisites"></a>Предварительные требования
 * Visual Studio 2012, 2013 или 2015
 * Скачанный и установленный [пакет SDK для Azure .NET](http://azure.microsoft.com/downloads/).
-* Добавьте собственное клиентское приложение в Azure Active Directory. Инструкции по добавлению приложения приведены в статье [Интеграция приложений с Azure Active Directory](../active-directory/active-directory-integrating-applications.md). Запишите значения полей **Идентификатор клиента** и **URI перенаправления**, отображенные на странице **Настройка**.
+* Добавьте собственное клиентское приложение в Azure Active Directory. Инструкции по добавлению приложения приведены в статье [Интеграция приложений с Azure Active Directory](../active-directory/active-directory-integrating-applications.md). Запишите значения полей **Идентификатор клиента** и **URI перенаправления**, отображенные на странице **Настройка**. Подробные инструкции представлены в статье [Руководство. Создание конвейера с действием копирования с помощью API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md). 
 * Получите значения полей **Идентификатор подписки** и **Идентификатор клиента**. Инструкции см. в разделе [Получение идентификаторов подписки и клиента Azure](#get-azure-subscription-and-tenant-ids).
 * Загрузите и установите пакеты NuGet для фабрик данных Azure. Инструкции приведены в этом пошаговом руководстве.
 
@@ -364,7 +364,7 @@ ms.lasthandoff: 03/09/2017
     Console.WriteLine("\nPress any key to exit.");
     Console.ReadKey();
     ```
-14. В обозревателе решений разверните проект (**DataFactoryAPITestApp**), щелкните правой кнопкой мыши **Ссылки**, а затем щелкните **Добавить ссылку**. Установите флажок для сборки `System.Configuration` и нажмите кнопку **ОК**.
+14. В обозревателе решений разверните проект **DataFactoryAPITestApp**, щелкните правой кнопкой мыши **Ссылки**, а затем выберите **Добавить ссылку**. Установите флажок для сборки `System.Configuration` и нажмите кнопку **ОК**.
 15. Постройте консольное приложение. В меню щелкните **Собрать** и выберите **Собрать решение**.
 16. Убедитесь, что как минимум один файл существует в контейнере adftutorial в хранилище больших двоичных объектов Azure. В противном случае создайте файл Emp.txt в блокноте со следующим содержимым и передайте его в контейнер adftutorial.
 

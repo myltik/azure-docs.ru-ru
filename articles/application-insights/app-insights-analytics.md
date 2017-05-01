@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 4fbd80f7e9775fe3c12a54302be4a162d2102e2f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 717269a2c0e0b1a3d332e627154eacd2d2c5001e
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,6 +27,7 @@ ms.lasthandoff: 03/16/2017
 * **[Протестируйте аналитику на смоделированных данных](https://analytics.applicationinsights.io/demo)**, если ваше приложение еще не отправляет данные в Application Insights.
 * **[Памятка для пользователей SQL](https://aka.ms/sql-analytics)** содержит сопоставление наиболее распространенных идиом.
 * **[Справочник по языку](app-insights-analytics-reference.md)** позволит научиться использовать все возможности языка запросов аналитики.
+
 
 ## <a name="queries-in-analytics"></a>Запросы в аналитике
 Типичный запрос содержит *исходную* таблицу и ряд *операторов*, разделенных `|`. 
@@ -56,6 +57,7 @@ ms.lasthandoff: 03/16/2017
 
 Язык имеет много привлекательных функций.
 
+
 * [Фильтрация](app-insights-analytics-reference.md#where-operator) необработанных данных телеметрии приложения по любым полям, включая пользовательские свойства и метрики.
 * [Соединение](app-insights-analytics-reference.md#join-operator) нескольких таблиц — соотношение запросов с просмотрами страниц, вызовами зависимостей, исключениями и трассировками журнала.
 * Сложные статистические [агрегаты](app-insights-analytics-reference.md#aggregations).
@@ -81,7 +83,20 @@ ms.lasthandoff: 03/16/2017
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Мы рекомендуем начать со [знакомства с языком](app-insights-analytics-tour.md).
+* Мы рекомендуем начать со [знакомства с языком](app-insights-analytics-tour.md). 
+
+### <a name="query-examples"></a>Примеры запросов
+
+* Воспользуйтесь этими пошаговыми руководствами, чтобы продемонстрировать возможности использования аналитики:
+ 1.    [Автоматическая диагностика пиков и пропуска шагов в контексте длительности запросов.](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Automatic%20diagnostics%20of%20sudden%20spikes%20or%20step%20jumps%20in%20requests%20duration&shared=true)
+ 2.    [Анализ снижения производительности путем анализа временных рядов.](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20performance%20degradations%20with%20time%20series%20analysis&shared=true)
+ 3.    [Анализ сбоев приложения с помощью функций autocluster и diffpatterns.](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20application%20failures%20with%20autocluster%20and%20diffpatterns&shared=true)
+ 4.    [Расширенное определение формы путем анализа временных рядов.](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Advanced%20shape%20detection%20with%20time%20series%20analysis&shared=true)
+ 5.    [Использование операций скользящего окна для анализа использования приложений (скользящее MAU, DAU и т. д.).](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Using%20sliding%20window%20calculations%20to%20analyze%20usage%20metrics:%20rolling%20MAU~2FDAU%20and%20cohorts&shared=true)
+ 6.    [Обнаружение нарушений в работе службы на основе анализа журналов отладки](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Detection%20of%20service%20disruptions%20based%20on%20regression%20analysis%20of%20trace%20logs&shared=true) и соответствующая запись блога [здесь](https://maximshklar.wordpress.com/2017/02/16/finding-trends-in-traces-with-smart-data-analytics).
+ 7.    [Профилирование производительности приложений с помощью простых журналов отладки](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Profiling%20applications'%20performance%20with%20simple%20debug%20logs&shared=true) и соответствующая запись блога [здесь](https://yossiattasblog.wordpress.com/2017/03/13/first-blog-post/).
+ 8.    [Измерения длительности каждого шага в потоке кода с помощью простых журналов отладки](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Measuring%20the%20duration%20of%20each%20step%20in%20your%20code%20flow%20using%20simple%20debug%20logs&shared=true) и соответствующая запись блога [здесь](https://yossiattasblog.wordpress.com/2017/03/14/measuring-the-duration-of-each-step-in-your-code-flow-using-simple-debug-logs/).
+ 9.    [Анализ параллелизма с помощью простых журналов отладки](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Analyzing%20concurrency%20with%20simple%20debug%20logs&shared=true) и соответствующая запись блога [здесь](https://yossiattasblog.wordpress.com/2017/03/23/analyzing-concurrency-using-simple-debug-logs/).
 
 
 

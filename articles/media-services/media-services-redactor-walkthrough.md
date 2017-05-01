@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 04/03/2017
 ms.author: rli; juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8575decb177001cefbb7f159841b64c3f84f41
-ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: b34502aa75d94da1abcda880bb1a251a8455f3f8
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -90,12 +91,12 @@ ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
 
 ### <a name="set-up-the-tool"></a>Настройка инструмента
 
-1.  Скачайте полное решение и выполните его сборку. 
+1.    Скачайте полное решение и выполните его сборку. 
 
     ![Скрытие лиц](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.  Скачайте компонент FFMPEG [отсюда](https://ffmpeg.org/download.html). Данный проект первоначально был разработан с использованием версии be1d324 (2016-10-04) со статическим связыванием. 
-3.  Скопируйте файлы ffmpeg.exe и ffprobe.exe в ту же папку выходных данных, что и AzureMediaRedactor.exe. 
+2.    Скачайте компонент FFMPEG [отсюда](https://ffmpeg.org/download.html). Данный проект первоначально был разработан с использованием версии be1d324 (2016-10-04) со статическим связыванием. 
+3.    Скопируйте файлы ffmpeg.exe и ffprobe.exe в ту же папку выходных данных, что и AzureMediaRedactor.exe. 
 
     ![Скрытие лиц](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
@@ -113,9 +114,13 @@ ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
     
     ![Скрытие лиц](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.  В текстовом поле внизу появятся идентификаторы лиц. Создайте файл idlist.txt, содержащий эти идентификаторы в виде списка, разделенного символами новой строки. 
-6.  Передайте этот файл в выходной ресурс из шага 1. Передайте первоначальное видео в этот ресурс и укажите его в качестве основного ресурса. 
-7.  Выполните задание Redaction для этого ресурса в режиме "Redact" (Скрытие), чтобы получить окончательное отредактированное видео. 
+5.    В текстовом поле внизу появятся идентификаторы лиц. Создайте файл idlist.txt, содержащий эти идентификаторы в виде списка, разделенного символами новой строки. 
+
+    >[!NOTE]
+    > Файл idlist.txt необходимо сохранить в формате ANSI. Для сохранения в формате ANSI можно использовать Блокнот.
+    
+6.    Передайте этот файл в выходной ресурс из шага 1. Передайте первоначальное видео в этот ресурс и укажите его в качестве основного ресурса. 
+7.    Выполните задание Redaction для этого ресурса в режиме "Redact" (Скрытие), чтобы получить окончательное отредактированное видео. 
 
 ## <a name="next-steps"></a>Дальнейшие действия 
 
@@ -129,9 +134,5 @@ ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
 
 [Демонстрационные материалы для медиааналитики Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+[Announcing Face Redaction for Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/) (Анонс функции скрытия лиц с помощью медиа-аналитики Azure)
 

@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/29/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 09c18ca6a967c2930ddd2b16d37f0bc606712ea1
-ms.openlocfilehash: ccde3885f9412829cc6ff79b7efb4e3a2c099b5b
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a8751fa70bd500a29a3e86de57de4fb919405136
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="cancel-your-azure-subscription"></a>Отмена подписки Azure
-Администратор учетной записи может отменить подписку Azure. После отмены подписки вы больше не сможете получать доступ к службам и ресурсам Azure.
+# <a name="cancel-your-subscription-for-azure"></a>Отмена подписки в Azure
+[Администратор учетной записи](billing-subscription-transfer.md#whoisaa) может отменить подписку Azure. После отмены подписки вы больше не сможете получать доступ к службам и ресурсам Azure.
 
 Прежде чем отменить подписку, сделайте следующее:
 
@@ -35,48 +36,37 @@ ms.openlocfilehash: ccde3885f9412829cc6ff79b7efb4e3a2c099b5b
 ## <a name="cancel-subscription-via-the-azure-portal"></a>Отмена подписки на портале Azure
 1. Войдите на [портал Azure](https://portal.azure.com) в качестве администратора учетной записи.
 
-   > [!NOTE]
-   > Только администратор учетной записи может отменить подписку. Чтобы узнать, кто является администратором учетной записи для подписки, ознакомьтесь с инструкциями в разделе [Часто задаваемые вопросы](billing-subscription-transfer.md#faq).
-   >
-   >
+2. В области служб Azure слева выберите **Подписки**.
 
-2. В главном меню выберите **Подписки**.
+    ![Снимок экрана, на котором показана кнопка "Подписки"](./media/billing-download-azure-invoice-daily-usage-date/submenu.png)
 
-    ![Кнопка "Подписки"](./media/billing-download-azure-invoice-daily-usage-date/submenu.png)
+3. Выберите подписку, которую нужно отменить, и щелкните **Cancel Sub** (Отменить подписку).
 
-3. В колонке подписки выберите подписку, которую нужно отменить, и щелкните **Отменить подписку**, чтобы открыть колонку "Отмена".
+    ![Снимок экрана, на котором показана кнопка "Отмена"](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
+4. Введите имя подписки и выберите причину отмены. 
+5. Нажмите кнопку **Cancel Sub** (Отменить подписку) внизу.
 
-    ![cancel_ibiza](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-4. Введите имя подписки, выберите причину для отмены и нажмите кнопку **Отменить подписку** в нижней части колонки "Отмена".
-
-> [!NOTE]
-> Отмена отобразится на портале через 10 минут. Выставление счетов прекратится немедленно.
->
->
-
-## <a name="cancel-subscription-via-the-azure-account-center"></a>Отмена подписки в Центре управления учетной записью Azure
-1. Выполните вход в [Центр учетных записей Azure](https://account.windowsazure.com/subscriptions) в качестве администратора учетной записи.
+## <a name="cancel-subscription-by-using-the-azure-account-center"></a>Отмена подписки в Центре управления учетной записью Azure
+1. Войдите в [Центр управления учетной записью Azure](https://account.windowsazure.com/subscriptions) в качестве администратора учетной записи.
 2. В разделе **Щелкните подписку для просмотра информации и сведений об использовании**выберите подписку, которую нужно отменить.
 
-    ![selectsub](./media/billing-how-to-cancel-azure-subscription/Selectsub.png)
+    ![Снимок экрана, на котором показан выбранный пример подписки](./media/billing-how-to-cancel-azure-subscription/Selectsub.png)
 3. В правой части страницы выберите **Отменить подписку**.
 
-    ![cancelsub](./media/billing-how-to-cancel-azure-subscription/cancelsub.png)
+    ![Снимок экрана, на котором показана кнопка "Отменить подписку"](./media/billing-how-to-cancel-azure-subscription/cancelsub.png)
 4. Выберите **Да, отменить мою подписку**.
 
-    ![cancelbox](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
-5. Щелкните  ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) , чтобы закрыть диалоговое окно и вернуться к странице подписки.
+    ![Снимок экрана, на котором показано диалоговое окно "Отмена"](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
+5. Щелкните  ![Кнопка со знаком проверки](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) , чтобы закрыть диалоговое окно и вернуться к странице подписки.
 
-Мы окончательно удаляем данные через 90 дней после отмены подписки на случай, если они вам понадобятся или вы измените свое решение. Дополнительные сведения см. в разделе [What happens to your data if you leave the service](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Что происходит с данными, когда вы прекращаете использовать службу).
+## <a name="what-happens-after-you-cancel-your-subscription"></a>Что происходит после отмены подписки?
+Отмена отобразится на портале через 10 минут. Выставление счетов прекратится немедленно.
+
+Мы окончательно удаляем данные через 90 дней после отмены подписки на случай, если они вам понадобятся или вы измените свое решение. Дополнительные сведения см. в разделе [What happens to your data if you leave the service](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) (Что происходит с данными, когда вы прекращаете использовать службу).
 
 ## <a name="reactivate-subscription"></a>Повторная активация подписки
 Если вы случайно отменили подписку с оплатой по мере использования, можно [повторно активировать ее в Центре управления учетной записью](billing-subscription-become-disable.md).
 
 ## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
-Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , которая поможет быстро устранить проблему.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
 

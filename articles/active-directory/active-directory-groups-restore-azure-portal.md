@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: cc177695f73805940f6a0229c94e391bf3899f09
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 325d669f11891bf070d9bbb468af7427adda46d3
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,7 +36,8 @@ ms.lasthandoff: 03/29/2017
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Просмотр удаленных групп Office 365, которые доступны для восстановления
-Следующие командлеты можно использовать для просмотра удаленных групп, чтобы убедиться, что нужные группы еще не удалены окончательно. Эти командлеты входят в [модуль предварительной версии 2 PowerShell для Azure Active Directory](https://www.powershellgallery.com/packages/AzureADPreview) (ссылка для скачивания). Дополнительные сведения об этом модуле можно найти в статье [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) (Модуль PowerShell версии 2 для Azure Active Directory).
+Следующие командлеты можно использовать для просмотра удаленных групп, чтобы убедиться, что нужные группы еще не удалены окончательно. Эти командлеты входят в [модуль предварительной версии 2 PowerShell для Azure Active Directory](https://www.powershellgallery.com/packages/AzureADPreview). Дополнительные сведения об этом модуле можно найти в статье [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) (Модуль PowerShell версии 2 для Azure Active Directory).
+Обратите внимание, что командлеты для управления обратимым удалением и восстановлением находятся на этапе общедоступной предварительной версии и иногда нам требуется внести критические изменения в командлеты предварительной версии. Поэтому не рекомендуется использовать эти командлеты в рабочей среде.
 
 1.    Запустите следующий командлет, чтобы отобразить в клиенте все удаленные группы Office 365, которые доступны для восстановления.
   ```
@@ -80,3 +81,4 @@ ms.lasthandoff: 03/29/2017
 * [Управление участниками группы](active-directory-groups-members-azure-portal.md)
 * [Управление членством в группе](active-directory-groups-membership-azure-portal.md)
 * [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
+

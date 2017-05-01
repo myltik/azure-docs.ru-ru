@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 1f274fdbcdb64425a296ac7388938c423745f477
-ms.openlocfilehash: c9c0756fd714438e4ae74deadf0e5f009164af13
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 3b7eca721181155cd2bcc619d517c9b5a6a89a0d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: c9c0756fd714438e4ae74deadf0e5f009164af13
 
 ## <a name="key-features-of-ra-grs"></a>Ключевые возможности RA-GRS
 
-Прежде чем говорить о том, как использовать хранилище RA-GRS, давайте поговорим о его характеристиках и поведении.
+Прежде чем говорить о том, как использовать хранилище RA-GRS, давайте поговорим о его свойствах и поведении.
 
 * Служба хранилища Azure сохраняет в дополнительном регионе доступную только для чтения копию данных из основного региона. Как отмечалось выше, расположение этого дополнительного региона определяет служба хранилища.
 
@@ -234,9 +235,4 @@ static function OnBeforeResponse(oSession: Session) {
 * Дополнительные сведения о геоизбыточном хранилище с доступом на чтение, включая еще один пример настройки LastSyncTime, доступны в разделе [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Варианты обеспечения избыточности службы хранилища Microsoft Azure и геоизбыточное хранилище с доступом на чтение).
 
 * Полный пример, демонстрирующий, как переключаться между основной и дополнительной конечными точками, см. в разделе [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs) (Примеры Azure. Использование шаблона автоматического выключения с хранилищем RA-GRS).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

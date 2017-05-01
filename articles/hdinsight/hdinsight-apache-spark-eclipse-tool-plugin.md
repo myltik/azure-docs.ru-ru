@@ -1,6 +1,6 @@
 ---
 title: "Создание приложений Scala для Spark с помощью набора средств Azure для Eclipse | Документация Майкрософт"
-description: "Узнайте, как создать автономное приложение Spark для работы в кластерах HDInsight Spark"
+description: "Использование средств HDInsight из набора средств Azure для Eclipse для разработки приложений Spark на языке Scala и их отправки в кластер HDInsight Spark непосредственно из интегрированной среды разработки Eclipse."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,15 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: b304f66f71142606391ecbb3f29b917c32ba876a
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6dde4684e4bbb8eb79c69b620c7f52e085cb40c6
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-spark-cluster"></a>Создание приложений Spark для кластера HDInsight Spark с помощью средств HDInsight в наборе средств Azure для Eclipse
-В этой статье приводятся пошаговые инструкции по разработке приложений Spark, написанных на языке Scala, и их отправке в кластер HDInsight Spark с помощью средств HDInsight в наборе средств Azure для Eclipse. Эти средства можно использовать различным образом:
+# <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-hdinsight-cluster"></a>Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для Eclipse
+
+Использование средств HDInsight из набора средств Azure для Eclipse для разработки приложений Spark на языке Scala и их отправки в кластер HDInsight Spark непосредственно из интегрированной среды разработки Eclipse. Подключаемый модуль средств HDInsight можно использовать по-разному.
 
 * Для разработки и отправки приложений Scala Spark в кластер HDInsight Spark.
 * Для доступа к ресурсам кластера Azure HDInsight Spark.
@@ -86,7 +87,7 @@ ms.lasthandoff: 01/24/2017
    * Введите имя проекта.
    * Убедитесь, что в поле **JRE** параметр **Use an execution environment JRE** (Использовать среду выполнения JRE) имеет значение **JavaSE 1.7**.
    * Убедитесь, что для пакета SDK для Spark задано расположение, в которое вы скачали этот пакет SDK. Ссылка для скачивания указана в разделе [Предварительные требования](#prerequisites) ранее в этой статье. Можно также скачать пакет SDK по ссылке в этом диалоговом окне, как показано на рисунке выше.     
-4. В следующем диалоговом окне щелкните вкладку **Libraries** (Библиотеки), а затем дважды щелкните **JRE System Library [JavaSE-1.7]** (Системная библиотека JRE [JavaSE&1;.7]).
+4. В следующем диалоговом окне щелкните вкладку **Libraries** (Библиотеки), а затем дважды щелкните **JRE System Library [JavaSE-1.7]** (Системная библиотека JRE [JavaSE 1.7]).
    
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
 5. В диалоговом окне **Изменить библиотеку** для параметра **Execution Environment** (Среда выполнения) установите значение **JavaSE-1.7(jdk1.7.0_79)**. Если этот параметр недоступен, то выполните следующие действия.
@@ -110,7 +111,7 @@ ms.lasthandoff: 01/24/2017
    7. Добавленная среда JRE должна появиться в списке значений параметра **Execution Environment**(Среда выполнения). Нажмите кнопку **Готово**
       
             ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-10.png)
-6. На вкладке **Libraries** (Библиотеки) дважды щелкните **Scala Library Container[2.11.8]** (Контейнер библиотек Scala [2.11.8]). В диалоговом окне **Edit Library** (Изменение библиотеки) выберите **Fixed Scala Library container:2.10.6** (Фиксированный контейнер библиотек Scala:&2;.10.6). 
+6. На вкладке **Libraries** (Библиотеки) дважды щелкните **Scala Library Container[2.11.8]** (Контейнер библиотек Scala [2.11.8]). В диалоговом окне **Edit Library** (Изменение библиотеки) выберите **Fixed Scala Library container:2.10.6** (Фиксированный контейнер библиотек Scala: 2.10.6). 
    
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-11.png)
    

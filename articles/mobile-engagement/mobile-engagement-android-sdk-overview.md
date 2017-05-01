@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 03/30/2017
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b89a13230439698854656f0bb5367f1ed35ce1c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1438b9479b3bbb8b7599d7d05b48e4cd6d981e0c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -52,18 +53,12 @@ ms.openlocfilehash: 2b89a13230439698854656f0bb5367f1ed35ce1c
 [Использование расширенного API добавления тегов службы Mobile Engagement в приложении Android](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Заметки о выпуске
-### <a name="423-08102016"></a>4.2.3 (10.08.2016)
-* Больше не блокируется сеть Wi-Fi.
-* Устранена взаимоблокировка при вызове getDeviceId перед инициализацией (ошибка появилась в версии 4.2.0).
+### <a name="424-03302017"></a>4.2.4 (30.03.2017)
+* Исправление цвета текста уведомления в приложениях на Android 7 для совпадения с цветом в старых версиях Android.
 
 Информацию о всех версиях см. в [полной версии заметок о выпуске](mobile-engagement-android-release-notes.md).
 
 ## <a name="upgrade-procedures"></a>Процедуры обновления
 Если вы уже интегрировали более старую версию нашего пакета SDK в приложение, ознакомьтесь с разделом [Процедуры обновления](mobile-engagement-android-upgrade-procedure.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 103b3ad93c6bb99f1781e9b3c485caa6042ae0a3
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -63,7 +65,7 @@ GO
 EXEC prc_nesting
 ```
 
-Обратите внимание, что хранилище данных SQL в настоящее время не поддерживает @@NESTLEVEL.. Необходимо самостоятельно следить за уровнем вложенности. Маловероятно, что вы дойдете до уровня вложенности 8, но если это случится, понадобится переделать код и преобразовать его в плоскую структуру, чтобы он не превышал это ограничение.
+Примечание. Хранилище данных SQL не поддерживает @@NESTLEVEL. Потребуется самостоятельно следить за уровнем вложенности. Маловероятно, что вы дойдете до уровня вложенности 8, но если это случится, понадобится переделать код и преобразовать его в плоскую структуру, чтобы он не превышал это ограничение.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 Хранилище данных SQL не разрешает использовать результирующий набор хранимой процедуры в инструкции INSERT. Однако существует другой подход, которым можно воспользоваться.
@@ -88,21 +90,16 @@ EXEC prc_nesting
 * инструкция Return.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][Проектные решения и методики программирования для хранилища данных SQL].
+Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
 [временных таблицах]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
-[Проектные решения и методики программирования для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[уровень вложенности]: https://msdn.microsoft.com/library/ms187371.aspx
+[nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

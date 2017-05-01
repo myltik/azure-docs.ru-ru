@@ -13,185 +13,222 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 04/04/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: c593bca61f8f1cc7c81e4744409f8b4a2c23df64
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9691b7ffb9c2bd9dd3f9900a29fb898652d8d7bf
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Работа с определяемыми пользователем функциями Java с использованием Hive в HDInsight
-Hive отлично подходит для работы с данными в HDInsight, но в некоторых случаях требуется язык программирования более общего назначения. Hive позволяет создавать определяемые пользовательские функции (UDF) с использованием различных языков программирования. Здесь вы узнаете, как использовать определяемую пользователем функцию Java из Hive.
+
+Узнайте, как создать определяемую пользователем функцию (UDF) на основе Java, которая работает с Hive.
 
 ## <a name="requirements"></a>Требования
 
 * Кластер HDInsight (под управлением Windows или Linux)
-  
-  > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
-  
-  Большинство шагов, описанных в этой статье, подходят для кластеров обоих типов. Тем не менее шаги по отправке скомпилированных определяемых пользователем функций в кластер и их выполнению относятся только к кластерам под управлением Linux. Здесь также приведены ссылки на дополнительные сведения, которые можно использовать при работе с кластерами под управлением Windows.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 7 или более поздней версии (или эквивалент, например OpenJDK).
+    > [!IMPORTANT]
+    > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Чтобы узнать больше, ознакомьтесь с [нерекомендуемыми версиями HDInsight 3.2 и 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+
+    Большинство шагов, описанных в этой статье, подходит для кластеров обоих типов. Тем не менее инструкции по отправке скомпилированных определяемых пользователем функций в кластер и их выполнению относятся только к кластерам под управлением Linux. Здесь также приведены ссылки на дополнительные сведения, которые можно использовать при работе с кластерами под управлением Windows.
+
+* Пакет [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 или более поздней версии (или эквивалентный пакет, например OpenJDK).
+
 * [Apache Maven](http://maven.apache.org/)
+
 * Текстовый редактор или Java IDE.
-  
-  > [!IMPORTANT]
-  > Если вы используете сервер HDInsight под управлением Linux, но создаете файлы Python на клиенте Windows, следует использовать редактор, который использует символ LF в качестве конца строки. Если вы не уверены, использует ли редактор символы LF или CRLF, см. раздел [Устранение неполадок](#troubleshooting), в котором описано, как удалять знаки CR с помощью служебных программ в кластере HDInsight.
+
+    > [!IMPORTANT]
+    > Если вы используете сервер HDInsight под управлением Linux, но создаете файлы Python на клиенте Windows, следует использовать редактор, который использует символ LF в качестве конца строки. Если вы не уверены, использует ли редактор символы LF или CRLF, см. раздел [Устранение неполадок](#troubleshooting), в котором описано, как удалять знаки CR с помощью служебных программ в кластере HDInsight.
 
 ## <a name="create-an-example-udf"></a>Создание примера определяемой пользователем функции
+
 1. Чтобы создать проект Maven, введите следующую команду в командной строке.
-   
-        mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-   
+
+    ```bash
+    mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
+
    > [!NOTE]
-   > При использовании PowerShell параметры необходимо заключить в кавычки. Пример: `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
-   > 
-   > 
-   
-    Будет создан каталог **exampleudf**, который будет содержать проект Maven.
-2. После создания проекта удалите каталог **exampleudf/src/test**, который создан как часть проекта. Этот каталог не нужен для нашего примера.
+   > При использовании PowerShell параметры необходимо заключить в кавычки. Например, `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
+
+    Эта команда создает каталог **exampleudf**, который содержит проект Maven.
+
+2. После создания проекта удалите каталог **exampleudf/src/test**, который был создан как часть проекта.
+
 3. Откройте файл **exampleudf/pom.xml** и замените текущую запись `<dependencies>` следующей:
-   
-        <dependencies>
-            <dependency>
-                <groupId>org.apache.hadoop</groupId>
-                <artifactId>hadoop-client</artifactId>
-                <version>2.7.1</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.hive</groupId>
-                <artifactId>hive-exec</artifactId>
-                <version>1.2.1</version>
-                <scope>provided</scope>
-            </dependency>
-        </dependencies>
-   
-    Эти записи содержат версию Hadoop и Hive, используемую в кластерах HDInsight 3.3 и 3.4. Сведения о версиях Hadoop и Hive, включенных в HDInsight, можно найти в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md) .
-   
+
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>2.7.3</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-exec</artifactId>
+            <version>1.2.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    ```
+
+    Эти записи содержат версию Hadoop и Hive, используемую в кластерах HDInsight 3.5. Сведения о версиях Hadoop и Hive, включенных в HDInsight, можно найти в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md) .
+
     В конце файла добавьте раздел `<build>` перед строкой `</project>`. Этот раздел должен содержать следующее:
-   
-        <build>
-            <plugins>
-                <!-- build for Java 1.7, even if you're on a later version -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.3</version>
-                    <configuration>
-                        <source>1.7</source>
-                        <target>1.7</target>
-                    </configuration>
-                </plugin>
-                <!-- build an uber jar -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-shade-plugin</artifactId>
-                    <version>2.3</version>
-                    <configuration>
-                        <!-- Keep us from getting a can't overwrite file error -->
-                        <transformers>
-                            <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
-                            </transformer>
-                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer">
-                            </transformer>
-                        </transformers>
-                        <!-- Keep us from getting a bad signature error -->
-                        <filters>
-                            <filter>
-                                <artifact>*:*</artifact>
-                                <excludes>
-                                    <exclude>META-INF/*.SF</exclude>
-                                    <exclude>META-INF/*.DSA</exclude>
-                                    <exclude>META-INF/*.RSA</exclude>
-                                </excludes>
-                            </filter>
-                        </filters>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>shade</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </build>
-   
+
+    ```xml
+    <build>
+        <plugins>
+            <!-- build for Java 1.8. This is required by HDInsight 3.5  -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!-- build an uber jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <!-- Keep us from getting a can't overwrite file error -->
+                    <transformers>
+                        <transformer
+                                implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                        </transformer>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer">
+                        </transformer>
+                    </transformers>
+                    <!-- Keep us from getting a bad signature error -->
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/*.SF</exclude>
+                                <exclude>META-INF/*.DSA</exclude>
+                                <exclude>META-INF/*.RSA</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    ```
+
     Эти записи определяют способ построения проекта. В частности, используемую в проекте версию Java и способ построения uberjar для развертывания в кластер.
-   
+
     После внесения изменений сохраните файл.
+
 4. Переименуйте файл **exampleudf/src/main/java/com/microsoft/examples/App.java** на **ExampleUDF.java**, а затем откройте его в редакторе.
+
 5. Замените содержимое файла **ExampleUDF.java** на следующее и сохраните файл.
-   
-        package com.microsoft.examples;
-   
-        import org.apache.hadoop.hive.ql.exec.Description;
-        import org.apache.hadoop.hive.ql.exec.UDF;
-        import org.apache.hadoop.io.*;
-   
-        // Description of the UDF
-        @Description(
-            name="ExampleUDF",
-            value="returns a lower case version of the input string.",
-            extended="select ExampleUDF(deviceplatform) from hivesampletable limit 10;"
-        )
-        public class ExampleUDF extends UDF {
-            // Accept a string input
-            public String evaluate(String input) {
-                // If the value is null, return a null
-                if(input == null)
-                    return null;
-                // Lowercase the input string and return it
-                return input.toLowerCase();
-            }
+
+    ```java
+    package com.microsoft.examples;
+
+    import org.apache.hadoop.hive.ql.exec.Description;
+    import org.apache.hadoop.hive.ql.exec.UDF;
+    import org.apache.hadoop.io.*;
+
+    // Description of the UDF
+    @Description(
+        name="ExampleUDF",
+        value="returns a lower case version of the input string.",
+        extended="select ExampleUDF(deviceplatform) from hivesampletable limit 10;"
+    )
+    public class ExampleUDF extends UDF {
+        // Accept a string input
+        public String evaluate(String input) {
+            // If the value is null, return a null
+            if(input == null)
+                return null;
+            // Lowercase the input string and return it
+            return input.toLowerCase();
         }
-   
+    }
+    ```
+
     Этот код реализует определяемую пользователем функцию, которая принимает строковое значение и возвращает строку в нижнем регистре.
 
 ## <a name="build-and-install-the-udf"></a>Создание и установка определяемой пользователем функции
+
 1. Выполните следующую команду, чтобы скомпилировать и упаковать определяемую пользователем функцию.
-   
-        mvn compile package
-   
-    В результате определяемая пользователем функция будет создана и упакована в файл **exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar**.
+
+    ```bash
+    mvn compile package
+    ```
+
+    Определяемая пользователем функция будет создана и упакована в файл **exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar**.
+
 2. Чтобы скопировать файл в кластер HDInsight, воспользуйтесь командой `scp` .
-   
-        scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
-   
-    Замените **myuser** именем учетной записи пользователя SSH для кластера. Замените **mycluster** именем кластера. Если для учетной записи SSH используется пароль, будет предложено его ввести. Если используется сертификат, может потребоваться использовать параметр `-i` , чтобы указать соответствующий файл закрытого ключа.
-3. Подключитесь к кластеру с помощью SSH. 
-   
-        ssh myuser@mycluster-ssh.azurehdinsight.net
-   
+
+    ```bash
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
+    ```
+
+    Замените **myuser** именем учетной записи пользователя SSH для кластера. Замените **mycluster** именем кластера. Если для защиты учетной записи SSH используется пароль, отобразится запрос на его ввод. Если используется сертификат, может потребоваться использовать параметр `-i` , чтобы указать соответствующий файл закрытого ключа.
+
+3. Подключитесь к кластеру с помощью SSH.
+
+    ```bash
+    ssh myuser@mycluster-ssh.azurehdinsight.net
+    ```
+
     Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 4. В сеансе SSH скопируйте JAR-файл в хранилище HDInsight.
-   
-        hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
+
+    ```bash
+    hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
+    ```
 
 ## <a name="use-the-udf-from-hive"></a>Использование определяемой пользователем функции из Hive
+
 1. В сеансе SSH используйте следующую команду, чтобы запустить клиент Beeline.
-   
-        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
-   
+
+    ```bash
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    ```
+
     В этой команде предполагается, что вы использовали для кластера учетную запись входа по умолчанию — **admin** .
+
 2. После появления командной строки `jdbc:hive2://localhost:10001/>` введите следующую команду, чтобы добавить определяемую пользователем функцию в Hive и предоставить ее как функцию.
-   
-        ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
-        CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
+
+    ```hiveql
+    ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
+    CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
+    ```
+
+    > [!NOTE]
+    > В этом примере предполагается, что служба хранилища Azure является хранилищем по умолчанию для кластера. Если же кластер использует Data Lake Store, измените значение `wasbs:///` на `adl:///`.
+
 3. Используйте определяемую пользователем функцию, чтобы преобразовать значения, полученные из таблицы, в строки нижнего регистра.
-   
-        SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
-   
-    В результате выполнения этой команды в таблице будет выбрана платформа устройства (Android, Windows, iOS и т. д.) и отображены строки, преобразованные в нижний регистр. Выходные данные будут выглядеть следующим образом:
-   
+
+    ```hiveql
+    SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
+    ```
+
+    В результате выполнения этого запроса из таблице будет выбрана платформа устройства (Android, Windows, iOS и т. д.) и отображены строки, преобразованные в нижний регистр. Выходные данные выглядят следующим образом.
+
         +----------+--+
         |   _c0    |
         +----------+--+
@@ -208,8 +245,8 @@ Hive отлично подходит для работы с данными в HD
         +----------+--+
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Другие способы работы с Hive см. в статье об [использовании Hive в HDInsight](hdinsight-use-hive.md).
 
 Дополнительные сведения об определяемых пользователем функциях Hive см. в разделе [Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Операторы Hive и определяемые пользователем функции) вики-сайта Hive на сайте apache.org.
-
 

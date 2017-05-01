@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
-ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -89,7 +89,19 @@ ms.lasthandoff: 01/05/2017
 | **Устройства**: общие принтеры, к которым подключен компьютер |X |X |Другие |
 | **Браузер Edge**: список для чтения |sync |sync |Внутренние |
 | **Браузер Edge**: избранное |sync |sync |Внутренние |
-| **Браузер Edge**: все остальные параметры Edge |X |X | |
+| **Браузер Edge**: наиболее популярные веб-сайты <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: введенные URL-адреса <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: настройки панели "Избранное" <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: показать кнопку "На главную страницу" <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: блокирование всплывающих окон <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: спрашивать при каждой загрузке <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: предлагать сохранять пароли <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: не отслеживать запросы <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: сохранять введенную информацию в формах <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: отображать варианты поиска и веб-сайты при вводе <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: настройки файлов cookie <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: позволять веб-сайтам сохранять лицензии для защищенных файлов мультимедиа на устройстве <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
+| **Браузер Edge**: настройки чтения с экрана <sup>[[1]](#footnote-1)</sup> |sync |sync |Внутренние |
 | **Высокая контрастность**: включение или отключение |sync |X |Специальные возможности |
 | **Высокая контрастность**: параметры темы |sync |X |Специальные возможности |
 | **Internet Explorer**: открытие вкладок (URL-адрес и заголовок) |sync |sync |Internet Explorer |
@@ -158,6 +170,9 @@ ms.lasthandoff: 01/05/2017
 | **Ввод**: воспроизведение звуков клавиш при вводе |sync |backup |язык |
 | **Ввод**: данные персонализации для сенсорной клавиатуры |sync |backup |язык |
 | **Wi-Fi**: профили Wi-Fi (только WPA) |sync |sync |Пароли |
+
+###### <a name="footnote-1"></a>Сноска 1
+Минимальная поддерживаемая версия операционной системы Windows для установки Обновления для дизайнеров (Build 15063). 
 
 ## <a name="related-topics"></a>Связанные разделы
 * [Обзор службы Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)

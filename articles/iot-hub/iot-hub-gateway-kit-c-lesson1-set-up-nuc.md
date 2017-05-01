@@ -16,20 +16,21 @@ ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: af2dde245fdef2984465f0c8447b558a2c770618
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4c6b70d793a7d734f5a29139e1f0b91f0d41e73a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Настройка Intel NUC в качестве шлюза Интернета вещей
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ## <a name="what-you-will-do"></a>Выполняемая задача
 
 - Настройте Intel NUC в качестве шлюза Интернета вещей.
 - Установите пакет SDK для шлюза Интернета вещей Azure на Intel NUC.
 - Запустите пример приложения hello_world на Intel NUC для проверки работоспособности шлюза.
-    
+
   > Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Новые знания
@@ -97,9 +98,12 @@ ms.lasthandoff: 03/30/2017
 1. Добавьте репозиторий облака Интернета вещей, выполнив в окне терминала следующие команды:
 
    ```bash
-   rpm --import http://iotdk.intel.com/misc/iot_pub.key
+   rpm --import https://iotdk.intel.com/misc/iot_pub2.key
    smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
+   smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
    ```
+
+   > Введите "y", получив запрос "Include this channel?" (Включить этот канал?).
 
    Команда `rpm` импортирует ключ RPM. Команда `smart channel` добавляет канал RPM в Smart Package Manager. Перед запуском команды `smart update` вы должны увидеть примерно такие результаты, как показано ниже.
 
@@ -119,14 +123,14 @@ ms.lasthandoff: 03/30/2017
 
    Здесь `packagegroup-cloud-azure` — это имя пакета. Команда `smart install` используется для установки пакета.
 
-
     > Если вы увидите ошибку "Открытый ключ недоступен", выполните следующую команду:
 
     ```bash
     smart config --set rpm-check-signatures=false
     smart install packagegroup-cloud-azure -y
     ```
-   
+    > Перезагрузите Intel NUC, если отображается сообщение об ошибке "no package provides util-linux-dev" (нет пакета, предоставляющего util-linux-dev)
+
    Когда установка пакета завершится, Intel NUC будет готово выполнять функции шлюза.
 
 ## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Запуск примера приложения hello_world из пакета SDK для шлюза Azure IoT
@@ -145,7 +149,7 @@ cd /usr/share/azureiotgatewaysdk/samples/hello_world/
 
 > Вы можете игнорировать любые ошибки "Недопустимый дескриптор аргумента (NULL)", которые появляются после нажатия клавиши ВВОД.
 
-Убедитесь, что шлюз успешно работал, открыв файл log.txt, который был создан в папке приложения hello_world: ![представление каталога с файлом log.txt](media/iot-hub-gateway-kit-lessons/lesson1/logtxtdir.png)
+Убедитесь, что шлюз успешно работал, открыв файл log.txt, который был создан в папке приложения hello_world. ![Представление каталога с файлом log.txt](media/iot-hub-gateway-kit-lessons/lesson1/logtxtdir.png)
 
 Откройте файл log.txt с помощью следующей команды:
 
@@ -163,5 +167,6 @@ vim log.txt
 Поздравляем! Итак, вы завершили настройку Intel NUC в качестве шлюза. Теперь можно переходить к следующему уроку, в котором вы настроите главный компьютер, настроите Центр Интернета вещей Azure и зарегистрируете логическое устройство Центра Интернета вещей Azure.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Подготовка главного компьютера и Центра Интернета вещей Azure](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+[Использование шлюза Интернета вещей для подключения устройства к Центру Интернета вещей Azure](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+
 

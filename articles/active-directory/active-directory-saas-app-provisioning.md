@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: asmalser
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 1bee9573e23e1c814626d19a3df1eb7ab12486ab
-ms.lasthandoff: 12/28/2016
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 39714145f84f5f9229dbf4bbe136103d4d102bed
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -87,23 +87,11 @@ Azure AD готовит пользователей для приложения S
 Дополнительные сведения о сопоставлении атрибутов между Azure AD и приложением SaaS см. в статье [Настройки сопоставления атрибутов](active-directory-saas-customizing-attribute-mappings.md).
 
 ## <a name="list-of-apps-that-support-automated-user-provisioning"></a>Список приложений, поддерживающих автоматическую подготовку пользователей
-Щелкните на приложении, чтобы открыть учебник по настройке автоматической подготовки для этого приложения.
-
-* [Box](http://go.microsoft.com/fwlink/?LinkId=286016)
-* [Citrix GoToMeeting](http://go.microsoft.com/fwlink/?LinkId=309580)
-* [Concur](http://go.microsoft.com/fwlink/?LinkId=309575)
-* [Docusign](http://go.microsoft.com/fwlink/?LinkId=403254)
-* [Dropbox for Business](http://go.microsoft.com/fwlink/?LinkId=309581)
-* [Google Apps](http://go.microsoft.com/fwlink/?LinkId=309577)
-* [Jive](http://go.microsoft.com/fwlink/?LinkId=309591)
-* [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
-* [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
-* [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
-* [Workday](http://go.microsoft.com/fwlink/?LinkId=690250) (входящая подготовка)
+Все приложения из раздела "Избранные" в коллекции приложений Azure AD поддерживают автоматическую подготовку пользователей. [Список избранных приложений можно просмотреть здесь.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 
 Чтобы приложение поддерживало автоматическую подготовку пользователей, в первую очередь, оно должно предоставить необходимые конечные точки, которые позволят внешним программам автоматизировать создание, обслуживание и удаление пользователей. Таким образом не все приложения SaaS совместимы с этой функцией. Для приложений, поддерживающих эту функцию, команда инженеров Azure AD сможет собрать соединитель подготовки для этих приложений. Приоритет для этой работы устанавливается в соответствии с требованиями текущих и потенциальных заказчиков.
 
-Для того чтобы связаться с командой инженеров Azure AD для обеспечения подготовки в других приложениях, отправьте сообщение через [форум отзывов Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+Для того чтобы связаться с командой инженеров Azure AD для обеспечения подготовки в других приложениях, отправьте сообщение через [форум отзывов Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/category/172035-user-provisioning).
 
 ## <a name="related-articles"></a>Связанные статьи
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)

@@ -1,21 +1,22 @@
 ---
-title: "Выполнение заданий в Application Insights | Документация Майкрософт"
+title: "Выполнение заданий в Azure Application Insights | Документация Майкрософт"
 description: "Вопросы и ответы об Application Insights"
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2016
+ms.date: 04/04/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 9e54ee2d67a8dfb5b480db01219e128607e26f51
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: d7795a494fbe8d3a850d7d8805cf059a86965a64
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -206,8 +207,21 @@ ms.openlocfilehash: 9e54ee2d67a8dfb5b480db01219e128607e26f51
 * Сначала [добавьте новую диаграмму](app-insights-metrics-explorer.md) , чтобы посмотреть, находится ли счетчик в базовом наборе предложения.
 * Если его нет, [добавьте счетчик к набору, собранному модулем счетчика производительности](app-insights-performance-counters.md).
 
+## <a name="version-and-release-tracking"></a>Отслеживание версии и выпуска
+Для отслеживания версии приложения убедитесь, что во время выполнения процесса Microsoft Build Engine создается `buildinfo.config`. Добавьте в CSPROJ-файл:  
 
+```XML
 
-<!--HONumber=Feb17_HO1-->
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup>
+```
 
+При наличии данных сборки веб-модуль Application Insights автоматически добавляет **версию приложения** как свойство для каждого элемента телеметрии. Это позволяет применить фильтр по версии при [диагностическом поиске](app-insights-diagnostic-search.md) или [изучении метрик](app-insights-metrics-explorer.md).
 
+Обратите внимание, что номер версии сборки создается только Microsoft Build Engine, а не в процессе сборки в Visual Studio.
+
+### <a name="release-annotations"></a>Примечания к выпуску
+Если используется Visual Studio Team Services, можно настроить [добавление маркера заметки](app-insights-annotations.md) к диаграммам при выпуске новой версии. На следующем рисунке показано, как появляется этот маркер.
+
+![Снимок экрана, где показана диаграмма с примером заметки о новом выпуске](./media/app-insights-asp-net/release-annotation.png)

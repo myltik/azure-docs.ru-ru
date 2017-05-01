@@ -3,7 +3,7 @@ title: "Справочник по API аудита Azure Active Directory | До
 description: "Как начать работу с API аудита Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: markusvi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 04/05/2017
 ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
-ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 87c7990834eaf2aa6c4aff0c341150ba9bd9eed4
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -75,6 +76,8 @@ ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
 Чтобы указать тип требуемых записей, можно создать оператор фильтра, который может содержать одно или несколько из следующих полей фильтра:
 
 * [activityDate](#activitydate) определяет дату или диапазон дат;
+* [category](#category) определяет категорию, по которой необходимо отфильтровать;
+* [activityStatus](#activitystatus) определяет состояние действия;
 * [activityType](#activitytype) определяет тип действия;
 * [activity](#activity) определяет действие в виде строки;  
 * [actor/name](#actorname) определяет субъект в виде имени субъекта;
@@ -97,6 +100,45 @@ ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
 Время и дата указываются в формате UTC.
 
 - - -
+### <a name="category"></a>category
+
+**Поддерживаемые значения**:
+
+| Категория                         | Значение     |
+| :--                              | ---       |
+| "Core Directory" (Основной каталог);                   | Каталог |
+| "Self-service Password Management" (Самостоятельное управление паролями); | SSPR      |
+| "Self-service Group Management" (Самостоятельное управление группами);    | SSGM      |
+| "Account Provisioning" (Подготовка учетных записей).             | Sync      |
+| "Automated Password Rollover" (Автоматическая смена пароля)      | "Automated Password Rollover" (Автоматическая смена пароля) |
+| Защита идентификации              | IdentityProtection |
+| Invited Users (Приглашаемые пользователи)                    | Invited Users (Приглашаемые пользователи) |
+| MIM Service (Служба MIM)                      | MIM Service (Служба MIM) |
+
+
+
+**Поддерживаемые операторы**: eq
+
+**Пример**:
+
+    $filter=category eq 'SSPR'
+- - -
+### <a name="activitystatus"></a>activityStatus
+
+**Поддерживаемые значения**:
+
+| Состояние действия | Значение |
+| :--             | ---   |
+| Успешно         | 0     |
+| Сбой         | - 1   |
+
+**Поддерживаемые операторы**: eq
+
+**Пример**:
+
+    $filter=activityStatus eq -1    
+
+---
 ### <a name="activitytype"></a>activityType
 **Поддерживаемые операторы**: eq
 
@@ -139,6 +181,7 @@ ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
 **Пример**:
 
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
+
 
 - - -
 ### <a name="targetname"></a>target/name
@@ -190,10 +233,5 @@ ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
 ## <a name="next-steps"></a>Дальнейшие действия
 * Хотите увидеть примеры отфильтрованных системных операций? См. [примеры API аудита Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Хотите узнать больше об API отчетов Azure AD? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

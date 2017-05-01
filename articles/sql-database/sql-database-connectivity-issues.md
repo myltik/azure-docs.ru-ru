@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: a6489fd5ff5e60bc3a1c06485d330556250c21cd
-ms.openlocfilehash: eddbdda847d7d0cc12f3e1c6128ce76d15f6f39f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 608cbc0fd1cc1d73d28056909ed06618457bd9c0
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -167,7 +167,7 @@ ms.lasthandoff: 03/02/2017
 
 Если не задать IP-адрес, произойдет сбой программы и отобразится сообщение об ошибке, содержащее необходимый IP-адрес.
 
-[!INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
+[!INCLUDE [sql-database-include-ip-address-22-portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 Подробнее: [Настройка правила брандмауэра уровня сервера базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md).
 
@@ -186,7 +186,7 @@ ms.lasthandoff: 03/02/2017
 6. &gt; "Действия".
 7. &gt; "Создать правило".
 
-Если клиентская программа установлена на виртуальной машине Azure, см. статью<br/>[Порты, кроме 1433, для ADO.NET 4.5 и базы данных SQL версии 12.](sql-database-develop-direct-route-ports-adonet-v12.md)
+Если клиентская программа установлена на виртуальной машине Azure, см. статью<br/>[Порты для ADO.NET 4.5, отличные от порта 1433](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 Основные сведения о конфигурации портов и IP-адресов собраны в статье [Настройка брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md)
 
@@ -335,7 +335,7 @@ Enterprise Library 6 (EntLib60) — это платформа классов .
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>Классы EntLib60 для временных ошибок и повторов
 Следующие классы EntLib60 особенно полезны для логики повторных ошибок. Все они входят в пространство имен **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** или во вложенные пространства.
 
-*В пространстве имен **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**или во вложенные пространства.*
+*В пространстве имен **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
 
 * **RetryPolicy** ;
   

@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 04/06/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 79004e91c9e22b085b04e446999d4efe05426436
-ms.openlocfilehash: 512c4dc5f77d5f730720909628364c5c9d8b3174
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 6d878b00094f573adc440d2384c426506fea0a40
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Управление удостоверениями устройств Центра Интернета вещей в пакетном режиме
+
 В каждом Центре Интернета вещей есть реестр удостоверений, который можно использовать для создания в службе уникальных ресурсов устройства (например, очередь с сообщениями, отправленными из облака в устройство). Реестр удостоверений обеспечивает доступ к конечным точкам, обращенным к устройствам. В этой статье описывается массовый импорт удостоверений устройств в реестр удостоверений и массовый экспорт удостоверений из реестра.
 
 Операции импорта и экспорта выполняются в контексте *заданий*, позволяющих выполнять операции массового обслуживания в Центре Интернета вещей.
@@ -29,16 +30,17 @@ ms.lasthandoff: 02/23/2017
 Класс **RegistryManager** содержит методы **ExportDevicesAsync** и **ImportDevicesAsync**, которые используют платформу **заданий**. С помощью этих методов можно экспортировать, импортировать и синхронизировать весь реестр удостоверений Центра Интернета вещей.
 
 ## <a name="what-are-jobs"></a>Что такое задания?
+
 Операции реестра удостоверений используют систему **задания**, когда операция
 
-* характеризуется длительным временем выполнения по сравнению со стандартными операциями среды выполнения или
+* характеризуется длительным временем выполнения по сравнению со стандартными операциями среды выполнения или же
 * возвращает пользователю большой объем данных.
 
 В этих случаях вместо одного вызова API-интерфейса, ожидающего или блокирующего результат операции, операция асинхронно создает **задание** для этого Центра Интернета вещей и сразу же возвращает объект **JobProperties**.
 
 В следующем фрагменте кода C# показано, как создать задание экспорта.
 
-```
+```csharp
 // Call an export job on the IoT Hub to retrieve all devices
 JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
@@ -47,11 +49,11 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > Чтобы использовать класс **RegistryManager** в коде C#, добавьте в проект пакет NuGet **Microsoft.Azure.Devices**. Класс **RegistryManager** находится в пространстве имен **Microsoft.Azure.Devices**.
 
 
-После этого можно использовать класс **RegistryManager** для запросов состояния **задания** с помощью возвращенных метаданных **JobProperties**.
+Вы можете использовать класс **RegistryManager** для запросов состояния **задания** с помощью возвращенных метаданных **JobProperties**.
 
 В следующем фрагменте кода C# показано, как каждые пять секунд выполнять опрос, чтобы увидеть, завершено ли выполнение задания.
 
-```
+```csharp
 // Wait until job is finished
 while(true)
 {
@@ -69,22 +71,24 @@ while(true)
 ```
 
 ## <a name="export-devices"></a>Экспорт устройств
-Используйте метод **ExportDevicesAsync** для экспорта всего реестра удостоверений Центра Интернета вещей в контейнер больших двоичных объектов [службы хранилища Azure](https://azure.microsoft.com/documentation/services/storage/) с помощью [подписанного URL-адреса](https://msdn.microsoft.com/library/ee395415.aspx).
+
+Используйте метод **ExportDevicesAsync** для экспорта всего реестра удостоверений Центра Интернета вещей в контейнер больших двоичных объектов [службы хранилища Azure](../storage/index.md) с помощью [подписанного URL-адреса](../storage/storage-security-guide.md#data-plane-security).
 
 Этот метод позволяет создавать надежные резервные копии данных устройства в контейнере BLOB-объектов, которым вы управляете.
 
 Для использования метода **ExportDevicesAsync** требуется два параметра.
 
 * *Строковый*, содержащий URI контейнера больших двоичных объектов. Этот URI должен содержать маркер SAS, который предоставляет доступ на запись в контейнер. Задание создает в этом контейнере блочный BLOB-объект для хранения сериализованных данных экспорта устройств. Маркер SAS должен включать следующие разрешения.
-  
-   ```
+
+   ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
+
 * *Логический*, указывающий, следует ли исключить из данных экспорта ключи проверки подлинности. Если задано значение **false**, ключи аутентификации включены в выходные данные экспорта. В противном случае экспортируются ключи со значением **null**.
 
 В следующем фрагменте кода C# показано, как запустить задание экспорта, содержащее ключи проверки подлинности устройства в данных экспорта, а затем выполнить запрос данных о завершении:
 
-```
+```csharp
 // Call an export job on the IoT Hub to retrieve all devices
 JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 
@@ -108,7 +112,7 @@ while(true)
 
 В следующем примере показаны выходные данные.
 
-```
+```json
 {"id":"Device1","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 {"id":"Device2","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 {"id":"Device3","eTag":"MA==","status":"disabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
@@ -118,7 +122,7 @@ while(true)
 
 Если вам нужен доступ к этим данным в коде, их можно легко десериализовать с помощью класса **ExportImportDevice** . В следующем фрагменте кода C# показано, как считать сведения об устройстве, которые ранее были экспортированы в блочный BLOB-объект.
 
-```
+```csharp
 var exportedDevices = new List<ExportImportDevice>();
 
 using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), RequestOptions, null), Encoding.UTF8))
@@ -134,44 +138,40 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 > [!NOTE]
 > Для получения списка устройств можно использовать метод **GetDevicesAsync** класса **RegistryManager**. Однако такой подход имеет жесткое ограничение в 1000 возвращаемых объектов устройств. Метод **GetDevicesAsync** предназначен для использования в сценариях разработки для упрощения отладки. Он не рекомендуется для производственных рабочих нагрузок.
-> 
-> 
 
 ## <a name="import-devices"></a>Импорт устройств
+
 Метод **ImportDevicesAsync** в классе **RegistryManager** позволяет выполнять операции массового импорта и синхронизации в реестре удостоверений Центра Интернета вещей. Как и метод **ExportDevicesAsync**, метод **ImportDevicesAsync** использует платформу **заданий**.
 
 Использовать метод **ImportDevicesAsync** следует с осторожностью, так как наряду с подготовкой новых устройств в реестре удостоверений он также может обновлять и удалять существующие устройства.
 
 > [!WARNING]
 > Операцию импорта отменить нельзя. Прежде чем вносить массовые изменения в реестр удостоверений, всегда необходимо создавать резервную копию существующих данных в другом контейнере больших двоичных объектов с помощью метода **ExportDevicesAsync**.
-> 
-> 
 
 Метод **ImportDevicesAsync** принимает два следующих параметра.
 
-* *Строка*, содержащая URI контейнера больших двоичных объектов [службы хранилища Azure](https://azure.microsoft.com/documentation/services/storage/), в качестве *входных данных* для задания. Этот URI должен содержать маркер SAS, который предоставляет доступ на чтение контейнера. Этот контейнер должен включать большой двоичный объект с именем **devices.txt**, содержащий сериализованные данные устройств для импорта в реестр удостоверений. Импортируемые данные должны включать в себя сведения об устройствах в том же формате JSON, который задание **ExportImportDevice** использует при создании большого двоичного объекта **devices.txt**. Маркер SAS должен включать следующие разрешения.
-  
-   ```
+* *Строка*, содержащая URI контейнера больших двоичных объектов [службы хранилища Azure](../storage/index.md), в качестве *входных данных* для задания. Этот URI должен содержать маркер SAS, который предоставляет доступ на чтение контейнера. Этот контейнер должен включать большой двоичный объект с именем **devices.txt**, содержащий сериализованные данные устройств для импорта в реестр удостоверений. Импортируемые данные должны включать в себя сведения об устройствах в том же формате JSON, который задание **ExportImportDevice** использует при создании большого двоичного объекта **devices.txt**. Маркер SAS должен включать следующие разрешения.
+
+   ```csharp
    SharedAccessBlobPermissions.Read
    ```
 * *Строка*, содержащая URI контейнера больших двоичных объектов [службы хранилища Azure](https://azure.microsoft.com/documentation/services/storage/), в качестве *выходных данных* задания. Задание создает в этом контейнере блочный BLOB-объект для хранения сведений об ошибках из завершенного **задания**импорта. Маркер SAS должен включать следующие разрешения.
-  
-   ```
+
+   ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
 
 > [!NOTE]
 > Два параметра могут указывать на один и тот же контейнер BLOB-объектов. Отдельные параметры предоставляют больший уровень контроля над выходными данными, так как для выходного контейнера требуются дополнительные разрешения.
-> 
-> 
 
 В следующем фрагменте кода C# показано, как инициировать задание импорта.
 
-```
+```csharp
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
 ## <a name="import-behavior"></a>Поведение при импорте
+
 Метод **ImportDevicesAsync** можно использовать для выполнения следующих массовых операций в реестре удостоверений.
 
 * Массовая регистрация новых устройств
@@ -196,17 +196,16 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 
 > [!NOTE]
 > Если данные сериализации явно не определяют флаг **importMode** для устройства, то по умолчанию используется **createOrUpdate** во время операции импорта.
-> 
-> 
 
 ## <a name="import-devices-example--bulk-device-provisioning"></a>Пример импорта устройств — массовая подготовка устройств
+
 В следующем примере кода C# показано, как создать несколько удостоверений устройств, которые:
 
 * включают в себя ключи проверки подлинности;
 * записывают сведения об этом устройстве в блочный BLOB-объект;
 * импортируют устройства в реестр удостоверений.
 
-```
+```csharp
 // Provision 1,000 more devices
 var serializedDevices = new List<string>();
 
@@ -268,9 +267,10 @@ while(true)
 ```
 
 ## <a name="import-devices-example--bulk-deletion"></a>Пример импорта устройств — массовое удаление
+
 В следующем примере кода показано, как удалить устройства, добавленные с помощью предыдущего примера кода.
 
-```
+```csharp
 // Step 1: Update each device's ImportMode to be Delete
 sb = new StringBuilder();
 serializedDevices.ForEach(serializedDevice =>
@@ -317,10 +317,11 @@ while(true)
 
 ```
 
-## <a name="getting-the-container-sas-uri"></a>Получение URI SAS контейнера
+## <a name="get-the-container-sas-uri"></a>Получение URI SAS контейнера
+
 В следующем примере кода показано, как создать [URI SAS](../storage/storage-dotnet-shared-access-signature-part-2.md) с разрешениями на чтение, запись и удаление контейнера больших двоичных объектов.
 
-```
+```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
 {
   // Set the expiry time and permissions for the container.
@@ -345,6 +346,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 В этой статье вы узнали, как выполнять массовые операции с реестром удостоверений в Центре Интернета вещей. Дополнительные сведения об управлении центром IoT в Azure см. по следующим ссылкам:
 
 * [Метрики Центра Интернета вещей][lnk-metrics]

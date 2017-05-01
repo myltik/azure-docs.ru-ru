@@ -15,9 +15,9 @@ ms.workload: required
 ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: ac56273cf85aff550febecf0d75ec87d5c6dbbca
-ms.openlocfilehash: 26547135548dde96e9da601f2e0ccfe96c626880
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 198caeea693fbc48b6e0eb1c9c8ee559e0553261
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -238,27 +238,17 @@ ms.lasthandoff: 02/23/2017
 Этот же скрипт можно использовать с разными планами восстановления, сохраняя в разных переменных значения параметров, применимых для соответствующих планов восстановления.
 
 ## <a name="sample-scripts"></a>Примеры сценариев
-Коллекцию скриптов, которые можно непосредственно импортировать в учетную запись службы автоматизации, можно найти в [репозитории скриптов OMS Кристиана Ниса (Kristian Nese)](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation).
+Разверните примеры сценариев в учетной записи службы автоматизации с помощью кнопки "Развертывание в Azure" внизу.
 
-Доступный в нем скрипт представляет шаблон Azure Resource Manager, который развернет все приведенные ниже сценарии.
+[![Развертывание в Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-* Группа безопасности сети (NSG)
+Можно также просмотреть краткое видео о восстановлении двухуровневого приложения WordPress в Azure.
 
-Модуль Runbook NSG назначит общедоступные IP-адреса для каждой виртуальной машины в плане восстановления и подключит их виртуальные сетевые адаптеры к группе безопасности сети, которая разрешает связь по умолчанию.
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
-* PublicIP
 
-Модуль Runbook PublicIP назначает общедоступные IP-адреса для каждой виртуальной машины в плане восстановления. Доступ к виртуальным машинам и приложениям будет зависеть от параметров брандмауэра в каждом госте.
 
-* CustomScript
-
-Модуль Runbook CustomScript назначает общедоступные IP-адреса для каждой виртуальной машины в плане восстановления и устанавливает расширение пользовательских скриптов, которое извлечет скрипт, указанный при развертывании шаблона.
-
-* NSGwithCustomScript
-
-Модуль Runbook NSGwithCustomScript назначает общедоступные IP-адреса для каждой виртуальной машины в плане восстановления, устанавливает пользовательский скрипт с помощью расширения и подключает виртуальные сетевые адаптеры к группе безопасности сети, которая разрешает входящие и исходящие подключения по умолчанию для удаленного доступа.
-
-## <a name="additional-resources"></a>Дополнительные ресурсы
+## <a name="additional-resources"></a>дополнительные ресурсы.
 [Учетная запись запуска от имени службы автоматизации Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 [Обзор службы автоматизации Azure](http://msdn.microsoft.com/library/azure/dn643629.aspx "Обзор службы автоматизации Azure")

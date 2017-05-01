@@ -3,7 +3,7 @@ title: "Сбор журналов с помощью системы диагно�
 description: "В этой статье описывается, как настроить систему диагностики Azure для сбора журналов из кластера Service Fabric, запущенного в Azure."
 services: service-fabric
 documentationcenter: .net
-author: ms-toddabel
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 9f7e1fa5-6543-4efd-b53f-39510f18df56
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/17/2017
-ms.author: toddabel
+ms.author: dekapur
 translationtype: Human Translation
-ms.sourcegitcommit: 1b4599848f44a7200f13bd6ddf4e82e96a75e069
-ms.openlocfilehash: 41343990d3379aabd129af437ff2edbbd2134dcc
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d733c0643479f2f73ffeae716daecf06c75598a8
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: 41343990d3379aabd129af437ff2edbbd2134dcc
 * [Диспетчер ресурсов Azure](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Клиент Azure Resource Manager](https://github.com/projectkudu/ARMClient)
-* [Шаблон Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Шаблон Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Источники журналов, которые вы можете собирать
 * **Журналы Service Fabric**. Генерируются из платформы в стандартные каналы трассировки событий Windows (ETW) и EventSource. Журналы могут принадлежать к одному из следующих типов.
@@ -193,7 +194,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
 
 После изменения файла template.json (как описано выше) повторно опубликуйте шаблон Resource Manager. Если шаблон экспортирован, для повторной публикации шаблона выполните файл deploy.ps1. После развертывания убедитесь, что параметр **ProvisioningState** имеет значение **Succeeded**.
 
-## <a name="update-diagnostics-to-collection-health-and-load-events"></a>Обновления системы диагностики для сбора событий работоспособности и нагрузки
+## <a name="update-diagnostics-to-collect-health-and-load-events"></a>Обновления системы диагностики для сбора событий работоспособности и нагрузки
 
 Начиная с выпуска Service Fabric 5.4 для сбора доступны события метрик работоспособности и нагрузки. Это события, создаваемые системой или кодом с помощью интерфейсов API для создания отчетов о работоспособности или нагрузке, в том числе [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) или [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Это обеспечивает статистическую обработку и просмотр состояния работоспособности системы с течением временем, а также оповещение на основе событий работоспособности или нагрузки. Чтобы просмотреть эти события в окне просмотра событий диагностики Visual Studio, добавьте Microsoft-ServiceFabric:4:0x4000000000000008 в список поставщиков трассировки событий Windows.
 
@@ -229,18 +230,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $
         }
 ```
 
-Чтобы собрать данные счетчиков производительности и журналов событий, измените шаблон Resource Manager, используя примеры в статье [Создание виртуальной машины Windows с мониторингом и диагностикой с использованием шаблона Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Затем опубликуйте шаблон Resource Manager.
+Чтобы собрать данные счетчиков производительности и журналов событий, измените шаблон Resource Manager, используя примеры в статье [Создание виртуальной машины Windows с мониторингом и диагностикой с использованием шаблона Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Затем опубликуйте шаблон Resource Manager.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы лучше понять, на какие события необходимо обращать внимание во время устранения неполадок, ознакомьтесь с диагностическими событиями, которые создаются для [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) и [Reliable Services](service-fabric-reliable-services-diagnostics.md).
 
 ## <a name="related-articles"></a>Связанные статьи
-* [Узнайте, как собирать данные счетчиков производительности или журналы, используя расширения системы диагностики.](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Узнайте, как собирать данные счетчиков производительности или журналы, используя расширения системы диагностики.](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Service Fabric Solution in Log Analytics](../log-analytics/log-analytics-service-fabric.md) (Решение Service Fabric в Log Analytics)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

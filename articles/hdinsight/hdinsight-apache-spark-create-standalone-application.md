@@ -1,6 +1,6 @@
 ---
-title: "Создание автономных приложений Scala для работы в кластерах Azure Spark | Документация Майкрософт"
-description: "Узнайте, как создать автономное приложение Spark для работы в кластерах HDInsight Spark"
+title: "Создание приложения Scala в Maven для работы в кластерах Azure Spark | Документация Майкрософт"
+description: "Узнайте, как создать изолированное приложение Spark с использованием Maven для работы в кластерах HDInsight Spark."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 153b1ea4ec3d326fb533817cdb74d3489135f7d9
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c435e8ec21b568afcadaa1af95964753d36d0ccb
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="create-a-standalone-scala-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Создание автономного приложения Scala для работы в кластере Apache Spark в HDInsight
+# <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Создание приложения Scala в Maven для работы в кластере Apache Spark в HDInsight
 
-В этой статье приводится пошаговое руководство по разработке автономного приложения Spark, написанного на языке Scala, с использованием Maven с IntelliJ IDEA. В качестве системы сборки в этой статье используется Apache Maven и изначально применяется существующий архетип Maven для Scala, который обеспечивает IntelliJ IDEA.  В общих чертах создание приложения Scala в IntelliJ IDEA предусматривает следующие шаги:
+Узнайте, как создать приложение Spark на языке Scala в Maven с помощью IntelliJ IDEA. В качестве системы сборки в этой статье используется Apache Maven и изначально применяется существующий архетип Maven для Scala, который обеспечивает IntelliJ IDEA.  Создание приложения Scala в IntelliJ IDEA включает в себя следующие этапы:
 
 * использование Maven в качестве системы сборки;
 * обновление файла объектной модели проектов для разрешения зависимостей модуля Spark;
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/24/2017
 > 
 > 
 
-**Предварительные требования**
+## <a name="prerequisites"></a>Предварительные требования
 
 * Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).

@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -55,7 +55,7 @@ ms.lasthandoff: 03/09/2017
 ## <a name="prerequisites"></a>Предварительные требования
 Для использования шаблонов пакетной службы вам потребуется:
 
-* Компьютер с установленным экземпляром Visual Studio 2015 или более поздней версии.
+* Компьютер, на который установлено программное обеспечение Visual Studio 2015. В настоящее время поддерживаются только шаблоны пакетной службы для Visual Studio 2015.
 * Шаблоны пакетной службы, доступные в [коллекции Visual Studio][vs_gallery] в качестве расширений Visual Studio. Получить шаблоны можно двумя способами:
   
   * Установите шаблоны, используя диалоговое окно **Расширения и обновления** в Visual Studio (дополнительные сведения см. в статье [Поиск и использование расширений Visual Studio][vs_find_use_ext]). С помощью диалогового окна **Расширения и обновления** найдите и скачайте следующие два модуля:

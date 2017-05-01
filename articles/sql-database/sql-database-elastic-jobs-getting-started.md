@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
-ms.openlocfilehash: 1765e009438684373c89dc8364efd20dd1b7c84b
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 12f84f7ee418955f34316686c836a8697be94ea2
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -35,8 +36,8 @@ ms.openlocfilehash: 1765e009438684373c89dc8364efd20dd1b7c84b
 
    ![окно командной строки.](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
-2. В окне команд введите "1" и нажмите клавишу **ВВОД**. Это позволит создать диспетчер сопоставления сегментов и добавить два сегмента на сервер. Затем введите&3; и нажмите клавишу **ВВОД**. Повторите это действие четыре раза. Это позволит вставить строки демонстрационных данных в свои сегменты.
-3. На [портале Azure](https://portal.azure.com) на сервере v12 должны появиться три новые базы данных.
+2. В окне команд введите "1" и нажмите клавишу **ВВОД**. Это позволит создать диспетчер сопоставления сегментов и добавить два сегмента на сервер. Затем введите 3 и нажмите клавишу **ВВОД**. Повторите это действие четыре раза. Это позволит вставить строки демонстрационных данных в свои сегменты.
+3. На [портале Azure](https://portal.azure.com) должны появиться три новые базы данных.
 
    ![Подтверждение Visual Studio](./media/sql-database-elastic-query-getting-started/portal.png)
 
@@ -478,9 +479,4 @@ ms.openlocfilehash: 1765e009438684373c89dc8364efd20dd1b7c84b
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

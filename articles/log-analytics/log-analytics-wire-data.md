@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b1db5cd0149374842b0201cd6b820436f3822325
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
 Данные передачи — это объединенные сетевые данные и данные производительности, передаваемые с компьютеров с установленными агентами OMS, включая агенты Operations Manager и агенты, подключенные к Windows. Сетевые данные вместе с данными журнала помогают коррелировать данные. Агенты OMS, установленные на компьютерах в ИТ-инфраструктуре, отслеживают сетевые данные, отправляемые на эти компьютеры и с них, для сетевых уровней 2–3 в [модели OSI](https://en.wikipedia.org/wiki/OSI_model) , включая различные используемые протоколы и порты.
 
 > [!NOTE]
-> Решение "Данные передачи" пока нельзя добавлять в рабочие области. Клиенты, у которых решение "Данные передачи" уже включено, могут продолжать его использовать.
+> Решение Wire Data 1.0 пока недоступно для добавления в рабочие области. Клиенты, у которых это решение уже включено, могут продолжать его использовать. Однако мы рекомендуем новым клиентам вместо этого решения использовать решение [Wire Data 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WireData2OMS?tab=Overview).
 >
 >
 
@@ -106,9 +107,4 @@ ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
 ## <a name="next-steps"></a>Дальнейшие действия
 * [поиск в журналах](log-analytics-log-searches.md) , чтобы просмотреть подробные записи поиска данных передачи.
 * Прочитайте запись в блоге Дэна [Using Wire Data in Operations Management Suite Log Search](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) (Использование данных передачи в поиске по журналам Operations Management Suite), которая включает дополнительные сведения о частоте сбора данных и способах изменения свойств сбора для агентов Operations Manager.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
