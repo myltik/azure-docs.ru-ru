@@ -23,8 +23,3 @@
      
        ![Мастер добавления ролей и компонентов 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

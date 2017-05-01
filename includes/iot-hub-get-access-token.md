@@ -36,7 +36,3 @@
     ```
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-
-<!--HONumber=Nov16_HO3-->
-
-

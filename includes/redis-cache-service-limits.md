@@ -12,8 +12,3 @@
 
 Поскольку настройка и управление экземплярами кэша Redis для Azure осуществляется корпорацией Майкрософт, кэш Redis для Azure поддерживает не все команды Redis. Дополнительные сведения см. в разделе [Команды Redis, не поддерживаемые в кэше Redis для Azure]((redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

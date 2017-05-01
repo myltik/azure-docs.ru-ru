@@ -27,8 +27,3 @@
    
     ![Снимок экрана колонки "Перемещение ресурсов".](./media/virtual-machines-common-move-vm/move-rg-list.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

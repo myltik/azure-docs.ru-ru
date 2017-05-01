@@ -55,8 +55,3 @@
 * Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt502549.aspx) для таблиц маршрутов.
 * Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt502539.aspx) для определяемых пользователем маршрутов (UDR).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

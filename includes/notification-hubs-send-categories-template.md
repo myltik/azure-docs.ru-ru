@@ -58,11 +58,6 @@
 <!-- URLs. -->
 [началу работы с Центрами уведомлений]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [интерфейса REST Центров уведомлений]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx (REST API Центров уведомлений)
-[Добавление push-уведомлений в приложение Windows]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
+[добавлению push-уведомлений в мобильные приложения]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [использованию Центров уведомлений из Java и PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [пакета NuGet Microsoft.Azure.Notification Hubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/ (Центры уведомлений Microsoft Azure 1.0.7)
-
-
-<!--HONumber=Nov16_HO3-->
-
-

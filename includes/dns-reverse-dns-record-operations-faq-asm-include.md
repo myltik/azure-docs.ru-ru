@@ -32,8 +32,3 @@
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Можно ли отправлять электронные сообщения во внешние домены из служб вычислений Azure?
 
 Нет. [Службы вычислений Azure не поддерживают отправку электронных сообщений на внешние домены](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -26,8 +26,3 @@
    
     ![Этап создания подключения к хранилищу BLOB-объектов Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
