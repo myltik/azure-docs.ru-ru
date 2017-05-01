@@ -1,6 +1,6 @@
 ---
 title: "Проверка подлинности AAD: доступ, проверка подлинности, брандмауэры базы данных SQL Azure | Документация Майкрософт"
-description: "Из этого руководства вы узнаете, как предоставлять доступ к серверам и базам данных SQL Azure, а также управлять ими, используя SQL Server Management Studio, Transact-SQL, правила брандмауэра на уровне сервера и базы данных, проверку подлинности Azure Active Directory, имена для входа, пользователей и роли."
+description: "Из этого практического руководства вы узнаете, как предоставлять доступ к серверам и базам данных SQL Azure, а также управлять ими, используя SQL Server Management Studio, Transact-SQL, правила брандмауэра на уровне сервера и базы данных, аутентификацию Azure Active Directory, имена для входа, пользователей и роли."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: b97872ed00746009a800817b345f31937309ed67
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ca679a820eefc7acbb08eed6b8f809f46aacd3a3
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="azure-ad-authentication-access-and-database-level-firewall-rules"></a>Аутентификация, доступ и правила брандмауэра уровня базы данных в Azure AD
-Из этого руководства вы узнаете, как предоставлять доступ к серверам и базам данных SQL Azure, а также настраивать для них разрешения, применяя в SQL Server Management Studio аутентификацию Azure Active Directory, имена для входа, пользователей и роли баз данных. Вы научитесь выполнять следующие задачи:
+Из этого практического руководства вы узнаете, как предоставлять доступ к серверам и базам данных SQL Azure, а также настраивать для них разрешения, применяя в SQL Server Management Studio аутентификацию Azure Active Directory, имена для входа, пользователей и роли баз данных. Вы научитесь выполнять следующие задачи:
 
 - Просматривать разрешения пользователя в базе данных master и пользовательских базах данных.
 - Создавать имена для входа и пользователей на основе проверки подлинности Azure Active Directory.
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/10/2017
 - Создавать правила брандмауэра на уровне базы данных для пользователей базы данных.
 - Создавать правила брандмауэра на уровне сервера для администраторов сервера.
 
-**Оценка времени.** Для работы с этим руководством требуется около 45 минут (при условии, что предварительные требования уже выполнены).
+**Оценка времени.** Для работы с этим практическим руководством требуется около 45 минут (при условии, что предварительные требования уже выполнены).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -43,18 +43,18 @@ ms.lasthandoff: 03/10/2017
 
 * **SQL Server Management Studio.** Скачать и установить последнюю версию среды SQL Server Management Studio (SSMS) можно в статье [Скачивание SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). При подключении к базе данных SQL Azure всегда используйте последнюю версию SSMS, так как постоянно выпускаются новые возможности.
 
-* **Базовый сервер и базы данных.** Для установки и настройки сервера и двух баз данных, используемых в данном руководстве, нажмите кнопку **Развертывание в Azure**. При нажатии кнопки открывается колонка **Deploy from a template** (Развертывание из шаблона). Создайте группу ресурсов и предоставьте **пароль для входа администратора** для создаваемого сервера.
+* **Базовый сервер и базы данных.** Чтобы установить и настроить сервер и две базы данных, используемые в этом руководстве, нажмите кнопку **Развертывание в Azure**. При нажатии кнопки открывается колонка **Deploy from a template** (Развертывание из шаблона). Создайте группу ресурсов и предоставьте **пароль для входа администратора** для создаваемого сервера.
 
    [![Скачивание](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
    > [!NOTE]
-   > Ознакомление со связанным руководством по аутентификации SQL Server ([Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md)) не является обязательным. Однако в упомянутом руководстве описаны понятия, которые здесь не повторяются. Процедуры из этого руководства, связанные с брандмауэрами уровня сервера и базы данных, не обязательно выполнять, если вы их выполнили во время работы со связанным руководством на тех же компьютерах (и с того же IP-адреса). Также при создании снимков экрана в этом руководстве предполагается, что вы ознакомились со связанным руководством. 
+   > Ознакомление с практическим руководством по аутентификации SQL Server ([аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md)) не является обязательным. Однако в упомянутом руководстве описаны понятия, которые здесь не повторяются. Процедуры из этого руководства, связанные с брандмауэрами уровня сервера и базы данных, не обязательно выполнять, если вы их выполнили во время работы со связанным руководством на тех же компьютерах (и с того же IP-адреса). При создании снимков экрана в этом руководстве также предполагается, что вы ознакомились со связанным руководством. 
    >
 
 * Вы создали и заполнили каталог Azure Active Directory. Дополнительные сведения см. в статьях [Интеграция локальных удостоверений с Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Добавление имени личного домена в Azure Active Directory](../active-directory/active-directory-add-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory), [Управление каталогом Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure Active Directory Cmdlets](https://msdn.microsoft.com/library/azure/jj151815.aspx) (Командлеты для Azure Active Directory) и [Порты и протоколы, необходимые для гибридной идентификации](../active-directory/active-directory-aadconnect-ports.md).
 
 > [!NOTE]
-> Это руководство поможет вам освоить содержание следующих статей: [Контроль доступа к базе данных SQL Azure](sql-database-control-access.md), [Предоставление доступа к базе данных и управление им](sql-database-manage-logins.md), [Субъекты (компонент Database Engine)](https://msdn.microsoft.com/library/ms181127.aspx), [Роли уровня базы данных](https://msdn.microsoft.com/library/ms189121.aspx), [Обзор правил брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md) и [Подключение к базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md). 
+> Это практическое руководство поможет вам освоить содержание следующих статей: [Контроль доступа к базе данных SQL Azure](sql-database-control-access.md), [Предоставление доступа к базе данных и управление им](sql-database-manage-logins.md), [Субъекты (компонент Database Engine)](https://msdn.microsoft.com/library/ms181127.aspx), [Роли уровня базы данных](https://msdn.microsoft.com/library/ms189121.aspx), [Обзор правил брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md) и [Использование аутентификации Azure Active Directory для аутентификации с помощью базы данных SQL или хранилища данных SQL](sql-database-aad-authentication.md). 
 >  
 
 ## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Вход на портал Azure с помощью учетной записи Azure
@@ -64,14 +64,9 @@ ms.lasthandoff: 03/10/2017
 2. Выполните вход на [портал Azure](https://portal.azure.com/).
 3. На странице **входа** введите учетные данные своей подписки.
    
-   ![Вход](./media/sql-database-get-started-portal/login.png)
-
-
-<a name="create-logical-server-bk"></a>
-
 ## <a name="provision-an-azure-active-directory-admin-for-your-sql-logical-server"></a>Подготовка администратора Azure Active Directory для логического сервера SQL
 
-В этом разделе руководства вы просмотрите сведения о конфигурации безопасности для логического сервера на портале Azure.
+В этом разделе практического руководства вы просмотрите сведения о конфигурации безопасности для логического сервера на портале Azure.
 
 1. Откройте колонку **SQL Server** логического сервера и просмотрите сведения на странице **Обзор**. Обратите внимание, что администратор Azure Active Directory не настроен.
 
@@ -90,7 +85,7 @@ ms.lasthandoff: 03/10/2017
    ![Сохранение выбранной учетной записи администратора AAD](./media/sql-database-control-access-aad-authentication-get-started/aad_admin_save.png)
 
 > [!NOTE]
-> Сведения о подключении для этого сервера см. в статье [Создание и администрирование серверов баз данных SQL Azure с помощью портала Azure](sql-database-manage-servers-portal.md). В этой серии руководств используется полное имя сервера sqldbtutorialserver.database.windows.net.
+> Сведения о подключении для этого сервера см. в статье [Подключайтесь к базе данных Azure SQL и создавайте запросы к ней с помощью SQL Server Management Studio](sql-database-connect-query-ssms.md). В этой серии практических руководств используется полное имя сервера sqldbtutorialserver.database.windows.net.
 >
 
 ## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Подключение к SQL Server с помощью SQL Server Management Studio (SSMS)
@@ -112,7 +107,7 @@ ms.lasthandoff: 03/10/2017
    ![подключение к серверу с помощью AAD установлено](./media/sql-database-control-access-aad-authentication-get-started/connected_to_server_with_aad.png)
 
 ## <a name="view-the-server-admin-account-and-its-permissions"></a>Просмотр учетной записи администратора и разрешений сервера 
-В этом разделе руководства вы просмотрите сведения об учетной записи и разрешениях администратора сервера в базе данных master и пользовательской базе данных.
+В этом разделе практического руководства вы просмотрите сведения об учетной записи и разрешениях администратора сервера в базе данных master и пользовательской базе данных.
 
 1. В обозревателе объектов последовательно разверните элементы **Базы данных**, **Системные базы данных** и **master**, затем разверните элементы **Безопасность** и **Пользователи**. Обратите внимание, что учетная запись пользователя создана в базе данных master для администратора Active Directory. Также обратите внимание, что для учетной записи администратора Active Directory не создано имя для входа.
 
@@ -193,7 +188,7 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="create-a-new-user-in-the-adventureworkslt-database-with-select-permissions"></a>Создание нового пользователя в базе данных AdventureWorksLT с разрешениями SELECT
 
-В этом разделе руководства вы создадите учетную запись пользователя в базе данных AdventureWorksLT на основе имени субъекта пользователя Azure AD или отображаемого имени группы Azure AD, проверите разрешения этого пользователя в качестве участника роли public, предоставите ему разрешения SELECT и еще раз проверите разрешения этого пользователя.
+В этом разделе практического руководства вы создадите учетную запись пользователя в базе данных AdventureWorksLT на основе имени субъекта пользователя Azure AD или отображаемого имени группы Azure AD, проверите разрешения этого пользователя в качестве участника роли public, предоставите ему разрешения SELECT и еще раз проверите разрешения этого пользователя.
 
 > [!NOTE]
 > Пользователи уровня базы данных ([автономные пользователи](https://msdn.microsoft.com/library/ff929188.aspx)) увеличивают портативность базы данных. Эта возможность рассматривается в следующих руководствах.
@@ -261,13 +256,13 @@ ms.lasthandoff: 03/10/2017
 ## <a name="create-a-database-level-firewall-rule-for-adventureworkslt-database-users"></a>Создание правила брандмауэра уровня базы данных для пользователей базы данных AdventureWorksLT
 
 > [!NOTE]
-> Вам не нужно выполнять эту процедуру, если вы выполнили ее на этом же компьютере и с этого же IP-адреса во время работы со связанным руководством по аутентификации SQL Server ([Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md)).
+> Эту процедуру не нужно выполнять, если вы выполнили ее на этом же компьютере и с этого же IP-адреса во время работы со связанным практическим руководством по аутентификации SQL Server ([Аутентификация, доступ и правила брандмауэра уровня базы данных в Azure AD](sql-database-control-access-sql-authentication-get-started.md)).
 >
 
 В этом разделе руководства вы попробуете войти на компьютер с другого IP-адреса, используя новую учетную запись пользователя, создадите правило брандмауэра уровня базы данных от имени администратора сервера, а затем успешно войдете на компьютер с использованием этого нового правила брандмауэра уровня базы данных. 
 
 > [!NOTE]
-> [Правила брандмауэра уровня базы данных](sql-database-firewall-configure.md) увеличивают портативность базы данных. Эта возможность рассматривается в последующих руководствах.
+> [Правила брандмауэра уровня базы данных](sql-database-firewall-configure.md) увеличивают портативность базы данных. Эта возможность рассматривается в последующих практических руководствах.
 >
 
 1. На другом компьютере, для которого еще не создано правило брандмауэра уровня сервера, откройте SQL Server Management Studio.
@@ -280,7 +275,7 @@ ms.lasthandoff: 03/10/2017
     
    ![Подключение с помощью учетной записи aaduser1@microsoft.com без правила брандмауэра rule1](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
 
-3. Щелкните **Параметры**, чтобы указать базу данных, к которой требуется подключиться, а затем введите **AdventureWorksLT** в раскрывающемся списке **Подключение к базе данных** на вкладке **Свойства подключения**.
+3. В диалоговом окне **Подключиться к серверу** щелкните **Параметры**, чтобы указать базу данных, к которой требуется подключиться, а затем введите **AdventureWorksLT** в раскрывающемся списке **Подключение к базе данных** на вкладке **Свойства соединения**.
    
    ![Подключение с помощью учетной записи aaduser1 без правила брандмауэра rule2](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule2.png)
 

@@ -1,12 +1,12 @@
 ---
-title: "Подключение Arduino (C) к Интернету вещей Azure. Приступая к работе | Документация Майкрософт"
-description: "Приступите к работе с Adafruit Feather M0 Wi-Fi, создайте Центр Интернета вещей Azure и подключите Adafruit Feather M0 Wi-Fi к Центру Интернета вещей"
+title: "Подключение Feather M0 WiFi к Центру Интернета вещей Azure в облаке | Документация Майкрософт"
+description: "В этой статье объясняется, как подключить устройство Arduino под названием Adafruit Feather M0 WiFi к Центру Интернета вещей Azure — облачной службе Майкрософт, которая помогает управлять ресурсами Интернета вещей."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "Центр Интернета вещей Azure, начало работы с Интернетом вещей, руководство по Интернету вещей, Интернет вещей для Adafruit, начало работы с Arduino"
+keywords: 
 ms.assetid: 51befcdb-332b-416f-a6a1-8aabdb67f283
 ms.service: iot-hub
 ms.devlang: arduino
@@ -16,129 +16,214 @@ ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 6789e6f1c094f8809163e29349c8ea54e1e97683
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: e2d44f821635ce9d91b67ecdc0653e2ba9c99b01
+ms.lasthandoff: 04/13/2017
 
 
 ---
-# <a name="get-started-with-your-arduino-board-adafruit-feather-m0-wifi"></a>Приступая к работе с платой Arduino: Adafruit Feather M0 Wi-Fi
+
+# <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>Подключение Adafruit Feather M0 WiFi к Центру Интернета вещей Azure в облаке
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
+
+![Подключение между датчиком BME280, платой Feather M0 WiFi и Центром Интернета вещей](media/iot-hub-adafruit-feather-m0-wifi-get-started/1_connection-m0-feather-m0-iot-hub.png)
 
 В этом руководстве вы начнете с того, что узнаете основы работы с платой Arduino. Также вы узнаете, как можно легко подключать устройства к облаку с помощью [Центра Интернета вещей Azure](iot-hub-what-is-iot-hub.md).
 
-## <a name="lesson-1-configure-your-device"></a>Урок 1. Настройка устройства
-![Урок 1. Сквозная схема][Lesson-1-end-to-end-diagram]
+## <a name="what-you-do"></a>В рамках этого руководства мы:
 
-В ходе этого урока, вы настроите операционную систему для платы Arduino и среду разработки, а также развернете приложение на плате Arduino.
+Подключим плату Adafruit Feather M0 WiFi к созданному Центру Интернета вещей. Затем запустим пример приложения на M0 WiFi, чтобы собрать данные о температуре и влажности, полученные с датчика BME280. После этого отправим данные с датчика в Центр Интернета вещей.
 
-### <a name="configure-your-device"></a>Настройка устройства
-Настройте плату Arduino для первого использования, собрав и подключив ее.
 
-*Предполагаемое время выполнения: 5 минут*
 
-Ознакомьтесь со статьей [Настройка устройства ][configure-your-device].
+## <a name="what-you-learn"></a>Что вы узнаете
 
-### <a name="get-the-tools"></a>Получить инструменты
-Скачайте инструменты и программное обеспечение для сборки и развертывания первого приложения для платы Arduino.
+* Как создать Центр Интернета вещей и зарегистрировать устройство для платы Feather M0 WiFi.
+* Как подключить Feather M0 WiFi к датчику и компьютеру.
+* Как собирать данные датчиков, запустив пример приложения на Feather M0 WiFi.
+* Как отправить данные датчиков в Центр Интернета вещей.
 
-*Предполагаемое время выполнения: 20 минут*
+## <a name="what-you-need"></a>Необходимые элементы
 
-Ознакомьтесь со статьей [Get the tools][get-the-tools] (Получение инструментов).
+![Элементы, необходимые в рамках руководства](media/iot-hub-adafruit-feather-m0-wifi-get-started/2_parts-needed-for-the-tutorial.png)
 
-### <a name="create-and-deploy-the-blink-application"></a>Создание и развертывание приложения для включения индикатора
-Клонируйте пример приложения Arduino для включения индикатора c GitHub и разверните его с помощью инструмента Gulp на плате Arduino. В этом примере приложения светодиодный индикатор GPIO #13 будет мигать каждые две секунды.
+Чтобы выполнить эту операцию, вам понадобятся следующие элементы из начального набора Feather M0 WiFi:
 
-*Предполагаемое время выполнения: 5 минут*
+* плата Feather M0 WiFi;
+* кабель micro-USB (тип A).
 
-Ознакомьтесь со статьей [Создание и развертывание приложения для включения индикатора][create-and-deploy-the-blink-application].
+Кроме того, вам понадобятся следующие элементы среды разработки:
 
-## <a name="lesson-2-create-your-iot-hub"></a>Урок 2. Создание Центра Интернета вещей
-![Урок 2. Сквозная схема][lesson-2-end-to-end-diagram]
+* ПК или компьютер Mac под управлением Windows или Ubuntu;
+* беспроводная сеть, к которой подключается Feather M0 WiFi;
+* подключение к Интернету для скачивания средства настройки;
+* [Arduino IDE](https://www.arduino.cc/en/main/software) версии 1.6.8 или более новой (более ранние версии несовместимы с библиотекой Azure IoT).
 
-В ходе этого урока вы создадите бесплатную учетную запись Azure, подготовите Центр Интернета вещей Azure и создадите в нем устройство.
 
-Прежде чем продолжать, завершите урок 1.
+Ниже приведены необязательные элементы, используемые в случае отсутствия датчика. Вы также можете использовать симулированные данные датчика.
 
-### <a name="get-the-azure-tools"></a>Получение средств Azure
-Установите интерфейс командной строки Azure (Azure CLI).
+* Датчик температуры и влажности BME280
+* Монтажная плата
+* Многомодовый оптоволоконный кабель с разъемами на обоих концах
 
-*Предполагаемое время выполнения: 10 минут*
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-Ознакомьтесь со статьей [Get Azure tools][get-azure-tools] (Получение инструментов Azure).
+## <a name="connect-feather-m0-wifi-with-the-sensor-and-your-computer"></a>Подключение Feather M0 WiFi к датчику и компьютеру
+В этом разделе рассказывается о том, как подключить датчики к плате. Затем устройство подключается к компьютеру для дальнейшего использования.
+### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-m0-wifi"></a>Подключение датчика температуры и влажности DHT22 к Feather M0 WiFi
 
-### <a name="create-your-iot-hub-and-register-your-arduino-board"></a>Создание Центра Интернета вещей и регистрация платы Arduino
-Создайте группу ресурсов, подготовьте Центр Интернета вещей Azure и добавьте в него первое устройство, используя Azure CLI.
+Чтобы установить подключение, используйте монтажную плату и оптоволоконный кабель с разъемами на обоих концах, как показано ниже. Если у вас нет датчика, пропустите этот раздел, так как вместо него вы можете использовать симулированные данные.
 
-*Предполагаемое время выполнения: 10 минут*
+![Справочные материалы по подключению](media/iot-hub-adafruit-feather-m0-wifi-get-started/3_connections_on_breadboard.png)
 
-Перейдите к статье [Создание Центра Интернета вещей и регистрация платы Arduino][create-your-iot-hub-and-register-your-arduino-board].
 
-## <a name="lesson-3-send-device-to-cloud-messages"></a>Урок 3. Отправка сообщений с устройства в облако
-![Урок 3. Сквозная схема][lesson-3-end-to-end-diagram]
+Чтобы подключить выводы датчика, используйте следующие кабели:
 
-В ходе этого урока вы отправите сообщения с платы Arduino в Центр Интернета вещей. Также вы создадите приложение-функцию Azure, которое получает входящие сообщения из Центра Интернета вещей и записывает их в хранилище таблиц Azure.
 
-Прежде чем продолжить, завершите уроки 1 и 2.
+| Начало (датчик)           | Конец (плата)            | Цвет кабеля   |
+| -----------------------  | ---------------------- | ------------: |
+| VDD (вывод 27A)            | 3V (вывод 3A)            | Красный кабель     |
+| GND (вывод 29A)            | GND (вывод 6A)           | Черный кабель   |
+| SCK (вывод 30A)            | SCK (вывод 12A)          | Желтый кабель  |
+| SDO (вывод 31A)            | MI (вывод 14A)           | Белый кабель   |
+| SDI (вывод 32A)            | M0 (вывод 13A)           | Синий кабель    |
+| CS (вывод 33A)             | GPIO 5 (вывод 15J)       | Оранжевый кабель  |
 
-### <a name="create-an-azure-function-app-and-azure-storage-account"></a>Создание учетной записи хранения Azure и приложения-функции Azure
-С помощью шаблона Azure Resource Manager создайте приложение-функцию Azure и учетную запись хранения Azure.
+Дополнительные сведения см. в статье [Adafruit BME280 Humidity + Barometric Pressure + Temperature Sensor Breakout](https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/wiring-and-test?view=all) (Выходы датчика влажности, атмосферного давления и температуры Adafruit BME280) и [Adafruit Feather M0 WiFi Pinouts](https://learn.adafruit.com/adafruit-feather-m0-wifi-atwinc1500/pinouts) (Выводы платы Adafruit Feather M0 WiFi).
 
-*Предполагаемое время выполнения: 10 минут*
 
-Ознакомьтесь со статьей [Создание приложения-функции Azure и учетной записи хранения Azure][create-an-azure-function-app-and-azure-storage-account].
 
-### <a name="run-a-sample-application-to-send-device-to-cloud-messages"></a>Запуск примера приложения для отправки сообщений с устройства в облако
-Разверните и запустите пример приложения для платы Arduino, которое отправляет сообщения в Центр Интернета вещей.
+Теперь работающий датчик должен быть подключен к Feather M0 WiFi.
 
-*Предполагаемое время выполнения: 10 минут*
+![Подключение DHT22 к Feather Huzzah](media/iot-hub-adafruit-feather-m0-wifi-get-started/4_connect-bme280-feather-m0-wifi.png)
 
-Ознакомьтесь со статьей [Run a sample application to send device-to-cloud messages][send-device-to-cloud-messages] (Запуск примера приложения для отправки сообщений с устройства в облако).
+### <a name="connect-feather-m0-wifi-to-your-computer"></a>Подключение Feather M0 WiFi к компьютеру
 
-### <a name="read-messages-persisted-in-azure-storage"></a>Чтение сообщений, сохраненных в службе хранилища Azure
-Отслеживайте сообщения, передаваемые с устройства в облако, по мере их записывания в хранилище Azure.
+Как показано далее, для подключения Feather M0 WiFi к компьютеру используется кабель Micro-USB типа A.
 
-*Предполагаемое время выполнения: 5 минут*
+![Подключение Feather Huzzah к компьютеру](media/iot-hub-adafruit-feather-m0-wifi-get-started/5_connect-feather-m0-wifi-computer.png)
 
-Ознакомьтесь со статьей [Чтение сообщений, сохраненных в службе хранилища Azure][read-messages-persisted-in-azure-storage].
+### <a name="add-serial-port-permissions-ubuntu-only"></a>Добавление разрешений для последовательного порта (только в Ubuntu)
 
-## <a name="lesson-4-send-cloud-to-device-messages"></a>Урок 4. Отправка сообщений из облака на устройство
-![Урок 4. Сквозная схема][lesson-4-end-to-end-diagram]
+При использовании Ubuntu убедитесь, что у вас есть разрешения для работы с USB-портом платы Feather M0 WiFi. Чтобы добавить разрешения для работы с последовательным портом, сделайте следующее:
 
-В ходе этого урока демонстрируется способ отправки сообщений из Центра Интернета вещей на плату Arduino. C помощью этих сообщений вы будете управлять включением и выключением светодиодного индикатора GPIO #13 на плате. Для выполнения этой задачи подготовлен пример приложения.
 
-Прежде чем продолжить, завершите уроки 1, 2 и 3.
+1. В окне терминала выполните следующие команды:
 
-### <a name="run-the-sample-application-to-receive-cloud-to-device-messages"></a>Запуск примера приложения для получения сообщений из облака на устройство
-Пример приложения из урока 4 выполняется на плате Arduino и отслеживает входящие сообщения от Центра Интернета вещей. Новая задача Gulp отправляет сообщения из Центра Интернета вещей на вашу плату Arduino для управления состоянием светодиодного индикатора.
+   ```bash
+   ls -l /dev/ttyUSB*
+   ls -l /dev/ttyACM*
+   ```
 
-*Предполагаемое время выполнения: 10 минут*
+   Вы получите выходные данные одного из следующих типов:
 
-Ознакомьтесь со статьей [Запуск примера приложения для получения сообщений из облака на устройство][receive-cloud-to-device-messages].
+   * crw-rw---- 1 root uucp xxxxxxxx
+   * crw-rw---- 1 root dialout xxxxxxxx
 
-### <a name="optional-section-change-the-on-and-off-behavior-of-the-led"></a>Дополнительный раздел. Изменение режима включения и отключения светодиодного индикатора
-Настроив сообщения, вы сможете изменять режим включения и отключения светодиодного индикатора.
+   В выходных данных обратите внимание на параметр `uucp` или `dialout`. Это имя владельца группы USB-порта.
 
-*Предполагаемое время выполнения: 10 минут*
+1. Добавьте пользователя в группу, выполнив следующую команду:
 
-Ознакомьтесь со статьей [Optional section: Change the on and off behavior of the LED][change-the-on-and-off-behavior-of-the-led] (Дополнительный раздел. Изменение режима включения и отключения светодиодного индикатора).
+   ```bash
+   sudo usermod -a -G <group-owner-name> <username>
+   ```
 
-## <a name="troubleshooting"></a>Устранение неполадок
-Если в ходе какого-либо урока у вас возникнут проблемы, то решение можно найти в статье [Troubleshooting][troubleshooting] (Устранение неполадок).
+   `<group-owner-name>` — это имя владельца группы, полученное на предыдущем этапе. `<username>` — это имя пользователя Ubuntu.
 
-<!-- Images and links -->
+1. Чтобы изменения стали видны, выйдите из Ubuntu и войдите снова.
 
-[Lesson-1-end-to-end-diagram]: media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson1.png
-[configure-your-device]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md
-[get-the-tools]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md
-[create-and-deploy-the-blink-application]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md
-[lesson-2-end-to-end-diagram]: media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson2.png
-[get-azure-tools]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md
-[create-your-iot-hub-and-register-your-arduino-board]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md
-[lesson-3-end-to-end-diagram]: media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson3.png
-[create-an-azure-function-app-and-azure-storage-account]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md
-[send-device-to-cloud-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md
-[read-messages-persisted-in-azure-storage]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md
-[lesson-4-end-to-end-diagram]: media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson4.png
-[receive-cloud-to-device-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md
-[change-the-on-and-off-behavior-of-the-led]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md
-[troubleshooting]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
+## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>Сбор данных датчиков и их отправка в Центр Интернета вещей
+
+В этом разделе рассказывается о том, как развернуть и запустить пример приложения на плате Feather M0 WiFi. Пример приложения включает и отключает светодиодный индикатор на плате Feather M0 WiFi и отправляет данные о температуре и влажности, собранные с датчика BME280, в Центр Интернета вещей.
+
+### <a name="get-the-sample-application-from-github-and-prepare-arduino-ide"></a>Получение примера приложения из GitHub и подготовка интегрированной среды разработки Arduino
+
+Пример приложения находится на сайте GitHub. Клонируйте репозиторий, содержащий пример приложения с GitHub. Чтобы клонировать пример репозитория, сделайте следующее:
+
+1. Откройте окно командной строки или терминала.
+1. Перейдите к папке, в которую необходимо сохранить пример приложения.
+1. Выполните следующую команду:
+
+   ```bash
+   git clone https://github.com/Azure-Samples/iot-hub-Feather-M0-WiFi-client-app.git
+   ```
+
+Установите пакет для Feather M0 WiFi в интегрированной среде разработки Arduino:
+
+1. Откройте папку, где хранится пример приложения.
+1. Откройте файл app.ino в папке приложения в Arduino IDE.
+
+   ![Открытие примера приложения в интегрированной среде разработки Arduino](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
+
+1. Щелкните **Инструменты** > **Платы** > **Менеджер плат**, а затем установите `Arduino SAMD Boards` версии `1.6.2` или более новой. 
+
+   Диспетчер плат показывает, что установлена версия `Arduino SAMD Boards` `1.6.2` или более новая.
+
+   ![Завершение установки пакета ESP8266](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
+
+1. Щелкните **Инструменты** > **Платы** > **Adafruit M0 WiFi**.
+
+1. Установите драйверы (только в Windows). Возможно, при подключении платы Feather понадобится установить драйвер. Щелкните [здесь](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe) для загрузки его установщика.
+   Выполните соответствующие действия, чтобы установить необходимые драйверы.
+
+### <a name="install-necessary-libraries"></a>Установка необходимых библиотек
+
+1. В Arduino IDE щелкните **Скетч** > **Подключить библиотеку** > **Управлять библиотеками**.
+1. Выполните поиск приведенных ниже имен библиотек по очереди. Для каждой найденной библиотеки нажмите кнопку **Установить**.
+   * `Adafruit_WINC1500`
+   * `RTCZero`
+   * `NTPClient`
+   * `AzureIoTHub`
+   * `AzureIoTUtility`
+   * `AzureIoTProtocol_HTTP`
+   * `ArduinoJson`
+   * `Adafruit BME280 Library`
+   * `Adafruit Unified Sensor`
+
+### <a name="dont-have-a-real-bme280-sensor"></a>Отсутствие датчика BME280
+
+Если у вас нет датчика BME280, пример приложения может смоделировать данные о температуре и влажности. Чтобы настроить использование смоделированных данных в примере приложения, сделайте следующее:
+
+1. Откройте файл `config.h` в папке `app`.
+1. Найдите приведенную ниже строку кода и измените значение `false` на `true`.
+   ```c
+   define SIMULATED_DATA true
+   ```
+   ![Настройка использования смоделированных данных в примере приложения](media/iot-hub-adafruit-feather-m0-wifi-get-started/8_arduino-ide-configure-app-use-simulated-data.png)
+
+1. Сохраните файл с помощью клавиш `Control-s`.
+
+### <a name="deploy-the-sample-application-to-feather-m0-wifi"></a>Развертывание примера приложения для Feather M0 WiFi
+
+1. В интегрированной среде разработки Arduino щелкните **Tool** (Инструменты) > **Port** (Порт), а затем выберите последовательный порт для Feather M0 WiFi.
+1. Чтобы создать и развернуть пример приложения для Feather M0 WiFi, щелкните **Sketch** (Эскиз) > **Upload** (Передать).
+
+### <a name="enter-your-credentials"></a>Ввод учетных данных
+
+После завершения загрузки введите учетные данные следующим образом:
+
+1. В Arduino IDE щелкните **Инструменты** > **Монитор последовательного порта**.
+1. В окне монитора последовательного порта обратите внимание на два раскрывающихся списка в нижнем правом углу.
+1. В раскрывающемся списке слева выберите **No line ending** (Ничего не добавлять к отправляемой строке).
+1. В раскрывающемся списке справа выберите **115200 baud** (115200 бод).
+1. При появлении запроса в поле ввода, расположенном в верхней части окна монитора последовательного порта, введете приведенные ниже сведения, а затем нажмите кнопку **Отправить**.
+   * Идентификатор SSID для подключения Wi-Fi.
+   * Пароль Wi-Fi.
+   * Строка подключения к устройству.
+
+> [!Note]
+> Учетные данные хранятся в EEPROM платы Feather M0 WiFi. При нажатии кнопки сброса на плате Feather M0 WiFi в примере приложения отобразится сообщение с запросом на удаление информации. Введите `Y` для удаления данных. Вам будет предложено предоставить их еще раз.
+
+### <a name="verify-the-sample-application-is-running-successfully"></a>Проверка работоспособности примера приложения
+
+Если в окне монитора последовательного порта отобразились приведенные ниже выходные данные и на плате Feather M0 WiFi мигает светодиодный индикатор, значит пример приложения запущен успешно.
+
+![Окончательные выходные данные в интегрированной среде разработки Arduino](media/iot-hub-adafruit-feather-m0-wifi-get-started/9_arduino-ide-final-output.png)
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+Вы успешно подключили плату Feather M0 WiFi к Центру Интернета вещей и отправили в него собранные данные датчика. 
+
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
+

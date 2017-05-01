@@ -1,6 +1,6 @@
 ---
 title: "Создание пространства имен и группы потребителей концентраторов событий Azure с помощью шаблона | Документация Майкрософт"
-description: "Создание пространства имен концентраторов событий, концентратора событий и группы потребителей с помощью шаблонов Azure Resource Manager."
+description: "Создание пространства имен концентраторов событий c концентратором событий и группой потребителей с помощью шаблонов Azure Resource Manager."
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 271eca35ad18725306410d1e8b81bdf06712db1f
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 4a9a315f5b03e0fb5424713a3ff3757d928ba150
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Создание пространства имен концентраторов событий с концентратором событий и группой потребителей с помощью шаблона Azure Resource Manager
-Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен, имеющее тип "Концентратор событий", с одним концентратором событий и одной группой потребителей. Здесь показано, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
+# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Создание пространства имен концентраторов событий c концентратором событий и группой потребителей с помощью шаблона Azure Resource Manager
+Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен типа EventHubs с одним концентратором событий и одной группой потребителей. Здесь показано, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 03/08/2017
 ```
 
 ## <a name="resources-to-deploy"></a>Развертываемые ресурсы
-Создает пространство имен типа **EventHub**с концентратором событий и группой потребителей.
+Создает пространство имен типа **EventHubs** с концентратором событий и группой потребителей.
 
 ```json
 "resources":[  
@@ -153,5 +153,5 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
+[Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 

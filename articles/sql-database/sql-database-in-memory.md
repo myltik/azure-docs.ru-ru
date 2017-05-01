@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 620572f66367f61c6ee61d3c044083a0f71aca6f
-ms.lasthandoff: 01/12/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: f827b76b8164e4eae286c9a1247e64d4f5ee9ea8
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/12/2017
 
 Вот несколько примеров того, как выполняющаяся в памяти OLTP помогла значительно улучшить показатели производительности:
 
-- Используя выполняющуюся в памяти OLTP, [компания Quorum Business Solutions смогла вдвое увеличить свои рабочие нагрузки, при этом повысив показатели DTU (т. е. потребление ресурсов) на 70 %](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- Используя выполняющуюся в памяти OLTP, [компания Quorum Business Solutions смогла вдвое увеличить свои рабочие нагрузки, при этом повысив показатели DTU (т. е. потребление ресурсов) на 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
 - В следующем видеоролике на примере рабочей нагрузки показано, как достигается значительное улучшение показателей потребления ресурсов: [In-Memory OTLP in Azure SQL DB](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Выполняющаяся в памяти OLTP в базе данных SQL Azure).
 
 Технологии обработки в оперативной памяти доступны для всех баз данных уровня "Премиум", в том числе для пулов эластичных баз данных уровня "Премиум".
@@ -140,7 +140,7 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 ## <a name="1-install-the-in-memory-oltp-sample"></a>1. Установка образца In-Memory OLTP
 
-На [портале Azure](https://portal.azure.com/) вы можете быстро и просто создать пример базы данных AdventureWorksLT [вер. 12]. Также в этом разделе объясняется, как можно расширить базу данных AdventureWorksLT с использованием объектов выполняющейся в памяти OLTP, чтобы реализовать повышение производительности.
+На [портале Azure](https://portal.azure.com/) вы можете быстро и просто создать пример базы данных AdventureWorksLT. Также в этом разделе объясняется, как можно расширить базу данных AdventureWorksLT с использованием объектов выполняющейся в памяти OLTP, чтобы реализовать повышение производительности.
 
 Упрощенная, но одновременно более наглядная демонстрация выполняющейся в памяти OLTP представлена здесь:
 
@@ -149,7 +149,7 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 #### <a name="installation-steps"></a>Шаги установки
 
-1. На [портале Azure](https://portal.azure.com/)создайте базу данных уровня "Премиум" на сервере версии&12;. Укажите **источник** для примера базы данных AdventureWorksLT [V12]. Подробные инструкции см. в статье [Начало работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure и SQL Server Management Studio](sql-database-get-started.md).
+1. На [портале Azure](https://portal.azure.com/) создайте базу данных уровня "Премиум" на сервере. Укажите **источник** для примера базы данных AdventureWorksLT. Подробные инструкции см. в статье [Начало работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure и SQL Server Management Studio](sql-database-get-started-portal.md).
 
 2. Подключитесь к базе данных с помощью SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -479,7 +479,7 @@ SET STATISTICS TIME OFF
 GO
 ```
 
-При использовании кластеризованного индекса рост производительности для этого запроса в базе данных ценовой категории P2 может увеличиться примерно в&9; раз по сравнению с традиционным индексом. При использовании кластеризованного индекса в базе данных ценовой категории P15 можно ожидать рост производительности примерно в 57 раз.
+При использовании кластеризованного индекса рост производительности для этого запроса в базе данных ценовой категории P2 может увеличиться примерно в 9 раз по сравнению с традиционным индексом. При использовании кластеризованного индекса в базе данных ценовой категории P15 можно ожидать рост производительности примерно в 57 раз.
 
 
 
@@ -496,7 +496,7 @@ GO
 
 #### <a name="deeper-information"></a>Подробные сведения
 
-- Узнайте, как [Quorum удваивает ключевую рабочую нагрузку на базу данных при одновременном сокращении DTU на 70 % благодаря использованию In-Memory OLTP для базы данных SQL](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- Узнайте, как [Quorum удваивает ключевую рабочую нагрузку на базу данных при одновременном сокращении DTU на 70 % благодаря использованию In-Memory OLTP для базы данных SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [Learn about In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx) (Знакомство с In-Memory OLTP)
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/27/2017
+ms.date: 04/14/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bf15644cbf3a640bb706292c17cddbefa0574605
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: dd5df541c0362b8fe8265fd26dc73908215076ad
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Добавление пользовательских библиотек Hive при создании кластера HDInsight
@@ -34,8 +34,8 @@ ms.lasthandoff: 04/11/2017
 > [!NOTE]
 > В результате использования действий сценариев, приведенных в этой статье, библиотеки будут доступны в следующих случаях.
 >
-> * **HDInsight под управлением Linux** — при использовании **командной строки Hive**, **WebHCat** и **HiveServer2**.
-> * **HDInsight под управлением Windows** — при использовании **командной строки Hive** и **WebHCat**.
+> * **HDInsight под управлением Linux** — при использовании клиента Hive, **WebHCat** и **HiveServer2**.
+> * **HDInsight под управлением Windows** — при использовании клиента Hive и **WebHCat**.
 
 ## <a name="the-script"></a>Сценарий
 

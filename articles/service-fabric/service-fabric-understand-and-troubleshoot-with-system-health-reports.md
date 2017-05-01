@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: oanapl
 translationtype: Human Translation
-ms.sourcegitcommit: d20b8d5848d1a11326c60d998099571a4ab8056e
-ms.openlocfilehash: 0306b8c38a7dd86dff56f6cc7bb9eab7e0428762
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 93a4e5fc2ec3c4e847f3fe8e76df9f83253eea9b
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -57,7 +57,7 @@ ms.lasthandoff: 01/13/2017
 * **Дальнейшие действия**: выясните, почему теряется окружение (например, проверьте связь между узлами кластера).
 
 ## <a name="node-system-health-reports"></a>Системные отчеты о работоспособности узлов
-**System.FM** представляет собой службу диспетчера отработки отказов. Это система, которая управляет сведениями об узлах кластера. Каждый узел должен содержать один отчет системы System.FM о его состоянии. Сущности узла удаляются при удалении состояния узла (см. [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
+**System.FM** представляет собой службу диспетчера отработки отказов. Это система, которая управляет сведениями об узлах кластера. Каждый узел должен содержать один отчет системы System.FM о его состоянии. Сущности узла удаляются при удалении состояния узла (см. [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)).
 
 ### <a name="node-updown"></a>Включение и отключение узла
 Система System.FM сообщает о нормальном состоянии, если узел присоединяется к кольцевой сети (запускается и работает). Система выдает сообщение об ошибке, когда узел отключается от кольцевой сети (не работает из-за обновления или сбоя). Иерархия работоспособности, созданная в хранилище данных о работоспособности, выполняет действия в отношении развернутых сущностей в соответствии с отчетами об узлах System.FM. Узел считается виртуальным родительским элементом всех развернутых сущностей. Развернутые сущности на этом узле предоставляются посредством запросов, если в отчетах System.FM указано, что узел работает, и на узле имеется экземпляр, аналогичный экземпляру, связанному с сущностями. Когда System.FM сообщает о прекращении работы или перезапуске узла (новый экземпляр), хранилище данных о работоспособности автоматически удаляет развернутые сущности, которые могут существовать только на отключенном узле или предыдущем экземпляре узла.
@@ -366,7 +366,7 @@ HealthEvents          :
 **System.RA** выдает предупреждение, если реплика открывается дольше заданного периода (по умолчанию 30 минут). Если API влияет на доступность службы, отчет выполняется гораздо быстрее (с заданным интервалом, который по умолчанию равен 30 секундам). Измеряемое время включает в себя время, необходимое для открытия репликатора и службы. Свойство меняется на ОК при открытии.
 
 * **SourceId**: System.RA.
-* Свойство. ReplicaOpenStatus
+* **Свойство**. **ReplicaOpenStatus**
 * **Дальнейшие действия**: если с состоянием работоспособности наблюдаются проблемы, проверьте, почему реплика открывается дольше, чем ожидалось.
 
 ### <a name="slow-service-api-call"></a>Медленный вызов API службы
@@ -486,7 +486,7 @@ HealthEvents          :
 * **Свойство**: **PrimaryReplicationQueueStatus** или **SecondaryReplicationQueueStatus**, в зависимости от роли реплики.
 
 ### <a name="slow-naming-operations"></a>Медленные операции именования
-**System.NamingService** сообщает о состоянии работоспособности первичной реплики, когда операция именования длится больше допустимого. Примеры операций именования — [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) и [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx). Дополнительные методы можно найти в статьях, посвященных FabricClient, например в статье о [методах управления службами](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) или [методах управления свойствами](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
+**System.NamingService** сообщает о состоянии работоспособности первичной реплики, когда операция именования длится больше допустимого. Примеры операций именования — [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) и [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Дополнительные методы можно найти в статьях, посвященных FabricClient, например в статье о [методах управления службами](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) или [методах управления свойствами](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > Служба именования присваивает имена служб определенному расположению в кластере, позволяя пользователям управлять именами и свойствами. Это секционированная материализованная служба Service Fabric. Одна из секций представляет имя Authority Owner, содержащее метаданные обо всех именах и службах Service Fabric. Имена Service Fabric сопоставляются с разными секциями, называемыми секциями владельца имени (NO). Таким образом, служба является расширяемой. Узнайте больше о [службе именования](service-fabric-architecture.md).
@@ -604,7 +604,7 @@ HealthEvents                       :
 **System.Hosting** сообщает об отсутствии проблем, если каждый пакет кода успешно активирован. Если активация завершилась ошибкой, выводится заданное предупреждение. Если не удалось активировать **CodePackage** или этот элемент завершил работу с ошибкой и превышением значения настроенного параметра **CodePackageHealthErrorThreshold**, система выдает сообщение об ошибке. Если пакет службы содержит несколько пакетов кода, для каждого из них создается отчет об активации.
 
 * **SourceId**: System.Hosting.
-* **Property**: использует префикс **CodePackageActivation** и содержит имя пакета кода и точку входа вида **CodePackageActivation:*имя_пакета_кода*:*SetupEntryPoint/EntryPoint*** (например, **CodePackageActivation:Code:SetupEntryPoint**).
+* **Property**: использует префикс **CodePackageActivation** и содержит имя пакета кода и точку входа вида **CodePackageActivation:*имя_пакета_кода*:*SetupEntryPoint/EntryPoint***** (например,** CodePackageActivation:Code:SetupEntryPoint).
 
 ### <a name="service-type-registration"></a>Регистрация типа службы
 **System.Hosting** сообщает об отсутствии проблем, если тип службы успешно зарегистрирован. Система выдает сообщение об ошибке, если регистрация не выполнена вовремя (настраивается с помощью параметра **ServiceTypeRegistrationTimeout**). Если тип службы не регистрируется на узле из-за закрытия среды выполнения, система Hosting выдает предупреждение.

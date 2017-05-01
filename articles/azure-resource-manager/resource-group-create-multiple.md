@@ -12,94 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2017
+ms.date: 04/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 04a3866f88b00486c30c578699d34cd6e8e776d7
-ms.openlocfilehash: 056ee5e67b9a6d396586c53b04d50f89e6fbb560
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 8ecf7c058b90fd18e41fd4e1cbc29e22dfeb0883
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="deploy-multiple-instances-of-resources-in-azure-resource-manager-templates"></a>Развертывание нескольких экземпляров ресурсов в шаблонах Azure Resource Manager
 В этом разделе показано, как выполнить итерацию в шаблоне диспетчера ресурсов Azure для создания нескольких экземпляров ресурса.
 
-## <a name="copy-copyindex-and-length"></a>copy, copyIndex и length
-Чтобы создать несколько экземпляров ресурса, можно определить объект **copy** , указывающий количество итераций. Объект copy имеет следующий формат:
+## <a name="copy-and-copyindex"></a>copy и copyIndex
+Для многократного создания ресурса используется следующий формат.
 
 ```json
-"copy": { 
-    "name": "websitescopy", 
-    "count": "[parameters('count')]" 
-} 
-```
-
-Текущее значение итерации можно посмотреть с помощью функции **copyIndex()**. В следующем примере copyIndex используется с функцией concat для создания имени.
-
-```json
-[concat('examplecopy-', copyIndex())]
-```
-
-При создании нескольких ресурсов из массива значений можно использовать функцию **length** , чтобы задать их количество. В качестве параметра функции length используется массив.
-
-```json
-"copy": {
-    "name": "websitescopy",
-    "count": "[length(parameters('siteNames'))]"
-}
-```
-
-Копировать объекты можно только на ресурсы верхнего уровня. Эту операцию нельзя выполнять со свойством в типе ресурсов или дочерним ресурсом. В этой статье объясняется, как указать несколько элементов для свойства и создать несколько экземпляров дочернего ресурса. В следующем примере псевдокода показано, где можно применять копирование:
-
-```json
-"resources": [
-  {
-    "type": "{provider-namespace-and-type}",
-    "name": "parentResource",
-    "copy": {  
-      /* yes, copy can be applied here */
-    },
-    "properties": {
-      "exampleProperty": {
-        /* no, copy cannot be applied here */
-      }
-    },
-    "resources": [
-      {
-        "type": "{provider-type}",
-        "name": "childResource",
-        /* copy can be applied if resource is promoted to top level */ 
-      }
-    ]
-  }
-] 
-```
-
-Хотя **копирование** свойства не поддерживается, это свойство по-прежнему будет частью итераций ресурса, который его содержит. Поэтому вы можете использовать функцию **copyIndex()** в свойстве, чтобы указать значения.
-
-Итерация свойства в ресурсе может понадобиться в нескольких случаях. Например, вам нужно указать несколько дисков данных для виртуальной машины. Чтобы узнать, как выполнить итерацию свойства, см. раздел [Создание нескольких экземпляров при невозможности выполнить копирование](#create-multiple-instances-when-copy-wont-work). 
-
-Сведения о работе с дочерними ресурсами см. в разделе [Создание нескольких экземпляров дочернего ресурса](#create-multiple-instances-of-a-child-resource).
-
-## <a name="use-index-value-in-name"></a>Использование значения индекса в имени
-Вы можете использовать операцию копирования для создания нескольких экземпляров ресурса, каждому из которых присвоено уникальное имя на основе увеличивающегося индекса. Например, вам может потребоваться добавить уникальный номер в конец имени каждого развертываемого ресурса. Чтобы развернуть три веб-сайта:
-
-* examplecopy-0
-* examplecopy-1
-* examplecopy-2
-
-используйте следующий шаблон.
-
-```json
-"parameters": { 
-  "count": { 
-    "type": "int", 
-    "defaultValue": 3 
-  } 
-}, 
 "resources": [ 
   { 
-      "name": "[concat('examplecopy-', copyIndex())]", 
+      "name": "[concat('examplecopy-', copyIndex())", 
       "type": "Microsoft.Web/sites", 
       "location": "East US", 
       "apiVersion": "2015-08-01",
@@ -109,17 +40,71 @@ ms.lasthandoff: 02/27/2017
       }, 
       "properties": {
           "serverFarmId": "hostingPlanName"
-      }
+      } 
   } 
 ]
 ```
 
-## <a name="offset-index-value"></a>Смещение значения индекса
-В предыдущем примере значение индекса изменяется от 0 до 2. Чтобы сместить значение индекса, можно передать нужное значение в функцию **copyIndex()**, например **copyIndex(1)**. Число выполняемых итераций по-прежнему указывается в элементе копирования, но значение copyIndex сдвигается на указанное значение. Таким образом, если использовать шаблон, аналогичный приведенному в предыдущем примере, но указать **copyIndex(1)** , будут развернуты три следующих веб-сайта:
+Обратите внимание, что в объекте copy указано число итераций.
+
+```json
+"copy": { 
+    "name": "websitescopy", 
+    "count": "[parameters('count')]" 
+} 
+```
+
+Значение count должно быть положительным целым числом не больше 800.
+
+Обратите внимание, что имя каждого ресурса содержит функцию `copyIndex()`, которая возвращает текущую итерацию в цикле.
+
+```json
+"name": "[concat('examplecopy-', copyIndex())]",
+```
+
+В случае развертывания трех веб-сайтов будут называться:
+
+* examplecopy-0
+* examplecopy-1
+* examplecopy-2
+
+Чтобы сместить значение индекса, можно передать нужное значение в функцию copyIndex(), например `copyIndex(1)`. Число выполняемых итераций по-прежнему указывается в элементе копирования, но значение copyIndex сдвигается на указанное значение. Таким образом, если использовать шаблон, аналогичный приведенному в предыдущем примере, но указать copyIndex(1), будут развернуты три следующих веб-сайта:
 
 * examplecopy-1
 * examplecopy-2
 * examplecopy-3
+
+Resource Manager создает ресурсы параллельно. Поэтому порядок, в котором они создаются, не гарантируется. Чтобы последовательно создать ресурсы, изучите раздел [Примеры расширения функциональных возможностей шаблонов Azure Resource Manager. Последовательные циклы](resource-manager-sequential-loop.md). 
+
+Копировать объекты можно только на ресурсы верхнего уровня. Эту операцию нельзя выполнять со свойством в типе ресурсов или дочерним ресурсом. В следующем примере псевдокода показано, где можно применять копирование:
+
+```json
+"resources": [
+  {
+    "type": "{provider-namespace-and-type}",
+    "name": "parentResource",
+    "copy": {  
+      /* Yes, copy can be applied here */
+    },
+    "properties": {
+      "exampleProperty": {
+        /* No, copy cannot be applied here */
+      }
+    },
+    "resources": [
+      {
+        "type": "{provider-type}",
+        "name": "childResource",
+        /* No, copy cannot be applied here. The resource must be promoted to top-level. */ 
+      }
+    ]
+  }
+] 
+```
+
+Сведения об итеративном создании дочерних ресурсов см. в разделе [Создание нескольких экземпляров дочернего ресурса](#create-multiple-instances-of-a-child-resource).
+
+Хотя копирование свойства не поддерживается, это свойство по-прежнему будет частью итераций ресурса, который его содержит. Поэтому вы можете использовать функцию copyIndex() в свойстве, чтобы указать значения. Создание нескольких значений свойства рассматривается в разделе [Создание нескольких экземпляров свойства для типа ресурса](resource-manager-property-copy.md).
 
 ## <a name="use-copy-with-array"></a>Использование операции копирования с массивом
 Операция копирования удобна при работе с массивами, так как позволяет выполнить итерацию по каждому элементу в массиве. Чтобы развернуть три веб-сайта:
@@ -158,10 +143,17 @@ ms.lasthandoff: 02/27/2017
 ]
 ```
 
-Разумеется, вы можете указать число копий, отличное от длины массива. Например, вы могли создать массив с большим количеством значений, а затем передать значение параметра, указывающее, сколько элементов массива следует развернуть. В этом случае задайте число копий, как показано в первом примере. 
+Обратите внимание на то, что для указания количества используется функция `length`. В качестве параметра функции length используется массив.
+
+```json
+"copy": {
+    "name": "websitescopy",
+    "count": "[length(parameters('siteNames'))]"
+}
+```
 
 ## <a name="depend-on-resources-in-a-loop"></a>Зависимость от ресурсов в цикле
-С помощью элемента **dependsOn** можно определить последовательность развертывания ресурсов. Чтобы развернуть ресурс, который зависит от коллекции ресурсов в цикле, укажите имя цикла копирования в элементе **dependsOn**. В следующем примере показано, как развернуть три учетные записи хранения до развертывания виртуальной машины. Полное определение виртуальной машины не показано. Обратите внимание, что параметр **name** элемента копирования определяется в **storagecopy** и элемент **dependsOn** для виртуальных машин также определяется в **storagecopy**.
+С помощью элемента `dependsOn` можно определить последовательность развертывания ресурсов. Чтобы развернуть ресурс, который зависит от коллекции ресурсов в цикле, укажите имя цикла копирования в элементе dependsOn. В следующем примере показано, как развернуть три учетные записи хранения до развертывания виртуальной машины. Полное определение виртуальной машины не показано. Обратите внимание, что параметр name элемента copy имеет значение `storagecopy`, а элемент dependsOn для виртуальных машин имеет значение `storagecopy`.
 
 ```json
 {
@@ -195,7 +187,7 @@ ms.lasthandoff: 02/27/2017
 ```
 
 ## <a name="create-multiple-instances-of-a-child-resource"></a>Создание нескольких экземпляров дочернего ресурса
-Нельзя включить дочерний ресурс в цикл копирования. Чтобы создать несколько экземпляров ресурса, которые определяются как вложенные в другой ресурс, необходимо создать его как ресурс верхнего уровня. Вы можете определить связь с родительским ресурсом с помощью свойств **type** и **name**.
+Нельзя включить дочерний ресурс в цикл копирования. Чтобы создать несколько экземпляров ресурса, которые определяются как вложенные в другой ресурс, необходимо создать его как ресурс верхнего уровня. Вы можете определить связь с родительским ресурсом с помощью свойств type и name.
 
 Предположим, вы определяете набор данных как дочерний ресурс фабрики данных.
 
@@ -217,7 +209,7 @@ ms.lasthandoff: 02/27/2017
 }]
 ```
 
-Чтобы создать несколько экземпляров набора данных, переместите его за пределы фабрики данных. Набор данных должен находиться на том же уровне, что и фабрика данных, но при этом он должен быть дочерним ресурсом фабрики данных. Вы можете сохранить связь между набором данных и фабрикой данных с помощью свойств **type** и **name**. Так как тип нельзя определить по положению в шаблоне, укажите полное имя типа в следующем формате: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+Чтобы создать несколько экземпляров набора данных, переместите его за пределы фабрики данных. Набор данных должен находиться на том же уровне, что и фабрика данных, но при этом он должен быть дочерним ресурсом фабрики данных. Вы можете сохранить связь между набором данных и фабрикой данных с помощью свойств type и name. Так как тип нельзя определить по положению в шаблоне, укажите полное имя типа в следующем формате: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
 Чтобы установить связь между родительским и дочерним ресурсами, укажите имя набора данных, которое включает имя родительского ресурса. Используйте формат `{parent-resource-name}/{child-resource-name}`.  
 
@@ -244,328 +236,9 @@ ms.lasthandoff: 02/27/2017
 }]
 ```
 
-## <a name="create-multiple-instances-when-copy-wont-work"></a>Создание нескольких экземпляров при невозможности выполнить копирование
-Операцию **копирования** можно применить только к типам ресурсов, а не к свойствам в типе ресурса. Это требование может быть проблемой, если вам нужно создать несколько экземпляров ресурса, который является частью другого ресурса. Создание нескольких дисков данных для виртуальной машины — часто встречающийся сценарий. **Копирование** дисков данных не поддерживается, так как **dataDisks** — это свойство виртуальной машины, а не собственный тип ресурса. Вместо этого необходимо создать массив с требуемым числом дисков данных и передать фактическое число создаваемых дисков данных. В определении виртуальной машины используйте функцию **take** для получения количества только тех элементов, которые требуется получить из массива.
-
-Полный пример этой схемы показан в шаблоне [Создание виртуальной машины с динамическим выбором дисков данных](https://azure.microsoft.com/documentation/templates/201-vm-dynamic-data-disks-selection/) .
-
-Соответствующие разделы шаблона развертывания показаны в примере ниже. Большая часть шаблона удалена, чтобы сфокусировать ваше внимание на разделах, включенных в процесс динамического создания нескольких дисков данных. Обратите внимание на параметр **numDataDisks** , в который можно передать количество создаваемых дисков. 
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    ...
-    "numDataDisks": {
-      "type": "int",
-      "maxValue": 64,
-      "metadata": {
-        "description": "This parameter allows you to select the number of disks you want"
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'dynamicdisk')]",
-    "sizeOfDataDisksInGB": 100,
-    "diskCaching": "ReadWrite",
-    "diskArray": [
-      {
-        "name": "datadisk1",
-        "lun": 0,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk1.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      },
-      {
-        "name": "datadisk2",
-        "lun": 1,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk2.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      },
-      {
-        "name": "datadisk3",
-        "lun": 2,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk3.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      },
-      {
-        "name": "datadisk4",
-        "lun": 3,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk4.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      },
-      ...
-      {
-        "name": "datadisk63",
-        "lun": 62,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk63.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      },
-      {
-        "name": "datadisk64",
-        "lun": 63,
-        "vhd": {
-          "uri": "[concat('http://', variables('storageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk64.vhd')]"
-        },
-        "createOption": "Empty",
-        "caching": "[variables('diskCaching')]",
-        "diskSizeGB": "[variables('sizeOfDataDisksInGB')]"
-      }
-    ]
-  },
-  "resources": [
-    ...
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "properties": {
-        ...
-        "storageProfile": {
-          ...
-          "dataDisks": "[take(variables('diskArray'),parameters('numDataDisks'))]"
-        },
-        ...
-      }
-      ...
-    }
-  ]
-}
-```
-
-Если необходимо создать несколько экземпляров ресурса с переменным числом элементов для свойства, можно совместно использовать функцию **take** и элемент **copy**. Предположим, вам нужно создать несколько виртуальных машин, каждая из которых имеет разное число дисков данных. Чтобы каждому диску данных присвоить имя, определяющее соответствующую виртуальную машину, поместите массив дисков данных в отдельный шаблон. Включите параметры имени виртуальной машины и числа дисков данных для возврата. В разделе с выходными данными буде возвращено число указанных элементов.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vmName": {
-      "type": "string"
-    },
-    "storageAccountName": {
-      "type": "string"
-    },
-    "numDataDisks": {
-      "type": "int",
-      "maxValue": 16,
-      "metadata": {
-        "description": "This parameter allows the user to select the number of disks they want"
-      }
-    }
-  },
-  "variables": {
-    "diskArray": [
-      {
-        "name": "[concat(parameters('vmName'), '-datadisk1')]",
-        "vhd": {
-          "uri": "[concat('http://', parameters('storageAccountName'),'.blob.core.windows.net/vhds/', parameters('vmName'), '-datadisk1.vhd')]"
-        },
-        ...
-      },
-      ...
-    ],
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "result": {
-      "type": "array",
-      "value": "[take(variables('diskArray'),parameters('numDataDisks'))]"
-    }
-  }
-}
-``` 
-
-Укажите в родительском шаблоне число виртуальных машин и массив для числа дисков данных для каждой виртуальной машины.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    ...
-    "numberOfInstances": {
-      "type": "int",
-      "defaultValue": 2,
-      "metadata": {
-        "description": "Number of VMs to deploy"
-      }
-    },
-    "numberOfDataDisksPerVM": {
-      "type": "array",
-      "defaultValue": [1,2]
-    }
-  },
-```
-
-Разверните в разделе ресурсов несколько экземпляров шаблона, который определяет диски данных. 
-
-```json
-{
-  "apiVersion": "2016-09-01",
-  "name": "[concat('nested-', copyIndex())]",
-  "type": "Microsoft.Resources/deployments",
-  "copy": {
-    "name": "deploycopy",
-    "count": "[parameters('numberOfInstances')]"
-  },
-  "properties": {
-    "mode": "incremental",
-    "templateLink": {
-      "uri": "{data-disk-template-uri}",
-      "contentVersion": "1.0.0.0"
-    },
-    "parameters": {
-      "vmName": { "value": "[concat('myvm', copyIndex())]" },
-      "storageAccountName": { "value": "[variables('storageAccountName')]" },
-      "numDataDisks": { "value": "[parameters('numberOfDataDisksPerVM')[copyIndex()]]" }
-    }
-  }
-},
-```
-
-Разверните в разделе ресурсов несколько экземпляров виртуальной машины. Для дисков данных укажите ссылку на вложенное развертывание, содержащее правильное число дисков данных и их правильные имена.
-
-```json
-{
-  "type": "Microsoft.Compute/virtualMachines",
-  "name": "[concat('myvm', copyIndex())]",
-  "copy": {
-    "name": "virtualMachineLoop",
-      "count": "[parameters('numberOfInstances')]"
-  },
-  "properties": {
-    "storageProfile": {
-      ...
-      "dataDisks": "[reference(concat('nested-', copyIndex())).outputs.result.value]"
-    },
-    ...
-  },
-  ...
-}
-```
-
-## <a name="return-values-from-a-loop"></a>Значения, возвращаемые из цикла
-Хотя создавать сразу несколько экземпляров типа ресурса удобно, возвращение значений из цикла может быть сложной задачей. Чтобы сохранить и вернуть значения, можно выполнить **копирование** с использованием вложенного шаблона и цикл обхода для массива, который содержит все значения для возврата. Предположим, вам нужно создать несколько учетных записей хранения и вернуть основную конечную точку для каждого из них. 
-
-Сначала создайте вложенный шаблон, который создает учетную запись хранения. Обратите внимание, что он принимает параметр массива для URI большого двоичного объекта. Используйте этот параметр, чтобы обойти все значения из предыдущего развертывания. Выходными данными шаблона является массив, который объединяет новый URI большого двоичного объекта с предыдущими URI.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "indexValue": {
-      "type":"int"
-    },
-    "blobURIs": {
-        "type": "array",
-      "defaultValue": []
-    }
-  },
-    "variables": {
-    "storageName": "[concat('storage', uniqueString(resourceGroup().id), parameters('indexValue'))]"
-  },
-    "resources": [
-    {
-        "apiVersion": "2016-01-01",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageName')]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-          "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {  
-      }
-    }
-    ],
-    "outputs": {
-      "result": {
-        "type": "array",
-      "value": "[concat(parameters('blobURIs'),split(reference(variables('storageName')).primaryEndpoints.blob, ','))]"
-    }
-  }
-}
-```
-
-Теперь создайте родительский шаблон, который включает один статический экземпляр вложенного шаблона и повторяет оставшиеся экземпляры вложенного шаблона. Для каждого экземпляра циклического развертывания передайте массив, который является результатом предыдущего развертывания.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "numberofStorage": { "type": "int", "minValue": 2 }
-  },
-  "resources": [
-    {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate0",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "{storage-template-uri}",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "indexValue": {"value": 0}
-        }
-      }
-    },
-    {
-      "apiVersion": "2016-09-01",
-      "name": "[concat('nestedTemplate', copyIndex(1))]",
-      "type": "Microsoft.Resources/deployments",
-      "copy": {
-        "name": "storagecopy",
-        "count": "[sub(parameters('numberofStorage'), 1)]"
-      },
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "{storage-template-uri}",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "indexValue": {"value": "[copyIndex(1)]"},
-          "blobURIs": {"value": "[reference(concat('nestedTemplate', copyIndex())).outputs.result.value]"}
-        }
-      }
-    }
-  ],
-  "outputs": {
-    "result": {
-      "type": "object",
-      "value": "[reference(concat('nestedTemplate', sub(parameters('numberofStorage'), 1))).outputs.result]"
-    }
-  }
-}
-```
-
 ## <a name="next-steps"></a>Дальнейшие действия
 * Сведения о разделах шаблона см. в статье, посвященной [созданию шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
-* Список функций, которые можно использовать в шаблоне, см. в статье, описывающей [функции шаблонов Azure Resource Manager](resource-group-template-functions.md).
+* Чтобы последовательно создать ресурсы, изучите раздел [Примеры расширения функциональных возможностей шаблонов Azure Resource Manager. Последовательные циклы](resource-manager-sequential-loop.md).
 * Инструкции по развертыванию шаблонов см. в статье, посвященной [развертыванию приложения с помощью шаблона Azure Resource Manager](resource-group-template-deploy.md).
 
 

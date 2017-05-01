@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/25/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: ca5c8b489345dcd0523897895de346509db08a28
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 23df3a3a11d8f065d6ce2a4f14ba175d6c781ee9
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -49,13 +50,13 @@ ms.openlocfilehash: ca5c8b489345dcd0523897895de346509db08a28
     ![](./media/event-hubs-create/create-event-hub5.png)
 1. В списке концентраторов событий щелкните имя только что созданного концентратора событий. 
     
-     ![](./media/event-hubs-create/create-event-hub6.png)
-1. В колонке пространства имен (не в конкретной колонке концентратора событий) щелкните **Политики общего доступа**, а затем нажмите щелкните **RootManageSharedAccessKey**.
+    ![](./media/event-hubs-create/create-event-hub6.png)
+1. В колонке пространства имен (не в конкретной колонке концентратора событий) щелкните **Политики общего доступа**, а затем щелкните **RootManageSharedAccessKey**.
     
-     ![](./media/event-hubs-create/create-event-hub7.png)
+    ![](./media/event-hubs-create/create-event-hub7.png)
 1. Нажмите кнопку копирования, чтобы скопировать строку подключения **RootManageSharedAccessKey** в буфер обмена. Сохраните эту строку. Она вам понадобится позже.
     
-     ![](./media/event-hubs-create/create-event-hub8.png)
+    ![](./media/event-hubs-create/create-event-hub8.png)
 
 Теперь концентратор событий создан, и у вас есть строки подключения, необходимые для отправки и приема событий.
 
@@ -66,8 +67,3 @@ ms.openlocfilehash: ca5c8b489345dcd0523897895de346509db08a28
 * [Общие сведения об API концентраторов событий](event-hubs-api-overview.md)
 
 [Azure portal]: https://portal.azure.com/
-
-
-<!--HONumber=Feb17_HO1-->
-
-

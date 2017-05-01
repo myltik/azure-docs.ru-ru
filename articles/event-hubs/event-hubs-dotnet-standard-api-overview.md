@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: f77755bed5463c0c87f698ded5c80d824efbd8b0
-ms.openlocfilehash: 101727b54aa198411efaa5bfa7c0859bcfeb5417
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 4e05b1cc41038b2239f9314c17b93d20eed33844
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -82,7 +83,7 @@ foreach (var partitionId in runTimeInformation.PartitionIds)
 }
 ```
 
-Поскольку события никогда не удаляются из концентратора событий (только истекает их срок действия), необходимо правильно указать отправную точку. В следующем примере показаны возможные комбинации.
+Так как события никогда не удаляются из концентратора событий (только истекает их срок действия), необходимо правильно указать отправную точку. В следующем примере показаны возможные комбинации.
 
 ```csharp
 // partitionId is assumed to come from GetRuntimeInformationAsync()
@@ -113,7 +114,7 @@ if (ehEvents != null)
         var customType = ehEvent.Properties["Type"];
         // Implement processing logic here
     }
-}       
+}        
 ```
 
 ## <a name="event-processor-host-apis"></a>Интерфейсы API узла обработчика событий
@@ -188,8 +189,3 @@ public class SimpleEventProcessor : IEventProcessor
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

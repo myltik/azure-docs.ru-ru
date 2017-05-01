@@ -1,5 +1,5 @@
 ---
-title: "Создание пространства имен и очереди служебной шины Azure с помощью шаблона | Документация Майкрософт"
+title: "Создание пространства имен и очереди служебной шины Azure с помощью шаблона Azure Resource Manager | Документация Майкрософт"
 description: "Создание пространства имен и очереди служебной шины с помощью шаблона диспетчера ресурсов Azure"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,16 +12,18 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 04/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 777a515daa57f6a6af0ebec41412a3edbd1eaf19
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 358c92ee599433ba5c17512fa187f821aa428d29
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Создание пространства имен и очереди служебной шины с помощью шаблона диспетчера ресурсов Azure
-В этой статье показывается, как использовать шаблон диспетчера ресурсов Azure, создающий пространство имен служебной шины и очередь. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
+
+В этой статье показывается, как использовать шаблон Azure Resource Manager, создающий пространство имен служебной шины и очередь в нем. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -40,6 +42,7 @@ ms.openlocfilehash: 777a515daa57f6a6af0ebec41412a3edbd1eaf19
 > 
 
 ## <a name="what-will-you-deploy"></a>Что вы развернете?
+
 С помощью этого шаблона вы развернете пространство имен служебной шины с очередью.
 
 [Очереди служебной шины](service-bus-queues-topics-subscriptions.md#queues) доставляют сообщения конкурирующим получателям по типу FIFO (в порядке очереди).
@@ -49,6 +52,7 @@ ms.openlocfilehash: 777a515daa57f6a6af0ebec41412a3edbd1eaf19
 [![Развертывание в Azure](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Параметры
+
 С помощью диспетчера ресурсов Azure можно определить параметры значений, которые должны указываться на этапе развертывания шаблона. В шаблоне есть раздел `Parameters` , содержащий все значения параметров. Для этих значений необходимо определить параметры, которые будут зависеть от развертываемого проекта либо от среды, в которой выполняется развертывание. Не задавайте параметры для значений, которые не меняются. Значение каждого параметра в шаблоне определяет развертываемые ресурсы.
 
 Шаблон определяет следующие параметры.
@@ -131,7 +135,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы создали и развернули ресурсы с помощью диспетчера ресурсов Azure, узнайте, как управлять этими ресурсами, изучив следующие статьи:
 
-* [Управление служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md)
+* [Управление служебной шиной с помощью PowerShell](service-bus-manage-with-ps.md)
 * [Управление ресурсами служебной шины с помощью обозревателя служебной шины](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
@@ -140,9 +144,4 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 [Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

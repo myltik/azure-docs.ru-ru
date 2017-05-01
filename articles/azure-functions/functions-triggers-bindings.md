@@ -3,7 +3,7 @@ title: "Работа с триггерами и привязками в Функ
 description: "Узнайте, как подключить выполнение кода к интерактивным мероприятиям и облачным службам, используя триггеры и привязки в Функциях Azure."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: lindydonna
 manager: erikre
 editor: 
 tags: 
@@ -14,125 +14,288 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: chrande
+ms.date: 04/14/2017
+ms.author: donnam
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: a56d71d437814ed08b2e0a05d9acc8448f6b9ae5
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: ed0ade96cc1cf6afc82787133d3fbcf874c43e0f
+ms.lasthandoff: 04/18/2017
 
 
 ---
 
-# <a name="learn-how-to-work-with-triggers-and-bindings-in-azure-functions"></a>Узнайте о работе с триггерами и привязками в Функциях Azure 
-В этом разделе показано, как подключить код к различным триггерам, службам Azure и другим облачным службам, используя триггеры и привязки в Функциях Azure. В нем также рассматриваются некоторые расширенные функции привязки и синтаксис, поддерживаемые всеми типами привязки.  
-
-Дополнительные сведения о работе с определенным типом триггера или привязки приведены в следующих справочных разделах.
-
-| | | | |  
-| --- | --- | --- | --- |  
-| [HTTP или webhook](functions-bindings-http-webhook.md) | [Таймер](functions-bindings-timer.md) | [Мобильные приложения](functions-bindings-mobile-apps.md) | [Служебная шина](functions-bindings-service-bus.md)  |  
-| [DocumentDB](functions-bindings-documentdb.md) |  [Большой двоичный объект хранилища](functions-bindings-storage-blob.md) | [Очередь хранилища](functions-bindings-storage-queue.md) |  [Таблица хранилища](functions-bindings-storage-table.md) |  
-| [Концентраторы событий](functions-bindings-event-hubs.md) | [Центры уведомлений](functions-bindings-notification-hubs.md) | [SendGrid](functions-bindings-sendgrid.md) | [Twilio](functions-bindings-twilio.md) |   
-| | | | |  
-
-В этих статьях предполагается, что вы уже прочли [справочник разработчика по функциям Azure](functions-reference.md), а также справочники разработчика по [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) и [Node.js](functions-reference-node.md).
+# <a name="azure-functions-triggers-and-bindings-concepts"></a>Основные понятия триггеров и привязок в Функциях Azure
+Функции Azure позволяют писать код в ответ на события в Azure и других службах с помощью *триггеров* и *привязок*. В этой статье приведены общие сведения о триггерах и привязках для всех поддерживаемых языков программирования. Здесь описываются функции, которые являются общими для всех привязок.
 
 ## <a name="overview"></a>Обзор
-Триггеры позволяют реагировать на события, активируя пользовательский код. С их помощью можно реагировать на события платформы Azure или локальной среды. Привязки представляют собой необходимые метаданные, используемые для подключения вашего кода к нужному триггеру или связанным входным или выходным данным. Файл *Function.json* для каждой функции содержит все связанные привязки. Функция может содержать неограниченное число входных и выходных привязок. Однако для каждой функции поддерживается только одна привязка триггера.  
 
-Чтобы получить более точное представление о различных привязках, которые можно интегрировать с приложением-функцией Azure, ознакомьтесь со следующей таблицей.
+Триггеры и привязки реализуют декларативный способ определения того, как должны вызываться функции и с какими данными одни будут работать. *Триггер* определяет способ вызова функции. У функции должен быть только один триггер. С триггерами могут быть связанны данные, которые обычно являются полезными и активируют функцию. 
 
-[!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+Входные и выходные *привязки* реализуют декларативный способ подключения к данным из кода. Как и в случае триггеров, для них необходимо указать строки подключения и другие свойства в конфигурации функции. Привязки необязательны, а у функции может быть несколько входных и выходных привязок. 
 
-Чтобы лучше понять, что из себя представляют триггеры и привязки, предположим, что вам нужно выполнить код для обработки нового элемента, попавшего в очередь службы хранилища Azure. Для этого в Функциях Azure предоставлен триггер очереди Azure. Для наблюдения за очередью потребуются следующие сведения.
+Используя триггеры и привязки, можно писать более универсальный код без жесткого кодирования данных служб, с которыми он взаимодействует. Данные, поступающие из служб, становятся для кода вашей функции обычными входными значениями. Для вывода данных в другую службу (например, создания новой строки в Хранилище таблиц Azure) следует использовать возвращаемое значение метода. Если требуется вывести несколько значений, воспользуйтесь вспомогательным объектом. Триггеры и привязки получают свойство **name**, которое представляет собой идентификатор, используемый в коде для доступа к привязке.
 
-* Учетная запись хранения, в которой имеется очередь.
-* Имя очереди.
-* Имя переменной, которая будет указана в коде для ссылки на новый элемент, переданный в очередь.  
+Триггеры и привязки можно настроить на вкладке **Интегрировать** на портале Функций Azure. На самом деле пользовательский интерфейс изменяет файл с именем *function.json* в каталоге функции. Этот файл можно изменить с помощью **расширенного редактора**.
 
-Привязка триггера очереди содержит эти сведения для функции Azure. Ниже приведен пример файла *function.json*, содержащего привязку триггера очереди. 
+В следующей таблице приведены триггеры и привязки, поддерживаемые Функциями Azure. 
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    }
-  ],
-  "disabled": false
-}
-```
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-Ваш код может отправлять выходные данные разного типа в зависимости от того, как происходит обработка нового элемента очереди. Например, может потребоваться добавление новой записи в таблицу службы хранилища Azure.  Для этого следует создать привязку для вывода для таблицы службы хранилища Azure. Ниже приведен пример файла *function.json*, содержащий привязку для вывода к таблице службы хранилища, которую может использовать триггер очереди. 
+### <a name="example-queue-trigger-and-table-output-binding"></a>Пример. Триггер очередей и выходная привязка таблицы
 
-```json
-{
-  "bindings": [
-    {
-      "name": "myNewUserQueueItem",
-      "type": "queueTrigger",
-      "direction": "in",
-      "queueName": "queue-newusers",
-      "connection": "MY_STORAGE_ACCT_APP_SETTING"
-    },
-    {
-      "type": "table",
-      "name": "myNewUserTableBinding",
-      "tableName": "newUserTable",
-      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
+Предположим, что всякий раз, когда в хранилище очередей Azure появляется новое сообщение, требуется создать новую строку для Хранилища таблиц Azure. Этот сценарий может быть реализован с помощью триггера очередей Azure и выходной привязки таблицы. 
 
-Приведенная ниже функция C# реагирует на добавление нового элемента в очередь и добавляет новую запись пользователя в таблицу службы хранилища Azure.
+Для триггера очередей требуются следующие данные с вкладки **Интегрировать**:
+
+* имя параметра приложения, который содержит строку подключения учетной записи хранения для очереди;
+* имя очереди;
+* идентификатор в коде, используемый для считывания содержимого сообщений очереди, например `order`.
+
+Для записи в Хранилище таблиц Azure необходимо использовать выходную привязку со следующими параметрами:
+
+* имя параметра приложения, который содержит строку подключения учетной записи хранения для таблицы;
+* имя таблицы;
+* идентификатор в коде для создания выходных элементов или возвращаемое значение функции.
+
+Привязки используют параметры приложения для строк подключения, чтобы обеспечить соблюдение рекомендаций, согласно которым файл *function.json* не должен содержать секреты службы.
+
+Затем используются идентификаторы, указанные в коде для интеграции со службой хранилища Azure.
 
 ```cs
 #r "Newtonsoft.Json"
 
-using System;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-public static async Task Run(string myNewUserQueueItem, IAsyncCollector<Person> myNewUserTableBinding, 
-                                TraceWriter log)
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The method return value creates a new row in Table Storage
+public static Person Run(JObject order, TraceWriter log)
 {
-    // In this example the queue item is a JSON string representing an order that contains the name, 
-    // address and mobile number of the new customer.
-    dynamic order = JsonConvert.DeserializeObject(myNewUserQueueItem);
-
-    await myNewUserTableBinding.AddAsync(
-        new Person() { 
-            PartitionKey = "Test", 
-            RowKey = Guid.NewGuid().ToString(), 
-            Name = order.name,
-            Address = order.address,
-            MobileNumber = order.mobileNumber }
-        );
+    return new Person() { 
+            PartitionKey = "Orders", 
+            RowKey = Guid.NewGuid().ToString(),  
+            Name = order["Name"].ToString(),
+            MobileNumber = order["MobileNumber"].ToString() };  
 }
-
+ 
 public class Person
 {
     public string PartitionKey { get; set; }
     public string RowKey { get; set; }
     public string Name { get; set; }
-    public string Address { get; set; }
     public string MobileNumber { get; set; }
 }
 ```
 
-Дополнительные примеры кода и более подробные сведения о поддерживаемых типах службы хранилища Azure см. в разделе [Триггеры и привязки для службы хранилища Azure в функциях Azure](functions-bindings-storage.md).
+```javascript
+// From an incoming queue message that is a JSON object, add fields and write to Table Storage
+// The second parameter to context.done is used as the value for the new row
+module.exports = function (context, order) {
+    order.PartitionKey = "Orders";
+    order.RowKey = generateRandomId(); 
 
-Чтобы использовать расширенные возможности привязки на портале Azure, щелкните **Расширенный редактор** на вкладке **Интеграция** своей функции. Расширенный редактор позволяет редактировать файл *function.json* прямо на портале.
+    context.done(null, order);
+};
 
-## <a name="random-guids"></a>Случайные значения GUID
-Функции Azure предоставляют синтаксис для создания случайных значений GUID с использованием привязок. Ниже приведен синтаксис привязки, которая позволяет записывать выходные данные в новый большой двоичный объект с уникальным именем в контейнере службы хранилища. 
+function generateRandomId() {
+    return Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
+}
+```
+
+Ниже приведено содержимое файла *function.json*, соответствующее предыдущему коду. Обратите внимание, что конфигурацию можно использовать независимо от языка реализации функции.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "myqueue-items",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    },
+    {
+      "name": "$return",
+      "type": "table",
+      "direction": "out",
+      "tableName": "outTable",
+      "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+Чтобы просмотреть и отредактировать содержимое файла *function.json* на портале Azure, щелкните параметр **Расширенный редактор** на вкладке **Интегрировать** этой функции.
+
+Дополнительные примеры кода и сведения об интеграции со службой хранилища Azure см. в статье [Привязки больших двоичных объектов службы хранилища для Функций Azure](functions-bindings-storage.md).
+
+### <a name="binding-direction"></a>Направление привязки
+
+У всех триггеров и привязок есть направление (свойство `direction`):
+
+- Для триггеров направление всегда входящее (`in`).
+- Для входных и выходных привязок используется как входящее (`in`), так и исходящее (`out`) направление.
+- Некоторые привязки поддерживают специальное направление `inout`. При использовании `inout` на вкладке **Интегрировать** доступен только параметр **Расширенный редактор**.
+
+## <a name="using-the-function-return-type-to-return-a-single-output"></a>Использование возвращаемого функцией типа для возврата одного выходного значения
+
+В предыдущем примере показано, как использовать возвращаемое значение функции для предоставления выходного значения привязке, обращение к которой осуществляется с помощью параметра специального имени `$return`. (Это поддерживается только в языках, у которых есть возвращаемое значение, например C#, JavaScript и F#.) Если у функции несколько выходных привязок, используйте `$return` только для одной из них. 
+
+```json
+// excerpt of function.json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+В примерах ниже показано, как возвращаемые типы используются с выходными привязками в C#, JavaScript и F#.
+
+```cs
+// C# example: use method return value for output binding
+public static string Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+// C# example: async method, using return value for output binding
+public static Task<string> Run(WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```javascript
+// JavaScript: return a value in the second parameter to context.done
+module.exports = function (context, input) {
+    var json = JSON.stringify(input);
+    context.log('Node.js script processed queue message', json);
+    context.done(null, json);
+}
+```
+
+```fsharp
+// F# example: use return value for output binding
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+## <a name="resolving-app-settings"></a>Разрешение параметров приложения
+Для управления секретами и строками подключения рекомендуется использовать параметры приложения, а не файлы конфигурации. Это ограничивает доступ к таким секретам и обеспечивает безопасное хранение файла *function.json* в общедоступном репозитории системы управления версиями.
+
+Параметры приложений также удобно использовать при необходимости изменить конфигурации в соответствии со средой. Например, в тестовой среде можно отслеживать другую очередь или контейнер хранилища BLOB-объектов.
+
+Параметры приложения разрешаются, если значение заключено в знаки процента, например `%MyAppSetting%`. Обратите внимание, что свойство `connection` триггеров и привязок является особым случаем и автоматически разрешает значения как параметры приложения. 
+
+Следующий пример представляет собой триггер очередей. Этот триггер использует параметр приложения `%input-queue-name%`, чтобы определить очередь, для которой он должен срабатывать.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "order",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "%input-queue-name%",
+      "connection": "MY_STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
+```
+
+## <a name="trigger-metadata-properties"></a>Свойства метаданных триггера
+
+Помимо полезных данных, предоставляемых триггером (например, сообщения очереди, инициирующего вызов функции), многие триггеры предоставляют также дополнительные значения метаданных. Эти значения можно использовать в качестве входных параметров в C# и F# или свойств объекта `context.bindings` в JavaScript. 
+
+Например, триггер очереди поддерживает следующие свойства:
+
+* QueueTrigger (содержимое активирующего сообщения, если строка допустима)
+* DequeueCount
+* ExpirationTime
+* Идентификатор
+* InsertionTime
+* NextVisibleTime
+* PopReceipt
+
+Сведения о свойствах метаданных для каждого триггера приведены в соответствующем разделе справки. Документация доступна также на портале на вкладке **Интегрировать** в разделе **Документация** под областью конфигурации привязки.  
+
+Например, поскольку у триггеров BLOB-объекта есть определенная задержка, для выполнения функции можно использовать триггер очередей (см. раздел [Триггер хранилища BLOB-объектов](functions-bindings-storage-blob.md#storage-blob-trigger)). Сообщение очереди будет содержать имя файла BLOB-объекта, по которому активируется триггер. Используя свойство метаданных `queueTrigger`, можно задать такое поведение не в коде, а в конфигурации.
+
+```json
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    }
+  ]
+```
+
+Свойства метаданных из триггера могут также использоваться в *выражении привязки* для другой привязки, как описано в следующем разделе.
+
+## <a name="binding-expressions-and-patterns"></a>Выражения привязки и шаблоны
+
+*Выражения привязки* — это одна из самых эффективных функций триггеров и привязок. В привязке можно определить шаблоны выражений, которые затем можно использовать в других привязках или коде. Метаданные триггера также могут использоваться в выражениях привязки, как показано в примере в предыдущем разделе.
+
+Предположим, например, что необходимо изменить размер изображения в определенном контейнере хранилища BLOB-объектов аналогично тому, как это делается в шаблоне **изменения размера изображения** на странице **Новая функция**. Последовательно выберите **Новая функция** -> Язык **C#** -> Сценарий **Примеры** -> **ImageResizer-CSharp**. 
+
+Ниже приведено определение *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Обратите внимание, что параметр `filename` используется как в определении триггера BLOB-объектов, так и в выходной привязке большого двоичного объекта. Этот параметр можно также использовать в коде функции.
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+
+### <a name="random-guids"></a>Случайные значения GUID
+Функции Azure предоставляют удобный синтаксис для создания в привязках идентификаторов GUID с помощью выражения привязки `{rand-guid}`. В следующем примере эта возможность используется для создания уникального имени большого двоичного объекта: 
 
 ```json
 {
@@ -143,248 +306,91 @@ public class Person
 }
 ```
 
+## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>Привязка к пользовательским входным свойствам в выражении привязки
 
-## <a name="returning-a-single-output"></a>Возвращение одного результата
-В случаях, когда код функции возвращает один результат, можно использовать привязку для вывода `$return`, чтобы сохранить в коде более естественную сигнатуру функции. Это может использоваться только в языках, поддерживающих возвращаемое значение (C#, Node.js, F#). Привязка будет аналогична приведенной ниже привязке для вывода в большой двоичный объект, используемой для триггера очереди.
+Выражения привязки могут также ссылаться на свойства, определенные в самих полезных данных. Например, можно установить динамическую привязку к файлу хранилища BLOB-объектов из файла, имя которого указанно в webhook.
+
+Например, в приведенном ниже файле *function.json* используется свойство `BlobName` из полезных данных триггера.
 
 ```json
 {
   "bindings": [
     {
-      "type": "queueTrigger",
-      "name": "input",
+      "name": "info",
+      "type": "httpTrigger",
       "direction": "in",
-      "queueName": "test-input-node"
+      "webHookType": "genericJson",
     },
     {
+      "name": "blobContents",
       "type": "blob",
-      "name": "$return",
-      "direction": "out",
-      "path": "test-output-node/{id}"
+      "direction": "in",
+      "path": "strings/{BlobName}",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
     }
   ]
 }
 ```
 
-Приведенный код C# возвращает выходные данные более естественным образом, не используя параметр `out` в сигнатуре функции.
+Для этого в C# и F# необходимо определить тип POCO, определяющий поля, которые будут десериализованы в полезные данные триггера.
 
-```cs
-public static string Run(WorkItem input, TraceWriter log)
+```csharp
+using System.Net;
+
+public class BlobInfo
 {
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    public string BlobName { get; set; }
+}
+  
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+{
+    if (blobContents == null) {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    } 
+
+    return req.CreateResponse(HttpStatusCode.OK, new {
+        data = $"{blobContents}"
+    });
 }
 ```
 
-Пример асинхронной функции:
-
-```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
-{
-    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
-    return json;
-}
-```
-
-
-Этот же подход демонстрируется ниже для Node.js.
+В JavaScript десериализация JSON выполняется автоматически и свойства можно использовать напрямую.
 
 ```javascript
-module.exports = function (context, input) {
-    var json = JSON.stringify(input);
-    context.log('Node.js script processed queue message', json);
-    context.done(null, json);
-}
-```
-
-Ниже приведен пример для F#.
-
-```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
-```
-
-Кроме того, описанный подход можно использовать для нескольких параметров вывода, указав один результат с помощью `$return`.
-
-## <a name="resolving-app-settings"></a>Разрешение параметров приложения
-Рекомендуется сохранять конфиденциальные сведения как часть среды выполнения, используя параметры приложения. Не сохраняя конфиденциальные сведения в файлах конфигурации приложения, вы снижаете риск при использовании общедоступного репозитория для хранения файлов приложения.  
-
-Среда выполнения Функций Azure разрешает параметры приложения к значениям, если перед именем параметра приложения и после него указан знак процента (`%your app setting%`). Следующая [привязка Twilio](functions-bindings-twilio.md) использует параметр приложения `TWILIO_ACCT_PHONE` для поля `from` привязки. 
-
-```json
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received Node.js",
-  "direction": "out"
-},
-```
-
-
-
-## <a name="parameter-binding"></a>Привязка параметра
-Вместо настройки статической конфигурации свойств привязки для вывода можно настроить динамическую зависимость свойств от данных, являющуюся частью привязки для ввода триггера. Рассмотрим ситуацию, когда новые заказы обрабатываются с использованием очереди службы хранилища Azure. Каждый новый элемент очереди представляет собой строку JSON, содержащую по крайней мере приведенные ниже свойства.
-
-```json
-{
-  "name" : "Customer Name",
-  "address" : "Customer's Address",
-  "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
-}
-```
-
-Вам может понадобиться отправить клиенту SMS-сообщение с помощью учетной записи Twilio, чтобы уведомить о получении заказа.  Можно настроить динамическую связь между полями `body` и `to` привязки для вывода Twilio и значениями `name` и `mobileNumber`, которые были частью входных данных, следующим образом.
-
-```json
-{
-  "name": "myNewOrderItem",
-  "type": "queueTrigger",
-  "direction": "in",
-  "queueName": "queue-newOrders",
-  "connection": "orders_STORAGE"
-},
-{
-  "type": "twilioSms",
-  "name": "$return",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "{mobileNumber}",
-  "from": "%TWILIO_ACCT_PHONE%",
-  "body": "Thank you {name}, your order was received",
-  "direction": "out"
-},
-```
-
-Теперь вашему коду функции достаточно инициализировать параметр вывода, как показано ниже. Во время выполнения свойства вывода привязываются к требуемым входным данным.
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio.Api"
-
-using System;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Twilio;
-
-public static async Task<SMSMessage> Run(string myNewOrderItem, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myNewOrderItem}");
-
-    dynamic order = JsonConvert.DeserializeObject(myNewOrderItem);    
-
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the SMSMessage variable.
-    SMSMessage smsText = new SMSMessage();
-
-    // The following isn't needed since we use parameter binding for this
-    //string msg = "Hello " + order.name + ", thank you for your order.";
-    //smsText.Body = msg;
-    //smsText.To = order.mobileNumber;
-
-    return smsText;
-}
-```
-
-Node.js:
-
-```javascript
-module.exports = function (context, myNewOrderItem) {    
-    context.log('Node.js queue trigger function processed work item', myNewOrderItem);    
-
-    // No need to set the properties of the text, we use parameters in the binding. We do need to 
-    // initialize the object.
-    var smsText = {};    
-
-    context.done(null, smsText);
-}
-```
-
-## <a name="advanced-binding-at-runtime-imperative-binding"></a>Расширенная привязка в среде выполнения (императивная привязка)
-
-Стандартная входная и выходная привязка с использованием файла *function.json* называется [*декларативной*](https://en.wikipedia.org/wiki/Declarative_programming) привязкой. Такая привязка определяется объявлением JSON. Тем не менее, можно использовать [императивную](https://en.wikipedia.org/wiki/Imperative_programming) привязку. С использованием такого шаблона можно на лету выполнить привязку к поддерживаемым входным и выходным привязкам в любом количестве в коде функции.
-Императивная привязка используется, если вычисление пути привязки или другие операции в функции должны осуществляться во время выполнения, а не разработки. 
-
-Определите принудительную привязку следующим образом.
-
-- **Не** добавляйте запись для нужных императивных привязок в файл *function.json*.
-- Передайте входной параметр [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) или [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
-- Используйте следующий шаблон C# для привязки данных,
-
-```cs
-using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-{
-    ...
-}
-```
-
-где `BindingTypeAttribute` — атрибут .NET, определяющий пользовательскую привязку, а `T` — входной или выходной тип, поддерживаемый этим типом привязки. `T` также не может быть параметром типа `out` (например, `out JObject`). Например, выходная привязка таблицы мобильных приложений поддерживает [шесть выходных типов](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), но для `T` можно использовать только [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) или [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs).
-    
-В следующем примере кода создается [выходная привязка большого двоичного объекта службы хранилища](functions-bindings-storage-blob.md#storage-blob-output-binding) с путем к большому двоичному объекту, определенному во время выполнения, а затем записывается строка в большой двоичный объект.
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-
-public static async Task Run(string input, Binder binder)
-{
-    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-    {
-        writer.Write("Hello World!!");
+module.exports = function (context, info) {
+    if ('BlobName' in info) {
+        context.res = {
+            body: { 'data': context.bindings.blobContents }
+        }
     }
-}
-```
-
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) определяет входную или выходную привязку [большого двоичного объекта службы хранилища](functions-bindings-storage-blob.md), а [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) представляет собой поддерживаемый тип выходной привязки.
-Код возвращает параметр приложения по умолчанию для строки подключения к учетной записи службы хранилища (`AzureWebJobsStorage`). Вы можете указать пользовательский параметр приложения, который следует использовать, добавив [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) и передавая массив атрибутов в `BindAsync<T>()`. Например,
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-
-public static async Task Run(string input, Binder binder)
-{
-    var attributes = new Attribute[]
-    {    
-        new BlobAttribute("samples-output/path"),
-        new StorageAccountAttribute("MyStorageAccount")
-    };
-
-    using (var writer = await binder.BindAsync<TextWriter>(attributes))
-    {
-        writer.Write("Hello World!");
+    else {
+        context.res = {
+            status: 404
+        };
     }
+    context.done();
 }
 ```
-
-В следующей таблице показан соответствующий атрибут .NET для каждого типа привязки, а также пакеты для ссылки.
-
-> [!div class="mx-codeBreakAll"]
-| Привязка | Атрибут | Ссылка, которую нужно добавить |
-|------|------|------|
-| DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
-| Концентраторы событий | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
-| Мобильные приложения | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
-| Центры уведомлений | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
-| Служебная шина | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
-| Очередь службы хранилища | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Большой двоичный объект службы хранилища | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Таблица службы хранилища | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
-
-
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Для получения дополнительных сведений см. следующие ресурсы:
+Дополнительные сведения о конкретной привязке см. в следующих статьях:
 
-* [Тестирование функции](functions-test-a-function.md)
-* [Масштабирование функции](functions-scale.md)
-
+- [HTTP и вызовы webhook](functions-bindings-http-webhook.md)
+- [Таймер](functions-bindings-timer.md)
+- [Хранилище очередей](functions-bindings-storage-queue.md)
+- [Хранилище BLOB-объектов](functions-bindings-storage-blob.md)
+- [Хранилище таблиц](functions-bindings-storage-table.md)
+- [Концентратор событий](functions-bindings-event-hubs.md)
+- [Служебная шина](functions-bindings-service-bus.md)
+- [DocumentDB](functions-bindings-documentdb.md)
+- [SendGrid](functions-bindings-sendgrid.md)
+- [Twilio](functions-bindings-twilio.md)
+- [Центры уведомлений](functions-bindings-notification-hubs.md)
+- [Мобильные приложения](functions-bindings-mobile-apps.md)
+- [Внешний файл](functions-bindings-external-file.md)
 

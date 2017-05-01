@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 04/17/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
-ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Системные требования для виртуального массива StorSimple
@@ -81,7 +81,9 @@ ms.lasthandoff: 02/07/2017
 > [!IMPORTANT]
 > Не используйте файловый сервер виртуального массива StorSimple для копирования или хранения файлов, защищенных при помощи шифрованной файловой системы (EFS). Это приведет к созданию неподдерживаемой конфигурации. 
 > 
-> 
+
+### <a name="supported-storage-format"></a>Поддерживаемый формат хранения
+Поддерживается только хранилище блочных BLOB-объектов Azure. Страничные BLOB-объекты не поддерживаются. Дополнительные сведения о [блочных и страничных BLOB-объектах](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## <a name="networking-requirements"></a>Требования к сети
 В таблице ниже приведены порты, которые должны быть открытыми в брандмауэре для разрешения использования трафика iSCSI, SMB, облака или трафика управления. В этой таблице значение *входящий* относится к *направлению*, из которого клиент запрашивает доступ к вашему устройству. Значение *исходящий* указывает на *направление*, в котором устройство StorSimple отправляет данные за пределами развертывания, например в Интернет.

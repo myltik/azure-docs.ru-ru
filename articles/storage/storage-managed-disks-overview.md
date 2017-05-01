@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 6ec77968a0f264b8bf1fa56a23e4cc7faef614da
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 53bd62688aa0d1a06d2d012c8da664d2de4b0b45
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/17/2017
 Управляемые диски Azure упрощают управление дисками виртуальных машин Azure IaaS. Они управляют [учетными записями хранения](storage-introduction.md), связанными с этими дисками. Вам нужно лишь выбрать класс ([Premium](storage-premium-storage.md) или [Standard](storage-standard-storage.md)) и размер диска, а Azure самостоятельно создаст диск и будет управлять им.
 
 >[!NOTE]
->Для виртуальных машин с управляемыми дисками требуется передавать исходящий трафик через порт 8443 для уведомления платформы Azure о состоянии установленных [расширений виртуальной машины](../virtual-machines/virtual-machines-windows-extensions-features.md). Подготовка расширений виртуальной машины завершится сбоем, если этот порт закрыт. Кроме того, если установить расширение на работающую виртуальную машину с закрытым портом 8443, его состояние будет неизвестным. Если вы не можете открыть этот порт, нужно использовать неуправляемые диски. Мы активно работаем над устранением этой проблемы. Дополнительные сведения можно получить, ознакомившись с [часто задаваемыми вопросами о дисках виртуальной машины IaaS](storage-faq-for-disks.md#managed-disks-and-port-8443). 
+>Для виртуальных машин с управляемыми дисками требуется передавать исходящий трафик через порт 8443 для уведомления платформы Azure о состоянии установленных [расширений виртуальной машины](../virtual-machines/windows/extensions-features.md). Подготовка расширений виртуальной машины завершится сбоем, если этот порт закрыт. Кроме того, если установить расширение на работающую виртуальную машину с закрытым портом 8443, его состояние будет неизвестным. Если вы не можете открыть этот порт, нужно использовать неуправляемые диски. Мы активно работаем над устранением этой проблемы. Дополнительные сведения можно получить, ознакомившись с [часто задаваемыми вопросами о дисках виртуальной машины IaaS](storage-faq-for-disks.md#managed-disks-and-port-8443). 
 >
 >
 
@@ -95,8 +95,8 @@ ms.lasthandoff: 03/17/2017
 
 Дополнительные сведения о создании моментальных снимков управляемых дисков см. в следующих статьях:
 
-* [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-* [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+* [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 Дополнительные сведения о ценах на управляемые диски см. на [этой странице](https://azure.microsoft.com/pricing/details/managed-disks).
@@ -106,8 +106,8 @@ ms.lasthandoff: 03/17/2017
 Управляемые диски также поддерживают создание управляемых пользовательских образов. Вы можете создать образ из пользовательского VHD-файла в учетной записи хранения или непосредственно из обобщенной (подготовленной с помощью программы sysprep) виртуальной машины. В одном образе сохраняются все управляемые диски, связанные с виртуальной машиной, включая диски операционной системы и диски данных. Таким образом, вы можете создавать сотни виртуальных машин с помощью пользовательского образа без необходимости копировать все учетные записи хранения или управлять ими.
 
 Дополнительные сведения о создании образов см. в следующих статьях:
-* [How to capture a managed image of a generalized VM in Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md) (Как создать управляемый образ обобщенной виртуальной машины в Azure)
-* [Как подготовить к работе и записать образ виртуальной машины Linux с помощью Azure CLI 2.0](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [How to capture a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md) (Как создать управляемый образ обобщенной виртуальной машины в Azure)
+* [Как подготовить к работе и записать образ виртуальной машины Linux с помощью Azure CLI 2.0](../virtual-machines/linux/capture-image.md)
 
 ## <a name="images-versus-snapshots"></a>Образы и моментальные снимки
 
@@ -141,11 +141,11 @@ ms.lasthandoff: 03/17/2017
 
 * [Создание виртуальной машины с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Создание виртуальной машины Linux с помощью Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Создание виртуальной машины Linux с помощью Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)
 
-* [Attach a managed data disk to a Windows VM using PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md) (Присоединение управляемого диска данных к виртуальной машине Windows с помощью PowerShell)
+* [Attach a managed data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md) (Присоединение управляемого диска данных к виртуальной машине Windows с помощью PowerShell)
 
-* [Добавление управляемого диска к виртуальной машине Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Добавление управляемого диска к виртуальной машине Linux](../virtual-machines/linux/add-disk.md)
 
 ### <a name="compare-managed-disks-storage-options"></a>Сравнение вариантов хранилищ управляемых дисков 
 
@@ -155,7 +155,7 @@ ms.lasthandoff: 03/17/2017
 
 ### <a name="operational-guidance"></a>Операционное руководство
 
-* [Миграция из AWS и других платформ на управляемые диски Azure](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+* [Миграция из AWS и других платформ на управляемые диски Azure](../virtual-machines/windows/on-prem-to-azure.md)
 
-* [Migrate Azure VMs to Managed Disks in Azure](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md) (Перенос виртуальных машин Azure на управляемые диски Azure)
+* [Migrate Azure VMs to Managed Disks in Azure](../virtual-machines/windows/migrate-to-managed-disks.md) (Перенос виртуальных машин Azure на управляемые диски Azure)
 

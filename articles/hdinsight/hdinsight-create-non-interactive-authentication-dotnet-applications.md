@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a423975e8a091183154217678706817694f3e346
-ms.openlocfilehash: d5256250d6d3a6d7df3a90ae4a0801af131b830e
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 2b8638ffc3287346a71f591370367655c450e376
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -29,25 +29,25 @@ ms.lasthandoff: 02/11/2017
 Из неинтерактивного приложения .NET, вам потребуется следующее:
 
 * Идентификатор клиента для подписки Azure (то есть идентификатор каталога). Дополнительные сведения см. в разделе [Получение идентификатора клиента](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* Идентификатор клиента для приложения Azure Directory. Дополнительные сведения см. в разделах [Создание приложения Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-active-directory-application) и [Получение идентификатора приложения](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* Секретный ключ приложения Azure Directory. Дополнительные сведения см. в разделе [Получение идентификатора приложения и ключа аутентификации](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Идентификатор клиента для приложения Azure Active Directory. Дополнительные сведения см. в разделах [Создание приложения Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) и [Получение идентификатора приложения и ключа проверки подлинности](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Секретный ключ для приложения Azure Active Directory. Дополнительные сведения см. в разделе [Получение идентификатора приложения и ключа аутентификации](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Кластер HDInsight. Дополнительные сведения см. в [руководстве по началу работы](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 
 
-## <a name="assign-ad-application-to-role"></a>Назначение приложения AD роли
+## <a name="assign-azure-ad-application-to-role"></a>Назначение приложения Azure AD роли
 Необходимо назначить приложение [роли](../active-directory/role-based-access-built-in-roles.md) , чтобы предоставить ему разрешения для выполнения действий. Вы можете задать область действия на уровне подписки, группы ресурсов или ресурса. Разрешения наследуются на более низких уровнях области действия (например, добавление приложения в роль читателя для группы ресурсов означает, что оно может считывать группу ресурсов и все содержащиеся в ней ресурсы). В этом учебнике описано, как задать область действия на уровне группы ресурсов. Дополнительные сведения см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
 
-**Добавление роли владельца для приложения AD**
+**Добавление роли владельца в приложение Azure AD**
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Выполните вход на [портал Azure](https://portal.azure.com).
 2. Щелкните **Группа ресурсов** на левой панели.
 3. Выберите группу ресурсов с кластером HDInsight, где позднее будет выполняться ваш запрос Hive. Если имеется слишком много групп ресурсов, можно использовать фильтр.
 4. В меню группы ресурсов щелкните **Управление доступом (IAM)**.
 5. В колонке **Пользователи** щелкните **Добавить**.
-6. Следуйте инструкциям, чтобы добавить роль **Владелец** в приложение AD, созданное в предыдущей процедуре. После успешного выполнения этой процедуры приложение должно появиться в колонке "Пользователи" с ролью "Владелец".
+6. Следуйте инструкциям, чтобы добавить роль **Владелец** в приложение Azure AD, созданное в предыдущей процедуре. После успешного выполнения этой процедуры приложение должно появиться в колонке "Пользователи" с ролью "Владелец".
 
 ## <a name="develop-hdinsight-client-application"></a>Разработка клиентского приложения HDInsight
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 02/11/2017
         }
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Создание приложения Active Directory и субъекта-службы с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+* [Создание приложения Azure Active Directory и субъекта-службы с помощью портала](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [Проверка подлинности субъекта-службы в Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md)
 

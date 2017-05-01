@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
-ms.author: bradsev
+ms.date: 04/13/2017
+ms.author: gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
-ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 77b4f634c2a30d0cbec92d34a7f83866541d7d84
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="introduction-to-the-cloud-based-data-science-virtual-machine-for-linux-and-windows"></a>Введение в облачные виртуальные машины для анализа и обработки данных для Linux и Windows
-Виртуальная машина для анализа и обработки данных — это настроенный образ в облаке Microsoft Azure, созданный специально для целей выше. В ней предварительно установлено и настроено множество популярных средств для анализа и обработки данных, а также других средств, позволяющих быстро приступить к созданию интеллектуальных приложений для расширенной аналитики. Этот образ доступен в Windows Server 2012 и в версиях Linux на основе CentOS с поддержкой OpenLogic 7.2. 
+Виртуальная машина для анализа и обработки данных (DSVM) — это настроенный образ в облаке Microsoft Azure. В ней предварительно установлено и настроено множество популярных средств для анализа и обработки данных, а также других средств, позволяющих быстро приступить к созданию интеллектуальных приложений для расширенной аналитики. Она доступна на платформах Windows Server 2012 и Linux. Мы предлагаем выпуск DSVM для Linux в дистрибутивах Ubuntu 16.04 LTS или Linux на базе OpenLogic 7.2 CentOS. 
 
 В этом разделе обсуждаются возможности, которые предоставляет виртуальная машина для анализа и обработки данных. Здесь также описаны некоторые основные сценарии ее использования, перечислены ее ключевые функции, доступные в версиях Windows и Linux, а также инструкции о том, как приступить к работе с ними.
 
@@ -47,27 +47,77 @@ ms.lasthandoff: 02/02/2017
 ### <a name="short-term-experimentation-and-evaluation"></a>Краткосрочные эксперименты и оценка
 Виртуальную машину для обработки и анализа данных можно использовать для оценки таких средств, как Microsoft R Server, SQL Server, инструментов Visual Studio, Jupyter, наборов средств глубокого и машинного обучения, новых средств, популярных в сообществе, а также обучения им при минимальной необходимости в настройке. Так как виртуальную машину для обработки и анализа данных можно быстро настроить, ее можно использовать и в других краткосрочных сценариях, к примеру для репликации опубликованных экспериментов, демонстрации, выполнения пошаговых учебников в рамках онлайн-сеансов или руководств на конференциях.
 
-## <a name="whats-included-in-the-data-science-vm"></a>Что предусмотрено в виртуальной машине для обработки и анализа данных?
-В этой виртуальной машине уже установлено и настроено множество популярных средств для обработки и анализа данных. Среди них также есть средства, упрощающие работу с различными данными и продуктами для анализа Azure. Вы можете просматривать и создавать прогнозные модели на основе наборов данных большого масштаба, используя Microsoft R Server или SQL Server 2016. Эта виртуальная машина включает в себя узел других средств, предоставленных корпорацией Майкрософт и сообществом открытого исходного кода, а также здесь предусмотрены приложения Notebook и образец кода. В следующей таблице перечислены основные компоненты выпусков Windows и Linux виртуальной машины для обработки и анализа данных.
+### <a name="deep-learning"></a>Глубокое обучение
+ВМ для обработки и анализа данных можно применять в модели обучения, использующей алгоритмы глубокого обучения на оборудовании с GPU (графическими процессорами). DSVM позволяет использовать такое оборудование в облаке только по мере необходимости, когда требуется обучить большие модели или обеспечить высокую скорость вычислений, для которых можно использовать возможности графического процессора.  В Windows [набор средств глубокого обучения для DSVM](http://aka.ms/dsvm/deeplearning) в настоящее время предоставляется в виде отдельной надстройки над DSVM. Она автоматически устанавливает драйверы GPU, платформы и версию алгоритмов глубокого обучения для GPU при создании экземпляра виртуальной машины. В Linux глубокое обучение на GPU включено только в [выпуске виртуальной машины для анализа и обработки данных для Linux (Ubuntu)](http://aka.ms/dsvm/ubuntu). Выпуск виртуальной машины для анализа и обработки данных для Ubuntu можно развернуть на виртуальной машине Azure, не использующей графические процессоры. В этом случае все платформы глубокого обучения будут переведены в режим ЦП. Выпуск DSVM для Linux на основе CentOS содержит сборки некоторых инструментов глубокого обучения, использующих только ЦП (CNTK, Tensorflow, MXNet), но в нем отсутствуют предварительно установленные платформы и драйверы GPU. 
 
-| **Выпуск для Windows** | **Выпуск для Linux** |
-| -- | --|
-| Microsoft R Open с предустановленными популярными пакетами | Microsoft R Open с предустановленными популярными пакетами |
-| Microsoft R Server Developer Edition с алгоритмами MicrosoftML и Microsoft R Operationalization  |Microsoft R Server Developer Edition |
-| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 с предустановленными популярными пакетами|
-| JuliaPro с предварительно установленными популярными пакетами | JuliaPro с предварительно установленными популярными пакетами |
-| Jupyter Notebook Server (R, Python) |JupyterHub: многопользовательские приложения Jupyter Notebook (R, Python, Julia, PySpark) |
-| SQL Server 2016 SP1 Developer Edition: масштабируемое аналитическое решение в базе данных со службами R |PostgreSQL, SQuirreL SQL (средство управления базой данных), драйверы SQL Server и командная строка (bcp, sqlcmd) |
-|Выпуск Visual Studio Community Edition 2015 (IDE) </br> — Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools; </br> Средства Node.js, Python и R для Visual Studio (RTVS 0.5) </br>R Studio Desktop|Интегрированные среды разработки и редакторы </br> — подключаемый модуль набора средств для Eclipse с Azure; </br> — Emacs (с ESS, AUCTeX), gedit. </br> IntelliJ IDEA</br> PyCharm</br> Atom</br> Visual Studio Code|
-| Power BI Desktop; |-- |
-| Средства машинного обучения </br> — средства, интегрирующиеся с Машинным обучением Azure; </br> Microsoft Cognitive Toolkit (CNTK 2.0) глубокое обучение и ИИ </br> — XGBoost (популярное средство машинного обучения, используемое на соревнованиях по обработке и анализу данных); </br> — Vowpal Wabbit (онлайн-средство для быстрого обучения); </br> — Rattle (визуальное средство быстрого запуска для анализа и обработки данных); </br> — MXNet (глубокое обучение/AI). </br> Tensorflow  |Средства машинного обучения </br> — средства, интегрирующиеся с Машинным обучением Azure; </br> — CNTK (глубокое обучение/AI); </br> — XGBoost (популярное средство машинного обучения, используемое на соревнованиях по обработке и анализу данных); </br> — Vowpal Wabbit (онлайн-средство для быстрого обучения); </br> — Rattle (визуальное средство быстрого запуска для анализа и обработки данных). </br> MXNet (глубокое обучение и ИИ)|
-| Пакеты SDK для доступа к Azure и набор служб Cortana Intelligence |Пакеты SDK для доступа к Azure и набор служб Cortana Intelligence |
-| Средства для перемещения данных и управления ресурсами Azure и большими данными: обозреватель службы хранилища Azure, интерфейс командной строки, PowerShell, AdlCopy (Azure Data Lake), AzCopy, DTUI (для DocumentDB), шлюз управления данными Майкрософт |Средства для перемещения данных и управления ресурсами Azure и большими данными: обозреватель службы хранилища Azure, интерфейс командной строки |
-| Git, подключаемый модуль Visual Studio Team Services |Git |
-| Порт Windows самых популярных служебных программ командной строки для Linux и Unix, доступный через GitBash или командную строку |-- |
-| Weka | Weka |
-| Drill | Drill |
-| --| Spark в локальном режиме |
+## <a name="whats-included-in-the-data-science-vm"></a>Что предусмотрено в виртуальной машине для обработки и анализа данных?
+В этой виртуальной машине уже установлено и настроено множество популярных средств для обработки и анализа данных, а также глубокого обучения. Среди них также есть средства, упрощающие работу с различными данными и продуктами для анализа Azure. Вы можете просматривать и создавать прогнозные модели на основе наборов данных большого масштаба, используя Microsoft R Server или SQL Server 2016. Эта виртуальная машина включает в себя узел других средств, предоставленных корпорацией Майкрософт и сообществом открытого исходного кода, а также здесь предусмотрены приложения Notebook и образец кода. В следующей таблице перечислены основные компоненты выпусков Windows и Linux виртуальной машины для обработки и анализа данных.
+
+
+| **Средство**                                                           | **Выпуск для Windows** | **Выпуск для Linux** |
+| :------------------------------------------------------------------ |:-------------------:|:------------------:|
+| [Microsoft R Open](https://mran.microsoft.com/open/) с предустановленными популярными пакетами   |Да                      | Да             |
+| [Microsoft R Server](https://msdn.microsoft.com/microsoft-r/) Developer Edition включает в себя: <br />  параллельную платформу &nbsp;&nbsp;&nbsp;&nbsp;* [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-getting-started) и распределенную высокопроизводительную платформу R;<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml-introduction) — новые передовые алгоритмы ML от Майкрософт; <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [средства операционализации R](https://msdn.microsoft.com/microsoft-r/operationalize/about).                                            |Да                      | Да <br/> (пакет MicrosoftML пока недоступен)|
+| [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 с предустановленными популярными пакетами    |Да                      |Да              |
+| [JuliaPro](https://juliacomputing.com/products/juliapro.html) с предварительно установленными популярными пакетами для языка Julia                         |Да                      |Да              |
+| Реляционные базы данных                                                            | [SQL Server 2016 SP1](https://www.microsoft.com/sql-server/sql-server-2016) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) |
+| Инструменты базы данных                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * Драйверы ODBC и JDBC| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (инструмент запросов), <br /> * bcp, sqlcmd <br /> * Драйверы ODBC и JDBC|
+| Масштабируемое аналитическое решение в базе данных со службами SQL Server R | Да     |Нет              |
+| **[Jupyter Notebook Server](http://jupyter.org/) со следующими ядрами**                                  | Да     | Да |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* R | Да | Да |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* Python 2.7 и 3.5 | Да | Да |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | Да | Да |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* PySpark | Нет | Да |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | Нет | Да (только Ubuntu) |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | Нет | Да |
+| JupyterHub (многопользовательский сервер блокнотов)| Нет | Да |
+| **Инструменты разработки, редакторы кода и интегрированные среды разработки**| | |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2015 (Community Edition)](https://www.visualstudio.com/community/) с инструментами для подключаемого модуля Git, Azure HDInsight (Hadoop), Data Lake, данных SQL Server, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) и [инструменты R для Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Да | Нет |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm](https://www.jetbrains.com/pycharm/) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Atom](https://atom.io/) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Juno (интегрированная среда разработки Julia)](http://junolab.org/)| Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Vim и Emacs | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Git и GitBash | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | Да | Нет |
+| PowerBI Desktop | Да | Нет |
+| Пакеты SDK для доступа к Azure и набор служб Cortana Intelligence | Да | Да |
+| **Инструменты перемещения данных и управления ими** | | |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Обозреватель хранилищ Azure | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/overview) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | Да | Нет |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | Да | Нет |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy (служба хранилища Azure Data Lake)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | Да | Нет |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Инструмент переноса данных DocDB](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | Да | Нет |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Шлюз управления данными Майкрософт](https://msdn.microsoft.com/library/dn879362.aspx): перемещение данных между локальным хранилищем и облаком | Да | Нет |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Служебные программы командной строки Unix/Linux | Да | Да |
+| [Apache Drill](http://drill.apache.org) для просмотра данных | Да | Да |
+| **Инструменты машинного обучения** |||
+| &nbsp;&nbsp;&nbsp;&nbsp;* Средства, интегрирующиеся с [Машинным обучением Azure](https://azure.microsoft.com/services/machine-learning/) (R, Python) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Xgboost](https://github.com/dmlc/xgboost) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | Нет | Да (только Ubuntu) |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | Нет | Да (только Ubuntu) |
+| **Инструменты глубокого обучения на основе графического процессора** |Используйте [набор средств глубокого обучения для DSVM](http://aka.ms/dsvm/deeplearning) |Только в выпуске для Ubuntu|
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](http://cntk.ai) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Tensorflow](https://www.tensorflow.org/) | Да | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | Да | Да|
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Caffe и Caffe2](https://github.com/caffe2/caffe2) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Torch](http://torch.ch/) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Theano](https://github.com/Theano/Theano) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Keras](https://keras.io/)| Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [NVidia Digits](https://github.com/NVIDIA/DIGITS) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, CUDNN, драйвер Nvidia](https://developer.nvidia.com/cuda-toolkit) | Да | Да |
+| **Платформа для больших данных (только Devtest)**|||
+| &nbsp;&nbsp;&nbsp;&nbsp;* Локальный изолированный экземпляр [Spark](http://spark.apache.org/) | Нет | Да |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Локальный экземпляр [Hadoop](http://hadoop.apache.org/) (HDFS, YARN) | Нет | Да |
+
+
 
 ## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Как приступить к работе с виртуальной машиной Windows для обработки и анализа данных
 * Создайте экземпляр виртуальной машины под управлением Windows. Для этого перейдите на [эту страницу](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) и нажмите зеленую кнопку **Создание виртуальной машины**.
@@ -75,7 +125,9 @@ ms.lasthandoff: 02/02/2017
 * Чтобы обнаружить и запустить средства, выберите меню **Запустить**.
 
 ## <a name="get-started-with-the-linux-data-science-vm"></a>Приступая к работе с виртуальной машиной Linux для обработки и анализа данных
-* Создайте экземпляр виртуальной машины под управлением Linux (на основе CentOS с поддержкой OpenLogic). Для этого перейдите на [эту страницу](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) и нажмите кнопку **Create Virtual Machine** (Создание виртуальной машины).
+* Создание экземпляра виртуальной машины на платформе Linux
+  * Если вы используете выпуск на основе OpenLogic CentOS, перейдите на [эту страницу](http://aka.ms/dsvm/centos) и нажмите кнопку **ПОЛУЧИТЬ**.
+  * Если вы используете выпуск для Ubuntu, перейдите на [эту страницу](http://aka.ms/dsvm/ubuntu) и нажмите кнопку **ПОЛУЧИТЬ**.
 * Войдите в виртуальную машину из клиента SSH, такого как PuTTY, с помощью команды SSH или используйте учетные данные, указанные при создании этой виртуальной машины.
 * В командной строке оболочки введите dsvm-more-info.
 * Для графического рабочего стола скачайте [отсюда](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) клиент X2Go в зависимости от его платформы и выполните инструкции в документе [Подготовка виртуальной машины Linux для обработки и анализа данных](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).

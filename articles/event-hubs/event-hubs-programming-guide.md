@@ -15,9 +15,9 @@ ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2dfc38070e5c9bbdfc4c74e2465894a221657564
-ms.openlocfilehash: 1ee20b8f546c43d0351a2065b0628bb9d6b31736
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d8a767e9149c6c5eca5b22f094ae924135fa7a2d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -27,9 +27,9 @@ ms.lasthandoff: 02/24/2017
 ## <a name="event-publishers"></a>Издатели событий
 Отправка событий в концентратор событий осуществляется с использованием HTTP POST или через подключение AMQP 1.0. Выбор способа зависит от определенного сценария, к которому выполняется обращение. Подключения AMQP 1.0 измеряются как подключения через посредника по служебной шине. Они больше всего подходят для сценариев с большими объемами сообщений и менее строгими требованиями к задержке, так как такие подключения обеспечивают постоянный канал обмена сообщениями.
 
-Концентраторы событий создаются и обрабатываются с помощью класса [NamespaceManager][] . При использовании управляемых API .NET основными конструктивными элементами для публикации данных в концентраторах событий являются классы [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) и [EventData][]. [EventHubClient][] обеспечивает канал связи AMQP, по которому события отправляются в концентратор событий. Класс [EventData][] представляет собой событие и используется для публикации сообщений в концентратор событий. Этот класс содержит текст, некоторые метаданные и данные заголовка о событии. По мере прохода объекта [EventData][] через концентратор событий к объекту добавляются другие свойства.
+Концентраторы событий создаются и обрабатываются с помощью класса [NamespaceManager][] . При использовании управляемых API .NET основными конструктивными элементами для публикации данных в концентраторах событий являются классы [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) и [EventData][]. [EventHubClient][] обеспечивает канал связи AMQP, по которому события отправляются в концентратор событий. Класс [EventData][] представляет собой событие и используется для публикации сообщений в концентраторе событий. Этот класс содержит текст, некоторые метаданные и данные заголовка о событии. По мере перемещения объекта [EventData][] через концентратор событий к объекту добавляются другие свойства.
 
-## <a name="get-started"></a>Приступая к работе
+## <a name="get-started"></a>Начало работы
 Классы .NET, которые поддерживают концентраторы событий, входят в сборку Microsoft.ServiceBus.dll. Самый простой способ получить API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины — это скачать [пакет NuGet для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus). Кроме того, можно воспользоваться [консолью диспетчера пакетов](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) в Visual Studio. Для этого выполните следующую команду в окне [консоли диспетчера пакетов](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
 
 ```
@@ -85,7 +85,7 @@ var client = factory.CreateEventHubClient("MyEventHub");
 Важно отметить, что дополнительные объекты [EventHubClient][] , созданные из экземпляра фабрики обмена сообщениями, будут повторно использовать одно и то же базовое подключение TCP. Таким образом эти объекты имеют ограничение на пропускную способность на стороне клиента. Метод [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) использует одну фабрику обмена сообщениями. Если требуется достаточно высокая пропускная способность от одного отправителя, то можно создать несколько фабрик обмена сообщениями и один объект [EventHubClient][] из каждой фабрики обмена сообщениями.
 
 ## <a name="send-events-to-an-event-hub"></a>Отправка событий в концентратор событий
-Отправка событий в концентратор событий выполняется путем создания экземпляра [EventData][] и его отправки посредством метода [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_). Этот метод принимает один параметр экземпляра [EventData][] и синхронно отправляет его в концентратор событий.
+Для отправки событий в концентратор событий создается экземпляр [EventData][], который отправляется посредством метода [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_). Этот метод принимает один параметр экземпляра [EventData][] и синхронно отправляет его в концентратор событий.
 
 ## <a name="event-serialization"></a>Сериализация событий
 Класс [EventData][] имеет [четыре перегруженных конструктора](/dotnet/api/microsoft.servicebus.messaging.eventdata#constructors_), которые принимают различные параметры, такие как объект и сериализатор, массив байтов или поток. Кроме того, можно создать экземпляр класса [EventData][] и затем задать поток текста. При использовании JSON совместно с [EventData][]можно применить метод **Encoding.UTF8.GetBytes()** для получения массива байтов для строки в кодировке JSON.
@@ -104,10 +104,10 @@ var client = factory.CreateEventHubClient("MyEventHub");
 - прекращение (прекратите чтение из концентраторов событий, пока не будут исправлены все ошибки);
 - удаление (удалите ненужные сообщения);
 - повторная попытка (обработайте сообщение повторно по своему усмотрению);
-- [недоставленные сообщения](../service-bus-messaging/service-bus-dead-letter-queues.md) (используйте очередь или другой концентратор событий, чтобы не доставлять сообщения, которые не удалось обработать).
+- [недоставленные сообщения](../service-bus-messaging/service-bus-dead-letter-queues.md) (используйте очередь или другой концентратор событий только для недоставленных сообщений, которые не удалось обработать).
 
 ## <a name="batch-event-send-operations"></a>Пакетные операции отправки событий
-Пакетная отправка событий позволяет значительно повысить пропускную способность. Метод [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) принимает параметр **IEnumerable** типа [EventData][] и отправляет весь пакет в концентратор событий в виде атомарной операции.
+Пакетная отправка событий позволяет значительно повысить пропускную способность. Метод [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) принимает параметр **IEnumerable** типа [EventData][] и отправляет весь пакет в концентратор событий посредством атомарной операции.
 
 ```csharp
 public void SendBatch(IEnumerable<EventData> eventDataList);
@@ -119,13 +119,13 @@ public void SendBatch(IEnumerable<EventData> eventDataList);
 События можно отправлять в концентратор событий асинхронно. Асинхронная отправка позволяет увеличить скорость, с которой клиент способен отправлять события. В асинхронной версии доступны оба метода, [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) и [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__), которые возвращают объект [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Несмотря на то что этот способ позволяет увеличить пропускную способность, он также может привести к возникновению ситуации, когда клиент продолжает отправлять события, даже когда отправка регулируется службой концентраторов событий. В случае неправильной реализации это может привести к возникновению ошибок на стороне клиента или к потере сообщений. Кроме того, на стороне клиента можно использовать свойство [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity#Microsoft_ServiceBus_Messaging_ClientEntity_RetryPolicy) для управления параметрами повторного выполнения попыток клиентом.
 
 ## <a name="create-a-partition-sender"></a>Создание отправителя секции
-Несмотря на то что наиболее распространена отправка событий в концентратор событий без ключа секции, в некоторых случаях может потребоваться отправить события напрямую в указанную секцию. Например:
+Несмотря на то, что наиболее распространена отправка событий в концентратор событий без ключа секции, в некоторых случаях может потребоваться отправить события напрямую в указанную секцию. Например:
 
 ```csharp
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
 ```
 
-Метод [CreatePartitionedSender](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_CreatePartitionedSender_System_String_) возвращает объект [EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender), который можно использовать для публикации событий в определенной секции концентратора событий.
+Метод [CreatePartitionedSender](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_CreatePartitionedSender_System_String_) возвращает объект [EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender), который можно использовать для публикации событий в определенную секцию концентратора событий.
 
 ## <a name="event-consumers"></a>Получатели событий
 Концентраторы событий имеют две основных модели потребления событий: прямые получатели и абстракции более высокого уровня, такие как [EventProcessorHost][]. Прямые получатели сами отвечают за собственную координацию доступа к секциям в группе потребителей.
@@ -174,7 +174,7 @@ while(receive)
 Класс [EventProcessorHost][] также реализует механизм создания контрольных точек на основе службы хранилища Azure. Этот механизм хранит смещение для каждой секции, чтобы каждый потребитель мог определить последнюю контрольную точку от предыдущего потребителя. По мере перехода секций между узлами перенос нагрузки осуществляется за счет механизма синхронизации.
 
 ## <a name="publisher-revocation"></a>Отзыв издателя
-Наряду с дополнительными возможностями среды выполнения [EventProcessorHost][]концентраторы событий позволяют отзывать определенных издателей и таким образом блокировать для них возможность отправлять события в концентратор событий. Эти функции особенно полезны, если маркер издателя был взломан или после обновления программного обеспечения эти функции перестали работать должным образом. В этих случаях для идентификатора издателя, который является частью маркера SAS, можно заблокировать возможность публикации событий.
+Наряду с дополнительными возможностями среды выполнения [EventProcessorHost][], концентраторы событий позволяют отзывать определенные издатели и таким образом блокировать для них возможность отправлять события в концентратор событий. Эти функции особенно полезны, если маркер издателя был взломан или после обновления программного обеспечения эти функции перестали работать должным образом. В этих случаях для идентификатора издателя, который является частью маркера SAS, можно заблокировать возможность публикации событий.
 
 Дополнительные сведения об отзыве издателя и отправке в концентраторы событий в качестве издателя см. в примере, приведенном в статье [Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) (Крупномасштабная безопасная публикация концентраторов событий).
 
