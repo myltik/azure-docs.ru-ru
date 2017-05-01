@@ -11,17 +11,18 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 05487c4bbdce24ea9f31ed451026531c16ead7c4
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6720bb6471ef36179042562c751e1a501979f02b
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="whats-new-in-azure-remoteapp"></a>Новые возможности приложения RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -43,7 +44,7 @@ ms.openlocfilehash: 05487c4bbdce24ea9f31ed451026531c16ead7c4
 В августе произошло много важных изменений, а именно:
 
 * Теперь можно использовать Azure VNET с облачной коллекцией! См. описание новой процедуры в [инструкциях по созданию облака](remoteapp-create-cloud-deployment.md).
-* Теперь можно добавлять приложения в меню **Пуск **для клиента Windows RemoteApp. Приложения будут отображаться в списке приложений, их можно закрепить в меню **Пуск **в Windows.
+* Теперь можно добавлять приложения в меню **Пуск** для клиента Windows RemoteApp. Приложения будут отображаться в списке приложений, их можно закрепить в меню **Пуск** в Windows.
 * Добавлен новый образ в коллекцию виртуальных машин Azure: узел сеансов удаленных рабочих столов Windows Server с Microsoft Office 365 Профессиональный плюс.
 * Исправлен клиент Mac, так что приложения с модальными окнами больше не зависают.
 * Составлены инструкции по использованию [подписки Office 365 Профессиональный плюс](remoteapp-officesubscription.md) с Azure RemoteApp.
@@ -87,10 +88,5 @@ ms.openlocfilehash: 05487c4bbdce24ea9f31ed451026531c16ead7c4
 
 ### <a name="help-us-help-you"></a>Позвольте нам помочь вам
 Вы знаете, что можете не только оценивать эту статью и оставлять комментарии ниже, но и вносить в нее изменения? Чего-то не хватает? Что-то неправильно? Что-то изложено непонятно? Чтобы внести изменения, прокрутите страницу вверх и щелкните **Edit on GitHub** (Изменить на GitHub). Мы просмотрим ваши предложения, и когда мы их одобрим, вы увидите изменения и улучшения здесь.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

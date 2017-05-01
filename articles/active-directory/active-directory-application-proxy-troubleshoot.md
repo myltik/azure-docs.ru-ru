@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/27/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0051bbeaac458e8df07e5c7aa186fbefb526f50e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: f02fbbfb0e8704445d9bfdaba634dbf558ceef02
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/15/2017
 * Откройте консоль служб Windows и убедитесь, что служба **Соединитель прокси-сервера приложения Microsoft AAD** включена и работает. Вы также можете проверить страницу свойств службы прокси-сервера приложения, как показано на следующем рисунке:   
   ![Снимок экрана свойств соединителя прокси-сервера приложений Microsoft AAD](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Откройте средство просмотра событий и найдите события для соединителя прокси приложения в узле **Журналы приложений и служб** > **Microsoft** > **AadApplicationProxy** > **Соединитель** > **Администратор**.
-* При необходимости доступны более подробные журналы, если включить журналы аналитики и отладки, а также журнал сеансов соединителя прокси-сервера приложения.
+* При необходимости доступны более подробные журналы, если [включить журналы сеансов соединителя прокси-сервера приложения](application-proxy-understand-connectors.md#under-the-hood).
 
 См. дополнительные сведения о [средстве для устранения неполадок Azure AD для проверки условий, необходимых для работы соединителя в сети](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
 

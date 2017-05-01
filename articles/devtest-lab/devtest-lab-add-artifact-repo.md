@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f7656382500682898cd3ed6372630afa3c3f6350
-ms.openlocfilehash: 5c595bd2175f1cbc650bd1a757eeacc80cf39e23
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 407d50afe3470f5a9e84026eaa2dcccea4d06641
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -45,7 +46,7 @@ ms.openlocfilehash: 5c595bd2175f1cbc650bd1a757eeacc80cf39e23
 4. Выберите изображение профиля в правом верхнем углу GitHub и щелкните **Параметры**.
 5. В меню **Личные параметры** в левой части экрана выберите **Личные маркеры доступа**.
 6. Выберите **Создать новый маркер**.
-7. На странице **New personal access token** (Новый личный маркер доступа) введите данные в поле **Token description** (Описание маркера), примите элементы по умолчанию в разделе **Выберите области** и щелкните **Создать токен**.
+7. На странице **New personal access token** (Новый личный маркер доступа) заполните поле **Token description** (Описание маркера). Если это общедоступный репозиторий, примите элементы по умолчанию, указанные в разделе **Выбрать области**. В противном случае выберите область **Репозиторий**. Затем щелкните **Создать токен**. [Прочитайте дополнительные сведения об областях OAuth в GitHub](https://developer.github.com/v3/oauth/#scopes).
 8. Сохраните созданный маркер — он вам потребуется позднее.
 9. Теперь GitHub можно закрыть.   
 10. Перейдите к разделу [Подключение лаборатории к репозиторию артефактов](#connect-your-lab-to-the-artifact-repository) .
@@ -95,10 +96,5 @@ ms.openlocfilehash: 5c595bd2175f1cbc650bd1a757eeacc80cf39e23
 ## <a name="related-blog-posts"></a>Связанные записи в блогах
 * [How to troubleshoot failing Artifacts in AzureDevTestLabs (Способы устранения сбоя артефактов в лабораториях для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
 * [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab (Присоединение виртуальной машины к существующему домену AD с помощью шаблона ARM в лаборатории для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

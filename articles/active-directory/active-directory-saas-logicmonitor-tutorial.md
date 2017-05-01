@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: d87f6068cef7630ca7d9e8929b43449d28d11f78
-ms.openlocfilehash: 9d9074c986c7210e7d7a345ad5d761ac781be3c1
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d47cb9ae48034c73ccb20bd1872a6b50eebb27d7
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/17/2017
 
 ![Сценарий](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "Сценарий")
 
-## <a name="enabling-the-application-integration-for-logicmonitor"></a>Включение интеграции приложений для LogicMonitor
+## <a name="enable-the-application-integration-for-logicmonitor"></a>Включение интеграции приложений для LogicMonitor
 В этом разделе показано, как включить интеграцию приложений для LogicMonitor.
 
 **Чтобы включить интеграцию с приложением LogicMonitor, выполните следующее.**
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/17/2017
    
    ![LogicMonitor](./media/active-directory-saas-logicmonitor-tutorial/IC790047.png "LogicMonitor")
    
-## <a name="configuring-single-sign-on"></a>Настройка единого входа
+## <a name="configure-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить проверку подлинности в LogicMonitor со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 02/17/2017
    
    ![Настройка единого входа](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Настройка единого входа")
    
-## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
 
 Чтобы пользователи AAD могли войти систему, они должны быть подготовлены для приложения LogicMonitor с использованием их имен пользователей Azure Active Directory.
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 02/17/2017
 >Вы можете использовать любые другие средства создания учетной записи пользователя LogicMonitor или API, предоставляемые LogicMonitor для подготовки учетных записей пользователя Azure Active Directory. 
 > 
 
-## <a name="assigning-users"></a>Назначение пользователей
+## <a name="assign-users"></a>Назначить пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
 **Чтобы назначить пользователей в LogicMonitor, выполните следующее.**

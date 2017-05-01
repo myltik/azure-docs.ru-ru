@@ -12,18 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 03/31/2017
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: 8ea727f7b8d93401b35a7b9dbd2f00a5534c3072
-ms.openlocfilehash: e54c37f688e8d107f5323125ea42d63ec91a4c84
-ms.lasthandoff: 12/15/2016
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 965c60ffde55041cc3864d06d81f5590c7ea1c11
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Руководство по языку спецификаций нейронных сетей Net# для машинного обучения Azure
 ## <a name="overview"></a>Обзор
-Net# — это язык, разработанный корпорацией Майкрософт, который используется при определении архитектур нейронных сетей. Его можно использовать в модулях нейронной сети Машинного обучения Microsoft Azure или в функции `rxNeuralNetwork()` в [Машинном обучении Microsoft](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
+Net# — это язык, разработанный корпорацией Майкрософт, который используется при определении архитектур нейронных сетей. Его можно использовать в модулях нейронной сети Машинного обучения Microsoft Azure.
+
+<!-- This function doesn't currentlyappear in the MicrosoftML documentation. If it is added in a future update, we can uncomment this text.
+
+, or in the `rxNeuralNetwork()` function in [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml/microsoftml). 
+
+-->
 
 В этой статье вы узнаете основные понятия, необходимые для разработки настраиваемой нейронной сети: 
 
@@ -396,14 +402,14 @@ Net# дополнительно поддерживает определение 
 * Ключевое слово **convolve** указывает, что *Conv1* и *Conv2* — это сверточные слои. За объявлением каждого из этих слоев следует список атрибутов свертки.
 * У сети имеется третий скрытый слой *Hid3*, который полностью подключен ко второму скрытому слою *Conv2*.
 * Выходной слой *Digit* подключен к третьему скрытому слою *Hid3*. Ключевое слово **all** указывает, что выходной слой полностью подключен к *Hid3*.
-* Арность свертки:&3; (длина кортежей **InputShape**, **KernelShape**, **Stride** и **Sharing**). 
+* Арность свертки: 3 (длина кортежей **InputShape**, **KernelShape**, **Stride** и **Sharing**). 
 * Число весов на ядро: *1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Или 26 * 50 = 1300*.
 * Количество узлов в каждом скрытом слое можно вычислить следующим образом:
   * **NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
   * **NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
   * **NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
-* Общее число узлов можно определить, используя объявленную размерность слоя [50, 5, 5]: ***MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5*.
-* Так как **Sharing**[d] имеет значение False только для *d == 0*, число ядер равно ***MapCount** * **NodeCount**\[0] = 10 * 5 = 50*. 
+* Общее число узлов можно определить, используя объявленную размерность слоя [50, 5, 5]: ***MapCount**  *  **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5*
+* Так как **Sharing**[d] имеет значение False только для *d == 0*, число ядер равно ***MapCount**  *  **NodeCount**\[0] = 10 * 5 = 50*. 
 
 ## <a name="acknowledgements"></a>Благодарности
 Язык Net# для изменения архитектуры нейронных сетей был разработан в корпорации Майкрософт Шоном Катценбергером Shon Katzenberger (архитектор, машинное обучение) и Алексеем Каменевым (разработчик программного обеспечения, Microsoft Research). Он используется внутри компании для проектов машинного обучения и различных приложений от приложений распознавания образов до приложений анализа текста. Дополнительные сведения см. в статье [Neural Nets in Azure ML – Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Нейронные сети в машинном обучении Azure. Введение в Net#)

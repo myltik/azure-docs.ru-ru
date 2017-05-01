@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2017
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 8290d90f22a80d5c585192b17cfa0aeba00aa891
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ecd58d8f1df60aff99d9ac2e0245d06f61e0b6bb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,13 +33,13 @@ ms.lasthandoff: 02/03/2017
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
 1. Включение интеграции приложений для PolicyStat
-2. Настройка единого входа
+2. Настройка единого входа.
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
 ![Сценарий](./media/active-directory-saas-policystat-tutorial/IC808662.png "Сценарий")
 
-## <a name="enabling-the-application-integration-for-policystat"></a>Включение интеграции приложений для PolicyStat
+## <a name="enable-the-application-integration-for-policystat"></a>Включение интеграции приложений для PolicyStat
 В этом разделе показано, как включить интеграцию приложений для PolicyStat.
 
 **Чтобы включить интеграцию приложений для PolicyStat, выполните следующие действия:**
@@ -64,7 +64,7 @@ ms.lasthandoff: 02/03/2017
    
    ![PolicyStat](./media/active-directory-saas-policystat-tutorial/IC810430.png "PolicyStat")
    
-## <a name="configuring-single-sign-on"></a>Настройка единого входа
+## <a name="configure-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в PolicyStat со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
 
@@ -127,19 +127,18 @@ ms.lasthandoff: 02/03/2017
    4. Из списка **Почта** выберите пункт **User.mail**.
    5. Нажмите **Завершено**.
 
-##<a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+##<a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
 
 Чтобы пользователи Azure AD могли выполнять вход в PolicyStat, они должны быть подготовлены для PolicyStat.  
 
-PolicyStat поддерживает подготовку пользователей «на лету». Это означает, что вам не надо вручную добавлять пользователей PolicyStat.  
-Пользователи будут добавляться автоматически первом входе с помощью единого входа.
+PolicyStat поддерживает подготовку пользователей «на лету». Это означает, что вам не надо вручную добавлять пользователей PolicyStat. Пользователи будут добавляться автоматически при первом входе с помощью единого входа.
 
-> [!NOTE]
-> Вы можете использовать любые другие инструменты создания учетных записей пользователя PolicyStat или API, предоставляемые PolicyStat для подготовки учетных записей пользователя AAD.
+>[!NOTE]
+>Вы можете использовать любые другие инструменты создания учетных записей пользователя PolicyStat или API, предоставляемые PolicyStat для подготовки учетных записей пользователя AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Назначение пользователей
+## <a name="assign-users"></a>Назначить пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
 **Чтобы назначить пользователей PolicyStat, выполните следующие действия:**

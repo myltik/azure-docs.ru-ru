@@ -1,6 +1,6 @@
 ---
-title: "Создание сред со множеством виртуальных машин с помощью шаблонов Azure Resource Manager | Документация Майкрософт"
-description: "Узнайте, как в Azure DevTest Labs создавать среды со множеством виртуальных машин, используя шаблон Azure Resource Manager."
+title: "Создание сред со множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Azure Resource Manager | Документация Майкрософт"
+description: "Узнайте, как в Azure DevTest Labs создавать среды со множеством виртуальных машин и ресурсов PaaS, используя шаблон Azure Resource Manager."
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: tomarcher
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c17ea1f078c424d855109da07113a4c2f8f84ab3
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 0fbe1af87594aacd2eee4f706429e3674548d3fd
+ms.lasthandoff: 04/07/2017
 
 
 ---
 
-# <a name="create-multi-vm-environments-with-azure-resource-manager-templates"></a>Создание сред со множеством виртуальных машин с помощью шаблонов Azure Resource Manager
+# <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Создание сред со множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Azure Resource Manager
 
 [Портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) позволяет с легкостью [создать и добавить виртуальную машину в лабораторию](./devtest-lab-add-vm-with-artifacts.md). Этот вариант хорошо подходит, если одновременно создается только одна виртуальная машина. Но если среда содержит несколько виртуальных машин, то каждую из них необходимо создавать отдельно. Для сценариев, где задействовано многоуровневое веб-приложение или ферма SharePoint, требуется механизм создания множества виртуальных машин одним действием. С помощью шаблонов Azure Resource Manager теперь можно определить инфраструктуру и конфигурацию решения Azure и многократно развернуть множество виртуальных машин в согласованном состоянии. Эта функция обеспечивает следующие преимущества:
 

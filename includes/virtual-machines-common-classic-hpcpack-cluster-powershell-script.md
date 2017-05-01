@@ -55,8 +55,3 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 ## <a name="configuration-file"></a>Файл конфигурации
 Скрипт развертывания использует файл конфигурации в формате XML. Файл схемы HPCIaaSClusterConfig.xsd находится в папке скрипта развертывания пакета HPC по модели IaaS. **IaaSClusterConfig** — это корневой элемент файла конфигурации. Его дочерние элементы подробно описаны в файле Manual.rtf в папке со скриптом развертывания.
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-

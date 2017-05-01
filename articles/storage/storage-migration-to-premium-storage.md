@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 2703a7ae9274e6bef38e530839c1a7c5ad69fb88
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: cbf4f1a3bce53844e032c49637d4cfd9dd722679
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,13 +49,13 @@ ms.lasthandoff: 03/27/2017
 ### <a name="prerequisites"></a>Предварительные требования
 * Вам понадобится подписка Azure. Если у вас нет подписки, можно оформить [бесплатную пробную](https://azure.microsoft.com/pricing/free-trial/) подписку на один месяц или посетить страницу [Цены Azure](https://azure.microsoft.com/pricing/), чтобы ознакомиться с дополнительными возможностями.
 * Чтобы выполнять командлеты PowerShell, вам потребуется модуль Microsoft Azure PowerShell. Инструкции по установке см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Если вы планируете использовать виртуальные машины Azure в хранилище класса Premium, эти машины должны поддерживать его. С этими виртуальными машинами можно использовать диски хранилища класса Premium и Standard. Диски хранилища Premium в будущем будут доступны с большим количеством типов виртуальных машин. Дополнительные сведения о всех доступных типах и размерах дисков виртуальной машины Azure см. в разделах [Размеры виртуальных машин](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и [Размеры для облачных служб](../cloud-services/cloud-services-sizes-specs.md).
+* Если вы планируете использовать виртуальные машины Azure в хранилище класса Premium, эти машины должны поддерживать его. С этими виртуальными машинами можно использовать диски хранилища класса Premium и Standard. Диски хранилища Premium в будущем будут доступны с большим количеством типов виртуальных машин. Дополнительные сведения о всех доступных типах и размерах дисков виртуальной машины Azure см. в разделах [Размеры виртуальных машин](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и [Размеры для облачных служб](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Рекомендации
 Виртуальные машины Azure поддерживают подключение нескольких дисков хранилища класса Premium, за счет чего приложения могут занимать до 64 ТБ памяти машины. С хранилищем Premium вы получите выполнение до 80 000 операций ввода-вывода в секунду на виртуальную машину и пропускную способность второго диска до 2000 МБ в секунду на виртуальную машину с очень низкой задержкой при операциях чтения. Вы можете выбирать виртуальные машины и диски среди множества различных вариантов. Сведения в этом разделе помогут выбрать оптимальный вариант для вашей рабочей нагрузки.
 
 #### <a name="vm-sizes"></a>Размеры виртуальной машины
-Спецификации размеров виртуальных машин Azure перечислены в статье [Размеры виртуальных машин](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Просмотрите характеристики виртуальных машин, которые работают с хранилищем класса Premium, и выберите размер виртуальной машины, наиболее подходящий для вашей рабочей нагрузки. Убедитесь, что виртуальная машина имеет достаточную пропускную способность для поддержки трафика диска.
+Спецификации размеров виртуальных машин Azure перечислены в статье [Размеры виртуальных машин](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Просмотрите характеристики виртуальных машин, которые работают с хранилищем класса Premium, и выберите размер виртуальной машины, наиболее подходящий для вашей рабочей нагрузки. Убедитесь, что виртуальная машина имеет достаточную пропускную способность для поддержки трафика диска.
 
 #### <a name="disk-sizes"></a>Размеры диска
 Существует три типа дисков, которые можно использовать с виртуальной машиной. Для каждого из них действуют определенные ограничения на количество операций ввода-вывода в секунду и пропускную способность. Учитывайте эти ограничения при выборе типа диска для вашей виртуальной машины в зависимости от потребностей приложения с точки зрения емкости, производительности, масштабируемости и пиковых нагрузок.
@@ -66,7 +66,7 @@ ms.lasthandoff: 03/27/2017
 | Количество операций ввода-вывода в секунду на диск |500 |2300 |5000 |
 | Пропускная способность на диск |100 МБ в секунду |150 МБ в секунду |200 МБ в секунду |
 
-В зависимости от рабочей нагрузки определите, требуются ли дополнительные диски данных для виртуальной машины. К виртуальной машине можно подключить несколько дисков постоянных данных. Если необходимо увеличить емкость и производительность тома, вы можете создать на дисках чередующийся том. (Дополнительные сведения о чередовании дисков см. [здесь](storage-premium-storage-performance.md#disk-striping).) Если вы создаете чередующийся том на дисках данных хранилища уровня "Премиум" с помощью [дисковых пространств][4], то необходимо настроить по одному столбцу для каждого используемого диска. В противном случае из-за неравномерного распределения трафика между дисками общая производительность чередующегося тома может быть ниже ожидаемой. Выполнить эту же операцию на виртуальных машинах с Linux можно с помощью служебной программы *mdadm*. Дополнительные сведения см. в статье [Настройка программного RAID-массива в Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+В зависимости от рабочей нагрузки определите, требуются ли дополнительные диски данных для виртуальной машины. К виртуальной машине можно подключить несколько дисков постоянных данных. Если необходимо увеличить емкость и производительность тома, вы можете создать на дисках чередующийся том. (Дополнительные сведения о чередовании дисков см. [здесь](storage-premium-storage-performance.md#disk-striping).) Если вы создаете чередующийся том на дисках данных хранилища уровня "Премиум" с помощью [дисковых пространств][4], то необходимо настроить по одному столбцу для каждого используемого диска. В противном случае из-за неравномерного распределения трафика между дисками общая производительность чередующегося тома может быть ниже ожидаемой. Выполнить эту же операцию на виртуальных машинах с Linux можно с помощью служебной программы *mdadm*. Дополнительные сведения см. в статье [Настройка программного RAID-массива в Linux](../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 #### <a name="storage-account-scalability-targets"></a>Целевые показатели масштабируемости для учетной записи хранения
 У учетных записей хранения класса Premium есть следующие целевые показатели масштабируемости в дополнение к [целевым показателям масштабируемости и производительности службы хранилища Azure](storage-scalability-targets.md). Если потребности вашего приложения превышают целевые показатели по масштабируемости для отдельной учетной записи хранения, при создании настройте приложение на использование нескольких учетных записей хранения и распределите данные между этими учетными записями.
@@ -75,7 +75,7 @@ ms.lasthandoff: 03/27/2017
 |:--- |:--- |
 | Емкость диска: 35 ТБ<br />Емкость для моментальных снимков: 10 ТБ |До 50 гигабит в секунду для входящих и исходящих подключений |
 
-Дополнительные сведения о характеристиках хранилища класса "Премиум" см. в разделе [Целевые показатели масштабируемости и производительности при использовании хранилища класса "Премиум"](storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
+Дополнительные сведения о характеристиках хранилища класса "Премиум" см. в разделе [Целевые показатели масштабируемости и производительности при использовании хранилища класса "Премиум"](storage-premium-storage.md#scalability-and-performance-targets).
 
 #### <a name="disk-caching-policy"></a>Политика кэширования дисков
 По умолчанию для политики кэширования дисков задано значение *только чтение* для всех дисков с данными "Премиум" и *чтение и запись* для дисков операционной системы "Премиум", подключенных к виртуальной машине. Этот параметр конфигурации рекомендуется использовать, чтобы достичь оптимальной производительности при операциях ввода-вывода приложения. Отключите кэширование дисков данных, которые отличаются высокой интенсивностью записи или используются только для записи (например, файлов журналов SQL Server), чтобы улучшить производительность приложения. Параметры кэша для существующих дисков данных можно изменить с помощью [портала Azure](https://portal.azure.com) или параметра *-HostCaching* командлета *Set-AzureDataDisk*.
@@ -185,11 +185,11 @@ ms.lasthandoff: 03/27/2017
 
     Ниже приведено описание параметров, используемых в команде AzCopy.
 
-   * **/Source:*&lt;source&gt;* **: месторасположение папки или URL-адрес контейнера с виртуальным жестким диском.
-   * **/SourceKey:*&lt;source-account-key&gt;* **: ключ исходной учетной записи хранения.
-   * **/Dest:*&lt;destination&gt;* **: URL-адрес контейнера хранилища для копирования виртуального жесткого диска.
-   * **/DestKey: *&lt;dest-account-key&gt;***: ключ целевой учетной записи хранения.
-   * **/Pattern: *&lt;file-name&gt;***: указывает имя файла копируемого виртуального жесткого диска.
+   * **/Source: *&lt;source&gt;:*** месторасположение папки или URL-адрес контейнера с виртуальным жестким диском.
+   * **/SourceKey: *&lt;source-account-key&gt;:*** ключ исходной учетной записи хранения.
+   * **/Dest: *&lt;destination&gt;:*** URL-адрес контейнера хранилища для копирования виртуального жесткого диска.
+   * **/DestKey: *&lt;dest-account-key&gt;:*** ключ целевой учетной записи хранения.
+   * **/Pattern: *&lt;file-name&gt;:*** указывает имя файла копируемого виртуального жесткого диска.
 
 Дополнительные сведения об использовании средства AzCopy см. в статье [Передача данных с помощью служебной программы командной строки AzCopy](storage-use-azcopy.md).
 
@@ -270,7 +270,7 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
     ```azcopy
     AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>
     ```
-    
+
     Пример:
 
     ```azcopy
@@ -279,12 +279,12 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 
     Ниже приведено описание параметров, используемых в команде AzCopy.
 
-   * **/Source:*&lt;source&gt;* **: месторасположение папки или URL-адрес контейнера с виртуальным жестким диском.
-   * **/SourceKey:*&lt;source-account-key&gt;* **: ключ исходной учетной записи хранения.
-   * **/Dest:*&lt;destination&gt;* **: URL-адрес контейнера хранилища для копирования виртуального жесткого диска.
-   * **/DestKey: *&lt;dest-account-key&gt;***: ключ целевой учетной записи хранения.
+   * **/Source: *&lt;source&gt;:*** месторасположение папки или URL-адрес контейнера с виртуальным жестким диском.
+   * **/SourceKey: *&lt;source-account-key&gt;:*** ключ исходной учетной записи хранения.
+   * **/Dest: *&lt;destination&gt;:*** URL-адрес контейнера хранилища для копирования виртуального жесткого диска.
+   * **/DestKey: *&lt;dest-account-key&gt;:*** ключ целевой учетной записи хранения.
    * **/BlobType: page:** указывает, что местом назначения является страничный BLOB-объект.
-   * **/Pattern: *&lt;file-name&gt;***: указывает имя файла копируемого виртуального жесткого диска.
+   * **/Pattern: *&lt;file-name&gt;:*** указывает имя файла копируемого виртуального жесткого диска.
 
 Дополнительные сведения об использовании средства AzCopy см. в статье [Передача данных с помощью служебной программы командной строки AzCopy](storage-use-azcopy.md).
 
@@ -322,7 +322,7 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 >
 
 ### <a name="register-your-vhd"></a>Регистрация виртуального жесткого диска
-Чтобы создать виртуальную машину на основе VHD операционной системы или присоединить диск данных к новой виртуальной машине, сначала их необходимо зарегистрировать. Выполните шаги ниже в зависимости от сценария VHD.
+Чтобы создать виртуальную машину на основе VHD операционной системы или присоединить диск данных к новой виртуальной машине, сначала их необходимо зарегистрировать. Выполните приведенные ниже шаги в зависимости от сценария VHD.
 
 #### <a name="generalized-operating-system-vhd-to-create-multiple-azure-vm-instances"></a>Обобщенный виртуальный жесткий диск операционной системы для создания нескольких экземпляров виртуальной машины Azure
 После загрузки VHD обобщенного образа операционной системы в учетную запись хранения зарегистрируйте его в качестве **образа виртуальной машины Azure**, чтобы на его основе можно было создать один или несколько экземпляров виртуальной машины. Используйте следующие командлеты PowerShell для регистрации вашего виртуального жесткого диска в качестве образа ОС виртуальной машины Azure. Укажите полный URL-адрес контейнера, в который был скопирован виртуальный жесткий диск.
@@ -459,14 +459,14 @@ Update-AzureVM  -VM $vm
     .Terms of Use
     Copyright © 2015 Microsoft Corporation.  All rights reserved.
 
-    THIS CODE AND ANY ASSOCIATED INFORMATION ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND,
+    THIS CODE AND ANY ASSOCIATED INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
     EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY
     AND/OR FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK OF USE, INABILITY TO USE, OR
     RESULTS FROM THE USE OF THIS CODE REMAINS WITH THE USER.
 
     .Example (Save this script as Migrate-AzureVM.ps1)
 
-    .\Migrate-AzureVM.ps1 -SourceServiceName CurrentServiceName -SourceVMName CurrentVMName –DestStorageAccount newpremiumstorageaccount -DestServiceName NewServiceName -DestVMName NewDSVMName -DestVMSize "Standard_DS2" –Location “Southeast Asia”
+    .\Migrate-AzureVM.ps1 -SourceServiceName CurrentServiceName -SourceVMName CurrentVMName –DestStorageAccount newpremiumstorageaccount -DestServiceName NewServiceName -DestVMName NewDSVMName -DestVMSize "Standard_DS2" –Location "Southeast Asia"
 
     .Link
     To find more information about how to set up Azure PowerShell, refer to the following links.
@@ -581,7 +581,7 @@ Update-AzureVM  -VM $vm
     # check if VM is shut down
     if ( $sourceVM.Status -notmatch "Stopped" )
     {
-        Write-Host "[Warning] - Stopping the VM is a required step so that the file system is consistent when you do the copy operation. Azure does not support live migration at this time. If you’d like to create a VM from a generalized image, sys-prep the Virtual Machine before stopping it." -ForegroundColor Yellow
+        Write-Host "[Warning] - Stopping the VM is a required step so that the file system is consistent when you do the copy operation. Azure does not support live migration at this time. If you'd like to create a VM from a generalized image, sys-prep the Virtual Machine before stopping it." -ForegroundColor Yellow
         $ContinueAnswer = Read-Host "`n`tDo you wish to stop $SourceVMName now? Input 'N' if you want to shut down the VM manually and come back later.(Y/N)"
         If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
         $sourceVM | Stop-AzureVM

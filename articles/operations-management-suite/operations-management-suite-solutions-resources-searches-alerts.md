@@ -15,9 +15,9 @@ ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: e47aacd1a188649a3b424981c20a6c2b736b2d89
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 35264f1ec5df5a3e171f7631e0d3b46bf9c0b8e7
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -248,7 +248,7 @@ ms.lasthandoff: 03/22/2017
         }
     }
 
-В следующей таблице описаны свойства ресурсов действия оповещения.
+В следующей таблице описаны свойства ресурсов действия webhook.
 
 | Имя элемента | Обязательно | Description (Описание) |
 |:--|:--|:--|

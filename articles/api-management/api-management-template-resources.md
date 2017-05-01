@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 3c633d54e6b81576a2fbd1adfc69775ca1bdd09d
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="azure-api-management-template-resources"></a>Ресурсы шаблонов управления API Azure
@@ -26,7 +27,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
   
 -   [ресурсы глифов](#glyphs).  
   
-##  <a name="a-namestringsa-string-resources"></a><a name="strings"></a> Строковые ресурсы  
+##  <a name="strings"></a> Строковые ресурсы  
  Служба управления API предусматривает множество строковых ресурсов, которые можно использовать на портале разработчика. Эти ресурсы переведены на все языки, поддерживаемые службой управления API. В наборе шаблонов по умолчанию эти ресурсы используются для заголовков страниц, меток и любых константных строк, отображаемых на портале разработчика. Чтобы использовать строковый ресурс в шаблонах, укажите префикс строкового ресурса, а затем имя строки, как показано в следующем примере.  
   
 ```  
@@ -83,13 +84,13 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
   
 -   [UserProfile](#UserProfile)  
   
-###  <a name="a-nameapisstringsa-apisstrings"></a><a name="ApisStrings"></a> ApisStrings  
+###  <a name="ApisStrings"></a> ApisStrings  
   
 |Имя|текст|  
 |----------|----------|  
 |PageTitleApis|Интерфейсы API|  
   
-###  <a name="a-nameappdetailsstringsa-appdetailsstrings"></a><a name="AppDetailsStrings"></a> AppDetailsStrings  
+###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -98,7 +99,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |WebApplicationsScreenshotAlt|Снимок экрана|  
 |WebApplicationsScreenshotsHeader|Снимки экрана|  
   
-###  <a name="a-nameapplicationliststringsa-applicationliststrings"></a><a name="ApplicationListStrings"></a> ApplicationListStrings  
+###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -114,13 +115,13 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |WebDevelopersSubmitLink|Submit|  
 |WebDevelopersYourApplicationsHeader|Ваши приложения|  
   
-###  <a name="a-nameappstringsa-appstrings"></a><a name="AppStrings"></a> AppStrings  
+###  <a name="AppStrings"></a> AppStrings  
   
 |Имя|текст|  
 |----------|----------|  
 |WebApplicationsHeader|Приложения|  
   
-###  <a name="a-namecommonresourcesa-commonresources"></a><a name="CommonResources"></a> CommonResources  
+###  <a name="CommonResources"></a> CommonResources  
   
 |Имя|текст|  
 |----------|----------|  
@@ -131,7 +132,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |AzureActiveDirectory|Azure Active Directory|  
 |HttpLargeRequestMessage|Текст HTTP-запроса слишком длинный.|  
   
-###  <a name="a-namecommonstringsa-commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
+###  <a name="CommonStrings"></a> CommonStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -155,7 +156,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |TablePlaceholderNothingToDisplay|Нет данных для выбранного периода и области|  
 |ButtonLabelClose|закройте|  
   
-###  <a name="a-namedocumentationa-documentation"></a><a name="Documentation"></a> Documentation  
+###  <a name="Documentation"></a> Documentation  
   
 |Имя|текст|  
 |----------|----------|  
@@ -285,11 +286,11 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |OAuth2AuthorizationServerCommunicationException|Не удалось установить подключение HTTP к серверу авторизации или оно неожиданно закрыто.|  
 |WebDocumentationOAuth2GeneralErrorMessage|Произошла непредвиденная ошибка.|  
 |AuthorizationServerCommunicationException|Произошло исключение взаимодействия с сервером авторизации. Обратитесь к администратору.|  
-|TextblockSubscriptionKeyHeaderDescription|Ключ подписки, предоставляющий доступ к API. Найдите в своем `<a href='/developer'\>Profile</a\>`.|  
+|TextblockSubscriptionKeyHeaderDescription|Ключ подписки, предоставляющий доступ к API. Находится в <a href='/developer'\>Profile</a\>.|  
 |TextblockOAuthHeaderDescription|Маркер доступа OAuth 2.0, полученный из <i\>{0}</i\>. Поддерживаемые типы предоставления: <i\>{1}</i\>.|  
 |TextblockContentTypeHeaderDescription|Тип мультимедиа текста, отправляемого в API.|  
-|ErrorMessageApiNotAccessible|API, который вы пытаетесь вызвать, сейчас недоступен. Обратитесь к издателю API `<a href="/issues"\>here</a\>`.|  
-|ErrorMessageApiTimedout|Получение ответа от API, который вы пытаетесь вызвать, занимает больше времени, чем обычно. Обратитесь к издателю API `<a href="/issues"\>here</a\>`.|  
+|ErrorMessageApiNotAccessible|API, который вы пытаетесь вызвать, сейчас недоступен. Обратитесь к издателю API <a href="/issues"\>здесь</a\>.|  
+|ErrorMessageApiTimedout|Получение ответа от API, который вы пытаетесь вызвать, занимает больше времени, чем обычно. Обратитесь к издателю API <a href="/issues"\>здесь</a\>.|  
 |BadRequestParameterExpected|"Ожидается параметр {0}".|  
 |TooltipTextDoubleClickToSelectAll|Дважды щелкните, чтобы выделить все.|  
 |TooltipTextHideRevealSecret|Показать или скрыть|  
@@ -303,7 +304,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |SectionHeadingCodeSamples|Примеры кода|  
 |TextblockOpenidConnectHeaderDescription|Маркер идентификатора OpenID Connect получен из <i\>{0}</i\>. Поддерживаемые типы предоставления: <i\>{1}</i\>.|  
   
-###  <a name="a-nameerrorpagestringsa-errorpagestrings"></a><a name="ErrorPageStrings"></a> ErrorPageStrings  
+###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -321,7 +322,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |TitlePotentialCause|Возможная причина|  
 |TitlePotentialSolution|Возможно, это временная проблема. Ниже приведено несколько способов ее исправить.|  
   
-###  <a name="a-nameissuesstringsa-issuesstrings"></a><a name="IssuesStrings"></a> IssuesStrings  
+###  <a name="IssuesStrings"></a> IssuesStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -332,7 +333,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |WebIssuesSignIn|войти|  
 |WebIssuesStatusReportedBy|Состояние: {0}. &#124 Сообщил {1}.|  
   
-###  <a name="a-namenotfoundstringsa-notfoundstrings"></a><a name="NotFoundStrings"></a> NotFoundStrings  
+###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -347,7 +348,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |TitlePotentialCause|Возможная причина|  
 |TitlePotentialSolution|Возможное решение|  
   
-###  <a name="a-nameproductdetailsstringsa-productdetailsstrings"></a><a name="ProductDetailsStrings"></a> ProductDetailsStrings  
+###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -369,13 +370,13 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |TextblockSubscriptionDescription|Новая подписка будет создана следующим образом.|  
 |TextblockSubscriptionLimitReached|Достигнуто максимальное ограничение количества подписок.|  
   
-###  <a name="a-nameproductsstringsa-productsstrings"></a><a name="ProductsStrings"></a> ProductsStrings  
+###  <a name="ProductsStrings"></a> ProductsStrings  
   
 |Имя|текст|  
 |----------|----------|  
 |PageTitleProducts|Продукты|  
   
-###  <a name="a-nameproviderinfostringsa-providerinfostrings"></a><a name="ProviderInfoStrings"></a> ProviderInfoStrings  
+###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -383,7 +384,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |TextboxExternalIdentitiesSigninInvitation|Вход можно выполнить с помощью|  
 |TextboxExternalIdentitiesSigninInvitationPrimary|Вход с помощью:|  
   
-###  <a name="a-namesigninresourcesa-signinresources"></a><a name="SigninResources"></a> SigninResources  
+###  <a name="SigninResources"></a> SigninResources  
   
 |Имя|текст|  
 |----------|----------|  
@@ -479,7 +480,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |DialogHeadingTermsOfUse|Условия использования|  
 |ValidationMessageConsentNotAccepted|Прежде чем продолжить, необходимо принять условия использования.|  
   
-###  <a name="a-namesigninstringsa-signinstrings"></a><a name="SigninStrings"></a> SigninStrings  
+###  <a name="SigninStrings"></a> SigninStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -491,7 +492,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |WebAuthenticationSigninTitle|Вход|  
 |WebAuthenticationSignUpNow|Зарегистрируйтесь сейчас|  
   
-###  <a name="a-namesignupstringsa-signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
+###  <a name="SignupStrings"></a> SignupStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -501,7 +502,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |WebAuthenticationSigninNow|Войдите сейчас.|  
 |ButtonLabelSignup|Регистрация|  
   
-###  <a name="a-namesubscriptionliststringsa-subscriptionliststrings"></a><a name="SubscriptionListStrings"></a> SubscriptionListStrings  
+###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -524,7 +525,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |PageTitleRenameSubscription|Переименовать подписку|  
 |SubscriptionPropertyLabelName|Имя подписки|  
   
-###  <a name="a-namesubscriptionstringsa-subscriptionstrings"></a><a name="SubscriptionStrings"></a> SubscriptionStrings  
+###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
 |Имя|текст|  
 |----------|----------|  
@@ -535,14 +536,14 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |InformationMessageKeyWasRegenerated|Вы действительно хотите повторно создать этот ключ?|  
 |ButtonLabelShowKey|Показать|  
   
-###  <a name="a-nameupdateprofilestringsa-updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
+###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
 |Имя|текст|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Обновить профиль|  
 |PageTitleUpdateProfile|Обновить сведения об учетной записи|  
   
-###  <a name="a-nameuserprofilea-userprofile"></a><a name="UserProfile"></a> UserProfile  
+###  <a name="UserProfile"></a> UserProfile  
   
 |Имя|текст|  
 |----------|----------|  
@@ -566,7 +567,7 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 |ValidationMessageSubscriptionNameRequired|Имя подписки не может быть пустым.|  
 |ApiManagementUserLimitReached|В этой службе достигнуто максимальное число разрешенных пользователей. Выполните обновление до более высокой ценовой категории.|  
   
-##  <a name="a-nameglyphsa-glyph-resources"></a><a name="glyphs"></a> Ресурсы глифов  
+##  <a name="glyphs"></a> Ресурсы глифов  
  В шаблонах портала разработчика управления API можно использовать глифы со страницы с [Glyphicons на сайте Bootstrap](http://getbootstrap.com/components/#glyphicons). Этот набор глифов содержит более 250 глифов в формате шрифта из набора Halflings [Glyphicon](http://glyphicons.com/). Чтобы использовать глиф из этого набора, используйте следующий синтаксис.  
   
 ```html  
@@ -577,8 +578,4 @@ ms.openlocfilehash: 848d25efcae78280b090d3725eb3581c5082efb7
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с шаблонами см. в статье [Настройка портала разработчика в службе управления API Azure с помощью шаблонов](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
 

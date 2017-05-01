@@ -1,10 +1,10 @@
 ---
-title: "Модель данных Application Insights"
+title: "Модель данных Azure Application Insights | Документация Майкрософт"
 description: "Описание свойств, экспортируемых с помощью непрерывного экспорта в формате JSON и используемых в качестве фильтров."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3084bb344976bc542e78a55a1c27c4dedc111af0
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -30,7 +31,6 @@ ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
 * Продолжительность времени указана в десятых долях микросекунды, поэтому 10 000 000 = 1 с.
 * Значения даты и времени в формате UTC указаны в формате ISO `yyyy-MM-DDThh:mm:ss.sssZ`
 
-Существует несколько [примеров](app-insights-export-telemetry.md#code-samples) , показывающих, как их использовать.
 
 ## <a name="example"></a>Пример
     // A server report about an HTTP request
@@ -284,7 +284,7 @@ ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
 | availability [0] dataSizeMetric.name |строка | |
 | availability [0] dataSizeMetric.value |целое число | |
 | availability [0] durationMetric.name |строка | |
-| availability [0] durationMetric.value |number |Продолжительность теста. 1e7 =&1; с. |
+| availability [0] durationMetric.value |number |Продолжительность теста. 1e7 = 1 с. |
 | availability [0] message |строка |Диагностика сбоя. |
 | availability [0] result |строка |Успех или сбой. |
 | availability [0] runLocation |строка |Географический объект-источник HTTP-запроса. |
@@ -351,9 +351,4 @@ ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
 * [Application Insights](app-insights-overview.md)
 * [Непрерывный экспорт](app-insights-export-telemetry.md)
 * [Примеры кода](app-insights-export-telemetry.md#code-samples)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

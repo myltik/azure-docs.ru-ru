@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2dcba235353f2b1bd2b42d93066a91071f0ea1a1
-ms.openlocfilehash: 8b9afcd62ad318e181e2d210af58dcb412eefaaf
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 393bc1ad782b072f3b27eeeb3e4149ec8ab64252
+ms.lasthandoff: 04/12/2017
 
 
 ---
-# <a name="copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных
+# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Руководство. Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
@@ -32,8 +32,6 @@ ms.lasthandoff: 02/22/2017
 > * [Шаблон Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
->
->
 
 В этом учебнике вы создадите фабрику данных с конвейером, чтобы скопировать данные из хранилища BLOB-объектов в базу данных SQL.
 
@@ -45,7 +43,7 @@ ms.lasthandoff: 02/22/2017
 >
 
 ## <a name="prerequisites-for-the-tutorial"></a>Предварительные требования для прохождения этого учебника
-Перед началом работы с этим учебником необходимо иметь следующее:
+Для работы с этим учебником необходимо следующее:
 
 * **Подписка Azure**.  Если у вас нет подписки, вы можете создать бесплатную пробную версию учетной записи всего за несколько минут. Дополнительные сведения см. в статье [Бесплатная пробная версия](http://azure.microsoft.com/pricing/free-trial/).
 * **исходного**хранилища данных. В этом учебнике в качестве **источника** будет использоваться хранилище BLOB-объектов. в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md#create-a-storage-account) .
@@ -87,7 +85,7 @@ ms.lasthandoff: 02/22/2017
 ## <a name="prepare-blob-storage-and-sql-database"></a>Подготовка хранилища BLOB-объектов и базы данных SQL
 Теперь подготовьте хранилище больших двоичных объектов Azure и базу данных SQL Azure к изучению этого учебника, выполнив следующие действия.  
 
-1. Запустите блокнот, вставьте следующий текст и сохраните файл на жестком диске под именем **emp.txt** в папке **C:\ADFGetStarted**.
+1. Запустите Блокнот. Скопируйте следующий текст и сохраните его в файл **emp.txt** в папке **C:\ADFGetStarted** на диске.
 
     ```
     John, Doe

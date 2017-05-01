@@ -16,9 +16,9 @@ ms.date: 03/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: c9065c3346c924ea21060c9e7e5b297a3cb26941
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 76c8feb077cca27dc96f43e708cdef4fbb0f824c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -44,9 +44,9 @@ ms.lasthandoff: 03/09/2017
 Можно получать оповещения на основе:
 
 * **Значений метрик**. Оповещение активируется, когда значение указанной метрики выходит за рамки заданного порогового значения. То есть сначала оно активируется, когда условие выполняется, а затем — когда условие перестает выполняться. Обновляемый список доступных метрик, поддерживаемых Azure Monitor, см. в статье [Метрики, поддерживаемые Azure Monitor](monitoring-supported-metrics.md).
-* **События журнала действий**. Это оповещение может активироваться при каждом событии или когда происходит определенное число событий.
+* **События журнала действий**. Это оповещение может активироваться при конкретном событии с ресурсом или при отправке уведомления службы в подписку.
 
-## <a name="what-can-alerts-do"></a>Возможности оповещений
+## <a name="what-can-metric-alerts-do"></a>Каковы возможности оповещений метрик?
 Для оповещения можно настроить следующие действия:
 
 * отправка уведомлений по электронной почте администратору службы, соадминистраторам или на дополнительные электронные адреса, указанные вами;
@@ -56,12 +56,27 @@ ms.lasthandoff: 03/09/2017
     - Приложение логики Azure
     - сторонней службы.
 
+## <a name="what-can-activity-log-alerts-do"></a>Каковы возможности оповещений журнала действий?
+Для оповещения можно настроить следующие действия:
+* Активация при возникновении определенного события с одним из ресурсов в подписке.
+* Активации при отправке уведомления службы в подписку.
+* Оповещение участников группы действий с помощью:
+    * SMS
+    * Email
+    * webhook
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Изучите правила создания оповещений и ознакомьтесь с их настройкой с помощью следующих средств:
 
-* [Портал Azure](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md)
-* [интерфейса командной строки (CLI)](insights-alerts-command-line-interface.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Узнайте больше о [метриках](monitoring-overview-metrics.md).
+* Настройте [оповещения метрик на портале Azure](insights-alerts-portal.md).
+* Настройте [оповещения метрик с помощью PowerShell](insights-alerts-powershell.md).
+* Настройте [оповещения метрик с помощью интерфейса командной строки](insights-alerts-command-line-interface.md).
+* Настройте [оповещения метрик с помощью REST API Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx).
+* Узнайте больше о [журнале действий](monitoring-overview-activity-logs.md).
+* Настройте [оповещения журнала действий на портале Azure](monitoring-activity-log-alerts.md).
+* Настройте [оповещения журнала действий с помощью Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+* Просмотрите [схему webhook оповещений журнала действий](monitoring-activity-log-alerts-webhook.md).
+* Узнайте больше об [уведомлениях службы](monitoring-service-notifications.md).
+* Узнайте больше о [группах действий](monitoring-action-groups.md).
 

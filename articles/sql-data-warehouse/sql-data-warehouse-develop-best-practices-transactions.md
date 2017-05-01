@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed017b542de11a5e8abe46e1651b04cb61c77265
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -45,7 +47,7 @@ ms.openlocfilehash: ed017b542de11a5e8abe46e1651b04cb61c77265
 ## <a name="minimally-logged-operations"></a>Минимально регистрируемые операции
 Минимально регистрируемыми могут быть такие операции:
 
-* CREATE TABLE AS SELECT ([CTAS][CTAS]);
+* Инструкция CREATE TABLE AS SELECT ([CTAS][CTAS])
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -87,7 +89,7 @@ ms.openlocfilehash: ed017b542de11a5e8abe46e1651b04cb61c77265
 При загрузке данных в непустую таблицу с кластеризованным индексом некоторые строки могут быть полностью регистрируемыми, а некоторые — минимально. Кластеризованный индекс — это сбалансированное дерево страниц. Если страница, на которой выполняется запись, уже содержит строки другой транзакции, эти операции записи будут полностью регистрируемыми в журнале. Однако если страница пустая, то операция записи на ней будет минимально регистрируемой.
 
 ## <a name="optimizing-deletes"></a>Оптимизация операций удаления
-`DELETE` является полностью регистрируемой.  Если необходимо удалить большой объем данных в таблице или секции, часто разумнее применить к данным, которые вы хотите оставить, минимально регистрируемую операцию `SELECT` .  Для этого необходимо создать новую таблицу с помощью [CTAS][CTAS].  Затем с помощью [RENAME][RENAME] замените старую таблицу только что созданной.
+`DELETE` является полностью регистрируемой.  Если необходимо удалить большой объем данных в таблице или секции, часто разумнее применить к данным, которые вы хотите оставить, минимально регистрируемую операцию `SELECT` .  Для этого необходимо создать новую таблицу с помощью [CTAS][CTAS].  После этого с помощью [RENAME][RENAME] замените старую таблицу только что созданной таблицей.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -179,12 +181,12 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Повторное создание больших таблиц может быть удобнее, если использовать функции управления рабочими нагрузками хранилища данных SQL. Для получения дополнительных сведений см. раздел, посвященный управлению рабочими нагрузками, в статье о [параллелизме][параллелизм].
+> Повторное создание больших таблиц может быть удобнее, если использовать функции управления рабочими нагрузками хранилища данных SQL. Для получения дополнительных сведений см. раздел, посвященный управлению рабочими нагрузками, в статье о [параллелизме][concurrency].
 > 
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>Оптимизация с помощью переключения секций
-Если вы столкнулись с крупномасштабными изменениями в [секции таблицы][секции таблицы], то имеет смысл воспользоваться схемой переключения секций. Если изменения данных существенные и охватывают несколько секций, то простая итерация по секциям приводит к тому же результату.
+Если вы столкнулись с крупномасштабными изменениями в [секции таблицы][table partition], то имеет смысл воспользоваться схемой переключения секций. Если изменения данных существенные и охватывают несколько секций, то простая итерация по секциям приводит к тому же результату.
 
 Чтобы переключить разделы, выполните следующие действия.
 
@@ -420,26 +422,21 @@ END
 * Разбейте операцию на блоки для работы с подмножествами строк.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Сведения об уровнях изоляции и ограничениях транзакций см. в статье [Транзакции в хранилище данных SQL][Транзакции в хранилище данных SQL].  Рекомендации по использованию хранилища данных SQL Azure см. в статье [Рекомендации по использованию хранилища данных SQL Azure][Рекомендации по использованию хранилища данных SQL Azure].
+Сведения об уровнях изоляции и ограничениях транзакций см. в статье [Транзакции в хранилище данных SQL][Transactions in SQL Data Warehouse].  Рекомендации по использованию хранилища данных SQL Azure см. в статье [Рекомендации по использованию хранилища данных SQL Azure][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Транзакции в хранилище данных SQL]: ./sql-data-warehouse-develop-transactions.md
-[секции таблицы]: ./sql-data-warehouse-tables-partition.md
-[Параллелизм]: ./sql-data-warehouse-develop-concurrency.md
+[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
+[table partition]: ./sql-data-warehouse-tables-partition.md
+[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
-[Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
-[ALTER INDEX]:https://msdn.microsoft.com/library/ms188388.aspx
+[alter index]:https://msdn.microsoft.com/library/ms188388.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!-- Other web references -->
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

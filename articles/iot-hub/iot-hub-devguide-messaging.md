@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e9e1649e4329d10ca8b87c730ad8c6beb3be818f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ac3f4d2220c1902f00049ce237468ddee992209d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -191,7 +191,7 @@ ms.lasthandoff: 03/16/2017
 | --- | --- |
 | EnqueuedTimeUtc |Метка времени, указывающая, когда отобразился результат сообщения. Например, устройство завершило его или истек срок его действия. |
 | OriginalMessageId |**MessageId** сообщения, которое отправляется из облака на устройство и к которому относится эта информация. |
-| StatusCode |Требуется целое число. Используется в отзывах, созданных центром IoT. <br/> 0 — успех <br/> 1 — срок действия сообщения истек <br/> 2 — превышено максимальное число доставок <br/> 3 — сообщение отклонено |
+| StatusCode |Обязательная строка. Используется в отзывах, созданных центром IoT. <br/> 'Success' <br/> 'Expired' <br/> 'DeliveryCountExceeded' <br/> 'Rejected' <br/> 'Purged' |
 | Описание |Строковые значения **StatusCode**. |
 | deviceId |**DeviceId** целевого устройства, которому отправляется сообщение из облака и к которому относится этот отзыв. |
 | DeviceGenerationId |**DeviceGenerationId** целевого устройства, которому отправляется сообщение из облака и к которому относится этот отзыв. |

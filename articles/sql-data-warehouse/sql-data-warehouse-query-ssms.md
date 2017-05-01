@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
+ms.custom: connect
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
-ms.openlocfilehash: 30ac3558534e96b63d78f9c66d42d11b7c1a3c75
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3cf78b59dc2dd010fdf4f480b09b3f80def1e62d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,9 +37,9 @@ ms.openlocfilehash: 30ac3558534e96b63d78f9c66d42d11b7c1a3c75
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с этим руководством необходимы указанные ниже компоненты.
 
-* Существующее хранилище данных SQL. Чтобы создать его, см. статью [Создание хранилища данных SQL Azure][Создание хранилища данных SQL Azure].
-* Установленный SQL Server Management Studio (SSMS). [Установите SSMS][установка SSMS] бесплатно, если вы еще этого не сделали.
-* Полное имя сервера SQL Server. Чтобы найти его, см. статью [Подключение к хранилищу данных SQL Azure][Подключение к хранилищу данных SQL Azure].
+* Существующее хранилище данных SQL. Сведения о его создании см. в статье [Создание хранилища данных SQL Azure][Create a SQL Data Warehouse].
+* Установленный SQL Server Management Studio (SSMS). [Установите SSMS][Install SSMS] бесплатно, если вы еще этого не сделали.
+* Полное имя сервера SQL Server. Эти сведения можно узнать в статье [Подключение к хранилищу данных SQL Azure][Connect to SQL Data Warehouse].
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Подключение к хранилищу данных SQL
 1. Откройте среду SSMS.
@@ -76,19 +78,19 @@ ms.openlocfilehash: 30ac3558534e96b63d78f9c66d42d11b7c1a3c75
     ![Результаты запроса][6]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь, когда вы можете подключаться к базе данных и отправлять запросы, попробуйте [визуализировать данные с помощью PowerBI][визуализировать данные с помощью PowerBI].
+Теперь, когда вы можете подключаться к базе данных и отправлять запросы, попробуйте [визуализировать данные с помощью PowerBI][visualizing the data with PowerBI].
 
-Дополнительные сведения о настройке в своей среде проверки подлинности Azure Active Directory, см. в статье [Аутентификация в хранилище данных SQL Azure][Аутентификация в хранилище данных SQL Azure].
+Сведения о том, как настроить проверку подлинности Azure Active Directory в своей среде, см. в статье [Проверка подлинности в хранилище данных SQL Azure][Authenticate to SQL Data Warehouse].
 
 <!--Arcticles-->
-[Подключение к хранилищу данных SQL Azure]: sql-data-warehouse-connect-overview.md
-[Создание хранилища данных SQL Azure]: sql-data-warehouse-get-started-provision.md
-[Аутентификация в хранилище данных SQL Azure]: sql-data-warehouse-authentication.md
-[визуализировать данные с помощью PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 
+[Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
+[visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 
 
 <!--Other-->
-[портал Azure]: https://portal.azure.com
-[установка SSMS]: https://msdn.microsoft.com/en-US/library/hh213248.aspx
+[Azure portal]: https://portal.azure.com
+[Install SSMS]: https://msdn.microsoft.com/en-US/library/hh213248.aspx
 
 
 <!--Image references-->
@@ -99,9 +101,4 @@ ms.openlocfilehash: 30ac3558534e96b63d78f9c66d42d11b7c1a3c75
 [4]: media/sql-data-warehouse-query-ssms/new-query.png
 [5]: media/sql-data-warehouse-query-ssms/execute-query.png
 [6]: media/sql-data-warehouse-query-ssms/results.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 06f274fe3febd4c3d6d3da90b361c3137ec795b9
-ms.openlocfilehash: e6514465db0d01b248bdb9e5113450e2bd3d2346
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 7f1d55b90af4e5397d74a8e37b44b5a88530897d
+ms.lasthandoff: 03/31/2017
 
 ---
 
@@ -26,19 +26,46 @@ ms.lasthandoff: 02/23/2017
 
 Сведения о защите серверных служб API с помощью сертификата клиента (например, управления API для серверной части) см. в статье [Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates).
 
-## <a name="checking-a-thumbprint-against-a-desired-value"></a>Проверка отпечатка на соответствие требуемому значению
+## <a name="checking-the-expiration-date"></a>Проверка даты окончания срока действия
+
+Следующие политики можно настроить для проверки даты окончания срока действия сертификата:
+
+```
+<choose>
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.NotAfter > DateTime.Now)" >
+        <return-response>
+            <set-status code="403" reason="Invalid client certificate" />
+        </return-response>
+    </when>
+</choose>
+```
+
+## <a name="checking-the-issuer-and-subject"></a>Проверка издателя и субъекта
+
+Следующие политики можно настроить для проверки издателя и субъекта сертификата клиента:
+
+```
+<choose>
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != "trusted-issuer" || context.Request.Certificate.SubjectName != "expected-subject-name")" >
+        <return-response>
+            <set-status code="403" reason="Invalid client certificate" />
+        </return-response>
+    </when>
+</choose>
+```
+
+## <a name="checking-the-thumbprint"></a>Проверка отпечатка
 
 Следующие политики можно настроить для проверки отпечатка сертификата клиента:
 
 ```
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != "desired-thumbprint-to-validate")" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != "desired-thumbprint")" >
         <return-response>
-            <set-status code="401" reason="Invalid client certificate" />
+            <set-status code="403" reason="Invalid client certificate" />
         </return-response>
     </when>
 </choose>
-
 ```
 
 ## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Проверка отпечатка на соответствие сертификатам, переданным в службу управления API
@@ -47,9 +74,9 @@ ms.lasthandoff: 02/23/2017
 
 ```
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Deployment.Certificates.Any(c => c.Value.Thumbprint == context.Request.Certificate.Thumbprint))" >
+    <when condition="@(context.Request.Certificate == null || !context.Deployment.Certificates.Any(c => c.Value.Thumbprint == context.Request.Certificate.Thumbprint))" >
         <return-response>
-            <set-status code="401" reason="Invalid client certificate" />
+            <set-status code="403" reason="Invalid client certificate" />
         </return-response>
     </when>
 </choose>

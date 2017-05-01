@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 2d5201a335e96cc8595de834858750f6aac884a3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -25,7 +25,11 @@ ms.lasthandoff: 03/17/2017
 Здесь представлены ответы на часто задаваемые вопросы о службе интеграции журналов Azure, которая позволяет интегрировать необработанные журналы из ресурсов Azure с локальными системами SIEM (Security Information and Event Management). С помощью такой интеграции вы можете иметь доступ ко всем своим ресурсам, локальным или облачным, на единой панели мониторинга, что позволяет выполнять статистическую обработку, сопоставление и анализ, а также предупреждать о событиях безопасности, связанных с приложениями.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Предоставляется ли служба интеграции журналов Azure бесплатно?
-Да. Плата за использование службы интеграции журналов Azure не взимается. 
+Да. Плата за использование службы интеграции журналов Azure не взимается.
+
+## <a name="where-is-azure-log-integration-available"></a>Где доступна служба интеграции журналов Azure?
+
+В настоящее время служба доступна в рамках коммерческой лицензии Azure и лицензии Azure для государственных организаций и недоступна в Китае и в Германии.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Как увидеть учетные записи хранения, из которых служба интеграции журналов Azure извлекает журналы виртуальных машин Azure?
 Выполните команду **azlog source list**.
@@ -82,7 +86,7 @@ XML-файл события содержит метаданные, как пок
 См. статью [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](../security-center/security-center-managing-and-responding-alerts.md).
 
 ## <a name="how-can-i-modify-what-is-collected-with-vm-diagnostics"></a>Как изменить, что именно должна собирать система диагностики виртуальных машин?
-Сведения о том, как получать, изменять и настраивать конфигурацию системы диагностики Azure в Windows *(WAD)*, см. в статье [Включение системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ниже приведен пример.
+Сведения о том, как получать, изменять и настраивать конфигурацию системы диагностики Azure в Windows *(WAD)*, см. в статье [Включение системы диагностики Azure на виртуальной машине под управлением Windows с помощью PowerShell](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ниже приведен пример.
 
 ### <a name="get-the-wad-config"></a>Получение конфигурации WAD
     -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
@@ -107,7 +111,7 @@ XML-файл события содержит метаданные, как пок
 
 После внесения изменений проверьте учетную запись хранения, чтобы убедиться, что собираются именно те события, которые необходимы.
 
-В случае проблем при установке и настройке создайте [запрос в службу поддержки](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request), указав "Интеграция журнала" в качестве службы, для которой запрашивается поддержка.
+В случае проблем при установке и настройке создайте [запрос в службу поддержки](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request), указав **Интеграция журнала** в качестве службы, для которой запрашивается поддержка.
 
 
 <!--Image references-->

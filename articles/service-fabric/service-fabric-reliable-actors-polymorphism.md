@@ -15,22 +15,22 @@ ms.workload: NA
 ms.date: 03/28/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2fbce8754a5e3162e3f8c999b34ff25284911021
-ms.openlocfilehash: 731c6542ba6d1385eeffa89a6f62e5bcf57a5c1e
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 87f99a9e6df2103f70968c10556242ddb268e9e4
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Полиморфизм на платформе надежных субъектов
-Платформа Reliable Actors позволяет создавать субъекты с использованием многих приемов, применяемых в объектно-ориентированном проектировании. Одним из них является полиморфизм, благодаря которому типы и интерфейсы могут наследоваться от более обобщенных родительских элементов. Наследование на платформе надежных субъектов обычно соответствует модели .NET с несколькими дополнительными ограничениями.
+Платформа Reliable Actors позволяет создавать субъекты с использованием многих приемов, применяемых в объектно-ориентированном проектировании. Одним из них является полиморфизм, благодаря которому типы и интерфейсы могут наследоваться от более обобщенных родительских элементов. Наследование на платформе надежных субъектов обычно соответствует модели .NET с несколькими дополнительными ограничениями. В случае Java или Linux наследование соответствует модели Java.
 
 ## <a name="interfaces"></a>Интерфейсы
-Для использования платформы надежных субъектов требуется определить по крайней мере один интерфейс, который будет реализован типом субъекта. Этот интерфейс применяется для создания прокси-класса, используемого клиентами для взаимодействия с вашими субъектами. Интерфейсы могут наследовать от других интерфейсов, пока каждый интерфейс реализуется типом субъекта и все его родительские элементы в конечном счете являются производными от IActor. IActor — определенный платформой базовый интерфейс для субъектов. Таким образом, классический пример полиморфизма, использующий фигуры, может выглядеть примерно следующим образом:
+Для использования платформы надежных субъектов требуется определить по крайней мере один интерфейс, который будет реализован типом субъекта. Этот интерфейс применяется для создания прокси-класса, используемого клиентами для взаимодействия с вашими субъектами. Интерфейсы могут наследовать от других интерфейсов, пока каждый интерфейс реализуется типом субъекта и все его родительские элементы в конечном счете являются производными от IActor(C#) или Actor(Java). IActor(C#) и Actor(Java) — это определенные платформой базовые интерфейсы для субъектов на платформах .NET и Java соответственно. Таким образом, классический пример полиморфизма, использующий фигуры, может выглядеть примерно следующим образом:
 
 ![Иерархия интерфейса для формирования субъектов][shapes-interface-hierarchy]
 
 ## <a name="types"></a>Типы
-Также можно создать иерархию типов субъектов, производных от базового класса Actor, предоставляемого платформой. В случае использования фигур у вас может быть базовый тип `Shape` .
+Также можно создать иерархию типов субъектов, производных от базового класса Actor, предоставляемого платформой. В случае использования фигур у вас может быть базовый тип `Shape`(C#) или `ShapeImpl`(Java).
 
 ```csharp
 public abstract class Shape : Actor, IShape
@@ -40,8 +40,16 @@ public abstract class Shape : Actor, IShape
     public abstract Task<double> GetAreaAsync();
 }
 ```
+```Java
+public abstract class ShapeImpl extends FabricActor implements Shape
+{
+    public abstract CompletableFuture<int> getVerticeCount();
 
-Подтипы `Shape` могут переопределять методы из базового типа.
+    public abstract CompletableFuture<double> getAreaAsync();
+}
+```
+
+Подтипы `Shape`(C#) или `ShapeImpl`(Java) могут переопределять методы из базового типа.
 
 ```csharp
 [ActorService(Name = "Circle")]
@@ -60,6 +68,26 @@ public class Circle : Shape, ICircle
         return Math.PI *
             state.Radius *
             state.Radius;
+    }
+}
+```
+```Java
+@ActorServiceAttribute(name = "Circle")
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class Circle extends ShapeImpl implements Circle
+{
+    @Override
+    public CompletableFuture<Integer> getVerticeCount()
+    {
+        return CompletableFuture.completedFuture(0);
+    }
+
+    @Override
+    public CompletableFuture<Double> getAreaAsync()
+    {
+        return (this.stateManager().getStateAsync<CircleState>("circle").thenApply(state->{
+          return Math.PI * state.radius * state.radius;
+        }));
     }
 }
 ```

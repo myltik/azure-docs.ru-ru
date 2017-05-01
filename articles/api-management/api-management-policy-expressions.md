@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
-ms.openlocfilehash: 75ea0486a1b5abc71df3b7d9e8385717954b89f4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d96dde8c74141d000c1f7c5fd9ef624ff5e46953
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>Выражения политики в службе управления API
@@ -186,7 +186,7 @@ ms.lasthandoff: 03/01/2017
 |context.User|Email: строка<br /><br /> FirstName: строка<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: строка<br /><br /> Identities: IEnumerable<IUserIdentity\><br /><br /> LastName: строка<br /><br /> Note: строка<br /><br /> RegistrationDate: дата и время|  
 |IApi|Id: строка<br /><br /> Name: строка<br /><br /> Path: строка<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|Id: строка<br /><br /> Name: строка|  
-|IMessageBody|As<T\>(preserveContent: логическое значение = false). Where T: строка, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Методы `context.Request.Body.As<T>` и `context.Request.Body.As<T>` используются для чтения текста сообщения запроса или ответа в одном из заданных форматов. Обратите внимание, что по умолчанию при доступе к тексту сообщения исходный текст сообщения теряется и его необходимо задать, возвратив текст обратно в выражение, читающее текст. Чтобы сохранить содержимое текста, при доступе к сообщению присвойте параметру `preserveContent` значение `true`. Значение `preserveContent` по умолчанию — `false`. Если для параметра `preserveContent` задано значение `true` и в выражении возвращается текст, используется возвращаемый текст. Дополнительные сведения см. в разделе о политике [задания текста](api-management-transformation-policies.md#SetBody).|  
+|IMessageBody|As<T\>(preserveContent: логическое значение = false). Where T: строка, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Методы `context.Request.Body.As<T>` и `context.Response.Body.As<T>` используются для чтения текста сообщения запроса или ответа в одном из заданных форматов `T`. По умолчанию метод использует исходный поток текста сообщения и делает его недоступным после возвращения. Чтобы избежать этого, задайте для параметра `preserveContent` значение `true`, чтобы метод работал с копией потока текста. Перейдите по [этой](api-management-transformation-policies.md#SetBody) ссылке, чтобы увидеть пример.|  
 |IUrl|Host: строка<br /><br /> Path: строка<br /><br /> Port: целое число<br /><br /> Query: IReadOnlyDictionary<string, string[]><br /><br /> QueryString: строка<br /><br /> Scheme: строка|  
 |IUserIdentity|Id: строка<br /><br /> Provider: строка|  
 |ISubscriptionKeyParameterNames|Header: строка<br /><br /> Query: строка|  

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: e24bd626cd950f6e6d9474d1bd5f97c3ea4fb925
-ms.openlocfilehash: 626bdc99702b38c127beba54979add9b1cbd633f
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a6b6610bb4d4b427f525934146340a9cca6f52cb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,13 +33,13 @@ ms.openlocfilehash: 626bdc99702b38c127beba54979add9b1cbd633f
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
 1. Включение интеграции приложений для Picturepark
-2. Настройка единого входа
+2. Настройка единого входа.
 3. Настройка подготовки учетных записей пользователей
 4. Назначение пользователей
 
 ![Сценарий](./media/active-directory-saas-picturepark-tutorial/IC795055.png "Сценарий")
 
-## <a name="enabling-the-application-integration-for-picturepark"></a>Включение интеграции приложений для Picturepark
+## <a name="enable-the-application-integration-for-picturepark"></a>Включение интеграции приложений для Picturepark
 В этом разделе показано, как включить интеграцию приложений для Picturepark.
 
 **Чтобы включить интеграцию приложений для Picturepark, выполните следующие действия:**
@@ -64,13 +65,13 @@ ms.openlocfilehash: 626bdc99702b38c127beba54979add9b1cbd633f
    ![Picturepark](./media/active-directory-saas-picturepark-tutorial/IC795057.png "Picturepark")
 
 
-## <a name="configuring-single-sign-on"></a>Настройка единого входа
+## <a name="configure-single-sign-on"></a>Настройка единого входа
 
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в Picturepark со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
 
 Чтобы настроить единый вход для Picturepark, необходимо извлечь значение отпечатка из сертификата.  
 
-Если вы не знакомы с этой процедурой, просмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI)..
+Если вы не знакомы с этой процедурой, просмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
 
 **Чтобы настроить единый вход, выполните следующие действия:**
 
@@ -103,21 +104,23 @@ ms.openlocfilehash: 626bdc99702b38c127beba54979add9b1cbd633f
    4. На странице диалогового окна **Настройка единого входа в Picturepark** классического портала Azure скопируйте значение поля **URL-адрес единого входа SAML** и вставьте его в текстовое поле **URI издателя**.
    5. Скопируйте значение **Thumbprint** из экспортированного сертификата и вставьте его в текстовое поле **Trusted Issuer Thumb Print** (Отпечаток надежного издателя).  
       
-      > [!TIP]
-      > Дополнительные сведения можно найти в видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI)
-      > 
+      >[!TIP]
+      >Дополнительные сведения см. в статье [Практическое руководство. Извлечение отпечатка сертификата](http://youtu.be/YKQF266SAxI).
+      >
+      >
 
 9. Щелкните **JoinDefaultUsersGroup**.
-10. Чтобы задать атрибут **Emailaddress**, в текстовом поле **Утверждение** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+10. Чтобы задать атрибут **Emailaddress** (Адрес электронной почты), в текстовом поле **Claim** (Утверждение) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** и нажмите кнопку **Save** (Сохранить).
 
-      ![Конфигурация](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Конфигурация") а. Щелкните **Сохранить**.
+      ![Конфигурация](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Конфигурация")
 11. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
    
    ![Настройка единого входа](./media/active-directory-saas-picturepark-tutorial/IC795066.png "Настройка единого входа")
 
-## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
+## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
 Чтобы пользователи Azure AD могли выполнять вход в Picturepark, они должны быть подготовлены для Picturepark.  
-В случае с Picturepark подготовка выполняется вручную.
+
+ * В случае с Picturepark подготовка выполняется вручную.
 
 **Чтобы подготовить учетные записи пользователей, выполните следующие действия.**
 
@@ -136,12 +139,12 @@ ms.openlocfilehash: 626bdc99702b38c127beba54979add9b1cbd633f
   2. В поле **Язык**укажите язык.
   3. Щелкните **Создать**.
 
-> [!NOTE]
-> Вы можете использовать любые другие инструменты создания учетных записей пользователя Picturepark или API, предоставляемые Picturepark для подготовки учетных записей пользователя AAD.
+>[!NOTE]
+>Вы можете использовать любые другие инструменты создания учетных записей пользователя Picturepark или API, предоставляемые Picturepark для подготовки учетных записей пользователя AAD.
 > 
 > 
 
-## <a name="assigning-users"></a>Назначение пользователей
+## <a name="assign-users"></a>Назначить пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
 **Чтобы назначить пользователей Picturepark, выполните следующие действия:**
@@ -155,10 +158,5 @@ ms.openlocfilehash: 626bdc99702b38c127beba54979add9b1cbd633f
    ![Да](./media/active-directory-saas-picturepark-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

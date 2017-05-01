@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
-ms.openlocfilehash: bc7ce4867180dd9f896b894b56a02bf033ed6bbb
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: deb4916d69ad9a447836b33711864c242e5c5dec
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/17/2017
 Интеграция Azure AD с приложением KnowBe4 обеспечивает следующие преимущества.
 
 * С помощью Azure AD вы можете контролировать доступ к KnowBe4.
-* Вы можете включить автоматический вход пользователей в KnowBe4 (единый вход) с использованием учетной записи Azure AD.
+* Вы можете включить автоматический вход пользователей в KnowBe4 (единый вход) с использованием учетной записи Azure AD.
 * Вы можете управлять учетными записями централизованно — через портал Azure Active Directory
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/17/2017
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 * Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
@@ -54,7 +54,7 @@ ms.lasthandoff: 02/17/2017
 Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
 * Добавление KnowBe4 из коллекции
-* Настройка и проверка единого входа в Azure AD
+* Настройка и проверка единого входа Azure AD.
 
 ## <a name="add-knowbe4-from-the-gallery"></a>Добавление KnowBe4 из коллекции
 Чтобы настроить интеграцию KnowBe4 с Azure AD, необходимо добавить KnowBe4 из коллекции в список управляемых приложений SaaS.
@@ -180,7 +180,7 @@ ms.lasthandoff: 02/17/2017
 ### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к KnowBe4.
 
-    ![Assign User][200] 
+   ![Назначение пользователя][200] 
 
 **Чтобы назначить пользователя Britta Simon в KnowBe4, сделайте следующее:**
 

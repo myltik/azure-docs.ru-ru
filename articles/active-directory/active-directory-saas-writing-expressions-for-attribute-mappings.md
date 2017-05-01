@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d49236c634be8260cb0fb24a0ee08cd71353f6ba
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: d2d7f5b00039cd1beab009b78b273ec4dffaab47
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -41,9 +41,9 @@ ms.lasthandoff: 11/17/2016
 
 - - -
 ### <a name="append"></a>Добавить
-**Функция:**<br>  Append(source, suffix)
+**Функция:**<br> Append(source, suffix)
 
-**Описание.**<br>  Получает исходное строковое значение и присоединяет к его концу суффикс.
+**Описание.**<br> Получает исходное строковое значение и присоединяет к его концу суффикс.
 
 **Параметры:**<br> 
 
@@ -54,9 +54,9 @@ ms.lasthandoff: 11/17/2016
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**Функция:**<br>  FormatDateTime(source, inputFormat, outputFormat)
+**Функция:**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Описание.**<br>  Преобразовывает строку даты из одного формата в другой.
+**Описание.**<br> Преобразовывает строку даты из одного формата в другой.
 
 **Параметры:**<br> 
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/17/2016
 
 - - -
 ### <a name="join"></a>Join
-**Функция:**<br>  Join(separator, source1, source2, …)
+**Функция:**<br> Join(separator, source1, source2, …)
 
 **Описание.**<br> Функция Join() схожа с функцией Append() за исключением того, что она может объединять несколько строковых значений **source** в одну строку. При этом каждое значение разделяется строкой **separator**.
 
@@ -79,13 +79,13 @@ ms.lasthandoff: 11/17/2016
 | Имя | Обязательно/повторяется | Тип | Примечания |
 | --- | --- | --- | --- |
 | **разделитель** |Обязательно |Строка |Строка, используемая для разделения исходных значений, когда они объединяются в одну строку. Если разделитель не требуется, может не иметь значения (""). |
-| **Источник1 … источникN ** |Обязательно, количество повторов может меняться |Строка |Строковые значения для объединения. |
+| **source1  … sourceN ** |Обязательно, количество повторов может меняться |Строка |Строковые значения для объединения. |
 
 - - -
 ### <a name="mid"></a>Mid
-**Функция:**<br>  Mid(source, start, length)
+**Функция:**<br> Mid(source, start, length)
 
-**Описание.**<br>  Возвращает подстроку исходного значения. Подстрокой является строка, содержащая только некоторые символы из исходной строки.
+**Описание.**<br> Возвращает подстроку исходного значения. Подстрокой является строка, содержащая только некоторые символы из исходной строки.
 
 **Параметры:**<br> 
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/17/2016
 
 - - -
 ### <a name="not"></a>not
-**Функция:**<br>  Not(источник)
+**Функция:**<br> Not(источник)
 
 **Описание.**<br> Обращает логическое значение **source**. Если значение **source** равно *True*, возвращается значение *False*. В противном случае возвращает значение*True*.
 
@@ -109,10 +109,10 @@ ms.lasthandoff: 11/17/2016
 
 - - -
 ### <a name="replace"></a>Замените
-**Функция:**<br>  ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Функция:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Описание.**<br>
- Заменяет значения в пределах строки. Ее работа зависит от указанных параметров.
+Заменяет значения в пределах строки. Ее работа зависит от указанных параметров.
 
 * Если указаны параметры **oldValue** и **replacementValue**:
   
@@ -142,9 +142,9 @@ ms.lasthandoff: 11/17/2016
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**Функция:**<br>  StripSpaces(source)
+**Функция:**<br> StripSpaces(source)
 
-**Описание.**<br>  Удаляет все пробелы (« ») из исходной строки.
+**Описание.**<br> Удаляет все пробелы (« ») из исходной строки.
 
 **Параметры:**<br> 
 
@@ -154,7 +154,7 @@ ms.lasthandoff: 11/17/2016
 
 - - -
 ### <a name="switch"></a>Switch
-**Функция:**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Функция:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Описание.**<br> Если значение **source** соответствует **key**, возвращается **value** для этого параметра **key**. Если значение **source** не соответствует ни одному параметру, то возвращается **defaultValue**.  Параметры **key** и **value** должны всегда быть парными. Для функции необходимо всегда использовать четное количество параметров.
 
@@ -170,14 +170,14 @@ ms.lasthandoff: 11/17/2016
 ## <a name="examples"></a>Примеры
 ### <a name="strip-known-domain-name"></a>Извлечение известного доменного имени
 Необходимо извлечь известное доменное имя из адреса электронной почты пользователя, чтобы получить имя пользователя. <br>
- Например, если домен — contoso.com, можно использовать следующее выражение:
+Например, если домен — contoso.com, можно использовать следующее выражение:
 
 **Выражение:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
 
 **Пример ввода и вывода:** <br>
 
-* **Входные данные** (электронная почта): "john.doe@contoso.com"
+* **Входные данные** (mail): "john.doe@contoso.com"
 * **Выходные данные**: john.doe
 
 ### <a name="append-constant-suffix-to-user-name"></a>Добавление суффикса константы к имени пользователя
@@ -188,7 +188,7 @@ ms.lasthandoff: 11/17/2016
 
 **Пример ввода и вывода:** <br>
 
-* **Входные данные**: userPrincipalName: "John.Doe@contoso.com"
+* **Входные данные**: (userPrincipalName): "John.Doe@contoso.com"
 * **Выходные данные**: "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Создание псевдонима пользователя путем сцепления частей имени и фамилии
@@ -205,7 +205,7 @@ ms.lasthandoff: 11/17/2016
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Вывод даты в виде строки в определенном формате
 Необходимо отправить в приложение SaaS даты в определенном формате. <br>
- Например, требуется отформатировать даты для ServiceNow.
+Например, требуется отформатировать даты для ServiceNow.
 
 **Выражение:** <br>
 
@@ -218,7 +218,7 @@ ms.lasthandoff: 11/17/2016
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Замена значения на основе предопределенного набора параметров
 Необходимо определить часовой пояс пользователя на основе кода государства, сохраненного в Azure AD. <br>
- Если код государства не совпадает с предопределенными параметрами, используйте значение по умолчанию «Australia/Sydney».
+Если код государства не совпадает с предопределенными параметрами, используйте значение по умолчанию «Australia/Sydney».
 
 **Выражение:** <br>
 

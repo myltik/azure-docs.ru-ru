@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: bfb29928783283336b6116f198d70b0b7117750d
-ms.openlocfilehash: 880b1c2ca069e3e4a5ce9cb2af881b95e84687f4
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 7b08ce207b2a3cc2dd3d3559765def6af42a844a
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -61,7 +61,7 @@ ms.lasthandoff: 02/08/2017
 
 Ниже указаны поддерживаемые условия.
 
-* BLOB-объект был создан&1; января&2016; г. или позже.
+* BLOB-объект был создан 1 января 2016 г. или позже.
 * BLOB-объект не был перезаписан с помощью операций [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) или [копирования BLOB-объекта](https://msdn.microsoft.com/library/azure/dd894037.aspx) между двумя моментальными снимками.
 
 **Примечание**. Эта функция доступна для страничных BLOB-объектов Azure класса Premium или "Стандартный".

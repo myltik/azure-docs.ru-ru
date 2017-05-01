@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 427a1e8c6bfb11ace38fcf84b7cda89d2d01d091
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 12743b3594a0a62b0b974fb6dd1c39972c1bd3fa
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>Работа с фабрикой данных Azure и хранилищем данных SQL
-Фабрика данных Azure обеспечивает полностью управляемый способ передачи данных и выполнения хранимых процедур в хранилище данных SQL.  Благодаря этому настройка и планирование сложных процедур ETL в хранилище данных SQL становятся проще. Более подробный обзор фабрики данных Azure см. в [документации по фабрике данных Azure][Документация по фабрике данных Azure].
+Фабрика данных Azure обеспечивает полностью управляемый способ передачи данных и выполнения хранимых процедур в хранилище данных SQL.  Благодаря этому настройка и планирование сложных процедур ETL в хранилище данных SQL становятся проще. Более подробный обзор фабрики данных Azure см. в [документации по фабрике данных Azure][Azure Data Factory documentation].
 
 ## <a name="data-movement"></a>Перемещение данных
 Фабрика Azure данных обеспечивает перемещение данных между локальными источниками и различными службами Azure.  В целом текущая интеграция с фабрикой данных Azure поддерживает перемещение данных между следующими источниками:
@@ -31,31 +33,26 @@ ms.openlocfilehash: 427a1e8c6bfb11ace38fcf84b7cda89d2d01d091
 * Локальный сервер SQL Server
 * Сервер SQL Server в IaaS
 
-Сведения о том, как настроить копирование данных, см. в статье [Перемещение данных с помощью действия копирования][Перемещение данных с помощью действия копирования].
+Сведения о том, как настроить копирование данных, см. в статье [Перемещение данных с помощью действия копирования][Copy data with Azure Data Factory].
 
 ## <a name="stored-procedures"></a>Хранимые процедуры
  Фабрику данных Azure можно использовать как для планирования передачи данных, так и для управления выполнением хранимых процедур.  Это позволяет создавать более сложные конвейеры и расширять возможности фабрики данных Azure за счет использоваться вычислительных мощностей хранилища данных SQL.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Общие сведения об интеграции см. в статье [Интеграция других служб с хранилищем данных SQL][Интеграция других служб с хранилищем данных SQL].
-Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][Проектные решения и методики программирования для хранилища данных SQL].
+Общие сведения об интеграции см. в статье [Интеграция других служб с хранилищем данных SQL][SQL Data Warehouse integration overview].
+Дополнительные советы по разработке см. в статье [Проектные решения и методики программирования для хранилища данных SQL][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Перемещение данных с помощью действия копирования]: ../data-factory/data-factory-data-movement-activities.md
-[Проектные решения и методики программирования для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
-[Интеграция других служб с хранилищем данных SQL]: ./sql-data-warehouse-overview-integrate.md
+[Copy data with Azure Data Factory]: ../data-factory/data-factory-data-movement-activities.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integrate.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Документация по фабрике данных Azure]:https://azure.microsoft.com/documentation/services/data-factory/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Azure Data Factory documentation]:https://azure.microsoft.com/documentation/services/data-factory/
 
 

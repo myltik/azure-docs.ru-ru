@@ -1,12 +1,11 @@
-
 ---
-title: "Добавление действия &quot;HTTP + Swagger&quot; в приложения логики | Документация Майкрософт"
-description: "Обзор действия &quot;HTTP + Swagger&quot; и операций"
-services: 
-documentationcenter: 
+title: "Вызов конечных точек REST с помощью соединителя HTTP + Swagger для Azure Logic Apps | Документация Майкрософт"
+description: "Выполните подключение к конечным точкам REST из приложений логики в Swagger с помощью соединителя HTTP + Swagger"
+services: logic-apps
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: 
+documentationcenter: 
 tags: connectors
 ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
@@ -15,23 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
-ms.author: jehollan
+ms.author: jehollan; LADocs
 translationtype: Human Translation
-ms.sourcegitcommit: c0edbe421050ad46f6d31fd6416df4b344b233ad
-ms.openlocfilehash: ade380b7fc6adfb929f42c0e6c75b3fa613c45b1
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a881336bcb2384aaa57a75483c0e6fcd97096905
+ms.lasthandoff: 04/10/2017
 
 
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Приступая к работе с действием "HTTP + Swagger"
-С помощью действия "HTTP + Swagger" можно создать первоклассный соединитель для любой конечной точки REST посредством [документа Swagger](https://swagger.io). Первоклассный конструктор приложений логики позволяет расширить функциональность приложения логики, обеспечив возможность вызова любой конечной точки REST.
 
-Сведения о начале работы с действием "HTTP + Swagger" в приложении логики см. в статье [Создание нового приложения логики, подключающего службы SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
+Выполнив действие HTTP + Swagger в рабочем процессе приложения логики, можно создать первоклассный соединитель для любой конечной точки REST с применением [документа Swagger](https://swagger.io). Первоклассный конструктор приложений логики позволяет расширить функциональность приложения логики, обеспечив возможность вызова любой конечной точки REST.
 
-- - -
+Сведения о создании приложения логики с помощью соединителей см. в [этой статье](../logic-apps/logic-apps-create-a-logic-app.md).
+
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Использование "HTTP + Swagger" в качестве триггера или действия
-Триггер и действие "HTTP + Swagger" функционируют таким же образом, как и [действие HTTP](connectors-native-http.md), но обеспечивают лучшие условия проектирования, отображая форму API и выходные данные в конструкторе на основе [метаданных Swagger](https://swagger.io). Кроме того, можно использовать "HTTP + Swagger" в качестве триггера. Если вы хотите реализовать опрашивающий триггер, то необходимо следовать шаблону опроса, описанному в статье [Создание пользовательского API для приложений логики](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-[Дополнительные сведения о триггерах и действиях приложения логики.](connectors-overview.md)
+Триггер и действие HTTP + Swagger выполняют те же функции, что и [действие HTTP](connectors-native-http.md), но обеспечивают более широкие возможности при работе с конструктором приложений логики, предоставляя структуру и выходные данные API из [метаданных Swagger](https://swagger.io). Соединитель HTTP + Swagger также можно использовать в качестве триггера. Для внедрения опрашивающего триггера используйте шаблон опроса, описанный в статье [Создание пользовательского API для приложений логики](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
+
+Дополнительные сведения о [триггерах и действиях приложения логики](connectors-overview.md).
 
 Ниже приведен пример использования операции "HTTP + Swagger" в качестве действия в рабочем процессе приложения логики.
 
@@ -48,17 +49,28 @@ ms.openlocfilehash: ade380b7fc6adfb929f42c0e6c75b3fa613c45b1
 6. Добавьте параметры, необходимые для вызова HTTP.
    
     ![Выполнение действия HTTP](./media/connectors-native-http-swagger/using-action-2.png)
-7. Щелкните **Сохранить** в левом верхнем углу панели инструментов. После этого приложение логики будет сохранено и опубликовано (активировано).
+7. Чтобы сохранить и опубликовать свое приложение логики, на панели инструментов конструктора нажмите кнопку **Сохранить**.
 
 ### <a name="host-swagger-from-azure-storage"></a>Размещение Swagger из службы хранилища Azure
 Вам может потребоваться задать ссылку на документ Swagger, который еще не размещен или не соответствует требованиям безопасности и CORS, из-за чего он не может использоваться в конструкторе. Для решения этой проблемы можно сохранить документ Swagger в службе хранилища Azure и включить поддержку CORS, что позволит задать ссылку на документ.  
 
 Выполните приведенные ниже шаги, чтобы создать, настроить и сохранить документы Swagger в службе хранилища Azure.
 
-1. [Создайте учетную запись Azure с хранилищем BLOB-объектов Azure](../storage/storage-create-storage-account.md). (Для этого присвойте разрешениям значение **Открытый доступ**).
-2. Включите поддержку CORS для большого двоичного объекта. Для автоматической настройки данного параметра можно использовать [этот сценарий PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1) .
-3. Передайте файл Swagger в большой двоичный объект. Это можно сделать на [портале Azure](https://portal.azure.com) или с помощью инструмента, такого как [Azure Storage Explorer](http://storageexplorer.com/).
-4. Задайте ссылку HTTPS на документ в хранилище BLOB-объектов Azure. (Ссылка указывается в формате `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`).
+1. [Создайте учетную запись Azure с хранилищем BLOB-объектов Azure](../storage/storage-create-storage-account.md). Чтобы выполнить этот шаг, установите для разрешений значение **Public Access** (Общий доступ).
+
+2. Включите поддержку CORS для большого двоичного объекта. 
+
+   Для автоматической настройки данного параметра можно использовать [этот сценарий PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
+
+3. Передайте файл Swagger в большой двоичный объект. 
+
+   Это можно сделать на [портале Azure](https://portal.azure.com) или с помощью инструмента, такого как [Azure Storage Explorer](http://storageexplorer.com/).
+
+4. Задайте ссылку HTTPS на документ в хранилище BLOB-объектов Azure. 
+
+   В связи с этим используется следующий формат:
+
+   `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
 
 ## <a name="technical-details"></a>Технические сведения
 Ниже приведены подробные сведения о триггерах и действиях, поддерживаемых соединителем "HTTP + Swagger".
@@ -90,7 +102,7 @@ ms.openlocfilehash: ade380b7fc6adfb929f42c0e6c75b3fa613c45b1
 | URI* |uri |URI HTTP-запроса. |
 | Заголовки |headers |Объект JSON заголовков HTTP, который необходимо включить. |
 | Текст |текст |Текст HTTP-запроса. |
-| Аутентификация |authentication |Аутентификация, используемая для запроса. [Дополнительные сведения см. в разделе о HTTP](connectors-native-http.md#authentication). |
+| Аутентификация |authentication |Аутентификация, используемая для запроса. Дополнительные сведения см. в статье о [соединителе HTTP](connectors-native-http.md#authentication). |
 
 **Сведения о выходных данных**
 
@@ -117,11 +129,6 @@ ms.openlocfilehash: ade380b7fc6adfb929f42c0e6c75b3fa613c45b1
 
 - - -
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь опробуйте платформу и [создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md) . Чтобы узнать, какие еще соединители доступны в приложениях логики, ознакомьтесь со [списком интерфейсов API](apis-list.md).
 
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+* [Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Список соединителей](apis-list.md)

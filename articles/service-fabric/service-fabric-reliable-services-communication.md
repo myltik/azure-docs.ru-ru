@@ -8,20 +8,21 @@ manager: timlt
 editor: BharatNarasimman
 ms.assetid: 36217988-420e-409d-b0a4-e0e875b6eac8
 ms.service: service-fabric
-ms.devlang: dotnet
+ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 02/10/2017
+ms.date: 04/07/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 288ed1efc53ad25fcdad668aaaf5e5ebdc0a131a
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b418904f50b772c12bfcdbb95beb9312c8b9fb00
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Использование API связи служб Reliable Services
-Обмен данными между службами совершенно не влияет на работу платформы Azure Service Fabric. Допускается использование любых протоколов и стеков, от UDP до HTTP. Способ взаимодействия служб зависит только от выбора разработчика. Платформа приложений служб Reliable Services предоставляет несколько встроенных стеков связи, а также API-интерфейсы для создания пользовательских компонентов связи. 
+Обмен данными между службами совершенно не влияет на работу платформы Azure Service Fabric. Допускается использование любых протоколов и стеков, от UDP до HTTP. Способ взаимодействия служб зависит только от выбора разработчика. Платформа приложений служб Reliable Services предоставляет несколько встроенных стеков связи, а также API-интерфейсы для создания пользовательских компонентов связи.
 
 ## <a name="set-up-service-communication"></a>Настройка обмена данными между службами
 API Reliable Services использует простой интерфейс для взаимодействия служб. Чтобы открыть конечную точку для службы, просто реализуйте этот интерфейс:
@@ -39,6 +40,16 @@ public interface ICommunicationListener
 
 ```
 
+```java
+public interface CommunicationListener {
+    CompletableFuture<String> openAsync(CancellationToken cancellationToken);
+
+    CompletableFuture<?> closeAsync(CancellationToken cancellationToken);
+
+    void abort();
+}
+```
+
 Затем добавьте реализацию прослушивателя связи, вернув его в переопределении метода класса на основе службы.
 
 Для служб без отслеживания состояния:
@@ -53,8 +64,23 @@ class MyStatelessService : StatelessService
     ...
 }
 ```
+```java
+public class MyStatelessService extends StatelessService {
+
+    @Override
+    protected List<ServiceInstanceListener> createServiceInstanceListeners() {
+        ...
+    }
+    ...
+}
+```
 
 Для служб с отслеживанием состояния:
+
+> [!NOTE]
+> Сейчас Java не поддерживает службы Reliable Services с отслеживанием состояния.
+>
+>
 
 ```csharp
 class MyStatefulService : StatefulService
@@ -69,7 +95,7 @@ class MyStatefulService : StatefulService
 
 В обоих случаях возвращается коллекция прослушивателей. Это позволяет службе прослушивать несколько конечных точек, потенциально с помощью различных протоколов, используя несколько прослушивателей. Например, можно использовать прослушиватель HTTP и отдельный прослушиватель WebSocket. Каждый прослушиватель получает имя, а получившаяся коллекция пар *имя:адрес* представляется как объект JSON, когда клиент запрашивает адреса ожидания для секции или экземпляра службы.
 
-Для службы без отслеживания состояния переопределение возвращает коллекцию объектов ServiceInstanceListener. Объект ServiceInstanceListener может создавать интерфейс ICommunicationListener и присваивать ему имя. Для служб с отслеживанием состояния переопределение возвращает коллекцию объектов ServiceReplicaListener. Здесь есть небольшое отличие от служб без отслеживания состояния, так как ServiceReplicaListener может открывать интерфейс ICommunicationListener для вторичных реплик. Это позволяет не только использовать несколько прослушивателей связи в одной службе, но также указывать, какие прослушиватели принимают запросы для вторичных реплик, а какие — прослушивают только первичные реплики.
+Для службы без отслеживания состояния переопределение возвращает коллекцию объектов ServiceInstanceListener. Объект `ServiceInstanceListener` может создавать интерфейс `ICommunicationListener(C#) / CommunicationListener(Java)` и присваивать ему имя. Для служб с отслеживанием состояния переопределение возвращает коллекцию объектов ServiceReplicaListener. Здесь есть небольшое отличие от служб без отслеживания состояния, так как `ServiceReplicaListener` может открывать интерфейс `ICommunicationListener` для вторичных реплик. Это позволяет не только использовать несколько прослушивателей связи в одной службе, но также указывать, какие прослушиватели принимают запросы для вторичных реплик, а какие — прослушивают только первичные реплики.
 
 Например, у вас есть прослушиватель ServiceRemotingListener, который принимает вызовы RPC только для первичных реплик, и настраиваемый прослушиватель, который принимает запросы на чтение для вторичных реплик по протоколу HTTP:
 
@@ -93,8 +119,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 > [!NOTE]
 > При создании нескольких прослушивателей для службы каждому прослушивателю **необходимо** присвоить уникальное имя.
-> 
-> 
+>
+>
 
 Наконец, вы можете описать конечные точки, которые требуются для службы, в [манифесте служб](service-fabric-application-model.md) в разделе конечных точек.
 
@@ -115,14 +141,19 @@ var codePackageActivationContext = serviceContext.CodePackageActivationContext;
 var port = codePackageActivationContext.GetEndpoint("ServiceEndpoint").Port;
 
 ```
+```java
+CodePackageActivationContext codePackageActivationContext = serviceContext.getCodePackageActivationContext();
+int port = codePackageActivationContext.getEndpoint("ServiceEndpoint").getPort();
+
+```
 
 > [!NOTE]
 > Ресурсы конечных точек являются общими для всего пакета служб. Они выделяются платформой Service Fabric при активации пакета служб. Множество реплик, размещенных на одном и том же объекте ServiceHost, используют один и тот же порт. Это означает, что прослушиватель связи должен поддерживать совместное использование портов. Для этого при создании адреса прослушивания мы рекомендуем использовать для прослушивателя связи идентификатор раздела и идентификатор реплики или экземпляра.
-> 
-> 
+>
+>
 
 ### <a name="service-address-registration"></a>Регистрация адреса службы
-Системная *служба именования* работает на кластерах Service Fabric. Служба именования — это регистратор для служб и их адресов, которые прослушивает каждый экземпляр или реплика службы. Когда метод `OpenAsync` `ICommunicationListener` завершает выполнение, возвращаемое значение регистрируется в службе именования. Значение, которое публикуется в службе именования, — это строка, значением которой может что угодно. Это строковое значение определяет, что клиенты будут видеть при запросе адреса службы у службы именования.
+Системная *служба именования* работает на кластерах Service Fabric. Служба именования — это регистратор для служб и их адресов, которые прослушивает каждый экземпляр или реплика службы. Когда метод `OpenAsync(C#) / openAsync(Java)` `ICommunicationListener(C#) / CommunicationListener(Java)` завершает выполнение, возвращаемое значение регистрируется в службе именования. Значение, которое публикуется в службе именования, — это строка, значением которой может что угодно. Это строковое значение определяет, что клиенты могут видеть при запросе адреса службы у службы именования.
 
 ```csharp
 public Task<string> OpenAsync(CancellationToken cancellationToken)
@@ -143,42 +174,76 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
     return Task.FromResult(this.publishAddress);
 }
 ```
+```java
+public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
+{
+    EndpointResourceDescription serviceEndpoint = serviceContext.getCodePackageActivationContext.getEndpoint("ServiceEndpoint");
+    int port = serviceEndpoint.getPort();
+
+    this.publishAddress = String.format("http://%s:%d/", FabricRuntime.getNodeContext().getIpAddressOrFQDN(), port);
+
+    this.webApp = new WebApp(port);
+    this.webApp.start();
+
+    /* the string returned here will be published in the Naming Service.
+     */
+    return CompletableFuture.completedFuture(this.publishAddress);
+}
+```
 
 Платформа Service Fabric предоставляет API-интерфейсы, которые позволяют клиентам и другим службам в дальнейшем запрашивать этот адрес по имени службы. Это важно, так как у службы нестатический адрес. Перемещение служб в кластере осуществляется для балансировки ресурсов и обеспечения их доступности. Это механизм, позволяющий клиентам распознавать адрес прослушивания для службы.
 
 > [!NOTE]
-> Полное пошаговое руководство по созданию `ICommunicationListener` см. в статье [Приступая к работе со службами веб-API Service Fabric с саморазмещением OWIN](service-fabric-reliable-services-communication-webapi.md).
-> 
-> 
+> Полное пошаговое руководство по созданию прослушивателя каналов связи см. в статье [ASP.NET Core в Service Fabric Reliable Services](service-fabric-reliable-services-communication-webapi.md) (для C#). В случае с Java вы можете написать собственную реализацию HTTP-сервера. Пример приложения EchoServer см. на странице https://github.com/Azure-Samples/service-fabric-java-getting-started.
+>
+>
 
 ## <a name="communicating-with-a-service"></a>Взаимодействие со службой
 API-интерфейс служб Reliable Services предоставляет следующие библиотеки для написания клиентов, взаимодействующих со службами.
 
 ### <a name="service-endpoint-resolution"></a>Разрешение конечной точки службы
-Первый шаг взаимодействия со службой — разрешение адреса конечной точки раздела или экземпляра службы, с которой вы хотите связаться. Служебный класс `ServicePartitionResolver` — это базовый примитивный тип, который помогает клиентам определить конечную точку во время выполнения. При использовании Service Fabric процесс определения конечной точки службы называется *разрешением конечной точки службы*.
+Первый шаг взаимодействия со службой — разрешение адреса конечной точки раздела или экземпляра службы, с которой вы хотите связаться. Служебный класс `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` — это базовый примитивный тип, который помогает клиентам определить конечную точку во время выполнения. При использовании Service Fabric процесс определения конечной точки службы называется *разрешением конечной точки службы*.
 
-Для подключения к службам в кластере можно создать `ServicePartitionResolver` , используя параметры по умолчанию. Это рекомендуется для большинства сценариев:
+Чтобы подключиться к службам в кластере, можно создать ServicePartitionResolver, используя параметры по умолчанию. Это рекомендуется для большинства сценариев:
 
 ```csharp
 ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 ```
+```java
+FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
+```
 
-Для подключения к службам в другом кластере `ServicePartitionResolver` можно создать с набором конечных точек шлюза кластера. Обратите внимание, что конечные точки шлюза — это просто другие конечные точки для подключения к тому же кластеру. Например:
+Чтобы подключиться к службам в другом кластере, ServicePartitionResolver можно создать с набором конечных точек шлюза кластера. Обратите внимание, что конечные точки шлюза — это просто другие конечные точки для подключения к тому же кластеру. Например:
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
 ```
+```java
+FabricServicePartitionResolver resolver = new  FabricServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
+```
 
-Кроме того, `ServicePartitionResolver` можно передать функцию, чтобы создать `FabricClient` для внутреннего использования. 
+Кроме того, `ServicePartitionResolver` можно передать функцию, чтобы создать `FabricClient` для внутреннего использования.
 
 ```csharp
 public delegate FabricClient CreateFabricClientDelegate();
 ```
+```java
+public FabricServicePartitionResolver(CreateFabricClient createFabricClient) {
+...
+}
 
-`FabricClient` — это объект, который используется для взаимодействия с кластером Service Fabric в рамках различных операций управления в кластере. Это полезно, когда требуется больший контроль над тем, как `ServicePartitionResolver` взаимодействует с кластером. `FabricClient` выполняет внутреннее кэширование и обычно требует много ресурсов для создания, поэтому важно повторно использовать как можно больше экземпляров `FabricClient`. 
+public interface CreateFabricClient {
+    public FabricClient getFabricClient();
+}
+```
+
+`FabricClient` — это объект, который используется для взаимодействия с кластером Service Fabric в рамках различных операций управления в кластере. Это полезно, когда требуется больший контроль над тем, как класс ServicePartitionResolver взаимодействует с кластером. `FabricClient` выполняет внутреннее кэширование и обычно требует много ресурсов для создания, поэтому важно повторно использовать как можно больше экземпляров `FabricClient`.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
+```
+```java
+FabricServicePartitionResolver resolver = new  FabricServicePartitionResolver(() -> new CreateFabricClientImpl());
 ```
 
 Метод resolve затем используется для получения адреса службы или раздела секционированных служб.
@@ -189,15 +254,21 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 ResolvedServicePartition partition =
     await resolver.ResolveAsync(new Uri("fabric:/MyApp/MyService"), new ServicePartitionKey(), cancellationToken);
 ```
+```java
+FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 
-Адрес службы можно разрешить с помощью `ServicePartitionResolver`, но потребуется дополнительная работа, чтобы разрешенный адрес можно было использовать правильно. Клиенту необходимо определить, произошел ли сбой из-за временной ошибки и можно ли его повторить (например, служба была перемещена или временно недоступна) или из-за постоянной ошибки (например, служба была удалена или запрошенный ресурс больше не существует). Экземпляры или реплики службы можно перемещать между узлами в любое время по различным причинам. Адрес службы, который разрешается с помощью `ServicePartitionResolver` , может устареть к тому времени, когда клиентский код попытается к ней подключиться. В этом случае клиент должен повторно разрешить адрес. Предыдущий `ResolvedServicePartition` указывает, что сопоставителю необходимо повторить попытку, вместо того чтобы просто получить кэшированный адрес.
+CompletableFuture<ResolvedServicePartition> partition =
+    resolver.resolveAsync(new URI("fabric:/MyApp/MyService"), new ServicePartitionKey());
+```
 
-Обычно в коде клиента не предусмотрена непосредственная работа с классом `ServicePartitionResolver` . Он создается и передается фабрикам клиента в API служб Reliable Services. Фабрики используют сопоставитель для создания клиентского объекта, который может применяться для взаимодействия со службами.
+Адрес службы можно разрешить с помощью ServicePartitionResolver, но потребуется дополнительная работа, чтобы разрешенный адрес можно было использовать правильно. Клиенту необходимо определить, произошел ли сбой из-за временной ошибки и можно ли его повторить (например, служба была перемещена или временно недоступна) или из-за постоянной ошибки (например, служба была удалена или запрошенный ресурс больше не существует). Экземпляры или реплики службы можно перемещать между узлами в любое время по различным причинам. Адрес службы, который разрешается с помощью ServicePartitionResolver, может устареть к тому времени, когда клиентский код попытается к ней подключиться. В этом случае клиент должен повторно разрешить адрес. Предыдущий `ResolvedServicePartition` указывает, что сопоставителю необходимо повторить попытку, вместо того чтобы просто получить кэшированный адрес.
+
+Обычно в коде клиента не предусмотрена непосредственная работа с классом ServicePartitionResolver. Он создается и передается фабрикам клиента в API служб Reliable Services. Фабрики используют сопоставитель для создания клиентского объекта, который может применяться для взаимодействия со службами.
 
 ### <a name="communication-clients-and-factories"></a>Клиенты и фабрики связи
 Библиотека фабрики связи реализует типичный шаблон повторных попыток обработки ошибок, упрощающий повтор подключений к конечным точкам разрешенной службы. Библиотека фабрики предоставляет механизм повтора, а вы — обработчики ошибок.
 
-Класс `ICommunicationClientFactory` определяет базовый интерфейс, реализуемый фабрикой клиента связи, которая создает клиенты, способные обмениваться данными со службой Service Fabric. Реализация CommunicationClientFactory зависит от стека связи, используемого службой Service Fabric, с которой клиенту требуется связаться. API Reliable Services предоставляет `CommunicationClientFactoryBase<TCommunicationClient>`. Это обеспечивает базовую реализацию интерфейса `ICommunicationClientFactory` и выполнение задач, которые являются общими для всех стеков связи. (Эти задачи включают в себя использование `ServicePartitionResolver` для определения конечной точки службы.) Клиенты обычно реализуют абстрактный класс CommunicationClientFactoryBase для обработки специфической логики стека связи.
+Класс `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` определяет базовый интерфейс, реализуемый фабрикой клиента связи, которая создает клиенты, способные обмениваться данными со службой Service Fabric. Реализация CommunicationClientFactory зависит от стека связи, используемого службой Service Fabric, с которой клиенту требуется связаться. API Reliable Services предоставляет `CommunicationClientFactoryBase<TCommunicationClient>`. Это обеспечивает базовую реализацию интерфейса CommunicationClientFactory и выполнение задач, которые являются общими для всех стеков связи. (Эти задачи включают в себя использование класса ServicePartitionResolver для определения конечной точки службы.) Клиенты обычно реализуют абстрактный класс CommunicationClientFactoryBase для обработки специфической логики стека связи.
 
 Клиент связи просто получает адрес и использует его для подключения к службе. Клиент может использовать любой протокол.
 
@@ -209,6 +280,18 @@ class MyCommunicationClient : ICommunicationClient
     public string ListenerName { get; set; }
 
     public ResolvedServicePartition ResolvedServicePartition { get; set; }
+}
+```
+```java
+public class MyCommunicationClient implements CommunicationClient {
+
+    private ResolvedServicePartition resolvedServicePartition;
+    private String listenerName;
+    private ResolvedServiceEndpoint endPoint;
+
+    /*
+     * Getters and Setters
+     */
 }
 ```
 
@@ -234,13 +317,33 @@ public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCom
     }
 }
 ```
+```java
+public class MyCommunicationClientFactory extends CommunicationClientFactoryBase<MyCommunicationClient> {
 
-Наконец, обработчик исключений определяет, какое действие следует предпринять при возникновении исключения. Исключения классифицируются как **повторяемые** и **неповторяемые**. 
+    @Override
+    protected boolean validateClient(MyCommunicationClient clientChannel) {
+    }
 
-* **Неповторяемые** исключения просто возвращаются вызывающему объекту. 
+    @Override
+    protected boolean validateClient(String endpoint, MyCommunicationClient client) {
+    }
+
+    @Override
+    protected CompletableFuture<MyCommunicationClient> createClientAsync(String endpoint) {
+    }
+
+    @Override
+    protected void abortClient(MyCommunicationClient client) {
+    }
+}
+```
+
+Наконец, обработчик исключений определяет, какое действие следует предпринять при возникновении исключения. Исключения делятся на **повторяемые** и **неповторяемые**.
+
+* **Неповторяемые** исключения просто возвращаются вызывающей стороне.
 * **Повторяемые** исключения далее классифицируются как **временные** и **невременные**.
-  * **Временные** исключения могут быть повторены без повторного разрешения адреса конечной точки службы. К ним относятся временные проблемы с сетью или сообщения об ошибках службы, отличные от тех, которые указывают, что адрес конечной точки службы не существует. 
-  * **Невременные** исключения требуют повторного разрешения адреса конечной точки службы. К ним относятся исключения, указывающие, что не удалось подключиться к конечной точке службы, потому что служба была перемещена на другой узел. 
+  * **Временные** исключения могут быть повторены без повторного разрешения адреса конечной точки службы. К ним относятся временные проблемы с сетью или сообщения об ошибках службы, отличные от тех, которые указывают, что адрес конечной точки службы не существует.
+  * **Невременные** исключения требуют повторного разрешения адреса конечной точки службы. К ним относятся исключения, указывающие, что не удалось подключиться к конечной точке службы, потому что служба была перемещена на другой узел.
 
 `TryHandleException` принимает решение о данном исключении. Если **неизвестно**, какое решение следует принять об исключении, то возвращается значение **false**. Если решение **известно**, то задается соответствующий результат и возвращается значение **true**.
 
@@ -264,8 +367,33 @@ class MyExceptionHandler : IExceptionHandler
     }
 }
 ```
+```java
+public class MyExceptionHandler implements ExceptionHandler {
+
+    @Override
+    public ExceptionHandlingResult handleException(ExceptionInformation exceptionInformation, OperationRetrySettings retrySettings) {        
+
+        /* if exceptionInformation.getException() is known and is transient (can be retried without re-resolving)
+         */
+        result = new ExceptionHandlingRetryResult(exceptionInformation.getException(), true, retrySettings, retrySettings.getDefaultMaxRetryCount());
+        return true;
+
+
+        /* if exceptionInformation.getException() is known and is not transient (indicates a new service endpoint address must be resolved)
+         */
+        result = new ExceptionHandlingRetryResult(exceptionInformation.getException(), false, retrySettings, retrySettings.getDefaultMaxRetryCount());
+        return true;
+
+        /* if exceptionInformation.getException() is unknown (let the next ExceptionHandler attempt to handle it)
+         */
+        result = null;
+        return false;
+
+    }
+}
+```
 ### <a name="putting-it-all-together"></a>Сборка
-`ICommunicationClient`, `ICommunicationClientFactory` и `IExceptionHandler` основаны на протоколе связи, а `ServicePartitionClient` создает совместную оболочку и предоставляет цикл обработки ошибок и разрешения адреса секции службы вокруг этих компонентов.
+`ICommunicationClient(C#) / CommunicationClient(Java)`, `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` и `IExceptionHandler(C#) / ExceptionHandler(Java)` основаны на протоколе связи, а `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` создает совместную оболочку и предоставляет цикл обработки ошибок и разрешения адреса секции службы вокруг этих компонентов.
 
 ```csharp
 private MyCommunicationClientFactory myCommunicationClientFactory;
@@ -283,16 +411,25 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(async (client) 
    CancellationToken.None);
 
 ```
+```java
+private MyCommunicationClientFactory myCommunicationClientFactory;
+private URI myServiceUri;
+
+FabricServicePartitionClient myServicePartitionClient = new FabricServicePartitionClient<MyCommunicationClient>(
+    this.myCommunicationClientFactory,
+    this.myServiceUri,
+    myPartitionKey);
+
+CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(client -> {
+      /* Communicate with the service using the client.
+       */
+   });
+
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Пример обмена данными по протоколу HTTP между службами представлен в [примере проекта на сайте GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
+* Пример обмена данными по протоколу HTTP между службами представлен в [примере проекта C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount) или [Java на сайте GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Services/WatchDog).
 * [Удаленное взаимодействие службы с Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [Начало работы со службами веб-API Microsoft Azure Service Fabric с саморазмещением OWIN](service-fabric-reliable-services-communication-webapi.md)
 * [Коммуникационный стек WCF для надежных служб](service-fabric-reliable-services-communication-wcf.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

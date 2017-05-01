@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 4676e0da4309b1460e471f94946161fa22d46226
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Создание панели мониторинга сведений о клиентах в режиме реального времени с помощью Функций Azure и Azure Logic Apps.
@@ -35,17 +35,17 @@ ms.lasthandoff: 03/30/2017
 
 Решение можно целиком [создать в Visual Studio](logic-apps-deploy-from-vs.md) и [развернуть как часть шаблона ресурсов](logic-apps-create-deploy-template.md).  Существует также видеоруководство [на Channel 9](http://aka.ms/logicappsdemo).
 
-## <a name="building-the-logic-app-to-trigger-on-customer-data"></a>Создание приложения логики, которое будет запускаться при получении клиентских данных
+## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Создание приложения логики, которое будет запускаться при получении клиентских данных
 
 После [создания приложения логики](logic-apps-create-a-logic-app.md) в Visual Studio или на портале Azure:
 
 1. Добавьте триггер, который будет активироваться при размещении **новых твитов** в Twitter.
-1. Настройте триггер для прослушивания твитов по ключевому слову или хэш-тегу.
+2. Настройте триггер для прослушивания твитов по ключевому слову или хэш-тегу.
 
-> [!NOTE]
-> Свойство повторения триггера определяет, как часто приложение логики будет проверять наличие новых элементов с помощью триггеров на основе опроса.
+   > [!NOTE]
+   > Свойство повторения триггера определяет, как часто приложение логики будет проверять наличие новых элементов с помощью триггеров на основе опроса.
 
-![Пример триггера Twitter][1]
+   ![Пример триггера Twitter][1]
 
 Это приложение будет реагировать на все новые твиты.  Затем можно подробнее проанализировать тональность выраженного мнения.  Для этого используется [Azure Cognitive Service](https://azure.microsoft.com/services/cognitive-services/).
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/30/2017
 
 Функции Azure также могут быть включены в шаблон развертывания таким образом, чтобы всем решением вместе со всеми зависимостями можно было управлять как одним шаблоном.  Пример шаблона развертывания функции можно найти в [репозитории шаблонов быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="whats-next"></a>Что дальше?
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Примеры и распространенные сценарии для Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Пошаговое видеоруководство по созданию этого решения](http://aka.ms/logicappsdemo)

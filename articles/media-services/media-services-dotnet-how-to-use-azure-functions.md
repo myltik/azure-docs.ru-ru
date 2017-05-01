@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0cde1f36af2d41697fa956c62cc882e5429707e8
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ca7c89dc5f56f1bf4c300874111e65048e88abcf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,11 +36,15 @@ ms.lasthandoff: 03/29/2017
 - Общие сведения об [использовании Функций Azure](../azure-functions/functions-overview.md). Кроме того, ознакомьтесь со следующими разделами:
     - [Привязки HTTP и webhook в функциях Azure](../azure-functions/functions-triggers-bindings.md)
     - [Настройка параметров приложения-функции Azure](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
+    
+## <a name="considerations"></a>Рекомендации
+
+-  Функции Azure, стоимость которых рассчитывается, исходя из плана потребления, имеют ограничение времени ожидания 5 минут.
 
 ## <a name="create-a-function-app"></a>Создание приложения-функции
 
 1. Перейдите на [портал Azure](http://portal.azure.com) и войдите, используя свою учетную запись Azure.
-2. Создайте приложение-функцию, как описано [здесь](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app).
+2. Создайте приложение-функцию, как описано [здесь](../azure-functions/functions-create-function-app-portal.md).
 
 >[!NOTE]
 > Учетная запись хранения, указанная в переменной среды **StorageConnection** (см. следующий шаг), должна находиться в том же регионе, что и ваше приложение.

@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/12/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: afdbd737be96acbcf2883c644bfbbb741fe94179
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 831ce961992747de87706c3dde24b812a281c23a
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/22/2017
 * [Производительность кэша Redis для Azure](#azure-redis-cache-performance)
 * [В каком регионе следует размещать мой кэш?](#in-what-region-should-i-locate-my-cache)
 * [Как выставляются счета за использование кэша Redis для Azure?](#how-am-i-billed-for-azure-redis-cache)
-* [Могу ли я использовать кэш Redis для Azure с облаком Azure для государственных организаций или Azure China?](#can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud)
+* [Могу ли я использовать кэш Redis для Azure с облаком Azure для государственных организаций, Azure China или Microsoft Azure для Германии?](#can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
 ## <a name="development-faqs"></a>Часто задаваемые вопросы о разработке
 * [Что делают параметры конфигурации StackExchange.Redis?](#what-do-the-stackexchangeredis-configuration-options-do)
@@ -162,15 +162,28 @@ ms.lasthandoff: 03/22/2017
 ### <a name="how-am-i-billed-for-azure-redis-cache"></a>Как выставляются счета за использование кэша Redis для Azure?
 Цены на кэш Redis для Azure можно просмотреть [здесь](https://azure.microsoft.com/pricing/details/cache/). На странице указаны расценки в виде почасового тарифа. Выставляемые счета за использование кэшей рассчитываются на поминутной основе. Они охватывают интервал времени между созданием кэшей и их удалением. Остановить или приостановить выставление счета за использование кэша нельзя.
 
-## <a name="can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud"></a>Могу ли я использовать кэш Redis для Azure с облаком Azure для государственных организаций или Azure China?
-Да, кэш Redis для Azure доступен в облаках Azure для государственных организаций и Azure China. URL-адреса для доступа к кэшу Redis для Azure и управления им отличаются в облаках Azure для государственных организаций и Azure China по сравнению с общедоступным облаком Azure. Дополнительные сведения о рекомендациях по использованию кэша Redis для Azure с облаками Azure для государственных организаций и Azure China см. в разделе о [кэше Redis для Azure](../azure-government/documentation-government-services-database.md#azure-redis-cache) статьи о базах данных Azure для государственных организаций и в [аналогичном](https://www.azure.cn/documentation/services/redis-cache/) разделе статьи об облаке Azure China.
+### <a name="can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Могу ли я использовать кэш Redis для Azure с облаком Azure для государственных организаций, Azure China или Microsoft Azure для Германии?
+Да, кэш Redis для Azure доступен в облаках Azure для государственных организаций, Azure China и Microsoft Azure для Германии. URL-адреса для доступа к кэшу Redis для Azure и для управления им в этих облаках различны в отличие от общедоступного облака Azure. 
 
-Сведения об использовании кэша Redis для Azure с помощью PowerShell в облаках Azure для государственных организаций и Azure China см. в разделе [Подключение к облаку Azure для государственных организаций или Azure China](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud).
+| Облако   | DNS-суффикс для кэша Redis            |
+|---------|---------------------------------|
+| Общедоступные  | *.redis.cache.windows.net       |
+| Штат в США (для обслуживания государственных организаций США)  | *.redis.cache.usgovcloudapi.net |
+| Германия | *.redis.cache.cloudapi.de       |
+| Китай   | *.redis.cache.chinacloudapi.cn  |
+
+Дополнительные сведения о рекомендациях по использованию кэша Redis для Azure с другими облаками см. по следующим ссылкам.
+
+- [Azure Government Databases — Azure Redis Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache) (Базы данных Azure для государственных организаций — кэш Redis для Azure)
+- [Azure China Cloud — Azure Redis Cache](https://www.azure.cn/documentation/services/redis-cache/) (Облако Azure China — кэш Redis для Azure)
+- [Microsoft Azure для Германии](https://azure.microsoft.com/overview/clouds/germany/)
+
+Сведения об использовании кэша Redis для Azure с помощью PowerShell в облаке Azure для государственных организаций, Azure China или Microsoft Azure для Германии см. в статье [Управление кэшем Redis для Azure с использованием Azure PowerShell (разделы о подключении к разным облакам)](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>Что делают параметры конфигурации StackExchange.Redis?
-StackExchange.Redis имеет много параметров. В этом разделе рассказывается о некоторых распространенных параметрах. Более подробные сведения о параметрах StackExchange.Redis см. в статье [StackExchange.Redis configuration](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md) (Конфигурация StackExchange.Redis).
+StackExchange.Redis имеет много параметров. В этом разделе рассказывается о некоторых распространенных параметрах. Более подробные сведения о параметрах StackExchange.Redis см. в статье [StackExchange.Redis configuration](https://stackexchange.github.io/StackExchange.Redis/Configuration) (Конфигурация StackExchange.Redis).
 
 | Параметры конфигурации | Описание | Рекомендации |
 | --- | --- | --- |

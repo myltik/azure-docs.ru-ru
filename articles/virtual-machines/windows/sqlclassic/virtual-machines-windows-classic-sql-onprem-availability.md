@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2016
+ms.date: 04/03/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 38728a20527be060e63d2dbdea923263b3d6c7fa
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 59ca9514c4cac97e8dd6dafc7a59406925b7b2df
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -38,6 +38,9 @@ ms.lasthandoff: 03/25/2017
 
 ## <a name="add-azure-replica-wizard"></a>Мастер добавления реплики Azure
 В этом разделе показано, как с помощью **мастера добавления реплик Azure** расширить решение группы доступности Always On и включить реплики Azure.
+
+> [!IMPORTANT]
+> **Мастер добавления реплик Azure** поддерживает только виртуальные машины, созданные при помощи классической модели развертывания. Для новых развертываний виртуальных машин следует использовать более новую модель Resource Manager. Если вы используете виртуальные машины с Resource Manager, необходимо вручную добавить вторичную реплику Azure, выполнив определенные команды Transact-SQL (не показаны в этой статье). Данный мастер не будет работать в сценарии с Resource Manager.
 
 1. В SQL Server Management Studio разверните раздел **Always On High Availability**(Высокий уровень доступности Always On) > **Группы доступности** > **[Имя группы доступности]**.
 2. Щелкните правой кнопкой мыши **Реплики доступности** и выберите пункт **Добавить реплику**.

@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 03/03/2017
+ms.custom: manage
+ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 73f10984b7fe2636f5b9f664b831adc910e7ac7a
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: adbd994022f7585676bcbd0c4e4b040e9160c679
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -31,12 +32,13 @@ ms.lasthandoff: 03/04/2017
 | Субъект-сервер "MyUserName" не может получить доступ к базе данных master в текущем контексте безопасности. Не удается открыть пользовательскую базу данных по умолчанию. Вход в систему не выполнен. Пользователю "MyUserName" не удалось войти в систему. (Microsoft SQL Server, ошибка: 916) |Эта ошибка возникает, когда пользователь AAD пытается подключиться к базе данных master, в которой нет соответствующей учетной записи пользователя.  Для устранения этой проблемы либо укажите хранилище данных SQL, к которому необходимо подключиться, во время подключения, либо добавьте учетную запись пользователя в базу данных master.  Дополнительные сведения см. в статье [Защита базы данных в хранилище данных SQL][Security overview]. |
 | Ошибка CTAIP |Эта ошибка может возникнуть, когда имя для входа создано в базе данных master SQL Server, но не создано в базе данных хранилища данных SQL.  Если возникла эта ошибка, ознакомьтесь со статьей [Защита базы данных в хранилище данных SQL][Security overview].  В этой статье объясняется, как создать имя для входа и пользователя в базе данных master, а затем создать пользователя в базе данных хранилища данных SQL. |
 | Заблокировано брандмауэром |Базы данных SQL Azure защищены брандмауэрами на уровне сервера и базы данных. Это гарантирует, что доступ к базам данных возможен только с известных IP-адресов. Брандмауэры являются безопасными по умолчанию. Это означает, что перед подключением необходимо прямо разрешить доступ для IP-адреса или диапазона IP-адресов.  Чтобы настроить брандмауэр для предоставления доступа, выполните указания в разделе [Создание правила брандмауэра на уровне сервера с помощью портала Azure][Configure server firewall access for your client IP] статьи [Создание хранилища данных SQL Azure][Provisioning instructions]. |
-| Не удается подключиться с помощью средства или драйвера |В хранилище данных SQL для запроса данных рекомендуется использовать [SSMS][SSMS], [SSDT для Visual Studio 2015][SSDT for Visual Studio 2015] или [sqlcmd][sqlcmd]. Дополнительные сведения о необходимых драйверах и подключении к хранилищу данных SQL см. статьях [Драйверы для хранилища данных SQL Azure][Drivers for Azure SQL Data Warehouse] и [Подключение к хранилищу данных SQL Azure][Connect to Azure SQL Data Warehouse]. |
+| Не удается подключиться с помощью средства или драйвера |В хранилище данных SQL для запроса данных рекомендуется использовать [SSMS][SSMS], [SSDT для Visual Studio][SSDT for Visual Studio] или [sqlcmd][sqlcmd]. Дополнительные сведения о необходимых драйверах и подключении к хранилищу данных SQL см. статьях [Драйверы для хранилища данных SQL Azure][Drivers for Azure SQL Data Warehouse] и [Подключение к хранилищу данных SQL Azure][Connect to Azure SQL Data Warehouse]. |
 
 ## <a name="tools"></a>Средства
 | Проблема | Способы устранения: |
 |:--- |:--- |
 | В обозревателе объектов Visual Studio отсутствуют пользователи AAD |Это известная проблема.  Сведения о пользователях можно просмотреть в файле [sys.database_principals][sys.database_principals].  Дополнительные сведения об использовании Azure Active Directory с хранилищем данных SQL см. в статье [Аутентификация в хранилище данных SQL Azure][Authentication to Azure SQL Data Warehouse]. |
+|Создание сценариев вручную, использование мастера создания сценариев или подключение с помощью SSMS происходит медленно, с "зависаниями" или ошибками.| Убедитесь, что пользователи были созданы в базе данных master. Коме того, убедитесь, что в параметрах создания сценариев заданы выпуск ядра "Выпуск Microsoft Azure SQL Data Warehouse Edition" и тип модуля "База данных SQL Microsoft Azure".|
 
 ## <a name="performance"></a>Производительность
 | Проблема | Способы устранения: |
@@ -54,6 +56,7 @@ ms.lasthandoff: 03/04/2017
 | Сообщение 40847: не удалось выполнить операцию, так как сервер достиг допустимой квоты в 45 000 единиц транзакций базы данных (DTU). |Либо уменьшите значение [DWU][DWU] создаваемой базы данных, либо [запросите увеличение квоты][request a quota increase]. |
 | Анализ использования пространства |Сведения об использовании пространства в системе см. в разделе о [запросах размера таблицы][Table sizes]. |
 | Справка по управлению таблицами |Справочную информацию об управлении таблицами см. в статье [Общие сведения о таблицах в хранилище данных SQL][Overview].  Дополнительные сведения см. в статьях, посвященных [типам данных таблиц][Data types], [распределению][Distribute], [индексированию][Index], [секционированию][Partition], [управлению статистикой таблиц][Statistics] и [временным таблицам][Temporary]. |
+|На портале Azure не обновляется индикатор хода прозрачного шифрования данных (TDE)|Состояние прозрачного шифрования данных можно узнать с помощью [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption?view=azurermps-3.7.0).|
 
 ## <a name="polybase"></a>PolyBase
 | Проблема | Способы устранения: |
@@ -88,7 +91,7 @@ ms.lasthandoff: 03/04/2017
 <!--Article references-->
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
-[SSDT for Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
+[SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
 [Создание запроса в службу поддержки]: ./sql-data-warehouse-get-started-create-support-ticket.md

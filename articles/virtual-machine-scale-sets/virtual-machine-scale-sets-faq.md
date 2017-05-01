@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
+ms.date: 4/10/2017
 ms.author: negat
 ms.custom: na
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: e207ace4eb5722e08f2020078dfea9129ef1deb8
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1c7b4c4b7675bfc33e102c9abb4f942a1dd33ad4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -538,6 +538,28 @@ IP-адреса выбираются из указанной подсети.
 
 
 
+## <a name="patching-and-operations"></a>Установка исправлений и эксплуатация
+
+### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Как создать масштабируемый набор в существующей группе ресурсов?
+
+Создание масштабируемых наборов в существующей группе ресурсов на портале Azure пока невозможно, но можно указать существующую группу ресурсов при развертывании масштабируемого набора с помощью шаблона Azure Resource Manager. Можно также указать существующую группу ресурсов при создании масштабируемого набора с помощью Azure PowerShell или интерфейса командной строки.
+
+### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>Можно ли переместить масштабируемый набор другую группу ресурсов?
+
+Да, ресурсы масштабируемого набора можно переместить в новую подписку или группу ресурсов.
+
+### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Как обновить образ масштабируемого набора виртуальных машин и как управлять установкой исправлений?
+
+Дополнительные сведения об обновлении масштабируемого набора виртуальных машин и управлении установкой исправлений см. в [этой статье.](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set)
+
+### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Можно ли использовать операцию пересоздания образа, чтобы сбросить параметры виртуальной машины, не изменяя образ? (То есть я хочу сбросить параметры виртуальной машины к значениям по умолчанию, а не создавать новый образ.)
+
+Да. Операцию пересоздания образа можно использовать, чтобы сбросить параметры виртуальной машины, не изменяя образ. Тем не менее, если масштабируемый набор виртуальных машин ссылается на образ платформы последней версии (значение `version = latest`), образ ОС виртуальной машины можно обновить на более позднюю версию при вызове операции `reimage`.
+
+Дополнительные сведения см. в статье об [управлении всеми виртуальными машинами в масштабируемом наборе](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
+
+
+
 ## <a name="troubleshooting"></a>Устранение неполадок
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Как включить диагностику загрузки?
@@ -561,21 +583,6 @@ IP-адреса выбираются из указанной подсети.
     "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
   }
 ```
-
- 
-
-## <a name="updates"></a>Обновления
-
-### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Как обновить образ масштабируемого набора виртуальных машин и как управлять установкой исправлений?
-
-Дополнительные сведения об обновлении масштабируемого набора виртуальных машин и управлении установкой исправлений см. в [этой статье.](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set)
-
-### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Можно ли использовать операцию пересоздания образа, чтобы сбросить параметры виртуальной машины, не изменяя образ? (То есть я хочу сбросить параметры виртуальной машины к значениям по умолчанию, а не создавать новый образ.)
-
-Да. Операцию пересоздания образа можно использовать, чтобы сбросить параметры виртуальной машины, не изменяя образ. Тем не менее, если масштабируемый набор виртуальных машин ссылается на образ платформы последней версии (значение `version = latest`), образ ОС виртуальной машины можно обновить на более позднюю версию при вызове операции `reimage`.
-
-Дополнительные сведения см. в статье об [управлении всеми виртуальными машинами в масштабируемом наборе](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
-
 
 
 ## <a name="virtual-machine-properties"></a>Свойства виртуальной машины

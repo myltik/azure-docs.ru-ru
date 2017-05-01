@@ -11,14 +11,14 @@ ms.assetid: 6158c27f-6b9a-404e-a234-b5d48c4a5b29
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/04/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: b286a93d7cc5f962f969e877b2f487e56cbb1a95
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 150e8f3e186683bce735d0952adb57544505d1e9
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -65,7 +65,6 @@ Arguments
                                     address ranges in CIDR form to be included as the allowed list
                                     of client IPs for a given database account. IP addresses/ranges
                                     must be comma separated and must not contain any spaces.
-                                    To enable portal access, include 104.42.195.92.
     --kind                        : The type of DocumentDB database account to create.  Allowed
                                     values: GlobalDocumentDB, MongoDB, Parse.  Default:
                                     GlobalDocumentDB.
@@ -93,6 +92,7 @@ Arguments
 
 ### <a name="notes"></a>Примечания
 * В качестве расположений используйте регионы, в которых база данных DocumentDB общедоступна. Текущий список регионов см. на [странице регионов Azure](https://azure.microsoft.com/regions/#services).
+* Для включения доступа к порталу добавьте в список значений аргумента ip-range-filter IP-адрес портала Azure в вашем регионе, как указано в разделе [Настройка политики контроля доступа на основе IP-адресов](documentdb-firewall-support.md#configure-ip-policy).
 
 ## <a id="update-documentdb-account-cli"></a> Обновление учетной записи базы данных DocumentDB
 
@@ -180,6 +180,20 @@ Arguments
 Пример:
 
     az documentdb list-keys -g rg-test -n docdb-test
+
+## <a id="list-connection-strings-cli"></a> Вывод строк подключения
+
+Для учетных записей MongoDB строку подключения приложения MongoDB к учетной записи базы данных можно получить с помощью следующей команды:
+
+```
+Arguments
+    --name -n           [Required]: Name of the DocumentDB database account.
+    --resource-group -g [Required]: Name of the resource group.
+```
+
+Пример:
+
+    az documentdb list-connection-strings -g rg-test -n docdb-test
 
 ## <a id="regenerate-account-key-cli"></a> Повторное создание ключей учетных записей
 

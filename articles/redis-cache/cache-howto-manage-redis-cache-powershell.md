@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 04/03/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 9d76e82b1658c3ea4dd6631bae232d17f375ab33
-ms.openlocfilehash: 61c0fd56aad1cc589138aa02ea43ef315edf9baf
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 715f76377947baaf1a72871cfe291f17e1cc0baf
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -65,7 +66,7 @@ ms.openlocfilehash: 61c0fd56aad1cc589138aa02ea43ef315edf9baf
 
     Get-Help New-AzureRmRedisCache -Detailed
 
-### <a name="how-to-connect-to-azure-government-cloud-or-azure-china-cloud"></a>Подключение к облаку Azure Government или Azure China
+### <a name="how-to-connect-to-other-clouds"></a>Подключение к другим облакам
 Среда Azure по умолчанию — это `AzureCloud`, представляющая экземпляр глобального облака Azure. Чтобы подключиться к другому экземпляру, используйте команду `Add-AzureRmAccount`, заменив параметр `-Environment` или -`EnvironmentName` на нужную вам среду или имя среды.
 
 Чтобы просмотреть список доступных сред, выполните командлет `Get-AzureRmEnvironment` .
@@ -101,6 +102,23 @@ ms.openlocfilehash: 61c0fd56aad1cc589138aa02ea43ef315edf9baf
 * Север Китая
 
 Дополнительные сведения об облаке Azure для Китая см. на странице [AzureChinaCloud для Azure под управлением 21Vianet в Китае](http://www.windowsazure.cn/).
+
+### <a name="to-connect-to-microsoft-azure-germany"></a>Подключение к Microsoft Azure для Германии
+Чтобы подключиться к Microsoft Azure для Германии, используйте одну из следующих команд.
+
+    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+
+
+или
+
+    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+
+Чтобы создать кэш в Microsoft Azure для Германии, используйте одно из следующих расположений.
+
+* Центральная Германия
+* Северо-восточная Германия
+
+Дополнительные сведения о Microsoft Azure для Германии см. [здесь](https://azure.microsoft.com/overview/clouds/germany/).
 
 ### <a name="properties-used-for-azure-redis-cache-powershell"></a>Свойства, используемые в командлетах PowerShell кэша Redis для Azure
 Приведенная ниже таблица содержит свойства и описания параметров, часто используемых при создании экземпляров кэша Redis для Azure с помощью Azure PowerShell и управления такими экземплярами.
@@ -768,10 +786,5 @@ ms.openlocfilehash: 61c0fd56aad1cc589138aa02ea43ef315edf9baf
 * [Блог Azure](http://blogs.msdn.com/windowsazure): узнайте о новых возможностях в Azure.
 * [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 * [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

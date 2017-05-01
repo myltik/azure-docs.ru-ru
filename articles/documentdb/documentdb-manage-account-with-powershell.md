@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 8078f9822b392af09e00e9bf1e448e0a51994e11
-ms.openlocfilehash: 15707a71500424e4776adc80491af95b57bea222
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1d7691fd5248691f42ad31224f2fff9f7f0d4b9e
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/27/2017
 * Чтобы выполнять следующие команды без запроса пользовательского подтверждения, добавьте в команду флаг `-Force`.
 * Все следующие команды синхронные.
 
-## <a name="a-idcreate-documentdb-account-powershella-create-a-documentdb-database-account"></a><a id="create-documentdb-account-powershell"></a> Создание учетной записи базы данных DocumentDB
+## <a id="create-documentdb-account-powershell"></a> Создание учетной записи базы данных DocumentDB
 
 Эта команда позволяет создать учетную запись базы данных DocumentDB. Настройте новую учетную запись для использования в одном или [нескольких регионах][scaling-globally] и добавьте определенную [политику согласованности](documentdb-consistency-levels.md).
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 02/27/2017
 * В предыдущем примере создается учетная запись базы данных с двумя регионами. Кроме того, можно также создать учетную запись базы данных с одним регионом (регион для записи со значением приоритета отработки отказа 0) или с несколькими регионами (более двух). Дополнительные сведения см. в разделе [Масштабирование по всей планете][scaling-globally].
 * В качестве расположений используйте регионы, в которых база данных DocumentDB общедоступна. Текущий список регионов см. на [странице регионов Azure](https://azure.microsoft.com/regions/#services).
 
-## <a name="a-idupdate-documentdb-account-powershella-update-a-documentdb-database-account"></a><a id="update-documentdb-account-powershell"></a> Обновление учетной записи базы данных DocumentDB
+## <a id="update-documentdb-account-powershell"></a> Обновление учетной записи базы данных DocumentDB
 
 Эта команда позволяет обновить свойства учетной записи базы данных DocumentDB. К ним относятся политика согласованности и расположения учетной записи базы данных.
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 02/27/2017
     $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -PropertyObject $DocumentDBProperties
 
-## <a name="a-iddelete-documentdb-account-powershella-delete-a-documentdb-database-account"></a><a id="delete-documentdb-account-powershell"></a> Удаление учетной записи базы данных DocumentDB
+## <a id="delete-documentdb-account-powershell"></a> Удаление учетной записи базы данных DocumentDB
 
 Эта команда позволяет удалить имеющуюся учетную запись базы данных DocumentDB.
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 02/27/2017
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a name="a-idget-documentdb-properties-powershella-get-properties-of-a-documentdb-database-account"></a><a id="get-documentdb-properties-powershell"></a> Получение свойств учетной записи базы данных DocumentDB
+## <a id="get-documentdb-properties-powershell"></a> Получение свойств учетной записи базы данных DocumentDB
 
 Эта команда позволяет получить свойства имеющейся учетной записи базы данных DocumentDB.
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/27/2017
 
     Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a name="a-idupdate-tags-powershella-update-tags-of-a-documentdb-database-account"></a><a id="update-tags-powershell"></a> Обновление тегов учетной записи базы данных DocumentDB
+## <a id="update-tags-powershell"></a> Обновление тегов учетной записи базы данных DocumentDB
 
 Следующая команда позволяет установить [теги ресурсов Azure][azure-resource-tags] для учетной записи базы данных DocumentDB.
 
@@ -141,7 +141,7 @@ ms.lasthandoff: 02/27/2017
     $tags = @{"dept" = "Finance”; environment = “Production”}
     Set-AzureRmResource -ResourceType “Microsoft.DocumentDB/databaseAccounts”  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
 
-## <a name="a-idlist-account-keys-powershella-list-account-keys"></a><a id="list-account-keys-powershell"></a> Вывод ключей учетной записи
+## <a id="list-account-keys-powershell"></a> Вывод ключей учетной записи
 
 При создании учетной записи DocumentDB служба создает два главных ключа доступа, которые можно использовать для проверки подлинности при доступе к учетной записи DocumentDB. Предоставляя два ключа, DocumentDB позволяет вам повторно создавать ключи без перерывов в работе учетной записи DocumentDB. Ключи только для чтения, используемые для выполнения проверки подлинности операций чтения, также доступны. Доступны два ключа для чтения и записи (первичный и вторичный), а также два ключа только для чтения (первичный и вторичный).
 
@@ -154,7 +154,20 @@ ms.lasthandoff: 02/27/2017
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a name="a-idregenerate-account-key-powershella-regenerate-account-key"></a><a id="regenerate-account-key-powershell"></a> Повторное создание ключей учетных записей
+## <a id="list-connection-strings-powershell"></a> Вывод строк подключения
+
+Для учетных записей MongoDB строку подключения приложения MongoDB к учетной записи базы данных можно получить с помощью следующей команды:
+
+    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
+
+* `<resource-group-name>` — имя [группы ресурсов Azure][azure-resource-groups], в которую входит новая учетная запись базы данных DocumentDB.
+* `<database-account-name>` — имя учетной записи базы данных DocumentDB.
+
+Пример:
+
+    $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
+
+## <a id="regenerate-account-key-powershell"></a> Повторное создание ключей учетных записей
 
 Вам следует периодически менять ключи доступа для своей учетной записи DocumentDB, чтобы повысить уровень безопасности соединений. Назначается два ключа доступа, что позволяет поддерживать подключения к учетной записи DocumentDB с помощью одного ключа, одновременно повторно создавая второй ключ.
 
@@ -168,7 +181,7 @@ ms.lasthandoff: 02/27/2017
 
     Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"keyKind"="Primary"}
 
-## <a name="a-idmodify-failover-priority-powershella-modify-failover-priority-of-a-documentdb-database-account"></a><a id="modify-failover-priority-powershell"></a> Изменение приоритета при отработке отказа в учетной записи базы данных DocumentDB
+## <a id="modify-failover-priority-powershell"></a> Изменение приоритета при отработке отказа в учетной записи базы данных DocumentDB
 
 Для межрегиональных учетных записей баз данных можно изменить приоритет при отработке отказа в разных регионах, в которых они используются. Дополнительные сведения об отработке отказа в учетной записи базы данных DocumentDB см. в статье [Глобальное распространение данных с помощью DocumentDB][distribute-data-globally].
 

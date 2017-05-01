@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 4680985e5c66444ca8a356cc92d45dc0f1838f55
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: da581b2e22f85152ae7bc5f0d403b2fc0aaf0e54
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -142,7 +142,7 @@ ms.lasthandoff: 03/06/2017
 
 * **Capacity**. Объем хранилища, используемый службой BLOB-объектов учетной записи хранения, в байтах.
 * **ContainerCount**. Количество контейнеров BLOB-объектов в службе BLOB-объектов учетной записи хранения.
-* **ObjectCount**. Количество зафиксированных и незафиксированных блочных или страничных больших двоичных объектов в службе BLOB-объектов учетной записи хранения.
+* **ObjectCount**. Количество зафиксированных и незафиксированных блочных или страничных BLOB-объектов в службе BLOB-объектов учетной записи хранения.
 
 Дополнительную информацию о метриках емкости см. в разделе [Схема таблицы для метрик аналитики хранилища](https://msdn.microsoft.com/library/hh343264.aspx).
 

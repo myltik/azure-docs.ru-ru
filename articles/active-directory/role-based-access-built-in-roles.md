@@ -16,9 +16,9 @@ ms.date: 02/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
-ms.openlocfilehash: 404c4c4012eb5b6f8e7acdd7f985009b9f13b9f3
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: bb8d390a6ab045dc418bf80ec4fc218e0a35282b
+ms.lasthandoff: 04/11/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Встроенные роли для управления доступом на основе ролей в Azure
@@ -48,6 +48,8 @@ ms.lasthandoff: 02/28/2017
 | [Участник зоны DNS](#dns-zone-contributor) |Может управлять зонами и записями DNS. |
 | [Участник учетной записи DocumentDB](#documentdb-account-contributor) |Может управлять учетными записями DocumentDB |
 | [Участник учетной записи интеллектуальных систем](#intelligent-systems-account-contributor) |Может управлять учетными записями интеллектуальных систем |
+| [Monitoring Reader](#monitoring-reader) (Читатель данных мониторинга) |Может читать все данные мониторинга. |
+| [Monitoring Contributor](#monitoring-contributor) (Участник мониторинга) |Может читать данные мониторинга и изменять параметры мониторинга. |
 | [Участник сети](#network-contributor) |Может управлять всеми сетевыми ресурсами |
 | [Участник учетной записи New Relic APM](#new-relic-apm-account-contributor) |Может управлять учетными записями и приложениями для управления производительностью приложений New Relic |
 | [Владелец](#owner) |Может управлять всем, включая доступ |
@@ -336,6 +338,36 @@ ms.lasthandoff: 02/28/2017
 | Microsoft.Resources/deployments/* |Создание развертываний группы ресурсов и управление ими |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
+
+### <a name="monitoring-reader"></a>Роль Monitoring Reader
+Может читать все данные мониторинга (метрики, журналы и т. д.). Ознакомьтесь также со статьей [Приступая к работе с ролями, разрешениями и системой безопасности с помощью Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+
+| **Действия** |  |
+| --- | --- |
+| */чтение |Чтение ресурсов всех типов, кроме секретов. |
+| Microsoft.OperationalInsights/workspaces/search/action |Поиск данных Log Analytics |
+| Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
+
+### <a name="monitoring-contributor"></a>Monitoring Contributor
+Может читать все данные мониторинга и изменять параметры мониторинга. Ознакомьтесь также со статьей [Приступая к работе с ролями, разрешениями и системой безопасности с помощью Azure Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
+
+| **Действия** |  |
+| --- | --- |
+| */чтение |Чтение ресурсов всех типов, кроме секретов. |
+| Microsoft.Insights/AlertRules/* |Чтение, запись и удаление правила генерации оповещений. |
+| Microsoft.Insights/components/* |Чтение, запись и удаление компонентов Application Insights. |
+| Microsoft.Insights/DiagnosticSettings/* |Чтение, запись и удаление параметров диагностики. |
+| Microsoft.Insights/eventtypes/* |Вывод списка событий журнала действий (событий управления) в подписке. Это разрешение применяется для доступа к журналу действий посредством кода или портала. |
+| Microsoft.Insights/LogDefinitions/* |Это разрешение необходимо пользователям, которым требуется доступ к журналам действия на портале. Получение списка категорий журнала в журнале действий. |
+| Microsoft.Insights/MetricDefinitions/* |Чтение определений метрик (вывод списка доступных типов метрик для ресурса). |
+| Microsoft.Insights/Metrics/* |Чтение метрик для ресурса. |
+| Microsoft.Insights/Register/Action |Регистрация поставщика Microsoft.Insights. |
+| Microsoft.Insights/webtests/* |Чтение, запись и удаление веб-тестов Application Insights. |
+| Microsoft.OperationalInsights/workspaces/intelligencepacks/* |Чтение, запись и удаление пакетов решений Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/savedSearches/* |Чтение, запись и удаление сохраненных поисков Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/search/action |Поиск в рабочих областях Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/sharedKeys/action |Получение списка ключей для рабочей области Log Analytics. |
+| Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* |Чтение, запись и удаление конфигураций подробных данных хранилища Log Analytics. |
 
 ### <a name="network-contributor"></a>Участник сети
 Может управлять всеми сетевыми ресурсами

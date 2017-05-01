@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 0849c77c66ac8617e217a69696b5c404be3b5eb4
-ms.openlocfilehash: 3aefb8188880fac5c1fcbe237a1e133584089e6a
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d8845ecb86acef651fdc8d6a64ebcae82b54dcd8
+ms.lasthandoff: 04/03/2017
 
 ---
 
@@ -36,26 +36,27 @@ ms.lasthandoff: 02/03/2017
 Чтобы настроить интеграцию Azure AD с приложением Tableau Server, вам потребуется следующее:
 
 * подписка Azure AD;
-* подписка Tableau Server с поддержкой единого входа.
+* Подписка на Tableau Server с поддержкой единого входа.
 
-> [!NOTE]
-> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
+>[!NOTE]
+>Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+>
+>
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 * Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. 
+Цель этого руководства — научить вас проверять единый вход Azure AD в тестовой среде. 
 
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление сервера Tableau Server из коллекции
-2. Настройка и проверка единого входа в Azure AD
+2. Настройка и проверка единого входа Azure AD.
 
-## <a name="adding-tableau-server-from-the-gallery"></a>Добавление сервера Tableau Server из коллекции
+## <a name="add-tableau-server-from-the-gallery"></a>Добавление сервера Tableau Server из коллекции
 Чтобы настроить интеграцию Tableau Server с Azure AD, необходимо добавить Tableau Server из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Tableau Server из коллекции, выполните следующие действия:**
@@ -80,29 +81,29 @@ ms.lasthandoff: 02/03/2017
    
     ![Выбор приложения в коллекции](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Настройка и проверка единого входа Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в приложении Tableau Server с использованием тестового пользователя Britta Simon.
 
-Для включения единого входа в Azure AD необходимо знать, какой пользователь в приложении Tableau Server соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Tableau Server.
+Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь в приложении Tableau Server соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Tableau Server.
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Tableau Server.
 
 Чтобы настроить и проверить единый вход Azure AD в Tableau Server, вам потребуется выполнить действия в следующих стандартных блоках:
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя Tableau Server](#creating-a-tableauserver-test-user)** требуется для создания в Tableau Server пользователя Britta Simon, связанного с представлением этого же пользователя в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
 5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение Tableau Server.
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить его в приложении Tableau Server.
 
 Приложение Tableau Server ожидает утверждения SAML в определенном формате. На следующем снимке экрана приведен пример. 
 
 ![Настройка единого входа](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_51.png) 
 
-**Чтобы настроить единый вход Azure AD в Tableau Server, выполните следующие действия:**
+**Чтобы настроить единый вход Azure AD в Tableau Server, сделайте следующее:**
 
 1. На странице интеграции с приложением **Tableau Server** классического портала Azure в меню в верхней части страницы щелкните **Атрибуты**.
    
@@ -132,7 +133,7 @@ ms.lasthandoff: 02/03/2017
    1. В текстовое поле **URL-адрес входа** введите URL-адрес Tableau Server. 
    2. В поле **Идентификатор** скопируйте URL-адрес.
    3. Нажмите кнопку **Далее**.
-h
+
 7. На странице **Настройка единого входа в Tableau Server** выполните следующие действия и нажмите кнопку **Далее**.
    
     ![Настройка единого входа](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_05.png) 
@@ -163,7 +164,7 @@ h
    
     ![единого входа Azure AD][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
 * В списке пользователей выберите **Britta Simon**.
@@ -208,16 +209,18 @@ h
    1. Запишите значение поля **Новый пароль**.
    2. Нажмите **Завершено**.   
 
-### <a name="creating-a-tableau-server-test-user"></a>Создание тестового пользователя Tableau Server
-Цель этого раздела — создать в приложении Tableau Server пользователя с именем Britta Simon. Необходимо подготовить всех пользователей в приложении Tableau Server. Обратите внимание, что имя пользователя должно совпадать со значением, настроенным в пользовательском атрибуте Azure AD **username**. В случае правильного сопоставления интеграция должна обеспечить [настройку единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on).
+### <a name="create-a-tableau-server-test-user"></a>Создание тестового пользователя Tableau Server
+Цель этого раздела — создать в приложении Tableau Server пользователя с именем Britta Simon. Необходимо подготовить всех пользователей в приложении Tableau Server. 
 
-> [!NOTE]
-> Если необходимо создать пользователя вручную, обратитесь к администратору Tableau Server в вашей организации.
+Имя пользователя должно совпадать со значением, настроенным в пользовательском атрибуте Azure AD **username**. В случае правильного сопоставления интеграция должна обеспечить [настройку единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on).
+
+>[!NOTE]
+>Если необходимо создать пользователя вручную, обратитесь к администратору Tableau Server в вашей организации.
 > 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — позволить пользователю Britta Simon использовать единый вход Azure, предоставив доступ к Tableau Server.
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+Цель этого раздела — предоставить пользователю Britta Simon доступ к Tableau Server, чтобы этот пользователь мог использовать единый вход Azure.
 
 ![Назначение пользователя][200] 
 
@@ -237,7 +240,7 @@ h
 
 ![Назначение пользователя][205]
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+### <a name="test-single-sign-on"></a>Проверка единого входа
 Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент Tableau Server на панели доступа, вы автоматически войдете в приложение Tableau Server.

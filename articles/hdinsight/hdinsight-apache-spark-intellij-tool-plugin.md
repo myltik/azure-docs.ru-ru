@@ -1,6 +1,6 @@
 ---
 title: "Создание приложений Scala для Spark с помощью набора средств Azure для IntelliJ | Документация Майкрософт"
-description: "Узнайте, как создать автономное приложение Spark для работы в кластерах HDInsight Spark"
+description: "Использование средств HDInsight из набора средств Azure для IntelliJ для разработки приложений Spark на языке Scala и их отправки в кластер HDInsight Spark."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 6c513def2abc8c99b84b2eb48848de76e12e69c7
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 494545ae20e0b766a3787ae462d5d0f4331853b1
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="use-hdinsight-tools-in-azure-toolkit-for-intellij-to-create-spark-applications-for-hdinsight-spark-linux-cluster"></a>Создание приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ
-В этой статье приводятся пошаговые инструкции по разработке приложений Spark, написанных на языке Scala, и их отправке в кластер HDInsight Spark с помощью средств HDInsight в наборе средств Azure для IntelliJ.  Эти средства можно использовать различным образом:
+# <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-hdinsight-cluster"></a>Создание приложений Spark для кластера HDInsight с помощью набора средств Azure для IntelliJ
+
+Использование средств HDInsight из набора средств Azure для IntelliJ для разработки приложений Spark на языке Scala и их отправки в кластер HDInsight Spark непосредственно из интегрированной среды разработки IntelliJ. Подключаемый модуль средств HDInsight можно использовать по-разному.
 
 * Для разработки и отправки приложений Scala Spark в кластер HDInsight Spark.
 * Для доступа к ресурсам кластера Azure HDInsight Spark.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 04/03/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2240678fed44db748ae062bdf91e457159b4a2
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6d893efd775ff6b55524ba3a621d8248adbdd432
+ms.lasthandoff: 04/03/2017
 
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Использование соединителей с Synchronization Service Manager Azure AD Connect
@@ -67,6 +67,28 @@ ms.lasthandoff: 03/04/2017
 Если, к примеру, выполняется поиск в поддереве, вы получаете все объекты в одном подразделении.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
 Здесь можно выбрать объект и **свойства**, а также [отслеживать объект](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) из исходного пространства соединителя через метавселенную до целевого пространства соединителя.
+
+### <a name="changing-the-ad-ds-account-password"></a>Изменение пароля учетной записи AD DS
+В случае изменения пароля учетной записи служба синхронизации больше не сможет импортировать или экспортировать изменения в локальную среду AD.   Может отображаться следующее:
+
+- Шаг импорта или экспорта для соединителя AD завершается ошибкой "no-start-credentials".
+- В средстве просмотра событий Windows журнал событий приложения содержит ошибку с идентификатором события 6000 и сообщением об ошибке "Не удалось выполнить управляющий агент "contoso.com", так как учетные данные были недопустимыми".
+
+Чтобы устранить это проблему, обновите учетную запись пользователя AD DS, как показано ниже.
+
+
+1. Запустите Synchronization Service Manager ("Запуск" → "Служба синхронизации").
+</br>![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
+2. Перейдите на вкладку **Соединители**.
+3. Выберите соединитель AD, который настроен на использование учетной записи AD DS.
+4. В разделе "Действия" выберите **Свойства**.
+5. Во всплывающем диалоговом окне выберите "Connect to Active Directory Forest" (Подключиться к лесу Active Directory).
+6. Имя леса указывает соответствующую локальную службу AD.
+7. Имя пользователя указывает учетную запись AD DS, используемую для синхронизации.
+8. В текстовом поле "Пароль" введите новый пароль учетной записи AD DS. ![Служебная программа для ключа шифрования в службе синхронизации Azure AD Connect](media/active-directory-aadconnectsync-encryption-key/key6.png).
+9. Нажмите кнопку "ОК" для сохранения нового пароля и перезапустите службу синхронизации, чтобы удалить из кэша памяти старый пароль.
+
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

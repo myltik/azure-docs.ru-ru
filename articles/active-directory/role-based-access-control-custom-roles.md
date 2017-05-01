@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 03/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
-ms.openlocfilehash: c8189af2ebd9cabfa3e20e6b3520ba347d6147ff
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: e7a85813ae5e26f402837774a40fa3630a436bee
+ms.lasthandoff: 03/31/2017
 
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Создание пользовательских ролей для управления доступом на основе ролей в Azure
 Если ни одна из встроенных ролей не соответствует вашим требованиям к доступу, создайте пользовательскую роль с помощью механизма RBAC Azure (управление доступом на основе ролей). Настраиваемые роли можно создавать с помощью [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [интерфейса командной строки (CLI) Azure](role-based-access-control-manage-access-azure-cli.md) и интерфейса [REST API](role-based-access-control-manage-access-rest.md). Пользовательские роли, так же как и встроенные, могут назначаться пользователям, группам и приложениям в рамках подписки, группы ресурсов или области ресурсов. Пользовательские роли хранятся в клиенте Azure AD и могут совместно использоваться всеми подписками, которые используют этот клиент как каталог Azure AD для подписки.
+
+В каждом клиенте можно создать до 2000 пользовательских ролей. 
 
 Ниже приведен пример пользовательской роли, которая позволяет выполнять мониторинг и перезапуск виртуальных машин.
 

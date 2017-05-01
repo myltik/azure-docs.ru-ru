@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: ae8c26069503a24f3ba17a86160801c60a68d668
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-create-a-hybrid-collection-for-azure-remoteapp"></a>Создание гибридной коллекции для Azure RemoteApp
 > [!IMPORTANT]
-> Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+> Мы выводим службу Azure RemoteApp из эксплуатации 31 августа 2017 года. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 > 
 > 
 
@@ -52,7 +53,7 @@ ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
 * Создайте учетную запись пользователя в Active Directory для использования в качестве учетной записи службы Azure RemoteApp. Ограничьте разрешения для этой учетной записи, чтобы она могла только присоединять машины к домену.
 * Соберите сведения о локальной сети, а именно получить информацию об IP-адресе и VPN-устройстве.
 * установить модуль [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
-* Соберите сведения о пользователях, которым нужно предоставить доступ. Для каждого пользователя требуется имя участника-пользователя Azure Active Directory (например, name@contoso.com)). Убедитесь, что имя участника-пользователя совпадает в Azure AD и в Active Directory.
+* Соберите сведения о пользователях, которым нужно предоставить доступ. Для каждого пользователя требуется имя участника-пользователя Azure Active Directory (например, name@contoso.com). Убедитесь, что имя участника-пользователя совпадает в Azure AD и в Active Directory.
 * Выберите образ шаблона. Образ шаблона Azure RemoteApp содержит приложения и программы, которыми вы хотите поделиться с пользователями. Дополнительные сведения см. в статье [Создание образа Azure RemoteApp](remoteapp-imageoptions.md).
 * Хотите использовать образ Office 365 профессиональный плюс? Ознакомьтесь с [этой информацией](remoteapp-officesubscription.md).
 * [Настроить Active Directory для RemoteApp](remoteapp-ad.md).
@@ -136,10 +137,5 @@ ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
 
 ### <a name="help-us-help-you"></a>Помогите нам помочь вам
 Вы знаете, что можете не только оценивать эту статью и оставлять комментарии ниже, но и вносить в нее изменения? Чего-то не хватает? Что-то неправильно? Что-то изложено непонятно? Чтобы внести изменения, прокрутите страницу вверх и щелкните **Edit on GitHub** (Изменить на GitHub). Мы просмотрим ваши предложения, и когда мы их одобрим, вы увидите изменения и улучшения здесь.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

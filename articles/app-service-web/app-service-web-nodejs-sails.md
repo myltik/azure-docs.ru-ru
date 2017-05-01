@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: b3c8a2d54ea05462db8a873c852a70e64111bc2f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ff5deaa15d1f78df249e9e89b1f0ffc82076fee1
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -72,7 +72,7 @@ ms.lasthandoff: 03/01/2017
         logDirectory: iisnode
 
     Теперь для сервера [iisnode](https://github.com/tjanczuk/iisnode), который служба приложений Azure использует для запуска приложений Node.js, включено ведение журнала. 
-    Дополнительные сведения о том, как это работает, см. в разделе  [Получение журналов stdout и stderr из iisnode](app-service-web-nodejs-get-started.md#iisnodelog).
+    Дополнительные сведения об этом см. в статье  [Отладка веб-приложения Node.js в службе приложений Azure](web-sites-nodejs-debug.md).
 
 2. После этого настройте приложение Sails.js для использования переменных среды Azure. Откройте файл config/env/production.js для настройки рабочей среды и установите `port` и `hookTimeout`.
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 03/01/2017
 
 ## <a name="troubleshoot-your-deployment"></a>Устранение неполадок развертывания
 При сбое приложения Sails.js в службе приложений найдите журналы stderr, которые помогут в ее устранении.
-Дополнительные сведения см. в разделе [Получение журналов stdout и stderr из iisnode](app-service-web-nodejs-get-started.md#get-stdout-and-stderr-logs-from-iisnode).
+Дополнительные сведения см. в статье [Отладка веб-приложения Node.js в службе приложений Azure](web-sites-nodejs-debug.md).
 Если приложение запущено успешно, в журнале stdout должно появиться знакомое сообщение:
 
                    .-..-.
@@ -273,6 +273,6 @@ ms.lasthandoff: 03/01/2017
      Если API возвращает другую новую запись, это значит, что между веб-приложением Azure и базой данных DocumentDB (MongoDB) осуществляется взаимодействие.
 
 ## <a name="more-resources"></a>Дополнительные ресурсы
-* [Приступая к работе с веб-приложениями Node.js в службе приложений Azure](app-service-web-nodejs-get-started.md)
+* [Приступая к работе с веб-приложениями Node.js в службе приложений Azure](app-service-web-get-started-nodejs.md)
 * [Использование модулей Node.js с приложениями Azure](../nodejs-use-node-modules-azure-apps.md)
 
