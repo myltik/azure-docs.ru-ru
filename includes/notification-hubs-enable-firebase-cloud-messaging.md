@@ -8,8 +8,3 @@
 
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. В настройках проекта щелкните вкладку **Cloud Messaging** и скопируйте значение параметров **Server key** (Ключ сервера) и **Sender ID** (Идентификатор отправителя). Позже эти значения будут использоваться для настройки политики доступа центра уведомлений и обработчика уведомлений в приложении.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

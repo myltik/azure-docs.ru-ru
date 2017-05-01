@@ -5,8 +5,3 @@
     ![Указание ключа WNS на портале](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
 
 Вы настроили серверную часть на использование WNS для отправки push-уведомлений.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

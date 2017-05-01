@@ -25,8 +25,3 @@
 4. Дважды щелкните Info.plist, чтобы открыть этот элемент, а затем включите **RemoteNotifications** в разделе **Background Modes** (Фоновые режимы).
 
 [Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/ (Подготовка устройства)
-
-
-<!--HONumber=Dec16_HO2-->
-
-

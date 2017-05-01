@@ -18,8 +18,3 @@
         table.access = 'authenticated';
 
     Дополнительные сведения см. в разделе [Практическое руководство. Обязательная аутентификация для доступа к таблицам](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Узнайте, как загрузить проект быстрого запуска кода с веб-узла, в разделе [Загрузка серверной части на основе Node.js в виде готового кода для быстрого запуска с помощью Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
-
-
-<!--HONumber=Dec16_HO2-->
-
-

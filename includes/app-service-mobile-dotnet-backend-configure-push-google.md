@@ -1,6 +1,6 @@
 Используйте процедуру, которая соответствует типу вашего серверного проекта: [серверный проект .NET](#dotnet) или [серверный проект Node.js](#nodejs).
 
-### <a name="a-namedotnetanet-back-end-project"></a><a name="dotnet"></a>Серверный проект .NET
+### <a name="dotnet"></a>Серверный проект .NET
 1. В Visual Studio щелкните правой кнопкой мыши серверный проект, выберите пункт **Управление пакетами NuGet**. Найдите `Microsoft.Azure.NotificationHubs` и нажмите кнопку **Установить**. Будет установлена клиентская библиотека центров уведомлений.
 2. Разверните папку "Контроллеры", откройте файл TodoItemController.cs и добавьте следующие операторы `using` :
 
@@ -48,7 +48,7 @@
 
 4. Повторная публикация серверного проекта
 
-### <a name="a-namenodejsanodejs-back-end-project"></a><a name="nodejs"></a>Серверный проект Node.js
+### <a name="nodejs"></a>Серверный проект Node.js
 1. [Скачайте проект быстрого запуска](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor), если вы этого еще не сделали.
 2. Замените существующий код в файле todoitem.js следующим кодом:
 
@@ -97,8 +97,3 @@
 
     При вставке нового элемента todo отправляется уведомление GCM, содержащее item.text.
 3. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект.
-
-
-<!--HONumber=Dec16_HO2-->
-
-
