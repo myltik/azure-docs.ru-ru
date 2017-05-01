@@ -9,8 +9,3 @@
 
 [портале Azure]: https://portal.azure.com/
 [Центры уведомлений Azure]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
-
-
-<!--HONumber=Dec16_HO2-->
-
-

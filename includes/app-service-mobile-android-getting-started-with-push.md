@@ -94,8 +94,3 @@
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
     Ваше приложение теперь обновлено для поддержки push-уведомлений.
-
-
-<!--HONumber=Dec16_HO2-->
-
-
