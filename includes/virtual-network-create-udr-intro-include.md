@@ -7,8 +7,3 @@
 
 Дополнительные сведения об определяемых пользователем маршрутах и IP-пересылке см. в [этой статье](../articles/virtual-network/virtual-networks-udr-overview.md).
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

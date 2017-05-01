@@ -6,8 +6,3 @@
     ![Свойства MPIO. Обнаружение путей](./media/storsimple-configure-mpio-volumes/IC741003.png)
 4. При появлении запроса перезагрузите сервер.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

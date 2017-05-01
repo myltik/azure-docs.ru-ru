@@ -12,8 +12,3 @@
 3. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики:   
    ![Этап создания подключения MicrosoftTranslator](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -19,8 +19,3 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.m
 * Хранилище данных не затрагивается, и ваши данные остаются без изменений. 
 * Хранилище данных SQL отменяет все выполняющиеся и поставленные в очередь операции.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

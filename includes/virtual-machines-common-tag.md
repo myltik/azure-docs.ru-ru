@@ -42,8 +42,3 @@
 
 ![Новый тег, сохраненный на портале Azure](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
