@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 3/10/2017
+ms.date: 4/10/2017
 ms.author: georgem
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 76459acd75cc09a315b0dad219990a830a6ad111
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: 04f5fab5a27a28a0881d59b93451f4c3615692b4
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -32,30 +32,31 @@ ms.lasthandoff: 03/31/2017
 ## <a name="ways-to-use-azure-hybrid-use-benefit"></a>Применение преимуществ гибридного использования Azure
 Существует несколько различных способов развертывания виртуальных машин Windows с преимуществами использования гибридного Azure.
 
-1. Если у вас есть подписка по Соглашению Enterprise, то вы можете [развернуть специальные образы виртуальных машин из Marketplace](#deploy-a-vm-using-the-azure-marketplace), предварительно настроенные для применения преимуществ гибридного использования Azure.
-2. Если вы заключали Соглашение Enterprise, то вы можете [передать настраиваемую виртуальную машину](#upload-a-windows-vhd) и [развернуть ее с помощью шаблона Resource Manager](#deploy-a-vm-via-resource-manager) или [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
+1. Можно развернуть виртуальные машины на основе [определенных образов из Marketplace](#deploy-a-vm-using-the-azure-marketplace), для которых предварительно настроены преимущества гибридного использования Azure: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 и Windows Server 2008 с пакетом обновления 1 (SP1).
+2. Вы можете [передать настраиваемую виртуальную машину](#upload-a-windows-vhd) и [развернуть ее с помощью шаблона Resource Manager](#deploy-a-vm-via-resource-manager) или [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
 
 ## <a name="deploy-a-vm-using-the-azure-marketplace"></a>Развертывание виртуальной машины с помощью Azure Marketplace
-Клиентам с [подписками по Соглашению Enterprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx) доступны образы из Marketplace, предварительно настроенные для применения преимуществ гибридного использования Azure. Эти образы можно развернуть непосредственно с портала Azure, а также с помощью Resource Manager или Azure PowerShell. Образы на сайте Marketplace обозначены меткой `[HUB]`, как показано ниже.
-
-![Образы с преимуществами гибридного использования Azure в Azure Marketplace](./media/hybrid-use-benefit-licensing/ahub-images-portal.png)
+Ниже указаны образы из Marketplace, для которых предварительно настроены преимущества гибридного использования Azure: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 и Windows Server 2008 с пакетом обновления 1 (SP1). Эти образы можно развернуть непосредственно с портала Azure, а также с помощью шаблонов Resource Manager или Azure PowerShell.
 
 Эти образы можно развернуть непосредственно с помощью портала Azure. Чтобы использовать их в шаблонах Resource Manager и Azure PowerShell, ознакомьтесь со списком образов ниже.
 
 Для Windows Server:
 ```powershell
-Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
-    -Offer "WindowsServer-HUB"
+Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
+2016-Datacenter версии 2016.127.20170406 или выше;
+
+2012-R2-Datacenter версии 4.127.20170406 или выше;
+
+2012-Datacenter версии 3.127.20170406 или выше;
+
+2008-R2-SP1 версии 2.127.20170406 или выше.
 
 Для клиента Windows:
 ```powershell
 Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
     -Offer "Windows-HUB"
 ```
-
-Если у вас нет подписки по Соглашению Enterprise, продолжайте чтение, чтобы ознакомиться с инструкциями по передаче настраиваемой виртуальной машины и ее развертыванию с применением преимуществ гибридного использования Azure.
-
 
 ## <a name="upload-a-windows-vhd"></a>Передача VHD Windows
 Чтобы развернуть виртуальную машину Windows в Azure, сначала необходимо создать виртуальный жесткий диск, содержащий базовую сборку Windows. Перед отправкой виртуального жесткого диска в Azure его необходимо соответствующим образом подготовить с помощью программы Sysprep. Вы можете [узнать больше о требованиях к VHD и использованию Sysprep](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и ознакомиться с разделом [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep). Перед выполнением программы Sysprep выполните архивацию виртуальной машины. 
@@ -220,4 +221,6 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 Узнайте больше о [льготе на гибридное использование Microsoft Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Узнайте больше об [использовании шаблонов Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+
+Узнайте больше о том, как [преимущества гибридного использования Azure и Azure Site Recovery делают перенос приложений в Azure еще более экономичным](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
 

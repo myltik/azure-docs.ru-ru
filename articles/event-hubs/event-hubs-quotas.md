@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
-ms.openlocfilehash: 91e611a0b3516bdb8f1ce6eba0210e2e610e5484
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: fe56028d4731a83ffb8010b0094c98dec7374be0
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="event-hubs-quotas"></a>Квоты концентраторов событий
-В этом разделе перечислены основные квоты и ограничения для концентраторов событий Microsoft Azure.
+В этом разделе перечислены основные квоты и ограничения для концентраторов событий Azure.
 
 [!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 

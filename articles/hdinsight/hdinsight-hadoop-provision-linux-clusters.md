@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: bc047ba2aacbbea6d47d3870ee70d9d9a068f83a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 1b7772fbf719013d82e5baed1bbbf229d6f2946c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/25/2017
 | [Storm](hdinsight-storm-overview.md) |Обработка событий в режиме реального времени |
 | [Spark](hdinsight-apache-spark-overview.md) |Обработка в памяти, интерактивные запросы, обработка потоков микро-пакетов |
 | [Interactive Hive (предварительная версия)](hdinsight-hadoop-use-interactive-hive.md) |Кэширование в памяти для обеспечения интерактивных и ускоренных запросов Hive |
-| [R Server в Spark (предварительная версия)](hdinsight-hadoop-r-server-overview.md) |Разнообразный анализ больших данных, прогнозное моделирование и возможности машинного обучения |
+| [R Server в Spark](hdinsight-hadoop-r-server-overview.md) |Разнообразный анализ больших данных, прогнозное моделирование и возможности машинного обучения |
 | [Kafka (предварительная версия)](hdinsight-apache-kafka-introduction.md) | Распределенная платформа потоковой передачи с открытым кодом, которую можно использовать для создания конвейеров и приложений потоковой передачи данных в режиме реального времени. |
 
 Для каждого типа кластера используется своя терминология (узлы кластера называются по-разному). Кроме того, типы отличаются количеством узлов и стандартными размерами виртуальных машин. В следующей таблице число узлов каждого типа указано в скобках.
@@ -237,7 +237,7 @@ Azure HDInsight предлагает облачные решения для ра
 | Standard_D13_v2 |8 |56 ГБ |8 |Временный (SSD): 400 ГБ |16 |16x500 |
 | Standard_D14_v2 |16 |112 ГБ |8 |Временный (SSD): 800 ГБ |32 |32x500 |
 
-Рекомендации по развертыванию, которые нужно учитывать, если планируется использовать эти ресурсы, приведены в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Сведения о расценках на разные размеры см. [здесь](https://azure.microsoft.com/pricing/details/hdinsight).   
+Рекомендации по развертыванию, которые нужно учитывать, если планируется использовать эти ресурсы, приведены в статье [Размеры виртуальных машин в Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Сведения о расценках на разные размеры см. [здесь](https://azure.microsoft.com/pricing/details/hdinsight).   
 
 > [!IMPORTANT]
 > Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
@@ -252,6 +252,9 @@ Azure HDInsight предлагает облачные решения для ра
 При создании кластера HDInsight или после создания кластера можно добавить учетные записи хранения.  См. статью [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
 
 Подробные сведения о дополнительной учетной записи хранения Azure см. в статье [Использование HDFS-совместимой службы хранилища с Hadoop в HDInsight](hdinsight-hadoop-use-blob-storage.md). Подробные сведения о дополнительном Data Lake Store см. в статье [Создание кластера HDInsight с Data Lake Store с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+
+> [!WARNING]
+> Использование дополнительной учетной записи хранения, местоположение которой отличается от местоположения кластера HDInsight, не поддерживается.
 
 ## <a name="use-hiveoozie-metastore"></a>Использование метахранилища Hive/Oozie
 Если вы хотите сохранить таблицы Hive после удаления кластера HDInsight, рекомендуем использовать пользовательское хранилище метаданных, чтобы в будущем подключить это хранилище к другому кластеру HDInsight.

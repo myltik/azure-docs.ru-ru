@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 194935398809b1905ddc4100b5f09fce7f75a796
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 18a4ab09d83c0a664317191ef15834cc7bf335fc
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -26,18 +27,24 @@ ms.openlocfilehash: 194935398809b1905ddc4100b5f09fce7f75a796
 ## <a name="state-persistence-and-replication"></a>Сохранение состояния и репликация
 Все субъекты Reliable Actors *отслеживают состояние* , так как каждый экземпляр субъекта сопоставляется с уникальным идентификатором. Это означает, что повторные вызовы одного идентификатора субъекта направляются в один и тот же экземпляр субъекта. Это отличается от системы без отслеживания состояния, в которой не гарантируется, что клиентские вызовы будут каждый раз направляться на один и тот же сервер. Поэтому службы субъектов всегда отслеживают состояние.
 
-Несмотря на то, что субъекты отслеживают состояние, это не означает, что они надежно хранят состояние. Субъекты могут выбрать уровень сохранения и репликации состояния на основе их требований к хранению данных:
+Несмотря на то что субъекты отслеживают состояние, это не означает, что они надежно хранят состояние. Субъекты могут выбрать уровень сохранения и репликации состояния на основе их требований к хранению данных:
 
 * **Сохраняемое состояние:** состояние сохраняется на диске и реплицируется на 3 или более реплик. Это самый устойчивый вариант хранения состояния, при котором оно может сохраниться даже после полного сбоя кластера.
 * **Непостоянное состояние:** состояние реплицируется на 3 или более реплик и хранится только в памяти. Это обеспечивает устойчивость в случае сбоя узла, сбоя субъекта и во время обновления и балансировки ресурсов. Однако состояние не сохраняется на диск, поэтому если все реплики будут потеряны одновременно, состояние также теряется.
-* **Несохраняемое состояние:** состояние не реплицируется и не записывается на диск. Для субъектов, которым просто не требуется надежно хранить состояние.
+* **Несохраняемое состояние:** состояние не реплицируется и не записывается на диск. Этот уровень предназначен для субъектов, которым просто не требуется надежно хранить состояние.
 
-Каждый уровень сохраняемости — это просто другая конфигурация *поставщика состояний* и *репликации* службы. Записывается ли состояние на диск, зависит от *поставщика состояний* — компонента Reliable Service, который хранит состояние. А репликация зависит от того, на скольких репликах развертывается служба. Как и в случае со службами Reliable Services, поставщика состояний и число реплик можно легко настроить вручную. Платформа субъектов предоставляет атрибут, который при использовании с субъектом автоматически выбирает поставщика состояний по умолчанию и создает параметры числа реплик для достижения одного из этих трех параметров сохраняемости.
+Каждый уровень сохраняемости — это просто другая конфигурация *поставщика состояний* и *репликации* службы. Записывается ли состояние на диск, зависит от поставщика состояний — компонента Reliable Service, который хранит состояние. А репликация зависит от того, на скольких репликах развертывается служба. Как и в случае со службами Reliable Services, поставщик состояний и число реплик можно легко настроить вручную. Платформа субъектов предоставляет атрибут, который при использовании с субъектом автоматически выбирает поставщик состояний по умолчанию и создает параметры числа реплик для достижения одного из этих трех параметров сохраняемости.
 
 ### <a name="persisted-state"></a>Сохраненное состояние
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
+{
+}
+```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl  extends FabricActor implements MyActor
 {
 }
 ```  
@@ -50,6 +57,12 @@ class MyActor : Actor, IMyActor
 {
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Volatile)
+class MyActorImpl extends FabricActor implements MyActor
+{
+}
+```
 Этот параметр использует поставщик состояний только в памяти и настраивает 3 реплики.
 
 ### <a name="no-persisted-state"></a>Несохраняемое состояние
@@ -59,10 +72,18 @@ class MyActor : Actor, IMyActor
 {
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.None)
+class MyActorImpl extends FabricActor implements MyActor
+{
+}
+```
 Этот параметр использует поставщик состояний только в памяти и настраивает 1 реплику.
 
 ### <a name="defaults-and-generated-settings"></a>Значения по умолчанию и созданные параметры
-При использовании атрибута `StatePersistence` поставщик состояний автоматически выбирается во время выполнения при запуске службы субъекта. Однако число реплик задается средствами построения субъекта Visual Studio во время компиляции. Средства построения автоматически создают *службу по умолчанию* для службы субъекта в ApplicationManifest.xml. Параметры создаются для **минимального размера набора реплик** и **целевого размера набора реплик**. Конечно, вы можете изменить эти параметры вручную, однако при каждом изменении атрибута `StatePersistence` параметрам будут присвоены значения размера набора реплик по умолчанию для выбранного атрибута `StatePersistence`, а все предыдущие значения будут переопределены. Другими словами, указанные в файле ServiceManifest.xml значения будут переопределены **только** во время сборки, при изменении значения атрибута `StatePersistence`. 
+При использовании атрибута `StatePersistence` поставщик состояний автоматически выбирается во время выполнения при запуске службы субъекта. Однако число реплик задается средствами построения субъекта Visual Studio во время компиляции. Средства построения автоматически создают *службу по умолчанию* для службы субъекта в ApplicationManifest.xml. Параметры создаются для **минимального размера набора реплик** и **целевого размера набора реплик**. 
+
+Вы можете изменить эти параметры вручную. Однако при каждом изменении атрибута `StatePersistence` параметрам будут присвоены значения размера набора реплик по умолчанию для выбранного атрибута `StatePersistence`, а все предыдущие значения будут переопределены. Другими словами, указанные в файле ServiceManifest.xml значения будут переопределены *только* во время сборки при изменении значения атрибута `StatePersistence`.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -84,21 +105,21 @@ class MyActor : Actor, IMyActor
 </ApplicationManifest>
 ```
 
-## <a name="state-manager"></a>Диспетчер состояний
-У каждого экземпляра субъекта есть собственный диспетчер состояний: структура данных, подобная словарю, которая надежно хранит пары "ключ-значение". Диспетчер состояний — это оболочка вокруг поставщика состояний. Его можно использовать для хранения данных независимо от того, какой параметр сохраняемости применяется, но он не предоставляет никаких гарантий, что для работающей службы субъекта можно изменить параметр непостоянного состояния (только в памяти) на сохраняемое состояние с помощью последовательного обновления при сохранении данных. Тем не менее, можно изменить количество реплик для запущенной службы. 
+## <a name="state-manager"></a>Диспетчер состояний:
+У каждого экземпляра субъекта есть собственный диспетчер состояний: структура данных, подобная словарю, которая надежно хранит пары "ключ — значение". Диспетчер состояний — это оболочка вокруг поставщика состояний. Его можно использовать для хранения данных независимо от того, какой параметр сохраняемости применяется, но он не предоставляет никаких гарантий, что для работающей службы субъекта можно изменить параметр непостоянного состояния (только в памяти) на сохраняемое состояние с помощью последовательного обновления при сохранении данных. Тем не менее, можно изменить количество реплик для запущенной службы.
 
-Ключи диспетчера состояний должны быть строками, хотя значения универсальные и могут быть любого типа, в том числе пользовательского. Значения, хранящиеся в диспетчере состояний, должны быть сериализуемыми контрактом данных, поскольку они могут передаваться по сети другим узлам во время репликации и быть записаны на диск в зависимости от параметра сохранения состояния субъекта. 
+Ключи диспетчера состояний должны быть строками. Значения являются универсальными и могут быть любого типа, в том числе пользовательского. Значения, хранящиеся в диспетчере состояний, должны быть сериализуемыми контрактом данных, так как они могут передаваться по сети другим узлам во время репликации и быть записаны на диск в зависимости от параметра сохранения состояния субъекта.
 
 Диспетчер состояний предоставляет общие методы словаря для управления состоянием, аналогичные используемым в надежном словаре.
 
 ### <a name="accessing-state"></a>Доступ к состоянию
 Доступ к состоянию можно получить через диспетчер состояний по ключу. Методы диспетчера состояний асинхронны, так как они могут потребовать дискового ввода-вывода, если у субъектов сохраняемое состояние. При первом доступе объекты состояния кэшируются в памяти. Повторные операции доступа к объектам обращаются к объектам непосредственно из памяти и возвращают данные синхронно без дискового ввода-вывода или асинхронного переключения контекста. Объект состояния удаляется из кэша в следующих случаях:
 
-* метод субъекта вызывает необработанное исключение после извлечения объекта из диспетчера состояний;
-* субъект повторно активируется после отключения или из-за сбоя;
-* поставщик состояния записывает состояние на диск. Поведение зависит от реализации поставщика состояний. Поставщик состояний по умолчанию для параметра `Persisted` применяет такое поведение. 
+* Метод субъекта вызывает необработанное исключение после извлечения объекта из диспетчера состояний.
+* Субъект повторно активируется после отключения или из-за сбоя.
+* Поставщик состояния записывает состояние на диск. Поведение зависит от реализации поставщика состояний. Поставщик состояний по умолчанию для параметра `Persisted` применяет такое поведение.
 
-Получить состояние можно с помощью стандартной операции *Get*, которая порождает исключение `KeyNotFoundException`, если для указанного ключа запись не существует. 
+Получить состояние можно с помощью стандартной операции *Get*, которая порождает исключение `KeyNotFoundException`(C#) или `NoSuchElementException`(Java), если для ключа запись не существует.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -115,8 +136,23 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-Получить состояние можно также, используя метод *TryGet*. Он не вызывает исключение, если для указанного ключа запись не существует.
+    public CompletableFuture<Integer> getCountAsync()
+    {
+        return this.stateManager().getStateAsync("MyState");
+    }
+}
+```
+
+Получить состояние можно также используя метод *TryGet*. Он не вызывает исключение, если для ключа запись не существует.
 
 ```csharp
 class MyActor : Actor, IMyActor
@@ -135,6 +171,25 @@ class MyActor : Actor, IMyActor
         }
 
         return 0;
+    }
+}
+```
+```Java
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    public CompletableFuture<Integer> getCountAsync()
+    {
+        return this.stateManager().<Integer>tryGetStateAsync("MyState").thenApply(result -> {
+            if (result.hasValue()) {
+                return result.getValue();
+            } else {
+                return 0;
+            });
     }
 }
 ```
@@ -159,8 +214,23 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-Состояние можно добавить с помощью метода *Add*, который порождает исключение `InvalidOperationException` при попытке добавить ключ, который уже существует.
+    public CompletableFuture setCountAsync(int value)
+    {
+        return this.stateManager().setStateAsync("MyState", value);
+    }
+}
+```
+
+Состояние можно добавить с помощью метода *Add*, который порождает исключение `InvalidOperationException`(C#) или `IllegalStateException`(Java) при попытке добавить ключ, который уже существует.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -177,8 +247,23 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-Состояние также можно добавить с помощью метода *TryAdd* , который вызывает исключение при попытке добавить уже существующий ключ:
+    public CompletableFuture addCountAsync(int value)
+    {
+        return this.stateManager().addOrUpdateStateAsync("MyState", value, (key, old_value) -> old_value + value);
+    }
+}
+```
+
+Состояние также можно добавить с помощью метода *TryAdd*, который не вызывает исключение при попытке добавить уже существующий ключ.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -200,8 +285,28 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-В конце метода субъекта диспетчер состояний автоматически сохраняет все значения, которые были добавлены или изменены с помощью операции вставки или обновления. "Сохранение" может включать в себя сохранение на диск и репликацию в зависимости от используемых параметров. Значения, которые не были изменены, не сохраняются и не реплицируются. Если значения не были изменены, операция сохранения не выполняет никаких действий. При сбое сохранения измененное состояние удаляется, и загружается исходное состояние.
+    public CompletableFuture addCountAsync(int value)
+    {
+        return this.stateManager().tryAddStateAsync("MyState", value).thenApply((result)->{
+            if(result)
+            {
+                // Added successfully!
+            }
+        });
+    }
+}
+```
+
+В конце метода субъекта диспетчер состояний автоматически сохраняет все значения, которые были добавлены или изменены с помощью операции вставки или обновления. "Сохранение" может включать в себя сохранение на диск и репликацию в зависимости от используемых параметров. Значения, которые не были изменены, не сохраняются и не реплицируются. Если значения не были изменены, операция сохранения не выполняет никаких действий. При сбое сохранения измененное состояние удаляется и загружается исходное состояние.
 
 Состояние также можно сохранить вручную, вызвав метод `SaveStateAsync` в базовом субъекте:
 
@@ -213,9 +318,19 @@ async Task IMyActor.SetCountAsync(int count)
     await this.SaveStateAsync();
 }
 ```
+```Java
+interface MyActor {
+    CompletableFuture setCountAsync(int count)
+    {
+        this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value).thenApply();
+
+        this.stateManager().saveStateAsync().thenApply();
+    }
+}
+```
 
 ### <a name="removing-state"></a>Удаление состояния
-Состояние можно удалить из диспетчера состояний субъекта без возможности восстановления, вызвав метод *Remove* . Этот метод вызывает исключение `KeyNotFoundException` при попытке удалить ключ, который не существует:
+Состояние можно удалить из диспетчера состояний субъекта без возможности восстановления, вызвав метод *Remove*. Этот метод вызывает исключение `KeyNotFoundException`(C#) или `NoSuchElementException`(Java) при попытке удалить ключ, который не существует.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -232,8 +347,23 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-Состояние также можно удалить без возможности восстановления с помощью метода *TryRemove* , который не вызывает исключение при попытке удалить несуществующий ключ:
+    public CompletableFuture removeCountAsync()
+    {
+        return this.stateManager().removeStateAsync("MyState");
+    }
+}
+```
+
+Состояние также можно удалить без возможности восстановления с помощью метода *TryRemove*, который не вызывает исключение при попытке удалить несуществующий ключ.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -255,17 +385,32 @@ class MyActor : Actor, IMyActor
     }
 }
 ```
+```Java
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+class MyActorImpl extends FabricActor implements  MyActor
+{
+    public MyActorImpl(ActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    public CompletableFuture removeCountAsync()
+    {
+        return this.stateManager().tryRemoveStateAsync("MyState").thenApply((result)->{
+            if(result)
+            {
+                // State removed!
+            }
+        });
+    }
+}
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Сериализация типа субъекта](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 * [Полиморфизм субъекта и объектно-ориентированные шаблоны проектирования](service-fabric-reliable-actors-polymorphism.md)
 * [Диагностика и мониторинг производительности в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Пример кода](https://github.com/Azure/servicefabric-samples)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+* [Пример кода C#](https://github.com/Azure/servicefabric-samples)
+* [Пример кода Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 

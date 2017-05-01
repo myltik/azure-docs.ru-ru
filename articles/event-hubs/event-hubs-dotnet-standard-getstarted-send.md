@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 420a79a3f98500fa5e9054c3a59d9ac20ecb6cbf
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 51402899c337994ee51dd77159ffe514aec06523
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -33,13 +33,13 @@ ms.lasthandoff: 03/28/2017
 * [Microsoft Visual Studio 2015 или Microsoft Visual Studio 2017](http://www.visualstudio.com). В примерах в этом руководстве используется Visual Studio 2017, но также поддерживается Visual Studio 2015.
 * [Инструментарий Visual Studio 2015 или Visual Studio 2017 для .NET Core](http://www.microsoft.com/net/core).
 * Подписка Azure.
-* Пространство имен концентраторов событий.
+* Пространство имен концентратора событий.
 
-Для отправки сообщений в концентратор событий мы напишем консольное приложение C# с помощью Visual Studio.
+Для отправки сообщений в концентратор событий мы напишем консольное приложение C# в Visual Studio.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Создание пространства имен концентраторов событий и концентратора событий
 
-Первым шагом является использование [портала Azure](https://portal.azure.com) для создания пространства имен для концентраторов событий и получение учетных данных управления, необходимых приложению для взаимодействия с концентратором событий. Чтобы создать пространство имен и концентратор событий, выполните процедуру, описанную в [этой статье](event-hubs-create.md), а затем перейдите к следующим действиям.
+Первым шагом является использование [портала Azure](https://portal.azure.com) для создания пространства имен концентраторов событий и получение учетных данных управления, необходимых приложению для взаимодействия с концентратором событий. Чтобы создать пространство имен и концентратор событий, выполните процедуру, описанную в [этой статье](event-hubs-create.md), а затем перейдите к следующим действиям.
 
 ## <a name="create-a-console-application"></a>Создание консольного приложение
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 03/28/2017
 4. Добавьте новый метод с именем `SendMessagesToEventHub` в класс `Program`, как показано далее:
 
     ```csharp
-    // Creates an Event Hub client and sends 100 messages to the event hub.
+    // Creates an event hub client and sends 100 messages to the event hub.
     private static async Task SendMessagesToEventHub(int numMessagesToSend)
     {
         for (var i = 0; i < numMessagesToSend; i++)
@@ -166,7 +166,7 @@ ms.lasthandoff: 03/28/2017
                 Console.ReadLine();
             }
 
-            // Creates an Event Hub client and sends 100 messages to the event hub.
+            // Creates an event hub client and sends 100 messages to the event hub.
             private static async Task SendMessagesToEventHub(int numMessagesToSend)
             {
                 for (var i = 0; i < numMessagesToSend; i++)

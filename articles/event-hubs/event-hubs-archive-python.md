@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 25dd25d8f8f0388ed7ef11bb26344ad7199fde2e
-ms.openlocfilehash: 3f0487fba592426c835d81a46a752697ecf34d8b
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5e37870f932ce775293b913504f2530d1d8935e1
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/03/2017
 
 1. создать учетную запись хранилища BLOB-объектов Azure, содержащую контейнер больших двоичных объектов, с помощью портала Azure;
 2. создать пространство имен концентратора событий с помощью портала Azure;
-3. создать концентратор событий с функцией архива с помощью портала Azure;
+3. создать концентратор событий с включенной функцией архива с помощью портала Azure;
 4. отправить данные в концентратор событий с помощью сценария Python;
 5. прочитать файлы из архива и обработать их с помощью другого сценария Python.
 

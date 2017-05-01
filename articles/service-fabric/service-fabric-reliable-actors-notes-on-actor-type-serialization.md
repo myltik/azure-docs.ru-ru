@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: f08fc1df10506dead5d049fb2c6cdc29c8f89d90
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: c0eda3f6648c085a7328c6271ed36eafde5ff142
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -41,7 +41,7 @@ public interface VoiceMailBoxActor extends Actor
 }
 ```
 
-Этот интерфейс реализован субъектом, который использует диспетчер состояния для хранения объекта `VoicemailBox` .
+Этот интерфейс реализован субъектом, который использует диспетчер состояния для хранения объекта `VoicemailBox`.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -80,7 +80,7 @@ public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxAc
 В этом примере объект `VoicemailBox` сериализуется в следующих случаях.
 
 * Объект передается между экземпляром субъекта и вызывающим объектом.
-* Объект сохраняется в диспетчере состояния, где он сохраняется на диск и реплицируются на другие узлы.
+* Объект сохраняется в диспетчере состояния, где он сохраняется на диске и реплицируется на другие узлы.
 
 Платформа Reliable Actors использует сериализацию DataContract. Поэтому пользовательские объекты данных и их элементы должны быть аннотированы атрибутами **DataContract** и **DataMember**, соответственно.
 

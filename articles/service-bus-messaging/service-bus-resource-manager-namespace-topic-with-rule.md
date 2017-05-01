@@ -1,5 +1,5 @@
 ---
-title: "Создание раздела, подписки и правила служебной шины Azure с помощью шаблона | Документация Майкрософт"
+title: "Создание подписки на раздел и правила служебной шины Azure с помощью шаблона Azure Resource Manager | Документация Майкрософт"
 description: "Создание пространства имен служебной шины с разделом, подпиской и правилом с помощью шаблона Azure Resource Manager."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,15 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 04/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 16da81e14b7c4059de61b2dfebe081a9e4f08d5e
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 759c5655d7a6dbfff92136968ae8f26ccdeb44af
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Создание пространства имен служебной шины с разделом, подпиской и правилом с помощью шаблона Azure Resource Manager
+
 В этой статье показывается, как использовать шаблон Azure Resource Manager, создающий пространство имен служебной шины с разделом, подпиской и правилом (фильтром). Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
@@ -42,18 +44,21 @@ ms.openlocfilehash: 16da81e14b7c4059de61b2dfebe081a9e4f08d5e
 > 
 
 ## <a name="what-will-you-deploy"></a>Что вы развернете?
+
 С помощью этого шаблона вы развернете пространство имен служебной шины с разделом, подпиской и правилом (фильтром).
 
 [Разделы и подписки служебной шины](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) предоставляют разновидность взаимодействия "один ко многим" в рамках схемы *публикации или подписки*. При использовании разделов и подписок компоненты распределенного приложения не взаимодействуют напрямую друг с другом, а обмениваются сообщениями через раздел, который выступает в качестве посредника. Подписка на раздел напоминает виртуальную очередь, которая получает копии сообщений, отправленных в раздел. Фильтр позволяет определить, какие посылаемые в раздел сообщения должны появляться в определенной подписке на этот раздел.
 
 ## <a name="what-are-rules-filters"></a>Что такое правила (фильтры)?
-Во многих ситуациях сообщения с определенными характеристиками должны обрабатываться разными способами. Для этого можно настроить подписки, обеспечивающие поиск сообщений с нужными свойствами, после чего можно определенным образом изменить эти свойства. Подписки служебной шины регистрируют все сообщения, отправленные в раздел, однако в виртуальную очередь подписки можно скопировать только подмножество этих сообщений. Это возможно благодаря использованию фильтров подписок. Дополнительные сведения о правилах (фильтрах) см. в разделе [Очереди, разделы и подписки служебной шины][Service Bus queues, topics, and subscriptions].
+
+Во многих ситуациях сообщения с определенными характеристиками должны обрабатываться разными способами. Для этого можно настроить подписки, обеспечивающие поиск сообщений с нужными свойствами, после чего можно изменить эти свойства. Подписки служебной шины регистрируют все сообщения, отправленные в раздел, однако в виртуальную очередь подписки можно скопировать только подмножество этих сообщений. Это возможно благодаря использованию фильтров подписок. Чтобы узнать больше о правилах (фильтрах), изучите раздел [Правила и действия](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
 
 [![Развертывание в Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Параметры
+
 С помощью Azure Resource Manager следует определить параметры значений, которые должны указываться на этапе развертывания шаблона. В шаблоне есть раздел `Parameters` , содержащий все значения параметров. Для этих значений необходимо определить параметры, которые будут зависеть от развертываемого проекта либо от среды, в которой выполняется развертывание. Не определяйте параметры для значений, которые не меняются. Значение каждого параметра в шаблоне определяет развертываемые ресурсы.
 
 Ниже описаны параметры, которые определяет шаблон.
@@ -170,8 +175,8 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы создали и развернули ресурсы с помощью диспетчера ресурсов Azure, узнайте, как управлять этими ресурсами, изучив следующие статьи:
 
-* [Управление служебной шиной Azure при помощи службы автоматизации Azure](service-bus-automation-manage.md)
-* [Управление служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md)
+* [Управление служебной шиной Azure](service-bus-management-libraries.md)
+* [Управление служебной шиной с помощью PowerShell](service-bus-manage-with-ps.md)
 * [Управление ресурсами служебной шины с помощью обозревателя служебной шины](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
@@ -182,10 +187,5 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 [Recommended naming conventions for Azure resources]: ../guidance/guidance-naming-conventions.md
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

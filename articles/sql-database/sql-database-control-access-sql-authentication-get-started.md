@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a5084b62a309dba433e2b363322b9a9c362bcdc3
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 1bd474cc547ca2f6aa32944c1a1e5a92f917444a
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/10/2017
 
 * **SQL Server Management Studio.** Скачать и установить последнюю версию среды SQL Server Management Studio (SSMS) можно в статье [Скачивание SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). При подключении к базе данных SQL Azure всегда используйте последнюю версию SSMS, так как постоянно выпускаются новые возможности.
 
-* **Базовый сервер и базы данных**. Для установки и настройки сервера и двух баз данных, используемых в данном руководстве, нажмите кнопку **Развертывание в Azure**. При нажатии кнопки открывается колонка **Deploy from a template** (Развертывание из шаблона). Создайте группу ресурсов и предоставьте **пароль для входа администратора** для создаваемого сервера.
+* **Базовый сервер и базы данных.** Для установки и настройки сервера и двух баз данных, используемых в данном руководстве, нажмите кнопку **Развертывание в Azure**. При нажатии кнопки открывается колонка **Deploy from a template** (Развертывание из шаблона). Создайте группу ресурсов и предоставьте **пароль для входа администратора** для создаваемого сервера.
 
    [![Скачивание](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fsqldbtutorial.blob.core.windows.net%2Ftemplates%2Fsqldbgetstarted.json)
 
@@ -58,11 +58,6 @@ ms.lasthandoff: 03/10/2017
 1. Откройте любой браузер и подключитесь к [порталу Azure](https://portal.azure.com/).
 2. Выполните вход на [портал Azure](https://portal.azure.com/).
 3. На странице **входа** введите учетные данные своей подписки.
-   
-   ![Вход](./media/sql-database-get-started-portal/login.png)
-
-
-<a name="create-logical-server-bk"></a>
 
 ## <a name="view-logical-server-security-information-in-the-azure-portal"></a>Просмотр сведений о безопасности логического сервера на портале Azure
 
@@ -270,7 +265,7 @@ ms.lasthandoff: 03/10/2017
     
    ![Подключение с помощью учетной записи user1 без правила брандмауэра rule1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
 
-3. Щелкните **Параметры**, чтобы указать базу данных, к которой требуется подключиться, а затем введите **sqldbtutorialdb** в раскрывающемся списке **Подключение к базе данных** на вкладке **Свойства подключения**.
+3. В диалоговом окне **Подключиться к серверу** щелкните **Параметры**, чтобы указать базу данных, к которой требуется подключиться, а затем введите **sqldbtutorialdb** в раскрывающемся списке **Подключение к базе данных** на вкладке **Свойства соединения**.
    
    ![Подключение с помощью учетной записи user1 без правила брандмауэра rule2](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 

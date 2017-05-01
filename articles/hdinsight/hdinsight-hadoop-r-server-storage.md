@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
-ms.openlocfilehash: 3e47a7e0382009a07b885a28c6e8d90f9bff9cfb
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 18dcb3a319f78639b27f9e70a2177423192e5958
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -28,7 +28,10 @@ Microsoft R Server в кластере HDInsight имеет доступ к хр
 При создании кластера Hadoop в HDInsight нужно указать учетную запись хранения Azure или Data Lake Store. Определенный контейнер хранилища в этой учетной записи используется для хранения файловой системы создаваемого кластера, например распределенной файловой системы Hadoop (HDFS). Для повышения производительности кластер HDInsight создается в том же центре обработки данных, где находится заданная вами основная учетная запись хранения. Дополнительные сведения см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md "Использование хранилища BLOB-объектов Azure с HDInsight").   
 
 ## <a name="use-multiple-azure-blob-storage-accounts"></a>Использование нескольких учетных записей хранения BLOB-объектов Azure
-При необходимости вы можете осуществлять доступ из кластера HDI к нескольким учетным записям хранения Azure или контейнерам. Для этого при создании кластера следует указать дополнительные учетные записи хранения и выполнить описанный здесь процесс их использования в R.  
+При необходимости вы можете осуществлять доступ из кластера HDI к нескольким учетным записям хранения Azure или контейнерам. Для этого при создании кластера следует указать дополнительные учетные записи хранения и выполнить описанный здесь процесс их использования в R.
+
+> [!WARNING]
+> Использование учетной записи хранения, расположение которой отличается от расположения кластера HDInsight, не поддерживается.
 
 1. Создайте кластер HDInsight с учетной записью хранения **storage1** и контейнером по умолчанию **container1**.
 2. Укажите также дополнительную учетную запись хранения с именем **storage2**.  
@@ -128,7 +131,7 @@ hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShar
 
 Можно также настроить доступ кластера к одному или нескольким дополнительным хранилищам Data Lake Store после создания кластера, открыв запись портала Azure для Data Lake Store и выбрав **Обозреватель данных > Доступ > Добавить**. 
 
-Дополнительные сведения о добавлении доступа кластера HDI к хранилищам Data Lake Store см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
+Дополнительные сведения о добавлении доступа кластера HDI к хранилищам Data Lake Store см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store).
 
 ## <a name="use-the-data-lake-store-with-r-server"></a>Использование хранилища озера данных с R Server
 Когда вы предоставите доступ к хранилищу озера данных, это хранилище можно будет использовать в R Server на HDInsight так же, как дополнительную учетную запись хранения Azure. Единственное отличие состоит в том, что вместо префикса **wasb://** используется **adl://**.

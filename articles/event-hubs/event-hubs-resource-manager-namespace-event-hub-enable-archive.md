@@ -1,6 +1,6 @@
 ---
 title: "Создание пространства имен концентраторов событий Azure и включение архива с помощью шаблона | Документация Майкрософт"
-description: "Описывается создание пространства имен концентраторов событий с концентратором событий и включение архива с помощью шаблона Azure Resource Manager."
+description: "Создание пространства имен концентраторов событий Azure с одним концентратором событий и включение архива с помощью шаблона Azure Resource Manager."
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: shvija;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: cab8a4de9d8d98d77094da5d73f29237829e743a
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 62094629d899f27f56b3afc87bc08c96371acea8
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="create-an-event-hubs-namespace-with-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Создание пространства имен концентраторов событий с концентратором событий и включение архива с помощью шаблона Azure Resource Manager
-Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен, имеющее тип "Концентратор событий", с одним концентратором событий и включить для него функцию архивации. Здесь вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
+# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Создание пространства имен концентраторов событий с концентратором событий и включение архива с помощью шаблона Azure Resource Manager
+Из этой статьи вы узнаете, как с помощью шаблона Azure Resource Manager создать пространство имен типа EventHubs с одним экземпляром концентратора событий и включить для него функцию архивации. Здесь вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Дополнительные сведения о практиках и шаблонах соглашений об именовании ресурсов Azure см. в разделе [Recommended naming conventions for Azure resources][Azure Resources Naming Conventions] (Рекомендуемые соглашения об именовании ресурсов Azure).
 
-Полный шаблон для создания концентратора событий и включения архива приведен [на сайте GitHub][Event Hub and enable Archive template].
+Полный шаблон для создания концентратора событий и включения архива доступен [на сайте GitHub][Event Hub and enable Archive template].
 
 > [!NOTE]
 > Чтобы узнать о новых шаблонах, изучите коллекцию [Шаблоны быстрого запуска Azure][Azure Quickstart Templates] и выполните в ней поиск по запросу "концентраторы событий".
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/08/2017
 > 
 
 ## <a name="what-will-you-deploy"></a>Что вы развернете?
-С помощью этого шаблона вы развернете пространство имен концентраторов событий с концентратором событий и включите архив.
+С помощью этого шаблона вы развернете пространство имен концентраторов событий с концентратором событий и включите архив концентраторов событий.
 
 [Концентраторы событий](event-hubs-what-is-event-hubs.md) — это служба обработки событий, используемая для крупномасштабной передачи данных событий и телеметрии в Azure. Работа службы характеризуется низкой задержкой и высокой надежностью. Архив концентраторов событий позволяет автоматически доставлять потоковые данные из концентраторов событий в выбранное хранилище BLOB-объектов Azure с указанным интервалом времени или размеров.
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 03/08/2017
 "eventHubName":{  
     "type":"string",
     "metadata":{  
-        "description":"Name of the Event Hub"
+        "description":"Name of the event hub"
     }
 }
 ```
@@ -83,7 +83,7 @@ ms.lasthandoff: 03/08/2017
     "minValue":"1",
     "maxValue":"7",
     "metadata":{
-       "description":"How long to retain the data in Event Hub"
+       "description":"How long to retain the data in event hub"
      }
  }
 ```
@@ -114,7 +114,7 @@ ms.lasthandoff: 03/08/2017
     "false",
     "true"],
     "metadata":{
-        "description":"Enable or disable the Archive for your Event Hub"
+        "description":"Enable or disable the Archive for your event hub"
     }
  }
 ```
@@ -202,7 +202,7 @@ ms.lasthandoff: 03/08/2017
 ```
 
 ## <a name="resources-to-deploy"></a>Развертываемые ресурсы
-Создает пространство имен типа **EventHub** с одним концентратором событий и включает архив.
+Создает пространство имен типа **EventHubs** с одним концентратором событий и включает архив.
 
 ```json
 "resources":[  
@@ -274,7 +274,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
+[Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
 [Azure Resources Naming Conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
-[Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
+[Event hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
 

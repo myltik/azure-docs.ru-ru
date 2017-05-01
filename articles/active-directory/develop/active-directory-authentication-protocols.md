@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: dd673ba36689c83021a27d593139f0676b0c5e79
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 51c6a8ae17821d4eb00bf26612bc6e1e434ebbd9
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -26,10 +26,11 @@ ms.lasthandoff: 04/12/2017
 
 ## <a name="authentication-protocols-articles-and-reference"></a>Статьи и другие справочные материалы по протоколам проверки подлинности
 * [Важные сведения об откате ключа подписи в Azure AD](active-directory-signing-key-rollover.md) — дополнительные сведения об откате ключа подписи Azure AD, изменениях, которые можно вносить для автоматического обновления ключа, и порядок обновления самых распространенных сценариев приложений.
-* [Поддерживаемые типы маркеров и утверждений](active-directory-token-and-claims.md) — сведения об утверждениях в маркерах, издаваемых Azure AD.
+* [Справочник по токенам в Azure AD](active-directory-token-and-claims.md) — сведения об утверждениях в токенах, издаваемых Azure AD.
 * [Метаданные федерации](active-directory-federation-metadata.md) — узнайте, как находить и интерпретировать документы метаданных, создаваемые Azure AD.
 * [OAuth 2.0 в Azure AD](active-directory-protocols-oauth-code.md) — сведения о реализации протокола OAuth 2.0 в Azure AD.
 * [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) — сведения об использовании протокола авторизации OAuth 2.0 для проверки подлинности.
+* [Служба обслуживания вызовов с помощью учетных данных клиента](active-directory-protocols-oauth-service-to-service.md) — сведения об использовании потока предоставления учетных данных клиента OAuth 2.0 для вызовов между службами.
 * [Справочник по протоколу SAML](active-directory-saml-protocol-reference.md) — сведения о профилях единого входа и единого выхода SAML в Azure AD.
 
 ## <a name="see-also"></a>См. также

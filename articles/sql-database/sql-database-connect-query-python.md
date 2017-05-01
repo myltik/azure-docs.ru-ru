@@ -1,6 +1,6 @@
 ---
 title: "Подключение к базе данных SQL Azure с помощью Python | Документация Майкрософт"
-description: "В статье представлен пример кода Python, который можно использовать для подключения к базе данных SQL Azure."
+description: "В этой статье представлен пример кода Python, который можно использовать для подключения и выполнения запросов к базе данных SQL Azure."
 services: sql-database
 documentationcenter: 
 author: meet-bhagdev
@@ -8,30 +8,31 @@ manager: jhubbard
 editor: 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/17/2017
 ms.author: meetb;carlrab;sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 91e1dcd5b4a7dc62a09c9deb26622dacba1dcaa1
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: e75058c8b387bc090bf924b9099a64e5d154afa4
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="azure-sql-database-use-python-to-connect-and-query-data"></a>База данных SQL Azure: подключение и запрос данных с помощью Python
 
-С помощью [Python](https://python.org) вы можете подключаться и отправлять запросы к базе данных SQL Azure. В этом руководстве объясняется, как с помощью Python подключаться к базе данных Azure SQL, а также выполнять запросы и использовать инструкции вставки, обновления и удаления.
+ В этом кратком руководстве показано, как, используя [Python](https://python.org), подключиться к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных на платформах Mac OS, Ubuntu Linux и Windows.
 
 Начальной точкой в руководстве являются ресурсы, созданные в одном из этих кратких руководств:
 
 - [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
 
-## <a name="configure-development-environment"></a>Настройка среды разработки
+## <a name="install-the-python-and-database-communication-libraries"></a>Установка библиотек связи Python и базы данных
+
 ### <a name="mac-os"></a>**Mac OS**
 Откройте терминал и перейдите в каталог, в котором вы планируете создать сценарий Python. Введите следующие команды, чтобы установить **brew**, **драйвер Microsoft ODBC для Mac** и **pyodbc**. pyodbc использует драйвер Microsoft ODBC в Linux для подключения к базам данных SQL.
 
@@ -58,9 +59,9 @@ sudo pip install pyodbc==3.1.1
 ```
 
 ### <a name="windows"></a>**Windows**
-Установите [драйвер Microsoft ODBC 13.1](https://www.microsoft.com/download/details.aspx?id=53339). pyodbc использует драйвер Microsoft ODBC в Linux для подключения к базам данных SQL. 
+Установите [драйвер Microsoft ODBC 13.1](https://www.microsoft.com/download/details.aspx?id=53339) (обновите драйвер при появлении соответствующего запроса). Модуль pyodbc использует драйвер Microsoft ODBC в Linux для подключения к базам данных SQL. 
 
-Затем установите pyodbc с помощью pip
+Затем установите **pyodbc** с помощью pip.
 
 ```cmd
 pip install pyodbc==3.1.1
@@ -70,23 +71,26 @@ pip install pyodbc==3.1.1
 
 ## <a name="get-connection-information"></a>Получение сведений о подключении
 
-Получите строку подключения на портале Azure. Используйте строку подключения, чтобы подключиться к базе данных SQL Azure.
+Чтобы получить сведения о подключении для сервера базы данных SQL Azure, используйте приведенные ниже действия. Эти сведения потребуются для подключения к базе данных SQL Azure и выполнения запросов с помощью Python. 
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
-3. На панели **Основные компоненты** базы данных просмотрите полное имя сервера. 
+3. На странице **Обзор** базы данных просмотрите полное имя сервера, как показано на рисунке ниже. Вы можете навести указатель мыши на имя сервера, чтобы отобразился пункт **Щелкните, чтобы скопировать**. 
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
+   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+
+4. Если вы забыли данные для входа на сервер базы данных SQL Azure, перейдите к соответствующей странице, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль.     
    
 ## <a name="select-data"></a>Выбор данных
-Используйте функцию [pyodbc.connect](https://mkleehammer.github.io/pyodbc/api-connection.html) с инструкцией Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx), чтобы запросить данные из базы данных SQL Azure. Функция [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) может использоваться для извлечения результирующего набора из запроса к базе данных SQL. Эта функция фактически принимает любой запрос и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html).
+
+Используйте указанный ниже код, чтобы запросить базу данных SQL Azure, используя функцию [pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) с инструкцией Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Функция [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) используется для извлечения результирующего набора из запроса к базе данных SQL. Эта функция принимает запрос и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
+server = 'your_server.database.windows.net'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
@@ -97,16 +101,15 @@ while row:
     row = cursor.fetchone()
 ```
 
-
 ## <a name="insert-data"></a>Добавление данных
-Для получения автоматически созданных значений [первичного ключа](https://msdn.microsoft.com/library/ms186775.aspx) в базе данных SQL можно использовать свойство [IDENTITY](https://msdn.microsoft.com/library/ff878058.aspx) и объект [SEQUENCE](https://msdn.microsoft.com/library/ms179610.aspx). 
+Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product в указанной базе данных, используя функцию [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкцию Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
+server = 'your_server.database.windows.net'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
@@ -116,14 +119,14 @@ cnxn.commit()
 ```
 
 ## <a name="update-data"></a>Обновление данных
-С помощью функции [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкции Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) можно обновить данные в базе данных SQL Azure.
+Используйте указанный ниже код, чтобы обновить данные в базе данных SQL Azure, используя функцию [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкцию Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
+server = 'your_server.database.windows.net'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
@@ -134,16 +137,15 @@ cnxn.commit()
 
 ```
 
-
 ## <a name="delete-data"></a>Удаление данных
-С помощью функции [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкции Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) можно удалить данные из базы данных SQL Azure.
+Используйте указанный ниже код, чтобы удалить данные в базе данных SQL Azure, используя функцию [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкцию Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc
-server = 'yourserver.database.windows.net'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
+server = 'your_server.database.windows.net'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
@@ -154,8 +156,14 @@ cnxn.commit()
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Ознакомьтесь с разделом [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md).
-* Получите дополнительные сведения о [драйвере Microsoft Python для SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/).
-* Посетите [Центр разработчиков для Python](/develop/python/).
-* Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
+
+- Получите дополнительные сведения о [драйвере Microsoft Python для SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/).
+- Посетите [Центр разработчиков для Python](/develop/python/).
+- Дополнительные сведения о подключении к базе данных SQL с помощью SQL Server Management Studio и выполнении запроса к ней см. [здесь](sql-database-connect-query-ssms.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Visual Studio Code](sql-database-connect-query-vscode.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью .NET](sql-database-connect-query-dotnet.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью PHP](sql-database-connect-query-php.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Node.js](sql-database-connect-query-nodejs.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Java](sql-database-connect-query-java.md).
+- См. дополнительные сведения о [подключении и создании запросов с помощью Ruby](sql-database-connect-query-ruby.md).
 

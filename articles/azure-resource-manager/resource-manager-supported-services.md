@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a740813b013e75a098836290ad8e9ebe76d33b37
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/24/2017
 | Реестр контейнеров |Да |[REST реестра контейнеров ](/rest/api/containerregistry) |[Ресурсы реестра контейнеров](/azure/templates/microsoft.containerregistry/registries) |
 | Служба контейнеров |Да |[REST службы контейнеров](/rest/api/compute/containerservices) |[Ресурсы службы контейнеров](/azure/templates/microsoft.containerservice/containerservices) |
 | Службы жизненного цикла Dynamics |Да | | |
-| Наборы масштабирования |Да |[REST набора масштабирования](/rest/api/compute/virtualmachinescalesets) |[Ресурсы масштабируемого набора](/azure/templates/microsoft.compute/virtualmachinescalesets) |
+| Наборы масштабирования |Да |[REST набора масштабирования](/rest/api/virtualmachinescalesets/) |[Ресурсы масштабируемого набора](/azure/templates/microsoft.compute/virtualmachinescalesets) |
 | Service Fabric |Да |[Service Fabric Rest](/rest/api/servicefabric) | [Ресурсы Service Fabric](/azure/templates/microsoft.servicefabric/clusters) |
 | Виртуальные машины |Да |[Интерфейс REST виртуальной машины](/rest/api/compute/virtualmachines) |[Ресурсы виртуальной машины](/azure/templates/microsoft.compute/virtualmachines) |
 | виртуальные машины (классические); |Ограничено |- |- |
@@ -132,7 +132,7 @@ Azure Active Directory работает с Resource Manager, чтобы акти
 | --- | --- | --- | --- |
 | Монитор |Да |[REST монитора](/rest/api/monitor) |[Ресурсы аналитики](/azure/templates/microsoft.insights/alertrules) |
 | Карты Bing |Да | | |
-| DevTest Labs |Да | [REST для DevTest Labs](/rest/api/dtl) |[Ресурсы DevTest Labs](/azure/templates/microsoft.devtestlab/labs) |
+| DevTest Labs |Да | [REST DevTest Labs](/rest/api/dtl) |[Ресурсы DevTest Labs](/azure/templates/microsoft.devtestlab/labs) |
 | Учетная запись Visual Studio |Да | |[Схема Visual Studio](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
 ## <a name="management-and-security"></a>Управление и безопасность
@@ -157,7 +157,7 @@ Azure Active Directory работает с Resource Manager, чтобы акти
 ## <a name="resource-providers-and-types"></a>Поставщики и типы ресурсов
 При развертывании ресурсов часто бывает необходимо получить сведения о типах и поставщиках ресурсов. Эту информацию можно получить с помощью REST API, Azure PowerShell или интерфейса командной строки Azure.
 
-Чтобы работать с поставщиком ресурсов, его необходимо регистрировать с использованием вашей учетной записи. По умолчанию многие поставщики ресурсов регистрируются автоматически. Тем не менее некоторые поставщики ресурсов может потребоваться зарегистрировать вручную. В приведенных ниже примерах показано, как получить состояние регистрации поставщика ресурсов и зарегистрировать поставщик ресурсов, если это необходимо.
+Чтобы работать с поставщиком ресурсов, его необходимо регистрировать с использованием вашей учетной записи. По умолчанию многие поставщики ресурсов регистрируются автоматически. Тем не менее некоторые поставщики ресурсов может потребоваться зарегистрировать вручную. В приведенных в разделе примерах показано, как получить состояние регистрации поставщика ресурсов и зарегистрировать поставщик ресурсов.
 
 ### <a name="portal"></a>Microsoft Azure
 Можно легко просмотреть список поддерживаемых поставщиков ресурсов, выбрав **Поставщики ресурсов** в колонке подписки. Чтобы зарегистрировать в подписке поставщик ресурсов, щелкните ссылку **Зарегистрировать**.
@@ -255,7 +255,7 @@ az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=
 В следующем примере показано, как получить доступные версии API для конкретного типа ресурса.
 
 ```powershell
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 Выходные данные должны быть следующего вида.

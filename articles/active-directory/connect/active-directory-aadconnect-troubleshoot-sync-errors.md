@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6a466937358932a28604cddf7f32cdfd02a5b88d
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a1190f0ab4caf749cce0b5c9ba45e55f7e6ca8ec
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -180,9 +180,9 @@ b. Атрибут userPrincipalName не соответствует требуе
 #### <a name="related-articles"></a>Связанные статьи
 * [Подготовка пользователей к работе путем синхронизации каталогов с Office 365](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
-### <a name="datavalidationfailed"></a>DataValidationFailed
+### <a name="federateddomainchangeerror"></a>Ошибка FederatedDomainChangeError
 #### <a name="description"></a>Описание
-Ошибка синхронизации **DataValidationFailed** возникает в конкретном случае, когда суффикс атрибута userPrincipalName пользователя изменяется при переходе из одного федеративного домена в другой.
+Ошибка синхронизации **FederatedDomainChangeError** возникает в конкретном случае, когда суффикс атрибута userPrincipalName пользователя изменяется при переходе из одного федеративного домена в другой.
 
 #### <a name="scenarios"></a>Сценарии
 Суффикс атрибута userPrincipalName синхронизированного пользователя изменился при переходе из одного федеративного домена в другой локальный федеративный домен. Например, *userPrincipalName = bob@contoso.com* изменился на *userPrincipalName = bob@fabrikam.com*.
@@ -191,7 +191,7 @@ b. Атрибут userPrincipalName не соответствует требуе
 1. Григорий Авдеев (учетная запись для contoso.com) добавлен в AD как новый пользователь. Для атрибута userPrincipalName учетной записи задано значение bob@contoso.com.
 2. Григорий перешел в другой домен contoso.com, fabrikam.com. Значение атрибута userPrincipalName изменилось на bob@fabrikam.com.
 3. Домены contoso.com и fabrikam.com — это федеративные домены Azure AD.
-4. Атрибут userPrincipalName Григория не обновляется, поэтому возникла ошибка синхронизации DataValidationFailed.
+4. Атрибут userPrincipalName Григория не обновляется, поэтому возникла ошибка синхронизации FederatedDomainChangeError.
 
 #### <a name="how-to-fix"></a>Как устранить
 Если при переходе из домена bob@**contoso.com** в домен bob@**fabrikam.com** (домены **contoso.com** и **fabrikam.com** **федеративные**) суффикс атрибута userPrincipalName изменился, выполните приведенные ниже шаги, чтобы устранить ошибку синхронизации.

@@ -1,6 +1,6 @@
 ---
 title: "MapReduce с Hadoop в HDInsight | Документация Майкрософт"
-description: "Узнайте, как запускать задания MapReduce в Hadoop в кластере HDInsight. Мы запустим простую операцию подсчета слов, реализованную как задание MapReduce на Java."
+description: "Узнайте, как запускать задания MapReduce в Hadoop в кластере HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,24 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 8be0f2f30f815277c4953c223d91c2571c2521a5
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 764b54dd7fa6ac8d7b3fadb0745f06cbd3bff689
+ms.lasthandoff: 04/17/2017
 
 
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Использование MapReduce в Hadoop в HDInsight
 
-[!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
+Узнайте, как выполнять задания MapReduce в кластерах HDInsight. Воспользуйтесь приведенной таблицей, чтобы узнать, как можно использовать MapReduce с HDInsight.
 
-В этой статье рассказывается о том, как с помощью Curl запускать задания MapReduce в Hadoop в кластере HDInsight. Мы запустим простую операцию подсчета слов, реализованную как задание MapReduce на Java.
+| **Используется**... | **... чтобы сделать** | ...with этим **кластером операционной системы** | ...из этого **кластера операционной системы** |
+|:--- |:--- |:--- |:--- |
+| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) |Использование команды Hadoop через **SSH** |Linux |Linux, Unix, Mac OS X или Windows |
+| [REST](hdinsight-hadoop-use-mapreduce-curl.md) |Удаленная отправка задания с помощью **REST** (в примерах используется cURL) |Linux или Windows |Linux, Unix, Mac OS X или Windows |
+| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Удаленная отправка заданий с помощью **Windows PowerShell** |Windows или Linux |Windows |
+| [Удаленный рабочий стол](hdinsight-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 и 3.3) |Использование команды Hadoop с помощью **удаленного рабочего стола** |Windows |Windows |
+
+> [!IMPORTANT]
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Чтобы узнать больше, ознакомьтесь с [нерекомендуемыми версиями HDInsight 3.2 и 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a id="whatis"></a>Что такое MapReduce
 
-Hadoop MapReduce — это программная платформа для написания заданий, обрабатывающих большие объемы данных. Входные данные разбиваются на независимые блоки, которые затем обрабатываются параллельно на узлах кластера. Задание MapReduce состоят из двух функций.
+Hadoop MapReduce — это программная платформа для написания заданий, обрабатывающих большие объемы данных. Входные данные разбиваются на независимые блоки, которые затем обрабатываются параллельно на узлах кластера. Задание MapReduce состоит из двух функций.
 
 * **Mapper**(Модуль сопоставления) — принимает входные данные, анализирует их (обычно с помощью фильтрации и сортировки) и передает кортежи (пары «ключ-значение»).
 
@@ -48,42 +56,31 @@ Hadoop MapReduce — это программная платформа для н
 
 Задание MapReduce может быть реализовано на различных языках. Java — это наиболее распространенная реализация, которая используется в данном документе для примера.
 
-### <a name="hadoop-streaming"></a>Потоковая передача Hadoop
+## <a name="development-languages"></a>Языки разработки
 
-Языки или платформы на основе Java или виртуальной машины Java (например, Scalding или Cascading) можно запускать непосредственно как задание MapReduce, точно также как запускается приложение Java. Другие языки и платформы, например C# или Python, или автономные исполняемые файлы, при запуске должны использовать потоковую передачу Hadoop.
+Языки или платформы на основе Java или виртуальной машины Java можно запускать непосредственно как задание MapReduce. В качестве примера в этом документе приведено приложение MapReduce на языке Java. Прочие языки и платформы, например C# или Python, или изолированные исполняемые файлы должны использовать потоковую передачу Hadoop.
 
-Потоковая передача Hadoop взаимодействует с модулем сопоставления и редуктором через STDIN и STDOUT. Модуль сопоставления и редуктор читают данные по одной строке из STDIN и записывают выходные данные в STDOUT. Каждая строка, которая читается или генерируется модулем сопоставления или редуктором, должна иметь формат пары «ключ-значение», разделенных символом табуляции:
+Потоковая передача Hadoop взаимодействует с модулями сопоставления и редукции через потоки STDIN и STDOUT. Модули сопоставления и редукции построчно считывают данные из потока STDIN и записывают выходные данные в поток STDOUT. Каждая строка, которая читается или генерируется модулем сопоставления или редукции, должна быть в формате пар "ключ-значение", разделенных знаком табуляции.
 
     [key]/t[value]
 
 Дополнительные сведения см. в документации по [потоковой передаче Hadoop](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-Примеры использования потоковой передачи Hadoop с HDInsight см. в следующих статьях:
+Примеры использования потоковой передачи Hadoop с HDInsight приведены в следующих документах:
+
+* [Использование языка C# для потоковой передачи MapReduce в Hadoop в HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
 * [Разработка заданий Python MapReduce](hdinsight-hadoop-streaming-python.md)
 
-## <a id="data"></a>Сведения о демонстрационных данных
+## <a id="data"></a>Демонстрационные данные
 
-В этом примере в качестве демонстрационных данных вы будете использовать блокноты Леонардо да Винчи, которые предоставляются в виде текстового документа в кластере HDInsight.
+HDInsight предоставляет различные наборы демонстрационных данных, которые хранятся в каталогах `/example/data` и `/HdiSamples`. Эти каталоги находятся в хранилище по умолчанию для кластера. В этом документе мы используем файл `/example/data/gutenberg/davinci.txt`. Этот файл содержит записные книжки Леонардо да Винчи.
 
-Демонстрационные данные хранятся в хранилище BLOB-объектов Azure, используемом HDInsight в качестве файловой системы по умолчанию для кластеров Hadoop. HDInsight может обращаться к файлам хранилища BLOB-объектов с помощью префикса **wasb** . Поэтому для доступа к файлу sample.log необходимо использовать следующий синтаксис:
+## <a id="job"></a>Пример MapReduce
 
-    wasbs:///example/data/gutenberg/davinci.txt
+Пример приложения MapReduce для подсчета слов входит в состав кластера HDInsight. Этот примере расположен в каталоге `/example/jars/hadoop-mapreduce-examples.jar` в хранилище по умолчанию для кластера.
 
-Поскольку хранилище BLOB-объектов Azure является хранилищем по умолчанию для HDInsight, вы также можете обратиться к файлу, используя путь **/example/data/gutenberg/davinci.txt**
-
-> [!NOTE]
-> Предыдущий синтаксис **wasbs:///** используется для обращения к файлам, которые хранятся в контейнере хранилища по умолчанию для вашего кластера HDInsight. Если вы указали дополнительные учетные записи хранения при подготовке кластера и хотите обращаться к файлам из этих учетных записей, это можно сделать, указав имя контейнера и адрес учетной записи хранения. Например, **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
-
-
-## <a id="job"></a>Сведения о примере MapReduce
-
-Задание MapReduce, используемое в данном примере, находится в файле **wasbs://example/jars/hadoop-mapreduce-examples.jar** и предоставляется с кластером HDInsight. Это задание является примером операции подсчета слов, которая будет выполняться в файле **davinci.txt**.
-
-> [!NOTE]
-> В кластерах HDInsight 2.1 файл находится по этому адресу: **wasbs:///example/jars/hadoop-examples.jar**.
-
-Для справки ниже приведен код Java задания MapReduce для счетчика слов:
+Ниже приведен исходный код Java приложения MapReduce из файла `hadoop-mapreduce-examples.jar`.
 
 ```java
 package org.apache.hadoop.examples;
@@ -157,30 +154,38 @@ public class WordCount {
 }
 ```
 
-Инструкции по написанию собственного задания MapReduce см. в статье [Разработка программ MapReduce на Java для Hadoop в HDInsight на платформе Linux](hdinsight-develop-deploy-java-mapreduce-linux.md).
+Инструкции по написанию приложений MapReduce см. в следующих документах:
+
+* [Разработка программ MapReduce на Java для Hadoop в HDInsight на платформе Linux](hdinsight-develop-deploy-java-mapreduce-linux.md)
+
+* [Разработка программ потоковой передачи на Python для HDInsight](hdinsight-hadoop-streaming-python.md)
 
 ## <a id="run"></a>Запуск MapReduce
 
-HDInsight может запускать задания HiveQL с помощью различных методов. Используйте следующую таблицу, чтобы решить, какой метод подходит вам, а затем перейдите по ссылке, чтобы открыть пошаговое руководство.
+HDInsight может выполнять задания HiveQL, используя различные методы. Используйте следующую таблицу, чтобы решить, какой метод подходит вам, а затем перейдите по ссылке к пошаговому руководству.
 
 | **Используется**... | **... чтобы сделать** | ...with этим **кластером операционной системы** | ...из этого **кластера операционной системы** |
 |:--- |:--- |:--- |:--- |
 | [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) |Использование команды Hadoop через **SSH** |Linux |Linux, Unix, Mac OS X или Windows |
 | [Curl](hdinsight-hadoop-use-mapreduce-curl.md) |Удаленная отправка заданий с помощью **REST** |Windows или Linux |Linux, Unix, Mac OS X или Windows |
 | [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Удаленная отправка заданий с помощью **Windows PowerShell** |Windows или Linux |Windows |
-| [Удаленный рабочий стол](hdinsight-hadoop-use-mapreduce-remote-desktop.md) |Использование команды Hadoop с помощью **удаленного рабочего стола** |Windows |Windows |
+| [Удаленный рабочий стол](hdinsight-hadoop-use-mapreduce-remote-desktop.md) (HDInsight 3.2 и 3.3) |Использование команды Hadoop с помощью **удаленного рабочего стола** |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Чтобы узнать больше, ознакомьтесь с [нерекомендуемыми версиями HDInsight 3.2 и 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 ## <a id="nextsteps"></a>Дальнейшие действия
 
-Хотя платформа MapReduce предоставляет мощные диагностические функции, она может быть сложной для освоения. Некоторые платформы на основе Java упрощают определение приложений MapReduce, а такие технологии, как Pig и Hive, упрощают работу с данными в HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
+Чтобы узнать больше о работе с данными в HDInsight, ознакомьтесь со следующими документами:
 
 * [Разработка программ MapReduce на Java для HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
+
 * [Разработка программ MapReduce с потоковой передачей Python для HDInsight](hdinsight-hadoop-streaming-python.md)
+
 * [Разработка заданий Scalding MapReduce с Apache Hadoop в HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
+
 * [Использование Hive с HDInsight][hdinsight-use-hive]
+
 * [Использование Pig с HDInsight][hdinsight-use-pig]
 
 

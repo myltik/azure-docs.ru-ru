@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
-ms.openlocfilehash: 26a3e54b00b37d4488a3f1c787c44bbbb5078268
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 7d666b81f6c836e161d3c97512767638c088d3c8
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -172,10 +173,5 @@ ms.openlocfilehash: 26a3e54b00b37d4488a3f1c787c44bbbb5078268
 * Чтобы узнать об использовании создаваемых автоматически резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md)
 * Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md)  
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Примеры концентраторов событий Azure | Документация Майкрософт"
-description: "Примеры концентраторов событий"
+description: "Примеры концентраторов событий Azure"
 services: event-hubs
 documentationcenter: na
 author: jtaubensee
@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: f3c8f6e52b8713bcdb58d55e8bbc2301a7c316e4
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 2eaf642d3d6617c8500aee283809209a5f31ef88
+ms.lasthandoff: 04/18/2017
 
 ---
 
 # <a name="event-hubs-samples"></a>Примеры концентраторов событий 
 
-Примеры концентраторов событий демонстрируют основные функции [концентраторов событий Azure](/azure/event-hubs/). В этой статье приведены категории примеров с описаниями и ссылками.
+Примеры концентраторов событий Azure демонстрируют основные функции [концентраторов событий Azure](/azure/event-hubs/). В этой статье приведены категории примеров с описаниями и ссылками.
 
 На момент написания этой статьи примеры концентраторов событий доступны по нескольким ссылкам:
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/09/2017
 
 ### <a name="send-events"></a>Отправка событий 
 
-В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) показано, как написать консольное приложение для .NET Core, которое отправляет события в концентратор событий.
+В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) показано, как написать консольное приложение .NET Core, которое отправляет события в концентратор событий.
 
 ### <a name="receive-events"></a>Получение событий 
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 03/09/2017
 
 ### <a name="pull-web-data-into-an-event-hub"></a>Извлечение веб-данных в концентратор событий 
 
-В [этом примере](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) показано, как извлечь данные из общедоступных каналов (например из информационного канала Министерства транспорта США) и передать их в концентратор событий.
+В [этом примере](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) показано, как извлечь данные из общедоступных веб-каналов (например, из информационного веб-канала Министерства транспорта США) и передать их в концентратор событий.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

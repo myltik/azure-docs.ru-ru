@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 3539da8afe5781d74cbf723090050b767373f268
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d1cb0751633f1a190d8ecfe1888ab6cdd8736480
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -33,10 +33,6 @@ ms.lasthandoff: 03/25/2017
 >
 >
 
-> [!IMPORTANT]
-> Сейчас доступна **предварительная версия** служб Azure Analysis Services. Некоторые возможности еще не реализованы. Обязательно ознакомьтесь с разделом [Ожидаемые возможности предварительной версии](#preview-expectations) в этой статье. Кроме того, следите за последними новостями в [блоге по Azure Analysis Services](https://go.microsoft.com/fwlink/?linkid=830920).
-> 
-> 
 
 ## <a name="built-on-sql-server-analysis-services"></a>На основе SQL Server Analysis Services
 Службы Azure Analysis Services совместимы с уже знакомыми вам службами SQL Server 2016 Analysis Services выпуска Enterprise Edition. Службы Azure Analysis Services поддерживают табличные модели на уровне совместимости 1200. Кроме того, также поддерживаются DirectQuery, секции, безопасность на уровне строк, двунаправленные связи и переводы.
@@ -53,14 +49,12 @@ ms.lasthandoff: 03/25/2017
 
 Так как сервер находится в облаке, подключение к облачным источникам данных не вызывает затруднений. При подключении к локальным источникам данных [локальный шлюз данных](analysis-services-gateway.md) обеспечивает быстрое и надежное соединение с сервером служб Analysis Services в облаке.  
 
- \* Некоторые источники данных пока не поддерживаются в предварительной версии. Дополнительные сведения см. в разделе [Ожидаемые возможности предварительной версии](#preview-expectations) этой статьи.
 
 ## <a name="explore-your-data-from-anywhere"></a>Анализ данных из любого расположения
-Подключайтесь к серверам и [получайте данные](analysis-services-connect.md), используя любое средство или программу. Службы Azure Analysis Services поддерживают подключение из Power BI Desktop, Excel, пользовательских приложений и средств, использующих браузер.
+Подключайтесь к серверам и получайте данные, используя любое средство или программу. Службы Azure Analysis Services поддерживают подключение из Power BI Desktop, Excel, пользовательских приложений и средств, использующих браузер.
 
 ![Визуализации данных](./media/analysis-services-overview/aas-overview-visualization.png)
 
- \* Power BI Embedded пока не поддерживается в предварительной версии.
 
 ## <a name="secure"></a>Безопасность
 #### <a name="user-authentication"></a>Аутентификация пользователей
@@ -93,31 +87,6 @@ ms.lasthandoff: 03/25/2017
 У вас есть предложения или идеи касательно функций? Оставляйте свои комментарии на [этой странице](https://aka.ms/azureanalysisservicesfeedback).
 
 У вас есть предложения относительно документации? Чтобы добавить комментарии, щелкните надпись Disqus в нижней части каждой статьи.
-
-## <a name="preview-expectations"></a>Ожидаемые возможности предварительной версии
-Сейчас доступна предварительная версия служб Azure Analysis Services. Существует несколько моментов, на которые следует обратить внимание.
-
-##### <a name="server-modes"></a>Режимы сервера
-Сейчас службы Azure Analysis Services поддерживают табличный режим для табличных моделей на уровне совместимости 1200. Многомерная модель, а также режим интеллектуального анализа данных и PowerPivot для SharePoint не поддерживаются.
-
-##### <a name="data-sources"></a>Источники данных
-В следующей таблице приведены источники данных, которые поддерживаются в табличных моделях 1200, развернутых на сервере служб Azure Analysis Services предварительной версии.
-
-| **Облако** | **Локальный (требуется шлюз данных)** |
-| --- | --- |
-| База данных SQL |SQL Server |
-| Хранилище данных SQL |APS |
-| Oracle | Oracle |
-| Teradata | |
-
-### <a name="data-source-providers"></a>Поставщики источников данных
-Чтобы подключиться к источникам данных, для моделей данных в Azure Analysis Services могут требоваться не те поставщики данных, что для SQL Server Analysis Services. Требования к поставщику данных зависят от источника данных (облачного или локального) и типа модели данных ("в памяти" или режим прямых запросов). Дополнительные сведения см. в статье [Datasource connections](analysis-services-datasource.md) (Подключение к источникам данных).
-
-### <a name="client-connections"></a>Клиентские подключения
-
-Клиентским приложениям требуется последняя версия [поставщиков данных](analysis-services-data-providers.md) клиента для подключения к службам Azure Analysis Services.
-
-Книги Excel с активными подключениями к серверу служб Azure Analysis Services, а также книги, сохраненные в OneDrive или SharePoint Online, не поддерживаются.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы достаточно знаете о службах Azure Analysis Services, пора приступать к работе. Узнайте, как [создать сервер](analysis-services-create-server.md) в Azure и [развернуть на нем табличную модель](analysis-services-deploy.md).
