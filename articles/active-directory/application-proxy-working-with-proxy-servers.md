@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07adf751001a49e0365dde7cb8d7d2317a6b8134
-ms.openlocfilehash: d79c8418769656ecfd35a71a450176bd27427f68
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 64d06a67ee5480e6bdbac2f6745ea32faa2cf003
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/27/2017
 * Настройка соединителей для обхода локальных исходящих прокси-серверов.
 * Настройка соединителей для доступа к прокси приложения Azure AD через исходящий прокси-сервер.
 
-Дополнительные сведения о работе соединителей см. в статье [Как обеспечить безопасный удаленный доступ к локальным приложениям](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started).
+Дополнительные сведения о работе соединителей см. в статье [Как обеспечить безопасный удаленный доступ к локальным приложениям](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
 ## <a name="configure-your-connectors"></a>Настройка соединителей
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/27/2017
   </appSettings>
 </configuration>
 ```
-Чтобы служба обновления соединителя также обходила прокси-сервер, измените аналогичным образом и файл ApplicationProxyConnectorUpdaterService.exe.config, расположенный в каталоге C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
+Чтобы служба обновления соединителя также обходила прокси-сервер, измените аналогичным образом и файл ApplicationProxyConnectorUpdaterService.exe.config, расположенный в каталоге C:\Program Files\Microsoft AAD App Proxy Connector Updater.
 
 Обязательно сделайте копии исходных файлов на случай, если потребуется восстановить конфигурации по умолчанию.
 
@@ -122,7 +122,7 @@ ms.lasthandoff: 02/27/2017
 
 ### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Шаг 2. Настройка прокси-сервера для передачи трафика соединителя и связанных с ним служб
 
-В настройках прокси-сервера нужно учесть&4; аспекта:
+В настройках прокси-сервера нужно учесть 4 аспекта:
 * правила для исходящих подключений прокси-сервера;
 * проверка подлинности прокси-сервера;
 * порты прокси-сервера;
@@ -172,7 +172,7 @@ ms.lasthandoff: 02/27/2017
 
 Для определения и устранения проблем с подключением соединителя мы рекомендуем выполнить запись сетевых данных для службы соединителя во время ее запуска. Это может оказаться непростой задачей, так что давайте рассмотрим советы по сбору и фильтрации данных трассировки сети.
 
-Вы можете использовать выбранное средство мониторинга. Для целей этой статьи мы использовали Microsoft Network Monitor 3.4. Эту версию можно загрузить [здесь](https://www.microsoft.com/en-us/download/details.aspx?id=4865).
+Вы можете использовать выбранное средство мониторинга. Для целей этой статьи мы использовали Microsoft Network Monitor 3.4. Эту версию можно загрузить [здесь](https://www.microsoft.com/download/details.aspx?id=4865).
 
 Примеры и фильтры, которые мы используем ниже, относятся именно к сетевому монитору, но те же принципы можно применить к любому средству анализа.
 
@@ -212,7 +212,7 @@ ms.lasthandoff: 02/27/2017
 
  ![Пример списка отфильтрованных запросов и ответов HTTP](./media/application-proxy-working-with-proxy-servers/http-requests.png)
 
-Теперь нужно найти запросы CONNECT, которые демонстрируют взаимодействие с прокси-сервером. В случае успеха вы получите ответ OK с HTTP-кодом&200;.
+Теперь нужно найти запросы CONNECT, которые демонстрируют взаимодействие с прокси-сервером. В случае успеха вы получите ответ OK с HTTP-кодом 200.
 
 Если отобразятся другие коды ответов, например 407 или 502, это означает, что прокси-сервер требует проверки подлинности или не разрешает передачу трафика по другой причине. На этом этапе следует обратиться в службу поддержки прокси-сервера.
 
@@ -240,7 +240,7 @@ ms.lasthandoff: 02/27/2017
 
 Если проблемы с подключением соединителя не удалось устранить, отправьте запрос в службу технической поддержки. Мы поможем вам с устранением неполадок.
 
-Сведения об устранении ошибок соединителя прокси приложения см. в [этой статье](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot).
+Сведения об устранении ошибок соединителя прокси приложения см. в [этой статье](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

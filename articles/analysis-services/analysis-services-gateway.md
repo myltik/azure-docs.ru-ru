@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 90584f60864589744888817ea71d0eb0d4d170ff
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: c7127f4bd89bf00a4ef72e54dc7694a1766e5762
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -129,6 +129,25 @@ ms.lasthandoff: 11/17/2016
 Если у вас возникли проблемы с установкой или настройкой шлюза, см. статью [Устранение неполадок локального шлюза данных](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/). Если возникли проблемы с брандмауэром, ознакомьтесь с разделами о настройке брандмауэра или прокси-сервера.
 
 При возникновении проблем с настройкой прокси-сервера для шлюза см. статью [Настройка параметров прокси-сервера для шлюзов Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
+
+### <a name="telemetry"></a>Телеметрия
+Телеметрию можно использовать для мониторинга и устранения неполадок. 
+
+**Включение телеметрии**
+
+1.    Проверьте клиентский каталог локального шлюза данных на компьютере. Обычно это каталог %системный_диск%\Program Files\On-premises data gateway. Кроме того, можно открыть консоль "Службы" и проверить свойство "Путь доступа к исполняемому файлу" для службы локального шлюза данных.
+2.    В файле Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config в каталоге клиента выполните указанные ниже действия. Измените значение параметра SendTelemetry на true.
+        
+    ```
+        <setting name="SendTelemetry" serializeAs="String">
+                    <value>true</value>
+        </setting>
+    ```
+
+3.    Сохраните изменения и перезапустите службу Windows "Локальный шлюз данных".
+
+
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Управление службами Analysis Services](analysis-services-manage.md)

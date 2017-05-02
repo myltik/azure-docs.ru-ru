@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 5bff7fa34fd8ce14a35018dfd3c13b9ca2019f2e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 000eaead1805ff06278b312a240aca07035e7289
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -82,6 +82,9 @@ Azure Marketplace недоступен для клиентов из Азерба
 
 ## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>Переносится ли база данных ClearDB MySQL при переносе ресурсов из одной подписки в другую?
 При переносе ресурсов из одной подписки в другую действуют некоторые [ограничения](app-service-web/app-service-move-resources.md) . База данных ClearDB MySQL — это сторонняя служба, в связи с чем она не перемещается при переносе подписки Azure. Перенос базы данных MySQL необходимо выполнить до переноса ресурсов Azure, иначе базы данных ClearDB MySQL могут быть отключены. Сначала вручную перенесите свои базы данных, а затем измените подписку веб-приложения. 
+
+## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>В моей подписке достигнута предельная сумма расходов. Предел был снят, и служба приложений работает, однако база данных недоступна. Как повторно включить базу данных ClearDB?
+Чтобы повторно включить базу данных, обратитесь в [службу поддержки ClearDB](https://www.cleardb.com/developers/help/support). Сообщите данные вашей подписки Azure и имя базы данных.
 
 ## <a name="can-i-transfer-a-cleardb-database-from-a-credit-card-subscription-to-an-ea-subscription"></a>Можно ли перенести базу данных ClearDB из подписки с кредитной карты в подписку EA?
 Для существующих баз данных ClearDB используется кредитная карта, связанная с действующими подписками. Чтобы использовать подписку EA, необходимо перенести данные в новую базу данных:

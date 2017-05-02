@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 5a39d4ec9bbf1c7672267c7e89c957ebc49f1f3a
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -124,6 +125,14 @@ ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
 * Откройте терминал и запустите collectd в режиме подробного протоколирования, чтобы проверить, не сообщает ли он о каких-либо неполадках:
   * `sudo collectd -f`
 
+## <a name="known-issue"></a>Известная проблема
+
+Подключаемый модуль записи для Application Insights несовместим с некоторыми подключаемыми модулями чтения. Некоторые подключаемые модули иногда отправляют сообщение "не число", когда подключаемый модуль Application Insights ожидает число с плавающей запятой.
+
+Симптом. В журнале collectd содержатся ошибки, в которых есть текст "AI: ... SyntaxError: непредвиденный токен N".
+
+Обходное решение. Исключите данные, собранные подключаемым модулем записи, с которым связана проблема. 
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -134,12 +143,6 @@ ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 18d64f1ad4ef0dd41ae9302d08e02e94d1c608f5
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 766120913d419ec8090a4f25d304f2d3cf9b6693
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/17/2016
 * **Локальный шлюз**. Если один или несколько источников данных находятся в локальной сети вашей организации, необходимо установить [локальный шлюз данных](analysis-services-gateway.md). Этот шлюз необходим для подключения сервера в облаке к локальным источникам данных для обработки и обновления данных в модели.
 
 ## <a name="to-deploy-a-tabular-model-from-ssdt"></a>Развертывание табличной модели из SSDT
-Чтобы выполнить развертывание из SSDT, убедитесь, что используется [последняя версия](https://msdn.microsoft.com/library/mt204009.aspx) с обновлением от 30 сентября 2016 г. или более поздним.
+Чтобы выполнить развертывание из SSDT, убедитесь в том, что используется [последняя версия](https://msdn.microsoft.com/library/mt204009.aspx).
 
 > [!TIP]
 > Перед развертыванием убедитесь, что можете обрабатывать данные в таблицах. В средстве SSDT последовательно выберите элементы **Модель** > **Обработать** > **Обработать все**. Если произойдет сбой обработки, развертывание также завершится сбоем.

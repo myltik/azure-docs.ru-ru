@@ -4,18 +4,19 @@ description: "Получение данных телеметрии из Microsof
 services: application-insights
 documentationcenter: 
 author: mazharmicrosoft
-manager: douge
+manager: carmonm
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2015
+ms.date: 04/16/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: 8a000ecda94edbeab8c0438c63d6b66dc7f0902b
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 948c894cba1b8bb513a26d720cbe433b38353d03
+ms.lasthandoff: 04/17/2017
 
 
 ---
@@ -37,9 +38,9 @@ ms.openlocfilehash: 8a000ecda94edbeab8c0438c63d6b66dc7f0902b
     ![Щелкните значок «+» и последовательно выберите «Службы для разработчиков», Application Insights.](./media/app-insights-sample-mscrm/01.png)
    
     Выберите приложение ASP.NET в качестве типа приложения.
-3. Откройте вкладку «Быстрый запуск», а затем —сценарий кода.
+3. Откройте страницу "Начало работы", а затем откройте "Мониторинг и диагностика приложения на стороне клиента".
    
-    ![](./media/app-insights-sample-mscrm/03.png)
+    ![Фрагмент кода для вставки на веб-страницу](./media/app-insights-sample-mscrm/03.png)
 
 **Не закрывайте страницу с кодом** , выполняя следующий шаг в другом окне браузера. Код вскоре вам понадобится. 
 
@@ -47,40 +48,40 @@ ms.openlocfilehash: 8a000ecda94edbeab8c0438c63d6b66dc7f0902b
 1. Откройте экземпляр CRM Online и войдите с правами администратора.
 2. Последовательно откройте элементы "Параметры Microsoft Dynamics CRM", "Настройка", "Настройка системы".
    
-    ![](./media/app-insights-sample-mscrm/04.png)
+    ![Параметры Microsoft Dynamics CRM](./media/app-insights-sample-mscrm/04.png)
    
-    ![](./media/app-insights-sample-mscrm/05.png)
+    ![Параметры > Настройки](./media/app-insights-sample-mscrm/05.png)
 
-    ![](./media/app-insights-sample-mscrm/06.png)
+    ![Настройка параметра системы](./media/app-insights-sample-mscrm/06.png)
 
 1. Создайте ресурс JavaScript.
    
-    ![](./media/app-insights-sample-mscrm/07.png)
+    ![Диалоговое окно создания веб-ресурса](./media/app-insights-sample-mscrm/07.png)
    
     Присвойте ему имя, выберите тип **Script (JScript)** и откройте текстовый редактор.
    
-    ![](./media/app-insights-sample-mscrm/08.png)
+    ![Откройте текстовый редактор](./media/app-insights-sample-mscrm/08.png)
 2. Скопируйте код из Application Insights. При копировании необходимо пропускать теги скриптов. См. ниже снимок экрана.
    
-    ![](./media/app-insights-sample-mscrm/09.png)
+    ![Задайте ключ инструментирования](./media/app-insights-sample-mscrm/09.png)
    
     Код содержит ключ инструментирования, который идентифицирует ресурс Application Insights.
 3. Щелкните «Сохранить», а затем «Опубликовать».
    
-    ![](./media/app-insights-sample-mscrm/10.png)
+    ![Сохранение и публикация](./media/app-insights-sample-mscrm/10.png)
 
 ### <a name="instrument-forms"></a>Формы инструментов
 1. В Microsoft CRM Online откройте форму «Учетная запись».
    
-    ![](./media/app-insights-sample-mscrm/11.png)
+    ![Форма учетной записи](./media/app-insights-sample-mscrm/11.png)
 2. Откройте свойства формы.
    
-    ![](./media/app-insights-sample-mscrm/12.png)
+    ![Свойства формы](./media/app-insights-sample-mscrm/12.png)
 3. Добавьте созданный веб-ресурс JavaScript.
    
-    ![](./media/app-insights-sample-mscrm/13.png)
+    ![Меню "Добавить"](./media/app-insights-sample-mscrm/13.png)
    
-    ![](./media/app-insights-sample-mscrm/14.png)
+    ![Добавление веб-ресурса](./media/app-insights-sample-mscrm/14.png)
 4. Сохраните и опубликуйте настройки формы.
 
 ## <a name="metrics-captured"></a>Собранные показатели телеметрии
@@ -89,45 +90,45 @@ ms.openlocfilehash: 8a000ecda94edbeab8c0438c63d6b66dc7f0902b
 Ниже приведены примеры отображаемых данных.
 
 #### <a name="application-health"></a>Работоспособность приложения
-![](./media/app-insights-sample-mscrm/15.png)
+![Время загрузки образца страницы](./media/app-insights-sample-mscrm/15.png)
 
-![](./media/app-insights-sample-mscrm/16.png)
+![Пример диаграммы просмотров страницы](./media/app-insights-sample-mscrm/16.png)
 
 Исключения браузера:
 
-![](./media/app-insights-sample-mscrm/17.png)
+![Диаграмма "Исключения браузера"](./media/app-insights-sample-mscrm/17.png)
 
 Щелкните диаграмму, чтобы получить более подробную информацию.
 
-![](./media/app-insights-sample-mscrm/18.png)
+![Список исключений](./media/app-insights-sample-mscrm/18.png)
 
 #### <a name="usage"></a>Использование
-![](./media/app-insights-sample-mscrm/19.png)
+![Представления числа пользователей, сеансов и просмотров страниц](./media/app-insights-sample-mscrm/19.png)
 
-![](./media/app-insights-sample-mscrm/20.png)
+![Диаграммы сеансов](./media/app-insights-sample-mscrm/20.png)
 
-![](./media/app-insights-sample-mscrm/21.png)
+![Версии браузеров](./media/app-insights-sample-mscrm/21.png)
 
 #### <a name="browsers"></a>Браузеры
-![](./media/app-insights-sample-mscrm/22.png)
+![Разбивка времени загрузки страницы](./media/app-insights-sample-mscrm/22.png)
 
-![](./media/app-insights-sample-mscrm/23.png)
+![Количество сеансов по версиям браузера](./media/app-insights-sample-mscrm/23.png)
 
 #### <a name="geolocation"></a>Географическое положение
-![](./media/app-insights-sample-mscrm/24.png)
+![Число сеансов по странам](./media/app-insights-sample-mscrm/24.png)
 
-![](./media/app-insights-sample-mscrm/25.png)
+![Число сеансов и пользователей по странам](./media/app-insights-sample-mscrm/25.png)
 
 #### <a name="inside-page-view-request"></a>Запрос на просмотр внутренней страницы
-![](./media/app-insights-sample-mscrm/26.png)
+![Сводка по просмотрам страницы](./media/app-insights-sample-mscrm/26.png)
 
-![](./media/app-insights-sample-mscrm/27.png)
+![Поиск событий просмотра страницы](./media/app-insights-sample-mscrm/27.png)
 
-![](./media/app-insights-sample-mscrm/28.png)
+![Похожие просмотры страниц](./media/app-insights-sample-mscrm/28.png)
 
-![](./media/app-insights-sample-mscrm/29.png)
+![Свойства просмотра страниц](./media/app-insights-sample-mscrm/29.png)
 
-![](./media/app-insights-sample-mscrm/30.png)
+![Страницы по сеансам](./media/app-insights-sample-mscrm/30.png)
 
 ## <a name="sample-code"></a>Пример кода
 [Получите пример кода](https://dynamicsandappinsights.codeplex.com/).
@@ -142,10 +143,4 @@ ms.openlocfilehash: 8a000ecda94edbeab8c0438c63d6b66dc7f0902b
 * [Что такое Azure Application Insights?](app-insights-overview.md)
 * [Application Insights для веб-страниц](app-insights-javascript.md)
 * [Дополнительные примеры и пошаговые руководства](app-insights-code-samples.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 774c844375df89864274e3376ed07dd565c8ecff
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: ae6af47c82a5c0425f6cd53b8ba1134797505e6c
+ms.lasthandoff: 04/17/2017
 
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Аутентификация с помощью частного реестра контейнеров Docker
@@ -43,9 +43,16 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 >
 
 
-Субъекты-службы поддерживают [доступ на основе ролей](../active-directory/role-based-access-control-configure.md) к реестру. Доступны следующие роли: читатель (доступ только на получение), участник (получение и отправка), владелец (получение, отправка и назначение ролей другим пользователям). Для реестра можно назначить несколько субъектов-служб. Это позволяет определять доступ для разных пользователей и приложений. Субъекты-службы также позволяют выполнять автономное подключение к реестру в сценариях DevOps и разработки, указанных ниже.
+Субъекты-службы поддерживают [доступ на основе ролей](../active-directory/role-based-access-control-configure.md) к реестру. Доступные роли:
+  * Читатель (доступ только для получения).
+  * Участник (получение и отправка).
+  * Владелец (получение, отправка и назначение ролей другим пользователям).
 
-  * Развертывания контейнеров из реестра в системы управления, в том числе DC/OS, Docker Swarm и Kubernetes. Реестры контейнеров также можно отправлять в связанные службы Azure, например в [службу контейнеров](../container-service/index.md), [службу приложений](../app-service/index.md), [пакетную службу](../batch/index.md) и [Service Fabric](../service-fabric/index.md).
+Анонимный доступ к реестрам контейнеров Azure невозможен. Для общедоступных образов можно использовать [концентратор Docker](https://docs.docker.com/docker-hub/).
+
+Для реестра можно назначить несколько субъектов-служб. Это позволяет определять доступ для разных пользователей и приложений. Субъекты-службы также позволяют выполнять автономное подключение к реестру в сценариях DevOps и разработки, как в приведенных ниже примерах.
+
+  * Развертывания контейнеров из реестра в системы управления, в том числе DC/OS, Docker Swarm и Kubernetes. Реестры контейнеров также можно отправлять в связанные службы Azure, например в [службу контейнеров](../container-service/index.md), [службу приложений](../app-service/index.md), [пакетную службу](../batch/index.md), [Service Fabric](../service-fabric/index.md) и другие.
 
   * Решения непрерывной интеграции и развертывания (например, Visual Studio Team Services или Jenkins), создающие образы контейнеров и отправляющие их в реестр.
 
@@ -54,10 +61,10 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 
 ## <a name="admin-account"></a>Учетная запись администратора
-При создании реестра вместе с ним автоматически создается учетная запись администратора. По умолчанию эта учетная запись отключена, но ее можно включить, а также можно настроить учетные данные, например на [портале](container-registry-get-started-portal.md#manage-registry-settings) или с помощью [команд Azure CLI 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Если учетная запись включена, укажите в команде `docker login` имя пользователя и пароль для базовой проверки подлинности в реестре. Например:
+При создании реестра вместе с ним автоматически создается учетная запись администратора. По умолчанию эта учетная запись отключена, но ее можно включить, а также можно настроить учетные данные, например на [портале](container-registry-get-started-portal.md#manage-registry-settings) или с помощью [команд Azure CLI 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Каждой учетной записи администратора предоставляются два пароля, каждый из которых можно создать повторно. Благодаря этому вы можете подключаться к реестру, используя один пароль, пока второй создается повторно. Если учетная запись включена, вы можете указать в команде `docker login` имя пользователя и пароль для обычной проверки подлинности в реестре. Например:
 
 ```
-docker login myregistry.azurecr.io -u myAdminName -p myPassword
+docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 ```
 
 > [!IMPORTANT]
