@@ -1,7 +1,6 @@
 # Обзор
-## [Что такое DevTest Labs?](devtest-lab-overview.md)
-## [Преимущества DevTest Labs](devtest-lab-why.md)
-## [Основные понятия DevTest Labs](devtest-lab-concepts.md)
+## [Azure DevTest Labs](devtest-lab-overview.md)
+## [Основные понятия](devtest-lab-concepts.md)
 
 # Начало работы
 ## [Создание лаборатории](devtest-lab-create-lab.md)

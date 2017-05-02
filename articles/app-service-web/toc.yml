@@ -21,18 +21,22 @@
     href: app-service-web-get-started-python.md
   - name: "Создание статического HTML-сайта"
     href: app-service-web-get-started-html.md
+- name: "Учебники"
+  items:
+  - name: "1. .NET с базой данных SQL"
+    href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: "1. Node.js с MongoDB"
+    href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: "2. Сопоставление пользовательского домена"
+    href: app-service-web-tutorial-custom-domain.md
+  - name: "3. Привязка SSL-сертификата"
+    href: app-service-web-tutorial-custom-ssl.md
 - name: "Примеры"
   items:
   - name: "Инфраструктура CLI Azure"
     href: app-service-cli-samples.md
   - name: "PowerShell"
     href: app-service-powershell-samples.md
-- name: "Учебники"
-  items:
-  - name: "Приложение .NET с базой данных SQL"
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: "Приложение Node.js с MongoDB"
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
 - name: "Основные понятия"
   items:
   - name: "Принцип работы службы приложений"
@@ -174,8 +178,6 @@
         href: web-sites-dotnet-entity-framework-row-level-security.md
     - name: "Назначение пользовательских SSL-сертификатов"
       items:
-      - name: "Приобретение SSL-сертификата"
-        href: web-sites-purchase-ssl-web-site.md
       - name: "Настройка стороннего SSL-сертификата"
         href: web-sites-configure-ssl-certificate.md
     - name: "Принудительное использование HTTPS"

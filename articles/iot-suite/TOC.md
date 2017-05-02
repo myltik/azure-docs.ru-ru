@@ -8,6 +8,7 @@
 ## [Приступая к работе с предварительно настроенными решениями](iot-suite-getstarted-preconfigured-solutions.md)
 ## [Разрешения для azureiotsuite.com](iot-suite-permissions.md)
 ## [Обзор решения для диагностического обслуживания](iot-suite-predictive-overview.md)
+## [Общие сведения о решении подключенного производства](iot-suite-connected-factory-overview.md)
 ## [Пошаговое руководство по решению для удаленного мониторинга](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Пошаговое руководство по решению для диагностического обслуживания](iot-suite-predictive-walkthrough.md)
 
@@ -21,6 +22,7 @@
 ## [Использование динамической телеметрии с решением для удаленного мониторинга](iot-suite-dynamic-telemetry.md)
 ## [Создание настраиваемого правила в решении для удаленного мониторинга](iot-suite-custom-rule.md)
 ## [Сведения об устройстве в решении для удаленного мониторинга](iot-suite-remote-monitoring-device-info.md)
+## [Развертывание шлюза для подключенного производства](iot-suite-connected-factory-gateway-deployment.md)
 
 # Справочные материалы
 ## [Архитектура безопасности](iot-security-architecture.md)
@@ -39,10 +41,5 @@
 ## [Схема обучения работе с IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

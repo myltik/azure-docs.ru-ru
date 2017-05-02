@@ -18,6 +18,7 @@
 ### [Веб-приложения — среда выполнения](app-insights-java-live.md)
 ### [Приложения Docker](app-insights-docker.md)
 
+
 ## Мониторинг веб-страниц
 ### [JavaScript](app-insights-javascript.md)
 
@@ -75,6 +76,7 @@
 #### [Панели мониторинга](app-insights-dashboards.md)
 #### [Поиск](app-insights-diagnostic-search.md)
 #### [Метрики](app-insights-metrics-explorer.md)
+#### [Live Stream](app-insights-live-stream.md)
 
 #### [Схема сопоставления приложений](app-insights-app-map.md)
 #### [Данные HockeyApp](app-insights-hockeyapp-bridge-app.md)
@@ -132,6 +134,14 @@
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [REST](https://dev.applicationinsights.io/)
+## [Модель данных](application-insights-data-model.md)
+### [Запрос](application-insights-data-model-request-telemetry.md)
+### [Dependency](application-insights-data-model-dependency-telemetry.md)
+### [Исключение](application-insights-data-model-exception-telemetry.md)
+### [Трассировка](application-insights-data-model-trace-telemetry.md)
+### [Event](application-insights-data-model-event-telemetry.md)
+### [Метрика](application-insights-data-model-metric-telemetry.md)
+## [Корреляция данных телеметрии](application-insights-correlation.md)
 
 # Ресурсы
 

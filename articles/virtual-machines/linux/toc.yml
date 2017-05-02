@@ -13,20 +13,30 @@
     href: quick-create-portal.md
   - name: "Создание виртуальной машины с помощью PowerShell"
     href: quick-create-powershell.md
+- name: "Учебники"
+  items:
+  - name: "1. Создание виртуальных машин и управление ими"
+    href: tutorial-manage-vm.md
+  - name: "2. Создание дисков и управление ими"
+    href: tutorial-manage-disks.md
+  - name: "3. Автоматизация настройки"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4. Создание образов виртуальных машин"
+    href: tutorial-custom-images.md
+  - name: "5. Высокодоступные виртуальные машины"
+    href: tutorial-availability-sets.md
+  - name: "6. Создание масштабируемого набора виртуальных машин"
+    href: tutorial-create-vmss.md
+  - name: "7. Балансировка нагрузки виртуальных машин"
+    href: tutorial-load-balancer.md
+  - name: "8. Управление сетями"
+    href: tutorial-virtual-network.md
 - name: "Примеры"
   items:
   - name: "Инфраструктура CLI Azure"
     href: cli-samples.md
   - name: "PowerShell"
     href: powershell-samples.md
-- name: "Учебники"
-  items:
-  - name: "Создание виртуальной машины и управление ею"
-    href: tutorial-manage-vm.md
-  - name: "Балансировка нагрузки высокодоступных виртуальных машин"
-    href: tutorial-load-balance-nodejs.md
-  - name: "Создание масштабируемого набора виртуальных машин"
-    href: tutorial-create-vmss.md
 - name: "Основные понятия"
   items:
   - name: "Дистрибутивы, рекомендованные для Azure"

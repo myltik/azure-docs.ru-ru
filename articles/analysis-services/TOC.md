@@ -12,7 +12,12 @@
 ##[Интеграция локального шлюза данных](analysis-services-gateway.md)
 ##[Подключение с помощью Excel](analysis-services-connect-excel.md)
 ##[Подключение с помощью Power BI](analysis-services-connect-pbi.md)
+##[Поставщики данных](analysis-services-data-providers.md)
 ##[Резервное копирование и восстановление](analysis-services-backup.md)
+##[Высокая доступность](analysis-services-bcdr.md)
+##[Подключения к источникам данных](analysis-services-datasource.md)
+
+##[Создание ODC-файла](analysis-services-odc.md)
 
 # Справочные материалы
 ##[PowerShell](analysis-services-powershell.md)
@@ -21,6 +26,11 @@
 ##[Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 
 # Ресурсы
-##[Подключения к источникам данных](analysis-services-datasource.md)
-##[Поставщики данных](analysis-services-data-providers.md)
-##[Создание ODC-файла](analysis-services-odc.md)
+##[Блог команды разработчиков служб Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/)
+##[Форум по службам Azure Analysis Services](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
+##[Отзывы и предложения](https://feedback.azure.com/forums/556165-azure-analysis-services)
+##[Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+##[Цены](https://azure.microsoft.com/pricing/details/analysis-services/)
+##[Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+##[Состояние Azure](https://azure.microsoft.com/status/)
+

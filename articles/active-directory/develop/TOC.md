@@ -1,10 +1,11 @@
 # Обзор
+## [Интеграция с Azure AD](active-directory-how-to-integrate.md)
 ## [Руководство разработчика](active-directory-developers-guide.md)
 ## [Приложения и Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [Глоссарий разработчика](active-directory-dev-glossary.md)
-## [API Graph для AAD](active-directory-graph-api.md)
+## [API Graph Azure AD](active-directory-graph-api.md)
 # Быстрое начало работы
-## [Как получить клиент AAD](active-directory-howto-tenant.md)
+## [Как получить клиент Azure AD](active-directory-howto-tenant.md)
 ## [Интеграция приложений с AAD](active-directory-integrating-applications.md)
 ## Приложения для мобильных устройств и ПК
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -23,9 +24,9 @@
 ## Веб-интерфейс API
 ### [Веб-API и .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [API Graph для AAD](active-directory-graph-api-quickstart.md)
+## [API Graph Azure AD](active-directory-graph-api-quickstart.md)
 # Руководства
-## [Модели проверки подлинности](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
+## [Модели проверки подлинности](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 ### [Собственные приложения](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [Веб-приложения](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [Веб-интерфейс API](active-directory-authentication-scenarios.md#web-application-to-web-api)
@@ -45,7 +46,7 @@
 ### [Протокол единого входа SAML](active-directory-single-sign-on-protocol-reference.md)
 ### [Протокол единого выхода SAML](active-directory-single-sign-out-protocol-reference.md)
 ## Работа с Visual Studio
-### [Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты MVC)](vs-active-directory-dotnet-getting-started.md)
+### [Начало работы с подключенными службами Visual Studio (проекты MVC)](vs-active-directory-dotnet-getting-started.md)
 ### [Ошибка при обнаружении аутентификации](vs-active-directory-error.md)
 ### [Приступая к работе с WebApi](vs-active-directory-webapi-getting-started.md)
 ### [Что произошло с моим проектом WebApi?](vs-active-directory-webapi-what-happened.md)

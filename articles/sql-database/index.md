@@ -12,16 +12,30 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 1092d5963cd1b9e21796809374be2534df39e437
-ms.lasthandoff: 04/08/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 503d92b694bf57381e7949b0bd379c52916b308a
+ms.lasthandoff: 04/22/2017
 
 ---
 <div class="content">
     <h1>Документация по базе данных SQL</h1>
-    <p style="padding-bottom: 0px; max-width: 1050px;">База данных SQL Azure — это реляционная база данных как услуга на базе ядра Microsoft SQL Server. База данных SQL — это высокопроизводительная, надежная и безопасная база данных, с помощью которой можно создавать приложения и веб-сайты на основе данных, используя любой язык программирования, без необходимости управлять инфраструктурой. Узнайте, как использовать базу данных SQL, с помощью наших шаблонов быстрого запуска, примеров и руководств.</p>
-<h2 style="margin-top: 36px; margin-bottom: 0px;">Быстрое начало работы</h2>
-<p style="margin-top: 6px; margin-bottom: 6px;">Создание базы данных SQL с помощью таких средств:</p>
+    <div class="introHolder" style="justify-content: space-between;">
+        <div class="intro" style="min-width: 200px">
+            <p>База данных SQL Azure — это реляционная база данных как услуга на базе ядра Microsoft SQL Server. База данных SQL — это высокопроизводительная, надежная и безопасная база данных, с помощью которой можно создавать приложения и веб-сайты на основе данных, используя любой язык программирования, без необходимости управлять инфраструктурой. Узнайте, как использовать базу данных SQL, с помощью наших шаблонов быстрого запуска, примеров и руководств.</p>
+        </div>
+        <a href="https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/">
+            <div class="calloutHolder" style="max-width: 250px">
+                <div>
+                    <img src="media/index/create-sql-database-on-azure.png" style="width: 250px;" />
+                </div>
+                <div>
+                    <p style="margin-top: 0; color: #6e6e6e">Создание базы данных SQL в Azure (3:12)</p>
+                </div>
+            </div>
+        </a>
+    </div>
+<h2 style="margin-top: 18px; margin-bottom: 0px;">5-минутные руководства по началу работы</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">Сведения о создании базы данных SQL, управлении ею с помощью SQL Management Studio и разработке в C#, Java, Python, Node.js и Ruby.</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/sql-database/sql-database-get-started-portal">
@@ -43,30 +57,41 @@ ms.lasthandoff: 04/08/2017
     .</div>
 </div>
 
-<div class="columnHolder">
-    <div class="column50">
-        <h2 style="margin-top: 36px">Учебники</h2>
-        <p>Сборка и развертывание приложений с использованием базы данных SQL.</p>
-        <ul class="spaced">
-            <li><a href="/azure/sql-database/sql-database-design-first-database">Проектирование базы данных</a></li>
-            <li><a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Перенос базы данных</a></li>
-        </ul>
-        <h2>Примеры</h2>
-        <p>Поиск скриптов для выполнения типовых задач.</p>
-        <ul class="spaced">
-            <li><a href="/azure/sql-database/sql-database-cli-samples">Интерфейс командной строки Azure</a></li>
-            <li><a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a></li>
-        </ul>
-    </div>
-    <div class="column50" style="max-width: 400px">
-        <h2 style="margin-top: 36px">Бесплатные учебные видеоматериалы</h2>
-        <a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-dotnet.png" width="400" alt="">
-            <p style="margin-top: 0px">Бесплатные видеоуроки PluralSight. Разработка с использованием .NET</a></p>
-    </div>
-</div>
+<h2 style="margin-top: 36px">Пошаговые руководства</h2>
+<p>Сведения о создании, администрировании и миграции баз данных с помощью базы данных SQL</p>
+<ol>
+    <li><a href="/azure/sql-database/sql-database-design-first-database">Проектирование первой базы данных SQL Azure</a></li>
+    <li><a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrate your SQL Server database to Azure SQL Database</a> (Перенос базы данных SQL Server в базу данных SQL Azure)</li>
+</ol>
 
-<hr />
+<h2 style="margin-top: 36px">Бесплатные видеоуроки PluralSight</h2>
+<ul class="panelContent cardsW">
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-dotnet.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Разработка с использованием .NET</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+
+<h2 style="margin-top: 36px">Примеры</h2>
+<p>Поиск скриптов для выполнения типовых задач.</p>
+<ul class="spaced">
+    <li><a href="/azure/sql-database/sql-database-cli-samples">Интерфейс командной строки Azure</a></li>
+    <li><a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a></li>
+</ul>
 
 <h2 style="margin-top: 36px">Справочные материалы</h2>
 <ul class="panelContent cardsW">
@@ -147,3 +172,4 @@ ms.lasthandoff: 04/08/2017
     </li>
 </ul>
 </div>
+

@@ -105,6 +105,7 @@
 ### [Настройка политик Hive](hdinsight-domain-joined-run-hive.md)
 ## Использование предварительной версии Kafka
 ### [Репликация данных Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Использование с виртуальными сетями](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Использование со Spark](hdinsight-apache-spark-with-kafka.md)
 ### [Использование со Storm](hdinsight-apache-storm-with-kafka.md)
 ## Разработка
