@@ -18,6 +18,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
 ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -59,7 +60,7 @@ ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
 
 Теперь центр уведомлений настроен для работы с GCM, а у вас есть строки подключения, с помощью которых вы можете зарегистрировать приложение для получения и отправки push-уведомлений.
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Подключение приложения к центру уведомлений
+## <a id="connecting-app"></a>Подключение приложения к центру уведомлений
 ### <a name="create-a-new-android-project"></a>Создание нового проекта Android
 1. В Android Studio создайте новый проект Android Studio.
    
@@ -669,9 +670,4 @@ ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [использованию центров уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [портала Azure]: https://portal.azure.com
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
