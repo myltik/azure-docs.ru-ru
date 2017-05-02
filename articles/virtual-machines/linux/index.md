@@ -12,16 +12,30 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: af1b164891a6d8af27b05578a975d1fa54e2d408
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 260208e7c7a08110eb3c885ef86ec4c18ff42fc9
+ms.openlocfilehash: e4fede90a5df7c4a74c1e1d41ecbe669d731a1b5
+ms.lasthandoff: 04/23/2017
 
 ---
 <div class="content">
-    <h1>Документация по виртуальным машинам Linux</h1>
-    <p style="padding-bottom: 0px; max-width: 1050px;">Виртуальные машины Linux Azure предоставляют по запросу безопасную высокомасштабируемую виртуализированную инфраструктуру с использованием Red Hat, Ubuntu или дистрибутива Linux по вашему выбору.  Узнайте, как создавать, настраивать, масштабировать виртуальные машины Linux и управлять ими, используя наши шаблоны быстрого запуска, примеры и руководства.</p>
-<h2 style="margin-top: 36px; margin-bottom: 0px;">Быстрое начало работы</h2>
-<p style="margin-top: 6px; margin-bottom: 6px;">Создание виртуальной машины Linux с помощью таких средств:</p>
+    <h1>Виртуальные машины Linux</h1>
+    <div class="introHolder" style="justify-content: space-between;">
+        <div class="intro" style="min-width: 200px">
+            <p>Виртуальные машины Linux Azure предоставляют по запросу безопасную высокомасштабируемую виртуализированную инфраструктуру с использованием Red Hat, Ubuntu или дистрибутива Linux по вашему выбору. Узнайте, как создавать, настраивать, масштабировать виртуальные машины Linux и управлять ими, используя наши шаблоны быстрого запуска, примеры и руководства.</p>
+        </div>
+        <a href="https://azure.microsoft.com/en-us/resources/videos/create-linux-virtual-machine/">
+            <div class="calloutHolder" style="max-width: 250px">
+                <div>
+                    <img src="media/index/create-linux-virtual-machine.png" style="width: 250px" />
+                </div>
+                <div>
+                    <p style="margin-top: 0; color: #6e6e6e">Создание виртуальной машины Linux. (4:11)</p>
+                </div>
+            </div>
+        </a>
+    </div>
+<h2 style="margin-top: 0px; margin-bottom: 0px;">5-минутные руководства по началу работы</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">Сведения о развертывании веб сервера NGINX на виртуальной машине под управлением Ubuntu:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
@@ -42,38 +56,85 @@ ms.lasthandoff: 04/17/2017
         </a>
     .</div>
 <div>
-<div class="columnHolder">
-    <div class="column50">
-        <h2 style="margin-top: 36px">Учебники</h2>
-        <p>Сборка и развертывание виртуальных машин Linux.</p>
-        <ul class="spaced">
-            <li><a href="/azure/virtual-machines/linux/tutorial-manage-vm">Manage Linux virtual machines with the Azure CLI</a> (Управление виртуальными машинами Linux с помощью Azure CLI)</li>
-            <li><a href="/azure/virtual-machines/linux/tutorial-load-balance-nodejs">Балансировка нагрузки высокодоступных виртуальных машин</a></li>
-            <li><a href="/azure/virtual-machines/linux/tutorial-create-vmss">Создание масштабируемого набора виртуальных машин</a></li>
-        </ul>
-        <h2>Примеры</h2>
-        <p>Развертывание первого приложения в Azure.</p>
-        <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Интерфейс командной строки Azure</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a></li>
-        </ul>
-    </div>
-    <div class="column50" style="max-width: 400px">
-        <h2 style="margin-top: 36px">Бесплатные учебные видеоматериалы</h2>
-        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
-            <p style="margin-top: 0px">Бесплатные видеоуроки PluralSight. Управление инфраструктурой</a></p>
-            <p style="margin-top: 36px"></p>
-                <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-vms.png" width="400" alt="" />
-            <p style="margin-top: 0px">Бесплатные видеоуроки PluralSight. Начало работы с виртуальными машинами</a></p>
-        <p style="margin-top: 36px"></p>
-        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
-            <p style="margin-top: 0px">Бесплатные видеоуроки PluralSight. Начало работы с мониторингом IaaS</a></p>
-    </div>
-</div>
-<hr />
+
+<h2 style="margin-top: 36px">Пошаговые руководства</h2>
+<p>Сведения о развертывании, администрировании и масштабировании виртуальных машин Linux в Azure</p>
+<ol>
+    <li><a href="/azure/virtual-machines/linux/tutorial-manage-vm">Manage Linux virtual machines with the Azure CLI</a> (Управление виртуальными машинами Linux с помощью Azure CLI)</li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-manage-disks">Manage Azure disks with the Azure CLI</a> (Управление дисками Azure с помощью Azure CLI)</li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">How to customize a Linux virtual machine on first boot</a> (Настройка виртуальной машины Linux при первой загрузке)</li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-custom-images">Создание образа настраиваемой виртуальной машины</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-availability-sets">Создание высокодоступных виртуальных машин</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-create-vmss">Create a Virtual Machine Scale Set and deploy a highly available app on Linux</a> (Создание масштабируемого набора виртуальных машин и развертывание высокодоступного приложения в Linux)</li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-load-balancer">How to load balance Linux virtual machines in Azure to create a highly available application</a> (Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения)</li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI</a> (Управление виртуальными сетями Azure и виртуальными машинами Linux с помощью Azure CLI)</li>
+</ol>
+
+<h2 style="margin-top: 36px">Бесплатные видеоуроки PluralSight</h2>
+<ul class="panelContent cardsW">
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-infrastructure.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Управление инфраструктурой</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-vms.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Начало работы с виртуальными машинами</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-iaas-monitoring.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Начало работы с мониторингом IaaS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+
+<h2>Примеры</h2>
+<p>Развертывание первого приложения в Azure.</p>
+<ul class="spaced">
+    <li><a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Интерфейс командной строки Azure</a></li>
+    <li><a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a></li>
+</ul>
+
 <h2 style="margin-top: 36px">Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>

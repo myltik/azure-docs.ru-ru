@@ -2,7 +2,7 @@
 ## [Что такое функции Azure?](functions-overview.md)
 # Начало работы
 ## [Создание первой функции](functions-create-first-azure-function.md)
-## [Создание функции webhook](functions-create-a-web-hook-or-api-function.md)
+## [Создание функции, активируемой объектом webhook](functions-create-github-webhook-triggered-function.md)
 ## [Создание функции, исполняемой в Azure](functions-create-an-azure-connected-function.md)
 ## [Создание функции обработки события](functions-create-an-event-processing-function.md)
 # Практическое руководство

@@ -44,6 +44,8 @@
 ### [Использование конфигураций с несколькими IP-адресами (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Log Analytics для Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Настройка DHCPv6 для виртуальных машин Linux](load-balancer-ipv6-for-linux.md)
+## Устранение неполадок
+### [Устранение неполадок Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)

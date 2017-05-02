@@ -4,9 +4,9 @@ hide_bc: true
 title: "Документация по Microsoft Azure"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 11c880885b501f402413dec9175c8b2659f65bf3
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: d67c4bda1cea82c95bbc29c7c3b260296603391b
+ms.lasthandoff: 04/22/2017
 
 ---
 <div id="main" class="v2">
@@ -654,6 +654,12 @@ ms.lasthandoff: 04/18/2017
                                             <a href="/azure/azure-government/">
                                                 <img src="media/index/azure-government.svg" alt="" />
                                                 <p>Azure для государственных организаций США</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/germany/">
+                                                <img src="media/index/azure-germany.svg" alt="" />
+                                                <p>Azure для Германии</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2516,6 +2522,25 @@ ms.lasthandoff: 04/18/2017
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure для государственных организаций США</h3>
                                                     <p>Создание и размещение приложений для целей правительства США в выделенном экземпляре Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/germany/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-germany.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Microsoft Azure для Германии</h3>
+                                                    <p>Создавайте и размещайте приложения в соответствии с законодательством Германии, а также ключевыми международными стандартами под контролем доверенного лица по вопросам данных</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -56,6 +56,7 @@
 ### [Емкость и производительность](log-analytics-capacity.md)
 ### [Отслеживание изменений](log-analytics-change-tracking.md)
 ### [Контейнеры](log-analytics-containers.md)
+### [DNS Analytics](log-analytics-dns.md)
 ### [хранилище ключей;](log-analytics-azure-key-vault.md)
 ### Сообщения B2B для приложений логики
 #### [Решение "Сообщения B2B для приложений логики"](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)

@@ -69,6 +69,7 @@
 #### [Поиск и устранение проблем лицензирования группы](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
 #### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
+#### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 ### [Настройка групп самообслуживания](active-directory-accessmanagement-self-service-group-management.md)
 ### [Устранение неполадок](active-directory-accessmanagement-troubleshooting.md)
 

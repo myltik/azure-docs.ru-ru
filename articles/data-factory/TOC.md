@@ -1,10 +1,9 @@
 # Обзор
 ## [Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке](data-factory-introduction.md)
 ## Основные понятия
-### [Наборы данных](data-factory-create-datasets.md)
 ### [Конвейеры и действия](data-factory-create-pipelines.md)
+### [Наборы данных](data-factory-create-datasets.md)
 ### [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md)
-### [Связанные службы вычислений](data-factory-compute-linked-services.md)
 
 # Начало работы
 ## [Учебник. Создание конвейера для копирования данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -20,7 +19,8 @@
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Шаблон Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-### [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+### [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Руководство по перемещению данных между локальными источниками и облаком](data-factory-move-data-between-onprem-and-cloud.md)
 ## [Часто задаваемые вопросы](data-factory-faq.md)
 
 # Практическое руководство
@@ -60,7 +60,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Веб-таблица](data-factory-web-table-connector.md)
 ### [Шлюз управления данными](data-factory-data-management-gateway.md)
-### [Перемещение данных между локальными источниками и облаком](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [Преобразование данных](data-factory-data-transformation-activities.md)
 ### [Действие Hive HDInsight](data-factory-hive-activity.md)
@@ -75,6 +75,7 @@
 ### [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
 ### [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ### [Повторная обработка моделей в службах Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [Связанные службы вычислений](data-factory-compute-linked-services.md)
 
 ## Разработка
 ### [Шаблон Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)

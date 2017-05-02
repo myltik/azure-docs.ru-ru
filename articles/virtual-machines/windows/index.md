@@ -12,16 +12,30 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: d6358d1a44b85a475cdf2d489112244152f64395
-ms.lasthandoff: 04/08/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 631eb4c8aa3a41e03cf623fcc5610d3e84f18ec4
+ms.lasthandoff: 04/22/2017
 
 ---
 <div class="content">
     <h1>Документация по виртуальным машинам Windows</h1>
-    <p style="padding-bottom: 0px; max-width: 1050px;">Виртуальные машины Windows Azure предоставляют по запросу безопасную высокомасштабируемую виртуализированную инфраструктуру с использованием Windows Server. Узнайте, как создавать, настраивать, масштабировать виртуальные машины Windows и управлять ими, используя наши шаблоны быстрого запуска, примеры и руководства.</p>
-<h2 style="margin-top: 36px; margin-bottom: 0px;">Быстрое начало работы</h2>
-<p style="margin-top: 6px; margin-bottom: 6px;">Создание виртуальной машины Windows с помощью таких средств:</p>
+    <div class="introHolder" style="justify-content: space-between;">
+        <div class="intro" style="min-width: 200px">
+            <p>Виртуальные машины Windows Azure предоставляют по запросу безопасную высокомасштабируемую виртуализированную инфраструктуру с использованием Windows Server. Узнайте, как создавать, настраивать, масштабировать виртуальные машины Windows и управлять ими, используя наши шаблоны быстрого запуска, примеры и руководства.</p>
+        </div>
+        <a href="https://azure.microsoft.com/en-us/resources/videos/create-windows-server-virtual-machine/">
+            <div class="calloutHolder" style="max-width: 250px">
+                <div>
+                    <img src="media/index/create-windows-server-virtual-machine.png" style="width: 250px" />
+                </div>
+                <div>
+                    <p style="margin-top: 0; color: #6e6e6e">Создание виртуальной машины Windows Server (3:58)</p>
+                </div>
+            </div>
+        </a>
+    </div>
+<h2 style="margin-top: 0px; margin-bottom: 0px;">5-минутные руководства по началу работы</h2>
+<p style="margin-top: 6px; margin-bottom: 6px;">Сведения о развертывании веб сервера IIS на виртуальной машине под управлением Windows Server 2016:</p>
 <div class="ico48Case">
     <div class="ico48Link">
         <a href="/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
@@ -40,39 +54,84 @@ ms.lasthandoff: 04/08/2017
             <img src="media/index/cli.svg" alt="">
             <span>Azure CLI</span>
         </a>
-    .</div>
+    ;</div>
 </div>
-<div class="columnHolder">
-    <div class="column50">
-        <h2 style="margin-top: 36px">Учебники</h2>
-        <p>Сборка и развертывание виртуальных машин Windows.</p>
-        <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Manage Windows virtual machines with Azure PowerShell</a> (Управление виртуальными машинами Windows с помощью Azure PowerShell)</li>
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-load-balanced-iis-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Балансировка нагрузки высокодоступных виртуальных машин</a></li>
-        </ul>
-        <h2>Примеры</h2>
-        <p>Развертывание первого приложения в Azure.</p>
-        <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Интерфейс командной строки Azure</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a></li>
-        </ul>
-    </div>
-    <div class="column50" style="max-width: 400px">
-        <h2 style="margin-top: 36px">Бесплатные учебные видеоматериалы</h2>
-        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-infrastructure.png" width="400" alt="" />
-            <p style="margin-top: 0px">Бесплатные видеоуроки PluralSight. Управление инфраструктурой</a></p>
-            <p style="margin-top: 36px"></p>
-                <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-vms.png" width="400" alt="" />
-            <p style="margin-top: 0px">Бесплатные видеоуроки PluralSight. Начало работы с виртуальными машинами</a></p>
-        <p style="margin-top: 36px"></p>
-        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">
-            <img src="media/index/video-training-iaas-monitoring.png" width="400" alt="" />
-            <p style="margin-top: 0px">Бесплатные видеоуроки PluralSight. Начало работы с мониторингом IaaS</a></p>
-    </div>
-</div>
-<hr />
+
+<h2 style="margin-top: 36px">Пошаговые руководства</h2>
+<p>Сведения о развертывании, администрировании и мониторинге виртуальных машин Windows в Azure</p>
+<ol>
+   <li><a href="/azure/virtual-machines/windows/tutorial-manage-vm">Manage Windows virtual machines with Azure PowerShell</a> (Управление виртуальными машинами Windows с помощью Azure PowerShell)</li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Manage Azure disks with the Azure CLI</a> (Управление дисками Azure с помощью Azure CLI)</li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">How to customize a Linux virtual machine on first boot</a> (Настройка виртуальной машины Linux при первой загрузке)</li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-load-balancer">How to load balance Linux virtual machines in Azure to create a highly available application</a> (Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения)</li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI</a> (Управление виртуальными сетями Azure и виртуальными машинами Linux с помощью Azure CLI)</li>
+</ol>
+
+<h2 style="margin-top: 36px">Бесплатные видеоуроки PluralSight</h2>
+<ul class="panelContent cardsW">
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-infrastructure.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Управление инфраструктурой</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-vms.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Начало работы с виртуальными машинами</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="flex: 0 1 25%">
+        <a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02"> 
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                       <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img style="max-width: 100%" alt="" src="media/index/video-training-iaas-monitoring.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <p>Начало работы с мониторингом IaaS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+
+<h2>Примеры</h2>
+<p>Развертывание первого приложения в Azure.</p>
+<ul class="spaced">
+    <li><a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Интерфейс командной строки Azure</a></li>
+    <li><a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">Azure PowerShell</a></li>
+</ul>
+
 <h2 style="margin-top: 36px">Справочные материалы</h2>
 <ul class="panelContent cardsW">
     <li>

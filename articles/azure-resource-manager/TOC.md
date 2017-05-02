@@ -10,6 +10,12 @@
 ## [Создание первого шаблона](resource-manager-create-first-template.md)
 ## [Использование Visual Studio с Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Примеры
+## PowerShell
+### [Развертывание шаблона](resource-manager-samples-powershell-deploy.md)
+## Инфраструктура CLI Azure
+### [Развертывание шаблона](resource-manager-samples-cli-deploy.md)
+
 # Практическое руководство
 ## Создание шаблонов
 ### [Рекомендации по работе с шаблонами](resource-manager-template-best-practices.md)
@@ -26,8 +32,12 @@
 ### [Обмен данными о состоянии между связанными шаблонами](best-practices-resource-manager-state.md)
 ### [Схемы проектирования шаблонов](best-practices-resource-manager-design-templates.md)
 ## Развернуть
-### [PowerShell](resource-group-template-deploy.md)
-### [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [Развертывание шаблона](resource-group-template-deploy.md)
+#### [Развертывание частного шаблона с помощью маркера SAS](resource-manager-powershell-sas-token.md)
+### Инфраструктура CLI Azure
+#### [Развертывание шаблона](resource-group-template-deploy-cli.md)
+#### [Развертывание частного шаблона с помощью маркера SAS](resource-manager-cli-sas-token.md)
 ### [Портал](resource-group-template-deploy-portal.md)
 ### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

@@ -13,18 +13,24 @@
     href: quick-create-powershell.md
   - name: "Создание виртуальной машины с помощью Azure CLI"
     href: quick-create-cli.md
+- name: "Учебники"
+  items:
+  - name: "1. Создание виртуальной машины и управление ею"
+    href: tutorial-manage-vm.md
+  - name: "2. Создание дисков и управление ими"
+    href: tutorial-manage-data-disk.md
+  - name: "3. Автоматизация настройки"
+    href: tutorial-automate-vm-deployment.md
+  - name: "4. Балансировка нагрузки виртуальных машин"
+    href: tutorial-load-balancer.md
+  - name: "5. Управление сетями"
+    href: tutorial-virtual-network.md
 - name: "Примеры"
   items:
   - name: "PowerShell"
     href: powershell-samples.md
   - name: "Инфраструктура CLI Azure"
     href: cli-samples.md
-- name: "Учебники"
-  items:
-  - name: "Создание виртуальной машины и управление ею"
-    href: ../virtual-machines-windows-tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: "Балансировка нагрузки высокодоступных виртуальных машин"
-    href: load-balanced-iis-tutorial.md
 - name: "Основные понятия"
   items:
   - name: "Регионы и доступность"
@@ -261,7 +267,7 @@
     - name: "Управление доступом"
       href: ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: "Шифрование диска"
-      href: ../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: encrypt-disks.md
     - name: "Применение политик к виртуальным машинам"
       href: policy.md
     - name: "Настройка хранилища ключей"
