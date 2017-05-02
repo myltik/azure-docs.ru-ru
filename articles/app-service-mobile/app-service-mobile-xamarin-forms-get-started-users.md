@@ -271,7 +271,7 @@ ms.lasthandoff: 03/01/2017
 
     Если используется поставщик удостоверений, отличающийся от Facebook, выберите другое значение [MobileServiceAuthenticationProvider].
 
-1. Добавьте следующую строку кода в конструктор для класса **MainPage`LoadApplication()` перед вызовом метода **:
+1. Добавьте следующую строку кода в конструктор для класса **MainPage`LoadApplication()` перед вызовом метода**:
    
         // Initialize the authenticator before loading the app.
         <your_Portable_Class_Library_namespace>.App.Init(this);
