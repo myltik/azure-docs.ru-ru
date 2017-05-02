@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
-ms.openlocfilehash: 16e1276d5c0cc7eb8a8a868fa3b31fd51fbb1b96
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 8922c65a1755343e19072a0594b800838a5e1cf9
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -205,7 +205,7 @@ Application Insights может тестировать ваш веб-сайт ч
 [Дополнительные сведения о веб-тестах для определения доступности.][availability]
 
 ## <a name="diagnostic-logs"></a>Журналы диагностики
-Если вы используете Logback или Log4J (версия&1;.2 или&2;.0) для трассировки, можно настроить автоматическую пересылку журналов в Application Insights, где вы сможете их изучить.
+Если вы используете Logback или Log4J (версия 1.2 или 2.0) для трассировки, можно настроить автоматическую пересылку журналов в Application Insights, где вы сможете их изучить.
 
 [Дополнительные сведения о журналах диагностики][javalogs]
 
@@ -225,7 +225,7 @@ Application Insights может тестировать ваш веб-сайт ч
 
 #### <a name="track-usage"></a>Отслеживание использования
 * [Добавьте сбор данных телеметрии веб-клиента][usage] для отслеживания просмотров страниц и основных метрик пользователей.
-* [Отслеживайте пользовательские события и метрики][track] для получения сведений об использовании приложения, как на клиенте, так и на сервере.
+* [Отслеживайте пользовательские события и метрики](app-insights-web-track-usage.md) для получения сведений об использовании приложения как в клиенте, так и на сервере.
 
 <!--Link references-->
 
@@ -235,5 +235,5 @@ Application Insights может тестировать ваш веб-сайт ч
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/17/2017
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b098e3087cb08528c5fbdc2d0d768ce40e7ffe0d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6185c703e9148c71d9995b92540b8ea72fba5cc0
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -132,37 +132,37 @@ API для MongoDB работает с той же моделью резерви
             <td valign="top"><p>1 КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *1) + (100* 5) = 1000 единиц запросов в секунду</p></td>
+            <td valign="top"><p>(500 * 1) + (100 * 5) = 1000 единиц запросов в секунду</p></td>
         </tr>
         <tr>
             <td valign="top"><p>1 КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *5) + (100* 5) = 3000 единиц запросов в секунду</p></td>
+            <td valign="top"><p>(500 * 1) + (500 * 5) = 3000 единиц запросов в секунду</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *1,3) + (100* 7) = 1350 единиц запросов в секунду</p></td>
+            <td valign="top"><p>(500 * 1,3) + (100 * 7) = 1350 единиц запросов в секунду</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4 КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *1,3) + (500* 7) = 4150 единиц запросов в секунду</p></td>
+            <td valign="top"><p>(500 * 1,3) + (500 * 7) = 4150 единиц запросов в секунду</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *10) + (100* 48) = 9800 единиц запросов в секунду</p></td>
+            <td valign="top"><p>(500 * 10) + (100 * 48) = 9800 единиц запросов в секунду</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64 КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *10) + (500* 48) = 29 000 единиц запросов в секунду</p></td>
+            <td valign="top"><p>(500 * 10) + (500 * 48) = 29 000 единиц запросов в секунду</p></td>
         </tr>
     </tbody>
 </table>
