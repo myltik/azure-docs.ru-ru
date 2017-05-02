@@ -90,7 +90,7 @@ az network nsg list -g RG-NSG -o table
 
 ## <a name="view-nsg-associations"></a>Просмотр связей для группы безопасности сети
 
-Чтобы просмотреть, с какими ресурсами связана группа безопасности сети **NSG-FrontEnd`az network nsg show`, выполните команду **, как показано ниже. 
+Чтобы просмотреть, с какими ресурсами связана группа безопасности сети **NSG-FrontEnd`az network nsg show`, выполните команду**, как показано ниже. 
 
 ```azurecli
 az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
