@@ -17,9 +17,9 @@ ms.workload:
 ms.date: 03/30/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 933b262f3c587229a194c3259fc5c13b75ecd050
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 0d02954829ebac9275c014f7dac7e1ec423b0fc1
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -30,11 +30,11 @@ ms.lasthandoff: 04/13/2017
 
 Для работы с этим руководством у вас должна быть установлена последняя версия [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). 
 
-## <a name="step-1-log-in-to-the-azure-portal"></a>Шаг 1. Вход на портал Azure
+## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
 
 Войдите на [портал Azure](https://portal.azure.com/).
 
-## <a name="step-2-create-a-blank-sql-database-in-azure"></a>Шаг 2. Создание пустой базы данных SQL в Azure
+## <a name="create-a-blank-sql-database-in-azure"></a>Создание пустой базы данных SQL в Azure
 
 База данных Azure SQL создается с определенным набором [вычислительных ресурсов и ресурсов хранения](sql-database-service-tiers.md). База данных создается в пределах [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) и [логического сервера базы данных SQL Azure](sql-database-features.md). 
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 04/13/2017
     ![уведомление](./media/sql-database-get-started-portal/notification.png)
 
 
-## <a name="step-3-create-a-server-level-firewall-rule"></a>Шаг 3. Создание правила брандмауэра уровня сервера
+## <a name="create-a-server-level-firewall-rule"></a>создадим правило брандмауэра на уровне сервера;
 
 Базы данных SQL Azure защищены брандмауэром. По умолчанию все подключения к серверу и базам данных на сервере отклоняются. Выполните приведенные ниже действия, чтобы создать для сервера [правило брандмауэра уровня сервера базы данных SQL](sql-database-firewall-configure.md), разрешающее подключения с IP-адреса клиента. 
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 04/13/2017
 > База данных SQL обменивается данными через порт 1433. Если вы пытаетесь подключиться из корпоративной сети, исходящий трафик через порт 1433 может быть запрещен сетевым брандмауэром. В таком случае вы не сможете подключиться к серверу базы данных SQL Azure. Для этого ваш ИТ-отдел должен открыть порт 1433.
 >
 
-## <a name="step-4---get-connection-information"></a>Шаг 4. Получение сведений о подключении
+## <a name="get-connection-information"></a>Получение сведений о подключении
 
 Получите полное имя сервера для сервера базы данных SQL Azure на портале Azure. Используйте полное имя сервера, чтобы подключиться к серверу с помощью SQL Server Management Studio.
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 04/13/2017
 
     ![Сведения о подключении](./media/sql-database-connect-query-ssms/connection-information.png) 
 
-## <a name="step-5---connect-to-your-database-using-sql-server-management-studio"></a>Шаг 5. Подключение к базе данных с помощью SQL Server Management Studio
+## <a name="connect-to-your-database-using-sql-server-management-studio"></a>Подключение к базе данных с помощью SQL Server Management Studio
 
 Используйте [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) для подключения к серверу базы данных SQL Azure.
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 04/13/2017
 
    ![Объекты базы данных](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="step-6---create-tables-in-the-database"></a>Шаг 6. Создание таблиц в базе данных 
+## <a name="create-tables-in-the-database"></a>Создание таблиц в базе данных 
 
 Создайте схему базы данных с четырьмя таблицами, моделирующими систему управления студентами для университетов, с помощью [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
@@ -199,7 +199,7 @@ ms.lasthandoff: 04/13/2017
 
    ![Создание таблиц в SSMS](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="step-7---load-data-into-the-tables"></a>Шаг 7. Отправка данных в таблицу
+## <a name="load-data-into-the-tables"></a>Загрузка данных в таблицу
 
 1. В папке скачиваний создайте папку с именем **SampleTableData** для хранения примеров данных базы данных. 
 
@@ -223,7 +223,7 @@ ms.lasthandoff: 04/13/2017
 
 Итак, вы загрузили пример данных в созданные ранее таблицы.
 
-## <a name="step-8---query-the-tables"></a>Шаг 8. Запрос к таблицам
+## <a name="query-the-tables"></a>Выполнение запросов к таблицам
 
 Чтобы извлечь сведения из таблиц базы данных, выполните приведенные ниже запросы. Дополнительные сведения о создании запросов SQL см. в [этой статье](https://technet.microsoft.com/library/bb264565.aspx). Первый запрос объединяет четыре таблицы для поиска всех студентов, посещающих занятия у преподавателя Dominick Pope и оценки которых выше, чем у 75 % учащихся в этом классе. Второй запрос объединяет четыре таблицы и находит все курсы, на которые когда-либо записывался Noe Coleman.
 
@@ -260,7 +260,7 @@ ms.lasthandoff: 04/13/2017
         AND person.LastName = 'Coleman'
    ```
 
-## <a name="step-9---restore-a-database-to-a-previous-point-in-time"></a>Шаг 9. Восстановление базы данных до предыдущей точки во времени 
+## <a name="restore-a-database-to-a-previous-point-in-time"></a>Восстановление базы данных до предыдущей точки во времени 
 
 Представьте, что вы случайно удалили таблицу. Восстановить ее будет не просто. База данных SQL Azure позволяет вернуться в любой момент времени в течение последних 35 дней и восстановить данные на определенный момент времени в новой базе данных. С помощью этой базы данных можно восстановить удаленные данные. Ниже приведены действия по восстановлению базы данных до точки во времени, когда были созданы таблицы.
 

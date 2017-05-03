@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b5bad71095e4b7e3b26df15780467526200ffa10
-ms.openlocfilehash: 68d94a6402b1497f65c4d03fb987ba800e86c2a3
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 0e9fa1b1397c60985de9d2e60b3f01146036801f
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Проверка подключения VPN-шлюза
-Подключение VPN-шлюза виртуальной сети можно проверить с помощью портала или PowerShell. Информация, приведенная в этой статье, относится к классической модели развертывания и модели развертывания с помощью Resource Manager.
+
+В этой статье вы узнаете, как проверить подключение VPN-шлюза и в классической модели, и в модели Resource Manager.
 
 ## <a name="verify-using-the-azure-portal"></a>Проверка с помощью портала Azure
 
@@ -52,7 +53,34 @@ ms.lasthandoff: 01/31/2017
 
 ### <a name="verify-your-connection"></a>Проверка подключения
 
-[!INCLUDE [Powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
+
+## <a name="verify-using-the-azure-cli"></a>Проверка с помощью Azure CLI
+
+Для проверки с помощью Azure CLI установите последнюю версию команд интерфейса командной строки (версии 2.0 или более поздней). Сведения об установке команд интерфейса командной строки см. в статье [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Установка Azure CLI 2.0).
+
+### <a name="log-in-to-your-azure-account"></a>Вход в учетную запись Azure
+
+1. Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране.
+
+  ```azurecli
+  az login
+  ```
+2. Если у вас есть несколько подписок Azure, укажите подписки для этой учетной записи.
+
+  ```azurecli
+  Az account list --all
+  ```
+3. Укажите подписку, которую нужно использовать.
+
+  ```azurecli
+  Az account set --subscription
+  <replace_with_your_subscription_id>
+  ```
+
+### <a name="verify-your-connection"></a>Проверка подключения
+
+[!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="verify-using-the-azure-portal-classic"></a>Проверка с помощью портала Azure (классическая модель)
 [!INCLUDE [Azure portal](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]

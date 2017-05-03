@@ -16,9 +16,9 @@ ms.date: 02/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bb8d390a6ab045dc418bf80ec4fc218e0a35282b
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 73c38182f4caa92f5aa561b10a30c60efc8cfdae
+ms.lasthandoff: 04/26/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Встроенные роли для управления доступом на основе ролей в Azure
@@ -40,6 +40,7 @@ ms.lasthandoff: 04/11/2017
 | [Участник резервного копирования](#backup-contributor) | Может управлять резервным копированием в хранилище служб восстановления |
 | [Оператор резервного копирования](#backup-operator) | Может управлять резервным копированием в хранилище служб восстановления, но не может удалять резервные копии |
 | [Читатель резервных копий](#backup-reader) | Может просматривать все службы управления резервными копиями  |
+| [Читатель счетов](#billing-reader) | Может просматривать все данные о выставлении счетов  |
 | [Участник BizTalk](#biztalk-contributor) |Может управлять службами BizTalk |
 | [Участник базы данных ClearDB MySQL](#cleardb-mysql-db-contributor) |Может создавать базы данных ClearDB MySQL |
 | [Участник](#contributor) |Может управлять всем, кроме доступа |
@@ -215,6 +216,15 @@ ms.lasthandoff: 04/11/2017
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Чтение результатов операции, выполняемой для зарегистрированных элементов хранилища |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Чтение зарегистрированных элементов хранилища |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Чтение данных об использовании хранилища служб восстановления |
+
+## <a name="billing-reader"></a>Читатель счетов
+Может просматривать все данные о выставлении счетов
+
+| **Действия** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Чтение ролей и назначений ролей |
+| Microsoft.Billing/*/read |Чтение сведений о выставлении счетов |
+| Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
 ### <a name="biztalk-contributor"></a>Участник BizTalk
 Может управлять службами BizTalk

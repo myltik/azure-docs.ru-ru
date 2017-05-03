@@ -15,14 +15,16 @@ ms.workload: NA
 ms.date: 03/08/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: 140bee520dd8de0d9303a7d80e10cae407c8b10d
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 8e487cd33bef73ac66e1b1b6ee614b5a1376d772
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Создание кластеров Service Fabric в Windows Server или Linux
-Azure Service Fabric позволяет создавать кластеры Service Fabric на любых виртуальных машинах или компьютерах под управлением Windows Server или Linux. Это означает, что вы можете развертывать и запускать приложения Service Fabric в любой среде с набором подключенных друг к другу компьютеров под управлением Windows Server или Linux как локально, так и в облаке Microsoft Azure или другого поставщика облачных служб.
+Кластер Azure Service Fabric — это подключенный к сети набор виртуальных машин или физических компьютеров, в котором вы развертываете микрослужбы и управляете ими. Узлом кластера называется компьютер или виртуальная машина, которая входит в состав кластера. Кластеры можно масштабировать до нескольких тысяч узлов. Если вы добавите новые узлы в кластер, реплики раздела службы подвергнутся повторной балансировке Service Fabric с учетом этих узлов. Общая производительность приложения улучшится, а конфликт доступа к памяти уменьшится. При неэффективном использовании узлов в кластере вы можете уменьшить их количество. Service Fabric снова перераспределит реплики и экземпляры секции по меньшему количеству узлов, чтобы эффективно использовать оборудование на каждом узле.
+
+Service Fabric позволяет создавать кластеры Service Fabric на любых виртуальных машинах или компьютерах под управлением Windows Server или Linux. Это означает, что вы можете развертывать и запускать приложения Service Fabric в любой среде с набором подключенных друг к другу компьютеров под управлением Windows Server или Linux как локально, так и в облаке Microsoft Azure или другого поставщика облачных служб.
 
 ## <a name="create-service-fabric-clusters-on-azure"></a>Создание кластеров Service Fabric в Azure
 Кластера в Azure создается с помощью шаблона Resource Manager либо портала Azure. Дополнительные сведения см. в статьях [Создание кластера Service Fabric в Azure с помощью Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) и [Создание кластера Service Fabric в Azure с помощью портала Azure](service-fabric-cluster-creation-via-portal.md).

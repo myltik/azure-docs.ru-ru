@@ -1,28 +1,26 @@
 ---
-title: "Событие завершения удаления пула | Документы Майкрософт"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 580a1278-5740-4143-826c-7d875ef127ff
-caps.latest.revision: 5
+title: "Событие завершения удаления пула пакетной службы Azure | Документы Майкрософт"
+description: "Справочник по событию завершения удаления пула пакетной службы."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 991ee552ccc564be149844b58a0a3fea7452f2a3
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 890f2ba7fda37060c56177868d6214d517d91831
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="pool-delete-complete-event"></a>Событие завершения удаления пула
-Основная часть журнала событий по завершению удаления пула
 
-## <a name="remarks"></a>Примечания
+# <a name="pool-delete-complete-event"></a>Событие завершения удаления пула
+
  Это событие создается при завершении операции удаления пула.
 
  Ниже приведен пример текста для события завершения удаления пула.
@@ -37,7 +35,7 @@ ms.lasthandoff: 04/13/2017
 
 |Элемент|Тип|Примечания|
 |-------------|----------|-----------|
-|id|Строка|Идентификатор пула.|
+|id|string|Идентификатор пула.|
 |startTime|DateTime|Время, когда было начато удаление пула.|
 |endTime|DateTime|Время, когда удаление пула было завершено.|
 

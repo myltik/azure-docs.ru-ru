@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 04/24/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 45b07f5dd29b7e920ac2abe6765020e0337ecf95
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: f5c5abc988cd363cafe8c07f83eb2686a83ee1a2
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -43,6 +43,10 @@ Docker с OMS можно установить и использовать нес
 
 
 Вы можете ознакомиться с поддерживаемыми версиями Docker и операционными системами Linux для узла контейнера на портале [GitHub](https://github.com/Microsoft/OMS-docker).
+
+При наличии кластера Kubernetes, использующего службу контейнеров Azure, дополнительные сведения см. в статье [Мониторинг кластера службы контейнеров Azure с помощью Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
+
+При наличии кластера DC/OS в службе контейнеров Azure дополнительные сведения см. в статье [Мониторинг кластера DC/OS в службе контейнеров Azure с помощью Operations Management Suite](../container-service/container-service-monitoring-oms.md).
 
 Дополнительные сведения о том, как установить и настроить модули Docker на компьютерах под управлением Windows, см. в [этой статье](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 

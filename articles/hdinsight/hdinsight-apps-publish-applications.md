@@ -9,15 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 35a6c06bc4850f3fcfc6221d62998465f3b38251
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 1a7dabcbfdc1977e747fd30cfc0383d6c5f7f5a0
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -58,14 +60,10 @@ ms.openlocfilehash: 35a6c06bc4850f3fcfc6221d62998465f3b38251
 | tiers |Уровни кластеров, совместимые с приложением. |"Стандартный", "Премиум" (или оба). |
 | versions |Версии кластеров HDInsight, совместимые с приложением. |3.4 |
 
-## <a name="package-application"></a>Пакет приложения
-Создайте ZIP-файл, который содержит все необходимые файлы для установки приложений HDInsight. Этот ZIP-файл вам понадобится при [публикации приложения](#publish-application).
-
-* [createUiDefinition.json](#define-application).
-* mainTemplate.json. См. пример из статьи [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md).
-  
+## <a name="application-install-script"></a>Сценарий установки приложения
+При установке приложения в кластере (существующем или новом) создается граничный узел, на котором запускается сценарий установки приложения.
   > [!IMPORTANT]
-  > Имя скрипта установки приложения должно быть уникальным для определенного кластера и иметь следующий формат: Кроме того, любые действия скриптов установки и удаления должны быть идемпотентными. Это значит, что скрипты можно вызывать повторно с тем же результатом.
+  > Имя скрипта установки приложения должно быть уникальным для определенного кластера и иметь следующий формат: Кроме того, любые действия скриптов установки и удаления должны быть идемпотентными.
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -77,12 +75,22 @@ ms.openlocfilehash: 35a6c06bc4850f3fcfc6221d62998465f3b38251
   > 
   > Например, в сохраненном списке действий скрипта приведенное выше имя будет выглядеть так: hue-install-v0-4wkahss55hlas. Пример полезных данных JSON см. здесь: [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
   > 
-  > 
+Сценарий установки должен иметь следующие характеристики:
+1. Сценарий должен быть идемпотентным. Несколько вызовов сценария должны давать одинаковый результат.
+2. Сценарий должен иметь подходящую версию. Используйте другое расположение для сценария при обновлении или тестировании изменений, чтобы это не влияло на работу пользователей, решивших установить приложение. 
+3. Добавьте ведения журналов для сценариев в каждой точке. Обычно устранить проблемы при установке приложения можно только с помощью журналов сценариев.
+4. Убедитесь, что для вызовов к внешним службам и ресурсам предусмотрено достаточно повторных попыток, чтобы установка страдала от временных неполадок сети.
+5. Если сценарий запускает службы на узлах, убедитесь, что они отслеживаются и настроены для автоматического запуска в случае перезагрузки узла.
+
+## <a name="package-application"></a>Пакет приложения
+Создайте ZIP-файл, который содержит все необходимые файлы для установки приложений HDInsight. Этот ZIP-файл вам понадобится при [публикации приложения](#publish-application).
+
+* [createUiDefinition.json](#define-application).
+* mainTemplate.json. См. пример из статьи [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md).
 * Все необходимые скрипты.
 
 > [!NOTE]
 > Файлы приложения (включая имеющиеся файлы веб-приложения) могут быть расположены в любой общедоступной конечной точке.
-> 
 > 
 
 ## <a name="publish-application"></a>публикации приложения
@@ -104,10 +112,5 @@ ms.openlocfilehash: 35a6c06bc4850f3fcfc6221d62998465f3b38251
 * [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md)— узнайте, как использовать действие скрипта для установки дополнительных приложений.
 * [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md)— узнайте, как вызывать шаблоны Resource Manager для создания кластеров HDInsight.
 * [Использование пустых граничных узлов в HDInsight](hdinsight-apps-use-edge-node.md)— узнайте, как использовать пустой граничный узел для доступа к кластеру HDInsight, а также тестирования и размещения приложений HDInsight.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -42,8 +42,7 @@ ms.lasthandoff: 04/13/2017
 3. Войдите в свой клиент:
 
     ```
-    $cred = Get-Credential
-    Connect-MsolService -Credential $cred
+    Connect-AzureAd -tenantId <tenantId>
     ```
 
 4. Выполнение командлета PowerShell

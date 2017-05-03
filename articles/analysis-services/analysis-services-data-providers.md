@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 04/14/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 71f85c483f6b87ac34c003ac3695a85396ca945b
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c29a6627f712b9d89ac65e845f3ccb4fb87bf8fb
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/17/2017
 Клиентские библиотеки для клиентских подключений отличаются от поставщиков данных, требуемых для подключения с сервера служб Azure Analysis Services к источнику данных. Дополнительные сведения о подключениях к источнику данных см. в [этой статье](analysis-services-datasource.md).
 
 ## <a name="download-the-latest-preview-client-libraries"></a>Скачивание последних **предварительных версий** клиентских библиотек  
-Используйте перечисленные ниже клиентские библиотеки для получения последних исправлений ошибок и обновлений. Их рекомендуется использовать при подключении к предварительной версии служб Azure Analysis Services или к службам SQL Server vNext Analysis Services.
+Используйте перечисленные ниже клиентские библиотеки для получения последних исправлений ошибок и обновлений. Их рекомендуется использовать при подключении к службам Azure Analysis Services или SQL Server vNext Analysis Services.
 
 [Предварительная версия MSOLAP (amd64)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/amd64/SQL_AS_OLEDB.msi)</br>
 [Предварительная версия MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/x86/SQL_AS_OLEDB.msi)</br>

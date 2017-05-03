@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm;asirveda;martinsawicki
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: a2006dbcf0d63ef38651a0859dc654d531fd875a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 23714856f0f778be04cf321e0726b53ade430f57
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -28,6 +29,15 @@ ms.openlocfilehash: a2006dbcf0d63ef38651a0859dc654d531fd875a
 > Также имеется набор средств Azure для интегрированной среды разработки Eclipse. Дополнительные сведения см. в разделе [Набор средств Azure для Eclipse].
 > 
 > 
+
+### <a name="april-14-2017"></a>14 апреля 2017 г.
+Набор средств Azure для IntelliJ, выпущенный в апреле 2017 года, включает следующие улучшения:
+
+* **Улучшенная процедура входа Azure**: набор средств Azure для IntelliJ теперь поддерживает два метода входа в учетную запись Azure: *интерактивный* и *автоматический*. Дополнительные сведения см. в статье [Инструкции по входу для набора средств Azure для IntelliJ].
+* **Публикация с помощью контейнеров Docker**: теперь с помощью набора средств Azure для IntelliJ веб-приложения можно публиковать в виде контейнеров Docker. Дополнительные сведения см. в статье [Публикация веб-приложения в виде контейнера Docker с помощью набора средств Azure для IntelliJ].
+* **Управление учетными записями хранения**: набор средств Azure для IntelliJ теперь поддерживает управление учетными записями хранения из представления Azure Explorer. Дополнительные сведения см. в статье [Управление учетными записями хранения с помощью Azure Explorer для IntelliJ].
+* **Управление виртуальными машинами**: набор средств Azure для IntelliJ теперь поддерживает управление виртуальными машинами из окна средства Azure Explorer. Дополнительные сведения см. в статье [Управление виртуальными машинами хранения с помощью Azure Explorer для IntelliJ].
+* **Прекращение поддержки удаленной отладки**. Удаленная отладка для веб-приложений Java в службе приложений Azure была удалена из набора средств Azure для IntelliJ. Это потребовалось для устранения некоторых проблем, возникающих при работе с набором.
 
 ### <a name="august-26-2016"></a>26 августа 2016 г.
 Набор средств Azure для IntelliJ, выпущенный в августе 2016 года, включает в себя следующие улучшения.
@@ -61,13 +71,15 @@ ms.openlocfilehash: a2006dbcf0d63ef38651a0859dc654d531fd875a
 Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
 
 * [Набор средств Azure для Eclipse]
+  * [Новые возможности набора средств Azure для Eclipse]
   * [Установка набора средств Azure для Eclipse]
   * [Создание веб-приложения Hello World для Azure в Eclipse]
-  * [Новые возможности набора средств Azure для Eclipse]
+  * [Инструкции по входу для набора средств Azure для Eclipse]
 * [Набор средств Azure для IntelliJ]
-  * [Установка набора средств Azure для IntelliJ]
-  * [Создание веб-приложения Hello World для Azure в IntelliJ]
   * *Новые возможности набора средств Azure для IntelliJ (в этой статье)*
+  * [Установка набора средств Azure для IntelliJ]
+  * [Инструкции по входу для набора средств Azure для IntelliJ]
+  * [Создание веб-приложения Hello World для Azure в IntelliJ]
 
 Дополнительные сведения об использовании Azure с Java можно найти в [Центре разработчиков Java для Azure].
 
@@ -79,15 +91,17 @@ ms.openlocfilehash: a2006dbcf0d63ef38651a0859dc654d531fd875a
 [Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Установка набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Установка набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Инструкции по входу для набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Инструкции по входу для набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+
+[Инструкции по входу для набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Публикация веб-приложения в виде контейнера Docker с помощью набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
+[Управление учетными записями хранения с помощью Azure Explorer для IntelliJ]: ./azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
+[Управление виртуальными машинами хранения с помощью Azure Explorer для IntelliJ]: ./azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
 
 [Центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
 [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

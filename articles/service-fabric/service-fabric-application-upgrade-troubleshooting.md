@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: 2149bcf588b019a0c0f3c64a4e39fec9b9bc5925
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 7fc832ff23f5ad652df3cb9c689180c92952ba8e
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -187,7 +187,7 @@ PS D:\temp>
 ### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>Service Fabric не следует указанным политикам работоспособности
 Возможная причина 1.
 
-Service Fabric преобразовывает все процентные значения в фактические количества сущностей (например, реплик, секций и служб) для оценки работоспособности и всегда округляет их до числа целых сущностей. Например, если максимальное значение *MaxPercentUnhealthyReplicasPerPartition* равно 21 % и есть пять реплик, то Service Fabric допустит выделение до двух неработоспособных реплик (т. е. Math.Ceiling (5\*0.21)). Поэтому политики работоспособности должны быть настроены с учетом этого.
+Service Fabric преобразовывает все процентные значения в фактические количества сущностей (например, реплик, секций и служб) для оценки работоспособности и всегда округляет их до числа целых сущностей. Например, если максимальное значение *MaxPercentUnhealthyReplicasPerPartition* равно 21 % и есть пять реплик, то Service Fabric допустит выделение до двух неработоспособных реплик (т. е. `Math.Ceiling (5*0.21)`). Поэтому политики работоспособности должны быть настроены с учетом этого.
 
 Возможная причина 2.
 
@@ -222,7 +222,4 @@ Service Fabric преобразовывает все процентные зна
 Узнайте, как использовать [сериализацию данных](service-fabric-application-upgrade-data-serialization.md), чтобы обеспечить совместимость обновлений приложения.
 
 [Дополнительные разделы](service-fabric-application-upgrade-advanced.md)содержат сведения о работе с расширенными функциями при обновлении приложения.
-
-Сведения об устранении распространенных проблем при обновлении приложений см. в статье [Устранение неполадок при обновлениях приложений](service-fabric-application-upgrade-troubleshooting.md).
-
 

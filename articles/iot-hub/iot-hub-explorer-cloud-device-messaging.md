@@ -16,13 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: df1cf03bc452b76569bdca030b60719d6d2f29f3
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 38121cccc81ef82226e9ea7cbc197e294bb723e3
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Использование обозревателя Центра Интернета вещей для обмена сообщениями между устройством и Центром Интернета вещей
+
+![Сквозная схема](media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -39,7 +41,7 @@ ms.lasthandoff: 04/12/2017
 
 ## <a name="what-you-need"></a>Необходимые элементы
 
-- Ознакомьтесь с руководством о [подключении платы ESP8266 к Центру Интернета вещей Azure](iot-hub-arduino-huzzah-esp8266-get-started.md), по завершении которого у вас должны быть:
+- Изучите руководство [Настройка вашего устройства](iot-hub-raspberry-pi-kit-node-get-started.md), где описаны следующие требования:
   - Активная подписка Azure.
   - Центр Интернета вещей Azure в подписке;
   - клиентское приложение, которое отправляет сообщения в Центр Интернета вещей Azure.

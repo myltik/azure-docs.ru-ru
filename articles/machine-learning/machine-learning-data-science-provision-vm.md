@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e1563db23e687f772eaff2e90ce9853c9d8b87de
-ms.openlocfilehash: f87df28a5a44b7ab3c1d9a48d43c8d1354c48830
-ms.lasthandoff: 11/23/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 8df9fbf4b09cb63cafc9d43592edc68068a28f14
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -47,6 +47,9 @@ ms.lasthandoff: 11/23/2016
 Виртуальная машина Майкрософт для обработки и анализа данных придает значительный импульс вашему аналитическому проекту. Она позволяет работать над задачами, используя различные языки, включая R, Python, SQL и C#. Visual Studio использует удобный интерфейс IDE для разработки и тестирования кода. Пакет SDK Azure в виртуальной машине позволяет создавать приложения с помощью различных служб на облачной платформе Майкрософт. 
 
 Плата за программное обеспечение для этого образа виртуальной машины не взимается. Вы платите только за использование Azure. Сумма зависит от размера виртуальной машины, которая будет подготовлена. Дополнительные сведения об оплате вычислительных ресурсов см. в разделе "Сведения о ценах" на странице [Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) (Виртуальная машина для обработки и анализа данных). 
+
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>Другие версии виртуальных машин для обработки и анализа данных
+Также доступен образ [CentOS](machine-learning-data-science-linux-dsvm-intro.md), который содержит большинство инструментов, входящих в образ Windows. Доступен и образ [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md), содержащий множество аналогичных инструментов, а также платформы глубокого обучения.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Прежде чем создавать виртуальную машину Майкрософт для обработки и анализа данных, необходимо убедиться в наличии следующих компонентов.

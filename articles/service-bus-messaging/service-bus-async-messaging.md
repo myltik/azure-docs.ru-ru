@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/13/2017
+ms.date: 04/19/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 3142bea414e54e321e3dc9ae13aca110049ee105
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: 95d6f295ba145a55fe4ed3fc7c6f627c9d419a3c
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Шаблоны асинхронного обмена сообщениями и высокий уровень доступности
+
 Асинхронный обмен сообщениями может осуществляться различными способами. Служебная шина Azure поддерживает асинхронность за счет механизма сохранения и пересылки. Этот механизм оперирует очередями, разделами и подписками. В обычном (синхронном) режиме сообщения отправляются в очереди и разделы, а поступают из очередей и подписок. Для создаваемых приложений важно, чтобы эти сущности всегда были доступны. На случай, если работоспособность сущности изменится по какой-либо причине, нужно иметь возможность предоставить доступ к сущности, которая будет работать в ограниченном режиме, но все же удовлетворять большинство потребностей.
 
 Для реализации различных сценариев связи в приложениях обычно используются шаблоны асинхронного обмена сообщениями. Вы можете создавать приложения, в которых клиенты смогут отправлять сообщения в службы, даже если они не запущены. В приложениях, для которых характерны скачки нагрузки, сбалансировать нагрузку можно с помощью очередей, которые используются для буферизации передаваемых данных. Наконец, для распределения сообщений между несколькими компьютерами вы можете воспользоваться простым, но эффективным балансировщиком нагрузки.
@@ -131,25 +132,25 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Теперь, ознакомившись с основами асинхронного обмена сообщениями в служебной шине, вы можете узнать дополнительные сведения о [сопряженных пространствах имен][paired namespaces].
+Вы ознакомились с основами асинхронного обмена сообщениями в служебной шине. Дополнительные сведения см. в статье, посвященной [сопряженным пространствам имен][paired namespaces].
 
-[ServerBusyException]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception
+[ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
-[MessagingException]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingexception
+[MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
-[Microsoft.ServiceBus.Messaging.MessagingFactory]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[MessageReceiver]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagereceiver
-[QueueClient]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient
-[TopicClient]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicclient
-[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions
-[MessagingFactory]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[SendAvailabilityPairedNamespaceOptions]:https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
-[NamespaceManager]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.namespacemanager
-[PairNamespaceAsync]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
-[EnableSyphon]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_EnableSyphon
+[Microsoft.ServiceBus.Messaging.MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[MessageReceiver]: /dotnet/api/microsoft.servicebus.messaging.messagereceiver
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[TopicClient]: /dotnet/api/microsoft.servicebus.messaging.topicclient
+[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
+[NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
+[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
+[EnableSyphon]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_EnableSyphon
 [System.TimeSpan.Zero]: https://msdn.microsoft.com/library/system.timespan.zero.aspx
-[IsTransient]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient
+[IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient
 [UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
-[BacklogQueueCount]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_BacklogQueueCount
+[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_BacklogQueueCount
 [paired namespaces]: service-bus-paired-namespaces.md
 

@@ -16,9 +16,9 @@ ms.date: 03/16/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 6e558d2b651b9c50bafa5814a18ad360f7beb2f0
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 40ea65f692d1e2cbc39a6c65b2f8b255282e34cc
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -52,15 +52,15 @@ ms.lasthandoff: 03/25/2017
 
 ## <a name="release-notes"></a>Заметки о выпуске
 
-### <a name="a-name11001100httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb1100"></a><a name="1.10.0"/>[1.10.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.10.0)
+### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 * Включена поддержка секционированных коллекций с производительностью 2500 ЕЗ/с, а также масштабирование с шагом в 100 ЕЗ/с.
 * Исправлена ошибка в машинной сборке, которая могла вызывать в некоторых запросах исключение NullRef.
 
-### <a name="a-name196196httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb196"></a><a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
+### <a name="a-name196196"></a><a name="1.9.6"/>1.9.6
 * Исправлена ошибка в конфигурации обработчика запросов, которая могла вызывать исключения для запросов в режиме шлюза.
 * Исправлены некоторые ошибки в контейнере сеансов, которые могли вызывать исключение Owner resource not found (Ресурс владельца не найден) для запросов сразу после создания коллекции.
 
-### <a name="a-name195195httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb195"></a><a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
+### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
 * Добавлена поддержка статистических запросов (COUNT, MIN, MAX, SUM и AVG). Дополнительные сведения см. в разделе [Статистические функции](documentdb-sql-query.md#Aggregates).
 * Добавлена поддержка веб-канала изменений.
 * Добавлена поддержка сведений о квотах коллекций посредством RequestOptions.setPopulateQuotaInfo.
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/25/2017
 * Исправлена ошибка, которая могла приводить к порождению исключения NullReferenceException в HttpContext при высокой частоте запросов.
 * Повышена производительность режима DirectHttps.
 
-### <a name="a-name194194httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb194"></a><a name="1.9.4"/>[1.9.4](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.4)
+### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
 * Добавлена поддержка прокси-сервера на основе экземпляра простого клиента с помощью API ConnectionPolicy.setProxy().
 * Добавлен API DocumentClient.close() для правильного завершения работы экземпляра DocumentClient.
 * Повышена производительность запросов в режиме прямого подключения за счет получения плана запроса от машинной сборки, а не шлюза.
@@ -78,22 +78,22 @@ ms.lasthandoff: 03/25/2017
 * Выполнен рефакторинг ведения журнала для использования SLF4J.
 * Исправлено несколько ошибок в модуле чтения данных согласованности.
 
-### <a name="a-name193193httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb193"></a><a name="1.9.3"/>[1.9.3](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.3)
+### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
 * Исправлена ошибка в управлении подключениями для предотвращения утечек в режиме прямого подключения.
 * Исправлена ошибка в запросе TOP, которая могла порождать исключение NullReferenece.
 * Повышена производительности за счет сокращения числа сетевых вызовов к внутренним кэшам.
 * В DocumentClientException добавлены код состояния, ActivityID и универсальный код ресурса (URI) для более удобного устранения неполадок.
 
-### <a name="a-name192192httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb192"></a><a name="1.9.2"/>[1.9.2](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.2)
+### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
 * Исправлена проблема в управлении подключениями для повышения стабильности.
 
-### <a name="a-name191191httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb191"></a><a name="1.9.1"/>[1.9.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.1)
+### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 * Добавлена поддержка уровня согласованности BoundedStaleness.
 * Добавлена поддержка прямого подключения для операций CRUD с секционированными коллекциями.
 * Исправлена ошибка, возникающая при выполнении запросов к базе данных с помощью SQL.
 * Исправлена ошибка в кэше сеанса, приводившая к неправильному заданию маркера сеанса.
 
-### <a name="a-name190190httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb190"></a><a name="1.9.0"/>[1.9.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.0)
+### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
 * Добавлена поддержка параллельных запросов между секциями.
 * Добавлена поддержка запросов TOP и ORDER BY для секционированных коллекций.
 * Добавлена поддержка строгой согласованности.
@@ -103,46 +103,46 @@ ms.lasthandoff: 03/25/2017
 * Добавлены типы данных Polygon и LineString и задана политика индексирования коллекций для запросов пространственных геозон.
 * Устранены проблемы с JavaDoc для Java 1.8.
 
-### <a name="a-name181181httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb181"></a><a name="1.8.1"/>[1.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)
+### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 * Исправлена ошибка в PartitionKeyDefinitionMap, из-за которой осуществлялось кэширование коллекций одной секции и не выполнялись дополнительные запросы на получение ключа секции.
 * Исправлена ошибка, из-за которой при предоставлении неправильного ключа секции не предпринималась повторная попытка.
 
-### <a name="a-name180180httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb180"></a><a name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
+### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Добавлена поддержка учетных записей базы данных в нескольких регионах.
 * Добавлена поддержка автоматического повтора на отрегулированных запросов с параметрами для настройки максимального количества повторов и максимального время между повторами.  Ознакомьтесь с RetryOptions и ConnectionPolicy.getRetryOptions().
 * Не рекомендуется использовать IPartitionResolver на основе пользовательского кода секционирования. Используйте секционированные коллекции, чтобы увеличить возможности хранилища и пропускную способность.
 
-### <a name="a-name171171httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb171"></a><a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
+### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
 * Добавлена поддержка политики повтора для регулирования.  
 
-### <a name="a-name170170httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb170"></a><a name="1.7.0"/>[1.7.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.0)
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
 * Добавлена поддержка срока жизни для документов.
 
-### <a name="a-name160160httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb160"></a><a name="1.6.0"/>[1.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Реализованы [секционированные коллекции](documentdb-partition-data.md) и [определяемые пользователем уровни производительности](documentdb-performance-levels.md).
 
-### <a name="a-name151151httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb151"></a><a name="1.5.1"/>[1.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
+### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
 * Исправлена ошибка в HashPartitionResolver, чтобы значения создавались с прямым порядком байтов для согласования с другими пакетами SDK.
 
-### <a name="a-name150150httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb150"></a><a name="1.5.0"/>[1.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 * Добавьте сопоставители разделов "Хэш" и "Диапазон" для сегментирования приложений на разделы.
 
-### <a name="a-name140140httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb140"></a><a name="1.4.0"/>[1.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 * Реализована операция Upsert. Для поддержки функции Upsert добавлены новые методы upsertXXX.
 * Реализована маршрутизация на основе идентификатора. Отсутствуют изменения общего API-интерфейса. Все изменения касаются внутреннего интерфейса.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 * Пропущен номер выпуска для согласованности номера версии с другими пакетами SDK.
 
-### <a name="a-name120120httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb120"></a><a name="1.2.0"/>[1.2.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.2.0)
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Поддержка геопространственного индекса
 * Проверка свойств идентификатора для всех ресурсов. Идентификаторы ресурсов не могут содержать знаки ?, /, #, \, или заканчиваться пробелом.
 * Добавлен новый заголовок "ход выполнения преобразования индекса" в ResourceResponse.
 
-### <a name="a-name110110httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb110"></a><a name="1.1.0"/>[1.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.1.0)
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Реализована политика индексации версии 2.
 
-### <a name="a-name100100httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb100"></a><a name="1.0.0"/>[1.0.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.0.0)
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Пакет SDK общей доступности.
 
 ## <a name="release--retirement-dates"></a>Даты выпуска и выбытия

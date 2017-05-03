@@ -1,28 +1,26 @@
 ---
-title: "Событие начала изменения размера пула | Документы Майкрософт"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8bd33e8b-6390-4a34-95dc-2e63d8bce941
-caps.latest.revision: 6
+title: "Событие начала изменения размера пула пакетной службы Azure | Документы Майкрософт"
+description: "Справочник по событию начала изменения размера пула пакетной службы."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 5064d86063251aeed22688d8fac133c4be1a88f8
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 826cd984d26b923ba38562e05a2e75c399be9121
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="pool-resize-start-event"></a>Событие начала изменения размера пула
-Основная часть журнала событий по началу изменения размера пула
 
-## <a name="remarks"></a>Примечания
+# <a name="pool-resize-start-event"></a>Событие начала изменения размера пула
+
  Это событие создается, когда начинается изменение размера пула. Так как изменение размера пула является асинхронным событием, можно ожидать, что после окончания этой операции возникнет событие завершения изменения размера пула.
 
  В следующем примере показан текст для события начала изменения размера пула с 0 до 2 узлов, когда такое изменение выполняется вручную.

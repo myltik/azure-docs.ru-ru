@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6e71fd9eda822478fa0555aa44908a4094fe8de2
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 04338b62d942774368149b27e8b35713b77f8d7c
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -31,83 +31,53 @@ ms.lasthandoff: 03/31/2017
 
 Общим требованием является наличие определенного тега и значения у всех ресурсов в группе ресурсов. Это требование обычно необходимо для отслеживания затрат по отделу. Должны быть выполнены следующие условия.
 
-* Обязательные тег и значение добавляются к новым и обновленным ресурсам, которые не имеют тегов.
-* Обязательные тег и значение добавляются к новым и обновленным ресурсам, имеющим другие теги (но не имеющим обязательные тег и значение).
+* Обязательные тег и значение добавляются к новым и обновленным ресурсам, у которых нет тега.
 * Обязательные тег и значение невозможно удалить из каких-либо существующих ресурсов.
 
-Это требование можно выполнить, применив к группе ресурсов три следующие политики:
+Это требование можно выполнить, применив к группе ресурсов две встроенные политики.
 
-* [добавление тега](#append-tag); 
-* [добавление тега к другим тегам](#append-tag-with-other-tags);
-* [требование тега и значения](#require-tag-and-value).
+| ИД | Описание |
+| ---- | ---- |
+| 2a0e14a6-b0a6-4fab-991a-187a4f81c498 | Применяет обязательный тег и его значение по умолчанию, если его не задал пользователь. |
+| 1e30110a-5ceb-460c-a204-c1c3969c6d62 | Принудительно применяет обязательный тег и его значение. |
 
-### <a name="append-tag"></a>Добавление тега
+### <a name="powershell"></a>PowerShell
 
-Следующее правило политики добавляет тег costCenter с предопределенным значением, если теги отсутствуют.
+Следующий сценарий PowerShell назначает группе ресурсов два определения встроенных политик. Перед запуском сценария назначьте группе ресурсов все необходимые теги. Каждый тег в группе ресурсов нужен для содержащегося в ней ресурса. Чтобы охватить все группы ресурсов в подписке, не указывайте параметр `-Name` при получении групп ресурсов.
 
-```json
+```powershell
+$appendpolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '2a0e14a6-b0a6-4fab-991a-187a4f81c498'}
+$denypolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '1e30110a-5ceb-460c-a204-c1c3969c6d62'}
+
+$rgs = Get-AzureRMResourceGroup -Name ExampleGroup
+
+foreach($rg in $rgs)
 {
-  "if": {
-    "field": "tags",
-    "exists": "false"
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags",
-        "value": {"costCenter":"myDepartment" }
-      }
-    ]
-  }
-}
-```
-
-### <a name="append-tag-with-other-tags"></a>Добавление тега к другим тегам
-
-Следующее правило политики добавляет тег costCenter с предопределенным значением при отсутствии этого тега и наличии других тегов.
-
-```json
-{
-  "if": {
-    "allOf": [
-      {
-        "field": "tags",
-        "exists": "true"
-      },
-      {
-        "field": "tags.costCenter",
-        "exists": "false"
-      }
-    ]
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags.costCenter",
-        "value": "myDepartment"
-      }
-    ]
-  }
-}
-```
-
-### <a name="require-tag-and-value"></a>Требование тега и значения
-
-Следующее правило политики запрещает обновление или создание ресурсов, которым не назначен тег costCenter с предопределенным значением.
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "tags.costCenter",
-      "equals": "myDepartment"
+    $tags = $rg.Tags
+    foreach($key in $tags.Keys){
+        $key 
+        $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("append"+$key+"tag") -PolicyDefinition $appendpolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("denywithout"+$key+"tag") -PolicyDefinition $denypolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
     }
-  },
-  "then": {
-    "effect": "deny"
-  }
+}
+```
+
+После назначения политик можно активировать обновление для всех существующих ресурсов, чтобы применить добавленные политики тегов. Следующий сценарий сохраняет другие теги, которые существовали в ресурсах:
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
 }
 ```
 
@@ -150,26 +120,6 @@ ms.lasthandoff: 03/31/2017
   "then" : {
     "effect" : "deny"
   }
-}
-```
-
-## <a name="trigger-updates-to-existing-resources"></a>Активация обновления существующих ресурсов
-
-Следующий сценарий PowerShell активирует обновление существующих ресурсов для применения политик тегов, добавленных вами.
-
-```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
-
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
-
-foreach($r in $resources)
-{
-    try{
-        $r | Set-AzureRmResource -Tags ($a=if($_.Tags -eq $NULL) { @{}} else {$_.Tags}) -Force -UsePatchSemantics
-    }
-    catch{
-        Write-Host  $r.ResourceId + "can't be updated"
-    }
 }
 ```
 

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 349252e6629c0eda4d603399345206903d530578
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: bf11a8580500f78c4a96a02953f221501eeffe6c
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -80,13 +81,15 @@ ms.openlocfilehash: 349252e6629c0eda4d603399345206903d530578
 Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
 
 * [Набор средств Azure для Eclipse]
-  * [Установка набора средств Azure для Eclipse]
-  * [Создание веб-приложения Hello World для Azure в Eclipse]
   * [Новые возможности набора средств Azure для Eclipse]
+  * [Установка набора средств Azure для Eclipse]
+  * [Инструкции по входу для набора средств Azure для Eclipse]
+  * [Создание веб-приложения Hello World для Azure в Eclipse]
 * [Набор средств Azure для IntelliJ]
-  * *Установка набора средств Azure для IntelliJ (в этой статье)*
-  * [Создание веб-приложения Hello World для Azure в IntelliJ]
   * [Новые возможности набора средств Azure для IntelliJ]
+  * *Установка набора средств Azure для IntelliJ (в этой статье)*
+  * [Инструкции по входу для набора средств Azure для IntelliJ]
+  * [Создание веб-приложения Hello World для Azure в IntelliJ]
 
 Дополнительные сведения об использовании Azure с Java можно найти в [Центре разработчиков Java для Azure].
 
@@ -98,6 +101,8 @@ ms.openlocfilehash: 349252e6629c0eda4d603399345206903d530578
 [Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Установка набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Инструкции по входу для набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Инструкции по входу для набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Новые возможности набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
@@ -114,9 +119,4 @@ ms.openlocfilehash: 349252e6629c0eda4d603399345206903d530578
 [05]: ./media/azure-toolkit-for-intellij-installation/05-restart-intellij.png
 [06]: ./media/azure-toolkit-for-intellij-installation/06-intellij-settings-dialog.png
 [07]: ./media/azure-toolkit-for-intellij-installation/07-restart-intellij.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

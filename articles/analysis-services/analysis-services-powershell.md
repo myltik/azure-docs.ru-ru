@@ -12,12 +12,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 04/18/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: c0dd85570f052c4a9651faecbaeb3eaa181f9017
-ms.openlocfilehash: b00b2cf1d3a54bba716d7470643aa1a5e6a58633
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 478703542edeee1b40fb5714c91dd6a75bb17513
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -47,19 +47,21 @@ ms.lasthandoff: 03/01/2017
 |[Test-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/test-azurermanalysisservicesserver)|Проверяет существование экземпляра сервера.| 
 
 ## <a name="database-operations"></a>Операции с базой данных
-Для операций с базами данных служб Azure Analysis Services используется тот же модуль [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx), что и для служб SQL Server Analysis Services. Однако для предварительной версии служб Azure Analysis Services поддерживаются не все командлеты. 
+Для операций с базами данных служб Azure Analysis Services используется тот же модуль [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx), что и для служб SQL Server Analysis Services. Однако для служб Azure Analysis Services поддерживаются не все командлеты. 
 
-Модуль SQLASCMDLETS предоставляет командлеты для конкретных задач управления базой данных, а также командлет общего назначения Invoke-ASCmd, который принимает запрос TMSL или сценарий. Для предварительной версии служб Azure Analysis Services поддерживаются следующие командлеты из модуля SQLASCMDLETS.
+Модуль SQLASCMDLETS предоставляет командлеты для конкретных задач управления базой данных, а также командлет общего назначения Invoke-ASCmd, который принимает запрос TMSL или сценарий. Для служб Azure Analysis Services поддерживаются следующие командлеты из модуля SQLASCMDLETS.
   
 |Командлет|Описание|
 |------------|-----------------| 
 |[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Добавление участника в роль базы данных.| 
+|[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Архивация базы данных Analysis Services.|  
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Удаление участника из роли базы данных.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Выполнение сценария TMSL.|
 |[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|Обработка базы данных.|  
 |[Invoke-ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|Обработка секции.| 
 |[Invoke-ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|Обработка таблицы.|  
 |[Merge-Partition](https://msdn.microsoft.com/library/hh479576.aspx)|Объединение секции.|  
+|[Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Восстановление базы данных Analysis Services.| 
   
 
 ## <a name="related-information"></a>Связанные сведения

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2e84eb020b46fe89426e547b389715d6190fc03c
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -35,10 +36,5 @@ ms.openlocfilehash: 2e84eb020b46fe89426e547b389715d6190fc03c
 * [Средство импорта и экспорта](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
   
   Пример, показывающий, как использовать REST API каталога данных для извлечения ресурсов из каталога данных Azure и сериализации их в файл. Он также показывает, как взять набор ресурсов-контейнеров, сериализованный в формат JSON, и отправить его в каталог. Он поддерживает экспорт подмножества каталога с помощью поискового запроса.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

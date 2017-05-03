@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c62f8d077906ce8ad1b5501864a21ee369b2314a
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 0635120c4e16f3b8531039eee4c6651e7cdeca40
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -261,13 +261,15 @@ HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
 В некоторых сценариях параметра подключения serverino может привести к выполнению команды ls для каждой записи каталога, что приводит к снижению производительности при перечислении больших каталогов. Параметры подключения можно просмотреть в записи "/etc/fstab".
 
-`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//<storage-account-name>.file.core.windows.net/<file-share-name> <mount-point> cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Можно также проверить, используются ли правильные параметры, просто выполнив команду **sudo mount | grep cifs** и просмотрев ее результат.
+Можно также проверить, используются ли правильные параметры, просто выполнив команду `sudo mount | grep cifs` (пример выходных данных приведен ниже).
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs
-(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
-dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//<storage-account-name>.file.core.windows.net/<file-share-name> on <mount-point> type cifs
+(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,
+noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
+dir_mode=0777,persistenthandles,nounix,serverino,
+mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 Если параметры cache=strict или serverino отсутствуют, отключите и повторно подключите файлы Azure, выполнив команду подключения из [документации](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share), и еще раз проверьте наличие правильных параметров в записи "/etc/fstab".
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 04/20/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: f819992125f77897545ce3194870b1eadf400852
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: fc6e4eaa34694e2b20cb53b3e457803c59bf76b9
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -609,6 +609,85 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | me
     Type=Event | Dedup EventID | sort TimeGenerated DESC
 
 Этот пример возвращает последнее событие по EventID.
+
+### <a name="join"></a>Объединение
+Соединяет результаты двух запросов для создания единого результирующего набора.  Поддерживает несколько типов соединения, описанных в следующей таблице.
+  
+| Тип соединения | Описание |
+|:--|:--|
+| Внутреннее | Возвращает только записи с совпадающим значением в обоих запросах. |
+| Внешнее | Возвращает все записи из обоих запросов.  |
+| Левое  | Возвращает все записи из левого запроса и совпадающие записи из правого. |
+
+
+- Сейчас соединения не поддерживают запросы, включающие ключевое слово **IN** или команду **Measure**.
+- Пока в соединение можно включить всего одно поле.
+- Один поиск не может содержать больше одного соединения.
+
+**Синтаксис**
+
+```
+<left-query> | JOIN <join-type> <left-query-field-name> (<right-query>) <right-query-field-name>
+```
+
+**Примеры**
+
+Чтобы проиллюстрировать разные типы соединения, рассмотрим присоединение типа данных, полученного из пользовательского журнала MyBackup_CL, к пульсу для каждого компьютера.  Эти типы имеют указанные ниже данные.
+
+`Type = MyBackup_CL`
+
+| TimeGenerated | Компьютер | LastBackupStatus |
+|:---|:---|:---|
+| 4/20/2017 01:26:32.137 AM | Srv01.contoso.com | Успешно |
+| 4/20/2017 02:13:12.381 AM | SRV02.contoso.com | Успешно |
+| 4/20/2017 02:13:12.381 AM | srv03.contoso.com | Сбой |
+
+`Type = Hearbeat` (Показано лишь подмножество полей)
+
+| TimeGenerated | Компьютер | ComputerIP |
+|:---|:---|:---|
+| 4/21/2017 12:01:34.482 PM | Srv01.contoso.com | 10.10.100.1 |
+| 4/21/2017 12:02:21.916 PM | SRV02.contoso.com | 10.10.100.2 |
+| 4/21/2017 12:01:47.373 PM | srv04.contoso.com | 10.10.100.4 |
+
+#### <a name="inner-join"></a>Внутреннее соединение
+
+`Type=MyBackup_CL | join inner Computer (Type=Heartbeat) Computer`
+
+Возвращает следующие записи, где совпадает поле компьютера, для обоих типов данных.
+
+| Компьютер| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| Srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Успешно | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Пульс |
+| SRV02.contoso.com | 4/20/2017 02:13:12.381 AM | Успешно | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Пульс |
+
+
+#### <a name="outer-join"></a>Внешнее соединение
+
+`Type=MyBackup_CL | join outer Computer (Type=Heartbeat) Computer`
+
+Возвращает следующие записи для обоих типов данных.
+
+| Компьютер| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| Srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Успешно  | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Пульс |
+| SRV02.contoso.com | 4/20/2017 02:14:12.381 AM | Успешно  | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Пульс |
+| srv03.contoso.com | 4/20/2017 01:33:35.974 AM | Сбой  | 4/21/2017 12:01:47.373 PM | | |
+| srv04.contoso.com |                           |          | 4/21/2017 12:01:47.373 PM | 10.10.100.2 | Пульс |
+
+
+
+#### <a name="left-join"></a>Левое соединение
+
+`Type=MyBackup_CL | join left Computer (Type=Heartbeat) Computer`
+
+Возвращает следующие записи из MyBackup_CL с совпадающими полями из пульса.
+
+| Компьютер| TimeGenerated | LastBackupStatus | TimeGenerated_joined | ComputerIP_joined | Type_joined |
+|:---|:---|:---|:---|:---|:---|
+| Srv01.contoso.com | 4/20/2017 01:26:32.137 AM | Успешно | 4/21/2017 12:01:34.482 PM | 10.10.100.1 | Пульс |
+| SRV02.contoso.com | 4/20/2017 02:13:12.381 AM | Успешно | 4/21/2017 12:02:21.916 PM | 10.10.100.2 | Пульс |
+| srv03.contoso.com | 4/20/2017 02:13:12.381 AM | Сбой | | | |
 
 
 ### <a name="extend"></a>Extend

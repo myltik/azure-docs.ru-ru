@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: meetb;carlrab;sstein
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: e39d108e9d6962647cbf76e50299b73939fe5977
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: d4d21297618d34aa301e4e1cc814afb15045d7f7
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,9 @@ ms.lasthandoff: 04/18/2017
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-php-and-database-communications-software"></a>Установка программного обеспечения связи PHP и базы данных
+
+В этом разделе предполагается, что у вас уже есть опыт разработки на PHP и вы только начали работу с Базой данных SQL Azure. Если вы новичок в разработке на PHP, перейдите на страницу [создания приложения с помощью SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), выберите язык **PHP** и операционную систему.
+
 ### <a name="mac-os"></a>**Mac OS**
 Чтобы установить **brew**, **драйвер Microsoft ODBC для Mac** и **драйверы Microsoft PHP для SQL Server**, откройте терминал и введите следующие команды: 
 
@@ -73,7 +76,7 @@ sudo echo "extension= sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | s
 
 ## <a name="get-connection-information"></a>Получение сведений о подключении
 
-Получите строку подключения на портале Azure. Используйте строку подключения, чтобы подключиться к базе данных SQL Azure.
+Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
@@ -84,7 +87,7 @@ sudo echo "extension= sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | s
 4. Если вы забыли данные для входа на сервер базы данных SQL Azure, перейдите к соответствующей странице, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль.     
     
 ## <a name="select-data"></a>Выбор данных
-Используйте указанный ниже код, чтобы запросить базу данных SQL Azure, используя функцию [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) с инструкцией Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Функция sqlsrv_query используется для извлечения результирующего набора из запроса к базе данных SQL. Эта функция принимает запрос и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
+Используйте следующий код, чтобы запросить 20 наиболее популярных продуктов по категории, используя функцию [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) в инструкции Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Функция sqlsrv_query используется для извлечения результирующего набора из запроса к базе данных SQL. Эта функция принимает запрос и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
 
 ```PHP
 <?php
@@ -113,7 +116,7 @@ sqlsrv_free_stmt($getResults);
 
 
 ## <a name="insert-data"></a>Добавление данных
-Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product в указанной базе данных, используя функцию [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) и инструкцию Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
+Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product с помощью функции [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) и инструкции Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
 
 ```PHP
 <?php
@@ -165,7 +168,7 @@ else{
 ```
 
 ## <a name="delete-data"></a>Удаление данных
-Используйте указанный ниже код, чтобы удалить данные в базе данных SQL Azure, используя функцию [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) и инструкцию Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте следующий код, чтобы удалить новый продукт, добавленный ранее, с помощью функции [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) и инструкции Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```PHP
 <?php

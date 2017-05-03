@@ -13,17 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 04/18/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 81c569c5130869e6d8c9dc79feca592aecc44e61
-ms.openlocfilehash: edccbbb72649c5a443fefd7f1d97a8c01a4daff2
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4338fc03664175b7c27a48f1ab682179c1035313
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="view-edit-create-and-upload-json-documents-using-documentdb-document-explorer"></a>Просмотр, изменение, создание и отправка документов JSON с помощью проводника документов DocumentDB
-В этой статье приведены общие сведения о проводнике документов [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) — средстве портала Azure, предназначенном для просмотра, изменения, создания, отправки и фильтрации документов JSON с помощью DocumentDB. 
+# <a name="view-edit-create-and-upload-json-documents"></a>Просмотр, изменение, создание и отправка документов JSON 
+
+Эта статья содержит обзор двух способов для создания, изменения и запроса документов на портале — [обозревателя документов](#launch-document-explorer) и [обозревателя данных (предварительная версия)](#data-explorer).
 
 > [!NOTE]
 > В учетных записях DocumentDB с поддержкой протокола для MongoDB проводник документов не включен. Страница будет обновлена после включения этого компонента.
@@ -147,6 +148,13 @@ ms.lasthandoff: 02/15/2017
    
     ![Снимок экрана: результаты массовой отправки в обозревателе документов](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)
 5. После завершения операции можно выбрать до 100 других документов для передачи.
+
+<a id="data-explorer"></a>
+## <a name="create-a-document-by-using-data-explorer-preview"></a>Создание документа с помощью обозревателя данных (предварительная версия)
+
+Другой способ создания, изменения и запроса документов на портале заключается в использовании обозревателя данных. Чтобы открыть обозреватель данных, щелкните элемент **Обозреватель данных (ознакомительная версия)** на панели навигации портала, разверните имя базы данных и имя коллекции, щелкните **Документы**, а затем нажмите кнопку **Создать документ**, как показано на следующем снимке экрана.
+
+![Снимок экрана с кнопкой "Создать коллекцию" на портале](./media/documentdb-view-JSON-document-explorer/azure-documentdb-data-explorer.png)
 
 ## <a name="work-with-json-documents-outside-the-portal"></a>Работа с документами JSON за пределами портала
 Использование проводника документов на портале Azure — это один из способов работы с документами в DocumentDB. Вы также можете работать с документами с помощью [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) или [клиентских пакетов SDK](documentdb-sdk-dotnet.md). Просмотреть код можно в статьях [Примеры DocumentDB .NET](documentdb-dotnet-samples.md#document-examples) и [Примеры DocumentDB для Node.js](documentdb-nodejs-samples.md#document-examples).

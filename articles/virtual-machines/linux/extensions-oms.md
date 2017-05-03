@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e890582e790ad9187287e1323159098e19d7325
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: c2d14be5f27a775a14039bd63c5ccb5cd7b10f9a
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -36,11 +36,11 @@ Operations Management Suite (OMS) предоставляет возможнос�
 
 | Дистрибутив | Version (версия) |
 |---|---|
-| CentOS Linux | 5,6 и 7 |
-| Oracle Linux | 5,6 и 7 |
-| Сервер Red Hat Enterprise Linux | 5,6 и 7 |
+| CentOS Linux | 5, 6 и 7 |
+| Oracle Linux | 5, 6 и 7 |
+| Сервер Red Hat Enterprise Linux | 5, 6 и 7 |
 | Debian GNU/Linux | 6, 7 и 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 и 12 |
 
 ### <a name="internet-connectivity"></a>Подключение к Интернету
@@ -63,7 +63,7 @@ Operations Management Suite (OMS) предоставляет возможнос�
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -81,7 +81,7 @@ Operations Management Suite (OMS) предоставляет возможнос�
 | версия_API | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1,3 |
 | workspaceID (пример) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (пример) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -106,7 +106,7 @@ JSON для расширения виртуальной машины можно 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -131,7 +131,7 @@ JSON для расширения виртуальной машины можно 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -148,7 +148,7 @@ Azure CLI можно использовать для развертывания 
 
 ```azurecli
 azure vm extension set myResourceGroup myVM \
-  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
+  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.3 \
   --public-config-path public.json  \
   --private-config-path protected.json
 ```
@@ -168,6 +168,30 @@ azure vm extension get myResourceGroup myVM
 ```
 /opt/microsoft/omsagent/bin/stdout
 ```
+
+### <a name="error-codes-and-their-meanings"></a>Коды ошибок и их описание
+
+| Код ошибки | Значение | Возможное действие |
+| :---: | --- | --- |
+| 2 | Набору оболочки предоставлен недопустимый параметр | |
+| 3 | Набору оболочки не предоставлен параметр | |
+| 4. | Недопустимый тип пакета | |
+| 5 | Набор оболочки нужно выполнять в корне | |
+| 6 | Недопустимая архитектура пакета | |
+| 10 | Виртуальная машина уже подключена к рабочей области OMS | Для подключения виртуальной машины к рабочей области, указанной в схеме расширения, задайте для stopOnMultipleConnections значение false в общих параметрах или удалите это свойство. Счет для этой виртуальной машины выставляется за каждую рабочую область, к которой она подключена. |
+| 11 | Для расширения предоставлена недопустимая конфигурация | Изучите приведенные выше примеры, чтобы задать все значения свойств, необходимые для развертывания. |
+| 20 | Не удалось установить SCX или OMI | |
+| 21 | Не удалось установить SCX или комплекты поставщика | |
+| 22 | Не удалось установить объединенный пакет | |
+| 23 | Пакет SCX или OMI уже установлен | |
+| 30 | Внутренняя ошибка набора | |
+| 51 | Это расширение не поддерживается в операционной системе виртуальной машины | |
+| 60 | Неподдерживаемая версия OpenSSL | Установите версию OpenSSL, соответствующую нашим [требованиям к пакету](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#package-requirements). |
+| 61 | Отсутствует библиотека ctypes Python | Установите библиотеку ctypes Python или соответствующий пакет (python-ctypes). |
+| 62 | Отсутствует программа tar | Установите tar. |
+| 63 | Отсутствует программа sed | Установите sed. |
+
+Дополнительные сведения об устранении неполадок см. в [руководстве по устранению неполадок агента OMS для Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#).
 
 ### <a name="support"></a>Поддержка
 

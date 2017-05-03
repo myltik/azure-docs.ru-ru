@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 1da8051f96107310b821c4f88f4725987b81f732
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 3f1f19f8d8a4f2e6e892ba3ede67f3749cedb11b
+ms.lasthandoff: 04/22/2017
 
 ---
 
@@ -104,6 +104,10 @@ ms.lasthandoff: 03/18/2017
 ## <a name="pricing"></a>Цены
 
 Сведения о ценах см. на [странице с ценами на диспетчер трафика](https://azure.microsoft.com/pricing/details/traffic-manager/).
+
+## <a name="faq"></a>Часто задаваемые вопросы
+
+Ответы на часто задаваемые вопросы о диспетчере трафика Azure см. в статье [Диспетчер трафика Azure: вопросы и ответы](traffic-manager-FAQs.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -1,6 +1,6 @@
 ---
 title: "Создание удостоверения для приложения Azure с помощью PowerShell | Документация Майкрософт"
-description: "Использование Azure PowerShell для создания приложения Active Directory и субъекта-службы с последующим предоставлением доступа к ресурсам с управлением доступом на основе ролей. В статье показано, как выполнять проверку подлинности приложения с помощью пароля или сертификата."
+description: "Использование Azure PowerShell для создания приложения Azure Active Directory и субъекта-службы с последующим предоставлением доступа к ресурсам посредством управления доступом на основе ролей. В статье показано, как выполнять проверку подлинности приложения с помощью пароля или сертификата."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: db36f52f538905683b4cbc6db7cc41b56710db8c
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 775734ea55d1136e64afc713356b0f0bfc81ea9f
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/04/2017
 В этой статье показано, как настроить использование собственных учетных данных и удостоверения для приложения с помощью [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ## <a name="required-permissions"></a>Необходимые разрешения
-Для работы с этой статьей у вас должен быть достаточный уровень разрешений в подписке в Azure Active Directory и Azure. В частности, вы должны иметь право на создание приложения в Active Directory и назначение роли субъекту-службе. 
+Для работы с этой статьей у вас должен быть достаточный уровень разрешений в подписке в Azure Active Directory и Azure. В частности, вы должны иметь право на создание приложения в Azure Active Directory и назначение роли субъекту-службе. 
 
 Проверить, есть ли у вас соответствующие разрешения, проще всего на портале. Ознакомьтесь с [проверкой наличия необходимых разрешений](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -85,7 +85,7 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
- # Create Active Directory application with password
+ # Create Azure Active Directory application with password
  $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -Password $Password
 
  # Create Service Principal for the AD app
@@ -110,7 +110,7 @@ Param (
 * Укажите параметр ResourceGroup только в том случае, если требуется ограничить область назначения роли определенной группой ресурсов.
 * Для однотенантных приложений URI домашней страницы и URI для идентификации не проверяются.
 *  В этом примере субъект-служба добавляется в роль участника. Сведения о других ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
-* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
+* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
 * Чтобы предоставить субъекту-службе доступ к другим подпискам или группам ресурсов, выполните командлет `New-AzureRMRoleAssignment` повторно, указав другие области.
 
 
@@ -194,7 +194,7 @@ Param (
 * Укажите параметр ResourceGroup только в том случае, если требуется ограничить область назначения роли определенной группой ресурсов.
 * Для однотенантных приложений URI домашней страницы и URI для идентификации не проверяются.
 *  В этом примере субъект-служба добавляется в роль участника. Сведения о других ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
-* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
+* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
 * Чтобы предоставить субъекту-службе доступ к другим подпискам или группам ресурсов, выполните командлет `New-AzureRMRoleAssignment` повторно, указав другие области.
 
 Если вы **не используете Windows 10 или Windows Server 2016 Technical Preview**, скачайте сценарий [генератора самозаверяющих сертификатов](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) из центра сценариев Microsoft. Извлеките содержимое сценария и импортируйте требуемый командлет.
@@ -212,7 +212,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Предоставление сертификата с помощью автоматизированного сценария PowerShell
-При каждом входе в приложение AD в качестве субъекта-службы необходимо указать идентификатор клиента каталога. Клиент — это экземпляр Active Directory. Если у вас только одна подписка, используйте команду:
+При каждом входе в приложение AD в качестве субъекта-службы необходимо указать идентификатор клиента каталога. Клиент — это экземпляр Azure Active Directory. Если у вас только одна подписка, используйте команду:
 
 ```powershell
 Param (
@@ -302,11 +302,11 @@ Param (
 * Доступ предоставляется в пределах подписки.
 * Для однотенантных приложений URI домашней страницы и URI для идентификации не проверяются.
 *  В этом примере субъект-служба добавляется в роль участника. Сведения о других ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
-* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
+* Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
 * Чтобы предоставить субъекту-службе доступ к другим подпискам или группам ресурсов, выполните командлет `New-AzureRMRoleAssignment` повторно, указав другие области.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Предоставление сертификата с помощью автоматизированного сценария PowerShell
-При каждом входе в приложение AD в качестве субъекта-службы необходимо указать идентификатор клиента каталога. Клиент — это экземпляр Active Directory.
+При каждом входе в приложение AD в качестве субъекта-службы необходимо указать идентификатор клиента каталога. Клиент — это экземпляр Azure Active Directory.
 
 ```powershell
 Param (
@@ -390,7 +390,7 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 
 При создании субъекта-службы могут возникнуть следующие ошибки:
 
-* **"Authentication_Unauthorized"** (Аутентификация не выполнена) или **"No subscription found in the context"** (В контексте не удалось найти подписку). Эта ошибка может отобразиться, если учетная запись не имеет [необходимых разрешений](#required-permissions) в Active Directory для регистрации приложения. Как правило, эта ошибка возникает в тех случаях, когда регистрировать приложения в Active Directory могут только администраторы, а ваша учетная запись не является администраторской. Попросите администратора назначить вам роль администратора или разрешить пользователям регистрировать приложения.
+* **"Authentication_Unauthorized"** (Аутентификация не выполнена) или **"No subscription found in the context"** (В контексте не удалось найти подписку). — Эта ошибка может отобразиться, если учетная запись не имеет [необходимых разрешений](#required-permissions) в Azure Active Directory для регистрации приложения. Как правило, эта ошибка возникает в тех случаях, когда регистрировать приложения в Azure Active Directory могут только администраторы, а ваша учетная запись не является административной. Попросите администратора назначить вам роль администратора или разрешить пользователям регистрировать приложения.
 
 * Ваша учетная запись **"не авторизована для выполнения действия 'Microsoft.Authorization/roleAssignments/write' с областью '/subscriptions/{guid}'."** Эта ошибка возникает, когда учетная запись не имеет достаточно разрешений для назначения роли удостоверению. Попросите администратора подписки назначить вам роль администратора доступа пользователей.
 
@@ -425,6 +425,6 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 ## <a name="next-steps"></a>Дальнейшие действия
 * Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [Управление ресурсами клиента с помощью Azure Active Directory и Resource Manager](resource-manager-api-authentication.md).
 * Более подробное описание приложений и субъектов-служб см. в статье [Объекты приложений и объекты участников-служб](../active-directory/active-directory-application-objects.md). 
-* Дополнительные сведения об аутентификации Active Directory см. в статье [Сценарии аутентификации в Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md).
+* Дополнительные сведения о проверке подлинности Azure Active Directory см. в статье [Сценарии проверки подлинности в Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md).
 
 

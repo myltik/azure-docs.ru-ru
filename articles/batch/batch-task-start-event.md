@@ -1,28 +1,26 @@
 ---
-title: "Событие начала выполнения задачи | Документы Майкрософт"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 95f7762a-a715-4c83-907b-8aed004e69b1
-caps.latest.revision: 3
+title: "Событие начала выполнения задачи пакетной службы Azure | Документы Майкрософт"
+description: "Справочник по событию начала выполнения задачи пакетной службы."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 81e27c1db2687c819aee15646c2c72e8765293c8
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: c47ab36c99dddd46a14c15018a2a46bf7f873ffa
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="task-start-event"></a>Событие начала выполнения задачи
-Основная часть журнала событий по началу выполнения задачи
 
-## <a name="remarks"></a>Примечания
+# <a name="task-start-event"></a>Событие начала выполнения задачи
+
  Это событие возникает, когда планировщик планирует задачу для запуска на вычислительном узле. Обратите внимание, что если задача повторно выполняется или помещается в очередь, то для нее снова возникает данное событие, при этом число повторов и версия системной задачи изменяются соответствующим образом.
 
 

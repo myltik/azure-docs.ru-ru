@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
+ms.date: 04/30/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
@@ -44,7 +44,7 @@ ms.lasthandoff: 03/22/2017
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "",
+       "contentVersion": "1.0",
        "parameters": {  },
        "variables": {  },
        "resources": [  ],
@@ -144,6 +144,7 @@ ms.lasthandoff: 03/22/2017
                 "category": "Schedule"
             }
         }
+    }
 
 
 Ссылки на значения параметров в других элементах решения создаются с помощью синтаксиса **parameters('имя_параметра')**.  Например, для доступа к имени рабочей области можно использовать **parameters('имя_рабочей_области')**.

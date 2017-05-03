@@ -13,19 +13,32 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 04/21/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 767698f12a5cb58fafc70c58e3d36a65194c2999
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: 260208e7c7a08110eb3c885ef86ec4c18ff42fc9
+ms.openlocfilehash: 87486f94bee474b13680e9a90716f09399a95e16
+ms.lasthandoff: 04/23/2017
 
 
 ---
 # <a name="use-the-azure-documentdb-emulator-for-development-and-testing"></a>Использование эмулятора Azure DocumentDB для разработки и тестирования
 
-[**Скачать эмулятор**](https://aka.ms/documentdb-emulator)
-
+<table>
+<tr>
+  <td><strong>Двоичные файлы</strong></td>
+  <td>[Скачивание MSI](https://aka.ms/documentdb-emulator)</td>
+</tr>
+<tr>
+  <td><strong>Docker</strong></td>
+  <td>[Концентратор Docker](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+</tr>
+<tr>
+  <td><strong>Источник Docker</strong></td>
+  <td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td>
+</tr>
+</table>
+  
 Эмулятор Azure DocumentDB предоставляет для разработки локальную среду, которая имитирует службу Azure DocumentDB. Используя эмулятор DocumentDB, можно разрабатывать и тестировать приложения локально, без создания подписки Azure и без каких-либо затрат. Если приложение в эмуляторе DocumentDB работает правильно, вы можете использовать учетную запись Azure DocumentDB в облаке.
 
 Рекомендуем просмотреть следующий видеоролик, в котором Кирилл Гаврилюк покажет, как начать работу с эмулятором DocumentDB.
@@ -56,7 +69,7 @@ ms.lasthandoff: 04/07/2017
 Если установлен [Docker для Windows](https://www.docker.com/docker-windows), вы можете извлечь образ эмулятора из Docker Hub, выполнив следующую команду из любой оболочки по своему усмотрению (cmd.exe, PowerShell и т. д.).
 
 ```      
-docker pull mominag/documentdb_emulator 
+docker pull microsoft/azure-documentdb-emulator 
 ```
 Чтобы запустить образ, выполните следующие команды:
 

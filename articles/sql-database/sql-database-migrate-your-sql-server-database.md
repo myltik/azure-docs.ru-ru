@@ -4,7 +4,7 @@ description: "Сведения о переносе базы данных SQL Ser
 services: sql-database
 documentationcenter: 
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/04/2017
+ms.date: 04/20/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 842ca29e46aefbd58638ac642f000ef39c1202d1
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: c6d965351f6f131ee342cea672fc4fa8771f8ede
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 04/13/2017
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
 - База данных для переноса. В этом руководстве используется [база данных SQL Server 2008 R2 AdventureWorks OLTP](https://msftdbprodsamples.codeplex.com/releases/view/59211) в экземпляре SQL Server 2008 R2 или более поздней версии, но можно использовать любую базу данных по своему усмотрению. 
 
-## <a name="step-1---prepare-for-migration"></a>Шаг 1. Подготовка к переносу
+## <a name="prepare-for-migration"></a>Подготовка к переносу
 
 Теперь вы готовы приступить к подготовке к переносу. Чтобы оценить готовность своей базы данных к переносу в базу данных SQL Azure с помощью **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)**, выполните приведенные ниже действия.
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 04/13/2017
 10. При необходимости нажмите кнопку **Экспортировать отчет**, чтобы сохранить отчет в формате JSON.
 11. Закройте Data Migration Assistant.
 
-## <a name="step-2---export-to-bacpac-file"></a>Шаг 2. Экспорт в BACPAC-файл 
+## <a name="export-to-bacpac-file"></a>Экспорт в BACPAC-файл 
 
 BACPAC-файл — это ZIP-файл с расширением BACPAC, содержащий метаданные и данные из базы данных SQL Server. BACPAC-файл можно сохранить в хранилище BLOB-объектов Azure или в локальном хранилище для архивирования или переноса (например, из базы данных SQL Server в базу данных SQL Azure). Чтобы экспорт был транзакционно согласованным, в это время необходимо остановить все операции записи.
 
@@ -103,11 +103,11 @@ BACPAC-файл — это ZIP-файл с расширением BACPAC, сод
 
 После выполнения созданный BCPAC-файл сохраняется в каталоге, в котором находится исполняемый файл SqlPackage. В этом примере это C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin. 
 
-## <a name="step-3-log-in-to-the-azure-portal"></a>Шаг 3. Вход на портал Azure
+## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
 
 Войдите на [портал Azure](https://portal.azure.com/). Если войти в систему с компьютера, на котором вы используете служебную программу командной строки SqlPackage, это упростит создание правила брандмауэра на шаге 5.
 
-## <a name="step-4-create-a-sql-database-logical-server"></a>Шаг 4. Создание логического сервера базы данных SQL
+## <a name="create-a-sql-database-logical-server"></a>Создание логического сервера базы данных SQL
 
 [Логический сервер базы данных SQL Azure](sql-database-features.md) выступает в качестве центральной точки администрирования нескольких баз данных. Чтобы создать логический сервер базы данных SQL для хранения перенесенной базы данных Adventure Works OLTP SQL Server, выполните приведенные ниже действия. 
 
@@ -133,7 +133,7 @@ BACPAC-файл — это ZIP-файл с расширением BACPAC, сод
 
 5. Чтобы подготовить логический сервер, нажмите кнопку **Создать**. Подготовка занимает несколько минут. 
 
-## <a name="step-5-create-a-server-level-firewall-rule"></a>Шаг 5. Создание правила брандмауэра уровня сервера
+## <a name="create-a-server-level-firewall-rule"></a>создадим правило брандмауэра на уровне сервера;
 
 Служба базы данных SQL создает [брандмауэр уровня сервера](sql-database-firewall-configure.md), который не позволяет внешним приложениям и средствам подключаться к серверу или любой базе данных на сервере, если не создано правило брандмауэра, открывающее брандмауэр для определенных IP-адресов. Чтобы создать правило брандмауэра уровня сервера базы данных SQL для IP-адреса компьютера, на котором вы запускаете служебную программу командной строки SqlPackage, выполните приведенные ниже действия. Это позволит SqlPackage подключиться к логическому серверу базы данных SQL через брандмауэр базы данных SQL Azure. 
 
@@ -155,7 +155,7 @@ BACPAC-файл — это ZIP-файл с расширением BACPAC, сод
 > База данных SQL обменивается данными через порт 1433. Если вы пытаетесь подключиться из корпоративной сети, исходящий трафик через порт 1433 может быть запрещен сетевым брандмауэром. В таком случае вы не сможете подключиться к серверу базы данных SQL Azure. Для этого ваш ИТ-отдел должен открыть порт 1433.
 >
 
-## <a name="step-6---import-bacpac-file-to-azure-sql-database"></a>Шаг 6. Импорт BACPAC-файла в базу данных SQL Azure 
+## <a name="import-bacpac-file-to-azure-sql-database"></a>Импорт BACPAC-файла в базу данных SQL Azure 
 
 Последние версии служебной программы командной строки SqlPackage поддерживают создание базы данных SQL Azure в соответствии с указанным [уровнем служб и производительности](sql-database-service-tiers.md). Чтобы повысить производительность импорта, выберите высокий уровень производительности и служб, а затем после импорта выполните масштабирование, если уровень производительности и служб выше требуемого.
 
@@ -173,7 +173,7 @@ BACPAC-файл — это ZIP-файл с расширением BACPAC, сод
 > Логический сервер базы данных SQL Azure прослушивает порт 1433. Чтобы подключиться к логическому серверу базы данных SQL Azure из среды, ограничиваемой корпоративным брандмауэром, этот порт должен быть открыт в брандмауэре.
 >
 
-## <a name="step-7---connect-using-sql-server-management-studio-ssms"></a>Шаг 7. Подключение с помощью SQL Server Management Studio
+## <a name="connect-using-sql-server-management-studio-ssms"></a>Подключение с помощью SQL Server Management Studio
 
 SQL Server Management Studio позволяет подключиться к серверу базы данных SQL Azure и перемещенной базе данных. При запуске SQL Server Management Studio на другом компьютере (не на том, где была запущена SqlPackage) создайте правило брандмауэра для этого компьютера, следуя инструкциям в предыдущей процедуре.
 
@@ -192,7 +192,7 @@ SQL Server Management Studio позволяет подключиться к се
 
 4. В обозревателе объектов разверните **базы данных**, затем выберите **myMigratedDatabase**, чтобы просмотреть объекты в образце базы данных.
 
-## <a name="step-8---change-database-properties"></a>Шаг 8. Изменение свойств базы данных
+## <a name="change-database-properties"></a>Изменение свойств базы данных
 
 С помощью SQL Server Management Studio можно изменить уровень служб, производительности и совместимости.
 

@@ -15,8 +15,9 @@ ms.workload: multiple
 ms.date: 10/08/2015
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: b6705e14e52e98759027389758d7fa57c4e11462
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3a7f5a4afa8b00801f58776e2cf9d7bff9748925
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.openlocfilehash: b6705e14e52e98759027389758d7fa57c4e11462
 1. Убедитесь, что вам доступен один из клиентских сертификатов, которым доверяет целевой кластер. Сертификат обычно распространяется в виде файла обмена персональной информацией (.pfx). Руководство по настройке доступа клиента к серверу см. в статье [Создание кластера Service Fabric в Azure с помощью портала Azure](service-fabric-cluster-creation-via-portal.md).
 2. Установите доверенный сертификат. Для этого дважды щелкните PFX-файл или импортируйте сертификаты с помощью сценария PowerShell PfxCertificate. Установите сертификат в каталог **Cert:\LocalMachine\My**. При импорте сертификата можно принять все настройки по умолчанию.
 3. Выберите **Опубликовать** в контекстном меню проекта, чтобы открыть диалоговое окно **Опубликовать приложение Azure**, а затем выберите целевой кластер. Средство автоматически разрешает подключение и сохраняет параметры безопасного подключения в профиле публикации.
-4. [Optional]: You can edit the publish profile to specify a secure cluster connection.
+4. Можно изменить профиль публикации, чтобы указать безопасное подключение к кластеру (необязательно).
    
    Так как вы добавляете информацию о сертификате в XML-файл профиля публикации вручную, запишите имя хранилища сертификатов, расположение хранилища и отпечаток сертификата. Эти значения нужно будет указать в качестве имени и расположения хранилища сертификатов. Дополнительные сведения см. в статье [Практическое руководство. Извлечение отпечатка сертификата](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx).
    
@@ -71,9 +72,4 @@ ms.openlocfilehash: b6705e14e52e98759027389758d7fa57c4e11462
 <!--Image references-->
 [publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]:./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

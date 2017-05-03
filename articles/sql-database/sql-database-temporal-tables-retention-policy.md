@@ -16,9 +16,9 @@ ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 8687603e7dbb91d60520be8952a78128595d9f46
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 3870a6ddb8c40a619e3aa6ed1a040f2070e2598c
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -159,7 +159,7 @@ CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
 ````
 
-План запроса содержит дополнительный фильтр, применяемый к столбцу окончания периода (ValidTo) в операторе Clustered Index Scan для таблицы исторических данных (выделено). В этом примере предполагается, что для таблицы WebsiteUserInfo задан срок хранения "1 MONTH" (1 месяц).
+План запроса содержит дополнительный фильтр, применяемый к столбцу окончания периода (ValidTo) в операторе "Clustered Index Scan" (Сканирование кластеризованного индекса) в таблице исторических данных (выделено). В этом примере предполагается, что для таблицы WebsiteUserInfo задан срок хранения "1 MONTH" (1 месяц).
 
 ![Фильтр для запроса хранения](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
 
