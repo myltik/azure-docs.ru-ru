@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/08/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 5ed72d95ae258d6fa8e808cd72ab6e8a665901c9
-ms.openlocfilehash: 4c72a7c7127f2d387926ac2722aeb3f1e5f7c2a6
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: c1360cb76c6fe8fd5177f13ea67f2109b5777521
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -1769,6 +1769,7 @@ LINQ является моделью программирования .NET, ко
 * **Where**: фильтры преобразовываются в инструкцию SQL WHERE, а также поддерживают преобразование &&, || и ! в операторы SQL.
 * **SelectMany**: позволяет выполнять очистку массивов в предложение SQL JOIN. Может использоваться для вложения выражений или объединения их в цепочку для фильтрации по элементам массива.
 * **OrderBy и OrderByDescending**: выполняет преобразование в ORDER BY по возрастанию или по убыванию.
+* Операторы для агрегирования **Count**, **Sum**, **Min**, **Max**, **Average** и их асинхронные эквиваленты **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** и **AverageAsync**.
 * **CompareTo**: выполняет преобразование в сравнение диапазонов. Обычно используется для строк, так как их нельзя сравнивать в .NET.
 * **Take**: выполняет преобразование в SQL TOP для ограничения результатов запроса.
 * **Math Functions**: поддерживает преобразование из Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate платформы .NET в эквивалентные встроенные функции SQL.
@@ -1777,11 +1778,6 @@ LINQ является моделью программирования .NET, ко
 * **Geospatial Extension Functions**: поддерживает преобразование из Distance, Within, IsValid и IsValidDetailed методов заглушки в эквивалентные встроенные функции SQL.
 * **User Defined Function Extension Function**: поддерживает преобразование из UserDefinedFunctionProvider.Invoke метода заглушки в соответствующую определяемую пользователем функцию.
 * **Miscellaneous**: поддерживает преобразование операторов объединения и условных операторов. Позволяет преобразовать Contains в строку CONTAINS, ARRAY_CONTAINS или SQL IN в зависимости от контекста.
-
-> [!NOTE]
-> Статистические операторы **Count, Sum, Min, Max и Average** сейчас не поддерживаются, но будут доступны в будущих версиях пакета SDK.  
-> 
-> 
 
 ### <a name="sql-query-operators"></a>Операторы SQL-запросов
 Вот несколько примеров, которые иллюстрируют, как некоторые из стандартных операторов запросов LINQ транслируются в запросы DocumentDB.

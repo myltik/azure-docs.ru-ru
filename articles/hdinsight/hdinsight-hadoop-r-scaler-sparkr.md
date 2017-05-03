@@ -1,5 +1,5 @@
 ---
-title: "Совместное использование ScaleR и SparkR с Azure HDInsight | Документация Майкрософт"
+title: "Использование ScaleR и SparkR с Azure HDInsight | Документация Майкрософт"
 description: "Использование ScaleR и SparkR с R Server и HDInsight"
 services: hdinsight
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/04/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5e8fb7642dca815c64b9aed8184672259d3facf8
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: bab5268c4aab2210e8ace2c3a1db23b34887c2ed
+ms.lasthandoff: 04/04/2017
 
 
 ---
 
-# <a name="mixing-use-of-scaler-and-sparkr-in-hdinsight"></a>Совместное использование ScaleR и SparkR в HDInsight
+# <a name="combining-scaler-and-sparkr-in-hdinsight"></a>Совместное использование ScaleR и SparkR в HDInsight
 
-Узнайте, как сочетать использование SparkR для работы с данными в Spark и Microsoft R Server для аналитики. Хотя оба пакета работают поверх механизма выполнения Spark Hadoop, чтобы использовать новейшие возможности распределенной обработки, совместное использование данных в памяти для них заблокировано, так как для этого требуются отдельные сеансы Spark. Это будет исправлено в последующих версиях R Server, а пока временным решением является поддержание не перекрывающихся сеансов Spark и обмен данными с помощью промежуточных файлов. Эти требования весьма просты.
+Узнайте, как сочетать возможности SparkR для работы с данными в Spark и Microsoft R Server для выполнения задач аналитики. Хотя оба пакета работают поверх механизма выполнения Spark Hadoop, чтобы использовать новейшие возможности распределенной обработки, совместное использование данных в памяти для них заблокировано, так как для этого требуются отдельные сеансы Spark. Это будет исправлено в последующих версиях R Server, а пока временным решением является поддержание не перекрывающихся сеансов Spark и обмен данными с помощью промежуточных файлов. Эти требования весьма просты.
 
 Для демонстрации мы будем использовать пример, изначально озвученный в докладе Марио Инчиоза (Mario Inchiosa) и Рони Берда (Roni Burd) на конференции Strata 2016, который доступен в виде вебинара [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Создание масштабируемой платформы анализа и обработки данных на основе R). В примере SparkR используется для объединения набора данных задержки прибытия рейсов известных авиакомпаний с погодными данными в аэропортах отправления и прибытия, чтобы на основе их создать логистическую регрессивную модель ScaleR для прогнозирования задержки прибытия.
 
