@@ -200,10 +200,10 @@ Push-уведомления поддерживаются на платформа
 [цен на Центры уведомлений]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Анализ примера — Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[Анализ примера — Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[Анализ примера — Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Анализ примера — Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[Анализ примера — 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
+[анализ примера: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
+[анализ примера: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
+[анализ примера: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
+[анализ примера: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Отправка push-уведомлений с помощью центров уведомлений Azure в iOS]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Отправка push-уведомлений с помощью центров уведомлений Azure в iOS]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Отправка push-уведомлений в приложения Chrome с помощью Центров уведомлений Azure]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
