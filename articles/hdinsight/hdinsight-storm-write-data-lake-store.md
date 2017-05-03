@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 04/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 514319dfcb532ab3708352b2467c095d7775b714
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 30edf20d7fc742da9b42d3ea9baafcce31141259
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/25/2017
 
 В HDInsight Data Lake Store — это совместимая с HDFS файловая система, поэтому для записи можно использовать элемент bolt Storm-HDFS. При работе с Azure Data Lake из HDInsight можно использовать схему файлов `adl://`.
 
-* Если Data Lake Store является основным хранилищем для кластера, то используйте `adl:///`. Это корень хранилища кластера в Azure Data Lake. Его можно преобразовать в путь /clusters/ИМЯ_КЛАСТЕРА в вашей учетной записи Data Lake Store.
+* Если Data Lake Store является основным хранилищем для кластера, то используйте `adl:///`. Это корень хранилища кластера в Azure Data Lake. Его можно преобразовать в путь /clusters/имя_кластера в вашей учетной записи Data Lake Store.
 * Если Data Lake Store является дополнительным хранилищем для кластера, то используйте `adl://DATALAKEACCOUNT.azuredatalakestore.net/`. Этот универсальный код ресурса (URI) указывает учетную запись Data Lake Store, в которую записываются данные. Данные записываются, начиная с корня Data Lake Store.
 
     > [!NOTE]

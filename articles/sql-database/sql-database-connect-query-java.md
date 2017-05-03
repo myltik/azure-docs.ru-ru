@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: andrela;carlrab;sstein
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 17202bfc03e9b60d12f1a071eff427520a0dce83
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 6ba2880b1ce9eed0f5c3b8e3ed4255c7e4ec7f29
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ ms.lasthandoff: 04/18/2017
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-java-software"></a>Установка программного обеспечения Java
+
+В этом разделе предполагается, что у вас уже есть опыт разработки на Java и вы только начали работу с Базой данных SQL Azure. Если вы новичок в разработке на Java, перейдите на страницу [создания приложения с помощью SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), выберите язык **Java** и операционную систему.
 
 ### <a name="mac-os"></a>**Mac OS**
 Откройте терминал и перейдите в каталог, в котором вы планируете создать проект Java. Введите следующие команды для установки **brew** и **Maven**. 
@@ -50,11 +52,11 @@ sudo apt-get install maven
 ```
 
 ### <a name="windows"></a>**Windows**
-Установите [Maven](https://maven.apache.org/download.cgi) с помощью официального установщика.  
+Установите [Maven](https://maven.apache.org/download.cgi) с помощью официального установщика. Maven можно использовать для управления зависимостями, выполнения сборки, тестирования и запуска проекта Java. 
 
 ## <a name="get-connection-information"></a>Получение сведений о подключении
 
-Получите строку подключения на портале Azure. Используйте строку подключения, чтобы подключиться к базе данных SQL Azure.
+Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
@@ -67,7 +69,7 @@ sudo apt-get install maven
 
 6. Просмотрите полную строку подключения **JDBC**.
 
-    ![Строка подключения JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)
+    ![Строка подключения JDBC](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)    
 
 ### <a name="create-maven-project"></a>**Создание проекта Maven**
 В терминале создайте новый проект Maven. 
@@ -87,7 +89,7 @@ mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "
 
 ## <a name="select-data"></a>Выбор данных
 
-Используйте указанный ниже код, чтобы запросить базу данных SQL Azure, используя класс [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) с инструкцией Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Замените параметры hostHame, dbName, user и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
+Используйте следующий код, чтобы запросить 20 наиболее популярных продуктов по категории, используя класс [connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) в инструкции Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Замените параметры hostHame, dbName, user и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;
@@ -144,7 +146,7 @@ public class App {
 
 ## <a name="insert-data"></a>Добавление данных
 
-Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product указанной базы данных, используя класс [PreparedStatement](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) и инструкцию Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры hostHame, dbName, user и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
+Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product указанной базы данных, используя класс [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) и инструкцию Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры hostHame, dbName, user и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;
@@ -174,7 +176,7 @@ public class App {
                 System.out.println("=========================================");
 
                 // Prepared statement to insert data
-                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
+                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, " 
                     + " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
                 java.util.Date date = new java.util.Date();
@@ -200,7 +202,7 @@ public class App {
 ```
 ## <a name="update-data"></a>Обновление данных
 
-Используйте указанный ниже код, чтобы обновить данные в базе данных SQL Azure, используя класс [PreparedStatement](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) и инструкцию Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Замените параметры hostHame, dbName, user и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
+Используйте указанный ниже код, чтобы обновить данные добавленного нового продукта в базе данных SQL Azure, используя класс [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) и инструкцию Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Замените параметры hostHame, dbName, user и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;
@@ -251,7 +253,7 @@ public class App {
 
 ## <a name="delete-data"></a>Удаление данных
 
-Используйте указанный ниже код, чтобы удалить данные в базе данных SQL Azure с помощью класса [PreparedStatement](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) и инструкции Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры hostHame, dbName, user и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
+Используйте указанный код, чтобы удалить добавленный ранее новый продукт с помощью класса [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) и инструкции Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры hostHame, dbName, user и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
 
 ```java
 package com.sqldbsamples;

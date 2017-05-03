@@ -1,28 +1,26 @@
 ---
-title: "Событие создания пула | Документы Майкрософт"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8473bab4-6c16-4ee2-8d78-22fa3ca87487
-caps.latest.revision: 4
+title: "Событие создания пула пакетной службы Azure | Документы Майкрософт"
+description: "Справочник по событию создания пула пакетной службы."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: b66319c384ba1fe80489246e9816b8fc7cc3727d
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 67edaa55d7ccd00d4aebb309f11bcf95486e87fa
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="pool-create-event"></a>Событие создания пула
-Основная часть журнала событий по созданию пула
 
-## <a name="remarks"></a>Примечания
+# <a name="pool-create-event"></a>Событие создания пула
+
  Это событие возникает при создании пула. Содержимое журнала предоставляет общие сведения о пуле. Обратите внимание, что если целевой размер пула больше 0 вычислительных узлов, сразу после этого события начинается событие начала изменения размера пула.
 
  В следующем примере приведен текст события создания для пула, сформированного с помощью свойства CloudServiceConfiguration.
@@ -51,7 +49,7 @@ ms.lasthandoff: 04/13/2017
 
 |Элемент|Тип|Примечания|
 |-------------|----------|-----------|
-|id|Строка|Идентификатор пула.|
+|id|string|Идентификатор пула.|
 |displayName|string|Отображаемое имя пула.|
 |vmSize|Строка|Размер виртуальных машин в пуле. Все виртуальные машины в пуле имеют одинаковый размер. <br/><br/> Сведения о доступных размерах виртуальных машин для пулов облачных служб (пулы, созданные с помощью cloudServiceConfiguration), см. в статье [Размеры для облачных служб](http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Пакетная служба поддерживает все размеры виртуальных машин для облачных служб, кроме `ExtraSmall`.<br/><br/> Сведения о доступных размерах виртуальных машин для пулов при использовании образов из магазина виртуальных машин (пулы, созданные с помощью virtualMachineConfiguration) см. в статье [Размеры виртуальных машин](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) или [Размеры виртуальных машин](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). Пакетная служба поддерживает все размеры виртуальных машин Azure, кроме `STANDARD_A0`. Для хранилища класса Premium также не поддерживаются размеры таких серий: `STANDARD_GS`, `STANDARD_DS` и `STANDARD_DSV2`.|
 |[cloudServiceConfiguration](#bk_csconf)|Сложный тип|Конфигурация облачной службы для пула.|

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: lbosq
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 7365945818c56279bd5945fee8d0048ef425bfc7
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4de9eb8f55bfda8b223417f5c1ed4e71b0f063c6
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ ms.lasthandoff: 04/18/2017
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-nodejs"></a>Установка Node.js 
+
+В этом разделе предполагается, что у вас уже есть опыт разработки на Node.js и вы только начали работу с Базой данных SQL Azure. Если вы новичок в разработке на Node.js, перейдите на страницу [создания приложения с помощью SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), выберите язык **Node.js** и операционную систему.
 
 ### <a name="mac-os"></a>**Mac OS**
 Чтобы установить **brew** (простой в использовании диспетчер пакетов для Mac OS X) и **Node.js**, выполните следующую команду:
@@ -63,7 +65,7 @@ npm install tedious
 
 ## <a name="get-connection-information"></a>Получение сведений о подключении
 
-Получите строку подключения на портале Azure. Используйте строку подключения, чтобы подключиться к базе данных SQL Azure.
+Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
@@ -75,7 +77,7 @@ npm install tedious
     
 ## <a name="select-data"></a>Выбор данных
 
-Используйте указанный ниже код, чтобы запросить базу данных SQL Azure. Сначала импортируйте классы Connect и Request из библиотеки драйвера tedious. Затем создайте объект конфигурации и замените переменные **username**, **password**, **server** и **database** значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. Создайте объект `Connection`, используя указанный объект `config`. После этого определите обратный вызов для события `connect` объекта `connection`, чтобы выполнить функцию `queryDatabase()`.
+Используйте указанный ниже код, чтобы запросить 20 наиболее популярных продуктов по категории из базы данных SQL Azure. Сначала импортируйте классы Connect и Request из библиотеки драйвера tedious. Затем создайте объект конфигурации и замените переменные **username**, **password**, **server** и **database** значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. Создайте объект `Connection`, используя указанный объект `config`. После этого определите обратный вызов для события `connect` объекта `connection`, чтобы выполнить функцию `queryDatabase()`.
 
 ```js
 var Connection = require('tedious').Connection;
@@ -125,7 +127,7 @@ function queryDatabase(){
 ```
 
 ## <a name="insert-data-into-the-database"></a>Вставка данных в базу данных
-Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product. Замените переменные **username**, **password**, **server** и **database** значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. На этот раз в функции `insertIntoDatabase()` используйте инструкцию **INSERT**.
+Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product с помощью функции `insertIntoDatabase()` и инструкции Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените переменные **username**, **password**, **server** и **database** значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
 
 ```js
 var Connection = require('tedious').Connection;
@@ -167,7 +169,7 @@ function insertIntoDatabase(){
 ```
 
 ## <a name="update-data-in-the-database"></a>Обновление данных в базе данных
-Чтобы обновить данные в базе данных, используйте указанный ниже код. Замените переменные **username**, **password**, **server** и **database** значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. На этот раз в функции `updateInDatabase()` используйте инструкцию **UPDATE**. В этом примере используется имя продукта, добавленное в предыдущем примере.
+Используйте следующий код, чтобы удалить новый продукт, добавленный ранее, с помощью функции `updateInDatabase()` и инструкции Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Замените переменные **username**, **password**, **server** и **database** значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. В этом примере используется имя продукта, добавленное в предыдущем примере.
 
 ```js
 var Connection = require('tedious').Connection;

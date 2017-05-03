@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 8ded51e2e34aa1583b249af11a260eaa4304f79f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: fb660384f2f9f569bcfbe7fa7d5c1f7ce772cacd
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -83,6 +83,9 @@ ms.lasthandoff: 04/18/2017
 Используйте командлет [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet).
 
 ## <a name="restore"></a>Восстановление
+При восстановлении файл архивной копии должен находиться в учетной записи хранения, настроенной для вашего сервера. Если нужно переместить файл архивной копии из локального расположения в учетную запись хранилища, используйте [обозреватель хранилищ Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) или служебную программу командной строки [AzCopy](../storage/storage-use-azcopy.md). 
+
+Если вы восстанавливаете табличную базу данных модели 1200 с локального сервера SQL Server Analysis Services, нужно сначала удалить всех пользователей домена из ролей модели, а затем добавить их в роли в качестве пользователей Azure Active Directory. Роли будут совпадать.
 
 ### <a name="to-restore-by-using-ssms"></a>Восстановление с помощью SSMS
 
@@ -103,5 +106,8 @@ ms.lasthandoff: 04/18/2017
 
 
 ## <a name="related-information"></a>Связанные сведения
-[Учетные записи хранения Azure](../storage/storage-create-storage-account.md)   
+
+[Учетные записи хранения Azure](../storage/storage-create-storage-account.md)  
+[Высокая доступность](analysis-services-bcdr.md)     
 [Управление службами Azure Analysis Services](analysis-services-manage.md)
+

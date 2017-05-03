@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: d58166140c5de03462df07ea6ea83eb78ffa54ba
-ms.openlocfilehash: 623ec422684fc881cc94d247756e006d4d5dc53a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 4bf61f938f0939fe26257359930a194c3a194858
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -35,25 +36,28 @@ ms.openlocfilehash: 623ec422684fc881cc94d247756e006d4d5dc53a
 
 * [Новые возможности набора средств Azure для IntelliJ]
 * [Установка набора средств Azure для IntelliJ]
+* [Инструкции по входу для набора средств Azure для IntelliJ]
 * [Создание веб-приложения Hello World для Azure в IntelliJ]
 
 ## <a name="using-the-azure-toolkit-for-intellij"></a>Использование набора средств Azure для IntelliJ
 В следующих статьях демонстрируется использование набора средств Azure для IntelliJ для добавления функций Azure в проекты Java.
 
-* [Отладка в IntelliJ веб-приложения Java, размещенного в Azure]
+<!-- * [Debug a Java Web App on Azure in IntelliJ] -->
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux][HDInsight Tools Plugin for IntelliJ]
 
 ## <a name="see-also"></a>См. также
 Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
 
 * [Набор средств Azure для Eclipse]
+  * [Новые возможности набора средств Azure для Eclipse]
   * [Установка набора средств Azure для Eclipse]
   * [Создание веб-приложения Hello World для Azure в Eclipse]
-  * [Новые возможности набора средств Azure для Eclipse]
+  * [Инструкции по входу для набора средств Azure для Eclipse]
 * *Набор средств Azure для IntelliJ (в этой статье)*
+  * [Новые возможности набора средств Azure для IntelliJ]
   * [Установка набора средств Azure для IntelliJ]
   * [Создание веб-приложения Hello World для Azure в IntelliJ]
-  * [Новые возможности набора средств Azure для IntelliJ]
+  * [Инструкции по входу для набора средств Azure для IntelliJ]
 
 Дополнительные сведения об использовании Azure см. в [центре разработчиков Java для Azure] и на странице [инструментов Java для Visual Studio Team Services].
 
@@ -65,17 +69,14 @@ ms.openlocfilehash: 623ec422684fc881cc94d247756e006d4d5dc53a
 [Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Установка набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Установка набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Инструкции по входу для набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Инструкции по входу для набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Новые возможности набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 [инструментов Java для Visual Studio Team Services]: https://java.visualstudio.com/ (Инструменты Java для Visual Studio Team Services)
 
-[Отладка в IntelliJ веб-приложения Java, размещенного в Azure]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
+<!-- [Debug a Java Web App on Azure in IntelliJ]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md -->
 [HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

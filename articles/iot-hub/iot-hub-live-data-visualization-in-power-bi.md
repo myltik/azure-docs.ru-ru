@@ -16,13 +16,16 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6a99749a96a6239428e5b018a26a6e8fd440c9d2
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: ba25cdee46ce4ceb5acd5ff9da683a057f2bd733
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Визуализация данных, поступающих от датчиков в реальном времени, из Центра Интернета вещей с помощью Power BI
+
+![Сквозная схема](media/iot-hub-get-started-e2e-diagram/4.png)
+
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -38,22 +41,13 @@ ms.lasthandoff: 04/12/2017
 
 ## <a name="what-you-need"></a>Необходимые элементы
 
-- Ознакомьтесь с руководством о [подключении платы ESP8266 к Центру Интернета вещей Azure](iot-hub-arduino-huzzah-esp8266-get-started.md), по завершении которого у вас должны быть:
+- Изучите руководство [Настройка вашего устройства](iot-hub-raspberry-pi-kit-node-get-started.md), где описаны следующие требования:
   - Активная подписка Azure.
   - Центр Интернета вещей Azure в подписке;
   - клиентское приложение, которое отправляет сообщения в Центр Интернета вещей Azure.
 - Учетная запись Power BI. Доступна [бесплатная пробная версия](https://powerbi.microsoft.com/).
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Добавление группы потребителей в Центр Интернета вещей
-
-Группы потребителей используются приложениями для извлечения данных из Центра Интернета вещей Azure. В этом разделе вы создадите группу потребителей, которую задание Stream Analytics использует для чтения данных из Центра Интернета вещей.
-
-Чтобы добавить группу потребителей в Центр Интернета вещей, сделайте следующее:
-
-1. Откройте Центр Интернета вещей на [портале Azure](https://ms.portal.azure.com/).
-1. В области слева щелкните **Конечные точки**, посередине выберите **События**, в области справа в разделе **Группы потребителей** введите имя, а затем нажмите кнопку **Сохранить**.
-
-   ![Создание группы потребителей в Центре Интернета вещей Azure](media/iot-hub-live-data-visualization-in-power-bi/1_iot-hub-create-consumer-group-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>Создание, настройка и выполнение заданий Stream Analytics
 

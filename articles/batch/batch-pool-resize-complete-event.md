@@ -1,28 +1,26 @@
 ---
-title: "Событие завершения изменения размера пула | Документы Майкрософт"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: dfee89e3-510f-41a0-ace7-737527f40d20
-caps.latest.revision: 4
+title: "Событие завершения изменения размера пула пакетной службы Azure | Документы Майкрософт"
+description: "Справочник по событию завершения изменения размера пула пакетной службы."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 623b6cae00ee0f3b0c5073b1a8bee68d2bf17b72
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 7072293d98526812cb42ce9c2f8e33bfcafaa149
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="pool-resize-complete-event"></a>Событие завершения изменения размера пула
-Основная часть журнала событий по изменению размера пула
 
-## <a name="remarks"></a>Примечания
+# <a name="pool-resize-complete-event"></a>Событие завершения изменения размера пула
+
  Это событие создается при завершении или сбое операции изменения размера пула.
 
  Следующий пример показывает текст для события завершения изменения размера пула, когда размер пула успешно увеличивается.

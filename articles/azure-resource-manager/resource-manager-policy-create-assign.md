@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: fd15cbc8f6efa788ddaeaee4ab39ce1410c4be5a
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3a2166fefc8d0b1602562b753e0413be458fae98
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -141,6 +141,8 @@ GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015
 ```
 
 ## <a name="powershell"></a>PowerShell
+
+Прежде чем продолжить работу с примерами PowerShell, [установите последнюю версию](/powershell/azure/install-azurerm-ps) Azure PowerShell. Параметры политики были добавлены в версии 3.6.0. Если установлена более ранняя версия, примеры возвращают ошибку из-за того, что параметр не найден.
 
 ### <a name="create-policy-definition"></a>Создание определения политики
 Определение политики можно создать с помощью командлета `New-AzureRmPolicyDefinition`. В следующем примере создается определение политики, разрешающей использовать только ресурсы в Северной и Западной Европе.

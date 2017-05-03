@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1d1eec1457917baef1acab27f7c60bdb048837a9
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: f3bb01da7764e467963a47d3d5485679411c9167
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-azure-web-apps"></a>Визуализация данных, поступающих от датчиков в реальном времени, из Центра Интернета вещей с помощью веб-приложений Azure
 
-![Подключение между датчиком, устройством Интернета вещей, Центром Интернета вещей и веб-приложением Azure](media/iot-hub-live-data-visualization-in-web-apps/1_sensor-iot-device-azure-iot-hub-web-app-connection.png)
+![Сквозная схема](media/iot-hub-get-started-e2e-diagram/5.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/12/2017
 
 ## <a name="what-you-need"></a>Необходимые элементы
 
-- Ознакомьтесь с руководством о [подключении платы ESP8266 к Центру Интернета вещей Azure](iot-hub-arduino-huzzah-esp8266-get-started.md), по завершении которого у вас должны быть:
+- Изучите руководство [Настройка вашего устройства](iot-hub-raspberry-pi-kit-node-get-started.md), где описаны следующие требования:
   - Активная подписка Azure.
   - Центр Интернета вещей Azure в подписке;
   - клиентское приложение, которое отправляет сообщения в Центр Интернета вещей Azure.
@@ -57,16 +57,7 @@ ms.lasthandoff: 04/12/2017
 
    ![Создание веб-приложения Azure](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Добавление группы потребителей в Центр Интернета вещей
-
-Группы потребителей используются приложениями для извлечения данных из Центра Интернета вещей Azure. В этом разделе вы создадите группу потребителей, используемую веб-приложением для чтения данных из Центра Интернета вещей.
-
-Чтобы добавить группу потребителей в Центр Интернета вещей, сделайте следующее:
-
-1. Откройте Центр Интернета вещей на [портале Azure](https://ms.portal.azure.com/).
-1. В области слева щелкните **Конечные точки**, посередине выберите **События**, в области справа в разделе **Группы потребителей** введите имя, а затем нажмите кнопку **Сохранить**.
-
-   ![Создание группы потребителей в Центре Интернета вещей Azure](media/iot-hub-live-data-visualization-in-web-apps/3_add-consumer-group-iot-hub-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="configure-the-web-app-to-read-data-from-your-iot-hub"></a>Настройка веб-приложения для чтения данных датчиков из Центра Интернета вещей
 
@@ -75,8 +66,8 @@ ms.lasthandoff: 04/12/2017
 
    | Ключ                                   | Значение                                                        |
    |---------------------------------------|--------------------------------------------------------------|
-   | Azure.IoT.IoTHub.ConnectionString     | Получено из обозревателя Центра Интернета вещей                               |
-   | Azure.IoT.IoTHub.DeviceId             | Получено из обозревателя Центра Интернета вещей                               |
+   | Azure.IoT.IoTHub.ConnectionString     | Получено из обозревателя Центра Интернета вещей                                |
+   | Azure.IoT.IoTHub.DeviceId             | Получено из обозревателя Центра Интернета вещей                                |
    | Azure.IoT.IoTHub.ConsumerGroup        | Имя группы потребителей, добавленной в Центр Интернета вещей.  |
 
    ![Добавление параметров веб-приложении с помощью пар "ключ — значение"](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)

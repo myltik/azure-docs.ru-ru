@@ -12,19 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 04/18/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 8ee846e659d0a47a5fb39d6baa3235f59e19d653
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 97b634b10f75dd10c9cf4b61a5b9674f7ee73e00
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-collection-and-database-using-the-azure-portal"></a>Создание коллекции и базы данных DocumentDB на портале Azure
 Чтобы использовать Microsoft Azure DocumentDB, необходимы [учетная запись DocumentDB](documentdb-create-account.md), база данных, коллекция и документы. В этой статье описывается создание коллекции DocumentDB на портале Azure.
 
-Не знаете, что такое коллекция? Обратитесь к статье [Что такое коллекция DocumentDB?](#what-is-a-documentdb-collection)
+Не знаете, что такое коллекция? Обратитесь к статье [Что такое коллекция DocumentDB?](#what-is-a-documentdb-collection).
+
+Существует два способа создать коллекцию на портале — с помощью кнопки "Добавить коллекцию" или с помощью [обозревателя данных (предварительная версия)](#data-explorer).
+
+## <a name="create-a-colletion-using-add-collection-button"></a>Создание коллекции с помощью кнопки "Добавить коллекцию"
 
 1. На [портале Azure](https://portal.azure.com/) на навигационной панели щелкните **DocumentDB (NoSQL)**, а затем в колонке **DocumentDB (NoSQL)** выберите учетную запись, в которую необходимо добавить коллекцию. При отсутствии учетных записей необходимо [создать учетную запись DocumentDB](documentdb-create-account.md).
 
@@ -54,6 +58,14 @@ ms.lasthandoff: 02/23/2017
 10. **Необязательно.** Чтобы изменить пропускную способность коллекции на портале, щелкните **Масштаб** в меню ресурсов.
 
     ![Снимок экрана с меню ресурсов, в котором выбран пункт "Масштаб"](./media/documentdb-create-collection/docdb-collection-creation-scale.png)
+
+<a id="data-explorer"></a>
+## <a name="create-a-collection-by-using-data-explorer-preview"></a>Создание коллекции с помощью обозревателя данных (предварительная версия)
+
+Другой способ создания коллекции на портале заключается в использовании обозревателя данных. Чтобы открыть обозреватель данных, щелкните элемент **Обозреватель данных (ознакомительная версия)** на панели навигации портала, а затем нажмите кнопку **Создать коллекцию**, как показано на следующем снимке экрана.
+
+ ![Снимок экрана с кнопкой "Создать коллекцию" на портале](./media/documentdb-create-collection/azure-documentdb-data-explorer.png)
+
 
 ## <a name="what-is-a-documentdb-collection"></a>Что такое коллекция DocumentDB?
 Коллекция представляет собой контейнер документов JSON и связанной логики приложения на JavaScript. Коллекция представляет собой тарифицируемый объект, и его [стоимость](documentdb-performance-levels.md) определяется уровнем подготовленной пропускной способности. Коллекции могут охватывать один или несколько разделов либо серверов и масштабироваться до практически неограниченных объемов хранилища или пропускной способности.

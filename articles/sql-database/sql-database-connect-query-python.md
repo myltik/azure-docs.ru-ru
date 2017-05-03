@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: meetb;carlrab;sstein
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: e75058c8b387bc090bf924b9099a64e5d154afa4
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f055f1eb2c6f1c0fa9f032f033929299e224de2e
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ ms.lasthandoff: 04/18/2017
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-the-python-and-database-communication-libraries"></a>Установка библиотек связи Python и базы данных
+
+В этом разделе предполагается, что у вас уже есть опыт разработки на Python и вы только начали работу с Базой данных SQL Azure. Если вы новичок в разработке на Python, перейдите на страницу [создания приложения с помощью SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), выберите язык **Python** и операционную систему.
 
 ### <a name="mac-os"></a>**Mac OS**
 Откройте терминал и перейдите в каталог, в котором вы планируете создать сценарий Python. Введите следующие команды, чтобы установить **brew**, **драйвер Microsoft ODBC для Mac** и **pyodbc**. pyodbc использует драйвер Microsoft ODBC в Linux для подключения к базам данных SQL.
@@ -71,7 +73,7 @@ pip install pyodbc==3.1.1
 
 ## <a name="get-connection-information"></a>Получение сведений о подключении
 
-Чтобы получить сведения о подключении для сервера базы данных SQL Azure, используйте приведенные ниже действия. Эти сведения потребуются для подключения к базе данных SQL Azure и выполнения запросов с помощью Python. 
+Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
@@ -83,7 +85,7 @@ pip install pyodbc==3.1.1
    
 ## <a name="select-data"></a>Выбор данных
 
-Используйте указанный ниже код, чтобы запросить базу данных SQL Azure, используя функцию [pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) с инструкцией Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Функция [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) используется для извлечения результирующего набора из запроса к базе данных SQL. Эта функция принимает запрос и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте следующий код, чтобы запросить 20 наиболее популярных продуктов по категории, используя функцию [pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) в инструкции Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Функция [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) используется для извлечения результирующего набора из запроса к базе данных SQL. Эта функция принимает запрос и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -102,7 +104,7 @@ while row:
 ```
 
 ## <a name="insert-data"></a>Добавление данных
-Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product в указанной базе данных, используя функцию [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкцию Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product с помощью функции [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкции Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -119,7 +121,7 @@ cnxn.commit()
 ```
 
 ## <a name="update-data"></a>Обновление данных
-Используйте указанный ниже код, чтобы обновить данные в базе данных SQL Azure, используя функцию [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкцию Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте следующий код, чтобы обновить новый продукт, добавленный ранее, с помощью функции [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкции Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -138,7 +140,7 @@ cnxn.commit()
 ```
 
 ## <a name="delete-data"></a>Удаление данных
-Используйте указанный ниже код, чтобы удалить данные в базе данных SQL Azure, используя функцию [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкцию Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте следующий код, чтобы удалить новый продукт, добавленный ранее, с помощью функции [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкции Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc

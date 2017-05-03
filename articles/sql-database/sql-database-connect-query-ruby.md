@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 04fc29fe21b77a34094bb89ecb8496f78856f56b
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c8700b16f91f014205acb93d6b57f9b972546268
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -33,6 +33,8 @@ ms.lasthandoff: 04/18/2017
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-ruby-and-database-communication-libraries"></a>Установка библиотек связи Ruby и базы данных
+
+В этом разделе предполагается, что у вас уже есть опыт разработки на Ruby и вы только начали работу с Базой данных SQL Azure. Если вы новичок в разработке на Ruby, перейдите на страницу [создания приложения с помощью SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), выберите язык **Ruby** и операционную систему.
 
 ### <a name="mac-os"></a>**Mac OS**
 Откройте терминал и перейдите в каталог, в котором вы планируете создать сценарий Ruby. Введите следующие команды для установки **brew**, **FreeTDS** и **TinyTDS**.
@@ -60,7 +62,7 @@ gem install tiny_tds
 
 ## <a name="get-connection-information"></a>Получение сведений о подключении
 
-Получите строку подключения на портале Azure. Используйте строку подключения, чтобы подключиться к базе данных SQL Azure.
+Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
@@ -72,7 +74,7 @@ gem install tiny_tds
     
 
 ## <a name="select-data"></a>Выбор данных
-Используйте указанный ниже код, чтобы запросить базу данных SQL Azure, используя функцию [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) с инструкцией Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Эта функция принимает запрос и возвращает результирующий набор. По результирующему набору выполняется итерация с помощью [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте следующий код, чтобы запросить 20 наиболее популярных продуктов по категории, используя функцию [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) в инструкции Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Эта функция принимает запрос и возвращает результирующий набор. По результирующему набору выполняется итерация с помощью [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```ruby
 require 'tiny_tds'
@@ -95,7 +97,7 @@ end
 ```
 
 ## <a name="insert-data"></a>Добавление данных
-Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product указанной базы данных, используя функцию [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) и инструкцию Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product, используя функцию [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) и инструкцию Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 В приведенном примере показано, как безопасно выполнить инструкцию INSERT, передать параметры для защиты от атак путем [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлечь автоматически созданные значения [первичного ключа](https://docs.microsoft.com/sql/relational-databases/tables/primary-and-foreign-key-constraints).    
   
@@ -133,7 +135,7 @@ insert('BrandNewProduct', '200989', 'Blue', 75, 80, '7/1/2016')
 ```
 
 ## <a name="update-data"></a>Обновление данных
-Используйте указанный ниже код, чтобы обновить данные в базе данных SQL Azure, используя функцию [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) с инструкцией Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте следующий код, чтобы обновить новый продукт, добавленный ранее, с помощью функции [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) и инструкции Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```ruby
 require 'tiny_tds'
@@ -154,7 +156,7 @@ update('BrandNewProduct', 500, client)
 ```
 
 ## <a name="delete-data"></a>Удаление данных
-Используйте указанный ниже код, чтобы удалить данные в базе данных SQL Azure, используя функцию [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) с инструкцией Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте следующий код, чтобы удалить новый продукт, добавленный ранее, с помощью функции [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) и инструкции Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```ruby
 require 'tiny_tds'
@@ -196,3 +198,4 @@ delete('BrandNewProduct', client)
 - См. дополнительные сведения о [подключении и создании запросов с помощью Node.js](sql-database-connect-query-nodejs.md).
 - См. дополнительные сведения о [подключении и создании запросов с помощью Java](sql-database-connect-query-java.md).
 - См. дополнительные сведения о [подключении и создании запросов с помощью Python](sql-database-connect-query-python.md).
+

@@ -16,13 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ef5d4af5d5dad2b548ab01be5ba9c4769b21416a
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: bed8e0c2b5d4d42fb0510f6b55cfab7404c01b11
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Сохранение сообщений Центра Интернета вещей, содержащих такие сведения, как данные датчиков, в хранилище таблиц Azure
+
+![Сквозная схема](media/iot-hub-get-started-e2e-diagram/3.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -38,7 +40,7 @@ ms.lasthandoff: 04/12/2017
 
 ## <a name="what-you-will-need"></a>Необходимые условия
 
-- Ознакомьтесь с руководством о [подключении платы ESP8266 к Центру Интернета вещей Azure](iot-hub-arduino-huzzah-esp8266-get-started.md), по завершении которого у вас должны быть:
+- Изучите руководство [Настройка вашего устройства](iot-hub-raspberry-pi-kit-node-get-started.md), где описаны следующие требования:
   - Активная подписка Azure.
   - Центр Интернета вещей Azure в подписке;
   - работающее приложение, отправляющее сообщения в Центр Интернета вещей Azure.

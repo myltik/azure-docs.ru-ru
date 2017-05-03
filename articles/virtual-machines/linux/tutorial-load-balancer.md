@@ -1,0 +1,279 @@
+---
+title: "Балансировка нагрузки виртуальных машин Linux в Azure | Документы Майкрософт"
+description: "Сведения о создании высокодоступного безопасного приложения, выполняемого на трех виртуальных машинах Linux с использованием Azure Load Balancer."
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: iainfoulds
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.devlang: azurecli
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 04/17/2017
+ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 105ff3614a05926d2bc2f236837bb4d5d95fcf32
+ms.lasthandoff: 04/21/2017
+
+---
+
+# <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения
+В этом руководстве вы узнаете о различных компонентах балансировщика нагрузки Azure Load Balancer, распределяющего трафик и обеспечивающего высокую доступность. Чтобы ознакомиться с работой балансировщика нагрузки, нужно создать приложение Node.js, выполняющееся на трех виртуальных машинах Linux.
+
+Для работы с этим руководством можно использовать последнюю версию [Azure CLI 2.0](/cli/azure/install-azure-cli).
+
+
+## <a name="azure-load-balancer-overview"></a>Обзор Azure Load Balancer
+Azure Load Balancer представляет собой балансировщик нагрузки уровня 4 (TCP, UDP), который обеспечивает высокий уровень доступности, распределяя входящий трафик между работоспособными виртуальными машинами. Проба работоспособности позволяет отслеживать данный порт на каждой виртуальной машине и передавать трафик только в рабочую виртуальную машину.
+
+Вы определяете интерфейсную конфигурацию IP-адресов, содержащую один или несколько общедоступных IP-адресов. Такая интерфейсная конфигурация IP-адресов предоставляет доступ к балансировщику нагрузки и приложениям через Интернет. 
+
+Виртуальные машины подключаются к балансировщику нагрузки с помощью виртуальной сетевой карты. Для распределения трафика между виртуальными машинами внутренний пул адресов содержит IP-адреса виртуальных сетевых карт, подключенных к балансировщику нагрузки.
+
+Чтобы управлять потоком трафика, нужно определить правила балансировщика нагрузки для определенных портов и протоколов, сопоставленных с виртуальными машинами.
+
+Если в предыдущем руководстве вы дошли до шага [Создание набора для масштабирования виртуальной машины](tutorial-create-vmss.md), балансировщик нагрузки должен быть уже создан. Все эти компоненты уже были настроены в составе масштабируемого набора.
+
+
+## <a name="create-azure-load-balancer"></a>Создание Azure Load Balancer
+Этот раздел подробно описывает, как создать и настроить каждый из компонентов балансировщика нагрузки. Прежде чем создать балансировщик нагрузки, выполните команду [az group create](/cli/azure/group#create) для создания группы ресурсов. В следующем примере создается группа ресурсов с именем `myRGLoadBalancer` в расположении `westus`:
+
+```azurecli
+az group create --name myRGLoadBalancer --location westus
+```
+
+### <a name="create-a-public-ip-address"></a>Создание общедоступного IP-адреса
+Для доступа к приложению через Интернет требуется общедоступный IP-адрес для балансировщика нагрузки. Создайте общедоступный IP-адрес с помощью команды [az network public-ip create](/cli/azure/public-ip#create). В следующем примере создается общедоступный IP-адрес с именем `myPublicIP` в группе ресурсов `myRGLoadBalancer`:
+
+```azurecli
+az network public-ip create --resource-group myRGLoadBalancer --name myPublicIP
+```
+
+### <a name="create-a-load-balancer"></a>Создание балансировщика нагрузки
+Создайте балансировщик нагрузки с помощью команды [az network lb create](/cli/azure/network/lb#create). В следующем примере создается балансировщик нагрузки с именем `myLoadBalancer`, а адрес `myPublicIP` назначается интерфейсной конфигурации IP-адресов:
+
+```azurecli
+az network lb create \
+    --resource-group myRGLoadBalancer \
+    --name myLoadBalancer \
+    --frontend-ip-name myFrontEndPool \
+    --backend-pool-name myBackEndPool \
+    --public-ip-address myPublicIP
+```
+
+### <a name="create-a-health-probe"></a>Создание пробы работоспособности
+Чтобы балансировщик нагрузки мог следить за состоянием приложения, необходимо настроить пробу работоспособности. Проба работоспособности динамически добавляет или удаляет виртуальные машины из балансировщика нагрузки на основе их ответа на проверки работоспособности. По умолчанию виртуальная машина удаляется из числа машин, на которые балансировщик распределяет нагрузку, после двух последовательных сбоев с интервалом в 15 секунд. Пробу работоспособности можно создать на основе протокола или конкретной страницы проверки работоспособности приложения. 
+
+В следующем примере создается проба TCP. Вы также можете создать настраиваемую пробу HTTP для более детальных проверок. При использовании настраиваемой пробы HTTP нужно создать страницу проверки работоспособности, такую как `healthcheck.js`. Чтобы обеспечить работоспособность узла, проба должна возвращать ответ **HTTP 200 OK** для балансировщика нагрузки.
+
+Чтобы создать пробу работоспособности TCP, используйте команду [az network lb probe create](/cli/azure/network/lb/probe#create). В следующем примере создается проба TCP с именем `myHealthProbe`:
+
+```azurecli
+az network lb probe create \
+    --resource-group myRGLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80
+```
+
+### <a name="create-a-load-balancer-rule"></a>Создание правила балансировщика нагрузки
+Правило балансировщика нагрузки позволяет определить распределение трафика между виртуальными машинами. Вы определяете интерфейсную конфигурацию IP-адресов для входящего трафика и внутренний пул IP-адресов для приема трафика, а также требуемый порт источника и назначения. Чтобы обеспечить получение трафика только работоспособными виртуальными машинами, можно также определить используемую пробу работоспособности.
+
+Создайте правило балансировщика нагрузки с помощью команды [az network lb rule create](/cli/azure/network/lb/rule#create). В следующем примере создается правило с именем `myLoadBalancerRule`, используется проба работоспособности `myHealthProbe` и распределяется трафик через порт `80`.
+
+```azurecli
+az network lb rule create \
+    --resource-group myRGLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myLoadBalancerRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEndPool \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe
+```
+
+
+## <a name="configure-virtual-network"></a>Настройка виртуальной сети
+Прежде чем развертывать виртуальные машины и тестировать балансировщик нагрузки, создайте вспомогательные ресурсы виртуальной сети. Дополнительные сведения о виртуальных сетях см. в руководстве [Управление виртуальными сетями Azure](tutorial-virtual-network.md).
+
+### <a name="create-network-resources"></a>Создание сетевых ресурсов
+Создайте виртуальную сеть с помощью команды [az network vnet create](/cli/azure/vnet#create). В следующем примере создается виртуальная сеть `myVnet` и подсеть `mySubnet`.
+
+```azurecli
+az network vnet create --resource-group myRGLoadBalancer --name myVnet --subnet-name mySubnet
+```
+
+Чтобы добавить группу безопасности сети, используйте команду [az network nsg create](/cli/azure/network/nsg#create). В следующем примере создается группа безопасности сети с именем `myNetworkSecurityGroup`.
+
+```azurecli
+az network nsg create --resource-group myRGLoadBalancer --name myNetworkSecurityGroup
+```
+
+Создайте правило группы безопасности сети с помощью команды [az network nsg rule create](/cli/azure/network/nsg/rule#create). В следующем примере создается правило группы безопасности сети с именем `myNetworkSecurityGroupRule`.
+
+```azurecli
+az network nsg rule create \
+    --resource-group myRGLoadBalancer \
+    --nsg-name myNetworkSecurityGroup \
+    --name myNetworkSecurityGroupRule \
+    --priority 1001 \
+    --protocol tcp \
+    --destination-port-range 80
+```
+
+Для создания виртуальных сетевых карт используется команда [az network nic create](/cli/azure/network/nic#create). В следующем примере создаются три виртуальных сетевых адаптера (по одной виртуальной сетевой карте для каждой виртуальной машины, используемой приложением). Вы можете в любое время создать дополнительные виртуальные сетевые карты и виртуальные машины и добавить их в балансировщик нагрузки:
+
+```bash
+for i in `seq 1 3`; do
+    az network nic create \
+        --resource-group myRGLoadBalancer \
+        --name myNic$i \
+        --vnet-name myVnet \
+        --subnet mySubnet \
+        --network-security-group myNetworkSecurityGroup \
+        --lb-name myLoadBalancer \
+        --lb-address-pools myBackEndPool
+done
+```
+
+## <a name="create-virtual-machines"></a>Создание виртуальных машин
+
+### <a name="create-cloud-init-config"></a>Создание конфигурации cloud-init
+В предыдущем руководстве [Как настроить виртуальную машину Linux при первой загрузке](tutorial-automate-vm-deployment.md) вы узнали, как автоматизировать настройку виртуальной машины с помощью cloud-init. Тот же самый файл конфигурации cloud-init можно использовать и для установки NGINX, а также для запуска простого приложения Node.js "Hello World". Создайте файл с именем `cloud-init.txt` и вставьте следующую конфигурацию:
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+```
+
+### <a name="create-virtual-machines"></a>Создание виртуальных машин
+Чтобы улучшить высокую доступность приложения, поместите виртуальные машины в группу доступности. Дополнительные сведения о группах доступности см. в руководстве [Создание высокодоступных виртуальных машин](tutorial-availability-sets.md).
+
+Создайте группу доступности с помощью команды [az vm availability-set create](/cli/azure/vm/availability-set#create). В следующем примере создается группа доступности с именем `myAvailabilitySet`.
+
+```azurecli
+az vm availability-set create \
+    --resource-group myRGLoadBalancer \
+    --name myAvailabilitySet \
+    --platform-fault-domain-count 3 \
+    --platform-update-domain-count 2
+```
+
+Теперь вы можете создать виртуальные машины с помощью команды [az vm create](/cli/azure/vm#create). В следующем примере создаются три виртуальные машины и ключи SSH, если они не существуют.
+
+```bash
+for i in `seq 1 3`; do
+    az vm create \
+        --resource-group myRGLoadBalancer \
+        --name myVM$i \
+        --availability-set myAvailabilitySet \
+        --nics myNic$i \
+        --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+        --admin-username azureuser \
+        --generate-ssh-keys \
+        --custom-data cloud-init.txt \
+        --no-wait
+done
+```
+
+Создание и настройка трех виртуальных машин занимает несколько минут. Проба работоспособности балансировщика нагрузки автоматически определяет, когда приложение работает на каждой виртуальной машине. Как только приложение будет запущено, правило балансировщика нагрузки начнет распределение трафика.
+
+
+## <a name="test-load-balancer"></a>Проверка балансировщика нагрузки
+Получите общедоступный IP-адрес балансировщика нагрузки с помощью команды [az network public-ip show](/cli/azure/network/public-ip#show). Следующий пример позволяет получить IP-адрес для созданного ранее `myPublicIP`.
+
+```azurecli
+az network public-ip show \
+    --resource-group myRGLoadBalancer \
+    --name myPublicIP \
+    --query [ipAddress] \
+    --output tsv
+```
+
+После этого можно ввести общедоступный IP-адрес в веб-браузер. Отображается приложение, а также имя узла виртуальной машины, на которую балансировщик нагрузки направил трафик, как показано в следующем примере:
+
+![Запуск приложения Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
+
+Чтобы увидеть, как балансировщик нагрузки распределяет трафик между тремя виртуальными машинами, на которых выполняется приложение, принудительно обновите веб-браузер.
+
+
+## <a name="add-and-remove-vms"></a>Добавление и удаление виртуальных машин
+На виртуальных машинах, выполняющих приложение, может потребоваться выполнить обслуживание, например установить обновления операционной системы. Для обработки большего объема трафика в приложении необходимо добавить дополнительные виртуальные машины. В этом разделе показано, как удалить или добавить виртуальную машину из балансировщика нагрузки.
+
+### <a name="remove-a-vm-from-the-load-balancer"></a>Удаление виртуальной машины из балансировщика нагрузки
+Вы можете удалить виртуальную машину из внутреннего пула адресов с помощью команды [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#remove). В следующем примере удаляется виртуальный сетевой адаптер для **myVM2** из `myLoadBalancer`.
+
+```azurecli
+az network nic ip-config address-pool remove \
+    --resource-group myRGLoadBalancer \
+    --nic-name myNic2 \
+    --ip-config-name ipConfig1 \
+    --lb-name myLoadBalancer \
+    --address-pool myBackEndPool 
+```
+
+Чтобы увидеть, как балансировщик нагрузки распределяет трафик между оставшимися двумя виртуальными машинами, на которых выполняется приложение, принудительно обновите веб-браузер. Теперь можно выполнить обслуживание на виртуальной машине, например установить обновления операционной системы или перезагрузить виртуальную машину.
+
+### <a name="add-a-vm-to-the-load-balancer"></a>Добавление виртуальной машины в балансировщик нагрузки
+После выполнения обслуживания виртуальной машины, или если необходимо расширить емкость, можно добавить виртуальную машину во внутренний пул адресов с помощью команды [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#add). В следующем примере добавляется виртуальный сетевой адаптер для **myVM2** в `myLoadBalancer`.
+
+```azurecli
+az network nic ip-config address-pool add \
+    --resource-group myRGLoadBalancer \
+    --nic-name myNic2 \
+    --ip-config-name ipConfig1 \
+    --lb-name myLoadBalancer \
+    --address-pool myBackEndPool
+```
+
+
+## <a name="next-steps"></a>Дальнейшие действия
+В этом руководстве вы узнали о создании балансировщика нагрузки для виртуальных машин. Для получения дополнительных сведений о компонентах виртуальных сетей Azure перейдите к указанному ниже руководству.
+
+[Управление сетевым взаимодействием виртуальных машин](tutorial-virtual-network.md)
+

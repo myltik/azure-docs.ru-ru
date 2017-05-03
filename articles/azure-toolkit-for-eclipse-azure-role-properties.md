@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: cd734c64ba6d1394cb261bace92dee9dd579dd08
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
 * [Свойства кэширования](#caching_properties)
 * [Свойства сертификатов](#certificates_properties)
 * [Свойства компонентов](#components_properties)
-* [Свойства отладки](#debugging_properties)
+<!-- * [Debugging properties](#debugging_properties) -->
 * [Свойства конечных точек](#endpoints_properties)
 * [Свойства переменных среды](#environment_variables_properties)
 * [Свойства балансировки нагрузки и свойства сходства сеансов (называемые также прикрепленными сеансами)](#session_affinity_properties)
@@ -174,14 +175,14 @@ ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
 > 
 > 
 
-<a name="debugging_properties"></a> 
+<!-- <a name="debugging_properties"></a> -->
 
-### <a name="debugging-properties"></a>Свойства отладки
-На панели обозревателя проектов Eclipse откройте контекстное меню для роли, выберите **Azure**, а затем щелкните **Отладка**. В этом диалоговом окне можно включать или отключать удаленную отладку, а также создавать конфигурации отладки, как показано на следующем рисунке.
+<!-- ### Debugging properties -->
+<!-- Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image. -->
 
-![][ic719504]
+<!-- ![][ic719504] -->
 
-Дополнительные сведения об отладке см. в статье [Отладка приложения Azure в Eclipse][Debugging Azure Applications in Eclipse].
+<!-- For related information about debugging, see [Debugging Azure Applications in Eclipse][Debugging Azure Applications in Eclipse]. -->
 
 <a name="endpoints_properties"></a> 
 
@@ -206,13 +207,13 @@ ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
 
 Чтобы определить, какой из автоматически устанавливаемых портов фактически используется во время выполнения, приложение может использовать API среды выполнения службы Azure, который описан на странице по адресу [com.microsoft.windowsazure.serviceruntime package summary][com.microsoft.windowsazure.serviceruntime package summary].
 
-Сведения об использовании входных конечных точек экземпляров в процессе отладки развертывания из нескольких экземпляров см. в статье [Отладка конкретного экземпляра роли в развертывании из нескольких экземпляров][Debugging a specific role instance in a multi-instance deployment].
+<!-- To see how instance input endpoints can be used to help with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][Debugging a specific role instance in a multi-instance deployment]. -->
 
 Чтобы изменить конечную точку, выберите ее и нажмите кнопку **Изменить** на странице свойств **Конечные точки**. Откроется диалоговое окно для изменения имени конечной точки, ее типа, а также общего и частного портов. Нажмите кнопку **ОК** , чтобы сохранить измененные значения конечной точки.
 
 Чтобы удалить конечную точку, выберите ее и нажмите кнопку **Удалить** на странице свойств **Конечные точки**, а затем нажмите кнопку **Да** для подтверждения удаления.
 
-Для правильной настройки некоторых функций (таких как кэширование, удаленная отладка, сходство сеансов или разгрузка SSL), включенных пользователем в роли, набор средств предусматривает автоматическую настройку специальных конечных точек, которые отображаются вместе с конечными точками, определяемыми пользователем. Набор средств предотвращает изменение или удаление автоматически созданных конечных точек в течение всего времени, пока включен связанный компонент.
+Для правильной настройки некоторых функций (таких как кэширование, сходство сеансов или разгрузка SSL), включенных пользователем в роли, набор средств предусматривает автоматическую настройку специальных конечных точек, которые отображаются вместе с конечными точками, определяемыми пользователем. Набор средств предотвращает изменение или удаление автоматически созданных конечных точек в течение всего времени, пока включен связанный компонент.
 
 <a name="environment_variables_properties"></a> 
 
@@ -457,9 +458,4 @@ ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

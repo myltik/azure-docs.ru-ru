@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/10/2016
+ms.date: 04/18/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2ac78606f851068fa0fb7dcab3bac1c629b9cdb3
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: e38c9187be42946df1e8059ba44f10f76d32d984
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -37,34 +37,27 @@ ms.lasthandoff: 04/03/2017
 ## <a name="documentdb-input-binding"></a>Входная привязка DocumentDB
 Входная привязка DocumentDB получает документ DocumentDB и передает его именованному входному параметру функции. Идентификатор документа можно определить по триггеру, который вызывает функцию. 
 
-Входные данные DocumentDB для функции используют следующий объект JSON в массиве `bindings` файла function.json:
+Входная привязка DocumentDB имеет следующие свойства в *function.json*:
 
-```json
-{
-  "name": "<Name of input parameter in function signature>",
-  "type": "documentDB",
-  "databaseName": "<Name of the DocumentDB database>",
-  "collectionName": "<Name of the DocumentDB collection>",
-  "id": "<Id of the DocumentDB document - see below>",
-  "connection": "<Name of app setting with connection string - see below>",
-  "direction": "in"
-},
-```
+- `name` — имя идентификатора, используемого в коде функции для документа.
+- `type` — для этого свойства нужно задать значение "documentdb".
+- `databaseName` — база данных, содержащая документ.
+- `collectionName` — коллекция, содержащая документ.
+- `id` — идентификатор документа, который нужно получить. Это свойство поддерживает параметры привязки; см. раздел [Привязка к пользовательским входным свойствам в выражении привязки](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) статьи [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md).
+- `sqlQuery` — SQL-запрос DocumentDB, используемый для извлечения нескольких документов. Запрос поддерживает привязки времени выполнения. Например: `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection` — имя параметра приложения, содержащего строку подключения DocumentDB.
+- `direction` — для этого свойства нужно задать значение `"in"`.
 
-Обратите внимание на следующее.
+Свойства `id` и `sqlQuery` невозможно указать одновременно. Если не задано ни `id`, ни `sqlQuery`, извлекается вся коллекция.
 
-* Свойство `id` поддерживает привязки, аналогичные `{queueTrigger}`, в которых в качестве идентификатора документа используется строковое значение сообщения очереди.
-* Значение свойства `connection` должно соответствовать имени параметра приложения, указывающего на конечную точку учетной записи DocumentDB (со значением `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). При создании учетной записи DocumentDB в пользовательском интерфейсе портала Функций автоматически создается параметр приложения. Чтобы использовать существующую учетную запись DocumentDB, необходимо [настроить этот параметр приложения вручную](functions-how-to-use-azure-function-app-settings.md). 
-* Если указанный документ не найден, для именованного входного параметра функции задается значение `null`. 
+## <a name="using-a-documentdb-input-binding"></a>Использование входной привязки DocumentDB
 
-## <a name="input-usage"></a>Использование входной привязки
-В этом разделе показано, как использовать входную привязку DocumentDB в коде функции.
-
-В функциях C# и F# любые изменения, внесенные во входной документ (именованный входной параметр), будут автоматически отправляться обратно в коллекцию после успешного выхода из функции. В функциях Node.js обновления документа во входной привязке не отправляются обратно в коллекцию. Однако для обновления входных документов можно использовать `context.bindings.<documentName>In` и `context.bindings.<documentName>Out`. Для этого ознакомьтесь с [примером Node.js](#innodejs).
+* В функциях C# и F# любые изменения, внесенные во входной документ посредством именованных входных параметров, обрабатываются автоматически после успешного выхода из функции. 
+* В функциях JavaScript изменения не обрабатываются автоматически при выходе из функции. Для внесения изменений используйте `context.bindings.<documentName>In` и `context.bindings.<documentName>Out`. См. [пример JavaScript](#injavascript).
 
 <a name="inputsample"></a>
 
-## <a name="input-sample"></a>Пример входной привязки
+## <a name="input-sample-for-single-document"></a>Пример входной привязки для отдельного документа
 Предположим, что у вас есть следующая входная привязка DocumentDB в массиве `bindings` файла function.json:
 
 ```json
@@ -83,12 +76,13 @@ ms.lasthandoff: 04/03/2017
 
 * [C#](#incsharp)
 * [F#](#infsharp)
-* [Node.js](#innodejs)
+* [JavaScript](#injavascript)
 
 <a name="incsharp"></a>
 ### <a name="input-sample-in-c"></a>Пример входной привязки для языка C# #
 
 ```cs
+// Change input document contents using DocumentDB input binding 
 public static void Run(string myQueueItem, dynamic inputDocument)
 {   
   inputDocument.text = "This has changed.";
@@ -99,12 +93,13 @@ public static void Run(string myQueueItem, dynamic inputDocument)
 ### <a name="input-sample-in-f"></a>Пример входной привязки для языка F# #
 
 ```fsharp
+(* Change input document contents using DocumentDB input binding *)
 open FSharp.Interop.Dynamic
 let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
 ```
 
-Необходимо добавить файл `project.json`, указывающий зависимости NuGet `FSharp.Interop.Dynamic` и `Dynamitey`:
+В этом примере нужен файл `project.json`, указывающий зависимости NuGet `FSharp.Interop.Dynamic` и `Dynamitey`:
 
 ```json
 {
@@ -121,11 +116,12 @@ let Run(myQueueItem: string, inputDocument: obj) =
 
 Чтобы добавить файл `project.json`, см. раздел [об управлении пакетом F#](functions-reference-fsharp.md#package).
 
-<a name="innodejs"></a>
+<a name="injavascript"></a>
 
-### <a name="input-sample-in-nodejs"></a>Пример входной привязки для Node.js
+### <a name="input-sample-in-javascript"></a>Пример входной привязки для JavaScript
 
 ```javascript
+// Change input document contents using DocumentDB input binding, using context.bindings.inputDocumentOut
 module.exports = function (context) {   
   context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
   context.bindings.inputDocumentOut.text = "This was updated!";
@@ -133,29 +129,66 @@ module.exports = function (context) {
 };
 ```
 
-## <a id="docdboutput"></a>Выходная привязка DocumentDB
-Выходная привязка DocumentDB позволяет записать новый документ в базу данных Azure DocumentDB. 
+## <a name="input-sample-with-multiple-documents"></a>Пример входной привязки с несколькими документами
 
-Выходная привязка использует следующий объект JSON в массиве `bindings` файла function.json: 
+Предположим, что нужно извлечь несколько документов, указанных SQL-запросом, используя триггер очереди для настройки параметров запроса. 
 
-```json
+В этом примере триггер очереди предоставляет параметр `departmentId`. Сообщение очереди `{ "departmentId" : "Finance" }` возвращает все записи для финансового отдела. Используйте в *function.json* следующий код:
+
+```
 {
-  "name": "<Name of output parameter in function signature>",
-  "type": "documentDB",
-  "databaseName": "<Name of the DocumentDB database>",
-  "collectionName": "<Name of the DocumentDB collection>",
-  "createIfNotExists": <true or false - see below>,
-  "connection": "<Value of AccountEndpoint in Application Setting - see below>",
-  "direction": "out"
+    "name": "documents",
+    "type": "documentdb",
+    "direction": "in",
+    "databaseName": "MyDb",
+    "collectionName": "MyCollection",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "connection": "DocumentDBConnection"
 }
 ```
 
-Обратите внимание на следующее.
+### <a name="input-sample-with-multiple-documents-in-c"></a>Пример входной привязки с несколькими документами для C#
 
-* Задайте для параметра `createIfNotExists` значение `true`, чтобы создать базу данных и коллекцию, если она не существует. По умолчанию используется значение `false`. Коллекции создаются с использованием зарезервированной пропускной способности, с которой связаны ценовые требования. Дополнительные сведения см. в статье [DocumentDB. Цены](https://azure.microsoft.com/pricing/details/documentdb/).
-* Значение свойства `connection` должно соответствовать имени параметра приложения, указывающего на конечную точку учетной записи DocumentDB (со значением `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`). При создании учетной записи DocumentDB в пользовательском интерфейсе портала Функций автоматически создается параметр приложения. Чтобы использовать существующую учетную запись DocumentDB, необходимо [настроить этот параметр приложения вручную](functions-how-to-use-azure-function-app-settings.md). 
+```csharp
+public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
+{   
+    foreach (var doc in documents)
+    {
+        // operate on each document
+    }    
+}
 
-## <a name="output-usage"></a>Использование выходной привязки
+public class QueuePayload
+{
+    public string departmentId { get; set; }
+}
+```
+
+### <a name="input-sample-with-multiple-documents-in-javascript"></a>Пример входной привязки с несколькими документами для JavaScript
+
+```javascript
+module.exports = function (context, input) {    
+    var documents = context.bindings.documents;
+    for (var i = 0; i < documents.length; i++) {
+        var document = documents[i];
+        // operate on each document
+    }        
+    context.done();
+};
+```
+
+## <a id="docdboutput"></a>Выходная привязка DocumentDB
+Выходная привязка DocumentDB позволяет записать новый документ в базу данных Azure DocumentDB. Он содержит следующие свойства в *function.json*:
+
+- `name` — идентификатор, используемый в коде функции для нового документа.
+- `type` — для этого свойства нужно задать значение `"documentdb"`.
+- `databaseName` — база данных, содержащая коллекцию, в которой будет создан документ.
+- `collectionName` — коллекция, в которой будет создан документ.
+- `createIfNotExists` — логическое значение, указывающее, будет ли создана коллекция при ее отсутствии. Значение по умолчанию — *false*. Это вызвано тем, что коллекции создаются с использованием зарезервированной пропускной способности, с которой связаны ценовые требования. Дополнительные сведения см. на [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
+- `connection` — имя параметра приложения, содержащего строку подключения DocumentDB.
+- `direction` — для этого свойства нужно задать значение `"out"`.
+
+## <a name="using-a-documentdb-output-binding"></a>Использование выходной привязки DocumentDB
 В этом разделе показано, как использовать выходную привязку DocumentDB в коде функции.
 
 При записи в выходном параметре функции в базе данных по умолчанию создается документ, для которого автоматически создается GUID в качестве идентификатора документа. Идентификатор выходного документа можно определить, указав свойство JSON `id` в выходном параметре. 
@@ -163,27 +196,11 @@ module.exports = function (context) {
 >[!Note]  
 >Если указать идентификатор существующего документа, он перезаписывается новым выходным документом. 
 
-Запись выходных данных можно выполнить, используя любой из следующих типов.
-
-* Любой [объект](https://msdn.microsoft.com/library/system.object.aspx) используется для сериализации JSON.
-  Если объявить пользовательский выходной тип (например, `out FooType paramName`), Функции Azure попытаются сериализовать объект в JSON. Если при выходе из функции выходной параметр имеет значение null, среда выполнения Функций создает большой двоичный объект в качестве пустого объекта.
-* Строка (`out string paramName`) используется для данных текстовых больших двоичных объектов. Среда выполнения Функций создает большой двоичный объект, только если при выходе из функции для параметра строки не задано значение null.
-
-В функциях C# можно выполнить вывод одного из следующих типов:
-
-* `TextWriter`
-* `Stream`
-* `CloudBlobStream`
-* `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
-
 Для вывода в несколько документов можно также выполнить привязку к `ICollector<T>` или `IAsyncCollector<T>`, где `T` — любой из поддерживаемых типов.
-
 
 <a name="outputsample"></a>
 
-## <a name="output-sample"></a>Пример выходной привязки
+## <a name="documentdb-output-binding-sample"></a>Пример выходной привязки DocumentDB
 Предположим, что у вас есть следующая выходная привязка DocumentDB в массиве `bindings` файла function.json:
 
 ```json
@@ -223,7 +240,7 @@ module.exports = function (context) {
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
-* [Node.js](#outnodejs)
+* [JavaScript](#outjavascript)
 
 <a name="outcsharp"></a>
 
@@ -276,7 +293,7 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
       address = employee?address }
 ```
 
-Необходимо добавить файл `project.json`, указывающий зависимости NuGet `FSharp.Interop.Dynamic` и `Dynamitey`:
+В этом примере нужен файл `project.json`, указывающий зависимости NuGet `FSharp.Interop.Dynamic` и `Dynamitey`:
 
 ```json
 {
@@ -293,9 +310,9 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
 
 Чтобы добавить файл `project.json`, см. раздел [об управлении пакетом F#](functions-reference-fsharp.md#package).
 
-<a name="outnodejs"></a>
+<a name="outjavascript"></a>
 
-### <a name="output-sample-in-nodejs"></a>Пример выходной привязки для Node.js
+### <a name="output-sample-in-javascript"></a>Пример выходной привязки для JavaScript
 
 ```javascript
 module.exports = function (context) {

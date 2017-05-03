@@ -1,5 +1,5 @@
 ---
-title: "Рекомендации по автомасштабированию | Документация Майкрософт"
+title: "Рекомендации по автомасштабированию | Документы Майкрософт"
 description: "Узнайте о принципах эффективного автомасштабирования виртуальных машин, масштабируемых наборов виртуальных машин и облачных служб."
 author: kamathashwin
 manager: carmonm
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2016
+ms.date: 04/20/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
-ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 6dad42f94d263d9dacedf145bf4e5d487d0aed77
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="best-practices-autoscaling-virtual"></a>Рекомендации по автомасштабированию виртуальных компонентов
+# <a name="best-practices-for-autoscale"></a>Рекомендации по автомасштабированию
 В этой статье даны рекомендации по автомасштабированию в Azure. Они относятся к виртуальным машинам, масштабируемым наборам виртуальных машин и облачным службам.  Прочие службы Azure используют другие методы масштабирования.
 
 ## <a name="autoscale-concepts"></a>Основные понятия автомасштабирования

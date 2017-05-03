@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 04/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 831ce961992747de87706c3dde24b812a281c23a
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: cbd764b3c6ce912c825aa2756ac6f35c23d047bf
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -70,6 +70,7 @@ ms.lasthandoff: 04/12/2017
 * [Как измерить и протестировать производительность моего кэша?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Важные сведения о росте пула потоков ThreadPool](#important-details-about-threadpool-growth)
 * [Включение сборки мусора сервера для увеличения пропускной способности на стороне клиента при использовании StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [Рекомендации по производительности для подключений](#performance-considerations-around-connections)
 
 ## <a name="monitoring-and-troubleshooting-faqs"></a>Часто задаваемые вопросы о мониторинге и устранении неполадок
 Вопросы, обсуждаемые в этом разделе, посвящены общим проблемам мониторинга и устранения неполадок. Дополнительные сведения о мониторинге и устранении неполадок, связанных с экземплярами кэша Redis для Azure, см. в статьях [Как отслеживать кэш Redis для Azure](cache-how-to-monitor.md) и [Способы устранения проблем с кэшем Redis для Azure](cache-how-to-troubleshoot.md).
@@ -405,6 +406,13 @@ StackExchange.Redis имеет много параметров. В этом ра
 * [Включение сборки мусора сервера](https://msdn.microsoft.com/library/ms229357.aspx)
 * [Основные сведения о сборке мусора](https://msdn.microsoft.com/library/ee787088.aspx)
 * [Сборка мусора и производительность](https://msdn.microsoft.com/library/ee851764.aspx)
+
+
+### <a name="performance-considerations-around-connections"></a>Рекомендации по производительности для подключений
+
+Каждая ценовая категория имеет различные ограничения для количества клиентских подключений, памяти и пропускной способности. Хотя каждый размер кэша *допускает* определенное число подключений, с каждым подключением к Redis связаны накладные расходы. Примером таких накладных расходов могут служить загрузка ЦП и использование памяти в результате шифрования TLS/SSL. Максимальное число подключений для данного размера кэша предполагает низкую загрузку кэша. Если *суммарная* нагрузка, связанная с подключениями и клиентскими операциями, превышает емкость системы, могут возникнуть проблемы с работой кэша, даже если максимальное число подключений для его текущего размера не превышено.
+
+Дополнительные сведения о разных пределах подключений для каждого уровня см. в статье [Цены на кэш Redis для Azure](https://azure.microsoft.com/pricing/details/cache/). Дополнительные сведения о подключениях и других конфигурациях по умолчанию см. в статье [Конфигурация сервера Redis по умолчанию](cache-configure.md#default-redis-server-configuration).
 
 <a name="cache-monitor"></a>
 

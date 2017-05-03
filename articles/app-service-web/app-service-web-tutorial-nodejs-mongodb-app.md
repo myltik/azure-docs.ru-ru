@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: ef3fc25ed06eb498600df4fc8fcad37f0f0dc676
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 8dcb006a8cf167cdbfb67de5a11dabf0edbbe41c
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/18/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="step-1---test-local-mongodb-database"></a>Шаг 1. Проверка локальной базы данных MongoDB
+## <a name="test-local-mongodb-database"></a>Проверка локальной базы данных MongoDB
 На этом шаге нужно убедиться, что локальная база данных MongoDB запущена.
 
 Откройте окно терминала и `CD` в каталог установки MongoDB `bin`. 
@@ -54,7 +54,7 @@ mongo
 
 <a name="step2"></a>
 
-## <a name="step-2---create-local-nodejs-application"></a>Шаг 2. Создание локального приложения Node.js
+## <a name="create-local-nodejs-application"></a>Создание локального приложения Node.js
 На этом шаге вы настроите локальный проект Node.js.
 
 ### <a name="clone-the-sample-application"></a>Клонирование примера приложения
@@ -103,7 +103,7 @@ MEAN.JS version: 0.5.0
 
 Чтобы остановить Node.js в любое время, введите `Ctrl`+`C` в окне терминала. 
 
-## <a name="step-3---create-a-production-mongodb-database"></a>Шаг 3. Создание рабочей базы данных MongoDB
+## <a name="create-a-production-mongodb-database"></a>Создание рабочей базы данных MongoDB
 
 На этом шаге вы создадите базу данных MongoDB в Azure. При развертывании приложения в Azure эта база данных используется в качестве рабочей нагрузки приложения.
 
@@ -163,7 +163,7 @@ DB/databaseAccounts/<documentdb_name>",
 } 
 ```
 
-## <a name="step-4---connect-your-nodejs-application-to-the-database"></a>Шаг 4. Подключение приложения Node.js к базе данных
+## <a name="connect-your-nodejs-application-to-the-database"></a>Подключение приложения Node.js к базе данных
 
 На этом шаге вы подключите пример приложения MEAN.js к только что созданной базе данных DocumentDB с использованием строки подключения MongoDB. 
 
@@ -242,7 +242,7 @@ MEAN.JS version: 0.5.0
 
 Откройте браузер и перейдите по адресу `http://localhost:8443`. Щелкните **Зарегистрироваться** в верхнем меню и попробуйте создать фиктивного пользователя, как в прошлый раз. Если все получилось, это означает, что приложение записывает данные в базу данных DocumentDB в Azure. 
 
-## <a name="step-5---deploy-the-nodejs-application-to-azure"></a>Шаг 5. Развертывание приложения Node.js в Azure
+## <a name="deploy-the-nodejs-application-to-azure"></a>Развертывание приложения Node.js в Azure
 На этом шаге вы развернете приложение Node.js, подключенное к MongoDB, в службе приложений Azure.
 
 ### <a name="create-an-app-service-plan"></a>Создание плана службы приложений
@@ -435,7 +435,7 @@ http://<app_name>.azurewebsites.net
 
 **Поздравляем!** Вы запустили управляемое данными приложение Node.js в службе приложений Azure.
 
-## <a name="step-6---update-data-model-and-redeploy"></a>Шаг 6. Обновление модели данных и повторное развертывание
+## <a name="update-data-model-and-redeploy"></a>Обновление модели данных и повторное развертывание
 
 На этом шаге вы внесете некоторые изменения в модель данных `article` и опубликуете свои изменения в Azure.
 
@@ -569,7 +569,7 @@ git push azure master
 >
 >
 
-## <a name="step-7---stream-diagnostic-logs"></a>Шаг 7. Настройка потоков для журналов диагностики 
+## <a name="stream-diagnostic-logs"></a>Потоковая передача журналов диагностики 
 
 При запуске приложения Node.js в службе приложений Azure можно направить журналы консоли прямо в свой терминал. Таким образом, вы будете получать те же диагностические сообщения, которые помогут устранить ошибки приложения.
 
@@ -583,7 +583,7 @@ az appservice web log tail --name <app_name> --resource-group myResourceGroup
 
 Чтобы отменить потоки для журналов, выполните команду `Ctrl`+`C`. 
 
-## <a name="step-8---manage-your-azure-web-app"></a>Шаг 8. Управление веб-приложением Azure
+## <a name="manage-your-azure-web-app"></a>Управление веб-приложением Azure
 
 Перейти на портал Azure, чтобы увидеть созданное веб-приложение.
 

@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
 ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -362,10 +363,5 @@ Azure AD предоставляет компаниям простой спосо
 * [Как создать документацию по ресурсам данных](data-catalog-how-to-documentation.md)
 * [Как подключаться к ресурсам данных](data-catalog-how-to-connect.md)
 * [Как управлять ресурсами данных](data-catalog-how-to-manage.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

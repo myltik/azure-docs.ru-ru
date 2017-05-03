@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: ce1291261cd8f65d44873217345ae6efaa515534
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/24/2017
 
 По умолчанию приложения Service Fabric выполняются под учетной записью, используемой процессом Fabric.exe. Платформа также позволяет запускать приложения под учетной записью локального пользователя или локальной системы, указанной в манифесте приложения. Поддерживаются следующие типы учетных записей локальной системы: **LocalUser**, **NetworkService**, **LocalService** и **LocalSystem**.
 
- Если Service Fabric выполняется на сервере Windows Server с использованием автономного установщика, можно использовать учетные записи домена Active Directory.
+ Если Service Fabric выполняется на сервере Windows Server в центре обработки данных с использованием автономного установщика, можно использовать учетные записи домена Active Directory, включая групповые управляемые учетные записи служб.
 
 Вы можете определять и создавать группы пользователей, а затем добавлять в них пользователей для совместного управления. Это полезно, если для разных точек входа службы есть несколько пользователей и у них должны быть определенные общие права, доступные на уровне группы.
 
@@ -290,7 +290,44 @@ Echo "Test console redirection which writes to the application log folder on the
 </Policies>
 <Certificates>
 ```
+### <a name="use-a-group-managed-service-account"></a>Используйте групповую управляемую учетную запись службы.
+Если экземпляр Service Fabric установлен на Windows Server с помощью автономного установщика, вы можете запустить службу в качестве групповой управляемой учетной записи службы (gMSA). Обратите внимание, что речь идет о локальной службе Active Directory в домене, а не Azure Active Directory (Azure AD). При использовании групповой управляемой учетной записи службы в `Application Manifest` не сохраняется ни обычный, ни зашифрованный пароль.
 
+В следующем примере показано, как создать групповую управляемую учетную запись службы *svc-Test$*, развернуть эту учетную запись на узлах кластера и настроить субъект-пользователь.
+
+##### <a name="prerequisites"></a>Предварительные требования.
+- Домену нужен корневой ключ KDS.
+- Домен должен иметь функциональный уровень Windows Server 2012 или выше.
+
+##### <a name="example"></a>Пример
+1. Попросите администратора домена Active Directory создать групповую управляемую учетную запись службы с помощью командлета `New-ADServiceAccount` и убедитесь, что `PrincipalsAllowedToRetrieveManagedPassword` включает в себя все узлы кластера Service Fabric. Обратите внимание, что `AccountName`, `DnsHostName` и `ServicePrincipalName` должны быть уникальными.
+```
+New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
+```
+2. Установите и протестируйте групповую управляемую учетную запись на каждом из узлов кластера Service Fabric (например, `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`).
+```
+Add-WindowsFeature RSAT-AD-PowerShell
+Install-AdServiceAccount svc-Test$
+Test-AdServiceAccount svc-Test$
+```
+3. Настройте субъекта-пользователя, а также тег RunAsPolicy, чтобы он указывал на этого пользователя.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+      <Policies>
+         <RunAsPolicy CodePackageRef="Code" UserRef="DomaingMSA"/>
+      </Policies>
+   </ServiceManifestImport>
+  <Principals>
+    <Users>
+      <User Name="DomaingMSA" AccountType="ManagedServiceAccount" AccountName="domain\svc-Test$"/>
+    </Users>
+  </Principals>
+</ApplicationManifest>
+```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Назначение политики безопасности доступа для конечных точек HTTP и HTTPS
 Если к службе применяется политика запуска от имени, а манифест службы объявляет в качестве ресурсов конечные точки, использующие протокол HTTP, вам нужно указать **SecurityAccessPolicy**. Это гарантирует, что к выделенным для этих конечных точек портам будут правильно применены списки управления доступом для той учетной записи, от имени которой выполняется служба. В противном случае файл **http.sys** не получит доступа к службе, а вызовы от клиента будут завершаться ошибками. В следующем примере учетная запись Customer3 применяется к конечной точке с именем **ServiceEndpointName**, предоставляя ей права полного доступа.

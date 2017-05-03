@@ -27,12 +27,12 @@ ms.lasthandoff: 03/01/2017
 Если вы не знакомы с процедурой входа в Azure AD или с разработкой мультитенантных приложений:
 
 1. Начните с изучения [раздела "Из веб-браузера в веб-приложение" статьи "Сценарии аутентификации в Azure Active Directory"][AAD-Auth-Scenarios-Browser-To-WebApp].  
-2. Затем ознакомьтесь с [краткими руководствами по началу работы с веб-приложениями][AAD-QuickStart-Web-Apps] для Azure AD, в которых показано, как реализовывать вход и включать сопутствующие примеры кода. 
-   
+2. Затем ознакомьтесь с [краткими руководствами по началу работы с веб-приложениями][AAD-QuickStart-Web-Apps] для Azure AD, в которых показано, как реализовывать вход и включать сопутствующие примеры кода.
+
    > [!TIP]
    > Воспользуйтесь предварительной версией нашего нового [портала разработчиков](https://identity.microsoft.com/Docs/Web) , который поможет вам приступить к работе с Azure Active Directory через несколько минут.  Портал разработчиков поможет зарегистрировать приложение и интегрировать Azure AD в коде.  Завершив работу, вы получите простое приложение, с помощью которого выполняется проверка подлинности пользователей в клиенте и на сервере, принимающем маркеры и проводящем проверку.
-   > 
-   > 
+   >
+   >
 3. Чтобы узнать, как реализовать мультитенантный вход с помощью Azure AD, см. статью [Как реализовать вход любого пользователя Azure Active Directory (AD) с помощью шаблона мультитенантного приложения][AAD-Howto-Multitenant-Overview].
 
 ## <a name="related-content"></a>Связанная информация
@@ -45,18 +45,8 @@ ms.lasthandoff: 03/01/2017
 [AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#web-application-quick-start-guides
+[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#guides
 
 
 <!--Image references-->
-
-
-
-
-
-
-
-
-
-
 

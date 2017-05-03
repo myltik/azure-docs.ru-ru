@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 566a8d7fc595975e065c5a8a42c7f7c94997821b
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: d7006a50d35412021f7e475df526661854b23dc8
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/18/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="step-1---download-the-sample"></a>Шаг 1. Скачивание примера
+## <a name="download-the-sample"></a>Скачивание примера приложения
 На этом шаге вы скачаете пример приложения ASP.NET.
 
 ### <a name="get-the-sample-project"></a>Скачивание примера проекта
@@ -65,7 +65,7 @@ ms.lasthandoff: 04/18/2017
 
 Контекст базы данных использует строку подключения `MyDbConnection`. Эта строка подключения определена `Web.config` и используется в `Models\MyDatabaseContext.cs`. В дальнейшем для подключения веб-приложения Azure к базе данных SQL Azure потребуется только имя строки подключения. 
 
-## <a name="step-2---publish-to-azure-with-sql-database"></a>Шаг 2. Публикация в Azure с базой данных SQL
+## <a name="publish-to-azure-with-sql-database"></a>Публикация в Azure с базой данных SQL
 
 В **обозревателе решений** щелкните правой кнопкой мыши проект **DotNetAppSqlDb** и выберите **Опубликовать**.
 
@@ -168,7 +168,7 @@ ms.lasthandoff: 04/18/2017
 
 Поздравляем! Вы запустили управляемое данными приложение ASP.NET в службе приложений Azure.
 
-## <a name="step-3---access-the-sql-database-locally"></a>Шаг 3. Локальный доступ к базе данных SQL
+## <a name="access-the-sql-database-locally"></a>Локальный доступ к базе данных SQL
 
 В **обозревателе объектов SQL Server** Visual Studio вы сможете легко просматривать свою базу данных SQL и управлять ею.
 
@@ -204,7 +204,7 @@ ms.lasthandoff: 04/18/2017
 
 ![Просмотр объектов базы данных SQL](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
-## <a name="step-4---update-app-with-code-first-migrations"></a>Шаг 4. Изменение приложения с помощью Code First Migrations
+## <a name="update-app-with-code-first-migrations"></a>Изменение приложения с помощью Code First Migrations
 
 На этом шаге вы измените схему базы данных с помощью Code First Migrations в Entity Framework и опубликуете ее в Azure.
 
@@ -329,7 +329,7 @@ public ActionResult Create([Bind(Include = "id,Description,CreatedDate,Done")] T
 >
 >
 
-## <a name="step-6---stream-application-logs"></a>Шаг 6. Потоковая передача журналов приложений
+## <a name="stream-application-logs"></a>Потоковая передача журналов приложений
 
 Сообщения трассировки можно передавать прямо из веб-приложения Azure в Visual Studio.
 
@@ -389,7 +389,7 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ![Выключение потоковой передачи журналов](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="step-7---manage-your-azure-web-app"></a>Шаг 7. Управление веб-приложением Azure
+## <a name="manage-your-azure-web-app"></a>Управление веб-приложением Azure
 
 Перейти на портал Azure, чтобы увидеть созданное веб-приложение. 
 

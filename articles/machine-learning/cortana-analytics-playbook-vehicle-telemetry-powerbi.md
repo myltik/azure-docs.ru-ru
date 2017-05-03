@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: b7332aa2b2518bd926ee2221fd0129adcc25415b
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f880aceb1657ffdfe909b73f175b9673d9ab02cd
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/13/2017
 Ниже приведены примеры использования решения для аналитики телеметрии автомобилей. Они демонстрируют, как возможности Cortana Intelligence помогают автодилерам, производителям автомобилей и страховым компаниям получать прогнозы и актуальную информацию об исправности автомобиля и манере вождения в реальном времени, чтобы повышать качество обслуживания клиентов, исследований и маркетинговых кампаний. В этом документе приведены пошаговые инструкции по настройке отчетов и информационной панели Power BI после развертывания решения в подписке. 
 
 ## <a name="prerequisites"></a>Предварительные требования
-1. Разверните решение для аналитики телеметрии автомобилей, перейдя по следующей ссылке: [https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9](https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9)  
+1. Разверните решение [аналитики телеметрии](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90).  
 2. [Установите Microsoft Power BI Desktop.](http://www.microsoft.com/download/details.aspx?id=45331)
 3. [Подписка Azure](https://azure.microsoft.com/pricing/free-trial/). Если у вас нет подписки Azure, для начала получите бесплатную подписку Azure.
 4. Учетная запись Microsoft Power BI

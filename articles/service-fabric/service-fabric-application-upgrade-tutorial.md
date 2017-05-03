@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 3fa7b8d053d0193352776e94d2ab4796ba05e166
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 2b1b12666b71bf173342d5864772a94b9625d38b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -41,7 +41,9 @@ Azure Service Fabric упрощает процесс обновления обл
 
 ![Публикация приложения Service Fabric][image2]
 
-Теперь можно нажать кнопку **Опубликовать** в диалоговом окне. Для просмотра кластера и приложения теперь можно использовать [обозреватель Service Fabric](service-fabric-visualizing-your-cluster.md). Приложение Visual Objects включает в себя веб-службу, к которой можно перейти, указав в адресной строке браузера [http://localhost:8082/visualobjects](http://localhost:8082/visualobjects/) .  Вы должны увидеть 10 плавающих визуальных объектов, перемещающихся по экрану.
+Теперь можно нажать кнопку **Опубликовать** в диалоговом окне. Для просмотра кластера и приложения теперь можно использовать [обозреватель Service Fabric](service-fabric-visualizing-your-cluster.md). Приложение Visual Objects включает в себя веб-службу, к которой можно перейти, указав в адресной строке браузера [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/).  Вы должны увидеть 10 плавающих визуальных объектов, перемещающихся по экрану.
+
+**Примечание.** При развертывании в профиле `Cloud.xml` (Azure Service Fabric) приложение должно быть доступно по адресу **http://{ServiceFabricName}.{Region}.cloudapp.azure.com:8081/visualobjects/**. Убедитесь, что в балансировщике нагрузки настроен `8081/TCP` (балансировщик нагрузки находится в той же группе ресурсов, что и экземпляр Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Шаг 2. Обновление образца визуальных объектов
 Вы можете заметить, что в версии, развернутой на шаге 1, визуальные объекты не вращаются. Давайте обновим это приложение до версии, в которой визуальные объекты будут вращаться.

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c0283282c0f19c3a0e0f4304de2b5ab4768d3290
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d24031955f57794d6796ea37d8d1b0984f066286
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -38,6 +38,8 @@ ms.lasthandoff: 04/17/2017
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Настройка приложения для автоматической подготовки
 
 *Автоматическая подготовка* означает, что для этого приложения был разработан соединитель для подготовки Azure AD. Дополнительные сведения о службе подготовки Azure AD и о том, как она работает, см. в разделе [Автоматическая подготовка пользователей и отмена подготовки для приложений SaaS в Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
+
+Дополнительные сведения о подготовке определенных пользователей и групп для приложения см. в статье [Управление подготовкой учетных записей пользователей для корпоративных приложений](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning).
 
 Фактические действия, необходимые для включения и настройки автоматической подготовки, зависят от приложения.
 

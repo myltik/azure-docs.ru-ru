@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 04/19/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 885180e9759d0702d4e0988a7a1b4eb9097d4433
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 7e68a738feff2eb2330b74d942b0a7f42d07df78
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -58,8 +58,10 @@ ms.lasthandoff: 04/03/2017
 * Используется сертификат X.509.
 * Содержит закрытый ключ.
 * Создано для обмена ключами (PFX-файл).
-* Имя субъекта должно совпадать с именем домена, которое используется для обращения к облачной службе. 
+* Имя субъекта должно совпадать с именем домена, которое используется для обращения к облачной службе.
+
     > Вы не можете приобрести SSL-сертификат для домена cloudapp.net (или для любого другого домена, относящегося к Azure), поэтому имя субъекта сертификата должно совпадать с пользовательским именем домена, которое используется для доступа к вашему приложению. Например, **contoso.net**, а не **contoso.cloudapp.net**.
+
 * Минимум 2048-разрядное шифрование.
 * **Только сертификат службы**: клиентский сертификат должен находиться в *личном* хранилище сертификатов.
 
@@ -77,8 +79,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 
 > [!NOTE]
 > Если вы хотите использовать сертификат, указав IP-адрес, а не домен, задайте этот IP-адрес в параметре -DnsName.
-> 
-> 
+
 
 Если вы хотите использовать этот [сертификат на портале управления](../azure-api-management-certs.md), экспортируйте его в **CER-файл** .
 
@@ -98,11 +99,6 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ## <a name="next-steps"></a>Дальнейшие действия
 [Передайте сертификат вашей службы на классический портал Azure](cloud-services-configure-ssl-certificate.md) (или [на портал Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
-Передайте на классический портал Azure [сертификат API управления](../azure-api-management-certs.md) .
-
-> [!NOTE]
-> Портал Azure не использует сертификаты управления для доступа к API, обращаясь вместо этого к учетным записям пользователей.
-> 
-> 
+Передайте на классический портал Azure [сертификат API управления](../azure-api-management-certs.md) . Портал Azure не использует сертификаты управления для проверки подлинности.
 
 

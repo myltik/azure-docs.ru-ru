@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: a740813b013e75a098836290ad8e9ebe76d33b37
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: bf4e400e30cc93ca8fa0cc727ada0f1b224b05cb
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -125,7 +125,7 @@ ms.lasthandoff: 04/18/2017
 | Служебная шина |Да |[REST служебной шины](/rest/api/servicebus) |[Ресурсы служебной шины](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>Управление удостоверениями и доступом
-Azure Active Directory работает с Resource Manager, чтобы активировать для вашей подписки управление доступом на основе ролей. Дополнительные сведения об управлении доступом на основе ролей и Active Directory см. в [этой статье](../active-directory/role-based-access-control-configure.md).
+Azure Active Directory работает с Resource Manager, чтобы активировать для вашей подписки управление доступом на основе ролей. Дополнительные сведения об управлении доступом на основе ролей и Azure Active Directory см. в [этой статье](../active-directory/role-based-access-control-configure.md).
 
 ## <a name="developer-services"></a>Службы разработки
 | служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |

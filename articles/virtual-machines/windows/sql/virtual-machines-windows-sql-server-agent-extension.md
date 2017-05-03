@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/09/2017
+ms.date: 04/24/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8ac408675404fe16042ec4338a8bce37f6e00643
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 27064b6b5c65e5ecd0ef6931bd8f333469419839
+ms.lasthandoff: 04/26/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Автоматизация задач управления на виртуальных машинах Azure с помощью расширения агента SQL Server (модель с использованием Resource Manager)
@@ -66,16 +66,14 @@ ms.lasthandoff: 04/03/2017
 ## <a name="installation"></a>Установка
 Расширение агента IaaS для SQL Server автоматически устанавливается при подготовке одного из образов коллекции виртуальных машин SQL Server.
 
-При создании виртуальной машины Windows Server только для OС можно установить расширение вручную с помощью командлета PowerShell **Set-AzureVMSqlServerExtension** . Например, следующая команда устанавливает расширение на виртуальной машине только для OС Windows Server и называет ее "SQLIaaSExtension".
+Можно также установить расширение агента IaaS для SQL Server на виртуальной машине Windows Server, содержащей только операционную систему. Это возможно, если вы вручную установили SQL Server на этом компьютере. После этого вручную установите расширение с помощью командлета **Set-AzureVMSqlServerExtension** PowerShell. Например, следующая команда устанавливает расширение на виртуальной машине только для OС Windows Server и называет ее "SQLIaaSExtension".
 
     Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
 
-После обновления расширения агента IaaS SQL до последней версии виртуальную машину необходимо перезапустить.
-
 > [!NOTE]
-> Если расширение агента IaaS SQL Server установлено на виртуальную машину вручную, то для использования его функций и управления ими необходимо использовать команды PowerShell. Интерфейс портала доступен только для образов SQL Server из коллекции.
-> 
-> 
+> При ручной установке расширения агента IaaS SQL Server вы не можете управлять параметрами конфигурации SQL Server на портале Azure. В этом случае все изменения нужно вносить с помощью PowerShell.
+
+После обновления расширения агента IaaS SQL до последней версии виртуальную машину необходимо перезапустить.
 
 ## <a name="status"></a>Состояние
 Одним из способов проверки того, что расширение установлено, является просмотр состояния агента на портале Azure. В колонке виртуальной машины выберите **Все параметры**, а затем щелкните **Расширения**. В списке будет указано расширение **SQLIaaSExtension** .
