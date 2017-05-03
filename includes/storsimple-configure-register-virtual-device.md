@@ -17,8 +17,3 @@
 
 ![Этап подключения виртуального устройства StorSimple к сети](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
