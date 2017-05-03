@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: asmalser
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: e9ab491639485950b17de4be190b6797c1660530
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d3952e65aaf3ca89f83e99409e196840dd692a01
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Настройка утверждений, выпущенных в маркере SAML для предварительно интегрированных приложений в Azure Active Directory
 На сегодняшний день Azure Active Directory поддерживает тысячи предварительно интегрированных приложений в коллекции приложений Azure AD, включая более 150 приложений, поддерживающих единый вход по протоколу SAML 2.0. Когда пользователь проходит проверку подлинности в приложении через Azure AD, используя SAML, Azure AD отправляет в приложение маркер (используя перенаправление HTTP 302), который приложение проверит и будет использовать для входа пользователя, не запрашивая его имя пользователя и пароль. Эти маркеры SAML содержат элементы информации о пользователе, которые называются "утверждениями".
 
-С точки зрения удостоверений "утверждение" представляет собой информацию, предложенную поставщиком удостоверений о пользователе в составе маркера, выпущенного для этого пользователя. В [маркере SAML](http://en.wikipedia.org/wiki/SAML_2.0)эти данные обычно содержит оператор атрибута SAML, а уникальный идентификатор пользователя, как правило, представлен в субъекте SAML.
+С точки зрения удостоверений "утверждение" представляет собой информацию, предложенную поставщиком удостоверений, о пользователе в составе маркера, выпущенного для этого пользователя. В [маркере SAML](http://en.wikipedia.org/wiki/SAML_2.0) эти данные обычно содержит оператор атрибута SAML, а уникальный идентификатор пользователя, как правило, представлен в субъекте SAML.
 
 По умолчанию Azure AD выпускает маркер SAML для приложения, которое содержит утверждение NameIdentifier, с указанием имени пользователя в Azure AD (уникальный идентификатор пользователя). Маркер SAML включает также дополнительные утверждения, содержащие адрес электронной почты, имя и фамилию пользователя.
 
@@ -31,7 +32,7 @@ ms.openlocfilehash: e9ab491639485950b17de4be190b6797c1660530
 
 ![][1]
 
-Изменение утверждений, выпущенных в маркере SAML, может потребоваться по двум основным причинам: • приложение требует другого набора URI утверждений или значений утверждений; • приложение развернуто таким образом, что утверждение NameIdentifier должно содержать данные, отличные от имени пользователя (т. е. основного имени пользователя), которое хранится в Azure Active Directory. 
+Изменение утверждений, выпущенных в маркере SAML, может потребоваться по двум основным причинам: �приложение требует другого набора URI утверждений или значений утверждений; �приложение развернуто таким образом, что утверждение NameIdentifier должно содержать данные, отличные от имени пользователя (т. е. основного имени пользователя), которое хранится в Azure Active Directory. 
 
 Значения утверждений по умолчанию можно изменить, выбрав значок в форме карандаша, который появляется справа при наведении указателя мыши на одну из строк в таблице атрибутов маркера SAML. Значок **X** позволяет удалить утверждения (кроме утверждения NameIdentifier), а кнопка **Добавить атрибут пользователя** — добавить новые утверждения.
 
@@ -63,13 +64,7 @@ ms.openlocfilehash: e9ab491639485950b17de4be190b6797c1660530
 * [Устранение неполадок единого входа на основе SAML](active-directory-saml-debugging.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
-[2]: ./media/active-directory-saml-claims-customization/claimscustomization2.png
-[3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
-[4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+[1]: ../media/active-directory-saml-claims-customization/claimscustomization1.png
+[2]: ../media/active-directory-saml-claims-customization/claimscustomization2.png
+[3]: ../media/active-directory-saml-claims-customization/claimscustomization3.png
+[4]: ../media/active-directory-saml-claims-customization/claimscustomization4.png
