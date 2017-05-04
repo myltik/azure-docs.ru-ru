@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 05/01/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 24c2670394c2873b333f41c081a8134710d16d54
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: c75c6ed40754aee964e2b68f4f569dc1422507f2
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Настройка MPIO на узле Windows Server для виртуального массива StorSimple
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/26/2017
 ### <a name="on-storsimple-virtual-array"></a>На виртуальном массиве StorSimple
 * Виртуальный массив должен быть настроен как сервер iSCSI. Дополнительные сведения см. в статье [Развертывание виртуального массива StorSimple — настройка виртуального устройства в качестве сервера iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md). В массиве должны быть включены один или несколько сетевых интерфейсов.   
 * Сетевые интерфейсы в виртуальном массиве должны быть доступны с узла Windows Server.
-* В виртуальном массиве StorSimple необходимо создать один или несколько томов. Дополнительные сведения см. в разделе [Шаг 3. Добавление тома](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume) для виртуального массива StorSimple. В этой процедуре мы создали в виртуальном массиве 3 тома (1 локально закрепленный и 2 многоуровневых, как показано ниже).
+* В виртуальном массиве StorSimple необходимо создать один или несколько томов. Дополнительные сведения см. в разделе [Шаг 3. Добавление тома](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume) для виртуального массива StorSimple. В этой процедуре мы создали в виртуальном массиве 3 тома (1 локально закрепленный и 2 многоуровневых, как показано ниже).
   
     ![mpio0](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio0.png)
 

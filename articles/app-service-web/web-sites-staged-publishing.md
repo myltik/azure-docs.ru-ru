@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8ec4e8699eb2f2e060db264634b04abfacf40e34
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a51be4038ef6f9890645a71cd10cc86cb58929f3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -187,7 +187,7 @@ ms.lasthandoff: 03/27/2017
 ## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Командлеты Azure PowerShell для слотов развертывания
 Azure PowerShell — это модуль, который предоставляет командлеты для управления Azure с помощью Windows PowerShell, а также поддерживает управление слотами развертывания в службе приложений Azure.
 
-* Сведения об установке и настройке Azure PowerShell и об аутентификации Azure PowerShell с использованием подписки Azure см. в разделе [Установка и настройка Microsoft Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Сведения об установке и настройке Azure PowerShell и об аутентификации Azure PowerShell с использованием подписки Azure см. в разделе [Установка и настройка Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Создание веб-приложения

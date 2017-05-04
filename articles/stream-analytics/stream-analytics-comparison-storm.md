@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9dcac84fdc33515ef12ab5b8154f700bb8618290
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 627f9dccb48712fced81f2c6dc694043f7162205
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -125,7 +125,7 @@ ms.lasthandoff: 03/18/2017
 Stream Analytics оценивается согласно объему обработанных данных и требуемому количеству единиц потоковой передачи (на каждый час выполнения задания).
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">Дополнительные сведения о ценах можно получить здесь.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Дополнительные сведения о ценах можно получить здесь.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -133,7 +133,7 @@ Stream Analytics оценивается согласно объему обраб
 Для Apache Storm в HDInsight вы платите за продолжительность работы кластера, независимо от развернутых заданий.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">Дополнительные сведения о ценах можно получить здесь.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Дополнительные сведения о ценах можно получить здесь.</a>
                 </p>
             </td>
         </tr>

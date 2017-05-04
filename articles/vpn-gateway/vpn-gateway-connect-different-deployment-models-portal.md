@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 3c49af42332dc62db80889f1625b243473559cd1
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9e0dbb028c668aad182e2c1c54fb397ffe99a0a0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 04/25/2017
 
 * Предполагается, что обе виртуальные сети уже созданы. Если вы используете эту статью в качестве упражнения и у вас нет виртуальных сетей, в шагах есть ссылки, которые помогут вам их создать.
 * Убедитесь, что диапазоны адресов для виртуальных сетей не перекрываются между собой или с другими диапазонами подключений, к которым могут быть подключены шлюзы.
-* Установите последнюю версию командлетов PowerShell для Resource Manager и управления службами (классическая модель). В этой статье мы используем как портал Azure, так и PowerShell. Для создания подключения от классической виртуальной сети к виртуальной сети Resource Manager требуется PowerShell. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Установите последнюю версию командлетов PowerShell для Resource Manager и управления службами (классическая модель). В этой статье мы используем как портал Azure, так и PowerShell. Для создания подключения от классической виртуальной сети к виртуальной сети Resource Manager требуется PowerShell. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview). 
 
 ### <a name="values"></a>Примеры настроек
 
@@ -262,3 +262,4 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 ## <a name="faq"></a>Часто задаваемые вопросы о подключениях типа "виртуальная сеть — виртуальная сеть"
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+
