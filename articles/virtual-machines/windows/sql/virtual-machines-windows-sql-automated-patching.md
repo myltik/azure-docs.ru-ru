@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: c48e23c1904d824ce2360f83c9df9c8e17d6200a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 506a40f6c05cdeee56184074774b1f6ace8f0426
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/25/2017
 
 **Azure PowerShell**
 
-* [Установите последние команды Azure PowerShell](/powershell/azureps-cmdlets-docs) , если планируете настраивать автоматические исправления с помощью PowerShell.
+* [Установите последние команды Azure PowerShell](/powershell/azure/overview) , если планируете настраивать автоматические исправления с помощью PowerShell.
 
 > [!NOTE]
 > Автоматическая установка исправлений зависит от расширения агента IaaS для SQL Server. В текущей коллекции образов виртуальных машин SQL это расширение присутствует по умолчанию. Дополнительные сведения см. в статье [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) (Расширение агента SQL Server IaaS).

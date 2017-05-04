@@ -17,9 +17,9 @@ ms.topic: support-article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 82515c2ee27e4866a167619f193620786b72cedf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -114,12 +114,12 @@ ms.lasthandoff: 04/03/2017
 Если у вас по-прежнему возникают проблемы с протоколом RDP, то вы можете [отправить запрос в службу поддержки](https://azure.microsoft.com/support/options/) или прочитать [более подробные сведения об основных понятиях и этапах устранения неполадок RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Устранение неполадок с помощью Azure PowerShell
-[Установите и настройте последнюю версию Azure PowerShell](/powershell/azureps-cmdlets-docs), если у вас ее еще нет.
+[Установите и настройте последнюю версию Azure PowerShell](/powershell/azure/overview), если у вас ее еще нет.
 
 В следующих примерах используются переменные, такие как `myResourceGroup`, `myVM` и `myVMAccessExtension`. Замените имена этих переменных и расположения собственными значениями.
 
 > [!NOTE]
-> Для сброса учетных данных пользователей и конфигурации удаленного рабочего стола используется командлет PowerShell [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx) . В следующих примерах `myVMAccessExtension` — это имя, которое указывается в ходе процесса. Если вы уже работали с агентом VMAccessAgent, то можете получить имя существующего расширения с помощью командлета `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"`, который возвращает свойства виртуальной машины. Просмотреть это имя можно в разделе "Extensions" в выходных данных.
+> Для сброса учетных данных пользователей и конфигурации удаленного рабочего стола используется командлет PowerShell [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) . В следующих примерах `myVMAccessExtension` — это имя, которое указывается в ходе процесса. Если вы уже работали с агентом VMAccessAgent, то можете получить имя существующего расширения с помощью командлета `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"`, который возвращает свойства виртуальной машины. Просмотреть это имя можно в разделе "Extensions" в выходных данных.
 > 
 > 
 

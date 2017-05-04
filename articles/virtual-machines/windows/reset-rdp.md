@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 47de68f137226c79882632e26e83805ff6d6ea36
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e6cb3a0e259d0889ad8934211152e6832449f67b
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Сброс службы удаленных рабочих столов или ее пароля для входа в систему на виртуальной машине под управлением Windows
-Если не удается подключиться к виртуальной машине Windows, можно сбросить пароль локального администратора или конфигурацию службы удаленного рабочего стола. Для сброса пароля можно использовать портал Azure или расширение VMAccess в Azure PowerShell. Если вы используете PowerShell, то убедитесь, что у вас установлен [и настроен последний модуль PowerShell](/powershell/azureps-cmdlets-docs) и вы вошли в подписку Azure. Вы также можете [выполнить эти действия для виртуальных машин, созданных с использованием классической модели](reset-rdp.md).
+Если не удается подключиться к виртуальной машине Windows, можно сбросить пароль локального администратора или конфигурацию службы удаленного рабочего стола. Для сброса пароля можно использовать портал Azure или расширение VMAccess в Azure PowerShell. Если вы используете PowerShell, то убедитесь, что у вас установлен [и настроен последний модуль PowerShell](/powershell/azure/overview) и вы вошли в подписку Azure. Вы также можете [выполнить эти действия для виртуальных машин, созданных с использованием классической модели](reset-rdp.md).
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>Способы сброса конфигурации или учетных данных
 В зависимости от ваших потребностей службы удаленных рабочих столов и учетные данные можно сбросить несколькими разными способами:
@@ -54,10 +54,10 @@ ms.lasthandoff: 04/05/2017
 
 
 ## <a name="vmaccess-extension-and-powershell"></a>Расширение VMAccess и PowerShell
-Убедитесь, что у вас [установлен и настроен последний модуль PowerShell](/powershell/azureps-cmdlets-docs) и вы вошли в подписку Azure, выполнив командлет `Login-AzureRmAccount`.
+Убедитесь, что у вас [установлен и настроен последний модуль PowerShell](/powershell/azure/overview) и вы вошли в подписку Azure, выполнив командлет `Login-AzureRmAccount`.
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Сброс пароля учетной записи локального администратора**
-Сбросьте пароль или имя пользователя администратора, выполнив командлет PowerShell [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx). Создайте учетные данные следующим образом.
+Сбросьте пароль или имя пользователя администратора, выполнив командлет PowerShell [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension). Создайте учетные данные следующим образом.
 
 ```powershell
 $cred=Get-Credential
@@ -75,7 +75,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 ```
 
 ### <a name="reset-the-remote-desktop-service-configuration"></a>**Сброс конфигурации службы удаленных рабочих столов**
-Сбросьте параметры удаленного доступа к виртуальной машине с помощью командлета PowerShell [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx). Следующий пример сбрасывает параметры расширения доступа `myVMAccess` на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`.
+Сбросьте параметры удаленного доступа к виртуальной машине с помощью командлета PowerShell [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension). Следующий пример сбрасывает параметры расширения доступа `myVMAccess` на виртуальной машине `myVM` в группе ресурсов `myResourceGroup`.
 
 ```powershell
 Set-AzureRmVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" `

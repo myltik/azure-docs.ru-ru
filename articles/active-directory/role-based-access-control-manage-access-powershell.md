@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32c6224b36c73394c6bbd2aa5f6439f54f39f306
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5de7b134d99a0b7887acb9d7f87991056e4d608a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,8 +31,8 @@ ms.lasthandoff: 03/04/2017
 
 Чтобы использовать PowerShell для управления RBAC, необходимы следующие компоненты:
 
-* Azure PowerShell версии 0.8.8 или выше. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. раздел об [установке и настройке Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Командлеты Azure Resource Manager. Установите [командлеты Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) в PowerShell.
+* Azure PowerShell версии 0.8.8 или выше. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. раздел об [установке и настройке Azure PowerShell](/powershell/azure/overview).
+* Командлеты Azure Resource Manager. Установите [командлеты Azure Resource Manager](/powershell/azure/overview) в PowerShell.
 
 ## <a name="list-roles"></a>Вывод списка ролей
 ### <a name="list-all-available-roles"></a>Вывод списка всех доступных ролей
@@ -87,7 +87,7 @@ Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups
 ### <a name="search-for-object-ids"></a>Поиск идентификаторов объектов
 Чтобы назначить роль, необходимо определить объект (пользователя, группу или приложение) и область.
 
-Если вам неизвестен идентификатор подписки, его можно найти в колонке **Подписки** на портале Azure. Узнайте на сайте MSDN, как запросить идентификатор подписки с помощью [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) .
+Если вам неизвестен идентификатор подписки, его можно найти в колонке **Подписки** на портале Azure. Узнайте на сайте MSDN, как запросить идентификатор подписки с помощью [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) .
 
 Для поиска идентификатора объекта для группы Azure AD воспользуйтесь следующей командой:
 

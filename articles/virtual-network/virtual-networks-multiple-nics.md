@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5e91f640ab72fd3a5fffcb0f9d7bac1e9e031249
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5b26aecc7b9797d7bf604ea5e3d8bdece5bea17b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,7 +77,7 @@ ms.lasthandoff: 04/03/2017
 
 * Подписка Azure.
 * Настроенная виртуальная сеть. Дополнительные сведения о виртуальных сетях см. в [этой статье](virtual-networks-overview.md).
-* Загруженная и установленная последняя версия Azure PowerShell. См. статью [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Загруженная и установленная последняя версия Azure PowerShell. См. статью [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 Чтобы создать виртуальную машину с несколькими сетевыми интерфейсами, выполните следующие действия (команды) в пределах одного сеанса PowerShell:
 
