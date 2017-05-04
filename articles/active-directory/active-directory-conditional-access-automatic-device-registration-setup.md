@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 6028116d18207d13729d1816f64ad192d4cdb491
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0fb7e8fe778c8d6f7e12b1c8a75c95941da3d4d9
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Настройка автоматической регистрации присоединенных к домену устройств Windows в Azure Active Directory
 
-Для использования [условного доступа на основе устройств в Azure Active Directory](active-directory-conditional-access-azure-portal.md) необходимо зарегистрировать компьютеры в Azure Active Directory (Azure AD). Список устройств, зарегистрированных в организации, можно получить с помощью командлета [Get MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) в [модуле PowerShell Azure Active Directory](https://docs.microsoft.com/en-us/powershell/msonline/). 
+Для использования [условного доступа на основе устройств в Azure Active Directory](active-directory-conditional-access-azure-portal.md) необходимо зарегистрировать компьютеры в Azure Active Directory (Azure AD). Список устройств, зарегистрированных в организации, можно получить с помощью командлета [Get MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) в [модуле PowerShell Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0). 
 
 В этой статье описана процедура настройки автоматической регистрации присоединенных к домену устройств Windows вашей организации в Azure AD.
 
@@ -302,7 +302,7 @@ Azure AD Connect выполняет следующие функции:
 
 
 Дополнительные сведения о проверенных доменных именах см. в статье [Добавление имени личного домена в Azure Active Directory](active-directory-add-domain.md).  
-Чтобы получить список проверенных доменов компании, можно использовать командлет [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain). 
+Чтобы получить список проверенных доменов компании, можно использовать командлет [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0). 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
@@ -565,7 +565,7 @@ Azure AD Connect выполняет следующие функции:
 
 ## <a name="step-5-verify-registered-devices"></a>Шаг 5. Проверка зарегистрированных устройств
 
-Список успешно зарегистрированных корпоративных устройств вашей организации вы можете получить с помощью командлета [Get MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice), входящего в [модуль PowerShell для Azure Active Directory](https://docs.microsoft.com/en-us/powershell/msonline/).
+Список успешно зарегистрированных корпоративных устройств вашей организации вы можете получить с помощью командлета [Get MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice), входящего в [модуль PowerShell для Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 Выходные данные этого командлета содержат список устройств, зарегистрированных в Azure AD. Чтобы получить полный список устройств, используйте параметр **-All**. Устройства затем можно отфильтровать по свойству **deviceTrustType**. У присоединенных к домену устройств оно имеет значение **Domain Joined**.
 

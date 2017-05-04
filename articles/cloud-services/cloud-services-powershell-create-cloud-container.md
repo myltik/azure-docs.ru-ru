@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 89e517a17417475f975dbaa0cee8517145a7c6c3
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c024d8d47ab9b78399d8eb8b4df1f764f2877339
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 89e517a17417475f975dbaa0cee8517145a7c6c3
 3. Войдите, используя [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) .
 
    > [!NOTE]
-   > Инструкции по установке командлета Azure PowerShell и подключению к подписке Azure см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+   > Инструкции по установке командлета Azure PowerShell и подключению к подписке Azure см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
    >
    >
 4. Используйте командлет **New-AzureService** , чтобы создать пустой контейнер облачной службы Azure.
@@ -52,9 +53,4 @@ Get-help New-AzureService
 ### <a name="next-steps"></a>Дальнейшие действия
 * Чтобы управлять развертыванием облачной службы, используйте команды [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx) и [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx). Кроме того, дополнительные сведения можно получить в статье [Настройка облачных служб](cloud-services-how-to-configure.md) .
 * Чтобы опубликовать проект облачной службы в Azure, используйте образец кода **PublishCloudService.ps1** из статьи [Непрерывная доставка для облачных служб в Azure](cloud-services-dotnet-continuous-delivery.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

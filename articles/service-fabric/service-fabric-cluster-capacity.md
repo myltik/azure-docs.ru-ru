@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 788021a5b5715524a534ce3e9ff9019310450f4a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e8d6f7c41287f5f785a52ae82bb156008d7e2699
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -90,7 +90,7 @@ ms.lasthandoff: 03/25/2017
 > 
 > 
 
- Уровень надежности кластера можно изменить в любой момент. Это активирует обновление кластера, необходимое для изменения числа реплик системных служб. Подождите, пока обновление не будет завершено, прежде чем вносить другие изменения в кластер, например, добавлять узлы и т. д.  Ход выполнения обновления можно отслеживать в Service Fabric Explorer или с помощью командлета [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx).
+ Уровень надежности кластера можно изменить в любой момент. Это активирует обновление кластера, необходимое для изменения числа реплик системных служб. Подождите, пока обновление не будет завершено, прежде чем вносить другие изменения в кластер, например, добавлять узлы и т. д.  Ход выполнения обновления можно отслеживать в Service Fabric Explorer или с помощью командлета [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 
 ## <a name="primary-node-type---capacity-guidance"></a>Рекомендации по загрузке для типа первичного узла

@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bc60fde6c299bc98aa4ee3a207cd57b6b050765f
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 15db9db72a80dc95c615e52b889f6470b2e6eed0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Always Encrypted — это новая технология шифровани�
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) версии 13.0.700.242 или более поздней версии.
 * [NET Framework версии 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) или более поздней версии (на клиентском компьютере).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs) 1.0.0 или более поздней версии. Чтобы определить версию PowerShell, введите команду **(Get-Module azure -ListAvailable).Version** .
+* [Azure PowerShell](/powershell/azure/overview) 1.0.0 или более поздней версии. Чтобы определить версию PowerShell, введите команду **(Get-Module azure -ListAvailable).Version** .
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Включение доступа клиентского приложения к службе базы данных SQL
 Сначала необходимо включить доступ клиентского приложения к службе базы данных SQL. Для этого нужно настроить проверку подлинности и получить значения полей *ИД клиента* и *Секрет*, которые понадобятся для проверки подлинности приложения, в приведенном ниже коде.

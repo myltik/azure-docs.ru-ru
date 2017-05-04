@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
 translationtype: Human Translation
-ms.sourcegitcommit: c86ec1d328d3cbf62c1a563766574a006299b232
-ms.openlocfilehash: 8bbd077108ba6ca6df67b64ab3fa24c81bf0ab00
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bfb479020238bb4c2763f439c744aeddf97c8908
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -31,14 +32,14 @@ ms.openlocfilehash: 8bbd077108ba6ca6df67b64ab3fa24c81bf0ab00
 
 ## <a name="windows-powershell-cmdlets"></a>Командлеты Windows PowerShell
 
-Командлеты, представленные в следующей таблице, используются для создания подключений и управления ими с помощью Windows PowerShell в службе автоматизации Azure. Они входят в состав [модуля Azure PowerShell](/powershell/azureps-cmdlets-docs) , доступного в модулях Runbook и конфигурациях DSC службы автоматизации.
+Командлеты, представленные в следующей таблице, используются для создания подключений и управления ими с помощью Windows PowerShell в службе автоматизации Azure. Они входят в состав [модуля Azure PowerShell](/powershell/azure/overview) , доступного в модулях Runbook и конфигурациях DSC службы автоматизации.
 
 |Командлет|Описание|
 |:---|:---|
-|[Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/get-azurermautomationconnection)|Извлекает подключение. Содержит хэш-таблицу со значениями полей подключения.|
-|[New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/new-azurermautomationconnection)|Создает новое подключение.|
-|[Remove-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/remove-azurermautomationconnection)|Удаляет существующее подключение.|
-|[Set-AzureRmAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Set-AzureRmAutomationConnectionFieldValue?redirectedfrom=msdn)|Задает значение определенного поля для существующего подключения.|
+|[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Извлекает подключение. Содержит хэш-таблицу со значениями полей подключения.|
+|[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Создает новое подключение.|
+|[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|Удаляет существующее подключение.|
+|[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|Задает значение определенного поля для существующего подключения.|
 
 ## <a name="activities"></a>Действия
 
@@ -46,7 +47,7 @@ ms.openlocfilehash: 8bbd077108ba6ca6df67b64ab3fa24c81bf0ab00
 
 |Действия|Описание|
 |---|---|
-|[Get-AutomationConnection](https://docs.microsoft.com/powershell/servicemanagement/azure.automation/v1.6.1/Get-AzureAutomationConnection?redirectedfrom=msdn)|Получает подключение для использования. Возвращает хэш-таблицу со свойствами подключения.|
+|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Получает подключение для использования. Возвращает хэш-таблицу со свойствами подключения.|
 
 >[!NOTE] 
 >Не следует использовать переменные в параметре –Name для командлета **Get-AutomationConnection**, так как это может усложнить обнаружение зависимостей между модулями Runbook или конфигурациями DSC и ресурсами подключений во время разработки.
@@ -71,7 +72,7 @@ ms.openlocfilehash: 8bbd077108ba6ca6df67b64ab3fa24c81bf0ab00
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Создание нового подключения с помощью Windows PowerShell
 
-Создайте новое подключение с помощью командлета Windows PowerShell [New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/new-azurermautomationconnection). У этого командлета есть параметр **ConnectionFieldValues** , который ожидает [хэш-таблицу](http://technet.microsoft.com/library/hh847780.aspx) , задающую значения для каждого свойства, определенного типом подключения.
+Создайте новое подключение с помощью командлета Windows PowerShell [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection). У этого командлета есть параметр **ConnectionFieldValues** , который ожидает [хэш-таблицу](http://technet.microsoft.com/library/hh847780.aspx) , задающую значения для каждого свойства, определенного типом подключения.
 
 Если вы знаете, как в службе автоматизации используется [учетная запись запуска от имени](automation-sec-configure-azure-runas-account.md) для проверки подлинности с помощью субъекта-службы, это поможет вам понять сценарий PowerShell, который можно использовать вместо учетной записи запуска от имени. Приведенные ниже команды создают новый ресурс подключения.  
 
@@ -107,8 +108,4 @@ ms.openlocfilehash: 8bbd077108ba6ca6df67b64ab3fa24c81bf0ab00
 - Изучите, как использовать [связи в графическом редакторе](automation-graphical-authoring-intro.md#links-and-workflow), которые позволяют направлять и контролировать поток логики в Runbook.  
 
 - В статье [Модули интеграции службы автоматизации Azure](automation-integration-modules.md) описывается использование модулей PowerShell в службе автоматизации Azure и рекомендации по созданию модулей PowerShell в качестве модулей интеграции для службы автоматизации Azure.  
-
-
-<!--HONumber=Feb17_HO3-->
-
 
