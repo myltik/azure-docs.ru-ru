@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 8b7ccb0be15b4eba3bb400f546bc2469bb2b6009
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: b515ffeebb2ebb4455c48b98d085acef7556291b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -415,7 +415,7 @@ FolderPath задает путь к папке, содержащей выход�
 "folderPath": "adfgetstarted/partitioneddata",
 ```
 
-Параметр [dataset availability](../data-factory/data-factory-create-datasets.md#Availability) имеет следующий вид:
+Параметр [dataset availability](../data-factory/data-factory-create-datasets.md#dataset-availability) имеет следующий вид:
 
 ```json
 "availability": {

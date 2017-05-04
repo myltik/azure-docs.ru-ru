@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 04/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: fe53a68e2858df87c4b93348dfc426f9cd346121
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 84cdc5eec5567c9c6905eee285afd2426607ff08
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -65,7 +65,7 @@ ms.lasthandoff: 04/26/2017
 * интеграция с локальной службой управления ключами.
 
 ## <a name="create-azure-key-vault-and-keys"></a>Создание Azure Key Vault и ключей
-Перед началом работы убедитесь, что у вас установлена последняя версия модуля Azure PowerShell. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). В примерах команд замените все примеры параметров собственными именами, расположением и значениями ключей. В следующих примерах используется соглашение `myResourceGroup`, `myKeyVault`, `myVM` и т. д.
+Перед началом работы убедитесь, что у вас установлена последняя версия модуля Azure PowerShell. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview). В примерах команд замените все примеры параметров собственными именами, расположением и значениями ключей. В следующих примерах используется соглашение `myResourceGroup`, `myKeyVault`, `myVM` и т. д.
 
 Первым делом создайте хранилище ключей Azure для хранения криптографических ключей. В хранилище ключей Azure можно хранить ключи, секреты или пароли, что позволяет безопасно реализовать их в приложениях и службах. Для шифрования виртуальных дисков создайте Key Vault, чтобы хранить криптографический ключ, используемый для шифрования или расшифровки виртуальных дисков. 
 
@@ -190,3 +190,4 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения об управлении Azure Key Vault см. в разделе [Настройка Key Vault для виртуальных машин](key-vault-setup.md).
 * Дополнительные сведения о шифровании дисков, а именно о подготовке зашифрованной настраиваемой виртуальной машины к передаче в Azure, см. в статье [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](../../security/azure-security-disk-encryption.md).
+

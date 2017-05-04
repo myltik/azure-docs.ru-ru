@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: fa5467f38944435cc21d4d3ebd5a645c4f268b9b
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c4948d83b5eff5280f6a0d16535f3eb29d680f04
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/05/2017
 В данном руководстве показаны шаги, необходимые для настройки описанного решения. Подробные сведения каждого этапа не приводятся. Вместо предоставления элементов графического пользовательского интерфейса на каждом этапе в руководстве используются скрипты PowerShell для быстрого ознакомления с этапами. В этом учебнике предполагается следующее:
 
 * Вы уже имеете учетную запись Azure с подпиской для виртуальных машин.
-* В системе установлены [командлеты Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* В системе установлены [командлеты Azure PowerShell](/powershell/azure/overview).
 * Вы хорошо понимаете принцип работы групп доступности Always On в локальных решениях. Дополнительные сведения см. в разделе [Группы доступности AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Подключение к подписке Azure и создание виртуальной сети

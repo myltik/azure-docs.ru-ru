@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/17/2017
 ms.author: dekapur
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: d733c0643479f2f73ffeae716daecf06c75598a8
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7c3311800af27016b7f993b375055bbc65d9a727
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/12/2017
 
 * [Система диагностики Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (статья посвящена облачным службам Azure, но содержит нужную информацию и примеры)
 * [Диспетчер ресурсов Azure](../azure-resource-manager/resource-group-overview.md)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Клиент Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Шаблон Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

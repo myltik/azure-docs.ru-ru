@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e2e10d3531fbbe2ed09dc34a6c3b14ff5df1a937
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -247,7 +247,7 @@ ms.lasthandoff: 04/03/2017
 ![Внутренняя группа ресурсов](./media/virtual-network-deploy-multinic-arm-template/Figure2.png)
 
 ## <a name="deploy-the-template-by-using-powershell"></a>Развертывание шаблона с помощью PowerShell
-Чтобы развернуть шаблон, скачанный с помощью PowerShell, установите и настройте PowerShell, выполнив действия, описанные в [этой статье](/powershell/azureps-cmdlets-docs), а затем сделайте следующее:
+Чтобы развернуть шаблон, скачанный с помощью PowerShell, установите и настройте PowerShell, выполнив действия, описанные в [этой статье](/powershell/azure/overview), а затем сделайте следующее:
 
 Запустите командлет **`New-AzureRmResourceGroup`** для создания группы ресурсов с помощью шаблона.
 
