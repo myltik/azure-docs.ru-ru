@@ -85,7 +85,7 @@ ms.lasthandoff: 01/24/2017
 В следующем фрагменте показано, как изменить конфигурацию для приложения, работающего в Jupyter.
 
     %%configure
-    {"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
+    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 
 Параметры конфигурации следует передавать в виде строки JSON, расположенной сразу после команды magic, как показано в столбце примера.
 
