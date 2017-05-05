@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 translationtype: Human Translation
-ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
-ms.openlocfilehash: 3d9ca83e2672d9022e4f887b84555f0bf95f6da9
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d4a0dfbfab052e98e0dd641e8cab8fc143c2ff41
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -240,7 +240,7 @@ StorSimple является решением, интегрированным с 
 -   Задайте оптимизацию на уровне **LAN Target** (Целевой объект LAN).
 -   Включите **создание активных полных резервных копий** (каждые 2 недели).
 -   В репозитории архивов настройте **использование файлов резервных копий для каждой виртуальной машины**.
--   Настройте **использование **8** потоков передачи на каждое задание** (максимальное значение — 16). Увеличьте или уменьшите это количество в зависимости от использования ресурсов ЦП на устройстве StorSimple.
+-   Настройте **использование** **8** потоков передачи на каждое задание (максимальное значение — 16). Увеличьте или уменьшите это количество в зависимости от использования ресурсов ЦП на устройстве StorSimple.
 
 ## <a name="retention-policies"></a>Политики хранения
 
@@ -466,7 +466,7 @@ StorSimple является решением, интегрированным с 
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Запуск или удаление моментального снимка облака
 
-1. [Установите Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/).
+1. [Установите Azure PowerShell](/powershell/azure/overview).
 2. [Скачайте и импортируйте параметры публикации и информацию о подписке.](https://msdn.microsoft.com/library/dn385850.aspx)
 3. На классическом портале Azure получите имя ресурса и [ключ регистрации для службы диспетчера StorSimple](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 4. На сервере, на котором запускается скрипт, запустите PowerShell от имени администратора. Введите эту команду:
