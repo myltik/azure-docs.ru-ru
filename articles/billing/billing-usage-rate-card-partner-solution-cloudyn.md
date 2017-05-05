@@ -18,6 +18,7 @@ ms.author: mobandyo;bryanla
 translationtype: Human Translation
 ms.sourcegitcommit: 09c18ca6a967c2930ddd2b16d37f0bc606712ea1
 ms.openlocfilehash: c4bb977fc201a1da037ee174c883a5174633d45b
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: c4bb977fc201a1da037ee174c883a5174633d45b
 Cloudyn, партнер по разработке корпорации Майкрософт и ведущий поставщик облачных возможностей управления, был выбран для закрытого предварительного ознакомления с новыми API использования ресурсов и RateCard в Microsoft Azure.  API использования предоставляет доступ к оценочным данным о потреблении в Azure. API RateCard предоставляет полные сведения о ценах на все службы Azure для клиентов без Соглашения Enterprise. Вместе эти API обеспечивают полноценную платформу для ввода данных в ИТ-средства финансового управления (IT Financial Management — ITFM), такие как Cloudyn.
 
 ## <a name="introduction"></a>Введение
-Так называемое умножение данных из API использования на данные из API RateCard (использование [единицы] * цена [цена за единицу] = подробные сведения об использовании и стоимости) позволяет получить наиболее детальную, точную и надежную информацию о выставлении счетов, доступную для Azure в настоящее время.
+Так называемое умножение данных из API использования на данные из API RateCard (использование [единицы] цена [цена за единицу] = подробные сведения об использовании и стоимости) позволяет получить наиболее детальную, точную и надежную информацию о выставлении счетов, доступную для Azure в настоящее время.
 
 ![Обзор ITFM][1]
 
@@ -90,9 +91,4 @@ Cloudyn применяет как API использования, так и API 
 [5]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Cost-Effective-Sizing.png
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
