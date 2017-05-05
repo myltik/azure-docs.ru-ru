@@ -18,6 +18,7 @@ ms.author: roalexan
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 444e352f2f3fc7ec9258b16272936c8ed8d4fbf6
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -148,7 +149,7 @@ AzureML — это служба Azure для машинного обучени�
 
 ![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-Разверните списки **Преобразование данных** и **Manipulation** (Работа с данными) и перетащите элемент **Select Columns in Dataset** (Выбор столбцов в наборе данных) в свой эксперимент. Соедините элемент **Book Reviews from Amazon **(Обзоры книг на Amazon) с элементом **Select Columns in Dataset** (Выбор столбцов в наборе данных).
+Разверните списки **Преобразование данных** и **Manipulation** (Работа с данными) и перетащите элемент **Select Columns in Dataset** (Выбор столбцов в наборе данных) в свой эксперимент. Соедините элемент **Book Reviews from Amazon** (Обзоры книг на Amazon) с элементом **Select Columns in Dataset** (Выбор столбцов в наборе данных).
 
 ![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
@@ -364,9 +365,4 @@ AzureML — это служба Azure для машинного обучени�
         time.sleep(1) # wait one second
     return
     invokeBatchExecutionService()
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
