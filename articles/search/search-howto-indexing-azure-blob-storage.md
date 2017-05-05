@@ -15,9 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 04/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c74c8fb892103a00b0bdfcfeaa2ecd6c3188251e
-ms.lasthandoff: 04/17/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e14da5fa10533d922a6263e8f52a53c0eaa23393
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -342,7 +342,7 @@ ms.lasthandoff: 04/17/2017
 
 У документов могут быть связанные метаданные (например, отдел, создавший документ), которые хранятся в виде структурированных данных в одном из следующих расположений.
 -   В отдельном хранилище данных, таком как База данных SQL или DocumentDB.
--   Непосредственно в каждом документе в хранилище BLOB-объектов Azure в виде вложенных пользовательских метаданных. (Дополнительные сведения см. в разделе [Setting and Retrieving Properties and Metadata for Blob Resources](https://docs.microsoft.com/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) (Задание и получение свойств и метаданных для ресурсов больших двоичных объектов).)
+-   Непосредственно в каждом документе в хранилище BLOB-объектов Azure в виде вложенных пользовательских метаданных. (Дополнительные сведения см. в разделе [Setting and Retrieving Properties and Metadata for Blob Resources](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) (Задание и получение свойств и метаданных для ресурсов больших двоичных объектов).)
 
 Можно индексировать документы вместе с их метаданными, назначив для каждого документа и его метаданных одно уникальное значение ключа и указав действие `mergeOrUpload` для каждого индексатора. Подробное описание этого решения приведено во внешней статье: [Combine documents with other data in Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Объединение документов с другими данными в Поиске Azure).
 

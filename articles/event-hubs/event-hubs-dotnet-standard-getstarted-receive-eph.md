@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 9bd5c3030163202f3c8e4fff24e8ee932adff3b9
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: e286693b585a5991dbecd537fe5cd6621dd27e01
+ms.lasthandoff: 04/26/2017
 
 ---
 
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Основные сведения о получении сообщений с помощью узла EventProcessorHost в .NET Standard
 
 > [!NOTE]
-> Этот пример можно найти на сайте [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver).
+> Этот пример можно найти на сайте [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-В этом руководстве показано, как создать консольное приложение .NET Core для получения сообщений из концентратора событий с помощью узла **EventProcessorHost**. Вы можете запустить решение [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) "как есть", заменив соответствующие строки своими значениями для концентратора событий и учетной записи хранения. Или следуйте инструкциям этого руководства, чтобы создать собственное решение.
+В этом руководстве показано, как создать консольное приложение .NET Core для получения сообщений из концентратора событий с помощью узла **EventProcessorHost**. Вы можете запустить решение [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) "как есть", заменив соответствующие строки своими значениями для концентратора событий и учетной записи хранения. Или следуйте инструкциям этого руководства, чтобы создать собственное решение.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
