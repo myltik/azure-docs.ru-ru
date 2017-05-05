@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 15c08c950bc1dcd620f2943885e427991585d817
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7254217bc6a7b782eb19c8f062c46923dc5e7506
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/13/2017
 В этой статье объясняется, как создать канал Azure ExpressRoute, используя командлеты PowerShell и модель развертывания с помощью Azure Resource Manager. В этой статье описывается, как проверить состояние канала, обновить его или удалить и отозвать.
 
 ## <a name="before-you-begin"></a>Перед началом работы
-* Установите последнюю версию командлетов PowerShell для Azure Resource Manager. Дополнительные сведения см. в [обзоре Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Установите последнюю версию командлетов PowerShell для Azure Resource Manager. Дополнительные сведения см. в [обзоре Azure PowerShell](/powershell/azure/overview).
 * Изучите [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.
 
 
@@ -91,7 +91,7 @@ New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 Убедитесь, что указаны правильный уровень SKU и семейство SKU:
 
 * Уровень SKU определяет, какая надстройка включена — ExpressRoute Standard или ExpressRoute Premium. Укажите *Standard*, чтобы получить SKU Standard, или *Premium*, чтобы получить надстройку Premium.
-* Семейство SKU определяет тип выставления счетов. Выберите *Metereddata* для тарифного плана с оплатой за трафик или *Unlimiteddata* для безлимитного тарифного плана. Тип выставления счетов можно изменить с *Metereddata* на *Unlimiteddata*, но не наоборот. ****
+* Семейство SKU определяет тип выставления счетов. Выберите *Metereddata* для тарифного плана с оплатой за трафик или *Unlimiteddata* для безлимитного тарифного плана. Тип выставления счетов можно изменить с *Metereddata* на *Unlimiteddata* но не наоборот. *Unlimiteddata* для *Metereddata*
 
 > [!IMPORTANT]
 > Выставление счетов за использование ExpressRoute начинается после того, как клиент получает служебный ключ. Обязательно выполните эту операцию, как только поставщик услуг подключения будет готов предоставить канал.
