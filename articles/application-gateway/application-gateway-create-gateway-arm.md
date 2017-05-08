@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 11ecfc993f17c89d4ac4431e9a835000d30afe76
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -107,7 +108,7 @@ New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 > [!NOTE]
 > Если вам нужно настроить пользовательскую пробу для шлюза приложений, ознакомьтесь со статьей [Создание пользовательской проверки для шлюза приложений с помощью PowerShell для Azure Resource Manager](application-gateway-create-probe-ps.md). Дополнительные сведения см. в статье [Обзор мониторинга работоспособности шлюза приложений](application-gateway-probe-overview.md).
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Создание виртуальной сети и подсети для шлюза приложений.
+## <a name="create-a-virtual-network-and-a-subnet"></a>Создание виртуальной сети и подсети
 
 В следующем примере показано создание виртуальной сети с помощью диспетчера ресурсов. В этом примере создается виртуальная сеть для шлюза приложений. Шлюзу приложений требуется собственная подсеть, поэтому эта подсеть меньше, чем адресное пространство виртуальной сети. При использовании подсети меньшего размера можно настраивать другие ресурсы, включая, помимо прочего, веб-серверы, в той же виртуальной сети.
 
@@ -135,7 +136,7 @@ $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -L
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Создание общедоступного IP-адреса для конфигурации интерфейсной части
+## <a name="create-a-public-ip-address"></a>Создание общедоступного IP-адреса
 
 Создайте ресурс общедоступного IP-адреса с именем **publicIP01** в группе ресурсов **appgw-rg** для региона "Западная часть США". Чтобы получать запросы для балансировки нагрузки, шлюз приложений может использовать общедоступный IP-адрес, внутренний IP-адрес или сразу оба.  В этом примере используется общедоступный IP-адрес. В следующем примере для создания общего IP-адреса DNS-имя не настраивается.  Шлюз приложений не поддерживает пользовательские DNS-имена в общедоступных IP-адресах.  Если для общедоступной конечной точки требуется пользовательское имя, необходимо создать запись CNAME, указывающую на автоматически созданное DNS-имя для общедоступного IP-адреса.
 
@@ -219,7 +220,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > Значение параметра **InstanceCount** по умолчанию — 2 (максимальное значение — 10). Значение **GatewaySize** (Размер шлюза) по умолчанию — Medium (Средний). Можно выбрать **Standard_Small**, **Standard_Medium** или **Standard_Large**.
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Создание шлюза приложений с помощью командлета New-AzureRmApplicationGateway
+## <a name="create-the-application-gateway"></a>Создание шлюза приложений
 
 Создайте шлюз приложений со всеми элементами конфигурации, описанными выше. В этом примере шлюз приложений имеет имя **appgwtest**.
 
@@ -233,7 +234,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## <a name="delete-an-application-gateway"></a>Удаление шлюза приложений
+## <a name="delete-the-application-gateway"></a>Удаление шлюза приложений
 
 Удалить шлюз приложений можно так.
 
@@ -296,6 +297,14 @@ IpConfiguration          : {
 DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
+```
+
+## <a name="delete-all-resources"></a>Удаление всех ресурсов
+
+Чтобы удалить все ресурсы, созданные в этой статье, выполните следующие действия:
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
