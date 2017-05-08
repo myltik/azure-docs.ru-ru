@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 516b8e517a16dd0d87e02189260166696225fbab
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d01e141ec8ee8da18d38a216f3b13c88f3632801
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,6 +75,13 @@ ms.lasthandoff: 03/29/2017
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    Для автоматизации установки можно пропустить запрос лицензионного соглашения, установив выбранные параметры debconf для пакетов Service Fabric. Можно выполнить следующие две команды.
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. Выполните сценарий установки пакета SDK.
 
     ```bash
@@ -203,6 +211,11 @@ ms.lasthandoff: 03/29/2017
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> Обновление вышеуказанных пакетов может привести к остановке локального кластера разработки. Перезапустите локальный кластер после обновления, следуя инструкциям на этой странице.
+>
+>
 
 Для обновления интерфейса командной строки перейдите в каталог, в котором он клонирован, и выполните команду `git pull`.  Если для обновления требуются дополнительные действия, см. инструкции в заметках о выпуске. 
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/13/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf5b1c0a6e76f712e0be1f16ed1a6b2ac78d68de
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -36,13 +37,9 @@ HDInsight поддерживает интеграцию R Server в класт�
 > В инструкциях в этом документе предполагается, что вы используете пароль.
 
 
-### <a name="access-control-requirements"></a>Требования к контролю доступа
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## <a name="automated-cluster-creation"></a>Автоматизированное создание кластера
 
-Вы можете автоматизировать создание R Servers HDInsight с помощью шаблонов ARM, пакета SDK и PowerShell.
+Вы можете автоматизировать создание R Servers HDInsight с помощью шаблонов Azure Resource Manager, пакета SDK и PowerShell.
 
 * Дополнительные сведения о создании R Server с помощью шаблона Azure Resource Management см. в статье [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Развертывания кластера R Server HDInsight).
 * Сведения о создании R Server с помощью пакета SDK .NET см. в статье [Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
@@ -589,7 +586,7 @@ remoteLogin(
 )
 ```
 
-## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Как масштабировать вычислительные узлы системы ввода в эксплуатацию Microsoft R Server на рабочих узлах HDInsight?
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Как масштабировать вычислительные узлы системы ввода в эксплуатацию Microsoft R Server на рабочих узлах HDInsight?
 
 
 ### <a name="decommission-the-worker-nodes"></a>Вывод рабочих узлов из эксплуатации
@@ -629,6 +626,10 @@ remoteLogin(
 * Найдите раздел URI и добавьте в него информацию об IP-адресах и портах рабочих узлов.
 
 ![Командная строка для выведенных из эксплуатации рабочих узлов](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## <a name="troubleshoot"></a>Устранение неполадок
+
+Если при создании кластеров HDInsight возникли проблемы, ознакомьтесь с разделом [Access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters) (Требования к контролю доступа).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
