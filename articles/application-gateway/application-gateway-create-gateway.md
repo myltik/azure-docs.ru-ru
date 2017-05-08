@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 8b72a3f26e356af588e9f5c2039bcc525366ce11
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 79e373a69f3b899dea1f10ac447a0284931648f4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -106,11 +107,11 @@ DnsName       :
 
 Шлюз приложений можно настроить с помощью XML-файла или объекта конфигурации.
 
-## <a name="configure-the-application-gateway-by-using-xml"></a>Настройка шлюза приложений с помощью XML-файла
+### <a name="configure-the-application-gateway-by-using-xml"></a>Настройка шлюза приложений с помощью XML-файла
 
 В следующем примере все параметры шлюза приложений настраиваются и применяются к ресурсу шлюза приложений при помощи XML-файла.  
 
-### <a name="step-1"></a>Шаг 1
+#### <a name="step-1"></a>Шаг 1
 
 Скопируйте следующий текст в Блокнот.
 
@@ -211,7 +212,7 @@ DnsName       :
 </ApplicationGatewayConfiguration>
 ```
 
-### <a name="step-2"></a>Шаг 2
+#### <a name="step-2"></a>Шаг 2
 
 Теперь необходимо настроить шлюз приложений. Используйте командлет `Set-AzureApplicationGatewayConfig` с XML-файлом конфигурации.
 
@@ -219,14 +220,14 @@ DnsName       :
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Настройка шлюза приложений с помощью объекта конфигурации
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Настройка шлюза приложений с помощью объекта конфигурации
 
 В следующем примере показано, как настроить шлюз приложений с помощью объектов конфигурации. Все элементы конфигурации нужно настроить отдельно, а затем добавить в объект конфигурации шлюза приложений. После создания объекта конфигурации используйте командлет `Set-AzureApplicationGateway`, чтобы зафиксировать конфигурацию в ранее созданном ресурсе шлюза приложений.
 
 > [!NOTE]
 > Прежде чем присваивать значения каждому объекту конфигурации, необходимо определить, в каком типе объекта PowerShell он будет храниться. Первая строка для создания отдельных элементов определяет, какое имя объекта (`Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)`) будет использоваться.
 
-### <a name="step-1"></a>Шаг 1
+#### <a name="step-1"></a>Шаг 1
 
 Создайте все отдельные элементы конфигурации.
 
@@ -297,7 +298,7 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-### <a name="step-2"></a>Шаг 2
+#### <a name="step-2"></a>Шаг 2
 
 Назначьте все отдельные элементы конфигурации объекту конфигурации шлюза приложений ($appgwconfig).
 
@@ -385,9 +386,9 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-an-application-gateway"></a>Удаление шлюза приложений
+## <a name="delete-the-application-gateway"></a>Удаление шлюза приложений
 
-Удалить шлюз приложений можно так.
+Чтобы удалить шлюз приложений:
 
 1. Остановите шлюз с помощью командлета `Stop-AzureApplicationGateway`.
 2. Удалите шлюз с помощью командлета `Remove-AzureApplicationGateway`.

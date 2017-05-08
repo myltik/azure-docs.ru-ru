@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/02/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Перемещение каналов ExpressRoute из классической модели развертывания в модель развертывания с помощью Resource Manager
 В этой статье описывается перемещение канала Azure ExpressRoute из классической модели развертывания в модель развертывания с помощью Azure Resource Manager.
-
-[!INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 Вы можете использовать один канал ExpressRoute для подключения к виртуальным сетям, развернутым как в классической модели, так и в модели с использованием Resource Manager. Канал ExpressRoute (независимо от метода создания) теперь можно связать с виртуальными сетями в обеих моделях развертывания.
 
@@ -87,11 +87,11 @@ ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
 * После перемещения канала ExpressRoute в модель развертывания с помощью Resource Manager управлять жизненным циклом канала можно только при помощи этой модели. Это означает, что такие операции, как добавление, обновление или удаление пирингов, обновление свойств канала, например его пропускной способности, SKU и типа выставления счетов, а также удаление каналов, можно выполнять только в модели развертывания с помощью Resource Manager.
 * Канал ExpressRoute служит в качестве моста между классической моделью и моделью развертывания с помощью Resource Manager. Трафик между виртуальными машинами в виртуальных сетях в классической модели и в модели развертывания с помощью Resource Manager проходит через ExpressRoute, если виртуальные сети обеих моделей связаны с одним каналом ExpressRoute.
 * Подключение между подписками поддерживается в классической модели и модели развертывания с помощью Resource Manager.
+* После перемещения канала ExpressRoute из классической модели в модель Azure Resource Manager вы можете [перенести виртуальные сети, связанные с каналом ExpressRoute](expressroute-migration-classic-resource-manager.md).
 
 ## <a name="whats-not-supported"></a>Что не поддерживается
 В этом разделе описаны функции, которые не поддерживаются при использовании каналов ExpressRoute:
 
-* Перемещение связей, шлюзов и виртуальных сетей канала из классической модели в модель развертывания с помощью Resource Manager.
 * Управление жизненным циклом канала ExpressRoute в классической модели развертывания.
 * Управление доступом на основе ролей (RBAC) в классической модели развертывания. Элементы управления RBAC невозможно использовать для канала в классической модели развертывания. Любой администратор или соадминистратор подписки может связать виртуальную сеть с каналом или удалить связь между ними.
 
@@ -99,16 +99,12 @@ ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
 Следуйте указаниям в статье [Перемещение каналов ExpressRoute из классической модели развертывания в модель Resource Manager](expressroute-howto-move-arm.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
+* [Перенос связанных виртуальных сетей ExpressRoute из классической модели на модель Resource Manager](expressroute-migration-classic-resource-manager.md)
 * Сведения о рабочем процессе см. в статье [Процедуры ExpressRoute для подготовки каналов и состояний каналов](expressroute-workflows.md).
 * Чтобы создать подключение ExpressRoute, выполните действия в следующих статьях:
   
   * [Создание канала ExpressRoute](expressroute-howto-circuit-arm.md)
   * [Настройка маршрутизации](expressroute-howto-routing-arm.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

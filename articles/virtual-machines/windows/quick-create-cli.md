@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/03/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: a1ccebd6d53c7f02517c7655bdfb5b3ce3f26090
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7461a0006e57608d9baa538175174788692db5f5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -42,7 +43,7 @@ az login
 
 Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. 
 
-В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `westeurope`.
+В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *westeurope*.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -52,13 +53,17 @@ az group create --name myResourceGroup --location westeurope
 
 Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#create). 
 
-В следующем примере создается виртуальная машина `myVM`. В этом примере используются имя администратора `azureuser` и его пароль ` myPassword12`. Измените эти значения в соответствии со своей средой. Эти значения нужны для создания подключения к виртуальной машине.
+В следующем примере создается виртуальная машина с именем *myVM*. В этом примере используются имя администратора *azureuser* и его пароль *myPassword12*. Измените эти значения в соответствии со своей средой. Эти значения нужны для создания подключения к виртуальной машине.
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
+az vm create `
+  --resource-group myResourceGroup `
+  --name myVM --image win2016datacenter `
+  --admin-username azureuser `
+  --admin-password myPassword12
 ```
 
-После создания виртуальной машины в Azure CLI отображается информация следующего вида. Запишите общедоступный IP-адрес. Этот адрес используется для доступа к виртуальной машине.
+После создания виртуальной машины в Azure CLI отображается информация следующего вида. Запишите значение `publicIpAaddress`. Этот адрес используется для доступа к виртуальной машине.
 
 ```azurecli
 {
@@ -75,7 +80,7 @@ az vm create --resource-group myResourceGroup --name myVM --image win2016datacen
 
 ## <a name="open-port-80-for-web-traffic"></a>Открытие порта 80 для веб-трафика 
 
-По умолчанию виртуальные машины Windows, развернутые в Azure, поддерживают только RDP-подключения. Если эта виртуальная машина будет использоваться в качестве веб-сервера, необходимо открыть порт 80 через Интернет.  Чтобы открыть нужный порт, необходимо выполнить одну команду.  
+По умолчанию виртуальные машины Windows, развернутые в Azure, поддерживают только RDP-подключения. Если эта виртуальная машина будет использоваться в качестве веб-сервера, необходимо открыть порт 80 через Интернет. Выполните команду [az vm open-port](/cli/azure/vm#open-port), чтобы открыть нужный порт.  
  
  ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -92,7 +97,7 @@ mstsc /v:<Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>Установка IIS с помощью PowerShell
 
-После входа на виртуальную машину Azure вы можете установить IIS и включить локальное правило брандмауэра, разрезающее веб-трафик, с помощью одной строки кода PowerShell.  Откройте командную строку PowerShell и выполните следующую команду:
+После входа на виртуальную машину Azure вы можете установить IIS и включить локальное правило брандмауэра, разрешающее веб-трафик, с помощью одной строки кода PowerShell. Откройте командную строку PowerShell и выполните следующую команду:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -100,12 +105,12 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>Просмотр страницы приветствия IIS
 
-Установив IIS и открыв через Интернет порт 80 на виртуальной машине, вы можете просмотреть страницу приветствия IIS по умолчанию в любом браузере. Чтобы перейти на страницу по умолчанию, используйте значение `publicIpAddress`, записанное ранее. 
+Установив IIS и открыв через Интернет порт 80 на виртуальной машине, вы можете просмотреть страницу приветствия IIS по умолчанию в любом браузере. Чтобы перейти на страницу по умолчанию, используйте общедоступный IP-адрес, записанный ранее. 
 
 ![Сайт IIS по умолчанию](./media/quick-create-powershell/default-iis-website.png) 
 ## <a name="delete-virtual-machine"></a>Удаление виртуальной машины
 
-Можно удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, использовав следующую команду.
+Вы можете удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, выполнив команду [az group delete](/cli/azure/group#delete).
 
 ```azurecli
 az group delete --name myResourceGroup

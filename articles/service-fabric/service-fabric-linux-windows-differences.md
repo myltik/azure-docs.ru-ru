@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5faf7dc0b544f6fe2f83565cc368e218c6df35af
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.lasthandoff: 03/29/2017
 * Автономный установщик недоступен в Linux.
 * Проверка схемы XML для файлов манифеста не выполняется на платформе Linux. 
 * Перенаправление консоли не поддерживается на платформе Linux. 
-* Службы анализа сбоя (FAS) недоступны в Linux.
+* Служба анализа сбоя (FAS) недоступна в Linux.
 * Поддержка Azure Active Directory недоступна в Linux.
 * Недоступны некоторые команды интерфейса командной строки, эквивалентные командам PowerShell.
 * В кластере Linux можно выполнять только определенный набор команд PowerShell (подробнее об этом — в следующем разделе).
@@ -38,7 +39,7 @@ ms.lasthandoff: 03/29/2017
 >[!NOTE]
 >Перенаправление консоли не поддерживается в рабочих кластерах, даже в Windows.
 
-Отличаются средства разработки: в Windows используются VisualStudio, PowerShell, VSTS и трассировка событий Windows, а в Linux — Yeoman, Eclipse, Jenkins и LTTng.
+Средства разработки в Windows и Linux также отличаются. В Windows используются Visual Studio, PowerShell, VSTS и трассировка событий Windows, а в Linux — Yeoman, Eclipse, Jenkins и LTTng.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Командлеты PowerShell, которые не работают в кластере Service Fabric для Linux
 

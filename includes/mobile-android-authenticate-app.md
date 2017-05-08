@@ -1,5 +1,7 @@
 
-1. В **обозревателе проектов** в Android Studio откройте файл ToDoActivity.java и добавьте следующие операторы import:
+1. Откройте проект в Android Studio.
+
+2. В **обозревателе проектов** в Android Studio откройте файл ToDoActivity.java и добавьте следующие операторы import:
 
         import java.util.concurrent.ExecutionException;
         import java.util.concurrent.atomic.AtomicBoolean;
@@ -10,16 +12,17 @@
 
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
-2. Добавьте в класс **ToDoActivity** следующий метод:
+
+3. Добавьте в класс **ToDoActivity** следующий метод:
 
         // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
         public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
- 
+
         private void authenticate() {
             // Login using the Google provider.
             mClient.login("Google", "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
         }
-         
+
         @Override
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             // When request completes
@@ -40,17 +43,18 @@
             }
         }
 
-    При этом создается новый метод для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с использованием имени входа в Google. В диалоговом окне отображается идентификатор пользователя, прошедшего проверку подлинности. Без успешной проверки подлинности продолжение невозможно.
+    Этот код создает метод для обработки процесса проверки подлинности Google. В диалоговом окне отображается идентификатор пользователя, прошедшего проверку подлинности. Вы сможете продолжить, только если проверка подлинности выполнена успешно.
 
     > [!NOTE]
-    > Если вы используете поставщик удостоверений, отличный от Google, измените значение, переданное в методе **login**, выше на одно из следующих: _MicrosoftAccount_, _Facebook_, _Twitter_ или _windowsazureactivedirectory_.
+    > Если вы используете поставщик удостоверений, отличный от Google, измените значение, переданное в методе **login**, на одно из следующих значений: _MicrosoftAccount_, _Facebook_, _Twitter_ или _windowsazureactivedirectory_.
 
-3. Добавьте в метод **onCreate** следующую строку после кода, который формирует экземпляр объекта `MobileServiceClient`.
+4. Добавьте в метод **onCreate** следующую строку после кода, который формирует экземпляр объекта `MobileServiceClient`.
 
         authenticate();
 
     Этот вызов запускает процесс проверки подлинности.
-4. Переместите оставшийся код после `authenticate();` в методе **onCreate** в новый метод **createTable**. Он выглядит следующим образом:
+
+5. Переместите оставшийся код после `authenticate();` в методе **onCreate** в новый метод **createTable**.
 
         private void createTable() {
 
@@ -68,8 +72,8 @@
             refreshItemsFromTable();
         }
 
-5. Добавьте в файл _AndroidManifest.xml_ следующий фрагмент _RedirectUrlActivity_, чтобы обеспечить перенаправление.
- 
+6. Чтобы убедиться, что перенаправление работает должным образом, добавьте в файл _AndroidManifest.xml_ следующий фрагмент _RedirectUrlActivity_:
+
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -80,8 +84,8 @@
             </intent-filter>
         </activity>
 
-6.  Добавьте redirectUriScheme к _build.gradle_ приложения Android.
- 
+7. Добавьте redirectUriScheme к _build.gradle_ приложения Android.
+
         android {
             buildTypes {
                 release {
@@ -95,10 +99,13 @@
             }
         }
 
-7. Добавьте com.android.support:customtabs:23.0.1 к зависимостям в build.gradle:
+8. Добавьте com.android.support:customtabs:23.0.1 к зависимостям в build.gradle:
 
       dependencies {        // ...        compile 'com.android.support:customtabs:23.0.1'    }
 
-8. В меню **Запуск** щелкните **Запуск приложения**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений.
+9. В меню **Запуск** щелкните **Запуск приложения**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений.
+
+> [!WARNING]
+> Упомянутая схема URL-адреса чувствительная к регистру.  Убедитесь, что во всех вхождениях `{url_scheme_of_you_app}` используется один и тот же регистр.
 
 После входа мобильное приложение должно работать без ошибок, а у вас должна быть возможность отправлять запросы в серверную службу и обновлять данные.

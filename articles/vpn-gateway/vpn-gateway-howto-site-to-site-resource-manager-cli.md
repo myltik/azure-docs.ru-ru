@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c3563f3a3fa46d40ba02fe97b3b0ebe3c45caddd
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: af85e4921a2b81c71f1d132c6df591acbe5d3764
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Создание виртуальной сети с VPN типа "сеть — сеть" с помощью интерфейса командной строки
 
-В этой статье показано, как с помощью Azure CLI создавать подключение типа "сеть — сеть" с использованием VPN-шлюза между вашей локальной сетью к виртуальной. Приведенные в этой статье инструкции относятся к модели развертывания с помощью Resource Manager. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:
+В этой статье показано, как с помощью Azure CLI создавать подключение типа "сеть — сеть" с использованием VPN-шлюза между вашей локальной сетью к виртуальной. Приведенные в этой статье инструкции относятся к модели развертывания с помощью Resource Manager. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:<br>
 
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -48,7 +49,7 @@ ms.lasthandoff: 04/26/2017
 * Совместимое VPN-устройство и пользователь, который может настроить его. Дополнительные сведения о совместимых устройствах VPN и их настройке см. в [этой статье](vpn-gateway-about-vpn-devices.md).
 * Внешний общедоступный IPV4-адрес для VPN-устройства. Этот IP-адрес не может располагаться вне преобразования сетевых адресов (NAT).
 * Если вы не знаете диапазоны IP-адресов в своей конфигурации локальной сети, найдите того, кто сможет предоставить вам нужную информацию. При создании этой конфигурации необходимо указать префиксы диапазона IP-адресов, которые Azure будет направлять к локальному расположению. Ни одна из подсетей локальной сети не может перекрывать виртуальные подсети, к которым вы хотите подключиться. 
-* Последняя версия команд интерфейса командной строки (версии 2.0 или более поздней). Сведения об установке команд интерфейса командной строки см. в статье [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Установка Azure CLI 2.0).
+* Последняя версия команд интерфейса командной строки (версии 2.0 или более поздней). Сведения об установке команд интерфейса командной строки см. в статьях [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Установка Azure CLI 2.0) и [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) (Приступая к работе с Azure CLI 2.0).
 
 ### <a name="example-values"></a>Примеры значений
 
@@ -75,42 +76,26 @@ GatewayType             = Vpn
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1. Вход в Azure
+## <a name="Login"></a>1. Подключение к подписке
 
-Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране.
+[!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-```azurecli
-az login
-```
-
-Если у вас есть несколько подписок Azure, укажите подписки для этой учетной записи.
-
-```azurecli
-Az account list --all
-```
-
-Укажите подписку, которую нужно использовать.
-
-```azurecli
-Az account set --subscription <replace_with_your_subscription_id>
-```
-
-## <a name="2-create-a-resource-group"></a>2. Создание группы ресурсов
+## <a name="2-create-a-resource-group"></a>2) Создание группы ресурсов
 
 В следующем примере создается группа ресурсов с именем TestRG1 в расположении eastus. Если у вас уже есть группа ресурсов в регионе, где вы хотите создать виртуальную сеть, вы можете воспользоваться ею.
 
 ```azurecli
-az group create -n TestRG1 -l eastus
+az group create --name TestRG1 --location eastus
 ```
 
 ## <a name="VNet"></a>3. Создать виртуальную сеть
 
-Если у вас нет виртуальной сети, создайте ее. При создании виртуальной сети убедитесь, что указанные адресные пространства не перекрываются ни с одним из адресных пространств, которые используются в локальной сети. 
+Если у вас еще нет виртуальной сети, создайте ее, используя команду [az network vnet create](/cli/azure/network/vnet#create). При создании виртуальной сети убедитесь, что указанные адресные пространства не перекрываются ни с одним из адресных пространств, которые используются в локальной сети. 
 
 В следующем примере создаются виртуальная сеть TestVNet1 и подсеть Subnet1.
 
 ```azurecli
-az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.12.0.0/16 -l eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
+az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.12.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
 ```
 
 ## 4. <a name="gwsub"></a>Создание подсети шлюза
@@ -121,9 +106,11 @@ az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.12.0.0/16 -l 
 
 Размер указанной подсети шлюза зависит от конфигурации VPN-шлюза, которую вы хотите создать. Хотя можно создать подсеть шлюза размером /29, рекомендуется создать подсеть большего размера, включающую несколько адресов, выбрав значение /27 или /28. Использование более крупной подсети для шлюза позволяет создавать достаточное число IP-адресов с учетом возможных конфигураций в будущем.
 
+Используйте команду [azure network vnet subnet create](/cli/azure/network/vnet/subnet#create), чтобы создать шлюз подсети.
+
 
 ```azurecli
-az network vnet subnet create --address-prefix 10.12.255.0/27 -n GatewaySubnet -g TestRG1 --vnet-name TestVNet1
+az network vnet subnet create --address-prefix 10.12.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
 ```
 
 ## <a name="localnet"></a>5. Создание шлюза локальной сети
@@ -135,20 +122,20 @@ az network vnet subnet create --address-prefix 10.12.255.0/27 -n GatewaySubnet -
 * Параметр *--gateway-ip-address* — это IP-адрес локального VPN-устройства. Ваше VPN-устройство не может располагаться вне преобразования сетевых адресов (NAT).
 * *--local-address-prefixes* — это локальные адресные пространства.
 
-В следующем примере показано, как добавить шлюз локальной сети с несколькими префиксами адреса:
+Используйте команду [az network local-gateway create](/cli/azure/network/local-gateway#create),чтобы добавить шлюз локальной сети с несколькими префиксами адресов:
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
+az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
 ## <a name="PublicIP"></a>6. Запрос общедоступного IP-адреса
 
-Запросите общедоступный IP-адрес, который будет выделен для VPN-шлюза виртуальной сети. По этому IP-адресу будет подключаться VPN-устройство.
+VPN-шлюз должен иметь общедоступный IP-адрес. Сначала запросите ресурс IP-адреса, а затем укажите его при создании шлюза виртуальной сети. IP-адрес динамически назначается ресурсу при создании VPN-шлюза. В настоящее время VPN-шлюз поддерживает только *динамическое* выделение общедоступных IP-адресов. Вы не можете запросить назначение статического общедоступного IP-адреса. Однако это не означает, что IP-адрес изменяется после назначения VPN-шлюзу. Общедоступный IP-адрес изменяется только после удаления и повторного создания шлюза. При изменении размера, сбросе или других внутренних операциях обслуживания или обновления IP-адрес VPN-шлюза не изменяется.
 
-Сейчас шлюз виртуальной сети для модели развертывания, в которой используется Resource Manager, поддерживает только общедоступные IP-адреса, выделяемые динамически. Но это не значит, что IP-адрес изменится. IP-адрес VPN-шлюза изменяется только после его удаления и повторного создания. Общедоступный IP-адрес шлюза виртуальной сети остается прежним после изменения размера, сброса или обновления VPN-шлюза, а также после других процедур по его обслуживанию. 
+Используйте команду [az network public-ip create](/cli/azure/network/public-ip#create), чтобы запросить динамический общедоступный IP-адрес.
 
 ```azurecli
-az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
+az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
 ## <a name="CreateGateway"></a>7. Создание VPN-шлюза
@@ -161,27 +148,29 @@ az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
 * У параметра *--vpn-type* может быть значение *RouteBased* (в некоторых документах такой шлюз называется шлюзом с динамической маршрутизацией) или *PolicyBased* (в некоторых документах — шлюз со статической маршрутизацией). Этот параметр зависит от требований устройства, к которому вы подключаетесь. Дополнительные сведения о VPN-шлюзах см. в [этой статье](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * У параметра *--sku* может быть значение Basic, Standard или HighPerformance. К определенным номерам SKU применяются ограничения настройки. Дополнительные сведения см. в разделе о [номерах SKU шлюзов](vpn-gateway-about-vpngateways.md#gateway-skus).
 
-После выполнения этой команды вы не увидите ответа или выходных данных. Процесс создания шлюза занимает около 45 минут.
+Чтобы создать VPN-шлюз, используйте команду [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create). При выполнении этой команды с использованием параметра --no-wait вы не увидите ответа или выходных данных. Этот параметр позволяет создать шлюз в фоновом режиме. Процесс создания шлюза занимает около 45 минут.
 
 ```azurecli
-az network vnet-gateway create -n VNet1GW --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
 ```
 
 ## <a name="VPNDevice"></a>8. Настройка устройства VPN
 
-[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
-Чтобы найти общедоступный IP-адрес шлюза виртуальной сети, используйте следующий пример, заменив значения собственными: Для удобства чтения выходные данные форматируются для отображения списка общедоступных IP-адресов в формате таблицы.
+[!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
+Чтобы найти общедоступный IP-адрес шлюза виртуальной сети, используйте команду [az network public-ip list](/cli/azure/network/public-ip#list). Для удобства чтения выходные данные форматируются для отображения списка общедоступных IP-адресов в формате таблицы.
 
-  ```azurecli
-  az network public-ip list -g TestRG1 -o table
-  ```
+```azurecli
+az network public-ip list --resource-group TestRG1 --output table
+```
 
 ## <a name="CreateConnection"></a>9. Создание VPN-подключения
 
 Создайте VPN-подключение типа "сеть — сеть" между шлюзом виртуальной сети и локальным VPN-устройством. Обратите особое внимание на значение общего ключа, которое должно соответствовать значению заданного общего ключа для VPN-устройства.
 
+Создайте подключение с помощью команды [az network vpn-connection create](/cli/azure/network/vpn-connection#create).
+
 ```azurecli
-az network vpn-connection create -n VNet1toSite2 -g TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
+az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
 ```
 
 Через некоторое время будет установлено подключение.
@@ -194,65 +183,9 @@ az network vpn-connection create -n VNet1toSite2 -g TestRG1 --vnet-gateway1 VNet
 
 ## <a name="common-tasks"></a>Стандартные задачи
 
-### <a name="to-view-local-network-gateways"></a>Просмотр локальных сетевых шлюзов
+Этот раздел содержит общие команды, которые могут быть полезны при работе с конфигурациями подключения типа "сайт — сайт". Полный список сетевых команд интерфейса командной строки см. в разделе об [управлении ресурсами сети Azure](/cli/azure/network).
 
-```azurecli
-az network local-gateway list --resource-group TestRG1
-```
-
-### <a name="modify"></a>Изменение префиксов IP-адресов для локального сетевого шлюза
-Если вам нужно изменить префиксы для шлюза локальной сети, сделайте следующее. При каждом изменении нужно указать полный список префиксов, а не только те префиксы, которые вы хотите изменить.
-
-- **Если имеется указанное подключение**, используйте следующий пример. Укажите полный список префиксов, состоящий из существующих префиксов и тех, которые требуется добавить. В этом примере 10.0.0.0/24 и 20.0.0.0/24 уже существуют. Добавим префиксы 30.0.0.0/24 и 40.0.0.0/24.
-
-  ```azurecli
-  az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 -n VNet1toSite2 -g TestRG1
-  ```
-
-- **Если у вас нет указанного подключения**, воспользуйтесь той же командой, которую вы использовали для создания шлюза локальной сети. Эта команда также используется для обновления IP-адреса шлюза VPN-устройства. Используйте ее, только если у вас еще нет подключения. В этом примере 10.0.0.0/24, 20.0.0.0/24, 30.0.0.0/24 и 40.0.0.0/24 уже существуют. Мы указываем только префиксы, которые нужно сохранить. В этом случае это 10.0.0.0/24 и 20.0.0.0/24.
-
-  ```azurecli
-  az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
-  ```
-
-### <a name="modifygwipaddress"></a>Изменение IP-адреса шлюза для локального сетевого шлюза
-
-В этой конфигурации IP-адрес является IP-адресом VPN-устройства, для которого создается подключение. При изменении IP-адреса VPN-устройства можно изменить значение. IP-адреса можно изменять даже при наличии подключения шлюза.
-
-```azurecli
-az network local-gateway update --gateway-ip-address 23.99.222.170 -n Site2 -g TestRG1
-```
-
-При просмотре результатов убедитесь, что префиксы IP-адресов включены.
-
-  ```azurecli
-  "localNetworkAddressSpace": { 
-    "addressPrefixes": [ 
-      "10.0.0.0/24", 
-      "20.0.0.0/24", 
-      "30.0.0.0/24" 
-    ] 
-  }, 
-  "location": "eastus", 
-  "name": "Site2", 
-  "provisioningState": "Succeeded",  
-  ```
-
-### <a name="to-view-the-virtual-network-gateway-public-ip-address"></a>Просмотр общедоступных IP-адресов шлюза виртуальной сети
-
-Чтобы найти общедоступный IP-адрес шлюза виртуальной сети, используйте следующий пример. Для удобства чтения выходные данные форматируются для отображения списка общедоступных IP-адресов в формате таблицы.
-
-```azurecli
-az network public-ip list -g TestRG1 -o table
-```
-
-### <a name="to-verify-the-shared-key-values"></a>Проверка значений общего ключа
-
-Убедитесь, что значение общего ключа совпадает со значением, использованным для настройки VPN-устройства. Если это не так, выполните подключение еще раз, используя значение с устройства, или воспользуйтесь предыдущим значением устройства. Значения должны совпадать.
-
-```azurecli
-az network vpn-connection shared-key show --connection-name VNet1toSite2 -g TestRG1
-```
+[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)] 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

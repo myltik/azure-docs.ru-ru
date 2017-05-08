@@ -11,11 +11,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 04/26/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +30,7 @@ ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
 > 
 > 
 
-При отправке поисковых запросов в службу поиска Azure нужно не только ввести в поле поиска приложения определенные слова, но и задать ряд параметров. Эти параметры запросов обеспечивают более точное управление при работе с полнотекстовым поиском.
+При отправке поисковых запросов в службу поиска Azure нужно не только ввести в поле поиска приложения определенные слова, но и задать ряд параметров. Эти параметры запросов обеспечивают более точное управление при [работе с полнотекстовым поиском](search-lucene-query-architecture.md).
 
 Ниже приведен список, в котором кратко описано стандартное использование параметров запроса в службе поиска Azure. Подробную информацию о параметрах запроса и их поведении см. в материалах, посвященных [REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) и [пакету SDK для .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary).
 
@@ -59,10 +61,5 @@ ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
 
 ## <a name="hit-highlighting"></a>Выделение совпадений
 В службе поиска Azure вы можете легко выделить конкретную часть результатов поиска, которые соответствуют поисковому запросу. Для этого воспользуйтесь параметрами `highlight`, `highlightPreTag` и `highlightPostTag`. Вы можете указать, в каких *поддерживающих поиск* полях следует выделять вхождения. Кроме того, можно указать конкретные теги строк, которые нужно добавлять к началу и концу вхождений, которые возвращает служба поиска Azure.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

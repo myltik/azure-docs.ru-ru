@@ -5,7 +5,7 @@ keywords:
 services: time-series-insights
 documentationcenter: 
 author: op-ravi
-manager: santoshb
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 
 ms.service: time-series-insights
@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: omravi
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5e9ee102c0375c8c1ac0e0ff6bc93989115b7cfa
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 143d48b9fc551ade0d0fd043cdb0cf1f3340a9af
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 ---
 
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Предоставление доступа к данным для среды Time Series Insights с помощью портала Azure
 
-Среда Time Series Insights содержит 2 вида независимых политик доступа:
+Среда Time Series Insights содержит 2 типа независимых политик доступа:
 
 * политики управления доступом;
 * политики доступа к данным.
 
-Оба вида политик предоставляют субъектам Azure Active Directory (пользователям или приложениям) различные разрешения для конкретной среды. Субъекты (пользователи и приложения) должны принадлежать к службе Active Directory (или клиенту Azure), связанной с подпиской, содержащей среду.
+Оба типа политик предоставляют субъектам Azure Active Directory (пользователям или приложениям) различные разрешения для конкретной среды. Субъекты (пользователи и приложения) должны принадлежать к службе Active Directory (или клиенту Azure), связанной с подпиской, содержащей среду.
 
 Политики управления доступом предоставляют разрешения, связанные с конфигурацией среды, например:
 *    создание и удаление среды, источников событий и справочных наборов данных;
@@ -39,6 +40,7 @@ ms.lasthandoff: 04/26/2017
 
 Эти политики позволяют четко разделить доступ к управлению среды и доступ к данным в среде. Например, можно установить среду таким образом, что владелец или создатель среды не будет иметь доступа к данным. Пользователи и службы, которые могут считывать данные из среды, также могут не иметь доступа к конфигурации среды.
 
+## <a name="grant-data-access"></a>Предоставление доступа к данным
 Ниже показано, как предоставить доступ к данным для участника-пользователя.
 
 1.    Выполните вход на [портал Azure](https://portal.azure.com).
