@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6e03b6072b5244aca2810f704c485384de5aedf8
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7b267f11a2989b1e621906a46ea4e3bf7f58ca2b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/31/2017
    |  **Конфигурация виртуальной машины** |<p>Выберите <b>Установить агент ВМ</b> и другие необходимые вам расширения.</p> |
 2. Подключите диск к каждой виртуальной машине, на которой будет выполняться роль сервера контроллера домена. Дополнительный диск необходим для хранения базы данных AD, журналов и SYSVOL. Укажите размер диска (например, 10 ГБ), а для параметра **Настройки кэша узла** выберите **Отсутствует**. Подробнее об этом см. в разделе [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. После первого входа в виртуальную машину откройте **Диспетчер серверов** > **Файловые службы и службы хранилища** для создания тома на этом диске с использованием файловой системы NTFS.
-4. Зарезервируйте статический IP-адрес для виртуальных машин, на которых будет выполняться роль контроллера домена. Чтобы зарезервировать статический IP-адрес, скачайте Установщик веб-платформ Майкрософт, [установите Azure PowerShell](/powershell/azureps-cmdlets-docs) и запустите командлет Set-AzureStaticVNetIP. Например:
+4. Зарезервируйте статический IP-адрес для виртуальных машин, на которых будет выполняться роль контроллера домена. Чтобы зарезервировать статический IP-адрес, скачайте Установщик веб-платформ Майкрософт, [установите Azure PowerShell](/powershell/azure/overview) и запустите командлет Set-AzureStaticVNetIP. Например:
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 03/31/2017
 
 Чтобы создать виртуальные машины с помощью Windows PowerShell, а не пользовательского интерфейса, см. раздел [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Дополнительные сведения об использовании Windows PowerShell см. в разделах [Начало работы с командлетами Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) и [Справка по командлетам Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
+Дополнительные сведения об использовании Windows PowerShell см. в разделах [Начало работы с командлетами Azure](/powershell/azure/overview) и [Справка по командлетам Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 * [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
@@ -105,8 +105,8 @@ ms.lasthandoff: 03/31/2017
 * [Виртуальная сеть Azure](../virtual-network/virtual-networks-overview.md)
 * [Microsoft Azure IaaS для профессионалов в сфере IT. (01) Основная информация о виртуальных машинах](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS для профессионалов в сфере IT. (05) Создание виртуальных сетей и подключений между организациями](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Командлеты управления Azure](https://msdn.microsoft.com/library/azure/jj152841)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Командлеты управления Azure](/powershell/module/azurerm.compute/#virtual_machines)
 
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png

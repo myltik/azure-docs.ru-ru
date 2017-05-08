@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 6a000e84f38e7e2b56f1d79d5c88f1704b6789a0
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 9993d6f6ef46366d00f5c44812380b3f1e07d9ef
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -275,7 +275,7 @@ Visual Studio Application Insights предоставляет средства �
 >
 
 ## <a name="nextsteps"></a> Дальнейшие действия
-* [Мониторинг веб-приложений](/manage/services/web-sites/how-to-monitor-websites/)
+* [Мониторинг веб-приложений](http://docs.microsoft.com/en-us/azure/app-service-web/web-sites-monitor)
 * [Устранение неполадок веб-приложений Azure в Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Анализ журналов веб-приложения в HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 

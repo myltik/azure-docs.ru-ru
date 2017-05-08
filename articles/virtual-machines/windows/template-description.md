@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2038ffd2651be7f8dc3653a58673f33e6f32d3db
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b011f51e7b5aa921c43c906fb36fa3020a2dc7e6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -165,7 +165,7 @@ ms.lasthandoff: 04/03/2017
 Последние доступные версии API для разных типов ресурсов можно узнать следующим образом.
 
 - Для REST API выполните операцию [вывода списка всех поставщиков ресурсов](https://docs.microsoft.com/rest/api/resources/providers#Providers_List).
-- В PowerShell используйте командлет [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn).
+- В PowerShell используйте командлет [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider).
 - Azure CLI 2.0: [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
 
 ## <a name="parameters-and-variables"></a>Параметры и переменные
@@ -461,3 +461,4 @@ Resource Manager параллельно развертывает все ресу
 - Сведения о создании собственного шаблона см. в статье [Создание шаблонов Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Сведения о развертывании созданного шаблона см. в статье [Создание виртуальной машины Windows с использованием шаблона Resource Manager](ps-template.md).
 - Сведения об управлении созданными виртуальными машинами см. в статье [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](ps-manage.md).
+

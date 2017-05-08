@@ -4,7 +4,7 @@
   items:
   - name: "Сведения о базах данных SQL"
     href: sql-database-technical-overview.md
-- name: "Быстрый запуск"
+- name: "Быстрое начало работы"
   expanded: true
   items:
   - name: "Создание базы данных с помощью портала"
@@ -38,7 +38,9 @@
   - name: "1. Создание и разработка новой базы данных SQL"
     href: sql-database-design-first-database.md
   - name: "2. Перенос существующего сервера SQL Server"
-    href: sql-database-migrate-your-sql-server-database.md 
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: "3. Защита базы данных SQL"
+    href: sql-database-security-tutorial.md
 - name: "Примеры"
   items:
   - name: "Инфраструктура CLI Azure"

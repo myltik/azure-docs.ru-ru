@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: dd53cbc0ec10700ebcd47f9d2f9d6cc358f68569
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -30,10 +31,10 @@ ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 > [!NOTE]
 > В этом учебнике нет указаний по написанию приложения Azure, что предусматривает один из шагов, но показано, как авторизовать приложение для использования ключей или секретов в хранилище ключей.
-> 
-> В этом руководстве используется Azure PowerShell. Инструкции по кроссплатформенному интерфейсу командной строки см. в [этом руководстве](key-vault-manage-with-cli.md).
-> 
-> 
+>
+> В этом руководстве используется Azure PowerShell. Инструкции по кроссплатформенному интерфейсу командной строки см. в [этом руководстве](key-vault-manage-with-cli2.md).
+>
+>
 
 Общие сведения о хранилище ключей Azure см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md)
 
@@ -41,7 +42,7 @@ ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 Для работы с этим учебником требуется:
 
 * подписка на Microsoft Azure. Если у вас нет подписки, вы можете зарегистрироваться для использования [бесплатной учетной записи](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell, **начиная с версии 1.1.0**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`. Если у вас установлено средство Azure PowerShell версий 0.9.1–0.9.8, вы можете использовать это руководство с некоторыми незначительными поправками. Например, вам нужно использовать команду `Switch-AzureMode AzureResourceManager`; также отличаются некоторые команды хранилища ключей Azure. Полный список командлетов хранилища ключей для Azure PowerShell версий 0.9.1–0.9.8 см. в [этой статье](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
+* Azure PowerShell, **начиная с версии 1.1.0**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Установка и настройка Azure PowerShell](/powershell/azure/overview). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`. Если у вас установлено средство Azure PowerShell версий 0.9.1–0.9.8, вы можете использовать это руководство с некоторыми незначительными поправками. Например, вам нужно использовать команду `Switch-AzureMode AzureResourceManager`; также отличаются некоторые команды хранилища ключей Azure. Полный список командлетов хранилища ключей для Azure PowerShell версий 0.9.1–0.9.8 см. в [этой статье](/powershell/module/azurerm.keyvault/#key_vault).
 * приложение, для которого вы будете настраивать использование ключа или пароля, созданного по этому учебнику. Пример приложения доступен в [Центре загрузки Майкрософт](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Указания см. в сопутствующем файле Readme.
 
 Хотя этот учебник предназначен для начинающих пользователей Azure PowerShell, предполагается, что вы знакомы с такими основными понятиями, как модули, командлеты и сеансы. Дополнительные сведения см. в статье [Начало работы с Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -56,13 +57,13 @@ ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 Чтобы ознакомиться с диспетчером ресурсов Azure в Azure PowerShell, можно также прочитать следующие учебники:
 
-* [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Установка и настройка Azure PowerShell](/powershell/azure/overview)
 * [Использование Azure PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md)
 
-## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Подключение к подпискам
+## <a id="connect"></a>Подключение к подпискам
 Запустите сеанс Azure PowerShell и войдите в учетную запись Azure, используя следующую команду:  
 
-    Login-AzureRmAccount 
+    Login-AzureRmAccount
 
 Обратите внимание, что при использовании определенного экземпляра Azure, например Azure для государственных организаций, в этой команде нужно указать параметр -Environment. Например: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
@@ -76,16 +77,16 @@ ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Дополнительные сведения о настройке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Дополнительные сведения о настройке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
-## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Создание новой группы ресурсов
+## <a id="resource"></a>Создание новой группы ресурсов
 При использовании диспетчера ресурсов Azure все связанные ресурсы создаются внутри группы ресурсов. Для примера мы создадим новую группу ресурсов с именем **ContosoResourceGroup** :
 
     New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
 
-## <a name="a-idvaultacreate-a-key-vault"></a><a id="vault"></a>Создание хранилища ключей
-Чтобы создать хранилище ключей, используйте командлет [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.300\).aspx). Этот командлет предусматривает три обязательных параметра: **имя группы ресурсов**, **имя хранилища ключей** и **географическое расположение**.
+## <a id="vault"></a>Создание хранилища ключей
+Чтобы создать хранилище ключей, используйте командлет [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Этот командлет предусматривает три обязательных параметра: **имя группы ресурсов**, **имя хранилища ключей** и **географическое расположение**.
 
 Например, если вы используете хранилище с именем **ContosoKeyVault**, группу ресурсов с именем **ContosoResourceGroup** и расположение **Восточная Азия**, введите следующее.
 
@@ -99,12 +100,12 @@ ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 Теперь ваша учетная запись Azure авторизована, и вы можете выполнять любые операции в этом хранилище ключей. Пока что это недоступно для других учетных записей.
 
 > [!NOTE]
-> Если при попытке создать новое хранилище ключей отображается ошибка **Подписка не зарегистрирована для использования пространства имен Microsoft.KeyVault**, запустите `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` и снова выполните команду New-AzureRmKeyVault. Дополнительные сведения см. в статье [Register-AzureRmResourceProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.300\).aspx).
-> 
-> 
+> Если при попытке создать новое хранилище ключей отображается ошибка **Подписка не зарегистрирована для использования пространства имен Microsoft.KeyVault**, запустите `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` и снова выполните команду New-AzureRmKeyVault. Дополнительные сведения см. в статье [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider).
+>
+>
 
-## <a name="a-idaddaadd-a-key-or-secret-to-the-key-vault"></a><a id="add"></a>Добавление ключа или секрета в хранилище ключей
-Чтобы создать ключ с программной защитой для собственного использования с помощью хранилища ключей Azure, используйте командлет [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) и введите следующее.
+## <a id="add"></a>Добавление ключа или секрета в хранилище ключей
+Чтобы создать ключ с программной защитой для собственного использования с помощью хранилища ключей Azure, используйте командлет [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) и введите следующее.
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -144,13 +145,13 @@ ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 Теперь хранилище ключей и ключ или секрет готовы для использования в приложениях. Необходимо авторизовать приложения для их использования.  
 
-## <a name="a-idregisteraregister-an-application-with-azure-active-directory"></a><a id="register"></a>Регистрация приложения в Azure Active Directory
+## <a id="register"></a>Регистрация приложения в Azure Active Directory
 Обычно этот шаг выполняет разработчик на отдельном компьютере. Он не относится к хранилищу ключей Azure, но включен в этот учебник для полноты картины.
 
 > [!IMPORTANT]
 > Чтобы завершить прохождение этого учебника, учетная запись, хранилище и приложение, которое вы будете регистрировать на этом шаге, должны находиться в одном каталоге Azure.
-> 
-> 
+>
+>
 
 Приложения, которые используют хранилища ключей, должны пройти аутентификацию с использованием токена Azure Active Directory. Для этого владельцу приложения необходимо сначала зарегистрировать приложение в Azure Active Directory. В конце регистрации владелец приложения получает следующие значения.
 
@@ -169,8 +170,8 @@ ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 9. Прокрутите страницу до раздела **Ключи**, выберите длительность и щелкните **Сохранить**. Страница обновится и отобразится значение ключа. Необходимо настроить приложение, указав это значение ключа и **идентификатор клиента** (указания по этой конфигурации зависят от конкретного приложения).
 10. Скопируйте значение идентификатора клиента на этой странице. Вы будете использовать его на следующем шаге, чтобы задать разрешения в своем хранилище.
 
-## <a name="a-idauthorizeaauthorize-the-application-to-use-the-key-or-secret"></a><a id="authorize"></a>Авторизация приложения для использования ключа или секрета
-Предоставить приложению доступ к ключу или секрету в хранилище можно с помощью командлета  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.300\).aspx).
+## <a id="authorize"></a>Авторизация приложения для использования ключа или секрета
+Предоставить приложению доступ к ключу или секрету в хранилище можно с помощью командлета  [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
 Например, если имя хранилища — **ContosoKeyVault** , идентификатор клиента приложения — 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed и вам нужно авторизовать это приложение для расшифровки и подписи с использованием ключей в вашем хранилище, выполните следующую команду:
 
@@ -180,7 +181,7 @@ ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
-## <a name="a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm"></a><a id="HSM"></a>Использование аппаратного модуля безопасности
+## <a id="HSM"></a>Использование аппаратного модуля безопасности
 Чтобы обеспечить более высокий уровень защиты, можно импортировать ключи или создать их в аппаратных модулях безопасности (ключи никогда не покидают их пределов). В качестве аппаратных модулей безопасности используются модули FIPS 140-2 с проверкой уровня 2. Если это требование вас не касается, пропустите этот подраздел и перейдите к подразделу [Удаление хранилища ключей, а также связанных ключей и секретов](#delete).
 
 Чтобы создать ключи, защищенные аппаратным модулем, используйте [хранилище ключей Azure уровня "Премиум", которое поддерживает ключи, защищенные аппаратным модулем](https://azure.microsoft.com/pricing/free-trial/). Обратите внимание, эта функция недоступна для Китая.
@@ -206,8 +207,8 @@ ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 Более подробные инструкции по созданию пакета BYOK см. в статье [Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure](key-vault-hsm-protected-keys.md).
 
-## <a name="a-iddeleteadelete-the-key-vault-and-associated-keys-and-secrets"></a><a id="delete"></a>Удаление хранилища ключей, а также связанных ключей и секретов
-Если хранилище ключей (а также содержащийся в нем ключ или секрет) больше не нужно, его можно удалить с помощью командлета [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.300\).aspx).
+## <a id="delete"></a>Удаление хранилища ключей, а также связанных ключей и секретов
+Если хранилище ключей (а также содержащийся в нем ключ или секрет) больше не нужно, его можно удалить с помощью командлета [Remove-AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault).
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -216,7 +217,7 @@ ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
     Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
-## <a name="a-idotheraother-azure-powershell-cmdlets"></a><a id="other"></a>Другие командлеты Azure PowerShell
+## <a id="other"></a>Другие командлеты Azure PowerShell
 Другие команды, которые могут быть полезны при управлении хранилищем ключей Azure.
 
 * `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'` — эта команда отображает все ключи и выбранные свойства в виде таблицы;
@@ -225,18 +226,12 @@ ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 * `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'` — пример того, как удалить конкретный ключ;
 * `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'` — пример того, как удалить конкретный секрет.
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>Дальнейшие действия
+## <a id="next"></a>Дальнейшие действия
 Подробное руководство по использованию хранилища ключей Azure в веб-приложении см. в [этой статье](key-vault-use-from-web-application.md).
 
 Сведения об использовании хранилища ключей см. в статье [Ведение журнала хранилища ключей Azure](key-vault-logging.md).
 
-Полный список актуальных командлетов Azure PowerShell для хранилища ключей Azure см. в [этой статье](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.300\).aspx). 
+Полный список актуальных командлетов Azure PowerShell для хранилища ключей Azure см. в [этой статье](/powershell/module/azurerm.keyvault/#key_vault).
 
 Справочные материалы по программированию см. в статье [Руководство разработчика хранилища ключей Azure](key-vault-developers-guide.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

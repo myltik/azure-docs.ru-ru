@@ -1,23 +1,11 @@
 ---
-title: "Вопросы и ответы о публикации и использовании приложений машинного обучения в Azure Marketplace (устаревшая версия) | Документация Майкрософт"
-description: "Вопросы и ответы о публикации приложений машинного обучения в Azure Marketplace (устаревшая версия)."
-services: machine-learning
-documentationcenter: 
-author: bharaths
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 26b3a1e7-8b9a-4004-98bc-17456d4c25e8
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
-ms.author: bharaths
+
 ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: https://gallery.cortanaintelligence.com/
 translationtype: Human Translation
-ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
-ms.openlocfilehash: 9e2d4a2d46bd461a71217cd2b2d75f5a50e8b617
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 4f6e2816a55eb48fe947cc5bf21ee466e8116feb
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -76,10 +64,5 @@ ms.openlocfilehash: 9e2d4a2d46bd461a71217cd2b2d75f5a50e8b617
 **6. К кому можно обратиться с вопросом о том, как стать издателем данных, или при возникновении проблем во время публикации?**
 
 Чтобы получить дополнительные сведения, напишите команде Azure Marketplace по адресу <mailto:datamarketbd@microsoft.com>.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

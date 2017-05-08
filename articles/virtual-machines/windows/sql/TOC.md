@@ -36,7 +36,7 @@
 ## [Шаблоны приложений](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [Интерфейс командной строки Azure](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [Драйверы SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)

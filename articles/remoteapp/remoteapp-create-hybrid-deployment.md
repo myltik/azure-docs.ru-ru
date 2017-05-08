@@ -12,12 +12,12 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: ae8c26069503a24f3ba17a86160801c60a68d668
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2c4a3ee9ec97dac78485e0f275fbb78412e7cb98
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/31/2017
 * [Зарегистрируйтесь](https://azure.microsoft.com/services/remoteapp/) в Azure RemoteApp.
 * Создайте учетную запись пользователя в Active Directory для использования в качестве учетной записи службы Azure RemoteApp. Ограничьте разрешения для этой учетной записи, чтобы она могла только присоединять машины к домену.
 * Соберите сведения о локальной сети, а именно получить информацию об IP-адресе и VPN-устройстве.
-* установить модуль [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+* установить модуль [Azure PowerShell](/powershell/azure/overview) .
 * Соберите сведения о пользователях, которым нужно предоставить доступ. Для каждого пользователя требуется имя участника-пользователя Azure Active Directory (например, name@contoso.com). Убедитесь, что имя участника-пользователя совпадает в Azure AD и в Active Directory.
 * Выберите образ шаблона. Образ шаблона Azure RemoteApp содержит приложения и программы, которыми вы хотите поделиться с пользователями. Дополнительные сведения см. в статье [Создание образа Azure RemoteApp](remoteapp-imageoptions.md).
 * Хотите использовать образ Office 365 профессиональный плюс? Ознакомьтесь с [этой информацией](remoteapp-officesubscription.md).

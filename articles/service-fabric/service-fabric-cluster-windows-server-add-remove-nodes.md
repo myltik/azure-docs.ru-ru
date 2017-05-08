@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 2/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: af121309be44852ee51f34130330533adf19d586
-ms.openlocfilehash: 68474b24519a46db71fe59b5d0574cc4700efccb
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: fa59bae2b824e6b75e120ab2b61027746ee1ea78
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/16/2017
 После [создания автономного кластера Service Fabric на компьютерах под управлением Windows Server](service-fabric-cluster-creation-for-windows-server.md)потребности компании могут измениться, и вам может понадобиться добавить или удалить несколько узлов в кластере. Данная статья содержит подробные инструкции по выполнению этой задачи.
 
 ## <a name="add-nodes-to-your-cluster"></a>Добавление узлов в кластер
-1. Подготовьте виртуальную машину или компьютер, который необходимо добавить в кластер, выполнив действия, описанные в разделе [Шаг&2;. Подготовка компьютеров для соблюдения предварительных требований](service-fabric-cluster-creation-for-windows-server.md) .
+1. Подготовьте виртуальную машину или компьютер, который необходимо добавить в кластер, выполнив действия, описанные в разделе [Шаг 2. Подготовка компьютеров для соблюдения предварительных требований](service-fabric-cluster-creation-for-windows-server.md) .
 2. Решите, в какой домен сбоя и домен обновления нужно добавить эту виртуальную машину или компьютер.
 3. Подключитесь к виртуальной машине или компьютеру, который нужно добавить в кластер, с помощью удаленного рабочего стола.
 4. Скопируйте или [скачайте изолированный пакет для Service Fabric для Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) на виртуальную машину или компьютер и извлеките его содержимое.
@@ -36,11 +36,11 @@ ms.lasthandoff: 02/16/2017
 .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
 
 ```
-Можно проверить, добавлен ли новый узел, выполнив командлет [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode).
+Можно проверить, добавлен ли новый узел, выполнив командлет [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
 
 
 ## <a name="remove-nodes-from-your-cluster"></a>Удаление узлов из кластера
-В зависимости от уровня надежности, выбранного для кластера, вы не сможете удалить первые n (3,&5;,&7;,&9;) узлов основного типа. Кроме того, обратите внимание, что выполнение команды RemoveNode в кластере разработки не поддерживается.
+В зависимости от уровня надежности, выбранного для кластера, вы не сможете удалить первые n (3, 5, 7, 9) узлов основного типа. Кроме того, обратите внимание, что выполнение команды RemoveNode в кластере разработки не поддерживается.
 
 1. Подключитесь к виртуальной машине или компьютеру, который нужно удалить из кластера, с помощью удаленного рабочего стола.
 2. Скопируйте или [скачайте изолированный пакет для Service Fabric для Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) на виртуальную машину или компьютер и извлеките его содержимое.

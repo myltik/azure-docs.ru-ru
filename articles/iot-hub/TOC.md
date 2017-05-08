@@ -81,6 +81,7 @@
 ### Использование прямых методов
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-direct-methods.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-direct-methods.md)
+#### [Java: серверный компонент и устройство](iot-hub-java-java-direct-methods.md)
 ### Начало работы с управлением устройствами
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-device-management-get-started.md)

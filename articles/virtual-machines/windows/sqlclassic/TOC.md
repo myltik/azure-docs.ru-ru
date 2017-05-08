@@ -35,7 +35,7 @@
 ## [Шаблоны приложений](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # Справочные материалы
-## [PowerShell — классическая модель](/powershell/servicemanagement)
+## [PowerShell — классическая модель](/powershell/azure/overview?view=azuresmps-3.7.0)
 ## [Интерфейс командной строки Azure](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [Драйверы SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)

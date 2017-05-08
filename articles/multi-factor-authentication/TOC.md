@@ -7,7 +7,7 @@
 ## [Выбор расположения для развертывания](multi-factor-authentication-get-started.md)
 ## [Многофакторная идентификация (MFA) в облаке](multi-factor-authentication-get-started-cloud.md)
 ## [Локальная Многофакторная идентификация (MFA)](multi-factor-authentication-get-started-server.md)
-## [Многофакторная идентификация (MFA) для пользователей Office&365;](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+## [Многофакторная идентификация (MFA) для пользователей Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 ## [Рекомендации по обеспечению безопасности](multi-factor-authentication-security-best-practices.md)
 
 # Практическое руководство
@@ -47,3 +47,4 @@
 ## Устранение неполадок
 ### [Часто задаваемые вопросы](multi-factor-authentication-faq.md)
 ### [Задать вопрос](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
+### [Ошибки расширения NPS](multi-factor-authentication-nps-errors.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2017
+ms.date: 04/26/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0182d0d600af691daf8c2ac7a5cb93d7755f61da
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 2b25b4f4925962b1e4de681d268e78909a93eccd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ ms.lasthandoff: 04/03/2017
 Существует множество различных расширений ВМ, которые можно использовать с виртуальными машинами Azure. Чтобы просмотреть полный список, выполните в интерфейсе командной строки Azure приведенную ниже команду, указав собственное расположение.
 
 ```azurecli
-azure vm extension-image list westus
+az vm extension image list --location westus -o table
 ```
 
 ## <a name="run-vm-extensions"></a>Запуск расширений ВМ
@@ -67,12 +67,15 @@ azure vm extension-image list westus
 
 ### <a name="azure-cli"></a>Интерфейс командной строки Azure
 
-Расширения ВМ Azure можно запускать на существующих виртуальных машинах с помощью команды `azure vm extension set`. В этом примере на виртуальной машине выполняется расширение пользовательского сценария.
+Расширения ВМ Azure можно запускать на существующих виртуальных машинах с помощью команды `az vm extension set`. В этом примере на виртуальной машине выполняется расширение пользовательского сценария.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version \
-  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+az vm extension set `
+  --resource-group exttest `
+  --vm-name exttest `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
 Выходные данные должны быть похожи на приведенные ниже.
@@ -205,18 +208,15 @@ info:    vm extension set command OK
 После того, как расширение ВМ будет выполнено на виртуальной машине, с помощью следующей команды Azure CLI можно получить состояние расширения. Замените в примере имена-параметры собственными значениями.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 Выходные данные выглядят так:
 
 ```azurecli
-info:    Executing command vm extension get
-+ Looking up the VM "myVM"
-data:    Publisher                   Name             Version  State
-data:    --------------------------  ---------------  -------  ---------
-data:    Microsoft.Azure.Extensions  DockerExtension  1.0      Succeeded
-info:    vm extension get command OK         :
+AutoUpgradeMinorVersion    Location    Name          ProvisioningState    Publisher                   ResourceGroup      TypeHandlerVersion  VirtualMachineExtensionType
+-------------------------  ----------  ------------  -------------------  --------------------------  ---------------  --------------------  -----------------------------
+True                       westus      customScript  Succeeded            Microsoft.Azure.Extensions  exttest                             2  customScript
 ```
 
 Кроме того, состояние выполнения расширения можно найти на портале Azure. Чтобы просмотреть состояние расширения, выберите виртуальную машину, затем щелкните **Расширения** и найдите нужное расширение.
@@ -226,7 +226,7 @@ info:    vm extension get command OK         :
 В некоторых случаях может потребоваться повторный запуск расширения ВМ. Можно сначала удалить расширение, затем повторно запустить его любым удобным способом. Чтобы удалить расширение, выполните в Azure CLI следующую команду: Замените в примере имена-параметры собственными значениями.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
+az vm extension delete --name customScript --resource-group myResourceGroup --vm-name myVM
 ```
 
 Кроме того, расширение можно удалить через портал Azure. Для этого выполните на портале следующие действия:

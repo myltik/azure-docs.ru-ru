@@ -15,9 +15,9 @@ ms.workload: TBD
 ms.date: 02/02/2017
 ms.author: magoedte;eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: f0d3a5c1929bb6dafef735ae3f4291e329861cc9
-ms.openlocfilehash: b750878703baf143a2e8247bdd01f358e462e598
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 852284ce7e82d782c31bb085d4878de25412411a
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="azure-automation-dsc-overview"></a>Обзор DSC службы автоматизации Azure
@@ -116,7 +116,7 @@ DSC службы автоматизации Azure поставляется с т
 
 * [Подключение компьютеров для управления с помощью Azure Automation DSC](automation-dsc-onboarding.md)
 * [Компиляция конфигураций в Azure Automation DSC](automation-dsc-compile.md)
-* [Командлеты Automation DSC Azure](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Командлеты Automation DSC Azure](/powershell/module/azurerm.automation/#automation)
 * [Цены на Automation DSC Azure](https://azure.microsoft.com/pricing/details/automation/)
 * [Непрерывное развертывание на виртуальные машины IaaS с помощью Azure Automation DSC и Chocolatey](automation-dsc-cd-chocolatey.md)
 

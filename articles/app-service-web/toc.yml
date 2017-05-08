@@ -6,7 +6,7 @@
     href: app-service-web-overview.md
   - name: "Сравнение вариантов размещения"
     href: choose-web-site-cloud-service-vm.md
-- name: "Быстрый запуск"
+- name: "Быстрое начало работы"
   expanded: true
   items:
   - name: "Создание приложения .NET"

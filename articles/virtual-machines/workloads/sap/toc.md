@@ -8,19 +8,19 @@
 ## [Интеграция с SAP NetWeaver](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [Интеграция с SAP Business ByDesign](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 # Решения SAP в Azure
-## SAP HANA
+## Крупные экземпляры SAP HANA
 ### [Обзор и архитектура](hana-overview-architecture.md)
 ### [Инфраструктура и подключение](hana-overview-infrastructure-connectivity.md)
 ### [Установка SAP HANA](hana-installation.md)
 ### [Высокий уровень доступности и аварийное восстановление](hana-overview-high-availability-disaster-recovery.md)
 ### [Устранение неполадок и мониторинг](troubleshooting-monitoring.md)
+## SAP HANA на виртуальных машинах
 ### [SAP HANA с одним экземпляром](hana-get-started.md)
 ### [Руководство по развертыванию S/4 HANA или BW/4 HANA](cal-s4h.md)
-### Резервное копирование
-#### [Обзор](sap-hana-backup-guide.md)
-#### [Резервное копирование на уровне файлов](sap-hana-backup-file-level.md)
-#### [Моментальные снимки хранилища](sap-hana-backup-storage-snapshots.md)
-
+### [Высокая доступность виртуальных машин] (sap-hana-high-availability.md)
+### [Обзор службы архивации](sap-hana-backup-guide.md)
+### [Резервное копирование на уровне файлов](sap-hana-backup-file-level.md)
+### [Резервные копии моментальных снимков хранилища](sap-hana-backup-storage-snapshots.md)
 ## SAP NetWeaver
 ### [Обзор и архитектура](suse-quickstart.md)
 ### [Планирование и реализация](planning-guide.md)

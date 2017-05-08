@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: a0a974982f80bc2137e73a84681a9401e8a02e39
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 132c1cf6b06924b8d23d696ea732856886be975d
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -72,6 +72,7 @@ ms.lasthandoff: 04/18/2017
 
 >[!NOTE]
 >**Предыдущая версия.** [Скачайте средство WAImportExpot версии 1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) и ознакомьтесь с [руководством по его использованию](storage-import-export-tool-how-to-v1.md). Это средство не поддерживает **подготовку дисков с предварительно записанными на них данными**. Используйте первую версию средства, если доступен только ключ SAS.
+
 >
 
 ### <a name="hard-disk-drives"></a>Жесткие диски
@@ -118,6 +119,7 @@ Windows 7 Корпоративная, Windows 7 Максимальная, Window
 * Восточная часть Японии
 * Центральная Индия
 * Южная Индия
+* Западная Индия
 * Центральная Канада
 * Восточная Канада
 * Южная часть Бразилии
@@ -128,6 +130,7 @@ Windows 7 Корпоративная, Windows 7 Максимальная, Window
 * Центральная часть US DoD
 * Восток Китая
 * Север Китая
+* Южная часть Великобритании
 
 ### <a name="shipping"></a>Отправка
 **Доставка дисков в центр обработки данных:**

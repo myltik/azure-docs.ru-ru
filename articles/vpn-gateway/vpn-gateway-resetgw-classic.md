@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c63af2de6272604f4d2d1ee694ccc4272192ef9a
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0065a4a73ddd7eb9877359626bac231ec3fdef7c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/13/2017
 
 ### <a name="resource-manager-deployment-model"></a>Модель развертывания диспетчера ресурсов
 
-Вам потребуется последняя версия командлетов PowerShell. Дополнительные сведения см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs). Командлет PowerShell для сброса настроек шлюза в Resource Manager — `Reset-AzureRmVirtualNetworkGateway`. Приведенный ниже пример выполняет сброс настроек VPN-шлюза Azure VNet1GW в группе ресурсов TestRG1.
+Вам потребуется последняя версия командлетов PowerShell. Дополнительные сведения см. в статье [Как установить и настроить Azure PowerShell](/powershell/azure/overview). Командлет PowerShell для сброса настроек шлюза в Resource Manager — `Reset-AzureRmVirtualNetworkGateway`. Приведенный ниже пример выполняет сброс настроек VPN-шлюза Azure VNet1GW в группе ресурсов TestRG1.
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
@@ -70,7 +70,7 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 ### <a name="resetclassic"></a>Классическая модель развертывания
 
-Вам потребуется последняя версия командлетов PowerShell. Дополнительные сведения см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs). Для сброса настроек VPN-шлюза Azure используется командлет PowerShell **Reset-AzureVNetGateway**. В следующем примере будет сброшен VPN-шлюз Azure для виртуальной сети с именем ContosoVNet.
+Вам потребуется последняя версия командлетов PowerShell. Дополнительные сведения см. в статье [Как установить и настроить Azure PowerShell](/powershell/azure/overview). Для сброса настроек VPN-шлюза Azure используется командлет PowerShell **Reset-AzureVNetGateway**. В следующем примере будет сброшен VPN-шлюз Azure для виртуальной сети с именем ContosoVNet.
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b2565bef6643decd1b96fc3cc5b01003916e9685
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 30d8a26f337c00390b1da51e85a0c01ea0d816e3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/31/2017
 Дополнительные сведения о ресурсах Resource Manager см. в статье [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Развертывание с помощью Azure Resource Manager и классическое развертывание).
 
 ## <a name="step-1-install-azure-powershell"></a>Шаг 1. Установка Azure PowerShell
-Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в Azure см. в статье [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в Azure см. в статье [Как установить и настроить Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="step-2-create-a-resource-group-and-a-storage-account"></a>Шаг 2. Создание группы ресурсов и учетной записи хранения
 1. **Создайте группу ресурсов**. Все ресурсы должны быть развернуты в группе ресурсов. Чтобы создать группу ресурсов с именем **vmsstestrg1**, выполните командлет [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).

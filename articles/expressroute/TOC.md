@@ -12,7 +12,6 @@
 ## [Предварительные требования](expressroute-prerequisites.md)
 ## [Рабочие процессы](expressroute-workflows.md)
 ## [Требования к маршрутизации](expressroute-routing.md)
-## [Требования к NAT](expressroute-nat.md)
 ## [Требования к QoS](expressroute-qos.md)
 ## [Перенос цепей из классической модели развертывания в модель развертывания Resource Manager](expressroute-move.md)
 
@@ -38,8 +37,9 @@
 
 ## Рекомендации
 ### [Рекомендации по безопасности сети и облачным службам](../best-practices-network-security.md)
-## [Оптимизация маршрутизации](expressroute-optimize-routing.md)
+### [Оптимизация маршрутизации](expressroute-optimize-routing.md)
 ### [Асимметричная маршрутизация](expressroute-asymmetric-routing.md)
+### [NAT для ExpressRoute](expressroute-routing-nat.md)
 
 ## Устранение неполадок
 ### [Проверка подключения ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
@@ -47,7 +47,7 @@
 ### [Получение таблиц ARP (классическая модель)](expressroute-troubleshooting-arp-classic.md)
 
 # Справочные материалы
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/azure/dn606310)
 

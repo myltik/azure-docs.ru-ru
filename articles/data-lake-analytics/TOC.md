@@ -19,6 +19,7 @@
 ### [Функции окна U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Определяемые пользователем операторы U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Расширения Python для U-SQL](data-lake-analytics-u-sql-python-extensions.md)
+### [Расширения U-SQL R](data-lake-analytics-u-sql-r-extensions.md)
 ### [Когнитивные возможности U-SQL](data-lake-analytics-u-sql-cognitive.md)
 
 ## Создание решений
@@ -40,7 +41,7 @@
 ### [Использования представления выполнения вершин](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)

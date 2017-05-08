@@ -30,6 +30,7 @@
 #### [Центры уведомлений](functions-bindings-notification-hubs.md)
 #### [Мобильные приложения](functions-bindings-mobile-apps.md)
 #### [Внешний файл](functions-bindings-external-file.md)
+#### [Внешняя таблица](functions-bindings-external-table.md)
 ### [Определение прокси функций](functions-proxies.md)
 ### [Создание приложения-функции на портале Azure](functions-create-function-app-portal.md)
 ### [Выполнение запланированного задания очистки](functions-scenario-database-table-cleanup.md)

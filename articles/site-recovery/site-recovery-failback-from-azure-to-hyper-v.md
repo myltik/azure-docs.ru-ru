@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 3/31/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 8746abc957816f103abe6c33308af2a584e35485
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ecfe9d512b0ffc891120d899f0541d3d3c9f6498
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/31/2017
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Восстановление размещения в Site Recovery для виртуальных машин Hyper-V
 
 > [!div class="op_single_selector"]
-> * [Восстановление размещения виртуальных машин VMware или физических компьютеров из Azure](site-recovery-failback-azure-to-vmware.md)
+> * [Восстановление размещения виртуальных машин VMware или физических компьютеров из Azure](site-recovery-how-to-failback-azure-to-vmware.md)
 > * [Восстановление размещения виртуальных машин Hyper-V из Azure](site-recovery-failback-from-azure-to-hyper-v.md)
 
 В этой статье описывается восстановление размещения виртуальных машин, защищенных службой Site Recovery. 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: e066cc2ee99b14d13c5238266513edf61ecbe3e1
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: ad82c1a552d9d77259c44b938975eebc44933b86
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/15/2017
 
 ## <a name="enable"></a>Включение поддержки определения API
 1. Перейдите на страницу `your function name` > `API Definition (preview)`
-1. Задайте для `API Definition Source` значение `Internal`.
+1. Задайте для `API Definition Source` значение `Function`.
   1. Выполнив это действие, вы включите набор параметров OpenAPI для приложения-функции, в том числе конечную точку для размещения файла OpenAPI из домена приложения-функции, встроенную копию [редактора OpenAPI](http://editor.swagger.io) и генератор кратких определений.
 ![Включенное определение](./media/functions-api-definition-getting-started/enabledefinition.png)
 

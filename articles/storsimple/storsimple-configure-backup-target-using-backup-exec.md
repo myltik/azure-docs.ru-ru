@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 translationtype: Human Translation
-ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
-ms.openlocfilehash: db05fb35fdcbcf6691cc3ffc99d201383706592f
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 38a5bee31483cbb91b0278ea6c750e5ff7780b7c
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -258,7 +258,7 @@ StorSimple является решением, интегрированным с 
 | Полная ежемесячная | 1 | 12 | 12 |
 | Полная ежегодная | 1  | 10 | 10 |
 | Требование GFS |   | 38 |   |
-| Дополнительная квота  | 4  |   | Всего:&42; (в соответствии с требованиями GFS)  |
+| Дополнительная квота  | 4  |   | Всего: 42 (в соответствии с требованиями GFS)  |
 \* Коэффициент GFS — это количество копий, которые требуется защитить и сохранить в соответствии с требованиями политики архивации.
 
 ## <a name="set-up-backup-exec-storage"></a>Настройка хранилища Backup Exec
@@ -306,7 +306,7 @@ StorSimple является решением, интегрированным с 
 
 ### <a name="storsimple-as-a-primary-backup-target-gfs-schedule-example"></a>Пример расписания с использованием схемы "дед-отец-сын" (GFS) для StorSimple в качестве основного целевого объекта архивации
 
-Ниже приведен пример схемы архивации GFS на&4; недели, месяц и год.
+Ниже приведен пример схемы архивации GFS на 4 недели, месяц и год.
 
 | Периодичность и тип архивации | Полное | Добавочная (день 1–5)  |   
 |---|---|---|
@@ -445,7 +445,7 @@ StorSimple является решением, интегрированным с 
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Запуск или удаление моментального снимка облака
 
-1.  [Установите Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/).
+1.  [Установите Azure PowerShell](/powershell/azure/overview).
 2.  [Скачайте и импортируйте параметры публикации и информацию о подписке.](https://msdn.microsoft.com/library/dn385850.aspx)
 3.  На классическом портале Azure получите имя ресурса и [ключ регистрации для службы диспетчера StorSimple](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 4.  На сервере, на котором запускается скрипт, запустите PowerShell от имени администратора. Введите эту команду:

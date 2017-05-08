@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,14 +26,14 @@ ms.lasthandoff: 02/28/2017
 
 С помощью командлетов PowerShell пакетной службы Azure можно выполнять те же задачи, которые выполняются с помощью API-интерфейсов пакетной службы, портала Azure и интерфейса командной строки (CLI). Эта статья содержит краткие сведения о командлетах, используемых для управления учетными записями пакетной службы и работы с ее ресурсами, включая пулы, задания и задачи.
 
-Полный список командлетов пакетной службы Azure и их синтаксис см. в [этой справке](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+Полный список командлетов пакетной службы Azure и их синтаксис см. в [этой справке](/powershell/module/azurerm.batch/#batch).
 
 В этой статье описаны командлеты Azure PowerShell 3.0.0. Рекомендуется часто обновлять Azure PowerShell, чтобы пользоваться всеми преимуществами службы.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Чтобы управлять ресурсами пакетной службы с помощью Azure PowerShell, выполните следующие действия.
 
-* [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Установка и настройка Azure PowerShell](/powershell/azure/overview)
 * Выполните командлет **Login-AzureRmAccount**, чтобы подключиться к своей подписке (командлеты пакетной службы Azure входят в состав модуля Azure Resource Manager):
   
     `Login-AzureRmAccount`
@@ -43,7 +43,7 @@ ms.lasthandoff: 02/28/2017
 
 ## <a name="manage-batch-accounts-and-keys"></a>Управление учетными записями пакетной службы и ключами
 ### <a name="create-a-batch-account"></a>Создание учетной записи Пакетной службы
-Командлет **New-AzureRmBatchAccount** создает учетную запись пакетной службы в указанной группе ресурсов. Если у вас еще нет группы ресурсов, создайте ее, выполнив командлет [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx). Укажите один из регионов Azure в параметре **Location**, например Central US. Например:
+Командлет **New-AzureRmBatchAccount** создает учетную запись пакетной службы в указанной группе ресурсов. Если у вас еще нет группы ресурсов, создайте ее, выполнив командлет [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Укажите один из регионов Azure в параметре **Location**, например Central US. Например:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -237,7 +237,7 @@ ms.lasthandoff: 02/28/2017
 > 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Подробные сведения о синтаксисе командлетов и их примеры см. в [справке по командлетам пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+* Подробные сведения о синтаксисе командлетов и их примеры см. в [справке по командлетам пакетной службы Azure](/powershell/module/azurerm.batch/#batch).
 * Дополнительные сведения о приложениях и пакетах приложений в пакетной службе см. в статье [Развертывание приложения с помощью пакетов приложений пакетной службы Azure](batch-application-packages.md).
 
 

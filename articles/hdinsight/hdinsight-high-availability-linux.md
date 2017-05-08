@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 506f2b997ae1f770c7b59f8e801ff3fbb6434ccc
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6e001d497dba1e3cc0a987fd0950854fe2564d2c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -232,7 +232,7 @@ URL-адрес указывает, что сейчас служба работа
 
 * [Справочник по REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Установка и настройка CLI Azure](../cli-install-nodejs.md)
-* [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Установка и настройка Azure PowerShell](/powershell/azure/overview)
 * [Управление кластерами HDInsight с помощью Ambari](hdinsight-hadoop-manage-ambari.md)
 * [«Подготовка кластеров HDInsight на основе Linux»](hdinsight-hadoop-provision-linux-clusters.md)
 

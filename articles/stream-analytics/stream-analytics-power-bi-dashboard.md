@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 3dbc49d35def6d7b12ade529d1dd1156dee9d75b
-ms.openlocfilehash: 09c54f8cce119c1cbe6a08e969236612447d9e17
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 278f73d9ee3f64727b34b3674cd38eaf5301e675
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -142,7 +142,7 @@ Power BI использует ограничения как для паралл�
 
 Можно использовать следующую формулу для вычисления длительности окна в секундах:
 
-![Выражение&1;](./media/stream-analytics-power-bi-dashboard/equation1.png)  
+![Выражение 1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
 Например:
 - У вас есть 1000 устройств, отправляющих данные с интервалами в 1 секунду.
@@ -151,7 +151,7 @@ Power BI использует ограничения как для паралл�
 
 Соответствующее выражение для расчета выглядит так:
 
-![Выражение&2;](./media/stream-analytics-power-bi-dashboard/equation2.png)  
+![Выражение 2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
 
 Это означает, что мы можем изменить исходный запрос таким образом:
 
@@ -177,7 +177,7 @@ Power BI использует ограничения как для паралл�
 Когда вы обновите авторизацию в Power BI, в области авторизации появится оповещение зеленого цвета о том, что проблема устранена.
 
 ## <a name="get-help"></a>Получение справки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)

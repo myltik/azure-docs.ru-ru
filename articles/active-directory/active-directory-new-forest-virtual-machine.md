@@ -16,9 +16,9 @@ ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 46e248112985b2e8f58f90e15cf885839d3cfcc8
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 516240ccc82a522a414d837ec334712196edf7dd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/25/2017
    |  **Конфигурация виртуальной машины** |<p>Выберите <b>Установить агент ВМ</b> и другие необходимые вам расширения.</p> |
 2. Подключите диск к каждой виртуальной машине, на которой будет выполняться роль сервера контроллера домена. Дополнительный диск необходим для хранения базы данных AD, журналов и SYSVOL. Укажите размер диска (например, 10 ГБ), а для параметра **Настройки кэша узла** выберите **Отсутствует**. Подробнее об этом см. в разделе [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. После первого входа в виртуальную машину откройте **Диспетчер серверов** > **Файловые службы и службы хранилища** для создания тома на этом диске с использованием файловой системы NTFS.
-4. Зарезервируйте статический IP-адрес для виртуальных машин, на которых будет выполняться роль контроллера домена. Чтобы зарезервировать статический IP-адрес, скачайте Установщик веб-платформ Майкрософт, [установите Azure PowerShell](/powershell/azureps-cmdlets-docs) и запустите командлет Set-AzureStaticVNetIP. Например:
+4. Зарезервируйте статический IP-адрес для виртуальных машин, на которых будет выполняться роль контроллера домена. Чтобы зарезервировать статический IP-адрес, скачайте Установщик веб-платформ Майкрософт, [установите Azure PowerShell](/powershell/azure/overview) и запустите командлет Set-AzureStaticVNetIP. Например:
 
     `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 03/25/2017
 
 Чтобы создать виртуальные машины с помощью Windows PowerShell, а не пользовательского интерфейса, см. раздел [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Дополнительные сведения об использовании Windows PowerShell см. в разделах [Начало работы с командлетами Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) и [Справка по командлетам Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
+Дополнительные сведения об использовании Windows PowerShell см. в разделах [Начало работы с командлетами Azure](/powershell/azure/overview) и [Справка по командлетам Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="see-also"></a>См. также
 * [Установка нового леса Active Directory в виртуальной сети Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
@@ -114,9 +114,9 @@ ms.lasthandoff: 03/25/2017
 * [Microsoft Azure IaaS для профессионалов в сфере IT. (01) Основная информация о виртуальных машинах](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS для профессионалов в сфере IT. (05) Создание виртуальных сетей и подключений между организациями](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 * [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md)
-* [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Справка по командлетам Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
+* [Установка и настройка Azure PowerShell](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Справка по командлетам Azure](/powershell/azure/get-started-azureps)
 * [Настройка статического IP-адреса для виртуальной машины Azure](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 * [Как назначить статический IP-адрес виртуальной машине Azure](http://www.bhargavs.com/index.php/2014/03/13/how-to-assign-static-ip-to-azure-vm/)
 * [Установка нового леса Active Directory](https://technet.microsoft.com/library/jj574166.aspx)

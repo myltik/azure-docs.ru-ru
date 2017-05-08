@@ -1,36 +1,34 @@
 # Обзор
 ## [Azure DevTest Labs](devtest-lab-overview.md)
 ## [Основные понятия](devtest-lab-concepts.md)
+## Сценарии
+### [Использование лабораторий для обучения](devtest-lab-training-lab.md)
 
 # Начало работы
 ## [Создание лаборатории](devtest-lab-create-lab.md)
-## [Создание формул](devtest-lab-create-formulas.md)
-## [Создание виртуальной машины](devtest-lab-add-vm.md)
-## [Управление базовыми политиками лаборатории](devtest-lab-get-started-with-lab-policies.md)
-## [Создание учебной лаборатории](devtest-lab-training-lab.md)
-## [Часто задаваемые вопросы](devtest-lab-faq.md)
+## [Создание первой виртуальной машины](devtest-lab-create-first-vm.md)
+## [Определение начальных политик](devtest-lab-get-started-with-lab-policies.md)
 
 # Практическое руководство:
-## Управление лабораториями
-### [Добавление владельцев и пользователей лаборатории](devtest-lab-add-devtest-user.md)
-### [Управление всеми политиками лаборатории](devtest-lab-set-lab-policy.md)
-### [Предоставление прав политикам](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
-### [Настройка управления затратами](devtest-lab-configure-cost-management.md)
-### [Настройка виртуальных сетей](devtest-lab-configure-vnet.md)
-### [Сведения об общем IP-адресе](devtest-lab-shared-ip.md)
-### [Автоматизация изменения в лабораторной среде с помощью шаблонов и PowerShell](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
-
-## Управление артефактами
-### [Добавление репозитория артефактов](devtest-lab-add-artifact-repo.md)
-### [Создание настраиваемых артефактов](devtest-lab-artifact-author.md)
-### [Управление артефактами](devtest-lab-add-vm-with-artifacts.md)
-
-## Управление базами и шаблонами виртуальных машин
+## Использование виртуальных машин в лаборатории
+### [Создание виртуальных машин](devtest-lab-add-vm.md)
 ### [Создание запрашиваемой виртуальной машины](devtest-lab-add-claimable-vm.md)
-### [Создание сред со множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
+
+## Использование сред в лаборатории
+### [Создание среды](devtest-lab-create-environment-from-arm.md)
+
+## Безопасный доступ к Labs
+### [Добавление владельцев и пользователей лаборатории](devtest-lab-add-devtest-user.md)
+### [Настройка разрешений с помощью пользовательских ролей](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
+
+## Настройка лаборатории
+### [Определение политик и расписаний](devtest-lab-set-lab-policy.md)
+### [Настройка управления затратами](devtest-lab-configure-cost-management.md)
 ### [Настройка образов Marketplace](devtest-lab-configure-marketplace-images.md)
-### [Сравнение образов и формул](devtest-lab-comparing-vm-base-image-types.md)
-### [Управление формулами](devtest-lab-manage-formulas.md)
+
+## [Выбор пользовательского образа или формулы](devtest-lab-comparing-vm-base-image-types.md)
+
+## Управление пользовательскими образами
 ### [Создание пользовательского образа из виртуальной машины](devtest-lab-create-custom-image-from-vm-using-portal.md)
 ### [Создание пользовательского образа виртуального жесткого диска с помощью портала Azure](devtest-lab-create-template.md)
 ### [Создание пользовательского образа виртуального жесткого диска с помощью PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
@@ -38,9 +36,28 @@
 ### [Передача VHD-файла с помощью PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Передача VHD-файла с помощью обозревателя хранилищ](devtest-lab-upload-vhd-using-storage-explorer.md)
 
-# Ресурсы
+## Управление шаблонами для повторного использования
+### [Добавление репозитория Git для артефактов и шаблонов](devtest-lab-add-artifact-repo.md)
+### [Создание настраиваемых артефактов](devtest-lab-artifact-author.md)
+### [Управление формулами](devtest-lab-manage-formulas.md)
+
+## Управление виртуальными сетями
+### [Настройка виртуальных сетей](devtest-lab-configure-vnet.md)
+### [Выбор варианта IP-конфигурации](devtest-lab-shared-ip.md)
+
+# Справочные материалы
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+### [Автоматическое создание или изменение лабораторий](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
+## [ИНТЕРФЕЙС REST API](https://docs.microsoft.com/rest/api/dtl/)
+## [Шаблоны Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
+
+
+# Сопутствующие материалы
+## [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](devtest-lab-faq.md)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=devtest-lab)
-## [Цены](https://azure.microsoft.com/pricing/details/devtest-lab/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+## [Блог группы разработчиков](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
+## [Цены](https://azure.microsoft.com/pricing/details/devtest-lab/)

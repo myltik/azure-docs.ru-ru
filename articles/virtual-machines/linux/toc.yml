@@ -4,7 +4,7 @@
   items:
   - name: "Сведения о виртуальных машинах Azure"
     href: overview.md
-- name: "Быстрый запуск"
+- name: "Быстрое начало работы"
   expanded: true
   items:
   - name: "Создание виртуальной машины с помощью Azure CLI"
@@ -31,6 +31,8 @@
     href: tutorial-load-balancer.md
   - name: "8. Управление сетями"
     href: tutorial-virtual-network.md
+  - name: "9. Управление безопасностью виртуальной машины"
+    href: tutorial-azure-security.md
 - name: "Примеры"
   items:
   - name: "Инфраструктура CLI Azure"

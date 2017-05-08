@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 05/04/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 9f513cfb976848960c2164165994dd5b9fcc4fc1
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: fdb4ed95b25519fb7ff319fe20a0dc5c54506506
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Назначение ролей администратора в Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-assign-admin-roles-azure-portal.md)
-> * [классический портал Azure](active-directory-assign-admin-roles.md)
+> * [классическом портале Azure](active-directory-assign-admin-roles.md)
 >
 >
 
@@ -40,17 +40,17 @@ ms.lasthandoff: 03/03/2017
   >
   >
 
-* **Администратор соответствия требованиям**: пользователи с этой ролью имеют разрешения на управление в центре безопасности и соответствия требованиям Office 365 и центре администрирования Exchange, а также доступ на чтение журналов аудита в центре администрирования Office 365. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1).
+* **Администратор соответствия требованиям:** пользователи с этой ролью имеют разрешения на управление в центре безопасности и соответствия требованиям Office 365 и центре администрирования Exchange, а также доступ на чтение журналов аудита в центре администрирования Office 365. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **Администратор службы CRM.** Пользователи с этой ролью имеют глобальные разрешения в Microsoft CRM Online при наличии этой службы. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
-* **Лицо, утверждающее доступ клиентов к LockBox.** Если включена служба защищенного хранилища, то пользователи с этой ролью могут утверждать запросы инженеров корпорации Майкрософт на доступ к данным компании. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+* **Администратор службы CRM.** Пользователи с этой ролью имеют глобальные разрешения в Microsoft CRM Online при наличии этой службы. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Лицо, утверждающее доступ клиентов к LockBox.** Если включена служба защищенного хранилища, то пользователи с этой ролью могут утверждать запросы инженеров корпорации Майкрософт на доступ к данным компании. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 * **Администраторы устройств**: пользователи с этой ролью становятся администраторами всех устройств Windows 10, присоединенных к Azure Active Directory.
 * **Читатели каталогов**: это устаревшая роль, которая будет назначаться приложениям, не поддерживающим [платформу предоставления разрешений](active-directory-integrating-applications.md). Ее не следует назначать пользователям.
 * **Учетные записи для синхронизации службы каталогов**: не используйте. Эта роль автоматически назначается службе Azure AD Connect, она не предназначена для любого другого использования.
 * **Писатели в каталоги**: это устаревшая роль, которая будет назначаться приложениям, не поддерживающим [платформу предоставления разрешений](active-directory-integrating-applications.md). Ее не следует назначать пользователям.
-* **Администратор службы Exchange.** У пользователей с этой ролью есть глобальные разрешения в Microsoft Exchange Online при наличии этой службы. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
-* **Администратор службы Intune.** У пользователей с этой ролью есть глобальные разрешения в Microsoft Intune Online при наличии этой службы. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
-* **Администратор службы Skype для бизнеса.** У пользователей с этой ролью есть глобальные разрешения в Microsoft Skype для бизнеса при наличии этой службы. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US). Ранее эта роль называлась **Администратор службы Lync**.
+* **Администратор службы Exchange.** У пользователей с этой ролью есть глобальные разрешения в Microsoft Exchange Online при наличии этой службы. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Администратор службы Intune.** У пользователей с этой ролью есть глобальные разрешения в Microsoft Intune Online при наличии этой службы. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Администратор службы Skype для бизнеса.** У пользователей с этой ролью есть глобальные разрешения в Microsoft Skype для бизнеса при наличии этой службы. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). Ранее эта роль называлась **Администратор службы Lync**.
 * **Лицо, приглашающее гостей.** Пользователи в этой роли могут управлять приглашениями гостей. В нее не входят какие-либо другие разрешения.
 * **Администратор почты**: эта роль используется только в целях поддержки по электронной почте Exchange Online для устройств RIM Blackberry. Если в вашей организации не используется электронная почта Exchange Online на устройствах RIM Blackberry, то не используйте эту роль.
 * **Partner Tier 1 Support** (Поддержка для партнеров уровня 1): не используйте эту роль. Она больше не поддерживается и будет удалена из Azure AD в будущем. Эта роль использовалась небольшим числом торговых представителей корпорации Майкрософт и не предназначена для общего использования.
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/03/2017
 
 * **Администратор службы Power BI**. Пользователи с этой ролью имеют глобальные разрешения в Microsoft Power BI при наличии этой службы. Дополнительные сведения см. в записи блога [Making It Easier To Administer Power BI](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/) (Как упростить администрирование Power BI).
 * **Администратор привилегированных ролей**. Пользователи с этой ролью могут управлять технологией Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md), а также обновлять назначения ролей для других пользователей.
-* **Администратор службы SharePoint.** У пользователей с этой ролью есть глобальные разрешения в Microsoft SharePoint Online при наличии этой службы. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+* **Администратор службы SharePoint.** У пользователей с этой ролью есть глобальные разрешения в Microsoft SharePoint Online при наличии этой службы. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 * **Администратор службы**: управляет запросами на обслуживание и отслеживает работоспособность службы.
 
   > [!NOTE]

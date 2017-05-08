@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c2a9a14891f197ae442c41668229d4a7610ba248
-ms.openlocfilehash: 17270815b6278ec6b36a134c313cd543622dd9f4
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 76f59384db37967a9210ba5efa49b25788d21cdc
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,7 +78,7 @@ ms.openlocfilehash: 17270815b6278ec6b36a134c313cd543622dd9f4
 
 - Если вы хотите использовать статический IP-адрес для вашего рабочего слота, необходимо также зарезервировать такой адрес для промежуточного слота. В противном случае переключение завершится ошибкой.
 
-- Все экземпляры роли должны быть запущены перед выполнением переключения. Вы можете проверить состояние экземпляров на классическом портале Azure или с помощью [команды Get-AzureRole в Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+- Все экземпляры роли должны быть запущены перед выполнением переключения. Вы можете проверить состояние экземпляров на классическом портале Azure или с помощью [команды Get-AzureRole в Windows PowerShell](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0).
 
 Обратите внимание, что обновления гостевой ОС и операции восстановления службы также могут быть причиной сбоя переключения развертывания. Дополнительные сведения см. в статье [Устранение неполадок, которые могут возникнуть при развертывании облачной службы](cloud-services-troubleshoot-deployment-problems.md).
 
@@ -108,7 +109,7 @@ ms.openlocfilehash: 17270815b6278ec6b36a134c313cd543622dd9f4
 
     Откроется мастер **привязки ресурсов** .
 
-    ![Мастер привязки ресурсов, страница&1;](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
+    ![Мастер привязки ресурсов, страница 1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
 4. Щелкните **Создать новый ресурс** или **Привязать существующий ресурс**.
 5. Выберите тип связываемого ресурса. На [классическом портале Azure](http://manage.windowsazure.com/)щелкните **База данных SQL**. (В предварительной версии классического портала Azure не поддерживается привязка учетной записи хранения к облачной службе.)
@@ -153,9 +154,4 @@ ms.openlocfilehash: 17270815b6278ec6b36a134c313cd543622dd9f4
 * Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy.md).
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name.md).
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

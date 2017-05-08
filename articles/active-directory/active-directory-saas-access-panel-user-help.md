@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: ff38f1536bf92911c18e0766ee655583c4d913d6
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 53ec54def52a6d0659dc12286148213d88e9ae24
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 
 Скорее всего, вы попали на эту страницу из-за проблем с использованием портала MyApps. Зачастую для устранения проблемы необходимо обратиться в службу технической поддержки или к администратору. Здесь же приведены ответы на часто задаваемые вопросы, которые могут помочь справиться с проблемой самостоятельно.
 
-Дополнительные сведения об управлении паролями см. в разделе [Как сбросить свой пароль](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Дополнительные сведения об управлении паролями см. в разделе [Как сбросить свой пароль](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="what-is-the-myapps-portal"></a>Что такое портал MyApps?
@@ -49,7 +49,7 @@ MyApps — это веб-портал, который позволяет:
 3.    Введите старый пароль, затем введите новый пароль и подтвердите его.
 4.    Нажмите кнопку **Submit**(Отправить).
 
-Дополнительные сведения см. в статье [Как изменить свой пароль](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Дополнительные сведения см. в статье [Как изменить свой пароль](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="how-do-i-setup-password-reset"></a>Как настроить сброс пароля?
@@ -58,7 +58,7 @@ MyApps — это веб-портал, который позволяет:
 2.    В разделе **Управление учетной записью** щелкните **Настроить самостоятельный сброс пароля**.
 3.    Следуйте указаниям в диалоговом окне и нажмите кнопку "Отправить".
 
-Дополнительные сведения см. в разделе [Как сбросить свой пароль](active-directory-passwords-update-your-own-password.md#reset-my-password).
+Дополнительные сведения см. в разделе [Как сбросить свой пароль](active-directory-passwords-update-your-own-password.md).
 
 
 ## <a name="how-can-i-add-a-new-app"></a>Как добавить новое приложение?

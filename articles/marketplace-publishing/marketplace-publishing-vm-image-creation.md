@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2c2f0d7504c898729546adae889c41a49ee7b2c4
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f18b8ef62c82e2b307173971a7251a3aa8f84d69
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -187,7 +187,7 @@ VHD с операционной системой Windows в образе вир�
 * [Образы виртуальных машин в Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 ### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>Настройка необходимых средств, PowerShell и Azure CLI
-* [Приступая к работе с командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Приступая к работе с командлетами Azure PowerShell](/powershell/azure/overview)
 * [Установка Azure CLI](../cli-install-nodejs.md)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1. Создание пользовательского образа виртуальной машины

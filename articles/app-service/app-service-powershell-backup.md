@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 172b55a68662dd98c4af946d51f3ece51f7835e1
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0d1c323155aae90e8a92d7a3b92b5ca1482e1ef5
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/16/2017
         $sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
 ## <a name="install-azure-powershell-132-or-greater"></a>Установка Azure PowerShell 1.3.2 или более поздней версии
-Инструкции по установке и использованию Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Инструкции по установке и использованию Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-a-backup"></a>Создание резервной копии
 Выполните командлет New-AzureRmWebAppBackup для создания резервной копии веб-приложения.

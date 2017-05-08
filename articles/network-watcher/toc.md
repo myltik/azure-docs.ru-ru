@@ -54,7 +54,7 @@
 ## [Обнаружение атак с помощью средств с открытым кодом](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Анализ журналов шлюза приложений в Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # Справочные материалы
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/networkwatcher/)
 # Сопутствующие материалы

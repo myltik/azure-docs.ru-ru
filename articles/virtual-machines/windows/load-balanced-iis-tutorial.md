@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/30/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: ae0fcbf3e8ba28f104e5b44ebe5676875065e2e9
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 61fd0dc45cfa2d320713819be3db811be58ab77e
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/04/2017
 
 ## <a name="step-1---azure-prerequisites"></a>Шаг 1. Предварительные требования Azure
 
-Для работы с этим руководством необходимо установить последнюю версию модуля [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+Для работы с этим руководством необходимо установить последнюю версию модуля [Azure PowerShell](/powershell/azure/overview).
 
 Прежде всего войдите в подписку Azure с помощью команды Login-AzureRmAccount и следуйте инструкциям на экране.
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/04/2017
 Login-AzureRmAccount
 ```
 
-Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Прежде чем создавать другие ресурсы Azure, необходимо создать группу ресурсов с помощью командлета [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Resources/v2.0.3/new-azurermresourcegroup). В следующем примере создается группа ресурсов с именем `myResourceGroup` в регионе `westeurope`: 
+Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Прежде чем создавать другие ресурсы Azure, необходимо создать группу ресурсов с помощью командлета [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). В следующем примере создается группа ресурсов с именем `myResourceGroup` в регионе `westeurope`: 
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location westeurope
@@ -46,7 +46,7 @@ New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location westeurope
 
 Виртуальные машины можно создать в логических доменах сбоя и обновления. Каждый логический домен представляет собой часть оборудования в основном центре обработки данных Azure. При создании двух и более виртуальных машин вычислительные ресурсы и ресурсы хранения распределяются по этим доменам. Это позволяет поддерживать доступность приложения, когда компонент оборудования нуждается в обслуживании. Группы доступности позволяют определить эти логические домены сбоя и обновления.
 
-Создайте группу доступности с помощью командлета [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermavailabilityset). В следующем примере создается группа доступности с именем `myAvailabilitySet`.
+Создайте группу доступности с помощью командлета [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). В следующем примере создается группа доступности с именем `myAvailabilitySet`.
 
 ```powershell
 $availabilitySet = New-AzureRmAvailabilitySet `
@@ -64,7 +64,7 @@ $availabilitySet = New-AzureRmAvailabilitySet `
 
 ### <a name="create-public-ip-address"></a>Создание общедоступного IP-адреса
 
-Для доступа к приложению через Интернет назначьте общедоступный IP-адрес для балансировщика нагрузки. Создайте общедоступный IP-адрес с помощью командлета [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermpublicipaddress). В следующем примере создается общедоступный IP-адрес с именем `myPublicIP`.
+Для доступа к приложению через Интернет назначьте общедоступный IP-адрес для балансировщика нагрузки. Создайте общедоступный IP-адрес с помощью командлета [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). В следующем примере создается общедоступный IP-адрес с именем `myPublicIP`.
 
 ```powershell
 $pip = New-AzureRmPublicIpAddress `
@@ -76,19 +76,19 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-load-balancer"></a>Создание подсистемы балансировки нагрузки
 
-Создайте интерфейсный IP-адрес с помощью командлета [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermloadbalancerfrontendipconfig). В следующем примере создается интерфейсный IP-адрес с именем `myFrontEndPool`: 
+Создайте интерфейсный IP-адрес с помощью командлета [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). В следующем примере создается интерфейсный IP-адрес с именем `myFrontEndPool`: 
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name myFrontEndPool -PublicIpAddress $pip
 ```
 
-Создайте внутренний пул адресов с помощью командлета [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermloadbalancerbackendaddresspoolconfig). В следующем примере создается внутренний пул адресов с именем `myBackEndPool`:
+Создайте внутренний пул адресов с помощью командлета [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). В следующем примере создается внутренний пул адресов с именем `myBackEndPool`:
 
 ```powershell
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 ```
 
-Теперь создайте подсистему балансировки нагрузки с помощью командлета [New-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermloadbalancer). В следующем примере с помощью адреса `myPublicIP` создается балансировщик нагрузки с именем `myLoadBalancer`.
+Теперь создайте балансировщик нагрузки с помощью командлета [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). В следующем примере с помощью адреса `myPublicIP` создается балансировщик нагрузки с именем `myLoadBalancer`.
 
 ```powershell
 $lb = New-AzureRmLoadBalancer `
@@ -103,7 +103,7 @@ $lb = New-AzureRmLoadBalancer `
 
 Чтобы балансировщик нагрузки мог следить за состоянием приложения, необходимо настроить пробу работоспособности. Проба работоспособности динамически добавляет или удаляет виртуальные машины из балансировщика нагрузки на основе их ответа на проверки работоспособности. По умолчанию виртуальная машина удаляется из числа машин, на которые балансировщик распределяет нагрузку, после двух последовательных сбоев с интервалом в 15 секунд.
 
-Создайте пробу работоспособности с помощью командлета [Add-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/add-azurermloadbalancerprobeconfig). В следующем примере создается проба работоспособности с именем `myHealthProbe`, которая отслеживает каждую виртуальную машину.
+Создайте пробу работоспособности с помощью командлета [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). В следующем примере создается проба работоспособности с именем `myHealthProbe`, которая отслеживает каждую виртуальную машину.
 
 ```powershell
 Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
@@ -118,7 +118,7 @@ Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
 
 Правило балансировщика нагрузки позволяет определить распределение трафика между виртуальными машинами.
 
-Создайте правило подсистемы балансировки нагрузки с помощью командлета [Add-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v3.6.0/add-azurermloadbalancerruleconfig). В следующем примере создается правило подсистемы балансировки нагрузки с именем `myLoadBalancerRule` для балансировка трафика через порт `80`:
+Создайте правило подсистемы балансировки нагрузки с помощью командлета [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). В следующем примере создается правило балансировщика нагрузки с именем `myLoadBalancerRule` для балансировки трафика через порт `80`:
 
 ```powershell
 Add-AzureRmLoadBalancerRuleConfig -Name myLoadBalancerRule `
@@ -130,7 +130,7 @@ Add-AzureRmLoadBalancerRuleConfig -Name myLoadBalancerRule `
   -BackendPort 80
 ```
 
-Обновите подсистему балансировки нагрузки с помощью командлета [Set-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermloadbalancer):
+Обновите подсистему балансировки нагрузки с помощью командлета [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
 
 ```powershell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
@@ -142,13 +142,13 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 
 ### <a name="create-virtual-network"></a>Создание виртуальной сети
 
-Сначала настройте подсеть с помощью командлета [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetworksubnetconfig). В следующем примере создается подсеть с именем `mySubnet`
+Сначала настройте подсеть с помощью командлета [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). В следующем примере создается подсеть с именем `mySubnet`
 
 ```powershell
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 ```
 
-Чтобы установить сетевое подключение к виртуальным машинам, создайте виртуальную сеть с помощью командлета [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermvirtualnetwork). В следующем примере создается виртуальная сеть `myVnet` с подсетью `mySubnet`:
+Чтобы установить сетевое подключение к виртуальным машинам, создайте виртуальную сеть с помощью командлета [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). В следующем примере создается виртуальная сеть `myVnet` с подсетью `mySubnet`:
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork `
@@ -163,7 +163,7 @@ $vnet = New-AzureRmVirtualNetwork `
 
 [Группа безопасности сети](../../virtual-network/virtual-networks-nsg.md) Azure управляет входящим и исходящим трафиком одной или нескольких виртуальных машин. Правила группы безопасности сети разрешают или запрещают передачу сетевого трафика на определенный порт или диапазон портов. Эти правила также могут включать префикс адреса источника, чтобы на виртуальную машину передавался только трафик от определенного источника.
 
-Чтобы разрешить получение веб-трафика в приложении, создайте правило группы безопасности сети с помощью командлета [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecurityruleconfig). В следующем примере создается правило группы безопасности сети с именем `myNetworkSecurityGroupRule`.
+Чтобы разрешить получение веб-трафика в приложении, создайте правило группы безопасности сети с помощью командлета [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). В следующем примере создается правило группы безопасности сети с именем `myNetworkSecurityGroupRule`.
 
 ```powershell
 $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -178,7 +178,7 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Создайте группу безопасности сети с помощью командлета [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworksecuritygroup). В следующем примере создается группа безопасности сети с именем `myNetworkSecurityGroup`:
+Создайте группу безопасности сети с помощью командлета [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). В следующем примере создается группа безопасности сети с именем `myNetworkSecurityGroup`:
 
 ```powershell
 $nsg = New-AzureRmNetworkSecurityGroup `
@@ -188,7 +188,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgRule
 ```
 
-Добавьте группу безопасности сети в подсеть с помощью командлета [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetworksubnetconfig):
+Добавьте группу безопасности сети в подсеть с помощью командлета [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig):
 
 ```powershell
 Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet `
@@ -197,7 +197,7 @@ Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet `
   -AddressPrefix 192.168.1.0/24
 ```
 
-Обновите виртуальную сеть с помощью командлета [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/set-azurermvirtualnetwork):
+Обновите виртуальную сеть с помощью командлета [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork):
 
 ```powershell
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
@@ -207,7 +207,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 При работе балансировщиков нагрузки используется сетевой адаптер, связанный с виртуальной, а не с фактической виртуальной машиной. Виртуальный сетевой адаптер подключается к балансировщику нагрузки, а затем к виртуальной машине.
 
-Создайте виртуальную сетевую карту с помощью командлета [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/new-azurermnetworkinterface). В следующем примере создаются три виртуальных сетевых адаптера (один виртуальный сетевой адаптер создается для каждой виртуальной машины, используемой приложением).
+Создайте виртуальную сетевую карту с помощью командлета [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). В следующем примере создаются три виртуальных сетевых адаптера (один виртуальный сетевой адаптер создается для каждой виртуальной машины, используемой приложением).
 
 
 ```powershell
@@ -232,7 +232,7 @@ for ($i=1; $i -le 3; $i++)
 $cred = Get-Credential
 ```
 
-Создайте виртуальные машины с помощью командлетов [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvmconfig), [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmoperatingsystem), [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmosdisk), [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmnetworkinterface) и [New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvm). В следующем примере создаются три виртуальные машины:
+Создайте виртуальные машины с помощью командлетов [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermvmconfig), [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmoperatingsystem), [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmosdisk), [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/add-azurermvmnetworkinterface) и [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). В следующем примере создаются три виртуальные машины:
 
 ```powershell
 for ($i=1; $i -le 3; $i++)
@@ -252,9 +252,9 @@ for ($i=1; $i -le 3; $i++)
 
 ### <a name="install-the-app"></a>Установка приложения 
 
-Расширения виртуальной машины Azure позволяют автоматизировать задачи по настройке виртуальной машины, например установку приложений и настройку операционной системы. [Расширение пользовательских сценариев для Windows](./../virtual-machines-windows-extensions-customscript.md) позволяет запустить на виртуальной машине любой сценарий PowerShell. Сценарий может быть сохранен в хранилище Azure или в любой доступной конечной точке HTTP, а также встроен в конфигурацию расширения пользовательских сценариев. При использовании расширения пользовательских сценариев агент виртуальной машины Azure управляет выполнением сценария.
+Расширения виртуальной машины Azure позволяют автоматизировать задачи по настройке виртуальной машины, например установку приложений и настройку операционной системы. С помощью [расширения пользовательских скриптов для Windows](./../virtual-machines-windows-extensions-customscript.md) можно запустить на виртуальной машине любой скрипт PowerShell. Сценарий может быть сохранен в хранилище Azure или в любой доступной конечной точке HTTP, а также встроен в конфигурацию расширения пользовательских сценариев. При использовании расширения пользовательских сценариев агент виртуальной машины Azure управляет выполнением сценария.
 
-Воспользуйтесь командлетом [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.8.0/set-azurermvmextension), чтобы установить расширение пользовательских сценариев. Расширение запускает `powershell Add-WindowsFeature Web-Server` для установки веб-сервера IIS:
+Воспользуйтесь командлетом [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension), чтобы установить расширение пользовательских сценариев. Расширение запускает `powershell Add-WindowsFeature Web-Server` для установки веб-сервера IIS:
 
 ```powershell
 for ($i=1; $i -le 3; $i++)
@@ -272,7 +272,7 @@ for ($i=1; $i -le 3; $i++)
 
 ### <a name="test-your-app"></a>Тестирование приложения
 
-Получите общедоступный IP-адрес своей подсистемы балансировки нагрузки с помощью командлета [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermpublicipaddress). Следующий пример позволяет получить IP-адрес для созданного ранее `myPublicIP`.
+Получите общедоступный IP-адрес своей подсистемы балансировки нагрузки с помощью командлета [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Следующий пример позволяет получить IP-адрес для созданного ранее `myPublicIP`.
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIP | select IpAddress
@@ -290,7 +290,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIP |
 
 Удалите виртуальную машину из внутреннего пула адресов, сбросив свойство LoadBalancerBackendAddressPools сетевой карты.
 
-Получите сетевую карту с помощью командлета [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.6.0/get-azurermnetworkinterface):
+Получите сетевую карту с помощью командлета [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface):
 
 ```powershell
 $nic = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroup -Name myNic2
@@ -332,4 +332,5 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Примеры сценариев PowerShell для виртуальной машины Azure](./../virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Примеры PowerShell для виртуальной машины Azure](./../virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+

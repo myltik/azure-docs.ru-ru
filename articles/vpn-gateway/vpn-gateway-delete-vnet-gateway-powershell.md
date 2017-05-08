@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d2bb2422a8458f1577c14bad8d24d8c9cb3ead1b
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f3b464350f027bb1966638542fcc64d6fdc00a71
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/31/2017
 ## <a name="before-beginning"></a>Подготовка
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Скачайте последнюю версию командлетов PowerShell для Azure Resource Manager.
-Скачайте и установите последнюю версию командлетов PowerShell для Azure Resource Manager. Дополнительные сведения о скачивании и установке командлетов PowerShell см. в статье [Get started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) (Приступая к работе с командлетами Azure PowerShell).
+Скачайте и установите последнюю версию командлетов PowerShell для Azure Resource Manager. Дополнительные сведения о скачивании и установке командлетов PowerShell см. в статье [Get started with Azure PowerShell cmdlets](/powershell/azure/overview) (Приступая к работе с командлетами Azure PowerShell).
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Подключитесь к своей учетной записи Azure. 
 Откройте консоль PowerShell и подключитесь к своей учетной записи. Для подключения используйте следующий пример кода:
@@ -325,3 +325,4 @@ Get-AzureRmResourceGroup -ResourceGroupName RG1
     ResourceGroupName : RG1
     Location          : eastus
     ProvisioningState : Succeeded
+

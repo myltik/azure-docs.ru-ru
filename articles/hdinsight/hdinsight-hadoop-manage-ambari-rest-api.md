@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2e26bd81c59fd53a0e8fc693dde30cb403995896
-ms.openlocfilehash: 38d37e45c34c8c0a3bd2ed94f72944208292f466
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ce6d8301c9c9fc0b9ac6bc2e31023ebbbba8a67c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -292,7 +292,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     Вернется похожее значение: `/clusters/CLUSTERNAME/`. Это значение представляет путь в учетной записи Data Lake Store. Путь является корнем совместимой файловой системы HDFS для кластера. 
 
 > [!NOTE]
-> Командлет `Get-AzureRmHDInsightCluster`, доступный в [Azure PowerShell](https://docs.microsoft.com/powershell/), также возвращает сведения о хранилище для кластера.
+> Командлет `Get-AzureRmHDInsightCluster`, доступный в [Azure PowerShell](/powershell/azure/overview), также возвращает сведения о хранилище для кластера.
 
 
 ## <a name="example-get-configuration"></a>Пример. Получение конфигурации

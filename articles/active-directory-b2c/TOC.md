@@ -9,14 +9,14 @@
 ## Краткие руководства
 ### [Создание приложения iOS](active-directory-b2c-devquickstarts-ios.md)
 ### [Создание приложения Android](active-directory-b2c-devquickstarts-android.md)
-### [Создание веб-API Node.Js](active-directory-b2c-devquickstarts-api-node.md)
-### [Создание веб-приложения .NET](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Регистрация и вход в веб-приложение ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### Создание веб-приложения .NET
+#### [Регистрация и вход в веб-приложение .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+#### [Вызов веб-API из веб-приложения .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 ### [Создание веб-API .NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Создание классического приложения для Windows](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Вызов веб-API из веб-приложения .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Создание веб-приложения Node.Js](active-directory-b2c-devquickstarts-web-node.md)
+### [Создание веб-API Node.Js](active-directory-b2c-devquickstarts-api-node.md)
+### [Создание классического приложения .NET](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [Использование API Graph Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Добавление функции входа в веб-приложение Node.js](active-directory-b2c-devquickstarts-web-node.md)
 ## [Часто задаваемые вопросы](active-directory-b2c-faqs.md)
 
 # Практическое руководство:
@@ -53,7 +53,7 @@
 
 # Ресурсы
 ## [Цены](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Форум отзывов и предложений по Azure](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Форум отзывов и предложений по Azure AD B2C](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Поддержка](active-directory-b2c-support.md)

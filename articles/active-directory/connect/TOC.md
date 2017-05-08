@@ -67,6 +67,7 @@
 ### [Ошибки при синхронизации](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Объект не синхронизирован](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Синхронизация паролей](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Ошибка LargeObject, вызванная userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Восстановление из LocalDB с ограничением в 10 ГБ](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Справочные материалы

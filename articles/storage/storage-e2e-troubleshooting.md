@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: acf807538c8c9efdadb95c4b66db9a9d5d1f7a6d
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d1709c2c28505e66a88cfbbcf4dc88c8ccca841f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -103,9 +103,9 @@ ms.lasthandoff: 04/25/2017
 
 **Через PowerShell**
 
-Чтобы начать работу с PowerShell для Azure, см. раздел [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Чтобы начать работу с PowerShell для Azure, см. раздел [Как установить и настроить Azure PowerShell](/powershell/azure/overview).
 
-1. Выполните командлет [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) в окне PowerShell, чтобы добавить свою учетную запись пользователя Azure.
+1. Выполните командлет [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) в окне PowerShell, чтобы добавить свою учетную запись пользователя Azure.
    
     ```powershell
     Add-AzureAccount
@@ -374,3 +374,4 @@ AzCopy можно скачать на странице [Загрузки Azure](
 * [Мониторинг учетной записи хранения на портале Azure](storage-monitor-storage-account.md)
 * [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 * [Руководство по работе с анализатором сообщений (Майкрософт)](http://technet.microsoft.com/library/jj649776.aspx)
+

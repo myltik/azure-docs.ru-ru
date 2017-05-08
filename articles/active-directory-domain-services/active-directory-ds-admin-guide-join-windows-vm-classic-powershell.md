@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: fdc53ee24c623218e218cdda1c24dffbbec50bc5
-ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9fc3b38b22c3a092dc2d932d2d7471872f5ba66d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/05/2017
 
 Материал в этих шагах для создания наборов команд Azure PowerShell представлен таким образом, что достаточно лишь заполнить пробелы. Это удобно, если вы не работали с PowerShell или хотите знать, какие именно значения отвечают за работоспособность конфигурации. Опытные пользователи PowerShell могут подставить в команды собственные значения для переменных (строки, начинающиеся со знака "$").
 
-Если вы еще не сделали этого, следуйте указаниям в разделе [Как установить и настроить Azure PowerShell](/powershell/azureps-cmdlets-docs) , чтобы установить Azure PowerShell на локальном компьютере. Затем откройте командную строку Windows PowerShell.
+Если вы еще не сделали этого, следуйте указаниям в разделе [Как установить и настроить Azure PowerShell](/powershell/azure/overview) , чтобы установить Azure PowerShell на локальном компьютере. Затем откройте командную строку Windows PowerShell.
 
 ## <a name="step-1-add-your-account"></a>Шаг 1. Добавление учетной записи
 1. В командной строке PowerShell введите **Add-AzureAccount** и нажмите клавишу **ВВОД**.

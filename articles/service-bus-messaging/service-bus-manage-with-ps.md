@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 04/06/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: b4acb01f4939b55317ac0c78eb467159d872f47a
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 02e4e58418e289eaf4b619a6cfc411fe1f50f48f
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Управление ресурсами служебной шины с помощью модуля PowerShell
 
-Microsoft Azure PowerShell — это среда сценариев, которую можно использовать для контроля и автоматизации развертывания служб Azure, а также для управления ими. В этой статье описывается использование [модуля PowerShell для диспетчера ресурсов Resource Manager служебной шины](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) для подготовки и управления сущностями служебной шины (пространством имен, очередями, разделами и подписками) с помощью локальной консоли или сценария Azure PowerShell.
+Microsoft Azure PowerShell — это среда сценариев, которую можно использовать для контроля и автоматизации развертывания служб Azure, а также для управления ими. В этой статье описывается использование [модуля PowerShell для диспетчера ресурсов Resource Manager служебной шины](/powershell/module/azurerm.servicebus) для подготовки и управления сущностями служебной шины (пространством имен, очередями, разделами и подписками) с помощью локальной консоли или сценария Azure PowerShell.
 
 Сущностями служебной шины можно также управлять с помощью шаблонов Azure Resource Manager. Дополнительные сведения см. в статье [Создание ресурсов служебной шины с использованием шаблонов Azure Resource Manager](service-bus-resource-manager-overview.md).
 
@@ -158,11 +158,11 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## <a name="provisioning-other-service-bus-entities"></a>Подготовка других сущностей Service Bus
 
-Можно использовать [модуль PowerShell для служебной шины](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus) для подготовки других сущностей, таких как разделы и подписки. Эти командлеты синтаксически аналогичны командлетам создания очередей, показанным в предыдущем разделе.
+Можно использовать [модуль PowerShell для служебной шины](/powershell/module/azurerm.servicebus) для подготовки других сущностей, таких как разделы и подписки. Эти командлеты синтаксически аналогичны командлетам создания очередей, показанным в предыдущем разделе.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- С полной документацией по модулю Resource Manager PowerShell для служебной шины можно ознакомиться [здесь](/powershell/module/azurerm.servicebus/?view=azurermps-3.7.0#service_bus). На этой странице перечислены все доступные командлеты.
+- С полной документацией по модулю Resource Manager PowerShell для служебной шины можно ознакомиться [здесь](/powershell/module/azurerm.servicebus). На этой странице перечислены все доступные командлеты.
 - Дополнительные сведения об использовании шаблонов Azure Resource Manager см. в статье [Создание ресурсов служебной шины с использованием шаблонов Azure Resource Manager](service-bus-resource-manager-overview.md).
 - Сведения о [библиотеках управления служебной шины .NET](service-bus-management-libraries.md).
 

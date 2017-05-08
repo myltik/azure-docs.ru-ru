@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 280737097038ff328d487477279ce4f204b0ac0c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8fcd609da46e88f7db90692c7e67011df64c9b4e
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -99,7 +99,7 @@ ms.lasthandoff: 04/12/2017
     ```
 
    > [!NOTE]
-   > Замените **resourcegroupname** на имя своей группы ресурсов Azure. Для создания группы ресурсов можно использовать командлет [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) .
+   > Замените **resourcegroupname** на имя своей группы ресурсов Azure. Для создания группы ресурсов можно использовать командлет [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) .
 7. Добавьте следующий код, создающий **фабрику данных**, в метод **Main**.
 
     ```csharp
@@ -445,7 +445,7 @@ TokenCloudCredentials aadTokenCredentials =
 Запишите идентификатор приложения и пароль (секрет клиента) и используйте их в пошаговом руководстве.
 
 ## <a name="get-azure-subscription-and-tenant-ids"></a>Получение идентификаторов подписки и клиента Azure
-Если на вашем компьютере не установлена последняя версия Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) , чтобы установить ее.
+Если на вашем компьютере не установлена последняя версия Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview) , чтобы установить ее.
 
 1. Запустите Azure PowerShell и выполните следующую команду.
 2. Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.

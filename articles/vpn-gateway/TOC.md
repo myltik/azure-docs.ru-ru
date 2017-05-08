@@ -37,21 +37,23 @@
 ### [PowerShell (классическая модель)](vpn-gateway-multi-site.md)
 ## [Настройка BGP для VPN-шлюза](vpn-gateway-bgp-resource-manager-ps.md)
 ## [Настройка высокодоступных подключений в режиме "активный — активный"](vpn-gateway-activeactive-rm-powershell.md)
-## [Изменение параметров шлюза локальной сети с помощью PowerShell](vpn-gateway-modify-local-network-gateway.md)
+## Изменение настроек локального сетевого шлюза
+### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Проверка подключения VPN-шлюза](vpn-gateway-verify-connection-resource-manager.md)
 ## [Сброс VPN-шлюза](vpn-gateway-resetgw-classic.md)
 ## Удаление VPN-шлюза
 ### [Портал Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (классическая модель)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Создание самозаверяющих корневых сертификатов для подключений типа "точка — сеть"](vpn-gateway-certificates-point-to-site.md)
+## [Создание самозаверяющих сертификатов для подключений типа "точка — сеть"](vpn-gateway-certificates-point-to-site.md)
 ## [Настройка VPN-шлюза (классическая модель)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Устранение неполадок
 ### [Проверка пропускной способности VPN для виртуальной сети](vpn-gateway-validate-throughput-to-vnet.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
-## [PowerShell (классическая модель)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell](/powershell/module/azurerm.network)
+## [PowerShell (классическая модель)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/library/mt163859)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/jj154113)
 ## [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/network)

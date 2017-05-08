@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 325d669f11891bf070d9bbb468af7427adda46d3
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4e2fe22953ff74214c0c20fdf2fabceeda63be35
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/12/2017
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Просмотр удаленных групп Office 365, которые доступны для восстановления
-Следующие командлеты можно использовать для просмотра удаленных групп, чтобы убедиться, что нужные группы еще не удалены окончательно. Эти командлеты входят в [модуль предварительной версии 2 PowerShell для Azure Active Directory](https://www.powershellgallery.com/packages/AzureADPreview). Дополнительные сведения об этом модуле можно найти в статье [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) (Модуль PowerShell версии 2 для Azure Active Directory).
+Следующие командлеты можно использовать для просмотра удаленных групп, чтобы убедиться, что нужные группы еще не удалены окончательно. Эти командлеты входят в [модуль предварительной версии 2 PowerShell для Azure Active Directory](https://www.powershellgallery.com/packages/AzureADPreview). Дополнительные сведения об этом модуле можно найти в статье [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0) (Модуль PowerShell версии 2 для Azure Active Directory).
 Обратите внимание, что командлеты для управления обратимым удалением и восстановлением находятся на этапе общедоступной предварительной версии и иногда нам требуется внести критические изменения в командлеты предварительной версии. Поэтому не рекомендуется использовать эти командлеты в рабочей среде.
 
 1.    Запустите следующий командлет, чтобы отобразить в клиенте все удаленные группы Office 365, которые доступны для восстановления.

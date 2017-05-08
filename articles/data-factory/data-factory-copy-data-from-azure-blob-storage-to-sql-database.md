@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 393bc1ad782b072f3b27eeeb3e4149ec8ab64252
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 74301d651ae96588e5fd076900aada198c76deb0
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -91,7 +91,7 @@ ms.lasthandoff: 04/12/2017
     John, Doe
     Jane, Doe
     ```
-2. При помощи таких инструментов, как [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/), создайте контейнер **adftutorial** и передайте файл **emp.txt** в этот контейнер.
+2. При помощи таких инструментов, как [Azure Storage Explorer](http://storageexplorer.com/), создайте контейнер **adftutorial** и передайте файл **emp.txt** в этот контейнер.
 
     ![Обозреватель хранилищ Azure Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Используйте следующий скрипт SQL, чтобы создать таблицу **emp** в базе данных SQL Azure.  
@@ -112,6 +112,7 @@ ms.lasthandoff: 04/12/2017
 
     Если клиенту не разрешен доступ к серверу Azure SQL Server, то следует настроить брандмауэр вашего сервера Azure SQL Server, чтобы разрешить доступ с вашей машины (IP-адрес). В [этой статье](../sql-database/sql-database-configure-firewall-settings.md) описано, как настроить брандмауэр для сервера Azure SQL Server.
 
+## <a name="create-a-data-factory"></a>Создание фабрики данных
 Необходимые условия выполнены. Для создания фабрики данных можно использовать один из приведенных ниже способов. Выберите в раскрывающемся списке в верхней части страницы один из вариантов или щелкните одну из следующих ссылок, чтобы изучить руководство.     
 
 * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
@@ -126,3 +127,4 @@ ms.lasthandoff: 04/12/2017
 > Описанный в этом руководстве конвейер данных копирует данные из исходного хранилища данных в целевое. Он не преобразовывает входные данные в выходные. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [учебнике по созданию первого конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).
 > 
 > Можно объединить в цепочку два действия (выполнить одно действие вслед за другим), настроив выходной набор данных одного действия как входной набор данных другого действия. Подробные сведения см. в статье [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md). 
+

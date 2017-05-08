@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 39ee9cc1027958d85b2af2781adab0fe06c9a433
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5489762a7a392e4e4098d85cba22d560e9858267
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 39ee9cc1027958d85b2af2781adab0fe06c9a433
 
 Прежде чем начать, пара моментов, которые стоит запомнить:
 
-1. В этом руководстве используется Azure PowerShell, поэтому убедитесь, что это средство установлено и готово к использованию. Справку об установке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+1. В этом руководстве используется Azure PowerShell, поэтому убедитесь, что это средство установлено и готово к использованию. Справку об установке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 2. Экземпляры контроллера домена AD и веб-ролей или рабочих ролей должны быть в виртуальной сети.
 
 Следуйте этому пошаговому руководству и, если возникнут проблемы, оставьте нам комментарий ниже. Кто-нибудь из наших сотрудников вам ответит (да, мы читаем ваши комментарии).
@@ -155,9 +156,4 @@ Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-na
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

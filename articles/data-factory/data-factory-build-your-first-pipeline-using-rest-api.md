@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 78117fd3947be922e339931a0f8f31040ebf79fe
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 19fe97eb41be3222a846f86b2a390bf86157884f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -47,7 +47,7 @@ ms.lasthandoff: 02/03/2017
   2. Получите **идентификатор клиента** и **секретный ключ**.
   3. Получите значение для **tenant_id**.
   4. Назначьте приложение **ADFGetStartedApp** роли **участника фабрики данных**.
-* Установите [Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Установите [Azure PowerShell](/powershell/azure/overview).
 * Откройте **PowerShell** и выполните приведенные ниже команды. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
   1. Выполните командлет **Login-AzureRmAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.
   2. Выполните командлет **Get-AzureRmSubscription** , чтобы просмотреть все подписки для этой учетной записи.

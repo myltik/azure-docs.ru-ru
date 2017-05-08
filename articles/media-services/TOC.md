@@ -211,8 +211,8 @@
 ### [Логика повтора](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Справочные материалы
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
-## [PowerShell (управление службами)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
+## [PowerShell (управление службами)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media)
 

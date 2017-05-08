@@ -24,7 +24,7 @@
 ### [Безопасность уровня строк в Power BI Embedded](power-bi-embedded-rls.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.powerbiembedded/v2.3.0/azurerm.powerbiembedded)
+## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [Использование Azure Resource Manager с .NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Скачивание пакета SDK для .NET](https://www.nuget.org/profiles/powerbi)
 ## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)

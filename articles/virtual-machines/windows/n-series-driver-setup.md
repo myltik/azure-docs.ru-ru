@@ -17,9 +17,9 @@ ms.date: 04/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 1767a2db05abd3abadfedbef86c38e55c5a57980
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 717f4969a91209576a504c94c31993b938770432
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -70,7 +70,7 @@ ms.lasthandoff: 04/04/2017
 
 ## <a name="rdma-network-for-nc24r-vms"></a>Сеть RDMA для виртуальных машин NC24r
 
-Можно включить сетевое подключение RDMA на виртуальных машинах NC24r, развернутых в одной группе доступности. Необходимо добавить расширение HpcVmDrivers для установки драйверов сетевых устройств Windows, обеспечивающих подключения RDMA. Чтобы в виртуальную машину NC24r добавить расширение виртуальной машины, используйте командлеты [Azure PowerShell](/powershell/azureps-cmdlets-docs) для Azure Resource Manager.
+Можно включить сетевое подключение RDMA на виртуальных машинах NC24r, развернутых в одной группе доступности. Необходимо добавить расширение HpcVmDrivers для установки драйверов сетевых устройств Windows, обеспечивающих подключения RDMA. Чтобы в виртуальную машину NC24r добавить расширение виртуальной машины, используйте командлеты [Azure PowerShell](/powershell/azure/overview) для Azure Resource Manager.
 
 > [!NOTE]
 > В настоящее время только Windows Server 2012 R2 поддерживает сеть RDMA на виртуальных машинах NC24r.

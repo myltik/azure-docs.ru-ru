@@ -1,24 +1,11 @@
 ---
-title: "Лексический анализ тональности (устаревшая версия) | Документация Майкрософт"
-description: "Сведения о лексическом анализе тональности (устаревшая версия)."
-services: machine-learning
-documentationcenter: 
-author: pengxia
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 912f41af-966c-4d79-a413-6f9fc02823df
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
-ms.author: pengxia
+
 ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: https://gallery.cortanaintelligence.com/
 translationtype: Human Translation
-ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
-ms.openlocfilehash: 02a6005c47734419903f324f6fb60440f9d62664
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 9c7b8e4378cbc19255e60aa177207afe3d552087
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -80,7 +67,7 @@ ms.lasthandoff: 01/11/2017
 
 
 
-Входные данные: "Сегодня хороший день". Служба возвращает значение&1;, указывая на положительное мнение, высказанное в исходной фразе. 
+Входные данные: "Сегодня хороший день". Служба возвращает значение 1, указывая на положительное мнение, высказанное в исходной фразе. 
 
 ## <a name="creation-of-web-service"></a>Создание веб-службы
 > Эта веб-служба была создана с помощью системы машинного обучения Azure. Чтобы получить бесплатную пробную версию и вводные видеоматериалы по созданию экспериментов и [публикации веб-служб](machine-learning-publish-a-machine-learning-web-service.md), посетите веб-страницу [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, в результате которого была создана веб-служба, и пример кода для каждого модуля в эксперименте.

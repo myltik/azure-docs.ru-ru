@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: e2d70bbb2af4231a9ba7e4d9a843593ff5d9f7d3
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ec3c593c0fb6a92b65284285b330e20f788b84c5
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/14/2017
 
 В остальных разделах этой статьи представлены действия по выполнению задач, связанных с сетевой картой. В каждом разделе указано следующее:
 - Действия для выполнения задачи на портале Azure. Для выполнения действий нужно войти на [портал Azure](http://portal.azure.com). [Зарегистрируйтесь для получения бесплатной пробной учетной записи](https://azure.microsoft.com/free), если у вас ее нет.
-- Команды для выполнения задачи с помощью Azure PowerShell (со ссылками на справочник по командам). Установите и настройте PowerShell, выполнив действия, описанные в [этой статье](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Для получения справки по командам PowerShell с примерами введите `get-help <command> -full`.
+- Команды для выполнения задачи с помощью Azure PowerShell (со ссылками на справочник по командам). Установите и настройте PowerShell, выполнив действия, описанные в [этой статье](/powershell/azure/overview). Для получения справки по командам PowerShell с примерами введите `get-help <command> -full`.
 - Команды для выполнения задачи с помощью интерфейса командной строки Azure (Azure CLI) (со ссылками на справочник по командам). Установите и настройте Azure CLI 2.0, следуя инструкциям в [этой статье](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Для получения справки по командам интерфейса командной строки введите `az <command> -h`.
 
 ## <a name="nics"></a>Сетевые интерфейсы
@@ -78,7 +78,7 @@ ms.lasthandoff: 04/14/2017
 |**Средство**|**Команда**|
 |:---|:---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network nic create](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|**PowerShell**|[New-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermnetworkinterface/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|**PowerShell**|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/nic)|
 
 ### <a name="view-nics"></a>Просмотр и изменение сетевых интерфейсов и параметров
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 04/14/2017
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network nic list](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) для просмотра сетевых карт в подписке, [az network nic show](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) для просмотра параметров сетевой карты.|
-|**PowerShell**|[Get-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) для просмотра сетевых карт в подписке или параметров сетевой карты.|
+|**PowerShell**|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) для просмотра сетевых карт в подписке или параметров сетевой карты.|
 
 ### <a name="dns"></a>Изменение параметров DNS для сетевой карты
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 04/14/2017
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ### <a name="ip-forwarding"></a>Изменение IP-пересылки для сетевой карты
 
@@ -136,7 +136,7 @@ ms.lasthandoff: 04/14/2017
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ### <a name="subnet"></a>Изменение подсети, к которой подключена сетевая карта
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 04/14/2017
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 
 ### <a name="delete-nic"></a>Удаление сетевого интерфейса
@@ -169,7 +169,7 @@ ms.lasthandoff: 04/14/2017
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network nic delete](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|**PowerShell**|[Remove-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.1.0/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
 ## <a name="ip-configs"></a>IP-конфигурации
 Каждой сетевой карте назначена по крайней мере одна IP-конфигурация, которая называется **основной**. С сетевой картой также может быть связана одна или несколько *дополнительных* IP-конфигураций. Число IP-адресов, которые можно назначить сетевой карте, ограничено. Дополнительные сведения см. в статье об [ограничениях в Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Каждой IP-конфигурации назначаются следующие ресурсы:
@@ -205,7 +205,7 @@ DHCP-сервер Azure назначает частный IP-адрес для �
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|**PowerShell**|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
 
 ### <a name="change-ip-config"></a>Изменение IP-конфигурации
 
@@ -225,7 +225,7 @@ DHCP-сервер Azure назначает частный IP-адрес для �
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ### <a name="delete-ip-config"></a>Удаление дополнительной IP-конфигурации из сетевой карты
 
@@ -239,7 +239,7 @@ DHCP-сервер Azure назначает частный IP-адрес для �
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|**PowerShell**|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/v3.4.0/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
 
 
 ## <a name="nsgs"></a>Группы безопасности сети
@@ -259,7 +259,7 @@ DHCP-сервер Azure назначает частный IP-адрес для �
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="vms"></a>Подключение и отключение сетевых карт в виртуальной машине
 
@@ -286,7 +286,7 @@ DHCP-сервер Azure назначает частный IP-адрес для �
 Невозможно подключить существующие сетевые карты к новой виртуальной машине или создать виртуальную машину с несколькими сетевыми картами на портале Azure. Чтобы подключить одну или несколько существующих сетевых карт при создании виртуальной машины, можно использовать следующие команды Azure CLI или PowerShell:
 
 - **Интерфейс командной строки:** [az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create).
-- **PowerShell:** [New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/v2.5.0/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **PowerShell:** [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ### <a name="vm-view-nic"></a>Просмотр сетевых карт, подключенных к виртуальной машине
 
@@ -298,21 +298,21 @@ DHCP-сервер Azure назначает частный IP-адрес для �
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
-|**PowerShell**|[Get-AzureRmVM](/powershell/resourcemanager/azurerm.compute/v1.3.4/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm)|
 
 ### <a name="vm-attach-nic"></a>Подключение сетевой карты к существующей виртуальной машине
 
 Виртуальная машина, к которой нужно подключить сетевую карту, должна поддерживать использование нескольких сетевых карт и должна быть остановлена (освобождена). Невозможно подключить сетевые карты к существующей виртуальной машине с помощью портала Azure. Для подключения сетевых карт к виртуальным машинам можно использовать следующие команды Azure CLI или PowerShell:
 
 - **Интерфейс командной строки:** [az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add).
-- **PowerShell:** [Add-AzureRmVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **PowerShell:** [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface).
 
 ### <a name="vm-detach-nic"></a>Отключение сетевой карты от существующей виртуальной машины
 
 Виртуальная машина, от которой следует отключить сетевую карту, должна быть остановлена (освобождена) и к ней должны быть подключены по крайней мере две сетевые карты. Вы можете отключить любую сетевую карту, но к виртуальной машине всегда должна быть подключена по крайней мере одна сетевая карта. При отключении основной сетевой карты Azure назначает основной атрибут остальным присоединенным сетевым картам, которые были подключены к виртуальной машине дольше всего. Кроме того, любую сетевую карту можно указать в качестве основной. Невозможно отключить сетевые карты от виртуальной машины или задать основной атрибут сетевой карте с помощью портала Azure, хотя все это можно сделать с помощью интерфейса командной строки или PowerShell. Для отключения сетевых карт от виртуальных машин можно использовать следующие команды Azure CLI или PowerShell:
 
 - **Интерфейс командной строки:** [az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove).
-- **PowerShell:** [Remove-AzureRMVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/v2.5.0/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **PowerShell:** [Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы создать виртуальную машину с несколькими сетевыми картами или IP-конфигурациями с помощью скриптов, см. следующие статьи:

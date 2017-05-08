@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 84b5f28fcd0640fd85b5f8c9d655105790c70d62
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e652218e6579ef430a5dc49f77a26a7d97b8b966
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -299,7 +299,7 @@ ms.lasthandoff: 02/16/2017
 Теперь, когда изменение в слоте бета-версии запущено, можно выполнить развертывание в режиме фокус-тестирования.
 
 ## <a name="validate-route-traffic-to-the-beta-app"></a>Проверка: маршрутизация трафика в бета-версию приложения
-В этом разделе будет выполнена маршрутизация трафика в бета-версию приложения. Для наглядности вы выполните маршрутизацию значительной части пользовательского трафика. В реальности объем перенаправляемого трафика будет зависеть от конкретной ситуации. Например, если у вас сайт масштаба microsoft.com, для получения полезных данных вам потребуется менее&1; % от всего трафика.
+В этом разделе будет выполнена маршрутизация трафика в бета-версию приложения. Для наглядности вы выполните маршрутизацию значительной части пользовательского трафика. В реальности объем перенаправляемого трафика будет зависеть от конкретной ситуации. Например, если у вас сайт масштаба microsoft.com, для получения полезных данных вам потребуется менее 1 % от всего трафика.
 
 1. В сеансе Git Shell выполните следующие команды для маршрутизации половины рабочего трафика в слот бета-версии:
 
@@ -355,6 +355,6 @@ ms.lasthandoff: 02/16/2017
 * [Создание шаблонов диспетчера ресурсов Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint — проверяющий элемент управления JSON](http://jsonlint.com/)
 * [Ветвление Git — основные ветвления и слияния](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Вики-сайт проекта Kudu](https://github.com/projectkudu/kudu/wiki)
 

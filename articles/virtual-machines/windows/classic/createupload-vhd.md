@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8cae78052a4433f0a26d774a7085c110e32911c9
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 62c428215c5bd89789ae65bd420281a2f16f33a1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/27/2017
 В этой статье предполагается, что у вас есть следующие компоненты.
 
 * **Подписка Azure.** Если подписка отсутствует, можно [создать учетную запись Azure бесплатно](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-* **[Microsoft Azure PowerShell.](/powershell/azureps-cmdlets-docs)** У вас уже установлен и настроен для использования подписки модуль Microsoft Azure PowerShell.
+* **[Microsoft Azure PowerShell.](/powershell/azure/overview)** У вас уже установлен и настроен для использования подписки модуль Microsoft Azure PowerShell.
 * **VHD-файл.** Поддерживаемая операционная система Windows, сохраненная в VHD-файле и подключенная к виртуальной машине. Проверьте, поддерживаются ли программой Sysprep роли сервера, запущенные на этом VHD. Дополнительные сведения см. в разделе [Поддержка ролей сервера в Sysprep](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
     > [!IMPORTANT]
@@ -88,7 +88,7 @@ ms.lasthandoff: 03/27/2017
     ```
 
 ## <a name="step-3-upload-the-vhd-file"></a>Шаг 3. Передача VHD-файла
-Для передачи VHD-файла используйте командлет [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) .
+Для передачи VHD-файла используйте командлет [Add-AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevhd) .
 
 В окне Azure PowerShell, использованном при выполнении предыдущего шага, введите следующую команду и замените переменные в &lsaquo;скобках&rsaquo; собственными данными.
 
@@ -97,7 +97,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<C
 ```
 
 ## <a name="step-4-add-the-image-to-your-list-of-custom-images"></a>Шаг 4. Добавление образа в список пользовательских образов
-Чтобы добавить образ в список пользовательских образов, используйте командлет [Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx) .
+Чтобы добавить образ в список пользовательских образов, используйте командлет [Add-AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) .
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"

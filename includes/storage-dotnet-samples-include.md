@@ -14,7 +14,3 @@
 * [Import Export Job Management through REST API](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/) (Управление заданиями импорта и экспорта с помощью REST API)
 * [MyDriving - An Azure IOT and Mobile Sample Application](https://azure.microsoft.com/resources/samples/mydriving/) (MyDriving — пример мобильного приложения и приложения Azure IoT)
 * [Примеры для клиентской библиотеки хранилища Azure для .NET](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)
-
-<!--HONumber=Jan17_HO3-->
-
-

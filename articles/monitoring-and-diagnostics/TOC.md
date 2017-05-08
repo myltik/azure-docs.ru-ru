@@ -56,15 +56,16 @@
 # Справочные материалы
 ## [Список поддерживаемых метрик](monitoring-supported-metrics.md)
 ## [Источники данных мониторинга](monitoring-data-sources.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
+## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
-## [Журнал версий системы диагностики Azure](azure-diagnostics-versioning-history.md)
-## [Схема диагностики Azure](azure-diagnostics-schema.md)
-### [Схема диагностики 1.0](azure-diagnostics-schema-1dot0.md)
-### [Схема диагностики 1.2](azure-diagnostics-schema-1dot2.md)
-### [Схема диагностики 1.3–1.7](azure-diagnostics-schema-1dot3-and-later.md)
+## [Журнал версий расширения системы диагностики Azure](azure-diagnostics-versioning-history.md)
+## [Схема расширения системы диагностики Azure](azure-diagnostics-schema.md)
+### [1.0](azure-diagnostics-schema-1dot0.md)
+### [1.2](azure-diagnostics-schema-1dot2.md)
+### [1.3–1.7](azure-diagnostics-schema-1dot3-and-later.md)
 
 # Ресурсы
 ## [Примеры для PowerShell](insights-powershell-samples.md)
-## [Примеры Azure CLI 1.0](insights-cli-samples.md)
+## [Примеры для Azure CLI 1.0](insights-cli-samples.md)
+## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=monitor)

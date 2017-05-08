@@ -4,7 +4,7 @@
   items:
   - name: "Сведения о виртуальных машинах Azure"
     href: overview.md
-- name: "Быстрый запуск"
+- name: "Быстрое начало работы"
   expanded: true
   items:
   - name: "Создание виртуальной машины с помощью портала"
@@ -21,10 +21,19 @@
     href: tutorial-manage-data-disk.md
   - name: "3. Автоматизация настройки"
     href: tutorial-automate-vm-deployment.md
-  - name: "4. Балансировка нагрузки виртуальных машин"
+  - name: "4. Создание образов виртуальных машин"
+    href: tutorial-custom-images.md
+  - name: "5. Высокодоступные виртуальные машины"
+    href: tutorial-availability-sets.md
+  - name: "6. Создание масштабируемого набора виртуальных машин"
+    href: tutorial-create-vmss.md
+  - name: "7. Балансировка нагрузки виртуальных машин"
     href: tutorial-load-balancer.md
-  - name: "5. Управление сетями"
+  - name: "8. Управление сетями"
     href: tutorial-virtual-network.md
+  - name: "9. Управление безопасностью виртуальной машины"
+    href: tutorial-azure-security.md
+
 - name: "Примеры"
   items:
   - name: "PowerShell"

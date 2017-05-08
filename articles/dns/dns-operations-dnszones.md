@@ -14,8 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: c86004a14983e9eea543fbd3aa09f2a447414291
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: fc2da5800988fb262990d3a630f25c6252da5f3b
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Как управлять зонами DNS с помощью PowerShell
@@ -166,11 +167,6 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 <br>
 Узнайте, как [делегировать свой домен в Azure DNS](dns-domain-delegation.md).
 <br>
-Просмотрите [справочную документацию по Azure DNS PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
+Просмотрите [справочную документацию по Azure DNS PowerShell](/powershell/module/azurerm.dns).
 
 
