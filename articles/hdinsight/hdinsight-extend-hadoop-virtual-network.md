@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 04/20/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 52038c02901d49f787226ce629a1ca5942414e4a
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a3052e53c642ef3e6d9bb0489476274987707f91
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/21/2017
 
 * Azure CLI 2.0: дополнительные сведения см. в статье [Установка и настройка Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
-* Azure PowerShell: дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Azure PowerShell: дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
 > Для выполнения действий, описанных в этом документе, требуется последняя версия Azure CLI и Azure PowerShell. Если вы используете более старую версию, то команды могут отличаться. Для получения оптимальных результатов используйте предыдущие ссылки, чтобы установить последние версии.

@@ -22,9 +22,11 @@
 ## [Измерение производительности диспетчера трафика](traffic-manager-performance-considerations.md)
 ## [Использование PowerShell для управления диспетчером трафика](traffic-manager-powershell-arm.md)
 ## [Указание своего интернет-домена для диспетчера трафика](traffic-manager-point-internet-domain.md)
+## Устранение неполадок
+### [Устранение неполадок, связанных с состоянием сниженной функциональности диспетчера трафика Azure](traffic-manager-troubleshooting-degraded.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
+## [PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Интерфейс командной строки Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

@@ -7,11 +7,14 @@
 ## [Создание учетной записи пакетной службы](batch-account-create-portal.md)
 ## [Учебник по .NET для пакетной службы](batch-dotnet-get-started.md)
 ## [Учебник по Python для пакетной службы](batch-python-tutorial.md)
-# Практическое руководство
+## [Руководство по Node.js для пакетной службы](batch-nodejs-get-started.md)
+# Практическое руководство:
 ## Разработка
 ### [Пакеты приложений](batch-application-packages.md)
 ### [Автомасштабирование вычислительных узлов](batch-automatic-scaling.md)
-### [Проверка подлинности Azure AD](batch-aad-auth.md)
+### Аутентификация Azure AD
+#### [Azure AD и пакетная служба](batch-aad-auth.md)
+#### [Azure AD и управление пакетной службой](batch-aad-auth-management.md)
 ### [Параллельные задачи узла](batch-parallel-node-tasks.md)
 ### [Эффективные запросы на вывод списка](batch-efficient-list-queries.md)
 ### [Задачи для подготовки и выполнения заданий](batch-job-prep-release.md)
@@ -27,7 +30,7 @@
 ### [Интерфейс командной строки Azure](batch-cli-get-started.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [PowerShell](/powershell/module/azurerm.batch)
 ## [Интерфейс командной строки Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)

@@ -173,7 +173,7 @@
 
 # Справочные материалы
 
-## [Модуль PowerShell (новый)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [Модуль PowerShell (новый)](/powershell/module/azurerm.machinelearning)
 ## [Модуль PowerShell (классический)](machine-learning-powershell-module.md)
 ## [Справочник по алгоритмам и модулям](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [Справочник по REST API](/rest/api/machinelearning)

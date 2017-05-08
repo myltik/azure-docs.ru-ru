@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 08b478b3108f0673f3a130612020408a0e61c815
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 91fab2cd7ad2babd567380308698f0608dda4cbf
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -27,6 +27,7 @@ ms.lasthandoff: 03/09/2017
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
+> * [Node.js](batch-nodejs-get-started.md)
 >
 >
 
@@ -51,7 +52,7 @@ ms.lasthandoff: 03/09/2017
 Вам понадобится **Visual Studio 2015 или более поздней версии** для создания примера проекта. Бесплатные и пробные версии Visual Studio можно найти на странице [обзора продуктов Visual Studio][visual_studio].
 
 ### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* 
-Пример [DotNetTutorial][github_dotnettutorial] — это один из многих примеров кода в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Чтобы скачать все примеры, на домашней странице репозитория последовательно выберите **Clone or download > Download ZIP** (Клонировать или скачать > Скачать ZIP-файл) или щелкните ссылку [azure-batch-samples-master.zip][github_samples_zip] и скачайте их напрямую. После извлечения содержимого ZIP-файла решение будет сохранено в такую папку:
+Пример [DotNetTutorial][github_dotnettutorial] — это один из многих примеров кода в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Чтобы скачать все примеры, на домашней странице репозитория последовательно выберите **Clone or download > Download ZIP**  (Клонировать или скачать > Скачать ZIP-файл) или щелкните ссылку [azure-batch-samples-master.zip][github_samples_zip] и скачайте их напрямую. После извлечения содержимого ZIP-файла решение будет сохранено в такую папку:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 

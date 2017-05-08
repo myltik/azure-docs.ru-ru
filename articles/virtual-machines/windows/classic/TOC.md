@@ -9,7 +9,7 @@
 # Начало работы
 ## [Создание виртуальной машины с помощью портала](tutorial.md)
 ## [Вход на виртуальную машину](connect-logon.md)
-## [Установка Azure PowerShell](/powershell/azureps-cmdlets-docs)
+## [Установка Azure PowerShell](/powershell/azure/overview)
 ## [Установка Azure CLI](../../../cli-install-nodejs.md)
 
 # Практическое руководство
@@ -88,7 +88,7 @@
 ## [Сброс пароля удаленного рабочего стола](reset-rdp.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Интерфейс командной строки Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

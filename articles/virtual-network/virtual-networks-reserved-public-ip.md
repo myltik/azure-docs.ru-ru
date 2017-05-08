@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 12811b5cbfc6072075395d8542b79d10d2873286
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 120ae95fe12daa8fc213d0062ca446d5c1b10134
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -58,7 +58,7 @@ IP-адреса в Azure делятся на две категории: дина
 
 ## <a name="manage-reserved-vips"></a>Управление зарезервированными виртуальными IP-адресами
 
-Установите и настройте PowerShell, выполнив действия, описанные в [этой статье](/powershell/azureps-cmdlets-docs). 
+Установите и настройте PowerShell, выполнив действия, описанные в [этой статье](/powershell/azure/overview). 
 
 Прежде чем можно будет использовать зарезервированные IP-адреса, их необходимо добавить в подписку. Чтобы создать зарезервированный IP-адрес из пула общедоступных IP-адресов в *центральной части США*, выполните следующую команду:
 

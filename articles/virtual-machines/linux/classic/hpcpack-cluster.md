@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 868026150e81347aa3a7914f63bc19c3a878c586
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c65a932d0bf9bfb00f138997babc1bd642bcf879
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -59,7 +59,7 @@ ms.lasthandoff: 04/03/2017
 Ниже перечислены дополнительные компоненты, необходимые для развертывания кластера с помощью скрипта развертывания IaaS пакета HPC.
 
 * **Клиентский компьютер**. Для запуска скрипта развертывания кластера вам потребуется клиентский компьютер под управлением Windows.
-* **Azure PowerShell** - [установите и настройте Azure PowerShell](/powershell/azureps-cmdlets-docs) (версии 0.8.10 или более поздней) на клиентском компьютере.
+* **Azure PowerShell** - [установите и настройте Azure PowerShell](/powershell/azure/overview) (версии 0.8.10 или более поздней) на клиентском компьютере.
 * **Сценарий развертывания IaaS из пакета HPC** — скачайте и распакуйте последнюю версию сценария из [Центра загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=44949). Вы можете проверить версию скрипта, выполнив команду `.\New-HPCIaaSCluster.ps1 –Version`. В этой статье используется скрипт версии 4.4.1 или более поздней версии.
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>Вариант развертывания 1. Использование шаблона Resource Manager
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/03/2017
 Ниже перечислены дополнительные компоненты, необходимые для развертывания кластера с помощью скрипта развертывания IaaS пакета HPC:
 
 * **Клиентский компьютер**. Для запуска скрипта развертывания кластера вам потребуется клиентский компьютер под управлением Windows.
-* **Azure PowerShell** - [установите и настройте Azure PowerShell](/powershell/azureps-cmdlets-docs) (версии 0.8.10 или более поздней) на клиентском компьютере.
+* **Azure PowerShell** - [установите и настройте Azure PowerShell](/powershell/azure/overview) (версии 0.8.10 или более поздней) на клиентском компьютере.
 * **Сценарий развертывания IaaS из пакета HPC** — скачайте и распакуйте последнюю версию сценария из [Центра загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=44949). Вы можете проверить версию скрипта, выполнив команду `.\New-HPCIaaSCluster.ps1 –Version`. В этой статье используется скрипт версии 4.4.1 или более поздней версии.
 
 **XML-файл конфигурации**

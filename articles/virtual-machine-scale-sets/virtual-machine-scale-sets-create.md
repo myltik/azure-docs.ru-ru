@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 9c9135e200cd1676b01895af4611bc71d5d27c4a
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/21/2017
 
 Если для создания масштабируемого набора вы используете Azure CLI 2.0 или Azure PowerShell, необходимо сначала войти в подписку.
 
-Дополнительные сведения о том, как выполнить установку, настройку и вход в Azure с помощью Azure CLI или PowerShell, см. в разделах [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) (Приступая к работе с Azure CLI 2.0) или [Overview of Azure PowerShell](/powershell/resourcemanager/) (Обзор Azure PowerShell).
+Дополнительные сведения о том, как выполнить установку, настройку и вход в Azure с помощью Azure CLI или PowerShell, см. в разделах [Getting Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) (Приступая к работе с Azure CLI 2.0) или [Overview of Azure PowerShell](/powershell/azure/overview) (Обзор Azure PowerShell).
 
 ```azurecli
 az login
@@ -184,3 +184,4 @@ New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachin
 Узнайте больше о [дисках данных](virtual-machine-scale-sets-attached-disks.md).
 
 Узнайте, как [управлять своими приложениями](virtual-machine-scale-sets-deploy-app.md).
+

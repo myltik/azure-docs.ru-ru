@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: f1a03a0553bc1acd013918f527458603d08cb0f7
-ms.openlocfilehash: 8d213455ad9c771d54c2334e4d31eb4f84c9ec15
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1549eb40b0ca79522cc5475057c3af7ff4c7fd1c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 8d213455ad9c771d54c2334e4d31eb4f84c9ec15
 
 Необходимые компоненты для установки:
 * [Установка модуля PowerShell V2 для Azure Active Directory](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
-* [Установка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* [Установка Azure PowerShell](/powershell/azure/overview).
 * Чтобы выполнить следующие команды, необходимо получить разрешение на создание и изменение групп в клиенте Azure Active Directory. Если у вас нет разрешений, обратитесь к администратору Azure Active Directory.
 
 Теперь в PowerShell выполните следующие команды.
@@ -57,9 +58,4 @@ Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в статье [Защита хранилища ключей](key-vault-secure-your-key-vault.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

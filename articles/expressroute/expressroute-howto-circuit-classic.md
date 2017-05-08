@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: efdec32e565bf1d11b562d283e56bd8ed5d292b9
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a0ce5cf6a48d3dfd68e1696d93aac7c55a442900
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/24/2017
 Не забудьте изучить [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.  
 
 ### <a name="step-2-install-the-latest-versions-of-the-azure-service-management-sm-powershell-modules"></a>Шаг 2. Установите последние версии модулей PowerShell для управления службами Azure
-Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>Шаг 3. Войдите в учетную запись Azure и выберите подписку
 1. Откройте консоль PowerShell с повышенными правами и подключитесь к своей учетной записи. Для подключения используйте следующий пример кода:

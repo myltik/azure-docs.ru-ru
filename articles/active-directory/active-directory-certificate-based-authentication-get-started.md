@@ -13,9 +13,9 @@ ms.workload: identity
 ms.date: 04/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
-ms.openlocfilehash: d818cd3a243fb78228706b21a002f295782189be
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e0adbb9f7c427c08e59841a598b4f0fc99e43f26
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -99,7 +99,7 @@ ms.lasthandoff: 02/10/2017
         IntermediateAuthority = 1 
     } 
 
-Для настройки можно использовать [Azure Active Directory PowerShell версии 2](https://docs.microsoft.com/powershell/azuread/):  
+Для настройки можно использовать [Azure Active Directory PowerShell версии 2](/powershell/azure/install-adv2?view=azureadps-2.0):  
 
 1. Запустите Windows PowerShell с правами администратора. 
 2. Установите модуль Azure AD. Необходимо установить версию [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) или более позднюю.  
@@ -110,21 +110,21 @@ ms.lasthandoff: 02/10/2017
 
 ### <a name="connect"></a>Подключение
 
-Чтобы установить подключение к клиенту, используйте командлет [Connect-AzureAD](https://docs.microsoft.com/powershell/azuread/v2/connect-azuread):
+Чтобы установить подключение к клиенту, используйте командлет [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 
     Connect-AzureAD 
 
 
 ### <a name="retrieve"></a>Получение 
 
-Чтобы получить доверенные центры сертификации, определенные в каталоге, используйте командлет [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/get-azureadtrustedcertificateauthority): 
+Чтобы получить доверенные центры сертификации, определенные в каталоге, используйте командлет [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0): 
 
     Get-AzureADTrustedCertificateAuthority 
  
 
 ### <a name="add"></a>Добавить
 
-Чтобы создать доверенный центр сертификации, используйте командлет [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/new-azureadtrustedcertificateauthority): 
+Чтобы создать доверенный центр сертификации, используйте командлет [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0): 
    
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
@@ -135,7 +135,7 @@ ms.lasthandoff: 02/10/2017
 
 ### <a name="remove"></a>Удалить
 
-Чтобы удалить доверенный центр сертификации, используйте командлет [Remove-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/remove-azureadtrustedcertificateauthority):
+Чтобы удалить доверенный центр сертификации, используйте командлет [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
    
     $c=Get-AzureADTrustedCertificateAuthority 
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/10/2017
 
 ### <a name="modfiy"></a>Изменение
 
-Чтобы изменить доверенный центр сертификации, используйте командлет [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/set-azureadtrustedcertificateauthority):
+Чтобы изменить доверенный центр сертификации, используйте командлет [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0):
 
     $c=Get-AzureADTrustedCertificateAuthority 
     $c[0].AuthorityType=1 

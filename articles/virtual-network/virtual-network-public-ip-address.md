@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5274ffe641768e0725623c2acf38d432a97eea9f
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9e65a61b2b156611e998f266068ab5e1e306143d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/03/2017
 
 В остальных разделах этой статьи представлены действия по выполнению задач, связанных с общедоступным IP-адресом. В каждом разделе указано следующее:
 - Действия для выполнения задачи на портале Azure. Для выполнения действий нужно войти на [портал Azure](http://portal.azure.com). [Зарегистрируйтесь для получения бесплатной пробной учетной записи](https://azure.microsoft.com/free), если у вас ее нет.
-- Команды для выполнения задачи с помощью Azure PowerShell (со ссылками на справочник по командам). Установите и настройте PowerShell, выполнив действия, описанные в [этой статье](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Для получения справки по командам PowerShell с примерами введите `get-help <command> -full`.
+- Команды для выполнения задачи с помощью Azure PowerShell (со ссылками на справочник по командам). Установите и настройте PowerShell, выполнив действия, описанные в [этой статье](/powershell/azure/overview). Для получения справки по командам PowerShell с примерами введите `get-help <command> -full`.
 - Команды для выполнения задачи с помощью интерфейса командной строки Azure (Azure CLI) (со ссылками на справочник по командам). Установите и настройте Azure CLI 2.0, следуя инструкциям в [этой статье](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Для получения справки по командам интерфейса командной строки введите `az <command> -h`.
 
 За использование общедоступных IP-адресов взимается номинальная плата. Сведения о расценках см. на странице с [ценами на IP-адреса](https://azure.microsoft.com/pricing/details/ip-addresses). Число общедоступных IP-адресов, которые можно использовать в пределах подписки, ограничено. См. дополнительные сведения об [ограничениях в Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/03/2017
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network public-ip-create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|**PowerShell**|[New-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="change"></a>Изменение параметров или удаление общедоступного IP-адреса
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 04/03/2017
 |**Средство**|**Команда**|
 |---|---|
 |**ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ**|[az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) для обновления; [az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) для удаления|
-|**PowerShell**|[Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) для обновления; [Remove-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/remove-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) для удаления|
+|**PowerShell**|[Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) для обновления; [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) для удаления|
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Назначение общедоступных IP-адресов при создании следующих ресурсов Azure:
@@ -90,3 +90,4 @@ ms.lasthandoff: 04/03/2017
 - [Шлюз приложений Azure](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [подключения типа "сеть — сеть" с помощью VPN-шлюза Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json);
 - [масштабируемого набора виртуальных машин Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+

@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: 6670076d14f1f3f3991dd004d488f69fb1c44cb6
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 32119a6ef586d616407c69e89a0d0f05758438bc
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -83,7 +84,7 @@ ms.openlocfilehash: 6670076d14f1f3f3991dd004d488f69fb1c44cb6
 ![inboundNatPools][InboundNatPools]
 
 ### <a name="after-cluster-deployment"></a>После развертывания кластера
-Это довольно сложный процесс, который может привести к перезапуску виртуальных машин. Теперь вам необходимо задать новые значения с помощью Azure PowerShell. Убедитесь, что на компьютере установлена среда Azure PowerShell 1.0 или более поздней версии. Если вы не сделали этого ранее, настоятельно рекомендуем выполнить инструкции в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
+Это довольно сложный процесс, который может привести к перезапуску виртуальных машин. Теперь вам необходимо задать новые значения с помощью Azure PowerShell. Убедитесь, что на компьютере установлена среда Azure PowerShell 1.0 или более поздней версии. Если вы не сделали этого ранее, настоятельно рекомендуем выполнить инструкции в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview)
 
 Войдите в учетную запись Azure. Если команды PowerShell по какой-то причине завершаются неудачно, проверьте, правильно ли установлен Azure PowerShell.
 
@@ -119,9 +120,4 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 [LBBlade]: ./media/service-fabric-cluster-nodetypes/LBBlade.png
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: c83d39c87f789397116601e3e775a4f0ed3eac72
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9a2796c66fa49c543e52b654e583ade7625a7f31
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/27/2017
 ## <a name="set-up-an-hpc-pack-cluster"></a>Настройка кластера пакета HPC
 Скачайте сценарии развертывания IaaS из пакета HPC из [Центра загрузки](https://www.microsoft.com/en-us/download/details.aspx?id=44949) и извлеките их в локальное расположение.
 
-В системе должен быть установлен компонент Azure PowerShell. Если Azure PowerShell не настроен на локальном компьютере, то см. статью [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+В системе должен быть установлен компонент Azure PowerShell. Если Azure PowerShell не настроен на локальном компьютере, то см. статью [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 На момент написания этой статьи образы Linux из Azure Marketplace (включая драйверы InfiniBand для Azure) предназначены для SLES 12, CentOS 6.5 и CentOS 7.1. В этой статье используется SLES 12. Чтобы получить имена всех образов Linux, поддерживающих HPC в Marketplace, можно выполнить следующую команду PowerShell:
 

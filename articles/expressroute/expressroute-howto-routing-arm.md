@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 160560fcc3d586d2bbcba67d2f7c60cfed26f5c3
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 97d61099ef4109d8fc1d6078bdaeddd36ad7c648
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -35,12 +35,9 @@ ms.lasthandoff: 03/24/2017
 
 В этой статье описано, как создать конфигурацию маршрутизации ExpressRoute и управлять ею, используя PowerShell и модель развертывания Azure Resource Manager.  Ниже описывается, как проверить состояние, обновить или удалить и отозвать пиринги для канала ExpressRoute. 
 
-**О моделях развертывания Azure**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Предварительные требования для настройки
-* Потребуется установить последнюю версию командлетов PowerShell для Azure Resource Manager. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). 
+* Потребуется установить последнюю версию командлетов PowerShell для Azure Resource Manager. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview). 
 * Прежде чем приступать к настройке, обязательно изучите [предварительные требования](expressroute-prerequisites.md), [требования к маршрутизации](expressroute-routing.md) и [рабочие процессы](expressroute-workflows.md).
 * Вам потребуется активный канал ExpressRoute. Приступая к работе, [создайте канал ExpressRoute](expressroute-howto-circuit-arm.md) ; он должен быть затем включен на стороне поставщика услуг подключения. Для выполнения описанных ниже командлетов канал ExpressRoute должен быть подготовлен и включен.
 

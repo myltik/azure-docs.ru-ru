@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 6dd149808a89ccf7da2989751788e074d5340d5c
-ms.lasthandoff: 12/22/2016
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: fbd5c31a4ca1fa26d14001ba5765adfc91142a10
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +36,8 @@ ms.lasthandoff: 12/22/2016
 Перед началом работы с этим учебником необходимо иметь следующее:
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Рабочая станция с Azure PowerShell.**. Обратитесь к разделу [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+* <seg>
+  **Рабочая станция с Azure PowerShell**.</seg> Обратитесь к разделу [Установка и использование Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>Создание кластера HBase в виртуальной сети
 В этом разделе мы создадим кластер HBase под управлением Linux с зависимой учетной записью службы хранилища Azure в виртуальной сети Azure c помощью [шаблона Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Сведения о других способах создания кластеров и их параметрах см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Дополнительные сведения о создании в HDInsight кластеров Hadoop с помощью шаблонов ARM см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight с помощью шаблонов Azure Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md).
@@ -248,7 +249,7 @@ ms.lasthandoff: 12/22/2016
 * [Приступая к работе с HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Использование пустых граничных узлов в HDInsight](hdinsight-apps-use-edge-node.md)
 * [Настройка репликации HBase в HDInsight](hdinsight-hbase-replication.md)
-* [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md)
+* [Создание кластеров Hadoop в HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Приступая к работе с HBase с Hadoop в HDInsight](hdinsight-hbase-tutorial-get-started.md)
 * [Анализ мнений пользователей Twitter с использованием HBase в HDInsight](hdinsight-hbase-analyze-twitter-sentiment.md)
 * [Обзор виртуальной сети][vnet-overview]
@@ -282,7 +283,7 @@ ms.lasthandoff: 12/22/2016
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]: ../hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md

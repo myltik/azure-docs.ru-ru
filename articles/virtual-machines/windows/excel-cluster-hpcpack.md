@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 04/11/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b37aecc5ac13210234efee624018ae783dea7820
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8c40a0d44463c75e92444b393336db1daf270ee1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -91,7 +91,7 @@ ms.lasthandoff: 04/12/2017
 
 **Дополнительные требования**
 
-* **Azure PowerShell** - [установите и настройте Azure PowerShell](/powershell/azureps-cmdlets-docs) (версии 0.8.10 или более поздней) на клиентском компьютере.
+* **Azure PowerShell** - [установите и настройте Azure PowerShell](/powershell/azure/overview) (версии 0.8.10 или более поздней) на клиентском компьютере.
 * **Сценарий развертывания IaaS из пакета HPC** — скачайте и распакуйте последнюю версию сценария из [Центра загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=44949). Проверьте версию сценария, запустив `New-HPCIaaSCluster.ps1 –Version`. Эта статья основана на сценарии версии 4.5.0 или выше.
 
 **Создание файла конфигурации**

@@ -66,7 +66,7 @@
 ### [Перезапуск или изменение размера виртуальной машины](restart-resize-error-troubleshooting.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Интерфейс командной строки Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Создание шаблонов Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

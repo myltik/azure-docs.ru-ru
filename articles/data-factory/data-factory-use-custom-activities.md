@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 114a8cb31d2bd24baea12f7393bbc7f95c59e16e
-ms.lasthandoff: 04/22/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 864526efd2bc90bdd4beeb4c81173e85eee6f34b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -732,7 +732,7 @@ test custom activity Microsoft test custom activity Microsoft
 ```
 
 
-В примере есть два расширенных свойства: **SliceStart** и **DataFactoryName**. Значение свойства SliceStart основано на системной переменной SliceStart. Список поддерживаемых системных переменных см. [в этом разделе](data-factory-scheduling-and-execution.md#data-factory-functions-and-system-variables). Значение свойства DataFactoryName жестко задано как CustomActivityFactory.
+В примере есть два расширенных свойства: **SliceStart** и **DataFactoryName**. Значение свойства SliceStart основано на системной переменной SliceStart. Список поддерживаемых системных переменных см. [в этом разделе](data-factory-functions-variables.md). Значение свойства DataFactoryName жестко задано как CustomActivityFactory.
 
 Для доступа к этим расширенным свойствам в методе **Execute** используйте код, аналогичный приведенному ниже.
 

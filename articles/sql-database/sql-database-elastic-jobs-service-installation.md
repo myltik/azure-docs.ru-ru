@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 6489f013f72a8d283ad5c0723d0a46ea4e66a2d9
-ms.openlocfilehash: f4fa7b12afe0002d5b7e5267c8f670cae8d253da
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9b8033a9dfc8063f96e168a154696e7fe6fef8ff
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/23/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Подписка Azure. Бесплатная пробная версия доступна [здесь](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell. Установите последнюю версию с помощью [установщика веб-платформы](http://go.microsoft.com/fwlink/p/?linkid=320376). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell. Установите последнюю версию с помощью [установщика веб-платформы](http://go.microsoft.com/fwlink/p/?linkid=320376). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 * [Служебная программа командной строки NuGet](https://nuget.org/nuget.exe) используется для установки пакета заданий эластичных баз данных. Дополнительные сведения см. по адресу http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Загрузка и импорт пакета PowerShell службы заданий обработки эластичных баз данных

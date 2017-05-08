@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c2a9a14891f197ae442c41668229d4a7610ba248
-ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a8f1bf660c44f7716767d3244a7d6e7f7acf8a83
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -79,7 +80,7 @@ ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
 
 - Если вы хотите использовать статический IP-адрес для вашего рабочего слота, необходимо также зарезервировать такой адрес для промежуточного слота. В противном случае переключение завершится ошибкой.
 
-- Все экземпляры роли должны быть запущены перед выполнением переключения. Вы можете проверить состояние экземпляров в колонке обзора на портале Azure или с помощью [команды Get-AzureRole в Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+- Все экземпляры роли должны быть запущены перед выполнением переключения. Вы можете проверить состояние экземпляров в колонке обзора на портале Azure или с помощью [команды Get-AzureRole в Windows PowerShell](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0).
 
 Обратите внимание, что обновления гостевой ОС и операции восстановления службы также могут быть причиной сбоя переключения развертывания. Дополнительные сведения см. в статье [Устранение неполадок, которые могут возникнуть при развертывании облачной службы](cloud-services-troubleshoot-deployment-problems.md).
 
@@ -121,9 +122,4 @@ ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
 * Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy-portal.md).
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

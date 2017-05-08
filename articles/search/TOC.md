@@ -15,13 +15,12 @@
 ### [Портал Azure](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
-## [Обработка результатов поиска](search-pagination-page-layout.md)
-## Руководства
-### [.NET](search-howto-dotnet-sdk.md)
-### [Предварительный просмотр синонимов .NET](search-synonyms-tutorial-sdk.md)
-### [Портал](search-get-started-portal.md)
-### [NodeJS](search-get-started-nodejs.md)
-### [Java](search-get-started-java.md)
+# Учебники
+## [.NET](search-howto-dotnet-sdk.md)
+## [Предварительный просмотр синонимов .NET](search-synonyms-tutorial-sdk.md)
+## [Портал](search-get-started-portal.md)
+## [Node.js](search-get-started-nodejs.md)
+## [Java](search-get-started-java.md)
 # Практическое руководство
 ## Планирование и проектирование
 ### [Ограничения служб](search-limits-quotas-capacity.md)
@@ -59,14 +58,16 @@
 ### Пользовательский поиск
 #### [Языковые анализаторы](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Пользовательские анализаторы](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### [Разбиение результатов по страницам](search-pagination-page-layout.md)
 ### [Профили повышения](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Предложения](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Фасетная навигация](search-faceted-navigation.md)
 ### [Предварительный просмотр синонимов](search-synonyms.md)
 
 # Справочные материалы
-## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET (управление)](/dotnet/api/microsoft.azure.management.search)
+
+## [.NET](/dotnet/api/?term=microsoft.azure.search)
+## [.NET (управление)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (управление)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (управление)](/rest/api/searchmanagement)

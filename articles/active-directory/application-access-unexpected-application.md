@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 569a8db4266182122e9da175840484473e9106e5
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d244905089605bb8608085d3e0132590c927ef6f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,9 +33,9 @@ ms.lasthandoff: 04/11/2017
 
 2.  Откройте **расширение Azure Active Directory**, щелкнув **Больше служб** в нижней части расположенного слева главного меню навигации.
 
-3.  Введите **Azure Active Directory** в поле фильтра поиска и выберите элемент **Azure Active Directory**.
+3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
+4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 04/11/2017
 
 6.  При добавлении приложения, которое вы разрабатываете с помощью [методов аутентификации ASP.net](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) или [подключенных служб](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx) Visual Studio.
 
-7.  При создании объекта-участника службы с помощью [модуля Azure AD PowerShell](https://docs.microsoft.com/powershell/azuread/v2/azureactivedirectory).
+7.  При создании объекта-участника службы с помощью [модуля Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 8.  Когда вы, как администратор, предоставляете приложению [согласие](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) на использование данных в клиенте.
 
@@ -93,9 +93,9 @@ ms.lasthandoff: 04/11/2017
 
 2.  Откройте **расширение Azure Active Directory**, щелкнув **Больше служб** в нижней части расположенного слева главного меню навигации.
 
-3.  Введите **Azure Active Directory** в поле фильтра поиска и выберите элемент **Azure Active Directory**.
+3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
+4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
 
 5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 
@@ -109,13 +109,13 @@ ms.lasthandoff: 04/11/2017
 
 Если вы отключите для всего каталога возможность предоставлять согласие, пользователь не сможет согласиться с условиями использования приложения. Администратор сохранит возможность предоставлять согласие от имени пользователя. Дополнительные сведения о согласии в приложениях и возможных мотивах для его отключения или предоставления см. в разделе [Получение согласия пользователя и администратора](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-Чтобы **отключить во всем каталоге все будущие операции пользователей по предоставлению согласия**, сделайте следующее.
+Чтобы **отключить все будущие операции по предоставлению согласия пользователя во всем каталоге**, сделайте следующее:
 
 1.  Откройте [**портал Azure**](https://portal.azure.com/) и войдите в систему как **глобальный администратор**.
 
 2.  Откройте **расширение Azure Active Directory**, щелкнув **Больше служб** в нижней части расположенного слева главного меню навигации.
 
-3.  Введите **Azure Active Directory** в поле фильтра поиска и выберите элемент **Azure Active Directory**.
+3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
 4.  В меню навигации выберите пункт **Пользователи и группы**.
 

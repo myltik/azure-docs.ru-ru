@@ -32,23 +32,33 @@
 
 ## Управление
 ### [Надежность выполнения заданий](stream-analytics-job-reliability.md)
-### [Мониторинг заданий](stream-analytics-monitoring.md)
-### [Журналы диагностики](stream-analytics-job-diagnostic-logs.md)
 ### [Программный мониторинг заданий](stream-analytics-monitor-jobs.md)
 ### [Мониторинг заданий с помощью PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Масштабирование для повышения пропускной способности](stream-analytics-scale-jobs.md)
 ### [Масштабирование для функций машинного обучения](stream-analytics-scale-with-machine-learning-functions.md)
 ### [Ротация учетных данных для источников входных данных и целей выходных данных](stream-analytics-login-credentials-inputs-outputs.md)
 
+## Устранение неполадок
+### [Руководство по устранению неполадок](stream-analytics-troubleshooting-guide.md)
+### [Мониторинг заданий](stream-analytics-monitoring.md)
+### [Колонка работоспособности ресурсов](stream-analytics-resource-health.md)
+### [Схемы и метрики заданий](stream-analytics-job-diagram-with-metrics.md)
+### [Тестовые запросы](stream-analytics-test-query.md)
+### [Образец входных данных](stream-analytics-sample-data-input.md)
+### [Отладка SELECT INTO](stream-analytics-select-into.md)
+### [Обработка порядка событий](stream-analytics-out-of-order-and-late-events.md)
+### [Ограничения на чтение в концентраторе событий](stream-analytics-event-hub-consumer-groups.md)
+### [Оптимизация единиц потоковой передачи](stream-analytics-streaming-unit-consumption.md)
+### [Журналы диагностики](stream-analytics-job-diagnostic-logs.md)
+
 ## Автоматизация
 ### [Работа с PowerShell одним щелчком](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Язык запросов](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)
-
 
 # Ресурсы
 ## [Заметки о выпуске](stream-analytics-release-notes.md)

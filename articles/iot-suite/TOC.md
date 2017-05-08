@@ -11,12 +11,22 @@
 ## [Общие сведения о решении подключенного производства](iot-suite-connected-factory-overview.md)
 ## [Пошаговое руководство по решению для удаленного мониторинга](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Пошаговое руководство по решению для диагностического обслуживания](iot-suite-predictive-walkthrough.md)
+## [Подключение устройства Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
+### Использование C
+#### [Смоделированные данные](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
+#### [Использование реальных датчиков](iot-suite-raspberry-pi-kit-c-get-started-basic.md)
+#### [Реализация обновления встроенного ПО](iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
+### Использование Node.js
+#### [Смоделированные данные](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
+#### [Использование реальных датчиков](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
+#### [Реализация обновления встроенного ПО](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
 
 # Практическое руководство:
-## [Подключение устройства к решению для удаленного мониторинга (Windows)](iot-suite-connecting-devices.md)
-## [Подключение устройства к решению для удаленного мониторинга (Linux)](iot-suite-connecting-devices-linux.md)
-## [Подключение устройства к решению для удаленного мониторинга (mbed)](iot-suite-connecting-devices-mbed.md)
-## [Подключение устройства к решению для удаленного мониторинга (Node)](iot-suite-connecting-devices-node.md)
+## Подключение виртуального устройства
+### [C в Windows](iot-suite-connecting-devices.md)
+### [C в Linux](iot-suite-connecting-devices-linux.md)
+### [Node.js](iot-suite-connecting-devices-node.md)
+## [Подключение устройства mbed](iot-suite-connecting-devices-mbed.md)
 ## [Подключение приложения логики к решению для удаленного мониторинга](iot-suite-logic-apps-tutorial.md)
 ## [Настройка предварительно настроенного решения](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Использование динамической телеметрии с решением для удаленного мониторинга](iot-suite-dynamic-telemetry.md)

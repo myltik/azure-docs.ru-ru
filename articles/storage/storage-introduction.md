@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -32,7 +32,9 @@ ms.lasthandoff: 04/06/2017
 * Как осуществляется защита данных хранилища Azure посредством избыточности и репликации
 * Каковы дальнейшие шаги для создания вашего первого приложения Azure
 
-Чтобы быстро начать работу с хранилищем Azure, см. статью [Начните работать с хранилищем Azure за пять минут](storage-getting-started-guide.md).
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 Дополнительные сведения о средствах, библиотеках и других ресурсах по работе с хранилищем Azure см. в разделе [Дальнейшие действия](#next-steps) ниже.
 
@@ -185,12 +187,12 @@ SAS учетной записи делегирует доступ к ресур�
 * [Клиентская библиотека хранилища для PHP](https://azure.microsoft.com/develop/php/)
 * [Клиентская библиотека хранилища для Ruby](https://azure.microsoft.com/develop/ruby/)
 * [Клиентская библиотека хранилища для Python](https://azure.microsoft.com/develop/python/)
-* [Командлеты хранилища для PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [Командлеты хранилища для PowerShell 1.0](/powershell/module/azurerm.storage/#storage)
 
 ### <a name="azure-storage-management-services"></a>Службы управления хранилищем Azure
 * [Справочник API REST поставщика ресурсов хранилища](/rest/api/storagerp/)
 * [Клиентская библиотека поставщика ресурсов хранилища для .NET](/dotnet/api/microsoft.azure.management.storage)
-* [Командлеты поставщика ресурсов хранилища для PowerShell 1.0](/powershell/storage/)
+* [Командлеты поставщика ресурсов хранилища для PowerShell 1.0](/powershell/module/azure.storage)
 * [Интерфейс API REST управления службой хранилища (классический)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Службы перемещения данных хранилища Azure
@@ -202,7 +204,7 @@ SAS учетной записи делегирует доступ к ресур�
 * [Клиентские инструменты службы хранилища Azure](storage-explorers.md)
 * [Пакеты SDK для Azure и инструменты](https://azure.microsoft.com/tools/)
 * [Эмулятор хранения Azure](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Служебная программа командной строки AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -210,8 +212,12 @@ SAS учетной записи делегирует доступ к ресур�
 
 ### <a name="documentation"></a>Документация
 * [Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Создание учетной записи хранения](storage-create-storage-account.md)
-* [Начните работать с хранилищем Azure за пять минут](storage-getting-started-guide.md)
+* [создать учетную запись хранения;](storage-create-storage-account.md)
+
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### <a name="for-administrators"></a>Для администраторов
 * [Использование Azure PowerShell со службой хранилища Azure](storage-powershell-guide-full.md)

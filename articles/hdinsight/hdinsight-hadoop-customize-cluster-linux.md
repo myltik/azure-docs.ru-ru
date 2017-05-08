@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 02a978402c8067105900ac50a2796000f8eef67f
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9f1997175a8a0cf2adbcae1123de55894d3931ac
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -171,7 +171,7 @@ ms.lasthandoff: 04/11/2017
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Использование действия сценария при создании кластера с портала Azure
 
-1. Начните создание кластера, как описано в разделе [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-provision-clusters.md).
+1. Начните создание кластера, как описано в разделе [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 2. В разделе **Необязательная настройка** в колонке **Действия скрипта** щелкните **Добавить действие скрипта**, чтобы указать сведения об этом действии скрипта.
 
     ![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
@@ -195,7 +195,7 @@ ms.lasthandoff: 04/11/2017
 
 #### <a name="before-you-begin"></a>Перед началом работы
 
-* Сведения о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Сведения о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 * Инструкции по созданию шаблонов см. в статье [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) (Создание шаблонов Azure Resource Manager).
 * Сведения об использовании Azure PowerShell с Resource Manager см. в [этой статье](../azure-resource-manager/powershell-azure-resource-manager.md).
 
@@ -405,7 +405,7 @@ ms.lasthandoff: 04/11/2017
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Использование действия скрипта при создании кластера с помощью Azure PowerShell
 
-В этом разделе мы используем командлет [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx), чтобы вызвать скрипты с помощью действия скрипта для настройки кластера. Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+В этом разделе мы используем командлет [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx), чтобы вызвать скрипты с помощью действия скрипта для настройки кластера. Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 Выполните следующие действия:
 
@@ -513,7 +513,7 @@ ms.lasthandoff: 04/11/2017
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Применение действия скрипта в работающем кластере с помощью Azure PowerShell
 
-Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Сведения о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 1. Откройте консоль Azure PowerShell и с помощью следующей команды войдите в подписку Azure. Затем объявите несколько переменных PowerShell.
 

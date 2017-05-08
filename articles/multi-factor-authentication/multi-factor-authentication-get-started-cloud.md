@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +66,7 @@ ms.lasthandoff: 03/18/2017
 После включения рекомендуется уведомить пользователей по электронной почте. В следующий раз при попытке входа в систему им нужно будет зарегистрировать свою учетную запись для прохождения двухфакторной проверки. Им также потребуется задать пароли для приложений, чтобы они не были заблокированы при входе в приложения, не использующие браузер.
 
 ## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>Автоматизация включения двухфакторной проверки подлинности с помощью PowerShell
-Чтобы изменить [состояние](multi-factor-authentication-whats-next.md) с помощью [Azure AD PowerShell](/powershell/azureps-cmdlets-docs), можно использовать команды, приведенные ниже.  Для параметра `$st.State` можно задать одно из следующих состояний:
+Чтобы изменить [состояние](multi-factor-authentication-whats-next.md) с помощью [Azure AD PowerShell](/powershell/azure/overview), можно использовать команды, приведенные ниже.  Для параметра `$st.State` можно задать одно из следующих состояний:
 
 * Включено
 * Принудительно

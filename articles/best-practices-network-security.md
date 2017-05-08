@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 translationtype: Human Translation
-ms.sourcegitcommit: bdde0988bbaa3868c4acadfec0b81a2413e8a14b
-ms.openlocfilehash: f9a687ce5dd381e27ed9b784c3644528f000de2d
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 243c1cd5ebf34f2d8a8fda234fa3875298390336
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -514,7 +515,7 @@ IP-пересылка всегда используется вместе с оп
 ## <a name="references"></a>Ссылки
 ### <a name="helpful-websites-and-documentation"></a>Полезные веб-сайты и документация
 * Доступ к Azure с Azure Resource Manager:
-* Доступ к Azure с помощью PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azureps-cmdlets-docs)
+* Доступ к Azure с помощью PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
 * Документация по виртуальным сетям: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
 * Документация по группам безопасности сети: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/virtual-networks-nsg.md)
 * Документация по определяемым пользователем маршрутам: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
@@ -551,9 +552,4 @@ IP-пересылка всегда используется вместе с оп
 [Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

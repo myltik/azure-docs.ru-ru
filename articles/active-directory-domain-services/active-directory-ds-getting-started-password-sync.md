@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 51e4665b6372859021237144a0bf7f6763a2638b
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: b7b5f92c0093faa96a367fc95d459b1babd99789
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/14/2017
 Новый пароль вступает в силу в доменных службах Azure Active Directory через несколько минут после изменения. Входить на компьютеры, подключенные к управляемому домену, с помощью нового пароля можно через некоторое время (обычно это 20 минут).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Как изменить свой пароль](../active-directory/active-directory-passwords-update-your-own-password.md#reset-my-password)
+* [Как изменить свой пароль](../active-directory/active-directory-passwords-update-your-own-password.md)
 * [Приступая к работе с компонентами управления паролями](../active-directory/active-directory-passwords-getting-started.md)
 * [Включение синхронизации паролей с доменными службами Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Администрирование управляемого домена доменных служб Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)

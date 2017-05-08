@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 04/06/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 9ca861788d9c327237c8637e11312fb099837e56
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a3ba385e15510139929735adb5e50b6291846356
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Управление ресурсами концентраторов событий с помощью PowerShell
 
-Microsoft Azure PowerShell — это среда сценариев, которую можно использовать для контроля и автоматизации развертывания служб Azure, а также для управления ими. В этой статье описывается, как с помощью [модуля Resource Manager PowerShell для концентраторов событий](/powershell/module/azurerm.eventhub/?view=azurermps-3.7.0#event_hub) подготавливать сущности концентраторов событий (пространства имен, концентраторы событий и группы потребителей) и управлять ими, используя локальную консоль или сценарий Azure PowerShell.
+Microsoft Azure PowerShell — это среда сценариев, которую можно использовать для контроля и автоматизации развертывания служб Azure, а также для управления ими. В этой статье описывается, как с помощью [модуля Resource Manager PowerShell для концентраторов событий](/powershell/module/azurerm.eventhub) подготавливать сущности концентраторов событий (пространства имен, концентраторы событий и группы потребителей) и управлять ими, используя локальную консоль или сценарий Azure PowerShell.
 
 Вы также можете управлять ресурсами концентраторов событий с помощью шаблонов Azure Resource Manager. Дополнительные сведения см. в статье [Создание пространства имен концентраторов событий с концентратором событий и группой потребителей с помощью шаблона Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 
@@ -151,7 +151,7 @@ Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $N
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- С полной документацией по модулю Resource Manager PowerShell для концентраторов событий можно ознакомиться [здесь](/powershell/module/azurerm.eventhub/?view=azurermps-3.7.0#event_hub). На этой странице перечислены все доступные командлеты.
+- С полной документацией по модулю Resource Manager PowerShell для концентраторов событий можно ознакомиться [здесь](/powershell/module/azurerm.eventhub). На этой странице перечислены все доступные командлеты.
 - Дополнительные сведения о шаблонах Azure Resource Manager см. в статье [Создание пространства имен концентраторов событий с концентратором событий и группой потребителей с помощью шаблона Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 - Сведения о [библиотеках управления .NET для концентраторов событий](event-hubs-management-libraries.md).
 

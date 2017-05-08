@@ -15,16 +15,19 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: c74e63621d422f8fa13bc1dd2730ec2c3325a46a
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7ea7008495225b384be3e4728524393bf8c9ba6e
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="integrate-azure-ad-into-an-ios-app"></a>Интеграция Azure AD в приложение для iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+> [!TIP]
+> Воспользуйтесь предварительной версией нашего нового [портала разработчиков](https://identity.microsoft.com/Docs/iOS) , который поможет вам приступить к работе с Azure Active Directory через несколько минут.  Портал разработчиков поможет зарегистрировать приложение и интегрировать Azure AD в коде.  Завершив работу, вы получите простое приложение, с помощью которого выполняется аутентификация пользователей в клиенте и на сервере, принимающем маркеры и проводящем проверку. 
+> 
+> 
 
 Клиентские приложения для iOS, которым необходим доступ к защищенным ресурсам, могут использовать библиотеку проверки подлинности Azure AD (ADAL).  Единственная задача ADAL — упрощение процесса получения приложением маркеров доступа.  Чтобы показать, насколько это просто, создадим приложение To Do List (список дел) на Objective C, которое:
 
@@ -38,11 +41,6 @@ ms.lasthandoff: 01/18/2017
 3. использовать ADAL для получения маркеров из Azure AD.
 
 Чтобы начать работу, [скачайте схему приложения](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) или [скачайте готовый пример](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  Вам также потребуется клиент Azure AD, в котором можно создавать пользователей и регистрировать приложение.  Если клиента нет, [узнайте, как его получить](active-directory-howto-tenant.md).
-
-> [!TIP]
-> Воспользуйтесь предварительной версией нашего нового [портала разработчиков](https://identity.microsoft.com/Docs/iOS) , который поможет вам приступить к работе с Azure Active Directory через несколько минут.  Портал разработчиков поможет зарегистрировать приложение и интегрировать Azure AD в коде.  Завершив работу, вы получите простое приложение, с помощью которого выполняется аутентификация пользователей в клиенте и на сервере, принимающем маркеры и проводящем проверку. 
-> 
-> 
 
 ## <a name="1-determine-what-your-redirect-uri-will-be-for-ios"></a>1. Выбор URI перенаправления для iOS
 Для безопасного запуска приложений в некоторых сценариях использования единого входа требуется создать **URI перенаправления** в определенном формате. URI перенаправления используются, чтобы гарантировать, что маркеры получает именно то приложение, которое их запрашивало.

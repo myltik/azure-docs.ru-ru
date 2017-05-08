@@ -13,8 +13,3 @@
    
    ![Снимок экрана с сообщением о проверке удостоверения виртуальной машины](./media/virtual-machines-log-on-win-server/cert-warning.png)
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

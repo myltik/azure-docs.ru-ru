@@ -132,8 +132,9 @@
 ## Расширение кластеров
 ### [Настройка кластеров с использованием Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Настройка кластеров с помощью действий сценария](hdinsight-hadoop-customize-cluster-linux.md)
-### [Добавление библиотек Hive](hdinsight-hadoop-add-hive-libraries.md)
 ### [Разработка действий сценария](hdinsight-hadoop-script-actions-linux.md)
+### [Установка или обновление Mono](hdinsight-hadoop-install-mono.md)
+### [Добавление библиотек Hive](hdinsight-hadoop-add-hive-libraries.md)
 ### [Использование Giraph](hdinsight-hadoop-giraph-install-linux.md)
 ### [Использование Hue](hdinsight-hadoop-hue-linux.md)
 ### [Использование R](hdinsight-hadoop-r-scripts-linux.md)
@@ -190,7 +191,7 @@
 #### [Производительность запросов Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)

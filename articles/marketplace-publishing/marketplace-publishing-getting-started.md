@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9d7176b018d25b2a60b2175c289dde7490f8d101
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 49ffe988867ba70df5bd7757a64edc9aa813071d
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -87,7 +87,6 @@ Azure Marketplace позволяет издателям Azure предлагат
 * [Возврат рабочих значений для модели выставления счетов](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
 * [Возврат рабочего значения параметра видимости для внесенного в список номера SKU](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
 * [Как изменить статус участия в программе поощрения поставщиков облачных решений](marketplace-publishing-csp-incentive.md)
-* [Основные сведения об отчетах Seller Insights](marketplace-publishing-report-seller-insights.md)
 * [Основные сведения об отчетах о выплатах](marketplace-publishing-report-payout.md)
 * [Поддержка издателей](marketplace-publishing-get-publisher-support.md)
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 7ce5ba3c1a844104b4c14c73e05843becd69eb5f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 53cb04a042288fe9ad0c3945717c8d7121912752
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -47,10 +47,11 @@ ms.lasthandoff: 02/16/2017
 ## <a name="prereqs"></a>Предварительные требования
 Для выполнения действий, описанных в этом учебнике, вам необходимо следующее.
 
-* **Подписка Azure.**. Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
+* <seg>
+  **Подписка Azure**.</seg> Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure storage account**. Учетная запись хранения Azure будет использоваться для хранения данных в этом учебнике. Если у вас ее нет, см. раздел [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account). После создания учетной записи хранения необходимо получить ключ, используемый для доступа к хранилищу. Ознакомьтесь с разделом [Управление ключами доступа к хранилищу](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Подготовленный **SQL Server на виртуальной машине Azure**. Инструкции см. в статье [Настройка SQL Server на виртуальной машине Azure как сервера IPython Notebook для расширенной аналитики](machine-learning-data-science-setup-sql-server-virtual-machine.md).
-* Установленная и настроенная локальная среда **Azure PowerShell**. Инструкции см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Установленная и настроенная локальная среда **Azure PowerShell**. Инструкции см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="filesource_to_sqlonazurevm"></a> Перемещение данных из неструктурированного файла на сервер SQL Server на виртуальной машине Azure
 Если данные (упорядоченные по строкам и столбцам) хранятся в неструктурированном файле, этот файл можно переместить в виртуальную машину SQL Server в Azure с помощью следующих средств:

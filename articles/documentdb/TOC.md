@@ -6,6 +6,7 @@
 ## [Глобальное распределение](documentdb-distribute-data-globally.md)
 ## [Отработка отказа между регионами](documentdb-regional-failovers.md)
 ## [Безопасность](documentdb-nosql-database-security.md)
+## [Шифрование при хранении](documentdb-nosql-database-encryption-at-rest.md)
 ## [Анализ совокупной стоимости владения базой данных NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Сценарии
 ### [Распространенные варианты использования](documentdb-use-cases.md)

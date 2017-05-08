@@ -1,11 +1,11 @@
 # Обзор
 ## [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 ## [Выбор выпуска](active-directory-editions.md)
-## [Об управлении удостоверениями Azure](fundamentals-identity.md)
-## [Предварительное ознакомление с интерфейсом портала Azure AD](active-directory-preview-explainer.md)
 
+## [Об управлении удостоверениями Azure](identity-fundamentals.md)
+## [Предварительное ознакомление с интерфейсом портала Azure](active-directory-preview-explainer.md)
 
-# Приступая к работе
+# Начало работы
 ## [Получение клиента Azure AD](active-directory-howto-tenant.md)
 ## [Регистрация для использования Azure AD Premium](active-directory-get-started-premium.md)
 ## [Сопоставление подписок Azure](active-directory-how-subscriptions-associated-directory.md)
@@ -58,6 +58,7 @@
 ### [Просмотр всех групп](active-directory-groups-view-azure-portal.md)
 ### [Включение выделенных групп](active-directory-accessmanagement-dedicated-groups.md)
 ### [Включение доступа для групп в приложениях SaaS](active-directory-accessmanagement-group-saasapps.md)
+### [Восстановление удаленной группы Office 365](active-directory-groups-restore-azure-portal.md)
 ### Управление параметрами группы
 #### [Портал Azure](active-directory-groups-settings-azure-portal.md)
 #### [Командлеты](active-directory-accessmanagement-groups-settings-cmdlets.md)
@@ -110,24 +111,27 @@
 ##### [Неизвестные источники](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Аномальные попытки входа](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Управление паролями](active-directory-manage-passwords.md)
-### [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
-### [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
-### [Самостоятельный сброс паролей для администраторов](active-directory-passwords.md)
-### [Общие сведения об управлении паролями](active-directory-passwords-how-it-works.md)
-### [Общие сведения о политиках и ограничениях](active-directory-passwords-policy.md)
-### Сброс паролей
+## [Управление паролями](active-directory-passwords.md)
+### Документы пользователя
+#### [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
+#### [Регистрация для самостоятельного сброса пароля](active-directory-passwords-reset-register.md)
+### [Краткое руководство. Самостоятельный сброс пароля](active-directory-passwords-getting-started.md)
+### [Лицензия SSPR](active-directory-passwords-licensing.md)
+### [Развертывание SSPR](active-directory-passwords-best-practices.md)
+### ИТ-администрирование. Сброс паролей
 #### [Портал Azure](active-directory-users-reset-password-azure-portal.md)
-#### [Классический портал](active-directory-create-users-reset-password.md)
-### [Настройка политик срока действия](active-directory-passwords-set-expiration-policy.md)
-### Включение управления паролями
-#### [Начало работы](active-directory-passwords-getting-started.md)
-#### [Развертывание](active-directory-passwords-best-practices.md)
-#### [Настройка](active-directory-passwords-customize.md)
-#### [Просмотр отчетов](active-directory-passwords-get-insights.md)
-#### [Дополнительные сведения](active-directory-passwords-learn-more.md)
-#### [Часто задаваемые вопросы](active-directory-passwords-faq.md)
-#### [Устранение неполадок](active-directory-passwords-troubleshoot.md)
+#### [Классический портал Azure](active-directory-create-users-reset-password.md)
+### [Общие сведения о политиках SSPR](active-directory-passwords-policy.md)
+### [Общие сведения о сбросе паролей](active-directory-passwords-how-it-works.md)
+### [Настройка SSPR](active-directory-passwords-customize.md)
+### [Данные, используемые SSPR](active-directory-passwords-data.md)
+### [Отчеты в SSPR](active-directory-passwords-reporting.md)
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Обратная запись паролей](active-directory-passwords-writeback.md)
+### [Синхронизации хэша паролей](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
+### [Устранение неполадок](active-directory-passwords-troubleshoot.md)
+### [ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ](active-directory-passwords-faq.md)
+
 
 ## Управление устройствами
 ### [Регистрация устройств](active-directory-device-registration-overview.md)
@@ -289,6 +293,7 @@
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
 #### [Устранение неполадок](role-based-access-control-troubleshooting.md)
+#### [Операции с поставщиками ресурсов](role-based-access-control-resource-provider-operations.md)
 ### [Настройка времени существования маркеров](active-directory-configurable-token-lifetimes.md)
 
 ## Защита удостоверений
@@ -341,7 +346,7 @@
 
 
 # Справочные материалы
-## [Командлеты PowerShell](/powershell/ )
+## [Командлеты PowerShell](/powershell/azure/overview)
 ## [Справочник по API Java](/java/api)
 ## [API .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Ограничения службы](active-directory-service-limits-restrictions.md)

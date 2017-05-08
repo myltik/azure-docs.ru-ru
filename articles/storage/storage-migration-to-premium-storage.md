@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: cbf4f1a3bce53844e032c49637d4cfd9dd722679
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 56f4245b63cecd51bf81863e15e4e72d73e671d6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ ms.lasthandoff: 04/06/2017
 
 ### <a name="prerequisites"></a>Предварительные требования
 * Вам понадобится подписка Azure. Если у вас нет подписки, можно оформить [бесплатную пробную](https://azure.microsoft.com/pricing/free-trial/) подписку на один месяц или посетить страницу [Цены Azure](https://azure.microsoft.com/pricing/), чтобы ознакомиться с дополнительными возможностями.
-* Чтобы выполнять командлеты PowerShell, вам потребуется модуль Microsoft Azure PowerShell. Инструкции по установке см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Чтобы выполнять командлеты PowerShell, вам потребуется модуль Microsoft Azure PowerShell. Инструкции по установке см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 * Если вы планируете использовать виртуальные машины Azure в хранилище класса Premium, эти машины должны поддерживать его. С этими виртуальными машинами можно использовать диски хранилища класса Premium и Standard. Диски хранилища Premium в будущем будут доступны с большим количеством типов виртуальных машин. Дополнительные сведения о всех доступных типах и размерах дисков виртуальной машины Azure см. в разделах [Размеры виртуальных машин](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и [Размеры для облачных служб](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Рекомендации

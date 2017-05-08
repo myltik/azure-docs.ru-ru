@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/21/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8e113a78519444fd1e0a9da89ec95aa0dccebb2b
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4eaae725c62f66de1b50fd2c7094f3e6e89281be
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ ms.lasthandoff: 03/27/2017
 Поддержка проверки подлинности SAS для служебной шины включена в пакет Azure SDK для .NET 2.0 и более поздних версий. SAS включает в себя поддержку правила [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Все интерфейсы API, которые принимают строку подключения в качестве параметра, поддерживают строки подключения SAS.
 
 ## <a name="acs-authentication"></a>Проверка подлинности ACS
-Аутентификация в служебной шине с помощью ACS осуществляется с помощью сопутствующего пространства имен ACS (-sb). Вам может потребоваться создать сопутствующее пространство имен ACS для пространства имен служебной шины. При этом вы не сможете создать пространство имен служебной шины с помощью классического портала Azure. Это нужно сделать с помощью командлета PowerShell [New-AzureSBNamespace](/powershell/servicemanagement/azure.compute/v1.6.1/New-AzureSBNamespace). Например:
+Аутентификация в служебной шине с помощью ACS осуществляется с помощью сопутствующего пространства имен ACS (-sb). Вам может потребоваться создать сопутствующее пространство имен ACS для пространства имен служебной шины. При этом вы не сможете создать пространство имен служебной шины с помощью классического портала Azure. Это нужно сделать с помощью командлета PowerShell [New-AzureSBNamespace](/powershell/module/azure/new-azuresbnamespace?view=azuresmps-3.7.0). Например:
 
 ```powershell
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true

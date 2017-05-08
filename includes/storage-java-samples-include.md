@@ -8,7 +8,3 @@
 * [Getting Started with Azure Queue Service in Java](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/) (Приступая к работе со службой очередей Azure на языке Java)
 * [Getting Started with Azure Table Service in Java](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/) (Приступая к работе со службой таблиц Azure на языке Java)
 * [Примеры для клиентской библиотеки хранилища Azure для Java](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)
-
-<!--HONumber=Jan17_HO3-->
-
-

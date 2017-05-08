@@ -15,8 +15,9 @@ ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 716d2d95b5d68dbb7fdd2ef50d220a8c8c2c9f5e
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bf8cd0d645d8a5992864c8a3820ac2049a3ff630
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +44,7 @@ ms.openlocfilehash: 716d2d95b5d68dbb7fdd2ef50d220a8c8c2c9f5e
 ### <a name="one-time-setup-using-script"></a>Однократная настройка (с использованием сценария)
 Следуйте приведенным ниже инструкциям, чтобы выполнить установку с помощью сценария PowerShell, для реализации которого требуется минимальное время и использование наиболее допустимых значений по умолчанию. При необходимости также можно выполнить указания по [установке вручную](mobile-engagement-api-authentication-manual.md) непосредственно на портале Azure и осуществить более точную настройку. 
 
-1. Получите последнюю версию Azure PowerShell [здесь](http://aka.ms/webpi-azps). Дополнительные сведения об инструкциях по скачиванию см. по этой [ссылке](/powershell/azureps-cmdlets-docs).  
+1. Получите последнюю версию Azure PowerShell [здесь](http://aka.ms/webpi-azps). Дополнительные сведения об инструкциях по скачиванию см. по этой [ссылке](/powershell/azure/overview).  
 2. После установки Azure PowerShell используйте следующие команды, чтобы проверить наличие установленного **модуля Azure** :
    
     а. Убедитесь, что модуль Azure PowerShell находится в списке доступных модулей. 
@@ -150,10 +151,5 @@ ms.openlocfilehash: 716d2d95b5d68dbb7fdd2ef50d220a8c8c2c9f5e
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

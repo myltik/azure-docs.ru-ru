@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: d67043f2e0a062796f4d6167b28774ce494027c2
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -59,10 +59,10 @@ ms.lasthandoff: 04/10/2017
 
 ## <a name="download-the-code"></a>Загрузка кода
 
-Код примеров для этого руководства размещен на портале [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi). Вы можете клонировать пример, выполнив такую команду:
+Код примеров для этого руководства размещен на портале [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). Вы можете клонировать пример, выполнив такую команду:
 
 ```console
-git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
 Скачав пример кода, откройте SLN-файл Visual Studio, чтобы начать работу. Теперь решение содержит два проекта: `TaskWebApp` и `TaskService`. `TaskWebApp` — это веб-приложение MVC, с которым взаимодействует пользователь. `TaskService` — веб-API серверной части приложения, в котором хранится список дел для каждого пользователя. В этой статье рассматривается только приложение `TaskService`. Сведения о создании `TaskWebApp` с помощью Azure AD B2C см. в [этом руководстве по веб-приложениям .NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md).

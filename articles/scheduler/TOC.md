@@ -21,7 +21,7 @@
 ### [Исходящая аутентификация](scheduler-outbound-authentication.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
 # Ресурсы
@@ -31,10 +31,5 @@
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=scheduler)
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

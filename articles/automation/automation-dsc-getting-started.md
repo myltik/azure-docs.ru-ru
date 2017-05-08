@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 98f5a017221f0aaba04e2b90afc674e4c42d1bb3
-ms.openlocfilehash: 282cb0a7705d0650852699ed5fe09f61fda42d0f
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2a6daccdc70ff285a6993da0b2fdcfbe85e635cf
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -216,12 +217,7 @@ Azure запустит процесс подключения виртуальн�
 * [Обзор Azure Automation DSC](automation-dsc-overview.md)
 * [Подключение компьютеров для управления с помощью Azure Automation DSC](automation-dsc-onboarding.md)
 * [Общие сведения о платформе Desired State Configuration Windows PowerShell](https://msdn.microsoft.com/powershell/dsc/overview)
-* [Командлеты Automation DSC Azure](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Командлеты Automation DSC Azure](/powershell/module/azurerm.automation/#automation)
 * [Цены на Automation DSC Azure](https://azure.microsoft.com/pricing/details/automation/)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

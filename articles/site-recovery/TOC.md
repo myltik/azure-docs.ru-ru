@@ -67,8 +67,8 @@
 ## [Мониторинг и устранение неполадок](site-recovery-monitoring-and-troubleshooting.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
-## [PowerShell — классическая модель](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [PowerShell](/powershell/module/azurerm.siterecovery)
+## [PowerShell — классическая модель](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Сопутствующие материалы

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
-ms.openlocfilehash: 72daf5bdce0dfcb2e09869c159eb88ee313be575
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b34362203984a368bb74395e3e9f466b086b7521
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 72daf5bdce0dfcb2e09869c159eb88ee313be575
 
 Таблица, обобщающая различные варианты перемещения данных в Базу данных SQL Azure, содержится в статье [Перемещение данных в базу данных SQL Azure для машинного обучения Azure](machine-learning-data-science-move-sql-azure.md).
 
-## <a name="a-nameintroaintroduction-what-is-adf-and-when-should-it-be-used-to-migrate-data"></a><a name="intro"></a>Введение. Что такое ADF и когда ее использовать при переносе данных?
+## <a name="intro"></a>Введение. Что такое ADF и когда ее использовать при переносе данных?
 Фабрика данных Azure представляет собой полностью управляемую облачную службу интеграции информации, которая организует и автоматизирует перемещение и преобразование данных. Ключевым принципом модели ADF является конвейер. Конвейер — это логическая группа действий, каждое из которых определяет операции, выполняемые с данными, содержащимися в наборах данных. Информация, необходимая фабрике данных для подключения к внешним ресурсам, определяется связанными службами.
 
 С ADF существующие службы обработки данных могут быть включены в конвейеры данных, обладающие высокой доступностью и управляемые в облаке. Для этих конвейеров данных можно запланировать прием, подготовку, преобразование, анализ и публикацию данных, а сложными данными и обработкой зависимостей управляет ADF. Решения можно быстро построить и развернуть в облаке, подключив большое количество локальных и облачных источников данных.
@@ -37,7 +38,7 @@ ADF стоит использовать в следующих случаях:
 
 ADF позволяет выполнять планирование и отслеживание заданий с помощью простых сценариев JSON, управляющих перемещением данных на периодической основе. ADF также обладает другими возможностями, такими как поддержка сложных операций. Дополнительные сведения об ADF см. в документации по [фабрике данных Azure](https://azure.microsoft.com/services/data-factory/).
 
-## <a name="a-namescenarioathe-scenario"></a><a name="scenario"></a>Сценарий
+## <a name="scenario"></a>Сценарий
 Мы настраиваем конвейер ADF, который объединяет два действия переноса данных. Вместе они ежедневно перемещают данные между локальной базой данных SQL и базой данных SQL Azure в облаке. Эти два действия таковы:
 
 * копирование данных из локальной базы данных SQL Server в учетную запись хранилища больших двоичных объектов Azure;
@@ -48,25 +49,26 @@ ADF позволяет выполнять планирование и отсле
 >
 >
 
-## <a name="a-nameprereqsaprerequisites"></a><a name="prereqs"></a>Предварительные требования
+## <a name="prereqs"></a>Предварительные требования
 Для выполнения действий, описанных в этом учебнике, вам необходимо следующее.
 
-* **Подписка Azure.**. Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
+* <seg>
+  **Подписка Azure**.</seg> Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure storage account**. Учетная запись хранения Azure используется в этом учебнике для хранения данных. Если у вас ее нет, см. раздел [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account). После создания учетной записи хранения необходимо получить ключ, используемый для доступа к хранилищу. Ознакомьтесь с разделом [Управление ключами доступа к хранилищу](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Доступ к **базе данных SQL Azure**. Если требуется настроить базу данных SQL Azure, то обратитесь к статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure ](../sql-database/sql-database-get-started.md) , которая содержит сведения о том, как подготовить новый экземпляр базы данных SQL Azure.
-* Установленная и настроенная локальная среда **Azure PowerShell**. Инструкции см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Установленная и настроенная локальная среда **Azure PowerShell**. Инструкции см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
 > В этой процедуре используется [портал Azure](https://portal.azure.com/).
 >
 >
 
-## <a name="a-nameupload-dataa-upload-the-data-to-your-on-premise-sql-server"></a><a name="upload-data"></a> Загрузка данных в локальный SQL Server
+## <a name="upload-data"></a> Загрузка данных в локальный SQL Server
 Для демонстрации процесса переноса данных мы используем [набор данных о такси Нью-Йорка](http://chriswhong.com/open-data/foil_nyc_taxi/) . Набор данных о такси Нью-Йорка доступен, как отмечено в этой статье, в хранилище BLOB-объектов Azure [здесь](http://www.andresmh.com/nyctaxitrips/). Данные содержатся в двух файлах: trip_data.csv, содержащем сведения о поездках, и trip_far.csv, содержащем сведения о тарифах для каждой поездки. Пример и описание этих файлов приведены в [описании набора данных «Поездки такси Нью-Йорка»](machine-learning-data-science-process-sql-walkthrough.md#dataset).
 
 Вы можете либо адаптировать описанные здесь процедуры к собственному набору данных, либо выполнить описанные действия с набором данных о такси Нью-Йорка. Для загрузки набора данных о такси Нью-Йорка в базу данных локального SQL Server выполните процедуру, описанную в разделе [Массовый импорт данных в базу данных SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Эти инструкции предназначены для SQL Server на виртуальной машине Azure, но для локального SQL Server процедура идентична.
 
-## <a name="a-namecreate-adfa-create-an-azure-data-factory"></a><a name="create-adf"></a> Создание фабрики данных Azure
+## <a name="create-adf"></a> Создание фабрики данных Azure
 Инструкции по созданию фабрики данных Azure и группы ресурсов на [портале Azure](https://portal.azure.com/) представлены [здесь](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Задайте имя *adfdsp* для нового экземпляра ADF и имя *adfdsprg* для созданной группы ресурсов.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Установка и настройка шлюза управления данными
@@ -79,7 +81,7 @@ ADF позволяет выполнять планирование и отсле
 
 Инструкции по установке и сведения о шлюзе управления данными см. в статье [Перемещение данных между локальными источниками и облаком при помощи шлюза управления данными](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
 
-## <a name="a-nameadflinkedservicesacreate-linked-services-to-connect-to-the-data-resources"></a><a name="adflinkedservices"></a>Создание связанных служб для подключения к ресурсам данных
+## <a name="adflinkedservices"></a>Создание связанных служб для подключения к ресурсам данных
 Информация, необходимая фабрике данных для подключения к внешним ресурсам, определяется связанными службами. Пошаговая инструкция по созданию связанных служб приведена в [этом разделе](../data-factory/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
 В данном сценарии есть три ресурса, для которых требуются связанные службы.
@@ -88,30 +90,30 @@ ADF позволяет выполнять планирование и отсле
 2. [Связанная служба для хранилища больших двоичных объектов Azure](#adf-linked-service-blob-store)
 3. [Связанная служба для базы данных SQL Azure](#adf-linked-service-azure-sql)
 
-### <a name="a-nameadf-linked-service-onprem-sqlalinked-service-for-on-premise-sql-server-database"></a><a name="adf-linked-service-onprem-sql"></a>Связанная служба для базы данных локального SQL Server
+### <a name="adf-linked-service-onprem-sql"></a>Связанная служба для базы данных локального SQL Server
 Чтобы создать связанную службу для локального сервера SQL Server, выполните следующие действия:
 
 * на классическом портале Azure на целевой странице ADF щелкните **Хранилище данных** ;
 * Выберите **SQL** и введите учетные данные (*имя пользователя* и *пароль*) для локального сервера SQL Server. Имя сервера необходимо указать в следующем формате: **полное имя сервера, обратная косая черта, имя экземпляра (имя_сервера\имя_экземпляра)**. Укажите имя *adfonpremsql*для связанной службы.
 
-### <a name="a-nameadf-linked-service-blob-storealinked-service-for-blob"></a><a name="adf-linked-service-blob-store"></a>Связанная служба для больших двоичных объектов
+### <a name="adf-linked-service-blob-store"></a>Связанная служба для больших двоичных объектов
 Чтобы создать связанную службу для учетной записи хранилища BLOB-объектов Azure, выполните следующие действия:
 
 * на классическом портале Azure на целевой странице ADF щелкните **Хранилище данных** ;
 * выберите **Учетная запись хранения Azure**
 * введите ключ учетной записи хранилища BLOB-объектов Azure и имя контейнера. В качестве имени связанной службы укажите *adfds*.
 
-### <a name="a-nameadf-linked-service-azure-sqlalinked-service-for-azure-sql-database"></a><a name="adf-linked-service-azure-sql"></a>Связанная служба для базы данных SQL Azure
+### <a name="adf-linked-service-azure-sql"></a>Связанная служба для базы данных SQL Azure
 Чтобы создать связанную службу для базы данных SQL Azure, выполните следующие действия:
 
 * на классическом портале Azure на целевой странице ADF щелкните **Хранилище данных** ;
 * Выберите **Azure SQL** и введите учетные данные (*имя пользователя* и *пароль*) для базы данных SQL Azure. *Имя пользователя* необходимо указать как *user@servername*.   
 
-## <a name="a-nameadf-tablesadefine-and-create-tables-to-specify-how-to-access-the-datasets"></a><a name="adf-tables"></a>Определение и создание таблиц для определения доступа к наборам данных
+## <a name="adf-tables"></a>Определение и создание таблиц для определения доступа к наборам данных
 Для создания таблиц, которые определяют структуру, расположение и доступность наборов данных, используются следующие процедуры на основе сценариев. Для определения таблиц используются файлы JSON. Дополнительные сведения о структуре этих файлов см. в статье [Наборы данных в фабрике данных Azure](../data-factory/data-factory-create-datasets.md).
 
 > [!NOTE]
-> Перед выполнением командлета [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) необходимо проверить, правильно ли выбрана подписка для его выполнения, выполнив командлет `Add-AzureAccount`. Документацию по этим командлетам см. в статье [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx).
+> Перед выполнением командлета [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) необходимо проверить, правильно ли выбрана подписка для его выполнения, выполнив командлет `Add-AzureAccount`. Документацию по этим командлетам см. в статье [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 
@@ -131,7 +133,7 @@ ADF позволяет выполнять планирование и отсле
 >
 >
 
-### <a name="a-nameadf-table-onprem-sqlasql-on-premise-table"></a><a name="adf-table-onprem-sql"></a>локальная таблица SQL;
+### <a name="adf-table-onprem-sql"></a>локальная таблица SQL;
 Определение таблицы для локального сервера SQL Server указывается в следующем файле JSON:
 
         {
@@ -166,7 +168,7 @@ ADF позволяет выполнять планирование и отсле
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="a-nameadf-table-blob-storeablob-table"></a><a name="adf-table-blob-store"></a>таблица больших двоичных объектов;
+### <a name="adf-table-blob-store"></a>таблица больших двоичных объектов;
 Определение таблицы выходных больших двоичных объектов задается следующим образом (здесь данные, полученные из локального расположения, сопоставляются с большим двоичным объектом Azure).
 
         {
@@ -196,7 +198,7 @@ ADF позволяет выполнять планирование и отсле
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="a-nameadf-table-azure-sqasql-azure-table"></a><a name="adf-table-azure-sq"></a>таблица SQL Azure.
+### <a name="adf-table-azure-sq"></a>таблица SQL Azure.
 Определение таблицы для выходных данных SQL Azure задается следующим образом (эта схема сопоставляет данные, полученные из большого двоичного объекта).
 
     {
@@ -227,7 +229,7 @@ ADF позволяет выполнять планирование и отсле
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
 
 
-## <a name="a-nameadf-pipelineadefine-and-create-the-pipeline"></a><a name="adf-pipeline"></a>Определение и создание конвейера
+## <a name="adf-pipeline"></a>Определение и создание конвейера
 Укажите действия, которые принадлежат конвейеру, и создайте конвейер с помощью следующих процедур на основе сценариев. Для определения свойств конвейера используется файл JSON.
 
 * Сценарий предполагает, что **имя конвейера** — *AMLDSProcessPipeline*.
@@ -315,7 +317,7 @@ ADF позволяет выполнять планирование и отсле
 
 ![Конвейер ADF](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
-## <a name="a-nameadf-pipeline-startastart-the-pipeline"></a><a name="adf-pipeline-start"></a>Запуск конвейера
+## <a name="adf-pipeline-start"></a>Запуск конвейера
 Конвейер можно запустить с помощью следующей команды:
 
     Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
@@ -325,9 +327,4 @@ ADF позволяет выполнять планирование и отсле
 После запуска конвейера вы сможете увидеть, как в контейнере большого двоичного объекта начнут появляться данные, по одному файлу в день.
 
 Обратите внимание, что мы не используем возможность поэтапного поступления данных в конвейер, предоставляемую ADF. Дополнительные сведения об этой и других возможностях ADF см. в [документации по ADF](https://azure.microsoft.com/services/data-factory/).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

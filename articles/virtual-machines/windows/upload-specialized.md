@@ -17,9 +17,9 @@ ms.date: 02/05/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6349aadc17ec974750537223531a3cf4c82479ed
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0abff0e82aeb02b73ab21cd297abd1178e49944d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ ms.lasthandoff: 03/31/2017
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](/powershell/azure/overview).
 
 
 ## <a name="prepare-the-vm"></a>Подготовка виртуальной машины
@@ -59,7 +59,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
   * Прежде чем продолжить, завершите работу виртуальной машины.
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
-Если вы еще не установили PowerShell версии 1.4 или выше, то см. статью [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Установка и настройка Azure PowerShell).
+Если вы еще не установили PowerShell версии 1.4 или выше, то см. статью [How to install and configure Azure PowerShell](/powershell/azure/overview) (Установка и настройка Azure PowerShell).
 
 1. Откройте Azure PowerShell и войдите в свою учетную запись Azure. Откроется всплывающее окно для ввода данных учетной записи Azure.
    
@@ -104,7 +104,7 @@ Get-AzureRmStorageAccount
     New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. С помощью командлета [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) создайте в этой группе ресурсов учетную запись хранения с именем **mystorageaccount**:
+2. С помощью командлета [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) создайте в этой группе ресурсов учетную запись хранения с именем **mystorageaccount**:
    
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -121,7 +121,7 @@ Get-AzureRmStorageAccount
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>Передача виртуального жесткого диска в учетную запись хранения
 
-Используйте командлет [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx), чтобы передать VHD в контейнер в учетной записи хранения. В этом примере файл **myVHD.vhd** передается из расположения `"C:\Users\Public\Documents\Virtual hard disks\"` в учетную запись хранения **mystorageaccount**, входящую в группу ресурсов **myResourceGroup**. Файл будет помещен в контейнер с именем **mycontainer**; новое имя файла — **myUploadedVHD.vhd**.
+Используйте командлет [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd), чтобы передать VHD в контейнер в учетной записи хранения. В этом примере файл **myVHD.vhd** передается из расположения `"C:\Users\Public\Documents\Virtual hard disks\"` в учетную запись хранения **mystorageaccount**, входящую в группу ресурсов **myResourceGroup**. Файл будет помещен в контейнер с именем **mycontainer**; новое имя файла — **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d2887e255e59c164bb6d733988053f514a118c7b
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 35a86a91ee60a81b5c743067fcd97da0f2dcc8f1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -359,7 +359,7 @@ Microsoft Azure обеспечивает конфиденциальность и
  ```
 
 #### <a name="set-up-the-key-vault-access-policy-for-the-azure-ad-application"></a>Настройка политики доступа к хранилищу ключей для приложения Azure AD
-Приложению Azure AD нужны права на доступ к ключам и секретам, которые размещены в хранилище. Используйте командлет [`Set-AzureKeyVaultAccessPolicy`](https://msdn.microsoft.com/library/azure/dn903607.aspx), чтобы предоставить приложению необходимые разрешения. Здесь в качестве значения параметра _–ServicePrincipalName_ следует использовать идентификатор клиента, созданный при регистрации приложения. Чтобы узнать больше, ознакомьтесь с записью блога [Azure Key Vault - Step by Ste](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx) (Пошаговая инструкция для Azure Key Vault). Ниже приведен пример выполнения этой задачи с помощью PowerShell.
+Приложению Azure AD нужны права на доступ к ключам и секретам, которые размещены в хранилище. Используйте командлет [`Set-AzureKeyVaultAccessPolicy`](/powershell/module/azure/set-azurekeyvaultaccesspolicy?view=azuresmps-3.7.0), чтобы предоставить приложению необходимые разрешения. Здесь в качестве значения параметра _–ServicePrincipalName_ следует использовать идентификатор клиента, созданный при регистрации приложения. Чтобы узнать больше, ознакомьтесь с записью блога [Azure Key Vault - Step by Ste](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx) (Пошаговая инструкция для Azure Key Vault). Ниже приведен пример выполнения этой задачи с помощью PowerShell.
 
     $keyVaultName = '<yourKeyVaultName>'
     $aadClientID = '<yourAadAppClientID>'
@@ -382,7 +382,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 | Интерфейс командной строки | Ознакомьтесь с разделом [Интерфейс командной строки Azure](../cli-install-nodejs.md). |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) — прозрачная подсистема шифрования дисков на платформе Linux, используемая для шифрования дисков виртуальных машин IaaS под управлением Linux. |
 | KEK | Ключ шифрования ключей представляет собой асимметричный ключ (RSA 2048), который применяется для защиты секрета или помещения его в оболочку. Вы можете использовать защищенный HSM-ключ или ключ с программной защитой. Дополнительные сведения см. в документации по [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). |
-| Командлеты PS | Ознакомьтесь с [командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs). |
+| Командлеты PS | Ознакомьтесь с [командлетами Azure PowerShell](/powershell/azure/overview). |
 
 ### <a name="set-up-and-configure-your-key-vault-for-azure-disk-encryption"></a>Установка и настройка хранилища ключей для шифрования дисков Azure
 Служба шифрование дисков Azure помогает надежно защитить ключи шифрования дисков и секреты в вашем хранилище ключей. Чтобы настроить хранилище ключей для шифрования дисков Azure, выполните действия, описанные в следующих разделах.
@@ -391,7 +391,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 Чтобы создать хранилище ключей, используйте один из следующих вариантов:
 
 * [Шаблон Resource Manager 101-Key-Vault-Create](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-* [командлеты Azure PowerShell для хранилища ключей](https://msdn.microsoft.com/library/dn868052.aspx);
+* [командлеты Azure PowerShell для хранилища ключей](/powershell/module/azurerm.keyvault/#key_vault);
 * Диспетчер ресурсов Azure
 * [Защита хранилища ключей](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
 
@@ -401,7 +401,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 ![Хранилище ключей Azure](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)
 
 #### <a name="set-up-a-key-encryption-key-optional"></a>Настройка ключа шифрования ключей (необязательно)
-Если вы хотите использовать ключ шифрования ключей (KEK), чтобы добавить уровень безопасности ключей шифрования BitLocker, поместите ключ шифрования ключей в хранилище ключей. Используйте командлет [`Add-AzureKeyVaultKey`](https://msdn.microsoft.com/library/dn868048.aspx) для создания ключа шифрования ключей в хранилище ключей. Кроме того, KEK можно импортировать из своего локального модуля HSM службы управления ключами. Дополнительные сведения см. в [документации по Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
+Если вы хотите использовать ключ шифрования ключей (KEK), чтобы добавить уровень безопасности ключей шифрования BitLocker, поместите ключ шифрования ключей в хранилище ключей. Используйте командлет [`Add-AzureKeyVaultKey`](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) для создания ключа шифрования ключей в хранилище ключей. Кроме того, KEK можно импортировать из своего локального модуля HSM службы управления ключами. Дополнительные сведения см. в [документации по Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
 
     Add-AzureKeyVaultKey [-VaultName] <string> [-Name] <string> -Destination <string> {HSM | Software}
 
@@ -494,7 +494,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 | vmName | Имя виртуальной машины IaaS. |
 
 #### <a name="using-powershell-cmdlets"></a>Использование командлетов PowerShell
-Можно включить шифрование дисков для зашифрованного виртуального жесткого диска с помощью командлета PowerShell [`Set-AzureRmVMOSDisk`](https://msdn.microsoft.com/library/azure/mt603746.aspx).  
+Можно включить шифрование дисков для зашифрованного виртуального жесткого диска с помощью командлета PowerShell [`Set-AzureRmVMOSDisk`](/powershell/module/azurerm.compute/set-azurermvmosdisk).  
 
 #### <a name="using-cli-commands"></a>Использование команд интерфейса командной строки
 Чтобы включить шифрование диска с помощью команд интерфейса командной строки, сделайте следующее.
@@ -630,7 +630,7 @@ Microsoft Azure обеспечивает конфиденциальность и
  ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>Получение состояния шифрования зашифрованной виртуальной машины IaaS
-Состояние шифрования можно узнать с помощью Azure Resource Manager, [командлетов PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) или команд интерфейса командной строки. В следующих разделах описано, как использовать классический портал Azure и команды интерфейса командной строки, чтобы получить состояние шифрования.
+Состояние шифрования можно узнать с помощью Azure Resource Manager, [командлетов PowerShell](/powershell/azure/overview) или команд интерфейса командной строки. В следующих разделах описано, как использовать классический портал Azure и команды интерфейса командной строки, чтобы получить состояние шифрования.
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windows-vm-by-using-azure-resource-manager"></a>Получение состояния шифрования зашифрованной виртуальной машины Windows с помощью Azure Resource Manager
 Состояние шифрования виртуальной машины IaaS можно узнать с помощью Azure Resource Manager, выполнив следующее.
@@ -713,7 +713,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 | sequenceVersion | Версия последовательности операций с BitLocker. Этот номер версии увеличивается каждый раз, когда расшифровка диска выполняется на той же виртуальной машине. |
 
 ##### <a name="disable-encryption-on-an-existing-or-running-iaas-vm"></a>Отключение шифрования на существующей или запущенной виртуальной машине IaaS
-Отключение шифрования на запущенной или работающей виртуальной машине IaaS с помощью командлета PowerShell описывается в разделе [`Disable-AzureRmVMDiskEncryption`](https://msdn.microsoft.com/library/azure/mt715776.aspx). Этот командлет поддерживает виртуальные машины Linux и Windows. Этот командлет устанавливает на виртуальной машине расширение для отключения шифрования. Если для параметра _Name_ не указано значение, создается расширение с именем по умолчанию _AzureDiskEncryption for Windows VMs_.
+Отключение шифрования на запущенной или работающей виртуальной машине IaaS с помощью командлета PowerShell описывается в разделе [`Disable-AzureRmVMDiskEncryption`](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption). Этот командлет поддерживает виртуальные машины Linux и Windows. Этот командлет устанавливает на виртуальной машине расширение для отключения шифрования. Если для параметра _Name_ не указано значение, создается расширение с именем по умолчанию _AzureDiskEncryption for Windows VMs_.
 
 На виртуальных машинах Linux используется расширение AzureDiskEncryptionForLinux.
 
@@ -1149,7 +1149,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 
 #### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Секрет дискового шифрования не шифруется с помощью KEK
-Используйте командлет [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx), чтобы настроить секрет в хранилище ключей. Если вы используете виртуальную машину Windows, то с помощью командлета `Set-AzureKeyVaultSecret` можно закодировать BEK-файл как строку Base64 и передать его в хранилище ключей. Если используется виртуальная машина Linux, то парольную фразу можно закодировать как строку Base64, а затем передать в хранилище ключей. Убедитесь также, что при создании секрета в хранилище ключей были установлены следующие теги.
+Используйте командлет [Set-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret), чтобы настроить секрет в хранилище ключей. Если вы используете виртуальную машину Windows, то с помощью командлета `Set-AzureKeyVaultSecret` можно закодировать BEK-файл как строку Base64 и передать его в хранилище ключей. Если используется виртуальная машина Linux, то парольную фразу можно закодировать как строку Base64, а затем передать в хранилище ключей. Убедитесь также, что при создании секрета в хранилище ключей были установлены следующие теги.
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"
@@ -1165,7 +1165,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 На следующем шаге используйте `$secretUrl`, чтобы [подключить диск ОС, не применяя ключ шифрования ключей](#without-using-a-kek).
 
 #### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Секрет дискового шифрования, зашифрованный с помощью KEK
-Перед передачей секрета в хранилище ключей его можно дополнительно зашифровать с помощью ключа шифрования ключей. Используйте [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) для создания оболочки, чтобы сначала зашифровать секрет с использованием ключа шифрования ключей. Эта операция возвращает значения, закодированные как строка URL-адреса в кодировке Base64, которые затем передаются в качестве секрета с помощью командлета [`Set-AzureKeyVaultSecret`](https://msdn.microsoft.com/library/dn868050.aspx).
+Перед передачей секрета в хранилище ключей его можно дополнительно зашифровать с помощью ключа шифрования ключей. Используйте [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) для создания оболочки, чтобы сначала зашифровать секрет с использованием ключа шифрования ключей. Эта операция возвращает значения, закодированные как строка URL-адреса в кодировке Base64, которые затем передаются в качестве секрета с помощью командлета [`Set-AzureKeyVaultSecret`](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret).
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"

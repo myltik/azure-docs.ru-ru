@@ -29,15 +29,19 @@
 ### [Определение расположения](resource-manager-template-location.md)
 ### [Присвоение тегов](resource-manager-template-tags.md)
 ### [Настройка имени и типа дочернего ресурса](resource-manager-template-child-resource.md)
+### [Обновление ресурса](resource-manager-update.md)
+### [Использование объектов с параметрами](resource-manager-objects-as-parameters.md)
 ### [Обмен данными о состоянии между связанными шаблонами](best-practices-resource-manager-state.md)
 ### [Схемы проектирования шаблонов](best-practices-resource-manager-design-templates.md)
 ## Развернуть
 ### PowerShell
 #### [Развертывание шаблона](resource-group-template-deploy.md)
 #### [Развертывание частного шаблона с помощью маркера SAS](resource-manager-powershell-sas-token.md)
+#### [Экспорт шаблона и повторное развертывание](resource-manager-export-template-powershell.md)
 ### Инфраструктура CLI Azure
 #### [Развертывание шаблона](resource-group-template-deploy-cli.md)
 #### [Развертывание частного шаблона с помощью маркера SAS](resource-manager-cli-sas-token.md)
+#### [Экспорт шаблона и повторное развертывание](resource-manager-export-template-cli.md)
 ### [Портал](resource-group-template-deploy-portal.md)
 ### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -72,7 +76,13 @@
 
 # Справочные материалы
 ## [Функции шаблонов](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [Функции массива и объекта](resource-group-template-functions-array.md)
+### [Функция сравнения](resource-group-template-functions-comparison.md)
+### [Функции развертывания](resource-group-template-functions-deployment.md)
+### [Числовые функции](resource-group-template-functions-numeric.md)
+### [Функции для работы с ресурсами](resource-group-template-functions-resource.md)
+### [Строковые функции](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure CLI 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

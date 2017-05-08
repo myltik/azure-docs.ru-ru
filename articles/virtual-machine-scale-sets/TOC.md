@@ -44,7 +44,7 @@
 ### [Вопросы и ответы о масштабируемых наборах](virtual-machine-scale-sets-faq.md)
 
 # Справочные материалы
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Интерфейс командной строки Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

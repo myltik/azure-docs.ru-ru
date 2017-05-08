@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
 translationtype: Human Translation
-ms.sourcegitcommit: 00d348306f76194bb44e5252be5c956a48192768
-ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: af0bc6b24a403bd09092ac0a099c500d651d15b7
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -103,11 +104,11 @@ ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
 
    ![GetSystemTimeZones в PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
-   * Дни недели представлены числом от нуля до шести. Значение&0; соответствует воскресенью.
+   * Дни недели представлены числом от нуля до шести. Значение 0 соответствует воскресенью.
    * Время запуска представлено атрибутом **S** и его значением в 24-часовом формате.
    * Время окончания или завершения работы представлено атрибутом **E** и его значением в 24-часовом формате.
 
-     Если атрибуты **S** и **E** имеют значение&0; (ноль), то во время проверки виртуальная машина останется в своем текущем состоянии.
+     Если атрибуты **S** и **E** имеют значение 0 (ноль), то во время проверки виртуальная машина останется в своем текущем состоянии.
 3. Если вы хотите пропустить проверку в определенный день недели, то не добавляйте раздел этого дня недели. В следующем примере проверка выполняется только в понедельник, а в остальные дни недели она пропускается.
 
     ```json
@@ -145,7 +146,7 @@ ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
 ### <a name="tag-from-powershell"></a>Добавление тега из PowerShell
 Все импортированные модули Runbook содержат справочные сведения в начале скрипта, в которых описывается выполнение Runbook непосредственно из PowerShell. Модули Runbook Add-ScheduleResource и Update-ScheduleResource можно вызывать из PowerShell. Для этого нужно передать необходимые параметры, позволяющие создать или обновить тег Schedule для виртуальной машины или группы ресурсов за пределами портала.
 
-Чтобы создавать, добавлять и удалять теги с помощью PowerShell, необходимо сначала настроить [среду PowerShell для Azure](/powershell/azureps-cmdlets-docs). После завершения настройки можно перейти к следующим действиям.
+Чтобы создавать, добавлять и удалять теги с помощью PowerShell, необходимо сначала настроить [среду PowerShell для Azure](/powershell/azure/overview). После завершения настройки можно перейти к следующим действиям.
 
 ### <a name="create-a-schedule-tag-with-powershell"></a>Создание тега Schedule с помощью PowerShell
 1. Откройте сеанс PowerShell. Затем выполните следующую команду, чтобы пройти аутентификацию с помощью учетной записи запуска от имени и указать подписку.
@@ -241,9 +242,4 @@ ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
 * Дополнительные сведения о функции поддержки сценариев PowerShell см. в публикации блога [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Поддержка собственных сценариев PowerShell в службе автоматизации Azure).
 * Чтобы узнать больше о ведении журнала и выходных данных Runbook, ознакомьтесь со статьей [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md).
 * Дополнительные сведения об учетной записи запуска от имени Azure и о том, как с ее помощью выполнить аутентификацию модулей Runbook, см. в статье [Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени](automation-sec-configure-azure-runas-account.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

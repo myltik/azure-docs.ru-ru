@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 5d32a695c14ebe01d1ad8cf4b789bf2edc8c30ce
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 674404b135d2e512840505ee0927db98824aa8b1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/21/2017
 
 ## <a name="get-started-with-azure-powershell"></a>Начало работы с Azure PowerShell
 
-Если вы еще не установили Azure PowerShell, то см. статью [Get started with Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) (Приступая к работе с командлетами Azure PowerShell).
+Если вы еще не установили Azure PowerShell, то см. статью [Get started with Azure PowerShell cmdlets](/powershell/azure/overview) (Приступая к работе с командлетами Azure PowerShell).
 
 Если вы уже установили Azure PowerShell, но давно не выполняли обновление, то рекомендуется установить последнюю версию. Обновить версию можно тем же методом, что применялся для ее установки. Например, если вы использовали установщик веб-платформы, то запустите его снова и выберите параметр "Обновить".
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 04/21/2017
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-Этот раздел был обновлен для версии 3.3.0. Если у вас установлена более ранняя версия, то выполняемые действия могут отличаться от шагов, описанных в этом разделе. Документация по командлетам, используемым в этой версии, доступна в [модуле AzureRM.Resources](/en-us/powershell/resourcemanager/azurerm.resources/v3.3.0/azurerm.resources).
+Этот раздел был обновлен для версии 3.3.0. Если у вас установлена более ранняя версия, то выполняемые действия могут отличаться от шагов, описанных в этом разделе. Документация по командлетам, используемым в этой версии, доступна в [модуле AzureRM.Resources](/powershell/module/azurerm.resources).
 
 ## <a name="log-in-to-your-azure-account"></a>Вход в учетную запись Azure
 Прежде чем начать работу над решением, необходимо войти в учетную запись.

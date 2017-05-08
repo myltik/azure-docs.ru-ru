@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 593fdde402845fa062dbceafa533a1efc1f7af9c
-ms.openlocfilehash: b189106be19b95366ba0e6d248c69b34b219b8a1
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7b499b46d4edbe4e33c568b7c50e0a44dd75a00f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,13 +78,13 @@ Thales e-Security — ведущий международный поставщи
 ### <a name="step-11-install-azure-powershell"></a>Шаг 1.1. Установка Azure PowerShell
 С компьютера, подключенного к Интернету, загрузите и установите модуль Azure PowerShell, который содержит командлеты для управления хранилищем ключей Azure. Требуется версия не ниже 0.8.13.
 
-Инструкции по установке см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Инструкции по установке см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Шаг 1.2. Получение идентификатора подписки Azure
 Запустите сеанс Azure PowerShell и выполните вход в учетную запись Azure с помощью следующей команды:
 
         Add-AzureAccount
-Во всплывающем окне браузера введите имя пользователя и пароль учетной записи Azure. Затем воспользуйтесь командой [Get-AzureSubscription](https://msdn.microsoft.com/library/azure/dn790366.aspx) :
+Во всплывающем окне браузера введите имя пользователя и пароль учетной записи Azure. Затем воспользуйтесь командой [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) :
 
         Get-AzureSubscription
 В выходных данных найдите идентификатор для подписки, которая будет использоваться для хранилища ключей Azure. Этот идентификатор подписки понадобится позже.
@@ -399,7 +400,7 @@ ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
 С помощью USB-накопителя или другого переносного устройства скопируйте выходной файл из предыдущего шага (KeyTransferPackage-ContosoFirstHSMkey.byok) на рабочую станцию, подключенную к Интернету.
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Шаг 5. Передача ключа в хранилище ключей Azure
-Наконец, на рабочей станции, подключенной к Интернету, запустите командлет [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx), чтобы отправить пакет передачи ключа, скопированный с отключенной рабочей станции, в аппаратный модуль безопасности хранилища ключей Azure.
+Наконец, на рабочей станции, подключенной к Интернету, запустите командлет [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey), чтобы отправить пакет передачи ключа, скопированный с отключенной рабочей станции, в аппаратный модуль безопасности хранилища ключей Azure.
 
     Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
@@ -407,10 +408,5 @@ ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь ключ, защищенный с помощью аппаратного модуля безопасности, можно использовать в хранилище ключей. Дополнительные сведения см. в разделе **Использование аппаратного модуля безопасности** руководства [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

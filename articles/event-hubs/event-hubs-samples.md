@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 05/01/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 2eaf642d3d6617c8500aee283809209a5f31ef88
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 89049688ab60842910f1bab8e56c349029dd17a7
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/18/2017
 На момент написания этой статьи примеры концентраторов событий доступны по нескольким ссылкам:
 
 - [Примеры кода для разработчиков на сайте MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
-- [GitHub](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples)
+- [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
 Дополнительные сведения о различных версиях платформы .NET Framework см. в статье [Платформы и целевые объекты](/dotnet/articles/standard/frameworks).
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 04/18/2017
 
 ### <a name="send-events"></a>Отправка событий 
 
-В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleSender) показано, как написать консольное приложение .NET Core, которое отправляет события в концентратор событий.
+В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) показано, как написать консольное приложение .NET Core, которое отправляет события в концентратор событий.
 
 ### <a name="receive-events"></a>Получение событий 
 
-В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) содержится консольное приложение .NET Core, которое получает сообщения из концентратора событий, используя `Event Processor Host`.
+В [этом примере](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) содержится консольное приложение .NET Core, которое получает сообщения из концентратора событий, используя `Event Processor Host`.
 
 ## <a name="net-framework"></a>.NET Framework    
 

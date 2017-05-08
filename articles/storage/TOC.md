@@ -4,8 +4,7 @@
 
 # Начало работы
 
-## [Краткое руководство](storage-getting-started-guide.md)
-## [Создание учетной записи хранения](storage-create-storage-account.md)
+## [создать учетную запись хранения;](storage-create-storage-account.md)
 
 ## Хранилище BLOB-объектов
 ### [.NET](storage-dotnet-how-to-use-blobs.md)
@@ -166,7 +165,7 @@
 #### [Архивация манифестов диска](storage-import-export-backing-up-drive-manifests.md)
 #### [Диагностика и восстановление после ошибок для заданий импорта и экспорта](storage-import-export-diagnostics-and-error-recovery.md)
 # Справочные материалы
-## [PowerShell](/powershell/storage)
+## [PowerShell](/powershell/module/azure.storage)
 ## [Интерфейс командной строки Azure](/cli/azure/storage)
 ## .NET
 ### [Диспетчер ресурсов](/dotnet/api/microsoft.azure.management.storage)
@@ -180,7 +179,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [BLOB-объекты, очереди, таблицы и файлы](/rest/api/storageservices/azure-storage-services-rest-api-reference)
+### [BLOB-объекты, очереди, таблицы и файлы](/rest/api/storageservices)
 ### [Поставщик ресурсов](/rest/api/storagerp)
 ### [Импорт и экспорт](/rest/api/storageimportexport)
 

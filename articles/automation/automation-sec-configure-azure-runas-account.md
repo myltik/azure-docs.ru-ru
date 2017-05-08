@@ -19,9 +19,9 @@ ROBOTS: NOINDEX
 redirect_url: /azure/automation/automation-offering-get-started
 redirect_document_id: TRUE
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: fbca3d195290551d37606e231b997a40a602351f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 90570886b3a1ae0c48683691cb438b5a61195d76
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -245,7 +245,7 @@ ms.lasthandoff: 03/29/2017
 Предварительные требования для выполнения этого сценария:
 
 * Этот сценарий можно выполнять только в ОС Windows 10 и Windows Server 2016 с модулями Azure Resource Manager 2.01 или более поздней версии. Более ранние версии Windows не поддерживаются.
-* Azure PowerShell 1.0 или более поздней версии. Сведения о выпуске PowerShell 1.0 см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* Azure PowerShell 1.0 или более поздней версии. Сведения о выпуске PowerShell 1.0 см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azure/overview).
 * Учетная запись службы автоматизации, указанная как значение для параметров *-AutomationAccountName* и *-ApplicationDisplayName* в приведенных ниже сценариях PowerShell.
 
 Чтобы получить значения для параметров *SubscriptionID*, *ResourceGroup* и *AutomationAccountName*, которые являются обязательными для сценариев, сделайте следующее:
@@ -515,7 +515,7 @@ ms.lasthandoff: 03/29/2017
          }
     }
 
-Этот сценарий содержит две дополнительные строки кода, что позволяет ссылаться на контекст подписки и без проблем работать с несколькими подписками. Ресурс переменных *SubscriptionId* содержит идентификатор подписки. После инструкции командлета `Add-AzureRmAccount` командлет [`Set-AzureRmContext`](https://msdn.microsoft.com/library/mt619263.aspx) указывается с набором параметров *-SubscriptionId*. Если имя переменной слишком общее, вы можете изменить это имя, включив в него префикс или другое соглашение об именовании, чтобы упростить идентификацию. Кроме того, вы также можете использовать набор параметров *-SubscriptionName* вместо *-SubscriptionId* с соответствующим ресурсом переменных.
+Этот сценарий содержит две дополнительные строки кода, что позволяет ссылаться на контекст подписки и без проблем работать с несколькими подписками. Ресурс переменных *SubscriptionId* содержит идентификатор подписки. После инструкции командлета `Add-AzureRmAccount` командлет [`Set-AzureRmContext`](/powershell/module/azurerm.profile/set-azurermcontext) указывается с набором параметров *-SubscriptionId*. Если имя переменной слишком общее, вы можете изменить это имя, включив в него префикс или другое соглашение об именовании, чтобы упростить идентификацию. Кроме того, вы также можете использовать набор параметров *-SubscriptionName* вместо *-SubscriptionId* с соответствующим ресурсом переменных.
 
 Командлет `Add-AzureRmAccount`, применяемый для проверки подлинности в модуле runbook, использует набор параметров *ServicePrincipalCertificate*. Он выполняет проверку подлинности с помощью сертификата субъекта-службы, а не учетных данных пользователя.
 

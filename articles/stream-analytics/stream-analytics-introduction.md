@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 493a915fb4e3de4cb70324b22beeaae6720a3492
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -42,7 +42,7 @@ Azure Stream Analytics — это полностью управляемый эк
 * **Возможности подключения.** Служба Stream Analytics подключается непосредственно к концентраторам событий Azure и Центрам Интернета вещей Azure для приема потока, а также к службе BLOB-объектов Azure для приема данных журналов. Результаты могут записываться из службы Stream Analytics в большие двоичные объекты или таблицы службы хранилища Azure, базу данных SQL Azure, хранилища Azure Data Lake Store, базу данных DocumentDB, концентраторы событий, разделы или очереди служебной шины Azure, а также в Power BI. Затем результаты можно визуализировать, дополнительно обрабатывать в рамках рабочих процессов, использовать в пакетной аналитике с помощью [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) или повторно обрабатывать как последовательности событий. При использовании концентраторов событий можно объединить несколько служб Stream Analytics с другими источниками данных и модулями обработки без потери потока вычислений.  
 
 ## <a name="get-help"></a>Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы получили основные сведения о Stream Analytics, управляемой службе аналитики потоковой передачи данных из Интернета вещей. Дополнительные сведения об этой службе см. на следующих ресурсах:

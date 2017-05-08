@@ -16,9 +16,9 @@ ms.custom: manage
 ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: adbd994022f7585676bcbd0c4e4b040e9160c679
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3107e918a12ba17e72dbbe3660d42527e9e9f051
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ ms.lasthandoff: 04/07/2017
 | Сообщение 40847: не удалось выполнить операцию, так как сервер достиг допустимой квоты в 45 000 единиц транзакций базы данных (DTU). |Либо уменьшите значение [DWU][DWU] создаваемой базы данных, либо [запросите увеличение квоты][request a quota increase]. |
 | Анализ использования пространства |Сведения об использовании пространства в системе см. в разделе о [запросах размера таблицы][Table sizes]. |
 | Справка по управлению таблицами |Справочную информацию об управлении таблицами см. в статье [Общие сведения о таблицах в хранилище данных SQL][Overview].  Дополнительные сведения см. в статьях, посвященных [типам данных таблиц][Data types], [распределению][Distribute], [индексированию][Index], [секционированию][Partition], [управлению статистикой таблиц][Statistics] и [временным таблицам][Temporary]. |
-|На портале Azure не обновляется индикатор хода прозрачного шифрования данных (TDE)|Состояние прозрачного шифрования данных можно узнать с помощью [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption?view=azurermps-3.7.0).|
+|На портале Azure не обновляется индикатор хода прозрачного шифрования данных (TDE)|Состояние прозрачного шифрования данных можно узнать с помощью [PowerShell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption).|
 
 ## <a name="polybase"></a>PolyBase
 | Проблема | Способы устранения: |

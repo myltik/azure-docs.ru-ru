@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ce83fe64c4922b0e420f447e5b9db04c824412a6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6b26945f4bbffc3dad81bdb267d008da259b47df
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/12/2017
 
 * **Знакомство с SSH и SCP** или **Azure PowerShell**. Этот документ содержит инструкции по использованию SSH/SCP и Azure PowerShell при запуске приведенного примера.
 
-    Сведения об установке Azure PowerShell см. в статье о [начале работы с Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+    Сведения об установке Azure PowerShell см. в статье о [начале работы с Azure PowerShell](/powershell/azure/overview).
 
     Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -670,7 +670,7 @@ ms.lasthandoff: 04/12/2017
 
 Завершив работу с примером, удалите таблицу **people**, используя следующую команду в сеансе Azure PowerShell.
 
-__Из сеанса `ssh`__:
+__Из сеанса `ssh`__ :
 
 `hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
 

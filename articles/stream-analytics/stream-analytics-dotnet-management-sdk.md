@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: b2729dfdb6bf85e6d254b08669eeb259f4ab59d5
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: c1904b90e2e076c5e204a348b5882c7200bbace3
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -34,7 +34,7 @@ Azure Stream Analytics является полностью управляемо�
 
 * Установленный экземпляр Visual Studio 2017 или Visual Studio 2015.
 * Скачанный и установленный [пакет SDK для Azure .NET](https://azure.microsoft.com/downloads/).
-* Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Дополнительную информацию об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs).  
+* Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Дополнительную информацию об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](/powershell/azure/overview).  
 
         # Log in to your Azure account
         Add-AzureAccount
@@ -295,7 +295,7 @@ Azure Stream Analytics является полностью управляемо�
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 ## <a name="get-support"></a>Получение поддержки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы изучили основы использования пакета SDK для .NET для создания и выполнения заданий аналитики. См. также:

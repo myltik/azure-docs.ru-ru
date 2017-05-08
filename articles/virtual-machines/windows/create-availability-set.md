@@ -18,9 +18,9 @@ ms.date: 02/06/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: e1933c5bf65f3e28d952213317413d0f65309c5b
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: caf50732ce19ded5016c6d5368f8b53b6ca3646f
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>Повышение уровня доступности виртуальной машины с помощью группы доступности Azure 
@@ -71,7 +71,7 @@ ms.lasthandoff: 03/31/2017
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
+Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](/powershell/azure/overview).
 
 
 Если для виртуальных машин вы используете управляемые диски, введите следующую команду.
@@ -88,7 +88,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     -Name "myAvailabilitySet" -Location "West US" 
 ```
 
-Дополнительные сведения см. в разделе [New-AzureRmAvailabilitySet](/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermavailabilityset).
+Дополнительные сведения см. в разделе [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset).
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 * Если при создании виртуальной машины необходимая вам группа доступности отсутствует в раскрывающемся списке на портале, возможно, она была создана в другой группе ресурсов. Если вы не знаете, к какой группе ресурсов относится группа доступности, перейдите в главное меню и щелкните "Обзор" > "Группы доступности", чтобы просмотреть список групп доступности и соответствующие им группы ресурсов.

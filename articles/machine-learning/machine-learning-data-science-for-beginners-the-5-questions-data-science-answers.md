@@ -18,7 +18,7 @@ ms.author: cgronlun;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 50d1f8dfc7ce2d8bf4b04cff68698eafd56ce9c2
 ms.openlocfilehash: 518a7d2b5e43d8133d54ab583e4545a3ee9b3cba
-ms.lasthandoff: 02/10/2017
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/10/2017
 * Видео 2. [Готовы ли ваши данные к обработке и анализу?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 мин 56 с)*
 * Видео 3. [Задайте вопрос, на который можно ответить с помощью данных](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 мин 17 с)*
 * Видео 4. [Прогнозирование ответа с помощью простой модели](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 мин 42 с)*
-* Видео 5. [Копирование работы других пользователей для обработки и анализа данных](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 мин 18 с)*
+* Видео 5. [Копирование работы других пользователей для обработки и анализа данных](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)  *(3 мин 18 с)*
 
 ## <a name="transcript-the-5-questions-data-science-answers"></a>Расшифровка видео "5 вопросов, на которые дают ответ обработка и анализ данных"
 Привет! Добро пожаловать в цикл видеороликов *Обработка и анализ данных для начинающих*.

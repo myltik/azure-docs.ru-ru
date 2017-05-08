@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 88541f6054df1476866d68fdc1c9690a73ada83c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980
 
 Для выполнения большинства задач, связанных с управлением виртуальной машиной в масштабируемом наборе, необходимо знать идентификатор экземпляра этой машины. Определить идентификатор экземпляра виртуальной машины в наборе масштабирования можно с помощью [обозревателя ресурсов Azure](https://resources.azure.com) . Обозреватель ресурсов также используется для проверки состояния выполненных задач.
 
-Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка служб Azure PowerShell](/powershell/azureps-cmdlets-docs).
+Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка служб Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="display-information-about-a-scale-set"></a>Отображение информации о масштабируемом наборе
 Вы можете получить общие сведения о наборе масштабирования, которые также называются представлением экземпляра. Вы также можете получить более подробную информацию, например, о ресурсах в масштабируемом наборе.
@@ -212,10 +213,5 @@ ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980
     Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 При удалении виртуальных машин из масштабируемого набора виртуальные машины с более высоким значениям идентификатора удаляются первыми.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
