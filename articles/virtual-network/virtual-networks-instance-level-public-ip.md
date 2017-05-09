@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/03/2017
 
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/03/2017
 ## <a name="why-would-i-request-an-ilpip"></a>Зачем запрашивать ILPIP-адрес?
 Чтобы подключиться к виртуальной машине или экземпляру роли непосредственно по определенному IP-адресу, не используйте формат "виртуальный IP-адрес облачной службы:&lt;номер_порта&gt;", а вместо этого отправьте запрос на создание ILPIP-адреса для виртуальной машины или экземпляра роли.
 
-* **Активный FTP-сервер**. Если назначить ILPIP-адрес виртуальной машине, она сможет получать трафик через любой порт. Ей не понадобятся конечные точки, чтобы получать трафик.  Дополнительные сведения о протоколе FTP см. в обзоре протокола FTP (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview).
+* **Активный FTP-сервер**. Если назначить ILPIP-адрес виртуальной машине, она сможет получать трафик через любой порт. Ей не понадобятся конечные точки, чтобы получать трафик.  Дополнительные сведения о протоколе FTP см. в обзоре протокола FTP (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protocol Overview] .
 * **Исходящий IP-трафик.** Исходящий трафик с виртуальной машины сопоставляется с ILPIP-адресом в качестве источника, который уникальным образом идентифицирует эту виртуальную машину для внешних сущностей.
 
 > [!NOTE]
