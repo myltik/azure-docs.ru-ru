@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 24a6ae1b259a1524ec3a8542dcbf55ff0450421e
 ms.openlocfilehash: 01b9108048b5d7f3aa960ec01f75a693e074beaf
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -47,9 +49,4 @@ ms.openlocfilehash: 01b9108048b5d7f3aa960ec01f75a693e074beaf
 * [Настройка параметров групп с помощью командлетов Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
