@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 985f14ce7b8249c8e80deb1851cfee8c89651786
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 ---

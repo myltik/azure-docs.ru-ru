@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: monicar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 1cf6be168c3e87bfd567c216679f608593673340
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

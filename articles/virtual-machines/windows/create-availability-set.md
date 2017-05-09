@@ -17,9 +17,10 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: caf50732ce19ded5016c6d5368f8b53b6ca3646f
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 ---

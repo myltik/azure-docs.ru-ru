@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 38a5bee31483cbb91b0278ea6c750e5ff7780b7c
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 ---

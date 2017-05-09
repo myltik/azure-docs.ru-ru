@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 674404b135d2e512840505ee0927db98824aa8b1
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

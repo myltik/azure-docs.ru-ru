@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 4/06/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 5e1538ae0d4b1270040bd593cae66c1dd1046201
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

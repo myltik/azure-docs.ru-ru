@@ -15,9 +15,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: e7ac7c596bcc731761b0263678015ec661c699de
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 ---

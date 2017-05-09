@@ -15,9 +15,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 28bb214570fcca94c5ceb6071c4851b81ec00c8d
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

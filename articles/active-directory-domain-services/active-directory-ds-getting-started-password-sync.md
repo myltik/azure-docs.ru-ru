@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
 ms.openlocfilehash: b7b5f92c0093faa96a367fc95d459b1babd99789
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/28/2017
 
 

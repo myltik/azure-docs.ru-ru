@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/20/2017
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: a3052e53c642ef3e6d9bb0489476274987707f91
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

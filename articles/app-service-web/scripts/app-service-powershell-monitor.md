@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: f287941ba919625e181752b3aaad5164dee7214a
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 ---

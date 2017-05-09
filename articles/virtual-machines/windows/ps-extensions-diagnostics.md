@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 0a4c7df2ef385b8bdec467859af64fc243241d77
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

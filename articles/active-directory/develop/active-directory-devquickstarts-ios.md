@@ -14,9 +14,10 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 7ea7008495225b384be3e4728524393bf8c9ba6e
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

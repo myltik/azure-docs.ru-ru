@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 717f4969a91209576a504c94c31993b938770432
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

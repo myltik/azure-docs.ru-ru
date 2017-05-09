@@ -15,9 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: e391dc0f88bd7e065f968a490b3c1ddb1fa75978
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

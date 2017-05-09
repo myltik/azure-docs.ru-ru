@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: spelluru
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 864526efd2bc90bdd4beeb4c81173e85eee6f34b
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

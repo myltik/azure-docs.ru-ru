@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: e4042dfbf28e78d2fca5c3f6a93df751a12153f2
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
 ms.openlocfilehash: f2c67bb0629c8a37e557d4813e3efa459f3c82ad
+ms.contentlocale: ru-ru
 ms.lasthandoff: 05/01/2017
 
 

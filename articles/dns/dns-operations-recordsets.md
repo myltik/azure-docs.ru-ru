@@ -14,9 +14,10 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 1d7f24b8a65347bc54b273d08c06b22320cbeb2c
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 ---

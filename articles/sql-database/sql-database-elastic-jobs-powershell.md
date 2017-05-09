@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 4e0a0a711ffb0b474606863187acaab4474c3459
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

@@ -14,9 +14,10 @@ ms.topic: article
 ms.workload: required
 ms.date: 03/27/2017
 ms.author: ruturajd
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 3bd182a775377f912914c0c7a63fe41811146e1a
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

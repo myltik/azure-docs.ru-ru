@@ -13,9 +13,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: robinsh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: bd76adbc250658f6d8e7dc13413b9554a9ee8236
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

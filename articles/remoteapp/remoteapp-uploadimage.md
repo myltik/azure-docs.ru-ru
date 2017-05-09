@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: ericor
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: b93861bc6277aaca5954bf9f4c338fed22a0c3fc
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

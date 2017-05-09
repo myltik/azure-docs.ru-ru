@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/23/2017
 ms.author: marsma
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: dd11ad70efd8f78805e74ad193fb9000abf6a3a8
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/29/2017
 
 

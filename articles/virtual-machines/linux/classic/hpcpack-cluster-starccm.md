@@ -15,9 +15,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 9a2796c66fa49c543e52b654e583ade7625a7f31
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

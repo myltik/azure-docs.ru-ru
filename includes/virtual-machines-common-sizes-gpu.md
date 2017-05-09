@@ -15,10 +15,6 @@
 
 1 графический процессор — половина графической карты M60.
 
-**Поддерживаемые операционные системы**
-
-* Windows Server 2016, Windows Server 2012 R2. Ознакомьтесь со статьей [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Настройка драйвера серии N для Windows).
-
 ## <a name="nc-instances"></a>Экземпляры NC
 
 | Размер | Ядра ЦП | Память, ГиБ | Локальный SSD: ГиБ | Графический процессор |
@@ -32,10 +28,4 @@
 
 * С поддержкой RDMA
 
-**Поддерживаемые операционные системы**
-
-* Windows Server 2016, Windows Server 2012 R2. Ознакомьтесь со статьей [N-series driver setup for Windows](../articles/virtual-machines/windows/n-series-driver-setup.md) (Настройка драйвера серии N для Windows).
-* Ubuntu 16.04 LTS. Ознакомьтесь со статьей [N-series driver setup for Linux](../articles/virtual-machines/linux/n-series-driver-setup.md) (Настройка драйвера серии N для Linux).
-
-<br>
 

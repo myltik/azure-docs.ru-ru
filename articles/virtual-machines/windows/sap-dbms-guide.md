@@ -17,9 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: cc7c85382d8f8183ef3eb3cc7496b012808148e5
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/29/2017
 
 

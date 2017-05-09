@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: yuemlu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 56f4245b63cecd51bf81863e15e4e72d73e671d6
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

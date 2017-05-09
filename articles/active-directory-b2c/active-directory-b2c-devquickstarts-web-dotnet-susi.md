@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 87b8b91fc5970bd127dfdc47e24d99a19471aa8c
+ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
 

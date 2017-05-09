@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: e2ccb78da419b12a9845d720efb5b0229d4f455b
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: ganesr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: b8c23a623a5c6c65c5239e6af694bc92c4de4682
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

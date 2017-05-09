@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 1549eb40b0ca79522cc5475057c3af7ff4c7fd1c
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

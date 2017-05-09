@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 12/20/2016
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 2e84a7f8d0f8d15a808092deab8cc7a9bca1541d
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

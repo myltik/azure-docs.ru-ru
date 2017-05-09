@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: e1e09f4f75da05ca051b78e57979600fd3e36006
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

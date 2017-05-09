@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 763ec017cef58b91ba12b616870cb9d830448749
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

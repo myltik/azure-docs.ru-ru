@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan; annahar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 57991a59feb784fd2e5277e893110de2a776a060
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

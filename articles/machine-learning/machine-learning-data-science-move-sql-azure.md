@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 642f3369bedc54c9067ae5520bc94da97b5e36b2
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 
