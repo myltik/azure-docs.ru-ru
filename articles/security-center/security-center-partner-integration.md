@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2017
+ms.date: 05/08/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
@@ -58,7 +58,7 @@ ms.lasthandoff: 05/01/2017
 
 Развернув партнерское решение, можно просмотреть сведения о его работоспособности и выполнить основные задачи управления на плитке "Решения партнеров" на основной панели мониторинга центра безопасности. Дополнительные сведения об управлении партнерскими решениями с помощью центра безопасности Azure см. [в этой статье](security-center-partner-solutions.md).
 
-![Интеграция партнеров](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
+![Интеграция партнеров](./media/security-center-partner-integration/security-center-partner-integration-fig1-newUI.png)
 
 
 ## <a name="see-also"></a>Дополнительные материалы
