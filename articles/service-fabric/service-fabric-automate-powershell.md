@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: ryanwi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 4e4793d35974268eac8272f85f78132bc69f7913
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

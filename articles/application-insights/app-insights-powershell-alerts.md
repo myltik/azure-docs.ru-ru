@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: awills
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 298e0218c51385caa2de6a684ac40503fc07f5fa
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 91a4e54b3dd2e1f44a6b52c548a243ae98e3ba3f
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

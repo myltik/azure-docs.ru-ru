@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
 ms.openlocfilehash: 32c236c7082e48990f41a1a9069cea53d0cab96f
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/28/2017
 
 

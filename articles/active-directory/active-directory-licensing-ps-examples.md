@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/02/2017
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 36ea3356648a1a6333c2a1e2c042d27ae2f829b4
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

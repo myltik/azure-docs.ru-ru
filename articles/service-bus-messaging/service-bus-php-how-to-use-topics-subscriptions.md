@@ -14,9 +14,10 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
 ms.openlocfilehash: 7dc72dbdf944432fff7635665c8a1d27def3aa94
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/28/2017
 
 

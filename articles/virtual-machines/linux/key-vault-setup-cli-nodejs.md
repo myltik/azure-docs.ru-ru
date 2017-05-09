@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: fed612a354d45f34619f2a66bd40d78740c43ac7
+ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
 

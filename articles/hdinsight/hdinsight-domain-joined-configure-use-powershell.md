@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 6f4189cb30d528a106dd8889c06acd621aebb699
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/02/2017
 ms.author: chackdan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: fa59bae2b824e6b75e120ab2b61027746ee1ea78
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

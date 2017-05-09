@@ -16,9 +16,10 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: b01ffb52f75fd23901f4bb245396f649e14c0389
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 ---

@@ -15,9 +15,10 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
+ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
 ---

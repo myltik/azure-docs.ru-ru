@@ -15,9 +15,10 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: adegeo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 ---

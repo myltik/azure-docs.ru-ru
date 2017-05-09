@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 7970fb624fcf76d9cba6e60c9766e39b63f175ba
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

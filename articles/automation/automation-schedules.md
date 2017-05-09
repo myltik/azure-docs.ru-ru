@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 823d1155bc011466d0f3bd0ccd8650be161fd28b
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

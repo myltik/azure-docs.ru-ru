@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 3/31/2017
 ms.author: ruturajd
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: ecfe9d512b0ffc891120d899f0541d3d3c9f6498
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

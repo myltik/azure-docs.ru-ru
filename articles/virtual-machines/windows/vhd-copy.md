@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 1b2b013fb29c66817aab2ea5e63917b59726b4e8
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

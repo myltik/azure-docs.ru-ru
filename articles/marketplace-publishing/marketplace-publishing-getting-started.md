@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: 49ffe988867ba70df5bd7757a64edc9aa813071d
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/29/2017
 
 

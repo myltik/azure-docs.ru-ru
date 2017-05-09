@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: 924fce8245a88fd7c12636182336e503237fe4dc
+ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
 

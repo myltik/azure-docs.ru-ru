@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 6dd2433bf744dd207375e92fd6f24b14cd3f828c
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

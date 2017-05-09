@@ -6,7 +6,7 @@ documentationcenter: na
 author: cherylmc
 manager: timlt
 editor: 
-tags: azure-resource-manager
+tags: azure-service-management
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fd7c834e8e061ba51b116ade88769dde05abcf9a
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: e5dcf957ea88175be02bce21929c43151417d0e3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -48,7 +49,7 @@ ms.lasthandoff: 04/25/2017
 * Совместимое VPN-устройство и пользователь, который может настроить его. Дополнительные сведения о совместимых устройствах VPN и их настройке см. в [этой статье](vpn-gateway-about-vpn-devices.md).
 * Внешний общедоступный IP-адрес IPv4 для VPN-устройства. Этот IP-адрес не может располагаться вне преобразования сетевых адресов (NAT).
 * Если вы не знаете диапазоны IP-адресов в своей конфигурации локальной сети, найдите того, кто сможет предоставить вам нужную информацию. При создании этой конфигурации необходимо указать префиксы диапазона IP-адресов, которые Azure будет направлять к локальному расположению. Ни одна из подсетей локальной сети не может перекрывать виртуальные подсети, к которым вы хотите подключиться.
-* Сейчас, чтобы указать общий ключ и создать подключение VPN-шлюза, требуется PowerShell. Установите последнюю версию командлетов PowerShell для управления службами Azure. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). Если вы работаете с этой конфигурацией в PowerShell, убедитесь, что вы запустили ее от имени администратора. 
+* Сейчас, чтобы указать общий ключ и создать подключение VPN-шлюза, требуется PowerShell. Установите последнюю версию командлетов PowerShell для управления службами Azure. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview). Если вы работаете с этой конфигурацией в PowerShell, убедитесь, что вы запустили ее от имени администратора. 
 
 ### <a name="values"></a>Примеры значений конфигурации для этого упражнения
 

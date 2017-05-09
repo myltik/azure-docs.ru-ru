@@ -2,9 +2,10 @@
 
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: https://gallery.cortanaintelligence.com/
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 353dcae989dd313577fe88ba6757107abcd5f5c9
+ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
 

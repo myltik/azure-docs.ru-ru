@@ -15,9 +15,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/06/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
+ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
 

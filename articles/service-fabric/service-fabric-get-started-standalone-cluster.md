@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2017
 ms.author: ryanwi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: a96150a6a7f83d1c220e0450f7704634a1f6ed1b
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

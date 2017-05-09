@@ -15,9 +15,10 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
 ms.openlocfilehash: bdb36e6397951d2d3298dbfe9e80a0b678ecfdaf
+ms.contentlocale: ru-ru
 ms.lasthandoff: 05/02/2017
 
 

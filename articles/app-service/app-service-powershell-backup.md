@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 0d1c323155aae90e8a92d7a3b92b5ca1482e1ef5
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 
