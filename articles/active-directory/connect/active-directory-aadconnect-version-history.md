@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: fe01be4f57766a556ff3a27a0cbba0293675cac7
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 7983ffa4bf7cb63f985d1a8f14d6dd834e679cf5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -49,7 +50,7 @@ ms.lasthandoff: 04/17/2017
 * Сбой установки этой версии Azure AD Connect может случиться в следующих случаях.
    1. При выполнении обновления "на месте" службы DirSync или новой установки Azure AD Connect.
    2. При использовании локализованной версии Windows Server, в которой имя встроенной группы администраторов на сервере — не "Администраторы".
-   3. При использовании выпуска SQL Server 2012 Express LocalDB по умолчанию, установленного с помощью Azure AD Connect, вместо полной версии SQL Server. 
+   3. При использовании выпуска SQL Server 2012 Express LocalDB по умолчанию, установленного с помощью Azure AD Connect, вместо полной версии SQL Server.
 
 **Исправленные проблемы:**
 
@@ -310,7 +311,7 @@ Desktop SSO
 **Новые функции предварительной версии:**
 
 * [Azure AD Connect Health для синхронизации](../connect-health/active-directory-aadconnect-health-sync.md).
-* Поддержка синхронизации паролей [доменных служб Azure AD](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) .
+* Поддержка синхронизации паролей [доменных служб Azure AD](../active-directory-passwords-update-your-own-password.md) .
 
 **Новый поддерживаемый сценарий:**
 
