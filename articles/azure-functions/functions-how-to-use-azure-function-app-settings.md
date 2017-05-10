@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: rachelap, glenga
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: e6f5798b260c4923452dcc96c18d4839f5c34bfc
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/25/2017
 
 
@@ -131,6 +132,6 @@ ms.lasthandoff: 04/25/2017
 + [Настройка параметров службы приложений Azure](../app-service-web/web-sites-configure.md)
 + [Непрерывное развертывание для функций Azure](functions-continuous-deployment.md)
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 
 

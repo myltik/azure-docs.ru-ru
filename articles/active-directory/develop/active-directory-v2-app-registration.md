@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
 ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -36,7 +38,6 @@ ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
 Готово? Теперь вы должны увидеть список своих приложений Майкрософт, который, вероятно, пуст.  Изменим это.
 
 Щелкните **Добавить приложение**и присвойте приложению имя.  Портал назначит приложению глобальный уникальный идентификатор, который вы используете в коде в дальнейшем.  Если приложение содержит серверный компонент, которому требуются маркеры доступа для вызова интерфейсов API (например, Office, Azure или собственного веб-API), вам необходимо также создать **секрет приложения** .
-<!-- TODO: Link for app secrets -->
 
 Добавьте платформы, которые будет использовать приложение.
 
@@ -54,10 +55,5 @@ ms.openlocfilehash: 4a71d02d37e55ae08035632c323283438b3f66c6
 Теперь, когда у вас есть приложение Майкрософт, вы можете изучить один из кратких учебников по версии&2;.0.  Вот несколько рекомендаций.
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

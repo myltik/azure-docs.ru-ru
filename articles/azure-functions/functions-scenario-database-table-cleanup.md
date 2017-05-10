@@ -15,9 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: glenga
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b873a7d0ef9efa79c9a173a8bfd3522b12522322
 ms.openlocfilehash: c0b4a963275dae5bbf203388cb61086393803b15
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/29/2016
 
 
 ---
@@ -96,11 +98,6 @@ ms.openlocfilehash: c0b4a963275dae5bbf203388cb61086393803b15
 * [Масштабирование функций Azure](functions-scale.md)  
   Обсуждение планов обслуживания, доступных для использования с Функциями Azure (включая план потребления), а также сведения о выборе подходящего плана.  
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 
