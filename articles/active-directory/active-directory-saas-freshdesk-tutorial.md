@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: f35da063fc637f315b52ea38b63d2c8222cecd21
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0a8f2de60ab60b980b29c4dbc78045bd20693b9d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -197,29 +198,29 @@ ms.lasthandoff: 04/05/2017
 1. Выполните вход в клиент **Freshdesk** .
 2. В верхнем меню щелкните **Администратор**.
    
-       ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
+   ![Администратор](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Администратор")
 
 3. На вкладке **General Settings** (Общие параметры) выберите **Agents** (Агенты).
    
-       ![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
+   ![Агенты](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Агенты")
 
 4. Нажмите **Создать агента**.
    
-       ![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
+    ![Создание агента](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "Создание агента")
 
 5. В диалоговом окне "Сведения об агенте " выполните следующие действия.
    
-       ![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
+   ![Сведения об агенте](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Сведения об агенте")
    
-       a. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
+   а. В текстовое поле **Полное имя** введите имя учетной записи Azure AD, которую желаете подготовить.
 
-       b. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
+   b. В текстовое поле **Электронная почта** введите адрес электронной почты той учетной записи Azure AD, которую вы хотите подготовить.
 
-       c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
+   c. В текстовое поле **Название** введите название учетной записи Azure AD, которую желаете подготовить.
 
-       d. Select **Agents role**, and then click **Assign**.
+   г) Выберите **Agents role** (Роль агента) и нажмите кнопку **Assign** (Назначить).
        
-       e. Click **Save**.     
+   д. Щелкните **Сохранить**.     
    
     >[!NOTE]
     >Владелец учетной записи Azure AD получит по электронной почте сообщение со ссылкой для активации учетной записи. 

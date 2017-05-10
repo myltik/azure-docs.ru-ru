@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b010891a177f27eef99bd65e0d940c83375aa5ec
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 7375d2d3c237c3b1c2dcdab44b2fcb0000ff961c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -202,16 +203,12 @@ ms.lasthandoff: 04/27/2017
 4. Найдите раздел **Журналы действий** .
 5. Выберите либо отчет **Действие сброса пароля**, либо отчет **Действие регистрации сброса пароля**.
 
-   ![][001]
-
 ## <a name="view-password-reset-registration-activity-in-the-classic-portal"></a>Просмотр действий по регистрации сброса паролей на классическом портале
 Отчет о действиях по регистрации сброса паролей показывает все операции регистрации сброса паролей, выполненные в вашей организации.  В этом отчете отображается регистрация сброса паролей для любого пользователя, который успешно зарегистрировал сведения для проверки подлинности на портале регистрации сброса паролей ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
 * **Максимальный диапазон времени**: 30 дней.
 * **Максимальное число строк**: 75 000.
 * **Загружаемый**: да, посредством CSV-файла
-
-    ![][002]
 
 ### <a name="description-of-report-columns"></a>Описание столбцов отчета
 В следующем списке подробно описан каждый из столбцов отчета:
@@ -234,8 +231,6 @@ ms.lasthandoff: 04/27/2017
 * **Максимальный диапазон времени**: 30 дней.
 * **Максимальное число строк**: 75 000.
 * **Загружаемый**: да, посредством CSV-файла
-
-    ![][003]
 
 ### <a name="description-of-report-columns"></a>Описание столбцов отчета
 В следующем списке подробно описан каждый из столбцов отчета:
@@ -308,8 +303,4 @@ ms.lasthandoff: 04/27/2017
 * [**Часто задаваемые вопросы**](active-directory-passwords-faq.md) — ознакомьтесь с ответами на часто задаваемые вопросы.
 * [**Устранение неполадок**](active-directory-passwords-troubleshoot.md) — узнайте, как быстро устранять проблемы, связанные со службой.
 * [**Дополнительные сведения**](active-directory-passwords-learn-more.md) — ознакомьтесь с технической стороной работы службы.
-
-[001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 

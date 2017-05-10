@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 59e12d70d46d45fb7dc4244ac2968838cb29dbec
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9d10ebf9d7bd07bd126302a6ecf442d809e00196
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -368,20 +368,9 @@ Azure Active Directory (Azure AD) — это комплексное высоко
 
 * [Enterprise State Roaming.](active-directory-windows-enterprise-state-roaming-overview.md)
 
-## <a name="azure-ad-preview-features"></a>Функции предварительной версии Azure AD
-Помимо общедоступных функций выпусков Free, Basic и Premium (P1 и P2), Azure AD предоставляет коллекцию функций предварительной версии. Используйте функции предварительной версии, чтобы ознакомиться с будущими возможностями и узнать, каким образом эти функции помогут улучшить среды.
-
-**Доступные функции предварительной версии:**
-
-* [служба совместной работы Azure AD B2B;](active-directory-b2b-collaboration-overview.md)
-* [административные единицы;](active-directory-administrative-units-management.md)
-* [интеграция приложений по управлению персоналом.](active-directory-saas-workday-inbound-tutorial.md)
-* [Аутентификация на основе сертификата в iOS](active-directory-certificate-based-authentication-ios.md)
-* [Аутентификация на основе сертификата в Android](active-directory-certificate-based-authentication-android.md)
-
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Добавление фирменной символики компании на страницах  входа и панели доступа](active-directory-add-company-branding.md)
+* [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 * [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
