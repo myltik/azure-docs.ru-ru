@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
 ms.openlocfilehash: e9da636d5dbe95ea7d0bd8cf186af30247ca8bd8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/18/2017
 
 
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Протоколы версии 2.0 — поток кода авторизации OAuth 2.0
 Код авторизации OAuth 2.0 может использоваться в приложениях, установленных на устройстве, для получения доступа к защищенным ресурсам, таким как веб-API.  С помощью реализации OAuth 2.0 в модели приложений версии 2.0 можно добавить возможности входа и доступа к API в мобильные и классические приложения.  Это руководство не зависит от языка и описывает, как отправлять и получать сообщения HTTP, не используя ни одну из наших библиотек с открытым исходным кодом.
-
-<!-- TODO: Need link to libraries -->
 
 > [!NOTE]
 > Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0.  Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
@@ -303,10 +303,5 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | correlation_id |Уникальный идентификатор для запроса, который может помочь при диагностике нескольких компонентов. |
 
 Описание кодов ошибок и рекомендуемых действий в клиенте см. в разделе [Коды ошибок конечных точек токенов](#error-codes-for-token-endpoint-errors).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

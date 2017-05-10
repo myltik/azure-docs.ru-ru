@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: ashwink
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/03/2017
 
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/03/2017
 
 * Выберите метрику **scale by (масштабировать по)** .
 
-![scale by (масштабировать по)](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![scale by (масштабировать по)](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Наборы для масштабирования виртуальных машин
 Для новых виртуальных машин, созданных с помощью Resource Manager, наборы для масштабирования можно настроить с помощью REST API, шаблонов Resource Manager, PowerShell и интерфейса командной строки. Интерфейс портала еще недоступен.
@@ -126,5 +127,4 @@ ms.lasthandoff: 04/03/2017
 | oldCapacity |Да |Текущее (старое) число экземпляров, когда автомасштабирование предпринимает действие масштабирования |
 | newCapacity |Да |Новое число экземпляров, до которого автомасштабирование масштабирует ресурс |
 | properties |Нет |необязательный параметр. Набор пар <ключ, значение> (например, Dictionary <String, String>). Поле свойства не является обязательным. В настраиваемом пользовательском интерфейсе или рабочем процессе на основе приложения логики вы можете вводить ключи и значения для передачи в виде полезных данных. Еще один способ передачи пользовательских свойств обратно в исходящий вызов веб-перехватчика — использование самого универсального кода ресурса (URI) веб-перехватчика (в виде параметров запроса). |
-
 
