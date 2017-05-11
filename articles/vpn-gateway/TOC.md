@@ -1,7 +1,7 @@
 # Обзор
 ## [Основные сведения о VPN-шлюзах Azure](vpn-gateway-about-vpngateways.md)
 ## [VPN-шлюз: вопросы и ответы](vpn-gateway-vpn-faq.md)
-## [Ограничения подписки и службы](../azure-subscription-service-limits.md)
+## [Ограничения подписки и службы](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Начало работы
 ## [Планирование и проектирование VPN-шлюза](vpn-gateway-plan-design.md)
@@ -46,7 +46,9 @@
 ### [Портал Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (классическая модель)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Создание самозаверяющих сертификатов для подключений типа "точка — сеть"](vpn-gateway-certificates-point-to-site.md)
+## Создание самозаверяющих сертификатов для подключений типа "точка — сеть"
+### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Настройка VPN-шлюза (классическая модель)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Устранение неполадок
 ### [Проверка пропускной способности VPN для виртуальной сети](vpn-gateway-validate-throughput-to-vnet.md)

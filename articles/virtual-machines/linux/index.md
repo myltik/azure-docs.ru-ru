@@ -11,10 +11,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 260208e7c7a08110eb3c885ef86ec4c18ff42fc9
-ms.openlocfilehash: e4fede90a5df7c4a74c1e1d41ecbe669d731a1b5
-ms.lasthandoff: 04/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 2dd642627033d297bfa53b00aac0de418212ecb3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 ---
 <div class="content">
@@ -67,7 +68,12 @@ ms.lasthandoff: 04/23/2017
     <li><a href="/azure/virtual-machines/linux/tutorial-availability-sets">Создание высокодоступных виртуальных машин</a></li>
     <li><a href="/azure/virtual-machines/linux/tutorial-create-vmss">Create a Virtual Machine Scale Set and deploy a highly available app on Linux</a> (Создание масштабируемого набора виртуальных машин и развертывание высокодоступного приложения в Linux)</li>
     <li><a href="/azure/virtual-machines/linux/tutorial-load-balancer">How to load balance Linux virtual machines in Azure to create a highly available application</a> (Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения)</li>
-    <li><a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI</a> (Управление виртуальными сетями Azure и виртуальными машинами Linux с помощью Azure CLI)</li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-virtual-network">Управление виртуальными сетями Azure и виртуальными машинами Linux с помощью Azure CLI</a></li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-backup-vms">Back up Linux virtual machines in Azure</a> (Резервное копирование виртуальных машин Linux в Azure)</li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-monitoring">How to monitor a Linux virtual machine in Azure</a> (Мониторинг виртуальной машины Linux в Azure)</li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-azure-security">Monitor VM security with the Azure Security Center</a> (Мониторинг безопасности виртуальных машин с помощью центра безопасности Azure)</li>
+    <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a> (Создание инфраструктуры непрерывной интеграции и доставки с помощью Jenkins, Docker и GitHub)</li>
+    
 </ol>
 
 <h2 style="margin-top: 36px">Бесплатные видеоуроки PluralSight</h2>
@@ -158,8 +164,8 @@ ms.lasthandoff: 04/23/2017
                         <h3>Языки</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
                     </div>
                 </div>
             </div>
