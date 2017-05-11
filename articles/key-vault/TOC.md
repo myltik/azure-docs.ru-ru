@@ -24,15 +24,16 @@
 
 ## Автоматизация
 ### [Служба автоматизации Azure](automation-manage-key-vault.md)
-### [Создание и управление с помощью интерфейса командной строки](key-vault-manage-with-cli.md)
 ### [Создание и управление с помощью интерфейса командной строки версии 2.0](key-vault-manage-with-cli2.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/module/azurerm.keyvault)
-## [Azure CLI 2.0](/cli/azure/keyvault)
+## [Azure CLI 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## Node.js
+### [Управление хранилищем](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+### [Управление содержимым хранилища](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
 ## [REST](/rest/api/keyvault)
 
 # Сопутствующие материалы

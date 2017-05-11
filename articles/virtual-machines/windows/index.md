@@ -11,10 +11,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 631eb4c8aa3a41e03cf623fcc5610d3e84f18ec4
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: fee83e309ce10c4b42c8a31a2b3908d3a12db66d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 ---
 <div class="content">
@@ -63,8 +64,15 @@ ms.lasthandoff: 04/22/2017
    <li><a href="/azure/virtual-machines/windows/tutorial-manage-vm">Manage Windows virtual machines with Azure PowerShell</a> (Управление виртуальными машинами Windows с помощью Azure PowerShell)</li>
     <li><a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">Manage Azure disks with the Azure CLI</a> (Управление дисками Azure с помощью Azure CLI)</li>
     <li><a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">How to customize a Linux virtual machine on first boot</a> (Настройка виртуальной машины Linux при первой загрузке)</li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-custom-images">Создание образа настраиваемой виртуальной машины</a></li> 
+    <li><a href="/azure/virtual-machines/windows/tutorial-availability-sets">Создание высокодоступных виртуальных машин</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-create-vmss">Create a Virtual Machine Scale Set and deploy a highly available app on Linux</a> (Создание масштабируемого набора виртуальных машин и развертывание высокодоступного приложения в Linux)</li>
     <li><a href="/azure/virtual-machines/windows/tutorial-load-balancer">How to load balance Linux virtual machines in Azure to create a highly available application</a> (Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения)</li>
-    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">Manage Azure Virtual Networks and Linux Virtual Machines with the Azure CLI</a> (Управление виртуальными сетями Azure и виртуальными машинами Linux с помощью Azure CLI)</li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">Управление виртуальными сетями Azure и виртуальными машинами Windows с помощью Azure PowerShell</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-backup-vms">Back up Windows virtual machines in Azure</a> (Резервное копирование виртуальных машин Windows в Azure)</li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-monitoring">How to monitor a Linux virtual machine in Azure</a> (Мониторинг виртуальной машины Linux в Azure)</li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-azure-security">Monitor VM security with the Azure Security Center</a> (Мониторинг безопасности виртуальных машин с помощью центра безопасности Azure)</li>
+    
 </ol>
 
 <h2 style="margin-top: 36px">Бесплатные видеоуроки PluralSight</h2>
@@ -156,7 +164,7 @@ ms.lasthandoff: 04/22/2017
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
                         <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
                     </div>
                 </div>
             </div>
