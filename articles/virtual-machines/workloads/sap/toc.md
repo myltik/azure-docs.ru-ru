@@ -17,7 +17,7 @@
 ## SAP HANA на виртуальных машинах
 ### [SAP HANA с одним экземпляром](hana-get-started.md)
 ### [Руководство по развертыванию S/4 HANA или BW/4 HANA](cal-s4h.md)
-### [Высокая доступность виртуальных машин] (sap-hana-high-availability.md)
+### [Высокая доступность виртуальных машин](sap-hana-high-availability.md)
 ### [Обзор службы архивации](sap-hana-backup-guide.md)
 ### [Резервное копирование на уровне файлов](sap-hana-backup-file-level.md)
 ### [Резервные копии моментальных снимков хранилища](sap-hana-backup-storage-snapshots.md)
