@@ -1,9 +1,9 @@
 ---
 title: "Общие сведения об именах личных доменов в Azure Active Directory | Документация Майкрософт"
-description: "В этой статье описана концептуальная структура для использования имен личных доменов в Azure Active Directory, включая федерацию для единого входа"
+description: "В этой статье описана концептуальная структура для использования имен личных доменов в Azure Active Directory, включая федерацию для единого входа."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2faa2c270b192a9b3476fa911333f6abfabb1ee9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 028c1cab4f0229a06d37d2f325b384ee78a2b8f9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -55,16 +57,11 @@ ms.openlocfilehash: 2faa2c270b192a9b3476fa911333f6abfabb1ee9
 Веб-приложение Azure использует собственный механизм для проверки принадлежности домена. Домен должен быть проверен для использования со службой Azure AD, даже если он ранее был проверен для использования веб-приложением Azure в подписке, которая зависит от этой службы Azure AD. Веб-приложение Azure может использовать доменное имя, проверенное в каталоге , отличном от того, который защищает веб-приложение.
 
 ## <a name="managing-domain-names"></a>Управление доменными именами
-Задачи управления доменами можно выполнять на классическом портале Azure и с помощью PowerShell. Многие задачи можно выполнить с помощью API Graph Azure AD (в общедоступной предварительной версии).
+Задачи управления доменами можно выполнять на классическом портале Azure и с помощью PowerShell. Многие задачи можно выполнить с помощью API Graph Azure AD.
 
 * [Использование имен личных доменов для упрощения входа пользователей в систему](active-directory-add-domain.md)
 * [Managing custom domain names in your Azure Active Directory (Управление именами личных доменов в Azure Active Directory)](active-directory-add-manage-domain-names.md)
 * [Управление доменными именами в Azure AD с помощью PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Управление доменными именами в Azure AD с помощью API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
