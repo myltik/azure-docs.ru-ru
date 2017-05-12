@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/14/2017
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 5953a4d15af087b30c8bd17245108894791bdf15
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/17/2017
 
 
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/17/2017
    * **-u** — имя пользователя и пароль, используемый для аутентификации запроса.
    * **-G** — указывает, что это запрос, являющийся операцией GET.
 
-     Начало URL-адреса **https://<имя_кластера>.azurehdinsight.net/templeton/v1** одинаковое для всех запросов. Путь **/status** указывает, что по запросу серверу должно быть возвращено состояние WebHCat (другое название — Templeton). Используя следующую команду, можно также запросить версию Hive:
+     Начало URL-адреса **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** одинаковое для всех запросов. Путь **/status** указывает, что по запросу серверу должно быть возвращено состояние WebHCat (другое название — Templeton). Используя следующую команду, можно также запросить версию Hive:
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
