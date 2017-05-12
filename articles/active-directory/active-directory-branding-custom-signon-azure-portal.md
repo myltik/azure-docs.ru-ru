@@ -1,5 +1,5 @@
 ---
-title: "Настройка страницы входа в предварительной версии Azure Active Directory | Документация Майкрософт"
+title: "Настройка страницы входа в Azure Active Directory | Документация Майкрософт"
 description: "Узнайте, как добавить фирменную символику организации на страницу входа в Azure."
 services: active-directory
 documentationcenter: 
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 48f85fd7e50c1cb3ece7f8b75779fe7cde92c7da
-ms.lasthandoff: 12/28/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 27590c018ea55e9793246c7a4cab10f934ea502b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="add-company-branding-to-your-sign-in-page-in-the-azure-active-directory-preview"></a>Добавление фирменной символики организации на страницу входа в предварительной версии Azure Active Directory
-Чтобы избежать путаницы, многие компании используют единый стиль оформления всех веб-сайтов и служб, которыми они управляют. Предварительная версия Azure Active Directory предоставляет такую возможность, позволяя настроить внешний вид страницы входа, добавив на нее логотип организации и цветовые схемы. [Что есть в предварительной версии?](active-directory-preview-explainer.md)  Страница входа: эта страница отображается при входе в Office 365 или другие веб-приложения, использующие Azure AD в качестве поставщика удостоверений. На этой странице вводятся учетные данные.
+# <a name="add-company-branding-to-your-sign-in-page-in-the-azure-active-directory"></a>Добавление фирменной символики организации на страницу входа в Azure Active Directory
+Чтобы избежать путаницы, многие компании используют единый стиль оформления всех веб-сайтов и служб, которыми они управляют. Azure Active Directory предоставляет такую возможность, позволяя настроить внешний вид страницы входа, добавив на нее логотип организации и цветовые схемы. Страница входа: эта страница отображается при входе в Office 365 или другие веб-приложения, использующие Azure AD в качестве поставщика удостоверений. На этой странице вводятся учетные данные.
 
 Если вы хотите показать фирменную символику, цвета и другие настраиваемые элементы на этой странице, изучите следующие изображения, чтобы понять разницу между двумя интерфейсами.
 
