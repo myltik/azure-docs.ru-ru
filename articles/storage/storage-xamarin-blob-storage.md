@@ -3,20 +3,21 @@ title: "Как использовать хранилище BLOB-объектов
 description: "Клиентская библиотека службы хранилища Azure для Xamarin позволяет разработчикам создавать приложения Магазина Windows, iOS и Android, используя их собственные пользовательские интерфейсы. В этом учебнике материале показано, как в Xamarin создать приложение, которое использует хранилище BLOB-объектов Azure."
 services: storage
 documentationcenter: xamarin
-author: seguler
-manager: jahogg
+author: michaelhauss
+manager: vamshik
 editor: tysonn
 ms.assetid: 44cb845d-cf78-4942-95b8-952da4f9a2c2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: seguler
-translationtype: Human Translation
+ms.date: 05/11/2017
+ms.author: michaelhauss
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 2ef27dc58e12d1b9e8eed54239332a53860ddd52
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/27/2017
 
 
