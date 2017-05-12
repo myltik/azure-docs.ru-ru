@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
 ms.openlocfilehash: b589742e23ba9cca919a845e4d262ccfea4c9aca
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -82,9 +84,4 @@ ms.openlocfilehash: b589742e23ba9cca919a845e4d262ccfea4c9aca
 * [Создание заметок к источникам данных](../data-catalog/data-catalog-how-to-annotate.md)
 * [Создание документации по источникам данных](../data-catalog/data-catalog-how-to-documentation.md)
 * [Интеграция хранилища озера данных с другими службами Azure](data-lake-store-integrate-with-other-services.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

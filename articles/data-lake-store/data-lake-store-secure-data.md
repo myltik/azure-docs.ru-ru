@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 376b61037de8b1af657095b8b32ee16568af8894
 ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -72,7 +74,7 @@ ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
 
 7. У пользователя или группы безопасности теперь есть доступ к учетной записи хранения озера данных Azure. Если вы хотите предоставить доступ конкретным пользователям, их можно добавить в группу безопасности. Аналогично, если требуется отменить доступ для пользователя, его можно удалить из группы безопасности. Можно также назначить несколько групп безопасности для учетной записи. 
 
-## <a name="a-namefilepermissionsaassign-users-or-security-group-as-acls-to-the-azure-data-lake-store-file-system"></a><a name="filepermissions"></a>Назначение пользователей или группы безопасности в виде ACL в файловой системе хранилища озера данных Azure
+## <a name="filepermissions"></a>Назначение пользователей или группы безопасности в виде ACL в файловой системе хранилища озера данных Azure
 Назначая пользователя или группы безопасности в файловой системе озера данных Azure, вы устанавливаете контроль доступа к данным, хранимым в хранилище озера данных Azure.
 
 1. В колонке учетной записи «Хранилище озера данных» щелкните **Обозреватель данных**.
@@ -146,10 +148,5 @@ ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
 * [Начало работы с хранилищем озера данных с помощью PowerShell](data-lake-store-get-started-powershell.md)
 * [Начало работы с хранилищем озера данных с помощью пакета SDK .NET](data-lake-store-get-started-net-sdk.md)
 * [Журналы диагностики доступа для Data Lake Store](data-lake-store-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
