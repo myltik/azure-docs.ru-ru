@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/18/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9ddf19c008c35525419a357436b1a969a4b19205
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9489fdc3c5388a7510bc4411b4abb05fa72fbf4f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -229,7 +230,7 @@ ms.lasthandoff: 04/27/2017
 
     При появлении запроса введите имя пользователя и пароль HTTPS для кластера. Отобразится веб-интерфейс Ambari для кластера.
 
-2. Чтобы просмотреть сведения о Kafka, из списка слева выберите __Kafka__. 
+2. Чтобы просмотреть сведения о Kafka, из списка слева выберите __Kafka__.
 
     ![Список служб с выделенной службой Kafka](./media/hdinsight-apache-kafka-connect-vpn-gateway/select-kafka-service.png)
 
@@ -271,7 +272,7 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="connect-to-the-vpn-gateway"></a>Подключение к VPN-шлюзу
 
-Для подключения к VPN-шлюзу из __клиента Windows__ используйте раздел __Подключение к Azure__ статьи [Настройка подключения типа "точка — сеть" к виртуальной сети с помощью PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameconnectapart-7---connect-to-azure).
+Для подключения к VPN-шлюзу из __клиента Windows__ используйте раздел __Подключение к Azure__ статьи [Настройка подключения типа "точка — сеть" к виртуальной сети с помощью PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameclientcertificatea7---install-an-exported-client-certificate).
 
 ## <a name="remote-kafka-client"></a>Удаленный клиент Kafka
 
@@ -319,7 +320,7 @@ ms.lasthandoff: 04/27/2017
   ```
 
     Замените записи `'ip_address'` адресами, полученными на шаге 1 этого раздела.
-    
+
     > [!NOTE]
     > Этот код отправляет строку `test message` в раздел `testtopic`. По умолчанию Kafka HDInsight создает раздел, если он не существует.
 
