@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 36677be6bc5599f55f1f15bc145c59033ad20e0a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ca88b355416b4ae4785bc69244185a67756ca916
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="use-azure-data-lake-analytics-interactive-tutorials"></a>Использование интерактивных учебников по аналитике озера данных Azure
 Портал Azure содержит интерактивное руководство, которое поможет приступить к работе с Data Lake Analytics. В этой статье показано, как работать с руководством для анализа журналов веб-сайтов.
-
-> [!NOTE]
-> Сведения о выполнении инструкций с помощью Visual Studio см. в статье [Руководство: анализ журналов веб-сайта с помощью Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-> В будущем на портал будут добавлены другие интерактивные учебники.
-> 
-> 
 
 Другие учебники:
 
@@ -87,10 +83,5 @@ ms.openlocfilehash: 36677be6bc5599f55f1f15bc145c59033ad20e0a
 * [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

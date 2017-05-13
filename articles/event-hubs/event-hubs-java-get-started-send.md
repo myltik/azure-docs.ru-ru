@@ -12,12 +12,13 @@ ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/03/2017
 ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: fe10aaca3232e5baa0b726b7262a6e9e8ce6b638
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 45776b0920f65ae9749b00978656bcefa2bf01a8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/18/2017
 ## <a name="send-messages-to-event-hubs"></a>Отправка сообщений в центры событий
 Клиентская библиотека Java для концентраторов событий доступна для использования в проектах из [центрального репозитория Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Ссылаться на нее можно, используя следующее объявление зависимости в файле проекта Maven:    
 
-``` XML
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
@@ -50,9 +51,9 @@ ms.lasthandoff: 04/18/2017
 
 Если используется простой издатель событий, импортируйте пакет *com.microsoft.azure.eventhubs* для клиентских классов концентраторов событий и пакет *com.microsoft.azure.servicebus* для служебных классов, таких как общие исключения, которые используются совместно с клиентом обмена сообщениями служебной шины Azure. 
 
-Следующий пример сначала создает новый проект Maven для приложения консоли или оболочки в избранной среде разработки Java. Класс будет называться ```Send```.     
+Следующий пример сначала создает новый проект Maven для приложения консоли или оболочки в избранной среде разработки Java. Класс будет называться `Send`.     
 
-``` Java
+```Java
 
 import java.io.IOException;
 import java.nio.charset.*;
@@ -71,7 +72,7 @@ public class Send
 
 Замените имя пространства имен и концентратора событий значениями, использованными при создании концентратора событий.
 
-``` Java
+```Java
     final String namespaceName = "----ServiceBusNamespaceName-----";
     final String eventHubName = "----EventHubName-----";
     final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
@@ -81,7 +82,7 @@ public class Send
 
 Затем создайте одиночное событие, преобразовав строку в байтовую кодировку UTF-8. После этого мы создаем новый экземпляр клиента концентраторов событий из строки подключения и отправляем сообщение.   
 
-``` Java 
+```Java 
 
     byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
     EventData sendEvent = new EventData(payloadBytes);
@@ -93,13 +94,13 @@ public class Send
 
 ``` 
 
-<!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
-
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о концентраторах событий см. в следующих источниках:
 
 * [Receive events using the EventProcessorHost](event-hubs-java-get-started-receive-eph.md) (Получение событий с помощью EventProcessorHost)
-* [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
+* [Обзор концентраторов событий Azure][Event Hubs overview].
 * [Создание концентратора событий](event-hubs-create.md)
 * [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
+
+<!-- Links -->
+[Event Hubs overview]: event-hubs-overview.md

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: dae5491962b22453c517da35539ce09463d8802d
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c852374b6f6ca58d807631fdfcc8e42abf99b673
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -188,7 +189,7 @@ ms.lasthandoff: 03/27/2017
     }
 }
 ````
-Дополнительные сведения см. в статье [Перемещение данных в Azure Data Lake Store и обратно с помощью фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md#example-copy-data-from-azure-blob-to-azure-data-lake-store).
+Дополнительные сведения см. в статье [Перемещение данных в Azure Data Lake Store и обратно с помощью фабрики данных Azure](../data-factory/data-factory-azure-datalake-connector.md).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Воссоздание файлов данных в Azure Data Lake Store
 Мы начали работу с файлом размером 319 ГБ и разделили его на файлы меньшего размера для передачи с помощью службы импорта и экспорта Azure. Теперь после передачи данных в Azure Data Lake Store мы можем воссоздать исходный файл. Для этого вы также можете воспользоваться следующими командлетами Azure PowerShell.

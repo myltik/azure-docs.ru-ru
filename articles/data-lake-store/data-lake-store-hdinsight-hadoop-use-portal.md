@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 05/04/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 2aa5542dc095beaf951bad2b0361a3acc4468f2d
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 37211b961644fdc5567147cde946f86afb9b1aa9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -76,10 +77,9 @@ ms.lasthandoff: 04/05/2017
 
 4. Выберите существующую учетную запись Data Lake Store и укажите путь к корневой папке, в которой будут храниться связанные с кластером файлы.
 
-    ![Добавление субъекта-службы в кластер HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Добавление субъекта-службы в кластер HDInsight")
-
-
     На снимке экрана выше показан путь к корневой папке /clusters/myhdiadlcluster, где *myhdiadlcluster* — это имя создаваемого кластера. Убедитесь, что папка */clusters* существует в учетной записи Data Lake Store. Папка *myhdiadlcluster* создается вместе с кластером. Аналогично, если корневая папка — это */hdinsight/clusters/data/myhdiadlcluster*, убедитесь, что папка */hdinsight/clusters/data/* существует в учетной записи Data Lake Store.
+
+    ![Добавление субъекта-службы в кластер HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Добавление субъекта-службы в кластер HDInsight")
 
 5. Щелкните **Доступ к Data Lake Store** для настройки доступа между учетной записью Data Lake Store и кластером HDInsight. Инструкции доступны в разделе [Создание кластеров HDInsight, использующих Data Lake Store, с помощью портала Azure](#configure-access-between-hdinsight-cluster-and-data-lake-store).
 

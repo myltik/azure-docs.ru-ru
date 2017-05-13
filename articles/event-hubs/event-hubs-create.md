@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2017
+ms.date: 05/03/2017
 ms.author: jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 23df3a3a11d8f065d6ce2a4f14ba175d6c781ee9
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 2ef14fccda5c38ebdbf9d64b4766b45503755af0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 ---
 
@@ -63,7 +64,7 @@ ms.lasthandoff: 04/18/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о концентраторах событий см. в следующих статьях:
 
-* [Обзор концентраторов событий](event-hubs-overview.md)
+* [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
 * [Общие сведения об API концентраторов событий](event-hubs-api-overview.md)
 
 [Azure portal]: https://portal.azure.com/
