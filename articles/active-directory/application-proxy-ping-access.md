@@ -1,5 +1,5 @@
 ---
-title: "PingAccess для прокси приложения Azure AD | Документация Майкрософт"
+title: "Аутентификация на основе заголовков с использованием PingAccess для прокси приложения Azure AD | Документация Майкрософт"
 description: "Публикация приложений с использованием PingAccess и прокси приложения для реализации аутентификации на основе заголовка."
 services: active-directory
 documentationcenter: 
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 173607c481d0ba7ceece6310fcd131ff622a0677
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 8db76d1f83cdf1cf53ddd1e9c69c56400d04af2d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/29/2017
 
 ---
 
-# <a name="publish-applications-that-support-header-based-authentication-with-pingaccess-for-azure-ad"></a>Публикация приложений с поддержкой аутентификации на основе заголовка с использованием PingAccess для Azure AD
+# <a name="publish-applications-that-support-header-based-authentication-with-azure-ad-application-proxy-and-pingaccess"></a>Публикация приложений с поддержкой аутентификации на основе заголовков с использованием прокси приложения Azure AD и PingAccess
 
 Прокси приложения Active Directory и Azure PingAccess можно использовать для предоставления пользователям Azure Active Directory доступа к разным приложениям. PingAccess позволяет включить в [существующие предложения прокси приложения](active-directory-application-proxy-get-started.md) возможность удаленного доступа к приложениям, в которых используется аутентификация на основе заголовков. 
 

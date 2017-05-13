@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b568a9bea9679a9edeb708a5f7fcc6d68854574f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6efe6de6cc6d6d4c9788549048c5b50b03b3de42
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -57,7 +59,7 @@ ms.openlocfilehash: b568a9bea9679a9edeb708a5f7fcc6d68854574f
 ### <a name="view-effective-routes-for-a-network-interface"></a>Просмотр эффективных маршрутов сетевого интерфейса
 Для просмотра агрегированных маршрутов, которые применяются к сетевому интерфейсу, выполните описанные ниже действия.
 
-1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+1. Запустите сеанс Azure PowerShell и войдите в Azure. Если вы не знакомы с Azure PowerShell, прочтите статью [Установка и настройка Azure PowerShell](/powershell/azure/overview) .
 2. Следующая команда возвращает все маршруты, применяемые к сетевому интерфейсу с именем *VM1-NIC1* в группе ресурсов *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -135,10 +137,5 @@ ms.openlocfilehash: b568a9bea9679a9edeb708a5f7fcc6d68854574f
 * Для правильной работы пирингового трафика виртуальной сети системный маршрут, в котором для **nextHopType** *VNetPeering* , должен действовать в диапазоне префиксов пиринговой виртуальной сети. Если такого маршрута не существует и пиринговая связь сети действует нормально, возможны два сценария действий.
   * Подождите несколько секунд и повторите попытку, если пиринговая связь установлена недавно. Иногда требуется больше времени, чтобы распространить маршруты для всех сетевых интерфейсов в подсети.
   * Правила групп безопасности сети (NSG) могут влиять на потоки трафика. Дополнительные сведения см. в статье, посвященной [устранению неполадок с группами безопасности сети](virtual-network-nsg-troubleshoot-powershell.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 437e343425da5c8cfe71d4ae67c423fcc2b794c2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -104,14 +106,14 @@ ms.openlocfilehash: 437e343425da5c8cfe71d4ae67c423fcc2b794c2
     1. Выберите **Создать конечную точку службы**, а затем в меню щелкните **Azure Service Fabric**.
     2. Выберите тип аутентификации на кластере, используемом этой конечной точкой.
     3. Укажите имя подключения в поле **Имя подключения** .  Обычно используется имя кластера.
-    4. Укажите URL-адрес конечной точки подключения клиента в поле **Конечная точка кластера** .  Пример: https://contoso.westus.cloudapp.azure.com:19000.
+    4. Укажите URL-адрес конечной точки подключения клиента в поле **Конечная точка кластера** .  Пример: tcp://contoso.westus.cloudapp.azure.com:19000.
     5. В полях **Имя пользователя** и **Пароль** укажите учетные данные Azure Active Directory для подключения к кластеру.
     6. В поле **Сертификат клиента** укажите кодировку Base64 для файла сертификата клиента, используемого для аутентификации на основе сертификата.  Сведения о том, как получить это значение, получите во всплывающем окне справки для этого поля.  Если ваш сертификат защищен паролем, укажите его в поле **Пароль** .
     7. Подтвердите изменения, нажав кнопку **ОК**. Вернувшись к определению выпуска, щелкните значок "Обновить" для поля **Cluster Connection** (Подключение к кластеру), чтобы отобразить только что добавленную конечную точку.
 12. Сохраните определение выпуска.
 
 > [!NOTE]
-> Учетные записи Майкрософт (например, @hotmail.com или @outlook.com) не поддерживаются с аутентификацией Azure Active Directory).
+> Учетные записи Майкрософт (например, @hotmail.com или @outlook.com) не поддерживаются для аутентификации Azure Active Directory.
 > 
 > 
 
@@ -130,10 +132,5 @@ ms.openlocfilehash: 437e343425da5c8cfe71d4ae67c423fcc2b794c2
 * [Домашняя страница документации по Team Services](https://www.visualstudio.com/docs/overview)
 * [Управление сборками в Team Services](https://www.visualstudio.com/docs/build/overview)
 * [Управление выпусками в Team Services](https://www.visualstudio.com/docs/release/overview)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: e45d704e68c17d36fd5b195179730b80d0f53e0c
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 9724ad2e460837157c7677d2c91493cebc8f7012
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -59,14 +60,14 @@ ms.lasthandoff: 04/20/2017
 ### <a name="publish-the-rd-host-endpoint"></a>Публикация конечной точки узла удаленных рабочих столов
 
 1. [Опубликуйте новое приложение прокси приложения](application-proxy-publish-azure-portal.md) с приведенными ниже значениями.
-   - Внутренний URL-адрес: https://<rdhost>.com/, где <rdhost> — общий корень, совместно используемый веб-сайтом удаленных рабочих столов и шлюзом удаленных рабочих столов. 
+   - Внутренний URL-адрес: https://\<rdhost\>.com/, где \<rdhost\> — общий корень, совместно используемый веб-сайтом удаленных рабочих столов и шлюзом удаленных рабочих столов. 
    - Внешний URL-адрес: это поле заполняется автоматически на основе имени приложения, но его можно изменить. Ваши пользователи будут переходить по этому URL-адресу при обращении к RDS. 
    - Метод предварительной аутентификации: выберите Azure Active Directory.
    - Преобразование URL-адреса в заголовок: выберите значение "Нет".
 2. Назначьте пользователей опубликованному приложению удаленных рабочих столов. Убедитесь также, что все они имеют доступ к RDS.
 3. Для параметра единого входа для приложения оставьте значение **Единый вход Azure AD отключен**. Пользователи будут один раз проходить аутентификацию в Azure AD и еще один раз — на веб-сайте удаленных рабочих столов, но смогут использовать единый вход на шлюз удаленных рабочих столов. 
 4. Выберите **Azure Active Directory** > **Регистрация приложений** > *Приложения* > **Параметры**. 
-5. Выберите **Свойства** и обновите значение поля **URL-адрес домашней страницы**, указав конечную точку веб-сайта удаленных рабочих столов (например, https://<rdhost>.com/RDWeb).
+5. Выберите **Свойства** и обновите значение поля **URL-адрес домашней страницы**, указав конечную точку веб-сайта удаленных рабочих столов (например, https://\<rdhost\>.com/RDWeb).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Направление трафика RDS в прокси приложения
 
@@ -82,7 +83,7 @@ ms.lasthandoff: 04/20/2017
 
   ![Экран свойств развертывания RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. Для каждой коллекции выполните следующую команду. Замените *<yourcollectionname>* и *<proxyfrontendurl>* своими значениями. Эта команда включает единый вход между веб-сайтом удаленных рабочих столов и шлюзом удаленных рабочих столов и оптимизирует производительность.
+8. Для каждой коллекции выполните следующую команду. Замените параметры *\<yourcollectionname\>* и *\<proxyfrontendurl\>* собственными значениями. Эта команда включает единый вход между веб-сайтом удаленных рабочих столов и шлюзом удаленных рабочих столов и оптимизирует производительность.
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s: <proxyfrontendurl> `n require pre-authentication:i:1"
@@ -103,3 +104,4 @@ ms.lasthandoff: 04/20/2017
 
 [Настройка удаленного доступа к SharePoint с помощью прокси приложения Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Вопросы безопасности при удаленном доступе к приложениям через прокси приложения Azure AD](application-proxy-security-considerations.md)
+

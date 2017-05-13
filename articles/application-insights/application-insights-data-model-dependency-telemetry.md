@@ -4,7 +4,7 @@ description: "Модель данных Application Insights для телеме
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
@@ -12,16 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: b86b1e1ff7c0370918b2509f98ad65265eb4186e
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e71730ffe7e42ce5658189baca92ced3a54d269d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Телеметрия зависимостей: модель данных Application Insights
 
-Телеметрия зависимостей представляет взаимодействие отслеживаемого компонента с удаленным, таким как SQL или конечная точка HTTP.
+Телеметрия зависимостей (в [Application Insights](app-insights-overview.md)) представляет взаимодействие отслеживаемого компонента с удаленным, таким как SQL или конечная точка HTTP.
 
 ## <a name="name"></a>Имя
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="id"></a>ИД
 
-Идентификатор для экземпляра вызова зависимости. Используется для корреляции с элементом телеметрии запроса, соответствующим этому вызову зависимости. Дополнительные сведения см. на странице [корреляции](/correlation.md).
+Идентификатор для экземпляра вызова зависимости. Используется для корреляции с элементом телеметрии запроса, соответствующим этому вызову зависимости. Дополнительные сведения см. на странице [корреляции](application-insights-correlation.md).
 
 ## <a name="data"></a>Данные
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="target"></a>Цель
 
-Целевой сайт вызова зависимости. Примерами являются имя сервера, адрес узла. Дополнительные сведения см. на странице [корреляции](/correlation.md).
+Целевой сайт вызова зависимости. Примерами являются имя сервера, адрес узла. Дополнительные сведения см. на странице [корреляции](application-insights-correlation.md).
 
 ## <a name="duration"></a>Длительность
 
@@ -66,8 +67,9 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- В [этой статье](/application-insights-data-model.md) представлены типы данных и модель данных для Application Insights.
-- Настройка отслеживания зависимостей для платформы [.NET](/app-insights-asp-net-dependencies.md)
-- Настройка отслеживания зависимостей для платформы [Java](/app-insights-java-agent.md)
-- Ознакомление с [платформами](/app-insights-platforms.md), поддерживаемыми Application Insights.
+- Настройка отслеживания зависимостей для платформы [.NET](app-insights-asp-net-dependencies.md)
+- Настройка отслеживания зависимостей для платформы [Java](app-insights-java-agent.md)
+- [Создание телеметрии настраиваемых зависимостей](app-insights-api-custom-events-metrics.md#trackdependency)
+- В [этой статье](application-insights-data-model.md) представлены типы данных и модель данных для Application Insights.
+- Ознакомление с [платформами](app-insights-platforms.md), поддерживаемыми Application Insights.
 

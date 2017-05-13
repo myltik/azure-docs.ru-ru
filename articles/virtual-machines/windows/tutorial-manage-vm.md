@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/21/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: da5bcb0c4b848f27ae5997caf52e332cc4ce4c0a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 59d6d646d4ab236d1fffad0cd0ec3e9f3ae4c342
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -26,13 +27,13 @@ ms.lasthandoff: 04/21/2017
 
 В этом руководстве рассматриваются основные элементы создания виртуальной машины Azure, в том числе выбор ее размера, выбор образа и развертывание. Кроме того, в этом руководстве рассматриваются такие базовые операции управления, как управление состоянием виртуальной машины, ее удаление и изменение размера.
 
-Для работы с этим руководством можно использовать последнюю версию модуля [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
+Для работы с этим руководством можно использовать последнюю версию модуля [Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-resource-group"></a>Создать группу ресурсов
 
 Создайте группу ресурсов с помощью команды [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
-Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Группу ресурсов следует создавать до виртуальной машины. В этом примере создается группа ресурсов `myResourceGroupVM ` в регионе `westus`. 
+Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Группу ресурсов следует создавать до виртуальной машины. В этом примере создается группа ресурсов *myResourceGroupVM* в регионе *westus*. 
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location westeurope
@@ -49,7 +50,9 @@ New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location westeuro
 Создайте подсеть с помощью командлета [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig).
 
 ```powershell
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+    -Name mySubnet `
+    -AddressPrefix 192.168.1.0/24
 ```
 
 Создайте виртуальную сеть с помощью командлета [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
@@ -91,7 +94,7 @@ $nic = New-AzureRmNetworkInterface `
 
 [Группа безопасности сети](../../virtual-network/virtual-networks-nsg.md) Azure управляет входящим и исходящим трафиком одной или нескольких виртуальных машин. Правила группы безопасности сети разрешают или запрещают передачу сетевого трафика на определенный порт или диапазон портов. Эти правила также могут включать префикс адреса источника, чтобы на виртуальную машину передавался только трафик от определенного источника. Для доступа к веб-серверу IIS, который вы устанавливаете, необходимо добавить правило группы безопасности сети для входящего трафика.
 
-Чтобы создать его, используйте командлет [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig). Следующий пример создает правило NSG с именем `myNSGRule`, которое открывает порт `3389` для виртуальной машины:
+Чтобы создать его, используйте командлет [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig). Следующий пример создает правило NSG *myNSGRule*, которое открывает порт *3389* для виртуальной машины.
 
 ```powershell
 $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -106,16 +109,24 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Создайте группу безопасности сети с именем `myNSGRule` с помощью командлета [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
+Создайте группу безопасности сети *myNSGRule* с помощью командлета [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
 
 ```powershell
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroupVM  -Location westeurope -Name myNetworkSecurityGroup -SecurityRules $nsgRule
+$nsg = New-AzureRmNetworkSecurityGroup `
+    -ResourceGroupName myResourceGroupVM `
+    -Location westeurope `
+    -Name myNetworkSecurityGroup `
+    -SecurityRules $nsgRule
 ```
 
 Добавьте группу безопасности сети в подсеть виртуальной сети с помощью командлета [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig):
 
 ```powershell
-Set-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -VirtualNetwork $vnet -NetworkSecurityGroup $nsg -AddressPrefix 192.168.1.0/24
+Set-AzureRmVirtualNetworkSubnetConfig `
+    -Name mySubnet `
+    -VirtualNetwork $vnet `
+    -NetworkSecurityGroup $nsg `
+    -AddressPrefix 192.168.1.0/24
 ```
 
 Обновите виртуальную сеть, используя командлет [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork):
@@ -126,7 +137,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 ### <a name="create-virtual-machine"></a>Создание виртуальной машины
 
-При создании виртуальной машины доступно несколько вариантов, таких как образ операционной системы, определение размера диска и учетные данные администратора. В этом примере создается виртуальная машина с именем `myVM`, на которой выполняется последняя версия Windows Server 2016 Datacenter.
+При создании виртуальной машины доступно несколько вариантов, таких как образ операционной системы, определение размера диска и учетные данные администратора. В этом примере создается виртуальная машина *myVM*, на которой выполняется последняя версия Windows Server 2016 Datacenter.
 
 Настройте на виртуальной машине имя пользователя и пароль для учетной записи администратора с помощью командлета [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
@@ -143,19 +154,34 @@ $vm = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1
 Добавьте сведения об операционной системе в конфигурацию виртуальной машины с помощью командлета [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem):
 
 ```powershell
-$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName myVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+$vm = Set-AzureRmVMOperatingSystem `
+    -VM $vm `
+    -Windows `
+    -ComputerName myVM `
+    -Credential $cred `
+    -ProvisionVMAgent -EnableAutoUpdate
 ```
 
 Добавьте сведения об образе в конфигурацию виртуальной машины с помощью командлета [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage):
 
 ```powershell
-$vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest
+$vm = Set-AzureRmVMSourceImage `
+    -VM $vm `
+    -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer `
+    -Skus 2016-Datacenter `
+    -Version latest
 ```
 
 Добавьте сведения о настройках диска операционной системы в конфигурацию виртуальной машины с помощью командлета [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk):
 
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name myOsDisk -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
+$vm = Set-AzureRmVMOSDisk `
+    -VM $vm `
+    -Name myOsDisk `
+    -DiskSizeInGB 128 `
+    -CreateOption FromImage `
+    -Caching ReadWrite
 ```
 
 Добавьте ранее созданный сетевой адаптер в конфигурацию виртуальной машины с помощью командлета [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
@@ -167,7 +193,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 Создайте виртуальную машину с помощью командлета [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroupVM  -Location westeurope -VM $vm
+New-AzureRmVM -ResourceGroupName myResourceGroupVM -Location westeurope -VM $vm
 ```
 
 ## <a name="connect-to-vm"></a>Подключение к виртуальной машине
@@ -180,7 +206,7 @@ New-AzureRmVM -ResourceGroupName myResourceGroupVM  -Location westeurope -VM $vm
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupVM  | Select IpAddress
 ```
 
-Используйте следующую команду для создания сеанса удаленного рабочего стола с виртуальной машиной. Замените IP-адрес общедоступным IP-адресом виртуальной машины (значение `publicIPAddress`). При появлении запроса введите учетные данные, использованные при создании виртуальной машины.
+Используйте следующую команду для создания сеанса удаленного рабочего стола с виртуальной машиной. Замените IP-адрес значением *publicIPAddress* виртуальной машины. При появлении запроса введите учетные данные, использованные при создании виртуальной машины.
 
 ```powershell
 mstsc /v:<publicIpAddress>
@@ -234,7 +260,12 @@ Skus                            Offer         PublisherName          Location
 Эти сведения можно использовать для развертывания виртуальной машины на основе конкретного образа. В этом примере задается имя образа для объекта виртуальной машины. Полные инструкции по развертыванию приведены в предыдущих примерах в этом руководстве.
 
 ```powershell
-$vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter-with-Containers -Version latest
+$vm = Set-AzureRmVMSourceImage `
+    -VM $vm `
+    -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer `
+    -Skus 2016-Datacenter-with-Containers `
+    -Version latest
 ```
 
 ## <a name="understand-vm-sizes"></a>Описание размеров виртуальных машин
@@ -299,7 +330,7 @@ Start-AzureRmVM -ResourceGroupName myResourceGroupVM  -Name $vm.name
 
 | Состояние включения | Описание
 |----|----|
-| Запуск | Указывает, что виртуальная машина запущена. |
+| Starting | Указывает, что виртуальная машина запущена. |
 | Выполнение | Указывает, что виртуальная машина работает. |
 | Остановка | Указывает, что виртуальная машина останавливается. | 
 | Остановлено | Указывает, что виртуальная машина остановлена. Обратите внимание, что за виртуальные машины в остановленном состоянии по-прежнему взимается плата за вычислительные операции.  |
@@ -312,7 +343,10 @@ Start-AzureRmVM -ResourceGroupName myResourceGroupVM  -Name $vm.name
 Чтобы получить состояние конкретной виртуальной машины, используйте команду [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm). Необходимо указать допустимое имя виртуальной машины и группы ресурсов. 
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
+Get-AzureRmVM `
+    -ResourceGroupName myResourceGroup `
+    -Name myVM `
+    -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
 ```
 
 Выходные данные:
@@ -340,7 +374,7 @@ Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
 ### <a name="start-virtual-machine"></a>Запуск виртуальной машины
 
 ```powershell
-Start-AzureRmVM -ResourceGroupName myResourceGroupVM  -Name myVM
+Start-AzureRmVM -ResourceGroupName myResourceGroupVM -Name myVM
 ```
 
 ### <a name="delete-resource-group"></a>Удалить группу ресурсов
@@ -348,11 +382,12 @@ Start-AzureRmVM -ResourceGroupName myResourceGroupVM  -Name myVM
 При удалении группы ресурсов будут также удалены все ресурсы, содержащиеся в ней.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroupVM  -Force
+Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 В этом руководстве вы изучили основы создания виртуальной машины и управления ею. Перейдите к следующему руководству, чтобы узнать о дисках виртуальных машин.  
 
-[Manage Azure disks with PowerShell](./tutorial-manage-data-disk.md) (Управление дисками Azure с помощью PowerShell)
+[Управление дисками Azure с помощью Azure CLI](./tutorial-manage-data-disk.md)
+

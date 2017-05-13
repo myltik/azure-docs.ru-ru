@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/17/2017
+ms.date: 04/26/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 3cf6625407afe5b4fb53a945f4a505338122aaec
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: ba55e2e4449737c4b759211cf0c429d42b961a38
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/29/2017
 
 ---
 
@@ -55,10 +56,14 @@ az group create --name myResourceGroup --location westus
 В следующем примере создаются виртуальная машина `myVM` и ключи SSH, если они не существуют в расположении ключей по умолчанию. Чтобы использовать определенный набор ключей, используйте параметр `--ssh-key-value`.  
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --data-disk-sizes-gb 20 --size Standard_DS2_v2  --generate-ssh-keys
+az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image Oracle:Oracle-Database-Ee:12.1.0.2:latest \
+    --size Standard_DS2_v2 \
+    --generate-ssh-keys
 ```
 
-После создания виртуальной машины в Azure CLI отображается информация следующего вида. Запишите значение `publicIpAddress`. Этот адрес используется для доступа к виртуальной машине.
+После создания виртуальной машины в Azure CLI отображается информация следующего вида: Запишите значение `publicIpAddress`. Этот адрес используется для доступа к виртуальной машине.
 
 ```azurecli
 {
@@ -86,8 +91,7 @@ ssh <publicIpAddress>
 Программное обеспечение Oracle уже установлено в образе Marketplace, поэтому следующим шагом является установка базы данных. Сначала необходимо войти как суперпользователь oracle и инициализировать прослушиватель для ведения журнала.
 
 ```bash
-su oracle
-Password: <enter initial oracle password: xxxxxxxx >
+sudo su - oracle
 [oracle@myVM /]$ lsnrctl start
 Copyright (c) 1991, 2014, Oracle.  All rights reserved.
 
@@ -117,9 +121,12 @@ The command completed successfully
 Затем необходимо создать базу данных.
 
 ```bash
-[oracle@myVM /]$ dbca -silent -createDatabase \
+[oracle@myVM /]$ dbca -silent \
+   -createDatabase \
    -templateName General_Purpose.dbc \
-   -gdbname cdb1 -sid cdb1 -responseFile NO_VALUE \
+   -gdbname cdb1 \
+   -sid cdb1 \
+   -responseFile NO_VALUE \
    -characterSet AL32UTF8 \
    -sysPassword OraPasswd1 \
    -systemPassword OraPasswd1 \
@@ -161,10 +168,8 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
 ```
 
-## <a name="set-up-connectivity"></a>Настройка подключения 
-Проверка локального подключения
-
-После создания базы данных необходимо задать переменные среды ORACLE_HOME и ORACLE_SID.
+## <a name="preparing-for-connectivity"></a>Подготовка к подключению 
+Чтобы убедиться, что база данных была правильно инициализирована, давайте проверим локальное подключение. Проще всего это сделать с помощью командной строки `sqlplus`.  Перед подключением необходимо настроить некоторые переменные среды, в частности *ORACLE_HOME* и *ORACLE_SID*.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -172,9 +177,24 @@ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-Теперь можно установить подключение с помощью sqlplus.
+При необходимости можно добавить ORACLE_HOME и ORACLE_SID в файл BASHRC, чтобы эти параметры сохранились для последующих входов в систему.
+
+```
+# add oracle home
+export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+
+# add oracle sid
+export ORACLE_SID=cdb1
+
+```
+
+## <a name="setup-connectivity-to-oracle-em-express"></a>Настройка подключения к Oracle EM Express
+
+Мы включим в Oracle EM Express инструмент управления графическим интерфейсом пользователя, чтобы была возможность просматривать базу данных.  Для подключения к Oracle EM Express сначала необходимо настроить порт в Oracle.
 
 ```bash
+$ sudo su - oracle
+
 sqlplus / as sysdba
 
 SQL*Plus: Release 12.1.0.2.0 Production on Fri Apr 7 13:16:30 2017
@@ -186,11 +206,98 @@ Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
 With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
-```
+SQL> select con_id, name, open_mode from v$pdbs;
 
-Последнее, что следует сделать, — настроить внешнюю конечную точку. Нужно выйти из сеанса SSH на виртуальной машине, так как необходимо настроить группу безопасности сети Azure, защищающую эту виртуальную машину. Для этого воспользуемся Azure CLI.
+    CON_ID NAME                           OPEN_MODE
+---------- ------------------------------ ----------
+         2 PDB$SEED                       READ ONLY
+         3 PDB1                           MOUNT
+
+SQL> alter session set container=pdb1;
+
+Session altered.
+
+SQL> alter database open;
+
+database opened.
+
+SQL> alter session set container=pdb1;
+
+Session altered.
+
+SQL> exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
+
+PL/SQL procedure successfully completed.
+```
+## <a name="automating-database-startup-and-shutdown"></a>Автоматизация запуска и завершения работы базы данных
+
+После создания экземпляр Oracle еще не настроен для автоматического запуска при загрузке компьютера.  Чтобы выполнить эти задачи, необходимо войти в качестве привилегированного пользователя и создать или обновить некоторые системные файлы.
 
 ```bash
+# sudo su -
+```
+
+В файле /etc/oratab измените значение по умолчанию "N" (Нет) на "Y" (Да).
+
+```
+cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
+```
+
+Затем создайте файл /etc/init.d/dbora.
+
+```bash
+#!/bin/sh
+# chkconfig: 345 99 10
+# description: Oracle auto start-stop script.
+#
+# Set ORA_HOME to be equivalent to the $ORACLE_HOME
+ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+ORA_OWNER=oracle
+
+case "$1" in
+'start')
+    # Start the Oracle databases:
+    # The following command assumes that the oracle login
+    # will not prompt the user for any values
+    # Remove "&" if you don't want startup as a background process.
+    su - $ORA_OWNER -c "$ORA_HOME/bin/dbstart $ORA_HOME" &
+    touch /var/lock/subsys/dbora
+    ;;
+
+'stop')
+    # Stop the Oracle databases:
+    # The following command assumes that the oracle login
+    # will not prompt the user for any values
+    su - $ORA_OWNER -c "$ORA_HOME/bin/dbshut $ORA_HOME" &
+    rm -f /var/lock/subsys/dbora
+    ;;
+esac
+```
+
+Измените разрешение.
+
+```bash
+# chgrp dba /etc/init.d/dbora
+# chmod 750 /etc/init.d/dbora
+```
+Создайте символьные ссылки для запуска и завершения работы.
+
+```bash
+# ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
+# ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
+# ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
+```
+
+Перезапустите виртуальную машину, чтобы выполнить проверку.
+```bash
+# reboot
+```
+
+## <a name="opening-the-ports-for-connectivity"></a>Открытие портов для подключения
+
+Последнее, что следует сделать, — настроить несколько внешних конечных точек. Выйдите из сеанса SSH на виртуальной машине, чтобы настроить группу безопасности сети Azure, защищающую эту виртуальную машину. Чтобы открыть конечную точку для удаленного доступа к базе данных Oracle, выполните следующую команду: 
+
+```azurecli
 az network nsg rule create --resource-group myResourceGroup\
     --nsg-name myVmNSG --name allow-oracle\
     --protocol tcp --direction inbound --priority 999 \
@@ -219,22 +326,42 @@ az network nsg rule create --resource-group myResourceGroup\
 }
 ```
 
-Чтобы проверить возможность внешнего подключения, запустите sqlplus на удаленном компьютере. Перед подключением создайте файл tnsnames.ora на этом компьютере.
+Чтобы открыть конечную точку для удаленного доступа к Oracle EM Express, выполните следующую команду:
 
+```azurecli
+az network nsg rule create --resource-group myResourceGroup\
+    --nsg-name myVmNSG --name allow-oracle-EM\
+    --protocol tcp --direction inbound --priority 1001 \
+    --source-address-prefix '*' --source-port-range '*' \
+    --destination-address-prefix '*' --destination-port-range 5502 --access allow
 ```
-azure_pdb1=
-  (DESCRIPTION=
-    (ADDRESS=
-      (PROTOCOL=TCP)
-      (HOST=<vm-name>.cloudapp.net)
-      (PORT=1521)
-    )
-    (CONNECT_DATA=
-      (SERVER=dedicated)
-      (SERVICE_NAME=pdb1)
-    )
-  )
+
+Результат должен выглядеть следующим образом.
+
+```azurecli
+{
+  "access": "Allow",
+  "description": null,
+  "destinationAddressPrefix": "*",
+  "destinationPortRange": "5502",
+  "direction": "Inbound",
+  "etag": "W/\"06c68b5e-1b3f-4ae0-bcf6-59b3b981d685\"",
+  "id": "/subscriptions/2dad32d6-b188-49e6-9437-ca1d51cec4dd/resourceGroups/kennyRG/providers/Microsoft.Network/networkSecurityGroups/kennyVM1NSG/securityRules/allow-oracle-EM",
+  "name": "allow-oracle-EM",
+  "priority": 1001,
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "sourceAddressPrefix": "*",
+  "sourcePortRange": "*"
+}
 ```
+
+Подключите EM Express из своего браузера:
+```
+https://<VM hostname>:5502/em
+```
+Можно выполнить вход, используя учетную запись SYS с паролем, указанным во время установки.
 
 
 ## <a name="delete-virtual-machine"></a>Удаление виртуальной машины

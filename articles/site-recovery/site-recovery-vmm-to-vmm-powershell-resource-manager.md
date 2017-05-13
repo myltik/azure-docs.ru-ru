@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: sutalasi
-translationtype: Human Translation
-ms.sourcegitcommit: 0400369eb7ae3a2ebd506605b50afe08fe563d22
-ms.openlocfilehash: 33b3e7322afafd623a10661e33abe7b959eeb512
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 118dd3a69f140d57a3779e86c658982d58dbb718
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -57,7 +58,7 @@ ms.lasthandoff: 02/21/2017
 | --- | --- |
 | **VMM** |Рекомендуется развернуть по серверу VMM на первичном и вторичном сайтах.<br/><br/> Вы можете также [выполнять репликацию между облаками на отдельном сервере VMM](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). Для этого вам потребуется, чтобы на сервере VMM было настроено по крайней мере два облака.<br/><br/> На серверах VMM должен выполняться как минимум System Center 2012 с пакетом обновления 1 (SP1) с последними обновлениями.<br/><br/> Для каждого сервера VMM должно быть настроено одно или несколько облаков, и для каждого облака должен быть задан профиль загрузки Hyper-V. <br/><br/>Облака должны содержать одну или несколько групп узлов VMM.<br/><br/>Дополнительные сведения о настройке облаков VMM см. в разделах [Настройка структуры облака VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) и [Пошаговое руководство. Создание частных облаков с помощью VMM в System Center 2012 с пакетом обновления 1](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).<br/><br/> Серверы VMM должны иметь доступ к Интернету. |
 | **Hyper-V** |Серверы Hyper-V должны работать под управлением Windows Server 2012 (или более поздних версий) с ролью Hyper-V и установленными последними обновлениями.<br/><br/> Сервер Hyper-V должен содержать одну или несколько виртуальных машин.<br/><br/>  Серверы узлов Hyper-V должны быть размещены в первичном и вторичном облаках VMM.<br/><br/> Если вы используете Hyper-V в кластере на платформе Windows Server 2012 R2, то необходимо установить [обновление 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Если вы используете Hyper-V в кластере на платформе Windows Server 2012, то учтите, что брокер кластера не создается автоматически при использовании кластера на основе статических IP-адресов. Вам потребуется настроить брокер кластера вручную. [Подробная информация](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
-| **Поставщик** |Во время развертывания службы Site Recovery установите на серверы VMM поставщик Azure Site Recovery. Поставщик обменивается данными со службой Site Recovery через порт HTTPS 443 для управления репликацией. Репликация данных осуществляется между сервером-источником и сервером-приемником Hyper-V через локальную сеть или VPN-подключение.<br/><br/> Поставщику, запущенному на сервере VMM, нужен доступ к следующим URL-адресам: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net.<br/><br/> Кроме того, разрешите в брандмауэре обмен данными между серверами VMM и [диапазонами IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) , а также разрешите использовать протокол HTTPS (443). |
+| **Поставщик** |Во время развертывания службы Site Recovery установите на серверы VMM поставщик Azure Site Recovery. Поставщик обменивается данными со службой Site Recovery через порт HTTPS 443 для управления репликацией. Репликация данных осуществляется между сервером-источником и сервером-приемником Hyper-V через локальную сеть или VPN-подключение.<br/><br/> Поставщику, запущенному на сервере VMM, нужен доступ к следующим URL-адресам: *.hypervrecoverymanager.windowsazure.com, *.accesscontrol.windows.net, *.backup.windowsazure.com, *.blob.core.windows.net, *.store.core.windows.net.<br/><br/> Кроме того, разрешите в брандмауэре обмен данными между серверами VMM и [диапазонами IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) , а также разрешите использовать протокол HTTPS (443). |
 
 ### <a name="network-mapping-prerequisites"></a>Предварительные требования сетевого сопоставления
 При сетевом сопоставлении сопоставляются сети виртуальных машин VMM первичного и вторичного серверов VMM. Вот для чего это делается:
@@ -78,9 +79,9 @@ ms.lasthandoff: 02/21/2017
 [Узнайте больше](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) о принципе действия сетевого сопоставления.
 
 ### <a name="powershell-prerequisites"></a>Необходимые компоненты PowerShell
-Перед началом работы убедитесь, что среда Azure PowerShell готова к работе. Если вы уже используете PowerShell, необходимо выполнить обновление до версии 0.8.10 или более поздней версии. Дополнительные сведения о настройке PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). После установки и настройки PowerShell все доступные командлеты для службы можно просмотреть [здесь](https://msdn.microsoft.com/library/dn850420.aspx).
+Перед началом работы убедитесь, что среда Azure PowerShell готова к работе. Если вы уже используете PowerShell, необходимо выполнить обновление до версии 0.8.10 или более поздней версии. Дополнительные сведения о настройке PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs). После установки и настройки PowerShell все доступные командлеты для службы можно просмотреть [здесь](/powershell/azure/overview).
 
-Дополнительные сведения об использовании командлетов, например о типовой обработке значений параметров, входных и выходных параметров в Azure PowerShell, приведены в статье [Начало работы с командлетами Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+Дополнительные сведения об использовании командлетов, например о типовой обработке значений параметров, входных и выходных параметров в Azure PowerShell, приведены в статье [Начало работы с командлетами Azure](/powershell/azure/get-started-azureps).
 
 ## <a name="step-1-set-the-subscription"></a>Шаг 1. Настройка подписки
 1. В Azure Powershell войдите в свою учетную запись Azure с помощью следующих командлетов:
@@ -298,7 +299,7 @@ ms.lasthandoff: 02/21/2017
 
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
-## <a name="a-namemonitora-monitor-activity"></a><a name=monitor></a> Мониторинг активности
+## <a name=monitor></a> Мониторинг активности
 Используйте следующие команды для мониторинга активности. Обратите внимание, что между обработкой заданий необходимы паузы для ожидания завершения обработки.
 
     Do
@@ -319,5 +320,5 @@ ms.lasthandoff: 02/21/2017
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Узнайте больше](https://msdn.microsoft.com/library/azure/mt637930.aspx) об использовании командлетов PowerShell инструмента Azure Resource Manager для службы Azure Site Recovery.
+[Узнайте больше](/powershell/module/azurerm.recoveryservices.backup/#recovery) об использовании командлетов PowerShell инструмента Azure Resource Manager для службы Azure Site Recovery.
 

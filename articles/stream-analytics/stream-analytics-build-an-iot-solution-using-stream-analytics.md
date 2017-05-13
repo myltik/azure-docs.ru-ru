@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 01850cbf8967fd5f79db64103fb18c6ec01babea
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 637473db37985a4a89ddb19e02eebc377902c942
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.lasthandoff: 03/06/2017
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с данным руководством вам потребуется:
 
-* Последняя версия [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* Последняя версия [Azure PowerShell](/powershell/azure/overview)
 * Visual Studio 2017, Visual Studio 2015 или бесплатная версия [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx).
 * [Подписка Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Права администратора на компьютере.
@@ -138,7 +139,7 @@ ms.lasthandoff: 03/06/2017
 
 Скачайте и сохраните вспомогательную папку [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) и файлы.
 
-Откройте окно **Microsoft Azure PowerShell***от имени администратора*. Если у вас нет Azure PowerShell, следуйте инструкциям по установке в статье [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs) .
+Откройте окно **Microsoft Azure PowerShell***от имени администратора*. Если у вас нет Azure PowerShell, следуйте инструкциям по установке в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview) .
 
 Так как Windows автоматически блокирует файлы типа в формате PS1, DLL И EXE, перед запуском скрипта необходимо задать политику выполнения. Убедитесь, что окно Azure PowerShell открыто *от имени администратора*. Выполните команду **Set-ExecutionPolicy unrestricted**. При появлении запроса введите **Y**.
 
@@ -255,7 +256,7 @@ ms.lasthandoff: 03/06/2017
 6. Источник данных — **концентратор событий**.
 7. В раскрывающемся списке **Пространство имен служебной шины** выберите TollData.
 8. **Имя концентратора событий** — **entry**.
-9. **Имя политики концентратора событий*—**RootManageSharedAccessKey**  (значение по умолчанию).
+9. **Имя политики концентратора событий* — **RootManageSharedAccessKey** (значение по умолчанию).
 10. В поле **Формат сериализации событий** выберите **JSON**, а в поле **Кодировка** — **UTF8**.
    
     Настройки будут выглядеть следующим образом:

@@ -4,24 +4,25 @@ description: "Модель данных Application Insights для телеме
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: e27301a4815d16396518ddfc7487b064892e7631
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1bedede1934141927a770c97b61aeb5218652b3e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Телеметрия метрик: модель данных Application Insights
 
-Application Insights поддерживает два типа телеметрии метрик — отдельное измерение и предварительно вычисленная метрика. Отдельное измерение содержит только имя и значение. Предварительно вычисленная метрика указывает минимальное и максимальное значение метрики в интервале статистической обработки, а также его стандартное отклонение.
+[Application Insights](app-insights-overview.md) поддерживает два типа телеметрии метрик — отдельное измерение и предварительно вычисленная метрика. Отдельное измерение содержит только имя и значение. Предварительно вычисленная метрика указывает минимальное и максимальное значение метрики в интервале статистической обработки, а также его стандартное отклонение.
 
 Телеметрия предварительно вычисленных метрик предполагает, что период статистической обработки составлял одну минуту.
 
@@ -71,7 +72,7 @@ Application Insights поддерживает два типа телеметри
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- В [этой статье](/application-insights-data-model.md) представлены типы данных и модель данных для Application Insights.
-- Вы можете узнать, как использовать [API Application Insights для пользовательских событий и метрик](/app-insights-asp-net-dependencies.md).
-- Ознакомление с [платформами](/app-insights-platforms.md), поддерживаемыми Application Insights.
+- Вы можете узнать, как использовать [API Application Insights для пользовательских событий и метрик](app-insights-api-custom-events-metrics.md#send-metrics).
+- В [этой статье](application-insights-data-model.md) представлены типы данных и модель данных для Application Insights.
+- Ознакомление с [платформами](app-insights-platforms.md), поддерживаемыми Application Insights.
 

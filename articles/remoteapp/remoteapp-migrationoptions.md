@@ -11,12 +11,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 25ba53a1047863d01ba1fc2647af51fdd582feb1
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 11254a9bd82885701b457ba3b4ec0ef0aad710e6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -186,7 +187,7 @@ Awingu представляет собой простое интерактивн
 >   
 > Loughton, Essex IG10 3TQ
 >   
-> **Телефон: +44 (0) 20 8502 2155
+> Тел.: +44 (0) 20 8502 2155
 > 
 > **Сингапур**:
 >   
@@ -194,7 +195,7 @@ Awingu представляет собой простое интерактивн
 >   
 > The Globe, Singapore 069532
 > 
-> **Телефон: +65 6709 4933
+> Тел.: +65 6709 4933
 >   
 > **Северная Америка**:
 >   
@@ -202,7 +203,7 @@ Awingu представляет собой простое интерактивн
 >   
 > Suite 200, Houston, TX 77098
 >   
-> **Телефон: +1 713 691 0800
+> Тел.: +1 713 691 0800
 
 #### <a name="saasplaza"></a>**SaaSplaza**
 [SaaSplaza](http://www.saasplaza.com/) предлагает полный портфель Microsoft Dynamics (NAV, AX, GP, SL, CRM) для частного и общедоступного облака (Azure).
@@ -217,7 +218,7 @@ Awingu представляет собой простое интерактивн
 > 
 > Предлагаемые решения классических приложений и приложений RemoteApp на основе сеансов: да, оба варианта.
 > 
-> **Европа, Ближний Восток и Африка**
+> **Европа, Ближний Восток и Африка**:
 > 
 > Prins Mauritslaan 29-35
 > 
@@ -227,7 +228,7 @@ Awingu представляет собой простое интерактивн
 > 
 > Телефон: +31 20 547 8060 
 > 
->  **Северная и Южная Америки**
+>  **Северная и Южная Америки**:
 > 
 > 171 Saxony Road, Suite 105
 > 
@@ -239,7 +240,7 @@ Awingu представляет собой простое интерактивн
 > 
 > Телефон: +1 858 385 8900 
 > 
-> **Азиатско-тихоокеанский регион**
+> **Азиатско-тихоокеанский регион**:
 > 
 > 105 Cecil Street
 >    

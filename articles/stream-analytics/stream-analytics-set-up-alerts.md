@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c8463e68600edefecd0f3bdd19c13b13f676b82b
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: d9578aa13fc22a148f76d95a2c548b88b699e723
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 11/17/2016
 ## <a name="introduction-monitor-page"></a>Введение: страница мониторинга
 Оповещения можно настроить на отображение в случае, если метрика достигнет указанного состояния.
 
-Например: "Если число выходных событий за последние 15 минут < 100, отправлять уведомления на электронный адрес: abc@company.com".
+Например: "Если число выходных событий за последние 15 минут < 100, отправлять уведомления на электронный адрес: xyz@company.com".
 
 Правила на основе метрик можно настраивать через портал либо [программным путем](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) , используя данные в журналах операций.
 
@@ -70,7 +71,7 @@ ms.lasthandoff: 11/17/2016
 Дополнительные сведения о настройке оповещений на портале Azure см. в статье [Получение уведомлений](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
 
 ## <a name="get-help"></a>Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)

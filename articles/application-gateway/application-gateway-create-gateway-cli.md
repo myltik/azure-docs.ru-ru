@@ -13,12 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 05/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
-ms.openlocfilehash: 68d3e3ee9b35f2d6d88cde68365cef91d9683462
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 14dab2197ff7c1eaff012066e321ef1b99f05bb3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -76,7 +77,8 @@ ms.lasthandoff: 03/01/2017
 az login -u "username"
 ```
 
->[ПРИМЕЧАНИЕ] Команду `az login` также можно использовать без параметра для входа на устройство, при котором требуется ввести код на странице aka.ms/devicelogin.
+> [!NOTE]
+> Команду `az login` также можно использовать без параметра для входа на устройство, при котором требуется ввести код на странице aka.ms/devicelogin.
 
 Введя предыдущий пример, вы получите код. В браузере перейдите по адресу https://aka.ms/devicelogin, чтобы продолжить процедуру входа.
 
@@ -129,8 +131,7 @@ az network application-gateway create \
 --cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
 --cert-password P@ssw0rd \
 --capacity 2 \
---sku-tier Standard \
---sku-name Standard_Small \
+--sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
 --frontend-port 443 \
@@ -145,6 +146,14 @@ az network application-gateway create \
 В этом примере создается базовый шлюз приложений с параметрами по умолчанию для прослушивателя, серверного пула, протокола HTTP серверной части и правил. Он также настраивает разгрузку SSL. Вы сможете изменить эти параметры в соответствии с развертыванием после успешного завершения подготовки.
 Если на предыдущем шаге вы уже определили для веб-приложения внутренний пул, то после создания шлюза запускается балансировка нагрузки.
 
+## <a name="delete-all-resources"></a>Удаление всех ресурсов
+
+Чтобы удалить все ресурсы, созданные в этой статье, выполните следующие действия:
+
+```azurecli
+az group delete --name AdatumAppGatewayRG
+```
+ 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Узнайте, как создавать пользовательские пробы работоспособности, посетив страницу [Create a custom probe for Application Gateway by using the portal](application-gateway-create-probe-portal.md)

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 18c7a013c01fee26c5455535af6d9fba2b98fac7
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 7f0613285bc548e1329be3c33c30939f5998f379
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -50,7 +51,12 @@ ms.lasthandoff: 04/03/2017
 В случае, когда виртуальная машина создается в виртуальной сети, служба метаданных доступна по немаршрутизируемому IP-адресу 169.254.169.254. В противном случае (по умолчанию для облачных служб и классических виртуальных машин) требуется настроить дополнительную логику для обнаружения используемой конечной точки. Чтобы узнать, как это сделать, ознакомьтесь с примером [обнаружения конечной точки узла] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>Управление версиями 
-Служба метаданных использует API с управлением версиями в следующем формате: http://{IP-адрес}/metadata/{номер_версии}/scheduledevents. Мы рекомендуем использовать для службы последнюю версию, доступную по адресу: http://{IP-адрес}/metadata/latest/scheduledevents
+Для службы метаданных экземпляров включено управление версиями. Версии являются обязательными. На данный момент используется версия от 01.03.2017.
+
+> [!NOTE] 
+> В предыдущих выпусках предварительной версии в качестве api-version поддерживалось значение {latest}. Этот формат больше не поддерживается и в дальнейшем будет считаться устаревшим.
+>
+
 
 ### <a name="using-headers"></a>Использование заголовков
 В запросе к службе метаданных необходимо указать следующий заголовок: *Metadata: true*. 
@@ -67,7 +73,8 @@ ms.lasthandoff: 04/03/2017
 ### <a name="query-for-events"></a>Запрос сведений о событиях
 Для получения сведений о запланированных событиях достаточно отправить следующий запрос:
 
-    curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
+    curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+
 
 Ответ содержит массив запланированных событий. Если это будет пустой массив, значит сейчас запланированных событий нет.
 Если передаются запланированные события, массив событий в ответе выглядит так: 
@@ -136,7 +143,7 @@ function HandleScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events uri for VNET enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/latest/scheduledevents' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
 
 # Get the document
@@ -170,7 +177,7 @@ foreach($event in $scheduledEvents.Events)
 
         public ScheduledEventsClient()
         {
-            scheduledEventsEndpoint = string.Format("http://{0}/metadata/latest/scheduledevents", defaultIpAddress);
+            scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
         }
         /// Retrieve Scheduled Events 
         public string GetDocument()
@@ -293,7 +300,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url="http://169.254.169.254/metadata/latest/scheduledevents"
+metadata_url="http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
 headers="{Metadata:true}"
 this_host=socket.gethostname()
 
@@ -328,5 +335,6 @@ if __name__ == '__main__':
 
 ```
 ## <a name="next-steps"></a>Дальнейшие действия 
-[Плановое обслуживание виртуальных машин Linux в Azure](linux/planned-maintenance.md)
+[Плановое обслуживание виртуальных машин Linux](linux/planned-maintenance.md)
+[Предварительная версия службы метаданных экземпляров Azure](virtual-machines-instancemetadataservice-overview.md)
 

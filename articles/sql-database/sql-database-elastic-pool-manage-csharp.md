@@ -15,10 +15,11 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9e038bfeee023b26aa80046fe877db007baa1816
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: b34cfe18ac3d03802173605f5483879217d1fe1f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -304,11 +305,11 @@ namespace SqlElasticPoolConsoleApp
 
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
-* Пул эластичных баз данных. См. дополнительные сведения о [создании эластичного пула с помощью C#](sql-database-elastic-pool-manage-csharp.md).
+* Пул эластичных баз данных. Дополнительные сведения о создании эластичного пула см. в разделе [Создание и администрирование эластичного пула с помощью C#](sql-database-elastic-pool-manage-csharp.md).
 * приведенному. Бесплатный экземпляр Visual Studio см. на странице [Загрузки Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Перемещение базы данных в пул эластичных БД
-Автономную базу данных можно перемещать в пул и из него.  
+Автономную базу данных можно перемещать в эластичный пул и из него.  
 
     // Retrieve current database properties.
 
@@ -332,7 +333,7 @@ namespace SqlElasticPoolConsoleApp
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
 
 ## <a name="list-databases-in-an-elastic-pool"></a>Получение списка баз данных в пуле эластичных БД
-Чтобы получить все базы данных в пуле, вызовите метод [ListDatabases](https://msdn.microsoft.com/library/microsoft.azure.management.sql.elasticpooloperationsextensions.listdatabases).
+Чтобы получить все базы данных в эластичном пуле, вызовите метод [ListDatabases](https://msdn.microsoft.com/library/microsoft.azure.management.sql.elasticpooloperationsextensions.listdatabases).
 
     //List databases in the elastic pool
     DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");

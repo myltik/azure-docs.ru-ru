@@ -191,6 +191,9 @@
   - name: "Наблюдатель за сетями"
     tocHref: /azure/network-watcher/
     topicHref: /azure/network-watcher/
+  - name: "Сеть"
+    tocHref: /azure/networking/
+    topicHref: /azure/networking/networking-overview
   - name: "Центры уведомлений"
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/

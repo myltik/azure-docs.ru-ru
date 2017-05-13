@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: a1ae582d637e7f5589ad1eb0dc41343eda8d71ca
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 6504ef16922ed376249851a74a4e6908c6123f6a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -27,14 +28,20 @@ ms.lasthandoff: 03/31/2017
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
+## <a name="supported-operating-systems"></a>Поддерживаемые операционные системы
+
+Сведения о поддерживаемых операционных системах и требованиях к драйверам доступны в разделе [Установка драйверов GPU для виртуальных машин серии N под управлением Windows Server](n-series-driver-setup.md).
+
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+[!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
 ## <a name="other-sizes"></a>Остальные размеры
 - [Универсальные](sizes-general.md)
 - [Оптимизированные для вычислений](sizes-compute.md)
 - [Для высокопроизводительных вычислений](sizes-hpc.md)
-- [Оптимизированные для памяти](../virtual-machines-windows-sizes-memory.md)
-- [Оптимизированные для хранилища](../virtual-machines-windows-sizes-storage.md)
+- [Оптимизированные для памяти](sizes-memory.md)
+- [Оптимизированные для хранилища](sizes-storage.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше о том, как с помощью [единиц вычислений Azure (ACU)](acu.md) сравнить производительность вычислений для различных номеров SKU Azure.
