@@ -63,7 +63,7 @@
 ## [Блог о сетях](https://azure.microsoft.com/blog/topics/networking/)
 ## [Примеры использования](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/)
-## [Ограничения подписки и службы](../azure-subscription-service-limits.md)
+## [Ограничения подписки и службы](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Создание канала ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Как настроить частный пиринг для канала](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
