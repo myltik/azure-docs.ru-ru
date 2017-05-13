@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 6dde4684e4bbb8eb79c69b620c7f52e085cb40c6
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 51cef9d1fc41d8ece2c5ec82df5f6a889d4c57dc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,14 +40,12 @@ ms.lasthandoff: 04/06/2017
 ## <a name="prerequisites"></a>Предварительные требования
 * Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
-* Комплект SDK Java для Oracle версии 7 и 8. 
-  
-  * **Пакет SDK для Java 7** используется для компиляции проектов Spark в качестве кластеров HDInsight, поддерживающих Java версии 7. Вы можете скачать пакет SDK для Java 7 [отсюда](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html).
+* Пакет средств разработки Oracle Java версии 8. 
   * **Пакет SDK для Java 8** используется для среды выполнения интегрированной среды разработки Eclipse. Скачать эту версию можно [здесь](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Интегрированная среда разработки Eclipse. В этой статье используется Eclipse Neon. Его можно установить [отсюда](https://www.eclipse.org/downloads/).
 * Интегрированная среда разработки Scala для Eclipse. 
   
-  * **Если у вас установлена интегрированная среда разработки Eclipse**, то можно добавить подключаемый модуль интегрированной среды разработки Scala, выбрав **Help**(Справка) -> **Install New SoftWare** (Установить новое программное обеспечение) и добавив [http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site](http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site) в качестве источника для скачивания подключаемого модуля Scala для Eclipse. 
+  * **Если у вас установлена интегрированная среда разработки Eclipse**, то можно добавить подключаемый модуль интегрированной среды разработки Scala, выбрав **Help**(Справка) -> **Install New SoftWare** (Установить новое программное обеспечение) и указав [http://download.scala-ide.org/sdk/lithium/e46/scala211/stable/site](http://download.scala-ide.org/sdk/lithium/e46/scala211/stable/site) в качестве источника для скачивания подключаемого модуля Scala для Eclipse. 
   * **Если у вас не установлена интегрированная среда разработки Eclipse**, то ее можно установить непосредственно [отсюда](http://scala-ide.org/download/sdk.html). Вы можете скачать ZIP-файл по этой ссылке, извлечь его содержимое, перейти в папку **/eclipse** и выполнить файл **eclipse.exe**.
     
     > [!NOTE]
@@ -61,13 +60,15 @@ ms.lasthandoff: 04/06/2017
 
 ## <a name="log-into-your-azure-subscription"></a>Вход в подписку Azure
 1. Запустите интегрированную среду разработки Eclipse и откройте Azure Explorer. В меню **Window** (Окно) в интегрированной среде разработки выберите пункт **Show View** (Показать представление) и щелкните **Other** (Другие). В открывшемся диалоговом окне разверните **Azure** и щелкните **Azure Explorer**, а затем нажмите кнопку **ОК**.
-   
+
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-1.png)
-2. В **Azure Explorer** щелкните правой кнопкой мыши узел **Azure**, а затем выберите пункт **Управление подписками**.
-3. В диалоговом окне **Управление подписками** нажмите кнопку **Вход** и введите свои учетные данные Azure.
+2. В **Azure Explorer** щелкните правой кнопкой мыши узел **Azure**, а затем выберите пункт **Войти**.
+3. В диалоговом окне **Azure Sign In** (Вход в Azure) выберите режим проверки подлинности, нажмите кнопку **Вход** и введите свои учетные данные Azure.
    
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-2.png)
-4. После входа в диалоговом окне **Управление подписками** будут перечислены все подписки Azure, связанные с указанными учетными данными. Нажмите кнопку **Закрыть** в этом диалоговом окне.
+4. После входа в диалоговом окне **Select Subscriptions** (Выбор подписок) будут перечислены все подписки Azure, связанные с указанными учетными данными. Щелкните **Выбрать**, чтобы закрыть диалоговое окно.
+
+    ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 5. На вкладке "Azure Explorer" разверните **HDInsight** , чтобы просмотреть кластеры HDInsight Spark в своей подписке.
    
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-3.png)
@@ -76,9 +77,10 @@ ms.lasthandoff: 04/06/2017
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>Настройка проекта Spark Scala для кластера HDInsight Spark
+
 1. В рабочей области интегрированной среды разработки Eclipse щелкните **File** (Файл), **New** (Создать), **Project** (Проект). 
 2. В мастере **New Project** (Новый проект) разверните **HDInsight**, выберите **Spark on HDInsight (Scala)** (Spark в HDInsight (Scala)) и нажмите кнопку **Далее**.
-   
+
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 3. В диалоговом окне **New HDInsight Scala Project** (Новый проект Scala HDInsight) введите или выберите значения, как показано на рисунке ниже, после чего нажмите кнопку **Далее**.
    
@@ -86,38 +88,19 @@ ms.lasthandoff: 04/06/2017
    
    * Введите имя проекта.
    * Убедитесь, что в поле **JRE** параметр **Use an execution environment JRE** (Использовать среду выполнения JRE) имеет значение **JavaSE 1.7**.
-   * Убедитесь, что для пакета SDK для Spark задано расположение, в которое вы скачали этот пакет SDK. Ссылка для скачивания указана в разделе [Предварительные требования](#prerequisites) ранее в этой статье. Можно также скачать пакет SDK по ссылке в этом диалоговом окне, как показано на рисунке выше.     
-4. В следующем диалоговом окне щелкните вкладку **Libraries** (Библиотеки), а затем дважды щелкните **JRE System Library [JavaSE-1.7]** (Системная библиотека JRE [JavaSE 1.7]).
+   * Убедитесь, что для пакета SDK для Spark задано расположение, в которое вы скачали этот пакет SDK. Ссылка для скачивания указана в разделе [Предварительные требования](#prerequisites) ранее в этой статье. Можно также скачать пакет SDK по ссылке в этом диалоговом окне, как показано на рисунке выше.    
+4.    В следующем диалоговом выберите вкладку **Библиотеки** и оставьте значения по умолчанию. 
    
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
-5. В диалоговом окне **Изменить библиотеку** для параметра **Execution Environment** (Среда выполнения) установите значение **JavaSE-1.7(jdk1.7.0_79)**. Если этот параметр недоступен, то выполните следующие действия.
-   
-   1. Выберите параметр **Alternate JRE** (Альтернативная среда JRE) и проверьте, доступен ли пункт **JavaSE-1.7(jdk1.7.0_79)**.
-   2. Если нет, то нажмите кнопку **Installed JREs** (Установленные среды JRE).
-      
-         ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-5.png)
-   3. В диалоговом окне **Installed JREs** (Установленные среды JRE) нажмите кнопку **Добавить**.
-      
-         ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-6.png)    
-   4. В диалоговом окне **JRE Type** (Тип JRE) выберите **Standard VM** (Стандартная виртуальная машина) и нажмите кнопку **Далее**.
-      
-         ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-7.png)    
-   5. В диалоговом окне **JRE Definition** (Определение JRE) щелкните Directory (Каталог) и перейдите в папку для установки JDK 7, а затем выберите корневую папку для **jdk1.7.0_79**.
-      
-         ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-8.png)    
-   6. Нажмите кнопку **Готово** В диалоговом окне **Installed JREs** (Установленные среды JRE) выберите только что добавленную среду JRE и нажмите кнопку **ОК**.
-      
-          ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-9.png)
-   7. Добавленная среда JRE должна появиться в списке значений параметра **Execution Environment**(Среда выполнения). Нажмите кнопку **Готово**
-      
-            ![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-10.png)
-6. На вкладке **Libraries** (Библиотеки) дважды щелкните **Scala Library Container[2.11.8]** (Контейнер библиотек Scala [2.11.8]). В диалоговом окне **Edit Library** (Изменение библиотеки) выберите **Fixed Scala Library container:2.10.6** (Фиксированный контейнер библиотек Scala: 2.10.6). 
-   
-    ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-11.png)
-   
+
     Нажимайте кнопки **Finish** (Готово), пока не покинете диалоговое окно параметров проекта.
 
+    **Запуск приложения Spark Scala в кластере ADLS.** Если вы хотите отправить приложение в ADLS, необходимо выбрать **интерактивный** режим ведения журнала. 
+
+    ![Создание проверки подлинности для приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/Interactive-Authentication.png)
+
 ## <a name="create-a-scala-application-for-hdinsight-spark-cluster"></a>Создание приложения Scala для кластера HDInsight Spark
+
 1. В уже открытой интегрированной среде разработки Eclipse в **обозревателе пакетов** разверните созданный ранее проект, щелкните правой кнопкой **src**, выберите **New** (Создать) и щелкните **Other** (Другое).
 2. В диалоговом окне **Select a wizard** (Выбор мастера) разверните **Scala Wizards** (Мастера Scala), щелкните **Scala Object** (Объект Scala) и нажмите кнопку **Далее**.
    

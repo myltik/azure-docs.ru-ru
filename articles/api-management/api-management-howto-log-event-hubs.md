@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
-ms.openlocfilehash: afecb15f36525c53a66f30047dffe8a3e8f36107
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a310236179677046ec49930b07cfdffdadc37974
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,9 +49,9 @@ ms.lasthandoff: 02/03/2017
 ![Строка подключения][event-hub-connection-string]
 
 ## <a name="create-an-api-management-logger"></a>Создание средства ведения журнала для управления API
-Теперь, когда концентратор событий создан, нужно настроить [средство ведения журнала](https://msdn.microsoft.com/library/azure/mt592020.aspx) в службе управления API, которое сможет регистрировать события в концентраторе событий.
+Теперь, когда концентратор событий создан, нужно настроить [средство ведения журнала](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) в службе управления API, которое сможет регистрировать события в концентраторе событий.
 
-Средства ведения журнала службы управления API настраиваются с помощью [REST API службы управления API](http://aka.ms/smapi). Прежде чем использовать REST API впервые, просмотрите информацию о [необходимых компонентах](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) и убедитесь, что [включен доступ к REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
+Средства ведения журнала службы управления API настраиваются с помощью [REST API службы управления API](http://aka.ms/smapi). Прежде чем использовать REST API впервые, просмотрите информацию о [необходимых компонентах](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) и убедитесь, что [включен доступ к REST API](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
 
 Чтобы создать средство ведения журнала, выполните HTTP-запрос PUT, используя следующий шаблон URL-адреса.
 
@@ -62,8 +63,8 @@ ms.lasthandoff: 02/03/2017
 Добавьте в запрос следующие заголовки:
 
 * тип содержимого: «application/json»;
-* авторизация: «SharedAccessSignature uid=...»:
-  * указания по созданию `SharedAccessSignature` см. в [справочнике по REST API Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
+* авторизация: SharedAccessSignature 58...
+  * указания по созданию `SharedAccessSignature` см. в [справочнике по REST API Azure](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
 Укажите текст запроса, используя следующий шаблон.
 
@@ -85,7 +86,7 @@ ms.lasthandoff: 02/03/2017
 Если при выполнении запроса средство ведения журнала создано, возвращается код состояния `201 Created` .
 
 > [!NOTE]
-> Другие возможные коды возврата и их причины см. в статье, посвященной [созданию средств ведения журнала](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Чтобы узнать, как выполнять другие операции, такие как перечисление, обновление и удаление, см. документацию [средствах ведения журнала](https://msdn.microsoft.com/library/azure/mt592020.aspx).
+> Другие возможные коды возврата и их причины см. в статье, посвященной [созданию средств ведения журнала](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Чтобы узнать, как выполнять другие операции, такие как перечисление, обновление и удаление, см. документацию [средствах ведения журнала](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity).
 >
 >
 
@@ -122,8 +123,8 @@ ms.lasthandoff: 02/03/2017
   * [Прием сообщений через EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Руководство по программированию концентраторов событий](../event-hubs/event-hubs-programming-guide.md)
 * Дополнительные сведения об интеграции службы управления API и концентраторов событий
-  * [Справочник по сущности "Средство ведения журнала"](https://msdn.microsoft.com/library/azure/mt592020.aspx)
-  * [Справочник по политике регистрации в концентраторе событий](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [Справочник по сущности "Средство ведения журнала"](https://docs.microsoft.com/rest/api/apimanagement/loggers)
+  * [Справочник по политике регистрации в концентраторе событий](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
   * [Мониторинг API-интерфейсов с помощью службы управления API Azure, концентраторов событий и Runscope](api-management-log-to-eventhub-sample.md)    
 
 ## <a name="watch-a-video-walkthrough"></a>Просмотрите видеоруководство

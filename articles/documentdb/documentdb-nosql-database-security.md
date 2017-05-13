@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d04c670daac243119b47cece2df18335c7af972c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 71668ceedca16647f814866ea9cf068f73e5daf6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -82,6 +83,7 @@ ms.lasthandoff: 04/18/2017
 |Установка геозон|DocumentDB обеспечивает управление данными и соответствие требованиям для отдельных регионов (например, Германия, Китай или US Gov).|
 |Защищенное оборудование|Данные в DocumentDB хранятся на твердотельных накопителях (SSD) в защищенных центрах обработки данных Azure.<br><br>Дополнительные сведения о глобальных центрах обработки данных корпорации Майкрософт см. на [этой странице](https://www.microsoft.com/en-us/cloud-platform/global-datacenters).|
 |Шифрование HTTPS, SSL и TLS|Все взаимодействия между клиентом и службой в DocumentDB принудительно осуществляются по протоколу SSL/TLS 1.2. Кроме того, любая репликация внутри центра обработки данных или между центрами также выполняется по протоколу SSL/TLS 1.2.|
+|Шифрование при хранении|Все данные в DocumentDB хранятся в зашифрованном виде. Дополнительные сведения см. в статье о [шифровании DocumentDB при хранении](.\documentdb-nosql-database-encryption-at-rest.md)|
 |Установка исправлений на серверы|Являясь управляемой базой данных NoSQL, DocumentDB избавляет от необходимости управлять серверами и устанавливать на них исправления. Это делается автоматически.|
 |Административные учетные записи с надежными паролями|Пожалуй, даже не нужно упоминать об этом требовании, но, в отличие от некоторых наших конкурентов, в DocumentDB не может быть учетной записи администратора без пароля.<br><br> Для обеспечения безопасности в службу по умолчанию интегрированы функции SSL и аутентификации на основе секрета HMAC.|
 |Сертификаты безопасности и защиты данных|Служба DocumentDB сертифицирована в соответствии со стандартами [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [EUMC (European Model Clauses)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) и [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA). Дополнительные сертификаты находятся в стадии получения.|

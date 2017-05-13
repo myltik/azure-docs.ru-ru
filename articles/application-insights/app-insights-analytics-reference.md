@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/26/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 7f6c71056bca7beebc02313409aabe386d191e23
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 93831bb163f67bbf40026faf3096ff5b7c581dfe
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -664,7 +665,7 @@ requests
            | where Name == "Stop"
            | project StopTime=timestamp, ActivityId)
         on ActivityId
-    | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
+    | project City, ActivityId, StartTime, StopTime, Duration=StopTime-StartTime
 
 ```
 
@@ -2750,7 +2751,8 @@ substring("ABCD", 0, 2)       // AB
 * `parsejson('21')` — одно значение динамического типа, содержащее число;
 * `parsejson('"21"')` — одно значение динамического типа, содержащее строку.
 
-Обратите внимание, что, в отличие от JavaScript, в JSON необходимо заключать строки в двойные кавычки (`"`). Поэтому обычно проще заключать закодированные JSON литералы в одинарные кавычки (`'`).
+> [ПРИМЕЧАНИЕ] Метки и строковые значения в JSON необходимо заключать в двойные кавычки (`"`). Поэтому обычно проще заключать закодированные JSON литералы в одинарные кавычки (`'`).
+> 
 
 В этом примере создается динамическое значение, а затем используются его поля:
 
@@ -2927,21 +2929,23 @@ arraylength(parsejson('21')) == null
 
 **Пример**
 
-В следующем примере `context_custom_metrics` представляет собой `string`, который выглядит следующим образом. 
+В следующем примере `customDimensions.person` представляет собой `string`, который выглядит следующим образом. 
 
 ```
-{"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
+"\"addresses\":[{\"postcode\":\"C789\",\"street\":\"high st\",\"town\":\"Cardigan\"},{\"postcode\":\"J456\",\"street\":\"low st\",\"town\":\"Jumper\"}],\"name\":\"Ada\""
 ```
 
 Тогда следующий фрагмент извлечет значение слота `duration` из объекта, а затем из него извлечет два слота `duration.value` и  `duration.min` (`118.0` и `110.0`, соответственно).
 
 ```AIQL
-T
-| ...
+customEvents
+| where name == "newMember"
 | extend d=parsejson(context_custom_metrics) 
 | extend duration_value=d.duration.value, duration_min=d["duration"]["min"]
 ```
 
+> [ПРИМЕЧАНИЕ] Метки и строковые значения в JSON необходимо заключать в двойные кавычки. 
+>
 
 
 ### <a name="range"></a>range

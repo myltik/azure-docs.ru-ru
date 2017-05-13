@@ -1,5 +1,5 @@
 ---
-title: "Публикация содержимого служб мультимедиа Azure с помощью .NET"
+title: "Публикация содержимого служб мультимедиа Azure с помощью .NET | Документация Майкрософт"
 description: "Узнайте, как создать указатель для создания URL-адреса потоковой передачи. Примеры кода написаны на языке C# и используют пакет SDK служб мультимедиа для .NET."
 author: juliako
 manager: erikre
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 37f6cd3a25c36fe27c9c711a430a2fc11e50906e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,10 +40,10 @@ ms.lasthandoff: 03/14/2017
 
 Можно также использовать указатель потоковой передачи OnDemand, чтобы формировать URL-адреса, указывающие на MP4-файлы для последовательного скачивания.  
 
-В этом разделе показано, как создать указатель потоковой передачи OnDemand, чтобы опубликовать ресурс-контейнер и сформировать URL-адреса потоковой передачи Smooth, MPEG DASH и HLS. В нем также показывается, как создать URL-адреса последовательного скачивания. 
+В этом разделе показано, как создать указатель потоковой передачи OnDemand, чтобы опубликовать файл и получить URL-адреса потоковой передачи Smooth, MPEG DASH и HLS. В нем также показывается, как создать URL-адреса последовательного скачивания. 
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Создание указателя потоковой передачи OnDemand
-Чтобы создать указатель потоковой передачи OnDemand и получить URL-адреса, вам нужно выполнить следующее:
+Чтобы создать указатель потоковой передачи OnDemand и получить URL-адреса, вам нужно сделать следующее:
 
 1. Если содержимое шифруется, установите политику доступа.
 2. создать указатель потоковой передачи OnDemand.
@@ -53,7 +54,7 @@ ms.lasthandoff: 03/14/2017
 
 
 >[!NOTE]
->Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Например, политики для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Чтобы узнать больше, ознакомьтесь с [этим](media-services-dotnet-manage-entities.md#limit-access-policies) разделом.
+>Действует ограничение в 1 000 000 записей для разных политик AMS (например, для политики Locator или ContentKeyAuthorizationPolicy). Следует указывать один и тот же идентификатор политики, если вы используете те же дни, разрешения доступа и т. д. Речь идет, например, о политиках для указателей, которые должны оставаться на месте в течение длительного времени (не политики передачи). Чтобы узнать больше, ознакомьтесь с [этим](media-services-dotnet-manage-entities.md#limit-access-policies) разделом.
 
 ### <a name="use-media-services-net-sdk"></a>Использование пакета SDK служб мультимедиа для .NET
 Создание URL-адресов потоковой передачи 
@@ -95,7 +96,7 @@ ms.lasthandoff: 03/14/2017
         Console.WriteLine();
     }
 
-Код выведет следующее:
+Выходные данные:
 
     URL to manifest for client streaming using Smooth Streaming protocol:
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
@@ -106,7 +107,7 @@ ms.lasthandoff: 03/14/2017
 
 
 > [!NOTE]
-> Также по SSL-подключению можно выполнять потоковую передачу содержимого. Для этого убедитесь, что URL-адреса потоковой передачи начинаются с HTTPS. Обратите внимание, что в настоящее время AMS не поддерживает SSL для личных доменов.  
+> Также по SSL-подключению можно выполнять потоковую передачу содержимого. Для этого убедитесь, что URL-адреса потоковой передачи начинаются с HTTPS. Сейчас AMS не поддерживает SSL для личных доменов.
 > 
 > 
 
@@ -140,7 +141,7 @@ ms.lasthandoff: 03/14/2017
             Console.WriteLine(originLocator.Path + pd.Name);
     }
 
-Код выведет следующее:
+Выходные данные:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
@@ -150,7 +151,7 @@ ms.lasthandoff: 03/14/2017
     . . . 
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Использование расширения пакета SDK служб мультимедиа для .NET
-Следующий код вызывает методы расширения пакета SDK для .NET, которые создают указатель и формируют URL-адреса Smooth Streaming, HLS и MPEG-DASH для адаптивной потоковой передачи.
+Следующий код вызывает методы расширения пакета SDK для .NET, которые создают указатель и генерируют URL-адреса Smooth Streaming, HLS и MPEG-DASH для адаптивной потоковой передачи.
 
     // Create a loctor.
     _context.Locators.Create(
@@ -175,8 +176,8 @@ ms.lasthandoff: 03/14/2017
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>См. также
-[Доставка актива путем загрузки](media-services-deliver-asset-download.md)
-[Настройка политик доставки ресурсов-контейнеров с помощью пакета SDK для .NET](media-services-dotnet-configure-asset-delivery-policy.md)
+## <a name="next-steps"></a>Дальнейшие действия
+* [Скачивание файлов](media-services-deliver-asset-download.md)
+* [Настройка политики доставки для ресурса-контейнера](media-services-dotnet-configure-asset-delivery-policy.md)
 
 

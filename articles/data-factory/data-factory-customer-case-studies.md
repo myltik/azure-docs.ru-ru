@@ -1,3 +1,4 @@
+
 ---
 title: "Фабрика данных Azure: примеры реальных клиентов | Документация Майкрософт"
 description: "Узнайте о том, как некоторые из наших клиентов используют фабрику данных Azure."
@@ -14,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
-ms.openlocfilehash: 12edabc12d499bc07315d1cf103e5cc2fa149cdb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 0850b42e15e2daf4868560a1518f7906c7ae0800
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -44,9 +47,6 @@ ms.openlocfilehash: 12edabc12d499bc07315d1cf103e5cc2fa149cdb
 ## <a name="pier-1-imports"></a>Pier 1 Imports
 [Укрепление связей с клиентами благодаря облачному машинному обучению](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+## <a name="microsoft-studio"></a>Microsoft Studio
+[Предоставление грандиозных возможностей Xbox благодаря анализу сотен миллиардов игровых событий ежедневно](https://customers.microsoft.com/en-us/story/xboxunlimited)
 

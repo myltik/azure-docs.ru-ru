@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/26/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c2d14be5f27a775a14039bd63c5ccb5cd7b10f9a
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 05f823955eb5c47ce024c2b7d246e361e1302d78
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -144,13 +145,16 @@ JSON для расширения виртуальной машины можно 
 
 ## <a name="azure-cli-deployment"></a>Развертывание с помощью Azure CLI
 
-Azure CLI можно использовать для развертывания расширения виртуальной машины агента OMS на существующей виртуальной машине. Перед этим создайте файл public.json и protected.json. Схема для этих файлов описана ранее в этом документе.
+Azure CLI можно использовать для развертывания расширения виртуальной машины агента OMS на существующей виртуальной машине. Замените ключ OMS и идентификатор OMS значениями из рабочей области OMS. 
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.3 \
-  --public-config-path public.json  \
-  --private-config-path protected.json
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name OmsAgentForLinux \
+  --publisher Microsoft.EnterpriseCloud.Monitoring \
+  --version 1.0 --protected-settings '{"workspaceKey": "omskey"}' \
+  --settings '{"workspaceId": "omsid"}'
 ```
 
 ## <a name="troubleshoot-and-support"></a>Устранение неполадок и поддержка
@@ -160,7 +164,7 @@ azure vm extension set myResourceGroup myVM \
 Данные о состоянии развертывания расширения можно получить на портале Azure, а также использовав Azure CLI. Чтобы просмотреть состояние развертывания расширений для определенной виртуальной машины, выполните следующую команду в Azure CLI.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 Выходные данные выполнения расширения регистрируются в следующем файле:

@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 494545ae20e0b766a3787ae462d5d0f4331853b1
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0d94ac5f667bd31abe82781cfed3f9adbd27b364
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -51,11 +52,13 @@ ms.lasthandoff: 04/06/2017
 1. Запустите интегрированную среду разработки IntelliJ и откройте Azure Explorer. В меню **View** (Вид) интегрированной среды разработки щелкните **Tool Windows** (Окна инструментов) и выберите **Azure Explorer**.
    
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/show-azure-explorer.png)
-2. В **Azure Explorer** щелкните правой кнопкой мыши узел **Azure**, а затем выберите пункт **Управление подписками**.
-3. В диалоговом окне **Управление подписками** нажмите кнопку **Вход** и введите свои учетные данные Azure.
+2. В **Azure Explorer** щелкните правой кнопкой мыши узел **Azure**, а затем выберите пункт **Войти**.
+3. В диалоговом окне **Azure Sign In** (Вход в Azure) нажмите кнопку **Вход** и введите свои учетные данные Azure.
    
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-2.png)
-4. После входа в диалоговом окне **Управление подписками** будут перечислены все подписки Azure, связанные с указанными учетными данными. Нажмите кнопку **Закрыть** в этом диалоговом окне.
+4. После входа в диалоговом окне **Select Subscriptions** (Выбор подписок) будут перечислены все подписки Azure, связанные с указанными учетными данными. Щелкните **Выбрать**, чтобы закрыть диалоговое окно.
+
+    ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
 5. На вкладке **Azure Explorer** разверните **HDInsight**, чтобы просмотреть кластеры HDInsight Spark в своей подписке.
    
     ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-3.png)
@@ -74,13 +77,13 @@ ms.lasthandoff: 04/06/2017
 2. В следующем окне укажите сведения о проекте.
    
    * Введите имя и расположение проекта.
-   * Для **пакета SDK для Project**, Java 1.7 или более поздней версии для кластера Spark 1.6 и Java 1.8 для кластера Spark 2.0.
+   * Для **пакета SDK проекта** Java 1.8 для кластера Spark 1.6 и Spark 2.0.
    * Для **пакета SDK для Scala** щелкните **Download** (Создать), а затем **Download** (Скачать), после чего выберите версию Scala.
    * * Выберите **JDK 1.8 и Scala 2.11.x**, если вы хотите отправить задание в кластер Spark 2.0.
-   * * Выберите **JDK 1.7 или более позднюю версию и Scala 2.10.x**, если вы хотите отправить задание в кластер Spark 1.6.
+   * * Выберите **JDK 1.8 (уровень языка 7) и Scala 2.10.x**, если вы хотите отправить задание в кластер Spark 1.6.
 
         ![](./media/hdinsight-apache-spark-intellij-tool-plugin/show-scala2.11.x-select.png)
-   * Можно скачать и использовать **пакет SDK для Spark** [отсюда](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409) (spark-assembly-2.0.0-hadoop2.7.0-SNAPSHOT.jar для кластера Spark 2.0 и spark-assembly-x.jar для кластера Spark 1.6). Кроме того, можно использовать [репозиторий Spark Maven](http://mvnrepository.com/search?q=spark), однако убедитесь, что у вас установлен нужный репозиторий Maven для разработки приложений Spark. (Например, при использовании потоковой передачи Spark необходимо убедиться, что установлена часть Spark Streaming. Кроме того, убедитесь, что для кластера Spark 1.6 используется репозиторий, помеченный как Scala 2.10, а для кластера Spark 2.0 — репозиторий, помеченный как Scala 2.11).
+   * Вы можете скачать и использовать **пакет SDK для Spark** отсюда (http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)(spark-assembly-2.0.0-hadoop2.7.0-SNAPSHOT.jar для кластера Spark 2.0 и spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar is для кластера Spark 1.6). Кроме того, можно использовать [репозиторий Spark Maven](http://mvnrepository.com/search?q=spark). Однако убедитесь, что у вас установлен нужный репозиторий Maven для разработки приложений Spark. (Например, при использовании потоковой передачи Spark необходимо убедиться, что установлена часть Spark Streaming. Кроме того, убедитесь, что используется репозиторий, помеченный как Scala 2.10 для кластера Spark 1.6 и Scala 2.11 для кластера Spark 2.0).
      
        ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
    * Нажмите кнопку **Готово**
@@ -91,7 +94,7 @@ ms.lasthandoff: 04/06/2017
       
        ![Создание JAR-файла](./media/hdinsight-apache-spark-intellij-tool-plugin/default-artifact.png)
       
-      Кроме того, можно создать свой собственный артефакт, щелкнув значок **+** , выделенный на рисунке выше.
+      Кроме того, можно создать собственный артефакт, щелкнув значок **+**, выделенный на рисунке выше.
 4. В диалоговом окне **Project Structure** (Структура проекта) щелкните **Проект**. Если настроен **пакет SDK для Project** версии 1.8, установите для параметра **Project language level** (Уровень языка проекта) значение **7 - Diamonds, ARM, multi-catch, etc** (7 — Diamonds, ARM, множественный перехват и т. п.). Для кластера Spark 2.0 делать это необязательно.
    
     ![Настройка уровня языка проекта](./media/hdinsight-apache-spark-intellij-tool-plugin/set-project-language-level.png)
@@ -128,15 +131,15 @@ ms.lasthandoff: 04/06/2017
    1. В **обозревателе проектов** щелкните имя проекта правой кнопкой мыши и выберите пункт **Submit Spark Application to HDInsight** (Отправить приложение Spark в HDInsight).
       
        ![Отправить приложение Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
-   2. Вам будет предложено ввести учетные данные подписки Azure. В диалоговом окне **Spark Submission** (Отправка в Spark) введите следующие значения.
+   2. Вам будет предложено ввести учетные данные подписки Azure. В диалоговом окне **Spark Submission** (Отправка в Spark) введите следующие значения:
       
       * В поле **Spark clusters (Linux only)**(Кластеры Spark (только для Linux)) выберите кластер HDInsight Spark, в котором вы хотите запустить приложение.
       * Необходимо выбрать артефакт из проекта IntelliJ или с жесткого диска.
       * В текстовом поле **Main class name** (Имя класса Main) щелкните многоточие (![многоточие](./media/hdinsight-apache-spark-intellij-tool-plugin/ellipsis.png)), выберите класс Main в исходном коде приложения и нажмите кнопку **ОК**.
         
           ![Отправить приложение Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
-      * Поскольку для кода приложения в этом примере не требуются аргументы командной строки, справочные JAR или файлы, остальные текстовые поля можно не заполнять.
-      * После ввода всех входных данных диалоговое окно должно выглядеть следующим образом.
+      * Так как для кода приложения в этом примере не требуются аргументы командной строки, справочные JAR или файлы, остальные текстовые поля можно не заполнять.
+      * После ввода всех входных данных диалоговое окно должно выглядеть как на следующем изображении.
         
           ![Отправить приложение Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
       * Нажмите кнопку **Submit**(Отправить).
@@ -144,7 +147,16 @@ ms.lasthandoff: 04/06/2017
       
        ![Результат приложения Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
       
-      В следующем разделе вы узнаете, как получить доступ к выходным данным задачи, используя средства HDInsight в наборе средств Azure для IntelliJ.
+      В разделе "Доступ к кластерам HDInsight Spark и управление ими" вы узнаете, как получить доступ к выходным данным задачи, используя средства HDInsight в наборе средств Azure для IntelliJ.
+
+## <a name="choose-adls-as-a-spark-scala-application-storage"></a>Выбор ADLS в качестве хранилища приложения Spark Scala
+* Если вы хотите отправить приложение в ADLS, необходимо выбрать **интерактивный** режим во время входа в Azure. 
+
+    ![Интерактивный вход](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-interactive.png)
+
+* Если выбрать автоматический режим, появится следующая ошибка:
+
+    ![Ошибка при входе](./media/hdinsight-apache-spark-intellij-tool-plugin/authentication-error.png)
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-using-the-hdinsight-tools-in-azure-toolkit-for-intellij"></a>Доступ к кластерам HDInsight Spark и управление ими с помощью средств HDInsight в наборе средств Azure для IntelliJ
 С помощью средств HDInsight, которые являются частью набора средств Azure для IntelliJ, можно выполнять различные операции.
@@ -162,7 +174,7 @@ ms.lasthandoff: 04/06/2017
 2. На панели мониторинга сервера журнала Spark вы сможете найти приложение, выполнение которого только что было завершено по его имени. В приведенном выше коде имя приложения было указано с помощью `val conf = new SparkConf().setAppName("MyClusterApp")`. Следовательно, приложение Spark называлось **MyClusterApp**.
 
 ### <a name="launch-the-ambari-portal"></a>Запуск портала Ambari
-В **Azure Explorer** разверните **HDInsight**, щелкните имя кластера Spark правой кнопкой мыши и выберите пункт **Open Cluster Management Portal (Ambari)** (Открыть портал управления кластерами (Ambari)). При появлении запроса введите учетные данные администратора для кластера. Вы должны были указать их при подготовке кластера.
+В **Azure Explorer** разверните **HDInsight**, щелкните имя кластера Spark правой кнопкой мыши и выберите пункт **Open Cluster Management Portal (Ambari)** (Открыть портал управления кластерами (Ambari)). При появлении запроса введите учетные данные администратора для кластера, указанные во время процесса подготовки кластеров.
 
 ### <a name="manage-azure-subscriptions"></a>Управление подписками Azure
 По умолчанию средства HDInsight содержат список кластеров Spark из всех ваших подписок Azure. При необходимости можно указать подписки, кластеры из которых вас интересуют. В **Azure Explorer** щелкните правой кнопкой мыши корневой узел **Azure**, а затем выберите пункт **Управление подписками**. В диалоговом окне снимите флажки напротив подписок, доступ к которым вам не требуется, и нажмите кнопку **Закрыть**. Если вы хотите выйти из своей подписки Azure, нажмите кнопку **Выйти** .
@@ -171,7 +183,7 @@ ms.lasthandoff: 04/06/2017
 Средства HDInsight в наборе средств Azure для IntelliJ позволяют запускать приложения Spark Scala локально на рабочей станции. Как правило, такие приложения не требуют доступа к ресурсам кластера, таким как контейнер хранилища, и могут запускаться и тестироваться локально.
 
 ### <a name="prerequisite"></a>Предварительные требования
-При запуске локального приложения Spark Scala на компьютере под управлением Windows может возникнуть исключение, описанное в [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) и связанное с отсутствием в Windows файла WinUtils.exe. Чтобы обойти эту ошибку, [скачайте этот исполняемый файл отсюда](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe), например в папку **C:\WinUtils\bin**. После этого добавьте переменную среды **HADOOP_HOME** и присвойте ей значение **C\WinUtils**.
+При запуске локального приложения Spark Scala на компьютере под управлением Windows может возникнуть исключение, описанное в [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) и связанное с отсутствием в Windows файла WinUtils.exe. Чтобы устранить эту ошибку, необходимо [скачать исполняемый файл отсюда](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe), например, в папку **C:\WinUtils\bin**, а затем добавить переменную среды **HADOOP_HOME** и задать **C\WinUtils** в качестве значения переменной.
 
 ### <a name="run-a-local-spark-scala-application"></a>Запуск локального приложения Spark Scala
 1. Запустите IntelliJ IDEA и создайте проект. В диалоговом окне нового проекта установите параметры, как на снимке экрана ниже, а затем нажмите кнопку **Next**(«Далее»).
@@ -195,15 +207,15 @@ ms.lasthandoff: 04/06/2017
 3. Шаблон добавляет пример кода (**LogQuery**) в папку **src**, который можно запустить локально на компьютере.
    
     ![Локальное приложение Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/local-app.png)
-4. Щелкните правой кнопкой мыши приложение **LogQuery** и выберите пункт **Run LogQuery** (Запустить LogQuery). В нижней части вкладки **Запуск** вы увидите выходные данные следующего вида.
+4. Щелкните правой кнопкой мыши приложение **LogQuery** и выберите пункт **Run LogQuery** (Запустить LogQuery). В нижней части вкладки **Запуск** появятся выходные данные следующего вида.
    
    ![Результат локального запуска приложения Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-the-hdinsight-tools-in-azure-toolkit-for-intellij"></a>Преобразование существующих приложений IntelliJ IDEA для использования средств HDInsight в наборе средств Azure для IntelliJ
-Существующие приложения Spark Scala, созданные в IntelliJ IDEA, можно преобразовать и сделать совместимыми со средствами HDInsight в наборе средств Azure для IntelliJ. В результате вы сможете использовать средство для отправки приложений в кластер HDInsight Spark. Для этого выполните следующие действия.
+Существующие приложения Spark Scala, созданные в IntelliJ IDEA, можно преобразовать и сделать совместимыми со средствами HDInsight в наборе средств Azure для IntelliJ. Эта функция позволяет использовать средство для отправки приложений в кластер HDInsight Spark. Для этого выполните следующие действия.
 
-1. Для существующего приложения Spark Scala, созданного с помощью IntelliJ IDEA, откройте соответствующий файл IML.
-2. На корневом уровне вы увидите элемент **module** следующего вида.
+1. Для имеющегося приложения Spark Scala, созданного с помощью IntelliJ IDEA, откройте соответствующий файл IML.
+2. На корневом уровне вы увидите элемент **module** следующего вида:
    
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
 3. Измените элемент, добавив `UniqueKey="HDInsightTool"` , чтобы элемент **module** выглядел следующим образом.
@@ -237,7 +249,7 @@ ms.lasthandoff: 04/06/2017
 ![Результат локального запуска приложения Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="feedback--known-issues"></a>Отзывы и известные проблемы
-В настоящее время просмотр выходных данных Spark напрямую не поддерживается, и мы работаем над этим.
+Сейчас просмотр выходных данных Spark напрямую не поддерживается, и мы работаем над этой функцией.
 
 С любыми отзывами и предложениями (а также в случае возникновения проблем при работе с этим средством) обращайтесь по адресу электронной почты hdivstool@microsoft.com.
 

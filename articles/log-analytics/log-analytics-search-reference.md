@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fc6e4eaa34694e2b20cb53b3e457803c59bf76b9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 47fb74c608315b256e88dd774af7cb5260529607
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -620,7 +621,7 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | me
 | Левое  | Возвращает все записи из левого запроса и совпадающие записи из правого. |
 
 
-- Сейчас соединения не поддерживают запросы, включающие ключевое слово **IN** или команду **Measure**.
+- Соединения в настоящее время не поддерживают запросы, включающие ключевое слово **IN**, команду **Measure** или **Extend**, если запрос предназначен для поля из правого запроса.
 - Пока в соединение можно включить всего одно поле.
 - Один поиск не может содержать больше одного соединения.
 

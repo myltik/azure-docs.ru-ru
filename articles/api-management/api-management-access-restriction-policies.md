@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: fd3a08f227ade7589bbc7a17fa600e5a283d8054
-ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 4c9991baf3fbcf3b8ea01f8dd573e2336db88b68
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 ---
 # <a name="api-management-access-restriction-policies"></a>Политики ограничения доступа в службе управления API
 В этой статье рассматриваются приведенные ниже политики управления API. Дополнительные сведения о добавлении и настройке политик см. в статье о [политиках в управлении API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameaccessrestrictionpoliciesa-access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Политики ограничения доступа  
+##  <a name="AccessRestrictionPolicies"></a> Политики ограничения доступа  
   
 -   [Проверка заголовка HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) – обеспечивает принудительный ввод заголовка HTTP и/или его значения.  
   
@@ -38,7 +40,7 @@ ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
   
 -   [Проверка JWT](api-management-access-restriction-policies.md#ValidateJWT) – обеспечивает принудительное задание и проверку JWT, извлеченного из заданного заголовка HTTP или параметра запроса.  
   
-##  <a name="a-namecheckhttpheadera-check-http-header"></a><a name="CheckHTTPHeader"></a> Проверка заголовка HTTP  
+##  <a name="CheckHTTPHeader"></a> Проверка заголовка HTTP  
  Используйте политику `check-header`, чтобы запрос содержал заданный заголовок HTTP. При необходимости можно проверить, содержит ли заголовок определенное значение, или проверить диапазон допустимых значений. При сбое проверки политика завершает обработку запроса, после чего возвращает код состояния HTTP и сообщение об ошибке, указанное в политике.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -81,7 +83,7 @@ ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-namelimitcallratea-limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Ограничение частоты вызовов по подписке  
+##  <a name="LimitCallRate"></a> Ограничение частоты вызовов по подписке  
  Политика `rate-limit` предотвращает пики использования API для каждой подписки, ограничивая частоту вызовов до указанного числа за определенный период времени. При запуске этой политики вызывающий объект получает код состояния ответа `429 Too Many Requests`.  
   
 > [!IMPORTANT]
@@ -136,7 +138,7 @@ ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
   
 -   **Области политики:** product.  
   
-##  <a name="a-namelimitcallratebykeya-limit-call-rate-by-key"></a><a name="LimitCallRateByKey"></a> Ограничение частоты вызовов по ключу  
+##  <a name="LimitCallRateByKey"></a> Ограничение частоты вызовов по ключу  
  Политика `rate-limit-by-key` предотвращает пики использования API для каждого ключа, ограничивая частоту вызовов до указанного числа за определенный период времени. Ключ может содержать произвольное строковое значение и обычно указывается с помощью выражения политики. Чтобы указать, какие запросы следует учитывать для ограничения, можно добавить дополнительное условие увеличения. При запуске этой политики вызывающий объект получает код состояния ответа `429 Too Many Requests`.  
   
  Дополнительные сведения и примеры этой политики см. в статье [Расширенное регулирование запросов с помощью управления API](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -194,7 +196,7 @@ ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-namerestrictcalleripsa-restrict-caller-ips"></a><a name="RestrictCallerIPs"></a> Ограничение IP-адресов вызывающих объектов  
+##  <a name="RestrictCallerIPs"></a> Ограничение IP-адресов вызывающих объектов  
  Политика `ip-filter` фильтрует (разрешает и запрещает) вызовы с конкретных IP-адресов и (или) диапазонов адресов.  
   
 ### <a name="policy-statement"></a>Правило политики  
@@ -237,7 +239,7 @@ ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-namesetusagequotaa-set-usage-quota-by-subscription"></a><a name="SetUsageQuota"></a> Задание квоты использования по подписке  
+##  <a name="SetUsageQuota"></a> Задание квоты использования по подписке  
  Политика `quota` принудительно устанавливает возобновляемую или действующую в течение срока службы квоту на число вызовов и (или) квоту пропускной способности для каждой подписки.  
   
 > [!IMPORTANT]
@@ -293,7 +295,7 @@ ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
   
 -   **Области политики:** product.  
   
-##  <a name="a-namesetusagequotabykeya-set-usage-quota-by-key"></a><a name="SetUsageQuotaByKey"></a> Задание квоты использования по ключу  
+##  <a name="SetUsageQuotaByKey"></a> Задание квоты использования по ключу  
  Политика `quota-by-key` принудительно устанавливает возобновляемую или действующую в течение срока службы квоту на число вызовов и (или) квоту пропускной способности для каждого ключа. Ключ может содержать произвольное строковое значение и обычно указывается с помощью выражения политики. Чтобы указать, какие запросы следует учитывать в квоте, можно добавить дополнительное условие увеличения.  
   
  Дополнительные сведения и примеры этой политики см. в статье [Расширенное регулирование запросов с помощью управления API](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
@@ -354,7 +356,7 @@ ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
   
 -   **Области политики:** global, product, API, operation.  
   
-##  <a name="a-namevalidatejwta-validate-jwt"></a><a name="ValidateJWT"></a> Проверка JWT  
+##  <a name="ValidateJWT"></a> Проверка JWT  
  Политика `validate-jwt` обеспечивает принудительное задание и проверку маркера JWT, извлеченного из заданного заголовка HTTP или параметра запроса.  
   
 > [!IMPORTANT]
@@ -419,7 +421,27 @@ ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
   
 ```xml  
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
-    <openid-config url="https://login.windows.net/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration" />  
+    <audiences>
+        <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
+    </audiences>
+    <required-claims>  
+        <claim name="id" match="all">  
+            <value>insert claim here</value>  
+        </claim>  
+    </required-claims>  
+</validate-jwt>  
+```  
+
+  
+#### <a name="azure-active-directory-b2c-token-validation"></a>Проверка токена Azure Active Directory B2C  
+  
+```xml  
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">  
+    <openid-config url="https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/b2c_1_signin/v2.0/.well-known/openid-configuration" />
+    <audiences>
+        <audience>d313c4e4-de5f-4197-9470-e509a2f0b806</audience>
+    </audiences>
     <required-claims>  
         <claim name="id" match="all">  
             <value>insert claim here</value>  
@@ -495,7 +517,7 @@ ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
 |require-expiration-time|Логическое значение. Указывает, требуется ли утверждение истечения срока действия для маркера.|Нет|Да|
 |require-scheme|Имя схемы маркера, например "Bearer". Когда задан этот атрибут, политики обеспечивают присутствие указанной схемы в значении заголовка Authorization.|Нет|Недоступно|
 |require-signed-tokens|Логическое значение. Указывает, должен ли быть подписан маркер.|Нет|Да|  
-|url|URL-адрес конечной точки конфигурации Open ID, по которому можно получить метаданные конфигурации Open ID. Для Azure Active Directory используйте URL-адрес `https://login.windows.net/{tenant-name}/.well-known/openid-configuration`, подставив необходимое имя клиента каталога, например `contoso.onmicrosoft.com`.|Да|Недоступно|  
+|url|URL-адрес конечной точки конфигурации Open ID, по которому можно получить метаданные конфигурации Open ID. Для Azure Active Directory используйте URL-адрес `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`, подставив необходимое имя клиента каталога, например `contoso.onmicrosoft.com`.|Да|Недоступно|  
   
 ### <a name="usage"></a>Использование  
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -506,9 +528,4 @@ ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
   
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о работе с политиками см. в статье со справочными материалами по [политикам в службе управления API](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

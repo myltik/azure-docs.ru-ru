@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: bed8e0c2b5d4d42fb0510f6b55cfab7404c01b11
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4918648906212ea9708b6c6f0e89d1f4bb7bdcc5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -129,29 +130,15 @@ ms.lasthandoff: 04/25/2017
       ![Добавление хранилища таблиц в приложение-функцию на портале Azure](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
    1. Введите необходимые сведения.
 
+      **Имя параметра таблицы**. Используйте `outputTable` в качестве имени, которое будет использоваться в коде Функций Azure.
+      
       **Имя таблицы**. Используйте `deviceData` для имени.
 
-      **Подключение к учетной записи хранения**. Щелкните **Новые** и выберите свою учетную запись хранения.
+      **Подключение к учетной записи хранения**. Щелкните **Новые** и выберите или введите свою учетную запись хранения.
    1. Щелкните **Сохранить**.
 1. В разделе **Триггеры** щелкните **Концентратор событий Azure (myEventHubTrigger)**.
 1. В разделе **Группа пользователей концентратора событий** введите имя созданной вами группы получателей, а затем щелкните **Сохранить**.
 1. Выберите **Разработка**, а затем щелкните **Просмотреть файлы**.
-1. Щелкните **Добавить**, чтобы добавить новый файл с именем `package.json`, вставьте сведения, приведенные ниже, а затем щелкните **Сохранить**.
-
-   ```json
-   {
-      "name": "iothub_save_message_to_table",
-      "version": "0.0.1",
-      "private": true,
-      "main": "index.js",
-      "author": "Microsoft Corp.",
-      "dependencies": {
-         "azure-iothub": "1.0.9",
-         "azure-iot-common": "1.0.7",
-         "moment": "2.14.1"
-      }
-   }
-   ```
 1. Замените код в `index.js` следующим кодом, а затем щелкните **Сохранить**.
 
    ```javascript
@@ -159,34 +146,20 @@ ms.lasthandoff: 04/25/2017
 
    // This function is triggered each time a message is revieved in the IoTHub.
    // The message payload is persisted in an Azure Storage Table
-   var moment = require('moment');
-
+ 
    module.exports = function (context, iotHubMessage) {
-      context.log('Message received: ' + JSON.stringify(iotHubMessage));
-      context.bindings.outputTable = {
-      "partitionKey": moment.utc().format('YYYYMMDD'),
-         "rowKey": moment.utc().format('hhmmss') + process.hrtime()[1] + '',
-         "message": JSON.stringify(iotHubMessage)
-      };
-      context.done();
+    context.log('Message received: ' + JSON.stringify(iotHubMessage));
+    var date = Date.now();
+    var partitionKey = Math.floor(date / (24 * 60 * 60 * 1000)) + '';
+    var rowKey = date + '';
+    context.bindings.outputTable = {
+     "partitionKey": partitionKey,
+     "rowKey": rowKey,
+     "message": JSON.stringify(iotHubMessage)
+    };
+    context.done();
    };
    ```
-1. Щелкните **Параметры приложения-функции** > **Открыть консоль для разработчиков**.
-
-   Вы должны находиться в папке `wwwroot` приложения-функции.
-1. Перейдите в папку функции, выполнив команду ниже.
-
-   ```bash
-   cd <your function name>
-   ```
-1. Установите пакет NPM, выполнив команду ниже.
-
-   ```bash
-   npm install
-   ```
-
-   > [!Note]
-   > Установка может занять некоторое время.
 
 Вы создали приложение-функцию. Оно сохраняет сообщения, которые получает Центр Интернета вещей, в хранилище таблиц Azure.
 
@@ -207,3 +180,4 @@ ms.lasthandoff: 04/25/2017
 Вы успешно создали учетную запись хранения Azure и приложение-функцию Azure для сохранения сообщений, поступающих в Центр Интернета вещей, в хранилище таблиц Azure.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

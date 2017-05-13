@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 43618268aa0b234d271dcee7f95dfad2f2a1bb2b
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 21cdfbbc457aad1cd3b1a5b20745eee4286a78bb
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -78,9 +79,9 @@ ms.lasthandoff: 03/18/2017
 ## <a name="enable-vnet-powershell"> </a>Активация подключения к виртуальной сети с помощью командлетов PowerShell
 Подключение к виртуальной сети можно также активировать с помощью командлетов PowerShell.
 
-* **Создание службы управления API в виртуальной сети**. Чтобы создать службу управления API Azure в виртуальной сети, используйте командлет [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/new-azurermapimanagement).
+* **Создание службы управления API в виртуальной сети**. Чтобы создать службу управления API Azure в виртуальной сети, используйте командлет [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement).
 
-* **Развертывание существующей службы управления API в виртуальной сети**. Чтобы переместить существующую службу управления API Azure внутри виртуальной сети, используйте командлет [Update-AzureRmApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/update-azurermapimanagementdeployment).
+* **Развертывание существующей службы управления API в виртуальной сети**. Чтобы переместить существующую службу управления API Azure внутри виртуальной сети, используйте командлет [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment).
 
 ## <a name="connect-vnet"> </a>Подключение к веб-службе, размещенной в виртуальной сети
 После подключения службы управления API к виртуальной сети обращение к размещенным в ней внутренним службам ничем не будет отличаться от обращения к общедоступным службам. Просто введите локальный IP-адрес или имя узла (если для виртуальной сети настроен DNS-сервер) веб-службы в поле **URL-адрес веб-службы** при создании нового API или редактировании существующего.

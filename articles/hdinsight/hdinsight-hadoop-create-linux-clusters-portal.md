@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/16/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 79a8b7352c12676bd26555b4447e030ecb4ad011
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 030935ec304cc9b26bd2369fdadf2d99bd094c5d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -33,9 +34,6 @@ ms.lasthandoff: 04/13/2017
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Современный браузер**. Портал Azure использует HTML5 и JavaScript и может работать неправильно в старых веб-браузерах.
-
-### <a name="access-control-requirements"></a>Требования к контролю доступа
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-clusters"></a>Создание кластеров
 Портал Azure предоставляет большую часть свойств кластера. С помощью шаблона Azure Resource Manager можно скрыть много сведений. Дополнительные сведения см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
@@ -148,6 +146,10 @@ ms.lasthandoff: 04/13/2017
 
 ## <a name="delete-the-cluster"></a>Удаление кластера
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## <a name="troubleshoot"></a>Устранение неполадок
+
+Если при создании кластеров HDInsight возникли проблемы, см. раздел [Создание кластеров](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы успешно создали кластер HDInsight, обратитесь к следующим статьям, чтобы научиться работать с кластером:

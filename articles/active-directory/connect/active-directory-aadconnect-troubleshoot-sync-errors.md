@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: a1190f0ab4caf749cce0b5c9ba45e55f7e6ca8ec
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: d270d7cc3ceeef29aaaf1c9f984e69984049f815
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -212,10 +213,10 @@ b. Атрибут userPrincipalName не соответствует требуе
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Возможные сценарии
-1. Атрибут userCertificate хранит большое количество назначенных Григорию сертификатов. К ним также относятся недействительные и старые сертификаты. Жесткий предел — 15 сертификатов.
+1. Атрибут userCertificate хранит большое количество назначенных Григорию сертификатов. К ним также относятся недействительные и старые сертификаты. Жесткий предел — 15 сертификатов. Дополнительные сведения о том, как обрабатывать ошибки LargeObject с атрибутом userCertificate, см. в статье, посвященной [обработке ошибок LargeObject, вызванных атрибутом userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md).
 2. Атрибут userSMIMECertificat хранит большое количество назначенных Григорию сертификатов. К ним также относятся недействительные и старые сертификаты. Жесткий предел — 15 сертификатов.
 3. Атрибут thmubnailPhoto, заданный в Active Directory, слишком большой для синхронизации в Azure AD.
-4. При автоматическом заполнении в AD объекту назначено более > 500 атрибутов proxyAddresses.
+4. При автоматическом заполнении в Active Directory объекту назначено слишком много атрибутов ProxyAddresses.
 
 ### <a name="how-to-fix"></a>Как устранить
 1. Убедитесь, что атрибут, повлекший ошибку, не превысил установленное ограничение.

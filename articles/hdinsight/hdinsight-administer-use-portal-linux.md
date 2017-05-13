@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/27/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 636d58cc3bda38c0fb49412b6bd4cbb96d235858
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 3c1021ec8c8dc4488f86ba89f6ae31d6ed75e9f5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -47,10 +48,31 @@ ms.lasthandoff: 04/18/2017
 
        Если кластер HDInsight не отображается, в нижней части списка щелкните **Больше служб** и в разделе **Аналитика** щелкните **Кластеры HDInsight**.
 
+
 ## <a name="create-clusters"></a>Создание кластеров
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 HDInsight работает со множеством компонентов Hadoop. Список проверенных и поддерживаемых компонентов см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md) Общие сведения о создании кластеров см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+
+### <a name="access-control-requirements"></a>Требования к контролю доступа
+
+При создании кластера HDInsight необходимо указать подписку Azure. Этот кластер может быть создан как новая или существующая группа ресурсов Azure. Чтобы проверить разрешения на создание кластеров HDInsight, сделайте следующее:
+
+- Использование существующей группы ресурсов
+
+    1. Войдите на [портал Azure](https://portal.azure.com).
+    2. Щелкните **Группы ресурсов** в меню слева, чтобы отобразить группы ресурсов.
+    3. Щелкните группу ресурсов, которую вы хотите использовать для создания кластера HDInsight.
+    4. Щелкните **Управление доступом (IAM)** и проверьте, есть ли у вас (или у группы, к которой вы принадлежите) доступ к группе ресурсов, соответствующий роли не ниже участника.
+
+- Создание новой группы ресурсов
+
+    1. Выполните вход на [портал Azure](https://portal.azure.com).
+    2. Щелкните **Подписка** в меню слева (вы увидите значок ключа желтого цвета). Отобразится список подписок.
+    3. Щелкните подписку, которую вы используете для создания кластеров. 
+    4. Щелкните **Мои разрешения**.  Вы увидите свою [роль](../active-directory/role-based-access-control-what-is.md#built-in-roles) в подписке. Создавать кластер HDInsight могут пользователи с ролью не ниже участника.
+
+При появлении ошибки NoRegisteredProviderFound или ошибки MissingSubscriptionRegistration см. статью [Устранение распространенных ошибок при развертывании Azure с помощью Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## <a name="list-and-show-clusters"></a>Отображение кластеров
 1. Войдите на портал [https://portal.azure.com](https://portal.azure.com).
@@ -154,7 +176,7 @@ HDInsight работает со множеством компонентов Hado
 
     В кластере HDInsight доступен веб-интерфейс Storm.
 
-    ![HDInsight, Storm, масштабирование, перераспределение](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight, Storm, масштабирование, перераспределение](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
 
@@ -171,7 +193,7 @@ HDInsight работает со множеством компонентов Hado
 3. Щелкните **Изменить масштаб кластера**.
 4. В поле **Количество рабочих узлов**укажите нужное количество. Максимальное количество узлов кластера зависит от типа подписки Azure. Чтобы увеличить лимит, обратитесь в службу поддержки по вопросам выставления счетов.  Сведения о затратах будут отражать внесенные изменения количества узлов.
 
-    ![HDInsight, Hadoop, HBase, Storm, Spark, масштабирование](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.png)
+    ![HDInsight, Hadoop, HBase, Storm, Spark, масштабирование](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>Приостановка и завершение работы кластеров
 
@@ -307,7 +329,7 @@ Ambari изменит пароль на всех узлах в кластере.
 
 * [Администрирование HDInsight с помощью Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Администрирование HDInsight с помощью CLI Azure](hdinsight-administer-use-command-line.md)
-* [Создание кластеров HDInsight](hdinsight-provision-clusters.md)
+* [Создание кластеров HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Использование Hive в HDInsight](hdinsight-use-hive.md)
 * [Использование Pig в HDInsight](hdinsight-use-pig.md)
 * [Использование Hadoop Sqoop в HDInsight](hdinsight-use-sqoop.md)

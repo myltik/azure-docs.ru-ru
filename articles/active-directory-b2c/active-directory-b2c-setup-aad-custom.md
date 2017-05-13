@@ -1,0 +1,237 @@
+---
+title: "Azure Active Directory B2C. Добавление поставщика Azure AD с помощью пользовательских политик | Документация Майкрософт"
+description: "В этой статье описываются пользовательские политики Azure Active Directory B2C"
+services: active-directory-b2c
+documentationcenter: 
+author: parakhj
+manager: krassk
+editor: parakhj
+ms.assetid: 31f0dfe5-1ad0-4a25-a53b-8acc71bcea72
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.devlang: na
+ms.date: 04/04/2017
+ms.author: parakhj
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 29d30cacb29fee1b2c5b8ef523051fa543bee829
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/28/2017
+
+
+---
+# <a name="azure-active-directory-b2c-log-in-using-azure-ad-accounts"></a>Azure Active Directory B2C. Выполнение входа с помощью учетных записей Azure AD
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
+В этой статье описывается выполнение входа для пользователей из определенной организации Azure AD с помощью [пользовательских политик](active-directory-b2c-overview-custom.md).
+
+## <a name="prerequisites"></a>Предварительные требования
+
+Убедитесь, что вы выполнили все действия, связанные с [началом работы с пользовательскими политиками](active-directory-b2c-get-started-custom.md).
+
+А именно:
+
+1. Создание клиента Azure AD B2C.
+1. Создание приложения Azure AD B2C.
+1. Регистрация двух приложений подсистемы политик.
+1. Настройка ключей.
+1. Настройка начального пакета.
+
+## <a name="create-an-azure-ad-app"></a>Создание приложения Azure AD
+
+Чтобы включить вход для пользователей из определенной организации Azure AD, вам необходимо зарегистрировать приложение в клиенте организации Azure AD.
+
+>[!NOTE]
+> В дальнейшем клиент организации Azure AD будет называться `contoso.com`, а клиент Azure AD B2C — `fabrikamb2c.onmicrosoft.com`.
+
+1. Войдите на [портал Azure](https://portal.azure.com).
+1. На верхней панели щелкните учетную запись и в списке **каталога** выберите клиент организации Azure AD, в котором вы хотите зарегистрировать приложение (например, contoso.com).
+1. В левой области навигации щелкните **Больше служб** и выполните поиск по запросу **регистрация приложений**.
+1. Выберите **Регистрация нового приложения**.
+1. Введите **имя** для приложения (например, Azure AD B2C).
+1. Выберите в качестве типа приложения **Веб-приложение или API**.
+1. Для URL-адреса входа введите URL-адрес, представленный ниже, и замените `{tenantName}` именем клиента Azure AD B2C (например, fabrikamb2c.onmicrosoft.com).
+
+    ```
+    https://login.microsoftonline.com/te/{tenantName}.onmicrosoft.com/oauth2/authresp
+    ```
+
+1. Сохраните **идентификатор приложения**.
+1. Щелкните созданное приложение.
+1. В колонке "Параметры" щелкните **Ключи**.
+1. Создайте новый ключ и сохраните его для использования в следующем разделе.
+
+## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Добавление ключа Azure AD в Azure AD B2C
+
+Вам необходимо сохранить ключ приложения `contoso.com` в клиенте Azure AD B2C. Для этого:
+
+1. Откройте PowerShell и перейдите в рабочий каталог `active-directory-b2c-advanced-policies`.
+1. Перейдите в папку со средством ExploreAdmin.
+
+    ```powershell
+    cd active-directory-b2c-advanced-policies\ExploreAdmin
+    ```
+
+1. Импортируйте средство ExploreAdmin в PowerShell.
+
+    ```powershell
+    Import-Module .\ExploreAdmin.dll
+    ```
+
+1. В команде ниже замените `tenantName` именем клиента Azure AD B2C (например, fabrikamb2c.onmicrosoft.com), а `SecretReferenceId` — именем, которое вам понадобится для ссылки на секрет (например, ContosoAppSecret). `ClientSecret` замените ключом приложения `contoso.com`. Выполните команду.
+
+    ```PowerShell
+    Set-CpimKeyContainer -Tenant {tenantName} -StorageReferenceId {SecretReferenceId} -UnencodedAsciiKey {ClientSecret}
+    ```
+
+    При выполнении команды вход необходимо выполнить с помощью локальной учетной записи администратора onmicrosoft.com клиента Azure AD B2C. В случае получения ошибки о том, что не найден TokenSigningKeyContainer, ознакомьтесь со статьей, посвященной [обзору пользовательских политик](active-directory-b2c-get-started-custom.md).
+
+1. Закройте PowerShell.
+
+## <a name="add-a-claims-provider-in-your-base-policy"></a>Добавление поставщика утверждений в базовую политику
+
+Чтобы разрешить пользователям выполнять вход с помощью Azure AD, необходимо определить Azure AD в качестве поставщика утверждений. Другими словами, необходимо указать конечную точку, с которой будет взаимодействовать Azure AD B2C. Конечная точка *предоставит* набор *утверждений*, используемых Azure AD B2C, чтобы проверить, была ли выполнена проверка подлинности определенного пользователя. Это можно сделать, добавив Azure AD в качестве `<ClaimsProvider>` в файл расширения политики.
+
+1. Откройте файл расширения из рабочего каталога (TrustFrameworkExtensions.xml).
+1. Найдите раздел `<ClaimsProviders>`. Если он не существует, добавьте его в корневой узел.
+1. Добавьте новый `<ClaimsProvider>`, как показано ниже.
+
+    ```XML
+    <ClaimsProvider>
+        <Domain>Contoso</Domain>
+        <DisplayName>Login using Contoso</DisplayName>
+        <TechnicalProfiles>
+        <TechnicalProfile Id="ContosoProfile">
+            <DisplayName>Contoso Employee</DisplayName>
+            <Description>Login with your Contoso account</Description>
+            <Protocol Name="OpenIdConnect"/>
+            <OutputTokenFormat>JWT</OutputTokenFormat>
+            <Metadata>
+                <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
+                <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
+                <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+                <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
+                <Item Key="response_types">id_token</Item>
+                <Item Key="UsePolicyInRedirectUri">false</Item>
+            </Metadata>
+            <CryptographicKeys>
+            <Key Id="client_secret" StorageReferenceId="ContosoAppSecret"/>
+            </CryptographicKeys>
+            <OutputClaims>
+                <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="oid"/>
+                <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
+                <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+                <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
+                <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+                <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
+                <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
+            </OutputClaims>
+            <OutputClaimsTransformations>
+                <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
+                <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
+                <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
+                <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
+            </OutputClaimsTransformations>
+            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+        </TechnicalProfile>
+        </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+1. В узле `<ClaimsProvider>` укажите для `<Domain>` уникальное значение, позволяющее отличить этот поставщик удостоверений.
+1. В узле `<ClaimsProvider>` задайте для `<DisplayName>` понятное имя поставщика утверждений. В настоящее время это значение не используется.
+
+### <a name="update-the-technical-profile"></a>Обновление технического профиля
+
+Чтобы получить токен из конечной точки Azure AD, вам необходимо определить протоколы, используемые Azure AD B2C для взаимодействия с Azure AD. Этот процесс происходит внутри элемента `<TechnicalProfile>` поставщика `<ClaimsProvider>`.
+
+1. Обновите идентификатор узла `<TechnicalProfile>`. Этот идентификатор используется для ссылки на этот технический профиль из других частей политики.
+1. Обновите значение для `<DisplayName>`. Это значение будет отображаться на кнопке входа на экране входа в систему.
+1. Обновите значение для `<Description>`.
+1. Azure AD использует протокол OpenID Connect, поэтому для `<Protocol>` должно быть задано значение "OpenIDConnect".
+
+Вам следует обновить раздел `<Metdata>` в приведенном выше коде XML, чтобы добавить параметры конфигурации для определенного клиента Azure AD. В коде XML обновите значения метаданных следующим образом:
+
+1. Задайте для параметра `<Item Key="METADATA">` значение `https://login.windows.net/{tenantName}/.well-known/openid-configuration`, где `tenantName` — это имя клиента Azure AD (например, contoso.com).
+1. Откройте браузер и перейдите к URL-адресу `Metadata`, который вы только что обновили.
+1. Найдите на этой странице в браузере объект issuer и скопируйте его значение. Вы должны увидеть примерно следующее: `https://sts.windows.net/{tenantId}/`.
+1. Вставьте значение для `<Item Key="ProviderName">` в код XML.
+1. Задайте для параметра `<Item Key="client_id">` значение `Application ID` из регистрации приложения.
+1. Задайте для параметра `<Item Key="IdTokenAudience">` значение `Application ID` из регистрации приложения.
+1. Задайте для параметра `<Item Key="response_types">` значение `id_token`.
+1. Задайте для параметра `<Item Key="UsePolicyInRedirectUri">` значение `false`.
+
+Вам также необходимо связать [секрет Azure AD, зарегистрированный в клиенте Azure AD B2C,](#add-the-azure-ad-key-to-azure-ad-b2c) с `<ClaimsProvider>` Azure AD.
+
+1. В разделе `<CryptographicKeys>` в приведенном выше коде XML задайте для `StorageReferenceId` эталонный идентификатор определенного секрета (например, ContosoAppSecret).
+
+### <a name="upload-the-extension-file-for-verification"></a>Отправка файла расширения для проверки
+
+К этому моменту политика будет настроена, так что Azure AD B2C будет знать, как взаимодействовать с каталогом Azure AD. Попробуйте отправить файл расширения политики, чтобы убедиться, что все в порядке. Для этого выполните следующие действия:
+
+1. Перейдите в колонку **Все политики** в клиенте Azure AD B2C.
+1. Установите флажок для параметра **Перезаписать политику, если она существует**.
+1. Отправьте файл расширения (TrustFrameworkExtensions.xml) и немного подождите, чтобы удостовериться в отсутствии сбоя при проверке.
+
+## <a name="register-the-azure-ad-claims-provider-to-a-user-journey"></a>Регистрация поставщика утверждений Azure AD для пути взаимодействия пользователя
+
+Теперь вам необходимо добавить поставщик удостоверений Azure AD в один из путей взаимодействия пользователя. На этом этапе поставщик удостоверений уже настроен, но еще недоступен ни на одном экране регистрации или входа. Чтобы сделать его доступным, необходимо создать дубликат существующего шаблона пути взаимодействия пользователя, а затем изменить его таким образом, чтобы он также содержал поставщик удостоверений Azure AD.
+
+1. Откройте базовый файл политики (например, TrustFrameworkBase.xml).
+1. Найдите элемент `<UserJourneys>` и скопируйте полный `<UserJourney>` с Id=”SignUpOrSignIn”.
+1. Откройте файл расширения (например, TrustFrameworkExtensions.xml) и найдите элемент `<UserJourneys>`. Если элемент не существует, добавьте его.
+1. Вставьте весь скопированный `<UserJourney>` как дочерний элемент `<UserJourneys>`.
+1. Переименуйте идентификатор нового `<UserJourney>` (например, SignUpOrSignUsingContoso).
+
+### <a name="display-the-button"></a>Отображение кнопки
+
+Элемент `<ClaimsProviderSelection>` является аналогом кнопки поставщика удостоверений на экране регистрации или входа. Если вы добавите для Azure AD элемент `<ClaimsProviderSelection>`, новая кнопка отобразится при переходе пользователя на страницу. Для этого:
+
+1. Найдите `<OrchestrationStep>` со значением `Order="1"` в только что созданном `<UserJourney>`.
+1. Добавьте следующий код:
+
+    ```XML
+    <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
+    ```
+
+1. Задайте для параметра `TargetClaimsExchangeId` соответствующее значение. Мы советуем следовать общему соглашению: *\[ClaimProviderName\]Exchange*.
+
+### <a name="link-the-button-to-an-action"></a>Связывание кнопки с действием
+
+Теперь, когда у вас есть кнопка, вам необходимо связать ее с действием. В этом случае действие — это возможность взаимодействия Azure AD B2C с Azure AD для получения токена. Чтобы получить эту возможность, необходимо связать технический профиль для поставщика утверждений Azure AD.
+
+1. Найдите `<OrchestrationStep>` со значением `Order="2"` в узле `<UserJourney>`.
+1. Добавьте следующий код:
+
+    ```XML
+    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
+    ```
+
+1. Задайте для `Id` то же значение, что и для `TargetClaimsExchangeId` выше.
+1. Задайте для `TechnicalProfileReferenceId` значение `Id` ранее созданного технического профиля (например, ContosoProfile).
+
+### <a name="upload-the-updated-extension-file"></a>Передача обновленного файла расширения
+
+Вы внесли все необходимые изменения в файл расширения. Сохраните и отправьте этот файл. Подождите немного, чтобы убедиться, что все проверки завершены успешно.
+
+### <a name="update-the-rp-file"></a>Обновление файла проверяющей стороны
+
+Теперь необходимо обновить файл проверяющей стороны, который активирует созданный путь взаимодействия пользователя.
+
+1. Создайте копию SignUpOrSignIn.xml в рабочем каталоге и переименуйте его (например, на SignUpOrSignInWithAAD.xml).
+1. Откройте новый файл и задайте для атрибута `PolicyId` `<TrustFrameworkPolicy>` уникальное значение. Это будет имя политики (например, SignUpOrSignInWithAAD).
+1. Задайте для атрибута `ReferenceId` в `<DefaultUserJourney>` идентификатор созданного пути взаимодействия пользователя (например, SignUpOrSignUsingContoso).
+1. Сохраните изменения и отправьте файл.
+
+## <a name="troubleshooting"></a>Устранение неполадок
+
+Проверьте пользовательскую политику, которую вы отправили. Для этого откройте ее колонку и щелкните "Запустить сейчас". В случае возникновения каких-либо ошибок ознакомьтесь со статьей [по устранению неполадок](active-directory-b2c-troubleshoot-custom.md).
+
+## <a name="next-steps"></a>Дальнейшие действия
+ 
+Свои отзывы отправляйте сюда: AADB2CPreview@microsoft.com.
+
+

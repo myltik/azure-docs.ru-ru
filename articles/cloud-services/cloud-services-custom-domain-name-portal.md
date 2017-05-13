@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
-ms.openlocfilehash: 7d509e9606c0a2f599f511c011ab775b2ea6f7b0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 55fc4e5c88568cca8a2842590dfd24e082139699
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -76,7 +78,7 @@ ms.openlocfilehash: 7d509e9606c0a2f599f511c011ab775b2ea6f7b0
        ![Раздел краткого описания, в котором отображается URL-адрес][csurl]
      
        **OR**
-   * Установите и настройте [Azure Powershell](/powershell/azureps-cmdlets-docs), а затем используйте следующую команду:
+   * Установите и настройте [Azure Powershell](/powershell/azure/overview), а затем используйте следующую команду:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -97,7 +99,7 @@ ms.openlocfilehash: 7d509e9606c0a2f599f511c011ab775b2ea6f7b0
 > [!NOTE]
 > Посетитель сайта **www.contoso.com** никогда не увидит настоящий узел (contoso.cloudapp.net), поэтому процесс перенаправления невидим для конечного пользователя.
 > 
-> Приведенный выше пример применим только к трафику поддомена **www** . Поскольку с записями CNAME нельзя использовать подстановочные знаки, необходимо создать один CNAME для каждого домена или поддомена. Если вы хотите направить трафик из поддоменов, таких как *.contoso.com, на адрес cloudapp.net, можно настроить элемент **URL-адрес перенаправления** или **URL Forward** (URL-адрес переадресации) в параметрах DNS или создать запись A.
+> Приведенный выше пример применим только к трафику поддомена **www** . Поскольку с записями CNAME нельзя использовать подстановочные знаки, необходимо создать один CNAME для каждого домена или поддомена. Если вы хотите направить трафик из поддоменов, таких как *.contoso.com, на адрес cloudapp.net, можно настроить элемент **URL-адрес перенаправления** или **URL-адрес переадресации** в параметрах DNS или создать запись A.
 > 
 > 
 
@@ -111,7 +113,7 @@ ms.openlocfilehash: 7d509e9606c0a2f599f511c011ab775b2ea6f7b0
        ![Раздел краткого описания, в котором отображается VIP-адрес][vip]
      
        **OR**
-   * Установите и настройте [Azure Powershell](/powershell/azureps-cmdlets-docs), а затем используйте следующую команду:
+   * Установите и настройте [Azure Powershell](/powershell/azure/overview), а затем используйте следующую команду:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -153,9 +155,4 @@ ms.openlocfilehash: 7d509e9606c0a2f599f511c011ab775b2ea6f7b0
 [портал Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

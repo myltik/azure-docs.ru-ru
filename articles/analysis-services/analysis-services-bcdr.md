@@ -12,12 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c4eb1162edc42baafe96e6c33699805ffc121204
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: d71bf041585af101d6aa67ba2697f5192bdfd048
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -35,11 +36,10 @@ ms.lasthandoff: 04/20/2017
 
 В любом случае при отключении сервера-источника нужно изменить строки подключения в затронутых клиентах, чтобы подключиться к серверу в другом региональном центре обработки данных. Такое изменение следует рассматривать как крайнюю меру на случай катастрофического сбоя в региональном центре обработки данных. Вероятнее всего, центр с вашим сервером-источником возобновит работу до того, как вы внесете изменения для всех клиентов. 
 
-Выбирая меры на случай перебоев в работе служб для организации, нужно обеспечить как актуальность, так и безопасность данных. 
 
 
 ## <a name="related-information"></a>Связанные сведения
-[Архивация и восстановление](analysis-services-backup.md) 
+[Архивация и восстановление](analysis-services-backup.md)   
 [Управление службами Azure Analysis Services](analysis-services-manage.md) 
 
 

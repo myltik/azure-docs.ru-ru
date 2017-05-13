@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 1a074e54204ff8098bea09eb4aa2066ccee47608
-ms.openlocfilehash: ab9e952027dcaa5b43cdad8faf8005b063c01dce
-ms.lasthandoff: 01/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f813dc5f126386f9ad474e113183e7b5d4c8a71a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 01/28/2017
 * балансирование нагрузки ваших ресурсов-контейнеров между несколькими учетными записями хранения;
 * масштабирование служб мультимедиа для больших объемов обработки содержимого (сейчас действует ограничение в 500 ТБ на одну учетную запись хранения). 
 
-В этом разделе показано, как подключить несколько учетных записей хранения к учетной записи служб мультимедиа с помощью [интерфейсов API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) и [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media). Здесь также описывается, как указывать другие учетные записи хранения при создании файлов с помощью пакета SDK служб мультимедиа. 
+В этом разделе показано, как подключить несколько учетных записей хранения к учетной записи служб мультимедиа с помощью [интерфейсов API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) и [Powershell](/powershell/module/azurerm.media). Здесь также описывается, как указывать другие учетные записи хранения при создании файлов с помощью пакета SDK служб мультимедиа. 
 
 ## <a name="considerations"></a>Рекомендации
 При подключении нескольких учетных записей хранения к своей учетной записи служб мультимедиа обратите внимание на следующее.
@@ -39,11 +40,11 @@ ms.lasthandoff: 01/28/2017
 
 Дополнительные рекомендации
 
-Службы мультимедиа используют значение свойства **IAssetFile.Name** при создании URL-адресов для потоковой передачи содержимого (например, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). По этой причине кодирование с помощью знака процента не допускается. Значение свойства Name не может содержать такие [знаки, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Кроме того, может использоваться только один знак ".". Кроме того, может использоваться только один символ "." для расширения имени файла.
+Службы мультимедиа используют значение свойства **IAssetFile.Name** при создании URL-адресов для потоковой передачи содержимого (например, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). По этой причине кодирование с помощью знака процента не допускается. Значение свойства Name не может содержать такие [зарезервированные знаки, используемые для кодировки URL-адресов](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Кроме того, может использоваться только один знак ".". Кроме того, может использоваться только один символ "." для расширения имени файла.
 
 ## <a name="to-attach-storage-accounts"></a>Присоединение учетных записей хранения  
 
-Чтобы присоединить учетные записи хранения к учетной записи AMS, используйте [интерфейсы API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) и [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media), как показано в следующем примере.
+Чтобы присоединить учетные записи хранения к учетной записи AMS, используйте [интерфейсы API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) и [Powershell](/powershell/module/azurerm.media), как показано в следующем примере.
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "

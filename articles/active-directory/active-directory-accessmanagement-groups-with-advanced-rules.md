@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
-ms.openlocfilehash: 00424292fbc5321a77a4e924530ade97739208d4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 24f56b68a9313ed1bce859b9343a14de83d9b600
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,6 +35,7 @@ ms.openlocfilehash: 00424292fbc5321a77a4e924530ade97739208d4
 > * администратору, который управляет правилом в группе;
 > * всем участникам группы.
 >
+> Обратите внимание, несмотря на то что можно создать динамическую группу устройств или пользователей, нельзя создать правило, которое выбирает объекты и пользователей, и устройств. 
 
 ## <a name="to-create-the-advanced-rule"></a>Создание расширенного правила
 1. На [классическом портале Azure](https://manage.windowsazure.com)щелкните **Active Directory**и откройте каталог своей организации.
@@ -105,7 +108,7 @@ user.mail –ne null.
 | --- | --- | --- |
 | Ошибка: атрибут не поддерживается. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/>Свойство должно соответствовать одному из свойств [в списке поддерживаемых свойств](#supported-properties). |
 | Ошибка: не поддерживается оператор для атрибута. |(user.accountEnabled -contains true) |(user.accountEnabled - eq true)<br/>Свойство имеет логический тип. Используйте поддерживаемые операторы (-eq и - ne) для логического типа из списка выше. |
-| Ошибка: ошибка компиляции запроса. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Логический оператор должен соответствовать одному из свойств в приведенном выше списке поддерживаемых свойств. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error в регулярном выражении. |
+| Ошибка: ошибка компиляции запроса. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Логический оператор должен соответствовать одному из свойств в приведенном выше списке поддерживаемых свойств. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")  — ошибка в регулярном выражении. |
 | Ошибка: неправильный формат двоичного выражения. |(user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
 | Ошибка: неизвестная ошибка при настройке динамического членства. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
 
@@ -129,7 +132,7 @@ user.mail –ne null.
 * -eq
 * -ne
 * -notStartsWith
-* -startsWith
+* -StartsWith
 * -contains
 * -notContains
 * -match
@@ -170,7 +173,7 @@ user.mail –ne null.
 | Свойства | Допустимые значения | Использование |
 | --- | --- | --- |
 | otherMails |Любое строковое значение. |(user.otherMails -contains "alias@domain") |
-| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+| proxyAddresses |SMTP: alias@domain, smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="use-of-null-values"></a>Использование значений Null
 
@@ -221,9 +224,9 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 | Свойства | Допустимые значения | Использование |
 | --- | --- | --- |
-| displayName |Любое строковое значение. |(device.displayName -eq "Rob Iphone”) |
-| deviceOSType |Любое строковое значение. |(device.deviceOSType -eq "IOS") |
-| deviceOSVersion |Любое строковое значение. |(device.OSVersion -eq "9.1") |
+| displayName |Любое строковое значение |(device.displayName -eq "Rob Iphone”) |
+| deviceOSType |Любое строковое значение |(device.deviceOSType -eq "IOS") |
+| deviceOSVersion |Любое строковое значение |(device.OSVersion -eq "9.1") |
 | isDirSynced |true, false, null |(device.isDirSynced -eq true) |
 | isManaged |true, false, null |(device.isManaged -eq false) |
 | isCompliant |true, false, null |(device.isCompliant -eq true) |
@@ -251,9 +254,4 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 * [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
