@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/26/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 4787a382b837b71a28c45211a26aa512e8fb177e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bf190741b10c10e885d927ad21a9f2b25107943f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,8 +30,7 @@ ms.openlocfilehash: 4787a382b837b71a28c45211a26aa512e8fb177e
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-probe-ps.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
 
-
-[!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
+Следуя инструкциям этой статьи вы добавите пользовательскую пробу в имеющийся шлюз приложений с помощью PowerShell. Пользовательские пробы полезны в приложениях с конкретной страницей проверки работоспособности или приложениях, не предоставляющих успешный ответ веб-приложению по умолчанию.
 
 > [!IMPORTANT]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Узнайте, как [выполнить эти действия с помощью модели Resource Manager](application-gateway-create-probe-ps.md).
@@ -44,7 +45,7 @@ ms.openlocfilehash: 4787a382b837b71a28c45211a26aa512e8fb177e
 2. Создайте XML-файл конфигурации или объект конфигурации.
 3. Применить конфигурацию к созданному ресурсу шлюза приложений.
 
-### <a name="create-an-application-gateway-resource"></a>Создание ресурса шлюза приложений.
+### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Создание ресурса шлюза приложений с пользовательской пробой
 
 Для создания шлюза используйте командлет `New-AzureApplicationGateway`, подставив в него свои значения. Выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
 
@@ -67,15 +68,9 @@ Get-AzureApplicationGateway AppGwTest
 
 Параметры *VirtualIPs* и *DnsName* отображаются без значений, так как шлюз еще не запущен. Эти значения будут определены после запуска шлюза.
 
-## <a name="configure-an-application-gateway"></a>Настройка шлюза приложений
-
-Можно настроить шлюз приложений с помощью XML-файла или объекта конфигурации.
-
-## <a name="configure-an-application-gateway-by-using-xml"></a>Настройка шлюза приложений с помощью XML-файла
+### <a name="configure-an-application-gateway-by-using-xml"></a>Настройка шлюза приложений с помощью XML-файла
 
 В следующем примере все параметры шлюза приложений настраиваются и применяются к ресурсу шлюза приложений при помощи XML-файла.  
-
-### <a name="step-1"></a>Шаг 1
 
 Скопируйте следующий текст в Блокнот.
 
@@ -154,32 +149,30 @@ Get-AzureApplicationGateway AppGwTest
 
 Используются следующие параметры конфигурации:
 
-* **Name** — имя пользовательской пробы.
-* **Protocol** — используемый протокол (возможные значения: HTTP или HTTPS).
-* **Host** и **Path** — полный путь URL-адреса, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас есть веб-сайт http://contoso.com/, пользовательскую пробу работоспособности для получения успешного ответа HTTP можно настроить в формате http://contoso.com/path/custompath.htm.
-* **Interval** — задает интервал между пробами в секундах.
-* **Timeout** — определяет время ожидания для проверки ответа HTTP.
-* **UnhealthyThreshold** — количество неудачных ответов HTTP, по достижении которого серверный экземпляр считается *неработоспособным*.
+|Параметр|Описание|
+|---|---|
+|**Имя** |Имя пользовательской пробы. |
+* **Protocol** | Используемый протокол (возможные значения: HTTP или HTTPS).|
+| **Host** и **Path** | Полный путь URL-адреса, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас есть веб-сайт http://contoso.com/, пользовательскую пробу работоспособности для получения успешного ответа HTTP можно настроить в формате http://contoso.com/path/custompath.htm.|
+| **Интервал** | Задает интервал между пробами в секундах.|
+| **Время ожидания** | Определяет время ожидания для проверки ответа HTTP.|
+| **UnhealthyThreshold** | Количество неудачных ответов HTTP, по достижении которого серверный экземпляр считается *неработоспособным*.|
 
 Имя пробы указывается в конфигурации \<BackendHttpSettings\> для назначения пула серверной части, который будет использовать параметры пользовательской пробы.
 
-## <a name="add-a-custom-probe-configuration-to-an-existing-application-gateway"></a>Добавление конфигурации пользовательской проверки к существующему шлюзу приложений
+## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Добавление пользовательской пробы в имеющийся шлюз приложений
 
 Изменение текущей конфигурации шлюза приложений состоит из трех шагов: получение XML-файла конфигурации, внесение изменений для пользовательской проверки и настройка шлюза приложений с использованием новых параметров XML.
 
-### <a name="step-1"></a>Шаг 1
+1. Получите XML-файл с помощью командлета `Get-AzureApplicationGatewayConfig`. Он экспортирует XML-файл конфигурации, который нужно изменить, чтобы добавить параметры пробы.
 
-Получите XML-файл с помощью командлета `Get-AzureApplicationGatewayConfig`. Он экспортирует XML-файл конфигурации, который нужно изменить, чтобы добавить параметры пробы.
+  ```powershell
+  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+  ```
 
-```powershell
-Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-```
+1. Откройте XML-файл в текстовом редакторе. Добавьте раздел `<probe>` после `<frontendport>`.
 
-### <a name="step-2"></a>Шаг 2
-
-Откройте XML-файл в текстовом редакторе. Добавьте раздел `<probe>` после `<frontendport>`.
-
-```xml
+  ```xml
 <Probes>
     <Probe>
         <Name>Probe01</Name>
@@ -191,11 +184,11 @@ Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofi
         <UnhealthyThreshold>5</UnhealthyThreshold>
     </Probe>
 </Probes>
-```
+  ```
 
-В разделе backendHttpSettings XML-файла добавьте имя пробы, как показано в следующем примере.
+  В разделе backendHttpSettings XML-файла добавьте имя пробы, как показано в следующем примере.
 
-```xml
+  ```xml
     <BackendHttpSettings>
         <Name>setting1</Name>
         <Port>80</Port>
@@ -204,13 +197,11 @@ Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofi
         <RequestTimeout>120</RequestTimeout>
         <Probe>Probe01</Probe>
     </BackendHttpSettings>
-```
+  ```
 
-Сохраните XML-файл.
+  Сохраните XML-файл.
 
-### <a name="step-3"></a>Шаг 3.
-
-Обновите конфигурацию шлюза приложения с помощью нового XML-файла, используя командлет `Set-AzureApplicationGatewayConfig`. Он обновит шлюз приложений с учетом новой конфигурации.
+1. Обновите конфигурацию шлюза приложения с помощью нового XML-файла, используя командлет `Set-AzureApplicationGatewayConfig`. Он обновит шлюз приложений с учетом новой конфигурации.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
@@ -221,10 +212,5 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 Указания по настройке разгрузки SSL см. в статье о [настройке шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
 
 Указания по настройке шлюза приложений для использования с внутренним балансировщиком нагрузки см. в статье [Создание шлюза приложений с внутренней подсистемой балансировщика нагрузки (ILB)](application-gateway-ilb.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

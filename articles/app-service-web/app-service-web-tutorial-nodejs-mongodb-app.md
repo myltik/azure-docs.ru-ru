@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 8dcb006a8cf167cdbfb67de5a11dabf0edbbe41c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 6db07ed122d8dbd9edaa3b4d25680863778a6adf
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -32,6 +33,7 @@ ms.lasthandoff: 04/22/2017
 
 1. [Git.](https://git-scm.com/)
 1. [Node.js и NPM.](https://nodejs.org/)
+1. [Установка Gulp.js](http://gulpjs.com/)
 1. [Скачивание, установка и запуск MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/). 
 1. [Скачивание и установка Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
@@ -40,7 +42,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="test-local-mongodb-database"></a>Проверка локальной базы данных MongoDB
 На этом шаге нужно убедиться, что локальная база данных MongoDB запущена.
 
-Откройте окно терминала и `CD` в каталог установки MongoDB `bin`. 
+Откройте окно терминала и `cd` в каталог установки MongoDB `bin`. 
 
 Выполните команду `mongo` в окне терминала для подключения к локальному серверу MongoDB.
 
@@ -59,7 +61,7 @@ mongo
 
 ### <a name="clone-the-sample-application"></a>Клонирование примера приложения
 
-Откройте окно терминала и `CD` в рабочий каталог.  
+Откройте окно терминала и `cd` в рабочий каталог.  
 
 Затем выполните следующие команды, чтобы клонировать репозиторий с примером. 
 
@@ -107,7 +109,7 @@ MEAN.JS version: 0.5.0
 
 На этом шаге вы создадите базу данных MongoDB в Azure. При развертывании приложения в Azure эта база данных используется в качестве рабочей нагрузки приложения.
 
-Для MongoDB в этом учебнике используется база данных [Azure DocumentDB](/azure/documentdb/), которая поддерживает клиентские подключения MongoDB. Другими словами, приложение Node.js знает только то, что оно подключается к базе данных MongoDB. Тот факт, что подключение обеспечивается базой данных DocumentDB, является прозрачным для приложения.
+Для MongoDB в этом руководстве используется [Azure DocumentDB](/azure/documentdb/). Azure DocumentDB поддерживает клиентские подключения MongoDB. Другими словами, приложение Node.js знает только то, что оно подключается к базе данных MongoDB. Тот факт, что подключение обеспечивается базой данных DocumentDB, является прозрачным для приложения.
 
 ### <a name="log-in-to-azure"></a>Вход в Azure
 
@@ -193,11 +195,11 @@ az documentdb list-keys --name <documentdb_name> --resource-group myResourceGrou
 
 В репозитории MEAN.js откройте `config/env/production.js`.
 
-В объекте `db` замените значение `uri`, как показано в следующем примере. Также замените два заполнителя `<documentdb_name>` на имя базы данных DocumentDB, а заполнитель `<primary_maste_key>` — на ключ, скопированный на предыдущем шаге.
+В объекте `db` замените значение `uri`, как показано в следующем примере. Также замените два заполнителя `<documentdb_name>` на имя базы данных DocumentDB, а заполнитель `<primary_master_key>` — на ключ, скопированный на предыдущем шаге.
 
 ```javascript
 db: {
-  uri: 'mongodb://<documentdb_name>:<primary_maste_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
+  uri: 'mongodb://<documentdb_name>:<primary_master_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
   ...
 },
 ```
@@ -211,7 +213,7 @@ db: {
 
 ### <a name="test-the-application-in-production-mode"></a>Тестирование приложения в рабочем режиме 
 
-Как и в некоторых других приложениях Node.js, в MEAN.js используется `gulp prod` для уменьшения размера скриптов и объединения скриптов в пакет для рабочей среды. Это средство создает файлы, необходимые для рабочей среды. 
+Как и в некоторых других веб-платформах Node.js, в MEAN.js используется `gulp prod` для уменьшения размера и объединения скриптов в пакет для рабочей среды. Это средство создает файлы, необходимые для рабочей среды. 
 
 Запустите средство `gulp prod`.
 
@@ -241,6 +243,8 @@ MEAN.JS version: 0.5.0
 ```
 
 Откройте браузер и перейдите по адресу `http://localhost:8443`. Щелкните **Зарегистрироваться** в верхнем меню и попробуйте создать фиктивного пользователя, как в прошлый раз. Если все получилось, это означает, что приложение записывает данные в базу данных DocumentDB в Azure. 
+
+Чтобы остановить Node.js, введите `Ctrl`+`C` в окне терминала. 
 
 ## <a name="deploy-the-nodejs-application-to-azure"></a>Развертывание приложения Node.js в Azure
 На этом шаге вы развернете приложение Node.js, подключенное к MongoDB, в службе приложений Azure.
@@ -353,7 +357,7 @@ db: {
 > Пользователь развертывания необходим для развертывания FTP и локального репозитория Git в службе приложений. Это пользователь уровня учетной записи. Поэтому этот пользователь развертывания отличается от учетной записи подписки Azure. Пользователя развертывания нужно настроить только один раз.
 
 ```azurecli
-az appservice web deployment user set --user-name <specify-a-username> --password <mininum-8-char-captital-lowercase-number>
+az appservice web deployment user set --user-name <specify-a-username> --password <minimum-8-char-capital-lowercase-number>
 ```
 
 Чтобы настроить доступ локального репозитория Git к веб-приложению Azure, выполните команду [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git). 
@@ -441,7 +445,7 @@ http://<app_name>.azurewebsites.net
 
 ### <a name="update-the-data-model"></a>Обновление модели данных
 
-Откройте `modules/articles/server/models/articles.server.controller.js`.
+Откройте `modules/articles/server/models/article.server.model.js`.
 
 В `ArticleSchema` добавьте тип `String` с именем `comment`. Когда все будет готово, код схемы должен выглядеть следующим образом:
 
@@ -484,7 +488,7 @@ exports.update = function (req, res) {
 };
 ```
 
-Затем откройте `modules/client/views/view-article.client.view.js`.
+Затем откройте `modules/articles/client/views/view-article.client.view.html`.
 
 Прямо перед закрывающим тегом `</section>` добавьте следующую строку для отображения `comment` вместе с остальными данными статьи:
 
@@ -492,7 +496,7 @@ exports.update = function (req, res) {
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-Затем откройте `modules/client/views/list-articles.client.view.js`.
+Затем откройте `modules/articles/client/views/list-articles.client.view.html`.
 
 Прямо перед закрывающим тегом `</a>` добавьте следующую строку для отображения `comment` вместе с остальными данными статьи:
 
@@ -500,7 +504,7 @@ exports.update = function (req, res) {
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-Затем откройте `modules/client/views/admin/list-articles.client.view.js`.
+Затем откройте `modules/articles/client/views/admin/list-articles.client.view.html`.
 
 В теге `<div class="list-group">` и прямо перед закрывающим тегом `</a>` добавьте следующую строку для отображения `comment` вместе с остальными данными статьи:
 
@@ -508,7 +512,7 @@ exports.update = function (req, res) {
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-Наконец, откройте `modules/client/views/admin/list-articles.client.view.js`.
+Наконец, откройте `modules/articles/client/views/admin/form-article.client.view.html`.
 
 Найдите тег `<div class="form-group">`, который содержит кнопку "Отправить" и выглядит следующим образом:
 
@@ -551,6 +555,8 @@ NODE_ENV=production node server.js
 
 ![В статьи добавлено поле комментария](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
 
+Чтобы остановить Node.js, введите `Ctrl`+`C` в окне терминала. 
+
 ### <a name="publish-changes-to-azure"></a>Публикация изменений в Azure
 
 Зафиксируйте изменения в Git, а затем отправьте изменения кода в Azure.
@@ -581,7 +587,7 @@ az appservice web log tail --name <app_name> --resource-group myResourceGroup
 
 После настройки потоков обновите веб-приложение Azure в браузере, чтобы получить немного трафика. Вы должны увидеть, что журналы консоли теперь направляются в терминал.
 
-Чтобы отменить потоки для журналов, выполните команду `Ctrl`+`C`. 
+Чтобы в любое время отменить потоковую передачу журналов, введите `Ctrl`+`C`. 
 
 ## <a name="manage-your-azure-web-app"></a>Управление веб-приложением Azure
 

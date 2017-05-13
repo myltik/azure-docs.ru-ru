@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: f0b0c3bc9daf1e44dfebecedf628b09c97394f94
-ms.openlocfilehash: d993ba4bdff690ee6f0867cdbf0a8059fb5847ee
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: a28be325d17bfbe2c5e22bf43e6143e520d6e39f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -67,7 +68,7 @@ var azure = require('azure');
 
 Пример настройки переменных среды в файле конфигурации для облачной службы Azure см. в статье [Веб-приложение Node.js, использующее хранилище][Node.js Cloud Service with Storage].
 
-Пример настройки переменных среды на [классическом портале Azure][Azure classic portal] для веб-сайта Azure см. в статье [Использование табличного хранилища Azure из Node.js][Node.js Web Application with Storage].
+Пример настройки переменных среды на [портале Azure][Azure portal] для веб-сайта Azure см. в статье [Использование табличного хранилища Azure из Node.js][Node.js Web Application with Storage].
 
 ## <a name="create-a-queue"></a>Создание очереди
 Объект **ServiceBusService** позволяет работать с очередями служебной шины. Следующий код создает объект **ServiceBusService**. Добавьте его в начало файла **server.js** после оператора импорта модуля Аzure.
@@ -175,7 +176,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 
 Кроме того, с сообщением, заблокированным в очереди, связано время ожидания. Если приложение не сможет обработать сообщение в течение времени ожидания (например, при сбое приложения), Service Bus разблокирует сообщение автоматически и сделает его доступным для приема.
 
-Если в приложении происходит сбой после обработки сообщения, но перед вызовом метода **deleteMessage**, сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют **обработать хотя бы один раз**, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства **MessageId** сообщения, которое остается постоянным для различных попыток доставки.
+Если в приложении происходит сбой после обработки сообщения, но перед вызовом метода **deleteMessage**, сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют *обработать хотя бы один раз*, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства **MessageId** сообщения, которое остается постоянным для различных попыток доставки.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию об очередях см. в следующих ресурсах.
@@ -185,7 +186,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 * [центре разработчиков Node.js](https://azure.microsoft.com/develop/nodejs/)
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-[Azure classic portal]: http://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

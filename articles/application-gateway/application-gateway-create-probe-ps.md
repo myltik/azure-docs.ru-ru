@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/26/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 794797d9c42ec7f2fc351bab109147e45ce06070
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b54fe5267d87a41eb9e81d5d1dc9b1b16c5c5e88
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,250 +30,147 @@ ms.openlocfilehash: 794797d9c42ec7f2fc351bab109147e45ce06070
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-create-probe-ps.md)
 > * [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
 
-[!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
+Следуя инструкциям этой статьи вы добавите пользовательскую пробу в имеющийся шлюз приложений с помощью PowerShell. Пользовательские пробы полезны в приложениях с конкретной страницей проверки работоспособности или приложениях, не предоставляющих успешный ответ веб-приложению по умолчанию.
 
 > [!NOTE]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Resource Manager и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md).  В этой статье описывается использование модели развертывания c помощью Resource Manager. Для большинства новых развертываний мы рекомендуем использовать эту модель вместо [классической](application-gateway-create-probe-classic-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-### <a name="step-1"></a>Шаг 1
+## <a name="create-an-application-gateway-with-a-custom-probe"></a>Создание шлюза приложений с пользовательской пробой
 
-Используйте `Login-AzureRmAccount` для аутентификации.
+### <a name="sign-in-and-create-resource-group"></a>Вход и создание группы ресурсов
 
-```powershell
-Login-AzureRmAccount
-```
+1. Используйте `Login-AzureRmAccount` для аутентификации.
 
-### <a name="step-2"></a>Шаг 2
+  ```powershell
+  Login-AzureRmAccount
+  ```
 
-Просмотрите подписки учетной записи.
+1. Получите подписку для учетной записи.
 
-```powershell
-Get-AzureRmSubscription
-```
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 
-### <a name="step-3"></a>Шаг 3.
+1. Выберите подписку Azure.
 
-Выберите подписку Azure.
+  ```powershell
+  Select-AzureRmSubscription -Subscriptionid '{subscriptionGuid}'
+  ```
 
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
+1. Создайте группу ресурсов. Если у вас есть группа ресурсов, можно пропустить этот шаг.
 
-### <a name="step-4"></a>Шаг 4.
-
-Создайте группу ресурсов. Если вы используете существующую группу, пропустите этот шаг.
-
-```powershell
-New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
-```
+  ```powershell
+  New-AzureRmResourceGroup -Name appgw-rg -Location 'West US'
+  ```
 
 В диспетчере ресурсов Azure для всех групп ресурсов должно быть указано расположение. Это расположение используется в качестве расположения по умолчанию для всех ресурсов данной группы. Убедитесь, что во всех командах для создания шлюза приложений используется одна группа ресурсов.
 
-В приведенном выше примере мы создали группу ресурсов с именем **appgw-RG** и расположением **Западная часть США**.
+В примере выше мы создали группу ресурсов **appgw-RG** в **западной части США**.
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Создание виртуальной сети и подсети для шлюза приложений.
+### <a name="create-a-virtual-network-and-a-subnet"></a>Создание виртуальной сети и подсети
 
-С помощью следующих шагов вы создадите виртуальную сеть и подсеть для шлюза приложения.
-
-### <a name="step-1"></a>Шаг 1
-
-Назначьте диапазон адресов 10.0.0.0/24 переменной подсети, которая будет использоваться для создания виртуальной сети.
+Следующий пример кода создает виртуальную сеть и подсеть шлюза приложений. Шлюзу приложений требуется собственная подсеть. По этой причине созданная для него подсеть должна быть меньше адресного пространства виртуальной сети. Это позволит создавать и использовать другие подсети.
 
 ```powershell
+# Assign the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-```
 
-### <a name="step-2"></a>Шаг 2
+# Create a virtual network named appgwvnet in resource group appgw-rg for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24.
+$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-Создайте виртуальную сеть с именем **appgwvnet** в группе ресурсов **appgw-rg** для региона "Западная часть США" при помощи префикса 10.0.0.0/16 с подсетью 10.0.0.0/24.
-
-```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-```
-
-### <a name="step-3"></a>Шаг 3.
-
-Назначьте переменную подсети для дальнейших этапов создания шлюза приложений.
-
-```powershell
+# Assign a subnet variable for the next steps, which create an application gateway.
 $subnet = $vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Создание общедоступного IP-адреса для конфигурации интерфейсной части
+### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Создание общедоступного IP-адреса для конфигурации интерфейсной части
 
-Создайте ресурс общедоступного IP-адреса с именем **publicIP01** в группе ресурсов **appgw-rg** для региона "Западная часть США".
+Создайте ресурс общедоступного IP-адреса с именем **publicIP01** в группе ресурсов **appgw-rg** для региона "Западная часть США". В этом примере для интерфейсных IP-адресов шлюза приложений используются общедоступные IP-адреса.  Шлюзу приложений требуется общедоступный IP-адрес с динамически созданным DNS-именем, поэтому при создании общедоступных IP-адресов нельзя указывать `-DomainNameLabel`.
 
 ```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location "West US" -AllocationMethod Dynamic
+$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway-configuration-object-with-a-custom-probe"></a>Создание объекта конфигурации шлюза приложений с пользовательской проверкой
+### <a name="create-an-application-gateway"></a>Создание шлюза приложений
 
-Перед созданием шлюза приложений необходимо настроить все элементы конфигурации. В ходе следующих шагов создаются необходимые элементы конфигурации для ресурса шлюза приложений.
+Перед созданием шлюза приложений необходимо настроить все элементы конфигурации. Пример кода ниже создает элементы конфигурации, необходимые для ресурса шлюза приложений.
 
-### <a name="step-1"></a>Шаг 1
-
-Создайте конфигурацию IP-адресов шлюза приложений с именем **gatewayIP01**. При запуске шлюз приложений получает IP-адрес из настроенной подсети. Затем шлюз маршрутизирует сетевой трафик на IP-адреса из внутреннего пула IP-адресов. Помните, что для каждого экземпляра требуется отдельный IP-адрес.
+| **Компонент** | **Описание** |
+|---|---|
+| **Конфигурация IP-адреса шлюза** | Конфигурация IP-адреса шлюза приложений.|
+| **Серверный пул** | Пул IP-адресов, полное доменное имя или сетевые адаптеры серверов приложений, на которых размещается веб-приложение.|
+| **Проба работоспособности** | Пользовательская проба, используемая для мониторинга работоспособности участников серверного пула.|
+| **Параметры HTTP** | Коллекция параметров, в том числе порта, протокола, сходства на основе файлов cookie, пробы и времени ожидания.  Эти параметры определяют передачу трафика участникам серверного пула.|
+| **Интерфейсный порт** | Порт, на котором шлюз приложений прослушивает трафик.|
+| **Прослушиватель** | Сочетание протокола, конфигурации интерфейсного IP-адреса и интерфейсного порта. Это компонент, который прослушивает входящие запросы.
+|**Правило**| Направляет трафик в соответствующую серверную часть на основе параметров HTTP.|
 
 ```powershell
+# Creates a application gateway Frontend IP configuration named gatewayIP01
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
-```
 
-### <a name="step-2"></a>Шаг 2
-
-Настройте для внутреннего пула IP-адресов **pool01** IP-адреса **134.170.185.46, 134.170.188.221 и 134.170.185.50**. Эти значения IP-адресов будут использоваться для получения сетевого трафика от конечной точки с интерфейсным IP-адресом. Вам нужно заменить приведенные выше IP-адреса и добавить конечные точки IP-адресов своего приложения.
-
-```powershell
+#Creates a back-end IP address pool named pool01 with IP addresses 134.170.185.46, 134.170.188.221, 134.170.185.50.
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
-```
 
-### <a name="step-3"></a>Шаг 3.
+# Creates a probe that will check health at http://contoso.com/path/path.htm
+$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/path.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
-На этом шаге настраивается пользовательская проверка работоспособности.
-
-Используемые параметры:
-
-* **Interval** — задает интервал между пробами в секундах.
-* **Timeout** — определяет время ожидания для проверки ответа HTTP.
-* **Hostname и path** — полный путь URL-адреса, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас есть веб-сайт **http://contoso.com**, то пользовательскую пробу работоспособности для получения успешного ответа HTTP можно настроить в формате **http://contoso.com/path/custompath.htm**.
-* **UnhealthyThreshold** — количество неудачных ответов HTTP, по достижении которого серверный экземпляр считается **неработоспособным**.
-
-```powershell
-$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-```
-
-### <a name="step-4"></a>Шаг 4.
-
-Настройте параметр шлюза приложений **poolsetting01** для трафика во внутреннем пуле. На этом шаге также настраивается время ожидания ответа пула внутренних серверов на запрос шлюза приложений. При достижении этого времени ожидания шлюз приложений отменяет запрос. Это значение отличается от времени ожидания проверки, которое относится только к ответу пула внутренних серверов на проверку работоспособности.
-
-```powershell
+# Creates the backend http settings to be used. This component references the $probe created in the previous command.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
-```
 
-### <a name="step-5"></a>Шаг 5
-
-Настройте IP-порт интерфейсной части с именем **frontendport01** для конечной точки с общедоступным IP-адресом.
-
-```powershell
+# Creates a frontend port for the application gateway to listen on port 80 that will be used by the listener.
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01 -Port 80
-```
 
-### <a name="step-6"></a>Шаг 6
-
-Создайте для интерфейсной части конфигурацию IP-адресов с именем **fipconfig01** и свяжите с ней общедоступный IP-адрес.
-
-```powershell
+# Creates a frontend IP configuration. This associates the $publicip variable defined previously with the front-end IP that will be used by the listener.
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
-```
 
-### <a name="step-7"></a>Шаг 7
-
-Создайте прослушиватель с именем **listener01** и свяжите интерфейсный порт с конфигурацией IP-адресов интерфейсной части.
-
-```powershell
+# Creates the listener. The listener is a combination of protocol and the frontend IP configuration $fipconfig and frontend port $fp created in previous steps.
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
-```
 
-### <a name="step-8"></a>Шаг 8
-
-Создайте для балансировщика нагрузки правило маршрутизации **rule01**, которое будет определять его поведение.
-
-```powershell
+# Creates the rule that routes traffic to the backend pools.  In this example we create a basic rule that uses the previous defined http settings and backend address pool.  It also associates the listener to the rule
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-```
 
-### <a name="step-9"></a>Шаг 9.
-
-Настройте размер экземпляра шлюза приложений.
-
-```powershell
+# Sets the SKU of the application gateway, in this example we create a small standard application gateway with 2 instances.
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
-```
 
-> [!NOTE]
-> Значение параметра **InstanceCount** по умолчанию — 2 (максимальное значение — 10). Значение **GatewaySize** (Размер шлюза) по умолчанию — Medium (Средний). Можно выбрать **Standard_Small**, **Standard_Medium** или **Standard_Large**. 
-
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Создание шлюза приложений с помощью командлета New-AzureRmApplicationGateway
-
-Создайте шлюз приложений со всеми элементами конфигурации, описанными выше. В этом примере шлюз приложений имеет имя **appgwtest**.
-
-```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+# The final step creates the application gateway with all the previously defined components.
+$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location 'West US' -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
 ## <a name="add-a-probe-to-an-existing-application-gateway"></a>Добавление проверки для существующего шлюза приложений
 
-Для добавления проверки для существующего шлюза приложений необходимо выполнить четыре действия.
-
-### <a name="step-1"></a>Шаг 1
-
-Загрузка ресурса шлюза приложений в переменную PowerShell с помощью `Get-AzureRmApplicationGateway`.
+Следующий фрагмент кода добавляет пробу в имеющийся шлюз приложений.
 
 ```powershell
+# Load the application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-```
 
-### <a name="step-2"></a>Шаг 2
+# Create the probe object that will check health at http://contoso.com/path/path.htm
+$getgw = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/custompath.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
-Добавление проверки к существующей конфигурации шлюза.
+# Set the backend HTTP settings to use the new probe
+$getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
 
-```powershell
-$getgw = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-```
-
-В примере пользовательская проверка настроена для проверки URL-адреса contoso.com/path/custompath.htm каждые 30 секунд. Настроено пороговое значение времени ожидания в 120 секунд с максимальным количеством неудачных запросов 8.
-
-### <a name="step-3"></a>Шаг 3.
-
-Добавление пробы в конфигурацию внутреннего пула и времени ожидания с помощью `Set-AzureRmApplicationGatewayBackendHttpSettings`.
-
-```powershell
-    $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
-```
-
-### <a name="step-4"></a>Шаг 4.
-
-Сохранение конфигурации шлюза приложений с помощью `Set-AzureRmApplicationGateway`.
-
-```powershell
+# Save the application gateway with the configuration changes
 Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 ```
 
 ## <a name="remove-a-probe-from-an-existing-application-gateway"></a>Удаление проверки из существующего шлюза приложений
 
-Ниже приведены инструкции по удалению пользовательской проверки из существующего шлюза приложений.
-
-### <a name="step-1"></a>Шаг 1
-
-Загрузка ресурса шлюза приложений в переменную PowerShell с помощью `Get-AzureRmApplicationGateway`.
+Следующий фрагмент кода удаляет пробу из имеющегося шлюза приложений.
 
 ```powershell
+# Load the application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-```
 
-### <a name="step-2"></a>Шаг 2
-
-Удаление конфигурации пробы из шлюза приложений с помощью `Remove-AzureRmApplicationGatewayProbeConfig`.
-
-```powershell
+# Remove the probe from the application gateway configuration object
 $getgw = Remove-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name $getgw.Probes.name
-```
 
-### <a name="step-3"></a>Шаг 3.
+# Set the backend HTTP settings to remove the reference to the probe. The backend http settings now use the default probe
+$getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
-Обновление параметров внутреннего пула для удаления пробы и времени ожидания с помощью `Set-AzureRmApplicationGatewayBackendHttpSettings`.
-
-```powershell
-    $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
-```
-
-### <a name="step-4"></a>Шаг 4.
-
-Сохранение конфигурации шлюза приложений с помощью `Set-AzureRmApplicationGateway`. 
-
-```powershell
+# Save the application gateway with the configuration changes
 Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 ```
 
@@ -308,10 +207,5 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Сведения о настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL с помощью диспетчера ресурсов Azure](application-gateway-ssl-arm.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 05/02/2017
 ms.author: sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 2c9b6676c1a4cfe008235da6746d403555e1bf08
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7f3ddc2d7036b9951d4796cf4664f870a0c5f4b6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -56,7 +57,11 @@ ms.lasthandoff: 04/26/2017
 * экспресс-сущность.
 
 ## <a name="pricing"></a>Цены
-В этом разделе содержатся ответы на некоторые часто задаваемые вопросы о ценах на использование служебной шины. Также можно посетить страницу [часто задаваемых вопросов о поддержке Azure](http://go.microsoft.com/fwlink/?LinkID=185083), где содержатся общие сведения о структуре ценообразования Microsoft Azure. Дополнительные сведения о ценах на использование служебной шины см. на странице [цен на служебную шину](https://azure.microsoft.com/pricing/details/service-bus/).
+В этом разделе содержатся ответы на некоторые часто задаваемые вопросы о ценах на использование служебной шины.
+
+В статье [Сведения о расценках и выставлении счетов служебной шины](service-bus-pricing-billing.md) объясняются счетчики цены на служебную шину. Сведения о вариантах оплаты служебной шины см. на [странице цен на служебную шину](https://azure.microsoft.com/pricing/details/service-bus/).
+
+Вы также можете посетить страницу [часто задаваемых вопросов о поддержке Azure](http://go.microsoft.com/fwlink/?LinkID=185083), где содержатся общие сведения о структуре ценообразования Azure. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Как выставляется цена на служебную шину?
 Подробные сведения о ценах на использование служебной шины см. [здесь][Pricing overview]. Помимо указанной платы, также взимается плата за связанные операции передачи данных, исходящих из центра обработки данных, в котором подготавливается ваше приложение.

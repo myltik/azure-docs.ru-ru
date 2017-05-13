@@ -15,10 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: eadd300dcda2f160589c5e8e4fb7508445ef9944
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 06183c5e1b61c47a7229c2abcc64217ee57c2bac
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/10/2017
 В этой статье рассматривается экспорт базы данных SQL Azure в [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-файл. В этой статье рассматривается использование следующих методов:
 - [портал Azure](https://portal.azure.com).
 - программа командной строки [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx);
-- командлет [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport);
+- командлет [New-AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport);
 - мастер [экспорта приложения уровня данных](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) в [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 
 > [!IMPORTANT] 
@@ -76,13 +77,19 @@ ms.lasthandoff: 04/10/2017
 
 Рекомендуется использовать служебную программу SqlPackage для масштабирования и обеспечения производительности в большинстве рабочих сред. Сведения о миграции из SQL Server в базу данных SQL Azure с использованием BACPAC-файлов см. в [блоге группы консультирования клиентов SQL Server](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
+В этом примере показано, как экспортировать базу данных с помощью SqlPackage.exe, используя универсальную аутентификацию Active Directory.
+
+```cmd
+SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
+```
+
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
 Самые последние версии SQL Server Management Studio также содержат мастер для экспорта базы данных SQL Azure в BACPAC-файл. Ознакомьтесь с разделом [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) (Экспорт приложения уровня данных).
 
 ## <a name="powershell"></a>PowerShell
 
-Используйте командлет [New-AzureRmSqlDatabaseExport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/new-azurermsqldatabaseexport), чтобы отправить запрос на экспорт базы данных к службе Базы данных SQL Azure. Операция экспорта может занять некоторое время в зависимости от размера базы данных.
+Используйте командлет [New-AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport), чтобы отправить запрос на экспорт базы данных к службе Базы данных SQL Azure. Операция экспорта может занять некоторое время в зависимости от размера базы данных.
 
  ```powershell
  $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
@@ -90,7 +97,7 @@ ms.lasthandoff: 04/10/2017
    -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
  ```
 
-Чтобы проверить состояние запроса на экспорт, используйте командлет [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.7.0/get-azurermsqldatabaseimportexportstatus). Если выполнить его немедленно после запроса, то обычно возвращается сообщение **Состояние: выполняется**. Отображение сообщения **Состояние: выполнен** означает, что экспорт завершен.
+Чтобы проверить состояние запроса на экспорт, используйте командлет [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus). Если выполнить его немедленно после запроса, то обычно возвращается сообщение **Состояние: выполняется**. Отображение сообщения **Состояние: выполнен** означает, что экспорт завершен.
 
 ```powershell
 $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink

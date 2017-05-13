@@ -4,24 +4,25 @@ description: "Модель данных Application Insights для телеме
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 17a39660fce598610ff9a95e886282e6b3faffe4
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 49d2429c01fe3fde2e51e4344904f55e43eea1cd
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Телеметрия исключений: модель данных Application Insights
 
-Экземпляр исключения представляет обработанное или необработанное исключение, возникшее во время выполнения отслеживаемого приложения.
+В [Application Insights](app-insights-overview.md) экземпляр исключения представляет обработанное или необработанное исключение, возникшее во время выполнения отслеживаемого приложения.
 
 ## <a name="problem-id"></a>Идентификатор проблемы
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="exception-details"></a>Сведения об исключении
 
-Работа над этим разделом все еще ведется...
+(Эти сведения будут добавлены позже.)
 
 ## <a name="custom-properties"></a>Пользовательские свойства
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- В [этой статье](/application-insights-data-model.md) представлены типы данных и модель данных для Application Insights.
-- Вы можете научиться [диагностировать исключения в веб-приложениях с помощью Application Insights](/app-insights-asp-net-exceptions.md).
-- Ознакомление с [платформами](/app-insights-platforms.md), поддерживаемыми Application Insights.
+- В [этой статье](application-insights-data-model.md) представлены типы данных и модель данных для Application Insights.
+- Вы можете научиться [диагностировать исключения в веб-приложениях с помощью Application Insights](app-insights-asp-net-exceptions.md).
+- Ознакомление с [платформами](app-insights-platforms.md), поддерживаемыми Application Insights.
 

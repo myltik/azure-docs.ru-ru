@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/30/2017
 ms.author: sethm;lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
-ms.openlocfilehash: 775959d93105ca9fb28ce72e4ee4adf6b956e815
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 215db83e766d595b8f03a89ea6b4221fc756b1aa
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -50,13 +52,13 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-Значения для имени и значение ключа SAS можно найти в данных подключения к [классическому порталу Azure][Azure classic portal] или в области **Свойства** Visual Studio при выборе пространства имен служебной шины в обозревателе сервера (как показано в предыдущем разделе).
+Значения для имени и значение ключа SAS можно найти в данных подключения к [порталу Azure][Azure portal] или в области **Свойства** Visual Studio при выборе пространства имен служебной шины в обозревателе сервера (как показано в предыдущем разделе).
 
 ```python
 bus_service.create_queue('taskqueue')
 ```
 
-**create_queue** также поддерживает дополнительные параметры, позволяющие переопределить настройки очереди по умолчанию, такие как срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди 5 ГБ и срок жизни 1 минуту.
+**create_queue** также поддерживает дополнительные параметры, позволяющие переопределить настройки очереди по умолчанию, такие как срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди 5 ГБ и срок жизни в 1 минуту:
 
 ```python
 queue_options = Queue()
@@ -111,14 +113,9 @@ msg.delete()
 
 * [Очереди, разделы и подписки служебной шины][Queues, topics, and subscriptions].
 
-[Azure classic portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Service Bus quotas]: service-bus-quotas.md
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

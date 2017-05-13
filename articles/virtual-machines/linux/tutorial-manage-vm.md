@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: bcb075b320bab942c6421be72ea1445d5fa3f603
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7a6f255c64a584e29801aacb40c79462751fe535
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/26/2017
 
 Создайте группу ресурсов с помощью команды [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
-Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Группу ресурсов следует создавать до виртуальной машины. В этом примере создается группа ресурсов `myResourceGroupVM` в регионе `westus`. 
+Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Группу ресурсов следует создавать до виртуальной машины. В этом примере создается группа ресурсов *myResourceGroupVM* в регионе *westus*. 
 
 ```azurecli
 az group create --name myResourceGroupVM --location westus
@@ -44,7 +45,7 @@ az group create --name myResourceGroupVM --location westus
 
 Создайте виртуальную машину, выполнив команду [az vm create](https://docs.microsoft.com/cli/azure/vm#create). 
 
-При создании виртуальной машины доступно несколько вариантов, таких как образ операционной системы, определение размера диска и учетные данные администратора. В этом примере создается виртуальная машина `myVM` под управлением Ubuntu Server. 
+При создании виртуальной машины доступно несколько вариантов, таких как образ операционной системы, определение размера диска и учетные данные администратора. В этом примере создается виртуальная машина *myVM* под управлением Ubuntu Server. 
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -107,7 +108,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-Получить полный список можно, добавив аргумент `--all`. Кроме того, список образов можно отфильтровать по издателю или предложению с помощью аргумента `--publisher` или `–offer` соответственно. В этом примере список образов отфильтрован по предложению `CentOS`. 
+Получить полный список можно, добавив аргумент `--all`. Кроме того, список образов можно отфильтровать по издателю или предложению с помощью аргумента `--publisher` или `–-offer` соответственно. В этом примере список образов отфильтрован по предложению *CentOS*. 
 
 ```azurecli
 az vm image list --offer CentOS --all --output table
@@ -126,7 +127,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Чтобы развернуть виртуальную машину с помощью определенного образа, запишите значение в столбце `Urn`. При указании образа его номер версии можно заменить ключевым словом latest. В этом случае будет выбрана последняя версия дистрибутива. В данном примере добавлен аргумент `--image`, чтобы указать последнюю версию образа CentOS 6.5.  
+Чтобы развернуть виртуальную машину с помощью определенного образа, запишите значение в столбце *Urn*. При указании образа его номер версии можно заменить ключевым словом latest. В этом случае будет выбрана последняя версия дистрибутива. В данном примере добавлен аргумент `--image`, чтобы указать последнюю версию образа CentOS 6.5.  
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -186,7 +187,12 @@ az vm list-sizes --location westus --output table
 В предыдущем примере создания виртуальной машины размер не был указан, что привело к использованию размера по умолчанию. Размер виртуальной машины можно выбрать во время ее создания с помощью команды [az vm create](/cli/azure/vm#create) и аргумента `--size`. 
 
 ```azurecli
-az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS --size Standard_F4s --generate-ssh-keys
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM3 \
+    --image UbuntuLTS \
+    --size Standard_F4s \
+    --generate-ssh-keys
 ```
 
 ### <a name="resize-a-vm"></a>Изменение размера виртуальной машины
@@ -243,7 +249,10 @@ az vm start --resource-group myResourceGroupVM --name myVM
 Чтобы получить состояние конкретной виртуальной машины, используйте команду [az vm get instance-view](/cli/azure/vm#get-instance-view). Необходимо указать допустимое имя виртуальной машины и группы ресурсов. 
 
 ```azurecli
-az vm get-instance-view --name myVM --resource-group myResourceGroupVM --query instanceView.statuses[1] --output table
+az vm get-instance-view \
+    --name myVM \
+    --resource-group myResourceGroupVM \
+    --query instanceView.statuses[1] --output table
 ```
 
 Выходные данные:

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 73c38182f4caa92f5aa561b10a30c60efc8cfdae
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b600b7d67de24eab5395f085a2a424159b14ff28
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Встроенные роли для управления доступом на основе ролей в Azure
@@ -27,14 +28,21 @@ ms.lasthandoff: 04/26/2017
 ## <a name="roles-in-azure"></a>Роли в Azure
 В таблице ниже содержатся краткие описания встроенных ролей. Щелкните имя роли, чтобы просмотреть подробный список свойств **actions** и **notactions** для этой роли. Свойство **actions** указывает разрешенные действия с ресурсами Azure. В строках действий можно использовать подстановочные знаки. Свойство **notactions** определения роли указывает действия, которые должны быть исключены из списка разрешенных действий.
 
+Действие определяет, какие типы операций можно выполнять с ресурсом заданного типа. Например:
+- **Запись** позволяет выполнять операции PUT, POST, PATCH и DELETE.
+- **Чтение** позволяет выполнять операции GET. 
+
+В данной статье рассматриваются только различные роли, которые существуют на сегодняшний день. При назначении роли пользователю можно точнее ограничить разрешенные действия, определив их область. Это удобно, если вы хотите привлечь какого-либо пользователя к работе над веб-сайтом, но только для одной группы ресурсов. 
+
 > [!NOTE]
-> Определения ролей Azure постоянно развиваются. Эта статья регулярно обновляется для поддержания актуальности сведений, но вы всегда можете найти последние определения ролей в Azure PowerShell. Используйте командлеты `(get-azurermroledefinition "<role name>").actions` и `(get-azurermroledefinition "<role name>").notactions` по мере необходимости.
->
->
+> Определения ролей Azure постоянно развиваются. Эта статья регулярно обновляется для поддержания актуальности сведений, но вы всегда можете найти последние определения ролей в Azure PowerShell. Используйте командлет [Get AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition), чтобы получить список всех текущих ролей. Можно подробнее изучить определенную роль с помощью `(get-azurermroledefinition "<role name>").actions` или `(get-azurermroledefinition "<role name>").notactions`, если это возможно. Выполните командлет [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation), чтобы вывести список операций определенных поставщиков ресурсов Azure. 
+
 
 | Имя роли | Description (Описание) |
 | --- | --- |
-| [Участник службы управления API](#api-management-service-contributor) |Может управлять службами управления API |
+| [Участник службы управления API](#api-management-service-contributor) |Может управлять службой управления API и интерфейсами API. |
+| [Роль оператора службы управления API](#api-management-service-operator-role) | Может управлять службой управления API, но не интерфейсами API. |
+| [Роль читателя данных службы управления API](#api-management-service-reader-role) | Имеет доступ на чтение к службе управления API и интерфейсам API. |
 | [Участник компонента Application Insights](#application-insights-component-contributor) |Может управлять компонентами Application Insights |
 | [Оператор службы автоматизации](#automation-operator) |Может запускать, останавливать, приостанавливать и возобновлять задания |
 | [Участник резервного копирования](#backup-contributor) | Может управлять резервным копированием в хранилище служб восстановления |
@@ -79,7 +87,41 @@ ms.lasthandoff: 04/26/2017
 
 | **Действия** |  |
 | --- | --- |
-| Microsoft.ApiManagement/Service/* |Создание служб управления API и управление ими |
+| Microsoft.ApiManagement/Service/* |Создание службы управления API и управление ею |
+| Microsoft.Authorization/*/read |Авторизация на чтение |
+| Microsoft.Insights/alertRules/* |Создание правил оповещения и управление ими |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Получение данных о работоспособности ресурсов |
+| Microsoft.Resources/deployments/* |Создание развертываний группы ресурсов и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Чтение ролей и назначений ролей |
+| Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
+
+### <a name="api-management-service-operator-role"></a>Роль оператора службы управления API
+Может управлять службами управления API
+
+| **Действия** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Чтение экземпляров службы управления API. |
+| Microsoft.ApiManagement/Service/backup/action | Архивация службы управления API в указанный контейнер в предоставленной пользователем учетной записи хранения. |
+| Microsoft.ApiManagement/Service/delete | Удаление экземпляра службы управления API. |
+| Microsoft.ApiManagement/Service/managedeployments/action | Изменение номера SKU или единиц. Добавление или удаление региональных развертываний службы управления API. |
+| Microsoft.ApiManagement/Service/read | Чтение метаданных для экземпляра службы управления API. |
+| Microsoft.ApiManagement/Service/restore/action | Восстановление службы управления API из указанного контейнера в предоставленной пользователем учетной записи хранения. |
+| Microsoft.ApiManagement/Service/updatehostname/action | Настройка, обновление или удаление имен личных доменов для службы управления API. |
+| Microsoft.ApiManagement/Service/write | Создание экземпляра службы управления API. |
+| Microsoft.Authorization/*/read |Авторизация на чтение |
+| Microsoft.Insights/alertRules/* |Создание правил оповещения и управление ими |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Получение данных о работоспособности ресурсов |
+| Microsoft.Resources/deployments/* |Создание развертываний группы ресурсов и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Чтение ролей и назначений ролей |
+| Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
+
+### <a name="api-management-service-reader-role"></a>Роль читателя данных службы управления API
+Может управлять службами управления API
+
+| **Действия** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | Чтение экземпляров службы управления API. |
+| Microsoft.ApiManagement/Service/read | Чтение метаданных для экземпляра службы управления API. |
 | Microsoft.Authorization/*/read |Авторизация на чтение |
 | Microsoft.Insights/alertRules/* |Создание правил оповещения и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Получение данных о работоспособности ресурсов |

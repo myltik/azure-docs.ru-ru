@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/15/2017
+ms.date: 04/24/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f635bbd8652b97c1067473e56565bf7c6520a2ba
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: eafde9258222a2ab09ade2e366f9cc595a303dec
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -173,7 +174,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 Перед удалением новой учетной записи пакетной службы или группы ресурсов вы можете просмотреть их на [портале Azure][azure_portal].
 
-Для успешного выполнения примера приложения необходимо зарегистрировать его в клиенте Azure AD на портале Azure и предоставить разрешения для API Azure Resource Manager. Выполните инструкции, описанные в разделе [Authenticate from Batch solutions with Active Directory](batch-aad-auth.md#use-azure-ad-with-batch-service-solutions) (Аутентификация решений пакетной службы в Active Directory).
+Для успешного выполнения примера приложения необходимо зарегистрировать его в клиенте Azure AD на портале Azure и предоставить разрешения для API Azure Resource Manager. Выполните инструкции, описанные в статье [Аутентификация решений по управлению пакетной службой с помощью Active Directory](batch-aad-auth-management.md).
 
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Что такое Microsoft Azure Active Directory?"

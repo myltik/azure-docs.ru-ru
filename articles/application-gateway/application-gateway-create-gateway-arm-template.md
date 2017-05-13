@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 58b3d4a84c06a17eee41385509aa80e820399716
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 0786e54c288f30b0039c1d0b88f5c5b5965eecef
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -74,10 +75,6 @@ ms.lasthandoff: 04/05/2017
   | **wafMode** | Режим брандмауэра веб-приложения.  Доступные варианты: **Предотвращение** или **Защита**.|
   | **wafRuleSetType** | Тип набора правил для WAF.  В настоящее время поддерживается только OWASP. |
   | **wafRuleSetVersion** |Версия набора правил. Поддерживаются только OWASP CRS 2.2.9 и 3.0. |
-
-
-  > [!IMPORTANT]
-  > Шаблоны ARM, хранящиеся в GitHub, со временем могут изменяться. Перед использованием шаблона обязательно его проверьте.
 
 1. Проверьте содержимое раздела **resources** и обратите внимание на следующие свойства.
 
@@ -136,102 +133,80 @@ ms.lasthandoff: 04/05/2017
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Развертывание шаблона диспетчера ресурсов Azure с помощью PowerShell
 
-Если вы ранее не использовали Azure PowerShell, то ознакомьтесь со статьей об [установке и настройке Azure PowerShell](/powershell/azureps-cmdlets-docs). Следуйте инструкциям, приведенным в статье, чтобы войти в Azure и выбрать подписку.
+Если вы ранее не использовали Azure PowerShell, то ознакомьтесь со статьей об [установке и настройке Azure PowerShell](/powershell/azure/overview). Следуйте инструкциям, приведенным в статье, чтобы войти в Azure и выбрать подписку.
 
-### <a name="step-1"></a>Шаг 1
+1. Войдите в PowerShell.
 
-```powershell
-Login-AzureRmAccount
-```
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
-### <a name="step-2"></a>Шаг 2
+1. Просмотрите подписки учетной записи.
 
-Просмотрите подписки учетной записи.
+    ```powershell
+    Get-AzureRmSubscription
+    ```
 
-```powershell
-Get-AzureRmSubscription
-```
+    Вам будет предложено указать свои учетные данные для проверки подлинности.
 
-Вам будет предложено указать свои учетные данные для аутентификации.
+1. Выберите подписку Azure.
 
-### <a name="step-3"></a>Шаг 3.
+    ```powershell
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    ```
 
-Выберите подписку Azure.
+1. При необходимости создайте новую группу ресурсов с помощью командлета **New-AzureResourceGroup** . В примере ниже создается группа ресурсов с именем AppgatewayRG, расположенная в восточной части США.
 
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
+    ```powershell
+    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    ```
 
-### <a name="step-4"></a>Шаг 4.
-
-При необходимости создайте новую группу ресурсов с помощью командлета **New-AzureResourceGroup** . В примере ниже создается группа ресурсов с именем AppgatewayRG, расположенная в восточной части США.
-
-```powershell
-New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
-```
-
-Запустите командлет **New-AzureRmResourceGroupDeployment** , чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили ранее.
-
-```powershell
-New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
--TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-```
+1. Запустите командлет **New-AzureRmResourceGroupDeployment** , чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили ранее.
+    
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+    ```
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>Развертывание шаблона ARM с помощью интерфейса командной строки Azure
 
 Чтобы развернуть шаблон ARM, скачанный с помощью Azure CLI, выполните следующее.
 
-### <a name="step-1"></a>Шаг 1
+1. Если вы еще не использовали Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](/cli/azure/install-azure-cli) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 
-Если вы еще не использовали Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](/cli/azure/install-azure-cli) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. При необходимости выполните команду `az group create`, как показано во фрагменте кода ниже, чтобы создать группу ресурсов. Обратите внимание на результат выполнения команды. В списке, который откроется после выполнения команды, будут указаны используемые параметры. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](../azure-resource-manager/resource-group-overview.md).
 
-### <a name="step-2"></a>Шаг 2
+    ```azurecli
+    az group create --location westus --name appgatewayRG
+    ```
+    
+    **-n (или --name)**. Имя для новой группы ресурсов. В нашем примере это *appgatewayRG*.
+    
+    **-l (или --location)**. Регион Azure, в котором создается группа ресурсов. В нашем примере это *westus*.
 
-При необходимости выполните команду `az group create`, как показано во фрагменте кода ниже, чтобы создать группу ресурсов. Обратите внимание на результат выполнения команды. В списке, который откроется после выполнения команды, будут указаны используемые параметры. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](../azure-resource-manager/resource-group-overview.md).
+1. Выполните командлет `az group deployment create`, чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили на предыдущем шаге. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
 
-```azurecli
-az group create --location westus --name appgatewayRG
-```
-
-**-n (или --name)**. Имя для новой группы ресурсов. В нашем примере это *appgatewayRG*.
-
-**-l (или --location)**. Регион Azure, в котором создается группа ресурсов. В нашем примере это *westus*.
-
-### <a name="step-4"></a>Шаг 4.
-
-Выполните командлет `az group deployment create`, чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили на предыдущем шаге. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
-
-```azurecli
-az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
-```
+    ```azurecli
+    az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
+    ```
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>Развертывание шаблона ARM с помощью интерфейса кнопки развертывания
 
 Развертывание с помощью кнопки развертывания — еще один способ использования шаблонов ARM. Он позволяет быстро и удобно работать с шаблонами на портале Azure.
 
-### <a name="step-1"></a>Шаг 1
+1. Перейдите к статье о [создании шлюза приложений с брандмауэром веб-приложения](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/).
 
-Перейдите к статье о [создании шлюза приложений с брандмауэром веб-приложения](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/).
+1. Нажмите кнопку **Развернуть в Azure**.
 
-### <a name="step-2"></a>Шаг 2
+    ![Развернуть в Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+    
+1. На портале укажите параметры шаблона развертывания и нажмите кнопку **OК**.
 
-Нажмите кнопку **Развернуть в Azure**.
+    ![Параметры](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
+    
+1. Установите флажок **Я принимаю указанные выше условия** и нажмите кнопку **Приобрести**.
 
-![Развернуть в Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
-
-### <a name="step-3"></a>Шаг 3.
-
-На портале укажите параметры шаблона развертывания и нажмите кнопку **OК**.
-
-![parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
-
-### <a name="step-4"></a>Шаг 4.
-
-Установите флажок **Я принимаю указанные выше условия** и нажмите кнопку **Приобрести**.
-
-### <a name="step-5"></a>Шаг 5
-
-В колонке "Настраиваемое развертывание" щелкните **Создать**.
+1. В колонке "Настраиваемое развертывание" щелкните **Создать**.
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>Добавление данных сертификата в шаблоны Resource Manager
 
@@ -239,6 +214,22 @@ az group deployment create --resource-group appgatewayRG --name TestAppgatewayDe
 
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
+```
+
+## <a name="delete-all-resources"></a>Удаление всех ресурсов
+
+Чтобы удалить все ресурсы, созданные в этой статье, выполните одно из следующих действий:
+
+### <a name="powershell"></a>PowerShell
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgatewayRG
+```
+
+### <a name="azure-cli"></a>Инфраструктура CLI Azure
+
+```azurecli
+az group delete --name appgatewayRG
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия

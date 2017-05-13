@@ -13,10 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
-translationtype: Human Translation
-ms.sourcegitcommit: e2257730f0c62dbc0313ce7953fc5f953dae8ac3
-ms.openlocfilehash: f81536322ad1bb16e4af326e0b053da47690619c
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 7aaede3e93938553ee6d372478e3516e72885057
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -136,7 +137,7 @@ $VM | Update-AzureVM
 
 ### <a name="powershell"></a>PowerShell
 
-На портале Azure виртуальные машины можно подключать с помощью командлета [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) в PowerShell.
+На портале Azure виртуальные машины можно подключать с помощью командлета [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) в PowerShell.
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>виртуальные машины Amazon Web Services (AWS);
 
@@ -161,7 +162,7 @@ $VM | Update-AzureVM
 
 Компьютеры под управлением Linux, расположенные локально, в Azure или в облачной службе, отличной от Azure, также можно подключить к службе автоматизации Azure DSC при наличии на них исходящего доступа к Интернету. Для этого требуется выполнить несколько простых шагов.
 
-1. Убедитесь, что на компьютерах, которые будут подключены к службе автоматизации Azure DSC, установлена последняя версия [агента DSC Linux](http://www.microsoft.com/download/details.aspx?id=49150) .
+1. Убедитесь, что на компьютерах, которые будут подключены к службе Azure Automation DSC, установлена последняя версия платформы[PowerShell Desired State Configuration для Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux).
 2. Если [значения по умолчанию локального диспетчера конфигураций PowerShell DSC](https://msdn.microsoft.com/powershell/dsc/metaconfig4) соответствуют требуемым, а подключаемые компьютеры должны извлекать данные из Azure Automation DSC **и** передавать их туда, сделайте следующее:
 
    + На каждом компьютере под управлением Linux, который будет подключен к службе Azure Automation DSC, используйте файл Register.py для подключения с помощью значений по умолчанию локального диспетчера конфигураций DSC PowerShell:
@@ -390,6 +391,6 @@ $VM | Update-AzureVM
 ## <a name="related-articles"></a>Связанные статьи
 
 * [Обзор Azure Automation DSC](automation-dsc-overview.md)
-* [Командлеты Automation DSC Azure](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Командлеты Automation DSC Azure](/powershell/module/azurerm.automation/#automation)
 * [Цены на Automation DSC Azure](https://azure.microsoft.com/pricing/details/automation/)
 

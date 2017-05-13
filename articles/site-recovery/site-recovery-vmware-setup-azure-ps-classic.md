@@ -1,5 +1,5 @@
 ---
-title: " Управление сервером обработки, запущенным в Azure (классическая модель) | Документация Майкрософтs"
+title: " Управление сервером обработки, запущенным в Azure (классическая модель) | Документация Майкрософт"
 description: "В этой статье описывается, как настроить сервер отработки для восстановления размещения (классическая модель) в Azure."
 services: site-recovery
 documentationcenter: 
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 2/2/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: bb24e1c79f6a77ec157fa05a8a212109ce8ae7ad
-ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: cceda131fc9eaa74f6328c8dd68a8e3885877061
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -28,7 +30,7 @@ ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
 При наличии значительной задержки между виртуальной сетью Azure и локальной сетью при восстановлении размещения рекомендуется развертывать сервер обработки в Azure. В этой статье описывается, как выполнить установку, настройку и администрирование серверов обработки, работающих в Azure.
 
 > [!NOTE]
-> В статье описано, как использовать **Resource Manager** как модель развертывания для виртуальных машин при отработке отказа. Если вы используете модель развертывания **Resource Manager**, выполните действия по [установке и настройке сервера обработки для восстановления размещения (модель Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md).
+> Эта статья предназначена для тех, кто использовал классическую модель развертывания для виртуальных машин при отработке отказа. Если вы использовали модель развертывания с помощью Resource Manager, выполните инструкции в разделе [Управление сервером обработки, запущенным в Azure (модель Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -60,9 +62,4 @@ ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Отмена регистрации сервера обработки (запущенного в Azure) на сервере конфигурации (запущенного локально)
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

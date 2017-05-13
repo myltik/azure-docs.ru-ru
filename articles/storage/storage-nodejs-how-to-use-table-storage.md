@@ -14,17 +14,17 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 70830309c33d4a94fc1eb5abb85cba26c8623f88
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f004408910aecc380e20f7da54dbd155d179aaa5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Использование табличного хранилища Azure из Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Обзор
 В этом разделе рассматривается реализация типичных сценариев с помощью службы таблиц Azure в приложении Node.js.
@@ -68,7 +68,7 @@ var azure = require('azure-storage');
 ## <a name="set-up-an-azure-storage-connection"></a>Настройка подключения к службе хранилища Azure
 Модуль Azure считывает переменные среды AZURE\_STORAGE\_ACCOUNT и AZURE\_STORAGE\_ACCESS\_KEY или AZURE\_STORAGE\_CONNECTION\_STRING, чтобы получить информацию, необходимую для подключения к учетной записи хранения Azure. Если эти переменные среды не заданы, при вызове **TableService**необходимо указать сведения об учетной записи.
 
-Пример настройки переменных среды для веб-сайта Azure на [портале Azure](https://portal.azure.com) см. в статье [Веб-приложение Node.js, использующее службу таблиц Azure].
+Пример настройки переменных среды для веб-сайта Azure на [портале Azure](https://portal.azure.com) см. в статье [Веб-приложение Node.js, использующее службу таблиц Azure](../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## <a name="create-a-table"></a>Создание таблицы
 Следующий код создает объект **TableService** и использует его для создания новой таблицы. Добавьте в начало **server.js**следующий код.
@@ -451,15 +451,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ## <a name="next-steps"></a>Дальнейшие действия
 Для получения дополнительных сведений см. следующие ресурсы.
 
-* [Блог рабочей группы службы хранилища Microsoft Azure][Azure Storage Team Blog].
-* Репозиторий [пакета SDK для службы хранилища Microsoft Azure для Node][Azure Storage SDK for Node].
-* [Центр разработчиков Node.js.](/develop/nodejs/)
-
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-[OData.org]: http://www.odata.org/
-[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Веб-приложение Node.js, использующее службу таблиц Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
-[Create and deploy a Node.js application to an Azure website]: ../app-service-web/app-service-web-get-started-nodejs.md
-
+* [Обозреватель хранилищ Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) — это бесплатное автономное приложение от корпорации Майкрософт, позволяющее визуализировать данные из службы хранилища Azure на платформе Windows, macOS и Linux.
+* [Пакет SDK службы хранилища Azure для Node](https://github.com/Azure/azure-storage-node) на веб-сайте GitHub.
+* [центре разработчиков Node.js](/develop/nodejs/)
+* [Создание приложения Node.js и его развертывание на веб-сайт Azure](../app-service-web/app-service-web-get-started-nodejs.md)

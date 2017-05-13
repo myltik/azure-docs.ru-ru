@@ -12,16 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/06/2017
+ms.date: 05/03/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2fe28e7b52af579038ec145c028a6d2796d6cc6e
-ms.openlocfilehash: f47b719f7b1a78264e054ee15edacc32ca35aaf7
-ms.lasthandoff: 02/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 05c5476cbfd616ce47d6d93627c6e7dd4d8a0d6f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Заметки о выпуске Stream Analytics
+
+## <a name="notes-for-05032017-update-of-stream-analytics"></a>Заметки по обновлению Stream Analytics за 03.05.2017
+Это обновление предназначено для нашего выпуска документации по устранению неполадок.
+
+Мы выпустили [руководство по устранению неполадок](stream-analytics-troubleshooting-guide.md) и другие документы. Ознакомьтесь с ними и оставьте свои отзывы.
+
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics от 01.02.2017
 Этот выпуск содержит следующее обновление.
 
@@ -136,7 +143,7 @@ ms.lasthandoff: 02/01/2017
 | Наборы данных PowerBI могут содержать только одну таблицу |PowerBI не поддерживает несколько таблиц в заданном наборе данных. |
 
 ## <a name="get-help"></a>Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)

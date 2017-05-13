@@ -12,12 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 04/26/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 5ae60cb8ba3d391d3babd1ab575b4f32e139a185
-ms.openlocfilehash: f2c9a5ef2a8f517b9b2072be57f4d8c51b7694c6
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2d6ef39ad4678d331eadd2c0bfd6ff93c99da501
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 02/15/2017
 
 - Для проверки подлинности модулей Runbook используется [учетная запись запуска от имени Azure](automation-sec-configure-azure-runas-account.md).  Этот метод проверки подлинности считается самым оптимальным, так как он использует сертификат, а не пароль, который может устареть или часто меняться.  
 
-- С помощью этого решения можно управлять только теми виртуальными машинами, которые принадлежат к той же подписке или группе ресурсов, что и учетная запись службы автоматизации.  
+- С помощью этого решения можно управлять только теми виртуальными машинами, которые принадлежат к той же подписке, что и учетная запись службы автоматизации.  
 
 - Это решение можно развернуть в следующих регионах: юго-восточная Австралия, восточная часть США, Юго-Восточная Азия и Западная Европа.  Модули Runbook, используемые для управления расписанием, могут определять виртуальные машины в любом регионе.  
 
