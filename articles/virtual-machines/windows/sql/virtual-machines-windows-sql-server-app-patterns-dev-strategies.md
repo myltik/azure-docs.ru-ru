@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: lvargas
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1bbcc8517b0e7bf3836e79a3861f83e181eb67e7
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c5d0b7b466c65fb218acd010c13bde061a3abfbf
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -171,7 +172,7 @@ ms.lasthandoff: 03/31/2017
 Подробные сведения и учебники по обеспечению высокого уровня доступности и аварийного восстановления см. в статье [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 ## <a name="2-tier-and-3-tier-using-azure-vms-and-cloud-services"></a>Модель двух- и трехуровневых приложений, использующих виртуальные машины Azure и облачные службы
-В этой модели приложения выполняется развертывание двух- или трехуровневого приложения в Azure с помощью [облачных служб Azure](../../../cloud-services/cloud-services-choose-me.md#tellmecs) (веб и рабочая роли — платформа как услуга (PaaS)) и [виртуальных машин Azure](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (инфраструктура как услуга (IaaS)). Вариант, когда [облачные службы Azure](https://azure.microsoft.com/documentation/services/cloud-services/) используются для уровня представления или бизнес-уровня, а SQL Server на [виртуальных машинах Azure](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) — для уровня данных, хорошо подходит для большинства приложений, работающих в Azure. Причина состоит в том, что наличие вычислительной операции, работающей в облачных службах, упрощает управление, развертывание, отслеживание и горизонтальное масштабирование.
+В этой модели приложения выполняется развертывание двух- или трехуровневого приложения в Azure с помощью [облачных служб Azure](../../../cloud-services/cloud-services-choose-me.md#tellmecs) (веб и рабочая роли — платформа как услуга (PaaS)) и [виртуальных машин Azure](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (инфраструктура как услуга (IaaS)). Вариант, когда [облачные службы Azure](https://azure.microsoft.com/documentation/services/cloud-services/) используются для уровня представления или бизнес-уровня, а SQL Server на [виртуальных машинах Azure](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) — для уровня данных, хорошо подходит для большинства приложений, работающих в Azure. Причина состоит в том, что наличие вычислительной операции, работающей в облачных службах, упрощает управление, развертывание, отслеживание и горизонтальное масштабирование.
 
 Благодаря облачным службам Azure поддерживает инфраструктуру, выполняет плановое обслуживание, применяет исправления для операционных систем и выполняет восстановление после сбоев служб и аппаратных сбоев. Если приложению необходимо горизонтальное масштабирование, для вашего проекта облачной службы можно использовать как ручные, так и автоматические функции горизонтального масштабирования путем увеличения или уменьшения количества экземпляров или виртуальных машин, используемых приложением. Кроме того, можно использовать локальный Visual Studio для развертывания приложения в проекте облачной службы в Azure.
 
