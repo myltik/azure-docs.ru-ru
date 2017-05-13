@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/1/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: a6241afa7398684d9315ab401ecdb5b2abd824c5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 1370fa64c2ddc25d3121c567ceea4828b1e50921
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/22/2017
 - Вы можете включить автоматический вход пользователей в Nexonia (единый вход) с учетной записью Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -117,7 +118,7 @@ ms.lasthandoff: 04/22/2017
     В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`.
 
     > [!NOTE] 
-    > Это значение приведено для справки. Вместо него нужно указать фактический URL-адрес ответа. Чтобы получить это значение, обратитесь в [службу поддержки Nexonia](http://www.nexonia.com/contact-us/). 
+    > Это значение приведено для справки. Вместо него нужно указать фактический URL-адрес ответа. Чтобы получить это значение, обратитесь в [службу поддержки Nexonia](https://nexonia.zendesk.com/hc/requests/new). 
 
 
 4. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
@@ -132,7 +133,7 @@ ms.lasthandoff: 04/22/2017
 
     ![Настройка единого входа](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
 
-7. Чтобы настроить единый вход для своего приложения, обратитесь в [службу поддержки Nexonia](http://www.nexonia.com/contact-us/) и предоставьте следующие сведения:
+7. Чтобы настроить единый вход для своего приложения, обратитесь в [службу поддержки Nexonia](https://nexonia.zendesk.com/hc/requests/new) и предоставьте следующие сведения:
 
     • скачанный **сертификат**
 
@@ -180,7 +181,7 @@ ms.lasthandoff: 04/22/2017
  
 ### <a name="creating-a-nexonia-test-user"></a>Создание тестового пользователя Nexonia
 
-В этом разделе описано, как создать пользователя Britta Simon в приложении Nexonia. Обратитесь в [службу поддержки Nexonia](http://www.nexonia.com/contact-us/), чтобы добавить пользователей на платформу Nexonia. Перед использованием единого входа необходимо создать и активировать пользователей.
+В этом разделе описано, как создать пользователя Britta Simon в приложении Nexonia. Обратитесь в [службу поддержки Nexonia](https://nexonia.zendesk.com/hc/requests/new), чтобы добавить пользователей на платформу Nexonia. Перед использованием единого входа необходимо создать и активировать пользователей.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD

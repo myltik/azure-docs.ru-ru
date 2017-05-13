@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 456c541be7aadcce494bbd54e97deb6f30d5141b
-ms.openlocfilehash: dc9af7e4ef9599886d1be6676f88f71f80c20474
-ms.lasthandoff: 01/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b9df2c3e7f49a47bfd714f28c5ab53590ca9a719
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -49,9 +50,9 @@ ms.lasthandoff: 01/18/2017
 ### <a name="enable-vnet-connection-using-powershell-cmdlets"></a>Активация подключения к виртуальной сети с помощью командлетов PowerShell
 Подключение к виртуальной сети можно также активировать с помощью командлетов PowerShell.
 
-* **Создание службы управления API в виртуальной сети**. Чтобы создать в виртуальной сети службу управления API Azure и настроить для нее внутренний режим виртуальной сети, используйте командлет [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/new-azurermapimanagement).
+* **Создание службы управления API в виртуальной сети**. Чтобы создать в виртуальной сети службу управления API Azure и настроить для нее внутренний режим виртуальной сети, используйте командлет [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement).
 
-* **Развертывание существующей службы управления API в виртуальной сети**. Чтобы переместить в виртуальную сеть существующую службу управления API Azure и настроить для нее внутренний режим виртуальной сети, используйте командлет [Update-AzureRmApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/update-azurermapimanagementdeployment).
+* **Развертывание существующей службы управления API в виртуальной сети**. Чтобы переместить в виртуальную сеть существующую службу управления API Azure и настроить для нее внутренний режим виртуальной сети, используйте командлет [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment).
 
 ## <a name="apim-dns-configuration"></a>Настройка DNS
 Когда вы используете управление API во внешнем режиме виртуальной сети, службой DNS управляет Azure. Чтобы использовать внутренний режим виртуальной сети, управлять DNS вы должны самостоятельно.
@@ -62,23 +63,23 @@ ms.lasthandoff: 01/18/2017
 ### <a name="access-on-default-host-names"></a>По умолчанию используются такие имена узлов:
 Например, при создании службы управления API в общедоступном облаке Azure с именем contoso будут по умолчанию настроены следующие конечные точки службы:
 
->   шлюз или прокси — contoso.azure api.net;
+>    шлюз или прокси — contoso.azure api.net;
 
 > портал издателя и портал для разработчиков — contoso.portal.azure api.net;
 
 > конечная точка прямого управления — contoso.management.azure api.net;
 
->   Git — contoso.scm.azure-api.net.
+>    Git — contoso.scm.azure-api.net.
 
 Для получения доступа к этим конечным точкам службы управления API, можно создать виртуальную машину в подсети, подключенной к виртуальной сети, в которой развернута служба управления API. Если для службы используется внутренний виртуальный IP-адрес 10.0.0.5, в файле hosts (расположен по адресу %системный_диск%\drivers\etc\hosts) можно задать следующие сопоставления:
 
-> 10.0.0.5    contoso.azure-api.net
+> 10.0.0.5      contoso.azure-api.net
 
-> 10.0.0.5    contoso.portal.azure-api.net
+> 10.0.0.5      contoso.portal.azure-api.net
 
-> 10.0.0.5    contoso.management.azure-api.net
+> 10.0.0.5      contoso.management.azure-api.net
 
-> 10.0.0.5    contoso.scm.azure-api.net
+> 10.0.0.5      contoso.scm.azure-api.net
 
 Теперь с созданной виртуальной машины вы сможете обращаться к любой из конечных точек службы. Если вы используете пользовательский DNS-сервер в виртуальной сети, можно создать соответствующие записи DNS типа A. Тогда доступ к конечным точкам будет возможен из любого расположения в пределах виртуальной сети. 
 

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/06/2017
+ms.date: 05/02/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: db219c8bd8d9bf1ba343fe363047a23eabad823c
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 85a59eddf3c453ee112f279d439c94853b2f62b5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -171,7 +172,7 @@ Azure Active Directory применяет обе политики, и польз
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Работает ли условный доступ с Exchange Active Sync?
 
-Нет. На данном этапе можно использовать Exchange ActiveSync в политике условного доступа.
+Да. Exchange ActiveSync можно использовать в политике условного доступа.
 
 
 ### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>Что если мне требуется Многофакторная идентификация или совместимое устройство?

@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1e680679086d54a2c6b10be7635e997ac61bacd5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,10 +36,8 @@ ms.openlocfilehash: 1e680679086d54a2c6b10be7635e997ac61bacd5
 
 ## <a name="scaling-manually"></a>Масштабирование вручную
 1. На [портале Azure](https://portal.azure.com/) нажмите кнопку **Обзор**, перейдите к ресурсу, который требуется масштабировать, например **плану службы приложений**.
-2. Плитка**Масштаб** в разделе **Операции** отображает состояние масштабирования: **Выкл.** для масштабирования вручную, **Вкл.** для масштабирования по одной или нескольким метрикам производительности.
-   
-    ![Плитка "Масштаб"](./media/insights-how-to-scale/Insights_UsageLens.png)
-3. Щелкните эту плитку, чтобы открыть колонку **Масштаб** . В верхней части колонки масштаба находится журнал действий автомасштабирования для службы.
+2. Щелкните **Параметры > Развертывание (план службы приложений).**
+3. В верхней части колонки **Масштаб** находится журнал действий автомасштабирования для службы.
    
     ![Выноска "Масштаб"](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -129,10 +129,5 @@ ms.openlocfilehash: 1e680679086d54a2c6b10be7635e997ac61bacd5
 * [Отслеживайте производительность приложения](../application-insights/app-insights-azure-web-apps.md) , чтобы точно понять, как ваш код работает в облаке.
 * [Просматривайте журналы событий и действий](insights-debugging-with-events.md), чтобы знать обо всем, что произошло в службе.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

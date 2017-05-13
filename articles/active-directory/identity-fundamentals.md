@@ -4,17 +4,18 @@ description:
 keywords: 
 author: jeffgilb
 manager: femila
-ms.date: 3/28/2017
+ms.date: 5/1/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.reviewer: jsnow
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 222259e1f7c5a8796fd9f652cf5e050e75d4ce49
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: bc67058d026219d676430a55fe8cfdd3f09cf295
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -53,7 +54,8 @@ Azure AD [расширяет локальную службу Active Directory](h
 
 Система условного доступа в Azure AD Premium дает корпоративным администраторам возможность создавать правила доступа на основе политик для любых приложений, подключенных к Azure AD (приложения SaaS, облачные пользовательские приложения или локальные веб-приложения). Azure AD оценивает эти политики в режиме реального времени и применяет их каждый раз, когда пользователь пытается получить доступ к приложению. Политики защиты удостоверений Azure позволяют автоматически предпринять меры при обнаружении подозрительных действий, включая блокировку доступа для пользователей с высоким уровнем риска, применять Многофакторную идентификацию и сбрасывать пароли при возможной компрометации учетных данных.
 
-## <a name="azure-active-directory-privileged-identify-management"></a>Управление привилегированными пользователями в Azure Active Directory
+
+## <a name="azure-active-directory-privileged-identity-management"></a>Управление привилегированными удостоверениями в Azure Active Directory
 
 Возможность [управления привилегированными пользователями](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started), включенная в предложение Azure Active Directory Premium P2, позволяет обнаруживать, ограничивать и отслеживать учетные записи администратора и доступ этих учетных записей к ресурсам в Azure Active Directory и других веб-службах корпорации Майкрософт. Эта возможность также помогает управлять административным доступом по запросу в течение точно определенного времени.
 

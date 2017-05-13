@@ -1,5 +1,5 @@
 ---
-title: "Установка записной книжки Jupyter локально и ее подключение к кластеру Azure Spark | Документация Майкрософт"
+title: "Установка записной книжки Jupyter в локальной среде и ее подключение к кластеру Azure HDInsight Spark | Документация Майкрософт"
 description: "Узнайте, как установить записную книжку Jupyter на компьютере локально и как подключить ее к кластеру Apache Spark в Azure HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -14,18 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 26cdaf4dc68876fa2bed4ca15d8bfb7fd3ac4b6d
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 689bcb86a5eb4476cb62516f623cd23702cd6bc9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight"></a>Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в HDInsight
 
-В этой статье вы узнаете, как установить записную книжку Jupyter с пользовательскими ядрами PySpark (для Python) и Spark (для Scala) с помощью волшебной команды Spark и как подключить записную книжку к кластеру HDInsight. Существуют разные причины для установки Jupyter на локальном компьютере, но есть и некоторые трудности. Список причин и возможных проблем приводится в разделе [Зачем устанавливать Jupyter на моем компьютере?](#why-should-i-install-jupyter-on-my-computer) в конце этой статьи.
+Из этой статьи вы узнаете, как установить записную книжку Jupyter с пользовательскими ядрами PySpark (для Python) и Spark (для Scala) с помощью волшебной команды Spark, а затем подключить эту записную книжку к кластеру HDInsight. Существуют разные причины для установки Jupyter на локальном компьютере, но есть и некоторые трудности. Дополнительные сведения см. в разделе [Зачем устанавливать Jupyter на компьютер?](#why-should-i-install-jupyter-on-my-computer) в конце этой статьи.
 
 Для установки Jupyter и волшебной команды Spark на ваш компьютер необходимо выполнить три основных действия.
 
@@ -42,7 +43,8 @@ ms.lasthandoff: 01/24/2017
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Установка записной книжки Jupyter на компьютер
-Перед установкой записных книжек Jupyter необходимо установить Python. Python и Jupyter доступны в составе [дистрибутива Ananconda](https://www.continuum.io/downloads). Дистрибутив Python фактически устанавливается при установке Anaconda. После установки Anaconda выполните следующую команду для установки Jupyter. Этот раздел содержит инструкции, которые необходимо выполнить.
+
+Перед установкой записных книжек Jupyter необходимо установить Python. Python и Jupyter доступны в составе [дистрибутива Ananconda](https://www.continuum.io/downloads). При установке Anaconda устанавливается дистрибутив Python. После установки Anaconda выполните соответствующие команды для установки Jupyter.
 
 1. Скачайте [установщик Anaconda](https://www.continuum.io/downloads) для своей платформы и запустите программу установки. В мастере установки укажите параметр для добавления Anaconda в переменную PATH.
 2. Выполните следующую команду для установки Jupyter.
@@ -52,13 +54,15 @@ ms.lasthandoff: 01/24/2017
     Дополнительные сведения об установке Jupyter см. [здесь](http://jupyter.readthedocs.io/en/latest/install.html).
 
 ## <a name="install-the-kernels-and-spark-magic"></a>Установка ядер и волшебной команды Spark
-Инструкции по установке волшебных команд Spark, а также ядер PySpark и Spark см. в [документации по sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) на сайте GitHub.
 
-Для кластеров версии 3.4 установите sparkmagic 0.5.0, выполнив команду `pip install sparkmagic==0.2.3`.
+Инструкции по установке волшебной команды Spark, а также ядер PySpark и Spark, см. в [документации по sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) на сайте GitHub. Чтобы начать использовать волшебную команду Spark, ее сначала нужно установить. Это — первый шаг, описанный в документации. Замените этот шаг в ссылке выше приведенными ниже командами с учетом версии кластера HDInsight, к которому вы подключитесь. После этого выполните остальные шаги в соответствии с документацией по волшебной команде Spark. Для установки разных ядер необходимо выполнить шаг 3 из раздела инструкций по установке волшебной команды Spark.
 
-Для кластеров версии 3.5 установите sparkmagic 0.8.4, выполнив команду `pip install sparkmagic==0.8.4`.
+* Для кластеров версии 3.4 установите sparkmagic версии 0.2.3, выполнив команду `pip install sparkmagic==0.2.3`
+
+* Для кластеров версий 3.5 и 3.6 установите sparkmagic версии 0.11.2, выполнив команду `pip install sparkmagic==0.11.2`
 
 ## <a name="configure-spark-magic-to-access-the-hdinsight-spark-cluster"></a>Настройка волшебной команды Spark для доступа к кластеру Spark в HDInsight
+
 В этом разделе вы настроите подключение волшебной команды Spark, установленную ранее, к кластеру Apache Spark, который вы уже создали в Azure HDInsight.
 
 1. Сведения о конфигурации Jupyter обычно хранятся в домашнем каталоге пользователей. Чтобы найти домашний каталог, введите следующие команды (они подходят для любой платформы ОС).
@@ -88,19 +92,17 @@ ms.lasthandoff: 01/24/2017
           }
         }
 
-4. Замените **{USERNAME}**, **{CLUSTERDNSNAME}** и **{BASE64ENCODEDPASSWORD}** соответствующими значениями. Для создания пароля в кодировке base64 вы можете воспользоваться различными служебными программами для своего любимого языка программирования или интернет-ресурсами. Например, простой фрагмент на Python для запуска из командной строки может выглядеть так:
-
-        python -c "import base64; print(base64.b64encode('{YOURPASSWORD}'))"
+4. Замените **{USERNAME}**, **{CLUSTERDNSNAME}** и **{BASE64ENCODEDPASSWORD}** соответствующими значениями. Для создания пароля в кодировке base64 вы можете использовать разные служебные программы на предпочитаемом языке программирования или средства, доступные в Интернете.
 
 5. Правильно настройте параметры пульса в `config.json`. Эти параметры необходимо добавить на одном уровне с фрагментами `kernel_python_credentials` и `kernel_scala_credentials`, которые были добавлены ранее. В этом [примере файла config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json) показано, как и где добавляются параметры пульса.
 
-    * Для `sparkmagic 0.5.0` (кластеры версии 3.4) добавьте:
+    * Для `sparkmagic 0.2.3` (кластеры версии 3.4) добавьте:
 
             "should_heartbeat": true,
             "heartbeat_refresh_seconds": 5,
             "heartbeat_retry_seconds": 1
 
-    * Для `sparkmagic 0.8.4` (кластеры версии 3.5) добавьте:
+    * Для `sparkmagic 0.11.2` (кластеры версий 3.5 и 3.6) добавьте:
 
             "heartbeat_refresh_seconds": 5,
             "livy_server_heartbeat_timeout_seconds": 60,
@@ -115,19 +117,16 @@ ms.lasthandoff: 01/24/2017
 
 7. Убедитесь, что вы можете подключиться к кластеру с помощью записной книжки Jupyter и использовать волшебную команду Spark с ядрами. Выполните следующие действия.
 
-   1. Создайте новую записную книжку. В правом верхнем углу щелкните **Создать**. Вы должны увидеть ядро по умолчанию **Python2** и два новых ядра, которые вы установили: **PySpark** и **Spark**.
+    а. Создайте новую записную книжку. В правом верхнем углу щелкните **Создать**. Вы должны увидеть ядро по умолчанию **Python2** и два новых ядра, которые вы установили: **PySpark** и **Spark**. Щелкните **PySpark**.
 
-       ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Создание записной книжки Jupyter")
+    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Создание записной книжки Jupyter")
 
-        Щелкните **PySpark**.
+    b. Запустите следующий фрагмент кода.
 
+        %%sql
+        SELECT * FROM hivesampletable LIMIT 5
 
-    2. Запустите следующий фрагмент кода.
-
-            %%sql
-            SELECT * FROM hivesampletable LIMIT 5
-
-        Если вы успешно получили выходные данные, подключение к кластеру HDInsight работает.
+    Если вы успешно получили выходные данные, подключение к кластеру HDInsight работает.
 
     >[!TIP]
     >Если вы хотите обновить конфигурацию записной книжки для подключения к другому кластеру, измените файл config.json, указав новый набор значений, как показано на шаге 3.

@@ -4,7 +4,7 @@ description: "Для виртуальных машин Windows и Linux, раб�
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
-manager: jochan
+manager: ewinner
 editor: 
 ms.assetid: ca39e586-a6af-42fe-862e-80978a58d9b1
 ms.service: log-analytics
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 87e888bf3d7355b36c42e8787abe9bf1cb191fcd
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 1cab9d2f814e0c36dadcdd7bbc3cdc736de0af49
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -64,7 +65,7 @@ ms.lasthandoff: 04/03/2017
    ![Подключено](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
 ## <a name="enable-the-vm-extension-using-powershell"></a>Включение расширения виртуальной машины с помощью PowerShell
-Настраивая виртуальную машину с помощью PowerShell, вам нужно указать **идентификатор** и **ключ** рабочей области. Обратите внимание, что для имен свойств в конфигурации JSON следует **учитывать регистр**.
+Настраивая виртуальную машину с помощью PowerShell, вам нужно указать **идентификатор** и **ключ** рабочей области. Для имен свойств в конфигурации JSON следует **учитывать регистр**.
 
 Идентификатор и ключ можно найти на странице **Параметры** портала OMS или с помощью PowerShell, как показано в предыдущем примере.
 
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/03/2017
 
 Для классических виртуальных машин используйте следующий пример команды PowerShell:
 
-```
+```PowerShell
 Add-AzureAccount
 
 $workspaceId = "enter workspace ID here"
@@ -90,9 +91,14 @@ $vm = Get-AzureVM –ServiceName $hostedService
 # Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'OmsAgentForLinux' -Version '1.*' -PublicConfiguration "{'workspaceId': '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
 ```
 
+Для виртуальных машин Linux, созданных с помощью Resource Manager, используйте следующую команду интерфейса командной строки:
+```azurecli
+az vm extension set --resource-group myRGMonitor --vm-name myMonitorVM --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --version 1.3 --protected-settings ‘{"workspaceKey": "<workspace-key>"}’ --settings ‘{"workspaceId": "<workspace-id>"}’ 
+```
+
 Для моделей виртуальных машин, созданных с помощью Resource Manager, используйте следующий пример команды PowerShell:
 
-```
+```PowerShell
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
@@ -122,8 +128,9 @@ $location = $vm.Location
 
 ```
 
+
 ## <a name="deploy-the-vm-extension-using-a-template"></a>Развертывание расширения виртуальной машины с помощью шаблона
-С помощью Azure Resource Manager можно создать простой шаблон (в формате JSON), определяющий развертывание и конфигурацию приложения. Этот шаблон, который также называется шаблоном диспетчера ресурсов, предоставляет декларативный способ определения развертывания. Такой шаблон позволяет повторно развертывать приложение в течение его жизненного цикла и гарантирует согласованное развертывание ресурсов.
+С помощью Azure Resource Manager можно создать шаблон (в формате JSON), определяющий развертывание и конфигурацию приложения. Этот шаблон, который также называется шаблоном диспетчера ресурсов, предоставляет декларативный способ определения развертывания. Такой шаблон позволяет повторно развертывать приложение в течение его жизненного цикла и гарантирует согласованное развертывание ресурсов.
 
 Включив агент Log Analytics в шаблон Resource Manager, можно обеспечить предварительную настройку каждой виртуальной машины для отправки отчетов в рабочую область Log Analytics.
 
@@ -135,7 +142,7 @@ $location = $vm.Location
 * Раздел расширения ресурса Microsoft.EnterpriseCloud.Monitoring.
 * Выходные данные выполняют поиск workspaceId и workspaceSharedKey.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -362,7 +369,7 @@ $location = $vm.Location
 
 Развернуть шаблон можно с помощью следующей команды PowerShell:
 
-```
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
@@ -394,7 +401,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 3. Просмотрите файлы журнала расширения виртуальной машины Microsoft Monitoring Agent в папке `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
 4. Убедитесь, что на виртуальной машине можно запускать сценарии PowerShell.
 5. Убедитесь, что разрешения на доступ к папке C:\Windows\temp не были изменены.
-6. Просмотрите состояние агента Microsoft Monitoring Agent. Для этого на виртуальной машине в окне PowerShell с повышенными правами введите следующий код `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
+6. Просмотрите состояние агента Microsoft Monitoring Agent. Для этого на виртуальной машине в окне PowerShell с повышенными правами введите следующую команду: `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Просмотрите файлы журнала установки агента Microsoft Monitoring Agent в папке `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
 
 Подробные сведения см. в статье об [устранении неполадок расширений для виртуальных машин Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

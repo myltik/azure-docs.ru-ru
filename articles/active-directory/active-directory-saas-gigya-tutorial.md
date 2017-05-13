@@ -13,9 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
-ms.openlocfilehash: 96eb66f35a91e769418d179b0997cd32e02cdc97
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 21372b8554901594f6770ef1ad18467801ef5fea
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -125,29 +127,8 @@ ms.openlocfilehash: 96eb66f35a91e769418d179b0997cd32e02cdc97
    
 ## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
-Чтобы пользователи Azure AD могли выполнять вход в Gigya, они должны быть подготовлены для Gigya.  
-В случае с Gigya подготовка выполняется вручную.
+Пользователи Azure AD автоматически подготавливаются во время их первого входа в Gigya.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Чтобы подготовить учетные записи пользователей, выполните следующие действия:
-1. Выполните вход на корпоративный веб-сайт **Gigya** в качестве администратора.
-2. Последовательно выберите **Admin \> Manage Users** (Администратор > Управление пользователями) и нажмите кнопку **Invite Users** (Пригласить пользователей).
-   
-    ![Управление пользователями](./media/active-directory-saas-gigya-tutorial/IC789535.png "Управление пользователями")
-
-3. В диалоговом окне "Пригласить пользователей" выполните следующие действия.
-   
-    ![Приглашение пользователей](./media/active-directory-saas-gigya-tutorial/IC789536.png "приглашение пользователей")
-   
-    а. В текстовое поле **Электронная почта** введите адрес электронной почты действующей учетной записи Azure Active Directory, которую вы хотите подготовить.
-    
-    b. Нажмите кнопку **Пригласить пользователя**.
-      
-    > [!NOTE]
-    > Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи.
-    > 
-    > 
-
- 
 
 ## <a name="assigning-users"></a>Назначение пользователей
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
@@ -163,10 +144,5 @@ ms.openlocfilehash: 96eb66f35a91e769418d179b0997cd32e02cdc97
     ![Да](./media/active-directory-saas-gigya-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

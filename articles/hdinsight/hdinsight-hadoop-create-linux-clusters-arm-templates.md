@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/14/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 96a968ea3f7bb8f3fbb8abb9b061bdc885776d68
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 1c095ece98c09290992ffeaca1f7b91a87a78818
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -38,9 +39,6 @@ ms.lasthandoff: 04/21/2017
 * Azure PowerShell и (или) Azure CLI.
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
-
-### <a name="access-control-requirements"></a>Требования к контролю доступа
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ### <a name="resource-manager-templates"></a>Шаблоны диспетчера ресурсов
 Шаблон Resource Manager упрощает создание для приложения приведенных ниже компонентов с помощью отдельной скоординированной операции:
@@ -166,6 +164,10 @@ ms.lasthandoff: 04/21/2017
  С помощью Visual Studio можно создать проект группы ресурсов и развернуть его в Azure, используя пользовательский интерфейс. Выберите тип ресурсов, добавляемых в проект. Эти ресурсы автоматически добавляются в шаблон Resource Manager. Проект также предоставляет сценарий PowerShell для развертывания шаблона.
 
 Обзорные сведения об использовании групп ресурсов в Visual Studio см. в статье [Создание и развертывание групп ресурсов Azure с помощью Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+
+## <a name="troubleshoot"></a>Устранение неполадок
+
+Если при создании кластеров HDInsight возникли проблемы, см. раздел [Создание кластеров](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами создания кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:

@@ -1,6 +1,6 @@
 ---
 title: "Сообщения об ошибке трассировки стека Hadoop | Документация Майкрософт"
-description: "Указатель сообщений об ошибке трассировки стека в Hadoop. Найдите ошибку в списке, чтобы просмотреть сведения об устранении неполадок."
+description: "Указатель сообщений об ошибке трассировки стека в Azure HDInsight. Найдите ошибку в списке, чтобы просмотреть сведения об устранении неполадок."
 keywords: "Трассировка стека, сообщения об ошибке"
 services: hdinsight
 documentationcenter: NA
@@ -14,12 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-ms.date: 02/22/2017
-ms.author: rashimg;jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 35e11e1f48abd9b8ed8dbc9a00c2d752533cdd75
-ms.lasthandoff: 11/17/2016
+ms.date: 04/26/2017
+ms.author: gao
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: bc6f7904e6307477eb90bb0ca74be19a9c76eb35
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 11/17/2016
 Статьи упорядочены по типу ошибок.
 
 ## <a name="out-of-memory-error"></a>Ошибка нехватки памяти
-* [Fix an Out of Memory (OOM) error with Hive settings](hdinsight-hadoop-hive-out-of-memory-error-oom.md): устранение ошибки нехватки памяти, возникшей из-за запроса Hive. Пользовательский сценарий включает в себя запрос ко множеству больших таблиц.
+* [Устранение ошибки нехватки памяти (OOM) с помощью параметров памяти Hive в Hadoop в Azure HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md) — устранение ошибки нехватки памяти, возникшей из-за запроса Hive. Пользовательский сценарий включает в себя запрос ко множеству больших таблиц.
 
 ## <a name="hive-query-performance"></a>Производительность запросов Hive
 * [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md)(Оптимизация запросов Hive для Hadoop в HDInsight): в этой статье описывается несколько наиболее распространенных методов оптимизации производительности Hive, которые можно применить к запросам Hive.

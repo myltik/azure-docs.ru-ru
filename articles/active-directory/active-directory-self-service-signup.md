@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d517f434fe81617061d37a5b60f4e49806948005
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 63818878e01dd52a988e10a6e4f624638ea1cfae
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -91,7 +93,7 @@ ms.openlocfilehash: d517f434fe81617061d37a5b60f4e49806948005
 
 Как администратор управляемого каталога вы добавляете домен, и у этого домена есть неуправляемый каталог, связанный с ним.
 
-Предположим, что вы являетесь ИТ-администратором и у вас уже имеется управляемый каталог для доменного имени Contoso.com, которое зарегистрировано для вашей организации. Вы обнаруживаете, что пользователи из вашей организации самостоятельно зарегистрировались для предложения с помощью доменного имени электронной почты user@contoso.co.uk,, которое также используется в качестве дополнительного доменного имени, принадлежащего вашей организации. В настоящее время у этих пользователей есть учетные записи в неуправляемом каталоге для домена contoso.co.uk.
+Предположим, что вы являетесь ИТ-администратором и у вас уже имеется управляемый каталог для доменного имени Contoso.com, которое зарегистрировано для вашей организации. Вы обнаруживаете, что пользователи из вашей организации самостоятельно зарегистрировались для предложения с помощью доменного имени электронной почты user@contoso.co.uk, которое также используется в качестве дополнительного доменного имени, принадлежащего вашей организации. В настоящее время у этих пользователей есть учетные записи в неуправляемом каталоге для домена contoso.co.uk.
 
 Если вы не хотите управлять двумя отдельными каталогами, объедините неуправляемый каталог для contoso.co.uk с каталогом для contoso.com, управляемым ИТ-службой.
 
@@ -193,19 +195,14 @@ ms.openlocfilehash: d517f434fe81617061d37a5b60f4e49806948005
 
 ![][1]
 
-Дополнительные сведения об этих параметрах и примеры их использования см. в статье [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
+Дополнительные сведения об этих параметрах и примеры их использования см. в статье [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 ## <a name="see-also"></a>См. также
-* [Установка и настройка Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Справка по командлетам Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
-* [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
+* [Установка и настройка Azure PowerShell](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Справка по командлетам Azure](/powershell/azure/get-started-azureps)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

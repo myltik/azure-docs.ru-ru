@@ -1,67 +1,96 @@
 ---
-title: "Начало работы с Центром Интернета вещей Azure | Документация Майкрософт"
-description: "Сведения по началу работы со службой Центра Интернета вещей"
+title: "Центр Интернета вещей Azure — подключение устройств Интернета вещей к облаку | Документация Майкрософт"
+description: "Сведения о подключении устройств Интернета вещей к Центру Интернета вещей в Azure. Устройства могут отправлять данные телеметрии в Центр Интернета вещей, который, в свою очередь, может отслеживать эти устройства и управлять ими."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
 manager: timlt
 editor: 
+keywords: "Руководство по работе с Центром Интернета вещей Azure"
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 04/28/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d7360c3d41a0e4cf0d182e510d6bc2fccd915dd1
-ms.openlocfilehash: 51ac0c0d3a91070fc8f5b3892409af838e91068e
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: aeb0b665b8295bba30d8c6c47cc88e446693c91f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/01/2017
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-or-azure-iot-gateway-sdk"></a>Начало работы с Центром Интернета вещей Azure или пакетом SDK для шлюза Центра Интернета вещей Azure
+# <a name="azure-iot-hub-get-started-tutorials"></a>Руководства по началу работы с Центром Интернета вещей Azure
 
-Вы можете выбрать одно из нескольких руководств, чтобы приступить к работе со службой Центра Интернета вещей или пакетом SDK для шлюза.
+С помощью Центра Интернета вещей и пакетов SDK для устройств Azure IoT можно создавать решения для Интернета вещей (IoT).
 
-## <a name="iot-hub"></a>Центр IoT
+* Центр Интернета вещей — это полностью управляемая облачная служба, которая безопасно подключается к устройствам IoT, отслеживает их и управляет ими. С помощью пакетов SDK для устройств Azure IoT можно реализовывать устройства IoT.
+* С помощью шлюза IoT можно реализовывать более сложные сценарии IoT, в которых необходимо учитывать такие факторы, как устаревшие устройства, затраты на пропускную способность, политики безопасности и конфиденциальности или обработку граничных данных. В этих сценариях с помощью пакета SDK для шлюза Azure IoT вы можете создавать шлюзы устройств для подключения этих устройств к Центру Интернета вещей.
 
-Центр IoT Azure — это полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств Интернета вещей (IoT) и серверной частью решения.
+## <a name="what-do-the-tutorials-cover"></a>Что описывается в руководствах
 
-Чтобы начать работу со службой Центра Интернета вещей, можно:
+В этих руководствах представлены общие сведения о Центре Интернета вещей Azure и пакетах SDK для устройств. Также описаны распространенные сценарии с использованием IoT, в которых демонстрируются возможности Центра Интернета вещей. В руководствах также объясняется, как объединить Центр Интернета вещей с другими службами и средствами Azure для создания более мощных решений IoT. Для работы с этими руководствами вы можете использовать виртуальные или физические устройства IoT. Кроме того, вы узнаете, как использовать шлюз, чтобы подключить устройство к Центр Интернета вещей.
 
-- Выполнить действия в руководстве, где используется виртуальное устройство, выполняемое на компьютере разработки. Выберите руководство по началу работы в соответствии с требуемым языком программирования: [.NET][lnk-dotnet], [Java][lnk-java] или [Node.js][lnk-nodejs].
+## <a name="device-setup-scenario-connect-iot-device-or-gateway-to-azure-iot-hub"></a>Сценарий с настройкой устройства: подключение устройства IoT или шлюза к Центру Интернета вещей Azure
 
-- Выполнить действия в руководстве, где используется физическое устройство. Выберите руководство по началу работы в соответствии с требуемой аппаратной платформой: [Raspberry Pi][lnk-rasp-pi], [Intel Edison][lnk-edison] или [Arduino][lnk-arduino]. Эти руководства содержат сведения о получении аппаратных устройств.
+Чтобы приступить к работе, выберите физическое или виртуальное устройство.
 
-- Ознакомиться со сведениями об использовании языка C для разработки устройств Центра Интернета вещей в статье [Пакет SDK для устройств Azure IoT для C][lnk-c-intro].
+| Устройство IoT                       | Язык программирования |
+|---------------------------------|----------------------|
+| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C]           |
+| Intel Edison                    | [Node.js][Ed_Nd], [C][Ed_C]           |
+| Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
+| Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
+| Adafruit Feather M0             | [Arduino][M0_Ard]              |
+| Виртуальное устройство                | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth]              |
 
-## <a name="gateway-sdk"></a>Пакет SDK для шлюза
+Кроме того, можно использовать шлюз, чтобы устройство могло подключаться к Центру Интернета вещей.
 
-Вы можете использовать пакет SDK для шлюза, чтобы создать настраиваемый полевой шлюз. Шлюз может выполнять аналитику, принимать срочные решения, позволяющие уменьшить задержку, предоставлять службы управления устройствами, применять ограничения для безопасности и конфиденциальности, а также преобразовывать протоколы.
+| Устройство шлюза               | Язык программирования | Платформа         |
+|------------------------------|----------------------|------------------|
+| Intel NUC (модель DE3815TYKE) | C                    | [Wind River Linux][NUC_Lnx] |
+| Виртуальное устройство            | C                    | [Linux][Sim_Lnx], [Windows][Sim_Win] |
 
-Чтобы начать работу с пакетом SDK для шлюза, можно:
+## <a name="extended-iot-scenarios-use-other-azure-services-and-tools"></a>Расширенные сценарии IoT: использование других служб и средств Azure
 
-- Выполнить действия в руководстве, где используется виртуальный шлюз, выполняемый на компьютере разработки. Вы можете выбрать руководство по началу работы для [Linux][lnk-linux] или [Windows][lnk-windows].
+Подключив устройство к Центру Интернета вещей, вы можете реализовать дополнительные сценарии с использованием других средств и служб Azure:
 
-- Выполнить действия в руководстве, где используется физическое устройство. Вы можете выбрать руководство по началу работы, где используется [виртуальное устройство с Intel NUC (Next Unit of Computing)][lnk-gateway-sim] или [устройство SensorTag с Intel NUC][lnk-gateway-tag].
+| Сценарий                                    | Служба или средство Azure              |
+|---------------------------------------------|------------------------------------|
+| [Управление сообщениями Центра Интернета вещей][Mg_IoT_Hub_Msg]                    | Средство iothub-explorer               |
+| [Управление устройством IoT][Mg_IoT_Dv]               | Средство iothub-explorer               |
+| [Сохранение сообщений Центра Интернета вещей в службе хранилища Azure][Sv_IoT_Msg_Stor]                      | Хранилище таблиц Azure               |
+| [Визуализации данных датчика][Vis_Data]             | Microsoft Power BI, веб-приложения Azure |
+| [Прогноз погоды на основе данных датчика][Weather_Forecast] | Машинное обучение Azure             |
+| [Автоматическое обнаружение аномалий и реагирование на них][Anomaly_Detect]    | Azure Logic Apps                   |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-По окончании работы с руководствами по началу работы можно узнать о дополнительных возможностях Центра Интернета вещей и пакета SDK для шлюза в [руководствах разработчика][lnk-devguide] и [практических руководствах][lnk-howto].
+Завершив работу с этими руководствами, вы можете продолжить изучать возможности Центра Интернета вещей. Дополнительные сведения см. в [руководстве для разработчика][lnk-dev-guide]. Другие руководства см. в [этом практическом руководстве][lnk-how-to].
 
-[lnk-dotnet]: ./iot-hub-csharp-csharp-getstarted.md
-[lnk-java]: ./iot-hub-java-java-getstarted.md
-[lnk-nodejs]: ./iot-hub-node-node-getstarted.md
-[lnk-c-intro]: ./iot-hub-device-sdk-c-intro.md
-[lnk-rasp-pi]: ./iot-hub-raspberry-pi-kit-node-get-started.md
-[lnk-edison]: ./iot-hub-intel-edison-kit-node-get-started.md
-[lnk-arduino]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
-[lnk-linux]: ./iot-hub-linux-gateway-sdk-get-started.md
-[lnk-windows]: ./iot-hub-windows-gateway-sdk-get-started.md
-[lnk-gateway-sim]: ./iot-hub-gateway-kit-c-sim-get-started.md
-[lnk-gateway-tag]: ./iot-hub-gateway-kit-c-get-started.md
-[lnk-devguide]: ./iot-hub-devguide.md
-[lnk-howto]: ./iot-hub-how-to.md
 
+[Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
+[Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
+[Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
+[Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
+[Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
+[Th_Ard]: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
+[M0_Ard]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
+[Sim_NET]: iot-hub-csharp-csharp-getstarted.md
+[Sim_Jav]: iot-hub-java-java-getstarted.md
+[Sim_Nd]: iot-hub-node-node-getstarted.md
+[Sim_Pyth]: iot-hub-python-getstarted.md
+[NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
+[Sim_Lnx]: iot-hub-linux-gateway-sdk-get-started.md
+[Sim_Win]: iot-hub-windows-gateway-sdk-get-started.md
+[Mg_IoT_Hub_Msg]: iot-hub-explorer-cloud-device-messaging.md
+[Mg_IoT_Dv]: iot-hub-device-management-iothub-explorer.md
+[Sv_IoT_Msg_Stor]: iot-hub-store-data-in-azure-table-storage.md
+[Vis_Data]: iot-hub-live-data-visualization-in-power-bi.md
+[Weather_Forecast]: iot-hub-weather-forecast-machine-learning.md
+[Anomaly_Detect]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+[lnk-dev-guide]: iot-hub-devguide.md
+[lnk-how-to]: iot-hub-how-to.md

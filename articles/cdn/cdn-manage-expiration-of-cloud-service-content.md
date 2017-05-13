@@ -14,9 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 02d0270c5763eb9dd2190bc24b793022ea536746
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: c207d780857a61d4b1fc0f39e6185cae67abc955
+ms.contentlocale: ru-ru
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -39,7 +41,7 @@ ms.openlocfilehash: 02d0270c5763eb9dd2190bc24b793022ea536746
 ## <a name="setting-cache-control-headers-in-configuration"></a>Настройка заголовков Cache-Control в конфигурации
 Вы можете управлять частотой обновления статического содержимого, такого как изображения и таблицы стилей, изменяя файлы **applicationHost.config** или **web.config** своего веб-приложения.  Элемент **system.webServer\staticContent\clientCache** в файле конфигурации установит заголовок `Cache-Control` для содержимого. Параметры конфигурации файла **web.config**будут влиять на все элементы в этой папке и вложенных в нее папках, если это не переопределено на уровне вложенной папки.  Например, можно установить значение по умолчанию для срока жизни в корневой папке, чтобы все статическое содержимое кэшировалось в течение 3 дней, но предусмотреть вложенную папку с содержимым, которое изменяется чаще, и задать для нее частоту кэширования 6 часов.  Файл **applicationHost.config** повлияет на все приложения на сайте, но может быть переопределен в файлах **web.config** приложений.
 
-В следующем XML-коде показан пример использования параметра **clientCache** для указания максимального возраста в 3 дня:  
+В следующем XML-коде показан пример использования параметра **clientCache** для указания максимального возраста "3 дня":  
 
 ```xml
 <configuration>
@@ -71,10 +73,5 @@ Response.Cache.SetLastModified(DateTime.Now);
 * [Сведения об элементе **clientCache**](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).
 * [Документация по свойству **HttpResponse.Cache**](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx). 
 * [Документация по **HttpCachePolicy Class**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

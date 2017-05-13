@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/30/2016
+ms.date: 05/01/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 84a04f71ffde07e9caa439c03b55920d0bb0ef16
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: af45d745bccb02ce9fd45320e83284a8b33d99bd
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -51,6 +52,14 @@ ms.lasthandoff: 04/20/2017
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Добавлена поддержка статистических запросов (COUNT, MIN, MAX, SUM и AVG).
+* Добавлена возможность отключения проверки SSL при работе с эмулятором DocumentDB.
+* Удалено ограничение, согласно которому нужно использовать модуль зависимых запросов только версии 2.10.0.
+* Минимальная пропускная способность секционированных коллекций снижена с 10 100 ЕЗ/с до 2500 ЕЗ/с.
+* Добавлена поддержка включения ведения журнала сценариев во время выполнения хранимой процедуры.
+* В этом выпуске версия REST API уменьшена до 2017-01-19.
+
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
 * Внесены редакторские правки в комментарии к документации.
 
@@ -114,6 +123,7 @@ ms.lasthandoff: 04/20/2017
 
 | Версия | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |1 мая 2017 г. |--- |
 | [2.0.1](#2.0.1) |30 октября 2016 г. |--- |
 | [2.0.0](#2.0.0) |29 сентября 2016 г. |--- |
 | [1.9.0](#1.9.0) |7 июля 2016 г. |--- |

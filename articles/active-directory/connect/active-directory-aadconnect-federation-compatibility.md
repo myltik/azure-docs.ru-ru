@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5c7c6c8568115093f3a7568b6d318f985705691c
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 6f91f732b7579c9f14458dab9be49c027debfac1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -58,8 +59,8 @@ Azure Active Directory предоставляет возможность еди�
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
 * [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
 * [Sign&go 5.3](#signgo-53) 
-* [SoftBank](#softbank)
-* [VMware Identity Manager](#vmware-identity-manager)
+* [Шлюз веб-службы "Технология SoftBank"](#softbank)
+* [Рабочая область 1 VMware](#vmware-workspace-one)
 * [Портал VMware Workspace версии 2.1](#vmware--workspace-portal-version-21) 
 
 
@@ -340,7 +341,7 @@ Azure Active Directory предоставляет возможность еди�
 
 *Sign&go 5.3 поддерживает проверку подлинности Kerberos в конфигурации контракта Kerberos.  За помощью в настройке обратитесь к Ilex или просмотрите руководство по настройке [здесь](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
-## <a name="softbank"></a>SoftBank
+## <a name="softbank-technology-online-service-gate"></a>Шлюз веб-службы "Технология SoftBank"
 
 Далее приводится таблица поддержки сценария реализации единого входа:
 
@@ -350,9 +351,9 @@ Azure Active Directory предоставляет возможность еди�
 | Полнофункциональные клиентские приложения, такие как Lync, подписка Office Subscription, CRM |Поддерживаются |Встроенная проверка подлинности Windows не поддерживается. |
 | Полнофункциональные почтовые клиенты, такие как Outlook и ActiveSync |Поддерживаются |None |
 
-Дополнительные сведения о BitGlass см. [здесь](https://www.softbanktech.jp/service/list/osg-pro-ent/).
+Дополнительные сведения о шлюзе веб-службы "Технология SoftBank" см. [здесь](https://www.softbanktech.jp/service/list/osg-pro-ent/).
 
-## <a name="vmware-identity-manager"></a>VMware Identity Manager
+## <a name="vmware-workspace-one"></a>Рабочая область 1 VMware
 
 Далее приводится таблица поддержки сценария реализации единого входа:
 
