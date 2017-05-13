@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 2d146d3a3bd2497a6c1d9b2b924d2e2cd00710de
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d8a586834034460932516e352560b570141d9cda
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ ms.lasthandoff: 04/14/2017
 
 Над каждым уровнем приложения можно использовать балансировщики нагрузки, которые будут функционировать вместе с группой доступности и обеспечивать перенаправление трафика в работающий экземпляр. Без подсистемы балансировки нагрузки виртуальные машины могут продолжать работать на протяжении всех плановых и внеплановых событий обслуживания, но пользователи могут не иметь возможности обращаться к ним, если недоступна основная виртуальная машина.
 
-Обеспечение высокого уровня доступности приложения следует проектировать на уровне хранилища. Рекомендуется [использовать Управляемые диски для виртуальных машин в группе доступности](../windows/manage-availability.md#use-managed-disks-for-vms-in-availability-set). Если сейчас вы используете неуправляемые диски, мы настоятельно рекомендуем [преобразовать виртуальные машины в группе доступности для использования Управляемых дисков](../windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
+Обеспечение высокого уровня доступности приложения следует проектировать на уровне хранилища. Рекомендуется [использовать Управляемые диски для виртуальных машин в группе доступности](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set). Если сейчас вы используете неуправляемые диски, мы настоятельно рекомендуем [преобразовать виртуальные машины в группе доступности для использования Управляемых дисков](convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

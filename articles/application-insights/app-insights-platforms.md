@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c0ae2357d670a43547a9eb257c634b073cb5d325
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b78c574e9edf6ce28e8deb80d264858d480f5861
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -41,6 +42,7 @@ ms.lasthandoff: 04/26/2017
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 * [Веб-приложения Azure](app-insights-azure-web-apps.md)
 * [Облачные службы Azure](app-insights-cloudservices.md) — рабочие роли и веб-роли
+* [Функции Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
