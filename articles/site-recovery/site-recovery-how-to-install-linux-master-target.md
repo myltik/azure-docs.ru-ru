@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 22a86001fe93dcb11e180dbdd75045b49b85b58f
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 60102ebb43efc8710f102450df5b98edcb1d4b39
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -410,5 +411,6 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 * Убедитесь, что Storage vMotion не используется для компонентов системы управления, например для главного целевого сервера. Если вы переместите главный целевой сервер после успешного повторного включения защиты, диски виртуальной машины (VMDK) не удастся отсоединить, и восстановление размещения завершится ошибкой.
 * На главном целевом сервере нельзя использовать моментальные снимки для виртуальной машины. Если существуют моментальные снимки, восстановление размещения завершится ошибкой.
 * В некоторых пользовательских конфигурациях сетевые интерфейсы отключаются на время запуска. В такой ситуации агент главного целевого сервера не сможет выполнить инициализацию. Убедитесь, что правильно заданы следующие свойства. Проверьте эти свойства в файлах сетевых адаптеров (/etc/sysconfig/network-scripts/ifcfg-eth*.).
-        * BOOTPROTO=dhcp * ONBOOT=yes
+    * BOOTPROTO=dhcp
+    * ONBOOT=yes
 

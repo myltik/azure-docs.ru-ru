@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
+ms.date: 5/5/2017
 ms.author: johnkem
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: b2eb107d3d4279b5e2ac0612561f613fdb7ba006
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 39345bdef6aeebb25fab87a17db683af78782e4f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -141,7 +142,7 @@ Sumo Logic — это безопасное облачное решение сл�
 
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Документация по AlertLogic."
-[appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "Документация по AppDynamics."
+[appdynamics-doc]: https://www.appdynamics.com/net/azure/ "Документация по AppDynamics."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Общие сведения о CloudMonix."
