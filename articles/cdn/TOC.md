@@ -29,6 +29,7 @@
 ### [Мониторинг ресурсов](cdn-resource-health.md)
 ### [Переопределение поведения с помощью правил](cdn-rules-engine.md)
 ### [Получение оповещений в реальном времени](cdn-real-time-alerts.md)
+### [Поддержка HTTP/2](cdn-http2.md)
 
 ## Анализ
 ### [Анализ шаблонов использования](cdn-analyze-usage-patterns.md)
