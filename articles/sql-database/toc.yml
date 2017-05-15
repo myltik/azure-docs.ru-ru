@@ -41,6 +41,26 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: "3. Защита базы данных SQL"
     href: sql-database-security-tutorial.md
+  - name: "4 — повышение производительности базы данных SQL"
+    href: sql-database-performance-tutorial.md
+  - name: "5. Реализация мультитенантного приложения"
+    href: sql-database-multi-tenant-application.md
+  - name: "6. Развертывание мультитенантного приложения"
+    href: sql-database-saas-tutorial.md
+  - name: "7. Подготовка и каталогизация новых клиентов"
+    href: sql-database-saas-tutorial-provision-and-catalog.md
+  - name: "8. Мониторинг производительности"
+    href: sql-database-saas-tutorial-performance-monitoring.md
+  - name: "9. Восстановление одного клиента"
+    href: sql-database-saas-tutorial-restore-single-tenant.md
+  - name: "10. Управление схемами клиента"
+    href: sql-database-saas-tutorial-schema-management.md
+  - name: "11. Выполнение ad-hoc-аналитики"
+    href: sql-database-saas-tutorial-adhoc-analytics.md
+  - name: "12. Мониторинг с помощью Log Analytics"
+    href: sql-database-saas-tutorial-log-analytics.md
+  - name: "13. Управление аналитикой клиента"
+
 - name: "Примеры"
   items:
   - name: "Инфраструктура CLI Azure"
@@ -142,7 +162,7 @@
       href: sql-database-long-term-retention.md
     - name: "Восстановление базы данных"
       href: sql-database-recovery-using-backups.md
-    - name: "Георепликация"
+    - name: "Автоматический переход на другой ресурс и георепликация"
       href: sql-database-geo-replication-overview.md
     - name: "Количество входов в систему"
       href: sql-database-geo-replication-security-config.md

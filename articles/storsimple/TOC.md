@@ -1,4 +1,5 @@
 # Виртуальный массив StorSimple
+
 ## Обзор
 ### [Что из себя представляет это решение?](storsimple-ova-overview.md)
 
@@ -8,7 +9,7 @@
 #### [Изучение ограничений](storsimple-ova-limits.md)
 #### [Анализ рекомендаций](storsimple-ova-best-practices.md)
 
-### Развертывание (портал Azure)
+### Развернуть
 #### [Подготовка к развертыванию](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Развертывание службы диспетчера StorSimple](storsimple-virtual-array-manage-service.md)
 #### [Подготовка в Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
@@ -16,17 +17,10 @@
 #### [Настройка в качестве файлового сервера](storsimple-virtual-array-deploy3-fs-setup.md)
 #### [Настройка в качестве сервера iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
 
-### Развертывание (классический портал)
-#### [Подготовка к развертыванию](storsimple-ova-deploy1-portal-prep.md)
-##### [Развертывание службы диспетчера StorSimple](storsimple-ova-manage-service.md)
-#### [Подготовка в Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-#### [Подготовка в VMware](storsimple-ova-deploy2-provision-vmware.md)
-#### [Настройка в качестве файлового сервера](storsimple-ova-deploy3-fs-setup.md)
-#### [Настройка в качестве сервера iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
-
 ## Практическое руководство
 ### [Управление через портал Azure](storsimple-virtual-array-manager-service-administration.md)
-#### [Установка последнего обновления](storsimple-virtual-array-install-update-04.md)
+#### [Установка последнего обновления](storsimple-virtual-array-install-update-05.md)
+##### [Установка обновления 0.4](storsimple-virtual-array-install-update-04.md)
 ##### [Установка обновления 0.3](storsimple-virtual-array-install-update.md)
 #### [Создание резервных копий и управление ими](storsimple-virtual-array-backup.md)
 #### [Клонирование из резервных копий](storsimple-virtual-array-clone.md)
@@ -44,22 +38,11 @@
 #### [Диагностирование и устранение неполадок](storsimple-virtual-array-diagnose-problems.md)
 #### [Регистрация запроса на техническую поддержку](storsimple-virtual-array-log-support-ticket.md)
 
-### [Управление с помощью классического портала Azure](storsimple-ova-manager-service-administration.md)
-#### [Установка последнего обновления](storsimple-ova-install-update-01.md)
-#### [Создание резервных копий и управление ими](storsimple-ova-backup.md)
-#### [Восстановление из резервных копий](storsimple-ova-restore.md)
-#### [Отработка отказа и аварийное восстановление данных](storsimple-ova-failover-dr.md)
-#### [Деактивация и удаление](storsimple-ova-deactivate-and-delete-device.md)
-#### [Отслеживание панели мониторинга службы](storsimple-ova-service-dashboard.md)
-#### [Изменение пароля устройства](storsimple-ova-change-device-admin-password.md)
-#### [Управление записями ACR](storsimple-ova-manage-acrs.md)
-#### [Управление учетными записями хранения](storsimple-ova-manage-storage-accounts.md)
-#### [Управление заданиями](storsimple-ova-manage-jobs.md)
-#### [Настройка MPIO на узле Windows Server](storsimple-ova-configure-mpio-windows-server.md)
 ### [Настройка с помощью локального пользовательского веб-интерфейса](storsimple-ova-web-ui-admin.md)
 
 ## Заметки о выпуске
-### [Обновление 0.4 (текущая версия)](storsimple-virtual-array-update-04-release-notes.md)
+### [Обновление 0.5 (текущая версия)](storsimple-virtual-array-update-05-release-notes.md)
+### [Обновление 0.4](storsimple-virtual-array-update-04-release-notes.md)
 ### [Обновление 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Обновление 0.2 и 0.1](storsimple-ova-update-01-release-notes.md)
 
@@ -71,6 +54,7 @@
 ### [Вопросы безопасности](storsimple-security.md)
 
 ## Начало работы
+
 ### План
 #### [Обзор требований](storsimple-system-requirements.md)
 #### [Обзор технических спецификаций](storsimple-technical-specifications-and-compliance.md)
@@ -80,7 +64,6 @@
 ### Install
 #### [Вопросы, связанные с безопасностью](storsimple-safety.md)
 #### [Распаковка, установка в стойку, подключение кабелей 8100](storsimple-8100-hardware-installation.md)
-
 #### [Распаковка, установка в стойку, подключение кабелей 8600](storsimple-8600-hardware-installation.md)
 #### [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -96,6 +79,7 @@
 #### [Адаптер StorSimple для SharePoint](storsimple-adapter-for-sharepoint.md)
 
 ## Практическое руководство
+
 ### Управление
 #### [Использование службы диспетчера StorSimple](storsimple-manager-service-administration.md)
 ##### [Восстановление из архива](storsimple-restore-from-backup-set-u2.md)
@@ -214,6 +198,7 @@
 ### [Изменение стандартного пути больших двоичных объектов](storsimple-data-manager-change-default-blob-path.md)
 
 # StorSimple для партнеров
+
 ## Обзор
 ### [Что из себя представляет это решение?](storsimple-partner-csp-overview.md)
 

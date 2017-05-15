@@ -43,7 +43,7 @@
 ### [Индексатор хранилища BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md)
 ### [Индексатор хранилища таблиц Azure](search-howto-indexing-azure-tables.md)
 ### [Индексатор SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Индексатор Azure DocumentDB](search-howto-index-documentdb.md)
+### [Индексатор базы данных Azure Cosmos](search-howto-index-documentdb.md)
 ### [Индексация больших двоичных объектов с разделителями-запятыми](search-howto-index-csv-blobs.md)
 ### [Индексация больших двоичных объектов JSON](search-howto-index-json-blobs.md)
 ### [Настройка подключений индексатора к SQL Server на виртуальной машине Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
