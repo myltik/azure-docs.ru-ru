@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
 ms.openlocfilehash: 7d58748c4b0195246fffafe2e5544678b83dfd60
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/14/2017
 
 ---
@@ -53,7 +54,7 @@ ms.lasthandoff: 04/14/2017
 С нами можно связаться одним из следующих способов:
 
 * Свои вопросы вы можете разместить на нашем [форуме MSDN для службы управления API](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* <Отправьте сообщение электронной почты по адресу mailto:apimgmt@microsoft.com>.
+* Отправьте сообщение электронной почты по адресу <mailto:apimgmt@microsoft.com>.
 * Отправьте нам запрос на функцию на [форуме отзывов Azure](https://feedback.azure.com/forums/248703-api-management).
 
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>Что означает, если функция пребывает в предварительной версии?

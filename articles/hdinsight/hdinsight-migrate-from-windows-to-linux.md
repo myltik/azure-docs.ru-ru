@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/12/2017
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: f2c4956ba296781907498226a18708684281692b
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/13/2017
 
 
@@ -237,7 +238,7 @@ Ambari имеет систему предупреждений, которые м
 | В кластерах под управлением Windows я пользуюсь... | В кластерах под управлением Linux... |
 | --- | --- |
 | Панель мониторинга Storm |Панель мониторинга Storm недоступна. Сведения об отправке топологий приведены в разделе [Развертывание и управление топологиями Storm в HDInsight под управлением Linux](hdinsight-storm-deploy-monitor-topology-linux.md) . |
-| Пользовательский интерфейс Storm |Пользовательский интерфейс Storm доступен по адресу https://<имя_кластера>.azurehdinsight.net/stormui. |
+| Пользовательский интерфейс Storm |Пользовательский интерфейс Storm доступен по адресу https://CLUSTERNAME.azurehdinsight.net/stormui. |
 | Visual Studio для создания, развертывания и управления C# или гибридными топологиями |Visual Studio можно использовать для создания, развертывания и управления топологиями C# (SCP.NET) или гибридными топологиями в кластерах Storm в HDInsight под управлением Linux, созданных после 28 октября 2016 года. |
 
 ## <a name="hbase"></a>HBase
