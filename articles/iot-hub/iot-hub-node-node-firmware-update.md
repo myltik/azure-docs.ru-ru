@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2017
 ms.author: juanpere
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
 ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/06/2017
 
 
@@ -60,7 +61,7 @@ ms.lasthandoff: 02/06/2017
 2. В командной строке в папке **triggerfwupdateondevice** выполните следующую команду, чтобы установить пакеты SDK для устройств **azure-iothub** и пакет **azure-iot-device-mqtt**.
    
     ```
-    npm install azure-iot-hub --save
+    npm install azure-iothub --save
     ```
 3. В текстовом редакторе создайте файл **dmpatterns_etstarted_service.js** в папке **triggerfwupdateondevice**.
 4. Добавьте следующие инструкции require в начале файла **dmpatterns_getstarted_service.js**:
