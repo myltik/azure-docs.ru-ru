@@ -1,9 +1,8 @@
 ---
-redirect_url: /azure/application-insights/app-insights-usage-overview
-redirect_document_id: TRUE
+redirect_url: active-directory-android
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2ec72bcdfcf613b165bfa058823e64bf33f66648
+ms.openlocfilehash: 457c5b2c05de5073e23f6bc9f6b3f44cf7757f70
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/10/2017
 
