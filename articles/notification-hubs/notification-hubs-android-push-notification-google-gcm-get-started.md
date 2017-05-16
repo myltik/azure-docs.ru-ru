@@ -15,9 +15,10 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
 ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/01/2017
 
 
