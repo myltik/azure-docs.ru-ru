@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: ramankum
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 1040027de1df88544bd7a0c4ba6565d5599a54ab
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/25/2017
 
 
