@@ -143,7 +143,6 @@ ms.lasthandoff: 04/27/2017
                   "type": "HDInsightOnDemand",
                   "typeProperties": {
                     "clusterSize": 1,
-                    "version": "3.2",
                     "timeToLive": "00:05:00",
                     "osType": "windows",
                     "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
@@ -421,7 +420,6 @@ ms.lasthandoff: 04/27/2017
           "type": "HDInsightOnDemand",
           "typeProperties": {
             "clusterSize": 1,
-            "version": "3.2",
             "timeToLive": "00:05:00",
             "osType": "windows",
             "linkedServiceName": "[variables('azureStorageLinkedServiceName')]"
