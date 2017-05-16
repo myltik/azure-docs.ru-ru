@@ -80,6 +80,16 @@
 ### [Цены](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Измерение использования](logic-apps-pricing.md)
 
+# Бессерверные приложения
+## Обзор
+### [Бессерверные приложения в Azure](logic-apps-serverless-overview.md)
+## Начало работы
+### [Создание бессерверного приложения в Visual Studio](logic-apps-serverless-get-started-vs.md)
+## Сценарии и пошаговые руководства
+### [Сбор отзывов клиентов](logic-apps-scenario-social-serverless.md)
+### [Отправка автоматических сообщений электронной почты](https://channel9.msdn.com/Blogs/Microsoft-Integration/Build-and-Deploy-Serverless-Part-1)
+### [Обработка заказов B2B и EDI](logic-apps-enterprise-integration-overview.md)
+
 # Справочные материалы
 ## [Язык определения рабочего процесса](logic-apps-workflow-definition-language.md)
 ## [Действия и триггеры рабочего процесса](logic-apps-workflow-actions-triggers.md)
