@@ -1,6 +1,7 @@
 ---
-title: "Отчет системы безопасности о пользователях под угрозой на портале Azure Active Directory (предварительная версия) | Документация Майкрософт"
-description: "Описание отчета системы безопасности о пользователях под угрозой на портале предварительной версии Azure Active Directory."
+
+title: "Отчет системы безопасности о пользователях под угрозой на портале Azure Active Directory | Документация Майкрософт"
+description: "Описание отчета системы безопасности о пользователях под угрозой на портале Azure Active Directory."
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,18 +11,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 48c504a9ed5bc4ef9f0bff889df031962c5bf6e8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal---preview"></a>Отчет системы безопасности о пользователях под угрозой на портале Azure Active Directory (предварительная версия)
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Отчет системы безопасности о пользователях под угрозой на портале Azure Active Directory
 
-С помощью отчетов о безопасности в [предварительной версии](active-directory-preview-explainer.md) Azure Active Directory можно получить ценную информацию о наличии скомпрометированных учетных записей пользователей в вашей среде. 
+С помощью отчетов о безопасности в Azure Active Directory (Azure AD) можно получить ценную информацию о наличии скомпрометированных учетных записей пользователей в вашей среде. 
 
 Azure Active Directory обнаруживает подозрительные действия, связанные с учетными записями пользователей. Для каждого обнаруженного действия создается запись, которая называется *событием риска*. Дополнительные сведения см. в статье о [событиях риска в Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 

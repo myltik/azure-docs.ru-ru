@@ -1,6 +1,7 @@
 ---
-title: "Устранение неполадок, связанных с отсутствием данных в журнале действий Azure Active Directory (предварительная версия) | Документация Майкрософт"
-description: "В этой статье описаны различные отчеты, доступные в предварительной версии Azure Active Directory."
+
+title: "Устранение неполадок, связанных с отсутствием данных в журнале действий Azure Active Directory | Документация Майкрософт"
+description: "В этой статье описаны различные отчеты, доступные в Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/09/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c372fe5f3a419a6a27ef00d755d5d46325b956c6
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 18af51e95a283a5cd33688484a0d7477eb4b957d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---

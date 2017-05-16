@@ -1,7 +1,7 @@
 ---
 title: "Начало работы с кластером HBase в Azure HDInsight | Документация Майкрософт"
 description: "Следуйте инструкциям этого учебника по HBase, чтобы начать работу с Apache HBase на Hadoop в HDInsight. Создание таблиц из оболочки HBase и обращение к ним с помощью Hive."
-keywords: "apache hbase, hbase, оболочка hbase, учебник hbase"
+keywords: "Apache HBase,HBase,оболочка HBase,руководство по HBase,Beeline"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/22/2017
+ms.date: 05/08/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 4e9ee21a7eac240cccdfac650992063244364185
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a935fe574bffaad109abd13151c4da1027210014
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/03/2017
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="prerequisites"></a>Предварительные требования
-Перед началом работы с этим учебником необходимо иметь следующее:
+Перед началом работы с этим руководством по HBase необходимо иметь следующие элементы:
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell(SSH).](hdinsight-hadoop-linux-use-ssh-unix.md) 
@@ -43,12 +43,12 @@ ms.lasthandoff: 05/03/2017
 1. Щелкните следующее изображение, чтобы открыть шаблон на портале Azure. Шаблон хранится в общедоступном контейнере больших двоичных объектов. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. В колонке **Настраиваемое развертывание** укажите следующее:
+2. В колонке **Настраиваемое развертывание** укажите следующие значения.
    
-   * **Подписка**: выберите подписку Azure, которая будет использоваться для создания этого кластера.
-   * **Группа ресурсов**: создайте новую группу ресурсов Azure или выберите существующую.
+   * **Подписка**: выберите подписку Azure, которая используется для создания этого кластера.
+   * **Группа ресурсов**: создайте группу ресурсов Azure или выберите существующую.
    * **Расположение**: укажите расположение группы ресурсов. 
-   * **Имя кластера**: введите имя создаваемого кластера HBase.
+   * **Имя кластера**: укажите имя кластера HBase.
    * **Имя для входа и пароль кластера**: имя для входа по умолчанию — **admin**.
    * **Имя пользователя SSH и пароль**: по умолчанию используется имя **sshuser**.  Это имя можно изменить.
      
@@ -63,7 +63,7 @@ ms.lasthandoff: 05/03/2017
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Создание таблиц и вставка данных
-Для подключения к кластерам HBase можно использовать SSH, а для создания таблиц HBase, вставки данных и создания запросов к данным — оболочку HBase. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+Для подключения к кластерам HBase можно использовать протокол SSH, а для создания таблиц HBase, вставки данных и создания запросов к данным — оболочку HBase. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Для большинства пользователей данные отображаются в табличном формате:
 
@@ -73,7 +73,6 @@ ms.lasthandoff: 05/03/2017
 
 ![Данные BigTable HDInsight HBase][img-hbase-sample-data-bigtable]
 
-Это будет нести больше смысла после завершения следующей процедуры.  
 
 **Использование оболочки HBase**
 
@@ -97,7 +96,7 @@ ms.lasthandoff: 05/03/2017
    
         get 'Contacts', '1000'
    
-    Вы увидите те же результаты, как при использовании команды сканирования, так как в таблице есть только одна строка.
+    Вы увидите те же результаты, что и при использовании команды сканирования, так как в таблице есть только одна строка.
    
     Дополнительную информацию о схеме таблицы HBase см. в статье с [общими сведениями о проектировании схемы HBase][hbase-schema]. Дополнительные команды HBase см. в [справочнике по Apache HBase][hbase-quick-start].
 5. Выйдите из оболочки
@@ -121,7 +120,7 @@ HBase включает несколько методов загрузки дан
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-Можно создать текстовый файл и отправить его на собственную учетную запись хранения, если потребуется. Указания см. в статье [Отправка данных для заданий Hadoop в HDInsight][hdinsight-upload-data].
+При желании вы можете создать текстовый файл и отправить его в свою учетную запись хранения. Указания см. в статье [Отправка данных для заданий Hadoop в HDInsight][hdinsight-upload-data].
 
 > [!NOTE]
 > Эта процедура использует таблицу контактов HBase, созданную в предыдущей процедуре.
@@ -137,19 +136,14 @@ HBase включает несколько методов загрузки дан
 3. Откройте оболочку HBase и выполните команду сканирования для получения списка содержимого таблицы.
 
 ## <a name="use-hive-to-query-hbase"></a>Использование Hive для создания запросов к HBase
-Можно запросить данные в таблицах HBase с помощью Hive. В данном разделе будет создана таблица Hive, которая сопоставляется с существующей таблицей HBase и используется для формирования запросов данных таблицы HBase.
 
-> [!NOTE]
-> Если Hive и HBase находятся в разных кластерах одной виртуальной сети, при вызове оболочки Hive необходимо передать кворум Zookeeper:
->
->       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
->
->
+Можно запросить данные в таблицах HBase с помощью Hive. В этом разделе будет создана таблица Hive, которая сопоставляется с таблицей HBase и использует ее для формирования запросов к данным в таблице HBase.
 
 1. Откройте **PuTTY** и подключитесь к кластеру.  См. инструкции в приведенной выше процедуре.
-2. Откройте оболочку Hive.
-   
-       hive
+2. В сеансе SSH используйте следующую команду, чтобы запустить Beeline.
+
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    Дополнительные сведения о Beeline см. в статье [Использование Hive с Hadoop в HDInsight с применением Beeline](hdinsight-hadoop-use-hive-beeline.md).
        
 3. Выполните приведенный ниже скрипт HiveQL, чтобы создать таблицу Hive, сопоставляемую с таблицей HBase. Перед выполнением этого оператора убедитесь, что вы создали упомянутый в этом учебнике пример таблицы с помощью оболочки HBase.
    
@@ -159,31 +153,12 @@ HBase включает несколько методов загрузки дан
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. Запустите приведенный ниже скрипт HiveQL, чтобы запросить данные в таблице HBase.
    
-         SELECT count(*) FROM hbasecontacts;
+         SELECT * FROM hbasecontacts;
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Использование API REST для HBase
-> [!NOTE]
-> При использовании Curl или любых других средств связи REST с WebHCat нужно выполнять аутентификацию запросов с помощью пароля и имени пользователя администратора кластера HDInsight. Имя кластера необходимо также использовать в составе универсального кода ресурса (URI), используемого для отправки запросов на сервер.
-> 
-> В командах, описанных в этом разделе, замените **USERNAME** на имя пользователя для выполнения проверки подлинности в кластере, а **PASSWORD** — на пароль учетной записи пользователя. Замените **CLUSTERNAME** именем кластера.
-> 
-> REST API защищен с помощью [обычной проверки подлинности](http://en.wikipedia.org/wiki/Basic_access_authentication). Чтобы обеспечить безопасную отправку учетных данных на сервер, все запросы следует отправлять с помощью протокола HTTPS.
-> 
-> 
 
-1. Используйте следующую команду в командной строке, чтобы проверить возможность подключения к кластеру HDInsight:
-   
-        curl -u <UserName>:<Password> \
-        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
-   
-    Вы должны получить ответ, аналогичный показанному ниже:
-   
-        {"status":"ok","version":"v1"}
-   
-    Ниже приведены параметры, используемые в этой команде:
-   
-   * **-u** — имя пользователя и пароль, используемый для аутентификации запроса.
-   * **-G** — указывает, что это запрос GET.
+REST API защищен с помощью [обычной проверки подлинности](http://en.wikipedia.org/wiki/Basic_access_authentication). Чтобы обеспечить безопасную отправку учетных данных на сервер, все запросы следует отправлять с помощью протокола HTTPS.
+
 2. Для получения списка имеющихся таблиц HBase используйте следующую команду:
    
         curl -u <UserName>:<Password> \
@@ -223,10 +198,20 @@ HBase включает несколько методов загрузки дан
 
 Дополнительные сведения см. в [справочнике по Apache HBase](https://hbase.apache.org/book.html#_rest).
 
->
 > [!NOTE]
 > Thrift не поддерживается HBase в HDInsight.
 >
+> При использовании Curl или любых других средств связи REST с WebHCat нужно выполнять аутентификацию запросов с помощью пароля и имени пользователя администратора кластера HDInsight. Имя кластера необходимо также использовать в составе универсального кода ресурса (URI), используемого для отправки запросов на сервер.
+> 
+>   
+>        curl -u <UserName>:<Password> \
+>        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+>   
+>    Вы должны получить ответ, аналогичный приведенному ниже.
+>   
+>        {"status":"ok","version":"v1"}
+   
+
 
 ## <a name="check-cluster-status"></a>Проверка состояния кластера
 HBase на HDInsight поставляется с веб-интерфейсом для наблюдения за кластерами. С помощью веб-интерфейса вы можете запросить статистику или сведения о регионах.

@@ -1,6 +1,7 @@
 ---
-title: "Отчеты в Azure Active Directory — предварительная версия | Документация Майкрософт"
-description: "В этой статье описаны различные отчеты, доступные в предварительной версии Azure Active Directory."
+
+title: "Отчеты Azure Active Directory | Документация Майкрософт"
+description: "В этой статье описаны различные отчеты, доступные в Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
-ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="azure-active-directory-reporting---preview"></a>Отчеты в Azure Active Directory — предварительная версия
+# <a name="azure-active-directory-reporting"></a>Отчеты Azure Active Directory
 
 
 *Данная документация является частью [руководства по отчетам Azure Active Directory](active-directory-reporting-guide.md).*
 
-Функция отчетов в предварительной версии Azure Active Directory позволяет вам получать всю необходимую информацию, чтобы определить, как работает ваша среда. [Что есть в предварительной версии](active-directory-preview-explainer.md)
+Функция отчетов в Azure Active Directory (Azure AD) позволяет получать всю необходимую информацию, с помощью которой можно определить, как работает среда.
 
 Есть две основные области отчетов:
 

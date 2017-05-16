@@ -3,8 +3,8 @@ title: "Начало работы с Azure Data Lake Analytics с помощью
 description: "Используйте Azure PowerShell для создания учетной записи Data Lake Analytics, создания задания Data Lake Analytics с помощью U-SQL и его отправки. "
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.service: data-lake-analytics
@@ -12,200 +12,143 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2bc3e4573ff4f202c3c8492e8110dc35c7e8ff2a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 6985dff332928d704f30e167c3bddb62bcc6cac1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Руководство. Начало работы с аналитикой озера данных Azure с помощью Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Узнайте, как использовать Azure PowerShell для создания учетных записей Azure Data Lake Analytics, определения заданий Data Lake Analytics в [U-SQL](data-lake-analytics-u-sql-get-started.md) и отправки заданий в учетные записи Data Lake Analytic. Дополнительные сведения о Data Lake Analytics см. в [обзоре Azure Data Lake Analytics](data-lake-analytics-overview.md).
-
-В этом учебнике вам предстоит разработать задание, которое считывает файл с разделителями-табуляциями (TSV) и преобразует его в файл с разделителями-запятыми (CSV). Для навигации по учебнику с помощью других поддерживаемых средств используйте вкладки в верхней части этого раздела.
+Узнайте, как использовать Azure PowerShell для создания учетных записей Azure Data Lake Analytics, а затем отправлять и выполнять задания U-SQL. Дополнительные сведения о Data Lake Analytics см. в [обзоре Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Перед началом работы с этим учебником необходимо иметь следующее:
+Перед началом работы с этим руководством необходимо иметь следующую информацию:
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
 * <seg>
   **Рабочая станция с Azure PowerShell**.</seg> См. статью [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
-## <a name="create-data-lake-analytics-account"></a>Создание учетной записи аналитики озера данных
-Для выполнения любых заданий требуется учетная запись аналитики озера данных. Для создания учетной записи аналитики озера данных необходимо указать следующее.
+## <a name="preparing-for-the-tutorial"></a>Подготовка к работе с руководством
+Для создания учетной записи Data Lake Analytics сперва необходимо указать следующее.
 
-* **Группа ресурсов Azure**: необходимо создать учетную запись аналитики озера данных в группе «Ресурс Azure». [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) позволяет работать с группами ресурсов в приложении. Вы можете развертывать, обновлять или удалять все ресурсы для приложения в рамках одной скоординированной операции.  
-
-    Вот как перечислить группы ресурсов в своей подписке.
-
-        Get-AzureRmResourceGroup
-
-    Чтобы создать новую группу ресурсов:
-
-        New-AzureRmResourceGroup `
-            -Name "<Your resource group name>" `
-            -Location "<Azure Data Center>" # For example, "East US 2"
-* **Имя учетной записи аналитики озера данных**
+* **Группа ресурсов Azure**. В группе ресурсов Azure необходимо создать учетную запись Data Lake Analytics.
+* **Имя учетной записи Data Lake Analytics**. Имя учетной записи Data Lake должно содержать только буквы в нижнем регистре и цифры.
 * **Расположение**: один из центров обработки данных Azure, который поддерживает аналитику озера данных.
-* **Учетная запись озера данных по умолчанию**: у каждой учетной записи аналитики озера данных есть учетная запись озера данных по умолчанию.
+* **Учетная запись Data Lake Store по умолчанию**. Каждая учетная запись Data Lake Analytics содержит учетную запись Data Lake Store по умолчанию. Эти учетные записи должны находиться в одном расположении.
 
-    Создание новой учетной записи озера данных
+Во фрагментах кода PowerShell в этом руководстве для хранения такой информации используются следующие переменные:
 
-        New-AzureRmDataLakeStoreAccount `
-            -ResourceGroupName "<Your Azure resource group name>" `
-            -Name "<Your Data Lake account name>" `
-            -Location "<Azure Data Center>"  # For example, "East US 2"
+```
+$rg = "<ResourceGroupName>"
+$adls = "<DataLakeAccountName>"
+$adla = "<DataLakeAnalyticsAccountName>"
+$location = "East US 2"
+```
 
-  > [!NOTE]
-  > Имя учетной записи озера данных должно содержать только буквы нижнего регистра и цифры.
-  >
-  >
+## <a name="create-a-data-lake-analytics-account"></a>Создание учетной записи аналитики озера данных
 
-**Создание учетной записи аналитики озера данных**
+Если у вас еще нет группы ресурсов, создайте ее. 
 
-1. Откройте PowerShell ISE на своей рабочей станции Windows.
-2. Выполните следующий скрипт:
+```
+New-AzureRmResourceGroup -Name  $rg -Location $location
+```
 
-        $resourceGroupName = "<ResourceGroupName>"
-        $dataLakeStoreName = "<DataLakeAccountName>"
-        $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-        $location = "East US 2"
+Для каждой учетной записи Data Lake Analytics необходима учетная запись Data Lake Store по умолчанию, которая используется для хранения журналов. Можно повторно использовать существующую учетную запись или создать новую. 
 
-        Write-Host "Create a resource group ..." -ForegroundColor Green
-        New-AzureRmResourceGroup `
-            -Name  $resourceGroupName `
-            -Location $location
+```
+New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
+```
 
-        Write-Host "Create a Data Lake account ..."  -ForegroundColor Green
-        New-AzureRmDataLakeStoreAccount `
-            -ResourceGroupName $resourceGroupName `
-            -Name $dataLakeStoreName `
-            -Location $location
+После создания группы ресурсов и учетной записи Data Lake Store создайте учетную запись Data Lake Analytics.
 
-        Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
-        New-AzureRmDataLakeAnalyticsAccount `
-            -Name $dataLakeAnalyticsName `
-            -ResourceGroupName $resourceGroupName `
-            -Location $location `
-            -DefaultDataLake $dataLakeStoreName
+```
+New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
+```
 
-        Write-Host "The newly created Data Lake Analytics account ..."  -ForegroundColor Green
-        Get-AzureRmDataLakeAnalyticsAccount `
-            -ResourceGroupName $resourceGroupName `
-            -Name $dataLakeAnalyticsName  
+## <a name="get-information-about-a-data-lake-analytics-account"></a>Получение сведений об учетной записи Data Lake Analytics
 
-## <a name="upload-data-to-data-lake"></a>Отправка данных в озеро данных
-В этом учебнике обрабатываются некоторые журналы поиска.  Журнал поиска может храниться в хранилище озера данных или в хранилище больших двоичных объектов Azure.
+```
+Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla  
+```
 
-Пример файла журнала поиска был скопирован в общедоступный контейнер больших двоичных объектов Azure. Воспользуйтесь следующим скриптом PowerShell для загрузки файла на свою рабочую станцию, а затем отправьте файл в учетную запись хранилища озера данных по умолчанию своей учетной записи аналитики озера данных.
+## <a name="submit-a-u-sql-job"></a>Отправка задания U-SQL
 
-    $dataLakeStoreName = "<The default Data Lake Store account name>"
+Создайте текстовый файл со следующим скриптом U-SQL:
 
-    $localFolder = "C:\Tutorials\Downloads\" # A temp location for the file.
-    $storageAccount = "adltutorials"  # Don't modify this value.
-    $container = "adls-sample-data"  #Don't modify this value.
+```
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS 
+              D( customer, amount );
+OUTPUT @a
+    TO "/data.csv"
+    USING Outputters.Csv();
+```
 
-    # Create the temp location    
-    New-Item -Path $localFolder -ItemType Directory -Force
+Отправьте скрипт.
 
-    # Download the sample file from Azure Blob storage
-    $context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
-    $$blobs = Get-AzureStorageBlob -Container $container -Context $context
-    $blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
+```
+Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
+```
 
-    # Upload the file to the default Data Lake Store account    
-    Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $localFolder"SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
+## <a name="monitor-u-sql-jobs"></a>Мониторинг заданий U-SQL
 
-Следующий скрипт PowerShell позволяет получить имя хранилища озера данных по умолчанию для учетной записи аналитики озера данных:
+Откройте список всех заданий в учетной записи. Результаты включают в себя текущие и недавно завершенные задания.
 
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeStoreAccount
-    echo $dataLakeStoreName
+```
+Get-AdlJob -Account $adla
+```
 
-> [!NOTE]
-> На портале Azure доступен пользовательский интерфейс для копирования примеров файлов данных в учетную запись хранилища озера данных по умолчанию. См. инструкции в статье о [начале работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md#prepare-source-data).
->
->
+Получите состояние конкретного задания.
 
-Из аналитики озера данных также доступно хранилище больших двоичных объектов Azure.  Инструкции по отправке данных в хранилище BLOB-объектов Azure см. в статье [Использование Azure PowerShell со службой хранилища Azure](../storage/storage-powershell-guide-full.md).
+```
+Get-AdlJob -AccountName $adla -JobId $job.JobId
+```
 
-## <a name="submit-data-lake-analytics-jobs"></a>Отправка заданий аналитики озера данных
-Задания аналитики озера данных пишутся на языке U-SQL. Дополнительные сведения о языке U-SQL см. в статье о [начале работы с языком U-SQL](data-lake-analytics-u-sql-get-started.md) и в [справочнике по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Вместо того чтобы снова и снова вызывать командлет Get-AdlAnalyticsJob, пока задание не будет завершено, можно использовать командлет Wait-AdlJob.
 
-**Создание скрипта задания аналитики озера данных**
+```
+Wait-AdlJob -Account $adla -JobId $job.JobId
+```
 
-* Создайте текстовый файл со следующим скриптом U-SQL, а затем сохраните текстовый файл на своей рабочей станции.
+По завершении задания проверьте, существует ли выходной файл, открыв список файлов в папке.
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
+```
+Get-AdlStoreChildItem -Account $adls -Path "/"
+```
 
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
+Проверьте наличие файла.
 
-    Этот сценарий U-SQL считывает файл исходных данных с помощью **Extractors.Tsv()**, а затем создает CSV-файл с помощью **Outputters.Csv()**.
+```
+Test-AdlStoreItem -Account $adls -Path "/data.csv"
+```
 
-    Не меняйте эти два пути, если только исходный файл не был скопирован в другое место.  Аналитика озера данных создаст выходную папку, если ее не существует.
+## <a name="uploading-and-downloading-files"></a>Отправка и скачивание файлов
 
-    Проще использовать относительные пути для файлов, которые хранятся в учетных записях озера данных по умолчанию. Также можно использовать абсолютные пути.  Например:
+Скачайте выходные данные скрипта U-SQL.
 
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+```
+Export-AdlStoreItem -AccountName $adls -Path "/data.csv"  -Destination "D:\data.csv"
+```
 
-    Для доступа к файлам в связанных учетных записях хранения используйте абсолютные пути.  Для файлов, хранящихся в связанной учетной записи хранения Azure, используется следующий синтаксис:
 
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+Отправьте файл, который необходимо использовать в качестве входных данных для скрипта U-SQL.
 
-  > [!NOTE]
-  > Контейнер больших двоичных объектов Azure с разрешениями на доступ к общедоступным большим двоичным объектам или общедоступным контейнерам в настоящее время не поддерживается.    
-  >
-  >
+```
+Import-AdlStoreItem -AccountName $adls -Path "D:\data.tsv" -Destination "/data_copy.csv" 
+```
 
-**Отправка задания**
-
-1. Откройте PowerShell ISE на своей рабочей станции Windows.
-2. Выполните следующий скрипт:
-
-        $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-        $usqlScript = "c:\tutorials\data-lake-analytics\copyFile.usql"
-
-        $job = Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript
-
-        Wait-AdlJob -Account $dataLakeAnalyticsName -JobId $job.JobId
-
-        Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
-
-    В скрипте файл скрипта U-SQL сохранен в папке С:\tutorials\data-lake-analytics\copyFile.usql. Соответствующим образом обновите путь к файлу.
-
-По окончании задания используйте следующие командлеты, чтобы включить файл в список, а затем загрузите файл.
-
-    $resourceGroupName = "<Resource Group Name>"
-    $dataLakeAnalyticName = "<Data Lake Analytic Account Name>"
-    $destFile = "C:\tutorials\data-lake-analytics\SearchLog-from-Data-Lake.csv"
-
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
-
-    Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -path "/Output"
-
-    Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "/Output/SearchLog-from-Data-Lake.csv" -Destination $destFile
-
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * Для просмотра учебника с помощью других средств используйте вкладки-селекторы в верхней части страницы.
-* Более сложный запрос можно посмотреть в статье [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md).
-* Чтобы приступить к разработке приложений U-SQL, ознакомьтесь со статьей [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Для знакомства с U-SQL см. статью о [начале работы с языком U-SQL для Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-* Задачи управления описываются в статье [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
-* Общие сведения об Azure Data Lake Analytics см. в [этой статье](data-lake-analytics-overview.md).
+* Задачи управления описываются в руководстве по [управлению Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
 

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d138f4135d008c746bd5501680392b80a51786fa
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: b4d2819f51506651ebeb5b7b7c2d016c0cfc154d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -61,15 +61,15 @@ ms.lasthandoff: 05/03/2017
 **На этом этапе вы настроили SSPR для своего клиента Azure AD**. Вы можете остановиться здесь или настроить синхронизацию паролей с локальным доменом AD.
 
 > [!NOTE]
-> Тестируйте SSPR с использованием учетной записи пользователя, а не администратора, так как Майкрософт имеет строгие требования к проверке подлинности учетных записей Azure типа "администратор". Дополнительные сведения о политике паролей администратора см. в статье [Как работает управление паролями в Azure Active Directory](active-directory-passwords-how-it-works.md).
+> Тестируйте SSPR с использованием учетной записи пользователя, а не администратора, так как Майкрософт имеет строгие требования к проверке подлинности учетных записей Azure типа "администратор". Дополнительные сведения о политике паролей администратора см. в [статье о политике паролей](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="configure-synchronization-to-existing-identity-source"></a>Настройка синхронизации с имеющимся источником удостоверений
 
-Чтобы включить синхронизацию локального источника удостоверений с Azure AD, установите и настройте [Azure AD Connect](/connect/active-directory-aadconnect.md) на сервере организации. Это приложение выполняет синхронизацию пользователей и групп имеющегося источника удостоверений с доменом Azure AD.
+Чтобы включить синхронизацию локального источника удостоверений с Azure AD, установите и настройте [Azure AD Connect](./connect/active-directory-aadconnect.md) на сервере организации. Это приложение выполняет синхронизацию пользователей и групп имеющегося источника удостоверений с доменом Azure AD.
 
-[Приступая к работе с Azure AD Connect с использованием стандартных параметров](/connect/active-directory-aadconnect-get-started-express.md)
+[Приступая к работе с Azure AD Connect с использованием стандартных параметров](./connect/active-directory-aadconnect-get-started-express.md)
 
-[Обновление с DirSync или Azure AD Sync до Azure AD Connect](/connect/active-directory-aadconnect-dirsync-deprecated.md)
+[Обновление с DirSync или Azure AD Sync до Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 
 ## <a name="disabling-self-service-password-reset"></a>Выключение самостоятельного сброса пароля
 

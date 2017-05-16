@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/26/2017
 
 Выполните действия, приведенные ниже, с помощью компьютера Mac, Windows или Linux. На все это вам понадобится около 5 минут.
 
-## <a name="before-you-begin"></a>Перед началом работы
+## <a name="prerequisites"></a>Предварительные требования
 
 Перед запуском этого примера необходимо скачать и установить следующие компоненты в локальной среде:
 
@@ -107,7 +108,7 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-app-service"></a>Создание службы приложений Azure
 
-Создайте план службы приложений на базе Linux с помощью команды [az appservice plan create](/cli/azure/appservice/plan#create).
+Создайте план службы приложений, выполнив команду [az appservice plan create](/cli/azure/appservice/plan#create).
 
 > [!NOTE]
 > План службы приложений представляет собой коллекцию физических ресурсов, используемых для размещения приложений. Все приложения, назначенные плану службы приложений, совместно используют ресурсы, определенные в нем. Поэтому, разместив несколько приложений, вы сможете сэкономить.
@@ -119,7 +120,7 @@ az group create --name myResourceGroup --location westeurope
 > * SKU ("Бесплатный", "Общий", "Базовый", "Стандартный", "Премиум").
 >
 
-В следующем примере создается план службы приложений с именем `quickStartPlan` ценовой категории **Бесплатный** в рабочих ролях Linux.
+В следующем примере создается план службы приложений с именем `quickStartPlan` и ценовой категорией **Бесплатный**.
 
 ```azurecli
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
@@ -152,7 +153,7 @@ az appservice plan create --name quickStartPlan --resource-group myResourceGroup
 
 ## <a name="create-a-web-app"></a>Создание веб-приложения
 
-План службы приложений создан. Теперь создайте веб-приложение в рамках этого плана (`quickStartPlan`). Веб-приложение предоставляет место для размещения и развертывания кода, а также URL-адрес для просмотра развернутого приложения. Используйте команду [az appservice web create](/cli/azure/appservice/web#create), чтобы создать веб-приложение.
+После создания плана службы приложений `quickStartPlan` создайте веб-приложение в рамках этого плана. Веб-приложение предоставляет место для размещения и развертывания кода, а также URL-адрес для просмотра развернутого приложения. Выполните команду [az appservice web create](/cli/azure/appservice/web#create), чтобы создать веб-приложение.
 
 В приведенной ниже команде замените заполнитель `<app_name>` уникальным именем приложения. `<app_name>` будет использоваться по умолчанию в качестве сайта DNS для веб-приложения. Поэтому это имя должно быть уникальным для всех приложений в Azure. Позже можно сопоставить любые пользовательские записи DNS с веб-приложением, прежде чем предоставлять его пользователям.
 
@@ -193,7 +194,7 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
-Мы создали пустое веб-приложение в Azure. Теперь настроим в веб-приложении использование языка Python и развернем в него наше приложение.
+Мы создали пустое веб-приложение в Azure. Теперь настроим в веб-приложении использование языка Python и развернем в нем наше приложение.
 
 ## <a name="configure-to-use-python"></a>Настройка использования Python
 
@@ -208,7 +209,7 @@ az appservice web config update --python-version 3.4 --name <app-name> --resourc
 
 ## <a name="configure-local-git-deployment"></a>Настройка локального развертывания Git
 
-Для развертывания в веб-приложение можно использовать FTP, локальный репозиторий Git, GitHub, Visual Studio Team Services и Bitbucket.
+Для развертывания в веб-приложении можно использовать FTP, локальный репозиторий Git, GitHub, Visual Studio Team Services и Bitbucket.
 
 Используйте команду [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git), чтобы настроить доступ локального репозитория Git к веб-приложению.
 
@@ -290,7 +291,7 @@ http://<app_name>.azurewebsites.net
 
 Теперь страница, на которой отображается сообщение Hello World, выполняется с использованием нашего кода Python как веб-приложение службы приложений Azure.
 
-![]()
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## <a name="updating-and-deploying-the-code"></a>Обновление и развертывание кода
 
@@ -309,7 +310,7 @@ git push azure master
 
 После завершения развертывания переключитесь в окно браузера, открытое на этапе перехода в приложение, и нажмите кнопку "Обновить".
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>Управление новым веб-приложением Azure
 
@@ -319,13 +320,13 @@ git push azure master
 
 В меню слева выберите **Службы приложений**, а затем щелкните имя своего веб-приложения Azure.
 
-![Переход к веб-приложению Azure на портале](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![Переход к веб-приложению Azure на портале](./media/app-service-web-get-started-python/app-service-list.png)
 
 Вы попадете в _колонку_ веб-приложения (страница портала, открывшаяся горизонтально).
 
 По умолчанию колонка веб-приложения отображает страницу **обзора**. Здесь вы можете наблюдать за работой приложения. Вы также можете выполнять базовые задачи управления: обзор, завершение, запуск, перезагрузку и удаление. Вкладки в левой области колонки отображают разные страницы конфигурации, которые вы можете открыть.
 
-![Колонка службы приложений на портале Azure](media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![Колонка службы приложений на портале Azure](media/app-service-web-get-started-python/app-service-detail.png)
 
 На вкладках в колонке содержится множество полезных функций, которые вы можете добавить в веб-приложение. Ниже представлены лишь некоторые из возможностей:
 
@@ -341,4 +342,6 @@ git push azure master
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Ознакомьтесь с предварительно созданными [скриптами интерфейса командной строки для веб-приложений](app-service-cli-samples.md).
+> [!div class="nextstepaction"]
+> [Примеры Azure CLI](app-service-cli-samples.md)
+

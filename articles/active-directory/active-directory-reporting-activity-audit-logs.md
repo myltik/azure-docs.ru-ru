@@ -1,6 +1,7 @@
 ---
-title: "Отчеты о действиях аудита на портале Azure Active Directory (предварительная версия) | Документация Майкрософт"
-description: "Введение в отчеты о действиях аудита на портале предварительной версии Azure Active Directory."
+
+title: "Отчеты о действиях аудита на портале Azure Active Directory | Документация Майкрософт"
+description: "Общие сведения об отчетах о действиях аудита на портале Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,20 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal---preview"></a>Отчеты о действиях аудита на портале Azure Active Directory (предварительная версия)
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Отчеты о действиях аудита на портале Azure Active Directory 
 
-Функция отчетов в [предварительной версии](active-directory-preview-explainer.md) Azure Active Directory позволяет получать всю необходимую информацию, чтобы определить, как работает среда.
+Функция отчетов в Azure Active Directory (Azure AD) позволяет получать всю необходимую информацию, с помощью которой можно определить, как работает среда.
 
-Архитектура создания отчетов в Azure Active Directory состоит из следующих компонентов.
+Архитектура создания отчетов в Azure AD состоит из следующих компонентов.
 
 - **Действие** 
     - **Действия входа** — информация об использовании управляемых приложений и действиях входа.
