@@ -13,23 +13,23 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 08fcde4f5bddccb9de5564455937a637054ebb60
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 83b72b046605f6076302d4347afa70707060929e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Создание виртуальной машины Linux с помощью Azure CLI
 
-Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. В этом руководстве описывается, как с помощью Azure CLI развернуть виртуальную машину под управлением Ubuntu 16.04 LTS. После развертывания сервера мы подключимся к виртуальной машине по протоколу SSH, чтобы установить NGINX. 
+Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. В этом руководстве описывается, как с помощью Azure CLI развернуть виртуальную машину под управлением сервера Ubuntu. После развертывания сервера создается подключение по протоколу SSH и устанавливается веб-сервер NGINX.
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
 
-Кроме того, убедитесь, что вы установили Azure CLI. Дополнительные сведения см. в [руководстве по установке Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="log-in-to-azure"></a>Вход в Azure 
 
@@ -43,10 +43,10 @@ az login
 
 Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. 
 
-В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *westeurope*.
+В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
 ```azurecli
-az group create --name myResourceGroup --location westeurope
+az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-virtual-machine"></a>Создание виртуальной машины
@@ -65,7 +65,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westeurope",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -121,7 +121,9 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Изучите [руководство по созданию высокодоступных виртуальных машин](create-cli-complete.md).
+Из этого краткого руководства вы узнали о том, как развернуть простую виртуальную машину, о правилах группы безопасности сети и об установке веб-сервера. Дополнительные сведения о виртуальных машинах Azure см. в руководстве для виртуальных машин Linux.
 
-[Изучите примеры развертывания виртуальных машин с помощью интерфейса командной строки](cli-samples.md).
+
+> [!div class="nextstepaction"]
+> [Создание виртуальных машин Linux и управление ими с помощью Azure CLI](./tutorial-manage-vm.md)
 

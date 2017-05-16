@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 2673a9c0d91510756a97b2dba3801d2925905c9a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -44,11 +45,9 @@ ms.lasthandoff: 04/21/2017
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Создание динамических веб-проектов в Eclipse
 
-В среде разработки Eclipse щелкните **Файл**, **Создать**, а затем **Dynamic Web Project** (Динамический веб-проект).
+В Eclipse откройте меню **File** (Файл), выберите пункт **New** (Создать) и щелкните **Dynamic Web Project** (Динамический веб-проект).
 
-![Новый динамический веб-проект](./media/app-service-web-get-started-java/file-new-dynamic-web-project-menu.png)
-
-В появившемся диалоговом окне динамического веб-проекта введите имя приложения **MyFirstJavaOnAzureWebApp**, а затем нажмите кнопку **Готово**.
+В диалоговом окне **New Dynamic Web Project** (Новый динамический веб-проект) присвойте проекту имя **MyFirstJavaOnAzureWebApp** и нажмите кнопку **Finish** (Готово).
    
 ![Диалоговое окно динамического веб-проекта](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -73,13 +72,11 @@ ms.lasthandoff: 04/21/2017
 
 ```jsp
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 ```
 
 Сохраните изменения на странице.
-
-![Редактирование кода JSP](./media/app-service-web-get-started-java/creating-index-jsp-page.png)
 
 ## <a name="publish-your-web-app-to-azure"></a>Публикация веб-приложения в Azure
 
@@ -183,14 +180,12 @@ ms.lasthandoff: 04/21/2017
 <title><% out.println(date.format(new Date())); %></title>
 </head>
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 </html>
 ```
 
-![Обновление кода JSP](./media/app-service-web-get-started-java/updating-index-jsp-page.png)
-
-Сохранив изменения, щелкните правой кнопкой мыши проект в **обозревателе проектов** Eclipse, выберите **Azure**, а затем — **Publish as Azure Web App** (Опубликовать как веб-приложение Azure).
+Сохранив изменения, щелкните проект правой кнопкой мыши в **обозревателе проектов** Eclipse, выберите **Azure**, а затем — **Publish as Azure Web App** (Опубликовать как веб-приложение Azure).
 
 ![Публикация обновленного веб-приложения](./media/app-service-web-get-started-java/publish-updated-web-app-context-menu.png)
 
@@ -207,9 +202,9 @@ ms.lasthandoff: 04/21/2017
 
 ![Переход к веб-приложению](./media/app-service-web-get-started-java/browse-web-app-2.png)
 
-## <a name="deleting-your-web-app"></a>Удаление веб-приложения
+## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Чтобы удалить веб-приложение, можно использовать **обозреватель Azure**, который входит в состав набора средств Azure. Если представление **обозревателя Azure** еще не отображается в Eclipse, сделайте следующее:
+Чтобы удалить веб-приложение, используйте **обозреватель Azure**, входящий в состав набора средств Azure. Если представление **обозревателя Azure** еще не отображается в Eclipse, сделайте следующее:
 
 1. Щелкните **Окно**, **Show View** (Показать представление), а затем выберите **Другие**.
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: ae91d49bf4f715847bcef5d6b00e3798e6a02500
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: fea9796d8ca03351573f091dce41689743821cad
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -36,9 +36,10 @@ ms.lasthandoff: 05/03/2017
 > 
 >
 
-![Схема подключения типа "сеть — сеть" через VPN-шлюз](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
 Подключение VPN-шлюза типа "сеть — сеть" используется для подключения между локальной сетью и виртуальной сетью Azure через туннель VPN по протоколу IPsec/IKE (IKEv1 или IKEv2). Для этого типа подключения требуется локальное VPN-устройство, которому назначен внешний общедоступный IP-адрес. Дополнительные сведения о VPN-шлюзах см. в [этой статье](vpn-gateway-about-vpngateways.md).
+
+![Схема подключения типа "сеть — сеть" через VPN-шлюз](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
@@ -100,9 +101,14 @@ ms.lasthandoff: 05/03/2017
 [!INCLUDE [vpn-gateway-add-lng-s2s-rm-portal](../../includes/vpn-gateway-add-lng-s2s-rm-portal-include.md)]
 
 ## <a name="VPNDevice"></a>6. Настройка устройства VPN
-[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-Чтобы найти общедоступный IP-адрес VPN-шлюза с помощью портала Azure, перейдите к разделу **Шлюзы виртуальной сети** и щелкните имя шлюза.
+Для подключения типа "сеть — сеть" к локальной сети требуется VPN-устройство. На этом этапе мы настроим VPN-устройство. Чтобы настроить локальное VPN-устройство, вам потребуется следующее:
+
+- Общий ключ. Это тот же общий ключ, который указывается при создании VPN-подключения "сеть — сеть". В наших примерах мы используем простые общие ключи. Для практического использования рекомендуется создавать более сложные ключи.
+- Общедоступный IP-адрес шлюза виртуальной сети. Общедоступный IP-адрес можно просмотреть с помощью портала Azure, PowerShell или CLI. Чтобы найти общедоступный IP-адрес VPN-шлюза с помощью портала Azure, перейдите к разделу **Шлюзы виртуальной сети** и щелкните имя шлюза.
+
+
+[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 ## <a name="CreateConnection"></a>7. Создание VPN-подключения
 

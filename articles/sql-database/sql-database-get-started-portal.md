@@ -14,12 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/03/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 90761317944b935b76df65d25a2035bfabe71c09
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: dbed7fe1f6ffdb40d445a66890b63baaf7a57f54
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -143,11 +144,8 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
-Другие краткие руководства в этой коллекции созданы на основе этого документа. 
+Если эти ресурсы не требуются для изучения другого руководства (см. раздел [Дальнейшие действия](#next-steps)), их можно удалить, сделав следующее:
 
-> [!TIP]
-> Если вы планируете продолжать работу с этими краткими руководствами, не удаляйте созданные ресурсы. Если вы не планируете продолжать работу, удалите все созданные ресурсы, выполнив на портале Azure следующие действия.
->
 
 1. В меню слева на портале Azure щелкните **Группы ресурсов**, а затем выберите **myResourceGroup**. 
 2. На странице группы ресурсов щелкните **Удалить**, в текстовом поле введите **myResourceGroup** и щелкните **Удалить**.

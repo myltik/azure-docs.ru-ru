@@ -1,6 +1,7 @@
 ---
-title: "Отчеты о действиях входа на портале Azure Active Directory (предварительная версия) | Документация Майкрософт"
-description: "Введение в отчеты о действиях входа на портале предварительной версии Azure Active Directory."
+
+title: "Отчеты о действиях входа на портале Azure Active Directory | Документация Майкрософт"
+description: "Общие сведения об отчетах о действиях входа на портале Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal---preview"></a>Отчеты о действиях входа на портале Azure Active Directory (предварительная версия)
+# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Отчеты о действиях входа на портале Azure Active Directory
 
-Функция отчетов в [предварительной версии](active-directory-preview-explainer.md) Azure Active Directory позволяет получать всю необходимую информацию, чтобы определить, как работает среда.
+Функция отчетов в Azure Active Directory (Azure AD) [на портале Azure](https://portal.azure.com) позволяет получать всю необходимую информацию, чтобы определить, как работает среда.
 
 Архитектура создания отчетов в Azure Active Directory состоит из следующих компонентов.
 
@@ -44,7 +46,7 @@ ms.lasthandoff: 04/13/2017
 * Сколько пользователей входили в течение недели?
 * Каков статус их входа?
 
-Знакомство с данными о действиях входа следует начать с раздела **События входа** в разделе "Действие" службы **Azure Active**. Directory.
+Знакомство с данными о действиях входа следует начать с раздела **События входа** в разделе "Действие" службы **Azure Active**.
 
 
 ![Действие входа](./media/active-directory-reporting-activity-sign-ins/61.png "Действие входа")

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 4f7860b906ab988c918de31d53f4a958e4dea83b
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -31,9 +31,7 @@ ms.lasthandoff: 04/28/2017
 Прокси приложения Azure AD обеспечивает поддержку удаленных рабочих ролей. Для этого необходимо опубликовать локальные приложения, чтобы к ним можно было получать доступ через Интернет. На этом этапе у вас уже должен быть [включен прокси приложения на классическом портале Azure](active-directory-application-proxy-enable.md). В этой статье описаны действия, которые необходимо выполнить для публикации приложений, которые работают в локальной сети, и предоставления к ним безопасного удаленного доступа из внешней сети. Ознакомившись с этой статьей, вы сможете указать для приложения личные сведения и настроить необходимые параметры безопасности.
 
 > [!NOTE]
-> Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md).
-
-Если вы хотите использовать общедоступную предварительную версию прокси приложения, ознакомьтесь со статьей о [публикации приложений с помощью прокси приложения Azure AD](application-proxy-publish-azure-portal.md).
+> Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md). Если вы хотите использовать прокси приложения, ознакомьтесь со статьей о [публикации приложений на портале Azure](application-proxy-publish-azure-portal.md).
 
 ## <a name="publish-an-app-using-the-wizard"></a>Публикация приложения с помощью мастера
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com/)как администратор.
