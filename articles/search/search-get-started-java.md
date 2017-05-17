@@ -14,9 +14,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/29/2017
 
 
