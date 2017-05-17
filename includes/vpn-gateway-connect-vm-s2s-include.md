@@ -7,15 +7,15 @@
   - PowerShell. Воспользуйтесь примером ниже, чтобы просмотреть список виртуальных машин и частных IP-адресов из ваших групп ресурсов. Вам не нужно изменять этот пример перед использованием.
 
     ```powershell
-    $vms = get-azurermvm
-    $nics = get-azurermnetworkinterface | where VirtualMachine -NE $null
+    $VMs = Get-AzureRmVM
+    $Nics = Get-AzureRmNetworkInterface | Where VirtualMachine -ne $null
 
-    foreach($nic in $nics)
+    foreach($Nic in $Nics)
     {
-      $vm = $vms | where-object -Property Id -EQ $nic.VirtualMachine.id
-      $prv = $nic.IpConfigurations | select-object -ExpandProperty PrivateIpAddress
-      $alloc = $nic.IpConfigurations | select-object -ExpandProperty PrivateIpAllocationMethod
-      Write-Output "$($vm.Name): $prv,$alloc"
+      $VM = $VMs | Where-Object -Property Id -eq $Nic.VirtualMachine.Id
+      $Prv = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAddress
+      $Alloc = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAllocationMethod
+      Write-Output "$($VM.Name): $Prv,$Alloc"
     }
     ```
 

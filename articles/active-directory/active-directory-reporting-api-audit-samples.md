@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 665b613db31b15b6f6d2826a0795be6275c832ca
 ms.openlocfilehash: 8216fa7ab092b2d0225d075d933fa56fbab56f40
+ms.contentlocale: ru-ru
 ms.lasthandoff: 12/28/2016
 
 

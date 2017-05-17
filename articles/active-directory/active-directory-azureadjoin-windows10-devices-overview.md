@@ -14,11 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: aa6e78feb7ffaefcb8bce9c7f2293421c4859898
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -35,10 +37,5 @@ ms.openlocfilehash: aa6e78feb7ffaefcb8bce9c7f2293421c4859898
 | Приступая к работе |[Устройства под управлением Windows 10 в вашей рабочей области](active-directory-azureadjoin-windows10-devices.md) <br> <br> [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-overview.md) <br> <br> [Проверка подлинности удостоверений без использования паролей с помощью службы Microsoft Passport](active-directory-azureadjoin-passport.md) |
 | Развертывание |[Сценарии использования и рекомендации по развертыванию для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Включение Microsoft Passport for Work в организации](active-directory-azureadjoin-passport-deployment.md)<br><br> [Включение Enterprise State Roaming для Windows 10](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | Задачи пользователя |[Настройка нового устройства под управлением Windows 10 на работу с Azure AD](active-directory-azureadjoin-user-frx.md) <br><br> [Настройка устройства Windows 10 для работы с Azure AD через меню "Настройка"](active-directory-azureadjoin-user-upgrade.md) <br><br> [Присоединение личного устройства к своей организации](active-directory-azureadjoin-personal-device.md) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

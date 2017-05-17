@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b0f23cc578fb946247d492b9dee92cf7a9daafa1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -164,10 +166,5 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 ## <a name="next-steps"></a>Дальнейшие действия
 * Хотите получать доступ к данным из API отчетов Azure AD программным образом? См. статью [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Дополнительные сведения об отчетах Azure Active Directory см. в статье [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).  
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
