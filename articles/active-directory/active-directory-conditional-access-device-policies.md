@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 613e2447c1e47fcd80f2e9ded9ad2669f8283c3d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/28/2016
 
 
 ---
@@ -46,10 +48,5 @@ ms.openlocfilehash: 613e2447c1e47fcd80f2e9ded9ad2669f8283c3d
 Вопрос. Когда политика условного доступа к службам Office 365 начнет распространяться на браузерные приложения (например, на Outlook Web App и браузерную версию SharePoint)?
 
 Ответ. В настоящее время условный доступ к службам Office 365 применяется только для полнофункциональных приложений на устройствах. Мы планируем расширить политику условного доступа, распространив ее на пользователей, обращающихся к службам с помощью браузеров.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
