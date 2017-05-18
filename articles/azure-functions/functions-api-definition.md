@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 08063960d3956ca65dd32d9fe726c366799a2087
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: aac362f5123038cc39e0d2b32c10f7747a702cfe
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -34,10 +35,10 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="enable"></a>Включение поддержки определения OpenAPI
 * Все параметры OpenAPI можно настроить на странице `API Definition (preview)` в параметрах приложения-функции.
-* Задайте для `API defintion source` значение `Function`, чтобы включить поддержку размещенных определений интерфейса OpenAPI и создание кратких определений.
+* Задайте для `API definition source` значение `Function`, чтобы включить поддержку размещенных определений интерфейса OpenAPI и создание кратких определений.
   * Используя `External URL`, ваша функция сможет применять определение OpenAPI, размещенное в другом месте.
 
-## <a name="generate-defintion"></a>Создание схемы Swagger на основе метаданных функции
+## <a name="generate-definition"></a>Создание схемы Swagger на основе метаданных функции
 Первое определение OpenAPI удобнее всего создавать на основе шаблона. Функция шаблона определения создает разреженное определение OpenAPI, используя все метаданные в function.json для каждой функции "Триггер HTTP". **Вам необходимо будет указать дополнительные сведения об API из [спецификации OpenAPI](http://swagger.io/specification/), например шаблоны запросов и ответов.**
 
 [Пошаговые инструкции см. в этом учебнике по началу работы](./functions-api-definition-getting-started.md).

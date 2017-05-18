@@ -12,13 +12,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 44eaabecf9b53f2552d1dff3502139520a611ccd
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: dfb4c7651f6cfd378f9b1706abcdd732e56d7eb1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/04/2017
 
 ## <a name="create-app-sample"></a>Создание примера приложения
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github-continuous/deploy-github-continuous.sh?highlight=3-4 "Создание веб-приложения с непрерывным развертыванием из GitHub")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-github-continuous/deploy-github-continuous.sh?highlight=3-4 "Создание веб-приложения с непрерывным развертыванием из GitHub")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -54,3 +55,4 @@ ms.lasthandoff: 04/04/2017
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Дополнительные примеры скриптов Azure CLI для службы приложений см. в [документации по службе приложений Azure](../app-service-cli-samples.md).
+

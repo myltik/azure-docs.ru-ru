@@ -10,15 +10,16 @@ tags: azure-service-management
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
 ms.service: app-service
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 5b4b3c6fdebfa32224772f36212ee073f688f054
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5c467f35351a9e0c6261967b6ed6e6b58cfab682
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/04/2017
 
 ## <a name="sample-script"></a>Пример скрипта
 
-[!code-azurecli[main](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh "Географическое масштабирование")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh "Географическое масштабирование")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -51,3 +52,4 @@ ms.lasthandoff: 04/04/2017
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Дополнительные примеры скриптов Azure CLI для службы приложений см. в [документации по службе приложений Azure](../app-service-cli-samples.md).
+

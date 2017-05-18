@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 97ed0ae7cf9f741155c57053bc8b34a0246d0586
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 492e0ca675f2a827b172c33fcd33226abc95dcec
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -47,7 +48,7 @@ ms.lasthandoff: 04/18/2017
 * Наличие конфигураций системы диагностики Azure в приложении, использующих *WADCFGX* -файл и один из следующих методов:
   * Visual Studio: [настройка системы диагностики для облачных служб и виртуальных машин Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
   * Windows PowerShell: [включение диагностики в облачных службах Azure с помощью PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Пространство имен концентраторов событий, подготовленное в соответствии с инструкциями в статье [Приступая к работе с концентраторами событий]((../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+* Пространство имен концентраторов событий, подготовленное в соответствии с инструкциями в статье [Приступая к работе с концентраторами событий](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Подключение системы диагностики Azure к приемнику концентраторов событий
 По умолчанию система диагностики Azure всегда отправляет журналы и метрики в учетную запись хранения Azure. Приложение может также передавать данные в концентраторы событий. Для этого необходимо добавить новый раздел **Sinks** в элемент **PublicConfig** / **WadCfg** в *WADCFGX*-файле. В Visual Studio *WADCFGX*-файл доступен по следующему пути: **Cloud Service Project** (Проект облачной службы) > **Роли** > **(имя роли)** > **diagnostics.wadcfgx**.
