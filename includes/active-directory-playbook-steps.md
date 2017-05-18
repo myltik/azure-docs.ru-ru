@@ -25,7 +25,7 @@
      * [Самостоятельный сброс пароля](../articles/active-directory/active-directory-playbook-implementation.md#self-service-password-reset).
      * [Самостоятельный доступ к приложениям](../articles/active-directory/active-directory-playbook-implementation.md#self-service-access-to-applications).
 4. [Стандартные блоки](../articles/active-directory/active-directory-playbook-building-blocks.md).
-   * [Каталог субъектов](../articles/active-directory/active-directory-playbook-building-blocks.md#catalog-of-actors).
+   * [Каталог субъектов](../articles/active-directory/active-directory-playbook-building-blocks.md).
    * [Общие предварительные требования для всех стандартных блоков](../articles/active-directory/active-directory-playbook-building-blocks.md#common-prerequisites-for-all-building-blocks).
    * [Синхронизация каталога. Синхронизация хэша паролей (PHS): новая установка](../articles/active-directory/active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation).
    * [Фирменная символика](../articles/active-directory/active-directory-playbook-building-blocks.md#branding).

@@ -3,8 +3,8 @@ title: "Мониторинг, диагностика и устранение н�
 description: "Воспользуйтесь такими функциями, как аналитика хранилища, вход на стороне клиента, и другими сторонними инструментами для выявления, диагностики и устранения проблем, связанных со службой хранилища Azure."
 services: storage
 documentationcenter: 
-author: jasonnewyork
-manager: tadb
+author: fhryo-msft
+manager: jahogg
 editor: tysonn
 ms.assetid: d1e87d98-c763-4caa-ba20-2cf85f853303
 ms.service: storage
@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
-ms.author: jahogg
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 8d2aa0c8ff9e39faf47c6c3339cd8da2610d2324
-ms.lasthandoff: 04/06/2017
+ms.date: 05/11/2017
+ms.author: fhryo-msft
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 8598e18aeb0552455a6e5344f10eb48382e8c2f4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -328,19 +329,19 @@ catch (StorageException storageException)
 * [Клиент получает сообщения HTTP 409 (конфликт)]
 
 ---
-[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
+[Метрики содержат низкие значения PercentSuccess, или в записях журналов аналитики присутствуют операции с состоянием транзакции ClientOtherErrors]
 
 ---
 [Метрики объема показывают неожиданное увеличение использования объема хранилища]
 
 ---
-[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
+[Происходит неожиданный перезапуск виртуальных машин, имеющих большое количество виртуальных жестких дисков]
 
 ---
 [Проблема связана с использованием эмулятора хранения на этапе разработки или тестирования]
 
 ---
-[You are encountering problems installing the Azure SDK for .NET]
+[Возникают проблемы при установке пакета SDK для Azure для .NET]
 
 ---
 [Возникла другая проблема со службой хранилища]
