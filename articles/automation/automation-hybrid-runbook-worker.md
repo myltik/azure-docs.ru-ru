@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: bwren
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 66e749106ba1031eef19b12f06d5bd16ffa9d09e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: a63778c300a3d215a2a0025824f6363e1d9e9675
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 05/03/2017
 * По возможности следует использовать компьютер, расположенный в том же регионе, что и ваша учетная запись службы автоматизации (или рядом с ним), так как данные выполненного задания отправляются в службу автоматизации Azure.
 
 ### <a name="configure-proxy-and-firewall-settings"></a>Настройка прокси-сервера и брандмауэра
-Чтобы локальная гибридная рабочая роль Runbook могла подключаться и регистрироваться в службе Microsoft Operations Management Suite (OMS), ей нужен доступ к описанным ниже портам и URL-адресам.  Этот список является дополнением к [списку ресурсов и портов](../log-analytics/log-analytics-proxy-firewall.md#configure-settings-with-the-microsoft-monitoring-agent), необходимых для подключения Microsoft Monitoring Agent к OMS. При использовании прокси-сервера для обмена данными между агентом и службой OMS необходимо убедиться, что соответствующие ресурсы доступны. Если доступ к Интернету ограничивается брандмауэром, вам нужно изменить его настройки, чтобы разрешить доступ к OMS.
+Чтобы локальная гибридная рабочая роль Runbook могла подключаться и регистрироваться в службе Microsoft Operations Management Suite (OMS), ей нужен доступ к описанным ниже портам и URL-адресам.  Этот список является дополнением к [списку ресурсов и портов](../log-analytics/log-analytics-windows-agents.md), необходимых для подключения Microsoft Monitoring Agent к OMS. При использовании прокси-сервера для обмена данными между агентом и службой OMS необходимо убедиться, что соответствующие ресурсы доступны. Если доступ к Интернету ограничивается брандмауэром, вам нужно изменить его настройки, чтобы разрешить доступ к OMS.
 
 Приведенные ниже сведения — это список портов и URL-адресов для обмена данными между гибридной рабочей ролью Runbook и службой автоматизации.
 
@@ -81,11 +81,11 @@ ms.lasthandoff: 05/03/2017
 | Южная часть Великобритании | uks-jobruntimedata-prod-su1.azure-automation.net |
 | Правительство штата Вирджиния | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-Для списка IP-адресов вместо имен скачайте XML-файл [IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/details.aspx?id=41653) из Центра загрузки Майкрософт и ознакомьтесь с ним. 
+Для списка IP-адресов вместо имен скачайте XML-файл [IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/details.aspx?id=41653) из Центра загрузки Майкрософт и ознакомьтесь с ним.
 
 > [!NOTE]
-> Этот файл содержит диапазоны IP-адресов (включая диапазоны вычисления, хранения и SQL), используемые в центрах обработки данных Microsoft Azure. Обновленный файл публикуется еженедельно и отражает развернутые в настоящее время диапазоны и все предстоящие изменения IP-адресов. Новые диапазоны, появившиеся в файле, не будут использоваться в центрах обработки данных по крайней мере одну неделю. Скачивайте новый XML-файл каждую неделю и вносите соответствующие изменения на своем сайте, чтобы правильно определять службы, выполняемые в Azure. Пользователи Express Route могут заметить, что этот файл используется для того, чтобы обновлять объявление BGP пространства Azure в первую неделю каждого месяца. 
-> 
+> Этот файл содержит диапазоны IP-адресов (включая диапазоны вычисления, хранения и SQL), используемые в центрах обработки данных Microsoft Azure. Обновленный файл публикуется еженедельно и отражает развернутые в настоящее время диапазоны и все предстоящие изменения IP-адресов. Новые диапазоны, появившиеся в файле, не будут использоваться в центрах обработки данных по крайней мере одну неделю. Скачивайте новый XML-файл каждую неделю и вносите соответствующие изменения на своем сайте, чтобы правильно определять службы, выполняемые в Azure. Пользователи Express Route могут заметить, что этот файл используется для того, чтобы обновлять объявление BGP пространства Azure в первую неделю каждого месяца.
+>
 
 ## <a name="installing-hybrid-runbook-worker"></a>Установка гибридного компонента Runbook Worker
 
@@ -101,20 +101,20 @@ ms.lasthandoff: 05/03/2017
 
   * *AutomationAccountName* (обязательный) — имя учетной записи службы автоматизации;  
   * *ResourceGroupName* (обязательный) — имя группы ресурсов, связанной с вашей учетной записью автоматизации.  
-  * *HybridGroupName* (обязательный) — имя группы гибридных рабочих ролей Runbook, которую вы указываете в качестве целевой для модулей runbook, поддерживающих этот сценарий. 
+  * *HybridGroupName* (обязательный) — имя группы гибридных рабочих ролей Runbook, которую вы указываете в качестве целевой для модулей runbook, поддерживающих этот сценарий.
   *  *SubscriptionID* (обязательный) — идентификатор подписки Azure, которая используется для учетной записи автоматизации.
   *  *WorkspaceName* (необязательный) — имя рабочей области OMS.  Если у вас нет рабочей области OMS, скрипт создаст и настроит ее.  
 
      > [!NOTE]
      > В настоящее время интеграция с OMS поддерживается только для следующих регионов службы автоматизации: **Юго-восточная Австралия**, **Восточная часть США 2**, **Юго-Восточная Азия** и **Западная Европа**.  Если ваша учетная запись службы автоматизации не находится в одном из этих регионов, скрипт все равно создаст рабочую область OMS, но предупредит, что связывание невозможно.
-     > 
+     >
 2. На своем компьютере запустите **Windows PowerShell** на **начальном** экране в режиме администратора.  
 3. В оболочке командной строки PowerShell перейдите к папке, которая содержит скачанный сценарий, и выполните его, изменив значения параметров *-AutomationAccountName*, *-ResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* и *-WorkspaceName*.
 
-     > [!NOTE] 
+     > [!NOTE]
      > После выполнения скрипта вы увидите запрос на аутентификацию в Azure.  Для входа **необходимо** использовать учетную запись, которая является участником роли администраторов подписки и соадминистратором подписки.  
      >  
-    
+
         .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> `
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
@@ -123,7 +123,7 @@ ms.lasthandoff: 05/03/2017
 
 5. После завершения сценария в колонке "Группы гибридных рабочих ролей" отобразится новая группа и число элементов в ней с учетом только что добавленных.  Вы можете выбрать группу из списка на вкладке **Группы гибридных рабочих ролей** и щелкнуть колонку **Гибридные рабочие роли**.  В колонке **Гибридные рабочие роли** отображается список элементов группы.  
 
-### <a name="manual-deployment"></a>Развертывание вручную 
+### <a name="manual-deployment"></a>Развертывание вручную
 Выполните первые два шага для среды автоматизации, а затем повторите остальные шаги для каждого компьютера с компонентом Worker.
 
 #### <a name="1-create-operations-management-suite-workspace"></a>1. Создайте рабочую область Operations Management Suite
@@ -166,9 +166,9 @@ Microsoft Monitoring Agent подключает компьютеры к Operatio
 #### <a name="5-install-powershell-modules"></a>5. Установка модулей PowerShell
 Модули Runbook могут использовать любые из действий и командлетов, которые определены в модулях, установленных в вашей среде службы автоматизации Azure.  Эти модули не разворачиваются на локальных компьютерах автоматически, поэтому их необходимо устанавливать вручную.  Исключением является модуль Azure, который устанавливается по умолчанию и предоставляет доступ к командлетам для всех служб и действий службы автоматизации Azure.
 
-Так как главной целью функции гибридной рабочей роли Runbook является управление локальными ресурсами, вам могут потребоваться модули, которые поддерживают эти ресурсы.  Сведения об установке модулей Windows PowerShell можно найти в разделе [Установка модулей](http://msdn.microsoft.com/library/dd878350.aspx) .  Устанавливаемые модули должны находиться в расположении, указанном в переменной среды PSModulePath, чтобы гибридная рабочая роль автоматически импортировала их.  Дополнительные сведения см. в статье [об изменении пути установки PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx). 
+Так как главной целью функции гибридной рабочей роли Runbook является управление локальными ресурсами, вам могут потребоваться модули, которые поддерживают эти ресурсы.  Сведения об установке модулей Windows PowerShell можно найти в разделе [Установка модулей](http://msdn.microsoft.com/library/dd878350.aspx) .  Устанавливаемые модули должны находиться в расположении, указанном в переменной среды PSModulePath, чтобы гибридная рабочая роль автоматически импортировала их.  Дополнительные сведения см. в статье [об изменении пути установки PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 
-## <a name="removing-hybrid-runbook-worker"></a>Удаление гибридного компонента Runbook Worker 
+## <a name="removing-hybrid-runbook-worker"></a>Удаление гибридного компонента Runbook Worker
 Можно удалить одну или несколько гибридных рабочих ролей Runbook из группы либо удалить группу, в зависимости ваших целей.  Чтобы удалить гибридную рабочую роль Runbook на локальном компьютере, выполните следующие действия.
 
 1. На портале Azure перейдите к учетной записи службы автоматизации.  
@@ -242,21 +242,21 @@ Microsoft Monitoring Agent подключает компьютеры к Operatio
     .GUID 3a796b9a-623d-499d-86c8-c249f10a6986
     .AUTHOR Azure Automation Team
     .COMPANYNAME Microsoft
-    .COPYRIGHT 
-    .TAGS Azure Automation 
-    .LICENSEURI 
-    .PROJECTURI 
-    .ICONURI 
-    .EXTERNALMODULEDEPENDENCIES 
-    .REQUIREDSCRIPTS 
-    .EXTERNALSCRIPTDEPENDENCIES 
+    .COPYRIGHT
+    .TAGS Azure Automation
+    .LICENSEURI
+    .PROJECTURI
+    .ICONURI
+    .EXTERNALMODULEDEPENDENCIES
+    .REQUIREDSCRIPTS
+    .EXTERNALSCRIPTDEPENDENCIES
     .RELEASENOTES
     #>
 
     <#  
     .SYNOPSIS  
-    Exports the Run As certificate from an Azure Automation account to a hybrid worker in that account. 
-  
+    Exports the Run As certificate from an Azure Automation account to a hybrid worker in that account.
+
     .DESCRIPTION  
     This runbook exports the Run As certificate from an Azure Automation account to a hybrid worker in that account.
     Run this runbook in the hybrid worker where you want the certificate installed.
@@ -266,11 +266,11 @@ Microsoft Monitoring Agent подключает компьютеры к Operatio
     .\Export-RunAsCertificateToHybridWorker
 
     .NOTES
-    AUTHOR: Azure Automation Team 
+    AUTHOR: Azure Automation Team
     LASTEDIT: 2016.10.13
     #>
 
-    [OutputType([string])] 
+    [OutputType([string])]
 
     # Set the password used for this certificate
     $Password = "YourStrongPasswordForTheCert"
@@ -280,21 +280,21 @@ Microsoft Monitoring Agent подключает компьютеры к Operatio
 
     # Get the management certificate that will be used to make calls into Azure Service Management resources
     $RunAsCert = Get-AutomationCertificate -Name "AzureRunAsCertificate"
-       
+
     # location to store temporary certificate in the Automation service host
     $CertPath = Join-Path $env:temp  "AzureRunAsCertificate.pfx"
-   
+
     # Save the certificate
     $Cert = $RunAsCert.Export("pfx",$Password)
-    Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose 
+    Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose
 
     Write-Output ("Importing certificate into local machine root store from " + $CertPath)
     $SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
     Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword -Exportable | Write-Verbose
 
     # Test that authentication to Azure Resource Manager is working
-    $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection" 
-    
+    $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
+
     Add-AzureRmAccount `
       -ServicePrincipal `
       -TenantId $RunAsConnection.TenantId `
