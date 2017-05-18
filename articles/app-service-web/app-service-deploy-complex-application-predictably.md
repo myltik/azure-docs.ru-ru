@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
-ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 844f42e61ba443a4b74a52f622113e87a7781913
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -130,7 +131,7 @@ ms.lasthandoff: 02/16/2017
 * Вложенные ресурсы в `“resources”: […]`, где определены база данных и правила брандмауэра, содержат элемент `dependsOn`, указывающий на идентификатор ресурса для ресурса SQLServer корневого уровня. Этим диспетчеру ресурсов Azure сообщается, что "перед созданием ресурса уже должен существовать другой ресурс и, если этот другой ресурс определен в шаблоне, сначала создайте его".
   
   > [!NOTE]
-  > Дополнительные сведения об использовании `resourceId()` см. в статье [Функции шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md).
+  > Дополнительные сведения об использовании `resourceId()` см. в статье [Функции шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
   > 
   > 
 * Результатом работы элемента `dependsOn` будет то, что диспетчер ресурсов Azure сможет узнать, какие ресурсы могут быть созданы в параллельном режиме и какие ресурсы должны быть созданы последовательно. 

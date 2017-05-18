@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9e699cdff2030619cf117b6556ed482f1cd632c7
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 23fc9f7f34732079682857d4ee685fe811751698
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,14 +28,7 @@ ms.lasthandoff: 04/03/2017
 
 После того как вы подготовили виртуальную машину, ее можно увеличить или уменьшить, изменив [размер][vm-sizes]. В некоторых случаях сначала необходимо освободить виртуальную машину. Необходимо завершить общение с виртуальной машиной, если требуемый размер недоступен в кластере оборудования, в котором она размещена. В этой статье описано, как изменить размер виртуальной машины Linux с помощью Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
-Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
-
-- [Azure CLI 1.0](#resize-a-linux-vm) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
-- [Azure CLI 2.0](change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
-
-
-
+## <a name="resize-a-vm"></a>Изменение размера виртуальной машины
 Чтобы изменить размер виртуальной машины, нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
 1. Выведите список размеров виртуальной машины, доступных в кластере оборудования, в котором она размещена, с помощью команды [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options). В следующем примере содержится список размеров виртуальных машин с именем `myVM` в группе ресурсов `myResourceGroup` региона:

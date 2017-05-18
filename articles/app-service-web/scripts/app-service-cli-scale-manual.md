@@ -10,15 +10,16 @@ tags: azure-service-management
 ms.assetid: 251d9074-8fff-4121-ad16-9eca9556ac96
 ms.service: app-service
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 2023e806d8ed5dc459af93533db6668659ba5898
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 6babf3f8530ec4c5e8ed3e5af6c093b8d0856f77
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/04/2017
 
 ## <a name="sample-script"></a>Пример скрипта
 
-[!code-azurecli[main](../../../cli_scripts/app-service/scale-manual/scale-manual.sh "Масштабирование вручную")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/scale-manual/scale-manual.sh "Масштабирование вручную")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -50,3 +51,4 @@ ms.lasthandoff: 04/04/2017
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Дополнительные примеры скриптов Azure CLI для службы приложений см. в [документации по службе приложений Azure](../app-service-cli-samples.md).
+
