@@ -188,7 +188,7 @@ HDInsight работает со множеством компонентов Hado
 
     В кластере HDInsight доступен веб-интерфейс Storm.
 
-    ![HDInsight, storm, масштабирование, перераспределение](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight, storm, масштабирование, перераспределение](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
 

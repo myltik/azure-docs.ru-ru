@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ec710057c2016175f65578a9d6884f7273b65169
 ms.openlocfilehash: f2a762ad64feeef91802429cdd959cec67b73473
+ms.contentlocale: ru-ru
 ms.lasthandoff: 12/20/2016
 
 
@@ -166,7 +167,7 @@ ms.lasthandoff: 12/20/2016
     
     В кластере HDInsight доступен веб-интерфейс Storm.
     
-    ![HDInsight, Storm, масштабирование, перераспределение](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight, Storm, масштабирование, перераспределение](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
     
     Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
     
