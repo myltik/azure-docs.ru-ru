@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
-translationtype: Human Translation
-ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
-ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
-ms.lasthandoff: 02/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 247c26b3988664bcf93fb5face6514a3dc74cebc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -51,7 +52,7 @@ ms.lasthandoff: 02/13/2017
 * В [коллекции Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md)можно попробовать аналитические решения, созданные другими пользователями, или добавить собственные. Задавайте сообществу вопросы и оставляйте комментарии об экспериментах, обменивайтесь ссылками на эксперименты через социальные сети, такие как LinkedIn и Twitter.
 
   ![Попробуйте прогнозные эксперименты или добавьте свои в коллекции Cortana Intelligence](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
-* Используйте обширную библиотеку [алгоритмов и модулей машинного обучения](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) в студии машинного обучения для быстрого создания прогнозной модели. Вам доступны образцы экспериментов, пакеты R и Python и лучшие в классе алгоритмы от таких подразделений Майкрософт, как Xbox и Bing. Расширяйте модули студии собственными сценариями [R](machine-learning-r-quickstart.md) и [Python](machine-learning-execute-python-scripts.md).
+* Используйте обширную библиотеку [алгоритмов и модулей машинного обучения](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) в студии машинного обучения для быстрого создания прогнозной модели. Вам доступны образцы экспериментов, пакеты R и Python и лучшие в классе алгоритмы от таких подразделений Майкрософт, как Xbox и Bing. Расширяйте модули студии собственными сценариями [R](machine-learning-extend-your-experiment-with-r.md) и [Python](machine-learning-execute-python-scripts.md).
 
   ![Что такое прогнозная аналитика: пример эксперимента прогнозной аналитики в студии машинного обучения Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
