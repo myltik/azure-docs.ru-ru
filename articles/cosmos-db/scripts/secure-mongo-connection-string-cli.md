@@ -1,0 +1,61 @@
+---
+title: "Получение строки подключения базы данных Azure Cosmos DB для приложений MongoDB с помощью скрипта Azure CLI | Документация Майкрософт"
+description: "Получение строки подключения базы данных Azure Cosmos DB для приложений MongoDB с помощью скрипта Azure CLI"
+services: cosmosdb
+documentationcenter: cosmosdb
+author: mimig1
+manager: jhubbard
+editor: 
+tags: azure-service-management
+ms.assetid: 
+ms.service: cosmosdb
+ms.custom: sample
+ms.devlang: azurecli
+ms.topic: article
+ms.tgt_pltfrm: cosmosdb
+ms.workload: database
+ms.date: 05/10/2017
+ms.author: mimig
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 58e16cfc83c2057168428e8e85a6ebd143d2cd07
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
+
+---
+
+# <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-the-azure-cli"></a>Получение строки подключения базы данных Azure Cosmos DB для приложений MongoDB с помощью Azure CLI
+
+Этот пример получает строку подключения базы данных Azure Cosmos DB для приложений MongoDB с помощью Azure CLI. 
+
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+## <a name="sample-script"></a>Пример скрипта
+
+[!code-azurecli[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-get-mongodb-connection-string/secure-cosmosdb-get-mongodb-connection-string.sh?highlight=36-39 "Получение строки подключения базы данных Azure Cosmos DB для приложений MongoDB")]
+
+## <a name="clean-up-deployment"></a>Очистка развертывания
+
+После выполнения примера сценария можно удалить группу ресурсов и все связанные с ней ресурсы, выполнив следующую команду.
+
+```azurecli
+az group delete --name myResourceGroup
+```
+
+## <a name="script-explanation"></a>Описание скрипта
+
+Этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
+
+| Команда | Примечания |
+|---|---|
+| [az group create](/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az cosmosdb update](/cli/azure/cosmosdb/name#update) | Обновляет учетную запись базы данных Azure Cosmos DB. |
+| [az cosmosdb list-connection-strings](/cli/azure/cosmosdb/list-connection-strings) | Получает строку подключения для учетной записи.|
+| [az group delete](/cli/azure/resource#delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
+
+Дополнительные примеры скриптов CLI для базы данных Azure Cosmos DB см. в [документации по интерфейсу командной строки базы данных Azure Cosmos DB](../cli-samples.md).
+

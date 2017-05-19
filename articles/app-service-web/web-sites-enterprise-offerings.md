@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: anwestg
-translationtype: Human Translation
-ms.sourcegitcommit: 4d3b3096e42736fddd3bb5b9f39376271d193c58
-ms.openlocfilehash: 980eb9ff0990d532a77614be571e3f6d24a1dfee
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4d46654f42a3fd5c9b491f1b565c2acfa0dc52c4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -112,7 +113,7 @@ ms.lasthandoff: 02/16/2017
 
 Следующий шаг в процессе миграции — создание веб-приложения службы приложений и базы данных SQL Azure. Существуют экземпляры веб-приложений с различными размерами, настраиваемым количеством ядер ЦП и переменным объемом ОЗУ. Можно выбрать любой параметр в зависимости от требований вашего веб-приложения. Дополнительные сведения и расценки см. на странице [https://azure.microsoft.com/pricing/details/app-service/](https://azure.microsoft.com/pricing/details/app-service/). Аналогичным образом база данных Microsoft Azure SQL покрывает все бизнес-потребности благодаря различным уровням обслуживания и производительности в соответствии с вашими требованиями. Дополнительные сведения см. на странице [https://azure.microsoft.com/pricing/details/sql-database/](https://azure.microsoft.com/pricing/details/sql-database/). После создания приложение загружается в веб-приложения службы приложений через FTP или WebDeploy, а затем перемещается в базу данных.
 
-В приведенном решении миграции используется база данных SQL Azure, однако это не единственная база данных, поддерживаемая Azure. Предприятие может использовать базы данных MySQL, MongoDB, Azure DocumentDB и многие другие благодаря дополнительным компонентам, которые можно приобрести в [магазине Azure](/marketplace/partner-program/).
+В приведенном решении миграции используется база данных SQL Azure, однако это не единственная база данных, поддерживаемая Azure. Предприятие может использовать базы данных MySQL, MongoDB, базы данных Azure Cosmos DB и многие другие благодаря дополнительным компонентам, которые можно приобрести в [магазине Azure](/marketplace/partner-program/).
 
 При создании базы данных SQL Azure вам предоставляется широкий выбор вариантов импорта существующей базы данных с локального сервера, от создания скрипта до [экспорта и импорта приложения на уровне данных](http://aka.ms/dacpac).
 

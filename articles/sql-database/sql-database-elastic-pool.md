@@ -11,15 +11,16 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 04/19/2017
+ms.date: 05/15/2017
 ms.author: ddove
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: cc81b842833942019d5afec9b9dc33813ac48964
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 448bdbd2ae12d325781587846c812995cae33774
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -128,7 +129,7 @@ ms.lasthandoff: 04/20/2017
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools"></a>eDTU и размеры хранилища для пулов эластичных БД
 
-В следующей таблице описываются характеристики эластичных пулов уровня "Базовый", "Стандартный", "Премиум" и "Премиум RS".
+В следующих таблицах описываются ограничения ресурсов эластичных пулов.  Обратите внимание, что ограничения ресурсов отдельных баз данных в эластичных пулах обычно такие же, как и у отдельных баз данных за их пределами, и основаны на DTU и уровне служб.  Например, максимальное количество одновременных рабочих экземпляров для базы данных S2 — 120.  Таким образом, максимальное количество одновременных рабочих экземпляров в базе данных в стандартном пуле также составляет 120, если максимальное значение DTU для одной базы данных в пуле равно 50 (что эквивалентно уровню S2).
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -167,3 +168,4 @@ ms.lasthandoff: 04/20/2017
 * Вы также можете создать эластичный пул Azure и управлять им с помощью с [портала Azure](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [языка C#](sql-database-elastic-pool-manage-csharp.md) и REST API.
 * Мы рекомендуем просмотреть [видеокурс о возможностях эластичной базы данных SQL Azure на сайте Microsoft Virtual Academy](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554).
 * Дополнительные сведения о шаблонах разработки для приложений SaaS, использующих пулы эластичных БД, см. в статье [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
