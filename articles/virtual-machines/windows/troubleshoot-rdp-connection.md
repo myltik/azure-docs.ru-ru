@@ -14,11 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 02/09/2017
+ms.date: 05/18/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 
@@ -45,8 +46,7 @@ ms.lasthandoff: 04/27/2017
 
 > [!TIP]
 > Если кнопка **Подключить** для вашей виртуальной машины на портале неактивна и вы не используете канал [Express Route](../../expressroute/expressroute-introduction.md) или [VPN-подключение типа "сеть — сеть"](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) для подключения к Azure, то прежде всего следует создать общедоступный IP-адрес и назначить его виртуальной машине. Только после этого вы сможете использовать протокол RDP. Дополнительные сведения см. в статье [IP-адреса в Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
-> 
-> 
+
 
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Способы устранения неполадок при подключении по протоколу RDP
 Для устранения неполадок на виртуальных машинах, созданных с помощью модели развертывания Resource Manager, можно воспользоваться одним из следующих методов:
@@ -120,8 +120,6 @@ ms.lasthandoff: 04/27/2017
 
 > [!NOTE]
 > Для сброса учетных данных пользователей и конфигурации удаленного рабочего стола используется командлет PowerShell [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) . В следующих примерах `myVMAccessExtension` — это имя, которое указывается в ходе процесса. Если вы уже работали с агентом VMAccessAgent, то можете получить имя существующего расширения с помощью командлета `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"`, который возвращает свойства виртуальной машины. Просмотреть это имя можно в разделе "Extensions" в выходных данных.
-> 
-> 
 
 После выполнения каждого шага устранения неполадок попробуйте подключиться к виртуальной машине еще раз. Если все еще не удается подключиться, то попробуйте выполнить следующее действие.
 
