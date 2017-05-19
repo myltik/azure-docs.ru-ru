@@ -3,7 +3,7 @@ title: "Мониторинг сайта SharePoint с помощью Application
 description: "Начало мониторинга нового приложения с помощью нового ключа инструментирования"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights

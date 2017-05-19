@@ -3,7 +3,7 @@ title: "Управление ценами и объемом данных для 
 description: "Управление объемом данных телеметрии и контроль расходов в Application Insights."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights

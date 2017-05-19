@@ -3,7 +3,7 @@ title: "Фильтрация данных телеметрии Azure Application
 description: "Уменьшите трафик телеметрии с помощью фильтрации событий, которые не нужно отслеживать."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

@@ -1,7 +1,7 @@
 ---
 title: "Обнаружение и диагностика проблем веб-приложений в Azure Application Insights | Документация Майкрософт"
 description: "Анализируйте сбои, отслеживайте и устраняйте проблемы производительности в приложениях."
-author: alancameronwills
+author: CFreemanwa
 services: application-insights
 documentationcenter: 
 manager: carmonm

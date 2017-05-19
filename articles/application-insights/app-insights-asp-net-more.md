@@ -3,7 +3,7 @@ title: "Максимальная польза от Azure Application Insights | 
 description: "Начав работу с Application Insights, ознакомьтесь с этим списком доступных функций."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
 ms.service: application-insights

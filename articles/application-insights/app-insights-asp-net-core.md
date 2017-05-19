@@ -3,7 +3,7 @@ title: "Azure Application Insights для ASP.NET Core | Документаци�
 description: "Отслеживайте доступность, производительность и использование веб-приложений."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
 ms.service: application-insights

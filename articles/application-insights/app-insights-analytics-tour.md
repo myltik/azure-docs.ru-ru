@@ -3,7 +3,7 @@ title: "Обзор аналитики в Azure Application Insights | Докум
 description: "Короткие примеры всех основных запросов в аналитике, мощном инструменте поиска Application Insights."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
 ms.service: application-insights

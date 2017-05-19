@@ -3,7 +3,7 @@ title: "Устранение неполадок, связанных с тем, �
 description: "Не отображаются данные в Azure Application Insights? Попробуйте здесь."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights

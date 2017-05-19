@@ -3,7 +3,7 @@ title: "Устранение неполадок аналитики в Azure Appl
 description: "Возникли проблемы с аналитикой Application Insights? Начните отсюда. "
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
 ms.service: application-insights

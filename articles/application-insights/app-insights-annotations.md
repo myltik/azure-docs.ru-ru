@@ -3,7 +3,7 @@ title: "Заметки о выпуске для Application Insights | Доку�
 description: "Добавление маркеров развертывания или сборки для диаграмм обозревателя метрик в Application Insights."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 23173e33-d4f2-4528-a730-913a8fd5f02e
 ms.service: application-insights

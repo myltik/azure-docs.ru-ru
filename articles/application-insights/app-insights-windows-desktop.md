@@ -3,7 +3,7 @@ title: "Мониторинг использования и производит�
 description: "Анализ использования и производительности классического приложения для Windows с помощью HockeyApp и Application Insights."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
