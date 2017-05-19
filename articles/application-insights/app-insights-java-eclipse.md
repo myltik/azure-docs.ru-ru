@@ -3,7 +3,7 @@ title: "Приступая к работе с Azure Application Insights на Ja
 description: "Используйте подключаемый модуль Eclipse, чтобы добавить в свой веб-сайт Java функцию Application Insights мониторинга производительности и использования."
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: e88c9f53-cd90-4abc-b097-1f170937908e
 ms.service: application-insights

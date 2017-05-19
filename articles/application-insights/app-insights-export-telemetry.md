@@ -3,7 +3,7 @@ title: "Непрерывный экспорт данных телеметрии 
 description: "Экспортируйте данные диагностики и использования в хранилище в Microsoft Azure и загрузите их оттуда."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
 ms.service: application-insights

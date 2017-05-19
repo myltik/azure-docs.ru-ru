@@ -3,7 +3,7 @@ title: "Интеграция SCOM с Application Insights | Документац
 description: "Если вы используете SCOM, примените Application Insights для мониторинга производительности и диагностики. Подробные панели мониторинга, смарт-оповещения, мощные средства диагностики и аналитические запросы."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
 ms.service: application-insights

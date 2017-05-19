@@ -3,7 +3,7 @@ title: "Application Insights для приложений Microsoft Azure | До�
 description: "Анализ использования и производительности приложения Azure с помощью Application Insights."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 4bb5dac9-fb01-416e-813c-6e5ae7d6a847
 ms.service: application-insights

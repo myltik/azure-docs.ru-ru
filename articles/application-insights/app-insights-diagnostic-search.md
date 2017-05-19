@@ -3,7 +3,7 @@ title: "Поиск в Azure Application Insights | Документация М�
 description: "Поиск и фильтрация необработанных данных телеметрии, отправляемых веб-приложением."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights

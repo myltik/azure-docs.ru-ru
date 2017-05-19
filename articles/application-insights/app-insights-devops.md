@@ -3,7 +3,7 @@ title: "Мониторинг производительности веб-при�
 description: "Как Application Insights встраивается в цикл разработки и операций (DevOps)"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights

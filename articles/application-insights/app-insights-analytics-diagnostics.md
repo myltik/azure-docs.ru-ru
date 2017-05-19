@@ -3,7 +3,7 @@ title: "Интеллектуальная диагностика изменени
 description: "Автоматическая диагностика пиков или шагов в данных телеметрии производительности из веб-приложения."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

@@ -3,7 +3,7 @@ title: "Создание ресурса Azure Application Insights | Докум�
 description: "Вручную настройте мониторинг Application Insights для нового работающего приложения."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights

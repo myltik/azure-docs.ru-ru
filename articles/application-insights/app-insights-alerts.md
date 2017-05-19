@@ -3,7 +3,7 @@ title: "Задание оповещений в Azure Application Insights | До
 description: "Получайте уведомления о малом времени отклика, исключениях или других изменениях производительности или использования в веб-приложении."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights

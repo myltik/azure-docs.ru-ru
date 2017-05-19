@@ -3,7 +3,7 @@ title: "Работа с Azure Application Insights в Visual Studio |Докум
 description: "Анализ производительности веб-приложения и диагностика во время отладки и в рабочей среде."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
 ms.service: application-insights

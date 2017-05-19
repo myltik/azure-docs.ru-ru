@@ -3,7 +3,7 @@ title: "Настройка оповещений в Application Insights с по�
 description: "Автоматизация настройки Application Insights для получения сообщений электронной почты об изменениях метрик."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
