@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 06/22/2016
+ms.date: 04/10/2017
 ms.author: srinia
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 7ab1d760d26aac7fc185b0e9f5e4a7a47cc2eee5
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: b84185d0f224352e7cf5449068bee359914bd4ed
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -31,59 +32,84 @@ ms.lasthandoff: 04/15/2017
 ## <a name="create-an-elastic-pool"></a>Создание эластичного пула
 Эластичный пул создается с помощью командлета [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx). Значения eDTU на пул, а также минимальные и максимальные значения DTU ограничены значением уровня службы ("Базовый", "Стандартный", "Премиум" или "Премиум RS"). См. раздел [eDTU и размеры хранилища для пулов эластичных БД](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
-    New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+```PowerShell
+New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+```
 
 ## <a name="create-a-pooled-database-in-an-elastic-pool"></a>Создание базы данных внутри эластичного пула
 Используйте командлет [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) и укажите целевой пул в качестве параметра **ElasticPoolName**. Сведения о перемещении существующей базы данных в эластичный пул см. в разделе [Перемещение базы данных в пул эластичных БД](sql-database-elastic-pool-manage-powershell.md#move-a-database-into-an-elastic-pool).
 
-    New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+```PowerShell
+New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+```
 
 ### <a name="complete-script"></a>Полный скрипт
 Этот скрипт создает группу ресурсов Azure и сервер. При появлении запроса укажите имя и пароль пользователя-администратора для нового сервера (не свои учетные данные Azure).
 
-    $subscriptionId = '<your Azure subscription id>'
-    $resourceGroupName = '<resource group name>'
-    $location = '<datacenter location>'
-    $serverName = '<server name>'
-    $poolName = '<pool name>'
-    $databaseName = '<database name>'
+```PowerShell
+$subscriptionId = '<your Azure subscription id>'
+$resourceGroupName = '<resource group name>'
+$location = '<datacenter location>'
+$serverName = '<server name>'
+$poolName = '<pool name>'
+$databaseName = '<database name>'
 
-    Login-AzureRmAccount
-    Set-AzureRmContext -SubscriptionId $subscriptionId
+Login-AzureRmAccount
+Set-AzureRmContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $location -ServerVersion "12.0"
-    New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $location -ServerVersion "12.0"
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
-    New-AzureRmSqlElasticPool -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+New-AzureRmSqlElasticPool -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
-    New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -ElasticPoolName $poolName -MaxSizeBytes 10GB
+New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -ElasticPoolName $poolName -MaxSizeBytes 10GB
+```
 
 ## <a name="create-an-elastic-pool-and-add-multiple-pooled-databases"></a>Создание эластичного пула и добавление нескольких баз данных в пул
-Создание большого количества баз данных в эластичном пуле может занять некоторое время, если эта операция выполняется с помощью портала или командлетов PowerShell, которые создают базы данных поочередно. Сведения об автоматическом создании баз данных в эластичном пуле см. в документе [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).   
+Создание большого количества баз данных в эластичном пуле может занять некоторое время, если эта операция выполняется с помощью портала или командлетов PowerShell, которые создают базы данных поочередно. Сведения об автоматическом создании баз данных в эластичном пуле см. в документе [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Перемещение базы данных в пул эластичных БД
-Переместить базу данных в эластичный пул или из него можно с помощью командлета [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx).
+Переместить базу данных в эластичный пул или из него можно с помощью командлета [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool).
 
-    Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+```PowerShell
+Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+```
 
 ## <a name="change-performance-settings-of-an-elastic-pool"></a>Изменение параметров производительности эластичного пула
-Если производительность недостаточна, можно изменить параметры пула в соответствии с ростом нагрузки. Используйте командлет [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511\(v=azure.300\).aspx). Присвойте параметру -Dtu значение eDTU, выделяемых на пул. Возможные значения приведены в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).  
+Если производительность недостаточна, можно изменить параметры пула в соответствии с ростом нагрузки. Используйте командлет [Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool). Присвойте параметру -Dtu значение eDTU, выделяемых на пул. Возможные значения приведены в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
-    Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1” -Dtu 1200 -DatabaseDtuMax 100 -DatabaseDtuMin 50
+```PowerShell
+Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1” -Dtu 1200 -DatabaseDtuMax 100 -DatabaseDtuMin 50
+```
+
+## <a name="change-the-storage-limit-for-an-elastic-pool"></a>Изменение предельного размера хранилища для эластичного пула
+
+Используйте командлет [Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool), чтобы задать параметр _-StorageMB_. Укажите максимальный объем хранилища в мегабайтах (например, если указать значение 2097152, будет задан объем 2 ТБ). Возможные значения приведены в разделе [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
+
+> [!IMPORTANT]
+> По умолчанию максимальный объем хранилища данных на пул для пулов уровня "Премиум" с 1500 eDTU или больше равен 750 ГБ. Чтобы увеличить _максимальный объем хранилища данных на пул_, необходимо явно задать предельный размер хранилища. Сейчас пулы уровня "Премиум" с объемом хранилища свыше 750 ГБ доступны в общедоступной предварительной версии в следующих регионах: восточная часть США 2, западная часть США, Западная Европа, Юго-Восточная Азия, восточная Япония, восточная Австралия, Центральная Канада и Восточная Канада.
+
+```PowerShell
+Set-AzureRmSqlElasticPool -ServerName "server1" -ElasticPoolName “elasticpool1” -StorageMB 2097152
+```
 
 ## <a name="get-the-status-of-pool-operations"></a>Получение состояния операций пула
 Создание эластичного пула может занять некоторое время. Отслеживать состояние операций пула, включая создание и обновление, можно с помощью командлета [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812\(v=azure.300\).aspx).
 
-    Get-AzureRmSqlElasticPoolActivity -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1”
+```PowerShell
+Get-AzureRmSqlElasticPoolActivity -ResourceGroupName “resourcegroup1” -ServerName “server1” -ElasticPoolName “elasticpool1”
+```
 
 ## <a name="get-the-status-of-moving-a-database-into-and-out-of-an-elastic-pool"></a>Получение состояния перемещения базы данных в эластичный пул и из него
 На перемещение базы данных может потребоваться время. Отслеживать состояние перемещения можно с помощью командлета [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687\(v=azure.300\).aspx).
 
-    Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+```PowerShell
+Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+```
 
 ## <a name="get-resource-usage-data-for-an-elastic-pool"></a>Получение данных об использовании ресурсов в эластичном пуле
-Показатели, которые могут быть возвращены в виде процента от предельного значения пула ресурсов:   
+Показатели, которые могут быть возвращены в виде процента от предельного значения пула ресурсов:
 
 | Имя метрики | Описание |
 |:--- |:--- |
@@ -108,14 +134,18 @@ ms.lasthandoff: 04/15/2017
 
 Вот как можно получить метрики.
 
-    $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")  
+```PowerShell
+$metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
+```
 
 ## <a name="get-resource-usage-data-for-a-database-in-an-elastic-pool"></a>Получение данных об использовании ресурсов для базы данных в эластичном пуле
 Эти API-интерфейсы совпадают с текущими API-интерфейсами, используемыми для мониторинга использования ресурсов отдельной базой данных, за исключением следующего семантического различия: полученные метрики выражаются в процентах от максимального количества eDTU для каждой базы данных (или в виде эквивалентного предельного значения для базовой метрики, такой как производительность ЦП или операции ввода-вывода), установленного для данного пула. Например, загрузка в 50 % для любого из этих показателей указывает, что потребление данного ресурса составляет 50 % от предельного значения потребления этого ресурса на одну базу данных для этого ресурса в родительском пуле.
 
 Вот как можно получить метрики.
 
-    $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
+```PowerShell
+$metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")
+```
 
 ## <a name="add-an-alert-to-an-elastic-pool-resource"></a>Добавление оповещения для ресурса эластичного пула
 Для эластичного пула можно добавить правила генерации оповещений, чтобы отправлять по электронной почте уведомления или строки оповещения в [конечные точки URL-адресов](https://msdn.microsoft.com/library/mt718036.aspx), когда эластичный пул достигает заданного порогового значения использования. Используйте командлет Add-AzureRmMetricAlertRule.
@@ -127,24 +157,26 @@ ms.lasthandoff: 04/15/2017
 
 Этот пример добавляет оповещение, уведомляющее, когда потребление eDTU в эластичном пуле выходит за пределы определенного порогового значения.
 
-    # Set up your resource ID configurations
-    $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
-    $location =  '<location'                         # Azure region
-    $resourceGroupName = '<resource group name>'     # Resource Group
-    $serverName = '<server name>'                    # server name
-    $poolName = '<elastic pool name>'                # pool name
+```PowerShell
+# Set up your resource ID configurations
+$subscriptionId = '<Azure subscription id>'      # Azure subscription ID
+$location =  '<location'                         # Azure region
+$resourceGroupName = '<resource group name>'     # Resource Group
+$serverName = '<server name>'                    # server name
+$poolName = '<elastic pool name>'                # pool name
 
-    #$Target Resource ID
-    $ResourceID = '/subscriptions/' + $subscriptionId + '/resourceGroups/' +$resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticpools/' + $poolName
+#$Target Resource ID
+$ResourceID = '/subscriptions/' + $subscriptionId + '/resourceGroups/' +$resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticpools/' + $poolName
 
-    # Create an email action
-    $actionEmail = New-AzureRmAlertRuleEmail -SendToServiceOwners -CustomEmail JohnDoe@contoso.com
+# Create an email action
+$actionEmail = New-AzureRmAlertRuleEmail -SendToServiceOwners -CustomEmail JohnDoe@contoso.com
 
-    # create a unique rule name
-    $alertName = $poolName + "- DTU consumption rule"
+# create a unique rule name
+$alertName = $poolName + "- DTU consumption rule"
 
-    # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
+# Create an alert rule for DTU_consumption_percent
+Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
+```
 
 ## <a name="add-alerts-to-all-databases-in-an-elastic-pool"></a>Добавление оповещений для всех баз данных в эластичном пуле
 Для всех баз данных в пуле эластичных БД можно добавить правила генерации оповещений, чтобы отправлять по электронной почте уведомления или строки оповещения в [конечные точки URL-адресов](https://msdn.microsoft.com/library/mt718036.aspx) , когда ресурс достигает порогового значения использования, определенного в оповещении.
@@ -156,22 +188,23 @@ ms.lasthandoff: 04/15/2017
 
 Этот пример добавляет оповещение для каждой базы данных в эластичном пуле, которое уведомляет, когда потребление DTU в этой базе данных превышает определенное пороговое значение.
 
-    # Set up your resource ID configurations
-    $subscriptionId = '<Azure subscription id>'      # Azure subscription ID
-    $location = '<location'                          # Azure region
-    $resourceGroupName = '<resource group name>'     # Resource Group
-    $serverName = '<server name>'                    # server name
-    $poolName = '<elastic pool name>'                # pool name
+```PowerShell
+# Set up your resource ID configurations
+$subscriptionId = '<Azure subscription id>'      # Azure subscription ID
+$location = '<location'                          # Azure region
+$resourceGroupName = '<resource group name>'     # Resource Group
+$serverName = '<server name>'                    # server name
+$poolName = '<elastic pool name>'                # pool name
 
-    # Get the list of databases in this pool.
-    $dbList = Get-AzureRmSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
+# Get the list of databases in this pool.
+$dbList = Get-AzureRmSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
 
-    # Create an email action
-    $actionEmail = New-AzureRmAlertRuleEmail -SendToServiceOwners -CustomEmail JohnDoe@contoso.com
+# Create an email action
+$actionEmail = New-AzureRmAlertRuleEmail -SendToServiceOwners -CustomEmail JohnDoe@contoso.com
 
-    # Get resource usage metrics for a database in an elastic pool for the specified time interval.
-    foreach ($db in $dbList)
-    {
+# Get resource usage metrics for a database in an elastic pool for the specified time interval.
+foreach ($db in $dbList)
+{
     $dbResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/databases/' + $db.DatabaseName
 
     # create a unique rule name
@@ -182,7 +215,8 @@ ms.lasthandoff: 04/15/2017
 
     # drop the alert rule
     #Remove-AzureRmAlertRule -ResourceGroup $resourceGroupName -Name $alertName
-    }
+}
+```
 
 ## <a name="collect-and-monitor-resource-usage-data-across-multiple-pools-in-a-subscription"></a>Сбор и отслеживание данных об использовании ресурсов для нескольких пулов в подписке
 Если в вашей подписке много баз данных, отслеживать отдельно каждый эластичный пул становится затруднительно. Вместо этого с помощью командлетов PowerShell базы данных SQL и запросов T-SQL можно собирать данные об использовании ресурсов по нескольким пулам и базам данных. Это упрощает мониторинг и анализ использования ресурсов. В репозитории примеров для SQL Server на сайте GitHub вы найдете [пример реализации](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools) набора сценариев PowerShell вместе с документацией по назначению и методам использования этого набора.
@@ -205,73 +239,68 @@ ms.lasthandoff: 04/15/2017
 ### <a name="example-retrieve-resource-consumption-metrics-for-an-elastic-pool-and-its-databases"></a>Пример. Получение метрик потребления ресурсов в эластичном пуле и его базах данных
 В этом примере извлекаются метрики потребления для данного пула эластичных БД и всех его баз данных. Собранные данные форматируются и записываются в CSV-файл. Этот файл можно просмотреть в Excel.
 
-    $subscriptionId = '<Azure subscription id>'          # Azure subscription ID
-    $resourceGroupName = '<resource group name>'             # Resource Group
-    $serverName = <server name>                              # server name
-    $poolName = <elastic pool name>                          # pool name
+```PowerShell
+$subscriptionId = '<Azure subscription id>'          # Azure subscription ID
+$resourceGroupName = '<resource group name>'             # Resource Group
+$serverName = <server name>                              # server name
+$poolName = <elastic pool name>                          # pool name
 
-    # Login to Azure account and select the subscription.
-    Login-AzureRmAccount
-    Set-AzureRmContext -SubscriptionId $subscriptionId
+# Login to Azure account and select the subscription.
+Login-AzureRmAccount
+Set-AzureRmContext -SubscriptionId $subscriptionId
 
-    # Get resource usage metrics for an elastic pool for the specified time interval.
-    $startTime = '4/27/2016 00:00:00'  # start time in UTC
-    $endTime = '4/27/2016 01:00:00'    # end time in UTC
+# Get resource usage metrics for an elastic pool for the specified time interval.
+$startTime = '4/27/2016 00:00:00'  # start time in UTC
+$endTime = '4/27/2016 01:00:00'    # end time in UTC
 
-    # Construct the pool resource ID and retrive pool metrics at 5-minute granularity.
-    $poolResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticPools/' + $poolName
-    $poolMetrics = (Get-AzureRmMetric -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime -EndTime $endTime)
+# Construct the pool resource ID and retrive pool metrics at 5-minute granularity.
+$poolResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/elasticPools/' + $poolName
+$poolMetrics = (Get-AzureRmMetric -ResourceId $poolResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime -EndTime $endTime)
 
-    # Get the list of databases in this pool.
-    $dbList = Get-AzureRmSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
+# Get the list of databases in this pool.
+$dbList = Get-AzureRmSqlElasticPoolDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName
 
-    # Get resource usage metrics for a database in an elastic pool for the specified time interval.
-    $dbMetrics = @()
-    foreach ($db in $dbList)
-    {
-        $dbResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/databases/' + $db.DatabaseName
-        $dbMetrics = $dbMetrics + (Get-AzureRmMetric -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime -EndTime $endTime)
-    }
+# Get resource usage metrics for a database in an elastic pool for the specified time interval.
+$dbMetrics = @()
+foreach ($db in $dbList)
+{
+     $dbResourceId = '/subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroupName + '/providers/Microsoft.Sql/servers/' + $serverName + '/databases/' + $db.DatabaseName
+     $dbMetrics = $dbMetrics + (Get-AzureRmMetric -ResourceId $dbResourceId -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime $startTime -EndTime $endTime)
+}
 
-    #Optionally you can format the metrics and output as .csv file using the following script block.
-    $command = {
-    param($metricList, $outputFile)
+#Optionally you can format the metrics and output as .csv file using the following script block.
+$command = {
+param($metricList, $outputFile)
 
-    # Format metrics into a table.
-    $table = @()
-    foreach($metric in $metricList) {
-      foreach($metricValue in $metric.MetricValues) {
-        $sx = New-Object PSObject -Property @{
-            Timestamp = $metricValue.Timestamp.ToString()
-            MetricName = $metric.Name;
-            Average = $metricValue.Average;
-            ResourceID = $metric.ResourceId
-          }
-          $table = $table += $sx
-      }
-    }
+# Format metrics into a table.
+$table = @()
+foreach($metric in $metricList) {
+   foreach($metricValue in $metric.MetricValues) {
+      $sx = New-Object PSObject -Property @{
+      Timestamp = $metricValue.Timestamp.ToString()
+      MetricName = $metric.Name;
+      Average = $metricValue.Average;
+      ResourceID = $metric.ResourceId
+   }$table = $table += $sx
+   }
+}
 
-    # Output the metrics into a .csv file.
-    write-output $table | Export-csv -Path $outputFile -Append -NoTypeInformation
-    }
+# Output the metrics into a .csv file.
+write-output $table | Export-csv -Path $outputFile -Append -NoTypeInformation
+}
 
-    # Format and output pool metrics
-    Invoke-Command -ScriptBlock $command -ArgumentList $poolMetrics,c:\temp\poolmetrics.csv
+# Format and output pool metrics
+Invoke-Command -ScriptBlock $command -ArgumentList $poolMetrics,c:\temp\poolmetrics.csv
 
-    # Format and output database metrics
-    Invoke-Command -ScriptBlock $command -ArgumentList $dbMetrics,c:\temp\dbmetrics.csv
+# Format and output database metrics
+Invoke-Command -ScriptBlock $command -ArgumentList $dbMetrics,c:\temp\dbmetrics.csv
+```
 
 ## <a name="latency-of-elastic-pool-operations"></a>Задержка операций эластичного пула
 * Изменение минимального или максимального числа eDTU для базы данных обычно завершается за 5 минут.
 * Изменение числа eDTU на пул зависит от общей емкости, используемой всеми базами данных в пуле. Изменение занимает порядка 90 минут или меньше на каждые 100 ГБ. Например, если общее пространство, используемое всеми базами данных в пуле, равно 200 ГБ, то ожидаемая задержка при изменении числа eDTU для пула составит до 3 часов.
 
-Справочную документацию по этим командлетам PowerShell см. в таких разделах:
 
-* [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582\(v=azure.300\).aspx)
-* [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403\(v=azure.300\).aspx)
-* [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589\(v=azure.300\).aspx)
-
-Командлет Stop- означает отмену, а не приостановку. После его выполнения возобновить обновление невозможно, можно только запустить его сначала. Командлет Stop- очищает и высвобождает все соответствующие ресурсы.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Управление масштабируемыми облачными базами данных](sql-database-elastic-jobs-overview.md). Задания обработки для эластичных баз данных упрощают выполнение сценариев T-SQL для любого количества баз данных в пуле.

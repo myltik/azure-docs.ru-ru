@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
+ms.date: 05/10/2017
+ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6f84365acb9a1cc1fc31fa5f3c04cd112f68087b
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0a66567d7381f38787f9aa7652c944e4bb3aef82
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -148,10 +148,7 @@ ms.lasthandoff: 05/03/2017
 ![В колонке "Quotas and pricing" (Квоты и цены) щелкните элемент "Выборки" и выберите долю выборки.](./media/app-insights-pricing/04.png)
 
 > [!WARNING]
-> На плитке "Сохраненные примеры" отображается только то значение, которое вы задали для выборки приема. Это значение не обозначает частоту выборки, которая действует в пакете SDK в вашем приложении. 
-> 
-> Если по входящей телеметрии уже сделана выборка в пакете SDK, выборка приема не применяется.
-> 
+> В колонке "Выборка данных" отражается только значение выборки приема. В ней не отражается частота выборки, которую применяет пакет SDK для Application Insights в приложении. Если по входящей телеметрии уже сделана выборка в пакете SDK, выборка приема не применяется.
 > 
 
 Чтобы узнать фактическую частоту выборки (где бы она ни применялась), выполните такой [запрос аналитики](app-insights-analytics.md) :

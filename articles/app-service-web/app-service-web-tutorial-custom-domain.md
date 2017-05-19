@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/04/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 08a83bf8dca71846dd06edb9aa253f69c24d253c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 000440fb2c38eadc0ffdcab84a3c23bb034e834f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -27,20 +28,22 @@ ms.lasthandoff: 04/27/2017
 
 ![Переход к приложению Azure на портале](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-В этом руководстве рассматриваются три распространенных сценария сопоставления двух DNS-имен с приложением в службе приложений.
+Из этого руководства вы узнаете, как выполнять такие задачи:
 
-- `www.contoso.com` — поддомен `contoso.com`. Для его сопоставления с приложением будет использоваться запись CNAME.
-- `contoso.com` — корневой домен. Для его сопоставления с приложением будет использоваться запись A.
-- `*.contoso.com` — домен с подстановочными знаками. Для его сопоставления с приложением будет использоваться запись CNAME.
+> [!div class="checklist"]
+> * Сопоставление поддомена (например, `www.contoso.com`) с помощью записи CNAME.
+> * Сопоставление корневого домена (например, `contoso.com`) с помощью записи A.
+> * Сопоставление домена с подстановочным знаком (например, `*.contoso.com`) с помощью записи CNAME.
+> * Автоматизация сопоставления доменов с помощью скриптов.
 
 Для сопоставления настраиваемого DNS-имени со службой приложений можно использовать **запись CNAME** или **запись A**.
 
 > [!NOTE]
-> Мы рекомендуем использовать записи CNAME для всех настраиваемых DNS-имен, кроме корневого домена (например, contoso.com). 
+> Мы рекомендуем использовать записи CNAME для всех настраиваемых DNS-имен, кроме корневого домена (например, `contoso.com`). 
 > 
 > 
 
-## <a name="before-you-begin"></a>Перед началом работы
+## <a name="prerequisites"></a>Предварительные требования
 
 Для работы с этим руководством нужен доступ к реестру DNS поставщика домена (например, GoDaddy), а также разрешения на изменение конфигурации домена. 
 
@@ -195,6 +198,8 @@ ms.lasthandoff: 04/27/2017
 >
 >
 
+<a name="create-a"></a>
+
 ### <a name="create-the-a-record"></a>Создание записи A
 
 Чтобы сопоставить запись А с вашим приложением, службе приложений требуется **две** записи DNS:
@@ -325,8 +330,10 @@ ms.lasthandoff: 04/27/2017
 Приведенная ниже команда добавляет заданное настраиваемое DNS-имя для приложения службы приложений. 
 
 ```bash 
-az appservice web config hostname add --webapp <app_name> --resource-group <resourece_group_name> \ 
---name <fully_qualified_domain_name> 
+az appservice web config hostname add \
+    --webapp <app_name> \
+    --resource-group <resourece_group_name> \ 
+    --name <fully_qualified_domain_name> 
 ``` 
 
 Дополнительные сведения см. в статье [Сопоставление пользовательского домена с веб-приложением](scripts/app-service-cli-configure-custom-domain.md). 
@@ -336,13 +343,26 @@ az appservice web config hostname add --webapp <app_name> --resource-group <reso
 Приведенная ниже команда добавляет заданное настраиваемое DNS-имя для приложения службы приложений. 
 
 ```PowerShell  
-Set-AzureRmWebApp -Name <app_name> -ResourceGroupName <resourece_group_name> ` 
--HostNames @(<fully_qualified_domain_name>,"<app_name>.azurewebsites.net") 
+Set-AzureRmWebApp `
+    -Name <app_name> `
+    -ResourceGroupName <resourece_group_name> ` 
+    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
 Дополнительные сведения см. в статье [Назначение пользовательского домена веб-приложению](scripts/app-service-powershell-configure-custom-domain.md).
 
-## <a name="more-resources"></a>Дополнительные ресурсы
+## <a name="next-steps"></a>Дальнейшие действия
 
-[Приобретение и настройка имени личного домена для службы приложений Azure](custom-dns-web-site-buydomains-web-app.md)
+Из этого руководства вы узнали, как выполнять такие задачи:
+
+> [!div class="checklist"]
+> * Сопоставление поддомена с помощью записи CNAME.
+> * Сопоставление корневого домена с помощью записи A.
+> * Сопоставление домена с подстановочным знаком с помощью записи CNAME.
+> * Автоматизация сопоставления доменов с помощью скриптов.
+
+Перейдите к следующему руководству, чтобы научиться привязывать пользовательский SSL-сертификат к домену.
+
+> [!div class="nextstepaction"]
+> [Привязывание существующего настраиваемого SSL-сертификата к веб-приложениям Azure](app-service-web-tutorial-custom-ssl.md)
 

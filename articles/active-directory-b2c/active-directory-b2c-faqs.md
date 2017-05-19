@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: ac2730935d206ddf9079395384d46a43fdd740cb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: bc0b0b652312f6bcc27a981da766e19cded7bd6c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -32,7 +34,7 @@ ms.openlocfilehash: ac2730935d206ddf9079395384d46a43fdd740cb
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Что такое локальные учетные записи в Azure AD B2C? Чем они отличаются от рабочих или учебных учетных записей в Azure AD?
 В клиенте Azure AD все пользователи (кроме тех, у кого есть учетная запись Майкрософт) выполняют вход с помощью адреса электронной почты в формате `<xyz>@<tenant domain>`, где `<tenant domain>` — один из проверенных доменов в клиенте или исходный домен `<...>.onmicrosoft.com`. Тип этой учетной записи — рабочая или учебная учетная запись.
 
-В клиенте Azure AD B2C большинство приложений поддерживают вход с использованием любого электронного адреса (например, joe@comcast.net,, bob@gmail.com,, sarah@contoso.com, или jim@live.com)). Учетная запись такого типа называется локальной учетной записью. Сейчас в качестве локальных учетных записей также поддерживаются произвольные имена пользователей (строки обычного текста), например joe, bob, sarah или jim. Для использования в службе Azure AD B2C можно выбрать один из этих двух типов локальных учетных записей.
+В клиенте Azure AD B2C большинство приложений поддерживают вход с использованием любого электронного адреса (например, joe@comcast.net, bob@gmail.com, sarah@contoso.com или jim@live.com). Учетная запись такого типа называется локальной учетной записью. Сейчас в качестве локальных учетных записей также поддерживаются произвольные имена пользователей (строки обычного текста), например joe, bob, sarah или jim. Для использования в службе Azure AD B2C можно выбрать один из этих двух типов локальных учетных записей.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Какие поставщики удостоверений социальных сетей поддерживаются в настоящее время? Каких из них вы планируете поддерживать в будущем?
 В настоящее время поддерживаются Facebook, Google+, LinkedIn и Amazon. Мы добавим поддержку других популярных поставщиков удостоверений социальных сетей с учетом запросов клиентов.
@@ -80,7 +82,7 @@ ms.openlocfilehash: ac2730935d206ddf9079395384d46a43fdd740cb
 Нет служба Azure AD Connect не предназначена для работы с Azure AD B2C. В будущем мы планируем предоставлять различные готовые варианты и средства миграции.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Может ли приложение открыть страницы Azure AD B2C в iFrame?
-Нет, по соображениям безопасности страницы Azure AD B2C, которые обслуживаются в домене `login.microsftonline.com`, не открываются в iFrame. При любом взаимодействии с клиентами требуется перенаправление в Azure AD B2C.
+Нет, по соображениям безопасности страницы Azure AD B2C не открываются в iFrame.  Наша служба соединяется с браузером, чтобы запретить это действие.  В целом сообщество специалистов по компьютерной безопасности и спецификация OAUTH2 не рекомендуют использовать элементы IFrame для идентификации из-за риска кликджекинга.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Работает ли служба Azure AD B2C с системами CRM, например Microsoft Dynamics?
 В настоящее время нет. Мы планируем интеграцию этих систем в будущем.
@@ -92,7 +94,10 @@ ms.openlocfilehash: ac2730935d206ddf9079395384d46a43fdd740cb
 Прочтите статью о том, как применять соответствующие функции в сценариях с использованием [внешних удостоверений](../active-directory/active-directory-b2b-compare-external-identities.md) .
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Какие функции отчетности и аудита есть в Azure AD B2C? Соответствуют ли они аналогичным функциям в Azure AD Premium?
-Нет, Azure AD B2C не поддерживает набор отчетов, используемый в Azure AD Premium. В ближайшее время будут выпущены API базовой отчетности и аудита для Azure AD B2C.
+Нет, Azure AD B2C не поддерживает набор отчетов, используемый в Azure AD Premium. Однако между ними есть много общего.  
+* В отчетах по входу представлены записи каждого входа и краткие сведения.  
+* Просмотрите отчеты об аудите на портале Azure в разделе Azure Active Directory > Activity Audit logs (Журналы аудита действий), затем выберите B2C и примените необходимые фильтры. Эти отчеты содержат сведения о действиях администратора и приложения. 
+* Отчет по использованию, который содержит сведения о количестве пользователей, количестве входов и количестве событий MFA, доступен в [API отчетов по использованию](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api).
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Можно ли локализовать пользовательский интерфейс страниц Azure AD B2C? Какие языки поддерживаются?
 В настоящее время служба Azure AD B2C доступна только на английском языке. Мы планируем развернуть функции локализации в ближайшее время.
@@ -123,10 +128,5 @@ ms.openlocfilehash: ac2730935d206ddf9079395384d46a43fdd740cb
 
 ## <a name="more-information"></a>Дополнительные сведения
 Ознакомьтесь также с действующими [ограничениями для текущей версии службы](active-directory-b2c-limitations.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

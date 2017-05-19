@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 29d30cacb29fee1b2c5b8ef523051fa543bee829
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f520b46e9d37ac31c2ef5d78ef9044e62dd25a6f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -53,10 +53,10 @@ ms.lasthandoff: 04/28/2017
 1. Выберите **Регистрация нового приложения**.
 1. Введите **имя** для приложения (например, Azure AD B2C).
 1. Выберите в качестве типа приложения **Веб-приложение или API**.
-1. Для URL-адреса входа введите URL-адрес, представленный ниже, и замените `{tenantName}` именем клиента Azure AD B2C (например, fabrikamb2c.onmicrosoft.com).
+1. Для URL-адреса входа введите URL-адрес, представленный ниже, и замените `yourtenant` именем клиента Azure AD B2C (например, fabrikamb2c.onmicrosoft.com).
 
     ```
-    https://login.microsoftonline.com/te/{tenantName}.onmicrosoft.com/oauth2/authresp
+    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Сохраните **идентификатор приложения**.
@@ -68,28 +68,18 @@ ms.lasthandoff: 04/28/2017
 
 Вам необходимо сохранить ключ приложения `contoso.com` в клиенте Azure AD B2C. Для этого:
 
-1. Откройте PowerShell и перейдите в рабочий каталог `active-directory-b2c-advanced-policies`.
-1. Перейдите в папку со средством ExploreAdmin.
+1. Перейдите к клиенту Azure AD B2C, откройте параметры B2C и выберите Identity Experience Framework (Инфраструктура процедур идентификации) > Policy Keys (Ключи политики).
+1. Щелкните "Добавить".
+1. Параметры:
+ * Выберите "Параметр" > `Manual`.
+ * Введите имя и выберите `ContosoAppSecret`. Выберите имя, соответствующее имени клиента Azure AD.  Префикс B2C_1A_ будет автоматически добавлен к имени ключа.
+ * Вставьте ключ приложения в текстовое поле `Secret`.
+ * Выберите "Подпись".
+1. Щелкните `Create`.
+1. Подтвердите созданный ключ `B2C_1A_ContosoAppSecret`.
 
-    ```powershell
-    cd active-directory-b2c-advanced-policies\ExploreAdmin
-    ```
+    При выполнении команды вход необходимо выполнить с помощью локальной учетной записи администратора onmicrosoft.com клиента Azure AD B2C. В случае получения ошибки о том, что не найден TokenSigningKeyContainer или `B2C_1A_TokenSigningKeyContainer`, ознакомьтесь со статьей, посвященной [обзору пользовательских политик](active-directory-b2c-get-started-custom.md).
 
-1. Импортируйте средство ExploreAdmin в PowerShell.
-
-    ```powershell
-    Import-Module .\ExploreAdmin.dll
-    ```
-
-1. В команде ниже замените `tenantName` именем клиента Azure AD B2C (например, fabrikamb2c.onmicrosoft.com), а `SecretReferenceId` — именем, которое вам понадобится для ссылки на секрет (например, ContosoAppSecret). `ClientSecret` замените ключом приложения `contoso.com`. Выполните команду.
-
-    ```PowerShell
-    Set-CpimKeyContainer -Tenant {tenantName} -StorageReferenceId {SecretReferenceId} -UnencodedAsciiKey {ClientSecret}
-    ```
-
-    При выполнении команды вход необходимо выполнить с помощью локальной учетной записи администратора onmicrosoft.com клиента Azure AD B2C. В случае получения ошибки о том, что не найден TokenSigningKeyContainer, ознакомьтесь со статьей, посвященной [обзору пользовательских политик](active-directory-b2c-get-started-custom.md).
-
-1. Закройте PowerShell.
 
 ## <a name="add-a-claims-provider-in-your-base-policy"></a>Добавление поставщика утверждений в базовую политику
 
@@ -121,7 +111,7 @@ ms.lasthandoff: 04/28/2017
             <Key Id="client_secret" StorageReferenceId="ContosoAppSecret"/>
             </CryptographicKeys>
             <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="oid"/>
+                <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="oid"/>
                 <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
                 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
                 <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
@@ -153,9 +143,9 @@ ms.lasthandoff: 04/28/2017
 1. Обновите значение для `<Description>`.
 1. Azure AD использует протокол OpenID Connect, поэтому для `<Protocol>` должно быть задано значение "OpenIDConnect".
 
-Вам следует обновить раздел `<Metdata>` в приведенном выше коде XML, чтобы добавить параметры конфигурации для определенного клиента Azure AD. В коде XML обновите значения метаданных следующим образом:
+Вам следует обновить раздел `<Metadata>` в приведенном выше коде XML, чтобы добавить параметры конфигурации для определенного клиента Azure AD. В коде XML обновите значения метаданных следующим образом:
 
-1. Задайте для параметра `<Item Key="METADATA">` значение `https://login.windows.net/{tenantName}/.well-known/openid-configuration`, где `tenantName` — это имя клиента Azure AD (например, contoso.com).
+1. Задайте для параметра `<Item Key="METADATA">` значение `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, где `yourAzureADtenant` — это имя клиента Azure AD (например, contoso.com).
 1. Откройте браузер и перейдите к URL-адресу `Metadata`, который вы только что обновили.
 1. Найдите на этой странице в браузере объект issuer и скопируйте его значение. Вы должны увидеть примерно следующее: `https://sts.windows.net/{tenantId}/`.
 1. Вставьте значение для `<Item Key="ProviderName">` в код XML.
@@ -164,9 +154,9 @@ ms.lasthandoff: 04/28/2017
 1. Задайте для параметра `<Item Key="response_types">` значение `id_token`.
 1. Задайте для параметра `<Item Key="UsePolicyInRedirectUri">` значение `false`.
 
-Вам также необходимо связать [секрет Azure AD, зарегистрированный в клиенте Azure AD B2C,](#add-the-azure-ad-key-to-azure-ad-b2c) с `<ClaimsProvider>` Azure AD.
+Вам также необходимо связать секрет Azure AD, зарегистрированный в клиенте Azure AD B2C, с `<ClaimsProvider>` Azure AD.
 
-1. В разделе `<CryptographicKeys>` в приведенном выше коде XML задайте для `StorageReferenceId` эталонный идентификатор определенного секрета (например, ContosoAppSecret).
+* В разделе `<CryptographicKeys>` в приведенном выше коде XML задайте для `StorageReferenceId` эталонный идентификатор определенного секрета (например, ContosoAppSecret).
 
 ### <a name="upload-the-extension-file-for-verification"></a>Отправка файла расширения для проверки
 
@@ -231,7 +221,6 @@ ms.lasthandoff: 04/28/2017
 Проверьте пользовательскую политику, которую вы отправили. Для этого откройте ее колонку и щелкните "Запустить сейчас". В случае возникновения каких-либо ошибок ознакомьтесь со статьей [по устранению неполадок](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
- 
-Свои отзывы отправляйте сюда: AADB2CPreview@microsoft.com.
 
+Свои отзывы отправляйте сюда: AADB2CPreview@microsoft.com.
 

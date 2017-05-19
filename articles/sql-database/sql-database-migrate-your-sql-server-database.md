@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/20/2017
+ms.date: 05/07/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: c6d965351f6f131ee342cea672fc4fa8771f8ede
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cf128e84cfa69a259ff529caebb910840dcbaede
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Перенос базы данных SQL Server в базу данных SQL Azure
 
-В этом руководстве приведены сведения о переносе имеющейся базы данных SQL Server с помощью Microsoft Data Migration Assistant, а также описаны действия по подготовке, фактическому переносу данных и подключению к перенесенной базе данных. 
+Перемещение базы данных SQL Server в базу данных SQL Azure происходит в три этапа — подготовка, экспорт и импорт базы данных. Из этого руководства вы узнаете, как выполнять такие задачи.
 
-> [!IMPORTANT]
-> Чтобы устранить проблемы совместимости, используйте [средства Visual Studio для работы с данными](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). 
->
+> [!div class="checklist"]
+> * Подготовка базы данных в SQL Server для миграции в базу данных SQL Azure с помощью [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
+> * Экспорт базы данных в BACPAC-файл.
+> * Импорт BACPAC-файла в базу данных SQL Azure.
 
-Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
-
-В рамках этого руководства вам потребуются:
+Перед началом работы убедитесь, что у вас есть следующие компоненты:
 
 - Последняя версия [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). При установке SSMS также устанавливается последняя версия SqlPackage, служебной программы командной строки, используемой для автоматизации ряда задач по разработке базы данных. 
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
-- База данных для переноса. В этом руководстве используется [база данных SQL Server 2008 R2 AdventureWorks OLTP](https://msftdbprodsamples.codeplex.com/releases/view/59211) в экземпляре SQL Server 2008 R2 или более поздней версии, но можно использовать любую базу данных по своему усмотрению. 
+- База данных для переноса. В этом руководстве используется [база данных SQL Server 2008 R2 AdventureWorks OLTP](https://msftdbprodsamples.codeplex.com/releases/view/59211) в экземпляре SQL Server 2008 R2 или более поздней версии, но можно использовать любую базу данных по своему усмотрению. Чтобы устранить проблемы совместимости, используйте [средства Visual Studio для работы с данными](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
 
 ## <a name="prepare-for-migration"></a>Подготовка к переносу
 
@@ -222,15 +222,17 @@ SQL Server Management Studio позволяет подключиться к се
    ![Изменение уровня совместимости](./media/sql-database-migrate-your-sql-server-database/compat-level.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия 
+В этом руководстве вы подготовили, экспортировали и импортировали базу данных. Вы научились выполнять следующие задачи:
 
-- Общие сведения о переносе см. в статье [Миграция базы данных SQL Server в базу данных SQL в облаке](sql-database-cloud-migrate.md).
-- Сведения об отличиях Transact-SQL см. в статье [Отличия Transact-SQL базы данных SQL Azure](sql-database-transact-sql-information.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Visual Studio Code](sql-database-connect-query-vscode.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью .NET](sql-database-connect-query-dotnet.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью PHP](sql-database-connect-query-php.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Node.js](sql-database-connect-query-nodejs.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Java](sql-database-connect-query-java.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Python](sql-database-connect-query-python.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Ruby](sql-database-connect-query-ruby.md).
+> [!div class="checklist"]
+> * Подготовка базы данных в SQL Server для миграции в базу данных SQL Azure.
+> * Экспорт базы данных в BACPAC-файл.
+> * Импорт BACPAC-файла в базу данных SQL Azure.
+
+Перейдите к следующему руководству, чтобы узнать, как обеспечить защиту базы данных.
+
+> [!div class="nextstepaction"]
+> [Защита базы данных SQL Azure](sql-database-security-tutorial.md)
+
 
 
