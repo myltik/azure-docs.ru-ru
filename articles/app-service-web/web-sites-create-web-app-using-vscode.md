@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: e8f78602b293863b2e58160a5eb2cf8a5855576b
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 46e3852dc84265de41bb358f482dec06608e7efa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -62,7 +62,7 @@ dotnet new mvc
 ```
 ![Интерфейс командной строки .NET — генератор ASP.NET Core](./media/web-sites-create-web-app-using-vscode/dotnetcore-mvc-01.png)
 
-2. Чтобы установить требуемые пакеты NuGet для запуска следующей команды, сделайте следующее:
+2. Чтобы восстановить требуемые пакеты NuGet для запуска следующей команды, сделайте следующее:
    
     ```terminal
     dotnet restore

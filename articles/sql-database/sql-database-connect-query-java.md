@@ -13,12 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 6ba2880b1ce9eed0f5c3b8e3ed4255c7e4ec7f29
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: defb32835971fe423e77a11817fce057fa7c929d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -45,7 +46,7 @@ brew install maven
 ```
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Откройте терминал и перейдите в каталог, в котором вы планируете создать проект Java. Введите следующие команды для установки **Maven**. 
+Откройте терминал и перейдите в каталог, в котором вы планируете создать проект Java. Введите следующие команды для установки **Maven**.
 
 ```bash
 sudo apt-get install maven
@@ -64,7 +65,7 @@ sudo apt-get install maven
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Если вы забыли данные для входа на сервер базы данных SQL Azure, перейдите к соответствующей странице, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль.
+4. Если вы забыли данные для входа на сервер, перейдите на соответствующую страницу, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль.
 5. Щелкните **Показать строки подключения к базам данных**.
 
 6. Просмотрите полную строку подключения **JDBC**.
@@ -300,15 +301,8 @@ public class App {
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
-- Изучите репозиторий GitHub для [Microsoft JDBC Driver для SQL Server](https://github.com/microsoft/mssql-jdbc).
-- [Сообщите о проблеме или задайте вопросы](https://github.com/microsoft/mssql-jdbc/issues).
-- Дополнительные сведения о подключении к базе данных SQL с помощью SQL Server Management Studio и выполнении запроса к ней см. [здесь](sql-database-connect-query-ssms.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Visual Studio Code](sql-database-connect-query-vscode.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью .NET](sql-database-connect-query-dotnet.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью PHP](sql-database-connect-query-php.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Node.js](sql-database-connect-query-nodejs.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Python](sql-database-connect-query-python.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Ruby](sql-database-connect-query-ruby.md).
+- [Проектирование первой базы данных SQL Azure](sql-database-design-first-database.md)
+- [Microsoft JDBC Driver для SQL Server](https://github.com/microsoft/mssql-jdbc)
+- [Сообщите о проблеме или задайте вопросы](https://github.com/microsoft/mssql-jdbc/issues)
 
 

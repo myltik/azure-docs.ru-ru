@@ -4,7 +4,7 @@ description: "Проектирование первой базы данных SQ
 services: sql-database
 documentationcenter: 
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,19 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 03/30/2017
+ms.date: 05/07/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 0d02954829ebac9275c014f7dac7e1ec423b0fc1
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: a78284276b600172ad9fd6de2f30702a6f05e79b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="design-your-first-azure-sql-database"></a>Проектирование первой базы данных SQL Azure
 
-В этом руководстве приведены сведения о создании базы данных для университета, чтобы отслеживать успеваемость студентов и регистрацию на курсы. Здесь также показано, как создать базу данных SQL Azure на логическом сервере базы данных SQL Azure, добавлять таблицы в базу данных, загружать данные в таблицы и выполнять запросы к базе данных на [портале Azure](https://portal.azure.com/) и в [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). Кроме того, здесь объясняется, как использовать возможности [восстановления до точки во времени](sql-database-recovery-using-backups.md#point-in-time-restore) в базе данных SQL, чтобы выполнить восстановление до более ранней точки во времени.
+База данных SQL Azure — это реляционная база данных как услуга на базе ядра Microsoft SQL Server. В этом руководстве рассматриваются основные задачи базы данных, такие как создание базы данных и таблицы, загрузка и запрос данных, а также восстановление базы данных на более ранний момент времени. Вы узнаете, как выполнять такие задачи. 
+
+> [!div class="checklist"]
+> * Создание базы данных
+> * Настройка правила брандмауэра.
+> * Подключение к базе данных с помощью [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
+> * создание таблиц.
+> * Массовая загрузка данных.
+> * Запрос данных.
+> * Восстановление базы данных на более ранний момент времени с использованием возможности [восстановления до точки во времени](sql-database-recovery-using-backups.md#point-in-time-restore) базы данных SQL.
 
 Для работы с этим руководством у вас должна быть установлена последняя версия [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). 
 
@@ -280,7 +290,19 @@ ms.lasthandoff: 04/21/2017
 
 3. Чтобы [восстановить базу данных до точки во времени](sql-database-recovery-using-backups.md#point-in-time-restore) перед добавлением таблиц, нажмите кнопку **OК**. Восстановление базы данных до точки во времени создает копию базы данных на том же сервере, где расположена исходная база данных, с состоянием на момент указанной точки во времени (в пределах срока хранения, установленного для вашего [уровня обслуживания](sql-database-service-tiers.md)).
 
-## <a name="next-steps"></a>Дальнейшие действия 
 
-Примеры PowerShell для выполнения стандартных задач см. в статье [ Примеры Azure PowerShell для базы данных SQL Azure](sql-database-powershell-samples.md).
+
+## <a name="next-steps"></a>Дальнейшие действия 
+В этом руководстве вы узнали об основных задачах базы данных, таких как создание базы данных и таблицы, загрузка и запрос данных, а также восстановление базы данных на более ранний момент времени. Вы научились выполнять следующие задачи:
+> [!div class="checklist"]
+> * Создание базы данных
+> * Настройка правила брандмауэра.
+> * Подключение к базе данных с помощью [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
+> * создание таблиц.
+> * Массовая загрузка данных.
+> * Запрос данных.
+> * Восстановление базы данных на более ранний момент времени с использованием возможности [восстановления до точки во времени](sql-database-recovery-using-backups.md#point-in-time-restore) базы данных SQL. Перейдите к следующему руководству, чтобы узнать о миграции данных.
+
+> [!div class="nextstepaction"]
+>[Перенос базы данных SQL Server в базу данных SQL Azure](sql-database-migrate-your-sql-server-database.md)
 

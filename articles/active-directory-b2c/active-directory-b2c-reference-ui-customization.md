@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 74b077f6f09d53c9232e5b209a5dd811364ee3f5
-ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 8e71a7462a0cbdbd177b088e6757c70eeef31fc7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -335,6 +337,9 @@ ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
 
 ```
 
+## <a name="localizing-your-html-content"></a>Локализация содержимого HTML
+Вы можете локализовать содержимое HTML, включив [настройку языка](active-directory-b2c-reference-language-customization.md).  Включение этой функции позволит Azure AD B2C перенаправить параметр OIDC `ui-locales` в конечную точку.  Его можно использовать для предоставления страниц пользовательского интерфейса на конкретном языке.  
+
 ## <a name="things-to-remember-when-building-your-own-content"></a>Рекомендации по созданию собственного содержимого
 Если вы планируете использовать возможности настройки пользовательского интерфейса страницы, изучите следующие рекомендации.
 
@@ -346,9 +351,4 @@ ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
   * Ограниченная поддержка Internet Explorer 9, 8
   * Google Chrome 42.0 и выше
   * Mozilla Firefox 38.0 и выше
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

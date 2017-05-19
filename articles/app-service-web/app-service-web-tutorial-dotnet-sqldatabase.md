@@ -1,5 +1,5 @@
 ---
-title: "Создание приложения ASP.NET в Azure с подключением к базе данных SQL | Документы Майкрософт"
+title: "Создание приложения ASP.NET в Azure с подключением к базе данных SQL | Документация Майкрософт"
 description: "Узнайте, как создать в Azure приложение ASP.NET с подключением к базе данных SQL."
 services: app-service\web
 documentationcenter: nodejs
@@ -12,22 +12,33 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d7006a50d35412021f7e475df526661854b23dc8
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 6563d1520149ae5ced7e2de80686ef1624ebb651
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="create-an-aspnet-app-in-azure-with-sql-database"></a>Создание приложения ASP.NET в Azure с подключением к базе данных SQL
+# <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Создание приложения ASP.NET в Azure с подключением к базе данных SQL
 
 В этом учебнике показано, как разработать управляемое данными веб-приложение ASP.NET в Azure, подключить его к базе данных SQL Azure и включить функцию управления данными. Выполнив действия, описанные в этом учебнике, вы получите приложение ASP.NET, запущенное в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) и подключенное к базе данных SQL.
 
 ![Опубликованное приложение ASP.NET в веб-приложении Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-## <a name="before-you-begin"></a>Перед началом работы
+Из этого руководства вы узнаете, как выполнять такие задачи:
+
+> [!div class="checklist"]
+> * Создание базы данных SQL в Azure.
+> * Подключение приложения ASP.NET к базе данных SQL.
+> * Развертывание приложения в Azure
+> * Обновление модели данных и повторное развертывание приложения.
+> * Потоковая передача журналов из Azure в окно терминала.
+> * Управление приложением на портале Azure.
+
+## <a name="prerequisites"></a>Предварительные требования
 
 Перед запуском этого примера [скачайте и установите бесплатную среду Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). При установке Visual Studio необходимо включить возможность **разработки для Azure**.
 
@@ -40,7 +51,7 @@ ms.lasthandoff: 04/22/2017
 
 Скачайте пример проекта, щелкнув [здесь](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
 
-Распакуйте скачанный файл `dotnet-sqldb-tutorial-master.zip` в рабочий каталог.
+Извлеките скачанный файл _dotnet-sqldb-tutorial-master.zip_ в рабочий каталог.
 
 > [!TIP]
 > Для получения примера также можно клонировать репозиторий GitHub:
@@ -55,7 +66,7 @@ ms.lasthandoff: 04/22/2017
 
 ### <a name="run-the-application"></a>Выполнение приложения
 
-В каталоге, в который был распакован пример, запустите `dotnet-sqldb-tutorial-master\DotNetAppSqlDb.sln` в Visual Studio 2017.
+В каталоге извлечения откройте файл _dotnet-sqldb-tutorial-master\DotNetAppSqlDb.sln_ в Visual Studio 2017.
 
 После того как пример решения откроется, введите `F5`, чтобы запустить его в браузере.
 
@@ -63,7 +74,7 @@ ms.lasthandoff: 04/22/2017
 
 ![Диалоговое окно "Новый проект ASP.NET"](./media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
 
-Контекст базы данных использует строку подключения `MyDbConnection`. Эта строка подключения определена `Web.config` и используется в `Models\MyDatabaseContext.cs`. В дальнейшем для подключения веб-приложения Azure к базе данных SQL Azure потребуется только имя строки подключения. 
+Контекст базы данных использует строку подключения `MyDbConnection`. Эта строка подключения определена в файле _Web.config_ и указана в файле _Models\MyDatabaseContext.cs_. В дальнейшем для подключения веб-приложения Azure к базе данных SQL Azure потребуется только имя строки подключения. 
 
 ## <a name="publish-to-azure-with-sql-database"></a>Публикация в Azure с базой данных SQL
 
@@ -128,11 +139,14 @@ ms.lasthandoff: 04/22/2017
 
 ### <a name="configure-the-web-app-name"></a>Настройка имени веб-приложения
 
-В поле **Имя веб-приложения** введите уникальное имя. Это имя будет использоваться как часть DNS-имени по умолчанию для приложения (`<app_name>.azurewebsites.net`), поэтому оно должно быть глобально уникальным среди всех приложений Azure. Позже вы можете сопоставить имя пользовательского домена с приложением, перед тем как предоставить его пользователям.
+В поле **Имя веб-приложения** введите уникальное имя. Это имя используется как часть DNS-имени по умолчанию для приложения (`<app_name>.azurewebsites.net`), поэтому оно должно быть глобально уникальным среди всех приложений Azure. Позже вы можете сопоставить имя пользовательского домена с приложением, перед тем как предоставить его пользователям.
 
 Вы также можете принять имя, созданное автоматически, которое тоже является уникальным.
 
 Чтобы подготовиться к следующему шагу, щелкните **Обзор дополнительных служб Azure**.
+
+> [!NOTE]
+> Пока что не нажимайте кнопку **Создать** в этом диалоговом окне. Сначала необходимо настроить базу данных SQL на следующем шаге.
 
 ![Настройка имени веб-приложения](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
@@ -142,7 +156,7 @@ ms.lasthandoff: 04/22/2017
 
 В окне **Настройка базы данных SQL** нажмите кнопку **Создать** рядом с **SQL Server**. 
 
-В поле **Имя сервера** введите уникальное имя. Это имя будет использоваться как часть DNS-имени по умолчанию для сервера базы данных (`<server_name>.database.windows.net`), поэтому оно должно быть уникальным для всех экземпляров SQL Server в Azure. 
+В поле **Имя сервера** введите уникальное имя. Это имя используется как часть DNS-имени по умолчанию для сервера базы данных (`<server_name>.database.windows.net`), поэтому оно должно быть уникальным для всех экземпляров SQL Server в Azure. 
 
 Заполните остальные поля подходящими значениями и нажмите кнопку **OK**.
 
@@ -150,9 +164,9 @@ ms.lasthandoff: 04/22/2017
 
 ### <a name="configure-the-sql-database"></a>Настройка базы данных SQL
 
-В поле **Имя базы данных** введите `myToDoAppDb` или любое другое имя.
+В поле **Имя базы данных** введите _myToDoAppDb_ или любое другое имя.
 
-В поле **Имя строки подключения** введите `MyDbConnection`. Это имя должно совпадать с именем строки подключения, которое было указано в `Models\MyDatabaseContext.cs`.
+В поле **Имя строки подключения** введите _MyDbConnection_. Это имя должно совпадать с именем строки подключения, указанном в _Models\MyDatabaseContext.cs_.
 
 ![Настройка базы данных SQL](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
@@ -174,7 +188,7 @@ ms.lasthandoff: 04/22/2017
 
 ### <a name="create-a-database-connection"></a>Создание подключения к базе данных
 
-Откройте **обозреватель объектов SQL Server**, выполнив команды `Ctrl`+`\`, `Ctrl`+`S`.
+Откройте **обозреватель объектов SQL Server**, выполнив команды `Ctrl`+`` ` ``, `Ctrl`+`S`.
 
 В верхней части **обозревателя объектов SQL Server** нажмите кнопку **Добавить SQL Server**.
 
@@ -210,7 +224,7 @@ ms.lasthandoff: 04/22/2017
 
 ### <a name="update-your-data-model"></a>Обновление модели данных
 
-Откройте `Models\Todo.cs` в редакторе кода. Добавьте в класс `ToDo` следующее свойство:
+Откройте файл _Models\Todo.cs_ в редакторе кода. Добавьте в класс `ToDo` следующее свойство:
 
 ```csharp
 public bool Done { get; set; }
@@ -248,7 +262,7 @@ Update-Database
 
 Внесем некоторые изменения в код, чтобы использовалось свойство `Done`. Для простоты мы изменим только представления `Index` и `Create`, чтобы просмотреть свойство в действии.
 
-Откройте `Controllers\TodosController.cs`.
+Откройте файл _Controllers\TodosController.cs_.
 
 Найдите метод `Create()` и добавьте `Done` в список свойств атрибута `Bind`. Когда все будет готово, сигнатура метода `Create()` должна выглядеть следующим образом:
 
@@ -256,7 +270,7 @@ Update-Database
 public ActionResult Create([Bind(Include = "id,Description,CreatedDate,Done")] Todo todo)
 ```
 
-Откройте `Views\Todos\Create.cshtml`.
+Откройте файл _Views\Todos\Create.cshtml_.
 
 В коде Razor вы должны увидеть тег `<div class="form-group">`, который использует `model.Description`, и еще один тег `<div class="form-group">`, который использует `model.CreatedDate`. Сразу после этих тегов добавьте еще один тег `<div class="form-group">`, который использует `model.Done`:
 
@@ -272,7 +286,7 @@ public ActionResult Create([Bind(Include = "id,Description,CreatedDate,Done")] T
 </div>
 ```
 
-Откройте `Views\Todos\Index.cshtml`.
+Откройте файл _Views\Todos\Index.cshtml_.
 
 Найдите пустой тег `<th></th>`. Добавьте следующий код Razor над этим тегом:
 
@@ -320,7 +334,7 @@ public ActionResult Create([Bind(Include = "id,Description,CreatedDate,Done")] T
 
 На странице публикации щелкните **Опубликовать**.
 
-Попробуйте снова создать новые задачи, устанавливая флажок **Готово**. Эти задачи должны появляться на главной странице как выполненные.
+Попробуйте добавить новые задачи, устанавливая флажок **Готово**. Эти задачи должны появляться на главной странице как выполненные.
 
 ![Веб-приложение Azure после включения Code First Migrations](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
@@ -333,7 +347,7 @@ public ActionResult Create([Bind(Include = "id,Description,CreatedDate,Done")] T
 
 Сообщения трассировки можно передавать прямо из веб-приложения Azure в Visual Studio.
 
-Откройте `Controllers\TodosController.cs`.
+Откройте файл _Controllers\TodosController.cs_.
 
 Обратите внимание, что каждое действие начинается с метода `Trace.WriteLine()`. Этот код добавлен, чтобы показать, как легко добавить сообщения трассировки в веб-приложение Azure.
 
@@ -349,7 +363,7 @@ public ActionResult Create([Bind(Include = "id,Description,CreatedDate,Done")] T
 
 Разверните группу ресурсов **myResourceGroup**, которая была создана при создании веб-приложения.
 
-Щелкните веб-приложение правой кнопкой мыши и выберите **Просмотр журналов потоковой передачи**.
+Щелкните веб-приложение правой кнопкой мыши и выберите **Просмотреть журналы потоковой передачи**.
 
 ![Включение потоковой передачи журналов](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -370,7 +384,7 @@ public ActionResult Create([Bind(Include = "id,Description,CreatedDate,Done")] T
 ![Измените уровень трассировки на "Подробно"](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
 > [!TIP]
-> Можно поэкспериментировать с различными уровнями трассировки, чтобы посмотреть, какие типы сообщений отображаются для каждого уровня. Например, уровень **Информация** включает все журналы, созданные `Trace.TraceInformation()`, `Trace.TraceWarning()`, и `Trace.TraceError()`, но не включает журналы, созданные `Trace.WriteLine()`.
+> Вы можете поэкспериментировать с различными уровнями трассировки, чтобы посмотреть, какие типы сообщений отображаются для каждого уровня. Например, уровень **Информация** включает все журналы, созданные `Trace.TraceInformation()`, `Trace.TraceWarning()`, и `Trace.TraceError()`, но не включает журналы, созданные `Trace.WriteLine()`.
 >
 >
 
@@ -413,6 +427,30 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 - вертикальное и горизонтальное масштабирование;
 - добавление аутентификации пользователей.
 
+## <a name="clean-up-resources"></a>Очистка ресурсов
+ 
+Если эти ресурсы не требуются для изучения другого руководства (см. раздел [Дальнейшие действия](#next)), их можно удалить, выполнив следующие команды: 
+  
+```azurecli 
+az group delete --name myResourceGroup 
+``` 
+
+<a name="next"></a>
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Ознакомьтесь с предварительно созданными [сценариями PowerShell для веб-приложений](app-service-powershell-samples.md).
+Из этого руководства вы узнали, как выполнять такие задачи:
+
+> [!div class="checklist"]
+> * Создание базы данных SQL в Azure.
+> * Подключение приложения ASP.NET к базе данных SQL.
+> * Развертывание приложения в Azure
+> * Обновление модели данных и повторное развертывание приложения.
+> * Потоковая передача журналов из Azure в окно терминала.
+> * Управление приложением на портале Azure.
+
+Перейдите к следующему руководству, чтобы научиться сопоставлять пользовательские DNS-имена.
+
+> [!div class="nextstepaction"]
+> [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](app-service-web-tutorial-custom-domain.md)
+

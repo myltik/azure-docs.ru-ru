@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/04/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5bbdd1db655c080b4372f6728bb47207757209e4
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a0e245121f2a9ff4109b281cd7286ed601bf64ac
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -27,12 +28,20 @@ ms.lasthandoff: 04/27/2017
 
 ![Веб-приложение с настраиваемым SSL-сертификатом](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
+Из этого руководства вы узнаете, как выполнять такие задачи:
+
+> [!div class="checklist"]
+> * Выбор более высокой ценовой категории.
+> * Привязывание пользовательского SSL-сертификата к службе приложений.
+> * Принудительное использование HTTPS для приложения.
+> * Автоматизация привязки SSL-сертификата с помощью скриптов.
+
 > [!TIP]
 > Если необходимо, вы можете получить SSL-сертификат непосредственно на портале Azure и привязать его к веб-приложению. Следуйте указаниям в [руководстве по сертификатам службы приложений](web-sites-purchase-ssl-web-site.md). 
 >
 > 
 
-## <a name="before-you-begin"></a>Перед началом работы
+## <a name="prerequisites"></a>Предварительные требования
 Перед выполнением инструкций в этом руководстве убедитесь, что выполнено следующее:
 
 - [Создано приложение службы приложений](/azure/app-service/).
@@ -109,7 +118,7 @@ ms.lasthandoff: 04/27/2017
 openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 ```
 
-Если для создания запроса сертификата вы использовали IIS или `Certreq.exe`, то сначала установите сертификат на локальный компьютер, а затем экспортируйте его в PFX-файл, выполнив действия, описанные в разделе [Экспорт сертификата с закрытым ключом](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
+Если для создания запроса сертификата вы использовали IIS или _Certreq.exe_, то сначала установите сертификат на локальный компьютер, а затем экспортируйте его в PFX-файл, выполнив действия, описанные в статье [Экспорт сертификата с закрытым ключом](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
 ### <a name="upload-your-ssl-certificate"></a>Передача SSL-сертификата
 
@@ -156,7 +165,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 Если с веб-приложением сопоставлена запись A, обновите реестр домена, указав этот новый выделенный IP-адрес.
 
-Он появится на странице **Личный домен** вашего веб-приложения. [Скопируйте этот IP-адрес](app-service-web-tutorial-custom-domain.md#info), затем [переназначьте его записи A](app-service-web-tutorial-custom-domain.md#create-the-a-record).
+Он появится на странице **Личный домен** вашего веб-приложения. [Скопируйте этот IP-адрес](app-service-web-tutorial-custom-domain.md#info), затем [переназначьте его записи A](app-service-web-tutorial-custom-domain.md#create-a).
 
 <a name="test"></a>
 
@@ -177,10 +186,10 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 ## <a name="enforce-https"></a>Принудительное использование HTTPS
 Если вы по-прежнему хотите разрешить доступ к веб-приложению по протоколу HTTP, пропустите этот шаг. 
 
-Служба приложений *не* принуждает использовать протокол HTTPS, чтобы кто угодно мог обратиться к веб-приложению с помощью протокола HTTP. Чтобы принудительно использовать HTTPS для веб-приложения, вы можете определить для него правило перезаписи в файле `web.config`. Служба приложений использует этот файл независимо от используемой языковой платформы веб-приложения.
+Служба приложений *не* принуждает использовать протокол HTTPS, чтобы кто угодно мог обратиться к веб-приложению с помощью протокола HTTP. Чтобы принудительно использовать HTTPS для веб-приложения, вы можете определить для него правило перезаписи в файле _web.config_. Служба приложений использует этот файл независимо от используемой языковой платформы веб-приложения.
 
 > [!NOTE]
-> Для каждого языка используется определенное перенаправление запросов. ASP.NET MVC может использовать фильтр [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) вместо правила перезаписи в файле `web.config` (ознакомьтесь с разделом [Создание приложения ASP.NET MVC с проверкой подлинности и базой данных SQL и развертывание службы приложений Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
+> Для каждого языка используется определенное перенаправление запросов. ASP.NET MVC может использовать фильтр [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) вместо правила перезаписи в файле _web.config_ (ознакомьтесь со статьей [Создание приложения ASP.NET MVC с проверкой подлинности и базой данных SQL и развертывание службы приложений Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
 > 
 > 
 
@@ -190,7 +199,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 Подключитесь к конечной точке FTP веб-приложения, следуя указаниям в разделе [Развертывание приложения в службе приложений Azure с помощью FTP или FTPS](app-service-deploy-ftp.md). 
 
-Этот файл должен находиться в `/home/site/wwwroot`. Если это не так, создайте в этой папке файл `web.config` с приведенным ниже кодом XML.
+Этот файл должен находиться в каталоге _/home/site/wwwroot_. Если это не так, создайте в этой папке файл _web.config_ с приведенным ниже кодом XML.
 
 ```xml   
 <?xml version="1.0" encoding="UTF-8"?>
@@ -213,7 +222,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 </configuration>
 ```
 
-Если файл `web.config` существует, то вам нужно только скопировать весь тег `<rule>` в элемент `configuration/system.webServer/rewrite/rules` в файле `web.config`. При наличии уже других тегов `<rule>` в файле `web.config` поместите скопированный тег `<rule>` перед другими тегами `<rule>`.
+Для имеющегося файла _web.config_ вам нужно только скопировать весь тег `<rule>` в элемент `configuration/system.webServer/rewrite/rules` в файле _web.config_. При наличии уже других тегов `<rule>` в файле _web.config_ поместите скопированный тег `<rule>` перед другими тегами `<rule>`.
 
 Это правило возвращает ответ "HTTP 301" (постоянное перенаправление) для протокола HTTPS всякий раз, когда пользователь отправляет HTTP-запрос к вашему веб-приложению. Например, оно перенаправляет `http://contoso.com` в `https://contoso.com`.
 
@@ -228,16 +237,23 @@ openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 Следующая команда передает экспортированный PFX-файл и возвращает отпечаток. 
 
 ```bash
-thumprint=$(az appservice web config ssl upload --certificate-file <path_to_PFX_file> \
---certificate-password <PFX_password> --name <app_name> --resource-group <resource_group_name> \
---query thumbprint --output tsv)
+thumprint=$(az appservice web config ssl upload \
+    --name <app_name> \
+    --resource-group <resource_group_name> \
+    --certificate-file <path_to_PFX_file> \
+    --certificate-password <PFX_password> \
+    --query thumbprint \
+    --output tsv)
 ```
 
 Следующая команда добавляет привязку SSL на основе SNI с помощью отпечатка из предыдущей команды.
 
 ```bash
-az appservice web config ssl bind --certificate-thumbprint $thumbprint --ssl-type SNI \
---name <app_name> --resource-group <resource_group_name>
+az appservice web config ssl bind \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --certificate-thumbprint $thumbprint \
+    --ssl-type SNI \
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -245,12 +261,21 @@ az appservice web config ssl bind --certificate-thumbprint $thumbprint --ssl-typ
 Следующая команда передает экспортированный PFX-файл и добавляет привязку SSL на основе SNI.
 
 ```PowerShell
-New-AzureRmWebAppSSLBinding -WebAppName <app_name> -ResourceGroupName <resource_group_name> -Name <dns_name> `
--CertificateFilePath <path_to_PFX_file> -CertificatePassword <PFX_password> -SslState SniEnabled
+New-AzureRmWebAppSSLBinding `
+    -WebAppName <app_name> `
+    -ResourceGroupName <resource_group_name> `
+    -Name <dns_name> `
+    -CertificateFilePath <path_to_PFX_file> `
+    -CertificatePassword <PFX_password> `
+    -SslState SniEnabled
 ```
-## <a name="more-resources"></a>Дополнительные ресурсы
-* [Центр управления безопасностью Microsoft Azure](/support/trust-center/security/)
-* [Параметры конфигурации, разблокированные на веб-сайтах Azure](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-* [Включение ведения журналов диагностики](web-sites-enable-diagnostic-log.md)
-* [Настройка веб-приложений в службе приложений Azure](web-sites-configure.md)
+## <a name="what-you-have-learned"></a>Полученные сведения
+
+Из этого руководства вы узнали, как выполнять такие задачи:
+
+> [!div class="checklist"]
+> * Выбор более высокой ценовой категории.
+> * Привязывание пользовательского SSL-сертификата к службе приложений.
+> * Принудительное использование HTTPS для приложения.
+> * Автоматизация привязки SSL-сертификата с помощью скриптов.
 
