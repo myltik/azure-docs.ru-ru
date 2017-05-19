@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -54,7 +54,7 @@ ms.lasthandoff: 04/27/2017
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Получение и выполнение скрипта для установки компонентов, необходимых при шифровании дисков Azure
 Скрипт для установки компонентов, необходимых при шифрования дисков Azure, устанавливает все соответствующие компоненты.
 
-1. Перейдите на страницу GitHub, на которой размещен [скрипт для установки компонентов, необходимых при шифровании дисков Azure](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+1. Перейдите на страницу GitHub, на которой размещен [скрипт для установки компонентов, необходимых при шифровании дисков Azure](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 2. На странице GitHub нажмите кнопку **Raw** (Без форматирования).
 3. С помощью клавиш **CTRL+A** выделите весь текст на странице, а затем нажмите **CTRL+C**, чтобы скопировать в буфер обмена весь текст на странице.
 4. Откройте **Блокнот** и вставьте скопированный текст.
