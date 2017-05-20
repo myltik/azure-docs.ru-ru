@@ -1,5 +1,5 @@
 # Обзор
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [Сведения об HDInsight и Hadoop](hdinsight-hadoop-introduction.md)
 ## [Компоненты Hadoop в HDInsight](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
@@ -133,6 +133,7 @@
 ### [Настройка кластеров с использованием Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Настройка кластеров с помощью действий сценария](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Разработка действий сценария](hdinsight-hadoop-script-actions-linux.md)
+### [Установка и использование Presto](hdinsight-hadoop-install-presto.md)
 ### [Установка или обновление Mono](hdinsight-hadoop-install-mono.md)
 ### [Добавление библиотек Hive](hdinsight-hadoop-add-hive-libraries.md)
 ### [Использование Giraph](hdinsight-hadoop-giraph-install-linux.md)
@@ -166,6 +167,7 @@
 #### [Использование Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [Добавление учетных записей хранения](hdinsight-hadoop-add-storage.md)
 ### [Передача данных для заданий Hadoop](hdinsight-upload-data.md)
+### [Несколько кластеров HDInsight с Data Lake Store](hdinsight-multiple-clusters-data-lake-store.md)
 ### [Импорт и экспорт данных с помощью Sqoop](hdinsight-use-sqoop.md)
 #### [Подключение по SSH](hdinsight-use-sqoop-mac-linux.md)
 #### [Запуск с помощью cURL](hdinsight-hadoop-use-sqoop-curl.md)
@@ -220,5 +222,6 @@
 ### [Отслеживание кластеров с помощью Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Ресурсы
+## [Средства Windows для HDInsight](hdinsight-hadoop-windows-tools.md)
 ## [Обращение за помощью на форум](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

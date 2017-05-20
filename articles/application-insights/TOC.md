@@ -12,18 +12,20 @@
 ### [Уже работающие веб-приложения](app-insights-monitor-performance-live-website-now.md)
 ### [Службы Windows](app-insights-windows-services.md)
 ### [Классические приложения для Windows](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Мониторинг приложений Java
 ### [Веб-приложения](app-insights-java-get-started.md)
 ### [Веб-приложения — среда выполнения](app-insights-java-live.md)
 ### [Приложения Docker](app-insights-docker.md)
 
+## Мониторинг приложений Node.js
+### [Node.js](app-insights-nodejs.md)
 
 ## Мониторинг веб-страниц
 ### [JavaScript](app-insights-javascript.md)
-
+ 
 ## Мониторинг других платформ
-### [Приложения Node.js](app-insights-nodejs.md)
 ### [Сайты SharePoint](app-insights-sharepoint.md)
 ### [Другие платформы](app-insights-platforms.md)
 
@@ -32,8 +34,8 @@
 ## Планирование и проектирование
 ### [Углубленная диагностика для веб-приложений и служб](app-insights-devops.md)
 ### [Мониторинг производительности в веб-приложениях](app-insights-web-monitor-performance.md)
-### [Анализ использования с помощью Application Insights](app-insights-web-track-usage.md)
-### [Разделение ресурсов Application Insights](app-insights-separate-resources.md)
+### [Разделение разработки, тестирования и эксплуатации](app-insights-separate-resources.md)
+### [Отслеживание работы приложений с несколькими ролями](app-insights-monitor-multi-role-apps.md)
 ### [Как работать с Application Insights](app-insights-how-do-i.md)
 
 
@@ -50,7 +52,7 @@
 #### [Зависимости](app-insights-asp-net-dependencies.md)
 #### [Примечания к выпуску](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-
+#### [Отладчик моментальных снимков](app-insights-snapshot-debugger.md)
 
 ### J2EE
 #### [Трассировки журналов](app-insights-java-trace-logs.md)
@@ -87,6 +89,11 @@
 #### [Тренды](app-insights-visual-studio-trends.md)
 #### [CodeLens](app-insights-visual-studio-codelens.md)
 
+### Использование
+#### [Обзор](app-insights-usage-overview.md)
+#### [Сохранение](app-insights-usage-retention.md)
+#### [Пользователи, сеансы, события](app-insights-usage-segmentation.md)
+
 ### Аналитика
 
 #### [Обзор](app-insights-analytics.md)
@@ -107,7 +114,6 @@
 ### [API для пользовательских событий и метрик](app-insights-api-custom-events-metrics.md)
 ### [Фильтрация и предварительная обработка данных телеметрии](app-insights-api-filtering-sampling.md)
 ### [Выборка](app-insights-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Управление
 ### [Управление ценами и квотами](app-insights-pricing.md)
@@ -152,14 +158,14 @@
 ## Новости
 
 ### [Блог](https://azure.microsoft.com/blog/tag/application-insights/)
-### [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
+### [Обновления службы](https://azure.microsoft.com/updates/?product=application-insights) 
 ### [Заметки о выпуске пакета SDK](app-insights-release-notes.md)
 ### [Заметки о выпуске средств анализа для разработчиков](app-insights-release-notes-vsix.md)
 
 ## [Часто задаваемые вопросы](app-insights-troubleshoot-faq.md)
 
 ## Справка
-### [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights)  
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [Мнение пользователей](https://visualstudio.uservoice.com/forums/357324-application-insights)
 ### [Поддержка](https://azure.microsoft.com/support/)

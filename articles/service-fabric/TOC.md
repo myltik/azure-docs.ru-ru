@@ -18,15 +18,18 @@
 ### [Java в Linux](service-fabric-create-your-first-linux-application-with-java.md)
 ### [C# в Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Развертывание приложений в локальном кластере](service-fabric-get-started-with-a-local-cluster.md)
+## [Развертывание приложений .NET в контейнере](service-fabric-host-app-in-a-container.md)
 ## [Создание первого кластера в Azure](service-fabric-get-started-azure-cluster.md)
 ## [Создание первого автономного кластера](service-fabric-get-started-standalone-cluster.md)
+## [Создание первого приложения-контейнера](service-fabric-get-started-containers.md)
 
-# Практическое руководство
+# Практическое руководство:
 ## Создание приложения
   
 ### Основные понятия
 #### [Поддерживаемые модели программирования](service-fabric-choose-framework.md)
 #### [Модель приложения](service-fabric-application-model.md)
+#### [Модель размещения](service-fabric-hosting-model.md)
 #### [Ресурсы манифеста службы](service-fabric-service-manifest-resources.md)
 #### [Состояние службы](service-fabric-concepts-state.md)
 #### [Секционирование службы](service-fabric-concepts-partitioning.md)
@@ -44,23 +47,32 @@
 #### [Обзор](service-fabric-containers-overview.md)
 #### [Развертывание контейнера Windows](service-fabric-deploy-container.md)
 #### [Развертывание контейнера Linux](service-fabric-deploy-container-linux.md)
+#### [Docker Compose (предварительная версия)](service-fabric-docker-compose.md)
+#### [Управление ресурсами для контейнеров и служб](service-fabric-resource-governance.md)
 
 ### Создание приложения Reliable Services
 #### [Обзор](service-fabric-reliable-services-introduction.md)
 #### Основные понятия
 ##### [Жизненный цикл Reliable Services (C#)](service-fabric-reliable-services-lifecycle.md)
 ##### [Жизненный цикл Reliable Services (Java)](service-fabric-reliable-services-lifecycle-java.md)
+
+#### Reliable Collections
 ##### [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
+##### [Reliable Collections: инструкции и рекомендации](service-fabric-reliable-services-reliable-collections-guidelines.md)
+##### [Работа с Reliable Collections](service-fabric-work-with-reliable-collections.md)
+##### [Транзакции и блокировки](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [Надежная параллельная очередь](service-fabric-reliable-services-reliable-concurrent-queue.md)
+##### [Сериализация надежной коллекции](service-fabric-reliable-services-reliable-collections-serialization.md)
+##### [Внутренние компоненты Reliable State Manager и Reliable Collections](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Начало работы
 ##### [C# в Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java в Linux](service-fabric-reliable-services-quick-start-java.md)
 
 #### Жизненный цикл Reliable Services
-#### [Использование надежных коллекций](service-fabric-work-with-reliable-collections.md)
-#### [Настройка](service-fabric-reliable-services-configuration.md)
-#### [Отправка уведомлений](service-fabric-reliable-services-notifications.md)
-#### [Резервное копирование и восстановление](service-fabric-reliable-services-backup-restore.md)
+##### [Настройка](service-fabric-reliable-services-configuration.md)
+##### [Отправка уведомлений](service-fabric-reliable-services-notifications.md)
+##### [Резервное копирование и восстановление](service-fabric-reliable-services-backup-restore.md)
 
 #### Обмен данными со службами
 ##### [Обмен данными с помощью Reliable Services](service-fabric-reliable-services-communication.md)
@@ -94,6 +106,7 @@
 
 ### Обмен данными со службами
 #### [Взаимодействие служб](service-fabric-connect-and-communicate-with-services.md)
+#### [Служба DNS](service-fabric-dnsservice.md)
 #### [Обратный прокси-сервер](service-fabric-reverseproxy.md)
 
 ### [Добавление веб-интерфейса](service-fabric-add-a-web-frontend.md)
@@ -202,6 +215,7 @@
 ### [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md)
 
 ### [Управление кластером с помощью интерфейса командной строки Azure](service-fabric-azure-cli.md)
+### [Установка исправлений для узлов кластера](service-fabric-patch-orchestration-application.md)
 
 ### Ресурсы кластера: управление и оркестрация
 #### [Обзор диспетчера кластерных ресурсов](service-fabric-cluster-resource-manager-introduction.md)
@@ -236,11 +250,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Сбор журналов из процесса службы](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Отслеживание контейнеров Windows Server](service-fabric-diagnostics-containers-windowsserver.md)
 ### [Диагностика в Reliable Services с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
 ### [Диагностика в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Устранение неполадок локального кластера](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Справочные материалы
+## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [API Java](/java/api/)
 ## [.NET](/dotnet/api/)

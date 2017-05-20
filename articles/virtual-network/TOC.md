@@ -17,14 +17,17 @@
 ### [Группы безопасности сети](virtual-networks-nsg.md)
 
 ## Развернуть
-### виртуальные сети;
-#### [Портал](virtual-networks-create-vnet-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-arm-cli.md)
-#### [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
-#### [Портал (классический)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell (классическая модель)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [Интерфейс командной строки (классическая модель)](virtual-networks-create-vnet-classic-cli.md)
+### Виртуальные сети
+#### [Создание, изменение и удаление виртуальных сетей](virtual-network-manage-network.md)
+#### [Создание, изменение и удаление подсетей](virtual-network-manage-subnet.md)
+#### [Создание виртуальной сети с несколькими подсетями](virtual-networks-create-vnet-arm-pportal.md) 
+##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-arm-cli.md)
+##### [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
+#### Создание виртуальной сети с несколькими подсетями (классическое развертывание)
+##### [Портал](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-classic-cli.md)
 
 ### Группы безопасности сети
 #### [Портал](virtual-networks-create-nsg-arm-pportal.md)
@@ -46,20 +49,22 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Шаблон](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### [Сетевые интерфейсы](virtual-network-network-interface.md)
+### Сетевые интерфейсы
+#### [Создание, изменение и удаление сетевых интерфейсов](virtual-network-network-interface.md)
+#### [Добавление, изменение и удаление IP-адресов](virtual-network-network-interface-addresses.md)
 
 ### [Типы IP-адресов и методы распределения в Azure](virtual-network-public-ip-address.md) (раздел "Общедоступные IP-адреса")
 
 ### Виртуальные машины
-
-#### Статические общедоступные IP-адреса
+#### [Добавление и удаление сетевых интерфейсов](virtual-network-network-interface-vm.md) 
+#### Создание виртуальной машины со статическим общедоступным IP-адресом
 ##### [Портал](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Шаблон](virtual-network-deploy-static-pip-arm-template.md)
 ##### [PowerShell (классическая модель)](virtual-networks-reserved-public-ip.md)
 
-#### Статические частные IP-адреса
+#### Создание виртуальной машины со статическим частным IP-адресом
 ##### [Портал](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-static-private-ip-arm-cli.md)
@@ -67,18 +72,19 @@
 ##### [PowerShell (классическая модель)](virtual-networks-static-private-ip-classic-ps.md)
 ##### [Интерфейс командной строки (классическая модель)](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Несколько сетевых интерфейсов
-##### [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-network-deploy-multinic-arm-cli.md)
-##### [Шаблон](virtual-network-deploy-multinic-arm-template.md)
+#### Создание виртуальной машины с несколькими сетевыми интерфейсами
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell (классическая модель)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [Интерфейс командной строки (классическая модель)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Несколько IP-адресов
+#### Создание виртуальной машины с несколькими IP-адресами
 ##### [Портал Azure](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Шаблон](virtual-network-multiple-ip-addresses-template.md)
+
+#### [Создание виртуальной машины с ускоренной сетью](virtual-network-create-vm-accelerated-networking.md)
 
 ### Сценарии подключения
 #### [Виртуальная сеть к виртуальной сети](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -97,9 +103,6 @@
 ##### [Пример приложения](virtual-networks-sample-app.md)
 
 ## Настройка
-### Ускорение работы в сети для виртуальных машин
-#### [Портал Azure](virtual-network-accelerated-networking-portal.md)
-#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
 ### [Оптимизация пропускной способности сети](virtual-network-optimize-network-bandwidth.md)
 ### Доступ к спискам управления
 #### [Классический портал](virtual-networks-acl.md)
