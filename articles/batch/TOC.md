@@ -29,6 +29,10 @@
 ## Управление
 ### [командлеты PowerShell для пакетной службы;](batch-powershell-cmdlets-get-started.md)
 ### [Интерфейс командной строки Azure](batch-cli-get-started.md)
+#### [Создание учетной записи пакетной службы](./scripts/batch-cli-sample-create-account.md)
+#### [Добавление приложения](./scripts/batch-cli-sample-add-application.md)
+#### [Управление пулами](./scripts/batch-cli-sample-manage-pool.md)
+#### [Выполнение заданий и задач](./scripts/batch-cli-sample-run-job.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/module/azurerm.batch)
@@ -63,7 +67,6 @@
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Примеры кода C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Примеры кода Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Примеры интерфейса командной строки](batch-cli-samples.md)
 ## [Вычислительные ресурсы для больших данных](big-compute-resources.md)
 ## [Блог](https://blogs.technet.microsoft.com/windowshpc/)
 

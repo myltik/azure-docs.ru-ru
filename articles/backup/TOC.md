@@ -71,9 +71,11 @@
 ### [Медленное резервное копирование файлов и папок в службе архивации Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # Основные понятия
+## [Обзор хранилищ служб восстановления](backup-azure-recovery-services-vault-overview.md)
+## [Обновление резервного хранилища до хранилища служб восстановления](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Удаление хранилища службы архивации Azure](backup-azure-delete-vault.md)
 ## [Контроль доступа на основе ролей](backup-rbac-rs-vault.md)
 ## [Безопасность гибридных резервных копий](backup-azure-security-feature.md)
-## [Удаление хранилища службы архивации Azure](backup-azure-delete-vault.md)
 ## [Настройка автономного резервного копирования](backup-azure-backup-import-export.md)
 ## [Замена ленточным библиотекам](backup-azure-backup-cloud-as-tape.md)
 ## [Согласованное с приложениями резервное копирование виртуальных машин Linux](backup-azure-linux-app-consistent.md)
