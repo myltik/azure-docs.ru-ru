@@ -4,19 +4,20 @@ description: "Поиск журналов, созданных с помощью 
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f803b44172b068b7ba65047c769421e39445ce10
-ms.lasthandoff: 03/15/2017
+ms.date: 05/3/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1b0c902adff1d60a04fb3cddef5862256d54f813
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -48,7 +49,6 @@ ms.lasthandoff: 03/15/2017
      </system.diagnostics>
    </configuration>
 ```
-
 ## <a name="configure-application-insights-to-collect-logs"></a>Настройка Application Insights для сбора журналов
 **[Добавьте Application Insights в свой проект](app-insights-asp-net.md)**, если вы еще этого не сделали. Вы увидите параметр для включения сборщика журналов.
 
@@ -62,11 +62,11 @@ ms.lasthandoff: 03/15/2017
 1. Если вы планируете использовать log4Net или NLog, установите его в свой проект.
 2. В обозревателе решений щелкните правой кнопкой мыши ваш проект и выберите **Управление пакетами NuGet**.
 3. Поиск Application Insights
-
-    ![Получите предварительную версию соответствующего адаптера](./media/app-insights-asp-net-trace-logs/appinsights-36nuget.png)
 4. Выберите соответствующий пакет из списка.
 
    * Microsoft.ApplicationInsights.TraceListener (для захвата вызовов System.Diagnostics.Trace)
+   * Microsoft.ApplicationInsights.EventSourceListener (для записи событий EventSource)
+   * Microsoft.ApplicationInsights.EtwListener (для записи событий трассировки событий Windows)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 
@@ -81,6 +81,41 @@ ms.lasthandoff: 03/15/2017
 
     logger.Warn("Slow response - database01");
 
+## <a name="using-eventsource-events"></a>Использование событий EventSource
+Можно настроить отправку событий [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) в Application Insights в виде трассировок. Сначала установите пакет NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Затем измените раздел `TelemetryModules` файла [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
+      <Sources>
+        <Add Name="MyCompany" Level="Verbose" />
+      </Sources>
+    </Add>
+```
+
+Для каждого источника можно задать следующие параметры.
+ * `Name` задает имя собираемого события EventSource.
+ * `Level` задает уровень ведения журнала для сбора. Возможные значения: `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (необязательный) задает целочисленное значение используемых комбинаций ключевых слов.
+
+## <a name="using-etw-events"></a>Использование событий трассировки событий Windows
+Можно настроить отправку событий трассировки событий Windows в Application Insights в качестве трассировок. Сначала установите пакет NuGet `Microsoft.ApplicationInsights.EtwCollector`. Затем измените раздел `TelemetryModules` файла [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+
+> [!NOTE] 
+> События трассировки событий Windows можно собирать только в том случае, если процесс, в котором размещен пакет SDK, выполняется с удостоверением, которое является членом группы "Пользователи журналов производительности" или "Администраторы".
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule, Microsoft.ApplicationInsights.EtwCollector">
+      <Sources>
+        <Add ProviderName="MyCompanyEventSourceName" Level="Verbose" />
+      </Sources>
+    </Add>
+```
+
+Для каждого источника можно задать следующие параметры.
+ * `ProviderName` указывает имя поставщика трассировки событий Windows для сбора.
+ * `ProviderGuid` указывает GUID поставщика трассировки событий Windows для сбора, может использоваться вместо `ProviderName`.
+ * `Level` задает уровень ведения журнала для сбора. Возможные значения: `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (необязательный) задает целочисленное значение используемых комбинаций ключевых слов.
 
 ## <a name="using-the-trace-api-directly"></a>Непосредственное использование API трассировки
 API трассировки в Application Insights можно вызывать напрямую. Адаптеры ведения журналов используют этот API.

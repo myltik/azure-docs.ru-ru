@@ -1,6 +1,6 @@
 ---
-title: "Использование конфигурации PM2 для Node.js в веб-приложениях на платформе Linux | Документация Майкрософт"
-description: "Использование конфигурации PM2 для Node.js в веб-приложениях на платформе Linux"
+title: "Использование конфигурации PM2 для Node.js в веб-приложении Azure на платформе Linux | Документация Майкрософт"
+description: "Использование конфигурации PM2 для Node.js в веб-приложении Azure на платформе Linux."
 keywords: "служба приложений azure, веб-приложение, nodejs, pm2, linux, oss"
 services: app-service
 documentationcenter: 
@@ -15,15 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: c4af07e79ae066f916c15aa239cb5dfdd3fef2a8
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7ad48d42f8cc847ece199a2372c20430c4c8424e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="use-pm2-configuration-for-nodejs-in-web-apps-on-linux"></a>Использование конфигурации PM2 для Node.js в веб-приложениях на платформе Linux
-При использовании стека приложений Node.js для веб-приложений Linux вы можете задать загрузочный файл Node.js, как показано на следующем рисунке.
+# <a name="use-pm2-configuration-for-nodejs-in-azure-web-app-on-linux"></a>Использование конфигурации PM2 для Node.js в веб-приложении Azure на платформе Linux
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
+При использовании стека приложений Node.js для веб-приложения Azure на платформе Linux вы можете задать загрузочный файл Node.js, как показано на следующем рисунке.
 
 ![Указание загрузочного файла Node.js][1]
 
@@ -61,8 +66,8 @@ ms.lasthandoff: 02/17/2017
 * В настоящее время из-за способа подключения содержимого приложения для параметра usePolling свойства watch_options нужно указать значение true.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [What is App Service on Linux?](app-service-linux-intro.md) (Общие сведения о службе приложений в Linux)
-* [Вопросы и ответы о веб-приложениях службы приложений Azure на платформе Linux](app-service-linux-faq.md)
+* [Что такое веб-приложение Azure на платформе Linux?](app-service-linux-intro.md)
+* [Вопросы и ответы о веб-приложении службы приложений Azure на платформе Linux](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-nodejs-pm2/nodejs-startup-file.png

@@ -10,13 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/26/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 171393bc4145a1d39d6ae7bf76815e7cd2d18164
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 29f642754430957e77ef68946f721f8e15dba065
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -60,9 +60,10 @@ ms.lasthandoff: 04/28/2017
 | AZ_BATCH_MASTER_NODE            | IP-адрес и порт вычислительного узла, где выполняется основная задача для [задачи с несколькими экземплярами][multi_instance]. | Основные задачи и подзадачи с несколькими экземплярами. | `10.0.0.4:6000`|
 | AZ_BATCH_TASK_SHARED_DIR | Путь к каталогу, идентичный для основной задачи и всех подзадач [задачи с несколькими экземплярами][multi_instance]. Он существует на каждом узле, где выполняется задача с несколькими экземплярами, и доступен для чтения и записи командам, выполняющимся на этом узле (как [команде координации][coord_cmd], так и [команде приложения][app_cmd]). У подзадач или основной задачи, выполняемых на других узлах, нет удаленного доступа к этому каталогу (это не "общий" сетевой каталог). | Основные задачи и подзадачи с несколькими экземплярами. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | Указывает, является ли текущий узел главным для [задачи с несколькими экземплярами][multi_instance]. Возможные значения: `true` и `false`.| Основные задачи и подзадачи с несколькими экземплярами. | `true` |
-
+| AZ_BATCH_NODE_IS_DEDICATED | Если имеет значение `true`, то текущий узел является выделенным. Если имеет значение `false`, то это [низкоприоритетный узел](batch-low-pri-vms.md). | Все задачи. | `true` |
 
 [files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories
 [multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/
 [coord_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#coordination-command
 [app_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#application-command
+

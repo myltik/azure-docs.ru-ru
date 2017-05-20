@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: ff5deaa15d1f78df249e9e89b1f0ffc82076fee1
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 197e4c1873ecdc80c7eed3427449e2ea0d1605ba
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -183,11 +184,11 @@ ms.lasthandoff: 04/06/2017
 Степень детализации журналов stdout определяется в файле [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) .
 
 ## <a name="connect-to-a-database-in-azure"></a>Подключение к базе данных в Azure
-Чтобы подключиться к базе данных Azure, создайте в Azure базу данных выбранного типа (база данных SQL Azure, MySQL, MongoDB, кэш Redis для Azure и т. д.) и используйте соответствующий [адаптер хранилища данных](https://github.com/balderdashy/sails#compatibility) для подключения к ней. Действия, описанные в этом разделе, помогут вам подключиться к базе данных MongoDB с помощью базы данных [Azure DocumentDB](../documentdb/documentdb-protocol-mongodb.md), которая поддерживает подключения к клиенту MongoDB.
+Чтобы подключиться к базе данных Azure, создайте в Azure базу данных выбранного типа (база данных SQL Azure, MySQL, MongoDB, кэш Redis для Azure и т. д.) и используйте соответствующий [адаптер хранилища данных](https://github.com/balderdashy/sails#compatibility) для подключения к ней. Действия, описанные в этом разделе, помогут вам подключиться к MongoDB с помощью базы данных [Azure Cosmos DB](../documentdb/documentdb-protocol-mongodb.md), которая поддерживает подключения клиентов MongoDB.
 
-1. [Создайте учетную запись DocumentDB с поддержкой протокола MongoDB.](../documentdb/documentdb-create-mongodb-account.md)
-2. [Создайте коллекцию и базу данных DocumentDB.](../documentdb/documentdb-create-collection.md) Имя коллекции не имеет значения, но при подключении из Sails.js необходимо знать имя базы данных.
-3. [Найдите сведения о подключении к базе данных DocumentDB.](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize)
+1. [Создайте учетную запись Cosmos DB с поддержкой протокола MongoDB](../documentdb/documentdb-create-mongodb-account.md).
+2. [Создайте коллекцию и базу данных Cosmos DB](../documentdb/documentdb-create-collection.md). Имя коллекции не имеет значения, но при подключении из Sails.js необходимо знать имя базы данных.
+3. [Найдите сведения о подключении к базе данных Cosmos DB](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. В терминале командной строки установите адаптер MongoDB:
 
         npm install sails-mongo --save
@@ -205,11 +206,11 @@ ms.lasthandoff: 04/06/2017
         },
 
     > [!NOTE] 
-    > Параметр `ssl: true` важен, так как он требуется для [Azure DocumentDB](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+    > Параметр `ssl: true` важен, так как он [требуется для Cosmos DB](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
     >
     >
 
-4. Каждую переменную среды (`process.env.*`) необходимо задать в службе приложений. Для этого выполните следующие команды из терминала. Используйте сведения о подключении для базы данных DocumentDB.
+4. Каждую переменную среды (`process.env.*`) необходимо задать в службе приложений. Для этого выполните следующие команды из терминала. Используйте сведения о подключении Cosmos DB.
 
         az appservice web config appsettings update --settings dbuser="<database user>" --name <app_name> --resource-group my-sailsjs-app-group
         az appservice web config appsettings update --settings dbpassword="<database password>" --name <app_name> --resource-group my-sailsjs-app-group
@@ -230,7 +231,7 @@ ms.lasthandoff: 04/06/2017
             },
         },
 
-    Эта конфигурация позволяет переопределить параметры локальной среды в файле config/connections.js. Этот файл входит в список исключений, определенный в GITIGNORE-файле по умолчанию для проекта, поэтому его нельзя сохранить в репозитории Git. Теперь подключаться к базе данных DocumentDB (MongoDB) можно как из веб-приложения Azure, так и из локальной среды разработки.
+    Эта конфигурация позволяет переопределить параметры локальной среды в файле config/connections.js. Этот файл входит в список исключений, определенный в GITIGNORE-файле по умолчанию для проекта, поэтому его нельзя сохранить в репозитории Git. Теперь подключаться к базе данных Cosmos DB (MongoDB) можно как из веб-приложения Azure, так и из локальной среды разработки.
 6. Чтобы настроить рабочую среду, откройте файл config/env/production.js и добавьте в него следующий объект `models` .
 
         models: {
@@ -270,7 +271,7 @@ ms.lasthandoff: 04/06/2017
 
          http://<appname>.azurewebsites.net/mywidget/create
 
-     Если API возвращает другую новую запись, это значит, что между веб-приложением Azure и базой данных DocumentDB (MongoDB) осуществляется взаимодействие.
+     Если API возвращает другую новую запись, это значит, что между веб-приложением Azure и базой данных Cosmos DB (MongoDB) осуществляется взаимодействие.
 
 ## <a name="more-resources"></a>Дополнительные ресурсы
 * [Приступая к работе с веб-приложениями Node.js в службе приложений Azure](app-service-web-get-started-nodejs.md)

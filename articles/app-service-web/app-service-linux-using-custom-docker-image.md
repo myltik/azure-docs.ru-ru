@@ -1,6 +1,6 @@
 ---
-title: "Как применять пользовательские образы Docker в службе приложений Azure на платформе Linux | Документация Майкрософт"
-description: "Как применять пользовательские образы Docker в службе приложений на платформе Linux"
+title: "Как применить пользовательский образ Docker для веб-приложения Azure на платформе Linux | Документация Майкрософт"
+description: "Узнайте, как применить пользовательский образ Docker для веб-приложения Azure на платформе Linux."
 keywords: "служба приложений azure, веб-приложение, docker, контейнер"
 services: app-service
 documentationcenter: 
@@ -15,15 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: 7e4aab65feac187b48ccca65b35bb94185323506
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9962766b0a1fdfe313b70ea65e08785ec8a97996
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="using-a-custom-docker-image-for-app-service-on-linux"></a>Применение пользовательских образов Docker в службе приложений на платформе Linux #
+# <a name="using-a-custom-docker-image-for-azure-web-app-on-linux"></a>Применение пользовательского образа Docker для веб-приложения Azure на платформе Linux #
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
 
 Служба приложений включает предопределенные стеки приложений на платформе Linux с поддержкой определенных версий, включая PHP 7.0 и Node.js 4.5. Для размещения этих готовых стеков служба приложений на платформе Linux использует контейнеры Docker. Вы также можете использовать пользовательский образ Docker для развертывания веб-приложения в стек приложений, который еще не определен в Azure. Пользовательские образы Docker могут размещаться как в открытых, так и закрытых репозиториях Docker.
 
@@ -98,12 +102,12 @@ ms.lasthandoff: 02/17/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия ##
 
-Просмотрите следующие материалы по началу работы со службой приложений на платформе Linux.   
+Приступите к работе с веб-приложением на платформе Linux, воспользовавшись приведенными ниже ссылками.   
 
-* [Вводные сведения о службе приложений на платформе Linux](./app-service-linux-intro.md)
-* [Creating Web Apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md) (Создание веб-приложений в службе приложений на платформе Linux)
-* [Использование конфигурации PM2 для Node.js в веб-приложениях на платформе Linux](./app-service-linux-using-nodejs-pm2.md)
-* [Вопросы и ответы о веб-приложениях службы приложений Azure на платформе Linux](app-service-linux-faq.md)
+* [Введение в веб-приложение Azure на платформе Linux](./app-service-linux-intro.md)
+* [Создание веб-приложений в веб-приложении Azure на платформе Linux](./app-service-linux-how-to-create-web-app.md)
+* [Использование конфигурации PM2 для Node.js в веб-приложении Azure на платформе Linux](./app-service-linux-using-nodejs-pm2.md)
+* [Вопросы и ответы о веб-приложении службы приложений Azure на платформе Linux](app-service-linux-faq.md)
 
 Если у вас возникли вопросы или проблемы, вы можете опубликовать их на [нашем форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 

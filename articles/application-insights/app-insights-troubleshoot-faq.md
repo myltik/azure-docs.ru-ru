@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 191d9e1197c3526d2f72b972b7fada76dee84447
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 65c199064273930f66db580b6c01dabb4b906e7a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -103,7 +104,7 @@ ms.lasthandoff: 04/13/2017
 Из серверных веб-приложений:
 
 * HTTP-запросы;
-* [зависимости](app-insights-asp-net-dependencies.md); вызовы к базам данных SQL, Azure DocumentDB, таблицам, хранилищу BLOB-объектов и очереди; HTTP-вызовы к внешним службам; 
+* [зависимости](app-insights-asp-net-dependencies.md); вызовы к базам данных SQL, Azure Cosmos DB, таблице, хранилищу BLOB-объектов и очереди; HTTP-вызовы к внешним службам; 
 * [исключения](app-insights-asp-net-exceptions.md) и трассировки стека;
 * [счетчики производительности](app-insights-performance-counters.md) — если вы используете [монитор состояния](app-insights-monitor-performance-live-website-now.md), мониторинг Azure (app-insights-azure-web-apps.md) или [средство записи collectd Application Insights](app-insights-java-collectd.md);
 * [пользовательские события и метрики](app-insights-api-custom-events-metrics.md), которые вы создаете в коде;

@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 6dad42f94d263d9dacedf145bf4e5d487d0aed77
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f1e4a60cd98d40794c63dc334f242415445e0d6d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="best-practices-for-autoscale"></a>Рекомендации по автомасштабированию
-В этой статье даны рекомендации по автомасштабированию в Azure. Они относятся к виртуальным машинам, масштабируемым наборам виртуальных машин и облачным службам.  Прочие службы Azure используют другие методы масштабирования.
+В этой статье даны рекомендации по автомасштабированию в Azure. Автомасштабирование Azure Monitor используется только с [масштабируемыми наборами виртуальных машин](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [облачными службами](https://azure.microsoft.com/services/cloud-services/) и [веб-приложениями службы приложений](https://azure.microsoft.com/services/app-service/web/). Прочие службы Azure используют другие методы масштабирования.
 
 ## <a name="autoscale-concepts"></a>Основные понятия автомасштабирования
 * У ресурса может быть только *один* параметр автомасштабирования.
@@ -118,7 +119,7 @@ ms.lasthandoff: 04/21/2017
 
 Аналогичным образом, когда служба автомасштабирования переключится обратно на профиль по умолчанию, сначала она проверит, соблюдены ли условия минимального и максимального количества экземпляров. Если на тот момент число экземпляров будет равно 12, служба свернет два из них, оставив 10, т. е. максимальное число для профиля по умолчанию.
 
-![Параметры автомасштабирования](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+![Параметры автомасштабирования](./media/insights-autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Рекомендации по масштабированию при настройке нескольких правил в профиле
 Бывают случаи, когда требуется задать несколько правил в профиле. Ниже приведен набор правил автомасштабирования, используемых при настройке нескольких правил.

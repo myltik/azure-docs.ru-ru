@@ -1,6 +1,6 @@
 ---
-title: "Привязки DocumentDB в функциях Azure | Документация Майкрософт"
-description: "Узнайте, как использовать привязки Azure DocumentDB в функциях Azure."
+title: "Привязки Cosmos DB в Функциях Azure | Документация Майкрософт"
+description: "Узнайте, как использовать привязки Azure Cosmos DB в Функциях Azure."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,49 +16,50 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/18/2016
 ms.author: chrande; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: e38c9187be42946df1e8059ba44f10f76d32d984
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2c0cb8ee1690f9b36b76c87247e3c7223876b269
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="azure-functions-documentdb-bindings"></a>Привязки Azure DocumentDB в функциях Azure
+# <a name="azure-functions-cosmos-db-bindings"></a>Привязки Cosmos DB в Функциях Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Эта статья объясняет, как настроить и запрограммировать привязки Azure DocumentDB в функциях Azure. Функции Azure поддерживают входные и выходные привязки для DocumentDB.
+В этой статье объясняется, как настроить и запрограммировать привязки Azure Cosmos DB в Функциях Azure. Функции Azure поддерживают входные и выходные привязки для Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Дополнительные сведения о DocumentDB см. в статьях [Знакомство с DocumentDB: база данных NoSQL JSON](../documentdb/documentdb-introduction.md) и [Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C](../documentdb/documentdb-get-started.md).
+Дополнительные сведения о Cosmos DB см. в статьях [Знакомство с DocumentDB: база данных NoSQL JSON](../documentdb/documentdb-introduction.md) и [Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C#](../documentdb/documentdb-get-started.md).
 
 <a id="docdbinput"></a>
 
-## <a name="documentdb-input-binding"></a>Входная привязка DocumentDB
-Входная привязка DocumentDB получает документ DocumentDB и передает его именованному входному параметру функции. Идентификатор документа можно определить по триггеру, который вызывает функцию. 
+## <a name="documentdb-api-input-binding"></a>Входная привязка API DocumentDB
+Входная привязка API DocumentDB получает документ Cosmos DB и передает его именованному входному параметру функции. Идентификатор документа можно определить по триггеру, который вызывает функцию. 
 
-Входная привязка DocumentDB имеет следующие свойства в *function.json*:
+Входная привязка API DocumentDB имеет следующие свойства в *function.json*:
 
 - `name` — имя идентификатора, используемого в коде функции для документа.
 - `type` — для этого свойства нужно задать значение "documentdb".
 - `databaseName` — база данных, содержащая документ.
 - `collectionName` — коллекция, содержащая документ.
 - `id` — идентификатор документа, который нужно получить. Это свойство поддерживает параметры привязки; см. раздел [Привязка к пользовательским входным свойствам в выражении привязки](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) статьи [Основные понятия триггеров и привязок в Функциях Azure](functions-triggers-bindings.md).
-- `sqlQuery` — SQL-запрос DocumentDB, используемый для извлечения нескольких документов. Запрос поддерживает привязки времени выполнения. Например: `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection` — имя параметра приложения, содержащего строку подключения DocumentDB.
+- `sqlQuery` — SQL-запрос к Cosmos DB, используемый для извлечения нескольких документов. Запрос поддерживает привязки времени выполнения. Например: `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection` — имя параметра приложения, содержащего строку подключения к Cosmos DB.
 - `direction` — для этого свойства нужно задать значение `"in"`.
 
 Свойства `id` и `sqlQuery` невозможно указать одновременно. Если не задано ни `id`, ни `sqlQuery`, извлекается вся коллекция.
 
-## <a name="using-a-documentdb-input-binding"></a>Использование входной привязки DocumentDB
+## <a name="using-a-documentdb-api-input-binding"></a>Использование входной привязки API DocumentDB
 
-* В функциях C# и F# любые изменения, внесенные во входной документ посредством именованных входных параметров, обрабатываются автоматически после успешного выхода из функции. 
+* В функциях C# и F# любые изменения, внесенные во входной документ посредством именованных входных параметров, сохраняются автоматически после успешного выхода из функции. 
 * В функциях JavaScript изменения не обрабатываются автоматически при выходе из функции. Для внесения изменений используйте `context.bindings.<documentName>In` и `context.bindings.<documentName>Out`. См. [пример JavaScript](#injavascript).
 
 <a name="inputsample"></a>
 
 ## <a name="input-sample-for-single-document"></a>Пример входной привязки для отдельного документа
-Предположим, что у вас есть следующая входная привязка DocumentDB в массиве `bindings` файла function.json:
+Предположим, что у вас есть следующая входная привязка API DocumentDB в массиве `bindings` файла function.json:
 
 ```json
 {
@@ -67,7 +68,7 @@ ms.lasthandoff: 04/21/2017
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
   "id" : "{queueTrigger}",
-  "connection": "MyAccount_DOCUMENTDB",     
+  "connection": "MyAccount_COSMOSDB",     
   "direction": "in"
 }
 ```
@@ -82,7 +83,7 @@ ms.lasthandoff: 04/21/2017
 ### <a name="input-sample-in-c"></a>Пример входной привязки для языка C# #
 
 ```cs
-// Change input document contents using DocumentDB input binding 
+// Change input document contents using DocumentDB API input binding 
 public static void Run(string myQueueItem, dynamic inputDocument)
 {   
   inputDocument.text = "This has changed.";
@@ -93,7 +94,7 @@ public static void Run(string myQueueItem, dynamic inputDocument)
 ### <a name="input-sample-in-f"></a>Пример входной привязки для языка F# #
 
 ```fsharp
-(* Change input document contents using DocumentDB input binding *)
+(* Change input document contents using DocumentDB API input binding *)
 open FSharp.Interop.Dynamic
 let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
@@ -121,7 +122,7 @@ let Run(myQueueItem: string, inputDocument: obj) =
 ### <a name="input-sample-in-javascript"></a>Пример входной привязки для JavaScript
 
 ```javascript
-// Change input document contents using DocumentDB input binding, using context.bindings.inputDocumentOut
+// Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
 module.exports = function (context) {   
   context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
   context.bindings.inputDocumentOut.text = "This was updated!";
@@ -143,11 +144,11 @@ module.exports = function (context) {
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
     "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
-    "connection": "DocumentDBConnection"
+    "connection": "CosmosDBConnection"
 }
 ```
 
-### <a name="input-sample-with-multiple-documents-in-c"></a>Пример входной привязки с несколькими документами для C#
+### <a name="input-sample-with-multiple-documents-in-c"></a>Пример входной привязки с несколькими документами для языка C#
 
 ```csharp
 public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
@@ -177,19 +178,19 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a id="docdboutput"></a>Выходная привязка DocumentDB
-Выходная привязка DocumentDB позволяет записать новый документ в базу данных Azure DocumentDB. Он содержит следующие свойства в *function.json*:
+## <a id="docdboutput"></a>Выходная привязка API DocumentDB
+Выходная привязка API DocumentDB позволяет записать новый документ в Azure Cosmos DB. Он содержит следующие свойства в *function.json*:
 
 - `name` — идентификатор, используемый в коде функции для нового документа.
 - `type` — для этого свойства нужно задать значение `"documentdb"`.
 - `databaseName` — база данных, содержащая коллекцию, в которой будет создан документ.
 - `collectionName` — коллекция, в которой будет создан документ.
 - `createIfNotExists` — логическое значение, указывающее, будет ли создана коллекция при ее отсутствии. Значение по умолчанию — *false*. Это вызвано тем, что коллекции создаются с использованием зарезервированной пропускной способности, с которой связаны ценовые требования. Дополнительные сведения см. на [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection` — имя параметра приложения, содержащего строку подключения DocumentDB.
+- `connection` — имя параметра приложения, содержащего строку подключения к Cosmos DB.
 - `direction` — для этого свойства нужно задать значение `"out"`.
 
-## <a name="using-a-documentdb-output-binding"></a>Использование выходной привязки DocumentDB
-В этом разделе показано, как использовать выходную привязку DocumentDB в коде функции.
+## <a name="using-a-documentdb-api-output-binding"></a>Использование выходной привязки API DocumentDB
+В этом разделе показано, как использовать выходную привязку API DocumentDB в коде функции.
 
 При записи в выходном параметре функции в базе данных по умолчанию создается документ, для которого автоматически создается GUID в качестве идентификатора документа. Идентификатор выходного документа можно определить, указав свойство JSON `id` в выходном параметре. 
 
@@ -200,8 +201,8 @@ module.exports = function (context, input) {
 
 <a name="outputsample"></a>
 
-## <a name="documentdb-output-binding-sample"></a>Пример выходной привязки DocumentDB
-Предположим, что у вас есть следующая выходная привязка DocumentDB в массиве `bindings` файла function.json:
+## <a name="documentdb-api-output-binding-sample"></a>Пример выходной привязки API DocumentDB
+Предположим, что у вас есть следующая выходная привязка API DocumentDB в массиве `bindings` файла function.json:
 
 ```json
 {
@@ -210,7 +211,7 @@ module.exports = function (context, input) {
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
   "createIfNotExists": true,
-  "connection": "MyAccount_DOCUMENTDB",     
+  "connection": "MyAccount_COSMOSDB",     
   "direction": "out"
 }
 ```
@@ -225,7 +226,7 @@ module.exports = function (context, input) {
 }
 ```
 
-При этом вам нужно создать документы DocumentDB в следующем формате для каждой записи:
+При этом вам нужно создать документы Cosmos DB в следующем формате для каждой записи:
 
 ```json
 {

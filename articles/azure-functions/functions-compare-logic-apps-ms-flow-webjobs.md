@@ -15,9 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: chrande; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: ee94e074c574bc2e6e1a52dbfd6bd0ae102cb342
-ms.openlocfilehash: 0d007bf2a0f5a40fcb7ac6dfe5beff05a4310701
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0f35d79870301bcba9f009f7dbc00696ce426458
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -79,7 +81,7 @@ ms.openlocfilehash: 0d007bf2a0f5a40fcb7ac6dfe5beff05a4310701
 | Масштабирование |Масштабирование без настройки |Масштабирование в рамках плана службы приложений |
 | Цены |Оплата за использование или в рамках плана службы приложений |В рамках плана службы приложений |
 | Тип запуска |Активация, по расписанию (с помощью триггера таймера) |Активация, непрерывная работа, по расписанию |
-| События триггера |[Таймер](functions-bindings-timer.md), [Azure DocumentDB](functions-bindings-documentdb.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [HTTP или Webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [мобильные приложения службы приложений Azure](functions-bindings-mobile-apps.md), [центры уведомлений Azure](functions-bindings-notification-hubs.md), [служебная шина Azure](functions-bindings-service-bus.md), [служба хранилища Azure](functions-bindings-storage.md) |[Служба хранилища Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [служебная шина Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
+| События триггера |[Таймер](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [концентраторы событий Azure](functions-bindings-event-hubs.md), [HTTP или Webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [мобильные приложения службы приложений Azure](functions-bindings-mobile-apps.md), [центры уведомлений Azure](functions-bindings-notification-hubs.md), [служебная шина Azure](functions-bindings-service-bus.md), [служба хранилища Azure](functions-bindings-storage.md) |[Служба хранилища Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [служебная шина Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
 | Разработка в браузере |x | |
 | Написание скриптов в окне |Экспериментальная возможность |x |
 | PowerShell |Экспериментальная возможность |x |
@@ -118,10 +120,5 @@ ms.openlocfilehash: 0d007bf2a0f5a40fcb7ac6dfe5beff05a4310701
 * [Logic Apps Live Webcast](http://aka.ms/logicappslive)
 * [Часто задаваемые вопросы о Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 * [Документация по веб-заданиям Azure](../app-service-web/websites-webjobs-resources.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

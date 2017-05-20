@@ -3,21 +3,21 @@ title: "Создание веб-приложения из Azure Marketplace | Д
 description: "Узнайте, как создать веб-приложение WordPress из Azure Marketplace с помощью портала Azure."
 services: app-service\web
 documentationcenter: 
-author: rmcmurray
+author: sunbuild
 manager: erikre
 editor: 
-ms.assetid: 972a296d-f927-470b-8534-0f2cb9eac223
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/25/2017
-ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: a04c7129cd2e16c129f3e4b8e8e40f76ff37114d
-ms.lasthandoff: 02/16/2017
+ms.topic: article
+ms.date: 05/10/2017
+ms.author: sunbuild
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9515a2ff614161cd28ad80b26ff793f81e41b9a3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -26,144 +26,138 @@ ms.lasthandoff: 02/16/2017
 
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Azure Marketplace предоставляет широкий спектр популярных веб-приложений, разработанных нами, сторонними компаниями и группами разработки программного обеспечения с открытым исходным кодом. Например, WordPress, Umbraco CMS, Drupal и т. д. Эти веб-приложения создаются на основе разных популярных платформ, включая [PHP] (в нашем примере с WordPress), [.NET], [Node.js], [Java], [Python] и др. Единственное программное обеспечение, которое понадобится для создания веб-приложения из магазина Azure, — это браузер, который вы будете использовать для входа на [портал Azure].
+Azure Marketplace предоставляет широкий выбор популярных веб-приложений, разработанных сообществами ПО с открытым кодом, например WordPress и Umbraco CMS. В этом руководстве вы узнаете, как создать приложение WordPress из Azure Marketplace.
+При котором создается веб-приложение Azure и база данных MySQL. 
 
-Из этого руководства вы узнаете, как:
+![Пример панели мониторинга веб-приложения WordPress](./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png)
 
-* Найти и создать веб-приложение в службе приложений Azure на основе шаблона из Azure Marketplace.
-* Настроить параметры службы приложений Azure для нового веб-приложения.
-* Запустить веб-приложение и управлять им.
+## <a name="before-you-begin"></a>Перед началом работы 
 
-В рамках этого руководства вы развернете сайт блога WordPress из Azure Marketplace. После выполнения описанных здесь шагов у вас будет собственный сайт WordPress, работающий в облаке.
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
 
-![Пример панели мониторинга веб-приложения WordPress][WordPressDashboard1]
+## <a name="deploy-from-azure-marketplace"></a>Развертывание из Azure Marketplace
+Выполните приведенные ниже действия для развертывания шаблона WordPress из Azure Marketplace.
 
-Сайт WordPress, развертываемый в этом руководстве, использует MySQL для базы данных. Если вместо этого вы хотите использовать базу данных SQL, скачайте приложение [Project Nami], которое также доступно в Azure Marketplace.
+### <a name="sign-in-to-azure"></a>Вход в Azure
+Войдите на [портал Azure](https://portal.azure.com).
+
+### <a name="deploy-wordpress-template"></a>Развертывание шаблона WordPress
+Azure Marketplace предоставляет шаблоны для настройки ресурсов. Настройте шаблон [WordPress](https://portal.azure.com/#create/WordPress.WordPress), чтобы приступить к развертыванию.
+   
+Введите следующие сведения, чтобы развернуть приложение WordPress и его ресурсы.
+
+  ![Последовательность создания приложения WordPress](./media/app-service-web-create-web-app-from-marketplace/wordpress-portal-create.png)
+
+
+| Поле         | Рекомендуемое значение           | Описание  |
+| ------------- |-------------------------|-------------|
+| Имя приложения      | mywordpressapp          | Введите уникальное **имя веб-приложения**. Это имя используется как часть DNS-имени по умолчанию для приложения `<app_name>.azurewebsites.net`, поэтому оно должно быть глобально уникальным среди всех приложений Azure. Позже вы можете сопоставить имя личного домена с приложением, перед тем как предоставить его пользователям. |
+| Подписка  | Оплата по мере использования             | Выберите **подписку**. Если у вас имеется несколько подписок, выберите соответствующую подписку. |
+| Группа ресурсов| mywordpressappgroup                 |    Укажите **группу ресурсов**. Группа ресурсов — это логический контейнер, в котором происходит развертывание ресурсов Azure (веб-приложений, баз данных и т. д.) и управление ими. Можно создать новую группу ресурсов или использовать существующую. |
+| План обслуживания приложения | myappplan          | Планы службы приложений представляют собой коллекцию физических ресурсов, используемых для размещения приложений. Выберите **расположение** и **ценовую категорию**. Дополнительные сведения о ценах см. в разделе [Ценовая категория службы приложений](https://azure.microsoft.com/pricing/details/app-service/). |
+| База данных      | mywordpressapp          | Выберите соответствующего поставщика базы данных MySQL. Веб-приложения поддерживают **ClearDB**, **базу данных Azure для MySQL** и **MySQL в приложении**. Дополнительные сведения см. в разделе [Конфигурация базы данных](#database-config) ниже. |
+| Application Insights | "Вкл." или "Выкл."          | Это необязательно. Если щелкнуть **Вкл.**, [Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) будет предоставлять службы мониторинга для веб-приложения.|
+
+<a name="database-config"></a>
+
+### <a name="database-configuration"></a>Конфигурация базы данных
+Выполните следующие действия в зависимости от выбранного поставщика базы данных MySQL.  Рекомендуется разместить веб-приложение и базу данных MySQL одном расположении.
+
+#### <a name="cleardb"></a>ClearDB 
+[ClearDB](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview) — это стороннее решение для полностью интегрированной службы MySQL в Azure. Чтобы использовать базы данных ClearDB, необходимо привязать кредитную карту к своей [учетной записи Azure](http://account.windowsazure.com/subscriptions). Если выбран поставщик базы данных ClearDB, можно просмотреть список существующих баз данных, чтобы выбрать одну из них, или нажать кнопку **Создать**, чтобы создать базу данных.
+
+![Создание базы данных ClearDB](./media/app-service-web-create-web-app-from-marketplace/mysqldbcreate.png)
+
+#### <a name="azure-database-for-mysql-preview"></a>База данных Azure для MySQL (предварительная версия)
+[База данных Azure для MySQL](https://azure.microsoft.com/en-us/services/mysql) предоставляет управляемую службу базы данных для разработки и развертывания приложений, позволяющую настроить базу данных MySQL за считанные минуты, а также выполнять масштабирование на лету в надежной облачной службе. Учитывая включенные модели ценообразования, вы можете получить любые возможности, например высокий уровень доступности, требуемые безопасность и восстановление. Все эти функции встроены и предоставляются бесплатно. Щелкните **Ценовая категория**, чтобы выбрать другую [ценовую категорию](https://azure.microsoft.com/pricing/details/mysql). Чтобы использовать существующую базу данных или существующий сервер MySQL, укажите существующую группу ресурсов, в которой находится этот сервер. 
+
+![Настройте параметры базы данных для веб-приложения](./media/app-service-web-create-web-app-from-marketplace/wordpress-azure-database.PNG)
 
 > [!NOTE]
-> Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно [активировать преимущества для подписчиков Visual Studio][activate] или [подписаться на бесплатную пробную версию][free trial].
-> 
-> Чтобы приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [пробного использования службы приложений]. Там вы сможете немедленно создать кратковременное начальное веб-приложение в службе приложений. Для этого не требуется ни кредитная карта, ни какие-либо обязательства.
-> 
-> 
+>  База данных Azure для MySQL (предварительная версия) и веб-приложение на платформе Linux (предварительная версия) доступны не во всех регионах. Узнайте больше об ограничениях [базы данных Azure для MySQL (предварительная версия)](https://docs.microsoft.com/en-us/azure/mysql) и [веб-приложения на платформе Linux](./app-service-linux-intro.md). 
 
-## <a name="find-and-create-a-web-app-in-azure-app-service"></a>Поиск и создание веб-приложения в службе приложений Azure
-1. Войдите на [портал Azure].
-2. Нажмите кнопку **Создать**.
-   
-    ![Создайте ресурс Azure][MarketplaceStart]
-3. Выполните поиск по запросу **WordPress**, а затем щелкните приложение **WordPress**. (Если вы хотите использовать базу данных SQL вместо MySQL, выполните поиск по запросу **Project Nami**.)
-   
-    ![Выполните поиск WordPress в Marketplace][MarketplaceSearch]
-4. После прочтения описания приложения WordPress нажмите кнопку **Создать**.
-   
-    ![Создайте веб-приложение WordPress][MarketplaceCreate]
+#### <a name="mysql-in-app"></a>MySQL в приложении
+[MySQL в приложении](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app) — это функция службы приложений, которая позволяет запускать MySQL в собственном коде на платформе. Ниже перечислены основные функции, поддерживаемые в выпуске этой функции.
 
-## <a name="configure-azure-app-service-settings-for-your-new-web-app"></a>Настройка параметров службы приложений Azure для нового веб-приложения
-1. После создания нового веб-приложения отобразится колонка параметров WordPress, в которой необходимо выполнить следующие шаги:
-   
-    ![Настройте параметры веб-приложения WordPress][ConfigStart]
-2. Введите имя для веб-приложения в поле **Веб-приложение** .
-   
-    Это имя должно быть уникальным в домене azurewebsites.net, так как URL-адрес веб-приложения будет иметь такой формат: *{имя}*.azurewebsites.net. Если введенное имя не является уникальным, в текстовом поле отображается красный восклицательный знак.
-   
-    ![Настройте имя веб-приложения WordPress][ConfigAppName]
-3. Если у вас есть несколько подписок, выберите ту, которую будете использовать.
-   
-    ![Настройте подписку для веб-приложения][ConfigSubscription]
-4. Выберите **группу ресурсов** или создайте новую.
-   
-    Дополнительные сведения о группах ресурсов см. в статье [Общие сведения об Azure Resource Manager][ResourceGroups].
-   
-    ![Настройте группу ресурсов для веб-приложения][ConfigResourceGroup]
-5. Выберите или создайте **план службы приложений или расположение** .
-   
-    Дополнительные сведения о планах службы приложений см. в [подробном обзоре планов службы приложений Azure][AzureAppServicePlans].
-   
-    ![Настройте план обслуживания для веб-приложения][ConfigServicePlan]
-6. Щелкните элемент **База данных** и укажите в колонке **Новая база данных MySQL** значения для настройки базы данных MySQL.
-   
-    а. Введите новое имя или оставьте имя по умолчанию.
-   
-    b. Оставьте в поле **Тип базы данных** значение **Общая**.
-   
-    c. Выберите то же расположение, которое выбрано для веб-приложения.
-   
-    г) Выберите ценовую категорию. Для этого руководства подходит **Меркурий**, т. е. бесплатно с минимумом подключений и места на диске.
-   
-    д. В колонке **Новая база данных MySQL** примите условия использования и нажмите кнопку **ОК**.
-   
-    ![Настройте параметры базы данных для веб-приложения][ConfigDatabase]
-7. В колонке **WordPress** примите условия использования и нажмите кнопку **Создать**.
-   
-    ![Завершите настройку параметров веб-приложения и нажмите кнопку "ОК"][ConfigFinished]
-   
-    Служба приложений Azure создаст веб-приложение (обычно это занимает меньше минуты). Можно отслеживать ход выполнения, щелкнув значок колокольчика в верхней части страницы портала.
-   
-    ![Индикатор хода выполнения][ConfigProgress]
+- Сервер MySQL работает на том же экземпляре, что и веб-сервер, на котором размещается сайт. Это повышает производительность вашего приложения
+- Хранилище совместно используется для MySQL и файлов веб-приложения. Обратите внимание, что при использовании планов "Бесплатный" и "Общий" возможно достижение лимитов квоты при использовании сайта, в зависимости от ваших действий. Ознакомьтесь с [лимитами квоты](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) для планов "Бесплатный" и "Общий".
+- Можно включить медленное ведение журнала и общее ведение журнала для MySQL. Обратите внимание, что эта функция может повлиять на производительность сайта и она не должна быть всегда включена. Функция ведения журнала помогает при анализе проблем приложения. 
 
-## <a name="launch-and-manage-your-wordpress-web-app"></a>Запуск веб-приложения WordPress и управление им
-1. После завершения создания веб-приложения перейдите на портале Azure к группе ресурсов, в которой было создано приложение, и вы увидите веб-приложение и базу данных.
-   
-    Дополнительный ресурс со значком лампочки — надстройка [Application Insights][ApplicationInsights], которая предоставляет службы мониторинга для веб-приложения.
-2. В колонке **Группа ресурсов** щелкните строку веб-приложения.
-   
-    ![Выберите свое веб-приложение WordPress][WordPressSelect]
-3. В колонке веб-приложения нажмите кнопку **Обзор**.
-   
-    ![Перейдите к веб-приложению WordPress][WordPressBrowse]
-4. Если будет предложено выбрать язык для блога WordPress, выберите нужный язык и нажмите кнопку **Продолжить**.
-   
-    ![Настройте язык для веб-приложения WordPress][WordPressLanguage]
-5. На странице **приветствия** WordPress введите параметры, которые требуются WordPress, после чего нажмите кнопку **Установить WordPress**.
-   
-    ![Настройте параметры веб-приложения WordPress][WordPressConfigure]
-6. Войдите, используя учетные данные, созданные на странице **приветствия** .  
-7. Откроется страница панели мониторинга сайта, в которой отображаются предоставленные сведения.    
-   
-    ![Просмотрите панель мониторинга WordPress][WordPressDashboard2]
+Дополнительные сведения см. в [этой статье](https://blogs.msdn.microsoft.com/appserviceteam/2016/08/18/announcing-mysql-in-app-preview-for-web-apps/ ).
+
+![Управление MySQL в приложении](./media/app-service-web-create-web-app-from-marketplace/mysqlinappmanage.PNG)
+
+Во время развертывания приложения WordPress можно отслеживать ход выполнения, щелкнув значок колокольчика в верхней части страницы портала.    
+![Индикатор хода выполнения](./media/app-service-web-create-web-app-from-marketplace/deploy-success.png)
+
+## <a name="manage-your-new-azure-web-app"></a>Управление новым веб-приложением Azure
+
+Перейдите на портал Azure, чтобы просмотреть созданное приложение.
+
+Для этого войдите на портал [https://portal.azure.com](https://portal.azure.com).
+
+В меню слева выберите **Службы приложений**, а затем щелкните имя своего веб-приложения Azure.
+
+![Переход к веб-приложению Azure на портале](./media/app-service-web-create-web-app-from-marketplace/nodejs-docs-hello-world-app-service-list.png)
+
+
+Вы попадете в _колонку_ веб-приложения (страница портала, открывшаяся горизонтально).
+
+По умолчанию колонка веб-приложения отображает страницу **обзора**. Здесь вы можете наблюдать за работой приложения. Вы также можете выполнять базовые задачи управления: обзор, завершение, запуск, перезагрузку и удаление. Вкладки в левой области колонки отображают разные страницы конфигурации, которые вы можете открыть.
+
+![Колонка службы приложений на портале Azure](./media/app-service-web-create-web-app-from-marketplace/nodejs-docs-hello-world-app-service-detail.png)
+
+На вкладках в колонке содержится множество полезных функций, которые вы можете добавить в веб-приложение. Ниже представлены лишь некоторые из возможностей:
+
+* сопоставление настраиваемого DNS-имени;
+* привязка настраиваемого SSL-сертификата;
+* настройка непрерывного развертывания;
+* вертикальное и горизонтальное масштабирование;
+* добавление аутентификации пользователей.
+
+Выполните инструкции мастера установки WordPress за 5 минут, чтобы настроить и запустить приложение WordPress. Ознакомьтесь с [документацией по WordPress](https://codex.WordPress.org/) для разработки веб-приложения.
+
+![Мастер установки WordPress](./media/app-service-web-create-web-app-from-marketplace/wplanguage.png)
+
+## <a name="configuring-your-app"></a>Настройка приложения 
+Необходимо выполнить несколько действий по управлению приложением WordPress, прежде чем оно будет готово к использованию в рабочей среде. Выполните следующие действия, чтобы настроить приложение WordPress и управлять им.
+
+| Для этого... | Используйте это... |
+| --- | --- |
+| **Отправка или хранение больших файлов** |[Подключаемый модуль WordPress для использования хранилища BLOB-объектов](https://wordpress.org/plugins/windows-azure-storage/)|
+| **Отправка электронной почты** |Приобретите службу электронной почты [SendGrid](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SendGrid.SendGrid?tab=Overview) и используйте [подключаемый модуль WordPress для использования SendGrid](https://wordpress.org/plugins/sendgrid-email-delivery-simplified/), чтобы настроить ее.|
+| **Личные доменные имена** |[Настройка личного доменного имени в службе приложений Azure](app-service-web-tutorial-custom-domain.md) |
+| **HTTPS** |[Включите протокол HTTPS для веб-приложения в службе приложений Azure](app-service-web-tutorial-custom-ssl.md). |
+| **Предварительная проверка** |[Настройте промежуточную среду и среду разработки для веб-приложений в службе приложений Azure](web-sites-staged-publishing.md).|
+| **Мониторинг и устранение неполадок** |[Включите ведение журнала диагностики для веб-приложений в службе приложений Azure](web-sites-enable-diagnostic-log.md) и [осуществляйте мониторинг веб-приложений в службе приложений Azure](app-service-web-tutorial-monitoring.md). |
+| **Развертывание сайта** |[Разверните веб-приложение в службе приложений Azure](app-service-deploy-local-git.md). |
+
+
+## <a name="secure-your-app"></a>Защита приложения 
+Необходимо выполнить несколько действий по управлению приложением WordPress, прежде чем оно будет готово к использованию в рабочей среде. Выполните следующие действия, чтобы настроить приложение WordPress и управлять им.
+
+| Для этого... | Используйте это... |
+| --- | --- |
+| **Надежное имя пользователя и пароль**|  Часто изменяйте пароль. Не применяйте часто используемые имена пользователей, например *admin* или *wordpress* и т. д. Предпишите всем пользователям WordPress использовать уникальные имена пользователей и надежные пароли. |
+| **Установка обновлений** | Обновляйте ядро, темы и подключаемые модули WordPress. Используйте последнюю версию среды выполнения PHP, доступную в службе приложений Azure. |
+| **Обновление ключей безопасности WordPress** | Обновляйте [ключ безопасности WordPress](https://codex.wordpress.org/Editing_wp-config.php#Security_Keys) для улучшения шифрования хранящихся файлов cookie.|
+
+## <a name="improve-performance"></a>Повышение производительности
+Производительность в облаке достигается в основном через кэширование и масштабирование, но следует также учитывать память, пропускную способность и другие атрибуты размещения веб-приложений.
+
+| Для этого... | Используйте это... |
+| --- | --- |
+| **Общая информация о возможностях экземпляра службы приложений** |[Информация о ценах, в том числе о возможностях уровней службы приложений](https://azure.microsoft.com/en-us/pricing/details/app-service/).|
+| **Ресурсы кэша** |Используйте [кэш Redis для Azure](https://azure.microsoft.com/en-us/services/cache/) или другое предложение для кэширования в [службе хранилища Azure](https://azuremarketplace.microsoft.com). |
+| **Масштабирование приложения** |Необходимо масштабировать [веб-приложение в службе приложений Azure](web-sites-scale.md) и (или) базу данных MySQL. Функция "MySQL в приложении" не поддерживает развертывание, поэтому выберите ClearDB или базу данных Azure для MySQL (предварительная версия). [Масштабируйте базу данных Azure для MySQL (предварительная версия)](https://azure.microsoft.com/en-us/pricing/details/mysql/) или используйте [высокий уровень доступности Cleardb](http://w2.cleardb.net/faqs/), чтобы увеличивать масштаб базы данных. |
+
+## <a name="availability-and-disaster-recovery"></a>Доступность и аварийное восстановление
+Высокий уровень доступности включает в себя аварийное восстановление, обеспечивающее непрерывность бизнес-процессов. Любой план реагирования на сбои и аварии в облаке предполагает быстрое обнаружение сбоев. Эти решения помогают реализовать стратегию для обеспечения высокого уровня доступности.
+
+| Для этого... | Используйте это... |
+| --- | --- |
+| **Сайты балансировки нагрузки** или **геораспределенные сайты** |[Используйте маршрутизацию трафика с помощью диспетчера трафика Azure](https://azure.microsoft.com/en-us/services/traffic-manager/). |
+| **Архивация и восстановление** |[Архивируйте веб-приложение в Azure](web-sites-backup.md) и [восстанавливайте веб-приложение в Azure](web-sites-restore.md). |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этом руководстве показано, как создать и развернуть пример веб-приложения из Azure Marketplace.
-
-Дополнительные сведения о работе с веб-приложениями службы приложений см. по ссылкам в левой части страницы (для широких окон браузера) или в верхней части страницы (для узких окон браузера).
-
-Дополнительные сведения о разработке веб-приложений WordPress в Azure см. в статье [Разработка блога WordPress в службе приложений Azure][WordPressOnAzure].
-
-<!-- URL List -->
-
-[PHP]: https://azure.microsoft.com/develop/php/
-[.NET]: https://azure.microsoft.com/develop/net/
-[Node.js]: https://azure.microsoft.com/develop/nodejs/
-[Java]: https://azure.microsoft.com/develop/java/
-[Python]: https://azure.microsoft.com/develop/python/
-[activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[free trial]: https://azure.microsoft.com/pricing/free-trial/
-[пробного использования службы приложений]: https://azure.microsoft.com/try/app-service/
-[ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
-[AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
-[ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
-[портал Azure]: https://portal.azure.com/
-[Project Nami]: http://projectnami.org/
-[WordPressOnAzure]: ./develop-wordpress-on-app-service-web-apps.md
-
-<!-- IMG List -->
-
-[MarketplaceStart]: ./media/app-service-web-create-web-app-from-marketplace/marketplacestart.png
-[MarketplaceSearch]: ./media/app-service-web-create-web-app-from-marketplace/marketplacesearch.png
-[MarketplaceCreate]: ./media/app-service-web-create-web-app-from-marketplace/marketplacecreate.png
-[ConfigStart]: ./media/app-service-web-create-web-app-from-marketplace/configstart.png
-[ConfigAppName]: ./media/app-service-web-create-web-app-from-marketplace/configappname.png
-[ConfigSubscription]: ./media/app-service-web-create-web-app-from-marketplace/configsubscription.png
-[ConfigResourceGroup]: ./media/app-service-web-create-web-app-from-marketplace/configresourcegroup.png
-[ConfigServicePlan]: ./media/app-service-web-create-web-app-from-marketplace/configserviceplan.png
-[ConfigDatabase]: ./media/app-service-web-create-web-app-from-marketplace/configdatabase.png
-[ConfigFinished]: ./media/app-service-web-create-web-app-from-marketplace/configfinished.png
-[ConfigProgress]: ./media/app-service-web-create-web-app-from-marketplace/configprogress.png
-[WordPressSelect]: ./media/app-service-web-create-web-app-from-marketplace/wpselect.png
-[WordPressBrowse]: ./media/app-service-web-create-web-app-from-marketplace/wpbrowse.png
-[WordPressLanguage]: ./media/app-service-web-create-web-app-from-marketplace/wplanguage.png
-[WordPressDashboard1]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard1.png
-[WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
-[WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
-
+Узнайте о различных функциях [службы приложений для разработки и масштабирования](/app-service-web/).

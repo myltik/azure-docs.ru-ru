@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 8485fd9350672dd0f41e2d5dada57a1940c43f16
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6c8df6b9804d082c8044cdb2420cc5ea42b9774f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -123,6 +124,16 @@ IntelliSense подскажет вам операторы и элементы в
 Если у вас несколько столбцов правильных типов, можно выбрать оси X и Y, а также столбец измерений, чтобы разделить по ним результаты.
 
 По умолчанию результаты изначально отображаются в виде таблицы, а схему вы выбираете вручную. В конце запроса можно также использовать [директиву render](app-insights-analytics-reference.md#render-directive) , чтобы выбрать диаграмму.
+
+### <a name="analytics-diagnostics"></a>Диагностика аналитики
+
+
+Если на временной диаграмме есть внезапный пик или шаг в данных, то вы можете видеть на линии выделенную точку. Это указывает на то, что диагностика аналитики выявила сочетание свойств, которое отфильтровывает внезапные изменения. Щелкните данную точку, чтобы узнать больше о фильтре и просмотреть отфильтрованную версию. Эти сведения могут помочь определить причину изменения. 
+
+[Диагностика внезапных изменений в телеметрии приложения](app-insights-analytics-diagnostics.md)
+
+
+![Диагностика аналитики](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Закрепление на панели мониторинга
 Вы можете закрепить диаграмму или таблицу на одной из [общих панелей мониторинга](app-insights-dashboards.md). Для этого просто щелкните значок булавки. (Для включения этой функции может потребоваться [обновить ценовой пакет приложения](app-insights-pricing.md).) 
