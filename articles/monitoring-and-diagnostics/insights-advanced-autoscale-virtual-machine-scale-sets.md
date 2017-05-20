@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: b521c3bb99c9a6980df46eacec4e1ebe72fb01a1
-ms.openlocfilehash: 00f6a7af021029d1795071c930e05f200578fa14
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6f1234381a6aad9632d88825aab1a5bf304a20fb
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 02/23/2017
 Масштабируемые наборы виртуальных машин можно свертывать и развертывать на основе пороговых значений метрик производительности по расписанию или на определенную дату. Можно также настроить уведомления с помощью электронной почты и webhook для действий масштабирования. В этом пошаговом руководстве показан пример настройки всех этих объектов для масштабируемого набора виртуальных машин с помощью шаблона Resource Manager.
 
 > [!NOTE]
-> Хотя в этом пошаговом руководстве приведены сведения для масштабируемых наборов виртуальных машин, их можно применить и для автомасштабирования облачных служб и веб-приложений.
+> Хотя в этом пошаговом руководстве приведены сведения для масштабируемых наборов виртуальных машин, их можно применить и для автомасштабирования [облачных служб](https://azure.microsoft.com/services/cloud-services/) и [веб-приложений службы приложений](https://azure.microsoft.com/services/app-service/web/).
 > Простые параметры масштабирования набора масштабирования виртуальных машин, основанные на простой метрике производительности, например метрике ЦП, описаны в документации по [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) и [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 >
 >

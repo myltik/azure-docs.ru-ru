@@ -3,7 +3,7 @@ title: "Отслеживание зависимостей в Azure Application I
 description: "Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
-ms.lasthandoff: 03/16/2017
+ms.date: 05/04/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c31abf49a05f7911d4ec82db59efa2724ab7b49b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 03/16/2017
   * базы данных SQL;
   * веб-службы и службы WCF ASP.NET, использующие привязки на основе HTTP;
   * локальные или удаленные HTTP-вызовы;
-  * Azure DocumentDB, очередь, таблица и хранилище больших двоичных объектов.
+  * Azure Cosmos DB, таблица, хранилище BLOB-объектов и очередь.
 * Веб-страницы
   * Вызовы AJAX
 
@@ -119,9 +120,9 @@ ms.lasthandoff: 03/16/2017
 
 Похоже, большая задержка имела место после первого вызова зависимости, так что следует изучить наш код, чтобы узнать, почему это произошло.
 
-### <a name="profiling-your-live-site"></a>Профилирование активного сайта
+### <a name="profile-your-live-site"></a>Выполните профилирование активного сайта
 
-Не имеете представления, куда девается время? Профилировщик Application Insights будет отслеживать вызовы HTTP к активному веб-сайту и показывать, какие функции в коде выполнялись дольше всего. Сейчас профилировщик находится на этапе ограниченной предварительной версии. Вы можете [зарегистрироваться, чтобы попробовать его](https://aka.ms/AIProfilerPreview).
+Не имеете представления, куда девается время? [Профилировщик Application Insights](app-insights-profiler.md) отслеживает вызовы HTTP к активному веб-сайту и показывает, какие функции в коде выполнялись дольше всего.
 
 ## <a name="failed-requests"></a>Failed requests (Неудачные запросы)
 Неудачно завершенные запросы также могут быть связаны с неудачными вызовами зависимостей. Опять же, мы можем определить причину проблемы.
