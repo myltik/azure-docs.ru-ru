@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 85fa6ab8f7f5ad31347901a0be932d2474594802
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: fec7a2738c3b8e74ac335f62189f3d9b1dd346ab
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -59,19 +59,19 @@ az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Mic
 Этот сценарий создает группу ресурсов и создает три виртуальные машины, которые следует перезапустить.
 Две из них имеют теги.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Подготовка виртуальных машин")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "Подготовка виртуальных машин")]
 
 ### <a name="wait"></a>Ожидание
 
 Этот сценарий проверяет состояние подготовки каждые 20 секунд, пока все три виртуальные машины не будут подготовлены или подготовка одной из них не завершится сбоем.
 
-[!code-azurecli[основной](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Ожидание подготовки виртуальных машин")]
+[!code-azurecli-interactive[основной](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "Ожидание подготовки виртуальных машин")]
 
 ### <a name="restart-the-vms"></a>Перезапуск виртуальных машин
 
 Этот сценарий перезапускает все виртуальные машины в группе ресурсов, а затем перезапускает только виртуальные машины с тегами.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Перезапуск виртуальных машин с использованием тега")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "Перезапуск виртуальных машин с использованием тега")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания 
 

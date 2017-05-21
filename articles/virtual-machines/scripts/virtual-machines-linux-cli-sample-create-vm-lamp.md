@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 68cb08a8b40220639f880c83a44014b81598d45a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: a95c534d8f2ad5e8e2c7bdfc2b11405c70312727
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/06/2017
 
 ## <a name="sample-script"></a>Пример скрипта
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Создание масштабируемого набора виртуальных машин со стеком LAMP")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Создание масштабируемого набора виртуальных машин со стеком LAMP")]
 
 ## <a name="connect"></a>Подключение
 
