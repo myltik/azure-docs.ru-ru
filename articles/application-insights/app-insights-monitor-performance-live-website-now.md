@@ -3,7 +3,7 @@ title: "Мониторинг активного веб-приложения ASP.
 description: "Мониторинг производительности веб-сайта без необходимости его повторного развертывания. Работает с веб-приложениями ASP.NET, размещенными локально, на виртуальных машинах или в Azure."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -59,6 +60,20 @@ ms.lasthandoff: 04/13/2017
     ![Щелкните Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [Мониторинг облачных приложений и приложений виртуальной машины](app-insights-azure.md).
+
+### <a name="enable-client-side-monitoring-in-azure"></a>Включение мониторинга на стороне клиента в Azure
+
+Если вы включили Application Insights в Azure, можно добавить функцию для получения сведений о просмотрах страниц и данных телеметрии пользователя.
+
+1. Выберите элементы "Параметры > Параметры приложения".
+2.  В разделе "Параметры приложения" добавьте новую пару "ключ — значение": 
+   
+    Ключ: `APPINSIGHTS_JAVASCRIPT_ENABLED`. 
+    
+    Значение: `true`
+3. **Сохраните** параметры и **перезапустите** приложение.
+
+Теперь пакет SDK для JavaScript Application будет внедрен в каждую веб-страницу.
 
 ## <a name="monitor-a-live-iis-web-app"></a>Мониторинг активного веб-приложения IIS
 

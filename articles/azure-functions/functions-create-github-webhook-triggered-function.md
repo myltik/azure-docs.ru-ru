@@ -13,77 +13,86 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d4354546f3342d65353a86a4cec7d02547ab92e7
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 34988ef05a27062ca109a1640e39695b52b8773f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Создание функции, активируемой объектом webhook GitHub
 
-Узнайте, как создать функцию, активируемую объектом webhook GitHub. 
+Узнайте, как создать функцию, активируемую с помощью запроса HTTP объекта webhook с полезными данными GitHub. 
 
-![Создание приложения-функции на портале Azure](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
-
-Здесь требуются ресурсы, созданные при работе со статьей [Создание первой функции Azure](functions-create-first-azure-function.md).
-
-Вам также необходима учетная запись GitHub. Если у вас ее нет, вы можете [зарегистрироваться для получения бесплатной учетной записи GitHub](https://github.com/join). 
+![Функция, активируемая объектом Github webhook, на портале Azure](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
 Выполнение всех шагов в этой статье займет меньше пяти минут.
 
-## <a name="find-your-function-app"></a>Поиск приложения-функции    
+## <a name="prerequisites"></a>Предварительные требования 
 
-1. Войдите на [портал Azure](https://portal.azure.com/). 
+[!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-2. На панели поиска в верхней части портала введите имя приложения-функции и выберите его в списке.
+Вам понадобится учетная запись GitHub с хотя бы одним проектом. Если у вас ее нет, вы можете [зарегистрироваться для получения бесплатной учетной записи GitHub](https://github.com/join).
+
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
 ## <a name="create-function"></a>Создание функции, активируемой объектом webhook GitHub
 
-1. В приложении-функции нажмите кнопку **+** рядом с пунктом **Функции**, щелкните шаблон **GitHubWebHook** для нужного языка и выберите **Создать**.
-   
-    ![Создание функции, активируемой объектом webhook GitHub, на портале Azure](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+1. Разверните приложение-функцию, нажмите кнопку **+** рядом с пунктом **Функции**, щелкните шаблон **GitHubWebHook** для нужного языка. **Присвойте функции имя**, а затем щелкните **Создать**. 
 
-2. Щелкните **</> Get function URL** (</> Получить URL-адрес функции), а затем скопируйте и сохраните значения. Сделайте то же самое для **получения секрета GitHub**. Эти значения используются для настройки объекта webhook на сайте GitHub. 
+2. В новой функции щелкните **</> Получить URL-адрес функции**, а затем скопируйте и сохраните значения. Сделайте то же самое для **получения секрета GitHub**. Эти значения используются для настройки объекта webhook на сайте GitHub. 
 
     ![Просмотр кода функции](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png) 
          
 Затем создайте объект webhook в репозитории GitHub. 
 
 ## <a name="configure-the-webhook"></a>Настройка объекта webhook
-1. На сайте GitHub перейдите в свой репозиторий. Вы можете использовать любые репозитории, для которых создали ответвления.
+1. На сайте GitHub перейдите в свой репозиторий. Вы можете использовать любые репозитории, для которых создали ответвления. Если потребуется разветвление репозитория, используйте <https://github.com/Azure-Samples/functions-quickstart>. 
  
 2. Щелкните **Параметры**, **Веб-перехватчики**, а затем — **Добавить веб-перехватчик**.
    
     ![Добавление объекта webhook GitHub](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-3. Вставьте URL-адрес и секрет функции в поле **Payload URL** (URL-адрес полезных данных) и **Секрет**, а для параметра **Тип содержимого** выберите значение **application/json**.
-
-4. Установите переключатель **Let me select individual events** (Выбрать отдельные события), выберите **Issue comment** (Примечание к вопросу) и щелкните **Add webhook** (Добавить объект webhook).
-   
+3. Используйте настройки, указанные в таблице, и щелкните**Добавить веб-перехватчик**.
+ 
     ![Задание URL-адреса объекта webhook и секрета](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
+
+    | Настройка      |  Рекомендуемое значение   | Описание                              |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Payload URL** (URL-адрес полезных данных) | Скопированное значение | Используйте значение, возвращенное командой **< /> Получить URL-адрес функции**. |
+    | **Секрет**   | Скопированное значение | Используйте значение, возвращенное командой **< /> Получить секрет GitHub**. |
+    | **Тип содержимого** | приложение/json | Функция ожидает полезных данных JSON. |
+    | Триггеры событий | Let me select individual events (Я выбираю отдельные события) | Активация происходит только во время события примечания к вопросу.  |
+    |                | Issue comment (Примечание к вопросу)                    |  |
 
 Теперь объект webhook настраивается для активации функции при добавлении нового примечания к вопросу. 
 
 ## <a name="test-the-function"></a>Проверка функции
 1. В репозитории GitHub откройте вкладку **Issues** (Вопросы) в новом окне браузера,
 
-2. щелкните **New Issue** (Создать вопрос), введите название, а затем щелкните **Submit new issue** (Отправить новый вопрос). 
+2. В новом окне щелкните **New Issue** (Создать вопрос), введите название, а затем щелкните **Submit new issue** (Отправить новый вопрос). 
 
 2. В вопросе введите комментарий и нажмите кнопку **Comment**(Добавить примечание). 
 
-3. В другом окне GitHub щелкните **Edit** (Изменить) рядом с новым объектом webhook, прокрутите к разделу **Recent Deliveries** (Последние доставленные объекты) и убедитесь, что текущая функция обработала запрос объекта webhook. 
- 
-    ![Задание URL-адреса объекта webhook и секрета](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-triggered.png)
+    ![Добавление примечания к вопросу GitHub](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-add-comment.png) 
 
-   Ответ функции должен содержать `New GitHub comment: <Your issue comment text>`.
+3. Вернитесь на портал и просмотрите журнал. Вы должны увидеть запись трассировки с текстом нового комментария. 
+    
+     ![Просмотрите текст комментария в журналах.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
+ 
+
+## <a name="clean-up-resources"></a>Очистка ресурсов
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+Вы создали функцию, которая выполняется при получении запроса объекта webhook GitHub. 
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]Дополнительные сведения см. в статье [Привязки HTTP и webhook в функциях Azure](functions-bindings-http-webhook.md). 
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+
 
 
