@@ -2,6 +2,7 @@
 ## [Что такое диспетчер трафика](traffic-manager-overview.md)
 ## [Методы маршрутизации трафика](traffic-manager-routing-methods.md)
 ### [Иерархия страны или региона, используемая диспетчером трафика](traffic-manager-geographic-regions.md)
+## [Вложенные профили диспетчера трафика](traffic-manager-nested-profiles.md)
 ## [Типы конечных точек](traffic-manager-endpoint-types.md)
 ## [Мониторинг конечных точек](traffic-manager-monitoring.md)
 ## [Часто задаваемые вопросы](traffic-manager-FAQs.md)

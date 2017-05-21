@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/03/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d75088bd83b0b70c889388c95331bb56fe9ba15b
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 951a7849beb9653083ed0112dbbb6cf57175469d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -172,12 +173,15 @@ ms.lasthandoff: 04/03/2017
 
 * `"equals": "value"`
 * `"like": "value"`
+* `"match": "value"`
 * `"contains": "value"`
 * `"in": ["value1","value2"]`
 * `"containsKey": "keyName"`
 * `"exists": "bool"`
 
 В значении для условия **like** можно использовать подстановочный знак (*).
+
+При использовании условия **match** для цифры используйте `#`, для буквы — `?` и любые другие соответствующие символы. Примеры см. в разделе [Соглашение об именовании](#set-naming-convention).
 
 ### <a name="fields"></a>Поля
 Условия создаются на основе полей. Поле представляет свойства в полезных данных запроса ресурса, используемые для описания состояния ресурса.  
@@ -318,6 +322,36 @@ ms.lasthandoff: 04/03/2017
       "field": "name",
       "like": "namePrefix*nameSuffix"
     }
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+Чтобы указать, что имена ресурсов должны соответствовать шаблону, используйте условие match. В следующем примере задано, что имена должны начинаться с `contoso` и содержать 6 дополнительных букв:
+
+```json
+{
+  "if": {
+    "not": {
+      "field": "name",
+      "match": "contoso??????"
+    }
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+Чтобы задать дату в формате "две цифры — три буквы — четыре цифры", используйте следующий код:
+
+```json
+{
+  "if": {
+    "field": "tags.date",
+    "match": "##-???-####"
   },
   "then": {
     "effect": "deny"

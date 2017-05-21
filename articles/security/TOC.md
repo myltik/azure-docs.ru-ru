@@ -1,4 +1,4 @@
-# [Обзор](security-get-started-overview.md)
+# [Обзор](azure-security.md)
 ## [Безопасность сети](security-network-overview.md)
 ## [Защита службы хранилища](security-storage-overview.md)
 ## [Защита вычислений](security-virtual-machines-overview.md)
@@ -6,6 +6,10 @@
 ## [Управление удостоверениями](security-identity-management-overview.md)
 ## [Безопасность Интернета вещей](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [Архитектура безопасности](azure-security-architecture-overview.md)
+### [Операционная безопасность](azure-operational-security.md)
+### [Расширенное обнаружение угроз](azure-threat-detection.md)
+### [Ведение журналов и аудит](azure-log-audit.md)
+### [Изоляция в общедоступном облаке](azure-isolation.md)
 
 # Начало работы
 ## [Приступая к работе с системой безопасности Azure](azure-security-getting-started.md)

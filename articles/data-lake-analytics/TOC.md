@@ -15,7 +15,10 @@
 
 # Практическое руководство
 ## Разработка
-### [U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Основы U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [Каталог U-SQL](data-lake-analytics-u-sql-catalog.md)
+### [Соединения U-SQL](data-lake-analytics-u-sql-combine-data-with-joins.md)
+### [Параметры U-SQL](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [Функции окна U-SQL](data-lake-analytics-use-window-functions.md)
 ### [Определяемые пользователем операторы U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [Расширения Python для U-SQL](data-lake-analytics-u-sql-python-extensions.md)
