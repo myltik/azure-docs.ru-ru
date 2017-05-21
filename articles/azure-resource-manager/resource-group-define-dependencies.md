@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 006d8e10acd6b4b756c0b78988176f71c3802080
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 5617f6453cb5dbb1c86ec41d7b9649356a3d9c78
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -108,7 +109,7 @@ ms.lasthandoff: 03/06/2017
 ```
 
 ## <a name="reference-function"></a>Функция reference
-[Функция reference](resource-group-template-functions.md#reference) позволяет выражению получать его значение из других пар "имя JSON — значение" или ресурсов среды выполнения. Выражения со ссылками неявно объявляют, что один ресурс зависит от другого. Общий формат выглядит следующим образом.
+[Функция reference](resource-group-template-functions-resource.md#reference) позволяет выражению получать его значение из других пар "имя JSON — значение" или ресурсов среды выполнения. Выражения со ссылками неявно объявляют, что один ресурс зависит от другого. Общий формат выглядит следующим образом.
 
 ```json
 reference('resourceName').propertyPath
@@ -133,7 +134,7 @@ reference('resourceName').propertyPath
 
 Зависимости можно указать как с помощью этой функции, так и с помощью свойства dependsOn, но использовать оба варианта для одного зависимого ресурса не нужно. По возможности используйте неявные ссылки, чтобы избежать добавления ненужных зависимостей.
 
-Дополнительные сведения см. в разделе о [функции reference](resource-group-template-functions.md#reference).
+Дополнительные сведения см. в разделе о [функции reference](resource-group-template-functions-resource.md#reference).
 
 ## <a name="recommendations-for-setting-dependencies"></a>Рекомендации по установке зависимостей
 

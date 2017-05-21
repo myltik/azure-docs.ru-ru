@@ -9,7 +9,7 @@
 
 # Начало работы
 ## [Репликация виртуальных машин VMware в Azure](site-recovery-vmware-to-azure.md)
-## [Репликация физических серверов в Azure](site-recovery-physical-servers-to-azure.md) 
+## [Репликация физических серверов в Azure](site-recovery-physical-servers-to-azure.md)
 ## [Репликация виртуальных машин Hyper-V в Azure (с использованием VMM)](site-recovery-vmm-to-azure.md)
 ## [Репликация виртуальных машин Hyper-V в Azure](site-recovery-hyper-v-site-to-azure.md)
 ## [Репликация виртуальных машин Hyper-V на дополнительный сайт с помощью VMM](site-recovery-vmm-to-vmm.md)
@@ -23,6 +23,7 @@
 ### [Планирование ресурсов и масштабирование репликации VMware в Azure](site-recovery-plan-capacity-vmware.md)
 ### [Использование планировщика развертывания для репликации VMware в Azure](site-recovery-deployment-planner.md)
 ### [Использование планировщика ресурсов для репликации Hyper-V](site-recovery-capacity-planner.md)
+### [Контроль доступа на основе ролей](site-recovery-role-based-linked-access-control.md)
 
 ## Настройка
 ### [Настройка исходной среды](site-recovery-set-up-vmware-to-azure.md)
@@ -47,8 +48,8 @@
 ## Рабочие нагрузки
 ### [Active Directory и DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
-### [SharePoint](site-recovery-workload.md#protect-sharepoint)
-### [центр IoT Azure](site-recovery-workload.md#protect-dynamics-ax)
+### [SharePoint](site-recovery-sharepoint.md)
+### [центр IoT Azure](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
