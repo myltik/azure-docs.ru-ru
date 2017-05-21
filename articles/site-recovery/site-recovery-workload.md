@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 05/08/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -89,7 +90,7 @@ Azure Site Recovery помогает защитить развертывания
 * Упрощается разработка и тестирование приложений SharePoint благодаря созданию реплики рабочей среды по запросу для тестирования и отладки.
 * Упрощается переход в облако благодаря использованию Site Recovery для переноса развертываний SharePoint в Azure.
 
-[Дополнительные сведения](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) о защите SharePoint.
+[Дополнительные сведения](site-recovery-sharepoint.md) о защите SharePoint.
 
 ## <a name="protect-dynamics-ax"></a>Защита Dynamics AX
 Azure Site Recovery обеспечивает защиту решения Dynamics AX ERP следующим образом:
@@ -98,7 +99,7 @@ Azure Site Recovery обеспечивает защиту решения Dynamic
 * упрощает перенос развертываний Dynamics AX в облако (Azure);
 * упрощает разработку и тестирование приложений Dynamics AX, создавая реплику рабочей среды по запросу для тестирования и отладки.
 
-[Дополнительные сведения](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) о защите Dynamic AX.
+[Дополнительные сведения](site-recovery-dynamicsax.md) о защите Dynamic AX.
 
 ## <a name="protect-rds"></a>Защита служб удаленных рабочих столов
 Службы удаленных рабочих столов (RDS) активируют инфраструктуру виртуальных рабочих столов (VDI), рабочие столы на основе сеансов и приложения, позволяя пользователям работать где угодно. Служба Azure Site Recovery предоставляет следующие возможности:

@@ -8,7 +8,7 @@
 | **Программное обеспечение** | |
 | Версия операционной системы | Windows Server 2012 R2 |
 | Язык операционной системы | Английский (en-us)|
-| Версия VMware vSphere PowerCLI | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")|
+| Версия VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Роли Windows Server | Не включайте такие роли, как: <br> — доменные службы Active Directory; <br>— службы IIS; <br> — Hyper-V. |
 | **Сеть** | |
 | Тип карты сетевого интерфейса | VMXNET3 |
