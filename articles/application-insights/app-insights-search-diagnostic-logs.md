@@ -3,8 +3,8 @@ title: "Журналы и диагностика для ASP.NET в Azure Applica
 description: "Диагностика проблем в веб-приложениях ASP.NET путем поиска запросов, исключений и журналов, созданных с помощью платформы Trace, NLog или Log4Net."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 99860c53-0324-4a3a-9aa9-83f5dffba835
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/08/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: 874e9abb7ae7e06808645ae2ab7cd5b3c0d36e04
-ms.lasthandoff: 01/25/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 2f84cc336a27697819fe7bd6720e4ca5765f9283
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
