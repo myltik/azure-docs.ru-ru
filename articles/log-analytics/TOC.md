@@ -5,7 +5,6 @@
 # Начало работы
 ## [Регистрация в службе Log Analytics](log-analytics-get-started.md)
 ## [Управление доступом](log-analytics-manage-access.md)
-## [Прокси-сервер и брандмауэр](log-analytics-proxy-firewall.md)
 ## [Данные об использовании](log-analytics-usage.md)
 ## [Часто задаваемые вопросы по Log Analytics](log-analytics-faq.md)
 ## [Поставщики услуг](log-analytics-service-providers.md)
@@ -14,7 +13,7 @@
 ## Сбор данных
 ### Подключенные источники
 #### [Агенты Windows](log-analytics-windows-agents.md)
-#### [Агенты Linux](log-analytics-linux-agents.md)
+#### [Агенты Linux](log-analytics-agent-linux.md)
 #### [Виртуальные машины Azure](log-analytics-azure-vm-extension.md)
 #### [Ресурсы Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
@@ -23,8 +22,12 @@
 ### Источники данных
 #### [Обзор источников данных](log-analytics-data-sources.md)
 #### [События Windows](log-analytics-data-sources-windows-events.md)
+#### [Настраиваемые данные JSON](log-analytics-data-sources-json.md)
+#### [Сбор данных о производительности](log-analytics-data-sources-collectd.md)
+#### [Оповещения Nagios и Zabbix](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Системный журнал](log-analytics-data-sources-syslog.md)
 #### [Счетчики производительности](log-analytics-data-sources-performance-counters.md)
+#### [Производительность приложений Linux](log-analytics-data-sources-linux-applications.md)
 #### [Журналы IIS](log-analytics-data-sources-iis-logs.md)
 #### [Пользовательские журналы](log-analytics-data-sources-custom-logs.md)
 #### [Настраиваемые поля](log-analytics-custom-fields.md)
@@ -32,6 +35,7 @@
 ### [Обзор поиска по журналу](log-analytics-log-searches.md)
 ### [Справочник по поиску](log-analytics-search-reference.md)
 #### [Регулярные выражения](log-analytics-log-searches-regex.md)
+### [Выполнение действий на основе результатов поиска](log-analytics-log-search-takeaction.md)
 ### [Группы компьютеров](log-analytics-computer-groups.md)
 ## Анализ данных
 ### [Панели мониторинга](log-analytics-dashboards.md)
@@ -54,6 +58,7 @@
 ### [Состояние репликации AD](log-analytics-ad-replication-status.md)
 ### [Управление оповещениями](log-analytics-solution-alert-management.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
+### [Аналитика веб-приложений Azure](log-analytics-azure-web-apps-analytics.md)
 ### [Емкость и производительность](log-analytics-capacity.md)
 ### [Отслеживание изменений](log-analytics-change-tracking.md)
 ### [Контейнеры](log-analytics-containers.md)

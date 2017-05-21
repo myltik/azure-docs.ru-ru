@@ -11,6 +11,7 @@
 ## [Общие сведения о решении подключенного производства](iot-suite-connected-factory-overview.md)
 ## [Пошаговое руководство по решению для удаленного мониторинга](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [Пошаговое руководство по решению для диагностического обслуживания](iot-suite-predictive-walkthrough.md)
+## [Инструкция по работе с решением для организации подключенного производства](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Подключение устройства Raspberry Pi](iot-suite-raspberry-pi-kit-get-started.md)
 ### Использование C
 #### [Смоделированные данные](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
@@ -20,8 +21,11 @@
 #### [Смоделированные данные](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
 #### [Использование реальных датчиков](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
 #### [Реализация обновления встроенного ПО](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Подключение шлюза Intel NUC
+### [Смоделированные данные](iot-suite-gateway-kit-get-started-simulator.md)
+### [Использование реальных датчиков](iot-suite-gateway-kit-get-started-sensortag.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## Подключение виртуального устройства
 ### [C в Windows](iot-suite-connecting-devices.md)
 ### [C в Linux](iot-suite-connecting-devices-linux.md)
@@ -33,6 +37,7 @@
 ## [Создание настраиваемого правила в решении для удаленного мониторинга](iot-suite-custom-rule.md)
 ## [Сведения об устройстве в решении для удаленного мониторинга](iot-suite-remote-monitoring-device-info.md)
 ## [Развертывание шлюза для подключенного производства](iot-suite-connected-factory-gateway-deployment.md)
+## [Настройка подключенной фабрики](iot-suite-connected-factory-customize.md)
 
 # Справочные материалы
 ## [Архитектура безопасности](iot-security-architecture.md)

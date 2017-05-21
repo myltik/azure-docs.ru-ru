@@ -1,0 +1,128 @@
+- name: Документация по функциям
+  href: index.yml
+- name: Обзор
+  items:
+  - name: О функциях
+    href: functions-overview.md
+  - name: Среда выполнения функций
+    href: functions-runtime-overview.md
+  - name: 'Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure'
+    href: functions-compare-logic-apps-ms-flow-webjobs.md
+- name: Быстрое начало работы
+  expanded: true
+  items:
+  - name: 'Создание функции: портал'
+    href: functions-create-first-azure-function.md
+  - name: 'Создание функции: Azure CLI'
+    href: functions-create-first-azure-function-azure-cli.md
+#  - name: Create function - Visual Studio
+#    href: functions-create-your-first-function-visual-studio.md
+  - name: триггеры;
+    items:
+    - name: Таймер
+      href: functions-create-scheduled-function.md
+    - name: Объект webhook GitHub
+      href: functions-create-github-webhook-triggered-function.md
+    - name: Хранилище BLOB-объектов
+      href: functions-create-storage-blob-triggered-function.md
+    - name: Хранилище очередей
+      href: functions-create-storage-queue-triggered-function.md
+  - name: Интеграция
+    items:
+    - name: Хранилище
+      href: functions-integrate-storage-queue-output-binding.md
+    - name: База данных Cosmos
+      href: functions-integrate-store-unstructured-data-cosmosdb.md
+- name: Примеры
+  items:
+  - name: Инфраструктура CLI Azure
+    href: functions-cli-samples.md
+- name: Учебники
+  items:
+  - name: "1.\_Использование функций Azure с Logic Apps"
+    href: functions-twitter-email.md
+  - name: "2.\_Создание бессерверного API"
+    href: functions-create-serverless-api.md
+- name: Основные понятия
+  items:
+  - name: Планы размещения
+    href: functions-scale.md
+  - name: Триггеры и привязки
+    href: functions-triggers-bindings.md
+- name: Практические руководства
+  items:
+  - name: Тестирование функций Azure
+    href: functions-test-a-function.md
+  - name: Локальная разработка и отладка
+    href: functions-run-local.md
+  - name: Настройка параметров для приложения-функции
+    href: functions-how-to-use-azure-function-app-settings.md
+  - name: Непрерывное развертывание для Функций Azure
+    href: functions-continuous-deployment.md
+  - name: 'Развертывание функций, используя инфраструктуру как код'
+    href: functions-infrastructure-as-code.md
+  - name: Мониторинг функций Azure
+    href: functions-monitoring.md
+  - name: Установка среды выполнения функций
+    href: functions-runtime-install.md
+- name: Справочные материалы
+  items:
+  - name: Разработка приложений-функций
+    href: functions-reference.md
+    items:
+    - name: "OpenAPI\_2.0"
+      href: functions-api-definition.md
+  - name: Рекомендации по функциям Azure
+    href: functions-best-practices.md
+  - name: Привязки
+    items:
+    - name: Привязки Cosmos DB
+      href: functions-bindings-documentdb.md
+    - name: Привязки концентратора событий
+      href: functions-bindings-event-hubs.md
+    - name: Привязки HTTP и webhook
+      href: functions-bindings-http-webhook.md
+    - name: Привязки мобильных приложений
+      href: functions-bindings-mobile-apps.md
+    - name: Выходная привязка для концентратора уведомлений
+      href: functions-bindings-notification-hubs.md
+    - name: 'Триггеры и привязки служебной шины, используемые для очередей и разделов'
+      href: functions-bindings-service-bus.md
+    - name: Привязки SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Привязки хранилища
+      items:
+      - name: Привязки больших двоичных объектов
+        href: functions-bindings-storage-blob.md
+      - name: Привязки очередей
+        href: functions-bindings-storage-queue.md
+      - name: Привязки таблиц
+        href: functions-bindings-storage-table.md
+      - name: Привязки внешнего файла
+        href: functions-bindings-external-file.md
+    - name: Привязки SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Триггер таймера
+      href: functions-bindings-timer.md
+    - name: Привязка к выходным данным Twilio
+      href: functions-bindings-twilio.md
+  - name: Платформы
+    items:
+    - name: 'C#'
+      href: functions-reference-csharp.md
+    - name: 'F#'
+      href: functions-reference-fsharp.md
+    - name: JavaScript
+      href: functions-reference-node.md
+- name: Ресурсы
+  items:
+  - name: Цены
+    href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Форум MSDN
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
+  - name: Переполнение стека
+    href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: Репозиторий GitHub для функций Azure
+    href: https://github.com/Azure/Azure-Functions/
+  - name: Обновления службы
+    href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=

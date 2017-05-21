@@ -36,6 +36,7 @@
 ### [Создание расширенных отчетов HTTP](cdn-advanced-http-reports.md)
 ### [Просмотр статистики в реальном времени](cdn-real-time-stats.md)
 ### [Анализ производительности граничного узла](cdn-edge-performance.md)
+### [Экспорт метрик с помощью журналов диагностики](cdn-log-analysis.md)
 
 ## Разработка
 ### [.NET](cdn-app-dev-net.md)

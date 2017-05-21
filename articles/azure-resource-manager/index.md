@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 186bbc75211988f51dc91e2227472f6369b3bfdd
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: e74ec7e061c7b00acbf1cba7fdcc1864a81fff3b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Документация по Azure Resource Manager
@@ -142,7 +143,9 @@ ms.lasthandoff: 04/04/2017
                         <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
                         <p><a href="/azure/templates/">Формат шаблона</a></p>
-                        <p><a href="/resource-group-template-functions.md">Функции шаблонов</a></p>
+                        <p><a href="/azure/resource-group-template-functions">Функции шаблонов</a></p>
+                        <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Функции определения пользовательского интерфейса</a></p>
+                        <p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Элементы CreateUiDefinition</a></p>
                     </div>
                 </div>
             </div>

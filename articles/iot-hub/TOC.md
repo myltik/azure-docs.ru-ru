@@ -106,6 +106,7 @@
 ### Настройка передачи файлов
 #### [Использование портала](iot-hub-configure-file-upload.md)
 #### [Использование PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Использование CLI 2.0](iot-hub-configure-file-upload-cli.md)
 ### [Массовое управление удостоверениями устройств Центра Интернета вещей](iot-hub-bulk-identity-mgmt.md)
 ### [Метрики использования](iot-hub-metrics.md)
 ### [Мониторинг операций](iot-hub-operations-monitoring.md)
@@ -114,8 +115,8 @@
 ### [Все аспекты безопасности](iot-hub-security-ground-up.md)
 ### [Рекомендации по обеспечению безопасности](iot-hub-security-best-practices.md)
 ### [Архитектура безопасности](iot-hub-security-architecture.md)
-### [Защита развертывания Интернета вещей](iot-hub-security-deployment.md)
-## Пакет SDK для шлюза
+### [Защита развернутой службы Интернета вещей](iot-hub-security-deployment.md)
+## IoT Edge
 ### Моделирование устройства
 #### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
 #### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
@@ -128,7 +129,7 @@
 ## [Java (служба)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (устройства)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Пакеты SDK для Центра Интернета вещей Azure](http://azure.github.io/azure-iot-sdks/)
-## [Пакет SDK для шлюза](http://azure.github.io/azure-iot-gateway-sdk)
+## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (поставщик ресурсов)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (удостоверения устройств)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
 ## [REST (двойники устройств)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
