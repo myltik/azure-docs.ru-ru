@@ -67,6 +67,7 @@
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [OAuth](active-directory-protocols-oauth-code.md)
 ### [Вызовы между службами](active-directory-protocols-oauth-service-to-service.md)
+### [Поток On-Behalf-Of](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Поддерживаемые маркеры и типы утверждений](active-directory-token-and-claims.md)
 ### [Смена ключей подписывания](active-directory-signing-key-rollover.md)
 ### [Метаданные федерации](active-directory-federation-metadata.md)
@@ -77,31 +78,27 @@
 ## [Ограничения служб](../active-directory-service-limits-restrictions.md)
 # Конечная точка v2.0
 ## [Обзор](active-directory-appmodel-v2-overview.md)
-### [Отличия](active-directory-v2-compare.md)
 ### [Типы приложений](active-directory-v2-flows.md)
 ### [Ограничения](active-directory-v2-limitations.md)
-## Быстрое начало работы
-### Мобильные приложения
-#### [iOS](active-directory-v2-devquickstarts-ios.md)
-#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
-#### [Android](active-directory-v2-devquickstarts-android.md)
-### Веб-приложения и API
-#### [Использование AngularJS с Node.js](active-directory-v2-devquickstarts-angular-node.md)
-#### [Использование AngularJS с .NET](active-directory-v2-devquickstarts-angular-dotnet.md)
-#### [Веб-приложение .NET](active-directory-v2-devquickstarts-dotnet-web.md)
-#### [Веб-API .NET](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [API NodeJS](active-directory-v2-devquickstarts-node-api.md)
+### [Сравнение версии 1 и версии 2](active-directory-v2-compare.md)
+## Начало работы
+### Классические и мобильные приложения
+#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [Android](guidedsetups/active-directory-android.md)
+#### [Платформа .NET для классических приложений Windows](guidedsetups/active-directory-windesktop.md)
+### веб-приложений:
+#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [Веб-сервер ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [Веб-приложение Node.js](active-directory-v2-devquickstarts-node-web.md)
-#### [Вызов веб-API из веб-приложения .NET](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 ## Руководства
 ### [Регистрация приложения](active-directory-v2-app-registration.md)
 ## Справочные материалы
-### [Справка по регистрации приложений](active-directory-v2-registration-portal.md)
 ### [Библиотеки аутентификации](active-directory-v2-libraries.md)
 ### [Протоколы проверки подлинности v2.0 ](active-directory-v2-protocols.md)
-#### [Справочник по маркерам](active-directory-v2-tokens.md)
-#### [Поток кода авторизации OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-#### [Неявный поток](active-directory-v2-protocols-implicit.md)
-#### [Учетные данные клиента OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Предоставление кода авторизации OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
+#### [Неявное разрешение Oauth 2.0](active-directory-v2-protocols-implicit.md)
+#### [Предоставление учетных данных клиента OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Поток Oauth 2.0 On-Behalf-Of](active-directory-v2-protocols-oauth-on-behalf-of.md)
+#### [Справочник по маркерам](active-directory-v2-tokens.md)
 ### [Области действия](active-directory-v2-scopes.md)
