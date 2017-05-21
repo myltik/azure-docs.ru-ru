@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: cfowler;mahender;glenga
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 045ec40811468eeffb25ed28ec5bfc84f074c19d
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7fcf35b99cc410655f2a3b9b6961f5e3bef3aeb5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -60,7 +61,7 @@ ms.lasthandoff: 03/01/2017
 ## <a name="integrations"></a>Интеграция
 Функции Azure интегрируются с различными службами Azure, а также службами сторонних поставщиков. Эти службы могут активировать функцию и запустить выполнение. Кроме того, их можно использовать в качестве входных и выходных данных кода. Функции Azure поддерживают интеграцию со следующими службами: 
 
-* Azure DocumentDB.
+* Azure Cosmos DB
 * Концентраторы событий Azure 
 * служба мобильных приложений Azure (таблицы);
 * Концентраторы уведомлений Azure

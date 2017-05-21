@@ -1,5 +1,5 @@
 ---
-title: "Создание приложения PHP в веб-приложении | Документация Майкрософт"
+title: "Создание приложения PHP в веб-приложении Azure | Документация Майкрософт"
 description: "Разверните первое приложение PHP Hello World в веб-приложении службы приложений за считаные минуты."
 services: app-service\web
 documentationcenter: 
@@ -12,30 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/31/2017
+ms.date: 05/04/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d5126f3b9fa92ff95eaa8bc06554c49f9836bab9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0541778e07193c4903a90ce0b91db224bdf60342
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="create-a-php-application-on-web-app"></a>Создание приложения PHP в веб-приложении
 
-В этом кратком руководстве описано, как разработать и развернуть приложение PHP в Azure. Мы запустим приложение, используя службу приложений Azure под управлением Linux, а затем создадим и настроим в ней новое веб-приложение с помощью интерфейса командной строки Azure. Затем мы используем Git, чтобы развернуть приложение PHP в Azure.
+В этом кратком руководстве описано, как разработать и развернуть приложение PHP в Azure. Мы запустим приложение, используя [план службы приложений Azure](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview), а затем создадим и настроим в нем новое веб-приложение с помощью Azure CLI. Затем мы используем Git, чтобы развернуть приложение PHP в Azure.
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 Выполните действия, приведенные ниже, с помощью компьютера Mac, Windows или Linux. На все это вам понадобится около 5 минут.
 
-## <a name="before-you-begin"></a>Перед началом работы
+## <a name="prerequisites"></a>Предварительные требования
 
-Перед запуском этого примера необходимо скачать и установить следующие компоненты в локальной среде:
+Перед началом работы скачайте и установите следующие компоненты:
 
-1. [Git.](https://git-scm.com/)
-1. [PHP.](https://php.net)
-1. [Azure CLI 2.0.](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Git.](https://git-scm.com/)
+* [PHP](https://php.net)
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,9 +47,6 @@ ms.lasthandoff: 04/25/2017
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
 ```
-
-> [!TIP]
-> Можно также [скачать пример](https://github.com/Azure-Samples/php-docs-hello-world/archive/master.zip) в виде ZIP-файла и извлечь его.
 
 Перейдите в каталог, в котором содержится образец кода.
 
@@ -84,20 +82,8 @@ http://localhost:8080
 az login
 ```
 
-## <a name="configure-a-deployment-user"></a>Настойка пользователя развертывания
-
-Для использования FTP и локального репозитория Git на сервере необходимо настроить пользователя развертывания, чтобы выполнить проверку подлинности развертывания. Создание пользователя развертывания выполняется однократно. Запишите имя пользователя и пароль, так как они потребуются нам в дальнейшем.
-
-> [!NOTE]
-> Пользователь развертывания необходим для развертывания FTP и локального репозитория Git в веб-приложении.
-> `username` и `password` являются учетными данными на уровне учетной записи и отличаются от учетных данных подписки Azure. **Эти учетные данные создаются только один раз**.
->
-
-Для их создания используйте команду [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set).
-
-```azurecli
-az appservice web deployment user set --user-name <username> --password <password>
-```
+<!-- ## Configure a Deployment User -->
+[!INCLUDE [login-to-azure](../../includes/configure-deployment-user.md)]
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
@@ -107,24 +93,19 @@ az appservice web deployment user set --user-name <username> --password <passwor
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-an-azure-app-service"></a>Создание службы приложений Azure
+## <a name="create-an-azure-app-service-plan"></a>Создание плана службы приложений Azure
 
-Создайте план службы приложений на базе Linux с помощью команды [az appservice plan create](/cli/azure/appservice/plan#create).
+Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный", выполнив команду [az appservice plan create](/cli/azure/appservice/plan#create).
 
-> [!NOTE]
-> План службы приложений представляет собой коллекцию физических ресурсов, используемых для размещения приложений. Все приложения, назначенные плану службы приложений, совместно используют ресурсы, определенные в нем. Поэтому, разместив несколько приложений, вы сможете сэкономить.
->
-> Планы службы приложений определяют такие компоненты:
-> * регион (Северная Европа, восточная часть США, Юго-Восточная Азия);
-> * размер экземпляра (небольшой, средний, крупный);
-> * число масштабируемых элементов (один, два, три экземпляра и т. д.);
-> * SKU ("Бесплатный", "Общий", "Базовый", "Стандартный", "Премиум").
->
+<!--
+ An App Service plan represents the collection of physical resources used to ..
+-->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-В следующем примере создается план службы приложений с именем `quickStartPlan` ценовой категории **Standard** в рабочих ролях Linux.
+В следующем примере создается план службы приложений с именем `quickStartPlan` и ценовой категорией **Бесплатный**.
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
 ```
 
 После создания плана службы приложений в Azure CLI отображается информация следующего вида.
@@ -132,7 +113,6 @@ az appservice plan create --name quickStartPlan --resource-group myResourceGroup
 ```json
 {
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "kind": "linux",
     "location": "West Europe",
     "sku": {
     "capacity": 1,
@@ -147,9 +127,13 @@ az appservice plan create --name quickStartPlan --resource-group myResourceGroup
 
 ## <a name="create-a-web-app"></a>Создание веб-приложения
 
-План службы приложений создан. Теперь создайте веб-приложение в рамках этого плана (`quickStartPlan`). Веб-приложение предоставляет место для размещения и развертывания кода, а также URL-адрес для просмотра развернутого приложения. Используйте команду [az appservice web create](/cli/azure/appservice/web#create), чтобы создать веб-приложение.
+После создания плана службы приложений `quickStartPlan` создайте [веб-приложение](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) в рамках этого плана. Веб-приложение предоставляет место для размещения и развертывания кода, а также URL-адрес для просмотра развернутого приложения. Используйте команду [az appservice web create](/cli/azure/appservice/web#create), чтобы создать веб-приложение.
 
-В приведенной ниже команде замените заполнитель <app_name> уникальным именем приложения. <app_name> будет использоваться по умолчанию в качестве сайта DNS для веб-приложения. Поэтому это имя должно быть уникальным для всех приложений в Azure. Позже можно сопоставить любые пользовательские записи DNS с веб-приложением, прежде чем предоставлять его пользователям.
+В приведенной ниже команде замените заполнитель `<app_name>` уникальным именем приложения. По умолчанию в качестве сайта DNS для веб-приложения используется `<app_name>`. Если `<app_name>` не является уникальным, вы получите понятное сообщение об ошибке "Веб-сайт с указанным именем <имя_приложения> уже существует".
+
+<!-- removed per https://github.com/Microsoft/azure-docs-pr/issues/11878
+You can later map any custom DNS entry to the web app before you expose it to your users.
+-->
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -183,22 +167,11 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-Мы создали пустое веб-приложение в Azure. Теперь настроим в веб-приложении использование PHP и развернем в нем приложение.
-
-## <a name="configure-to-use-php"></a>Настройка использования PHP в веб-приложении
-
-Используйте команду [az appservice web config update](/cli/azure/app-service/web/config#update), чтобы настроить в веб-приложении использование языка PHP версии `7.0.x`.
-
-> [!TIP]
-> При такой настройке версии PHP будет использоваться контейнер по умолчанию, предоставляемый платформой. Если вы хотите использовать собственный контейнер, ознакомьтесь с командой [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) в справочнике по интерфейсу командной строки CLI.
-
-```azurecli
-az appservice web config update --linux-fx-version "PHP|7.0" --name <app_name> --resource-group myResourceGroup
-```
+Мы создали пустое веб-приложение в Azure.
 
 ## <a name="configure-local-git-deployment"></a>Настройка локального развертывания Git
 
-Для развертывания в веб-приложение можно использовать FTP, локальный репозиторий Git, GitHub, Visual Studio Team Services и Bitbucket.
+Для развертывания в веб-приложении можно использовать FTP, локальный репозиторий Git, GitHub, Visual Studio Team Services и Bitbucket.
 
 Используйте команду [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git), чтобы настроить доступ локального репозитория Git к веб-приложению.
 
@@ -220,9 +193,9 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 git remote add azure <paste-previous-command-output-here>
 ```
 
-Выполните публикацию в удаленную службу приложений Azure, чтобы развернуть приложение. После этого введите пароль, указанный ранее в процессе создания пользователя развертывания.
+Выполните публикацию в удаленную службу приложений Azure, чтобы развернуть приложение. После этого введите пароль, указанный ранее при создании пользователя развертывания. Убедитесь, что вы ввели пароль, созданный в разделе [Настройка пользователя развертывания](#configure-a-deployment-user), а не тот, что использовался для входа на портал Azure.
 
-```azurecli
+```bash
 git push azure master
 ```
 
@@ -280,7 +253,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-После завершения развертывания переключитесь в окно браузера, открытое на этапе перехода в приложение, и нажмите кнопку "Обновить".
+После завершения развертывания переключитесь в окно браузера, открытое на этапе **перехода в приложение**, и щелкните "Обновить".
 
 ![hello-world-in-browser](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -312,6 +285,7 @@ git push azure master
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+> [!div class="nextstepaction"]
+> [Примеры Azure CLI](app-service-cli-samples.md)
 
-Ознакомьтесь с предварительно созданными [скриптами интерфейса командной строки для веб-приложений](app-service-cli-samples.md).
+
