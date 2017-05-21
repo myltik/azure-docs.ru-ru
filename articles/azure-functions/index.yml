@@ -1,9 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по функциям Azure"
+title: Документация по функциям Azure
 metadata:
-  title: "Документация по Функциям Azure. Руководства | Документация Майкрософт"
-  description: "Узнайте, как разрабатывать и развертывать функции с использованием предпочитаемого языка для выполнения задач в фоновом режиме или по расписанию без специальной инфраструктуры."
+  document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
+  title: Документация по Функциям Azure. Руководства | Документация Майкрософт
+  meta.description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
   services: functions
   author: apexprodleads
   manager: carolz
@@ -14,53 +15,65 @@ metadata:
   ms.date: 01-23-2017
   ms.author: carolz
 abstract:
-  description: "Функции Azure — это независимая от сервера служба вычислений, которая позволяет выполнять код по требованию без необходимости явно подготавливать или администрировать инфраструктуру. Используйте функции Azure для выполнения скрипта или фрагмента кода в ответ на разные события. Узнайте, как использовать функции Azure, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
+  description: "Функции Azure\_— это независимая от сервера служба вычислений, которая позволяет выполнять код по требованию без необходимости явно подготавливать или администрировать инфраструктуру. Используйте функции Azure для выполнения скрипта или фрагмента кода в ответ на разные события. Узнайте, как использовать функции Azure, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
   aside:
     image:
       alt: 
       height: 110
-      src: media/index/get-started-with-azure-functions.png
+      src: media/index/video-thumb-get-started.png
       width: 250  
-    title: "Приступая к работе с функциями Azure. (2:39)"
+    title: 'Приступая к работе с функциями Azure. (2:39)'
     href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
     width: 250
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
-    text: 'Learn how to create a Hello World function using:'
+    text: 'Learn how to create functions that execute based on events created via:'
   - type: list
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
-      text: Azure portal
+        src: media/index/http.svg
+      text: HTTP
       href: /azure/azure-functions/functions-create-first-azure-function
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/azure-functions/functions-create-first-azure-function-azure-cli
-- title: "Пошаговые руководства"
+        src: media/index/stopwatch.svg
+      text: Timer
+      href: /azure/azure-functions/functions-create-scheduled-function
+    - image: 
+        src: media/index/octokitty.svg
+      text: GitHub webhook
+      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
+    - image: 
+        src: media/index/blob.svg
+      text: Blob
+      href: /azure/azure-functions/functions-create-storage-blob-triggered-function
+    - image: 
+        src: media/index/storage.svg
+      text: Queue
+      href: /azure/azure-functions/functions-create-storage-queue-triggered-function
+- title: Пошаговые руководства
   items:
   - type: paragraph
     text: 'Learn how to build and manage Azure Functions'
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-functions/functions-twitter-email">Build a serverless social media dashboard</a>
+    - html: <a href="/azure/azure-functions/functions-twitter-email">Create a function that integrates with Azure Logic Apps</a>
     - html: <a href="/azure/azure-functions/functions-create-serverless-api">Create a serverless API using Azure Functions</a>
-- title: "Примеры"
+- title: Примеры
   items:
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
-- title: "Справочные материалы"
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
+    - title: Командная строка
       html: <p><a href="/cli/azure">Azure CLI</a></p>
