@@ -4,7 +4,7 @@
 
 1. После операторов `#include` добавьте указанные ниже объявления переменных. Замените значения заполнителей [Device Id] и [Device Key] ранее записанными значениями для своего устройства, отображенными на панели мониторинга решения для удаленного мониторинга. Замените [IoTHub Name] именем узла Центра Интернета вещей, отображенным на панели мониторинга решения. Например, если имя узла Центра Интернета вещей — **contoso.azure-devices.net**, замените [имя_Центра_Интернета_вещей] на **contoso**.
    
-    ```
+    ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
@@ -17,7 +17,7 @@
    - Получать требуемые свойства, заданные в двойнике устройства в Центре Интернета вещей, и реагировать на них.
    - Отвечать на прямые методы **Reboot** и **InitiateFirmwareUpdate**, вызываемые через портал решения. Устройство отправляет сведения о прямых методах, которые оно поддерживает, с помощью сообщаемых свойств.
    
-    ```
+    ```c
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
 
@@ -90,7 +90,7 @@
 
 1. Добавьте следующие функции, которые обрабатывают требуемые свойства, заданные на панели мониторинга решения. Эти требуемые свойства определяются в модели:
 
-    ```
+    ```c
     void onDesiredTemperatureMeanValue(void* argument)
     {
       /* By convention 'argument' is of the type of the MODEL */
@@ -109,7 +109,7 @@
 
 1. Добавьте следующие функции, которые обрабатывают прямые методы, вызываемые через Центр Интернета вещей. Эти методы определяются в модели:
 
-    ```
+    ```c
     /* Handlers for direct methods */
     METHODRETURN_HANDLE Reboot(Thermostat* thermostat)
     {
@@ -132,7 +132,7 @@
 
 1. Добавьте следующую функцию, которая отправляет сообщение в предварительно настроенное решение:
    
-    ```
+    ```c
     /* Send data to IoT Hub */
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
@@ -160,7 +160,7 @@
 
 1. Добавьте следующий обработчик обратных вызовов, который выполняется, когда устройство отправило новые значения сообщаемых свойств в предварительно настроенное решение:
 
-    ```
+    ```c
     /* Callback after sending reported properties */
     void deviceTwinCallback(int status_code, void* userContextCallback)
     {
@@ -180,7 +180,7 @@
     - создает цикл для отправки данных телеметрии каждую секунду;
     - деинициализирует все ресурсы.
 
-      ```
+      ```c
       void remote_monitoring_run(void)
       {
         if (platform_init() != 0)
