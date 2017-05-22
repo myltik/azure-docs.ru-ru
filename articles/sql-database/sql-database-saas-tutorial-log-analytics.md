@@ -1,6 +1,6 @@
 ---
-title: "Настройка и запуск Log Analytics (пример приложения SaaS, использующего базу данных SQL Azure) | Документация Майкрософт"
-description: "Настройка и использование Log Analytics с примером приложения SaaS WTP."
+title: "Использование Log Analytics с помощью мультитенантного приложения базы данных SQL | Документация Майкрософт"
+description: "Настройка и использование Log Analytics (OMS) с примером приложения базы данных SQL Azure Wingtip Tickets (WTP)"
 keywords: "руководство по базе данных sql"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7cb9b7dd90123a91cabe66fd8efa8ae4c9e2fa01
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 4ff4519ca40f036d58f82993db78fe08aa7d5733
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

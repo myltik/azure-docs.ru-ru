@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-translationtype: Human Translation
-ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
-ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: e4c1c2b956b2cae673e60223ce777ba1096dce33
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.lasthandoff: 12/08/2016
   ![Знакомство с пользовательским интерфейсом портала Azure][UIOrientation]
 
 ## <a name="before-you-get-started"></a>Необходимые условия
-Для прохождения этого учебника вам потребуется действительная подписка Azure.  Если у вас ее нет, [зарегистрируйтесь в бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/) прямо сейчас.  Оформив подписку, войдите на портал по адресу [https://portal.azure.com].
+Для прохождения этого учебника вам потребуется действительная подписка Azure.  Если у вас ее нет, [зарегистрируйтесь в бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/) прямо сейчас.  Оформив подписку, войдите на портал по адресу <https://portal.azure.com>.
 
 ## <a name="how-to-create-a-resource"></a>Как создавать ресурсы
 Azure Marketplace — это магазин, в котором на выбор предложены тысячи элементов, которые можно создавать, не выходя из него.  Предположим, вам нужно создать виртуальную машину Windows Server 2012.  Нажав кнопку «+СОЗДАТЬ», вы откроете набор рекомендованных категорий магазина.  В каждой категории есть некоторое количество готовых элементов и ссылка на полный каталог, в котором представлены все категории и окно поиска. Чтобы создать виртуальную машину Windows Server 2012, выполните следующие действия.  

@@ -4,4 +4,6 @@
 
 Вы можете узнать, как изменить [шаблон минимального приемлемого масштабируемого набора](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md), чтобы [развернуть масштабируемый набор в существующей виртуальной сети](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md).
 
+Вы можете узнать, как изменить [шаблон минимального приемлемого масштабируемого набора](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md), чтобы [развернуть масштабируемый набор с помощью настраиваемого образа](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
+
 Общие сведения о масштабируемых наборах см. на [этой странице](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).
