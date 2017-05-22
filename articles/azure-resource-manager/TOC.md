@@ -24,7 +24,6 @@
 ### [Использование ссылок на другие шаблоны](resource-group-linked-templates.md)
 ### [Определение зависимости между ресурсами](resource-group-define-dependencies.md)
 ### [Развертывание нескольких экземпляров ресурсов в шаблонах Azure Resource Manager](resource-group-create-multiple.md)
-### [Последовательный цикл](resource-manager-sequential-loop.md)
 ### [Определение расположения](resource-manager-template-location.md)
 ### [Присвоение тегов](resource-manager-template-tags.md)
 ### [Настройка имени и типа дочернего ресурса](resource-manager-template-child-resource.md)
@@ -43,8 +42,8 @@
 #### [Развертывание частного шаблона с помощью маркера SAS](resource-manager-cli-sas-token.md)
 #### [Экспорт шаблона и повторное развертывание](resource-manager-export-template-cli.md)
 ### [Портал](resource-group-template-deploy-portal.md)
-### [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
-### [Развертывание нескольких групп ресурсов](resource-manager-cross-resource-group-deployment.md)
+### [REST API](resource-group-template-deploy-rest.md)
+### [Развертывание в нескольких группах ресурсов](resource-manager-cross-resource-group-deployment.md)
 ### [Непрерывная интеграция с Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md)
 
