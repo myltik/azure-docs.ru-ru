@@ -1,8 +1,8 @@
 | Категория | Хранилище данных | Поддерживается в качестве источника | Поддерживается в качестве приемника |
 |:--- |:--- |:--- |:--- |
 | **Таблицы Azure** |[хранилище BLOB-объектов Azure](../articles/data-factory/data-factory-azure-blob-connector.md) |✓  |✓  |
+| &nbsp; |[Azure Cosmos DB (API DocumentDB)](../articles/data-factory/data-factory-azure-documentdb-connector.md) |✓  |✓  |
 | &nbsp; |[Хранилище озера данных Azure](../articles/data-factory/data-factory-azure-datalake-connector.md) |✓  |✓  |
-| &nbsp; |[Azure DocumentDB](../articles/data-factory/data-factory-azure-documentdb-connector.md) |✓ |✓  |
 | &nbsp; |[База данных SQL Azure;](../articles/data-factory/data-factory-azure-sql-connector.md) |✓  |✓  |
 | &nbsp; |[Хранилище данных Azure SQL](../articles/data-factory/data-factory-azure-sql-data-warehouse-connector.md) |✓  |✓  |
 | &nbsp; |[Индекс службы поиска Azure](../articles/data-factory/data-factory-azure-search-connector.md) | |✓  |

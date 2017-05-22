@@ -1,6 +1,6 @@
 ---
-title: "Развертывание и изучение приложения Wingtip Tickets Platform (WTP) (примера приложения SaaS с помощью базы данных SQL Azure) | Документация Майкрософт"
-description: "Развертывание и изучение примера приложения SaaS, использующего базу данных SQL Azure"
+title: "Развертывание и изучение приложения SaaS, использующего базу данных SQL Azure | Документация Майкрософт"
+description: "Развертывание и изучение примера приложения базы данных SQL Azure Wingtip Tickets (WTP)"
 keywords: "руководство по базе данных sql"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ff4dc19bb6e24ea9ceeed9721cfb3a85b4d10965
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 04859fb8a9f4a8bf04d92e7139d9202885c52503
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -29,6 +29,8 @@ ms.lasthandoff: 05/10/2017
 В этом руководстве рассматривается развертывание и изучение приложения SaaS для Wingtip Tickets Platform (WTP). Для обслуживания нескольких клиентов приложение использует шаблон приложения SaaS, в котором на один клиент используется одна база данных. Приложение разработано для демонстрации возможностей базы данных SQL Azure, которые позволяют работать со сценариями SaaS, а также моделями проектирования и управления SaaS.
 
 Если вы нажмете кнопку *Развертывания в Azure* ниже, то через пять минут вы получите облачное мультитенантное приложение SaaS, использующее базу данных SQL. Приложение развертывается с помощью трех примеров клиентов, каждый из которых содержит свою базу данных, развернутую в эластичный пул SQL. Приложение развертывается в подписку Azure, предоставляя полный доступ для изучения отдельных компонентов приложения и работы с ними.
+
+Скрипты и исходный код приложения доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS).
 
 Из этого руководства вы узнаете следующее:
 
@@ -97,7 +99,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="get-the-wingtip-application-scripts"></a>Получение скриптов приложения Wingtip
 
-Скрипты Wingtip Tickets и исходный код приложения доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Файлы скриптов находятся в [папке Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Скачайте папку **Learning Modules** на локальный компьютер, сохраняя ее структуру.
+Скрипты Wingtip Tickets и исходный код приложения доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Файлы скриптов находятся в папке [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Скачайте папку **Learning Modules** на локальный компьютер, сохраняя ее структуру.
 
 ## <a name="provision-a-new-tenant"></a>Подготовка нового клиента
 
