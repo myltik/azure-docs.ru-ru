@@ -1,9 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Документация по базе данных Azure для PostgreSQL"
+title: Документация по базе данных Azure для PostgreSQL
 metadata:
-  title: "Документация по Azure PostgreSQL. Руководства и справочник по API"
-  description: "База данных Azure для PostgreSQL — это служба реляционной базы данных в облаке Microsoft, созданная для разработчиков на основе СУБД PostgreSQL с открытым исходным кодом."
+  document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
+  title: Документация по Azure PostgreSQL. Руководства и справочник по API
+  description: "База данных Azure для PostgreSQL\_— это служба реляционной базы данных в облаке Microsoft, созданная для разработчиков на основе СУБД PostgreSQL с открытым исходным кодом."
   services: app-service
   author: jasonwhowell
   manager: jhubbard
@@ -14,9 +15,9 @@ metadata:
   ms.date: 01/23/2017
   ms.author: jasonh
 abstract:
-  description: "База данных Azure для PostgreSQL — это служба реляционной базы данных на основе СУБД PostgreSQL с открытым исходным кодом.  Эта полностью управляемая база данных как услуга может обслуживать критически важные рабочие нагрузки с прогнозируемой производительностью и безопасностью, а также высоким уровнем доступности и динамическим масштабированием.  Разрабатывайте приложения на основе базы данных Azure для PostgreSQL, используя привычные средства с открытым исходным кодом и платформу.  Узнайте, как использовать базу данных Azure для PostgreSQL, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
+  description: "База данных Azure для PostgreSQL\_— это служба реляционной базы данных на основе СУБД PostgreSQL с открытым исходным кодом.  Эта полностью управляемая база данных как услуга может обслуживать критически важные рабочие нагрузки с прогнозируемой производительностью и безопасностью, а также высоким уровнем доступности и динамическим масштабированием. \_Разрабатывайте приложения на основе базы данных Azure для PostgreSQL, используя привычные средства с открытым исходным кодом и платформу. \_Узнайте, как использовать базу данных Azure для PostgreSQL, ознакомившись с нашими шаблонами быстрого запуска, примерами и руководствами."
 sections:
-- title: "5-минутные руководства по началу работы"
+- title: 5-минутные руководства по началу работы
   items:
   - type: paragraph
     text: 'Learn how to create a PostgreSQL database using:'
@@ -31,7 +32,7 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
       text: Azure CLI
       href: /azure/postgresql/quickstart-create-server-database-azure-cli
-- title: "Пошаговые руководства"
+- title: Пошаговые руководства
   items:
   - type: paragraph
     text: 'Learn how to:'
@@ -40,7 +41,7 @@ sections:
     items:
     - html: Design a Database&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>
     - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Build a Web App using Python and the CLI</a>
-- title: "Примеры"
+- title: Примеры
   items:
   - type: paragraph
     text: Find scripts to manage common tasks.
@@ -49,11 +50,11 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Azure CLI</a>
-- title: "Справочные материалы"
+- title: Справочные материалы
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Командная строка"
+    - title: Командная строка
       html: <p><a href="/cli/azure">Azure CLI</a></p>
