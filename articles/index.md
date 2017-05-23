@@ -1,6 +1,8 @@
 --- 
 layout: HubPage
 hide_bc: true
+experimental: true
+experiment_id: d6155f71-baae-45
 title: "Документация по Microsoft Azure"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 ms.translationtype: Human Translation

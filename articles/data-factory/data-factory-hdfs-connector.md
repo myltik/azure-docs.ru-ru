@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: jingwang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: dc501a1c7c0d6a1d70ce368f86a967f889394dc7
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/12/2017
 
 
@@ -425,7 +426,7 @@ ms.lasthandoff: 04/12/2017
               REALM.COM = .
              }
 
-        **Перезапустите** службу KDC после настройки.
+  **Перезапустите** службу KDC после настройки.
 
 2.    Подготовьте субъект-службу с именем **krbtgt/REALM.COM@AD.COM** на сервере центра распространения ключей, используя следующую команду:
 

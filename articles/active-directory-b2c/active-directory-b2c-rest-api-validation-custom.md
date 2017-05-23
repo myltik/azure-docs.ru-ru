@@ -51,29 +51,29 @@ ms.lasthandoff: 05/09/2017
 
 Мы создали функцию Azure, которая получает утверждение, ожидаемое как playerTag, и проверяет, существует ли это утверждение. Полный код функции Azure доступен на сайте [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
-```
+```csharp
 if (requestContentAsJObject.playerTag == null)
+{
+  return request.CreateResponse(HttpStatusCode.BadRequest);
+}
+
+var playerTag = ((string) requestContentAsJObject.playerTag).ToLower();
+
+if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcottonmarcus")
+{
+  return request.CreateResponse<ResponseContent>(
+    HttpStatusCode.Conflict,
+    new ResponseContent
     {
-        return request.CreateResponse(HttpStatusCode.BadRequest);
-    }
+      version = "1.0.0",
+      status = (int) HttpStatusCode.Conflict,
+      userMessage = $"The player tag '{requestContentAsJObject.playerTag}' is already used."
+    },
+    new JsonMediaTypeFormatter(),
+    "application/json");
+}
 
-    var playerTag = ((string) requestContentAsJObject.playerTag).ToLower();
-
-    if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcottonmarcus")
-    {
-        return request.CreateResponse<ResponseContent>(
-            HttpStatusCode.Conflict,
-            new ResponseContent
-            {
-                version = "1.0.0",
-                status = (int) HttpStatusCode.Conflict,
-                userMessage = $"The player tag '{requestContentAsJObject.playerTag}' is already used."
-            },
-            new JsonMediaTypeFormatter(),
-            "application/json");
-    }
-
-    return request.CreateResponse(HttpStatusCode.OK);
+return request.CreateResponse(HttpStatusCode.OK);
 ```
 
 Инфраструктура процедур идентификации ожидает, что функция Azure вернет утверждение `userMessage` и что оно будет в виде строки, если при проверке произойдет сбой, например при возвращении кода состояния 409 (конфликт) в примере выше.
@@ -85,35 +85,30 @@ if (requestContentAsJObject.playerTag == null)
 > [!NOTE]
 > Мы советуем использовать поставщик RESTful версии 1.0.0.0, описанный ниже, как протокол и функцию, которая будет взаимодействовать с внешней службой.  Полное определение схемы см. здесь: <!-- TODO: Link to RESTful Provider schema definition>-->.
 
-```
+```xml
 <ClaimsProvider>
-        <DisplayName>REST APIs</DisplayName>
-        <TechnicalProfiles>
-            <TechnicalProfile Id="AzureFunctions-CheckPlayerTagWebHook">
-
-                    <DisplayName>Check Player Tag Web Hook Azure Function</DisplayName>
-                    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-                    <Metadata>
-                        <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
-                        <Item Key="AuthenticationType">None</Item>
-                        <Item Key="SendClaimsIn">Body</Item>
-                    </Metadata>
-                    <InputClaims>
-                        <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
-                    </InputClaims>
-                    <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-            </TechnicalProfile>
-
-
-            <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
-
-                <ValidationTechnicalProfiles>       
-                    <ValidationTechnicalProfile ReferenceId="AzureFunctions-CheckPlayerTagWebHook" />       
-                </ValidationTechnicalProfiles>
-
-            </TechnicalProfile>
-        </TechnicalProfiles>
-    </ClaimsProvider>
+    <DisplayName>REST APIs</DisplayName>
+    <TechnicalProfiles>
+        <TechnicalProfile Id="AzureFunctions-CheckPlayerTagWebHook">
+            <DisplayName>Check Player Tag Web Hook Azure Function</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <Metadata>
+                <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
+                <Item Key="AuthenticationType">None</Item>
+                <Item Key="SendClaimsIn">Body</Item>
+            </Metadata>
+            <InputClaims>
+                <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
+            </InputClaims>
+            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+        <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
+            <ValidationTechnicalProfiles>
+                <ValidationTechnicalProfile ReferenceId="AzureFunctions-CheckPlayerTagWebHook" />
+            </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+    </TechnicalProfiles>
+</ClaimsProvider>
 ```
 
 Элемент `InputClaims` определяет утверждения, отправляемые с подсистемы процедур идентификации в службу REST. В примере выше содержимое утверждений `givenName` отправляется в службу REST как `playerTag`. В этом примере подсистема идентификации не ожидает возвращения утверждений. Вместо этого она ожидает ответ от службы REST и действует на основе полученного кода состояния.
