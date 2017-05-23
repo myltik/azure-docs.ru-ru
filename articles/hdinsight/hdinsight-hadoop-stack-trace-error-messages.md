@@ -37,7 +37,7 @@ ms.lasthandoff: 04/28/2017
 ## <a name="more-troubleshooting-articles"></a>Дополнительные статьи об устранении неполадок
 * [Сведения об использовании HDInsight в Linux](hdinsight-hadoop-linux-information.md)
 * [Отладка Hadoop в среде HDInsight: просмотр журналов и интерпретация сообщений об ошибках](hdinsight-debug-jobs.md)
-* [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Доступ к журналам приложений YARN в HDInsight под управлением Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Включение дампов кучи для служб Hadoop в HDInsight под управлением Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Заметки о выпуске для компонентов Hadoop в Azure HDInsight](hdinsight-release-notes.md)
 
