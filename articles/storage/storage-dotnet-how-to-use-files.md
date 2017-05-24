@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e773fd4917c7a96201d94d31b2098a3486d27900
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4e2422e8651d6fd17df2670e78606d1caeaf64ce
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -676,14 +676,11 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
     
     Вы можете найти подробное руководство по устранению неполадок в статье [Troubleshooting Azure File storage problems](storage-troubleshoot-file-connection-problems.md) (Устранение неполадок в хранилище файлов Azure).               
 
-18. **Как включить шифрование на стороне сервера для файлов Azure?**
-> [!NOTE]
-> [Шифрование на стороне сервера](storage-service-encryption.md) для файлов Azure доступно в предварительной версии. Свои вопросы о предварительной версии можно задать здесь: [SSEDiscussion](mailto:ssediscussions@microsoft.com).
-
-    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
+18. **Как включить шифрование на стороне сервера для хранилища файлов Azure?**
     
-    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
-    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
+    [Шифрование на стороне сервера](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) для службы хранилища файлов Azure общедоступно во всех регионах и общедоступных и национальных облаках. Вы можете включить шифрование на стороне сервера для службы хранилища файлов с помощью [портала Azure](https://ms.portal.azure.com/), [API поставщика ресурсов службы хранилища Microsoft Azure](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts), [Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx) или [Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/storage-azure-cli/).
+    
+    После включения шифрования на стороне сервера в хранилище файлов Azure любые новые данные, которые записываются в хранилище файлов в этой учетной записи хранения, будут автоматически шифроваться. Эта функция доступна для всех новых данных, записанных в существующие или новые общие папки в существующих или новых учетных записях хранения. Включение этой функции не требует дополнительной оплаты. Дополнительные сведения о шифровании данных см. в статье [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительную информацию о хранилище файлов Azure см. по этим ссылкам.
