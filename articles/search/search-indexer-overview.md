@@ -1,6 +1,6 @@
 ---
 title: "Начало работы со службой поиска Azure | Документация Майкрософт"
-description: "Обход содержимого базы данных Azure SQL, DocumentDB или службы хранилища Azure для извлечения доступных для поиска данных и заполнения индекса службы поиска Azure."
+description: "Обход содержимого базы данных Azure SQL, Azure Cosmos DB или службы хранилища Azure для извлечения доступных для поиска данных и заполнения индекса службы поиска Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
-ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
-ms.lasthandoff: 01/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -28,9 +29,9 @@ ms.lasthandoff: 01/19/2017
 > * [Обзор](search-indexer-overview.md)
 > * [Портал](search-import-data-portal.md)
 > * [Azure SQL;](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](search-howto-index-documentdb.md)
-> * [Хранилище BLOB-объектов (предварительная версия)](search-howto-indexing-azure-blob-storage.md)
-> * [Хранилище таблиц (предварительная версия)](search-howto-indexing-azure-tables.md)
+> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Хранилище BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md)
+> * [Хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
 >
 >
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 01/19/2017
 Вы можете запускать индексаторы по требованию или при регулярном обновлении данных, выполняемом каждые пятнадцать минут. Более частые обновления требуют использования модели отправки, выполняющей одновременное обновление данных в службе поиска Azure и источнике внешних данных.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Способы создания индексаторов и управления ими
-Вы можете создавать общедоступные индексаторы (например, Azure SQL или DocumentDB), а также управлять ими, используя следующие средства.
+Вы можете создавать общедоступные индексаторы (например, Azure SQL или Azure Cosmos DB), а также управлять ими, используя следующие средства:
 
 * [Портал > мастер импорта данных;](search-get-started-portal.md)
 * [API REST службы](https://msdn.microsoft.com/library/azure/dn946891.aspx)
@@ -57,7 +58,7 @@ ms.lasthandoff: 01/19/2017
 Индексатор извлекает данные из **источника данных** , который содержит такие сведения, как строка подключения. Сейчас поддерживаются следующие источники данных:
 
 * [база данных Azure SQL (или SQL Server на виртуальных машинах Azure);](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Хранилище BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md), которое используется для извлечения текста из документов в формате PDF, Office, HTML и XML
 * [Хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
 
@@ -70,7 +71,7 @@ ms.lasthandoff: 01/19/2017
 Теперь, когда вы ознакомились с основной идеей, можно переходить к изучению требований и задач, связанных с каждым типом источника данных.
 
 * [база данных Azure SQL (или SQL Server на виртуальных машинах Azure);](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * [Хранилище BLOB-объектов Azure](search-howto-indexing-azure-blob-storage.md), которое используется для извлечения текста из документов в формате PDF, Office, HTML и XML
 * [Хранилище таблиц Azure](search-howto-indexing-azure-tables.md)
 * [Индексирование BLOB-объектов в формате CSV с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-csv-blobs.md)

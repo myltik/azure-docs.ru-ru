@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: a935fe574bffaad109abd13151c4da1027210014
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5f9b421571fa98d9881a9e955b05041de124f922
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -153,7 +153,7 @@ HBase включает несколько методов загрузки дан
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. Запустите приведенный ниже скрипт HiveQL, чтобы запросить данные в таблице HBase.
    
-         SELECT * FROM hbasecontacts;
+         SELECT count(rowkey) FROM hbasecontacts;
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Использование API REST для HBase
 
@@ -182,7 +182,7 @@ REST API защищен с помощью [обычной проверки по�
         -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
-    Необходимо закодировать значения, указанные в параметре -d, используя кодировку base64.  В примере:
+    Необходимо закодировать значения, указанные в параметре -d, используя кодировку base64.  Ознакомьтесь со следующим примером:
    
    * MTAwMA==: 1000;
    * UGVyc29uYWw6TmFtZQ==: Personal:Name

@@ -1,6 +1,6 @@
 
-1. Войдите на [портал Azure](https://portal.azure.com) и выберите  >  **Site Recovery**.
-2. Щелкните **Создать** > **Monitoring & Management** (Мониторинг и управление) > **Backup and Site Recovery** > (Служба архивации и Site Recovery). 
+1. Войдите на [портал Azure](https://portal.azure.com) и выберите  > **Site Recovery**.
+2. Щелкните **Создать** > **Мониторинг и управление** > **Backup and Site Recovery** (Служба архивации и Site Recovery). 
 3. В поле **Имя**укажите понятное имя для идентификации хранилища. Если у вас имеется несколько подписок, выберите одну из них.
 4. [Создайте новую группу ресурсов](../articles/azure-resource-manager/resource-group-template-deploy-portal.md) или выберите существующую. Укажите регион Azure. Сведения о поддерживаемых регионах см. в разделе "Географическая доступность" на странице [цен на службу Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Если вам нужна возможность быстрого доступа к хранилищу из панели мониторинга, щелкните **Закрепить на панели мониторинга**, а затем — **Создать**.
