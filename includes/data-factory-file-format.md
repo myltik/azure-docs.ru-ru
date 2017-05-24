@@ -56,7 +56,7 @@
 * Вы копируете данные из текстового файла и хотите пропустить несколько строк в начале, которые не содержат ни данных, ни заголовка. Укажите `skipLineCount`, чтобы задать число пропускаемых строк. Если остальная часть файла содержит строку заголовка, можно также указать `firstRowAsHeader`. Если указаны `skipLineCount` и `firstRowAsHeader`, сначала пропускаются строки, а затем из входного файла считываются данные заголовка.
 
 ### <a name="specifying-jsonformat"></a>Указание JsonFormat
-Сведения об **импорте и экспорте файлов в формате JSON "как есть" в базу данных DocumentDB и обратно** см. в [этом](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) разделе.
+Сведения об **импорте и экспорте файлов в формате JSON "как есть" в Azure Cosmos DB и обратно** см. в [этом разделе](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents).
 
 Если требуется проанализировать JSON-файлы или записать данные в формате JSON, установите для свойства `format` `type` значение **JsonFormat**. В разделе `format` также можно указать следующие **необязательные** свойства. Инструкции по настройке см. в разделе [Пример JsonFormat](#jsonformat-example).
 

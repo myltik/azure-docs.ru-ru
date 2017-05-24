@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 02/22/2017
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 7945ee77be8a09dcac9ddd6b338bdd542ec18540
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -199,7 +200,7 @@ ms.lasthandoff: 04/18/2017
 
   Чтобы просмотреть отдельные компоненты, на панели мониторинга щелкните плитку **Индекс**, **Индексатор** или **Источники данных**. Отобразится список имеющихся объектов. Дополнительные сведения об операциях изменения индекса, не требующих его перестройки, см. в статье [Update Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index) (Обновление индекса (REST API службы поиска Azure)).
 
-+ Попробуйте использовать средства и выполнить действия для других источников данных. Пример набора данных `realestate-us-sample` находится в базе данных SQL Azure, которую может просканировать служба поиска Azure. Помимо базы данных SQL Azure служба поиска Azure может сканировать и получать индекс из плоских структур данных в хранилище таблиц Azure, хранилище BLOB-объектов, SQL Server на виртуальной машине Azure и DocumentDB. Все эти источники данных поддерживаются в мастере. В коде можно с легкостью заполнить индекс с помощью *индексатора*.
++ Попробуйте использовать средства и выполнить действия для других источников данных. Пример набора данных `realestate-us-sample` находится в базе данных SQL Azure, которую может просканировать служба поиска Azure. Помимо базы данных SQL Azure служба поиска Azure может сканировать и получать индекс из плоских структур данных в хранилище таблиц Azure, хранилище BLOB-объектов, SQL Server на виртуальной машине Azure и Azure Cosmos DB. Все эти источники данных поддерживаются в мастере. В коде можно с легкостью заполнить индекс с помощью *индексатора*.
 
 + Все другие неиндексированные источники данных поддерживаются через модель передачи, где код передает новые и измененные наборы строк в JSON-файле в индекс. Дополнительные сведения см. в статье [Add, Update or Delete Documents (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Добавление, обновление и удаление документов (REST API службы поиска Azure)).
 

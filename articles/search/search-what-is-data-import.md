@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 01/11/2017
+ms.date: 05/01/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
-ms.openlocfilehash: e522d608e8ff51e00b3c1a461bf9ba909b0105af
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5a601b75ec67824e72d8736bc3c45f8e1231ca86
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -41,11 +43,11 @@ ms.openlocfilehash: e522d608e8ff51e00b3c1a461bf9ba909b0105af
 Формат данных, поддерживаемый службой поиска Azure, — JSON. Все документы в наборе данных должны иметь поля, которые сопоставляются с полями, определенными в схеме индекса. 
 
 ## <a name="pull-data-into-an-index"></a>Извлечение данных в индекс
-Модель извлечения выполняет поиск в поддерживаемом источнике данных, автоматически загружая данные в индекс. Служба поиска Azure реализует эту возможность с помощью *индексаторов*, которые сейчас доступны для [хранилища BLOB-объектов](search-howto-indexing-azure-blob-storage.md), [хранилища таблиц](search-howto-indexing-azure-tables.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [базы данных SQL Azure и SQL Server на виртуальных машинах Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
+Модель извлечения выполняет поиск в поддерживаемом источнике данных, автоматически загружая данные в индекс. Служба поиска Azure реализует эту возможность с помощью *индексаторов*, которые сейчас доступны для [хранилища BLOB-объектов](search-howto-indexing-azure-blob-storage.md), [хранилища таблиц](search-howto-indexing-azure-tables.md), [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer), [базы данных SQL Azure и SQL Server на виртуальных машинах Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
 
 Индексаторы подключают индекс к источнику данных (как правило, это таблица, представление или эквивалентная структура) и сопоставляют поля источника с эквивалентными полями в индексе. Во время выполнения набор строк автоматически преобразуется в формат JSON и загружается в указанный индекс. Все индексаторы поддерживают планирование, так что вы можете указать частоту обновления данных. Большинство индексаторов позволяют отслеживать изменения, если источник данных поддерживает такую возможность. Отслеживая процессы изменения и удаления существующих документов, помимо распознания новых документов, индексаторы исключают необходимость в активном управлении данными в индексе. 
 
-Индексатор доступен на [портале Azure](search-import-data-portal.md), в интерфейсе [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) и в [пакете SDK для .NET](https://docs.microsoft.com/otnet/api/microsoft.azure.search.iindexersoperations?redirectedfrom=MSDN#microsoft_azure_search_iindexersoperations). 
+Индексатор доступен на [портале Azure](search-import-data-portal.md), в интерфейсе [REST API](/rest/api/searchservice/Indexer-operations) и в [пакете SDK для .NET](/dotnet/api/microsoft.azure.search.indexersoperations). 
 
 Преимуществом использования портала является то, что служба поиска Azure, как правило, способна автоматически создавать стандартную схему индекса при чтении метаданных из исходного набора данных. Можно изменить создаваемый индекс до его обработки, после чего будут разрешены только те изменения схемы, которые не требуют повторного индексирования. Если вносимые изменения непосредственно влияют на схему, вам потребуется повторно создать индекс. 
 
@@ -53,12 +55,7 @@ ms.openlocfilehash: e522d608e8ff51e00b3c1a461bf9ba909b0105af
 
 ## <a name="query-an-index-using-search-explorer"></a>Создание запроса к индексу с помощью проводника поиска
 
-Чтобы быстро выполнить предварительную проверку загрузки документа, можно воспользоваться **проводником поиска** на портале. Проводник позволяет создавать запросы к индексу без необходимости писать код. Возможности поиска используют стандартные параметры, включая [простой синтаксис](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) и стандартный [параметр запроса searchMode](https://docs.microsoft.com/rest/api/searchservice/search-documents). Результаты возвращаются в формате JSON, позволяя проверить весь документ.
+Чтобы быстро выполнить предварительную проверку загрузки документа, можно воспользоваться **проводником поиска** на портале. Проводник позволяет создавать запросы к индексу без необходимости писать код. Возможности поиска используют стандартные параметры, включая [простой синтаксис](/rest/api/searchservice/simple-query-syntax-in-azure-search) и стандартный [параметр запроса searchMode](/rest/api/searchservice/search-documents). Результаты возвращаются в формате JSON, позволяя проверить весь документ.
 
 > [!TIP]
 > Доступно множество [примеров кода для службы поиска Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search), которые включают внедренные или готовые наборы данных, позволяющие быстро начать работу. На портале также доступен пример индексатора и источника данных, представленного небольшим набором данных, связанных с недвижимостью (realestate-us-sample). При запуске предварительно настроенного индексатора с примером источника данных создается и загружается индекс с документами. Затем вы можете создать запрос к этому индексу, используя проводник поиска или программные средства.
-
-
-<!--HONumber=Jan17_HO2-->
-
-

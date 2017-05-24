@@ -1,14 +1,14 @@
 ---
-title: "Руководство по веб-приложению Python Flask для Azure DocumentDB | Документация Майкрософт"
-description: "Изучите учебник по использованию DocumentDB для хранения и применения данных из веб-приложения Python Flask, размещенного в Azure. Найдите решения для разработки приложений."
+title: "Руководство по веб-приложению Python Flask для Azure Cosmos DB | Документация Майкрософт"
+description: "Изучите руководство по использованию Azure Cosmos DB для хранения и применения данных из веб-приложения Python Flask, размещенного в Azure. Найдите решения для разработки приложений."
 keywords: "Разработка приложений, Python Flask, веб-приложение Python, разработка веб-приложения Python"
-services: documentdb
+services: cosmosdb
 documentationcenter: python
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
@@ -16,14 +16,15 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: syamk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 4f05075efea0f0fd8ca4424f771d3991a65c6d67
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 68b3fd109291551294b58b3cda75fd6a9619b4b4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="build-a-python-flask-web-application-using-documentdb"></a>Создание веб-приложения Python Flask с использованием DocumentDB
+# <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Создание веб-приложения Python Flask с использованием Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [.NET для MongoDB](documentdb-mongodb-application.md)
@@ -33,13 +34,13 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-В этом руководстве показан пример использования службы DocumentDB Azure для хранения данных и доступа к ним из веб-приложения Python, размещенного в Azure. Чтобы эффективно пользоваться этим руководством, нужен некоторый опыт использования Python и веб-сайтов Azure.
+В этом руководстве показан пример использования службы Azure Cosmos DB для хранения данных и доступа к ним из веб-приложения Python, размещенного в Azure. Чтобы эффективно пользоваться этим руководством, нужен некоторый опыт использования Python и веб-сайтов Azure.
 
 В этом учебнике по базам данных рассматриваются следующие процедуры.
 
-1. Создание и подготовка учетной записи DocumentDB.
+1. Создание и подготовка учетной записи Cosmos DB.
 2. Создание приложения Python MVC.
-3. Подключение и использование Azure DocumentDB из веб-приложения.
+3. Подключение и использование Cosmos DB из веб-приложения.
 4. Развертывание веб-приложения на веб-сайтах Azure.
 
 В ходе учебника вы создадите простое веб-приложение для голосования, позволяющее проводить голосование на выборах.
@@ -53,7 +54,7 @@ ms.lasthandoff: 04/18/2017
  
     ИЛИ 
 
-    Локальная установка [эмулятора Azure DocumentDB](documentdb-nosql-local-emulator.md).
+    Локальная установка [эмулятора Azure Cosmos DB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013](http://www.visualstudio.com/) или более поздней версии либо [Visual Studio Express]() (бесплатная версия). Инструкции в этом руководстве предназначены для работы с Visual Studio 2015. 
 * Средства Python для Visual Studio с сайта [GitHub](http://microsoft.github.io/PTVS/). В этом руководстве используются средства Python для VS 2015. 
 * Пакет Azure SDK Python для Visual Studio версии 2.4 или выше с сайта [azure.com](https://azure.microsoft.com/downloads/). Мы использовали пакет Microsoft Azure SDK для Python 2.7.
@@ -68,8 +69,8 @@ ms.lasthandoff: 04/18/2017
 
 * Компилятор Microsoft Visual C++ для Python 2.7 из [Центра загрузки Майкрософт][3].
 
-## <a name="step-1-create-a-documentdb-database-account"></a>Шаг 1. Создание учетной записи базы данных DocumentDB
-Начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись или вы используете эмулятор DocumentDB в этом руководстве, можно перейти к разделу [Шаг 2. Создание веб-приложения Python Flask](#step-2:-create-a-new-python-flask-web-application).
+## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>Шаг 1. Создание учетной записи базы данных Azure Cosmos DB
+Давайте сначала создадим учетную запись Cosmos DB. Если у вас уже есть учетная запись или вы используете эмулятор Azure Cosmos DB в этом руководстве, можно перейти к разделу [Шаг 2. Создание веб-приложения Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -155,7 +156,7 @@ class VoteForm(Form):
 
 ### <a name="add-the-required-imports-to-viewspy"></a>Добавьте необходимые файлы импорта в views.py.
 1. В обозревателе решений разверните папку **tutorial** и откройте файл **views.py**. 
-2. Добавьте в начало файла **views.py** приведенные ниже инструкции import и сохраните файл. Они выполнят импорт пакета SDK для Python и пакетов Flask DocumentDB.
+2. Добавьте в начало файла **views.py** приведенные ниже инструкции import и сохраните файл. Они выполнят импорт пакета SDK для Python и пакетов Flask Cosmos DB.
    
     ```python
     from forms import VoteForm
@@ -202,7 +203,7 @@ def create():
 ```
 
 > [!TIP]
-> Метод **CreateCollection** имеет третий необязательный параметр **RequestOptions**. Его можно использовать для указания типа предложения коллекции. Если значение типа предложения не указано, будет создана коллекция с использованием типа предложения по умолчанию. Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности в DocumentDB](documentdb-performance-levels.md).
+> Метод **CreateCollection** имеет третий необязательный параметр **RequestOptions**. Его можно использовать для указания типа предложения коллекции. Если значение типа предложения не указано, будет создана коллекция с использованием типа предложения по умолчанию. Дополнительные сведения о типах предложений Cosmos DB см. в статье об [уровнях производительности в Azure Cosmos DB](documentdb-performance-levels.md).
 > 
 > 
 
@@ -314,7 +315,7 @@ def vote():
     ```html
     {% extends "layout.html" %}
     {% block content %}
-    <h2>Python + DocumentDB Voting Application.</h2>
+    <h2>Python + Azure Cosmos DB Voting Application.</h2>
     <h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
     <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
@@ -336,7 +337,7 @@ def vote():
     DOCUMENTDB_COLLECTION = 'voting collection'
     DOCUMENTDB_DOCUMENT = 'voting document'
     ```
-3. На [портале Azure](https://portal.azure.com/) перейдите в колонку **Ключи**, щелкните **Обзор**, **Учетные записи DocumentDB**, дважды щелкните имя учетной записи и нажмите кнопку **Ключи** в области **Основные компоненты**. В колонке **Ключи** скопируйте значение **URI** и вставьте его в файл **config.py** как значение для свойства **DOCUMENTDB\_HOST**. 
+3. На [портале Azure](https://portal.azure.com/) перейдите в колонку **Ключи**, щелкните **Обзор**, **Azure Cosmos DB Accounts** (Учетные записи Azure Cosmos DB), дважды щелкните имя учетной записи и нажмите кнопку **Ключи** в области **Основные компоненты**. В колонке **Ключи** скопируйте значение **URI** и вставьте его в файл **config.py** как значение для свойства **DOCUMENTDB\_HOST**. 
 4. Вернитесь на портал Azure, перейдите в колонку **Ключи**, скопируйте значение **первичного** или **вторичного ключа** и вставьте его в файл **config.py** как значение для свойства **DOCUMENTDB\_KEY**.
 5. В файл **\_\_init\_\_.py** добавьте приведенную ниже строку: 
    
@@ -358,7 +359,7 @@ def vote():
 1. Выполните сборку решения, нажав клавиши **CTRL**+**SHIFT**+**B**.
 2. После успешной сборки запустите веб-сайт, нажав клавишу **F5**. На экране должно отображаться следующее:
    
-    ![Снимок экрана: Python + приложение для голосования DocumentDB в веб-браузере](./media/documentdb-python-application/image16.png)
+    ![Снимок экрана: Python + приложение для голосования Azure Cosmos DB в веб-браузере](./media/documentdb-python-application/image16.png)
 3. Щелкните **Создать или очистить базу данных голосования** , чтобы создать базу данных.
    
     ![Снимок экрана: страница создания веб-приложения — сведения о разработке](./media/documentdb-python-application/image17.png)
@@ -371,7 +372,7 @@ def vote():
 6. Остановите отладку проекта, нажав клавиши SHIFT+F5.
 
 ## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>Шаг 5. Развертывание веб-приложения на веб-сайтах Azure
-Теперь, когда у вас есть готовое приложение и оно корректно работает в DocumentDB, мы развернем его на веб-сайтах Azure.
+Теперь, когда у вас есть готовое приложение и оно корректно работает в Cosmos DB, мы развернем его на веб-сайтах Azure.
 
 1. Правой кнопкой мыши щелкните проект в обозревателе решений (перед этим убедитесь, что он не запущен локально) и выберите пункт **Опубликовать**.  
    
@@ -398,7 +399,7 @@ def vote():
 Если на странице голосования появляется сообщение об ошибке, а имя проекта отличается от **tutorial**, убедитесь, что файл **\_\_init\_\_.py** ссылается на имя нужного проекта в строке `import tutorial.view`.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Поздравляем! Вы только что закончили свое первое веб-приложение на Python с помощью Azure DocumentDB и опубликовали его в службе веб-сайтов Azure.
+Поздравляем! Вы только что закончили свое первое веб-приложение на Python с помощью Cosmos DB и опубликовали его в службе веб-сайтов Azure.
 
 Мы регулярно обновляем и улучшаем эту статью на основе ваших отзывов.  После завершения учебника воспользуйтесь кнопками голосования в верхней и нижней части страницы, а также оставьте отзыв о том, что следует улучшить по вашему мнению. Если вы хотите, чтобы мы связались с вами, укажите ваш электронный адрес в комментариях.
 

@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 33ddab887ade0d788129367eec4db7e70f35e0b9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 68d409c7c7ce14c988d8335f6ed54e9be69bcba7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -243,7 +244,7 @@ ms.lasthandoff: 04/25/2017
 
 * [Подключение устройства к Azure IoT][lnk-connect-device]
 * [How to get started with device management (Node)][lnk-device-management] (Начало работы с управлением устройствами (Node))
-* [Пакет SDK для шлюза IoT (бета-версия): приступая к работе с Linux][lnk-gateway-SDK]
+* [Explore Azure IoT Edge architecture on Linux][lnk-gateway-SDK] (Приступая к работе с архитектурой Azure IoT Edge в Linux)
 
 Сведения о том, как расширить решение для Интернета вещей и обрабатывать сообщения, отправляемые с устройства в облако в большом количестве, см. [здесь][lnk-process-d2c-tutorial].
 
