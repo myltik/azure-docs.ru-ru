@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/5/2017
 ms.author: rambala
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
 ms.openlocfilehash: 49ed6dd2184e69487cedae81a89665f5ccc3843d
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/31/2017
 
 
