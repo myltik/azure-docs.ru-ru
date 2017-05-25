@@ -12,16 +12,17 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
-ms.author: padmavc
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.date: 01/27/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
 ms.openlocfilehash: dc760b4c08d0e1afff3bc1276f6ed2367d67629e
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/01/2017
 
-
 ---
+
 # <a name="start-or-enable-logging-of-as2-x12-and-edifact-messages-to-monitor-success-errors-and-message-properties"></a>Запуск или включение ведения журнала сообщений AS2, X&12; и EDIFACT для отслеживания успешно доставленных сообщений, ошибок и свойств сообщений
 
 Взаимодействие B2B включает обмен сообщениями между двумя запущенными бизнес-процессами или приложениями. Связь определяет соглашение между бизнес-процессами. Когда связь установлена, можно настроить отслеживание сообщений, чтобы проверить состояние взаимодействия. Для получения более подробных сведений и рекомендаций по отладке можно настроить в учетной записи интеграции систему диагностики.

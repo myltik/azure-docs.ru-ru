@@ -12,16 +12,17 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: jehollan
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.date: 10/18/2016
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
 ms.openlocfilehash: d6840be7afc05d8d563215e370c59cf41a206e4f
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/01/2017
 
-
 ---
+
 # <a name="check-the-performance-and-start-diagnostic-logging-and-alerts-of-your-workflows-in-logic-apps"></a>Проверка производительности и включение ведения журналов и оповещений системы диагностики для рабочих процессов в приложениях логики
 После [создания приложения логики](../logic-apps/logic-apps-create-a-logic-app.md)вы можете просмотреть полный журнал его выполнения на портале Azure.  Вы также можете настроить службы, например систему диагностики Azure и службу оповещений Azure, которые будут отслеживать события в режиме реального времени и предупреждать вас о критических событиях, например если в течение часа более 5 запусков завершаются сбоем.
 

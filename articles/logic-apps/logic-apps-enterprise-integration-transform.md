@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9369b90471ee775664b942b21ceb450b8852eafd
 ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -71,10 +73,5 @@ ms.openlocfilehash: a8684769e73dd3f7a76cba9c78046abceb842918
 ## <a name="learn-more"></a>Подробнее
 * [Обзор пакета интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise")  
 * [Узнайте больше о картах](../logic-apps/logic-apps-enterprise-integration-maps.md "Узнайте о картах интеграции Enterprise")  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
