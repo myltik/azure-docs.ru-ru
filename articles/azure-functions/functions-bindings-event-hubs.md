@@ -16,9 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/02/2016
 ms.author: wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: c8e9f9709d13295c9414e525f1f60abf0d0accb7
-ms.openlocfilehash: 0bfbfd3828aacdee0b6630ced034f2c1e0451abd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 04a8563a0035992cfa4b7d25a4edc14e1db80e44
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -50,7 +52,7 @@ ms.openlocfilehash: 0bfbfd3828aacdee0b6630ced034f2c1e0451abd
 }
 ```
 
-`consumerGroup` — необязательное свойство, которое используется для задания [группы потребителей](../event-hubs/event-hubs-what-is-event-hubs.md#event-consumers), используемой для подписки на события в концентраторе. Если аргумент опущен, используется группа потребителей `$Default`.  
+`consumerGroup` — необязательное свойство, которое используется для задания [группы потребителей](../event-hubs/event-hubs-features.md#event-consumers), используемой для подписки на события в концентраторе. Если аргумент опущен, используется группа потребителей `$Default`.  
 `connection` — имя параметра приложения, содержащего строку подключения к пространству имен концентратора событий.
 Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Для активации триггера эта строка подключения должна обладать, по крайней мере, правами на чтение.
 
@@ -233,9 +235,4 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

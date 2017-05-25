@@ -1,6 +1,6 @@
 ---
-title: "Использование JDBC для запроса Hive в Azure HDInsight"
-description: "Узнайте, как использовать JDBC для подключения к Hive в Azure HDInsight и удаленного выполнения запросов данных, хранящихся в облаке."
+title: "Выполнение запроса Hive с помощью JDBC в Azure HDInsight | Документация Майкрософт"
+description: "Узнайте, как подключиться к Hive в кластерах Hadoop в Azure HDInsight с помощью JDBC."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,46 +14,44 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 05/16/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: e03cad1e221c94d55609c182756f5927796c6a80
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: dd76e2450be2b05d011de7ded49bfa9630190e71
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="connect-to-hive-on-azure-hdinsight-using-the-hive-jdbc-driver"></a>Подключение к Hive в Azure HDInsight с помощью драйвера Hive JDBC
+# <a name="query-hive-through-jdbc"></a>Выполнение запроса Hive с помощью JDBC
 
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-В этом документе рассматривается использование JDBC из приложения Java для удаленной отправки запросов Hive в кластер HDInsight. Вы узнаете, как подключиться из клиента SQuirreL SQL и как подключиться программным способом из Java.
+Узнайте, как использовать JDBC из приложения Java для отправки запросов Hive в Hadoop в Azure HDInsight. Из этой статьи вы узнаете, как подключиться программным способом или из клиента SQuirreL SQL.
 
 Дополнительные сведения об интерфейсе JDBC Hive см. в статье [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
-
-* Hadoop в кластере HDInsight. Будут работать кластеры либо под управлением Linux, либо под управлением Windows.
+* Hadoop в кластере HDInsight. Работают кластеры либо под управлением Linux, либо под управлением Windows.
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Чтобы узнать больше, ознакомьтесь с разделом [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL представляет собой клиентское приложение JDBC.
 
-Чтобы собрать и запустить пример приложения Java, используемый в этой статье, вам потребуется следующее.
-
 * [Java Developer Kit (JDK) версии 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) или более поздней версии.
+
 * [Apache Maven](https://maven.apache.org). Maven — система сборки для проектов Java, используемая в проекте, связанном с данной статьей.
 
-## <a name="connection-string"></a>Строка подключения
+## <a name="jdbc-connection-string"></a>Строка подключения JDBC
 
-Подключения JDBC к кластеру HDInsight в Azure осуществляются через порт 443, а защита трафика обеспечивается с помощью протокола SSL. Открытый шлюз, за которым находятся кластеры, перенаправляет трафик к порту, который фактически прослушивается HiveServer2. Поэтому обычная строка подключения будет следующей:
+Подключения JDBC к кластеру HDInsight в Azure осуществляются через порт 443, а защита трафика обеспечивается с помощью протокола SSL. Открытый шлюз, за которым находятся кластеры, перенаправляет трафик к порту, который фактически прослушивается HiveServer2. Ниже приведен пример строки подключения:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
 
-Замените **CLUSTERNAME** именем кластера HDInsight.
+Замените `CLUSTERNAME` на имя вашего кластера HDInsight.
 
 ## <a name="authentication"></a>Аутентификация
 
@@ -67,23 +65,23 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 ## <a name="connect-with-squirrel-sql-client"></a>Подключение с использованием клиента SQuirreL SQL
 
-SQuirreL SQL — клиент JDBC, который можно использовать для удаленного выполнения запросов Hive с кластером HDInsight. При выполнении следующих действий вы скачаете и настроите драйверы для Hive. При этом предполагается, что SQuirreL SQL уже установлен.
+SQuirreL SQL — клиент JDBC, который можно использовать для удаленного выполнения запросов Hive с кластером HDInsight. В следующих шагах предполагается, что SQuirreL SQL уже установлен.
 
 1. Скопируйте драйверы JDBC Hive из кластера HDInsight.
 
     * Чтобы скачать необходимые JAR-файлы, для **HDInsight под управлением Linux** сделайте следующее.
 
-        1. Создайте каталог, в котором будут размещаться файлы. Пример: `mkdir hivedriver`.
-        2. Из командной строки (Bash, PowerShell или другой) перейдите в новый каталог и используйте следующие команды для копирования файлов из кластера HDInsight.
+        1. Создайте каталог, содержащий файлы. Например, `mkdir hivedriver`.
 
-                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
-                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+        2. В командной строке выполните следующие команды, чтобы копировать файлы из кластера HDInsight.
 
-            Замените **USERNAME** именем учетной записи пользователя SSH для кластера. Замените **CLUSTERNAME** именем кластера HDInsight.
+            ```bash
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+            ```
 
-        > [!NOTE]
-        > В средах Windows может не быть команды `scp`. В этом случае используйте служебную программу PSCP. Ее можно скачать со страницы [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+            Замените `USERNAME` именем учетной записи пользователя SSH для кластера. Замените `CLUSTERNAME` именем кластера HDInsight.
 
     * Чтобы скачать JAR-файлы, для **HDInsight под управлением Windows** сделайте следующее.
 
@@ -112,11 +110,11 @@ SQuirreL SQL — клиент JDBC, который можно использов
 
     ![Вкладка "Драйверы" в левой части окна](./media/hdinsight-connect-hive-jdbc-driver/squirreldrivers.png)
 
-3. Среди значков в верхней части диалогового окна **Драйверы** нажмите значок **+** для создания драйвера.
+3. Среди значков в верхней части диалогового окна **Drivers** (Драйверы) щелкните значок **+** для создания драйвера.
 
     ![Значки драйверов](./media/hdinsight-connect-hive-jdbc-driver/driversicons.png)
 
-4. В диалоговом окне "Добавление драйвера" укажите следующие сведения.
+4. В диалоговом окне Add Driver (Добавление драйвера) укажите следующие сведения.
 
     * **Имя:** Hive.
     * **Пример URL-адреса:** `jdbc:hive2://localhost:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`
@@ -143,13 +141,13 @@ SQuirreL SQL — клиент JDBC, который можно использов
 
     * **Имя пользователя.** Имя пользователя для учетной записи входа кластера HDInsight. Значение по умолчанию — `admin`.
 
-    * **Пароль.** Пароль для учетной записи входа кластера. Это пароль, который вы указали при создании кластера HDInsight.
+    * **Пароль.** Пароль для учетной записи входа кластера.
 
     ![диалоговое окно "Добавить псевдоним"](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
-    Нажмите кнопку **Проверить**, чтобы убедиться, что подключение работает. При появлении диалогового окна **Connect to: Hive on HDInsight** (Подключение: Hive в HDInsight) выберите **Подключиться**, чтобы выполнить проверку. Если проверка пройдет успешно, вы увидите диалоговое окно **Подключение выполнено успешно**.
+    Нажмите кнопку **Проверить**, чтобы убедиться, что подключение работает. При появлении диалогового окна **Connect to: Hive on HDInsight** (Подключение: Hive в HDInsight) выберите **Подключиться**, чтобы выполнить проверку. Если проверка пройдет успешно, вы увидите диалоговое окно **Connection successful** (Подключение выполнено успешно).
 
-    Для сохранения псевдонима подключения нажмите кнопку **ОК** в нижней части диалогового окна **Добавить псевдоним**.
+    Чтобы сохранить псевдоним подключения, в нижней части диалогового окна **Add Alias** (Добавить псевдоним) нажмите кнопку **ОК**.
 
 7. В раскрывающемся списке **Подключиться к** в верхней части окна SQuirreL SQL выберите **Hive on HDInsight** (Hive в HDInsight). При появлении запроса выберите **Подключиться**.
 
@@ -169,7 +167,7 @@ SQuirreL SQL — клиент JDBC, который можно использов
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Непредвиденная ошибка при попытке открыть подключение к SQL
 
-**Признаки.** При подключении к кластеру HDInsight версии 3.3 или 3.4 может появиться сообщение о возникновении непредвиденной ошибки. Трассировка стека для этой ошибки начнется со следующих строк:
+**Признаки.** При подключении к кластеру HDInsight версии 3.3 или 3.4 может появиться сообщение о возникновении непредвиденной ошибки. Трассировка стека для этой ошибки начинается со следующих строк:
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -177,7 +175,7 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**Причина.** Эта ошибка возникает при несоответствии версии файла commons-codec.jar, используемого SQuirreL, и файла, требуемого для компонентов Hive JDBC, скачанных из кластера HDInsight.
+**Причина.** Эта ошибка возникает при несоответствии версии файла commons-codec.jar, используемого SQuirreL, и файла, требуемого для компонентов Hive JDBC.
 
 **Решение.** Чтобы устранить эту ошибку, выполните приведенные далее действия.
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
-ms.lasthandoff: 01/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: de5e1732dab570b80692efcdd08e4ed2d8c98800
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -101,7 +102,7 @@ ms.lasthandoff: 01/07/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения об управлении доступом к базе данных и именами для входа см. в статье [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](sql-database-manage-logins.md).
 * Дополнительные сведения о пользователях автономной базы данных см. в статье [Пользователи автономной базы данных — создание переносимой базы данных](https://msdn.microsoft.com/library/ff929188.aspx).
-* Сведения об использовании и настройке активной георепликации см. в статье [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md).
-* Сведения об использовании геовосстановления см. в разделе [Геовосстановление](sql-database-recovery-using-backups.md#geo-restore).
+* Сведения об использовании и настройке активной георепликации см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md).
+* Сведения об использовании геовосстановления см. в [этом разделе](sql-database-recovery-using-backups.md#geo-restore).
 
 

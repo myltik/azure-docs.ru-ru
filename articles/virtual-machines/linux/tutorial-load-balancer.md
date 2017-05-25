@@ -13,20 +13,29 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 5ff735100132e8571871b41ac2309334662adb7f
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 079289f385266293ecfce7cd02b1673a774afbbe
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения
-В этом руководстве вы узнаете о различных компонентах балансировщика нагрузки Azure Load Balancer, распределяющего трафик и обеспечивающего высокую доступность. Чтобы ознакомиться с работой балансировщика нагрузки, нужно создать приложение Node.js, выполняющееся на трех виртуальных машинах Linux.
+Балансировка нагрузки обеспечивает более высокий уровень доступности за счет распределения входящих запросов между несколькими виртуальными машинами. В этом руководстве вы узнаете о различных компонентах балансировщика нагрузки Azure Load Balancer, распределяющего трафик и обеспечивающего высокую доступность. Вы узнаете, как выполнять такие задачи.
 
-Для работы с этим руководством можно использовать последнюю версию [Azure CLI 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * Создание Azure Load Balancer
+> * Создание пробы работоспособности балансировщика нагрузки
+> * создавать правила трафика подсистемы балансировки нагрузки;
+> * создавать базовое приложение Node.js с помощью файла конфигурации cloud-init;
+> * создавать виртуальные машины и присоединять их к подсистеме балансировки нагрузки;
+> * просматривать подсистему балансировки нагрузки в действии;
+> * добавлять и удалять виртуальные машины из подсистемы балансировки нагрузки.
+
+Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="azure-load-balancer-overview"></a>Обзор Azure Load Balancer
@@ -38,22 +47,22 @@ Azure Load Balancer представляет собой балансировщи
 
 Чтобы управлять потоком трафика, нужно определить правила балансировщика нагрузки для определенных портов и протоколов, сопоставленных с виртуальными машинами.
 
-Если в предыдущем руководстве вы дошли до шага [Создание набора для масштабирования виртуальной машины](tutorial-create-vmss.md), балансировщик нагрузки должен быть уже создан. Все эти компоненты уже были настроены в составе масштабируемого набора.
+Если в предыдущем руководстве вы дошли до шага [Создание набора для масштабирования виртуальной машины](tutorial-create-vmss.md), балансировщик нагрузки должен быть уже создан. Все эти компоненты были настроены в составе масштабируемого набора.
 
 
 ## <a name="create-azure-load-balancer"></a>Создание Azure Load Balancer
-Этот раздел подробно описывает, как создать и настроить каждый из компонентов балансировщика нагрузки. Прежде чем создать балансировщик нагрузки, выполните команду [az group create](/cli/azure/group#create) для создания группы ресурсов. В следующем примере создается группа ресурсов *myRGLoadBalancer* в расположении *westus*.
+Этот раздел подробно описывает, как создать и настроить каждый из компонентов балансировщика нагрузки. Прежде чем создать балансировщик нагрузки, выполните команду [az group create](/cli/azure/group#create) для создания группы ресурсов. В следующем примере создается группа ресурсов с именем *myResourceGroupLoadBalancer* в расположении *eastus*.
 
 ```azurecli
-az group create --name myRGLoadBalancer --location westus
+az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Создание общедоступного IP-адреса
-Для доступа к приложению через Интернет требуется общедоступный IP-адрес для балансировщика нагрузки. Создайте общедоступный IP-адрес с помощью команды [az network public-ip create](/cli/azure/public-ip#create). В следующем примере создается общедоступный IP-адрес *myPublicIP* в группе ресурсов *myRGLoadBalancer*.
+Для доступа к приложению через Интернет требуется общедоступный IP-адрес для балансировщика нагрузки. Создайте общедоступный IP-адрес с помощью команды [az network public-ip create](/cli/azure/public-ip#create). В следующем примере создается общедоступный IP-адрес *myPublicIP* в группе ресурсов *myResourceGroupLoadBalancer*.
 
 ```azurecli
 az network public-ip create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP
 ```
 
@@ -62,7 +71,7 @@ az network public-ip create \
 
 ```azurecli
 az network lb create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myLoadBalancer \
     --frontend-ip-name myFrontEndPool \
     --backend-pool-name myBackEndPool \
@@ -78,7 +87,7 @@ az network lb create \
 
 ```azurecli
 az network lb probe create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
@@ -92,7 +101,7 @@ az network lb probe create \
 
 ```azurecli
 az network lb rule create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --lb-name myLoadBalancer \
     --name myLoadBalancerRule \
     --protocol tcp \
@@ -112,7 +121,7 @@ az network lb rule create \
 
 ```azurecli
 az network vnet create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myVnet \
     --subnet-name mySubnet
 ```
@@ -121,7 +130,7 @@ az network vnet create \
 
 ```azurecli
 az network nsg create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myNetworkSecurityGroup
 ```
 
@@ -129,7 +138,7 @@ az network nsg create \
 
 ```azurecli
 az network nsg rule create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nsg-name myNetworkSecurityGroup \
     --name myNetworkSecurityGroupRule \
     --priority 1001 \
@@ -142,7 +151,7 @@ az network nsg rule create \
 ```bash
 for i in `seq 1 3`; do
     az network nic create \
-        --resource-group myRGLoadBalancer \
+        --resource-group myResourceGroupLoadBalancer \
         --name myNic$i \
         --vnet-name myVnet \
         --subnet mySubnet \
@@ -206,7 +215,7 @@ runcmd:
 
 ```azurecli
 az vm availability-set create \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myAvailabilitySet \
     --platform-fault-domain-count 3 \
     --platform-update-domain-count 2
@@ -217,7 +226,7 @@ az vm availability-set create \
 ```bash
 for i in `seq 1 3`; do
     az vm create \
-        --resource-group myRGLoadBalancer \
+        --resource-group myResourceGroupLoadBalancer \
         --name myVM$i \
         --availability-set myAvailabilitySet \
         --nics myNic$i \
@@ -237,7 +246,7 @@ done
 
 ```azurecli
 az network public-ip show \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
@@ -258,7 +267,7 @@ az network public-ip show \
 
 ```azurecli
 az network nic ip-config address-pool remove \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
     --ip-config-name ipConfig1 \
     --lb-name myLoadBalancer \
@@ -272,7 +281,7 @@ az network nic ip-config address-pool remove \
 
 ```azurecli
 az network nic ip-config address-pool add \
-    --resource-group myRGLoadBalancer \
+    --resource-group myResourceGroupLoadBalancer \
     --nic-name myNic2 \
     --ip-config-name ipConfig1 \
     --lb-name myLoadBalancer \
@@ -281,7 +290,19 @@ az network nic ip-config address-pool add \
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этом руководстве вы узнали о создании балансировщика нагрузки для виртуальных машин. Для получения дополнительных сведений о компонентах виртуальных сетей Azure перейдите к указанному ниже руководству.
+В рамках этого руководства вы создали подсистему балансировки нагрузки и присоединили к ней виртуальные машины. Вы научились выполнять следующие задачи:
 
-[Управление сетевым взаимодействием виртуальных машин](tutorial-virtual-network.md)
+> [!div class="checklist"]
+> * Создание Azure Load Balancer
+> * Создание пробы работоспособности балансировщика нагрузки
+> * создавать правила трафика подсистемы балансировки нагрузки;
+> * создавать базовое приложение Node.js с помощью файла конфигурации cloud-init;
+> * создавать виртуальные машины и присоединять их к подсистеме балансировки нагрузки;
+> * просматривать подсистему балансировки нагрузки в действии;
+> * добавлять и удалять виртуальные машины из подсистемы балансировки нагрузки.
+
+Для получения дополнительных сведений о компонентах виртуальных сетей Azure перейдите к указанному ниже руководству.
+
+> [!div class="nextstepaction"]
+> [Управление виртуальными сетями Azure и виртуальными машинами Linux с помощью Azure CLI](tutorial-virtual-network.md)
 

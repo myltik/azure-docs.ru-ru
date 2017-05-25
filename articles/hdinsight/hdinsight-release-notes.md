@@ -1,6 +1,6 @@
 ---
 title: "Заметки о выпуске для компонентов Hadoop в Azure HDInsight | Документация Майкрософт"
-description: "Последние заметки о выпуске и версии компонентов Hadoop в Azure HDInsight. Советы по разработке и подробные сведения о Hadoop, Apache Storm и HBase."
+description: "Последние заметки о выпуске и версии компонентов Hadoop в Azure HDInsight. Советы по разработке и подробные сведения о Spark, R Server, Hive и т. д."
 services: hdinsight
 documentationcenter: 
 editor: cgronlun
@@ -9,30 +9,31 @@ author: nitinme
 tags: azure-portal
 ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: e9bcb0cb33eefc743ed220cb2a874f9ae11b5fe7
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 782cab231e1b152c720abebff1fc76ae0559d12a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Заметки о выпуске для компонентов Hadoop в Azure HDInsight
 
-Эта статья содержит сведения о **последних** обновлениях выпуска Azure HDInsight. Дополнительные сведения о предыдущих выпусках см. в [архиве заметок о выпуске HDInsight](hdinsight-release-notes-archive.md).
+Эта статья содержит сведения о **последних** обновлениях выпуска Azure HDInsight. Дополнительные сведения о предыдущих выпусках см. в статье [Заметки о выпуске для компонентов Hadoop в Azure HDInsight (архив)](hdinsight-release-notes-archive.md).
 
 > [!IMPORTANT]
 > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в [статье об управлении версиями HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="04062017---general-availability-of-hdinsight-36"></a>Общедоступная версия HDInsight 3.6 от 06.04.2017
 
-* В этом выпуске повышена версия Azure HDInsight до 3.6, которая основана на HDP 2.6. Заметки о выпуске HDP 2.6 доступны [здесь](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html), дополнительные сведения о версиях HDInsight доступны [здесь](hdinsight-component-versioning.md). Версия HDInsight 3.6 доступна для следующих рабочих нагрузок.
+* В этом выпуске повышена версия Azure HDInsight до 3.6, которая основана на HDP 2.6. Заметки о выпуске HDP 2.6 доступны [здесь](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html), дополнительные сведения о версиях HDInsight доступны [здесь](hdinsight-component-versioning.md). Версия HDInsight 3.6 доступна для следующих рабочих нагрузок:
 
     * Hadoop 2.7.3
     * HBase 1.1.2
@@ -40,7 +41,7 @@ ms.lasthandoff: 04/10/2017
     * Spark 2.1.0
     * Interactive Hive 2.1.0
 
-* **Поддержка Hive View 2.0**. Это должно улучшить взаимодействие с пользователем в Interactive Hive. Дополнительные сведения см. в [документации Hortonworks](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
+* **Поддержка Hive View 2.0**. Это должно улучшить взаимодействие с пользователем в Interactive Hive. Дополнительные сведения см. в [документации по Hortonworks](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
 
 * **Повышение производительности с помощью Hive LLAP**. Дополнительные сведения см. в [документации Hortonworks](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/).
 
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/10/2017
 
         HADOOP_CLASSPATH=$(hbase mapredcp):/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
 
-    Вместо этого следует использовать другой синтаксис:
+    Вместо этого используйте следующий синтаксис:
 
         HADOOP_CLASSPATH=/path/to/hbase-protocol.jar:/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
 
@@ -76,7 +77,7 @@ ms.lasthandoff: 04/10/2017
 
 ## <a name="11162016---release-of-r-server-90-on-hdinsight-35-spark-20"></a>Выпуск R Server 9.0 в HDInsight 3.5 (Spark 2.0) от 16.11.2016
 *    Кластеры R Server теперь включают параметры для двух версий: R Server 9.0 в HDI 3.5 (Spark 2.0) и R Server 8.0 в HDI 3.4 (Spark 1.6).
-*    R Server 9.0 в HDI 3.5 (Spark 2.0) основан на R 3.3.2 и содержит новые функции источника данных ScaleR под названием RxHiveData и RxParquetData. Они позволяют передавать данные из Hive и Parquet напрямую в таблицы данных Spark для анализа с помощью ScaleR. Дополнительные сведения об этих функциях в R см. в интернет-справке. Ее можно вызвать, выполнив команды ?RxHiveData и ?RxParquetData.
+*    R Server 9.0 в HDI 3.5 (Spark 2.0) основан на R 3.3.2 и содержит новые функции источника данных ScaleR под названием RxHiveData и RxParquetData. Они позволяют передавать данные из Hive и Parquet напрямую в таблицы данных Spark для анализа с помощью ScaleR. Дополнительные сведения об этих функциях в R см. в интернет-справке. Ее можно вызвать, выполнив команды **?RxHiveData** и **?RxParquetData**.
 *    Теперь выпуск RStudio Server Community Edition устанавливается по умолчанию (с параметром opt-out) в колонке "Настройка кластера" как часть потока подготовки.
 
 ## <a name="11092016---release-of-spark-20-on-hdinsight"></a>Выпуск Spark 2.0 в HDInsight от 09.11.2016
@@ -86,7 +87,7 @@ ms.lasthandoff: 04/10/2017
 * Универсальный код ресурса (URI), используемый для доступа к граничному узлу, теперь имеет формат **имя_кластера**-ed-ssh.azurehdinsight.net.
 * Подготовка кластеров R Server в HDInsight упрощена.
 * R Server в HDInsight теперь доступен как обычный тип кластера HDInsight "R Server" и больше не устанавливается как отдельное приложение HDInsight. Теперь граничный узел и двоичные файлы R Server подготавливаются в рамках развертывания кластера R Server. Это ускоряет подготовку и повышает ее надежность. Модель ценообразования для R Server обновлена соответствующим образом.
-* Стоимость кластера R Server теперь объединяет цену уровня "Стандартный" и доплату за R Server. Уровень "Премиум" будет зарезервирован для функций этого уровня, доступных для других типов кластеров, и не будет использоваться для кластеров R Server. Это изменение не влияет на действующие цены для R Server. Оно влияет только на то, как платежи будут представлены в счете. Все существующие кластеры R Server по-прежнему будут поддерживаться, а шаблоны ARM будут функционировать до уведомления об устаревании. **Рекомендуется обновить скрипты развертывания для использования нового шаблона ARM.**
+* Стоимость кластера R Server теперь объединяет цену уровня "Стандартный" и доплату за R Server. Уровень "Премиум" зарезервирован для функций этого уровня, доступных для других типов кластеров, и не используется для кластеров R Server. Это изменение не влияет на действующие цены для R Server. Оно влияет только на то, как платежи будут представлены в счете. Все имеющиеся кластеры R Server по-прежнему поддерживаются, а шаблоны Resource Manager функционируют до уведомления об устаревании. **Мы советуем обновить скрипты развертывания для использования нового шаблона Resource Manager.**
 
 ## <a name="08302016---release-of-r-server-on-hdinsight"></a>Выпуск R Server в HDInsight от 30.08.2016
 Полные номера версий кластеров HDInsight под управлением Linux для данного выпуска:

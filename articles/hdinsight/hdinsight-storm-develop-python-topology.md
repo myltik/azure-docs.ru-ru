@@ -1,33 +1,35 @@
 ---
-title: "Использование компонентов Python в топологии Storm на HDinsight | Документация Майкрософт"
-description: "Узнайте, как можно использовать компоненты Python с Apache Storm в Azure HDInsight."
+title: "Apache Storm с компонентами Python. Azure HDInsight | Документация Майкрософт"
+description: "Сведения о создании топологии Apache Storm, использующей компоненты Python."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
+keywords: apache storm python
 ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 05/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 39a8eb9ce6a5363f541f02c33cd46d56fdabcae8
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 3fc4f193d72d578711285a5b4c2062be65cf354c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Разработка топологий Apache Storm с помощью Python в HDInsight
 
-Узнайте, как использовать компоненты Python со Storm в HDInsight. Apache Storm поддерживает несколько языков и даже позволяет объединять компоненты из нескольких языков в одной топологии. Платформа Flux (впервые появилась в Storm 0.10.0) позволяет легко создавать решения, использующие компоненты Python.
+В этой статье приведены сведения о создании топологии Apache Storm, использующей компоненты Python. Apache Storm поддерживает несколько языков и даже позволяет объединять компоненты из нескольких языков в одной топологии. Платформа Flux (впервые появилась в Storm 0.10.0) позволяет легко создавать решения, использующие компоненты Python.
 
 > [!IMPORTANT]
-> Сведения в этом документе были проверены с использованием Storm в HDInsight 3.5. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Чтобы узнать больше, ознакомьтесь с [нерекомендуемыми версиями HDInsight 3.3 и 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Сведения в этом документе были проверены с использованием Storm в HDInsight 3.5. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе о [нерекомендуемых версиях HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
 
 Код для этого проекта доступен здесь: [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
@@ -43,13 +45,13 @@ ms.lasthandoff: 04/12/2017
 
 ## <a name="storm-multi-language-support"></a>Многоязыковая поддержка Storm
 
-Среда разработки Storm была разработана для работы с компонентами, написанными на любом языке программирования. Компоненты должны "понимать", как работать с [определением Thrift для Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). В рамках проекта Apache Storm предоставляется модуль для Python, который позволяет легко взаимодействовать со Storm. Этот модуль можно найти по адресу [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Среда разработки Apache Storm была разработана для работы с компонентами, написанными на любом языке программирования. Компоненты должны "понимать", как работать с [определением Thrift для Storm](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). В рамках проекта Apache Storm предоставляется модуль для Python, который позволяет легко взаимодействовать со Storm. Этот модуль можно найти по адресу [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
-Apache Storm является процессом Java, который работает на виртуальной машине Java (JVM). Компоненты, написанные на других языках, выполняются как подпроцессы. Storm взаимодействуют с этими подпроцессами с помощью сообщений JSON, отправляемых через стандартные потоки stdin и stdout. Дополнительные сведения о связи между компонентами можно найти в документации по [многоязыковому протоколу](https://storm.apache.org/documentation/Multilang-protocol.html) .
+Storm является процессом Java, который работает на виртуальной машине Java (JVM). Компоненты, написанные на других языках, выполняются как подпроцессы. Storm взаимодействуют с этими подпроцессами с помощью сообщений JSON, отправляемых через стандартные потоки stdin и stdout. Дополнительные сведения о связи между компонентами можно найти в документации по [многоязыковому протоколу](https://storm.apache.org/documentation/Multilang-protocol.html) .
 
-## <a name="python-and-the-flux-framework"></a>Python и платформа Flux
+## <a name="python-with-the-flux-framework"></a>Python с платформой Flux
 
-Платформа Flux позволяет определять топологии Storm отдельно от компонентов. Хотя компоненты в этом примере написаны на языке Python, топология определена на языке YAML. Ниже приведен пример указания ссылки на компонент Python в документе YAML.
+Платформа Flux позволяет определять топологии Storm отдельно от компонентов. Она использует YAML для определения топологии Storm. Ниже приведен пример указания ссылки на компонент Python в документе YAML.
 
 ```yaml
 # Spout definitions
@@ -77,7 +79,7 @@ Flux ожидает, что сценарии Python находятся в кат
 </resource>
 ```
 
-Как упоминалось ранее, существует файл `storm.py`, который реализует определение Thrift для Storm. Платформа Flux добавляет его автоматически при выполнении сборки проекта, поэтому не нужно беспокоиться о его добавлении.
+Как упоминалось ранее, существует файл `storm.py`, который реализует определение Thrift для Storm. Платформа Flux добавляет `storm.py` автоматически при выполнении сборки проекта, поэтому не нужно беспокоиться о его добавлении.
 
 ## <a name="build-the-project"></a>Сборка проекта
 
@@ -102,21 +104,21 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 После запуска топология выдает в локальную консоль информацию следующего вида.
 
-```
-24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
-24302 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting the
-24302 [Thread-28] INFO  o.a.s.t.ShellBolt - ShellLog pid:2437, name:counter-bolt Emitting years:160
-24302 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=the, count=599}
-24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=seven, count=302}
-24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=dwarfs, count=143}
-24303 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
-24303 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting cow
-^C24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
-```
 
-Чтобы остановить топологию, нажмите клавиши CTRL+C.
+    24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
+    24302 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting the
+    24302 [Thread-28] INFO  o.a.s.t.ShellBolt - ShellLog pid:2437, name:counter-bolt Emitting years:160
+    24302 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=the, count=599}
+    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=seven, count=302}
+    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=dwarfs, count=143}
+    24303 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
+    24303 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting cow
+    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
 
-## <a name="run-the-topology-on-hdinsight"></a>Запуск топологии в HDInsight
+
+Чтобы остановить топологию, нажмите сочетание клавиш __CTRL+C__.
+
+## <a name="run-the-storm-topology-on-hdinsight"></a>Запуск топологии Storm в HDInsight
 
 1. Воспользуйтесь приведенной ниже командой, чтобы скопировать файл `WordCount-1.0-SNAPSHOT.jar` в кластер Storm в HDInsight.
 
@@ -145,7 +147,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 > [!NOTE]
 > После запуска топология Storm выполняется до тех пор, пока она не будет остановлена. Чтобы остановить топологию, используйте один из следующих методов:
 >
-> * выполните команду `storm kill TOPOLOGYNAME` в командной строке;
+> * выполните команду `storm kill TOPOLOGYNAME` из командной строки;
 > * нажмите кнопку **Kill** (Завершить) в пользовательском интерфейсе Storm.
 
 

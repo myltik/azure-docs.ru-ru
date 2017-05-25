@@ -1,6 +1,6 @@
 ---
 title: "Сценарий Azure PowerShell. Настройка георепликации базы данных SQL в составе пула | Документация Майкрософт"
-description: "Пример сценария PowerShell Azure для активной георепликации базы данных SQL Azure в составе пула."
+description: "Пример сценария Azure PowerShell для настройки активной георепликации для базы данных SQL Azure в составе пула с помощью PowerShell"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -17,16 +17,16 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0971209e69917db492d19afd6708f5a2dc3463c7
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 294ba61b23e8cc1ef1ecf1bf538934393a4f9768
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
 # <a name="configure-active-geo-replication-for-a-pooled-azure-sql-database-using-powershell"></a>Настройка активной георепликации для базы данных SQL Azure в составе пула с помощью PowerShell
 
-Этот пример сценария PowerShell настраивает активную георепликацию для базы данных в составе пула и выполняет для нее отработку отказа на вторичную реплику.
+Этот пример сценария PowerShell настраивает активную георепликацию для базы данных в эластичном пуле и выполняет для нее отработку отказа на вторичную реплику.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

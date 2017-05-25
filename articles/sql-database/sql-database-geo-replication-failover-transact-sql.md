@@ -15,26 +15,28 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 6d5ee44b57ce3e60b72ff2a2d182f2b8a39ecf81
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 6ea2cfcf41900ecbf4d254cc4a195848144a0fa0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью Transact-SQL
 
-В этой статье объясняется, как запустить отработку отказа в базе данных-получателе SQL Azure с помощью Transact-SQL. Сведения о настройке георепликации для баз данных SQL Azure см. в [этой статье](sql-database-geo-replication-transact-sql.md).
+В этой статье объясняется, как запустить отработку отказа в базе данных-получателе SQL Azure с помощью Transact-SQL. Сведения о настройке георепликации для баз данных SQL Azure см. в статье [Настройка активной георепликации базы данных SQL Azure с помощью Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
 Чтобы инициировать отработку отказа, необходимо следующее:
 
-* Имя для входа с ролью DBManager в базе данных-источнике, привилегиями db_ownership для локальной базы данных, которая будет геореплицирована. Кроме того, это имя для входа будет выступать в роли DBManager на серверах-партнерах, для которых вы настроите георепликацию.
-* SQL Server Management Studio (SSMS);
+* имя для входа с ролью DBManager в базе данных-источнике;
+* привилегии db_ownership локальной базы данных, которую вы собираетесь геореплицировать;
+* роль DBManager на серверах-партнерах, для которых вы настроите георепликацию;
+* последняя версия SQL Server Management Studio (SSMS).
 
 > [!IMPORTANT]
 > Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
+>  
 
 ## <a name="initiate-a-planned-failover-promoting-a-secondary-database-to-become-the-new-primary"></a>Запуск плановой отработки отказа для превращения базы данных-получателя в базу данных-источник
 Инструкция **ALTER DATABASE** позволяет в запланированном порядке сделать базу данных-получатель источником. При этом текущая база данных-источник станет получателем. Эта инструкция выполняется в базе данных master на логическом сервере базы данных SQL Azure, на котором находится геореплицированная база данных-получатель, статус которой повышается. Эта функция предназначена для плановой отработки отказа (как во время отработки аварийного восстановления). Чтобы ее использовать, нужно, чтобы база данных-источник была доступна.
@@ -85,10 +87,10 @@ ms.lasthandoff: 02/16/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * После отработки отказа убедитесь, что для новой базы данных-источника настроены требования аутентификации ваших сервера и базы данных. Дополнительные сведения см. в разделе [Безопасность базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md).
-* Чтобы изучить восстановление после сбоя с помощью активной георепликации, включая предварительные и последующие действия и отработку аварийного восстановления, ознакомьтесь с разделом [Аварийное восстановление](sql-database-disaster-recovery.md)
-* Прочитайте запись блога Александра Носова об активной георепликации: [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-* Сведения о проектировании облачных приложений для использования активной георепликации см. в статье [Создание приложения для аварийного восстановления облака с использованием активной георепликации в базе данных SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
-* Сведения об использовании активной георепликации с пулами эластичных баз данных см. в статье [Стратегии аварийного восстановления для приложений с использованием пула эластичных баз данных SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-* Общие сведения об обеспечении непрерывности бизнес-процессов можно узнать в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md)
+* Чтобы изучить восстановление после сбоя с помощью активной георепликации, включая предварительные и последующие действия и отработку аварийного восстановления, ознакомьтесь со статьей [Восстановление базы данных SQL Azure или переход на базу данных-получатель при отказе](sql-database-disaster-recovery.md).
+* Прочитайте запись блога Александра Носова об активной георепликации: [Spotlight on new capabilities of Azure SQL Database geo-replication](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Полезные сведения о новых возможностях георепликации базы данных SQL).
+* Сведения о проектировании облачных приложений для использования активной георепликации см. в статье [Разработка службы высокой доступности с помощью базы данных SQL Azure](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+* Сведения об использовании активной георепликации с эластичными пулами см. в статье [Стратегии аварийного восстановления для приложений с использованием пула эластичных баз данных SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Общие сведения об обеспечении непрерывности бизнес-процессов можно узнать в статье [Обзор обеспечения непрерывности бизнес-процессов с помощью базы данных SQL Azure](sql-database-business-continuity.md).
 
 

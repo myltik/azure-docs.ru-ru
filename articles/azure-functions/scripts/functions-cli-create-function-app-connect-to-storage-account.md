@@ -1,6 +1,6 @@
 ---
-title: "Создание функции Azure, которая подключается к Azure DocumentDB | Документация Майкрософт"
-description: "Пример сценария Azure CLI для создания функции Azure, которая подключается к Azure DocumentDB."
+title: "Создание функции Azure, которая подключается к службе хранилища Azure | Документация Майкрософт"
+description: "Пример скрипта Azure CLI для создания функции Azure, которая подключается к службе хранилища Azure."
 services: functions
 documentationcenter: functions
 author: rachelappel
@@ -10,30 +10,29 @@ tags: functions
 ms.assetid: 
 ms.service: functions
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a34793b6b16cce4031e9e871d8e3b143180593ae
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3925c1a3d2c5a9fc3a82e8823dbdeffabeb38a3a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 ---
-
 # <a name="integrate-function-app-into-azure-storage-account"></a>Интеграция приложения-функции в учетную запись хранения Azure
 
-Этот пример сценария создает приложение-функцию и учетную запись хранения со связанными ресурсами. 
+Этот пример скрипта создает приложение-функцию и учетную запись хранения.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## <a name="sample-script"></a>Пример скрипта 
+## <a name="sample-script"></a>Пример скрипта
 
-Создание примера приложения
+Этот пример создает приложение-функцию Azure и добавляет строку подключения хранилища в параметры приложения.
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Интеграция приложения-функции в учетную запись хранения Azure")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Интеграция приложения-функции в учетную запись хранения Azure")]
 
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
@@ -59,3 +58,4 @@ ms.lasthandoff: 05/10/2017
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Дополнительные примеры сценариев Azure CLI для Функций Azure см. в [документации по Функциям Azure](../functions-cli-samples.md).
+

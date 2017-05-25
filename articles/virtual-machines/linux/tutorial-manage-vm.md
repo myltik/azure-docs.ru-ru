@@ -13,30 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 7a6f255c64a584e29801aacb40c79462751fe535
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: e22fa4ed45ffaed1a05292e9b86d5cebc0079117
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Создание виртуальных машин Linux и управление ими с помощью Azure CLI
 
-В этом руководстве рассматриваются основные элементы создания виртуальной машины Azure, в том числе выбор ее размера, выбор образа и развертывание. Кроме того, в этом руководстве рассматриваются такие базовые операции управления, как управление состоянием виртуальной машины, ее удаление и изменение размера.
+Виртуальные машины Azure предоставляют полностью настраиваемую и гибкую вычислительную среду. В этом руководстве рассматриваются основные элементы развертывания виртуальной машины Azure, например выбор ее размера, образа и ее развертывание. Вы узнаете, как выполнять такие задачи.
 
-Для работы с этим руководством можно использовать последнюю версию [Azure CLI 2.0](/cli/azure/install-azure-cli).
+> [!div class="checklist"]
+> * создать виртуальную машину и подключиться к ней;
+> * выбрать и использовать образы виртуальных машин;
+> * просмотреть и использовать определенные размеры виртуальных машин;
+> * Изменение размера виртуальной машины
+> * просмотреть виртуальную машину и оценить ее состояние.
+
+Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). Вы также можете использовать [Cloud Shell](/azure/cloud-shell/quickstart) из своего браузера.
 
 ## <a name="create-resource-group"></a>Создать группу ресурсов
 
 Создайте группу ресурсов с помощью команды [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
-Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Группу ресурсов следует создавать до виртуальной машины. В этом примере создается группа ресурсов *myResourceGroupVM* в регионе *westus*. 
+Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Группу ресурсов следует создавать до виртуальной машины. В этом примере создается группа ресурсов с именем *myResourceGroupVM* в регионе *eastus*. 
 
 ```azurecli
-az group create --name myResourceGroupVM --location westus
+az group create --name myResourceGroupVM --location eastus
 ```
 
 Группа ресурсов указывается при создании или изменении виртуальной машины, что показывается в этом руководстве.
@@ -57,7 +64,7 @@ az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westus",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -156,7 +163,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 Чтобы просмотреть список доступных размеров виртуальных машин в определенном регионе, используйте команду [az vm list-sizes](/cli/azure/vm#list-sizes). 
 
 ```azurecli
-az vm list-sizes --location westus --output table
+az vm list-sizes --location eastus --output table
 ```
 
 Частичные выходные данные приведены ниже.
@@ -297,6 +304,17 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В этом руководстве вы изучили основы создания виртуальной машины и управления ею. Перейдите к следующему руководству, чтобы узнать о дисках виртуальных машин.  
+В рамках этого руководства вы изучили основы создания виртуальной машины и управления ею. Вы узнали, как:
 
-[Управление дисками Azure с помощью Azure CLI](./tutorial-manage-disks.md)
+> [!div class="checklist"]
+> * создать виртуальную машину и подключиться к ней;
+> * выбрать и использовать образы виртуальных машин;
+> * просмотреть и использовать определенные размеры виртуальных машин;
+> * Изменение размера виртуальной машины
+> * просмотреть виртуальную машину и оценить ее состояние.
+
+Перейдите к следующему руководству, чтобы узнать о дисках виртуальных машин.  
+
+> [!div class="nextstepaction"]
+> [Управление дисками Azure с помощью Azure CLI](./tutorial-manage-disks.md)
+

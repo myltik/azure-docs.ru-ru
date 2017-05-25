@@ -1,5 +1,5 @@
 ---
-title: "Отладка заданий в кластере Apache Spark в Azure HDInsight | Документация Майкрософт"
+title: "Отладка заданий Apache Spark в Azure HDInsight | Документация Майкрософт"
 description: "Использование пользовательского интерфейса YARN, пользовательского интерфейса Spark и сервера журнала Spark для отслеживания и отладки заданий, запущенных в кластере Spark в Azure HDInsight"
 services: hdinsight
 documentationcenter: 
@@ -17,16 +17,16 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: d6d7c0d112778172633fa068a119ba075c0fd900
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: df647b77f5f826b7f852bea981bc92089852b35a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="track-and-debug-jobs-running-on-apache-spark-cluster-in-hdinsight"></a>Отслеживание и отладка заданий в кластере Apache Spark в HDInsight
+# <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Отладка заданий Apache Spark в Azure HDInsight
 
-Из этой статьи вы узнаете, как выполнять отслеживание и отладку заданий Spark с помощью пользовательского интерфейса YARN, пользовательского интерфейса Spark и сервера журнала Spark. Для статьи мы создадим задание Spark с помощью записной книжки, прилагающейся к кластеру Spark: **Машинное обучение. Прогнозный анализ на основе данных контроля качества пищевых продуктов**. С помощью описанных ниже действий вы сможете отслеживать приложение, отправленное любым другим методом, например с помощью **spark-submit**.
+Из этой статьи вы узнаете, как выполнять отслеживание и отладку заданий Spark, запущенных в кластерах HDInsight, с помощью пользовательского интерфейса YARN, пользовательского интерфейса Spark и сервера журнала Spark. Для статьи мы создадим задание Spark с помощью записной книжки, прилагающейся к кластеру Spark: **Машинное обучение. Прогнозный анализ на основе данных контроля качества пищевых продуктов**. С помощью описанных ниже действий вы сможете отслеживать приложение, отправленное любым другим методом, например с помощью **spark-submit**.
 
 ## <a name="prerequisites"></a>Предварительные требования
 Необходимо следующее:

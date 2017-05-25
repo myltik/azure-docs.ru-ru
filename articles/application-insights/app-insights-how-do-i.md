@@ -3,7 +3,7 @@ title: "Выполнение заданий в Azure Application Insights | До
 description: "Вопросы и ответы об Application Insights"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: d7795a494fbe8d3a850d7d8805cf059a86965a64
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 2e2b59c89fdc91437f148d062e312204be994350
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/05/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -82,55 +82,11 @@ ms.lasthandoff: 04/05/2017
 * [Создание новых ресурсов](app-insights-powershell-script-create-resource.md)
 * [Создание новых оповещений](app-insights-alerts.md#automation)
 
-## <a name="application-versions-and-stamps"></a>Версии приложения и метки
-### <a name="separate-the-results-from-dev-test-and-prod"></a>Отделите результаты от dev, test и prod
-* Настройте разные ключи для различных сред
-* Задайте метки телеметрии с помощью значений различных свойств для различных меток (dev, test, prod)
+## <a name="separate-telemetry-from-different-versions"></a>Разделение телеметрии разных версий
 
-[Подробнее](app-insights-separate-resources.md)
-
-### <a name="filter-on-build-number"></a>Фильтрация по номеру сборки
-При публикации новой версии приложения имеет смысл отделить телеметрию от других сборок.
-
-Для этого можно настроить свойство "Версия приложения" для фильтрации результатов [поиска](app-insights-diagnostic-search.md) и [обозревателя метрик](app-insights-metrics-explorer.md).
-
-![](./media/app-insights-how-do-i/050-filter.png)
-
-Свойство «Версия приложения» можно настроить различными способами.
-
-* Напрямую:
-
-    `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Вставьте эту строку в [инициализатор телеметрии](app-insights-api-custom-events-metrics.md#defaults) , чтобы обеспечить согласованность всех экземпляров TelemetryClient.
-* [ASP.NET] Задайте версию в `BuildInfo.config`. Веб-модуль берет номер версии из узла BuildLabel. Включите этот файл в проект и не забудьте установить свойство «Всегда копировать» в обозревателе решений.
-
-    ```XML
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
-      <ProjectName>AppVersionExpt</ProjectName>
-      <Build type="MSBuild">
-        <MSBuild>
-          <BuildLabel kind="label">1.0.0.2</BuildLabel>
-        </MSBuild>
-      </Build>
-    </DeploymentEvent>
-
-    ```
-* [ASP.NET] Настройте автоматическое создание файла BuildInfo.config в MSBuild. Для этого добавьте в CSPROJ-файл несколько строк:
-
-    ```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
-    ```
-
-    Вы получите файл *Имя_проекта*.BuildInfo.config. В процессе публикации он переименовывается в BuildInfo.config.
-
-    При создании сборки с помощью Visual Studio в подпись включается заполнитель (AutoGen_...). Если используется MSBuild, в подписи указывается правильный номер версии.
-
-    Чтобы разрешить MSBuild генерировать номера версий, задайте версию вида `1.0.*` в файле AssemblyReference.cs.
+* Несколько ролей в приложении. Используйте единый ресурс Application Insights и выполните фильтрацию по cloud_Rolename. [Подробнее](app-insights-monitor-multi-role-apps.md)
+* Отдельные стадии разработки, тестирования и выпуска версий. Используйте различные ресурсы Application Insights. Получите ключи инструментирования из файла web.config. [Подробнее](app-insights-separate-resources.md)
+* Отчеты о версиях сборки. Добавьте свойство с помощью инициализатора телеметрии. [Подробнее](app-insights-separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Мониторинг внутренних серверов и классических приложений
 [Используйте модуль пакета SDK для Windows Server](app-insights-windows-desktop.md).

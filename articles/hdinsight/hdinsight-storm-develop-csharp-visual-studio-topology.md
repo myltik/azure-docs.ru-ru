@@ -1,6 +1,6 @@
 ---
-title: "Разработка топологий Apache Storm с помощью Visual Studio и C# | Документация Майкрософт"
-description: "Информация о создании топологии Storm на C# путем создания простой топологии статистики в Visual Studio с помощью средств HDInsight для Visual Studio."
+title: "Разработка топологий Apache Storm с помощью Visual Studio и C# в Azure | Документация Майкрософт"
+description: "Сведения о создании топологии Storm на языке C# путем создания простой топологии статистики в Visual Studio с помощью средств Hadoop для Visual Studio."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,16 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: cc6b16b559c4d1eafc570d0361c710487021f175
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 7b267ba427da276f53326c9068417521c8976e63
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="develop-c-topologies-for-apache-storm-on-hdinsight-using-hadoop-tools-for-visual-studio"></a>Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio
 
-Информация о создании топологии Storm на C# с помощью средств HDInsight для Visual Studio. В этом документе приведены пошаговые инструкции по созданию проекта Storm в Visual Studio, его локальному тестированию и развертыванию в Apache Storm в кластере HDInsight.
+Сведения о создании топологии Storm на языке C# с помощью средств Data Lake (Hadoop) для Visual Studio. В этом документе приведены пошаговые инструкции по созданию проекта Storm в Visual Studio, его локальному тестированию и развертыванию в Apache Storm в кластере HDInsight.
 
 Вы также узнаете о том, как создавать гибридные топологии, использующие компоненты C# и Java.
 
@@ -53,10 +54,10 @@ ms.lasthandoff: 04/12/2017
 
 * Пакет Azure SDK версии 2.9.5 или более поздней
 
-* Средства HDInsight для Visual Studio. Инструкции по установке и настройке средств HDInsight для Visual Studio см. в статье[Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+* Инструкции по установке и настройке средств Data Lake для Visual Studio см. в статье [Приступая к работе с инструментами Azure Data Lake (в HDInsight) для Visual Studio для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
   > [!NOTE]
-  > Средства HDInsight для Visual Studio не поддерживаются в Visual Studio Express
+  > Средства Data Lake для Visual Studio не поддерживаются в Visual Studio Express
 
 * Кластер Apache Storm в HDInsight. Инструкции по созданию кластера см. в статье [Начало работы с Apache Storm в HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
@@ -65,14 +66,14 @@ ms.lasthandoff: 04/12/2017
 
 ## <a name="templates"></a>Шаблоны
 
-Средства HDInsight для Visual Studio предоставляют следующие шаблоны.
+Средства Data Lake для Visual Studio предоставляют следующие шаблоны.
 
 | Тип проекта | Что демонстрирует |
 | --- | --- |
 | Приложение Storm |Пустой проект топологии Storm |
 | Пример модуля записи Storm Azure SQL |Запись в базу данных SQL Azure |
-| Пример модуля чтения Storm DocumentDB |Чтение из Azure DocumentDB |
-| Пример модуля записи Storm DocumentDB |Запись в Azure DocumentDB |
+| Пример модуля чтения Storm Azure Cosmos DB |Чтение из базы данных Azure Cosmos DB |
+| Пример модуля записи Storm Azure Cosmos DB |Запись в базу данных Azure Cosmos DB |
 | Пример модуля чтения концентратора событий Storm |Чтение из концентраторов событий Azure |
 | Пример модуля записи концентратора событий Storm |Запись в концентраторы событий Azure |
 | Пример модуля чтения Storm HBase |Чтение из HBase в кластерах HDInsight |
@@ -95,7 +96,7 @@ ms.lasthandoff: 04/12/2017
 
 ## <a name="create-a-c-topology"></a>Создание топологии на C#
 
-1. Если вы еще не установили последнюю версию средств HDInsight для Visual Studio, см. статью [Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. Если вы еще не установили последнюю версию средств Data Lake для Visual Studio, ознакомьтесь со статьей [Приступая к работе с инструментами Azure Data Lake (в HDInsight) для Visual Studio для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2. Откройте Visual Studio, выберите **Файл** > **Создать**, а затем — **Проект**.
 
@@ -408,7 +409,7 @@ return topologyBuilder;
 
 * **Metadata caching**(Кэширование метаданных) — в воронке должны храниться метаданные для отправляемых данных, чтобы их можно было извлечь и отправить повторно в случае сбоя. Так как в этом примере отправляются данные небольшого размера, необработанные данные каждого кортежа хранятся в словаре для воспроизведения.
 
-* **Ack`this.ctx.Ack(tuple)` (Подтверждение) — каждое сито в топологии может вызвать**, чтобы подтвердить успешную обработку кортежа. Как только все сита подтвердят обработку кортежа, для воронки вызывается метод `Ack` . Метод `Ack` позволяет воронке удалить кэшированные данные для воспроизведения.
+* **Ack`this.ctx.Ack(tuple)` (Подтверждение) — каждое сито в топологии может вызвать** , чтобы подтвердить успешную обработку кортежа. Как только все сита подтвердят обработку кортежа, для воронки вызывается метод `Ack` . Метод `Ack` позволяет воронке удалить кэшированные данные для воспроизведения.
 
 * **Fail** (Сбой) — каждое сито может вызвать `this.ctx.Fail(tuple)`, указав тем самым на сбой при обработке кортежа. Информация о сбое передается в метод `Fail` воронки, в которой кортеж может быть воспроизведен с помощью кэшированных метаданных.
 
@@ -420,9 +421,9 @@ return topologyBuilder;
 
 Как показано в проекте **Storm Sample** (Пример Storm), транзакционность компонента можно задать во время выполнения топологии в соответствии с конфигурацией.
 
-## <a name="hybrid-topology"></a>Гибридная топология
+## <a name="hybrid-topology-with-c-and-java"></a>Гибридная топология с помощью C# и Java
 
-Средства HDInsight для Visual Studio можно также использовать для создания гибридных топологий, в которых одни компоненты написаны на C#, а другие — на Java.
+Средства Data Lake для Visual Studio можно также использовать для создания гибридных топологий, в которых одни компоненты написаны на C#, а другие — на Java.
 
 Чтобы получить пример гибридной топологии, создайте проект и выберите **Storm Hybrid Sample**(Пример гибридного решения Storm). В примере демонстрируются следующие понятия:
 
@@ -514,7 +515,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 > 1. В **обозревателе решений** щелкните проект правой кнопкой мыши и выберите **Управление пакетами NuGet**.
 > 2. С помощью поля **Поиск** найдите **пакет SDK Microsoft.SCP.Net.** и добавьте его в проект.
 
-## <a name="troubleshooting"></a>Устранение неполадок
+## <a name="troubleshooting-common-issues-with-topologies"></a>Устранение распространенных проблем с использованием топологий
 
 ### <a name="null-pointer-exceptions"></a>Исключение пустого указателя
 

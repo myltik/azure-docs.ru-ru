@@ -1,6 +1,6 @@
 ---
 title: "Использование библиотек Python для анализа журналов веб-сайтов в кластере Azure Spark | Документация Майкрософт"
-description: "Использование пользовательских библиотек с кластером HDInsight Spark для анализа журналов веб-сайтов"
+description: "Анализ журналов веб-сайтов с помощью пользовательских библиотек Python и кластера HDInsight Spark."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3f5b7409c5245ee975b0208f812668a0c35ff1c3
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: d55005ecea7ba6b31c638af3d26c44932e3d12bc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/18/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="analyze-website-logs-using-a-custom-library-with-apache-spark-cluster-on-hdinsight"></a>Анализ журналов веб-сайтов с помощью пользовательской библиотеки и кластера Apache Spark в HDInsight
+# <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Анализ журналов веб-сайтов с помощью пользовательской библиотеки Python и кластера Spark в HDInsight
 
 Данная записная книжка показывает, как анализировать данные журналов с помощью настраиваемой библиотеки с кластером Spark в HDInsight. В качестве пользовательской библиотеки используется библиотека Python с именем **iislogparser.py**.
 
@@ -57,10 +57,10 @@ ms.lasthandoff: 03/18/2017
    >
 3. Создайте новую записную книжку. Щелкните **Создать**, а затем выберите **PySpark**.
 
-    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "Создание записной книжки Jupyter")
+    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Создание записной книжки Jupyter")
 4. Будет создана и открыта записная книжка с именем Untitled.pynb. Щелкните имя записной книжки в верхней части страницы сверху и введите понятное имя.
 
-    ![Указание имени для записной книжки](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "Указание имени для записной книжки")
+    ![Указание имени для записной книжки](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Указание имени для записной книжки")
 5. Так как записная книжка была создана с помощью ядра PySpark, задавать контексты явно необязательно. Контексты Spark и Hive будут созданы автоматически при выполнении первой ячейки кода. Можно начать с импорта различных типов, необходимых для этого сценария. Вставьте следующий фрагмент кода в пустую ячейку и нажмите клавиши **SHIFT + ВВОД**.
 
         from pyspark.sql import Row
@@ -188,7 +188,7 @@ ms.lasthandoff: 03/18/2017
 
    Вы должны увидеть подобные выходные данные:
 
-   ![Результат SQL-запроса](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "Результат SQL-запроса")
+   ![Результат SQL-запроса](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Результат SQL-запроса")
 
    Дополнительные сведения о магической команде `%%sql` см. в разделе [Параметры, поддерживаемые волшебной командой %%sql](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 7. Теперь можно создать диаграмму с помощью Matplotlib, библиотеки, используемой для визуализации данных. Так как диаграмма должна создаваться из локально сохраненного кадра данных **averagetime**, фрагмент кода должен начинаться с волшебного слова `%%local`. Это гарантирует, что код будет выполняться локально на сервере Jupyter.
@@ -203,7 +203,7 @@ ms.lasthandoff: 03/18/2017
 
    Вы должны увидеть подобные выходные данные:
 
-   ![Выходные данные Matplotlib](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Выходные данные Matplotlib")
+   ![Выходные данные Matplotlib](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Выходные данные Matplotlib")
 8. Завершив работу с приложением, следует закрыть записную книжку, чтобы освободить ресурсы. Для этого в записной книжке в меню **Файл** выберите пункт **Close and Halt** (Закрыть и остановить). Это завершит работу записной книжки и закроет ее.
 
 ## <a name="seealso"></a>Дополнительные материалы
