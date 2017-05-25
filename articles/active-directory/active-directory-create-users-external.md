@@ -12,18 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/14/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
-ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Добавление пользователей из других каталогов или компаний-партнеров в Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Портал Azure](active-directory-users-create-external-azure-portal.md)
+> * [Портал Azure](active-directory-users-create-external-azure-portal.md )
 > * [классическом портале Azure](active-directory-create-users-external.md)
 >
 >
@@ -44,9 +45,8 @@ ms.lasthandoff: 01/31/2017
 > [!IMPORTANT]
 > Если в организации используется более одного домена, при добавлении учетной записи пользователя необходимо учитывать следующие моменты:
 >
-> * Чтобы добавить учетные записи пользователей с тем же именем участника-пользователя (UPN) в разных доменах, **сначала** добавьте, например, geoffgrisso@contoso.onmicrosoft.com,, а **затем** — geoffgrisso@contoso.com.
-> * **Не** добавляйте geoffgrisso@contoso.com, пока не добавите geoffgrisso@contoso.onmicrosoft.com. Порядок добавления важен: если вы допустите ошибку сейчас, потом ее может быть сложно исправить.
->
+> * Чтобы добавить учетные записи пользователей с тем же именем участника-пользователя (UPN) в разных доменах, **сначала** добавьте, например, geoffgrisso@contoso.onmicrosoft.com, а **затем** — geoffgrisso@contoso.com.
+> * **Не** добавляйте geoffgrisso@contoso.com, пока не добавите geoffgrisso@contoso.onmicrosoft.com.
 >
 
 Если изменить данные пользователя, удостоверение которого синхронизируется с локальной службой Active Directory, данные такого пользователя невозможно будет изменить на классическом портале Azure. Чтобы изменить сведения о таком пользователе, используйте локальные средства управления Active Directory.
@@ -74,15 +74,7 @@ ms.lasthandoff: 01/31/2017
 * **Dynamics CRM**позволяет внешнему пользователю обращаться к авторизованным ресурсам Dynamics CRM, если у него есть лицензия PowerShell.
 * **Dynamics AX**позволяет внешнему пользователю обращаться к авторизованным ресурсам Dynamics AX, если у него есть лицензия PowerShell. На внешних пользователей в Dynamics AX также распространяются ограничения для [внешних пользователей Azure AD](#known-limitations-of-azure-ad-external-users) .
 
-### <a name="known-limitations-of-azure-ad-external-users"></a>Известные ограничения для внешних пользователей Azure AD
-* Внешние пользователи, которые являются администраторами, не могут добавлять пользователей компаний-партнеров в другие каталоги (совместная работа B2B) за пределами своего домашнего каталога.
-* Внешние пользователи не могут предоставлять согласие на использование мультитенантных приложениях в каталогах, не принадлежащих к домашнему каталогу.
-* Сейчас PowerBI не поддерживает доступ внешних пользователей.
-* Портал Office не поддерживает лицензирование внешних пользователей.
-* Что касается Azure AD PowerShell, внешние пользователи входят в домашний каталог и не могут управлять каталогами, в которых они выступают внешними пользователями.
-* При настройке подключаемого модуля Outlook для Dynamics CRM внешним пользователям может потребоваться вручную ввести URL-адрес клиента Dynamics CRM Online, а не выбирать вариант "CRM Online".
-
-## <a name="whats-next"></a>Что дальше?
+## <a name="next-steps"></a>Дальнейшие действия
 * [Добавление новых пользователей в Azure Active Directory](active-directory-create-users.md)
 * [Администрирование Azure AD](active-directory-administer.md)
 * [Управление паролями в Azure AD](active-directory-manage-passwords.md)

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 7c70129ebf4bacc28400cf68418bf898e4e646d2
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 90ed1d5ca50bfb19a9d1c5d258e9588e05893270
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/25/2017
 
 1. Войдите на сайт azureiotsuite.com с помощью учетных данных Azure и щелкните **+**, чтобы создать решение.
 2. На плитке **Connected factory** (Подключенная фабрика) щелкните **Выбрать**.
-3. Укажите **имя** для предварительно настроенного решения удаленного мониторинга.
+3. Укажите **имя** для предварительно настроенного решения подключенной фабрики.
 4. Выберите **регион** и **подписку**, которые вы хотите использовать для подготовки решения.
 5. Щелкните **Создать решение** , чтобы начать процесс подготовки. Этот процесс обычно занимает несколько минут.
 
@@ -304,7 +304,7 @@ ms.lasthandoff: 04/25/2017
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

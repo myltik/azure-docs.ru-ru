@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jehollan; estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6634f0ee88e68f2fcb09fd7534a88677e8efa029
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan; estfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/03/2017
     > [!TIP]
     > Если у вас есть личная [учетная запись Майкрософт](https://account.microsoft.com/account), у вас также есть и учетная запись Outlook.com, а если рабочая или учебная учетная запись Azure — то учетная запись **Office 365 Outlook**.
 
-* Подключение к RSS-каналу веб-сайта. В этом примере используется RSS-канал [веб-сайта MSDN Channel 9](https://channel9.msdn.com/): `https://s.ch9.ms/Feeds/RSS`.
+* Подключение к RSS-каналу веб-сайта. В этом примере используется [RSS-канал популярных новостей веб-сайта CNN.com](http://rss.cnn.com/rss/cnn_topstories.rss): `http://rss.cnn.com/rss/cnn_topstories.rss`.
 
 ## <a name="add-a-trigger-that-starts-your-workflow"></a>Добавление триггера запуска рабочего процесса
 
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/03/2017
      Вы также можете изменить **частоту** и **интервал**. 
      Эти параметры определяют частоту, с которой приложение логики будет проверять новые элементы и возвращать найденные в рамках определенного интервала.
 
-     В этом примере мы будем каждый день искать новые элементы, опубликованные на веб-сайте MSDN Channel 9.
+     В этом примере мы будем каждый день искать популярные новости, опубликованные на веб-сайте CNN.
 
      ![Укажите RSS-канал, частоту и интервал триггера.](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 

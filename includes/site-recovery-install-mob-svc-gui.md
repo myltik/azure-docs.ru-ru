@@ -1,10 +1,15 @@
 1. Скопируйте установку на сервер и откройте установщик.
-2. В колонке **Перед началом работы** выберите **Установить службу Mobility Service**.
+2. В колонке **параметров установки** выберите **Install Mobility Service** (Установить Mobility Service).
 
-    ![Служба Mobility Service](./media/site-recovery-install-mob-svc-gui/mobility3.png)
-3. В колонке **Сведения о сервере конфигурации** укажите IP-адрес сервера конфигурации и парольную фразу.
+    ![Страница параметров установки службы Mobility Service ](./media/site-recovery-install-mob-svc-gui/mobility1.png)
+3. Выберите расположение установки и щелкните **Установить**, чтобы начать процедуру установки.
 
-    ![Служба Mobility Service](./media/site-recovery-install-mob-svc-gui/mobility6.png)
-4. В колонке **Расположение установки** оставьте значение по умолчанию и нажмите кнопку **Далее**, чтобы начать установку.
-5. Отслеживать **ход установки** можно в соответствующей колонке. При появлении запроса перезагрузите компьютер. Когда служба будет установлена, обновление состояния на портале Azure может занять до 15 минут.
+    ![Страница расположения установки службы Mobility Service ](./media/site-recovery-install-mob-svc-gui/mobility2.png)
+4. Чтобы следить за ходом установки, используйте страницу **хода выполнения установки**.
+    ![Ход выполнения установки службы Mobility Service](./media/site-recovery-install-mob-svc-gui/mobility3.png)
 
+5. После завершения установки нажмите кнопку **Proceed to Configuration** (Перейти к конфигурации), чтобы зарегистрировать службу Mobility Service на сервере конфигурации.
+    ![Страница регистрации службы Mobility Service](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+
+6. Для завершения регистрации нажмите кнопку **Зарегистрировать**.
+    ![Страница регистрации службы Mobility Service](./media/site-recovery-install-mob-svc-gui/mobility5.png)

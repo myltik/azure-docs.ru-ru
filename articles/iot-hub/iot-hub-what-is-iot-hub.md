@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: ed204c466c5cfb60e5ba250b9dacb2524ca384eb
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: c3c61b96df43f33f815d60f1c91d776526021349
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -66,12 +67,12 @@ ms.lasthandoff: 04/18/2017
 * **Обширный набор библиотек устройств**. Существуют и поддерживаются [пакеты SDK Azure для устройств Интернета вещей][lnk-device-sdks] для разных языков и платформ, включая C для многих дистрибутивов Linux, Windows и операционных систем реального времени. Кроме того, пакеты SDK для устройств IoT Azure поддерживают управляемые языки, такие как C#, Java и JavaScript.
 * **Протоколы IoT и расширяемость**. Если в вашем решении нельзя использовать библиотеки устройств, центр IoT Azure предоставляет открытый протокол, который позволяет устройствам использовать протоколы MQTT 3.1.1, HTTP 1.1 и AMQP 1.0. Кроме того, в центре IoT можно настроить поддержку пользовательских протоколов. Для этого нужно:
   
-  * создать полевой шлюз с помощью [пакета SDK для шлюза Интернета вещей Azure][lnk-gateway-sdk], который преобразует пользовательский протокол в один из трех протоколов, поддерживаемых Центром Интернета вещей. 
+  * Создать полевой шлюз с помощью [Edge Интернета вещей Azure][lnk-gateway-sdk], который преобразует пользовательский протокол в один из трех протоколов, поддерживаемых Центром Интернета вещей.
   * настроить [шлюз протокола Интернета вещей Azure][protocol-gateway] (компонент с открытым исходным кодом, который выполняется в облаке).
 * **Масштабирование**. Центр IoT Azure масштабируется до нескольких миллионов одновременно подключенных устройств и нескольких миллионов событий в секунду.
 
 ## <a name="gateways"></a>Шлюзы
-В качестве шлюза в решении Интернета вещей обычно используется [шлюз протокола][lnk-gateway], развертываемый в облаке, или [полевой шлюз][lnk-field-gateway], развертываемый локально вместе с устройствами. Шлюз протокола выполняет преобразование протоколов, например MQTT в AMQP. Полевой шлюз может выполнять аналитику на границе, принимать срочные решения, позволяющие уменьшить задержку, предоставлять службы управления устройствами, применять ограничения для безопасности и конфиденциальности, а также преобразовывать протоколы. Оба типа шлюза выступают в качестве посредников между устройствами и центром IoT.
+В качестве шлюза в решении Интернета вещей обычно используется [шлюз протокола][lnk-iotedge], развертываемый в облаке, или [полевой шлюз][lnk-field-gateway], развертываемый локально вместе с устройствами. Шлюз протокола выполняет преобразование протоколов, например MQTT в AMQP. Полевой шлюз может выполнять аналитику на границе, принимать срочные решения, позволяющие уменьшить задержку, предоставлять службы управления устройствами, применять ограничения для безопасности и конфиденциальности, а также преобразовывать протоколы. Оба типа шлюза выступают в качестве посредников между устройствами и центром IoT.
 
 Полевой шлюз отличается от обычного маршрутизатора трафика (например, устройства преобразования сетевых адресов или брандмауэра) тем, что ему отведена активная роль в управлении доступом и потоком информации в решении.
 
@@ -108,7 +109,7 @@ ms.lasthandoff: 04/18/2017
 [protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Запись в блоге Клеменса Вастерса (Clemens Vasters) о взаимодействии с поддержкой службы"
 [lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-gateway]: iot-hub-protocol-gateway.md
+[lnk-iotedge]: iot-hub-protocol-gateway.md
 [lnk-field-gateway]: iot-hub-devguide-endpoints.md#field-gateways
 [lnk-devguide-identityregistry]: iot-hub-devguide-identity-registry.md
 [lnk-devguide-security]: iot-hub-devguide-security.md
@@ -117,7 +118,7 @@ ms.lasthandoff: 04/18/2017
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 [lnk-send-messages]: iot-hub-devguide-messaging.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 

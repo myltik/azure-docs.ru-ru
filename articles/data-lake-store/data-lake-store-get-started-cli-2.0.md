@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: c9d5fdc2ff27454b2492751034b43658ee9d46c5
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: e7ed94a3aa24d401e073cf260453550b4c67f47e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20-preview"></a>Начало работы с Azure Data Lake Store с помощью Azure CLI 2.0 (предварительная версия)
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Начало работы с Azure Data Lake Store с помощью Azure CLI 2.0
 > [!div class="op_single_selector"]
 > * [Портал](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -50,14 +51,6 @@ Azure CLI 2.0 — это новый интерфейс командной ст
 ## <a name="authentication"></a>Аутентификация
 
 В этой статье используется более простой подход к проверке подлинности в службе Data Lake Store, в которую выполняется вход от имени пользователя. Уровень доступа к учетной записи Data Lake Store и файловой системе зависит от уровня доступа пользователя, который вошел в систему. Существуют разные способы проверки подлинности в Data Lake Store, включая **проверку подлинности пользователя** и **проверку подлинности с взаимодействием между службами**. Инструкции и дополнительные сведения о проверке подлинности см. в статье, посвященной [проверке подлинности приложений Data Lake Store с помощью Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
-
-## <a name="enable-data-lake-store-preview-in-azure-cli-20"></a>Включение Data Lake Store (предварительная версия) в Azure CLI 2.0
-
-Интерфейс командной строки 2.0 Data Lake Store сейчас доступен в режиме предварительной версии и не включается по умолчанию при установке Azure CLI 2.0. Чтобы включить интерфейс командной строки 2.0 Data Lake Store, выполните следующую команду.
-
-```azurecli
-az component update --add dls
-```
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Вход в подписку Azure

@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 73b9448153ec520d77afd1bdb65b9694e7bf7b9e
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 9bbf188b0080b8b1cf71423023645f54f1f823e5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -70,27 +70,33 @@ Azure Cosmos DB — это глобально распределенная мн�
 
 ## <a name="review-the-code"></a>Просмотр кода
 
-Сделаем краткий обзор того, что происходит в приложении. Откройте файл DocumentDBRepository.cs, и вы увидите, что эти строки кода создают ресурсы Azure Cosmos DB. 
+Сделаем краткий обзор того, что происходит в приложении. Откройте файл Program.cs, и вы увидите, что эти строки кода создают ресурсы Azure Cosmos DB. 
 
-* Инициализация экземпляра DocumentClient.
+* Инициализация CloudTableClient.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-* Создание базы данных.
+* Создание таблицы, если она не существует.
 
     ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    CloudTable table = tableClient.GetTableReference("people");
+    table.CreateIfNotExists();
     ```
 
-* Создание контейнера графа.
+* Создание контейнера таблицы. Этот код очень похож на обычный пакет SDK для Хранилища таблиц Azure. 
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
-        new RequestOptions { OfferThroughput = 1000 });
+    CustomerEntity item = new CustomerEntity()
+                {
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    Email = $"{GetRandomString(6)}@contoso.com",
+                    PhoneNumber = "425-555-0102",
+                    Bio = GetRandomString(1000)
+                };
     ```
 
 ## <a name="update-your-connection-string"></a>Обновление строки подключения
@@ -106,7 +112,7 @@ Azure Cosmos DB — это глобально распределенная мн�
 3. Скопируйте имя учетной записи Azure Cosmos DB на портале и используйте его в качестве значения AccountName в значении строки PremiumStorageConnection файла app.config. На снимке экрана выше используется имя учетной записи cosmos-db-quickstart. Имя вашей учетной записи отобразится в верхней области портала.
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMODB.documents.azure.com" />`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
 
 4. Затем скопируйте значение первичного ключа с портала и добавьте его в качестве значения параметра AccountKey в PremiumStorageConnectionString. 
 
@@ -114,7 +120,7 @@ Azure Cosmos DB — это глобально распределенная мн�
 
 5. Наконец, скопируйте значение универсального кода ресурса (URI) на странице ключей портала (с помощью кнопки копирования) и используйте его в качестве значения параметра TableEndpoint PremiumStorageConnectionString.
 
-    `TableEndpoint=https://COSMODB.documents.azure.com`
+    `TableEndpoint=https://COSMOSDB.documents.azure.com`
 
     StandardStorageConnectionString можно оставить без изменений.
 

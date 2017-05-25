@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 04/21/2017
    | **Параметр** | **Значение** | **Дополнительные сведения** |
    |---|---|---|
    |**Имя**|contoso.com|Имя зоны DNS.|
-   |**Подписка**|[Ваша подписка]|Выберите подписку для создания шлюза приложений.|
+   |**Подписка**|[Ваша подписка]|Выберите подписку для создания зоны DNS.|
    |**Группа ресурсов**|**Создать:** contosoDNSRG|Создайте группу ресурсов. Имя группы ресурсов должно быть уникальным в пределах выбранной подписки. Дополнительные сведения о группах ресурсов см. в разделе [Группы ресурсов](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) статьи "Общие сведения об Azure Resource Manager".|
    |**Расположение**|Запад США||
 
@@ -70,7 +71,7 @@ ms.lasthandoff: 04/21/2017
    |**Тип**|Файл ,| Тип создаваемой записи DNS. Допустимые значения: A, AAAA, CNAME, MX, NS, SRV, TXT и PTR.  Дополнительные сведения о типах записей см. в статье [Обзор зон и записей DNS](dns-zones-records.md).|
    |**Срок жизни**|1|Срок жизни DNS-запроса.|
    |**Единица срока жизни**|Часы|Измерение времени для значения срока жизни.|
-   |**IP-адрес**|{ipAddressValue| Это значение является IP-адресом, который разрешает запись DNS.|
+   |**IP-адрес**|ipAddressValue| Это значение является IP-адресом, который разрешает запись DNS.|
 
 ## <a name="view-records"></a>Просмотр записей
 

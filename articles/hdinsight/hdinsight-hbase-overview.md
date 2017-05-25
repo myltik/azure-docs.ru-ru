@@ -1,7 +1,7 @@
 ---
-title: "Что такое HBase в HDInsight? | Документация Майкрософт"
+title: "Сведения об HBase в Azure HDInsight | Документация Майкрософт"
 description: "Введение в Apache HBase в HDInsight — базу данных NoSQL на основе Hadoop. Изучите варианты использования и сравните HBase с другими кластерами Hadoop."
-keywords: "nosql, bigtable, что такое hbase"
+keywords: "bigtable nosql, что такое hbase, apache hbase, hbase, обзор habase"
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -10,17 +10,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: d2a76d53-133a-4849-a30c-88d9c794391c
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/22/2017
+ms.date: 05/12/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 45fb85f83570ed7d79e70dc6fb8f0fdabb7ea191
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 61b4038c5878e4e4b92c4bbabc1d535031c78815
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
