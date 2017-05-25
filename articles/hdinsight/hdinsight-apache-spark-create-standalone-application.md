@@ -1,5 +1,5 @@
 ---
-title: "Создание приложения Scala в Maven для работы в кластерах Azure Spark | Документация Майкрософт"
+title: "Создание приложения Scala для работы в кластерах Azure HDInsight Spark | Документация Майкрософт"
 description: "Узнайте, как создать изолированное приложение Spark с использованием Maven для работы в кластерах HDInsight Spark."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c435e8ec21b568afcadaa1af95964753d36d0ccb
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 3cc921bdd6c9b374bda7bbfc3781f7a1327ae438
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -66,7 +66,7 @@ ms.lasthandoff: 04/06/2017
    * Выберите пакет в поле **Project SDK** (Пакет SDK проекта). Нажмите кнопку New («Создать») и перейдите к каталогу установки Java. Обычно у него такой путь: `C:\Program Files\Java\jdk1.8.0_66`.
    * Установите флажок **Create from archetype** («Создать на основе архетипа»).
    * В списке архетипов выберите **org.scala-tools.archetypes:scala-archetype-simple**. В результате будет создана структура каталога и скачаны зависимости по умолчанию, необходимые для написания программы Scala.
-2. Введите соответствующие значения для параметров **GroupId**, **ArtifactId** и **Version**. Нажмите кнопку **Далее**.
+2. Введите соответствующие значения для параметров **GroupId**, **ArtifactId** и **Version**. Щелкните **Далее**.
 3. В следующем диалоговом окне, где нужно указать основной каталог Maven и другие пользовательские настройки, примите значения по умолчанию и нажмите кнопку **Next**(«Далее»).
 4. В последнем диалоговом окне укажите имя и расположение проекта, а затем нажмите кнопку **Finish**(«Готово»).
 5. Удалите файл **MySpec.Scala** с путем **src\test\scala\com\microsoft\spark\example**. Его не нужно использовать для приложения.

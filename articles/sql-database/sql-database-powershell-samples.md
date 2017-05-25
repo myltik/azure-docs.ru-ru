@@ -16,10 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: b864fd14b6341541302c13222a1650cb21da40af
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c9216c4b5309a91aff56d220307e2757b81012a9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -33,8 +34,8 @@ ms.lasthandoff: 04/06/2017
 | [Создание отдельной базы данных и настройка правила брандмауэра](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает отдельную базу данных SQL Azure и настраивает правило брандмауэра уровня сервера. |
 | [Создание эластичных пулов и перемещение баз данных в составе пулов](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Создает эластичные пулы и перемещает базы данных в составе пулов, а также изменяет уровни производительности.|
 |**Настройка георепликации и отработка отказа**||
-| [Настройка и отработка отказа отдельной базы данных с помощью активной георепликации](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Настраивает активную георепликацию для отдельной базы данных SQL Azure и выполняет для нее отработку отказа на вторичную реплику. |
-| [Настройка и отработка отказа базы данных в составе пула с помощью активной георепликации](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Настраивает активную георепликацию для базы данных SQL Azure в составе эластичного пула и выполняет для нее отработку отказа на вторичную реплику. |
+| [Настройка активной георепликации для отдельной базы данных SQL Azure с помощью PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Настраивает активную георепликацию для отдельной базы данных SQL Azure и выполняет для нее отработку отказа на вторичную реплику. |
+| [Настройка активной георепликации для базы данных SQL Azure в составе пула с помощью PowerShell](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Настраивает активную георепликацию для базы данных SQL Azure в составе эластичного пула и выполняет для нее отработку отказа на вторичную реплику. |
 |**Масштабирование отдельных баз данных и эластичного пула**||
 | [Масштабирование отдельной базы данных](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Отслеживает метрики производительности базы данных SQL Azure, масштабирует ее до более высокого уровня производительности и создает правило генерации оповещений для одной из метрик производительности. |
 | [Масштабирование эластичного пула](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Отслеживает метрики производительности эластичного пула, масштабирует его до более высокого уровня производительности и создает правило генерации оповещений для одной из метрик производительности.  |

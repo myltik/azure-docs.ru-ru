@@ -1,6 +1,6 @@
 ---
-title: "Создание функции Azure, которая подключается к Azure DocumentDB | Документация Майкрософт"
-description: "Пример сценария Azure CLI для создания функции Azure, которая подключается к Azure DocumentDB."
+title: "Создание функции Azure, которая подключается к Azure Cosmos DB | Документация Майкрософт"
+description: "Пример скрипта Azure CLI для создания функции Azure, которая подключается к Azure Cosmos DB."
 services: functions
 documentationcenter: functions
 author: rachelappel
@@ -10,19 +10,18 @@ tags: functions
 ms.assetid: 
 ms.service: functions
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 46e0fe827b7b34010d14a31ff377d4854ec62f6e
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: dbe02fbc71f04c67ab03a84845bf8666333ce621
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 ---
-
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Создание функции Azure, которая подключается к Azure Cosmos DB
 
 Этот пример сценария создает приложение-функцию Azure и подключается к Azure Cosmos DB.
@@ -31,9 +30,9 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="sample-script"></a>Пример скрипта
 
-Создание примера приложения
+Этот пример создает приложение-функцию Azure, а также добавляет конечную точку и ключ доступа Cosmos DB в параметры приложения.
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Создание функции Azure, которая подключается к Azure Cosmos DB")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Создание функции Azure, которая подключается к Azure Cosmos DB")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
 

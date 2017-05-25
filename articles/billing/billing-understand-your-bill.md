@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: erihur;genli
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6db1fedad08ee33f3468fb98f59071a1521921db
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: b5268239fb4c50e6bdea77323267a42e267268db
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -140,7 +141,9 @@ ms.lasthandoff: 04/11/2017
 Дополнительные сведения см. в статье [Приступая к работе с выставлением счетов и управлением затратами в Azure](billing-getting-started.md).
 
 ## <a name="how-do-i-make-a-payment"></a>Как выполнить оплату?
-Если в качестве метода оплаты вы указали кредитную или платежную карту, оплата производится автоматически. Если вы оплачиваете услугу [по выставляемым счетам](https://azure.microsoft.com/pricing/invoicing/), отправьте платеж в местоположение, указанное внизу счета. Для получения дополнительных сведений [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Если в качестве метода оплаты вы указали кредитную или платежную карту, оплата производится автоматически. В строке из выписки по кредитной карте вы увидите элемент **MSFT Azure**.
+
+Если вы оплачиваете услугу [по выставляемым счетам](https://azure.microsoft.com/pricing/invoicing/), отправьте платеж в местоположение, указанное внизу счета. Для получения дополнительных сведений [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Как проверить состояние платежа по кредитной карте?
 [Создайте запрос в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), чтобы узнать состояние платежа. 

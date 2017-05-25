@@ -12,19 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 05/12/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: a526610f5b09ce73a9c192ec45ae8aafab001401
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: b35390c6eb912db966648bff4efb59cece2837b3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="media-encoder-standard-schema"></a>Схема Media Encoder Standard
 В этой статье описаны некоторые элементы и типы XML-схемы, лежащие в основе [предустановок Media Encoder Standard](media-services-mes-presets-overview.md). Также рассмотрены элементы и их допустимые значения. Полная схема будет опубликована в будущем.  
 
-## <a name="a-namepreseta-preset-root-element"></a><a name="Preset"></a> Предустановка (корневой элемент)
+## <a name="Preset"></a> Предустановка (корневой элемент)
 Определяет предустановку кодирования.  
 
 ### <a name="elements"></a>Элементы
@@ -38,7 +39,7 @@ ms.lasthandoff: 01/13/2017
 | --- | --- | --- |
 | **Версия**<br/><br/> Обязательно |**xs:decimal** |Версия предустановки. Применяются следующие ограничения: xs:fractionDigits value="1" и xs:minInclusive value="1". Например, **version="1.0"**. |
 
-## <a name="a-nameencodinga-encoding"></a><a name="Encoding"></a> Кодирование
+## <a name="Encoding"></a> Кодирование
 Содержит последовательность следующих элементов.  
 
 ### <a name="elements"></a>Элементы
@@ -50,7 +51,7 @@ ms.lasthandoff: 01/13/2017
 | **PngImage** |[PngImage](media-services-mes-schema.md#PngImage) |Параметры изображения в формате PNG. |
 | **JpgImage** |[JpgImage](media-services-mes-schema.md#JpgImage) |Параметры изображения в формате JPG. |
 
-## <a name="a-nameh264videoa-h264video"></a><a name="H264Video"></a> H264Video
+## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
@@ -61,13 +62,13 @@ ms.lasthandoff: 01/13/2017
 | **SyncMode**<br/><br/> minOccurs="0" | |Функция будет доступна в будущих выпусках. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Коллекция уровней выходных видео. |
 
-## <a name="a-nameh264layersa-h264layers"></a><a name="H264Layers"></a> H264Layers
+## <a name="H264Layers"></a> H264Layers
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |Коллекция уровней H264. |
 
-## <a name="a-nameh264layera-h264layer"></a><a name="H264Layer"></a> H264Layer
+## <a name="H264Layer"></a> H264Layer
 > [!NOTE]
 > Ограничения видео основаны на значениях, описанных в таблице [уровней H264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels).  
 > 
@@ -86,11 +87,11 @@ ms.lasthandoff: 01/13/2017
 | **BFrames**<br/><br/> minOccurs="0" |**xs:int** |Число кадров B между опорными кадрами. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Число опорных кадров в GOP. |
 | **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs:string** |Может принимать одно из следующих значений: **Cabac** и **Cavlc**. |
-| **FrameRate**<br/><br/> minOccurs="0" |Рациональное число |Определяет частоту кадров выходного видео. Используйте стандартное значение "0/1", чтобы кодировщик использовал ту же частоту кадров, что и выходное видео. Допустимые значения должны быть стандартными для частоты кадров, как показано ниже. Но допустимо любое рациональное число. Например, значение 1/1 — это 1 кадр/с. Оно является допустимым.<br/><br/> - 12/1 (12 кадров/с)<br/><br/> - 15/1 (15 кадров/с)<br/><br/> - 24/1 (24 кадра/с)<br/><br/> - 24 000/1001 (23,976 кадра/с)<br/><br/> - 25/1 (25 кадров/с)<br/><br/>  - 30/1 (30 кадров/с)<br/><br/> - 30 000/1001 (29,97 кадра/с) |
+| **FrameRate**<br/><br/> minOccurs="0" |Рациональное число |Определяет частоту кадров выходного видео. Используйте стандартное значение "0/1", чтобы кодировщик использовал ту же частоту кадров, что и выходное видео. Допустимые значения должны быть стандартными для частоты кадров, как показано ниже. Но допустимо любое рациональное число. Например, значение 1/1 — это 1 кадр/с. Оно является допустимым.<br/><br/> - 12/1 (12 кадров/с)<br/><br/> - 15/1 (15 кадров/с)<br/><br/> - 24/1 (24 кадра/с)<br/><br/> - 24 000/1001 (23,976 кадра/с)<br/><br/> - 25/1 (25 кадров/с)<br/><br/>  - 30/1 (30 кадров/с)<br/><br/> - 30 000/1001 (29,97 кадра/с) <br/> <br/>**Примечание.** При создании пользовательской предустановки для кодирования с несколькими скоростями все уровни предустановки **должны** использовать одно и то же значение частоты кадров.|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs:boolean** |Копия из кодировщика мультимедиа Azure |
 | **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Определяет число фрагментов для разделенного кадра. Рекомендуется использовать значение по умолчанию. |
 
-## <a name="a-nameaacaudioa-aacaudio"></a><a name="AACAudio"></a> AACAudio
+## <a name="AACAudio"></a> AACAudio
  Содержит последовательность следующих элементов и групп.  
 
  См. дополнительные сведения о стандарте [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
@@ -110,7 +111,7 @@ ms.lasthandoff: 01/13/2017
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |См. описание [AudioGroup](media-services-mes-schema.md#AudioGroup), чтобы узнать необходимое число каналов, частоту выборки и скорость потока, которые можно установить для каждого профиля. |
 
-## <a name="a-nameaudiogroupa-audiogroup"></a><a name="AudioGroup"></a> AudioGroup
+## <a name="AudioGroup"></a> AudioGroup
 Дополнительные сведения о допустимых значениях для каждого профиля см. в таблице "Сведения об аудиокодеке" ниже.  
 
 ### <a name="elements"></a>Элементы
@@ -128,14 +129,14 @@ ms.lasthandoff: 01/13/2017
 **HEAACV2**|2.<br/><br/> - 22 050 : 8 &lt;= скорость &lt;= 10<br/><br/> - 24 000 : 8 &lt;= скорость &lt; 10<br/><br/> - 32 000 : 12 &lt;= скорость &lt; 64<br/><br/> - 44 100 : 20 &lt;= скорость &lt; 64<br/><br/> - 48 000 : 20 &lt;= скорость &lt; 64<br/><br/> - 88 200 : 64 &lt;= скорость &lt;= 64  
   
 
-## <a name="a-nameclipa-clip"></a><a name="Clip"></a> Клип
+## <a name="Clip"></a> Клип
 ### <a name="attributes"></a>Атрибуты
 | Имя | Тип | Описание |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |Указывает время начала презентации. Значение StartTime должно соответствовать абсолютной метке времени входящего видео. Например, если первый кадр входящего видео имеет метку времени 12:00:10.000, значение StartTime должно было равно или больше 12:00:10.000. |
 | **Duration** |**xs:duration** |Указывает продолжительность презентации (например, внешний вид наложения в видео). |
 
-## <a name="a-nameoutputa-output"></a><a name="Output"></a> Выходные данные
+## <a name="Output"></a> Выходные данные
 ### <a name="attributes"></a>Атрибуты
 | Имя | Тип | Описание |
 | --- | --- | --- |
@@ -153,7 +154,7 @@ ms.lasthandoff: 01/13/2017
 | **{Extension}** |Наследует свойство Type для выходного файла. Имя выходного файла будет иметь одно из следующих расширений: MP4, TS, JPG, PNG или BMP. |
 | **{Index}** |Обязателен для эскиза. Должен быть представлен только один раз. |
 
-## <a name="a-namevideoa-video-complex-type-inherits-from-codec"></a><a name="Video"></a> Видео (сложный тип, который наследуется из кодека)
+## <a name="Video"></a> Видео (сложный тип, который наследуется из кодека)
 ### <a name="attributes"></a>Атрибуты
 | Имя | Тип | Описание |
 | --- | --- | --- |
@@ -162,7 +163,7 @@ ms.lasthandoff: 01/13/2017
 | **Range** |**xs:string** | |
 | **PreserveResolutionAfterRotation** |**xs:boolean** |Подробное описание см. в следующем разделе: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation). |
 
-### <a name="a-namepreserveresolutionafterrotationa-preserveresolutionafterrotation"></a><a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
+### <a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
 Рекомендуется использовать флаг PreserveResolutionAfterRotation в сочетании со значениями разрешения, выраженными в процентах (Width=”100%”, Height=“100%”).  
 
 По умолчанию параметры разрешения кодирования (ширина и высота) в предварительных настройках Media Encoder Standard (MES) предназначены для видео с поворотом 0 градусов. Например, если входящее видео имеет разрешение 1280 x 720 с поворотом 0 градусов, предустановки по умолчанию определят это же разрешение и для выходного видео. См. рисунок ниже.  
@@ -177,7 +178,7 @@ ms.lasthandoff: 01/13/2017
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 
-## <a name="a-nameformatgroupa-formatgroup-group"></a><a name="FormatGroup"></a> FormatGroup (группа)
+## <a name="FormatGroup"></a> FormatGroup (группа)
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
@@ -185,7 +186,7 @@ ms.lasthandoff: 01/13/2017
 | **PngFormat** |**PngFormat** | |
 | **JpgFormat** |**JpgFormat** | |
 
-## <a name="a-namebmplayera-bmplayer"></a><a name="BmpLayer"></a> BmpLayer
+## <a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>Элемент
 | Имя | Тип | Описание |
 | --- | --- | --- |
@@ -197,7 +198,7 @@ ms.lasthandoff: 01/13/2017
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
-## <a name="a-namepnglayera-pnglayer"></a><a name="PngLayer"></a> PngLayer
+## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>Элемент
 | Имя | Тип | Описание |
 | --- | --- | --- |
@@ -209,7 +210,7 @@ ms.lasthandoff: 01/13/2017
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
-## <a name="a-namejpglayera-jpglayer"></a><a name="JpgLayer"></a> JpgLayer
+## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Элемент
 | Имя | Тип | Описание |
 | --- | --- | --- |
@@ -222,37 +223,37 @@ ms.lasthandoff: 01/13/2017
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
-## <a name="a-namepnglayersa-pnglayers"></a><a name="PngLayers"></a> PngLayers
+## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
-## <a name="a-namebmplayersa-bmplayers"></a><a name="BmpLayers"></a> BmpLayers
+## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
-## <a name="a-namejpglayersa-jpglayers"></a><a name="JpgLayers"></a> JpgLayers
+## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
-## <a name="a-namebmpimagea-bmpimage-complex-type-inherits-from-video"></a><a name="BmpImage"></a> BmpImage (сложный тип, который наследуется из видео)
+## <a name="BmpImage"></a> BmpImage (сложный тип, который наследуется из видео)
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Уровни PNG |
 
-## <a name="a-namejpgimagea-jpgimage-complex-type-inherits-from-video"></a><a name="JpgImage"></a> JpgImage (сложный тип, который наследуется из видео)
+## <a name="JpgImage"></a> JpgImage (сложный тип, который наследуется из видео)
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Уровни PNG |
 
-## <a name="a-namepngimagea-pngimage-complex-type-inherits-from-video"></a><a name="PngImage"></a> PngImage (сложный тип, который наследуется из видео)
+## <a name="PngImage"></a> PngImage (сложный тип, который наследуется из видео)
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |

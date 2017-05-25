@@ -11,12 +11,12 @@ ms.service: mysql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 05/17/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c09a6fa947d235189ab0137b074b6d7d9c925827
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c0029e025cf6d0af478d1f21dc6acc7860905a81
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 05/10/2017
 Используйте распространенные инструменты, такие как MySQL Workbench, mysqldump, Toad или Navicat, для удаленного подключения и восстановления данных в базу данных Azure для MySQL. Используйте эти инструменты на своем клиентском компьютере, подключенном к Интернету, чтобы подключиться к базе данных Azure для MySQL. Для обеспечения безопасности используйте подключение с SSL-шифрованием, а также см. статью [SSL-соединения в базе данных Azure для MySQL](concepts-ssl-connection-security.md). При переносе в базу данных Azure для MySQL не нужно перемещать файлы дампа в особое облачное расположение. 
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Создание файла резервной копии из командной строки с помощью mysqldump
-Чтобы создать резервную копию существующей базы данных MySQL локально или на виртуальной машине, выполните следующую команду: 
+Чтобы создать резервную копию имеющейся базы данных MySQL локально или на виртуальной машине, выполните следующую команду: 
 ```bash
 $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 ```
@@ -65,9 +65,6 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ```
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
-
-## <a name="upload-files"></a>Передача файлов
-С помощью клиента WinSCP можно легко передать файлы и управлять процессами импорта или дампа существующих файлов из среды MySQL (Azure или не Azure) в локальной среде, используя протокол SFTP или FTPS для экспорта.
 
 ## <a name="create-a-database-on-the-target-azure-mysql-server"></a>Создание базы данных на целевом сервере Azure MySQL
 Создайте пустую базу данных на целевом сервере базы данных Azure для MySQL, на который необходимо перенести данные. Используйте для этого MySQL Workbench, Toad, Navicat или любой сторонний инструмент MySQL. База данных может иметь то же имя, что и база данных, содержащая данные дампа. Вы также можете создать базу данных с другим именем.

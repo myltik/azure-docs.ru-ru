@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 9093bf30a67fd762b237faa61071137fd83d048f
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 540cd10066e055e2dc132445b9adba5a4112d63a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 
@@ -35,11 +35,14 @@ ms.lasthandoff: 05/10/2017
 Общая папка будет подключена как `clouddrive` в каталоге $Home. Она используется для хранения созданного образа размером 5 ГБ, который автоматически обновляет и сохраняет файлы в каталоге $Home. Подключение выполняется один раз, его не нужно повторять для последующих сеансов.
 
 ### <a name="cloud-shell-persists-files-with-both-methods-below"></a>Вот как можно сохранять файлы в Cloud Shell:
-1. Создайте образ диска каталога $Home для сохранения файлов в этом каталоге. Этот образ диска сохраняется в указанной общей папке с именем `<User>.img` в пути `fileshare.storage.windows.net/fileshare/.cloudconsole/<User>.img`.
+1. Создайте образ диска каталога $Home для сохранения файлов в этом каталоге. Этот образ диска сохраняется в указанной общей папке с именем `acc_<User>.img` в пути `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`.
 
 2. Подключите указанную общую папку как `clouddrive` в каталоге $Home, чтобы взаимодействовать с ней напрямую. 
 `/Home/<User>/clouddrive` сопоставляется с `fileshare.storage.windows.net/fileshare`.
  
+> [!Note]
+> Все файлы в каталоге $Home, такие как ключи SSH, сохраняются в образе диска пользователя, который хранится в подключенной общей папке. Соблюдайте рекомендации при сохранении информации в каталоге $Home и подключенной общей папке.
+
 ## <a name="using-clouddrive"></a>Использование команды clouddrive
 Cloud Shell разрешает пользователям выполнять команду `clouddrive`, с помощью которой можно вручную обновить общую папку, подключенную к Cloud Shell.
 ![](media/clouddrive-h.png)
@@ -94,7 +97,7 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 Чтобы узнать, какая общая папка подключается как `clouddrive`, сделайте следующее:
 1. Запустите `df` 
 
-В пути к файлу clouddrive содержится имя учетной записи хранения и общая папка в URL-адресе.
+В пути к каталогу clouddrive содержится имя учетной записи хранения и общая папка в URL-адресе.
 
 `//storageaccountname.file.core.windows.net/filesharename`
 
@@ -110,26 +113,23 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-## <a name="upload-or-download-local-files"></a>Отправка или скачивание локальных файлов
-Используйте портал Azure для управления отправкой локальных файлов в общую папку и из нее.
-Обновленные файлы в Cloud Shell отображаются в графическом интерфейсе хранилища файлов после обновления колонки.
+## <a name="transfer-local-files-to-cloud-shell"></a>Передача локальных файлов в Cloud Shell
+Каталог `clouddrive` синхронизируется c колонкой хранилища на портале Azure. Используйте его для передачи локальных файлов в общую папку и их извлечения. Обновленные файлы в Cloud Shell отображаются в графическом интерфейсе хранилища файлов после обновления колонки.
 
-1. Перейдите к подключенной общей папке ![](media/touch-txt-storage.png).
+### <a name="download-files"></a>Скачивание файлов
+![](media/download.gif)
+1. Перейдите к подключенной общей папке.
 2. Выберите конечный файл на портале.
-3. Щелкните "Скачать" ![](media/download-storage.png).
+3. Щелкните "Скачать".
 
-Если необходимо скачать файл, который существует вне `clouddrive`, сделайте следующее:
-1. Скопируйте файл в `/<User>/clouddrive`. <br>
-2. Выполните [предыдущие шаги](#upload-or-download-local-files). <br>
+### <a name="upload-files"></a>Отправка файлов
+![](media/upload.gif)
+1. Перейдите к подключенной общей папке.
+2. Щелкните "Отправить".
+3. Выберите файл, который необходимо отправить.
+4. Подтвердите отправку.
 
-## <a name="cloud-shell-tagging"></a>Добавление тегов в Cloud Shell
-Cloud Shell добавляет тег к подключенным учетным записям хранения, используя следующий формат. <br>
-
-| Ключ | Значение |
-|:-------------:|:-------------:|
-|cloud-console-files-for-user@domain.com|fileshareName|
-
-С помощью этих тегов можно узнать, какие пользователи сопоставлены с определенными общими папками, и найти нужные образы $Home.
+Теперь этот файл должен отобразиться в каталоге clouddrive в Cloud Shell.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Краткое руководство по Cloud Shell](quickstart.md) 

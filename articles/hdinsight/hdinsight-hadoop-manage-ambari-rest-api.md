@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг и управление кластерами Azure HDInsight с помощью Ambari REST API | Документация Майкрософт"
-description: "Узнайте, как использовать Ambari для наблюдения за кластерами HDInsight на платформе Linux и управления их функционированием. В этом документе рассказывается об использовании интерфейса REST API Ambari, предоставляемого с кластерами HDInsight."
+title: "Мониторинг и управление Hadoop с помощью Ambari REST API в Azure HDInsight | Документация Майкрософт"
+description: "Сведения об использовании Ambari для отслеживания и администрирования кластеров Hadoop в Azure HDInsight. В этом документе рассказывается об использовании интерфейса REST API Ambari, предоставляемого с кластерами HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 05/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ce6d8301c9c9fc0b9ac6bc2e31023ebbbba8a67c
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 7ac80a8521b48f43538ca06a054f8302eb32eea6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -28,7 +28,9 @@ ms.lasthandoff: 04/27/2017
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari упрощает управление кластером Hadoop и его мониторинг за счет удобного пользовательского веб-интерфейса и интерфейса REST API. Ambari предоставляется с кластерами HDInsight, которые работают под управлением операционной системы Linux, и используется для мониторинга кластера и внесения изменений в его конфигурацию. Из этого документа вы узнаете об основных принципах работы с REST API Ambari.
+Узнайте, как использовать Ambari REST API для отслеживания и администрирования кластеров Hadoop в Azure HDInsight.
+
+Apache Ambari упрощает управление кластером Hadoop и его мониторинг за счет удобного пользовательского веб-интерфейса и интерфейса REST API. Ambari предоставляется с кластерами HDInsight, которые работают под управлением операционной системы Linux, и используется для мониторинга кластера и внесения изменений в его конфигурацию.
 
 ## <a id="whatis"></a>Что такое Ambari
 

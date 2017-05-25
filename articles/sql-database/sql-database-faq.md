@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 0b53eb34293078ad2ce334583fee88a8c5ac5ccf
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 6ed02ead07c50b9a49e8868756b6f957d7b49b99
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -73,7 +74,7 @@ ms.lasthandoff: 04/20/2017
 
 Описание единиц eDTU и уровней служб см. в статье [Уровни служб базы данных SQL для отдельных баз данных и пулов эластичных баз данных](sql-database-service-tiers.md).
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Как использование активной георепликации в пуле эластичных баз данных отражается на счете?
+## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Как использование активной георепликации в эластичном пуле отражается на счете?
 В отличие от отдельных баз данных, использование [активной георепликации](sql-database-geo-replication-overview.md) с эластичными базами данных не оказывает прямого влияния на выставление счетов.  Плата взимается только за единицы eDTU, выделенные для каждого пула (основного и вторичного).
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>Как использование функции аудита влияет на мой счет?

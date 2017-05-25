@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 197e4c1873ecdc80c7eed3427449e2ea0d1605ba
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 62f674945745eb019c92173798b6eef43337c9f3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -47,7 +47,7 @@ ms.lasthandoff: 05/10/2017
 * [Node.js](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git.](http://www.git-scm.com/downloads)
-* [Предварительная версия Azure CLI 2.0](/cli/azure/install-az-cli2)
+* [Azure CLI 2.0](/cli/azure/install-az-cli2)
 * Учетная запись Microsoft Azure. Если у вас нет учетной записи, [подпишитесь на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
@@ -118,13 +118,13 @@ ms.lasthandoff: 05/10/2017
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md) и присвойте ей имя. В рамках этой версии руководства для PHP вам не обязательно знать, что это такое.
+3. Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md) и присвойте ей имя. В рамках этого руководства по Node.js вам не обязательно знать, что это такое.
 
         az group create --location "<location>" --name my-sailsjs-app-group
 
     Чтобы увидеть доступные значения для `<location>`, используйте команду `az appservice list-locations` интерфейса командной строки.
 
-3. Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный" и присвойте ему имя. В рамках этой версии руководства для PHP вам достаточно знать, что этот план не предусматривает выставление счетов за веб-приложения.
+3. Создайте [план службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) уровня "Бесплатный" и присвойте ему имя. В рамках этого руководства по Node.js вам достаточно знать, что этот план не предусматривает выставление счетов за веб-приложения.
 
         az appservice plan create --name my-sailsjs-appservice-plan --resource-group my-sailsjs-app-group --sku FREE
 

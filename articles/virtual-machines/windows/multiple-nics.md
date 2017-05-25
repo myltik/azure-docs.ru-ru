@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 03/14/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f04ac382521c7268d0eb03d1b3bfc78ee0b07d40
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6918b206c637e1e0ad99b472c6a45a4fc343dc6d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -143,7 +143,7 @@ Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
 $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
 ```
 
-Можно создать сетевую карту в **виртуальной сети, в которой находится виртуальная машина**, как показано в начале этой статьи, или подключить существующую сетевую карту. Предположим, что вы подключаете существующую сетевую карту `MyNic3` в виртуальной сети. 
+Можно создать сетевую карту в **виртуальной сети, в которой находится виртуальная машина**, как показано в начале этой статьи, или подключить существующую сетевую карту. Предположим, что вы подключаете имеющийся сетевой интерфейс `MyNic3` в виртуальной сети. 
 
 ```powershell
 $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
@@ -185,8 +185,8 @@ $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
 
 ```powershell
 $vm.NetworkProfile.NetworkInterfaces
-
-Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup"
+Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup" | `
+    Update-AzureRmVm -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Создание нескольких сетевых карт с помощью шаблонов Resource Manager

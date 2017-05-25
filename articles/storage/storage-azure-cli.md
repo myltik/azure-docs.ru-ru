@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 05/15/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 5b77598e76de3508d90b35ce5a1f2ee338aca0c8
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 90b67cf3d136882d59ed7fe4210f93fb694e96a6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -48,7 +49,7 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="working-with-the-cli"></a>Работа с интерфейсом командной строки
 
-После установки Azure CLI для доступа к соответствующим функциям вы можете использовать команду `az` в интерфейсе командной строки (Bash, терминал, командная строка). Введите команду `az`, после чего должен отобразиться примерно такой результат:
+После установки Azure CLI для доступа к соответствующим функциям вы можете использовать команду `az` в интерфейсе командной строки (Bash, терминал, командная строка). Введите команду `az`, чтобы отобразить полный список основных команд (пример выходных данных ниже приведен в сокращении):
 
 ```
      /\
@@ -62,38 +63,15 @@ Welcome to the cool new Azure CLI!
 
 Here are the base commands:
 
-    account   : Commands to manage subscriptions.
-    acr       : Commands to manage Azure container registries.
-    acs       : Commands to manage Azure container services.
-    ad        : Synchronize on-premises directories and manage Azure Active Directory (AAD)
-                resources.
-    appservice: Commands to manage your Azure web apps and App Service plans.
-    cloud     : Manage the Azure clouds registered.
-    component : Commands to manage and update Azure CLI 2.0 components.
-    configure : Configure Azure CLI 2.0 or view your configuration. The command is
-                interactive, so just type `az configure` and respond to the prompts.
-    container : Set up automated builds and deployments for multi-container Docker applications.
-    disk      : Commands to manage 'Managed Disks'.
-    feature   : Commands to manage resource provider features, such as previews.
-    feedback  : Loving or hating the CLI?  Let us know!
-    group     : Commands to manage resource groups.
-    image     : Commands to manage custom virtual machine images based on managed disks/snapshots.
-    lock
-    login     : Log in to access Azure subscriptions.
-    logout    : Log out to remove access to Azure subscriptions.
-    network   : Manages Network resources.
-    policy    : Commands to manage resource policies.
-    provider  : Manage resource providers.
-    resource  : Generic commands to manage Azure resources.
-    role      : Use role assignments to manage access to your Azure resources.
-    snapshot  : Commands to manage snapshots.
-    storage   : Durable, highly available, and massively scalable cloud storage.
-    tag       : Manage resource tags.
-    vm        : Provision Linux and Windows virtual machines in minutes.
-    vmss      : Create highly available, auto-scalable Linux or Windows virtual machines.
+    account          : Manage subscriptions.
+    acr              : Manage Azure container registries.
+    acs              : Manage Azure Container Services.
+    ad               : Synchronize on-premises directories and manage Azure Active Directory
+                       resources.
+    ...
 ```
 
-В интерфейсе командной строки выполните команду `az storage -h`, чтобы вывести список команд группы `storage` и ее подгруппы. Описания подгрупп дают общие сведения о функциональных возможностях, предоставляемых Azure CLI для работы с ресурсами хранилища.
+В интерфейсе командной строки выполните команду `az storage --help`, чтобы вывести список подгрупп команды `storage`. Описания подгрупп дают общие сведения о функциональных возможностях, предоставляемых Azure CLI для работы с ресурсами хранилища.
 
 ```
 Group
@@ -103,14 +81,14 @@ Subgroups:
     account  : Manage storage accounts.
     blob     : Object storage for unstructured data.
     container: Manage blob storage containers.
-    cors     : Manage Storage service Cross-Orgin Resource Sharing (CORS).
+    cors     : Manage Storage service Cross-Origin Resource Sharing (CORS).
     directory: Manage file storage directories.
     entity   : Manage table storage entities.
     file     : File shares that use the standard SMB 3.0 protocol.
     logging  : Manage Storage service logging information.
     message  : Manage queue storage messages.
     metrics  : Manage Storage service metrics.
-    queue    : Effectively scale apps according to traffic using queues.
+    queue    : Use queues to effectively scale applications according to traffic.
     share    : Manage file shares.
     table    : NoSQL key-value storage using semi-structured datasets.
 ```
@@ -141,16 +119,16 @@ export file_to_upload=<file_to_upload>
 export destination_file=<destination_file>
 
 echo "Creating the container..."
-az storage container create -n $container_name
+az storage container create --name $container_name
 
 echo "Uploading the file..."
-az storage blob upload -f $file_to_upload -c $container_name -n $blob_name
+az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
 
 echo "Listing the blobs..."
-az storage blob list -c $container_name
+az storage blob list --container-name $container_name --output table
 
 echo "Downloading the file..."
-az storage blob download -c $container_name -n $blob_name -f $destination_file
+az storage blob download --container-name $container_name --name $blob_name --file $destination_file --output table
 
 echo "Done"
 ```
@@ -178,18 +156,19 @@ echo "Done"
 
 ```
 Creating the container...
-Success
----------
-True
-Uploading the file...                                           Percent complete: %100.0
+{
+  "created": true
+}
+Uploading the file...
+Percent complete: %100.0
 Listing the blobs...
-Name           Blob Type      Length  Content Type              Last Modified
--------------  -----------  --------  ------------------------  -------------------------
-test_blob.txt  BlockBlob         771  application/octet-stream  2016-12-21T15:35:30+00:00
+Name       Blob Type      Length  Content Type              Last Modified
+---------  -----------  --------  ------------------------  -------------------------
+README.md  BlockBlob        6700  application/octet-stream  2017-05-12T20:54:59+00:00
 Downloading the file...
 Name
--------------
-test_blob.txt
+---------
+README.md
 Done
 ```
 
@@ -203,12 +182,16 @@ Done
 Для использования службы хранилища Azure вам потребуется учетная запись хранения. После настройки компьютера для [подключения к подписке](#connect-to-your-azure-subscription) можно создать новую учетную запись хранения Azure.
 
 ```azurecli
-az storage account create -l <location> -n <account_name> -g <resource_group> --sku <account_sku>
+az storage account create \
+    --location <location> \
+    --name <account_name> \
+    --resource-group <resource_group> \
+    --sku <account_sku>
 ```
 
-* `-l` — расположение (обязательный параметр). Например, "западная часть США".
-* `-n` — имя учетной записи хранения (обязательный параметр). Имя должно быть не меньше 3 и не больше 24 символов и содержать только буквенно-цифровые символы.
-* `-g` — имя группы ресурсов (обязательный параметр).
+* `--location` — расположение (обязательный параметр). Например, "западная часть США".
+* `--name` — имя учетной записи хранения (обязательный параметр). Имя должно быть не меньше 3 и не больше 24 символов и содержать только буквенно-цифровые символы.
+* `--resource-group` — имя группы ресурсов (обязательный параметр).
 * `--sku` — номер SKU учетной записи хранения (обязательный параметр). Допустимые значения:
   * `Premium_LRS`
   * `Standard_GRS`
@@ -227,13 +210,15 @@ export AZURE_STORAGE_ACCESS_KEY=<key>
 Установить учетную запись хранения по умолчанию можно также с помощью строки подключения. Сначала получите строку подключения с помощью команды `show-connection-string`:
 
 ```azurecli
-az storage account show-connection-string -n <account_name> -g <resource_group>
+az storage account show-connection-string \
+    --name <account_name> \
+    --resource-group <resource_group>
 ```
 
 Затем скопируйте полученную строку подключения и задайте переменную среды `AZURE_STORAGE_CONNECTION_STRING` (строки подключения может понадобиться заключить в кавычки):
 
 ```azurecli
-export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
+export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
@@ -247,7 +232,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 Каждый BLOB-объект в хранилище Azure должен находиться в контейнере. Вы можете создать контейнер с помощью команды `az storage container create`:
 
 ```azurecli
-az storage container create -n <container_name>
+az storage container create --name <container_name>
 ```
 
 Для нового контейнера можно задать один из трех уровней доступа на чтение с помощью необязательного аргумента `--public-access`.
@@ -262,7 +247,10 @@ az storage container create -n <container_name>
 Хранилище BLOB-объектов Azure поддерживает блочные, добавочные и страничные BLOB-объекты. Отправьте большие двоичные объекты в контейнер с помощью команды `blob upload`:
 
 ```azurecli
-az storage blob upload -f <local_file_path> -c <container_name> -n <blob_name>
+az storage blob upload \
+    --file <local_file_path> \
+    --container-name <container_name> \
+    --name <blob_name>
 ```
 
  По умолчанию команда `blob upload` отправляет файлы с расширением *.vhd в страничные или блочные BLOB-объекты. Чтобы указать другой тип при отправке большого двоичного объекта, можно использовать аргумент `--type`. Допустимые значения: `append`, `block`, и `page`.
@@ -273,7 +261,10 @@ az storage blob upload -f <local_file_path> -c <container_name> -n <blob_name>
 Следующий пример демонстрирует скачивание больших двоичных объектов из контейнера:
 
 ```azurecli
-az storage blob download -c mycontainer -n myblob.png -f ~/mydownloadedblob.png
+az storage blob download \
+    --container-name mycontainer \
+    --name myblob.png \
+    --file ~/mydownloadedblob.png
 ```
 
 ### <a name="copy-blobs"></a>Копирование BLOB-объектов
@@ -282,20 +273,35 @@ az storage blob download -c mycontainer -n myblob.png -f ~/mydownloadedblob.png
 Следующий пример демонстрирует копирование BLOB-объектов из одной учетной записи хранения в другую. Сначала создадим контейнер в другой учетной записи с общим анонимным доступом к большим двоичным объектам. Далее мы отправим файл в контейнер и, наконец, скопируем большой двоичный объект из этого контейнера в контейнер **mycontainer** текущей учетной записи.
 
 ```azurecli
-az storage container create -n mycontainer2 --account-name <accountName2> --account-key <accountKey2> --public-access blob
+# Create container in second account
+az storage container create \
+    --account-name <accountName2> \
+    --account-key <accountKey2> \
+    --name mycontainer2 \
+    --public-access blob
 
-az storage blob upload -f ~/Images/HelloWorld.png -c mycontainer2 -n myBlockBlob2 --account-name <accountName2> --account-key <accountKey2>
+# Upload blob to container in second account
+az storage blob upload \
+    --account-name <accountName2> \
+    --account-key <accountKey2> \
+    --file ~/Images/HelloWorld.png \
+    --container-name mycontainer2 \
+    --name myBlockBlob2
 
-az storage blob copy start -u https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 -b myBlobBlob -c mycontainer
+# Copy blob from second account to current account
+az storage blob copy start \
+    --source-uri https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 \
+    --destination-blob myBlobBlob \
+    --destination-container mycontainer
 ```
 
-URL-адрес исходного большого двоичного объекта (определенный с помощью `-u`) должен быть общедоступным или содержать маркер подписанного URL-адреса (SAS).
+URL-адрес исходного большого двоичного объекта (определенный с помощью `--source-uri`) должен быть общедоступным или содержать маркер подписанного URL-адреса (SAS).
 
 ### <a name="delete-a-blob"></a>Удаление большого двоичного объекта
 Чтобы удалить большой двоичный объект, используйте команду `blob delete`:
 
 ```azurecli
-az storage blob delete -c <container_name> -n <blob_name>
+az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Создание общих папок и управление ими
@@ -305,17 +311,17 @@ az storage blob delete -c <container_name> -n <blob_name>
 Общая папка Azure представляет собой общую папку с файлами SMB в Azure. Все каталоги и файлы должны быть созданы в общей папке. Учетная запись может содержать любое количество совместно используемых ресурсов, а ресурс может содержать любое количество файлов, насколько это позволяет емкость учетной записи хранения. В следующем примере создается общая папка с именем **myshare**.
 
 ```azurecli
-az storage share create -n myshare
+az storage share create --name myshare
 ```
 
 ### <a name="create-a-directory"></a>Создайте каталог
-Каталог обеспечивает дополнительную иерархическую структуру для общей папки Azure. В следующем примере в общей папке создается каталог с именем **myDir** .
+Каталог обеспечивает иерархическую структуру в общей папке Azure. В следующем примере в общей папке создается каталог с именем **myDir** .
 
 ```azurecli
-az storage directory create -n myDir -s myshare
+az storage directory create --name myDir --share-name myshare
 ```
 
-Обратите внимание, что путь к каталогу может включать несколько уровней, *например***a/b**. Однако необходимо убедиться в наличии всех родительских каталогов. Например, для пути **a/b** вам потребуется сначала создать каталог **a**, а затем — каталог **b**.
+Путь к каталогу может включать несколько уровней, например **dir1/dir2**. Однако прежде чем создавать подкаталог, необходимо убедиться в наличии всех родительских каталогов. Например, для пути **dir1/dir2** вам потребуется сначала создать каталог **dir1**, а затем — каталог **dir2**.
 
 ### <a name="upload-a-local-file-to-a-share"></a>Отправка локального файла в общую папку
 В следующем примере выполняется отправка файла из **~/temp/samplefile.txt** в корень общей папки **myshare**. Аргумент `--source` указывает существующий локальный файл для отправки.
@@ -337,13 +343,13 @@ az storage file upload --share-name myshare/myDir --source ~/temp/samplefile.txt
 
 ```azurecli
 # List the files in the root of a share
-az storage file list -s myshare
+az storage file list --share-name myshare --output table
 
 # List the files in a directory within a share
-az storage file list -s myshare/myDir
+az storage file list --share-name myshare/myDir --output table
 
 # List the files in a path within a share
-az storage file list -s myshare -p myDir/mySubDir/MySubDir2
+az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --output table
 ```
 
 ### <a name="copy-files"></a>Копирование файлов        

@@ -1,6 +1,6 @@
 ---
-title: "Развертывание платформ приложений | Документация Майкрософт"
-description: "Вы можете создавать популярные платформы приложений в виртуальных машинах Linux и Windows, используя шаблоны Azure Resource Manager для установки Active Directory, Docker и многих других ресурсов."
+title: "Развертывание платформ приложений на виртуальных машинах Linux в Azure | Документация Майкрософт"
+description: "Вы можете создавать популярные платформы приложений на виртуальных машинах Linux, используя шаблоны Azure Resource Manager для установки Active Directory, Docker и многих других ресурсов."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: squillace
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/29/2016
+ms.date: 05/19/2017
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4a57fa9a21b7a592fa1df9709446f7ac6132038e
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: c5d0d064c0afc4a9a5cb802fce66e219d23dc1ca
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="deploy-popular-application-frameworks-on-linux-using-azure-resource-manager-templates"></a>Развертывание популярных платформ приложений в Linux с помощью шаблонов Azure Resource Manager
 
-Для задуманного функционирования рабочих нагрузок обычно требуется много ресурсов. Шаблоны диспетчера ресурсов Azure позволяют не только определять, каким образом настроены приложения, но и развертывать ресурсы для поддержки настроенных приложений. В этой статье представлены наиболее популярные шаблоны в коллекции и сведения об их развертывании с помощью портала Azure, интерфейса командной строки Azure или среды PowerShell. Также имеется [версия этой статьи для Windows](../windows/app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Для задуманного функционирования рабочих нагрузок обычно требуется много ресурсов. Шаблоны диспетчера ресурсов Azure позволяют не только определять, каким образом настроены приложения, но и развертывать ресурсы для поддержки настроенных приложений. В этой статье представлены наиболее популярные шаблоны в коллекции и сведения об их развертывании с помощью портала Azure, интерфейса командной строки Azure или среды PowerShell.
 
 [!INCLUDE [virtual-machines-common-app-frameworks](../../../includes/virtual-machines-common-app-frameworks.md)]
 

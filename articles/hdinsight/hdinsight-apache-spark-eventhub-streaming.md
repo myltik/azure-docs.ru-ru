@@ -1,6 +1,7 @@
 ---
-title: "Потоковая передача данных из концентраторов событий с помощью Apache Spark в Azure HDInsight | Документация Майкрософт"
-description: "Пошаговые инструкции по отправке потока данных в концентратор событий Azure и последующего получения этих событий в HDInsight Spark с помощью приложения Scala"
+title: "Потоковая передача данных Apache Spark из концентраторов событий в Azure HDInsight | Документация Майкрософт"
+description: "Сведения о разработке примера приложения потоковой передачи Apache Spark для отправки потока данных в концентратор событий Azure и последующего получения этих событий в кластере HDInsight Spark с помощью приложения Scala."
+keywords: "потоковая передача apache spark, потоковая передача spark, пример приложения spark, пример приложения потоковой передачи apache spark, пример концентратора событий azure, пример приложения spark"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,30 +10,30 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 68894e75-3ffa-47bd-8982-96cdad38b7d0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/12/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 91c60e944dd3b72f5bf1137d93ba2ae70537b2f7
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 86ec34dccb4518c31d9762e68f272382ee544713
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="spark-streaming-process-events-from-azure-event-hubs-with-apache-spark-cluster-on-hdinsight"></a>Потоковая передача Spark. Обработка событий из концентраторов событий Azure с помощью кластера Apache Spark в HDInsight
+# <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Потоковая передача Apache Spark. Обработка данных из концентраторов событий Azure с помощью кластера Spark в HDInsight
 
-В этой статье вы ознакомитесь с некоторыми концепциями потоковой передачи с помощью Apache Spark и создадите решение для потоковой передачи, выполняющее следующие действия.
+В этой статье вы создадите пример приложения потоковой передачи Apache Spark, выполняющий следующие действия:
 
 1. Автономное приложение принимает сообщения в концентратор событий Azure.
 
-2. Сообщения извлекаются из концентратора событий в режиме реального времени с помощью приложения, работающего в кластере Spark в Azure HDInsight.
+2. Сообщения извлекаются из концентратора событий в режиме реального времени с помощью приложения, работающего в кластере Spark в HDInsight.
 
-3. Полученные данные передаются в несколько назначений, например в хранилище больших двоичных объектов Azure, в таблицу Hive или таблицу SQL. 
+3. Полученные данные передаются в несколько назначений, например в Azure Storage Blob, таблицу Hive и таблицу SQL. 
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -40,31 +41,31 @@ ms.lasthandoff: 03/29/2017
 
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="spark-streaming-concepts"></a>Основные понятия потоковой передачи Spark
+## <a name="what-is-apache-spark-streaming"></a>Общие сведения о потоковой передаче Apache Spark
 
-Подробное описание обработки потоковой передачи в Apache Spark см. [в этой статье](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight предоставляет аналогичные функции потоковой передачи для кластера Spark в Azure.  
+Подробное описание потоковой передачи Spark см. в [этом разделе](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight предоставляет аналогичные функции потоковой передачи для кластера Spark в Azure.  
 
 ## <a name="what-does-this-solution-do"></a>Каково предназначение этого решения?
 
-В этой статье вы выполните следующие действия, чтобы создать решение для потоковой передачи.
+Чтобы создать пример приложения потоковой передачи Spark, сделайте следующее:
 
 1. Создание концентратора событий Azure, который будет принимать поток событий.
 
 2. Запуск локального автономного приложения, которое создает события и передает их в концентратор событий Azure. Пример такого приложения опубликован по адресу [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples).
 
-3. Удаленный запуск приложения потоковой передачи в кластере Spark. Это приложение считывает события потоковой передачи из концентратора событий Azure и отправляет их в различные расположения (большой двоичный объект службы хранилища Azure, таблицу Hive и таблицу базы данных SQL). 
+3. Запустите пример концентратора событий Azure в кластере Spark. Этот пример считывает события потоковой передачи из концентратора событий Azure и записывает их в различные расположения (например, в Azure Storage Blob, таблицу Hive и таблицу базы данных SQL).
 
-## <a name="create-azure-event-hub"></a>Создание концентратора событий Azure
+## <a name="create-an-azure-event-hub"></a>Создание концентратора событий Azure
 
 1. Войдите на [портал Azure](https://manage.windowsazure.com) и щелкните **Создать** вверху слева.
 
 2. Последовательно выберите **Интернет вещей** и **Концентраторы событий**.
    
-    ![Создание концентратора событий](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub9.png)
+    ![Создание концентратора событий для примера приложения потоковой передачи Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Создание концентратора событий для примера приложения потоковой передачи Spark")
 
 3. В колонке **Создание пространства имен** укажите имя пространства имен. выберите ценовую категорию ("Базовый" или "Стандартный"). Также выберите подписку Azure, группу ресурсов и расположение для создания ресурса. Щелкните **Создать** , чтобы создать пространство имен.
    
-    ![Создание концентратора событий](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub1.png)
+    ![Указание имени концентратора событий для примера приложения потоковой передачи Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Указание имени концентратора событий для примера приложения потоковой передачи Spark")
 
     > [!NOTE]
        > Для сокращения задержек и затрат в поле **Расположение** следует выбрать то же расположение, в котором находится кластер Apache Spark в HDInsight.
@@ -76,62 +77,54 @@ ms.lasthandoff: 03/29/2017
     
 5. В колонке пространства имен щелкните **Концентраторы событий**, а затем **+Концентратор событий**, чтобы создать новый концентратор событий.
    
-    ![Создание концентратора событий](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub3.png)
+    ![Создание концентратора событий для примера приложения потоковой передачи Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-open-event-hubs-blade-for-spark-streaming-example.png "Создание концентратора событий для примера приложения потоковой передачи Spark")
 
 6. Введите имя для концентратора событий; для параметра с числом разделов установите значение 10, а для хранения сообщений — 1. Мы не будем сохранять сообщения в этом решении, поэтому остальные параметры можно не изменять. Просто нажмите кнопку **Создать**.
    
-    ![Создание концентратора событий](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub5.png)
+    ![Указание сведений о концентраторе событий для примера приложения потоковой передачи Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Указание сведений о концентраторе событий для примера приложения потоковой передачи Spark")
 
 7. Только что созданный концентратор событий отобразится в колонке "Концентратор событий".
     
-     ![](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub6.png)
+     ![Просмотр концентратора событий для примера приложения потоковой передачи Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-view-event-hub-for-spark-streaming-example.png "Просмотр концентратора событий для примера приложения потоковой передачи Spark")
 
 8. В колонке пространства имен (не в конкретной колонке концентратора событий) щелкните **Политики общего доступа**, а затем нажмите щелкните **RootManageSharedAccessKey**.
     
-     ![](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub7.png)
+     ![Определение политик концентратора событий для примера приложения потоковой передачи Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Определение политик концентратора событий для примера приложения потоковой передачи Spark")
 
 9. Нажмите кнопку копирования, чтобы скопировать первичный ключ и строку подключения **RootManageSharedAccessKey** в буфер обмена. Сохраните их, чтобы использовать на следующих этапах работы с этим руководством.
     
-     ![](./media/hdinsight-apache-spark-eventhub-streaming/create-event-hub8.png)
+     ![Просмотр ключей политик концентратора событий для примера приложения потоковой передачи Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "Просмотр ключей политик концентратора событий для примера приложения потоковой передачи Spark")
 
-## <a name="send-messages-to-an-azure-event-hub-using-a-scala-application"></a>Отправка сообщений в концентратор событий с помощью приложения Scala
+## <a name="send-messages-to-azure-event-hub-using-a-sample-scala-application"></a>Отправка сообщений в концентратор событий с помощью примера приложения Scala
 
-В этом разделе вы примените локальное автономное приложение Scala для создания потока событий и отправки его в концентратор событий Azure, созданный на предыдущем шаге. Это приложение доступно на сайте GitHub по адресу [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer). Здесь предполагается, что в репозитории GitHub уже созданы разветвления.
+В этом разделе вы примените локальное автономное приложение Scala для создания потока событий и отправки его в созданный ранее концентратор событий Azure. Это приложение доступно на сайте GitHub по адресу [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer). Здесь предполагается, что в репозитории GitHub уже созданы разветвления.
 
-1. Убедитесь, что на компьютере, где выполняется это приложение, установлены следующие компоненты.
+1. Убедитесь, что на компьютере, где выполняется это приложение, установлены следующие компоненты:
 
     * Комплект разработчика Oracle Java. Его можно установить [отсюда](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
     * Java IDE. В этой статье используется среда IntelliJ IDEA 15.0.1. Его можно установить [отсюда](https://www.jetbrains.com/idea/download/).
 
-
 2. Откройте приложение **EventhubsSampleEventProducer**в IntelliJ IDEA.
 
-3. Создайте проект. В меню **Сборка** выберите пункт **Make Project** (Создать проект). В зависимости от конфигурации IntelliJ IDEA выходной JAR-файл будет создан в разделе **\classes\artifacts**.
+3. Создайте проект. В меню **Сборка** выберите пункт **Make Project** (Создать проект). Расположение выходного JAR-файла зависит от конфигурации IntelliJ IDEA. Обычно он находится в разделе **\classes\artifacts**.
 
-    > [!TIP]
-    > Можно создать проект непосредственно из репозитория GitHub с помощью параметра в IntelliJ IDEA. Чтобы понять, как использовать этот подход, следуйте инструкциям в следующем разделе. Обратите внимание, что большинство действий, описанных в следующем разделе, не применимы для приложения Scala, создаваемого на этом шаге. Например:
-    > 
-    > * Не требуется обновлять модель объекта проекта, чтобы добавить в нее версию Spark. Это связано с тем, что при создании этого приложения не используется Spark.
-    > * Не требуется добавлять JAR-файлы зависимостей в библиотеку проекта. Такие JAR-файлы не нужны для этого проекта.
-    > 
-    > 
+## <a name="create-application-to-receive-messages-from-event-hub-into-a-spark-cluster"></a>Создание приложения для получения сообщений от концентратора событий в кластере Spark 
 
-## <a name="receive-messages-from-the-event-hub-using-a-streaming-application-running-on-spark-cluster"></a>Получение сообщений от концентратора событий с помощью приложения потоковой передачи, работающего в кластере Spark
-
-Пример приложения Scala для приема событий и их перенаправления в различные места назначения доступен по адресу [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Выполните действия ниже, чтобы обновить приложение и создать выходной JAR-файл.
+Пример приложения потоковой передачи Spark, написанного на языке Scala, которое получает события и перенаправляет их в различные расположения, доступен по адресу [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Выполните действия ниже, чтобы обновить приложение для конфигурации концентратора событий и создать выходной JAR-файл.
 
 1. Запустите IntelliJ IDEA и на экране запуска щелкните **Check out from Version Control** (Извлечь из системы управления версиями) и выберите пункт **Git**.
    
-    ![Получение источников из Git](./media/hdinsight-apache-spark-eventhub-streaming/get-source-from-git.png)
+    ![Пример приложения потоковой передачи Apache Spark. Получение источников из Git](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-get-source-from-git.png "Пример приложения потоковой передачи Apache Spark. Получение источников из Git")
+
 2. В диалоговом окне **Clone Repository** (Клонирование репозитория) введите URL-адрес репозитория Git, который нужно клонировать, укажите каталог, в который будет выполняться клонирование, а затем нажмите кнопку **Clone** (Клонировать).
    
-    ![Клонирование из Git](./media/hdinsight-apache-spark-eventhub-streaming/clone-from-git.png)
+    ![Пример приложения потоковой передачи Apache Spark. Клонирование из Git](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-clone-from-git.png "Пример приложения потоковой передачи Apache Spark. Клонирование из Git")
 3. Следуйте инструкциям на экране, пока проект полностью не клонируется. Нажмите клавиши **ALT+1**, чтобы открыть **представление проекта**. Оно должно выглядеть так:
    
-    ![представление проекта](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
+    ![Пример приложения потоковой передачи Apache Spark. Представление проекта](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-project-view.png "Пример приложения потоковой передачи Apache Spark. Представление проекта")
 4. Скомпилируйте код приложения с помощью Java 8. Чтобы сделать это, выберите **File** (Файл), **Project Structure** (Структура проекта) и на вкладке **Project** (Проект) в поле Project language level (Уровень языка проекта) установите значение **8 - Lambdas, type annotations, etc.** (8 — лямбды, аннотации типа и т. д.).
    
-    ![Структура проекта](./media/hdinsight-apache-spark-eventhub-streaming/java-8-compiler.png)
+    ![Пример приложения потоковой передачи Apache Spark. Настройка компилятора](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-java-8-compiler.png "Пример приложения потоковой передачи Apache Spark. Настройка компилятора")
 5. Откройте узел **pom.xml** , чтобы убедиться, что используется правильная версия Spark. В узле `<properties>` найдите фрагмент кода ниже и проверьте версию Spark.
    
         <scala.version>2.11.8</scala.version>
@@ -139,46 +132,47 @@ ms.lasthandoff: 03/29/2017
         <scala.binary.version>2.11</scala.binary.version>
         <spark.version>2.0.0</spark.version>
 
-6. Приложению требуется JAR-файл зависимостей, а точнее **JAR-файл драйвера JDBC**. Этот файл необходим для записи сообщений, полученных из концентратора событий, в базу данных SQL Azure. Этот JAR-файл версии 4.1 или более поздней можно скачать [здесь](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Добавьте ссылку на этот JAR-файл в библиотеке проекта. Выполните следующие действия:
+6. Приложению требуется JAR-файл зависимостей, а точнее **JAR-файл драйвера JDBC**. Этот файл необходим для записи сообщений, полученных из концентратора событий, в базу данных SQL Azure. Этот JAR-файл (версии 4.1 или более поздней) можно скачать [здесь](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Добавьте ссылку на этот JAR-файл в библиотеке проекта. Выполните следующие действия:
      
      1. В окне IntelliJ IDEA, где открыто приложение, щелкните **File** (Файл), выберите **Project Structure** (Структура проекта) и щелкните **Libraries** (Библиотеки). 
      2. Щелкните значок "Добавить" (![добавление значка](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), выберите **Java**и перейдите в папку, куда вы скачали JAR-файл драйвера JDBC. Следуйте инструкциям, чтобы добавить JAR-файл в библиотеку проектов.
         
          ![добавление отсутствующих зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Добавление отсутствующих JAR-файлов зависимостей")
      3. Нажмите кнопку **Применить**.
+
 7. Создайте выходной JAR-файл. Выполните следующие действия.
    
    1. В диалоговом окне **Project Structure** (Структура проекта) выберите **Artifacts** (Артефакты) и щелкните знак плюса. Во всплывающем диалоговом окне щелкните **JAR**, а затем выберите **From modules with dependencies** (На основе модулей с зависимостями).
       
-       ![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-1.png)
+       ![Пример приложения потоковой передачи Apache Spark. Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar.png "Пример приложения потоковой передачи Apache Spark. Создание JAR-файла")
    2. В диалоговом окне **Create JAR from Modules** (Создание JAR-файла на основе модулей) нажмите кнопку с многоточием (![многоточие](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png)) возле пункта **Main Class** (Основной класс).
    3. В диалоговом окне **Select Main Class** (Выбор основного класса) выберите любой из доступных классов и нажмите кнопку **ОК**.
       
-       ![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-2.png)
+       ![Пример приложения потоковой передачи Apache Spark. Выбор класса JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-select-class-for-jar.png "Пример приложения потоковой передачи Apache Spark. Выбор класса JAR-файла")
    4. В диалоговом окне **Create JAR from Modules** (Создание JAR-файла на основе модулей) установите переключатель **extract to the target JAR** (Извлечь в целевой JAR-файл) и нажмите кнопку **ОК**. В результате будет создан один JAR-файл, содержащий все зависимости.
       
-       ![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-3.png)
+       ![Пример приложения потоковой передачи Apache Spark. Создание JAR-файла на основе модулей](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar-from-modules.png "Пример приложения потоковой передачи Apache Spark. Создание JAR-файла на основе модулей")
    5. На вкладке **Макет выходных данных** содержится список всех JAR-файлов, которые включены в проект Maven. Здесь можно выбрать и удалить файлы, от которых не зависит работа приложения Scala. Для создаваемого приложения можно удалить все файлы, кроме последнего (**microsoft-spark-streaming-examples compile output**(«Выходные данные компиляции microsoft-spark-streaming-examples»)). Выберите JAR-файлы, которые нужно удалить, и щелкните значок **удаления** (![значок удаления](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png)).
       
-       ![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/delete-output-jars.png)
+       ![Пример приложения потоковой передачи Apache Spark. Удаление извлеченных JAR-файлов](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-delete-output-jars.png "Пример приложения потоковой передачи Apache Spark. Удаление извлеченных JAR-файлов")
       
        Установите флажок **Build on make** («Сборка на основе созданного»), чтобы JAR-файл создавался при каждом создании и обновлении проекта. Нажмите кнопку **Применить**.
    6. На вкладке **Output Layout** (Макет выходных данных) под полем **Available Elements** (Доступные элементы) отображается JAR-файл SQL JDBC, ранее добавленный в библиотеку проекта. Его необходимо добавить на вкладку **Output Layout** (Макет выходных данных). Щелкните JAR-файл правой кнопкой мыши и выберите пункт **Extract Into Output Root**(Извлечь в корень выходных данных).
       
-       ![Извлечение JAR-файла зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/extract-dependency-jar.png)  
+       ![Пример приложения потоковой передачи Apache Spark. Извлечение JAR-файла зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-extract-dependency-jar.png "Пример приложения потоковой передачи Apache Spark. Извлечение JAR-файла зависимостей")  
       
        Вкладка **макета выходных данных** теперь должна выглядеть следующим образом:
       
-       ![Вкладка окончательных выходных данных](./media/hdinsight-apache-spark-eventhub-streaming/final-output-tab.png)        
+       ![Пример приложения потоковой передачи Apache Spark. Вкладка окончательных выходных данных](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-final-output-tab.png "Пример приложения потоковой передачи Apache Spark. Вкладка окончательных выходных данных")        
       
        В диалоговом окне **Project Structure** (Структура проекта) нажмите кнопку **Применить**, а затем — **ОК**.    
    7. В строке меню щелкните **Build** (Сборка) и выберите **Make Project** (Создать проект). Кроме того, можно щелкнуть **Build Artifacts** («Сборка артефактов»), чтобы создать JAR-файл. Выходной JAR-файл создается в разделе **\classes\artifacts**.
       
-       ![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/output.png)
+       ![Пример приложения потоковой передачи Apache Spark. Выходной JAR-файл](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-output-jar.png "Пример приложения потоковой передачи Apache Spark. Выходной JAR-файл")
 
-## <a name="run-the-applications-remotely-on-a-spark-cluster-using-livy"></a>Удаленный запуск приложений с помощью Livy в кластере Spark
+## <a name="run-the-application-remotely-on-a-spark-cluster-using-livy"></a>Удаленный запуск приложений с помощью Livy в кластере Spark
 
-Для удаленного запуска приложения потоковой передачи на кластере Spark мы используем Livy. Подробное описание использования Livy с кластером HDInsight Spark см. в статье [Удаленная отправка заданий Spark в кластер Apache Spark в HDInsight на платформе Linux с помощью Livy](hdinsight-apache-spark-livy-rest-interface.md). Прежде чем начать выполнение удаленных заданий для потоковой передачи событий с помощью Spark, нужно выполнить несколько дополнительных действий.
+В этой статье для удаленного запуска приложения потоковой передачи Apache Spark на кластере Spark используется Livy. Подробное описание использования Livy с кластером HDInsight Spark см. в статье [Удаленная отправка заданий Spark в кластер Apache Spark в HDInsight на платформе Linux с помощью Livy](hdinsight-apache-spark-livy-rest-interface.md). Перед запуском приложения потоковой передачи Apache Spark сделайте следующее:
 
 1. Запустите локальное автономное приложение для создания и отправки событий в концентратор событий. Используйте следующую команду:
    
@@ -187,7 +181,7 @@ ms.lasthandoff: 03/29/2017
 2. Скопируйте JAR-файл потоковой передачи (**spark-streaming-data-persistence-examples.jar**) в хранилище BLOB-объектов Azure, связанное с кластером. Таким образом JAR-файл станет доступным для Livy. Вы можете использовать для этого служебную программу командной строки [**AzCopy**](../storage/storage-use-azcopy.md). Кроме того, для отправки данных вы можете использовать множество других клиентов. Дополнительные сведения о них см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
 3. Установите служебную программу cURL на компьютере, где выполняются эти приложения. Эта программа понадобится нам, чтобы вызывать конечные точки Livy для удаленного выполнения заданий.
 
-### <a name="run-the-applications-to-receive-the-events-into-an-azure-storage-blob-as-text"></a>Запуск приложений для отправки событий в большой двоичный объект службы хранилища Azure в виде текста
+### <a name="run-the-spark-streaming-application-to-receive-the-events-into-an-azure-storage-blob-as-text"></a>Запуск приложения потоковой передачи Spark для отправки событий в Azure Storage Blob в виде текста
 
 Откройте командную строку, перейдите в каталог, где установлена программа cURL, и выполните следующую команду (введите соответствующие имя пользователя, пароль и имя кластера):
 
@@ -225,7 +219,7 @@ ms.lasthandoff: 03/29/2017
 
 Запишите идентификатор пакетной службы, указанный в последней строке выходных данных (в данном примере — 1). Чтобы убедиться, что приложение выполняется успешно, зайдите в учетную запись хранения Azure, связанную с кластером. Там должна быть создана папка **/EventCount/EventCount10**. В этой папке должны содержаться большие двоичные объекты, которые записывают число событий, обработанных в течение периода времени, заданного для параметра **batch-interval-in-seconds**.
 
-Приложение будет продолжать работу, пока вы не остановите его. Используйте для этого следующую команду:
+Приложение потоковой передачи Spark будет продолжать работу, пока вы не остановите его. Используйте для этого следующую команду:
 
     curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/1"
 
@@ -243,7 +237,7 @@ ms.lasthandoff: 03/29/2017
  После выполнения команды зайдите в учетную запись хранения Azure, связанную с кластером. Там должна быть создана папка **EventStore10**. Откройте любой файл с префиксом **part-**. Там будут содержаться события, обработанные в формате JSON.
 
 ### <a name="run-the-applications-to-receive-the-events-into-a-hive-table"></a>Запуск приложений для отправки событий в таблицу Hive
-Для запуска приложения, которое передает события потоком в таблицу Hive, требуются некоторые дополнительные компоненты, а именно:
+Для запуска приложения потоковой передачи Spark, которое передает события потоком в таблицу Hive, требуются некоторые дополнительные компоненты, а именно:
 
 * datanucleus-api-jdo-3.2.6.jar;
 * datanucleus-rdbms-3.2.9.jar;
@@ -294,7 +288,7 @@ ms.lasthandoff: 03/29/2017
 
 
 ### <a name="run-the-applications-to-receive-the-events-into-an-azure-sql-database-table"></a>Запуск приложений для отправки событий в таблицу базы данных SQL Azure
-Прежде чем выполнять этот шаг, убедитесь, что у вас есть созданная база данных SQL Azure. Инструкции см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](../sql-database/sql-database-get-started.md). Чтобы завершить работу с этим разделом, укажите в качестве параметров имя базы данных, имя сервера базы данных и учетные данные администратора базы данных. Однако создавать таблицу базы данных не нужно. Приложение потоковой передачи создаст ее самостоятельно.
+Прежде чем выполнять этот шаг, убедитесь, что у вас есть созданная база данных SQL Azure. Инструкции см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](../sql-database/sql-database-get-started.md). Чтобы завершить работу с этим разделом, укажите в качестве параметров имя базы данных, имя сервера базы данных и учетные данные администратора базы данных. Однако создавать таблицу базы данных не нужно. Приложение потоковой передачи Spark создаст ее самостоятельно.
 
 Откройте командную строку, перейдите в каталог, где установлена программа cURL, и выполните следующую команду:
 

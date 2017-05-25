@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 7f0613285bc548e1329be3c33c30939f5998f379
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 627aa117ded0aaa519052d4ea1a1995ba2e363ee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -71,7 +71,7 @@ ms.lasthandoff: 05/02/2017
 ## <a name="using-the-api"></a>Использование API
 
 ### <a name="query-for-events"></a>Запрос сведений о событиях
-Для получения сведений о запланированных событиях достаточно отправить следующий запрос:
+Чтобы получить сведения о запланированных событиях, достаточно отправить следующий запрос:
 
     curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 
@@ -92,13 +92,25 @@ ms.lasthandoff: 05/02/2017
          }
      ]
     }
+    
+### <a name="event-properties"></a>Свойства события
+|Свойство  |  Описание |
+| - | - |
+| EventId |Глобальный уникальный идентификатор события. <br><br> Пример: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | Влияние, которое оказывает событие. <br><br> Значения: <br><ul><li> <i>Freeze.</i> Виртуальная машина будет приостановлена на несколько секунд. Это действие не повлияет на память, открытые файлы и сетевые подключения. <li> <i>Reboot.</i> Виртуальная машина будет перезагружена с очисткой памяти.<li> <i>Redeploy.</i> Виртуальная машина будет перемещена на другой узел с потерей данных на временных дисках. |
+| ResourceType | Тип ресурса, на который влияет событие. <br><br> Значения: <ul><li>VirtualMachine|
+| Ресурсы| Список ресурсов, на которые влияет событие. <br><br> Пример: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Event Status | Состояние события. <br><br> Значения: <ul><li><i>Scheduled.</i> Запланированное событие состоится по истечении времени, указанного в свойстве <i>NotBefore</i>.<li><i>Started.</i> Событие запущено.</i>
+| NotBefore| Время, после которого будет запущено событие. <br><br> Пример: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-В поле EventType указано ожидаемое воздействие на виртуальную машину. Возможны следующие варианты значений.
-- Freeze. Виртуальная машина будет приостановлена на несколько секунд. Это действие не повлияет на память, открытые файлы и сетевые подключения.
-- Reboot. Виртуальная машина будет перезагружена с очисткой памяти.
-- Redeploy. Виртуальная машина будет перемещена на другой узел с потерей данных на временном диске. 
+### <a name="event-scheduling"></a>Планирование события
+В зависимости от типа каждое будущее событие будет выполняться минимальное количество времени. Это время отражается в свойстве события <i>NotBefore</i>. 
 
-Когда платформа Azure создает запланированное событие (со статусом Scheduled), она указывает время, после которого это событие может состояться (в поле NotBefore).
+|EventType  | Минимальное время уведомления |
+| - | - |
+| Freeze| 15 минут |
+| Reboot | 15 минут |
+| Повторное развертывание | 10 минут |
 
 ### <a name="starting-an-event-expedite"></a>Запуск (ускорение) события
 
@@ -120,11 +132,13 @@ function GetScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $uri)
+function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
 {    
-    # Create the Scheduled Events Approval Json
+    # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
+    
+    # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
     Write-Host "Approving with the following: `n" $approvalString
@@ -161,7 +175,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-    ApproveScheduledEvent $event.EventId $scheduledEventURI 
+    ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
@@ -207,6 +221,7 @@ foreach($event in $scheduledEvents.Events)
 ```csharp
     public class ScheduledEventsDocument
     {
+        public string DocumentIncarnation;
         public List<CloudControlEvent> Events { get; set; }
     }
 
@@ -217,11 +232,12 @@ foreach($event in $scheduledEvents.Events)
         public string EventType { get; set; }
         public string ResourceType { get; set; }
         public List<string> Resources { get; set; }
-        public DateTime NoteBefore { get; set; }
+        public DateTime? NotBefore { get; set; }
     }
 
     public class ScheduledEventsApproval
     {
+        public string DocumentIncarnation;
         public List<StartRequest> StartRequests = new List<StartRequest>();
     }
 
@@ -259,7 +275,11 @@ public class Program
             Console.ReadLine();
 
             // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval();
+            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
+        {
+            DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
+        };
+        
             foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
             {
                 scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));

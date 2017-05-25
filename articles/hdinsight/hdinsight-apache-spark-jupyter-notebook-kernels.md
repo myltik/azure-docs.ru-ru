@@ -1,6 +1,7 @@
 ---
-title: "Использование различных ядер с объектами Jupyter Notebook в кластерах Azure HDInsight Spark | Документация Майкрософт"
-description: "Узнайте о ядрах PySpark, PySpark3 и Spark, которые можно использовать с объектом Jupyter Notebook, доступным в кластерах Spark в HDInsight под управлением Linux."
+title: "Ядра для записной книжки Jupyter в кластерах Spark в Azure HDInsight | Документация Майкрософт"
+description: "Сведения о ядрах PySpark, PySpark3 и Spark для записной книжки Jupyter, доступной с кластерами Spark в Azure HDInsight."
+keywords: "записная книжка jupyter в spark, jupyter в spark"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,24 +10,24 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/15/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 096fbc1d30e8c9df0c9008525e0fac3fd6e449cf
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: c5813341f0d70a3c04e915d243d2a9717cad1fc9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="jupyter-notebooks-kernels-with-apache-spark-clusters-in-hdinsight"></a>Ядра для записных книжек Jupyter с кластерами Apache Spark в HDInsight 
+# <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Ядра для записной книжки Jupyter в кластерах Spark в Azure HDInsight 
 
-Кластеры HDInsight Spark предоставляют ядра, которые можно использовать с объектами Jupyter Notebook для тестирования приложений Spark. Ядра — это программа, которая выполняет и интерпретирует ваш код. Ниже приведены два ядра.
+Кластеры HDInsight Spark предоставляют ядра, которые можно использовать с записной книжкой Jupyter в Spark для тестирования приложений. Ядра — это программа, которая выполняет и интерпретирует ваш код. Вот эти ядра:
 
 - **PySpark** (для приложений, написанных на языке Python2).
 - **PySpark3** (для приложений, написанных на языке Python3).
@@ -38,18 +39,18 @@ ms.lasthandoff: 05/11/2017
 
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="create-a-jupyter-notebook"></a>Создание записной книжки Jupyter
+## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Создание записной книжки Jupyter в Spark HDInsight
 
 1. Откройте кластер на [портале Azure](https://portal.azure.com/).  Инструкции см. в разделе [Отображение кластеров](hdinsight-administer-use-portal-linux.md#list-and-show-clusters). Кластер откроется в новой колонке портала.
 
 2. В разделе **Быстрые ссылки** щелкните **Панели мониторинга кластера**, чтобы открыть колонку **Панели мониторинга кластера**.  Если раздел **Быстрые ссылки** не отображается, в колонке в меню слева щелкните **Обзор**.
 
-    ![Панели мониторинга кластера](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "Панели мониторинга кластера") 
+    ![Записная книжка Jupyter в Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-jupyter-notebook-on-spark.png "Записная книжка Jupyter в Spark") 
 
 3. Щелкните **Записная книжка Jupyter**. При появлении запроса введите учетные данные администратора для кластера.
    
    > [!NOTE]
-   > Также можно открыть Jupyter Notebook для своего кластера, открыв следующий URL-адрес в браузере. Замените **CLUSTERNAME** именем кластера:
+   > Вы также можете получить доступ к записной книжке Jupyter в кластере Spark, открыв следующий URL-адрес в браузере. Замените **CLUSTERNAME** именем кластера:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
@@ -57,13 +58,13 @@ ms.lasthandoff: 05/11/2017
 
 3. Щелкните **Создать**, а затем — **Pyspark**, **PySpark3** или **Spark**, чтобы создать объект Notebook. Для приложений Scala используйте ядро Spark, для приложений Python2 — ядро PySpark, а для приложений Python3 — ядро PySpark3.
    
-    ![Создание объекта Jupyter Notebook](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Создание объекта Jupyter Notebook") 
+    ![Ядра для записной книжки Jupyter в Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Ядра для записной книжки Jupyter в Spark") 
 
 4. Объект Notebook должен открыться с помощью выбранного ядра.
 
-## <a name="benefits-of-using-these-kernels"></a>Преимущества использования этих ядер
+## <a name="benefits-of-using-the-kernels"></a>Преимущества использования ядер
 
-Ниже приведены несколько преимуществ использования новых ядер.
+Ниже приведены некоторые преимущества использования новых ядер для записной книжки Jupyter в кластерах Spark HDInsight.
 
 - **Предустановленные контексты**. Благодаря ядрам **PySpark**, **PySpark3** и **Spark** вам не требуется явно настраивать контексты Spark или Hive перед началом работы с приложением. Они доступны по умолчанию. а именно:
    
