@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8b5cb66ea958cf6643fa34abb8d484b97b212373
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: b04bdb529b91369d89e8ff85a45c778757e19875
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -35,32 +35,43 @@ ms.lasthandoff: 04/27/2017
 >
 >
 
-В этом руководстве описывается создание и отслеживание экземпляра фабрики данных Azure с помощью командлетов Azure PowerShell. Конвейер в фабрике данных, который вы создадите в ходе изучения этого руководства, копирует данные из двоичного объекта Azure в Базу данных SQL Azure с помощью действия копирования.
+В этом руководстве показано, как создать фабрику данных c конвейером, который копирует данные из хранилища BLOB-объектов Azure, с помощью Azure PowerShell. Если вы еще не работали с фабрикой данных Azure, перед выполнением действий, описанных в этом руководстве, ознакомьтесь со статьей [Введение в фабрику данных Azure](data-factory-introduction.md).   
 
-Действие копирования перемещает данные в фабрике данных. Это действие выполняется с помощью глобально доступной службы, обеспечивающей безопасное, надежное и масштабируемое копирование данных между разными хранилищами. Дополнительные сведения о действии копирования см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md).   
+В этом руководстве конвейер данных копирует данные из исходного хранилища данных в целевое. Он не преобразовывает входные данные в выходные. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [руководстве по созданию конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).
+
+В рамках этого руководства используется только действие копирования. Конвейер может содержать сразу несколько действий. Два действия можно объединить в цепочку (выполнить одно действие вслед за другим), настроив выходной набор данных одного действия как входной набор данных другого действия. Дополнительные сведения см. в разделе [Несколько действий в конвейере](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 > [!NOTE]
 > В этой статье рассматриваются не все командлеты фабрики данных. Полную документацию по этим командлетам см. в [справочнике](/powershell/module/azurerm.datafactories).
->
-> В этом руководстве конвейер данных копирует данные из исходного хранилища данных в целевое. Он не преобразовывает входные данные в выходные. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [руководстве по созданию конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-- Ознакомьтесь с [обзором руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования** .
-- Установите Azure PowerShell. Следуйте инструкциям по [установке и настройке Azure PowerShell](../powershell-install-configure.md).
+- Выполните предварительные требования, перечисленные в [этом руководстве](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Установите **Azure PowerShell**. Следуйте инструкциям по [установке и настройке Azure PowerShell](../powershell-install-configure.md).
 
-## <a name="in-this-tutorial"></a>В этом учебнике рассматриваются следующие темы:
-В таблице ниже перечислены шаги, которые выполняются в рамках этого руководства.
+## <a name="steps"></a>Действия
+Ниже приведены шаги, которые вы выполните в процессе работы с этим руководством.
 
-| Шаг | Описание |
-| --- | --- |
-| [Создание фабрики данных Azure](#create-data-factory) |На этом шаге создается фабрика данных Azure с именем **ADFTutorialDataFactoryPSH**. |
-| [Создание связанных служб](#create-linked-services) |На этом шаге создаются две связанные службы: **StorageLinkedService** и **AzureSqlLinkedService**. Связанные службы StorageLinkedService и AzureSqlLinkedService связывают с фабрикой данных ADFTutorialDataFactoryPSH службу хранилища Azure и Базу данных SQL Azure соответственно. |
-| [Создать входные и выходные наборы данных](#create-datasets) |На этом этапе определяются два набора данных (EmpTableFromBlob и EmpSQLTable). Эти наборы данных используются в качестве входных и выходных таблиц для **действия копирования** в конвейере ADFTutorialPipeline, который будет создан на следующем этапе. |
-| [Создание и запуск конвейера](#create-pipeline) |На этом шаге создается конвейер с именем **ADFTutorialPipeline** в фабрике данных ADFTutorialDataFactoryPSH. Конвейер использует действие копирования для создания копии данных из большого двоичного объекта Azure в выходной таблице базы данных Azure. |
-| [Контроль наборов данных и конвейера](#monitor-pipeline) |На этом шаге выполняется мониторинг наборов данных и конвейера с помощью Azure PowerShell. |
+1. Создайте **фабрику данных** Azure. На этом этапе вы создадите фабрику данных Azure с именем ADFTutorialDataFactoryPSH. 
+2. Создайте в этой фабрике данных **связанные службы**. На этом этапе вы создадите две связанные службы — службу хранилища Azure и базу данных SQL Azure. 
+    
+    Связанная служба хранилища Azure связывает учетную запись хранения Azure с фабрикой данных. Вы создали контейнер и отправили данные в эту учетную запись хранения в ходе выполнения предварительных [требований](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-## <a name="create-a-data-factory"></a>Создание фабрики данных
-На этом этапе с помощью Azure PowerShell создается фабрика данных Azure с именем **ADFTutorialDataFactoryPSH**.
+    Связанная служба SQL Azure связывает базу данных SQL Azure с фабрикой данных. В этой базе данных хранятся данные, скопированные из хранилища BLOB-объектов. Вы создали таблицу SQL в этой базе данных в ходе выполнения [предварительных требований](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+3. Создайте в фабрике данных входные и выходные **наборы данных**.  
+    
+    Связанная служба хранилища Azure указывает строку подключения, которую фабрика данных использует во время выполнения, чтобы подключиться к учетной записи хранения Azure. А входной набор данных больших двоичных объектов определяет контейнер и папку с входными данными.  
+
+    Аналогичным образом связанная служба базы данных SQL Azure указывает строку подключения, которую служба фабрики данных использует во время выполнения, чтобы подключиться к базе данных SQL Azure. А выходной набор данных таблицы SQL определяет таблицу в базе данных, в которую копируются данные из хранилища BLOB-объектов.
+4. Создайте **конвейер** в фабрике данных. На этом этапе вы создадите конвейер с действием копирования.   
+    
+    Действие копирования копирует данные из большого двоичного объекта из хранилища BLOB-объектов Azure в таблицу в базе данных SQL Azure. Его можно использовать, чтобы копировать данные из любого поддерживаемого источника в любое расположение. Список поддерживаемых хранилищ данных см. в [этом разделе](data-factory-data-movement-activities.md#supported-data-stores-and-formats). 
+5. Выполните мониторинг конвейера. На этом этапе вы **отследите** срезы входных и выходных наборов данных с помощью PowerShell.
+
+## <a name="create-a-data-factory"></a>Создать фабрику данных
+> [!IMPORTANT]
+> Выполните [предварительные требования, необходимые для работы с этим руководством](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), если вы еще этого не сделали.   
+
+Фабрика данных может иметь один или несколько конвейеров. Конвейер может содержать одно или несколько действий. Это может быть, например, действие копирования, копирующее данные из исходного хранилища данных в конечное, и действие HDInsight Hive для выполнения скрипта Hive, преобразующего входные данные в выходные данные продукта. Начнем с создания фабрики данных.
 
 1. Запустите **PowerShell**. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
 
@@ -91,8 +102,10 @@ ms.lasthandoff: 04/27/2017
 3. Выполните командлет **New-AzureRmDataFactory**, чтобы создать фабрику данных с именем **ADFTutorialDataFactoryPSH**.  
 
     ```PowerShell
-    New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
+    $df=New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
     ```
+    Это имя уже может использоваться. В этом случае присвойте фабрике данных уникальное имя, добавив к нему префикс или суффикс (например, ADFTutorialDataFactoryPSH05152017), и выполните команду еще раз.  
+
 Обратите внимание на следующие моменты.
 
 * Имя фабрики данных Azure должно быть глобально уникальным. При возникновении следующей ошибки измените имя (например, на ваше_имя_ADFTutorialDataFactoryPSH). Используйте это имя вместо ADFTutorialFactoryPSH при выполнении шагов в этом учебнике. Ознакомьтесь с [правилами именования](data-factory-naming-rules.md) артефактов фабрики данных.
@@ -118,16 +131,25 @@ ms.lasthandoff: 04/27/2017
   * Войдите на [портал Azure](https://portal.azure.com), используя свою подписку Azure. Откройте колонку фабрики данных или создайте фабрику данных на портале Azure. Поставщик будет зарегистрирован автоматически.
 
 ## <a name="create-linked-services"></a>Создание связанных служб
-Связанные службы связывают хранилища данных или службы вычислений с фабрикой данных Azure. Хранилищем данных может выступать служба хранилища Azure, База данных SQL Azure или локальная база данных SQL Server, где хранятся входные или выходные данные для конвейера фабрики данных. Служба вычислений — это служба, которая обрабатывает входные данные и создает выходные данные.
+Связанная служба в фабрике данных связывает хранилища данных и службы вычислений с фабрикой данных. В этом руководстве не используются службы вычислений, например Azure HDInsight или Azure Data Lake Analytics. Вы используете два хранилища данных — служба хранилища Azure (источник) и база данных SQL Azure (конечное хранилище). 
 
-На этом шаге создаются две связанные службы: **StorageLinkedService** и **AzureSqlLinkedService**. Связанные службы StorageLinkedService и AzureSqlLinkedService связывают с фабрикой данных **ADFTutorialDataFactoryPSH** учетную запись хранения Azure и Базу данных SQL Azure соответственно. Далее в этом руководстве вы создадите конвейер, который копирует данные из контейнера больших двоичных объектов в StorageLinkedService в таблицу SQL в AzureSqlLinkedService.
+Поэтому нужно создать две связанные службы: служба хранилища Azure с именем AzureStorageLinkedService и база данных SQL Azure с именем AzureSqlLinkedService.  
+
+Связанная служба хранилища Azure связывает учетную запись хранения Azure с фабрикой данных. В этой учетной записи хранения вы создали контейнер и отправили в нее данные в ходе выполнения предварительных [требований](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
+
+Связанная служба SQL Azure связывает базу данных SQL Azure с фабрикой данных. В этой базе данных хранятся данные, скопированные из хранилища BLOB-объектов. Вы создали пустую таблицу в этой базе данных в ходе выполнения [предварительных требований](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 ### <a name="create-a-linked-service-for-an-azure-storage-account"></a>Создание связанной службы для учетной записи хранения Azure
-1. Создайте в папке **C:\ADFGetStartedPSH** файл JSON с именем **StorageLinkedService.json** со следующим содержимым. (Если папки ADFGetStartedPSH нет, создайте ее.)
+На этом шаге вы свяжете учетную запись хранения Azure с фабрикой данных.
+
+1. Создайте JSON-файл с именем **AzureStorageLinkedService.json** в папке **C:\ADFGetStartedPSH** и добавьте в него приведенное ниже содержимое. Если папка ADFGetStartedPSH отсутствует, создайте ее.
+
+    > [!IMPORTANT]
+    > Перед сохранением файла замените значения &lt;accountname&gt; и &lt;accountkey&gt; на имя вашей учетной записи хранения Azure и ее ключ. 
 
     ```json
     {
-        "name": "StorageLinkedService",
+        "name": "AzureStorageLinkedService",
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
@@ -135,32 +157,37 @@ ms.lasthandoff: 04/27/2017
             }
         }
      }
-    ```
-   Замените значения **accountname** и **accountkey** на имя вашей учетной записи хранения Azure и ее ключ.
+    ``` 
 2. В **Azure PowerShell** перейдите в папку **ADFGetStartedPSH**.
-3. Чтобы создать связанную службу, можно использовать командлет **New-AzureRmDataFactoryLinkedService** . В этом командлете, как и в других командлетах фабрики данных, которые используются в этом руководстве, нужно передавать значения для параметров **ResourceGroupName** и **DataFactoryName**. Кроме того, можно использовать командлет **Get-AzureRmDataFactory**, чтобы получить объект DataFactory и передать его без необходимости ввода параметров ResourceGroupName и DataFactoryName при каждом запуске командлета. Чтобы назначить выходные данные командлета **Get-AzureRmDataFactory** переменной **$df**, выполните следующую команду:
-
-    ```PowerShell   
-    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
-    ```
-
-4. Теперь выполните командлет **New-AzureRmDataFactoryLinkedService**, чтобы создать связанную службу **StorageLinkedService**.
+4. Выполните командлет **New-AzureRmDataFactoryLinkedService**, чтобы создать связанную службу **AzureStorageLinkedService**. В этом и в других командлетах фабрики данных, которые используются в этом руководстве, требуется передача значений для параметров **ResourceGroupName** и **DataFactoryName**. Кроме того, вы можете передать объект DataFactory, возвращенный командлетом New-AzureRmDataFactory, не вводя параметры ResourceGroupName и DataFactoryName при каждом запуске командлета. 
 
     ```PowerShell
-    New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
+    New-AzureRmDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
     ```
+    Пример выходных данных:
 
-    Если вы не выполнили командлет **Get-AzureRmDataFactory** и назначили выходные данные переменной **$df**, то потребуется указать значения параметров ResourceGroupName и DataFactoryName следующим образом.   
+    ```
+    LinkedServiceName : AzureStorageLinkedService
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : ADFTutorialDataFactoryPSH0516
+    Properties        : Microsoft.Azure.Management.DataFactories.Models.LinkedServiceProperties
+    ProvisioningState : Succeeded
+    ``` 
+
+    Связанную службу можно создать и другим способом. Вместо объекта DataFactory укажите имя группы ресурсов и фабрики данных.  
 
     ```PowerShell
-    New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
+    New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName <Name of your data factory> -File .\AzureStorageLinkedService.json
     ```
-
-Если вы закроете Azure PowerShell посреди обучения, при следующем запуске Azure PowerShell придется выполнить командлет Get-AzureRmDataFactory, чтобы завершить прохождение руководства.
 
 ### <a name="create-a-linked-service-for-an-azure-sql-database"></a>Создание связанной службы для Базы данных SQL Azure
-1. Создайте файл JSON с именем AzureSqlLinkedService.json со следующим содержимым.
+На этом шаге вы свяжете базу данных SQL Azure с фабрикой данных.
 
+1. Создайте в папке C:\ADFGetStartedPSH файл JSON с именем AzureSqlLinkedService.json и добавьте в него приведенное ниже содержимое.
+
+    > [!IMPORTANT]
+    > Вместо &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt; и &lt;password&gt; укажите имя своего сервера Azure SQL Server, имя базы данных, имя учетной записи пользователя и пароль.
+    
     ```json
     {
         "name": "AzureSqlLinkedService",
@@ -172,70 +199,46 @@ ms.lasthandoff: 04/27/2017
         }
      }
     ```
-   Вместо **servername**, **databasename**, **username@servername** и **password** укажите имя своего сервера Azure SQL Server, имя базы данных, имя учетной записи пользователя и пароль.
 2. Чтобы создать связанную службу, выполните следующую команду:
 
     ```PowerShell
     New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
     ```
+    
+    Пример выходных данных:
 
-   Убедитесь, что для сервера Базы данных SQL включена настройка **Разрешить доступ к службам Azure**. Чтобы проверить и при необходимости включить этот параметр, выполните следующие действия.
+    ```
+    LinkedServiceName : AzureSqlLinkedService
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : ADFTutorialDataFactoryPSH0516
+    Properties        : Microsoft.Azure.Management.DataFactories.Models.LinkedServiceProperties
+    ProvisioningState : Succeeded
+    ```
 
-   1. Щелкните раздел **Обзор** слева и выберите пункт **Серверы SQL**.
-   2. Выберите свой сервер и в колонке **SQL Server** щелкните пункт **Параметры**.
-   3. В колонке **Параметры** щелкните пункт **Брандмауэр**.
-   4. В колонке **Параметры брандмауэра** щелкните **ВКЛ** для параметра **Разрешить доступ к службам Azure**.
-   5. Щелкните раздел **Активно** слева, чтобы переключиться в колонку **Фабрика данных**, которую вы использовали ранее.
+   Убедитесь, что для сервера базы данных SQL включен параметр **Разрешить доступ к службам Azure**. Чтобы проверить и при необходимости включить этот параметр, выполните следующие действия.
+
+    1. Войдите на [портал Azure](https://portal.azure.com)
+    2. Щелкните **Больше служб** слева и выберите **Серверы SQL** в категории **Базы данных**.
+    3. Выберите в списке свой сервер SQL Server.
+    4. В колонке SQL Server щелкните ссылку **Показать параметры брандмауэра**.
+    5. В колонке **Параметры брандмауэра** щелкните **ВКЛ** для параметра **Разрешить доступ к службам Azure**.
+    6. Нажмите кнопку **Сохранить** на панели инструментов. 
 
 ## <a name="create-datasets"></a>Создание наборов данных
-На предыдущем шаге вы создали службы, связывающие учетную запись хранения Azure и Базу данных SQL Azure с фабрикой данных. Теперь мы создадим наборы данных, представляющие входные и выходные данные для действия копирования в конвейере, который будет создан на следующем шаге.
+На предыдущем шаге вы создали связанные службы, связывающие учетную запись хранения Azure и базу данных SQL Azure с фабрикой данных. На этом этапе вы определите два набора данных (InputDataset и OutputDataset), представляющие входные и выходные данные в хранилищах данных, на которые ссылаются службы AzureStorageLinkedService и AzureSqlLinkedService соответственно.
 
-Таблица представляет собой прямоугольный набор данных. Сейчас это единственный поддерживаемый тип набора данных. Входная таблица в этом руководстве ссылается на контейнер больших двоичных объектов в службе хранилища Azure. Выходная таблица ссылается на таблицу SQL в Базе данных SQL Azure.  
+Связанная служба хранилища Azure указывает строку подключения, которую фабрика данных использует во время выполнения, чтобы подключиться к учетной записи хранения Azure. А входной набор данных больших двоичных объектов (InputDataset) определяет контейнер и папку с входными данными.  
 
-### <a name="prepare-azure-blob-storage-and-azure-sql-database-for-the-tutorial"></a>Подготовка хранилища BLOB-объектов Azure и Базы данных SQL Azure для изучения руководства
-Пропустите этот шаг, если вы изучили руководство [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
-Чтобы подготовить хранилище BLOB-объектов и Базу данных SQL для этого руководства, выполните следующие шаги.
-
-1. Создайте контейнер больших двоичных объектов с именем **adftutorial** в хранилище BLOB-объектов, на которое указывает служба **StorageLinkedService**.
-2. Создайте и отправьте текстовый файл с именем **emp.txt** в качестве большого двоичного объекта в контейнер **adftutorial**.
-3. Создайте таблицу с именем **emp** в Базе данных SQL, на которую указывает служба **AzureSqlLinkedService**.
-
-4. Запустите Блокнот. Скопируйте следующий текст и сохраните его с именем **emp.txt** в папке **C:\ADFGetStartedPSH** на жестком диске.
-
-    ```
-    John, Doe
-    Jane, Doe
-    ```
-5. При помощи таких средств, как [обозреватель службы хранилища Azure](https://azurestorageexplorer.codeplex.com/), создайте контейнер **adftutorial** и отправьте в него файл **emp.txt**.
-
-    ![Обозреватель хранилищ Azure](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
-6. Используйте следующий скрипт SQL, чтобы создать таблицу **emp** в Базе данных SQL.  
-
-    ```sql
-    CREATE TABLE dbo.emp
-    (
-        ID int IDENTITY(1,1) NOT NULL,
-        FirstName varchar(50),
-        LastName varchar(50),
-    )
-    GO
-
-    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
-    ```
-
-    Если на вашем компьютере установлена версия SQL Server 2014, следуйте инструкциям, указанным в статье [Управление базой данных SQL Azure с помощью SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md), чтобы подключиться к серверу Базы данных SQL и запустить скрипт SQL.
-
-    Если клиенту не разрешен доступ к серверу Базы данных SQL, следует настроить брандмауэр для сервера Базы данных SQL, чтобы разрешить доступ с вашего компьютера (IP-адреса). Инструкции см. [в этой статье](../sql-database/sql-database-configure-firewall-settings.md).
+Аналогичным образом связанная служба базы данных SQL Azure указывает строку подключения, которую служба фабрики данных использует во время выполнения, чтобы подключиться к базе данных SQL Azure. А выходной набор данных таблицы SQL (OututDataset) определяет таблицу в базе данных, в которую копируются данные из хранилища BLOB-объектов. 
 
 ### <a name="create-an-input-dataset"></a>Создание входного набора данных
-Таблица представляет собой прямоугольный набор данных, организованных в виде схемы. На этом шаге создается таблица с именем **EmpBlobTable**. Таблица указывает на контейнер больших двоичных объектов в службе хранилища Azure, представленной связанной службой **StorageLinkedService**. Этот контейнер (adftutorial) содержит входные данные в файле **emp.txt**.
+На этом этапе вы создадите набор данных с именем InputDataset. Он указывает на файл большого двоичного объекта (emp.txt) в корневой папке контейнера больших двоичных объектов в службе хранилища Azure, которая представлена связанной службой AzureStorageLinkedService. Если не указать значение fileName (или пропустить его), данные из всех больших двоичных объектов в папке входных данных копируются в целевое расположение. В этом руководстве вы укажете значение параметра fileName.  
 
-1. Создайте файл JSON с именем **EmpBlobTable.json** в папке **C:\ADFGetStartedPSH** со следующим содержимым:
+1. Создайте файл JSON с именем **InputDataset.json** в папке **C:\ADFGetStartedPSH** со следующим содержимым:
 
     ```json
     {
-        "name": "EmpTableFromBlob",
+        "name": "InputDataset",
         "properties": {
             "structure": [
                 {
@@ -248,7 +251,7 @@ ms.lasthandoff: 04/27/2017
                 }
             ],
             "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
+            "linkedServiceName": "AzureStorageLinkedService",
             "typeProperties": {
                 "fileName": "emp.txt",
                 "folderPath": "adftutorial/",
@@ -266,49 +269,47 @@ ms.lasthandoff: 04/27/2017
      }
     ```
 
-   Обратите внимание на следующие моменты.
+    В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
-   * Для параметра **type** набора данных задано значение **AzureBlob**.
-   * Для **linkedServiceName** задано значение **StorageLinkedService**.
-   * В качестве значения **folderPath** установлен контейнер **adftutorial**.
-   * Для параметра **fileName** задано значение **emp.txt**. Если имя BLOB-объекта не указано, входными данными считаются данные из всех BLOB-объектов в контейнере.  
-   * Для параметра **type** формата установлено значение **TextFormat**.
-   * В этом текстовом файле содержатся два поля, **FirstName** и **LastName**, которые разделяются запятой (columnDelimiter).    
-   * Параметр **availability** имеет значение **hourly** (параметру frequency присваивается значение hour, а параметру interval — значение 1). Следовательно, фабрика данных будет искать входные данные в корневом каталоге контейнера больших двоичных объектов (adftutorial) каждый час.
+    | Свойство | Описание |
+    |:--- |:--- |
+    | type | Для свойства типа задано значение **AzureBlob**, так как данные хранятся в хранилище BLOB-объектов Azure. |
+    | linkedServiceName (имя связанной службы) | Ссылается на созданную ранее службу **AzureStorageLinkedService**. |
+    | folderPath | Определяет **контейнер** больших двоичных объектов и **папку**, которая содержит входные большие двоичные объекты. В этом руководстве adftutorial — это контейнер больших двоичных объектов, а созданная папка является корневой. | 
+    | fileName | Это необязательное свойство. Если это свойство не указано, выбираются все файлы из папки folderPath. В этом руководстве для свойства fileName указывается значение **emp.txt**, чтобы обрабатывался только этот файл. |
+    | format -> type |Входной файл имеет текстовый формат, поэтому укажите значение **TextFormat**. |
+    | columnDelimiter | Столбцы во входном файле разделяются **запятыми (`,`)**. |
+    | frequency и interval | Для свойства frequency задано значение **Hour**, а для свойства interval — значение **1**. Это означает, что срезы входных данных будут создаваться **каждый час**. Иными словами, служба фабрики данных будет искать входные данные в корневой папке указанного контейнера BLOB-объектов (**adftutorial**) каждый час. Поиск данных осуществляется в пределах времени начала и времени окончания для конвейера, но не перед этим периодом или после него.  |
+    | external | Это свойство имеет значение **true**, если этот конвейер не создает данные. В этом руководстве входные данные находятся в файле emp.txt, который не создается этим конвейером, поэтому мы присвоим этому свойству значение true. |
 
-   Если параметр **fileName** для **входной таблицы** не задан, все файлы и BLOB-объекты из входной папки (folderPath) считаются входными данными. Если параметр fileName указать в формате JSON, то только указанный файл или BLOB-объект будут рассматриваться как входные данные.
-
-   Если не указать **fileName** для **выходной таблицы**, то созданные в **folderPath** файлы получают имена в следующем формате: Data.<Guid\>.txt (например, Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
-
-   Чтобы динамически установить параметры **folderPath** и **fileName** на основе времени **SliceStart**, используйте свойство **partitionedBy**. В следующем примере folderPath использует год, месяц и день из SliceStart (время начала обработки среза), а в fileName используется время (часы) из SliceStart. Например, если срез выполняется для временной отметки 2016-10-20T08:00:00, folderName получает значение wikidatagateway/wikisampledataout/2016/10/20, а fileName — 08.csv.
-
-    ```json
-     "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-     "fileName": "{Hour}.csv",
-     "partitionedBy":
-     [
-         { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-         { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-         { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-         { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-     ],
-    ```
-
-   Дополнительные сведения о свойствах JSON см. в [справочнике по скриптам JSON](data-factory-data-movement-activities.md).
+    Дополнительные сведения об этих свойствах JSON см. в [этом разделе](data-factory-azure-blob-connector.md#dataset-properties).
 2. Выполните следующую команду для создания набора данных фабрики данных.
 
     ```PowerShell  
-    New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
+    New-AzureRmDataFactoryDataset $df -File .\InputDataset.json
+    ```
+    Пример выходных данных:
+
+    ```
+    DatasetName       : InputDataset
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : ADFTutorialDataFactoryPSH0516
+    Availability      : Microsoft.Azure.Management.DataFactories.Common.Models.Availability
+    Location          : Microsoft.Azure.Management.DataFactories.Models.AzureBlobDataset
+    Policy            : Microsoft.Azure.Management.DataFactories.Common.Models.Policy
+    Structure         : {FirstName, LastName}
+    Properties        : Microsoft.Azure.Management.DataFactories.Models.DatasetProperties
+    ProvisioningState : Succeeded
     ```
 
 ### <a name="create-an-output-dataset"></a>Создание выходного набора данных
-На этом этапе вы создадите выходной набор данных с именем **EmpSQLTable**. Этот набор данных указывает на таблицу SQL (emp) в базе данных SQL Azure (представлена значением **AzureSqlLinkedService**). Конвейер копирует данные из входного большого двоичного объекта в таблицу **emp** .
+На этом этапе мы создадим выходной набор данных с именем **OutputDataset**. Этот набор данных указывает на таблицу SQL в базе данных SQL Azure (представлена значением **AzureSqlLinkedService**). 
 
-1. Создайте файл JSON с именем **EmpSQLTable.json** в папке **C:\ADFGetStartedPSH** со следующим содержимым:
+1. Создайте файл JSON с именем **OutputDataset.json** в папке **C:\ADFGetStartedPSH** со следующим содержимым:
 
     ```json
     {
-        "name": "EmpSQLTable",
+        "name": "OutputDataset",
         "properties": {
             "structure": [
                 {
@@ -333,141 +334,221 @@ ms.lasthandoff: 04/27/2017
     }
     ```
 
-   Обратите внимание на следующие моменты.
+    В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
-   * Для параметра **type** набора данных задано значение **AzureSqlTable**.
-   * Для **linkedServiceName** задано значение **AzureSqlLinkedService**.
-   * **tablename** имеет значение **emp**.
-   * В таблице emp в базе данных есть три столбца: **ID**, **FirstName** и **LastName**. ID — это столбец для идентификаторов, поэтому здесь вам нужно указать только значения **FirstName** и **LastName**.
-   * Параметр **availability** имеет значение **hourly** (параметру frequency присваивается значение hour, а параметру interval — значение 1). Служба фабрики данных каждый час создает срез выходных данных в таблице **emp** в базе данных SQL Azure.
+    | Свойство | Описание |
+    |:--- |:--- |
+    | type | Свойство type имеет значение **AzureSqlTable**, так как данные копируются в таблицу в базе данных SQL Azure. |
+    | linkedServiceName (имя связанной службы) | Ссылается на созданную ранее службу **AzureSqlLinkedService**. |
+    | tableName | Указывает **таблицу**, в которую копируются данные. | 
+    | frequency и interval | Для свойства frequency задано значение **Hour**, а для interval — **1**. Это означает, что срезы выходных данных создаются **каждый час** в пределах времени начала и времени окончания для конвейера, но не перед этим периодом или после него.  |
+
+    В таблице emp в базе данных есть три столбца: **ID**, **FirstName** и **LastName**. ID — это столбец для идентификаторов, поэтому здесь вам нужно указать только значения **FirstName** и **LastName**.
+
+    Дополнительные сведения об этих свойствах JSON см. в [этом разделе](data-factory-azure-sql-connector.md#dataset-properties).
 2. Выполните следующую команду для создания набора данных фабрики данных.
 
     ```PowerShell   
-    New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
+    New-AzureRmDataFactoryDataset $df -File .\OutputDataset.json
+    ```
+
+    Пример выходных данных:
+
+    ```
+    DatasetName       : OutputDataset
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : ADFTutorialDataFactoryPSH0516
+    Availability      : Microsoft.Azure.Management.DataFactories.Common.Models.Availability
+    Location          : Microsoft.Azure.Management.DataFactories.Models.AzureSqlTableDataset
+    Policy            :
+    Structure         : {FirstName, LastName}
+    Properties        : Microsoft.Azure.Management.DataFactories.Models.DatasetProperties
+    ProvisioningState : Succeeded
     ```
 
 ## <a name="create-a-pipeline"></a>Создание конвейера
-На этом шаге создается конвейер с **действием копирования**. Конвейер использует **EmpTableFromBlob** в качестве входных данных и **EmpSQLTable** в качестве выходных данных.
+На этом этапе вы создадите конвейер с **действием копирования**, которое использует **InputDataset** в качестве входных данных и **OutputDataset** в качестве выходных.
+
+Сейчас на основе этого набора настраивается расписание. В этом руководстве выходной набор данных создает срез раз в час. Для конвейера настроено время начала и время окончания с разницей в сутки. Таким образом, конвейер создает 24 среза для выходного набора данных. 
+
 
 1. Создайте файл JSON с именем **ADFTutorialPipeline.json** в папке **C:\ADFGetStartedPSH** со следующим содержимым:
 
-    ```json
+    ```json   
     {
-        "name": "ADFTutorialPipeline",
-        "properties": {
-            "description": "Copy data from a blob to Azure SQL table",
-            "activities": [
-                {
-                    "name": "CopyFromBlobToSQL",
-                    "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-                    "type": "Copy",
-                    "inputs": [{ "name": "EmpTableFromBlob" }],
-                    "outputs": [{ "name": "EmpSQLTable" }],
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource"
-                        },
-                        "sink": {
-                            "type": "SqlSink"
-                        }
-                    },
-                    "Policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "NewestFirst",
-                        "style": "StartOfInterval",
-                        "retry": 0,
-                        "timeout": "01:00:00"
-                    }
-                }
+      "name": "ADFTutorialPipeline",
+      "properties": {
+        "description": "Copy data from a blob to Azure SQL table",
+        "activities": [
+          {
+            "name": "CopyFromBlobToSQL",
+            "type": "Copy",
+            "inputs": [
+              {
+                "name": "InputDataset"
+              }
             ],
-            "start": "2016-08-09T00:00:00Z",
-            "end": "2016-08-10T00:00:00Z",
-            "isPaused": false
-        }
-     }
+            "outputs": [
+              {
+                "name": "OutputDataset"
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "BlobSource"
+              },
+              "sink": {
+                "type": "SqlSink",
+                "writeBatchSize": 10000,
+                "writeBatchTimeout": "60:00:00"
+              }
+            },
+            "Policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "NewestFirst",
+              "retry": 0,
+              "timeout": "01:00:00"
+            }
+          }
+        ],
+        "start": "2017-05-11T00:00:00Z",
+        "end": "2017-05-12T00:00:00Z"
+      }
+    } 
     ```
-   Обратите внимание на следующие моменты.
+    Обратите внимание на следующие моменты.
+   
+    - В разделе действий доступно только одно действие, параметр **type** которого имеет значение **Copy**. Дополнительные сведения о действии копирования см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md). В решениях фабрики данных можно также использовать [действия преобразования данных](data-factory-data-transformation-activities.md).
+    - Для этого действия параметру input присвоено значение **InputDataset**, а параметру output — значение **OutputDataset**. 
+    - В разделе **typeProperties** в качестве типа источника указано **BlobSource**, а в качестве типа приемника — **SqlSink**. Список хранилищ данных, поддерживаемых действием копирования в качестве источников и приемников, см. в разделе [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Чтобы узнать, как использовать конкретное хранилище данных в качестве источника или приемника, щелкните ссылку в таблице.  
+     
+    Замените значение свойства **start** текущей датой, а значение свойства **end** — датой следующего дня. Можно указать только часть даты и пропустить временную часть указанной даты и времени. Например, 2016-02-03, что эквивалентно 2016-02-03T00:00:00Z.
+     
+    Даты начала и окончания должны быть в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2016-10-14T16:32:41Z. Время **окончания** указывать не обязательно, однако в этом примере мы будем его использовать. 
+     
+    Если не указать значение свойства **end**, оно вычисляется по формуле "**время начала + 48 часов**". Чтобы запустить конвейер в течение неопределенного срока, укажите значение **9999-09-09** в качестве значения свойства **end**.
+     
+    В примере выше получено 24 среза данных, так как они создаются каждый час.
 
-   * В разделе действий доступно только одно действие, параметр **type** которого имеет значение **Copy**.
-   * Для входных данных действия задано значение **EmpTableFromBlob**, а для выходных данных — **EmpSQLTable**.
-   * В разделе **transformation** в качестве типа источника указано значение **BlobSource**, а в качестве типа приемника — **SqlSink**.
-
-   Замените значение свойства **start** текущей датой, а значение свойства **end** — датой следующего дня. Даты начала и окончания должны быть в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2016-10-14T16:32:41Z. В этом руководстве мы используем время **end**, однако его указывать не обязательно.
-
-   Если не указать значение свойства **end**, оно вычисляется по формуле "**время начала + 48 часов**". Чтобы запустить конвейер в течение неопределенного срока, укажите значение **9/9/9999** в качестве значения свойства **end**.
-
-   В этом примере будет 24 среза данных, так как каждый час создается новый срез.
-
-   Дополнительные сведения о свойствах JSON см. в [справочнике по скриптам JSON](data-factory-data-movement-activities.md).
+    Описание свойств JSON в определении конвейера см. в статье [Конвейеры и действия в фабрике данных Azure](data-factory-create-pipelines.md). Описание свойств JSON в определении действия копирования см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md). Описание свойств JSON, поддерживаемых BlobSource, см. в статье о [соединителе больших двоичных объектов Azure](data-factory-azure-blob-connector.md). Описание свойств JSON, поддерживаемых SqlSink, см. в статье о [соединителе базы данных SQL Azure](data-factory-azure-sql-connector.md).
 2. Выполните следующую команду для создания таблицы фабрики данных.
 
     ```PowerShell   
     New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
     ```
 
-Поздравляем! Вы успешно создали фабрику данных Azure, связанные службы, таблицы и конвейер. Вы также создали расписание для конвейера.
+    Пример выходных данных: 
+
+    ```
+    PipelineName      : ADFTutorialPipeline
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : ADFTutorialDataFactoryPSH0516
+    Properties        : Microsoft.Azure.Management.DataFactories.Models.PipelinePropertie
+    ProvisioningState : Succeeded
+    ```
+
+**Поздравляем!** Фабрика данных Azure с конвейером, который копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure, успешно создана. 
 
 ## <a name="monitor-the-pipeline"></a>Мониторинг конвейера
 На этом шаге Azure PowerShell будет использоваться для мониторинга процессов в фабрике данных Azure.
 
-1. Выполните командлет **Get-AzureRmDataFactory** и назначьте выходные данные переменной $df.
+1. Замените &lt;DataFactoryName&gt; именем своей фабрики данных. Выполните командлет **Get-AzureRmDataFactory** и назначьте выходные данные переменной $df.
 
     ```PowerShell  
-    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
+    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
     ```
 
-2. Выполните командлет **Get-AzureRmDataFactorySlice** для получения сведений обо всех срезах в таблице **EmpSQLTable**, которая является выходной таблицей конвейера.  
+    Например:
+    ```PowerShell
+    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
+    ```
+    
+    Затем выведите содержимое $df и просмотрите следующие выходные данные: 
+    
+    ```
+    PS C:\ADFGetStartedPSH> $df
+    
+    DataFactoryName   : ADFTutorialDataFactoryPSH0516
+    DataFactoryId     : 6f194b34-03b3-49ab-8f03-9f8a7b9d3e30
+    ResourceGroupName : ADFTutorialResourceGroup
+    Location          : West US
+    Tags              : {}
+    Properties        : Microsoft.Azure.Management.DataFactories.Models.DataFactoryProperties
+    ProvisioningState : Succeeded
+    ```
+2. Выполните командлет **Get-AzureRmDataFactorySlice**, чтобы получить сведения обо всех срезах набора данных **OutputDataset**, который является выходным набором конвейера.  
 
     ```PowerShell   
-    Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
+    Get-AzureRmDataFactorySlice $df -DatasetName OutputDataset -StartDateTime 2017-05-11T00:00:00Z
     ```
 
-   Замените год, месяц и дату в параметре **StartDateTime** на текущие значения. Это значение должно соответствовать значению параметра **Start** в JSON-файле конвейера.
+   Это значение должно соответствовать значению параметра **Start** в JSON-файле конвейера. Вы увидите 24 среза — по одному для каждого часа с 00:00 текущего дня до 00:00 следующего дня.
 
-   Вы увидите 24 среза — по одному для каждого часа с 00:00 текущего дня до 00:00 следующего дня.
-
-   **Пример выходных данных**
+   Ниже приведены три примера срезов из выходных данных. 
 
     ``` 
-     ResourceGroupName : ADFTutorialResourceGroup
-     DataFactoryName   : ADFTutorialDataFactoryPSH
-     TableName         : EmpSQLTable
-     Start             : 8/9/2016 12:00:00 AM
-     End               : 8/9/2016 1:00:00 AM
-     RetryCount        : 0
-     Status            : Waiting
-     LatencyStatus     :
-     LongRetryCount    : 0
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : ADFTutorialDataFactoryPSH0516
+    DatasetName       : OutputDataset
+    Start             : 5/11/2017 11:00:00 PM
+    End               : 5/12/2017 12:00:00 AM
+    RetryCount        : 0
+    State             : Ready
+    SubState          :
+    LatencyStatus     :
+    LongRetryCount    : 0
+
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : ADFTutorialDataFactoryPSH0516
+    DatasetName       : OutputDataset
+    Start             : 5/11/2017 9:00:00 PM
+    End               : 5/11/2017 10:00:00 PM
+    RetryCount        : 0
+    State             : InProgress
+    SubState          :
+    LatencyStatus     :
+    LongRetryCount    : 0    
+
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : ADFTutorialDataFactoryPSH0516
+    DatasetName       : OutputDataset
+    Start             : 5/11/2017 8:00:00 PM
+    End               : 5/11/2017 9:00:00 PM
+    RetryCount        : 0
+    State             : Waiting
+    SubState          : ConcurrencyLimit
+    LatencyStatus     :
+    LongRetryCount    : 0
     ```
-3. Выполните командлет **Get-AzureRmDataFactoryRun**, чтобы получить сведения о действиях, выполняемых для **конкретного** среза. Измените значение параметра **StartDateTime** в соответствии со значением параметра **Start** для среза из выходных данных. Значение **StartDateTime** должно быть в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601).
+3. Выполните командлет **Get-AzureRmDataFactoryRun**, чтобы получить сведения о действиях, выполняемых для **конкретного** среза. Скопируйте значение даты и времени в выходных данных предыдущей команды, чтобы задать значение параметра StartDateTime. 
 
     ```PowerShell  
-    Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
+    Get-AzureRmDataFactoryRun $df -DatasetName OutputDataset -StartDateTime "5/11/2017 09:00:00 PM"
     ```
 
-   Вы должны увидеть результат, аналогичный приведенному ниже.
+   Пример выходных данных: 
 
-    ```  
-    Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
+    ```
+    Id                  : c0ddbd75-d0c7-4816-a775-704bbd7c7eab_636301332000000000_636301368000000000_OutputDataset
     ResourceGroupName   : ADFTutorialResourceGroup
-    DataFactoryName     : ADFTutorialDataFactoryPSH
-    TableName           : EmpSQLTable
-    ProcessingStartTime : 8/9/2016 11:03:28 PM
-    ProcessingEndTime   : 8/9/2016 11:04:36 PM
+    DataFactoryName     : ADFTutorialDataFactoryPSH0516
+    DatasetName         : OutputDataset
+    ProcessingStartTime : 5/16/2017 8:00:33 PM
+    ProcessingEndTime   : 5/16/2017 8:01:36 PM
     PercentComplete     : 100
-    DataSliceStart      : 8/9/2016 10:00:00 PM
-    DataSliceEnd        : 8/9/2016 11:00:00 PM
+    DataSliceStart      : 5/11/2017 9:00:00 PM
+    DataSliceEnd        : 5/11/2017 10:00:00 PM
     Status              : Succeeded
-    Timestamp           : 8/9/2016 11:03:28 PM
+    Timestamp           : 5/16/2017 8:00:33 PM
     RetryAttempt        : 0
     Properties          : {}
     ErrorMessage        :
     ActivityName        : CopyFromBlobToSQL
     PipelineName        : ADFTutorialPipeline
-    Type                : Copy
+    Type                : Copy  
     ```
 
-Полную документацию по командлетам фабрики данных см. в [этом справочнике][cmdlet-reference].
+Полную документацию по командлетам фабрики данных см. в [этом справочнике](/powershell/module/azurerm.datafactories).
 
 ## <a name="summary"></a>Сводка
 В этом учебнике вы создали фабрику данных Azure для копирования данных из большого двоичного объекта Azure в базу данных SQL Azure. Вы использовали PowerShell для создания фабрики данных, связанных служб, наборов данных и конвейера. Вот обобщенные действия, которые вы выполнили в этом руководстве:  
@@ -480,27 +561,11 @@ ms.lasthandoff: 04/27/2017
 3. Создание **наборов данных** , которые описывают входные и выходные данные для конвейеров.
 4. Создание **конвейера** с **BlobSource** в качестве источника и **SqlSink** в качестве приемника с помощью **действия копирования**.
 
-## <a name="see-also"></a>Дополнительные материалы
-| Раздел | Описание |
-|:--- |:--- |
-| [Справочник по командлетам фабрики данных](/powershell/module/azurerm.datafactories) | В этой статье приведены сведения о командлетах фабрики данных. |
-| [Конвейеры](data-factory-create-pipelines.md) |Эта статья содержит сведения о конвейерах и действиях в фабрике данных Azure. |
-| [datasets](data-factory-create-datasets.md) |Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure. |
-| [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) |Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных Azure. |
+## <a name="next-steps"></a>Дальнейшие действия
+В этом руководстве в ходе операции копирования вы использовали хранилище BLOB-объектов Azure как исходное хранилище данных, а базу данных SQL Azure — как целевое хранилище данных. В следующей таблице приведен список хранилищ данных, которые поддерживаются в качестве источников и целевых расположений для действия копирования. 
 
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
-[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+Чтобы получить дополнительные сведения о полях и свойствах в мастере копирования для хранилища данных, щелкните ссылку для хранилища данных в таблице. 
 
-[azure-portal]: http://portal.azure.com
-[download-azure-powershell]: ../powershell-install-configure.md
-[data-factory-introduction]: data-factory-introduction.md
-
-[image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
-
-[sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
 

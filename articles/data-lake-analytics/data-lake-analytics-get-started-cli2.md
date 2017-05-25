@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 109460cecc4e11c729203af97c9bf1c22b90e61a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 25278e621155e7c90b5bb870d08793d285f4edff
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20-preview"></a>Руководство. Начало работы с Azure Data Lake Analytics с помощью Azure CLI 2.0 (предварительная версия)
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Руководство. Начало работы с Azure Data Lake Analytics с помощью Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Узнайте, как с помощью Azure CLI 2.0 создавать учетные записи Azure Data Lake Analytics, определять задания Data Lake Analytics в [U-SQL](data-lake-analytics-u-sql-get-started.md) и отправлять задания в учетные записи Data Lake Analytics. Дополнительные сведения о Data Lake Analytics см. в [обзоре Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -32,12 +33,6 @@ ms.lasthandoff: 04/07/2017
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. См. статью [Установка и настройка интерфейса командной строки Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-* **Включение Azure CLI 2.0 (предварительная версия) для Data Lake Store или Data Lake Analytics**. Интерфейс командной строки версии 2.0 для Data Lake Store и Data Lake Analytics находится на стадии предварительной версии. Выполните следующие команды, чтобы включить интерфейс командной строки для обеих служб:
-
-    ```azurecli
-    az component update --add dls
-    az component update --add dla 
-    ```
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 

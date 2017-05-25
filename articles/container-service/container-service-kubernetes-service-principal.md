@@ -1,6 +1,6 @@
 ---
 title: "Субъект-служба для кластера Azure Kubernetes | Документация Microsoft"
-description: "Создание субъекта-службы Azure Active Directory в кластере Kubernetes службы контейнеров Azure и управление им"
+description: "Сведения о настройке субъекта-службы Azure Active Directory для кластера Kubernetes и управлении им в Службе контейнеров Azure."
 services: container-service
 documentationcenter: 
 author: dlepow
@@ -14,55 +14,74 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 05/08/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: b76020e3e5855a63c416851d9b9adefdbdc5874a
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 33a1ab822f2900fd51d801f94ad8679fe65ba21f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
 
-# <a name="about-the-azure-active-directory-service-principal-for-a-kubernetes-cluster-in-azure-container-service"></a>Сведения о субъекте-службе Azure Active Directory для кластера Kubernetes в службе контейнеров Azure
+# <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Настройка субъекта-службы Azure AD для кластера Kubernetes в Службе контейнеров
 
 
+[Субъект-служба Azure Active Directory](../active-directory/active-directory-application-objects.md) используется кластером Kubernetes в Службе контейнеров Azure для обеспечения взаимодействия с API-интерфейсами Azure. Субъект-служба используется для динамического управления ресурсами, например [определяемыми пользователем маршрутами](../virtual-network/virtual-networks-udr-overview.md) и [Azure Load Balancer](../load-balancer/load-balancer-overview.md) уровня 4. 
 
-[Субъект-служба Azure Active Directory](../active-directory/active-directory-application-objects.md) используется кластером Kubernetes в службе контейнеров Azure в качестве учетной записи службы, обеспечивающей взаимодействие с API-интерфейсами Azure. Субъект-служба используется для динамического управления ресурсами, например [определяемыми пользователем маршрутами](../virtual-network/virtual-networks-udr-overview.md) и [Azure Load Balancer](../load-balancer/load-balancer-overview.md) уровня 4.
 
-В этой статье показано, как можно указать субъект-службу для кластера Kubernetes. Например, если вы установили и настроили [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), выполните команду [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create), чтобы одновременно создать кластер Kubernetes и субъект-службу.
-
+В этой статье показано, как настроить субъект-службу для кластера Kubernetes. Например, если вы установили и настроили [Azure CLI 2.0](/cli/azure/install-az-cli2), выполните команду [`az acs create`](/cli/azure/acs#create), чтобы одновременно создать кластер Kubernetes и субъект-службу.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Требования для субъекта-службы
 
-Ниже приведены требования для субъекта-службы Azure Active Directory в кластере Kubernetes в службе контейнеров Azure. 
+Вы можете использовать имеющийся субъект-службу Azure AD, который соответствует требованиям ниже, или создать другой.
 
-* **Область** — группа ресурсов, в которой развернут кластер.
+* **Область.** Группа ресурсов в подписке, используемой для развертывания кластера Kubernetes, или (не так узко) подписка, используемая для развертывания кластера.
 
 * **Роль** — **Участник**.
 
 * **Секрет клиента** — должен быть паролем. Сейчас субъект-службу нельзя использовать для проверки подлинности сертификата.
 
-> [!NOTE]
-> Все субъекты-службы связаны с определенными приложениями Azure Active Directory. Субъект-служба для кластера Kubernetes может быть связан с любым допустимым именем приложения Azure Active Directory.
-> 
+> [!IMPORTANT] 
+> Чтобы создать субъект-службу, вы должны иметь права на регистрацию приложения в клиенте Azure AD и назначение приложению роли в подписке Azure. Наличие этих разрешений можно [проверить на портале](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions). 
+>
+
+## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Вариант 1. Создание субъекта-службы в Azure AD
+
+Создать субъект-службу в Azure AD перед развертыванием кластера Kubernetes можно разными способами. 
+
+Следующие примеры команд показывают, как это сделать с помощью [Azure CLI 2.0](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Кроме того, субъект-службу можно создать с помощью [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), [портала](../azure-resource-manager/resource-group-create-service-principal-portal.md) или других методов.
+
+```azurecli
+az login
+
+az account set --subscription "mySubscriptionID"
+
+az group create -n "myResourceGroupName" -l "westus"
+
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName"
+```
+
+Выходные данные должны быть следующего содержания (здесь показана исправленная версия):
+
+![Создание субъекта-службы](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
+
+Выделенные строки — это **идентификатор клиента** (`appId`) и **секрет клиента** (`password`), которые используются в качестве параметров субъекта-службы для развертывания кластера.
 
 
-## <a name="service-principal-options-for-a-kubernetes-cluster"></a>Варианты использования субъекта-службы для кластера Kubernetes
+### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Указание субъекта-службы во время создания кластера Kubernetes
 
-### <a name="option-1-pass-the-service-principal-client-id-and-client-secret"></a>Вариант 1. Передача идентификатора и секрета клиента субъекта-службы
+Создавая кластер Kubernetes, укажите в качестве параметров **идентификатор клиента** (или `appId` для идентификатора приложения) и **секрет клиента** (`password`) существующего субъекта-службы. Убедитесь, что субъект-служба соответствует требованиям, приведенным в начале этой статьи.
 
-Создавая кластер Kubernetes, укажите в качестве параметров **идентификатор клиента** (или `appId` для идентификатора приложения) и **секрет клиента** (`password`) существующего субъекта-службы. Если вы используете существующий субъект-службу, убедитесь, что он соответствует требованиям, указанным в предыдущем разделе. Если необходимо создать субъект-службу, см. раздел [Создание субъекта-службы в Azure Active Directory](#create-a-service-principal-in-azure-active-directory) далее в этой статье.
-
-[Развертывая кластер Kubernetes](./container-service-deployment.md), вы можете указать эти параметры с помощью портала, Azure CLI 2.0, Azure PowerShell или других методов.
+Развертывая кластер Kubernetes, вы можете указать эти параметры с помощью [Azure CLI 2.0](container-service-kubernetes-walkthrough.md), [портала Azure](./container-service-deployment.md) или других методов.
 
 >[!TIP] 
 >В качестве **идентификатора клиента** обязательно используйте `appId`, а не `ObjectId` субъекта-службы.
 >
 
-В следующем примере показан один способ передачи параметров с помощью Azure CLI 2.0 (см. [инструкции по установке и настройке](/cli/azure/install-az-cli2)). В этом примере используется [шаблон быстрого запуска Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+В следующем примере показан один способ передачи параметров с помощью Azure CLI 2.0. В этом примере используется [шаблон быстрого запуска Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
 1. [Скачайте](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) файл параметров шаблона `azuredeploy.parameters.json` из репозитория GitHub.
 
@@ -83,11 +102,11 @@ ms.lasthandoff: 05/03/2017
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20"></a>Вариант 2. Создание субъекта-службы при создании кластера с помощью Azure CLI 2.0
+## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Вариант 2. Создание субъекта-службы при создании кластера с помощью `az acs create`
 
-Если вы установили и настроили [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), выполните команду [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create), чтобы [создать кластер](./container-service-create-acs-cluster-cli.md).
+При создании кластера Kubernetes с использованием команды [`az acs create`](/cli/azure/acs#create) вы можете создать субъект-службу автоматически.
 
-Как и в случае с другими вариантами создания кластера Kubernetes, выполняя команду `az acs create`, вы можете указать параметры для существующего субъекта-службы. Но даже если вы не настроите эти параметры, служба контейнеров Azure создаст субъект-службу автоматически. Субъект-служба создается открытым образом во время развертывания. 
+Как и в случае с другими вариантами создания кластера Kubernetes, выполняя команду `az acs create`, вы можете указать параметры для существующего субъекта-службы. Но даже если вы не настроите эти параметры, Azure CLI создаст субъект-службу автоматически, который будет использоваться в Службе контейнеров. Субъект-служба создается открытым образом во время развертывания. 
 
 Следующая команда создает кластер Kubernetes, ключи SSH и учетные данные субъекта-службы:
 
@@ -95,49 +114,34 @@ ms.lasthandoff: 05/03/2017
 az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
 ```
 
-## <a name="create-a-service-principal-in-azure-active-directory"></a>Создание субъекта-службы в Azure Active Directory
-
-Создать субъект-службу в Azure Active Directory для использования в кластере Kubernetes можно разными способами. 
-
-Следующие примеры команд показывают, как это сделать с помощью [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). Кроме того, субъект-службу можно создать с помощью [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), [классического портала](../azure-resource-manager/resource-group-create-service-principal-portal.md) или других методов.
-
 > [!IMPORTANT]
-> Обязательно ознакомьтесь с требованиями к субъекту-службе, приведенными ранее в этой статье.
->
-
-```azurecli
-az login
-
-az account set --subscription "mySubscriptionID"
-
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
-```
-
-Это команда возвращает результат следующего содержания (здесь показана исправленная версия):
-
-![Создание субъекта-службы](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
-
-Выделенные строки — это **идентификатор клиента** (`appId`) и **секрет клиента** (`password`), которые используются в качестве параметров субъекта-службы для развертывания кластера.
-
-
-Чтобы подтвердить субъект-службу, откройте новую оболочку и выполните следующую команду, заменив значения параметров `appId`, `password` и `tenant` собственными:
-
-```azurecli 
-az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
-
-az vm list-sizes --location westus
-```
+> Если учетная запись на имеет разрешений по подписке и разрешений Azure AD на создание субъекта-службы, команда вернет сообщение об ошибке, аналогичное следующему: `Insufficient privileges to complete the operation.`.
+> 
 
 ## <a name="additional-considerations"></a>Дополнительные замечания
 
+* Если у вас нет разрешений на создание субъекта-службы в подписке, обратитесь к администратору подписки или Azure AD для назначения необходимых разрешений или запросите субъект-службу для использования со Службой контейнеров Azure. 
 
-* Указывая **идентификатор клиента** субъекта-службы, вы можете использовать значение `appId` (как показано в этой статье) или соответствующее имя (`name`) субъекта-службы (например, `https://www.contoso.org/example`).
+* Субъект-служба для Kubernetes входит в конфигурацию кластера. Тем не менее не используйте идентификатор для развертывания кластера.
 
-* Если вы используете команду `az acs create`, чтобы автоматически создать субъект-службу, его учетные данные записываются в файл ~/.azure/acsServicePrincipal.json на компьютере, с которого выполняется команда.
+* Все субъекты-службы связаны с определенными приложениями Azure AD. Субъект-служба для кластера Kubernetes может быть связан с любым допустимым именем приложения Azure AD, например `https://www.contoso.org/example`. URL-адрес приложения не обязательно должен быть реальной конечной точкой.
 
-* На главной виртуальной машине и виртуальной машине узла в кластере Kubernetes учетные данные субъекта-службы хранятся в файле /etc/kubernetes/azure.json.
+* Указывая **идентификатор клиента** субъекта-службы, вы можете использовать значение `appId` (как показано в этой статье) или соответствующее имя (`name`) субъекта-службы, например `https://www.contoso.org/example`.
+
+* На главной виртуальной машине и виртуальной машине агента в кластере Kubernetes учетные данные субъекта-службы хранятся в файле /etc/kubernetes/azure.json.
+
+* Если вы используете команду `az acs create`, чтобы автоматически создать субъект-службу, его учетные данные записываются в файл ~/.azure/acsServicePrincipal.json на компьютере, с которого выполняется команда. 
+
+* При автоматическом создании субъекта-службы с использованием команды `az acs create` субъект-служба также позволяет проверять подлинность с помощью [реестра контейнеров Azure](../container-registry/container-registry-intro.md), созданного в той же подписке.
+
+
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * Узнайте, как [начать работу с Kubernetes](container-service-kubernetes-walkthrough.md) в кластере службы контейнеров.
+
+* Сведения об устранении неполадок с субъектом-службой для Kubernetes см. в [документации по модулю ACS](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes.md#troubleshooting).
+
+
 

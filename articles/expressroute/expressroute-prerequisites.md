@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: a56749a5ac1098db3970140a76b71c77c1f74c07
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 679b6962633cd734a1b1e339e8422da5b9c4ddfd
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 03/28/2017
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Учетная запись Azure
-* Наличие действительной и активной учетной записи Microsoft Azure. Она необходима для организации канала ExpressRoute. Каналы ExpressRoute являются ресурсами в подписках Azure. Подписка Azure обязательна, даже если будет выполняться только подключение к облачным службам (Майкрософт), отличным от Azure, например Office 365 и CRM Online.
+* Наличие действительной и активной учетной записи Microsoft Azure. Она необходима для организации канала ExpressRoute. Каналы ExpressRoute являются ресурсами в подписках Azure. Подписка Azure обязательна, даже если будет выполняться только подключение к облачным службам (Майкрософт), отличным от Azure, например Office 365 и Dynamics 365.
 * Активная подписка на Office 365 (при использовании служб Office 365). Дополнительные сведения об определенных требованиях к Office 365 см. в [соответствующем разделе](#office-365-specific-requirements) этой статьи.
 
 ## <a name="connectivity-provider"></a>Поставщик услуг подключения
@@ -53,10 +54,10 @@ ms.lasthandoff: 03/28/2017
 * [Интеграция Office 365 с локальными средами](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Расширенные учебные видеоматериалы об использовании ExpressRoute в Office 365](https://channel9.msdn.com/series/aer/)
 
-## <a name="crm-online"></a>CRM Online
-Если вы планируете включить CRM Online через ExpressRoute, просмотрите следующие документы для получения дополнительных сведений о требованиях к CRM Online.
+## <a name="dynamics-365"></a>Dynamics 365
+Если вы планируете включить Dynamics 365 через ExpressRoute, просмотрите следующие документы для получения дополнительных сведений о требованиях к Dynamics 365.
 
-* [URL-адреса](https://support.microsoft.com/kb/2655102) и [диапазоны IP-адресов CRM Online](https://support.microsoft.com/kb/2728473)
+* [URL-адреса Dynamics 365](https://support.microsoft.com/kb/2655102) и [Диапазоны IP-адресов](https://support.microsoft.com/kb/2728473)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).

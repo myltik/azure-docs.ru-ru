@@ -10,5 +10,5 @@
 > * [Подключение устройства Intel Edison к Центру Интернета вещей с помощью C](../articles/iot-hub/iot-hub-intel-edison-kit-c-get-started.md)
 > * [Подключение Adafruit Feather HUZZAH ESP8266 к Центру Интернета вещей Azure в облаке](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md)
 > * [Подключение Sparkfun ESP8266 Thing Dev к Центру Интернета вещей в облаке Azure](../articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-> * [Приступая к работе с платой Arduino: Adafruit Feather M0 Wi-Fi](../articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+> * [Adafruit Feather M0 с Arduino IDE](../articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 > * [Настройка Intel NUC в качестве шлюза Интернета вещей](../articles/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)

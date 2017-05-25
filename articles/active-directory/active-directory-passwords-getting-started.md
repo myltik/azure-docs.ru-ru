@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: b4d2819f51506651ebeb5b7b7c2d016c0cfc154d
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 5a338029cea5f448fc4d84a1a9c01c867ecd5028
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -67,9 +67,9 @@ ms.lasthandoff: 05/09/2017
 
 Чтобы включить синхронизацию локального источника удостоверений с Azure AD, установите и настройте [Azure AD Connect](./connect/active-directory-aadconnect.md) на сервере организации. Это приложение выполняет синхронизацию пользователей и групп имеющегося источника удостоверений с доменом Azure AD.
 
-[Приступая к работе с Azure AD Connect с использованием стандартных параметров](./connect/active-directory-aadconnect-get-started-express.md)
-
-[Обновление с DirSync или Azure AD Sync до Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
+* [Обновление с DirSync или Azure AD Sync до Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
+* [Приступая к работе с Azure AD Connect с использованием стандартных параметров](./connect/active-directory-aadconnect-get-started-express.md)
+* [Настройте обратную запись паролей](active-directory-passwords-writeback.md#configuring-password-writeback) для записи паролей Azure AD обратно в ваш локальный каталог.
 
 ## <a name="disabling-self-service-password-reset"></a>Выключение самостоятельного сброса пароля
 

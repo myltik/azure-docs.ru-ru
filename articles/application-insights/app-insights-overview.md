@@ -3,7 +3,7 @@ title: "Что такое Azure Application Insights? | Документация
 description: "Управление производительностью и отслеживание использования работающего веб-приложения.  Обнаружение, рассмотрение и диагностика проблем. Сведения о том, как пользователи используют ваше приложение."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 4c47041bb729a3ee1f3fb4c7baf7f988db226677
-ms.lasthandoff: 04/12/2017
-
+ms.date: 05/14/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: e57912a197394fbb8ea8bc374a1f3934ae0ff464
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="what-is-application-insights"></a>Что такое Azure Application Insights?
@@ -64,14 +64,17 @@ Application Insights — это расширяемая служба управл
 
 |  |  |
 | --- | --- |
+| [**Интеллектуальное обнаружение в Application Insights**](app-insights-proactive-diagnostics.md)<br/>Автоматические оповещения адаптируются к стандартным шаблонам телеметрии приложения и активируются, когда что-то не соответствует стандартному шаблону. Также можно [настроить оповещения](app-insights-alerts.md) для определенных уровней пользовательских или стандартных метрик. |![Пример оповещения](./media/app-insights-overview/alerts-tn.png) |
 | [**Схема сопоставления приложений в Application Insights**](app-insights-app-map.md)<br/>Компоненты приложения с основными метриками и оповещениями. |![Схема сопоставления приложений](./media/app-insights-overview/appmap-tn.png)  |
+| [**Профилирование динамических веб-приложений Azure с помощью Application Insights (предварительная версия)**](app-insights-profiler.md)<br/>Проверьте профили запросов выборки. |![Профилировщик](./media/app-insights-overview/profiler.png) |
+| [**Usage analysis for web applications with Application Insights**](app-insights-usage-overview.md) (Аналитики использования для веб-приложений с Application Insights)<br/>Анализируйте сегментацию пользователей и хранение.|![Инструмент "Хранение"](./media/app-insights-overview/retention.png) |
 | [**Работа с Application Insights в Visual Studio**](app-insights-diagnostic-search.md)<br/>Поиск и фильтрация событий, таких как запросы, исключения, вызовы зависимостей, журналы трассировки и просмотры страниц.  |![Поиск данных телеметрии](./media/app-insights-overview/search-tn.png) |
 | [**Исследование метрик в Application Insights**](app-insights-metrics-explorer.md)<br/>Просмотр, фильтрация и сегментирование объединенных данных, таких как частоты запросов, ошибок и исключений, время отклика и время загрузки страницы. |![Метрики](./media/app-insights-overview/metrics-tn.png) |
 | [**Панели мониторинга**](app-insights-dashboards.md#dashboards)<br/>Объединение разнородных данных из нескольких ресурсов и их совместное использование с другими пользователями. Идеальное решение для многокомпонентных приложений, а также для непрерывного отображения в комнате команды. |![Пример панели мониторинга](./media/app-insights-overview/dashboard-tn.png) |
 | [**Динамический поток метрик: мгновенные метрики для подробного отслеживания**](app-insights-live-stream.md)<br/>При развертывании новой сборки просматривайте эти индикаторы производительности в режиме, близком к реальному времени, чтобы убедиться, что все работает правильно. |![Пример Live Metrics](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Аналитика в Application Insights**](app-insights-analytics.md)<br/>Получите ответы на сложные вопросы о производительности и использовании приложения с помощью этого мощного языка запросов. |![Пример аналитики](./media/app-insights-overview/analytics-tn.png) |
-| [**Настройка оповещений в Application Insights**](app-insights-alerts.md)<br/>Автоматические оповещения адаптируются к стандартным шаблонам телеметрии приложения и активируются, когда что-то не соответствует стандартному шаблону. Также можно настроить оповещения для определенных уровней пользовательских или стандартных метрик. |![Пример оповещения](./media/app-insights-overview/alerts-tn.png) |
 | [**Работа с Application Insights в Visual Studio**](app-insights-visual-studio.md)<br/>Просматривайте данные производительности в коде. Перейдите к коду из трассировки стека.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Debug Snapshots on Exceptions in .NET Apps**](app-insights-snapshot-debugger.md) (Отладка моментальных снимков при исключениях в приложениях .NET)<br/>Отладка моментальных снимков, выбранных из активных операций со значениями параметров.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Использование данных Application Insights в Power BI**](app-insights-export-power-bi.md)<br/>Интегрируйте метрики использования с другими метриками бизнес-аналитики.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**Use the Application Insights REST API to build custom solutions**](https://dev.applicationinsights.io/) (Использование интерфейса REST API Application Insights для создания пользовательских решений)<br/>Напишите код для выполнения запросов с помощью метрик и необработанных данных.| ![Интерфейс REST API](./media/app-insights-overview/rest-tn.png) |
 | [**Экспорт данных телеметрии из Application Insights**](app-insights-export-telemetry.md)<br/>Выполняйте массовый экспорт необработанных данных в хранилище по мере их поступления. |![экспорт.](./media/app-insights-overview/export-tn.png) |
@@ -90,10 +93,10 @@ Application Insights — это расширяемая служба управл
 
 * Оцените, сколько пользователей столкнулось с проблемами.
 * сопоставляйте сбои с исключениями, вызовами зависимостей и трассировками;
-* проверяйте журналы трассировки и копии стека.
+* изучите профилировщик, моментальные снимки, дамп стека и журналы трассировки.
 
 ### <a name="build-measure-learn"></a>Создание, измерение и обучение
-Оцените эффективность каждой новой развертываемой функции:
+[Оцените эффективность](app-insights-usage-overview.md) каждой новой развертываемой функции.
 
 * планируйте измерение того, как пользователи используют новые UX или бизнес-функции;
 * записывайте пользовательскую телеметрию в свой код;

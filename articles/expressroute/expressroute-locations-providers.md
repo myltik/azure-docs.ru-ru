@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 05/15/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: b7cb18fcfda5b829b72b2ded6a1ea9e996e771d7
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: c68f3ea4816eade5972c5936e381f435c24f3215
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
@@ -73,19 +73,21 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Амстердам** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telefonica+, Telenor, Verizon |
 | **Атланта** |Equinix |
 | **Пусан** |LG CNS |
-| **Ченнай** |Global CloudXchange (GCX), SIFY, Tata Communications |
-| **Чикаго** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
+| **Ченнай** | Airtel+, Global CloudXchange (GCX), SIFY, Tata Communications |
+| **Чикаго** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group |
 | **Даллас** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
+| **Денвер** |CoreSite+ |
 | **Дублин** |Colt, Telecity Group |
 | **Гонконг** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Лас-Вегас** |Level 3 Communications+, Megaport |
 | **Лондон** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **Лос-Анджелес** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Мельбурн** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **Нью-Йорк** |Coresite, Equinix, Megaport, Zayo Group |
-| **Ньюпорт (Уэльс)** |Next Generation Data |
+| **Майами** |Megaport |
 | **Монреаль** |Bell Canada, Cologix |
 | **Мумбай** |Airtel+, Tata Communications |
+| **Ньюпорт (Уэльс)** |Next Generation Data |
+| **Нью-Йорк** |Coresite, Equinix, Megaport, Zayo Group |
 | **Осака** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Париж** |Interxion, Equinix+ |
 | **Квебек** | Megaport |
@@ -96,7 +98,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Сингапур** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Сидней** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Токио** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
-| **Торонто** |Bell Canada, Cologix, Console, Equinix, Megaport, Zayo Group |
+| **Торонто** |Bell Canada, Cologix, Console, Equinix, Megaport, Telus, Zayo Group |
 | **Вашингтон, округ Колумбия** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** означает "скоро"
@@ -147,21 +149,21 @@ ExpressRoute поддерживается во всех регионах и ра
 | --- | --- | --- |
 | **Амстердам** | Equinix, Telecity | Eurofiber , Fastweb S.p.A, Nianet |
 | **Чикаго** | Equinix | Windstream |
-| **Даллас** | Equinix, Megaport | C3ntro, Data Foundry, Transtelco |
+| **Даллас** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Франкфурт** | Telecity | Nianet, QSC AG |
-| **Лондон** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Exponential E, HSO, NexGen Networks, Tamares Telecom |
+| **Лондон** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Epsilon, Exponential E, HSO, NexGen Networks, Tamares Telecom |
 | **Лос-Анджелес** | Equinix |Transtelco |
 | **Мадрид** | Level3 | Zertia |
-| **Монреаль** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1 |
+| **Монреаль** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers |
 | **Нью-Йорк** |Equinix | Lightower |
 | **Сиэтл;** |Equinix | Alaska Communications |
-| **Кремниевая долина** |Equinix | Windstream |
+| **Кремниевая долина** |Equinix | Cox Business, Windstream |
 | **Сингапур** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |
 | **Slough** | Equinix | HSO|
 | **Сидней** | Megaport | Macquarie Telecom Group|
 | **Токио** | Equinix | ARTERIA Networks Corporation |
-| **Торонто** | Equinix | Airgate Technologies. Inc, Cogeco Peer 1 |
-| **Вашингтон, округ Колумбия** |Equinix | Lightower, Masergy, Windstream |
+| **Торонто** | Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers, Thinktel|
+| **Вашингтон, округ Колумбия** |Equinix | Epsilon, Lightower, Masergy, Windstream |
 
 ## <a name="expressroute-system-integrators"></a>Системные интеграторы ExpressRoute
 Возможность частного подключения, соответствующего вашим потребностям, будет зависеть от масштаба сети. Чтобы упростить переход на ExpressRoute, вы можете обратиться к одному из системных интеграторов, указанных в таблице ниже.
@@ -169,8 +171,8 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Континент** | **Системные интеграторы** |
 | --- | --- |
 | **Азия** |Avanade Inc., OneAs1a |
-| **Австралия** | IT Consultancy, Vigilant.IT |
-| **Европа** |Avanade Inc., Altogee, Bright Skies GmbH, Dotnet Solutions, MSG Services, Nelite, Orange Networks, sol-tec |
+| **Австралия** | Ensyst, IT Consultancy, Vigilant.IT |
+| **Европа** |Avanade Inc., Altogee, Bright Skies GmbH, New Signature, MSG Services, Nelite, Orange Networks, sol-tec |
 | **Северная Америка** |Avanade Inc., Equinix Professional Services, Perficient, Presidio, Project Leadership |
 | **Северная Америка** |Avanade Inc. |
 ## <a name="next-steps"></a>Дальнейшие действия

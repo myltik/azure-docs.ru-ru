@@ -10,15 +10,16 @@ tags:
 ms.assetid: 83d7a29c-57ae-4aa0-8327-72dd8f00247d
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/17/2017
+ms.date: 05/16/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: d1cb0751633f1a190d8ecfe1888ab6cdd8736480
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 89c19e9b64fc4e1fea68c717fd5f5e0e054ac10c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,27 +28,38 @@ ms.lasthandoff: 04/20/2017
 
 Службы Azure Analysis Services, созданные на основе проверенного аналитического модуля в Microsoft SQL Server Analysis Services, позволяют моделировать данные корпоративного класса в облаке. 
 
-Просмотрите это видео, чтобы узнать больше о том, как службы Azure Analysis Services дополняют общие возможности средств бизнес-аналитики корпорации Майкрософт и как воспользоваться преимуществами переноса семантических моделей в облако.
+Ознакомьтесь с этим видео, чтобы узнать больше о том, как службы Azure Analysis Services дополняют общие возможности средств бизнес-аналитики корпорации Майкрософт и как воспользоваться преимуществами переноса моделей данных в облако.
 
->[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesGettingStarted/player]
+
+>
+>[!Видео https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >
 
 
 ## <a name="built-on-sql-server-analysis-services"></a>На основе SQL Server Analysis Services
-Службы Azure Analysis Services совместимы с уже знакомыми вам службами SQL Server 2016 Analysis Services выпуска Enterprise Edition. Службы Azure Analysis Services поддерживают табличные модели на уровне совместимости 1200. Кроме того, также поддерживаются DirectQuery, секции, безопасность на уровне строк, двунаправленные связи и переводы.
+Службы Azure Analysis Services совместимы с уже знакомыми вам службами SQL Server Analysis Services выпуска Enterprise Edition. Службы Azure Analysis Services поддерживают табличные модели на уровне совместимости 1200 или более поздних. Кроме того, также поддерживаются DirectQuery, секции, безопасность на уровне строк, двунаправленные связи и переводы.
 
 ## <a name="use-the-tools-you-already-know"></a>Использование знакомых инструментов
 ![Средства разработчика бизнес-аналитики](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-При создании моделей данных для служб Analysis Services Azure можно использовать те же средства, что и для служб SQL Server Analysis Services. Для создания и развертывания табличной модели можно использовать последние версии [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) или [Azure Powershell](/powershell/azureps-cmdlets-docs) и шаблоны [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) в [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+При создании моделей данных для служб Analysis Services Azure можно использовать те же средства, что и для служб SQL Server Analysis Services. Для создания и развертывания модели можно использовать [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) или [Azure Powershell](/powershell/azureps-cmdlets-docs) и шаблоны [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) в [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="connect-to-data-sources"></a>Подключение к источникам данных
+## <a name="supports-the-latest-features"></a>Поддержка новых возможностей
+Службы Azure Analysis Services поддерживают табличные модели на уровне совместимости 1200 и 1400 (предварительная версия).
+
+**Табличная модель 1200.** Впервые добавленная в SQL Server 2016 Analysis Services модель 1200 представила табличную модель объектов, описывающую такие объекты модели, как таблицы, столбцы и связи. Табличная модель объектов предоставляется в JSON с помощью [языка TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) и языка определения данных объектов AMO в пространстве имен [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
+
+В **табличной модели 1400 (предварительная версия)** реализована поддержка строк детализации, безопасности на уровне объектов, неоднородной иерархии, современные возможности для подключения данных и множество других улучшений. Чтобы воспользоваться преимуществами новых функций, необходимо использовать последнюю версию [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx). Так как табличная модель 1400 все еще находится на стадии предварительной версии, все быстро меняется. Чтобы получить последнюю версию, ознакомьтесь с нашей [записью в блоге](https://azure.microsoft.com/blog/1400-models-in-azure-as/).
+
+## <a name="data-sources"></a>Источники данных
 Модели данных, развернутые на серверах в Azure, поддерживают подключение к локальным и облачным источникам данных. Вы также можете получить гибридное решение бизнес-аналитики, объединив данные из локальных и облачных источников.
 
 ![Источники данных](./media/analysis-services-overview/aas-overview-data-sources.png)
 
-Так как сервер находится в облаке, подключение к облачным источникам данных не вызывает затруднений. При подключении к локальным источникам данных [локальный шлюз данных](analysis-services-gateway.md) обеспечивает быстрое и надежное соединение с сервером служб Analysis Services в облаке.  
+Так как сервер находится в облаке, подключение к облачным источникам данных не вызывает затруднений. При подключении к локальным источникам данных [локальный шлюз данных](analysis-services-gateway.md) обеспечивает быстрое и надежное соединение с сервером служб Analysis Services в облаке.
+
+\* Только для табличных моделей 1400.
 
 
 ## <a name="explore-your-data-from-anywhere"></a>Анализ данных из любого расположения
@@ -58,14 +70,14 @@ ms.lasthandoff: 04/20/2017
 
 ## <a name="secure"></a>Безопасность
 #### <a name="user-authentication"></a>Аутентификация пользователей
-Проверка подлинности пользователей в Azure Analysis Services осуществляется через [Azure Active Directory (AD)](../active-directory/active-directory-whatis.md). При входе в базу данных служб Azure Analysis Services пользователи используют удостоверение рабочей учетной записи с соответствующими правами доступа. Эти учетные записи должны быть участниками каталога Azure Active Directory по умолчанию для подписки, где находится сервер служб Azure Analysis Services. [Интеграция каталогов](https://technet.microsoft.com/library/jj573653.aspx) между AAD и локальной службой Active Directory — отличный способ предоставить локальным пользователям доступ к базе данных служб Azure Analysis Services, но он не требуется для всех сценариев.
+Проверка подлинности пользователей в Azure Analysis Services осуществляется через [Azure Active Directory (AD)](../active-directory/active-directory-whatis.md). При входе в базу данных служб Azure Analysis Services пользователи используют удостоверение рабочей учетной записи с соответствующими правами доступа. Эти учетные записи должны быть участниками каталога Azure Active Directory по умолчанию для подписки, где находится сервер служб Azure Analysis Services. [Интеграция каталогов](https://technet.microsoft.com/library/jj573653.aspx) между AAD и локальной службой Active Directory — отличный способ предоставить пользователям доступ к базе данных служб Azure Analysis Services, но он не требуется для всех сценариев.
 
 Во время входа пользователи вводят имя участника-пользователя учетной записи и пароль. При синхронизации с локальной службой Active Directory имя участника-пользователя часто соответствует адресу электронной почты организации.
 
 Разрешения пользователей на управление ресурсами сервера Analysis Services Azure зависят от назначенной им роли в подписке Azure. По умолчанию администраторы подписки получают права владельца ресурсов сервера Azure. С помощью Azure Resource Manager можно добавить дополнительных пользователей.
 
 #### <a name="data-security"></a>Защита данных
-Для хранения данных и метаданных базы данных службы Azure Analysis Services используется хранилище BLOB-объектов Azure. Файлы данных в большом двоичном объекте шифруются с использованием шифрования на стороне сервера. При использовании режима прямого запроса сохраняются только метаданные. Доступ к фактическим данным осуществляется через источник данных во время выполнения запроса.
+Для хранения данных и метаданных базы данных службы Azure Analysis Services используется хранилище BLOB-объектов Azure. Файлы данных в большом двоичном объекте шифруются с использованием шифрования на стороне сервера. При использовании режима прямого запроса сохраняются только метаданные. Доступ к фактическим данным осуществляется из источника данных во время запроса.
 
 #### <a name="on-premises-data-sources"></a>Локальные источники данных
 Чтобы обеспечить безопасный доступ к локальным данным в вашей организации, нужно установить и настроить [локальный шлюз данных](analysis-services-gateway.md). Шлюзы предоставляют доступ к данным через прямые запросы и в режиме "в памяти". Когда модель Azure Analysis Services подключается к локальному источнику данных, формируется запрос и создаются соответствующие зашифрованные учетные данные. Облачная служба шлюза анализирует запрос и отправляет его в служебную шину Azure. Локальный шлюз опрашивает служебную шину Azure, чтобы проверить наличие ожидающих запросов. Затем шлюз получает запрос, расшифровывает учетные данные и подключается к источнику данных для выполнения запроса. Результаты отправляются из источника данных обратно в шлюз, а затем — в базу данных Azure Analysis Services.
@@ -86,7 +98,7 @@ ms.lasthandoff: 04/20/2017
 ## <a name="feedback"></a>Отзыв
 У вас есть предложения или идеи касательно функций? Оставляйте свои комментарии на [этой странице](https://aka.ms/azureanalysisservicesfeedback).
 
-У вас есть предложения относительно документации? Чтобы добавить комментарии, щелкните надпись Disqus в нижней части каждой статьи.
+У вас есть предложения относительно документации? Чтобы добавить комментарии, щелкните надпись Livefyre в нижней части каждой статьи.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы достаточно знаете о службах Azure Analysis Services, пора приступать к работе. Узнайте, как [создать сервер](analysis-services-create-server.md) в Azure и [развернуть на нем табличную модель](analysis-services-deploy.md).
