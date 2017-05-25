@@ -3,7 +3,7 @@ title: "Справочник по поиску в Azure Log Analytics | Доку
 description: "В этом справочнике по поиску в Log Analytics описывается язык запросов и общие возможности синтаксиса запросов, которые можно использовать при поиске данных и фильтрации выражений для сужения области поиска."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
-ms.author: banders
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
@@ -613,7 +613,7 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | me
 
 ### <a name="join"></a>Объединение
 Соединяет результаты двух запросов для создания единого результирующего набора.  Поддерживает несколько типов соединения, описанных в следующей таблице.
-  
+
 | Тип соединения | Описание |
 |:--|:--|
 | Внутреннее | Возвращает только записи с совпадающим значением в обоих запросах. |

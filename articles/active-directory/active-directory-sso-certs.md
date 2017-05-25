@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
+ms.date: 05/23/2017
 ms.author: asmalser
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fb33a0b01b7d9806c92dfc66303b0dd2ca1044d9
 ms.openlocfilehash: 04276fc2da32b27dc9e0a4601ab45b9f1e95959a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -74,10 +76,5 @@ ms.openlocfilehash: 04276fc2da32b27dc9e0a4601ab45b9f1e95959a
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 * [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Устранение неполадок единого входа на основе SAML](active-directory-saml-debugging.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

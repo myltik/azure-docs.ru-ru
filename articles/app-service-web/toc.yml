@@ -141,9 +141,9 @@
     href: web-sites-deploy.md
     items:
     - name: Развертывание через FTP
-      href: app-service-deploy-content-sync.md
+      href: app-service-deploy-ftp.md
     - name: Развертывание через синхронизацию с облаком
-      href: web-sites-deploy.md
+      href: app-service-deploy-content-sync.md
     - name: Непрерывное развертывание
       href: app-service-continuous-deployment.md
     - name: Развертывание в промежуточное хранилище

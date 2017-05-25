@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
-ms.author: estfan
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7884032fd4b5a72ca7e2f2dc2830b0a7c2220e94
 ms.openlocfilehash: 5d8ddd4449d3b160dbca7496c801e75dcf4a44e5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -58,11 +60,11 @@ ms.openlocfilehash: 5d8ddd4449d3b160dbca7496c801e75dcf4a44e5
 
 **Определение уровня доступа**
 
-1.  Откройте **обозреватель хранилищ Azure**. 
+1.    Откройте **обозреватель хранилищ Azure**. 
 
-2.  В разделе **Контейнеры BLOB-объектов** выберите нужный контейнер двоичных объектов. 
+2.    В разделе **Контейнеры BLOB-объектов** выберите нужный контейнер двоичных объектов. 
 
-3.  Выберите последовательно **Безопасность**, **Уровень доступа**.
+3.    Выберите последовательно **Безопасность**, **Уровень доступа**.
 
 Если для контейнера больших двоичных объектов определен уровень доступа **Общедоступный**, выполните следующие действия.
 
@@ -132,10 +134,5 @@ Azure отображает сообщение, что схема успешно 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Узнайте больше о пакете интеграции Enterprise.](logic-apps-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise").  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

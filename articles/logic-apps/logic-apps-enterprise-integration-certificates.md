@@ -14,10 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
-ms.author: padmavc
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c8cfe5fb933cf9056b971d3e524f3c9ebc910215
 ms.openlocfilehash: b494d5abfdd4045776b408cbb8ec99ee3905cf72
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -97,10 +99,5 @@ ms.openlocfilehash: b494d5abfdd4045776b408cbb8ec99ee3905cf72
 
 * [Создание соглашения "бизнес-бизнес"](logic-apps-enterprise-integration-agreements.md)  
 * [Узнайте больше о хранилище ключей Azure](../key-vault/key-vault-get-started.md "Сведения о хранилище ключей")  
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

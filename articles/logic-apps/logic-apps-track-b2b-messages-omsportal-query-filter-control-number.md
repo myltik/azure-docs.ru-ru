@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 67313e4ff780e6c64dfc3d767ea49167c2a390f4
 ms.openlocfilehash: 701a3bbadb340c9390b486a5295eced056db70a0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -59,9 +61,4 @@ ms.openlocfilehash: 701a3bbadb340c9390b486a5295eced056db70a0
 * Дополнительные сведения о [схемах отслеживания AS2](logic-apps-track-integration-account-as2-tracking-schemas.md).    
 * Дополнительные сведения о [схемах отслеживания X12](logic-apps-track-integration-account-x12-tracking-schema.md).  
 * Дополнительные сведения о [Пакете интеграции Enterprise](../logic-apps/logic-apps-enterprise-integration-overview.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

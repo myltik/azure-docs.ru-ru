@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
-ms.author: jehollan
-translationtype: Human Translation
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
 ms.openlocfilehash: 63ac171494e13f4451d585c3b704727eeed94fab
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -157,8 +159,3 @@ ms.openlocfilehash: 63ac171494e13f4451d585c3b704727eeed94fab
     }
 }
 ```
-
-
-<!--HONumber=Jan17_HO4-->
-
-
