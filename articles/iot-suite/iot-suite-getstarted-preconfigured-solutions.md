@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e68815c2dafc596c3560ad3fcb2a7bf96d29182b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 2364ab79ec4091d41e4d340e13033181df05b507
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Учебник: начало работы с предварительно настроенными решениями
-## <a name="introduction"></a>Введение
+# <a name="get-started-with-the-preconfigured-solutions"></a>Приступая к работе с предварительно настроенными решениями
+
 Набор [предварительно настроенных решений][lnk-preconfigured-solutions] Интернета вещей Azure включает несколько служб Интернета вещей Azure, используемых при создании комплексных решений для реализации распространенных бизнес-сценариев Интернета вещей. Предварительно настроенное решение для *удаленного мониторинга* подключается к устройствам и отслеживает их работу. Это решение можно использовать, чтобы анализировать поток данных, поступающих с устройств, и улучшать результаты работы компании, организовав автоматическое реагирование процессов на этот поток данных.
 
 В этом руководстве показано, как подготовить предварительно настроенное решение для удаленного мониторинга. Кроме того, здесь описываются основные функции этого решения. Многие функции доступны на *панели мониторинга* решения, которая развертывается вместе с предварительно настроенным решением.
@@ -34,8 +35,6 @@ ms.lasthandoff: 04/18/2017
 
 > [!NOTE]
 > Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в статье о [бесплатной пробной версии Azure][lnk_free_trial].
-> 
-> 
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
