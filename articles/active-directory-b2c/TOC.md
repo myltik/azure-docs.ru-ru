@@ -47,7 +47,7 @@
 ## [Настройка пользовательского интерфейса](active-directory-b2c-reference-ui-customization.md)
 ### [Вспомогательный инструмент для настройки](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Настройка языка](active-directory-b2c-reference-language-customization.md)
-## [Использование API отчетов](active-directory-b2c-refererence-usage-reporting-api.md)
+## [Использование API отчетов](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Настройка самостоятельного сброса пароля](active-directory-b2c-reference-sspr.md)
 
 # Инфраструктура процедур идентификации
@@ -59,8 +59,8 @@
 ### Настройка поставщиков SAML
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Интеграции API-интерфейсов RESTful
-#### [Получение дополнительных утверждений](active-directory-b2c-rest-api-step-custom.md)
 #### [Проверка пользовательского ввода](active-directory-b2c-rest-api-validation-custom.md)
+#### [Получение дополнительных утверждений](active-directory-b2c-rest-api-step-custom.md)
 ### Настройка процедуры входа
 #### [Настройка пользовательского ввода](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Настройка пользовательского интерфейса](active-directory-b2c-ui-customization-custom.md)
@@ -79,7 +79,6 @@
 ## [Доступность в регионах и размещение данных](active-directory-b2c-reference-tenant-type.md)
 ## [Настройка оплаты](active-directory-b2c-how-to-enable-billing.md)
 ## [Управление угрозами](active-directory-b2c-reference-threat-management.md)
-## [Ограничения](active-directory-b2c-limitations.md)
 ## [Проблемы при создании каталога](active-directory-b2c-support-create-directory.md)
 
 # Сопутствующие материалы

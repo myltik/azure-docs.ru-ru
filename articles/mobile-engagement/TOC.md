@@ -76,7 +76,6 @@
 ### Рекламные кампании
 #### [Начало работы с push-уведомлениями и управление ими](mobile-engagement-how-tos.md)
 #### [Отправка эмодзи в уведомлениях](mobile-engagement-use-emoji-with-push.md)
-#### [Отправка персонализированных уведомлений](mobile-engagement-send-personalized-notifications.md)
 
 ### Доступ к API служб
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)
