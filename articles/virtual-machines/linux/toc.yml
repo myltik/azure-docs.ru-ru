@@ -57,7 +57,8 @@
     href: azure-vm-network-overview.md
   - name: наборы масштабирования виртуальных машин;
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-  - name: Служба метаданных экземпляров 
+  - name: Служба метаданных экземпляров
+ 
     href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Контейнеры
     href: containers.md
@@ -170,10 +171,7 @@
       href: update-agent.md
     - name: Архивация с помощью служб восстановления
       href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: >-
-        Присоединение виртуальной машины RedHat к доменной службе Azure Active
-        Directory
-
+    - name: Присоединение виртуальной машины RedHat к доменной службе Azure Active Directory
       href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
   - name: Подключение по SSH
     items:
@@ -182,10 +180,7 @@
       items:
       - name: Подробные инструкции
         href: create-ssh-keys-detailed.md
-    - name: >-
-        Использование ключей SSH для Windows для подключения к виртуальным машинам
-        Linux
-
+    - name: Использование ключей SSH для Windows для подключения к виртуальным машинам Linux
       href: ssh-from-windows.md
     - name: Подключение к виртуальной машине Linux с помощью удаленного рабочего стола
       href: use-remote-desktop.md
@@ -276,10 +271,7 @@
       href: ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Масштабирование нескольких виртуальных машин с помощью масштабируемых наборов
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: >-
-        Вертикальное масштабирование виртуальных машин с помощью службы автоматизации
-        Azure
-
+    - name: Вертикальное масштабирование виртуальных машин с помощью службы автоматизации Azure
       href: vertical-scaling-automation.md
     - name: Мониторинг виртуальных машин
       href: vm-monitoring.md
