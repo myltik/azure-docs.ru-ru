@@ -14,10 +14,10 @@ ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d0ccbcfa5fc8006590951707f7162f7864110f38
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 572dfc8965957c4667d4124b045ffbb835786a94
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -40,6 +40,10 @@ ms.lasthandoff: 05/10/2017
 * При использовании ОС Windows потребуется [распространяемый пакет Visual C++][lnk-visual-c-redist], чтобы разрешить использовать встроенные библиотеки DLL из Python.
 * [Node.js 4.0 или более поздней версии][lnk-node-download]. Обязательно используйте 32-разрядную или 64-разрядную версию установки согласно требованиям программы настройки. Это необходимо для установки [средства обозревателя Центра Интернета вещей][lnk-iot-hub-explorer].
 * Активная учетная запись Azure. Если у вас нет учетной записи, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
+
+> [!NOTE]
+> Сейчас пакеты *pip* для `azure-iothub-service-client` и `azure-iothub-device-client` доступны только для ОС Windows. Сведения для ОС Linux и Mac см. в соответствующих разделах статьи [Prepare your development environment][lnk-python-devbox] (Подготовка среды разработки).
+> 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -286,9 +290,10 @@ ms.lasthandoff: 05/10/2017
 
 * [Подключение устройства к Azure IoT][lnk-connect-device]
 * [How to get started with device management (Node)][lnk-device-management] (Начало работы с управлением устройствами (Node))
-* [Explore Azure IoT Edge architecture on Linux][lnk-gateway-SDK] (Приступая к работе с архитектурой Azure IoT Edge в Linux)
+* [Explore Azure IoT Edge architecture on Linux][lnk-iot-edge] (Приступая к работе с архитектурой Azure IoT Edge в Linux)
 
 Сведения о том, как расширить решение для Интернета вещей и обрабатывать сообщения, отправляемые с устройства в облако в большом количестве, см. [здесь][lnk-process-d2c-tutorial].
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-python-getstarted/createdevice.png
@@ -311,6 +316,7 @@ ms.lasthandoff: 05/10/2017
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
+[lnk-python-devbox]: https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md
 
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
@@ -318,6 +324,6 @@ ms.lasthandoff: 05/10/2017
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 

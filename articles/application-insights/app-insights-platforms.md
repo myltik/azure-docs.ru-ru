@@ -14,21 +14,23 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b78c574e9edf6ce28e8deb80d264858d480f5861
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 7f9b886259c065627055f62a3636ab65434ca57b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Аналитические средства для разработчиков: языки, платформы, интеграция
 Ниже перечислены известные нам реализации [Application Insights](app-insights-overview.md) , в том числе реализации от сторонних производителей.
 
-## <a name="languages"></a>Языки
+## <a name="languages---officially-supported-by-application-insights-team"></a>Языки, официально поддерживаемые командой Application Insights
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Веб-страницы JavaScript](app-insights-javascript.md)
-* [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+## <a name="languages---community-supported"></a>Языки, поддерживаемые сообществом
+* [Node.JS](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)

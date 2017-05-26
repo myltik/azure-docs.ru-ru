@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 0ce6114073b80c1d9bb719654ab8cebc30dfefac
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -153,9 +153,9 @@ Site Recovery обеспечивает защиту развертывания C
 * Упрощение миграции в облако благодаря использованию Site Recovery для переноса развертывания Citrix XenApp и XenDesktop в Azure.
 * Упрощение тестирования Citrix XenApp и XenDesktop благодаря созданию реплики рабочей среды по запросу для тестирования и отладки.
 * Это решение применяется только для операционной системы виртуальных рабочих столов Windows Server, а не для виртуальных рабочих столов клиента, так как их лицензирование в Azure не поддерживается. 
-Дополнительные сведения о лицензировании рабочих столов клиента и сервера в Azure см. [здесь](https://azure.microsoft.com/en-us/pricing/licensing-faq/).
+Дополнительные сведения о лицензировании рабочих столов клиента и сервера в Azure см. [здесь](https://azure.microsoft.com/pricing/licensing-faq/).
 
-Сведения о защите развертывания Citrix XenApp и XenDesktop см. [здесь](https://aka.ms/citrix-xenapp-xendesktop-with-asr).
+Сведения о защите развертывания Citrix XenApp и XenDesktop см. [здесь](site-recovery-citrix-xenapp-and-xendesktop.md). Кроме того, вы можете просмотреть [технический документ Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr). В нем представлены те же сведения. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Проверьте, соблюдены ли предварительные требования](site-recovery-prereq.md) 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/15/2017
+ms.date: 05/22/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: c68f3ea4816eade5972c5936e381f435c24f3215
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: b72acb9c1d2b746bfdc3ac724b9c8760e0d4b257
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/23/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
@@ -42,7 +42,7 @@ ExpressRoute поддерживается во всех регионах и ра
 
 | **Геополитический регион** | **Регионы Azure** | **Расположения ExpressRoute** |
 | --- | --- | --- |
-| **Северная Америка** |Восточная часть США, западная часть США, восточная часть США 2, западная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США, западно-центральная часть США, центральная часть Канады, восточная часть Канады |Атланта, Чикаго, Даллас, Денвер+, Лас-Вегас, Лос-Анджелес, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия), Монреаль, Квебек, Торонто |
+| **Северная Америка** |Восточная часть США, западная часть США, восточная часть США 2, западная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США, западно-центральная часть США, центральная часть Канады, восточная часть Канады |Атланта, Чикаго, Даллас, Денвер+, Лас-Вегас, Лос-Анджелес, Майами, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия), Монреаль, Квебек, Торонто |
 | **Северная Америка** |Южная часть Бразилии |Сан-Паулу |
 | **Европа** |Северная Европа, Западная Европа, запад Соединенного Королевства, юг Соединенного Королевства |Амстердам, Дублин, Лондон, Ньюпорт (Уэльс), Париж |
 | **Азия** |Восточная Азия, Юго-Восточная Азия |Гонконг, Сингапур |
@@ -55,7 +55,7 @@ ExpressRoute поддерживается во всех регионах и ра
 В таблице ниже содержатся сведения о регионах и геополитических границах для национальных облаков.
 
 | **Геополитический регион** | **Регионы Azure** | **Расположения ExpressRoute** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Облако правительства США** |Айова (для обслуживания государственных организаций США), Виргиния (для обслуживания государственных организаций США), центральная часть США (US DoD), восточная часть США (US DoD)  |Чикаго, Даллас, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия) |
 | **Китай** |Северный Китай, Восточный Китай |Пекин, Шанхай |
 | **Германия** |Центральная Германия, восточная Германия |Берлин, Франкфурт |
@@ -89,12 +89,12 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Ньюпорт (Уэльс)** |Next Generation Data |
 | **Нью-Йорк** |Coresite, Equinix, Megaport, Zayo Group |
 | **Осака** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
-| **Париж** |Interxion, Equinix+ |
+| **Париж** |Interxion, Equinix |
 | **Квебек** | Megaport |
 | **Сан-Паулу** |Equinix Telefonica |
 | **Сиэтл;** |Equinix, Level 3 Communications, Megaport |
 | **Сеул** |KINX, Sejong Telecom |
-| **Кремниевая долина** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
+| **Кремниевая долина** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Megaport, Verizon, Zayo Group |
 | **Сингапур** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Сидней** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Токио** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 05/24/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 574299dd64120d75a1a36cb2ded0fdd269292570
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 9f78163e4ff1166a2abd94150d686256ee338286
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 ---
 
@@ -29,7 +29,6 @@ ms.lasthandoff: 05/10/2017
 Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
-
 Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране.
 
 ```azurecli
@@ -87,7 +86,7 @@ az mysql server show --resource-group mycliresource --name mycliserver
 {
   "administratorLogin": "myadmin",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mycliserver.database.windows.net",
+  "fullyQualifiedDomainName": "mycliserver.mysql.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mycliresource/providers/Microsoft.DBforMySQL/servers/mycliserver",
   "location": "westus",
   "name": "mycliserver",
@@ -114,7 +113,7 @@ az mysql server show --resource-group mycliresource --name mycliserver
 
 1. Подключитесь к серверу с помощью программы командной строки **mysql**:
 ```dos
- mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+ mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
 ```
 
 2. Просмотрите состояние сервера:
@@ -124,7 +123,7 @@ az mysql server show --resource-group mycliresource --name mycliserver
 Если все работает правильно, в программе командной строки должен отобразиться следующий результат:
 
 ```dos
-C:\Users\v-chenyh>mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+C:\Users\v-chenyh>mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -149,7 +148,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             mycliserver.database.windows.net via TCP/IP
+Connection:             mycliserver.mysql.database.azure.com via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -175,16 +174,15 @@ mysql>
 |----------------|-----------------|
 |    *Имя подключения* | Укажите любое имя для этого подключения. |
 | *Способ подключения* | Выберите стандартный способ (по протоколу TCP/IP). |
-| *Имя узла* | mycliserver.database.windows.net (имя сервера вы записали ранее). |
+| *Имя узла* | mycliserver.MySQL.Database.Azure.com (имя сервера, которое вы записали ранее) |
 | *Порт* | 3306 |
-| *Имя пользователя* | myadmin@mycliserver (имя для входа администратора сервера, которое вы записали ранее). |
-| *Пароль* | Вы можете сохранить пароль учетной записи администратора в хранилище. |
+| *Имя пользователя* | myadmin@mycliserver (учетные данные администратора сервера для входа, которые вы записали ранее) |
+| *Пароль* | Сохраните пароль учетной записи администратора. |
 
-![Настройка нового подключения](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
+   ![Настройка нового подключения](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
-3.    Щелкните **Проверить подключение**, чтобы проверить, все ли параметры верно настроены.
-
-4.    Теперь вы можете щелкнуть только что созданное подключение, чтобы успешно подключиться к серверу.
+Щелкните **Проверить подключение**, чтобы проверить, все ли параметры верно настроены.
+Теперь вы можете щелкнуть только что созданное подключение, чтобы успешно подключиться к серверу.
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
@@ -197,5 +195,5 @@ az group delete --name mycliresource
 ## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Design a MySQL Database with Azure CLI](./tutorial-design-database-using-cli.md) (Проектирование базы данных MySQL с помощью Azure CLI).
+> [Проектирование первой базы данных Azure для MySQL](./tutorial-design-database-using-cli.md)
 

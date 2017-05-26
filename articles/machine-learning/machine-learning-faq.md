@@ -13,17 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
-ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: bb4d64f799027c9af74fd50ab724449bdede7804
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Часто задаваемые вопросы о Машинном обучении Azure: выставление счетов, возможности, ограничения и поддержка
 Эта статья содержит соответствующие ответы на часто задаваемые вопросы о Машинном обучении Azure. Это облачная служба, предназначенная для разработки моделей прогнозирования и ввода в эксплуатацию соответствующих решений с помощью веб-служб. Здесь предоставлены сведения об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке.
+
+**У вас есть вопрос, которого нет здесь?**
+
+Для Машинного обучения Azure предусмотрен форум на MSDN, где участники сообщества по обработке и анализу данных могут задать вопросы об этой службе. Форум контролирует команда поддержки Машинного обучения Azure. Перейдите на [форум машинного обучения Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning), чтобы найти ответы или задать новый вопрос.
 
 ## <a name="general-questions"></a>Общие вопросы
 **Что такое Машинное обучение Azure?**

@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: bec18e91ef8798a791d4b1fe93bd529593197e01
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 5ff7783081a722474bbbc38795e88da05bca78d2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -177,7 +178,7 @@ if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
 
 Самый гибкий тип фильтра, который поддерживают подписки — это класс [SqlFilter][SqlFilter], реализующий подмножество SQL92. Фильтры SQL работают со свойствами сообщений, которые опубликованы в разделе. Дополнительные сведения о выражениях, которые можно использовать с SQL-фильтром, см. в описании синтаксиса [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
-В следующем примере создается подписка с именем **HighMessages**, содержащая объект [SqlFilter][SqlFilter]. Этот объект выбирает только сообщения со значением настраиваемого свойства **MessageNumber** больше 3.
+В следующем примере создается подписка с именем **HighMessages**, содержащая объект [SqlFilter][SqlFilter]. Этот объект выбирает только сообщения со значением настраиваемого свойства [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) больше 3.
 
 ```csharp
 // Create a "HighMessages" filtered subscription.
@@ -189,7 +190,7 @@ namespaceManager.CreateSubscription("TestTopic",
    highMessagesFilter);
 ```
 
-Аналогично в следующем примере создается подписка с именем **LowMessages** и фильтром [SqlFilter][SqlFilter], который выбирает только сообщения со значением свойства **MessageNumber** меньше или равно 3.
+Аналогично в следующем примере создается подписка с именем **LowMessages** и фильтром [SqlFilter][SqlFilter], который выбирает только сообщения со значением свойства [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) меньше или равно 3.
 
 ```csharp
 // Create a "LowMessages" filtered subscription.
@@ -218,9 +219,9 @@ TopicClient Client =
 Client.Send(new BrokeredMessage());
 ```
 
-Сообщения, отправляемые в разделы служебной шины и получаемые из них, — это экземпляры класса [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Объекты **BrokeredMessage** обладают набором стандартных свойств (таких как [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) и [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), словарем, в котором хранятся зависящие от приложения пользовательские свойства, и основным набором произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору объекта **BrokeredMessage** любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий класс **DataContractSerializer**. Или можно указать объект **System.IO.Stream**.
+Сообщения, отправляемые в разделы служебной шины и получаемые из них, — это экземпляры класса [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Объекты **BrokeredMessage** обладают набором стандартных свойств (таких как [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) и [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), словарем, в котором хранятся зависящие от приложения пользовательские свойства, и основным набором произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору объекта **BrokeredMessage** любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий класс **DataContractSerializer**. Или можно указать объект **System.IO.Stream**.
 
-В примере ниже показано, как отправить пять тестовых сообщений в объект **TopicClient** раздела [TestTopic](/dotnet/api/microsoft.servicebus.messaging.topicclient), полученный в предыдущем примере кода. Обратите внимание, что значение свойства [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) каждого из сообщений зависит от итерации цикла (это определяет, какие подписки их получают).
+В примере ниже показано, как отправить пять тестовых сообщений в объект **TopicClient** раздела [TestTopic](/dotnet/api/microsoft.servicebus.messaging.topicclient), полученный в предыдущем примере кода. Обратите внимание, что значение свойства [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) каждого из сообщений зависит от итерации цикла (это определяет, какие подписки их получают).
 
 ```csharp
 for (int i=0; i<5; i++)
@@ -289,7 +290,7 @@ Client.OnMessage((message) =>
 
 Кроме того, с сообщением, заблокированным в подписке, связано время ожидания. Если приложение не может обработать сообщение в течение времени ожидания с блокировкой (например, при сбое приложения), служебная шина разблокирует сообщение автоматически и сделает его доступным для приема.
 
-Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), это сообщение повторно доставляется в приложение после его перезапуска. Часто такой подход называют *Обработать хотя бы один раз*, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может доставляться повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) сообщения, которое остается постоянным в ходе разных попыток доставки.
+Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), это сообщение повторно доставляется в приложение после его перезапуска. Часто такой подход называют *Обработать хотя бы один раз*, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может доставляться повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) сообщения, которое остается постоянным в ходе разных попыток доставки.
 
 ## <a name="delete-topics-and-subscriptions"></a>Удаление разделов и подписок
 В примере ниже показано, как удалить раздел с именем **TestTopic** из пространства имен службы **HowToSample**.
