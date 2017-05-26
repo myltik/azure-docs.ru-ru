@@ -13,10 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 6304f01fd5f97dd528054f8c4909593dd062e16b
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 258ccee349e07448ebebaebe64cd6fb6888d7ed4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/20/2017
 
 
 ---
@@ -206,30 +207,39 @@ ms.lasthandoff: 04/26/2017
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # <a name="write-down-the-id-of-devvghanadatahanadata-devvghanaloghanalog-and-devvghanasharedhanashared"></a>Запишите идентификаторы /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log и /dev/vg_hana_shared/hana_shared.
-    sudo blkid  </code></pre>
-   * Создайте записи fstab для трех логических томов. <pre><code>
-   sudo vi/etc/fstab </code></pre>
-    Вставьте эту строку в /etc/fstab.  <pre><code>
-    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2 /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2 /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2  </code></pre>
-   * Подключите новые тома.  <pre><code>
-    sudo mount -a  </code></pre>
+    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    sudo blkid
+    </code></pre>
+        * Создайте записи fstab для трех логических томов.
+    <pre><code>
+    sudo vi /etc/fstab
+    </code></pre>
+    Вставьте эту строку в /etc/fstab.
+    <pre><code>
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2
+    </code></pre>
+        * Подключите новые тома.
+    <pre><code>
+    sudo mount -a
+    </code></pre>
     1. Обычные диски  
        Для небольших или демонстрационных систем файлы данных и журналов HANA можно поместить на один диск. Приведенные ниже команды создают раздел/dev/sdc и форматируют его для файловой системы XFS.
     ```bash
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # write down the id of /dev/sdc1
-    sudo /sbin/blkid
-    sudo vi /etc/fstab
+    # <a name="write-down-the-id-of-devsdc1"></a>write down the id of /dev/sdc1
+    sudo /sbin/blkid  sudo vi /etc/fstab
     ```
 
-    Вставьте эту строку в /etc/fstab.  <pre><code>
+    Insert this line to /etc/fstab
+    <pre><code>
     /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
     </code></pre>
 
-    Создайте целевой каталог и подключите диск.
+    Create the target directory and mount the disk.
 
     ```bash
     sudo mkdir /hana
@@ -366,11 +376,13 @@ ms.lasthandoff: 04/26/2017
     hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
     </code></pre>
 
-1. [A] Создайте запись хранилища ключей (в качестве привилегированного пользователя).  <pre><code>
+1. [A] Создайте запись хранилища ключей (в качестве привилегированного пользователя).
+    <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
     </code></pre>
-1. [1] Создайте резервную копию базы данных (в качестве привилегированного пользователя).  <pre><code>
+1. [1] Создайте резервную копию базы данных (в качестве привилегированного пользователя).
+    <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
     </code></pre>
