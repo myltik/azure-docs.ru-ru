@@ -22,8 +22,10 @@
 ### [Запуск любого приложения на любом устройстве](remoteapp-anyapp.md)
 ### [Запуск Office 365 на любом устройстве](remoteapp-tutorial-o365anywhere.md)
 
-# Практическое руководство:
+# Практическое руководство
 
+## [Перенос данных пользователя из Azure RemoteApp](remoteapp-migrate.md)
+## [Миграция в Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Создание коллекции RemoteApp
 ### [Какая коллекция вам нужна?](remoteapp-collections.md)
 ### [Создание облачной коллекции](remoteapp-create-cloud-deployment.md)
@@ -69,8 +71,3 @@
 ## [Цены](https://azure.microsoft.com/pricing/details/remoteapp/)
 ## [Форум](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

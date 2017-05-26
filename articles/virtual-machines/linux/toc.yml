@@ -31,9 +31,9 @@
     href: tutorial-load-balancer.md
   - name: 8. Управление сетями
     href: tutorial-virtual-network.md
-  - name: "9\_— резервное копирование виртуальных машин"
+  - name: 9. Резервное копирование виртуальных машин
     href: tutorial-backup-vms.md
-  - name: "10\_— мониторинг виртуальных машин"
+  - name: 10. Мониторинг виртуальных машин
     href: tutorial-monitoring.md
   - name: "11\_— управление безопасностью виртуальных машин"
     href: tutorial-azure-security.md
@@ -297,6 +297,8 @@
       href: extensions-customscript.md
     - name: Расширение агента OMS
       href: extensions-oms.md
+    - name: Диагностическое расширение для Linux
+      href: diagnostic-extension.md
   - name: Запуск приложений
     items:
     - name: Cloud Foundry
@@ -354,19 +356,24 @@
       href: migration-classic-resource-manager-faq.md
   - name: Устранение неполадок
     items:
-    - name: Устранение неполадок с подключениями по протоколу SSH
+    - name: SSH-подключения
       href: troubleshoot-ssh-connection.md
       items:
       - name: Подробное описание устранения неполадок
         href: detailed-troubleshoot-ssh-connection.md
-    - name: Устранение неполадок доступа к приложениям
+    - name: Диагностика загрузки
+ 
+      href: boot-diagnostics.md
+    - name: Доступ к приложениям
       href: troubleshoot-app-connection.md
-    - name: Устранение неполадок выделения ресурсов
+    - name: Ошибки выделения ресурсов
       href: allocation-failure.md
-    - name: Устранение неполадок развертывания
+    - name: Проблемы с развертыванием
       href: troubleshoot-deployment-new-vm.md
     - name: Повторное развертывание виртуальной машины на новом узле Azure
       href: redeploy-to-new-node.md
+    - name: Распространенные сообщения об ошибках
+      href: error-messages.md
     - name: Подключение виртуального жесткого диска для устранения неполадок
       items:
       - name: Инфраструктура CLI Azure

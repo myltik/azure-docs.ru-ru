@@ -12,9 +12,9 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Использование виртуального шлюза 
-#### [Моделирование в Linux](iot-hub-linux-gateway-sdk-get-started.md)
-#### [Моделирование в Windows](iot-hub-windows-gateway-sdk-get-started.md)
+### Использование виртуального шлюза
+#### [Моделирование в Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Моделирование в Windows](iot-hub-windows-iot-edge-get-started.md)
 
 ### Использование физического устройства
 #### [Приступая к работе с Raspberry Pi 3 (Node.JS)](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -28,9 +28,9 @@
 #### [Adafruit Feather M0 с Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### Использование начального набора шлюза Интернета вещей
-##### [Настройка Intel NUC в качестве шлюза Интернета вещей](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Подключение шлюза Интернета вещей к Центру Интернета вещей](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Использование шлюза Интернета вещей для преобразования данных](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Настройка Intel NUC в качестве шлюза](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [Подключение шлюза к Центру Интернета вещей](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [Использование шлюза для преобразования данных](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
 ## [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
 ## [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -78,6 +78,7 @@
 ### Приступая к работе с двойниками устройств
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-getstarted.md)
+#### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 ### Использование прямых методов
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-direct-methods.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-direct-methods.md)
@@ -85,6 +86,7 @@
 ### Начало работы с управлением устройствами
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-device-management-get-started.md)
+#### [Java: серверный компонент и устройство](iot-hub-java-java-device-management-getstarted.md)
 ### Как использовать свойства двойников
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -118,9 +120,9 @@
 ### [Защита развернутой службы Интернета вещей](iot-hub-security-deployment.md)
 ## IoT Edge
 ### Моделирование устройства
-#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
-#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Использование реального устройства](iot-hub-gateway-sdk-physical-device.md)
+#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
+#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
+### [Использование реального устройства](iot-hub-iot-edge-physical-device.md)
 
 # Справочные материалы
 ## [Предварительная версия Azure CLI 2.0](/cli/azure/iot)
@@ -154,3 +156,4 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Центре разработчика для IoT в Azure](https://azure.microsoft.com/develop/iot/)
 ## [Каталог устройств, сертифицированных по программе Microsoft Azure Certified for IoT](https://catalog.azureiotsuite.com/)
+## [Технические примеры использования](https://microsoft.github.io/techcasestudies/#technology=IoT)

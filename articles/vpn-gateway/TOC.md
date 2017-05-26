@@ -21,9 +21,13 @@
 ### [Портал Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Портал Azure (классический)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### Создание самозаверяющих сертификатов для подключений типа "точка — сеть"
+#### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+#### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## Настройка подключения между виртуальными сетями
 ### [Портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Интерфейс командной строки Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Портал Azure (классический)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Настройка подключения между виртуальными сетями для разных моделей развертывания
 ### [Портал Azure](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -46,9 +50,6 @@
 ### [Портал Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (классическая модель)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## Создание самозаверяющих сертификатов для подключений типа "точка — сеть"
-### [PowerShell](vpn-gateway-certificates-point-to-site.md)
-### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [Настройка VPN-шлюза (классическая модель)](vpn-gateway-configure-vpn-gateway-mp.md)
 ## Устранение неполадок
 ### [Проверка пропускной способности VPN для виртуальной сети](vpn-gateway-validate-throughput-to-vnet.md)
@@ -56,9 +57,9 @@
 # Справочные материалы
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [PowerShell (классическая модель)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST](https://msdn.microsoft.com/library/mt163859)
+## [REST](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST (классическая модель)](https://msdn.microsoft.com/library/jj154113)
-## [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/network)
+## [Интерфейс командной строки Azure](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
 
 # Сопутствующие материалы
 ## [Виртуальная сеть](/azure/virtual-network/)

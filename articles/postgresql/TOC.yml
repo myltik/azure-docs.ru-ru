@@ -39,9 +39,9 @@
       href: concepts-server-logs.md
   - name: Ресурсы
     items:
-    - name: Уровни службы
+    - name: Ценовые категории
       href: concepts-service-tiers.md
-    - name: Единицы вычислений и единицы хранения
+    - name: Единицы вычислений
       href: concepts-compute-unit-and-storage.md
     - name: Ограничения
       href: concepts-limits.md

@@ -49,6 +49,7 @@
 #### [Развертывание контейнера Linux](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (предварительная версия)](service-fabric-docker-compose.md)
 #### [Управление ресурсами для контейнеров и служб](service-fabric-resource-governance.md)
+#### [Драйверы томов и драйверы ведения журналов](service-fabric-containers-volume-logging-drivers.md)
 
 ### Создание приложения Reliable Services
 #### [Обзор](service-fabric-reliable-services-introduction.md)
@@ -69,10 +70,9 @@
 ##### [C# в Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java в Linux](service-fabric-reliable-services-quick-start-java.md)
 
-#### Жизненный цикл Reliable Services
-##### [Настройка](service-fabric-reliable-services-configuration.md)
-##### [Отправка уведомлений](service-fabric-reliable-services-notifications.md)
-##### [Резервное копирование и восстановление](service-fabric-reliable-services-backup-restore.md)
+#### [Настройка](service-fabric-reliable-services-configuration.md)
+#### [Отправка уведомлений](service-fabric-reliable-services-notifications.md)
+#### [Резервное копирование и восстановление](service-fabric-reliable-services-backup-restore.md)
 
 #### Обмен данными со службами
 ##### [Обмен данными с помощью Reliable Services](service-fabric-reliable-services-communication.md)
@@ -87,12 +87,12 @@
 ### Создание службы Reliable Actors
 #### [Обзор](service-fabric-reliable-actors-introduction.md)
 #### Основные понятия
-#### [Архитектура](service-fabric-reliable-actors-platform.md)
-#### [Жизненный цикл и сборка мусора](service-fabric-reliable-actors-lifecycle.md)
-#### [Управление данными о состоянии](service-fabric-reliable-actors-state-management.md)
-#### [Полиморфизм](service-fabric-reliable-actors-polymorphism.md)
-#### [Повторный вход](service-fabric-reliable-actors-reentrancy.md)
-#### [Сериализация типа](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [Архитектура](service-fabric-reliable-actors-platform.md)
+##### [Жизненный цикл и сборка мусора](service-fabric-reliable-actors-lifecycle.md)
+##### [Управление данными о состоянии](service-fabric-reliable-actors-state-management.md)
+##### [Полиморфизм](service-fabric-reliable-actors-polymorphism.md)
+##### [Повторный вход](service-fabric-reliable-actors-reentrancy.md)
+##### [Сериализация типа](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### Начало работы
 ##### [C# в Windows](service-fabric-reliable-actors-get-started.md)
@@ -108,6 +108,7 @@
 #### [Взаимодействие служб](service-fabric-connect-and-communicate-with-services.md)
 #### [Служба DNS](service-fabric-dnsservice.md)
 #### [Обратный прокси-сервер](service-fabric-reverseproxy.md)
+#### [Настройка обратного прокси-сервера для безопасного подключения](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [Добавление веб-интерфейса](service-fabric-add-a-web-frontend.md)
 

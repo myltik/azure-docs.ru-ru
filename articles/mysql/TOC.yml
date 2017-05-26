@@ -39,9 +39,9 @@
       href: concepts-supported-versions.md
   - name: Ресурсы
     items:
-    - name: Уровни службы
+    - name: Ценовые категории
       href: concepts-service-tiers.md
-    - name: Единицы вычислений и единицы хранения
+    - name: Единицы вычислений
       href: concepts-compute-unit-and-storage.md
     - name: Ограничения
       href: concepts-limits.md
@@ -85,6 +85,8 @@
       href: howto-connection-string.md
     - name: Настройка SSL
       href: howto-configure-ssl.md
+    - name: Веб-приложение
+      href: howto-connect-webapp.md
 - name: Справочные материалы
   items:
   - name: Инфраструктура CLI Azure

@@ -10,7 +10,6 @@
 ## [Развертывание кластера с помощью портала](container-service-deployment.md)
 ## [Развертывание кластера с помощью Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [Непрерывная интеграция и доставка с помощью Kubernetes и Jenkins](container-service-kubernetes-jenkins.md)
-## [Непрерывная интеграция и доставка с помощью DC/OS и VSTS](container-service-setup-ci-cd.md)
 ## [Непрерывная интеграция и доставка с помощью Docker Swarm и VSTS](container-service-docker-swarm-setup-ci-cd.md)
 
 # Основные понятия
@@ -44,6 +43,7 @@
 #### [Отслеживание с помощью OMS](container-service-kubernetes-oms.md)
 #### [Отслеживание с помощью Datadog](container-service-kubernetes-datadog.md)
 #### [Отслеживание с помощью Sysdig](container-service-kubernetes-sysdig.md)
+#### [Отслеживание с помощью CoScale](container-service-kubernetes-coscale.md)
 ## Управление с помощью Docker Swarm
 ### [Docker и Docker Compose](container-service-docker-swarm.md)
 
