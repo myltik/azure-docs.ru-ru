@@ -3,7 +3,7 @@ title: "Импорт данных в инструмент аналитики в 
 description: "Импорт статических данных для объединения с данными телеметрии приложения или импорт отдельного потока данных для выполнения запроса с помощью аналитики."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,11 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 4f10e5a8200af870e0adb8977b9c68b9998a6de7
-ms.lasthandoff: 03/21/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: d649644959d907ff7fd6c1de360b091682f13d5b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -187,11 +188,11 @@ ms.lasthandoff: 03/21/2017
 * **400. Недопустимый запрос** — означает, что запрос содержит недопустимые полезные данные. Убедитесь, что:
  * указан правильный ключ инструментирования;
  * указано допустимое значение времени (должно быть указано текущее время UTC);
- * данные соответствуют схеме.
+ * Данные JSON события соответствуют схеме.
 * **403. Запрещено** — отправленный большой двоичный объект недоступен. Убедитесь, что общий ключ доступа является допустимым и срок его действия не истек.
 * **404. Не найдено**:
  * большой двоичный объект не существует;
- * неверное имя источника данных.
+ * Неправильный идентификатор sourceId.
 
 Подробные сведения см. в сообщении об ошибке.
 
@@ -203,8 +204,6 @@ ms.lasthandoff: 03/21/2017
 ### <a name="classes"></a>Классы
 
 ```C#
-
-
 namespace IngestionClient 
 { 
     using System; 
@@ -357,7 +356,6 @@ namespace IngestionClient
         #endregion Private 
     } 
 } 
-
 ```
 
 ### <a name="ingest-data"></a>Прием данных
@@ -365,14 +363,11 @@ namespace IngestionClient
 Используйте этот код для каждого большого двоичного объекта. 
 
 ```C#
-
-
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
-   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "tableId/sourceId", "blobUrlWithSas"); 
+   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 
 
    bool success = await client.RequestBlobIngestion(ingestionRequest);
-
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
