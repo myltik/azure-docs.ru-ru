@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fb8eaa4bb122cd6bb7e3f72bb5f7000103bffb29
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: f9f1b95ade5f397fa1a3bcdc4165c81c1c9628c0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -31,17 +31,19 @@ ms.lasthandoff: 05/10/2017
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-При создании приложения-функции укажите допустимое **имя приложения**, содержащее только буквы, цифры и дефисы. Символ подчеркивания (**_**) использовать нельзя. 
+При создании приложения-функции укажите допустимое **имя приложения**, содержащее только буквы, цифры и дефисы. Символ подчеркивания (**_**) использовать нельзя.
 
 Имя учетной записи хранения должно содержать от 3 до 24 символов и состоять только из цифр и строчных букв. Имя учетной записи хранения должно быть уникальным в Azure. 
 
-После создания приложения-функции можно создать отдельные функции на одном или нескольких языках программирования. Создайте функции [с помощью портала](functions-create-first-azure-function.md#create-function), [непрерывного развертывания](functions-continuous-deployment.md) или [передачи по FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).  
+После создания приложения-функции можно создать отдельные функции на одном или нескольких языках программирования. Создайте функции [с помощью портала](functions-create-first-azure-function.md#create-function), [непрерывного развертывания](functions-continuous-deployment.md) или [передачи по FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
 
 ## <a name="service-plans"></a>Планы обслуживания
 
 В Функциях Azure имеются два разных плана обслуживания: план потребления и план службы приложений. План потребления автоматически выделяет вычислительные ресурсы в процессе выполнения кода, масштабируя их в соответствии с нагрузкой и освобождая, когда код не выполняется. План службы приложений предоставляет приложению-функции доступ ко всем средствам службы приложений. План обслуживания нужно выбрать при создании приложения-функции, и в настоящее время невозможно изменить выбранный план. Дополнительные сведения см. в разделе [Выбор правильного плана обслуживания для Функций Azure](functions-scale.md).
 
-Если вы планируете выполнить функции JavaScript в плане службы приложений, следует выбрать план с использованием меньшего числа ядер. Дополнительные сведения см. в разделе [обзора функций для JavaScript](functions-reference-node.md#choose-single-core-app-service-plans). 
+Если вы планируете выполнить функции JavaScript в плане службы приложений, следует выбрать план с использованием меньшего числа ядер. Дополнительные сведения см. в разделе [обзора функций для JavaScript](functions-reference-node.md#choose-single-core-app-service-plans).
+
+<a name="storage-account-requirements"></a>
 
 ## <a name="storage-account-requirements"></a>Требования к учетной записи хранения
 
@@ -53,6 +55,7 @@ ms.lasthandoff: 05/10/2017
 Чтобы узнать больше о типах учетных записей хранения, ознакомьтесь с разделом [Введение в службы хранилища Azure] (../storage/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
 

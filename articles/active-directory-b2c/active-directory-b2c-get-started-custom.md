@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: joroja;parahk;gsacavdm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: b72db6a0eb8a8621be5f05da6028615d5d24ba1e
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 42824fe10e635257681f62ab1fec9b47abd4294a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/12/2017
 
 ---
 # <a name="azure-active-directory-b2c-getting-started-with-custom-policies"></a>Azure Active Directory B2C. Приступая к работе с настраиваемыми политиками
@@ -35,7 +35,7 @@ ms.lasthandoff: 05/09/2017
 
 ## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Добавление ключей подписывания и шифрования в клиент B2C для использования настраиваемыми политиками
 
-1. Перейдите к колонке Identity Experience Framework (Инфраструктура процедур идентификации) в параметрах вашего клиента Azure AD B2C.
+1. Перейдите к колонке **Identity Experience Framework** (Инфраструктура процедур идентификации) в параметрах вашего клиента Azure AD B2C.
 2. Выберите **Policy Keys** (Ключи политики), чтобы просмотреть доступные в клиенте ключи.
 3. Создайте `B2C_1A_TokenSigningKeyContainer`, если он не существует:
  * Щелкните **Добавить**.
@@ -120,8 +120,8 @@ ms.lasthandoff: 05/09/2017
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 2. Откройте папку `SocialAndLocalAccounts`.  В базовом файле (`TrustFrameworkBase.xml`) этой папки приводится содержимое, необходимое для локальных и корпоративных учетных записей или учетных записей социальной сети. Содержимое из социальных сетей не влияет на настройку и запуск локальных учетных записей.
-3. Откройте `TrustFrameworkBase.xml`.  Если вам нужен редактор XML, попробуйте [Visual Studio Code](https://code.visualstudio.com/download) (упрощенный кроссплатформенный редактор).
-4. В корневом элементе `TrustFrameworkPolicy` обновите атрибуты `TenantId` и `PublicPolicyUri`, заменив `yourtenant.onmicrosoft.com` доменным именем клиента Azure AD B2C.
+3. Откройте `TrustFrameworkBase.xml`.  Если вам нужен редактор XML, [попробуйте Visual Studio Code](https://code.visualstudio.com/download) (упрощенный кроссплатформенный редактор).
+4. В корневом элементе `TrustFrameworkPolicy` обновите атрибуты `TenantId` и `PublicPolicyUri`, заменив `yourtenant.onmicrosoft.com` доменным именем клиента Azure AD B2C.
 
     ```xml
     <TrustFrameworkPolicy
@@ -139,7 +139,7 @@ ms.lasthandoff: 05/09/2017
 5. Сохраните файл.
 6. Откройте `TrustFrameworkExtensions.xml` и внесите те же два изменения, заменив `yourtenant.onmicrosoft.com` клиентом Azure AD B2C. Замените также значение `<TenantId>` (в результате вы внесете 3 изменения).  Сохраните файл.
 7. Откройте `SignUpOrSignIn.xml` и внесите те же изменения, заменив `yourtenant.onmicrosoft.com` клиентом Azure AD B2C в трех местах. Сохраните файл.
-8. Откройте файлы секрета пароля и изменения профиля, а затем внесите те же изменения, заменив `yourtenant.onmicrosoft.com` клиентом Azure AD B2C в трех местах в каждом файле. Сохраните файлы.
+8. Откройте файлы сброса пароля и изменения профиля, а затем внесите те же изменения, заменив `yourtenant.onmicrosoft.com` клиентом Azure AD B2C в трех местах в каждом файле. Сохраните файлы.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Добавление идентификаторов приложений в настраиваемую политику
 Добавьте идентификаторы приложений в файл расширения (`TrustFrameworkExtensions.xml`).
@@ -192,7 +192,7 @@ ms.lasthandoff: 05/09/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 
 ### <a name="add-facebook-as-an-identity-provider"></a>Добавление Facebook в качестве поставщика удостоверений
-Чтобы настроить Facebook, сделайте следующее:
+Чтобы настроить Facebook, сделайте следующее.
 1. [Настройте приложение Facebook на сайте developers.facebook.com.](active-directory-b2c-setup-fb-app.md)
 2. [Добавьте секретный код приложения Facebook в клиент Azure AD B2C.](#add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies)
 3. Добавьте идентификатор приложения Facebook в файле политики TrustFrameworkExtensions в параметре `Item Key="client_id"`:

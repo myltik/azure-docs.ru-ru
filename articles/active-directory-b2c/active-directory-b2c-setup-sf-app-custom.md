@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/30/2017
 ms.author: gsacavdm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: dee24deacbe69ada64519802c0eb1b83f565f57e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 1d97c75f3130ea6fdacbc6335b6e70677b4d226e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -57,30 +57,16 @@ ms.lasthandoff: 05/09/2017
 1. Нажмите кнопку **Download Metadata** (Скачать метаданные) и сохраните файл метаданных. Он потребуется вам в дальнейшем.
 
 ## <a name="add-a-saml-signing-certificate-to-azure-ad-b2c"></a>Добавление сертификата для подписи SAML в Azure AD B2C
-Вам необходимо отправить сертификат Salesforce в клиент Azure AD B2C. Для этого:
+Вам необходимо отправить сертификат SAML в клиент Azure AD B2C для использования при подписывании запросов SAML. Для этого:
 
-1. Откройте PowerShell и перейдите в рабочий каталог `active-directory-b2c-advanced-policies`.
-1. Перейдите в папку со средством ExploreAdmin.
-
-    ```powershell
-    cd active-directory-b2c-advanced-policies\ExploreAdmin
-    ```
-
-1. Импортируйте средство ExploreAdmin в PowerShell.
-
-    ```powershell
-    Import-Module .\ExploreAdmin.dll
-    ```
-
-1. В команде ниже замените `tenantName` именем клиента Azure AD B2C (например, fabrikamb2c.onmicrosoft.com), а `certificateId` — именем сертификата, которое вам понадобится позже для ссылки (например, ContosoSalesforceCert). `pathToCert` и `password` замените путем и паролем сертификата. Выполните команду.
-
-    ```PowerShell
-    Set-CpimCertificate -TenantId {tenantName} -CertificateId {certificateId} -CertificateFileName {pathToCert} - CertificatePassword {password}
-    ```
-
-    При выполнении команды вход необходимо выполнить с помощью локальной учетной записи администратора onmicrosoft.com клиента Azure AD B2C. 
-
-1. Закройте PowerShell.
+1. Перейдите к клиенту Azure AD B2C, откройте **параметры B2C и выберите Identity Experience Framework (Инфраструктура процедур идентификации) > Policy Keys (Ключи политики)**.
+1. Щелкните **+Добавить**.
+1. Параметры:
+ * Выберите **Параметры > Отправить**
+ * **Имя**: > `ContosoIdpSamlCert`.  Префикс B2C_1A_ будет автоматически добавлен к имени ключа. Запишите полное имя (включая элемент B2C_1A_), так как позднее вы будете указывать его в политике.
+ * С помощью **элемента управления для отправки файлов** выберите сертификат и при необходимости укажите пароль сертификата.
+1. Нажмите кнопку **Создать**
+1. Подтвердите созданный ключ `B2C_1A_ContosoIdpSamlCert`.
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>Создание поставщика утверждений SAML Salesforce в базовой политике
 
@@ -107,8 +93,8 @@ ms.lasthandoff: 05/09/2017
             </Item>
           </Metadata>       
           <CryptographicKeys>
-            <Key Id="SamlAssertionSigning" StorageReferenceId="ContosoIdpSamlCert"/>
-            <Key Id="SamlMessageSigning" StorageReferenceId="ContosoIdpSamlCert "/>
+            <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ContosoIdpSamlCert"/>
+            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ContosoIdpSamlCert "/>
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userId"/>
@@ -159,7 +145,7 @@ ms.lasthandoff: 05/09/2017
 
 ## <a name="register-the-salesforce-saml-claims-provider-to-a-user-journey"></a>Регистрация поставщика утверждений SAML Salesforce для пути взаимодействия пользователя
 
-Теперь вам необходимо добавить поставщик удостоверений SAML Salesforce в один из путей взаимодействия пользователя. На этом этапе поставщик удостоверений уже настроен, но еще недоступен ни на одном экране регистрации или входа. Чтобы сделать его доступным, необходимо создать дубликат имеющегося шаблона пути взаимодействия пользователя, а затем изменить его таким образом, чтобы он также содержал поставщик удостоверений Azure AD.
+Теперь вам необходимо добавить поставщик удостоверений SAML Salesforce в один из путей взаимодействия пользователя. На этом этапе поставщик удостоверений уже настроен, но еще недоступен ни на одном экране регистрации или входа. Чтобы сделать его доступным, необходимо создать дубликат существующего шаблона пути взаимодействия пользователя, а затем изменить его таким образом, чтобы он также содержал поставщик удостоверений Azure AD.
 
 1. Откройте базовый файл политики (например, TrustFrameworkBase.xml).
 1. Найдите элемент `<UserJourneys>` и скопируйте полный `<UserJourney>` с Id=”SignUpOrSignIn”.
@@ -219,12 +205,12 @@ ms.lasthandoff: 05/09/2017
     1. Введите приведенный ниже URL-адрес в поле **Идентификатор сущности**. Проверьте, заменен ли `tenantName`. 
     
         ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_base
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
         ```
 
     1. Введите приведенный ниже URL-адрес в поле **ACS URL** (URL-адрес ACS). Проверьте, заменен ли `tenantName`. 
         ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_base/samlp/sso/assertionconsumer
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
         ```
 
     1. Для других параметров оставьте значения по умолчанию.

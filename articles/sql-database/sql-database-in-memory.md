@@ -13,12 +13,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 05/10/2017
 ms.author: jodebrui
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: f827b76b8164e4eae286c9a1247e64d4f5ee9ea8
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: a7273c50f2619c776268406aa14f6c00dcfbfbbe
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/15/2017
 Вот несколько примеров того, как выполняющаяся в памяти OLTP помогла значительно улучшить показатели производительности:
 
 - Используя выполняющуюся в памяти OLTP, [компания Quorum Business Solutions смогла вдвое увеличить свои рабочие нагрузки, при этом повысив показатели DTU (т. е. потребление ресурсов) на 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-- В следующем видеоролике на примере рабочей нагрузки показано, как достигается значительное улучшение показателей потребления ресурсов: [In-Memory OTLP in Azure SQL DB](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Выполняющаяся в памяти OLTP в базе данных SQL Azure).
+- В следующем видеоролике на примере рабочей нагрузки показано, как достигается значительное улучшение показателей потребления ресурсов: [In-Memory OLTP in Azure SQL DB](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Выполняющаяся в памяти OLTP в базе данных SQL Azure). Дополнительные сведения см. в записи блога [In-Memory OLTP in Azure SQL Database](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (Выполняющаяся в памяти OLTP в базе данных SQL Azure).
 
 Технологии обработки в оперативной памяти доступны для всех баз данных уровня "Премиум", в том числе для пулов эластичных баз данных уровня "Премиум".
 
@@ -497,6 +498,8 @@ GO
 #### <a name="deeper-information"></a>Подробные сведения
 
 - Узнайте, как [Quorum удваивает ключевую рабочую нагрузку на базу данных при одновременном сокращении DTU на 70 % благодаря использованию In-Memory OLTP для базы данных SQL](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+
+- [In-Memory OLTP in Azure SQL Database](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (Выполняющаяся в памяти OLTP в базе данных SQL Azure)
 
 - [Learn about In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx) (Знакомство с In-Memory OLTP)
 
