@@ -17,17 +17,13 @@
 ### [Группы безопасности сети](virtual-networks-nsg.md)
 
 ## Развернуть
-### Виртуальные сети
-#### [Создание, изменение и удаление виртуальных сетей](virtual-network-manage-network.md)
-#### [Создание, изменение и удаление подсетей](virtual-network-manage-subnet.md)
-#### [Создание виртуальной сети с несколькими подсетями](virtual-networks-create-vnet-arm-pportal.md) 
-##### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-arm-cli.md)
-##### [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
-#### Создание виртуальной сети с несколькими подсетями (классическое развертывание)
-##### [Портал](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-classic-cli.md)
+### [Виртуальные сети](virtual-networks-create-vnet-arm-pportal.md)
+#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+#### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-arm-cli.md)
+#### [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
+#### [Портал (классический)](virtual-networks-create-vnet-classic-pportal.md)
+#### [PowerShell (классическая модель)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+#### [Интерфейс командной строки (классическая модель)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Группы безопасности сети
 #### [Портал](virtual-networks-create-nsg-arm-pportal.md)
@@ -49,14 +45,9 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [Шаблон](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### Сетевые интерфейсы
-#### [Создание, изменение и удаление сетевых интерфейсов](virtual-network-network-interface.md)
-#### [Добавление, изменение и удаление IP-адресов](virtual-network-network-interface-addresses.md)
-
 ### [Типы IP-адресов и методы распределения в Azure](virtual-network-public-ip-address.md) (раздел "Общедоступные IP-адреса")
 
 ### Виртуальные машины
-#### [Добавление и удаление сетевых интерфейсов](virtual-network-network-interface-vm.md) 
 #### Создание виртуальной машины со статическим общедоступным IP-адресом
 ##### [Портал](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -103,20 +94,29 @@
 ##### [Пример приложения](virtual-networks-sample-app.md)
 
 ## Настройка
-### [Оптимизация пропускной способности сети](virtual-network-optimize-network-bandwidth.md)
+
 ### Доступ к спискам управления
 #### [Классический портал](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
-### [Разрешение имен для виртуальных машин и облачных служб](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+### Виртуальные машины
+#### [Добавление и удаление сетевых интерфейсов](virtual-network-network-interface-vm.md)
+#### [Разрешение имен для виртуальных машин и облачных служб](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [Оптимизация пропускной способности сети](virtual-network-optimize-network-bandwidth.md)
+#### [Просмотр и изменение имен узлов](virtual-networks-viewing-and-modifying-hostnames.md)
 
 ## Управление
+### [Виртуальные сети](virtual-network-manage-network.md)
+#### [Подсети](virtual-network-manage-subnet.md)
+#### [Пиринг](virtual-network-manage-peering.md)
 ### Группы безопасности сети
 #### [Портал](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-network-manage-nsg-arm-cli.md)
 #### [Журналы](virtual-network-nsg-manage-log.md)
+### Сетевые интерфейсы
+#### [Создание, изменение и удаление сетевых интерфейсов](virtual-network-network-interface.md)
+#### [Добавление, изменение и удаление IP-адресов](virtual-network-network-interface-addresses.md)
 ### Виртуальные машины
-#### [Просмотр и изменение имен узлов](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [Перемещение виртуальной машины в другую подсеть](virtual-networks-move-vm-role-to-subnet.md)
 
 ## Устранение неполадок

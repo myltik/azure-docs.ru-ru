@@ -18,12 +18,13 @@
 
 # Практическое руководство
 ## План
-### [Предварительные условия для развертывания](site-recovery-prereq.md)
+### [Необходимые условия для репликации Azure](site-recovery-prereq.md)
 ### [Планирование сетевой инфраструктуры](site-recovery-network-design.md)
+### [Планирование сетевого сопоставления](site-recovery-network-mapping.md)
 ### [Планирование ресурсов и масштабирование репликации VMware в Azure](site-recovery-plan-capacity-vmware.md)
 ### [Использование планировщика развертывания для репликации VMware в Azure](site-recovery-deployment-planner.md)
 ### [Использование планировщика ресурсов для репликации Hyper-V](site-recovery-capacity-planner.md)
-### [Контроль доступа на основе ролей](site-recovery-role-based-linked-access-control.md)
+### [Управление репликацией виртуальной машины с помощью доступа на основе ролей](site-recovery-role-based-linked-access-control.md)
 
 ## Настройка
 ### [Настройка исходной среды](site-recovery-set-up-vmware-to-azure.md)
@@ -53,6 +54,8 @@
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
+### [Веб-приложения на базе IIS](site-recovery-iis.md)
+### [Citrix XenApp и XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [Другие рабочие нагрузки](site-recovery-workload.md#workload-summary)
 ## Автоматизация репликации
 ### [Автоматизация репликации Hyper-V в Azure (без VMM)](site-recovery-deploy-with-powershell-resource-manager.md)

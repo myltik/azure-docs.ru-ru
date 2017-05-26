@@ -117,6 +117,7 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## Мониторинг и устранение неполадок
+### [Устранение неполадок с обозревателем хранилищ](storage-explorer-troubleshooting.md)
 ### Метрики и ведение журнала
 #### [Аналитика службы хранилища](storage-analytics.md)
 #### [Включение и просмотр метрик](storage-enable-and-view-metrics.md)

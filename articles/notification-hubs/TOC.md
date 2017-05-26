@@ -44,6 +44,7 @@
 
 ## Управление
 ### [Регистрации](notification-hubs-push-notification-registration-management.md)
+### [Проверка подлинности на основе маркеров APNs](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [Безопасность](notification-hubs-push-notification-security.md)
 ### Безопасные push-уведомления

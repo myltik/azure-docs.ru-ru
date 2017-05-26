@@ -5,7 +5,7 @@
   - name: О базе данных Azure Cosmos
     href: introduction.md
   - name: Вступительная часть о DocumentDB
-    href: welcome-documentdb-customers.md
+    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Быстрое начало работы
   expanded: true
   items:
@@ -236,7 +236,13 @@
       href: ../documentdb/documentdb-online-backup-and-restore.md
     - name: Отработка отказа между регионами
       href: ../documentdb/documentdb-regional-failovers.md
-    - name: Автоматизация
+    - name: Настройка пропускной способности
+      href: ../documentdb/documentdb-set-throughput.md
+    - name: Мониторинг соглашений об уровне обслуживания
+      href: ../documentdb/documentdb-monitor-accounts.md
+    - name: Управление ключами и согласованность
+      href: ../documentdb/documentdb-manage-account.md
+    - name: Служба автоматизации
       items:
       - name: 'Azure CLI 1.0: создание учетной записи'
         href: ../documentdb/documentdb-automation-resource-manager-cli-nodejs.md
@@ -250,10 +256,14 @@
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
       - name: Поддерживаемые брандмауэры
         href: ../documentdb/documentdb-firewall-support.md
+      - name: Защита доступа к данным
+        href: ../documentdb/documentdb-secure-access-to-data.md
   - name: Интеграция
     items:
     - name: Подключение к Spark
       href: ../documentdb/documentdb-spark-connector.md
+    - name: Подключение к Spark GraphX
+      href: spark-connector-graph.md      
     - name: Развертывание веб-сайта в службе приложений Azure
       href: ../documentdb/documentdb-create-documentdb-website.md
     - name: Вход в приложения с помощью Logic Apps

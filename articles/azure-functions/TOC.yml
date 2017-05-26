@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: Основные понятия
   items:
-  - name: Планы размещения
+  - name: Планы потребления и планы службы приложений
     href: functions-scale.md
   - name: Триггеры и привязки
     href: functions-triggers-bindings.md
+  - name: Языки
+    items:
+    - name: 'Основные понятия функций C#'
+      href: functions-reference-csharp.md
+    - name: 'Основные понятия функций F#'
+      href: functions-reference-fsharp.md
+    - name: Основные понятия функций JavaScript
+      href: functions-reference-node.md    
 - name: Практические руководства
   items:
+  - name: Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)
+    href: functions-reference.md
   - name: Тестирование функций Azure
     href: functions-test-a-function.md
   - name: Локальная разработка и отладка
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: Установка среды выполнения функций
     href: functions-runtime-install.md
+  - name: Подключение к базе данных SQL
+    href: functions-scenario-database-table-cleanup.md
+  - name: "Создание определения OpenAPI\_2.0"
+    href: functions-api-definition-getting-started.md     
+  - name: Рекомендации по функциям Azure
+    href: functions-best-practices.md     
 - name: Справочные материалы
   items:
-  - name: Разработка приложений-функций
-    href: functions-reference.md
-    items:
-    - name: "OpenAPI\_2.0"
-      href: functions-api-definition.md
-  - name: Рекомендации по функциям Azure
-    href: functions-best-practices.md
   - name: Привязки
     items:
     - name: Привязки Cosmos DB
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Привязка к выходным данным Twilio
       href: functions-bindings-twilio.md
-  - name: Платформы
-    items:
-    - name: 'C#'
-      href: functions-reference-csharp.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+  - name: Справочник по OpenAPI
+    href: functions-api-definition.md     
 - name: Ресурсы
   items:
   - name: Цены

@@ -1,7 +1,7 @@
 # Обзор
 ## [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 ## [Выбор выпуска](active-directory-editions.md)
-## [Об управлении удостоверениями Azure](fundamentals-identity.md)
+## [Об управлении удостоверениями Azure](identity-fundamentals.md)
 ## [Основные сведения о решениях для идентификации в Azure](understand-azure-identity-solutions.md)
 ## [Предварительное ознакомление с интерфейсом портала Azure](active-directory-preview-explainer.md)
 
@@ -90,7 +90,7 @@
 ### Устранение неполадок
 #### [Отсутствующие данные аудита](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Отсутствующие данные в файлах для скачивания](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    Программный доступ
+###    [Программный доступ](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Справочные материалы по аудиту](active-directory-reporting-api-audit-reference.md)
 #### [Справочник по входу](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Предварительные требования](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -115,7 +115,7 @@
 ##### [Неизвестные источники](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [Аномальные попытки входа](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [Управление паролями](active-directory-passwords.md)
+## [Управление паролями](active-directory-passwords-overview.md)
 ### Документы пользователя
 #### [Сброс или изменение пароля](active-directory-passwords-update-your-own-password.md)
 #### [Рекомендации по паролям](active-directory-secure-passwords.md)
@@ -298,6 +298,7 @@
 ##### [Интерфейс командной строки Azure](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
+#### [Повышение прав доступа администратора клиента](role-based-access-control-tenant-admin-access.md)
 #### [Устранение неполадок](role-based-access-control-troubleshooting.md)
 #### [Операции с поставщиками ресурсов](role-based-access-control-resource-provider-operations.md)
 ### [Настройка времени существования маркеров](active-directory-configurable-token-lifetimes.md)

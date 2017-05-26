@@ -55,7 +55,8 @@
     href: network-overview.md
   - name: наборы масштабирования виртуальных машин;
     href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Служба метаданных экземпляров 
+  - name: Служба метаданных экземпляров
+ 
     href: ../virtual-machines-instancemetadataservice-overview.md
   - name: Контейнеры
     href: containers.md
@@ -196,10 +197,7 @@
       items:
       - name: Переключение виртуальной машины с неуправляемых дисков на управляемые
         href: convert-unmanaged-to-managed-disks.md
-      - name: >-
-          Перенос виртуальной машины из классической модели развертывания в службу
-          управляемых дисков
-
+      - name: Перенос виртуальной машины из классической модели развертывания в службу управляемых дисков
         href: migrate-single-classic-to-resource-manager.md
     - name: Создание моментального снимка управляемого диска
       href: snapshot-copy-managed-disk.md
@@ -269,10 +267,7 @@
       href: vmss-powershell-creating.md
     - name: Создание нескольких виртуальных машин Azure
       href: multiple-vms.md
-    - name: >-
-        Вертикальное масштабирование виртуальных машин с помощью службы автоматизации
-        Azure
-
+    - name: Вертикальное масштабирование виртуальных машин с помощью службы автоматизации Azure
       href: vertical-scaling-automation.md
     - name: Создание виртуальной машины с использованием мониторинга и диагностики
       href: extensions-diagnostics-template.md
@@ -376,6 +371,9 @@
         href: troubleshoot-specific-rdp-errors.md
     - name: Сброс пароля RDP
       href: reset-rdp.md
+    - name: Диагностика загрузки
+ 
+      href: boot-diagnostics.md
     - name: Создание виртуальной машины
       href: troubleshoot-deployment-new-vm.md
     - name: Перезапуск или изменение размера виртуальной машины
@@ -386,10 +384,9 @@
       href: allocation-failure.md
     - name: Повторное развертывание виртуальной машины
       href: redeploy-to-new-node.md
-    - name: >-
-        Подключение виртуального жесткого диска для устранения неполадок виртуальной
-        машины
-
+    - name: Распространенные сообщения об ошибках
+      href: error-messages.md
+    - name: Подключение виртуального жесткого диска для устранения неполадок виртуальной машины
       items:
       - name: Azure PowerShell
         href: troubleshoot-recovery-disks.md

@@ -19,7 +19,8 @@
 
 ## Практическое руководство
 ### [Управление через портал Azure](storsimple-virtual-array-manager-service-administration.md)
-#### [Установка последнего обновления](storsimple-virtual-array-install-update-05.md)
+#### [Установка последнего обновления](storsimple-virtual-array-install-update-06.md)
+##### [Установка обновления 0.5](storsimple-virtual-array-install-update-05.md)
 ##### [Установка обновления 0.4](storsimple-virtual-array-install-update-04.md)
 ##### [Установка обновления 0.3](storsimple-virtual-array-install-update.md)
 #### [Создание резервных копий и управление ими](storsimple-virtual-array-backup.md)
@@ -41,7 +42,8 @@
 ### [Настройка с помощью локального пользовательского веб-интерфейса](storsimple-ova-web-ui-admin.md)
 
 ## Заметки о выпуске
-### [Обновление 0.5 (текущая версия)](storsimple-virtual-array-update-05-release-notes.md)
+### [Обновление 0.6 (текущая версия)](storsimple-virtual-array-update-06-release-notes.md)
+### [Обновление 0.5](storsimple-virtual-array-update-05-release-notes.md)
 ### [Обновление 0.4](storsimple-virtual-array-update-04-release-notes.md)
 ### [Обновление 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Обновление 0.2 и 0.1](storsimple-ova-update-01-release-notes.md)
