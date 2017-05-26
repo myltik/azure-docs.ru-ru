@@ -1,6 +1,6 @@
 ---
-title: "Основные сведения об Apache Kafka в HDInsight | Документация Майкрософт"
-description: "Сведения об Apache Kafka в HDInsight. Предназначение, выполняемые функции, а также сведения о том, где найти примеры и информацию по началу работы."
+title: "Основные сведения об Apache Kafka в Azure HDInsight | Документация Майкрософт"
+description: "Данные об Apache Kafka в HDInsight: предназначение, выполняемые функции, а также сведения о том, где найти примеры и информацию по началу работы."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: ca48abcdc9f9d05648a4b03bdb5fec7b4a5b7cce
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f3e1cfb23a28d0d1fc7a60bdc8b282b72984fd03
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Введение в Apache Kafka в HDInsight (предварительная версия)

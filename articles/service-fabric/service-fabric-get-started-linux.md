@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/04/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d01e141ec8ee8da18d38a216f3b13c88f3632801
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 8c0f3cc737b999d26359f33d3768dcc55893029c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/27/2017
 ### <a name="supported-operating-system-versions"></a>Поддерживаемые версии операционных систем
 Для разработки поддерживаются следующие операционные системы:
 
-* Ubuntu 16.04 (**Xenial Xerus**).
+* Ubuntu 16.04 (`Xenial Xerus`).
 
 ## <a name="update-your-apt-sources"></a>Обновление списка источников APT
 Прежде чем перейти к установке пакета SDK и связанного пакета среды выполнения с помощью команды apt-get, необходимо обновить список источников APT.
@@ -48,17 +48,17 @@ ms.lasthandoff: 04/27/2017
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
-3. Добавьте репозиторий **dotnet** в список источников.
+
+3. Добавьте репозиторий `dotnet` в список источников.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
+
 4. Добавьте новый ключ GPG в набор ключей APT.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    ```
-    ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
@@ -67,7 +67,9 @@ ms.lasthandoff: 04/27/2017
     ```bash
     sudo apt-get update
     ```
+
 ## <a name="install-and-set-up-the-sdk-for-containers-and-guest-executables"></a>Установка и настройка пакета SDK для контейнеров и гостевых исполняемых файлов
+
 После обновления источников пакетов можно установить пакет SDK.
 
 1. Установите пакет SDK для Service Fabric. Вам будет предложено подтвердить установку и принять условия лицензионного соглашения.
@@ -75,7 +77,8 @@ ms.lasthandoff: 04/27/2017
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
-    Для автоматизации установки можно пропустить запрос лицензионного соглашения, установив выбранные параметры debconf для пакетов Service Fabric. Можно выполнить следующие две команды.
+
+   Следующие команды автоматизируют принятие лицензии для пакетов Service Fabric:
     
     ```bash
     echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
@@ -104,25 +107,28 @@ ms.lasthandoff: 04/27/2017
 > Вы можете добавить эти команды в файл ~/.bashrc, чтобы не задавать переменную среды при каждом входе.
 >
 
-## <a name="set-up-the-azure-cross-platform-cli"></a>Настройка кроссплатформенного интерфейса командной строки Azure
-[Кроссплатформенный интерфейс командной строки Azure][azure-xplat-cli-github] содержит команды для взаимодействия с сущностями Service Fabric, включая кластеры и приложения. Интерфейс работает на базе Node.js, поэтому [убедитесь, что у вас установлена платформа Node][install-node], прежде чем перейти к дальнейшим действиям.
+## <a name="set-up-the-azure-cli"></a>Настройка Azure CLI
+[Azure CLI][azure-xplat-cli-github] содержит команды для взаимодействия с сущностями Service Fabric, включая кластеры и приложения. Интерфейс работает на базе Node.js, поэтому [убедитесь, что у вас установлена платформа Node][install-node], прежде чем перейти к дальнейшим действиям.
 
 1. Клонируйте репозиторий с GitHub на компьютер для разработки.
 
     ```bash
     git clone https://github.com/Azure/azure-xplat-cli.git
     ```
+
 2. Перейдите в клонированный репозиторий и установите зависимости интерфейса командной строки с помощью диспетчера пакетов Node (npm).
 
     ```bash
     cd azure-xplat-cli
     npm install
     ```
-3. Создайте символьную ссылку на папку /usr/bin/azure в папке клонированного репозитория bin/azure, чтобы добавить ее в путь и получить доступ к командам из любого каталога.
+
+3. Создайте символическую ссылку из папки `bin/azure` клонированного репозитория в `/usr/bin/azure`.
 
     ```bash
     sudo ln -s $(pwd)/bin/azure /usr/bin/azure
     ```
+
 4. Наконец, включите автозавершение команд Service Fabric.
 
     ```bash
@@ -143,6 +149,7 @@ ms.lasthandoff: 04/27/2017
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
+
 2. Откройте веб-браузер и перейдите по адресу http://localhost:19080/Explorer. Если кластер запущен, вы увидите панель мониторинга Service Fabric Explorer.
 
     ![Обозреватель Service Fabric Explorer в Linux][sfx-linux]
@@ -162,25 +169,29 @@ ms.lasthandoff: 04/27/2017
     ```bash
     sudo apt-get install servicefabricsdkjava
     ```
+
 2. Выполните сценарий установки пакета SDK.
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
+
 ## <a name="install-the-eclipse-neon-plugin-optional"></a>Установка подключаемого модуля Eclipse Neon (необязательно)
 
 Подключаемый модуль Eclipse для Service Fabric можно установить из **интегрированной среды разработки Eclipse для разработчиков Java**. Eclipse можно использовать для создания приложений с гостевыми исполняемыми файлами и контейнерами Service Fabric в дополнение к Java-приложениям Service Fabric.
 
 > [!NOTE]
-> Установка пакета SDK для Java является необходимым условием для использования подключаемого модуля Eclipse, даже если вы используете его только для создания и развертывания приложений с гостевыми исполняемыми файлами и контейнерами.
+> Пакет SDK для Java является необходимым условием для использования подключаемого модуля Eclipse, даже если вы используете его только с гостевыми исполняемыми файлами и контейнерами.
 >
 
 1. Откройте Eclipse и убедитесь, что у вас установлена последняя версия Eclipse **Neon** и Buildship (версия 1.0.17 или более поздняя). Вы можете проверить версии установленных компонентов, щелкнув **Help > Installation Details** (Справка > Сведения об установке). Чтобы обновить Buildship, воспользуйтесь инструкциями [здесь][buildship-update].
 2. Чтобы установить подключаемый модуль Service Fabric, щелкните **Help > Install New Software** (Справка > Установка нового программного обеспечения).
-3. В текстовом поле Work with (Работают с) введите: http://dl.windowsazure.com/eclipse/servicefabric
+3. В текстовом поле Work with (Работать с) введите http://dl.microsoft.com/eclipse.
 4. Нажмите Добавить.
+
     ![Подключаемый модуль Eclipse][sf-eclipse-plugin]
-5. Выберите подключаемый модуль Service Fabric и нажмите кнопку Next (Далее).
+
+5. Выберите подключаемый модуль Service Fabric и нажмите кнопку **Далее**.
 6. Выполните необходимые шаги установки и примите условия лицензионного соглашения.
 
 Если подключаемый модуль Eclipse Service Fabric уже установлен, убедитесь, что вы используете последнюю версию. Это можно проверить, выбрав ``Help => Installation Details`` и выполнив поиск по запросу "Service Fabric" в списке установленных подключаемых модулей. Выберите обновление, если доступна более новая версия. 
@@ -189,7 +200,7 @@ ms.lasthandoff: 04/27/2017
 
 
 ## <a name="install-the-net-core-sdk-optional-if-you-wish-to-use-the-net-core-programming-models"></a>Установка пакета SDK для .NET Core (необязательно, если вы хотите использовать модели программирования .NET Core)
-Пакет SDK для .NET Core предоставляет библиотеки и шаблоны для создания служб Service Fabric на базе кроссплатформенной среды .NET Core.
+Пакет SDK для .NET Core предоставляет библиотеки и шаблоны для создания служб Service Fabric с помощью .NET Core.
 
 1. Установите пакет SDK для .NET Core.
 
@@ -205,7 +216,7 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="updating-the-sdk-and-runtime"></a>Обновление пакета SDK и среды выполнения
 
-Для обновления до последней версии пакета SDK и среды выполнения сделайте следующее (удалите из списка пакеты SDK, которые не требуется обновлять или устанавливать):
+Для обновления до последней версии пакета SDK и среды выполнения выполните следующие команды (отмените выбор ненужных пакетов SDK):
 
    ```bash
    sudo apt-get update
@@ -217,7 +228,7 @@ ms.lasthandoff: 04/27/2017
 >
 >
 
-Для обновления интерфейса командной строки перейдите в каталог, в котором он клонирован, и выполните команду `git pull`.  Если для обновления требуются дополнительные действия, см. инструкции в заметках о выпуске. 
+Для обновления интерфейса командной строки перейдите в каталог, в котором он клонирован, и выполните команду `git pull`.  Заметки о выпуске могут содержать дополнительные шаги. 
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

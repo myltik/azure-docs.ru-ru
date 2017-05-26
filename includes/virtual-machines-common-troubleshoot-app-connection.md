@@ -2,27 +2,25 @@
 
 Если у вас возникают проблемы при подключении к виртуальной машине по протоколу RDP или SSH, сначала ознакомьтесь с одной из следующих статей:
 
-* [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
+* [Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
 
 > [!NOTE]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../articles/resource-manager-deployment-model.md). В этой статье описывается использование обеих моделей, но для большинства новых развертываний корпорация Майкрософт рекомендует использовать модель диспетчера ресурсов.
-> 
-> 
 
 Если вам потребуется дополнительная помощь по любому из вопросов, рассматриваемых в статье, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](https://azure.microsoft.com/support/forums/). Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт поддержки Azure](https://azure.microsoft.com/support/options/) и щелкните **Получить поддержку**.
 
-## <a name="quick-start-troubleshooting-endpoint-connectivity-problems"></a>Краткое руководство по устранению неисправностей с подключением к конечной точке
+## <a name="quick-start-troubleshooting-steps"></a>Действия по устранению неполадок
 Если у вас возникают проблемы с подключением к приложению, попробуйте выполнить приведенные ниже шаги по их устранению. После каждого шага попробуйте подключиться к приложению еще раз.
 
 * Перезапустите виртуальную машину.
 * Повторно создайте конечную точку, правила брандмауэра и правила группы безопасности сети.
-  * [Используйте управление конечными точками облачных служб (классическая модель).](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Используйте управление группами безопасности сети (модель Resource Manager).](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Используйте управление конечными точками облачных служб (классическая модель).](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Подключитесь из другого расположения, например из другой виртуальной сети Azure.
 * Повторно разверните виртуальную машину.
-  * [Повторное развертывание виртуальной машины Windows](../articles/virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-  * [Повторное развертывание виртуальной машины Linux](../articles/virtual-machines/linux/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  * [Повторное развертывание виртуальной машины Windows](../articles/virtual-machines/windows/redeploy-to-new-node.md)
+  * [Повторное развертывание виртуальной машины Linux](../articles/virtual-machines/linux/redeploy-to-new-node.md)
 * Повторно создайте виртуальную машину.
 
 Дополнительные сведения см. в статье [Устранение неполадок подключения к конечной точке (сбои RDP, SSH, HTTP и другие сбои)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
@@ -44,6 +42,7 @@
    * Нет ли правил брандмауэра, которые препятствуют правильной передаче трафика?
 
 Для клиентских компьютеров, которые получают доступ к приложению через подключение VPN типа «сеть-сеть» или ExpressRoute, проблемы в первую очередь могут возникать из-за приложения и виртуальной машины Azure.
+
 Чтобы определить источник проблемы и исправить ее, выполните приведенные ниже действия.
 
 ## <a name="step-1-access-application-from-target-vm"></a>Шаг 1. Доступ к приложению с целевой виртуальной машины
@@ -115,7 +114,7 @@
 * трафик входящих ответов приложения из виртуальной машины Azure.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-[Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 
-[Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
 

@@ -12,18 +12,22 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 02/13/2017
+ms.date: 05/22/2017
 ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: bee101d19cb5f5fc790b53295069b4d4db247366
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: a97082b38d146964d77cd9029ce74baa781c6c27
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/23/2017
 
 
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Приступая к работе с гибридными подключениями к ретранслятору
+
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 ## <a name="what-will-be-accomplished"></a>Что будет выполнено
+
 Так как для гибридных подключений требуется компонент клиента и сервера, в этом руководстве мы создадим два консольных приложения. Для этого выполните следующие действия:
 
 1. Создайте пространство имен ретранслятора с помощью портала Azure.
@@ -32,32 +36,38 @@ ms.openlocfilehash: bee101d19cb5f5fc790b53295069b4d4db247366
 4. Создайте клиентское консольное приложение для отправки сообщений.
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 1. [Node.js](https://nodejs.org/en/) (в нашем примере используется сервер Node 7.0.).
 2. Подписка Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Создание пространства имен с помощью портала Azure
+
 Если пространство имен ретранслятора уже создано, перейдите к разделу [Создание гибридного подключения с помощью портала Azure](#2-create-a-hybrid-connection-using-the-azure-portal).
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2) Создание гибридного подключения с помощью портала Azure
+
 Если гибридное подключение уже создано, перейдите к разделу [Создание серверного приложения](#3-create-a-server-application-listener).
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
 ## <a name="3-create-a-server-application-listener"></a>3. Создание серверного приложения (прослушивателя)
+
 Для прослушивания и получения сообщений, отправленных ретранслятором, мы создадим консольное приложение Node.js.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Создание клиентского приложения (отправителя)
+
 Для отправки сообщений в ретранслятор мы создадим консольное приложение Node.js.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
 ## <a name="5-run-the-applications"></a>5. Запуск приложений
+
 1. Запустите серверное приложение.
 2. Запустите клиентское приложение и введите любой текст.
 3. Убедитесь, что серверное консольное приложение выводит текст, введенный в клиентском приложении.
@@ -67,14 +77,10 @@ ms.openlocfilehash: bee101d19cb5f5fc790b53295069b4d4db247366
 Поздравляем, вы создали приложение для гибридных подключений.
 
 ## <a name="next-steps"></a>Дальнейшие действия:
+
 * [Вопросы и ответы по ретранслятору](relay-faq.md)
 * [Создание пространства имен](relay-create-namespace-portal.md)
 * [Приступая к работе с .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Приступая к работе с Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
