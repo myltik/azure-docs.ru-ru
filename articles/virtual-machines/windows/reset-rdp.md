@@ -3,7 +3,7 @@ title: "Сброс пароля или конфигурации удаленно
 description: "Узнайте, как сбросить пароль учетной записи или конфигурацию службы удаленного рабочего стола для виртуальной машины Windows с помощью портала Azure или Azure PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
-author: iainfoulds
+author: genlin
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: iainfou
-translationtype: Human Translation
+ms.date: 05/26/2017
+ms.author: genli
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: e6cb3a0e259d0889ad8934211152e6832449f67b
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 

@@ -3,7 +3,7 @@ title: "Мониторинг рабочей нагрузки с помощью �
 description: "Узнайте о том, как организовать отслеживание рабочей нагрузки с помощью динамических административных представлений."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: sqlmojo
 manager: jhubbard
 editor: 
 ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: joeyong;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 3735d656429da1f1fe7569f640b272b099382032
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/03/2017
 
 

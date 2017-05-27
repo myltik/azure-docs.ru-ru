@@ -4,7 +4,7 @@ title: "Использование виртуальной машины Windows �
 description: "Узнайте, как устранять неполадки с виртуальными машинами Windows в Azure, подключив диск операционной системы к виртуальной машине восстановления с помощью Azure PowerShell."
 services: virtual-machines-windows
 documentationCenter: 
-authors: iainfoulds
+authors: genlin
 manager: timlt
 editor: 
 ms.service: virtual-machines-windows
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/13/2016
-ms.author: iainfou
+ms.date: 05/26/2017
+ms.author: genli
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 36de0375cef661dddb384f9f7651e3faf8df793c

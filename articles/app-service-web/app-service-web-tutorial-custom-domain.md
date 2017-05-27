@@ -218,6 +218,8 @@ ms.lasthandoff: 05/09/2017
 
 ![Страница записей DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
+<a name="enable-a"></a>
+
 ### <a name="enable-the-a-record-mapping-in-your-app"></a>Включение сопоставления записи A в приложении
 
 Теперь все готово для добавления настроенного DNS-имени в приложение.

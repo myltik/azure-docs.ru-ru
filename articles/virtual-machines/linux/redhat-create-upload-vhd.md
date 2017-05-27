@@ -428,7 +428,7 @@ ms.lasthandoff: 04/29/2017
 
     Измените файл `/etc/dracut.conf` , добавив в него следующее содержимое:
 
-        add_drivers+="�hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
 
     Повторно создайте initramfs:
 

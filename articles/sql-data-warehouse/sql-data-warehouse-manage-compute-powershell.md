@@ -3,7 +3,7 @@ title: "Управление вычислительными ресурсами �
 description: "Задачи PowerShell для управления вычислительными ресурсами. Масштабирование вычислительных ресурсов путем изменения числа единиц DWU. Кроме того, можно приостанавливать и возобновлять работу вычислительных ресурсов для сокращения затрат."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 ms.assetid: 8354a3c1-4e04-4809-933f-db414a8c74dc
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: elbutter;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: b2b87ed07a26fa30e49a19e34ca8b06b283da9b3
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/28/2017
 
 
