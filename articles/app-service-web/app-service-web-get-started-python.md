@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: df34052acc401fb5bb1e3f808c649c0ea0bcf33c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -110,15 +110,7 @@ az group create --name myResourceGroup --location westeurope
 
 Создайте план службы приложений, выполнив команду [az appservice plan create](/cli/azure/appservice/plan#create).
 
-> [!NOTE]
-> План службы приложений представляет собой коллекцию физических ресурсов, используемых для размещения приложений. Все приложения, назначенные плану службы приложений, совместно используют ресурсы, определенные в нем. Поэтому, разместив несколько приложений, вы сможете сэкономить.
->
-> Планы службы приложений определяют такие компоненты:
-> * регион (Северная Европа, восточная часть США, Юго-Восточная Азия);
-> * размер экземпляра (небольшой, средний, крупный);
-> * число масштабируемых элементов (один, два, три экземпляра и т. д.);
-> * SKU ("Бесплатный", "Общий", "Базовый", "Стандартный", "Премиум").
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 В следующем примере создается план службы приложений с именем `quickStartPlan` и ценовой категорией **Бесплатный**.
 
