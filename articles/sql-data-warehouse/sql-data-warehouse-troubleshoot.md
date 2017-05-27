@@ -3,7 +3,7 @@ title: "Устранение неполадок хранилища данных 
 description: "Диагностика и устранение неполадок хранилища данных SQL Azure."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
-ms.author: barbkess
+ms.author: kevin;barbkess
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 3107e918a12ba17e72dbbe3660d42527e9e9f051

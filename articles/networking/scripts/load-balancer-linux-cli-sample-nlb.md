@@ -68,4 +68,3 @@ az group delete --name myResourceGroup
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
 Дополнительные примеры сценариев Azure CLI для сетей Azure см. в [документации по сетям Azure](../cli-samples.md).
-

@@ -3,7 +3,7 @@ title: "Подключение к хранилищу данных SQL Azure —
 description: "Подключайтесь к хранилищу данных SQL Azure и создавайте запросы к нему с помощью SQL Server Management Studio (SSMS)."
 services: sql-data-warehouse
 documentationcenter: 
-author: hirokib
+author: antvgski
 manager: jhubbard
 editor: 
 ms.assetid: 299e50b3-e68a-471c-8aee-b0b9874781bd
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
-ms.author: elbutter;barbkess
-translationtype: Human Translation
+ms.author: anvang;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 3cf78b59dc2dd010fdf4f480b09b3f80def1e62d
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/03/2017
 
 

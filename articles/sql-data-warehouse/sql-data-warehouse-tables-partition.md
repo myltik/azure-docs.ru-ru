@@ -3,7 +3,7 @@ title: "Секционирование таблиц в хранилище дан
 description: "Начало работы с секционированием таблиц в хранилище данных SQL Azure."
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: jhubbard
 editor: 
 ms.assetid: 6cef870c-114f-470c-af10-02300c58885d
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
+ms.author: shigu;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 0d2ff3ce90c355ba63f3fb66982baa621091ae6e
+ms.contentlocale: ru-ru
 ms.lasthandoff: 12/08/2016
 
 
