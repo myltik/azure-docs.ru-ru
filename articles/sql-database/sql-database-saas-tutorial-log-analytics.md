@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 4ff4519ca40f036d58f82993db78fe08aa7d5733
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: 813a947ce4deb0755b44f4d287e00ae5218abfc4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -61,7 +61,7 @@ Log Analytics можно использовать для сценариев с �
 
 ## <a name="get-the-wingtip-application-scripts"></a>Получение скриптов приложения Wingtip
 
-Скрипты Wingtip Tickets и исходный код приложения доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Файлы скриптов находятся в папке [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Скачайте папку **Learning Modules** на локальный компьютер, сохраняя ее структуру.
+Сценарий Wingtip Tickets и исходный код приложения доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Файлы сценариев находятся в папке [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Скачайте папку **Learning Modules** на локальный компьютер, сохраняя ее структуру.
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Установка и настройка Log Analytics и решений Аналитики SQL Azure
 
@@ -134,7 +134,7 @@ Log Analytics — это отдельная служба, которую нео
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-* [Руководства по работе с SaaS-приложением WTP, использующим базу данных SQL Azure](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Руководства по работе с SaaS-приложением WTP, использующим базу данных SQL Azure](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Мониторинг базы данных SQL Azure с помощью служб анализа SQL Azure (предварительная версия) в Log Analytics](../log-analytics/log-analytics-azure-sql.md).
 * [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)
 
