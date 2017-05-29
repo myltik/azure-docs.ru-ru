@@ -516,21 +516,21 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 | Request ID (ИД запроса) | Operation Text |
 | --- | --- |
-| 07b26a5d-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer (Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer). |
+| 07b26a5d-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer . |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Waiting for response (Ожидание ответа). |
 | 07b26a5d-... |Response received. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции). |
 | 07b26a5d-... |Downloading response body (Загружается тело ответа). |
 | 07b26a5d-... |Operation completed successfully (Операция выполнена успешно). |
-| 07b26a5d-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer (Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer). |
+| 07b26a5d-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer . |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Waiting for response (Ожидание ответа). |
 | 07b26a5d-... |Response received. Status code = 202, Request ID = eeead849-...Content-MD5 = , ETag = . (Ответ получен. Код состояния = 202, ИД запроса = eeead849-...Content-MD5 = , ETag = .) |
 | 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции). |
 | 07b26a5d-... |Downloading response body (Загружается тело ответа). |
 | 07b26a5d-... |Operation completed successfully (Операция выполнена успешно). |
-| e2d06d78-... |Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer (Отправка асинхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer).</td> |
+| e2d06d78-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer .</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Waiting for response (Ожидание ответа). |
 | de8b1c3c-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt (Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt). |
@@ -541,7 +541,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | e2d06d78-... |Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции). |
 | e2d06d78-... |Downloading response body (Загружается тело ответа). |
 | e2d06d78-... |Operation completed successfully (Операция выполнена успешно). |
-| e2d06d78-... |Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer (Отправка асинхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer). |
+| e2d06d78-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer . |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Waiting for response (Ожидание ответа). |
 | de8b1c3c-... |Writing request data (Запись данных запроса). |
