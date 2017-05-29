@@ -1,10 +1,28 @@
 ---
-title: Создание первой фабрики данных (портал Azure) | Документация Майкрософт description: В этом руководстве вы создадите пример конвейера фабрики данных Azure с помощью редактора фабрики данных на портале Azure.
-services: data-factory documentationcenter: '' author: spelluru manager: jhubbard editor: monicar
+title: "Создание первой фабрики данных (портал Azure) | Документация Майкрософт"
+description: "В этом руководстве вы создадите образец конвейера фабрики данных Azure с помощью редактора фабрики данных на портале Azure."
+services: data-factory
+documentationcenter: 
+author: spelluru
+manager: jhubbard
+editor: monicar
+ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 04/17/2017
+ms.author: spelluru
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c54a1ed648022875f489179a3321dedf2d290d7e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
-ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d ms.service: data-factory ms.workload: data-services ms.tgt_pltfrm: na ms.devlang: na ms.topic: hero-article ms.date: 04/17/2017 ms.author: spelluru
 
----3
+---
+
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>Руководство. Создание первой фабрики данных Azure с помощью портала Azure
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-build-your-first-pipeline.md)
@@ -15,12 +33,14 @@ ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d ms.service: data-factory ms.wor
 > * [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-Из этой статьи вы узнаете, как создать свою первую фабрику данных с помощью [портала Azure](https://portal.azure.com/) . Чтобы выполнить приведенные здесь инструкции с помощью других средств или пакетов SDK, выберите в раскрывающемся списке один из доступных вариантов. 
+Из этой статьи вы узнаете, как создать свою первую фабрику данных Azure с помощью [портала Azure](https://portal.azure.com/). Чтобы выполнить приведенные здесь инструкции с помощью других средств или пакетов SDK, выберите в раскрывающемся списке один из доступных вариантов. 
+
+В этом руководстве конвейеру доступно одно действие — **действие Hive HDInsight**. Это действие запускает сценарий Hive в кластере HDInsight Azure, который преобразует входные данные в выходные. Конвейер запускается раз в месяц по расписанию. Время начала и окончания запуска также указаны. 
 
 > [!NOTE]
-> В этом руководстве конвейер данных преобразовывает входные данные в выходные. Он не копирует данные из исходного хранилища данных в целевое. Инструкции по копированию данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных Azure см. в [этой статье](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> В этом руководстве конвейер данных преобразовывает входные данные в выходные. Инструкции по копированию данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных Azure см. в [этой статье](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> В рамках этого руководства используется только действие копирования. Конвейер может содержать сразу несколько действий. Два действия можно объединить в цепочку (выполнить одно действие вслед за другим), настроив выходной набор данных одного действия как входной набор данных другого действия. Дополнительные сведения см. в разделе [Несколько действий в конвейере](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
+> Конвейер может содержать сразу несколько действий. Два действия можно объединить в цепочку (выполнить одно действие вслед за другим), настроив выходной набор данных одного действия как входной набор данных другого действия. Дополнительные сведения см. в разделе [Несколько действий в конвейере](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## <a name="prerequisites"></a>Предварительные требования
 1. Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования** .
@@ -378,3 +398,4 @@ ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d ms.service: data-factory ms.wor
 | [Наборы данных](data-factory-create-datasets.md) |Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure. |
 | [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md) |Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных. |
 | [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) |В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. |
+
