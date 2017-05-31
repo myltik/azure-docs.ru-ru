@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9a8073baea9a6ff2ecf443b516665adb10de4815
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: a2307f7055966ec7146b5da0b4daf1ad469abe2b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms-for-linux"></a>Сведения об экземплярах серии H и серии A для ресурсоемких вычислений для Linux
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/03/2017
 ## <a name="access-to-the-rdma-network"></a>Доступ к сети RDMA
 Вы можете создавать кластеры виртуальных машин Linux с поддержкой RDMA, на которых выполняется один из перечисленных ниже поддерживаемых дистрибутивов Linux HPC с поддерживаемой реализацией MPI. Это позволит вам воспользоваться преимуществами сети RDMA в Azure. Сведения о развертывании и настройке см. в статье [Настройка кластера Linux RDMA для выполнения приложений MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-* **Дистрибутивы** — разверните виртуальные машины из образов SUSE Linux Enterprise Server (SLES) или OpenLogic CentOS HPC с поддержкой RDMA, доступных в Azure Marketplace. Соединение RDMA поддерживается в следующих образах Marketplace:
+* **Дистрибутивы** — разверните виртуальные машины из образов SUSE Linux Enterprise Server (SLES) или Rogue Wave Software (ранее OpenLogic) CentOS HPC с поддержкой RDMA, доступных в Azure Marketplace. Соединение RDMA поддерживается в следующих образах Marketplace:
   
     * SLES 12 SP1 для HPC, SLES 12 SP1 для HPC (Premium)
     

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 05/02/2017
+ms.date: 05/11/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 031fa71b8f5aac558569eea7001e16df4cae917c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: fefa78f7e0ba4bd40e6c0985080403237d6eb916
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -482,11 +483,7 @@ ms.lasthandoff: 04/18/2017
 В экземплярах кэша Redis для Azure можно безопасно выполнять команды с помощью **консоли Redis**, доступной для кэшей категорий «Стандартный» и «Премиум».
 
 > [!IMPORTANT]
-> Консоль Redis не работает с виртуальной сетью, кластеризацией и базами данных, не являющимися базами данных 0. 
-> 
-> * [Виртуальная сеть.](cache-how-to-premium-vnet.md) Если кэш является частью виртуальной сети, к нему могут обращаться только клиенты в этой виртуальной сети. Так как консоль Redis использует клиент redis-cli.exe, размещенный на виртуальных машинах, которые не являются частью виртуальной сети, она не может подключиться к кэшу.
-> * [Кластеризация.](cache-how-to-premium-clustering.md) Консоль Redis использует клиент redis-cli.exe, который сейчас не поддерживает кластеризацию. Служебная программа redis-cli в ветви [неустойчивых версий](http://redis.io/download) репозитория Redis в GitHub реализует базовую поддержку, если ее запустить с параметром `-c`. Дополнительные сведения см. в разделе [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Эксперименты с кластером) [руководства по кластерам Redis](http://redis.io/topics/cluster-tutorial) на сайте [http://redis.io](http://redis.io).
-> * Консоль Redis устанавливает новое подключение к базе данных 0 при каждой отправке команды. Невозможно использовать команду `SELECT`, чтобы выбрать другую базу данных, так как при каждом выполнении этой команды база данных сбрасывается и используется база данных 0. Сведения о выполнении команд Redis, включая смену базы данных, см. в разделе [Как выполнять команды Redis?](cache-faq.md#how-can-i-run-redis-commands).
+> Консоль Redis не работает с [VNET](cache-how-to-premium-vnet.md). Если кэш является частью виртуальной сети, то к нему могут обращаться только клиенты в этой виртуальной сети. Так как консоль Redis работает в локальном браузере вне виртуальной сети, она не может подключиться к кэшу.
 > 
 > 
 

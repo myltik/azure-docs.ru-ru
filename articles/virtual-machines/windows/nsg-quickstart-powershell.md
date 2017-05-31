@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 744563dc54edd5d38d9cb311d5679d744a0235eb
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0168bbc466f80c8603dda46ded56b7524e4e5e91
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="opening-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Открытие портов и конечных точек для виртуальной машины в Azure с помощью PowerShell
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Как открыть порты и конечные точки для виртуальной машины в Azure с помощью PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Быстрые команды
-Для создания группы безопасности сети и правил ACL потребуется [последняя версия Azure PowerShell](/powershell/azureps-cmdlets-docs). Эти действия можно также [выполнить с помощью портала Azure](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Для создания группы безопасности сети и правил ACL потребуется [последняя версия Azure PowerShell](/powershell/azureps-cmdlets-docs). Эти действия можно также [выполнить с помощью портала Azure](nsg-quickstart-portal.md).
 
 Войдите в свою учетную запись Azure.
 
@@ -33,42 +34,55 @@ ms.lasthandoff: 03/31/2017
 Login-AzureRmAccount
 ```
 
-В следующих примерах замените имена параметров собственными значениями. Используемые имена параметров — `myResourceGroup`, `myNetworkSecurityGroup`, и `myVnet`.
+В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *mystorageaccount* и *myVM*.
 
-Создайте правило. В следующем примере создается правило `myNetworkSecurityGroupRule`. Это правило разрешает TCP-трафик через порт 80.
+Создайте правило с помощью командлета [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). В следующем примере создается правило с именем *myNetworkSecurityGroupRule*. Это правило разрешает *TCP*-трафик через порт *80*:
 
 ```powershell
-$httprule = New-AzureRmNetworkSecurityRuleConfig -Name "myNetworkSecurityGroupRule" `
-    -Description "Allow HTTP" -Access "Allow" -Protocol "Tcp" -Direction "Inbound" `
-    -Priority "100" -SourceAddressPrefix "Internet" -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange 80
+$httprule = New-AzureRmNetworkSecurityRuleConfig `
+    -Name "myNetworkSecurityGroupRule" `
+    -Description "Allow HTTP" `
+    -Access "Allow" `
+    -Protocol "Tcp" `
+    -Direction "Inbound" `
+    -Priority "100" `
+    -SourceAddressPrefix "Internet" `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 80
 ```
 
-Затем создайте группу безопасности сети и назначьте только что созданное правило HTTP, как показано ниже. В следующем примере создается группа безопасности сети `myNetworkSecurityGroup`:
+Затем с помощью командлета [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) создайте группу безопасности сети и назначьте только что созданное правило HTTP, как показано ниже. В следующем примере создается группа безопасности сети с именем *myNetworkSecurityGroup*.
 
 ```powershell
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
-    -Location "WestUS" -Name "myNetworkSecurityGroup" -SecurityRules $httprule
+$nsg = New-AzureRmNetworkSecurityGroup `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "EastUS" `
+    -Name "myNetworkSecurityGroup" `
+    -SecurityRules $httprule
 ```
 
-Теперь давайте назначим подсети вашу группу безопасности сети. В следующем примере переменной `$vnet` назначается существующая виртуальная сеть `myVnet` :
+Теперь давайте назначим подсети вашу группу безопасности сети. В следующем примере с помощью [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork) переменной *$vnet* назначается существующая виртуальная сеть *myVnet*:
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
+$vnet = Get-AzureRmVirtualNetwork `
+    -ResourceGroupName "myResourceGroup" `
     -Name "myVnet"
 ```
 
-Свяжите группу безопасности сети с подсетью. В следующем примере подсеть `mySubnet` связывается с группой безопасности сети:
+Свяжите группу безопасности сети с подсетью с помощью командлета [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig): В следующем примере подсеть *mySubnet* связывается с группой безопасности сети:
 
 ```powershell
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
 
-Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "mySubnet" `
+Set-AzureRmVirtualNetworkSubnetConfig `
+    -VirtualNetwork $vnet `
+    -Name "mySubnet" `
     -AddressPrefix $subnetPrefix.AddressPrefix `
     -NetworkSecurityGroup $nsg
 ```
 
-Наконец, обновите виртуальную сеть, чтобы изменения вступили в действие.
+Наконец, с помощью командлета [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) обновите виртуальную сеть, чтобы изменения вступили в силу.
 
 ```powershell
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet

@@ -12,27 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/09/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 40911f9e663361dfb3a474970c727736cc0225b8
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 814825cce61909167a1247a96c17a3ee9c5f2af4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="create-a-linux-vm-with-multiple-nics-using-the-azure-cli-10"></a>Создание виртуальной машины Linux с несколькими сетевыми картами с помощью Azure CLI 1.0
-Можно создать виртуальную машину (ВМ) в Azure, к которой подключено несколько виртуальных сетевых интерфейсов (сетевых карт). Распространен сценарий, когда разные подсети используются для интерфейсных и внутренних подключений, или когда для решения мониторинга или архивации используется выделенная сеть. Этой статье описываются быстрые команды для создания виртуальной машины с несколькими сетевыми картами. Чтобы получить дополнительные сведения, в том числе узнать, как создать нескольких сетевых карт в собственных сценариях Bash, узнайте больше о [развертывании виртуальных машин с несколькими сетевыми картами](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Различные [размеры виртуальных машин](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) поддерживают разное число сетевых карт, так что выбирайте соответствующий размер виртуальной машины.
+# <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Создание виртуальной машины Linux с несколькими сетевыми картами с помощью Azure CLI 1.0
+Можно создать виртуальную машину (ВМ) в Azure, к которой подключено несколько виртуальных сетевых интерфейсов (сетевых карт). Распространен сценарий, когда разные подсети используются для интерфейсных и внутренних подключений или когда для решения мониторинга либо архивации используется выделенная сеть. Этой статье описываются быстрые команды для создания виртуальной машины с несколькими сетевыми картами. Чтобы получить дополнительные сведения, в том числе узнать, как создать нескольких сетевых карт в собственных сценариях Bash, узнайте больше о [развертывании виртуальных машин с несколькими сетевыми картами](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Различные [размеры виртуальных машин](sizes.md) поддерживают разное число сетевых карт, так что выбирайте соответствующий размер виртуальной машины.
 
 > [!WARNING]
-> Подключать несколько сетевых карт следует при создании виртуальной машины. Их нельзя добавить в существующую виртуальную машину. Вы можете [создать виртуальную машину на основе исходных виртуальных дисков](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) и создать несколько сетевых карт при развертывании этой виртуальной машины.
+> Подключать несколько сетевых карт следует при создании виртуальной машины. Их нельзя добавить в существующую виртуальную машину с помощью Azure CLI 1.0. С помощью [Azure CLI 2.0. можно добавить сетевые карты к существующей виртуальной машине](multiple-nics.md). Вы также можете [создать виртуальную машину на основе исходных виртуальных дисков](copy-vm.md), а затем создать несколько сетевых карт при развертывании этой виртуальной машины.
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>Версии интерфейса командной строки для выполнения задачи
 Вы можете выполнить задачу, используя одну из следующих версий интерфейса командной строки.
 
 - [Azure CLI 1.0](#create-supporting-resources) — интерфейс командной строки для классической модели развертывания и модели развертывания Resource Manager (в этой статье).
-- [Azure CLI 2.0](../windows/multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
+- [Azure CLI 2.0](multiple-nics.md) — интерфейс командной строки следующего поколения для модели развертывания с помощью Resource Manager.
 
 
 ## <a name="create-supporting-resources"></a>Создание вспомогательных ресурсов
@@ -42,73 +43,99 @@ ms.lasthandoff: 04/03/2017
 azure config mode arm
 ```
 
-В следующих примерах замените имена параметров собственными значениями. Используемые имена параметров — `myResourceGroup`, `mystorageaccount`, и `myVM`.
+В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *mystorageaccount* и *myVM*.
 
-Сначала создайте группу ресурсов. В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `WestUS`:
+Сначала создайте группу ресурсов. В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
 ```azurecli
-azure group create myResourceGroup -l WestUS
+azure group create myResourceGroup --location eastus
 ```
 
-Создайте учетную запись хранения для размещения виртуальных машин. В следующем примере создается учетная запись хранения с именем `mystorageaccount`:
+Создайте учетную запись хранения для размещения виртуальных машин. В следующем примере создается учетная запись хранения с именем *mystorageaccount*:
 
 ```azurecli
-azure storage account create mystorageaccount -g myResourceGroup \
-    -l WestUS --kind Storage --sku-name PLRS
+azure storage account create mystorageaccount \
+    --resource-group myResourceGroup \
+    --location eastus \
+    --kind Storage \
+    --sku-name PLRS
 ```
 
-Создайте виртуальную сеть для подключения к этим виртуальным машинам. В следующем примере создается виртуальная сеть с именем `myVnet` и префиксом адреса `192.168.0.0/16`.
+Создайте виртуальную сеть для подключения к этим виртуальным машинам. В следующем примере создается виртуальная сеть с именем *myVnet* и префиксом адреса *192.168.0.0/16*:
 
 ```azurecli
-azure network vnet create -g myResourceGroup -l WestUS \
-    -n myVnet -a 192.168.0.0/16
+azure network vnet create \
+    --resource-group myResourceGroup \
+    --location eastus \
+    --name myVnet \
+    --address-prefixes 192.168.0.0/16
 ```
 
-Создайте две подсети виртуальной сети — для интерфейсного трафика и для внутреннего трафика. В следующем примере создаются две подсети с именами `mySubnetFrontEnd` и `mySubnetBackEnd`.
+Создайте две подсети виртуальной сети — для интерфейсного трафика и для внутреннего трафика. В следующем примере создаются две подсети с именами *mySubnetFrontEnd* и *mySubnetBackEnd*:
 
 ```azurecli
-azure network vnet subnet create -g myResourceGroup -e myVnet \
-    -n mySubnetFrontEnd -a 192.168.1.0/24
-azure network vnet subnet create -g myResourceGroup -e myVnet \
-    -n mySubnetBackEnd -a 192.168.2.0/24
+azure network vnet subnet create \
+    --resource-group myResourceGroup \
+    --location myVnet \
+    --name mySubnetFrontEnd \
+    --address-prefix 192.168.1.0/24
+azure network vnet subnet create \
+    --resource-group myResourceGroup \
+    --location myVnet \
+    --name mySubnetBackEnd \
+    --address-prefix 192.168.2.0/24
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Создание и настройка нескольких сетевых карт
 Можно прочитать дополнительные сведения о [развертывание нескольких сетевых карт с помощью Azure CLI](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md), включая создание сценария для циклического создания всех сетевых карт.
 
-В следующем примере создаются две сетевые карты с именами `myNic1` и `myNic2`, каждая из которых подключена к отдельной подсети.
+В следующем примере создаются две сетевые карты с именами *myNic1* и *myNic2*, каждая из которых подключена к отдельной подсети:
 
 ```azurecli
-azure network nic create --resource-group myResourceGroup --location WestUS \
-    -n myNic1 --subnet-vnet-name myVnet --subnet-name mySubnetFrontEnd
-azure network nic create --resource-group myResourceGroup --location WestUS \
-    -n myNic2 --subnet-vnet-name myVnet --subnet-name mySubnetBackEnd
+azure network nic create \
+    --resource-group myResourceGroup \
+    --location eastus \
+    --name myNic1 \
+    --subnet-vnet-name myVnet \
+    --subnet-name mySubnetFrontEnd
+azure network nic create \
+    --resource-group myResourceGroup \
+    --location eastus \
+    --name myNic2 \
+    --subnet-vnet-name myVnet \
+    --subnet-name mySubnetBackEnd
 ```
 
-Обычно также создается [группа безопасности сети](../../virtual-network/virtual-networks-nsg.md) или [балансировщик нагрузки](../../load-balancer/load-balancer-overview.md) для управления трафиком и его распределения между виртуальными машинами. В следующем примере создается группа безопасности сети с именем `myNetworkSecurityGroup`.
+Обычно также создается [группа безопасности сети](../../virtual-network/virtual-networks-nsg.md) или [балансировщик нагрузки](../../load-balancer/load-balancer-overview.md) для управления трафиком и его распределения между виртуальными машинами. В следующем примере создается группа безопасности сети с именем *myNetworkSecurityGroup*.
 
 ```azurecli
-azure network nsg create --resource-group myResourceGroup --location WestUS \
+azure network nsg create \
+    --resource-group myResourceGroup \
+    --location eastus \
     --name myNetworkSecurityGroup
 ```
 
-Привяжите сетевые платы к группе безопасности сети с помощью `azure network nic set`. В следующем примере привязываются сетевые карты `myNic1` и `myNic2` к `myNetworkSecurityGroup`.
+Привяжите сетевые платы к группе безопасности сети с помощью `azure network nic set`. Следующий пример связывает *myNic1* и *myNic2* с *myNetworkSecurityGroup*:
 
 ```azurecli
-azure network nic set --resource-group myResourceGroup --name myNic1 \
+azure network nic set \
+    --resource-group myResourceGroup \
+    --name myNic1 \
     --network-security-group-name myNetworkSecurityGroup
-azure network nic set --resource-group myResourceGroup --name myNic2 \
+azure network nic set \
+    --resource-group myResourceGroup \
+    --name myNic2 \
     --network-security-group-name myNetworkSecurityGroup
 ```
 
 ## <a name="create-a-vm-and-attach-the-nics"></a>Создание виртуальной машины и подключение сетевых карт
-Теперь при создании виртуальной машины следует указать несколько сетевых карт. Вместо того, чтобы использовать `--nic-name` для указания одной сетевой карты, используйте `--nic-names` и укажите разделенный запятыми список сетевых карт. Необходимо выбрать соответствующий размер виртуальной машины. Для каждой виртуальной машины существуют ограничения на общее количество сетевых карт, которые можно в нее добавить. Прочитайте дополнительные сведения о [размерах виртуальных машин Linux](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). В следующем примере показано, как указать несколько сетевых карт, а затем — размер виртуальной машины, который поддерживает использование нескольких сетевых карт (`Standard_DS2_v2`).
+Теперь при создании виртуальной машины следует указать несколько сетевых карт. Вместо того, чтобы использовать `--nic-name` для указания одной сетевой карты, используйте `--nic-names` и укажите разделенный запятыми список сетевых карт. Необходимо выбрать соответствующий размер виртуальной машины. Для каждой виртуальной машины существуют ограничения на общее количество сетевых карт, которые можно в нее добавить. Прочитайте дополнительные сведения о [размерах виртуальных машин Linux](sizes.md). В следующем примере показано, как определить несколько сетевых карт и размер виртуальной машины, который поддерживает использование нескольких сетевых карт (*Standard_DS2_v2*):
 
 ```azurecli
 azure vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --location WestUS \
+    --location eastus \
     --os-type linux \
     --nic-names myNic1,myNic2 \
     --vm-size Standard_DS2_v2 \
@@ -139,7 +166,7 @@ azure vm create \
 Вы можете ознакомиться с полным примером [создания нескольких сетевых карт с помощью шаблонов Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Обязательно ознакомьтесь с [размерами виртуальных машин Linux](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , когда будете создавать виртуальную машину с несколькими сетевыми картами. Обратите внимание на максимальное число сетевых карт, поддерживаемых каждым из размеров виртуальной машины. 
+Обязательно ознакомьтесь с [размерами виртуальных машин Linux](sizes.md) , когда будете создавать виртуальную машину с несколькими сетевыми картами. Обратите внимание на максимальное число сетевых карт, поддерживаемых каждым из размеров виртуальной машины. 
 
 Помните, что невозможно добавить дополнительные сетевые карты в существующую виртуальную машины. Все сетевые карты должны быть созданы при развертывании виртуальной машины. Будьте внимательны при планировании развертываний. С самого начала убедитесь в наличии всех необходимых сетевых подключений.
 

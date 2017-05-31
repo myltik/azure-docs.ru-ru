@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d6215d316cfd4979d63f8bdb81741e1d0291b681
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: b95a8c3067b9bfd0a9995b26608c117a29ed8b4c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -76,7 +77,7 @@ Azure по умолчанию предоставляет разрешение DN
   * запустите службу dnsmasq (systemctl start dnsmasq.service); 
   * измените путь /etc/sysconfig/network/config и замените блок NETCONFIG_DNS_FORWARDER="" текстом dnsmasq;
   * укажите в файле resolv.conf (netconfig update) кэш в качестве локального сопоставителя DNS.
-* **OpenLogic (используется пакет NetworkManager)**:
+* **CentOS от Rogue Wave Software (прежнее название — OpenLogic; использует NetworkManager)**:
   * установите пакет dnsmasq (sudo yum install dnsmasq);
   * активируйте службу dnsmasq (systemctl enable dnsmasq.service);
   * запустите службу dnsmasq (systemctl start dnsmasq.service);
@@ -107,7 +108,7 @@ DNS использует преимущественно протокол UDP.  
 * **SUSE** (используется пакет netconf):
   * добавьте параметр timeout:1 attempts:5 в блок NETCONFIG_DNS_RESOLVER_OPTIONS="" в /etc/sysconfig/network/config; 
   * выполните netconfig update для обновления.
-* **OpenLogic** (используется пакет NetworkManager):
+* **CentOS от Rogue Wave Software (прежнее название — OpenLogic**; использует NetworkManager):
   * добавьте echo "options timeout:1 attempts:5" в /etc/NetworkManager/dispatcher.d/11-dhclient; 
   * выполните service network restart для обновления.
 

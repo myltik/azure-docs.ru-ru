@@ -1,24 +1,25 @@
 ---
 title: "Ресурсы, интерфейсы API и пакеты SDK Java для Azure DocumentDB | Документация Майкрософт"
 description: "Сведения о пакете SDK и интерфейсах API для Java, включая даты выхода и снятия с учета, изменения, внесенные в каждую версию пакета SDK для DocumentDB на Java."
-services: documentdb
+services: cosmosdb
 documentationcenter: java
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 05/10/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 40ea65f692d1e2cbc39a6c65b2f8b255282e34cc
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 11fb5aa52a99414d8b7052d2a9904c260d4cdc9a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/20/2017
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [Поставщик ресурсов REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -51,6 +52,11 @@ ms.lasthandoff: 04/20/2017
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
+
+### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
+* Добавлена поддержка использования единиц запроса в минуту.
+* Добавлена поддержка нового уровня согласованности с именем ConsistentPrefix.
+* Исправлена ошибка чтения коллекции в режиме сеанса.
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 * Включена поддержка секционированных коллекций с производительностью 2500 ЕЗ/с, а также масштабирование с шагом в 100 ЕЗ/с.
@@ -150,7 +156,7 @@ ms.lasthandoff: 04/20/2017
 
 Новые функции, возможности и оптимизации добавляются только в текущую версию пакета SDK, поэтому рекомендуется как можно раньше обновлять пакет SDK до последней версии.
 
-Любые запросы к DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
+Любые запросы к Cosmos DB с помощью выведенного из эксплуатации пакета SDK будут отклонены службой.
 
 > [!WARNING]
 > Поддержка всех версий пакета SDK Azure DocumentDB для Java версии ниже **1.0.0** будет прекращена **29 февраля 2016 года**.
@@ -161,6 +167,7 @@ ms.lasthandoff: 04/20/2017
 
 | Версия | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |10 мая 2017 г. |--- |
 | [1.10.0](#1.10.0) |11 марта 2017 г. |--- |
 | [1.9.6](#1.9.6) |21 февраля 2017 г. |--- |
 | [1.9.5](#1.9.5) |31 января 2017 г. |--- |
@@ -193,6 +200,6 @@ ms.lasthandoff: 04/20/2017
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>См. также
-Дополнительные сведения о DocumentDB см. на странице документации по службе [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
+См. дополнительные сведения о [базе данных Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 
 

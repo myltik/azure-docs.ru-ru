@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: jehollan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e0bf2edebfda479532a2ce71deff4623179910f3
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 32a5cfdb520c745dbd0fa5c433849bd3783a364e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -275,6 +276,10 @@ ms.lasthandoff: 04/03/2017
 #### <a name="q-what-about-url-security"></a>Вопрос. Как обеспечивается безопасность URL-адресов?
 
 Ответ. При создании URL-адресов обратного вызова Azure обеспечивает безопасность с помощью подписанного URL-адреса. Подпись передается в качестве параметра запроса и проверяется перед запуском приложения логики. Azure создает эту подпись на основе уникального сочетания секретного ключа для каждого приложения логики, имени триггера и выполняемой операции. Не имея доступа к секретному ключу приложения логики, создать действительную подпись невозможно.
+
+   > [!NOTE]
+   > Для производственных и защищенных систем настоятельно не рекомендуется вызывать приложения логики непосредственно из браузера. Причина — включение общего ключа доступа в URL-адрес и невозможность управлять политиками безопасного содержимого из-за доменов, которые совместно используются пользователями приложений логики.
+
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>Вопрос. Могу ли я дополнительно настроить конечные точки HTTP?
 

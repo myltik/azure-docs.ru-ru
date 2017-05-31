@@ -1,5 +1,5 @@
 ---
-title: "Как использовать хранилище таблиц из Python | Документация Майкрософт"
+title: "Как использовать хранилище таблиц Azure с Python | Документация Майкрософт"
 description: "Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL)."
 services: storage
 documentationcenter: python
@@ -12,35 +12,42 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 05/16/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 34d075658514045e28d6a784c579528bb3eac376
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: c310a52182bbc3cf44ed4dc6a04e97aa59200a64
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="how-to-use-table-storage-from-python"></a>Использование табличного хранилища из Python
+# <a name="how-to-use-table-storage-in-python"></a>Как использовать хранилище таблиц в Python
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-## <a name="overview"></a>Обзор
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища таблиц Azure. Примеры написаны на Python, и в них используется [пакет SDK для службы хранилища Microsoft Azure для Python](https://github.com/Azure/azure-storage-python). Здесь описаны такие сценарии, как создание и удаление таблицы, а также вставка и запрос сущностей в таблице.
+В этом руководстве объясняется, как реализовать типичные сценарии хранилища таблиц Azure в Python с помощью [пакета SDK для службы хранилища Microsoft Azure для Python](https://github.com/Azure/azure-storage-python). Здесь описаны такие сценарии, как создание и удаление таблицы, вставка и запрос сущностей.
+
+Работая над сценариями в этом руководстве, вы можете использовать в качестве справки [пакет SDK для службы хранилища Microsoft Azure для Python](https://azure-storage.readthedocs.io/en/latest/index.html).
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
+## <a name="install-the-azure-storage-sdk-for-python"></a>Установка пакета SDK для службы хранилища Microsoft Azure для Python
+
+После создания учетной записи хранения установите [пакет SDK для службы хранилища Microsoft Azure для Python](https://github.com/Azure/azure-storage-python). Дополнительные сведения по установке пакета SDK см. в файле [README.rst](https://github.com/Azure/azure-storage-python/blob/master/README.rst) в репозитории GitHub Storage SDK for Python (пакет SDK для службы хранилища для Python).
+
 ## <a name="create-a-table"></a>Создание таблицы
-Объект **TableService** позволяет работать со службами таблиц. Следующий код создает объект **TableService** . Добавьте этот код в начало любого файла Python, из которого планируется получать доступ к службе хранилища Azure программным способом:
+
+Для работы со службой таблиц Azure в Python необходимо импортировать модуль [TableService][py_TableService]. Так как вы будете работать с сущностями в таблице, вам также нужен класс [Entity][py_Entity]. Добавьте следующий код в начало файла Python, чтобы импортировать модуль и класс:
 
 ```python
 from azure.storage.table import TableService, Entity
 ```
 
-Следующий код создает объект **TableService** , используя имя и ключ доступа учетной записи хранения.  Замените myaccount и mykey фактическими значениями имени и ключа учетной записи.
+Создайте объект [TableService][py_TableService], передав ключ учетной записи и имя учетной записи хранения. Замените `myaccount` и `mykey` именем и ключом своей учетной записи и вызовите метод [create_table][py_create_table], чтобы создать таблицу в службе хранилища Azure.
 
 ```python
 table_service = TableService(account_name='myaccount', account_key='mykey')
@@ -49,81 +56,97 @@ table_service.create_table('tasktable')
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Добавление сущности в таблицу
-Чтобы добавить сущность, сначала создайте словарь или сущность, которая определяет имена и значения свойств сущности. Обратите внимание, что для каждой сущности необходимо указать **PartitionKey** и **RowKey**. Это уникальные идентификаторы сущностей. Вы можете выполнить запрос этих значений гораздо быстрее, чем других свойств. Система использует **PartitionKey** , чтобы автоматически распространять сущности таблиц на множество узлов хранилища.
-Сущности с одним значением **PartitionKey** хранятся на одном узле. **RowKey** — это уникальный идентификатор сущности в разделе, которому она принадлежит.
 
-Чтобы добавить сущность в таблицу, передайте объект словаря в метод **insert\_entity**.
+Чтобы добавить сущность, сначала создайте объект, который представляет сущность, затем передайте объект в метод [TableService][py_TableService].[insert_entity][py_insert_entity]. Объект сущности может быть словарем или объектом типа [Entity][py_Entity]. Он определяет имена и значения свойств сущности. Каждая сущность должна включать требуемые свойства [PartitionKey и RowKey](#partitionkey-and-rowkey) помимо других свойств, определенных для сущности.
+
+В этом примере создается объект словаря, который представляет сущность, а затем передает его в метод [insert_entity][py_insert_entity], чтобы добавить его в таблицу:
 
 ```python
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the trash', 'priority' : 200}
 table_service.insert_entity('tasktable', task)
 ```
 
-Также можно передать экземпляр класса **Entity** в метод **insert\_entity**.
+В этом примере создается объект [Entity][py_Entity], а затем передает его в метод [insert_entity][py_insert_entity], чтобы добавить его в таблицу:
 
 ```python
 task = Entity()
 task.PartitionKey = 'tasksSeattle'
-task.RowKey = '2'
+task.RowKey = '002'
 task.description = 'Wash the car'
 task.priority = 100
 table_service.insert_entity('tasktable', task)
 ```
 
+### <a name="partitionkey-and-rowkey"></a>PartitionKey и RowKey
+
+Для каждой сущности необходимо указать свойства **PartitionKey** и **RowKey**. Это уникальные идентификаторы сущностей, так как вместе они формируют первичный ключ сущности. С помощью этих значений можно отправлять запросы быстрее, чем к другим свойствам, так как индексируются только эти свойства.
+
+Служба таблиц использует **PartitionKey** для интеллектуального распределения сущностей таблицы по узлам хранилища. Сущности с одним значением **PartitionKey** хранятся на одном узле. **RowKey** — это уникальный идентификатор сущности в разделе, которому она принадлежит.
+
 ## <a name="update-an-entity"></a>Обновление сущности
-Этот код показывает, как заменить старую версию имеющейся сущности на обновленную версию.
+
+Чтобы обновить все значения свойств сущности, вызовите метод [update_entity][py_update_entity]. Этот пример показывает, как заменить сущность обновленной версией:
 
 ```python
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage', 'priority' : 250}
-table_service.update_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage', 'priority' : 250}
+table_service.update_entity('tasktable', task)
 ```
 
-Если обновляемая сущность отсутствует, операция обновления завершается ошибкой. Если вам необходимо сохранить сущность независимо от того, существовала ли она ранее, следует использовать метод **insert\_or\_replace_entity**.
-В следующем примере первый вызов заменит существующую сущность. Второй вызов вставит новую сущность, поскольку сущность с указанным **PartitionKey** и **RowKey** в таблице отсутствует.
+Если обновляемая сущность больше не существует, операция обновления завершается ошибкой. Если вы хотите сохранить сущность независимо от того, существует она или нет, используйте метод [insert_or_replace_entity][py_insert_or_replace_entity]. В следующем примере первый вызов заменит существующую сущность. Второй вызов вставит новую сущность, так как в таблице нет сущности с указанными свойствами PartitionKey и RowKey.
 
 ```python
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage again', 'priority' : 250}
-table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
+# Replace the entity created earlier
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001', 'description' : 'Take out the garbage again', 'priority' : 250}
+table_service.insert_or_replace_entity('tasktable', task)
 
-task = {'PartitionKey': 'tasksSeattle', 'RowKey': '3', 'description' : 'Buy detergent', 'priority' : 300}
-table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
+# Insert a new entity
+task = {'PartitionKey': 'tasksSeattle', 'RowKey': '003', 'description' : 'Buy detergent', 'priority' : 300}
+table_service.insert_or_replace_entity('tasktable', task)
 ```
 
-## <a name="change-a-group-of-entities"></a>Изменение группы сущностей
-Иногда имеет смысл отправлять совместно несколько операций в пакете для атомарной обработки сервером. Чтобы сделать это, используйте класс **TableBatch** . Если требуется отправить пакет, вызовите метод **commit\_batch**. Обратите внимание, что для изменения в пакетном режиме все сущности должны находиться в одном разделе. В следующем примере показано добавление двух сущностей в пакете.
+> [!TIP]
+> Метод [update_entity][py_update_entity] заменяет все свойства и значения сущности. Его также можно использовать для удаления свойства из сущности. Чтобы обновить сущность с помощью новых или измененных значений свойств без полной замены сущности используйте метод [merge_entity][py_merge_entity].
+
+## <a name="modify-multiple-entities"></a>Изменение нескольких сущностей
+
+Для атомарной обработки запроса службой таблиц можно отправить сразу несколько операций в пакете. Сначала используйте класс [TableBatch][py_TableBatch], чтобы добавить несколько операций в одном пакете. Затем вызовите метод [TableService][py_TableService].[commit_batch][py_commit_batch], чтобы отправить операции в атомарной операции. Все сущности, которые должны быть изменены в пакете, должны находиться в одном разделе.
+
+В этом примере показано добавление двух сущностей в пакете:
 
 ```python
 from azure.storage.table import TableBatch
 batch = TableBatch()
-task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
-task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
-batch.insert_entity(task10)
-batch.insert_entity(task11)
+task004 = {'PartitionKey': 'tasksSeattle', 'RowKey': '004', 'description' : 'Go grocery shopping', 'priority' : 400}
+task005 = {'PartitionKey': 'tasksSeattle', 'RowKey': '005', 'description' : 'Clean the bathroom', 'priority' : 100}
+batch.insert_entity(task004)
+batch.insert_entity(task005)
 table_service.commit_batch('tasktable', batch)
 ```
 
 Для пакетов также можно использовать синтаксис диспетчера контекста:
 
 ```python
-task12 = {'PartitionKey': 'tasksSeattle', 'RowKey': '12', 'description' : 'Go grocery shopping', 'priority' : 400}
-task13 = {'PartitionKey': 'tasksSeattle', 'RowKey': '13', 'description' : 'Clean the bathroom', 'priority' : 100}
+task006 = {'PartitionKey': 'tasksSeattle', 'RowKey': '006', 'description' : 'Go grocery shopping', 'priority' : 400}
+task007 = {'PartitionKey': 'tasksSeattle', 'RowKey': '007', 'description' : 'Clean the bathroom', 'priority' : 100}
 
 with table_service.batch('tasktable') as batch:
-    batch.insert_entity(task12)
-    batch.insert_entity(task13)
+    batch.insert_entity(task006)
+    batch.insert_entity(task007)
 ```
 
 ## <a name="query-for-an-entity"></a>Запрос сущности
-Чтобы запросить сущность в таблице, используйте метод **get\_entity**, передав значения **PartitionKey** и **RowKey**.
+
+Чтобы запросить сущность в таблице, передайте ее свойства PartitionKey и RowKey в метод [TableService][py_TableService].[get_entity][py_get_entity].
 
 ```python
-task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
+task = table_service.get_entity('tasktable', 'tasksSeattle', '001')
 print(task.description)
 print(task.priority)
 ```
 
 ## <a name="query-a-set-of-entities"></a>Запрос набора сущностей
-Этот пример находит все задачи в Сиэтле на основе **PartitionKey**.
+
+Можно запросить набор сущностей, указав строку фильтра с помощью параметра **filter**. Этот пример находит все задачи в Сиэтле, используя фильтр PartitionKey:
 
 ```python
 tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'")
@@ -133,15 +156,13 @@ for task in tasks:
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Запрос подмножества свойств сущности
-Запрос к таблице может получить лишь несколько свойств сущности.
-Этот метод, который называется *проекцией*, снижает потребление полосы пропускания и может повысить производительность запросов, особенно для крупных сущностей. Используйте параметр **select** и передайте имена свойств, которые необходимо передать клиенту.
+
+Также можно ограничить свойства, возвращаемые для каждой сущности в запросе. Этот метод, который называется *проекцией*, снижает потребление пропускной способности и может повысить производительность запросов, особенно для больших сущностей и наборов результатов. Используйте параметр **select** и передайте имена свойств, которые необходимо вернуть клиенту.
 
 Запрос в следующем коде возвращает только описания сущностей в таблице.
 
 > [!NOTE]
 > Следующий фрагмент работает только для службы хранилища Azure. Его не поддерживает эмулятор хранения.
->
->
 
 ```python
 tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
@@ -150,14 +171,16 @@ for task in tasks:
 ```
 
 ## <a name="delete-an-entity"></a>Удаление сущности
-Сущность можно удалить с помощью ее ключей раздела и строки.
+
+Чтобы удалить сущность, передайте ее свойства PartitionKey и RowKey в метод [delete_entity][py_delete_entity].
 
 ```python
-table_service.delete_entity('tasktable', 'tasksSeattle', '1')
+table_service.delete_entity('tasktable', 'tasksSeattle', '001')
 ```
 
 ## <a name="delete-a-table"></a>Удаление таблицы
-Следующий код удаляет таблицу из учетной записи хранения.
+
+Если вам больше не нужна таблица или сущность в ней, вызовите метод [delete_table][py_delete_table], чтобы полностью удалить таблицу из службы хранилища Azure.
 
 ```python
 table_service.delete_table('tasktable')
@@ -165,7 +188,21 @@ table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* [Обозреватель хранилищ Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) — это бесплатное автономное приложение от корпорации Майкрософт, позволяющее визуализировать данные из службы хранилища Azure на платформе Windows, macOS и Linux.
-* [Центр по разработке для Python](/develop/python/)
-* [API-интерфейс REST служб хранилища Azure](http://msdn.microsoft.com/library/azure/dd179355)
-* [пакет SDK для службы хранилища Microsoft Azure для Python](https://github.com/Azure/azure-storage-python)
+* [Azure Storage SDK for Python API reference](https://azure-storage.readthedocs.io/en/latest/index.html) (Справочник по пакету SDK службы хранилища Azure для API Python)
+* [Пакет SDK службы хранилища Azure для Python](https://github.com/Azure/azure-storage-python)
+* [Центр по разработке для Python](https://azure.microsoft.com/develop/python/)
+* [Приступая к работе с обозревателем службы хранилища (предварительная версия)](../vs-azure-tools-storage-manage-with-storage-explorer.md). Обозреватель службы хранилища Microsoft Azure — бесплатное кроссплатформенное приложение для визуализации данных службы хранилища Azure в Windows, macOS и Linux.
+
+[py_commit_batch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.commit_batch
+[py_create_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.create_table
+[py_delete_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_entity
+[py_delete_table]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.delete_table
+[py_Entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.models.html#azure.storage.table.models.Entity
+[py_get_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.get_entity
+[py_insert_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_entity
+[py_insert_or_replace_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.insert_or_replace_entity
+[py_merge_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.merge_entity
+[py_update_entity]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html#azure.storage.table.tableservice.TableService.update_entity
+[py_TableService]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tableservice.html
+[py_TableBatch]: https://azure-storage.readthedocs.io/en/latest/ref/azure.storage.table.tablebatch.html#azure.storage.table.tablebatch.TableBatch
+
