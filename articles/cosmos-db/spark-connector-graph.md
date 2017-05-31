@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB. Аналитика графов с помощью Spark и Apache TinkerPops Gremlin | Документация Майкрософт"
 description: "Здесь представлены инструкции по настройке и запуску аналитики графов и параллельных вычислений Azure Cosmos DB с помощью Spark GraphX."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: khdang
 manager: shireest
 editor: 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -46,11 +46,11 @@ ms.lasthandoff: 05/25/2017
 
 Сначала нужно создать учетную запись базы данных с помощью API Graph.
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-collection"></a>Добавление коллекции
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="get-apache-tinkerpop"></a>Получение Apache TinkerPop
 

@@ -1,13 +1,13 @@
 ---
 title: "Пакет SDK для .NET и ресурсы API таблицы для базы данных Azure Cosmos DB | Документация Майкрософт"
 description: "Сведения об API таблицы Azure Cosmos DB, в том числе даты выпуска и вывода из эксплуатации, а также изменения, внесенные в каждую версию."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

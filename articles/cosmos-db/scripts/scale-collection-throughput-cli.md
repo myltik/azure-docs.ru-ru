@@ -1,14 +1,14 @@
 ---
 title: "Скрипт Azure CLI. Масштабирование пропускной способности контейнера базы данных Azure Cosmos DB | Документация Майкрософт"
 description: "Пример скрипта Azure CLI. Масштабирование пропускной способности контейнера базы данных Azure Cosmos DB"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample

@@ -15,9 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/08/2017
 ms.author: heidist
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
 ms.openlocfilehash: bfed40417d800e86de7ef437c42162b1e1a0d886
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/24/2017
 
 ---
@@ -75,7 +76,7 @@ ms.lasthandoff: 02/24/2017
 
 Соглашения об уровне обслуживания для Поиска Azure используются для операций запросов и обновления индекса, которые состоят из добавления, обновления или удаления документов.
 
-### <a name="index-availability-during-a-rebuild"></a>Доступность индексов во время повторного создания###
+### <a name="index-availability-during-a-rebuild"></a>Доступность индексов во время повторного создания
 
 Высокий уровень доступности для Поиска Azure относится к запросам и обновлению индексов, не требующих повторного создания индексов. Если вы удалите, переименуете поле или измените тип данных, индекс потребуется перестроить. Для этого его необходимо удалить, затем создать заново и повторно загрузить данные.
 

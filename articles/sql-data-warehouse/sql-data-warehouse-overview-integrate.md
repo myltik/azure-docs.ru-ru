@@ -3,7 +3,7 @@ title: "Создание интегрированных решений с пом
 description: "Инструменты и партнерские решения, которые интегрируются с хранилищем данных SQL "
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
