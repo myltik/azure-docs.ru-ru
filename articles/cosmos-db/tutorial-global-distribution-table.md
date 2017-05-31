@@ -1,14 +1,14 @@
 ---
 title: "Руководство по настройке глобального распределения Azure Cosmos DB с помощью API таблицы | Документация Майкрософт"
 description: "Сведения о настройке глобального распределения Azure Cosmos DB с помощью API таблицы."
-services: cosmosdb
+services: cosmos-db
 keywords: "глобальное распределение, таблица"
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3282dd96fb51ba9eeb27560c6897211c55738f1e
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 63c9e530a4982e2e6e478fea56e015fc77851e1d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -33,12 +33,12 @@ ms.lasthandoff: 05/10/2017
 > * настройка глобального распределения на портале Azure;
 > * настройка глобального распределения с помощью [API таблицы](table-introduction.md).
 
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Подключение к предпочтительному региону с помощью API таблицы
 
-Чтобы воспользоваться преимуществами [глобального распределения](../documentdb/documentdb-distribute-data-globally.md), клиентские приложения могут указать упорядоченный список предпочитаемых регионов, который будет использоваться для операций с документами. Это можно сделать, задав значение `TablePreferredLocations` в конфигурации приложения для пакета SDK для службы хранилища Azure (предварительная версия). Для операций записи и чтения с помощью пакета SDK для службы хранилища Azure выбирается наиболее оптимальная конечная точка на основании текущих данных о региональной доступности и списка предпочтений, указанного в конфигурации учетной записи Azure Cosmos DB.
+Чтобы воспользоваться преимуществами [глобального распределения](distribute-data-globally.md), клиентские приложения могут указать упорядоченный список предпочитаемых регионов, который будет использоваться для операций с документами. Это можно сделать, задав значение `TablePreferredLocations` в конфигурации приложения для пакета SDK для службы хранилища Azure (предварительная версия). Для операций записи и чтения с помощью пакета SDK для службы хранилища Azure выбирается наиболее оптимальная конечная точка на основании текущих данных о региональной доступности и списка предпочтений, указанного в конфигурации учетной записи Azure Cosmos DB.
 
 Свойство `TablePreferredLocations` должно содержать разделенный запятыми список предпочтительных расположений (множественная адресация) для операций чтения. Каждый экземпляр клиента может указать подмножество этих регионов в порядке предпочтения, чтобы обеспечить низкую задержку операций чтения. Регионам необходимо присвоить их [отображаемые имена](https://msdn.microsoft.com/library/azure/gg441293.aspx), например `West US`.
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 05/10/2017
     </appSettings>
 ```
 
-На этом руководство завершено. Сведения об управлении согласованностью глобально реплицируемой учетной записи Azure Cosmos DB см. в [этой статье](../documentdb/documentdb-consistency-levels.md). Сведения о том, как функционирует репликация глобальной базы данных в Azure Cosmos DB, см. в статье о [глобальном распределении данных в Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+На этом руководство завершено. Сведения об управлении согласованностью глобально реплицируемой учетной записи Azure Cosmos DB см. в [этой статье](consistency-levels.md). Сведения о том, как функционирует репликация глобальной базы данных в Azure Cosmos DB, см. в статье о [глобальном распределении данных в Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -69,4 +69,4 @@ ms.lasthandoff: 05/10/2017
 Перейдите к следующему руководству, чтобы узнать о разработке в локальной среде с помощью локального эмулятора Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Разработка в локальной среде с помощью эмулятора](../documentdb/documentdb-nosql-local-emulator.md)
+> [Разработка в локальной среде с помощью эмулятора](local-emulator.md)
