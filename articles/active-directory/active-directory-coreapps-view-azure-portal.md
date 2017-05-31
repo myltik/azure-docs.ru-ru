@@ -1,5 +1,5 @@
 ---
-title: "Просмотр всех корпоративных приложений, которыми вы можете управлять в предварительной версии Azure Active Directory | Документация Майкрософт"
+title: "Просмотр всех корпоративных приложений, которыми вы можете управлять в Azure Active Directory | Документы Майкрософт"
 description: "Узнайте, как просмотреть список корпоративных приложений, на управление которыми в Azure Active Directory у вас есть разрешение."
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33b036537211e3bdeacba7f388aca334404385cb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 14b335d14d893640d469508d6f34b4e7ec6bee8b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory-preview"></a>Просмотр всех корпоративных приложений, которыми вы можете управлять в предварительной версии Azure Active Directory
-Вы можете управлять корпоративными приложениями в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md)  Можно просмотреть приложения, которыми вы можете управлять, назначить приложению пользователей или группы, хранить для приложения такие свойства, как имя приложения и логотип, и даже отключить приложение, чтобы пользователи не могли в него войти.
+# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Просмотр всех корпоративных приложений, которыми вы можете управлять в Azure Active Directory
+Вы можете управлять корпоративными приложениями в Azure Active Directory (Azure AD). Можно просмотреть приложения, которыми вы можете управлять, назначить приложению пользователей или группы, хранить для приложения такие свойства, как имя приложения и логотип, и даже отключить приложение, чтобы пользователи не могли в него войти.
 
 ## <a name="how-do-i-view-all-my-apps"></a>Как можно просмотреть мои приложения?
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
@@ -36,9 +38,4 @@ ms.openlocfilehash: 33b036537211e3bdeacba7f388aca334404385cb
 * [Удаление назначения пользователя или группы из корпоративного приложения](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Отключение входа пользователя в корпоративное приложение](active-directory-coreapps-disable-app-azure-portal.md)
 * [Изменение имени или логотипа корпоративного приложения](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

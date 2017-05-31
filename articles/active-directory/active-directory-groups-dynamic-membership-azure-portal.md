@@ -1,6 +1,6 @@
 ---
 
-title: "Управление участниками группы на основе атрибутов в предварительной версии Azure Active Directory | Документация Майкрософт"
+title: "Управление участниками группы на основе атрибутов в Azure Active Directory | Документы Майкрософт"
 description: "Узнайте, как создать расширенные правила для динамического членства в группе, используя поддерживаемые операторы и параметры выражений правила."
 services: active-directory
 documentationcenter: 
@@ -13,20 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6ef550047a28a6070cad5da2e00cf18fbca3f9fa
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: da03dc8afa58ddfe97301dabed186ed325410937
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory-preview"></a>Создание правил на основе атрибутов для динамического членства в группах в предварительной версии Azure Active Directory
-Портал Azure предоставляет возможность создания расширенных правил для поддержки более сложного динамического членства в группах предварительной версии Azure Active Directory (Azure AD) на основе атрибутов. [Что есть в предварительной версии?](active-directory-preview-explainer.md) 
-
-В этой статье подробно описываются атрибуты и синтаксис для создания правил динамического членства.
+# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Создание правил на основе атрибутов для динамического членства в группах в Azure Active Directory
+В Azure Active Directory (Azure AD) можно создать дополнительные правила для включения сложного, основанного на атрибутах динамического членства в группах. В этой статье подробно описываются атрибуты и синтаксис для создания правил динамического членства.
 
 ## <a name="to-create-the-advanced-rule"></a>Создание расширенного правила
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.

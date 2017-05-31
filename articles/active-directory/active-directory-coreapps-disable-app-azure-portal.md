@@ -1,5 +1,5 @@
 ---
-title: "Отключение входа пользователя в корпоративное приложение в предварительной версии Azure Active Directory | Документация Майкрософт"
+title: "Отключение входа пользователя в корпоративное приложение в Azure Active Directory | Документы Майкрософт"
 description: "Узнайте, как в Azure Active Directory можно отключить корпоративное приложение, чтобы пользователи не могли войти в него."
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: c57505d037d991f3c0d720a481393ec2ae6b8069
-ms.openlocfilehash: ef6ae32c1d9b2e417d2a766207575f19aa06feaa
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 5d27046370eada0c371c94fb573fa1bcf536f7cf
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory-preview"></a>Отключение входа пользователя в корпоративное приложение в предварительной версии Azure Active Directory
-В предварительной версии Azure Active Directory (Azure AD) вы можете легко отключить корпоративное приложение, чтобы пользователи не могли войти в него. [Что есть в предварительной версии?](active-directory-preview-explainer.md) Для управления корпоративным приложением необходимы соответствующие разрешения. В текущей предварительной версии необходимы привилегии глобального администратора для каталога.
+# <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Отключение входа пользователя в корпоративное приложение в Azure Active Directory
+В Azure Active Directory (Azure AD) вы можете легко отключить корпоративное приложение, чтобы пользователи не могли войти в него. Необходимо иметь соответствующие разрешения для управления корпоративным приложением, а также права глобального администратора для доступа к каталогу.
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>Как отключить вход пользователей?
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
@@ -42,9 +44,4 @@ ms.openlocfilehash: ef6ae32c1d9b2e417d2a766207575f19aa06feaa
 * [Назначение корпоративному приложению пользователя или группы](active-directory-coreapps-assign-user-azure-portal.md)
 * [Удаление назначения пользователя или группы из корпоративного приложения](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Изменение имени или логотипа корпоративного приложения](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

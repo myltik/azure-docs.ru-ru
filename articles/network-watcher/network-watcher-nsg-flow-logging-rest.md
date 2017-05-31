@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: f4e4cad55b8b2b6146e2ff709b3238715270a385
-ms.openlocfilehash: 8841da846c1483dbb011a17f76e4dfcfdfe46ea9
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 92de31c7bdb475b8d00551384842b0c5aa3fb4e0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.lasthandoff: 03/01/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
-Чтобы вызвать REST API при помощи командлетов PowerShell, вам потребуется ARMClient. Пакет ARMClient можно скачать на сайте [Chocolatey](https://chocolatey.org/packages/ARMClient).
+Чтобы вызвать REST API при помощи PowerShell, потребуется ARMClient. Пакет ARMClient можно скачать на сайте [Chocolatey](https://chocolatey.org/packages/ARMClient).
 
 В этом сценарии предполагается, что вы создали Наблюдатель за сетями в соответствии с инструкциями в статье [Create an Azure Network Watcher instance](network-watcher-create.md) (Наблюдатель за сетями: создание экземпляра службы).
 
@@ -58,6 +59,15 @@ ms.lasthandoff: 03/01/2017
 
 ```PowerShell
 armclient login
+```
+
+## <a name="register-insights-provider"></a>Регистрация поставщика Microsoft Insights
+
+Для успешного ведения журналов потоков должен быть зарегистрирован поставщик **Microsoft.Insights**. Если вы не знаете, зарегистрирован ли поставщик **Microsoft.Insights**, выполните следующий сценарий.
+
+```powershell
+$subscriptionId = "00000000-0000-0000-0000-000000000000"
+armclient post "https://management.azure.com//subscriptions/${subscriptionId}/providers/Microsoft.Insights/register?api-version=2016-09-01"
 ```
 
 ## <a name="enable-network-security-group-flow-logs"></a>Включение журналов потоков для группы безопасности сети

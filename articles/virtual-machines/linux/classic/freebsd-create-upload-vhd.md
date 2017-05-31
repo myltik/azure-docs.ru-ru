@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2016
+ms.date: 05/08/2017
 ms.author: kyliel
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2d44a2d9a247ffce8bcf35152170562ac0b86710
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 7a92105f9d7be88311f2ecd89b22e35f3ad3bbac
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -41,7 +41,7 @@ ms.lasthandoff: 04/27/2017
 >
 >
 
-Эта задача включает в себя следующие пять шагов.
+Эта задача включает в себя следующие пять шагов:
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>Шаг 1. Подготовка образа для передачи
 Из виртуальной машины, где была установлена операционная система FreeBSD, сделайте следующее:
@@ -52,12 +52,7 @@ ms.lasthandoff: 04/27/2017
         # service netif restart
 2. Включите SSH.
 
-    SSH включается по умолчанию после установки с диска. Если по какой-либо причине он не включен или вы используете непосредственно виртуальный жесткий диск FreeBSD, введите следующую команду:
-
-        # echo 'sshd_enable="YES"' >> /etc/rc.conf
-        # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
-        # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-        # service sshd restart
+    Убедитесь, что SSH-сервер установлен и настроен для включения во время загрузки. Он включается по умолчанию после установки с диска FreeBSD. 
 3. Настройте последовательную консоль.
 
         # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
@@ -67,16 +62,16 @@ ms.lasthandoff: 04/27/2017
     Учетная запись root в Azure отключена. Поэтому вам необходимо использовать sudo от лица непривилегированного пользователя для запуска команд с повышенными привилегиями.
 
         # pkg install sudo
-   ;
+   
 5. Необходимые условия для агента Azure.
 
         # pkg install python27  
-        # pkg install Py27-setuptools27   
+        # pkg install Py27-setuptools  
         # ln -s /usr/local/bin/python2.7 /usr/bin/python   
         # pkg install git
 6. Установите агент Azure.
 
-    Последний выпуск агента Azure всегда можно найти на сайте [github](https://github.com/Azure/WALinuxAgent/releases). Версия 2.0.10 и более поздние версии официально поддерживают FreeBSD 10 и 10.1, а версия 2.1.4 официально поддерживает FreeBSD 10.2 и более поздние версии.
+    Последний выпуск агента Azure всегда можно найти на сайте [github](https://github.com/Azure/WALinuxAgent/releases). Версия 2.0.10 и более поздние версии официально поддерживают FreeBSD 10 и 10.1, а версия 2.1.4 и более поздние (включая 2.2.x) официально поддерживает FreeBSD 10.2 и более поздние версии.
 
         # git clone https://github.com/Azure/WALinuxAgent.git  
         # cd WALinuxAgent  
@@ -109,8 +104,8 @@ ms.lasthandoff: 04/27/2017
         # waagent -version
         WALinuxAgent-2.1.4 running on freebsd 10.3
         Python: 2.7.11
-        # service –e | grep waagent
-        /etc/rc.d/waagent
+        # ps auxw | grep waagent
+        root   639   0.0  0.5 104620 17520 u0- I    05:17    0:00.20 python /usr/local/sbin/waagent -daemon (python2.7)
         # cat /var/log/waagent.log
 7. Отзовите систему.
 
@@ -181,7 +176,7 @@ ms.lasthandoff: 04/27/2017
    Дополнительные сведения об установке и настройке PowerShell см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="step-4-upload-the-vhd-file"></a>Шаг 4. Загрузка файла VHD
-При передаче VHD-файла его можно поместить в любом месте внутри хранилища BLOB-объектов. Ниже приведены некоторые термины, которые будут использоваться при передаче файла.
+При передаче VHD-файла его можно поместить в любом месте внутри хранилища BLOB-объектов. Ниже приведены некоторые термины, которые будут использоваться при отправке файла.
 
 * **BlobStorageURL** — URL-адрес для учетной записи хранения, созданной на шаге 2.
 * **YourImagesFolder** — контейнер внутри хранилища BLOB-объектов, где будут храниться образы.

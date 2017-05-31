@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: fb660384f2f9f569bcfbe7fa7d5c1f7ce772cacd
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: ba842028ecda47b8011cba948d7c92417214c2d0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -85,7 +86,12 @@ ms.lasthandoff: 04/20/2017
 ## <a name="restore"></a>Восстановление
 При восстановлении файл архивной копии должен находиться в учетной записи хранения, настроенной для вашего сервера. Если нужно переместить файл архивной копии из локального расположения в учетную запись хранилища, используйте [обозреватель хранилищ Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) или служебную программу командной строки [AzCopy](../storage/storage-use-azcopy.md). 
 
-Если вы восстанавливаете табличную базу данных модели 1200 с локального сервера SQL Server Analysis Services, нужно сначала удалить всех пользователей домена из ролей модели, а затем добавить их в роли в качестве пользователей Azure Active Directory. Роли будут совпадать.
+
+
+> [!NOTE]
+> Если вы восстанавливаете табличную базу данных модели с локального сервера SQL Server Analysis Services, нужно сначала удалить всех пользователей домена из ролей модели, а затем добавить их в роли в качестве пользователей Azure Active Directory. Роли будут совпадать.
+> 
+> 
 
 ### <a name="to-restore-by-using-ssms"></a>Восстановление с помощью SSMS
 

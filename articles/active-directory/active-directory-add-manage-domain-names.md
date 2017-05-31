@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 77d857e8d692f8bf47e00d655071a825533290b6
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: b1ea25a3ec4c10d1821ea876055b15e38d269432
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -58,7 +60,7 @@ ms.openlocfilehash: 77d857e8d692f8bf47e00d655071a825533290b6
 Перед удалением личного доменного имени необходимо изменить или удалить каждый такой ресурс в каталоге Azure AD.
 
 ## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Использование PowerShell или API Graph для управления доменными именами
-Большинство задач по управлению доменными именами в Azure Active Directory также можно выполнить с помощью Microsoft PowerShell или программными средствами с помощью API Graph Azure AD (в общедоступной предварительной версии).
+Большинство задач по управлению доменными именами в Azure Active Directory также можно выполнить с помощью Microsoft PowerShell или программными средствами с помощью API Graph Azure AD.
 
 * [Управление доменными именами в Azure AD с помощью PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Управление именами доменов в Azure AD с помощью API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
@@ -66,10 +68,5 @@ ms.openlocfilehash: 77d857e8d692f8bf47e00d655071a825533290b6
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Дополнительные сведения об именах доменов в Azure AD](active-directory-add-domain-concepts.md)
 * [Управление именами пользовательских доменов](active-directory-add-manage-domain-names.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
-ms.openlocfilehash: 9f8635cd028d7d0d6a69faf6c2dc1de05dc5bb36
-ms.lasthandoff: 12/02/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: c7ccd172440ae36844c7a5863a9f9d55a05411f9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -175,6 +176,9 @@ ms.lasthandoff: 12/02/2016
 ## <a name="performance-considerations-for-using-adlcopy"></a>Рекомендации по производительности при использовании AdlCopy
 
 AdlCopy поддерживает копирование данных, содержащих тысячи файлов и папок. Тем не менее, если при копировании большого набора данных возникают проблемы, то вы можете распределить файлы и папки по вложенным папкам меньшего размера. Инструмент AdlCopy был создан для выполнения задач копирования при необходимости. Если требуется копировать данные на регулярной основе, то лучше воспользоваться [фабрикой данных Azure](../data-factory/data-factory-azure-datalake-connector.md), которая предоставляет возможности полного управления операциями копирования.
+
+## <a name="release-notes"></a>Заметки о выпуске
+* 1.0.13 — при копировании данных в одну и ту же учетную запись Azure Data Lake Store в нескольких командах adlcopy больше не требуется повторно вводить свои учетные данные для каждого запуска. Теперь Adlcopy будет кэшировать эти данные в нескольких запусках.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)

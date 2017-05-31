@@ -13,30 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: e1b3e9756e149c5cba67f8b5c37e1d153dbf81ab
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7fd0ace35cfe0286c874e4a75b733053aa945d39
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Управление виртуальными сетями Azure и виртуальными машинами Windows с помощью Azure PowerShell
 
-Это руководство содержит сведения о создании нескольких виртуальных машин (ВМ) в виртуальной сети и настройке сетевого взаимодействия между ними. После завершения работы "интерфейсная" виртуальная машина будет доступна из Интернета через порт 80 для HTTP-подключений. "Серверная" виртуальная машина с базой данных SQL Server будет изолирована и доступна только из интерфейсной виртуальной машины через порт 1433.
+Виртуальные машины Azure осуществляют внутреннее и внешнее взаимодействие через сеть Azure. Это руководство содержит сведения о создании нескольких виртуальных машин (ВМ) в виртуальной сети и настройках сетевого взаимодействия между ними. Вы узнаете, как выполнять следующие задачи:
 
-Для работы с этим руководством можно использовать последнюю версию модуля [Azure PowerShell](/powershell/azure/overview).
+> [!div class="checklist"]
+> * Создать виртуальную сеть
+> * Создание подсетей виртуальных сетей
+> * Управление сетевым трафиком с помощью групп безопасности сети
+> * Просмотр правил трафика в действии
+
+Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-vnet"></a>Создание виртуальной сети
 
 Виртуальная сеть — это представление вашей собственной сети в облаке. Это логическая изоляция облака Azure, выделенного для вашей подписки. В виртуальной сети находятся подсети, правила для их взаимодействия и подключения от виртуальных машин к подсетям.
 
-Прежде чем создавать другие ресурсы Azure, нужно создать группу ресурсов с помощью командлета [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). В следующем примере создается группа ресурсов *myRGNetwork* в расположении *westus*.
+Прежде чем создавать другие ресурсы Azure, нужно создать группу ресурсов с помощью командлета [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Следующий пример позволяет создать группу ресурсов *myRGNetwork* в расположении *EastUS*.
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
 Подсеть является дочерним ресурсом виртуальной сети, который помогает определить сегменты адресных пространств в пределах блока CIDR на основе префиксов IP-адресов. Сетевые карты можно добавлять в подсети и подключать к виртуальным машинам, обеспечивая сетевые подключения для различных рабочих нагрузок.
@@ -54,7 +60,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 ```powershell
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $frontendSubnet
@@ -69,7 +75,7 @@ $vnet = New-AzureRmVirtualNetwork `
 ```powershell
 $pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIPAddress
 ```
@@ -80,7 +86,7 @@ $pip = New-AzureRmPublicIpAddress `
 ```powershell
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myFrontendNic `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id
@@ -122,7 +128,7 @@ $frontendVM = Add-AzureRmVMNetworkInterface `
     -Id $frontendNic.Id
 New-AzureRmVM `
     -ResourceGroupName myRGNetwork `
-    -Location westus `
+    -Location EastUS `
     -VM $frontendVM
 ```
 
@@ -184,7 +190,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
 ```powershell
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myBackendNSG `
   -SecurityRules $nsgBackendRule
 ```
@@ -213,7 +219,7 @@ $vnet = Get-AzureRmVirtualNetwork `
 ```powershell
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myBackendNic `
   -SubnetId $vnet.Subnets[1].Id
 ```
@@ -254,7 +260,7 @@ $backendVM = Add-AzureRmVMNetworkInterface `
   -Id $backendNic.Id
 New-AzureRmVM `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -VM $backendVM
 ```
 
@@ -262,6 +268,16 @@ New-AzureRmVM `
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В этом руководстве вы узнали о создании и защите сетей Azure с точки зрения виртуальных машин. Перейдите к следующему руководству, чтобы узнать о мониторинге защиты виртуальных машин с помощью центра безопасности Azure.
+В этом руководстве вы создали и защитили сети Azure с точки зрения виртуальных машин. 
 
-[Мониторинг защиты виртуальных машин с помощью центра безопасности Azure](./tutorial-azure-security.md)
+> [!div class="checklist"]
+> * Создать виртуальную сеть
+> * Создание подсетей виртуальных сетей
+> * Управление сетевым трафиком с помощью групп безопасности сети
+> * Просмотр правил трафика в действии
+
+Перейдите к следующему руководству, чтобы узнать о мониторинге защиты данных на виртуальных машинах с помощью службы архивации Azure. .
+
+> [!div class="nextstepaction"]
+> [Архивация виртуальных машин Windows в Azure](./tutorial-backup-vms.md)
+

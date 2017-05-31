@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: b4baa3396d28aeb1b4ada7f644a3146dde527fda
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 8fd5fe4141f24ed0d98251e9c589b7fea5ee3f1c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -34,6 +35,14 @@ ms.lasthandoff: 03/28/2017
 Журналы потоков для групп безопасности сети — это компонент Наблюдателя за сетями, который позволяет просматривать сведения о входящем и исходящем IP-трафике через группу безопасности сети. Эти журналы потоков записываются в формате JSON. В них отображаются входящие и исходящие потоки по каждому правилу, сетевая карта, с которой связан поток, сведения о 5 кортежах потока (IP-адрес источника и места назначения, порт источника и места назначения, протокол), а также сведения о состоянии трафика (разрешен или запрещен).
 
 В этой статье используется кроссплатформенной Azure CLI 1.0, доступный для Windows, Mac и Linux. Наблюдатель за сетями в настоящее время использует Azure CLI 1.0 в качестве интерфейса командной строки.
+
+## <a name="register-insights-provider"></a>Регистрация поставщика Microsoft Insights
+
+Для успешного ведения журналов потоков должен быть зарегистрирован поставщик **Microsoft.Insights**. Если вы не знаете, зарегистрирован ли поставщик **Microsoft.Insights**, выполните следующий сценарий.
+
+```azurecli
+azure provider register --namespace Microsoft.Insights --subscription <subscriptionid>
+```
 
 ## <a name="enable-network-security-group-flow-logs"></a>Включение журналов потоков для группы безопасности сети
 

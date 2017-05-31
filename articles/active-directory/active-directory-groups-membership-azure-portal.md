@@ -1,5 +1,6 @@
 ---
-title: "Управление группами, к которым относится ваша группа, в предварительной версии Azure Active Directory | Документация Майкрософт"
+
+title: "Управление группами, к которым относится ваша группа, в Azure Active Directory | Документы Майкрософт"
 description: "В Azure Active Directory группы могут содержать другие группы. Вот как можно управлять членством такого типа."
 services: active-directory
 documentationcenter: 
@@ -12,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 8e0563f3490186a19dd9418ebf7beac7dd8dd046
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 08e04a6590176c4084ca47b4bd6cbb22500eca2d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Управление тем, к каким группам относится группа в клиенте Azure Active Directory
-В предварительной версии Azure Active Directory группы могут содержать другие группы. [Что есть в предварительной версии?](active-directory-preview-explainer.md) Вот как можно управлять членством такого типа.
+В Azure Active Directory группы могут содержать другие группы. Вот как можно управлять членством такого типа.
 
 ## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>Как можно узнать, участником каких групп является моя группа?
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
@@ -34,7 +36,7 @@ ms.lasthandoff: 03/01/2017
 
    ![Открытие колонки группы](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
 4. Выберите группу в колонке **Пользователи и группы — Все группы** .
-5. В колонке **Группа — *имя_группы*** выберите **Членства в группах**.
+5. В колонке ***Группа —* имя_группы** выберите **Членства в группах**.
 
    ![Открытие колонки "Участие в группах"](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
 6. Чтобы добавить группу в качестве участника в другую группу, в колонке **Группа — Членства в группах** выберите команду **Добавить**.

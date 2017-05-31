@@ -1,5 +1,5 @@
 ---
-title: "Управление именами личных доменов в предварительной версии Azure Active Directory | Документация Майкрософт"
+title: "Управление именами личных доменов в Azure Active Directory | Документация Майкрософт"
 description: "Основные принципы и указания по управлению доменным именем в Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9dd64868be0899ebfc6414e0dc9e6e62d864e88e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: b483dcce0bec933e5dab6c990f4912cb596ebda0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="managing-custom-domain-names-in-your-azure-active-directory-preview"></a>Управление именами личных доменов в предварительной версии Azure Active Directory
-Доменное имя является важной частью идентификатора для различных ресурсов каталога: имени пользователя, адреса электронной почты пользователя и адреса группы. Оно также может входить в URI идентификатора приложения. Ресурс в предварительной версии Azure Active Directory (Azure AD) может включать в себя доменное имя, которое уже проверено на принадлежность к каталогу, содержащему данный ресурс. [Что есть в предварительной версии?](active-directory-preview-explainer.md) Задачи управления доменами в Azure AD может выполнять только глобальный администратор.
+# <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Управление личными доменными именами в Azure Active Directory
+Доменное имя является важной частью идентификатора для различных ресурсов каталога: имени пользователя, адреса электронной почты пользователя и адреса группы. Оно также может входить в URI идентификатора приложения. Для использования в ресурсе Azure Active Directory (Azure AD) доменное имя должно принадлежать каталогу, содержащему ресурс. Задачи управления доменами в Azure AD может выполнять только глобальный администратор.
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Установка основного доменного имени для каталога Azure AD
 При создании каталога исходное доменное имя, например contoso.onmicrosoft.com, также становится основным доменным именем Основной домен задает доменное имя по умолчанию, применяемое для каждого создаваемого пользователя. Это упрощает процесс создания новых пользователей на портале для администратора. Чтобы изменить основное доменное имя, выполните следующее.
@@ -59,17 +61,12 @@ ms.openlocfilehash: 9dd64868be0899ebfc6414e0dc9e6e62d864e88e
 Перед удалением личного доменного имени необходимо изменить или удалить каждый такой ресурс в каталоге Azure AD.
 
 ## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Использование PowerShell или API Graph для управления доменными именами
-Большинство задач по управлению доменными именами в Azure Active Directory также можно выполнить с помощью Microsoft PowerShell или программными средствами с помощью API Graph Azure AD (в общедоступной предварительной версии).
+Большинство задач по управлению доменными именами в Azure Active Directory также можно выполнить с помощью Microsoft PowerShell или программными средствами с помощью API Graph Azure AD.
 
 * [Управление доменными именами в Azure AD с помощью PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Управление именами доменов в Azure AD с помощью API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Добавление имен личных доменов](active-directory-domains-add-azure-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

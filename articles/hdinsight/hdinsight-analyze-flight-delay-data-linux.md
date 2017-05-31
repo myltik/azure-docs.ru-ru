@@ -13,13 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 05/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6c92292a67d14ac43c0fe5dbe7e14672c74b216b
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: cf460eed4bd290fbdcb9670a4ec4999f4c96c275
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Анализ данных о задержке рейсов с помощью Hive в HDInsight на платформе Linux
@@ -76,7 +77,7 @@ ms.lasthandoff: 04/11/2017
     unzip FILENAME.zip
     ```
 
-    Она извлечет в CSV-файл, размер которого приблизительно 60 МБ.
+    Она извлекает CSV-файл, размер которого приблизительно 60 МБ.
 
 4. Используйте следующую команду для создания каталога в хранилище HDInsight, затем скопируйте данный файл в этот каталог.
 
@@ -95,7 +96,7 @@ ms.lasthandoff: 04/11/2017
     nano flightdelays.hql
     ```
 
-    В качестве содержимого файла добавьте следующий текст.
+    В качестве содержимого файла добавьте следующий текст:
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -157,9 +158,9 @@ ms.lasthandoff: 04/11/2017
     FROM delays_raw;
     ```
 
-2. Нажмите клавиши **Ctrl + X**, а затем **Y** (Да) для сохранения файла.
+2. Нажмите клавиши **CTRL+X**, а затем **Y** (Да) для сохранения файла.
 
-3. Используйте следующую команду для запуска Hive и выполнения файла **flightdelays.hql**.
+3. Для запуска Hive и выполнения файла **flightdelays.hql** используйте следующую команду:
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
@@ -194,7 +195,7 @@ ms.lasthandoff: 04/11/2017
 
 Если у вас уже имеется база данных SQL, необходимо получить имя сервера. Его можно найти на [портале Azure](https://portal.azure.com), выбрав **Базы данных SQL** и применив фильтр по имени базы данных, которую вы хотите использовать. Имя сервера указано в столбце **СЕРВЕР** .
 
-Если у вас еще нет базы данных SQL, создайте ее, ознакомившись с разделом [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](../sql-database/sql-database-get-started.md) . Необходимо сохранить имя сервера, используемого для базы данных.
+Если у вас еще нет базы данных SQL, создайте ее, ознакомившись с разделом [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](../sql-database/sql-database-get-started.md) . Сохраните имя сервера, используемое для базы данных.
 
 ## <a name="create-a-sql-database-table"></a>Создание таблицы базы данных SQL
 
@@ -237,23 +238,23 @@ ms.lasthandoff: 04/11/2017
     GO
     ```
 
-    Если вводится инструкция `GO`, то оцениваются предыдущие инструкции. Будет создана таблица **delays** с кластеризованным индексом.
+    Если вводится инструкция `GO`, то оцениваются предыдущие инструкции. Этот запрос создает таблицу **delays** с кластеризованным индексом.
 
-    Используйте следующую команду для проверки создания таблицы:
+    Используйте следующий запрос команду для проверки создания таблицы.
 
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    Выход аналогичен приведенному ниже:
+    Результат будет аналогичен приведенному ниже:
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
     databaseName       dbo     delays      BASE TABLE
     ```
 
-5. В командной строке `exit` at the `1>` , чтобы выйти из служебной программы tsql.
+5. Enter `exit` at the `1>` , чтобы выйти из служебной программы tsql.
 
 ## <a name="export-data-with-sqoop"></a>Экспорт данных с помощью Sqoop
 

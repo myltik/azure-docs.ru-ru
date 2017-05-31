@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 05/04/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ca390e1e93660eb27c08d1fce0574c6e3646a329
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: bcf6e433e06da18df8e6addc3762a684cdab8101
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="use-datafu-with-pig-on-hdinsight"></a>Использование DataFu с Pig в HDInsight
 
-DataFu — это коллекция библиотек с открытым исходным кодом, предназначенных для использования с Hadoop. В этом документе вы узнаете, как использовать DataFu в кластере HDInsight и как применять определяемые пользователем функции DataFu с Pig.
+Узнайте, как использовать DataFu с HDInsight. DataFu — это коллекция библиотек с открытым исходным кодом, предназначенных для использования с Pig в Hadoop.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -33,7 +34,7 @@ DataFu — это коллекция библиотек с открытым ис
 * Кластер Azure HDInsight (на платформе Linux или Windows)
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе [Что представляют собой различные компоненты и версии Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)
 
 * Краткое знакомство с [использованием Pig в HDInsight](hdinsight-use-pig.md)
 
@@ -54,25 +55,25 @@ DataFu можно скачать и установить из репозитор
     wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
     ```
 
-3. Затем загрузите файл в хранилище по умолчанию для кластера HDInsight. В результате файл становится доступным для всех узлов в кластере и остается в хранилище даже в случае удаления и повторного создания кластера.
+3. Затем загрузите файл в хранилище по умолчанию для кластера HDInsight. Размещение файла в хранилище по умолчанию хранилища делает его доступным для всех узлов в кластере.
 
     ```
     hdfs dfs -put datafu-1.2.0.jar /example/jars
     ```
 
     > [!NOTE]
-    > Приведенный выше пример сохраняет JAR-файл в `/example/jars`, так как этот каталог уже существует в хранилище кластера. Можно использовать любое расположение в хранилище кластера HDInsight.
+    > Предыдущая команда сохраняет JAR-файл в `/example/jars`, так как этот каталог уже существует в хранилище кластера. Можно использовать любое расположение в хранилище кластера HDInsight.
 
 ## <a name="use-datafu-with-pig"></a>Использование DataFu с Pig
 
-В описанных здесь действиях предполагается, что вы знакомы с использованием Pig в HDInsight, и приводятся только операторы Pig Latin без описания их использования с кластером. Дополнительные сведения об использовании Pig с HDInsight см. в статье [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md).
+При выполнении шагов в этом разделе предполагается, что вы знакомы с использованием Pig в HDInsight. Дополнительные сведения об использовании Pig с HDInsight см. в статье [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md).
 
 > [!IMPORTANT]
 > При использовании DataFu из Pig в кластере HDInsight под управлением Linux необходимо сначала зарегистрировать JAR-файл.
 >
-> Если ваш кластер использует службу хранилища Azure, необходимо использовать путь `wasb://`. Например, `register wasb:///example/jars/datafu-1.2.0.jar`.
+> Если ваш кластер использует службу хранилища Azure, используйте путь `wasb://`. Например, `register wasb:///example/jars/datafu-1.2.0.jar`.
 >
-> Если ваш кластер использует Azure Data Lake Store, необходимо использовать путь `adl://`. Например, `register adl://home/example/jars/datafu-1.2.0.jar`.
+> Если ваш кластер использует Azure Data Lake Store, используйте путь `adl://`. Например, `register adl://home/example/jars/datafu-1.2.0.jar`.
 >
 > В кластерах HDInsight под управлением Windows DataFu регистрируется по умолчанию.
 
@@ -80,17 +81,19 @@ DataFu можно скачать и установить из репозитор
 
     DEFINE SHA datafu.pig.hash.SHA();
 
-Здесь определяется псевдоним с именем `SHA` для функции хэширования SHA. Затем его можно использовать в скрипте Pig Latin в целях создания хэша для входных данных. Например, следующий код заменяет имена во входных данных на хэш-значение:
+Эта инструкция определяет псевдоним с именем `SHA` для функции хэширования SHA. Затем псевдоним можно использовать в скрипте Pig Latin в целях создания хэша для входных данных. Например, следующий код заменяет имена во входных данных на хэш-значение:
 
-    raw = LOAD '/data/raw/' USING PigStorage(',') AS  
-        (name:chararray,
-        int1:int,
-        int2:int,
-        int3:int);
-    mask = FOREACH raw GENERATE SHA(name), int1, int2, int3;
-    DUMP mask;
+```piglatin
+raw = LOAD '/data/raw/' USING PigStorage(',') AS  
+    (name:chararray,
+    int1:int,
+    int2:int,
+    int3:int);
+mask = FOREACH raw GENERATE SHA(name), int1, int2, int3;
+DUMP mask;
+```
 
-Если используются следующие входные данные:
+Если этот код используется со следующими входными данными:
 
     Lana Zemljaric,5,9,1
     Qiong Zhong,9,3,6

@@ -14,10 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 51c6a8ae17821d4eb00bf26612bc6e1e434ebbd9
-ms.lasthandoff: 04/17/2017
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 27c582436bd57adfb5e8edb0f63c0f206db66c89
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -31,6 +33,7 @@ ms.lasthandoff: 04/17/2017
 * [OAuth 2.0 в Azure AD](active-directory-protocols-oauth-code.md) — сведения о реализации протокола OAuth 2.0 в Azure AD.
 * [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) — сведения об использовании протокола авторизации OAuth 2.0 для проверки подлинности.
 * [Служба обслуживания вызовов с помощью учетных данных клиента](active-directory-protocols-oauth-service-to-service.md) — сведения об использовании потока предоставления учетных данных клиента OAuth 2.0 для вызовов между службами.
+* [Служба обслуживания вызовов с помощью потока On-Behalf-Of](active-directory-protocols-oauth-on-behalf-of.md) — сведения об использовании потока On-Behalf-Of OAuth 2.0 для вызовов между службами.
 * [Справочник по протоколу SAML](active-directory-saml-protocol-reference.md) — сведения о профилях единого входа и единого выхода SAML в Azure AD.
 
 ## <a name="see-also"></a>См. также
@@ -39,5 +42,4 @@ ms.lasthandoff: 04/17/2017
 [Использование Azure AD для проверки подлинности](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Примеры кода Active Directory](active-directory-code-samples.md)
-
 

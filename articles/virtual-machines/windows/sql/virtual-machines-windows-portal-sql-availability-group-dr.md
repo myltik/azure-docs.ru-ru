@@ -14,19 +14,20 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/09/2017
+ms.date: 05/02/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 088f9fc332f04edfd154450726c4e175ccaf3db3
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: e9a2c3230ec5081a0cfb57ef1dbf311a87bb26b5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
 
-# <a name="configure-a-sql-server-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Настройка группы доступности AlwaysOn на виртуальных машинах Azure в разных регионах
+# <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Настройка группы доступности AlwaysOn на виртуальных машинах Azure в разных регионах
 
-В этой статье описывается, как настроить группу доступности AlwaysOn SQL Server на виртуальных машинах Azure в удаленном регионе. Эту конфигурацию можно использовать для поддержки аварийного восстановления.
+В этой статье описывается, как настроить группу доступности AlwaysOn SQL Server на виртуальных машинах Azure в удаленном регионе Azure. Эту конфигурацию можно использовать для поддержки аварийного восстановления.
 
 Данная статья относится к виртуальным машинам Azure в режиме Resource Manager.
 

@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/05/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 7899df8a09b6f5c8bc916bb6ad872afa3844e425
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 00fb88afe9ee107543aa7557ff0953d066d05bfd
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -69,7 +70,7 @@ ms.lasthandoff: 04/15/2017
 
 ## <a name="offers-and-pricing-tiers"></a>Предложения и ценовые категории
 
-В следующей таблице указаны решения для управления, относящиеся к различным предложениям по управлению операциями и защите.
+В следующей таблице указаны решения для управления, относящиеся к каждому предложению Operations Management Suite.
 В таблице также указаны ценовые категории, доступные для каждого для решения управления.
 Все решения в приведенной таблице доступны на портале Azure и в коллекции решений на портале Log Analytics.
 

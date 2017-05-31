@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 569777b7034ebeccddf6d9ef89ee2f9fb667cc3f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 40eb1d80830818a492c78d5091aaa9cca8d48f16
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -68,7 +69,7 @@ ms.lasthandoff: 04/12/2017
 * **Устаревшие протоколы.** Устаревшие протоколы можно заблокировать с помощью служб федерации Active Directory. Это позволит заблокировать доступ для старых клиентов Office, например Office 2013, не поддерживающих современную проверку подлинности, и более ранних версий Office.
 
 ### <a name="use-ad-fs-to-block-legacy-protocol"></a>Блокирование устаревших протоколов с помощью служб федерации Active Directory
-Используйте следующие примеры правил, чтобы заблокировать доступ устаревших протоколов на уровне служб федерации Active Directory. Выберите одну из двух распространенных конфигураций.
+Используйте следующие примеры правил авторизации выдачи, чтобы заблокировать доступ устаревших протоколов на уровне служб федерации Active Directory. Выберите одну из двух распространенных конфигураций.
 
 #### <a name="option-1-allow-exchange-activesync-and-allow-legacy-apps-but-only-on-the-intranet"></a>Вариант 1. Разрешить Exchange ActiveSync и разрешить устаревшие приложения только в интрасети.
 Применяя следующие три правила к отношению доверия с проверяющей стороной служб федерации Active Directory для платформы удостоверений Microsoft Office 365, вы разрешите трафик Exchange ActiveSync, трафик в браузере и трафик современной проверки подлинности. Доступ устаревших приложений из экстрасети будет заблокирован.

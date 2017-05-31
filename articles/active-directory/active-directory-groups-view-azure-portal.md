@@ -1,6 +1,7 @@
 ---
-title: "Просмотр всех существующих групп в предварительной версии Azure Active Directory | Документация Майкрософт"
-description: "Сведения о том, как просматривать или искать группы в предварительной версии Azure Active Directory"
+
+title: "Просмотр всех существующих групп в Azure Active Directory | Документы Майкрософт"
+description: "Сведения о том, как просматривать или искать группы в Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 3546ae6951a514108e62f8840a601930aa1ac4c2
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1cc8b9194433840df9ce16baf1a0ec2c3dd08ad9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Просмотр или поиск групп пользователей в Azure Active Directory
-В этой статье объясняется, как просмотреть все группы в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md) Одной из функций управления пользователями в Azure Active Directory (Azure AD) является возможность создания групп, которые можно заполнять пользователями. Группа используется для выполнения таких задач управления, как одновременное назначение лицензий или разрешений нескольким пользователям.
+В этой статье объясняется, как просмотреть все группы в Azure Active Directory (Azure AD). Одной из возможностей управления пользователями Azure AD является использование групп пользователей для выполнения задач управления, например назначение лицензий или разрешений нескольким пользователям одновременно.
 
 ## <a name="how-do-i-see-all-the-groups"></a>Как можно просмотреть все группы?
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.

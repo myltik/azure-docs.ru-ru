@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3482d50b19f8ad9a4db041abe67942e9e7d1931b
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a61cf0ffce8bede930744d445df88dde22061a59
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -117,7 +118,7 @@ ms.lasthandoff: 04/03/2017
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
 
-    А. В текстовом поле **Идентификатор** введите **идентификатор сущности**, скопированный с портала LinkedIn. 
+    а. В текстовом поле **Идентификатор** введите **идентификатор сущности**, скопированный с портала LinkedIn. 
 
     b. В текстовом поле **URL-адрес ответа** введите **URL-адрес службы обработчика утверждений (ACS)**, скопированный с портала LinkedIn.
 
@@ -137,13 +138,13 @@ ms.lasthandoff: 04/03/2017
     | --- | --- |    
     | department| user.department |
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
+   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
 
-       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
+   а. Щелкните "Добавить атрибут", чтобы открыть страницу сведений об атрибутах. Добавьте атрибут department, как показано ниже.
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/adduserattribute.png)
+   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinLearning-tutorial/adduserattribute.png)
    
-       b. Click on **Ok** to save the attribute.
+   b. Нажмите кнопку **ОК**, чтобы сохранить атрибут.
 
 10. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните XML-файл на компьютере.
 
@@ -253,3 +254,4 @@ ms.lasthandoff: 04/03/2017
 [201]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_203.png
+

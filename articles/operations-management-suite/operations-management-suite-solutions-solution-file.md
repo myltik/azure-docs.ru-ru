@@ -15,10 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 742405395a3da792d0df01d7393a6e7fc7a55842
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -94,8 +95,8 @@ ms.lasthandoff: 03/22/2017
 | workspaceName |строка |Имя рабочей области Log Analytics. |
 | workspaceRegionId |строка |Регион рабочего пространства Log Analytics. |
 
-### <a name="sample"></a>Образец
-Далее указан пример сущности параметра для решения.  Он включает все стандартные параметры и два дополнительных параметра в одной категории.
+
+Ниже приведена структура стандартных параметров, которую можно скопировать и вставить в файл решения.  
 
     "parameters": {
         "workspaceName": {
@@ -126,22 +127,6 @@ ms.lasthandoff: 03/22/2017
             "type": "string",
             "metadata": {
                 "description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-        },
-        "jobIdGuid": {
-        "type": "string",
-            "metadata": {
-                "description": "GUID for a runbook job",
-                "control": "guid",
-                "category": "Schedule"
-            }
-        },
-        "startTime": {
-            "type": "string",
-            "metadata": {
-                "description": "Time for starting the runbook.",
-                "control": "datetime",
-                "category": "Schedule"
             }
         }
     }

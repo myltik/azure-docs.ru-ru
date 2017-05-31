@@ -1,4 +1,5 @@
 ---
+
 title: "Использование групп для управления доступом к ресурсам в Azure Active Directory | Документация Майкрософт"
 description: "Как использовать группы в Azure Active Directory для управления доступом пользователей к локальным и облачным приложениям и ресурсам."
 services: active-directory
@@ -12,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: ac3f563828c5fa379f328392a3f5cf7c7932f534
-ms.openlocfilehash: 4cde8be3daed2f40b24218726ad8d76455d224ac
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 27ce2b472cd10d8c6e9bbfb64588a824980fb656
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Управление доступом к ресурсам с помощью групп Azure Active Directory
-Azure Active Directory (Azure AD) — это комплексное решение для управления удостоверениями и доступом. Оно предоставляет широкий набор возможностей для управления доступом к локальным и облачным приложениям и ресурсам, в том числе к таким службам Microsoft Online Services, как Office 365, а также к многочисленным приложениям SaaS других разработчиков. В этой статье приводятся общие сведения. Если вы хотите немедленно приступить к использованию групп Azure AD, следуйте инструкциям в статье [Управление группами безопасности в Azure Active Directory](active-directory-accessmanagement-manage-groups.md). Дополнительные сведения об использовании PowerShell для управления группами в Azure Active Directory см. в статье [Командлеты предварительной версии Azure Active Directory для управления группами](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Azure Active Directory (Azure AD) — это комплексное решение для управления удостоверениями и доступом. Оно предоставляет широкий набор возможностей для управления доступом к локальным и облачным приложениям и ресурсам, в том числе к таким службам Microsoft Online Services, как Office 365, а также к многочисленным приложениям SaaS других разработчиков. В этой статье приводятся общие сведения. Если вы хотите немедленно приступить к использованию групп Azure AD, следуйте инструкциям в статье [Управление группами безопасности в Azure Active Directory](active-directory-accessmanagement-manage-groups.md). Дополнительные сведения об использовании PowerShell для управления группами в Azure Active Directory см. в статье [Командлеты Azure Active Directory для управления группами](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 > [!NOTE]
 > Чтобы использовать Azure Active Directory, необходима учетная запись Azure. Если у вас нет учетной записи, вы можете [зарегистрироваться для получения бесплатной учетной записи Azure](https://azure.microsoft.com/pricing/free-trial/).

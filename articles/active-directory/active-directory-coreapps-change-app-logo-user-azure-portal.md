@@ -1,5 +1,5 @@
 ---
-title: "Изменение имени или логотипа корпоративного приложения в предварительной версии Azure Active Directory | Документация Майкрософт"
+title: "Изменение имени или логотипа корпоративного приложения в Azure Active Directory | Документы Майкрософт"
 description: "Узнайте, как изменить имя или логотип настраиваемого корпоративного приложения в Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,22 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 541efc3bdc192d21fd75aa4de9d902adb70b6407
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 3e44e876dcbac704a9809ae5b3957bf94be21c48
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory-preview"></a>Изменение имени или логотипа корпоративного приложения в предварительной версии Azure Active Directory
-Вы можете легко изменить имя или логотип настраиваемого корпоративного приложения в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md) Для внесения этих изменений необходимы соответствующие разрешения. В текущей предварительной версии необходимо быть создателем настраиваемого приложения.
+# <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Изменение имени или логотипа корпоративного приложения в Azure Active Directory
+Вы можете легко изменить имя или логотип настраиваемого корпоративного приложения в Azure Active Directory (Azure AD). Для внесения этих изменений необходимо иметь соответствующие разрешения и быть создателем пользовательского приложения.
 
 ## <a name="how-do-i-change-an-enterprise-apps-name-or-logo"></a>Как изменить имя или логотип корпоративного приложения?
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Выберите **Другие службы**, введите **Azure Active Directory** в текстовое поле, а затем нажмите клавишу **ВВОД**.
-3. В колонке **Azure Active Directory -*имя_каталога***(то есть в колонке Azure AD для каталога, которым вы управляете) выберите**Корпоративные приложения**.
+3. В колонке **Azure Active Directory — *имя_каталога*** (то есть в колонке Azure AD для каталога, которым вы управляете) выберите **Корпоративные приложения**.
 
     ![Открытие колонки "Корпоративные приложения"](./media/active-directory-coreapps-change-app-logo-azure-portal/open-enterprise-apps.png)
 4. В колонке **Корпоративные приложения** выберите **Все приложения**. Отобразится список приложений, которыми можно управлять.

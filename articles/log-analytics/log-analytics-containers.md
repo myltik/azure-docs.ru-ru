@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 05/08/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: f5c5abc988cd363cafe8c07f83eb2686a83ee1a2
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 05dfdc3491e6c7f838f5e7e2c16951bc1328e32b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -44,11 +45,10 @@ Docker с OMS можно установить и использовать нес
 
 Вы можете ознакомиться с поддерживаемыми версиями Docker и операционными системами Linux для узла контейнера на портале [GitHub](https://github.com/Microsoft/OMS-docker).
 
-При наличии кластера Kubernetes, использующего службу контейнеров Azure, дополнительные сведения см. в статье [Мониторинг кластера службы контейнеров Azure с помощью Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
-
-При наличии кластера DC/OS в службе контейнеров Azure дополнительные сведения см. в статье [Мониторинг кластера DC/OS в службе контейнеров Azure с помощью Operations Management Suite](../container-service/container-service-monitoring-oms.md).
-
-Дополнительные сведения о том, как установить и настроить модули Docker на компьютерах под управлением Windows, см. в [этой статье](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+- При наличии кластера Kubernetes, использующего службу контейнеров Azure, дополнительные сведения см. в статье [Мониторинг кластера службы контейнеров Azure с помощью Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
+- При наличии кластера DC/OS в службе контейнеров Azure дополнительные сведения см. в статье [Мониторинг кластера DC/OS в службе контейнеров Azure с помощью Operations Management Suite](../container-service/container-service-monitoring-oms.md).
+- При использовании контейнеров в Service Fabric см. дополнительные сведения в разделе [Общие сведения о Service Fabric](../service-fabric/service-fabric-overview.md).
+- Дополнительные сведения о том, как установить и настроить модули Docker на компьютерах под управлением Windows, см. в [этой статье](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
 > [!IMPORTANT]
 > Docker необходимо запустить **перед** установкой [агента OMS для Linux](log-analytics-linux-agents.md) на узлах контейнера. Если вы уже установили агент перед установкой Docker, необходимо переустановить агент OMS для Linux. Дополнительные сведения о Docker см. на [веб-сайте Docker](https://www.docker.com).
@@ -59,15 +59,23 @@ Docker с OMS можно установить и использовать нес
 
 ## <a name="configure-settings-for-a-linux-container-host"></a>Настройка параметров для узла контейнера Linux
 
+Поддерживаемые версии Linux:
+
+- Docker 1.11–1.13
+- Docker CE и EE v17.03
+
+
 В качестве узлов контейнера поддерживаются следующие дистрибутивы Linux (x64):
 
 - Ubuntu 14.04 LTS, 16.04 LTS;
 - CoreOS (стабильный выпуск);
 - Amazon Linux 2016.09.0;
 - openSUSE 13.2
-- CentOS 7
+- openSUSE LEAP 42.2
+- CentOS 7.2, 7.3
 - SLES 12
-- RHEL 7.2;
+- RHEL 7.2, 7.3
+
 
 После установки Docker используйте приведенные ниже параметры узла контейнера, чтобы настроить агент для использования с Docker. Вам потребуется [идентификатор и ключ рабочей области OMS](log-analytics-linux-agents.md).
 
@@ -95,45 +103,43 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 ### <a name="docker-versions-supported-on-windows"></a>Версии Docker, поддерживаемые в Windows
 
 - Docker 1.12–1.13
+- Docker 17.03.0 [стабильная]
 
 ### <a name="preparation-before-installing-agents"></a>Подготовка к установке агентов
 
 Настройте службу Docker, прежде чем устанавливать агенты на компьютерах под управлением Windows. Конфигурация позволяет агенту Windows или расширению виртуальной машины Log Analytics использовать TCP-сокет Docker, чтобы агенты могли получить удаленный доступ к управляющей программе Docker и возможность получать данные мониторинга.
 
-Компьютеры под управлением Windows не поддерживают данные о производительности.
-
-Дополнительные сведения о настройке управляющей программы Docker под управлением Windows см. в статье [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) (Модуль Docker в Windows).
-
 #### <a name="to-start-docker-and-verify-its-configuration"></a>Запуск Docker и проверка его конфигурации
 
-1.    Включите канал TCP и именованный канал в Windows PowerShell.
+Для настройки именованного канала TCP для Windows Server выполните приведенные ниже действия.
+
+1. Включите канал TCP и именованный канал в Windows PowerShell.
 
     ```
     Stop-Service docker
     dockerd --unregister-service
-    dockerd -H npipe:// -H 0.0.0.0:2375 --register-service
+    dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
     Start-Service docker
     ```
 
-2.    Проверьте конфигурацию, выполнив команду netstat. Должен отобразиться порт 2375.
+2. Настройте Docker с помощью файла конфигурации для канала TCP и именованного канала. Файл конфигурации расположен в папке C:\ProgramData\docker\config\daemon.json.
+
+    В файле daemon.json потребуется следующее:
 
     ```
-    PS C:\Users\User1> netstat -a | sls 2375
-
-    TCP    127.0.0.1:2375         Win2016TP5:0           LISTENING
-    TCP    127.0.0.1:2375         Win2016TP5:49705       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49706       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49707       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49708       ESTABLISHED
-    TCP    127.0.0.1:49705        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49706        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49707        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49708        Win2016TP5:2375        ESTABLISHED
+    {
+    "hosts": ["tcp://0.0.0.0:2375", "npipe://"]
+    }
     ```
+
+Дополнительные сведения о настройке управляющей программы Docker, используемой в контейнерах Windows, см. в статье [Подсистема Docker в Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+
 
 ### <a name="install-windows-agents"></a>Установка агентов Windows
 
 Чтобы включить мониторинг контейнеров Windows и Hyper-V, установите агенты на компьютерах Windows, которые являются узлами контейнера. Сведения для компьютеров под управлением Windows в локальной среде см. в статье [Подключение компьютеров Windows к Log Analytics](log-analytics-windows-agents.md). Виртуальные машины, запущенные в Azure, следует подключить к Log Analytics с помощью [расширения виртуальной машины](log-analytics-azure-vm-extension.md).
+
+Вы можете отслеживать контейнеры Windows, запущенные в Service Fabric. Однако сейчас для Service Fabric поддерживаются только [виртуальные машины, работающие в Azure](log-analytics-azure-vm-extension.md), и [компьютеры под управлением Windows в локальной среде](log-analytics-windows-agents.md).
 
 Чтобы убедиться, что решение "Контейнеры" настроено правильно, сделайте следующее:
 
@@ -160,7 +166,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 | --- | --- | --- | --- | --- | --- | --- |
 | Таблицы Azure |![Да](./media/log-analytics-containers/oms-bullet-green.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |Каждые 3 минуты |
 
-В таблице ниже приведены примеры типов данных, собранных решением "Контейнеры", и типов данных, которые используются при поиске в журналах и в результатах. Тем не менее компьютеры под управлением Windows еще не поддерживают данные о производительности.
+В таблице ниже приведены примеры типов данных, собранных решением "Контейнеры", и типов данных, которые используются при поиске в журналах и в результатах.
 
 | Тип данных | Тип данных, используемый для поиска в журналах | Поля |
 | --- | --- | --- |

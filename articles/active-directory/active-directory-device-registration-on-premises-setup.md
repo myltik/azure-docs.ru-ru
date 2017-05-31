@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: fbc3807351a9d83e4bcc5ba0661001754621f430
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 7a9ec95348f4aa8a14a716a758fb362c1ede61b3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -112,10 +113,7 @@ ms.lasthandoff: 03/10/2017
    2. Установите и запустите Azure AD Connect. Для установки Azure AD Connect выполните следующие инструкции: [Выборочная установка Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
    3. Выполните проверку и управление синхронизацией каталогов. Инструкции по единому входу доступны на этом шаге.
    
-   > [!NOTE]
-   > Настройте федерацию с AD FS, как описано в документе по указанной выше ссылке. Функции предварительного просмотра настраивать не нужно.
-   > 
-   > 
+   Настройте федерацию с AD FS, как описано в разделе [Выборочная установка Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Обновление схемы доменных служб Active Directory
 > [!NOTE]

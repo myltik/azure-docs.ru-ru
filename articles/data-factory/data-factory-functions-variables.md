@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 05/16/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 74f2fafdf7355bbce37cf2bf98a6e709ebb7986e
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 95ffafb276009f0acfa9cd96b9d4e575bd6a9d28
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -94,7 +95,7 @@ ms.lasthandoff: 04/12/2017
 | Дата |StartOfDay(X) |X: DateTime  |Получает начало суток, представленных значением дня в параметре X.<br/><br/>Пример: StartOfDay для 15.09.2013 17:10:23 имеет значение 15.09.2013 00:00:00. |
 | DateTime |From(X) |X: String |Разбор строки X в значение даты и времени. |
 | DateTime |Ticks(X) |X: DateTime  |Получает свойство тактов времени параметра X. Один такт равен 100 наносекундам. Значение этого свойства соответствует количеству тактов, прошедших с полуночи (24:00:00) 1 января 0001 года. |
-| текст |Format(X) |X: String (переменная) |Форматирует текст. |
+| текст |Format(X) |X: String (переменная) |Форматирует текст (используйте комбинацию `\\'` для экранирования символа `'`).|
 
 > [!IMPORTANT]
 > При использовании функции внутри другой функции нет необходимости использовать для внутренней функции префикс **$$** . Например, $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). В этом примере обратите внимание, что префикс **$$** не используется для функции **Time.AddHours**. 
@@ -125,8 +126,8 @@ ms.lasthandoff: 04/12/2017
                     "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
                     "scriptLinkedService": "StorageLinkedService",
                     "defines": {
-                        "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+                        "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)",
+                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)"
                     },
                     "scheduler": {
                         "frequency": "Hour",
@@ -207,8 +208,8 @@ ms.lasthandoff: 04/12/2017
                     "scriptLinkedService": "StorageLinkedService",
                     "defines": {
                         "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
-                        "Month": "$$Text.Format('{0:%M}',WindowStart)",
-                        "Day": "$$Text.Format('{0:%d}',WindowStart)"
+                        "Month": "$$Text.Format('{0:MM}',WindowStart)",
+                        "Day": "$$Text.Format('{0:dd}',WindowStart)"
                     }
                 },
                 "scheduler": {

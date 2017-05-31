@@ -3,7 +3,7 @@ title: "Описание вариантов поддержки Azure Service Fab
 description: "Поддерживаемые версии кластера Service Fabric и ссылки для отправки запросов в службу поддержки."
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: pkc
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/10/2017
-ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 44e95f78b5fe592713570e53f2469c88202a02aa
-ms.lasthandoff: 03/11/2017
+ms.date: 05/05/2017
+ms.author: pkc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: f87aec3698addae135d4c934bb7217d9fae0e571
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -82,8 +83,14 @@ ms.lasthandoff: 03/11/2017
 | Все версии кластера до 5.3.121 |20 января 2017 г. |
 | 5.3.* |24 февраля 2017 г. |
 | 5.4.* |10 мая 2017 г.     |
-| 5.5.* |Текущая версия, дата окончания поддержки не определена.
+| 5.5.* |10 июля 2017 г.    |
+| 5.6.* |Текущая версия, дата окончания поддержки не определена.
 
+<a id="previewversion"></a>
+## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Предварительные версии Service Fabric не поддерживаются для использования в рабочей среде.
+Время от времени мы выпускаем версии с важными функциями, доступными в виде предварительных версий, отзывы по которым мы хотим получить. Эти предварительные версии следует использовать только для целей тестирования. На производственном кластере всегда должна быть запущена поддерживаемая стабильная версия Service Fabric. Предварительная версия всегда начинается с номера основной и вспомогательной версии, равного 255. Например, если отображается версия Service Fabric 255.255.5703.949, она является предварительной и ее следует использовать в тестовых кластерах. О выходе этих предварительных выпусков также объявляется в [блоге группы Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) и приводятся сведения о функциях, включенных в их состав.
+
+Возможность платной технической поддержки для этих предварительных выпусков отсутствует. Чтобы задать вопросы или отправить отзыв, воспользуйтесь одной из возможностей в разделе [Сообщение о проблемах Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -1,6 +1,6 @@
 ---
-title: "Использование Hadoop Pig с Curl в HDInsight | Документация Майкрософт"
-description: "Узнайте, как с помощью Curl выполнять задания Pig Latin в кластере Hadoop в Azure HDInsight."
+title: "Использование Hadoop Pig с REST в HDInsight | Документы Майкрософт"
+description: "Узнайте, как с помощью REST выполнять задания Pig Latin в кластере Hadoop в Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,65 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ed5df94ec3455803cb3ea60f3a958132e0312ede
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: e729868bd64dfaa3f471f0c49f6a2c98aaf87215
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
-# <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-curl"></a>Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight
+# <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Выполнение заданий Pig с помощью REST с использованием Hadoop в HDInsight
 
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-В этом документе рассказывается о том, как с помощью Curl выполнять задания Pig Latin в кластере Azure HDInsight. Язык программирования Pig Latin позволяет описывать преобразования, применяемые к входным данным для получения требуемых выходных данных.
-
-Curl используется для демонстрации возможностей взаимодействия с HDInsight с помощью необработанных HTTP-запросов для выполнения заданий Pig, их мониторинга и получения их результатов. Для этого используется REST API для WebHCat (прежнее название — Templeton), предоставляемый кластером HDInsight.
+Узнайте, как выполнять задания Pig Latin с помощью запросов REST к кластеру Azure HDInsight. Curl используется для демонстрации возможностей взаимодействия с HDInsight с помощью REST API WebHCat.
 
 > [!NOTE]
 > Если вы уже знаете, как использовать серверы Hadoop на платформе Linux, но не знакомы с HDInsight, ознакомьтесь со статьей [Советы по использованию HDInsight на платформе Linux](hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
-
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Linux или Windows).
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе [Что представляют собой различные компоненты и версии Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)
 
 * [Curl](http://curl.haxx.se/)
+
 * [jq](http://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Выполнение заданий Pig с помощью Curl
 
 > [!NOTE]
-> При использовании Curl или любых других средств связи REST с WebHCat нужно выполнять аутентификацию запросов с помощью пароля и имени пользователя администратора кластера HDInsight. Имя кластера необходимо также использовать в составе универсального кода ресурса (URI), используемого для отправки запросов на сервер.
+> REST API защищается с помощью [обычной проверки подлинности](http://en.wikipedia.org/wiki/Basic_access_authentication). Чтобы обеспечить безопасную отправку учетных данных на сервер, запросы всегда следует отправлять с помощью протокола HTTPS.
 >
-> В командах, описанных в этом разделе, замените **USERNAME** на имя пользователя для выполнения проверки подлинности в кластере, а **PASSWORD** — на пароль учетной записи пользователя. Замените **CLUSTERNAME** именем кластера.
+> При использовании команд, описанных в этом разделе, замените `USERNAME` на имя пользователя для выполнения проверки подлинности в кластере, а `PASSWORD` — на пароль учетной записи пользователя. Замените `CLUSTERNAME` именем кластера.
 >
-> REST API защищается с помощью [обычной проверки подлинности](http://en.wikipedia.org/wiki/Basic_access_authentication). Чтобы обеспечить безопасную отправку учетных данных на сервер, все запросы следует отправлять с помощью протокола HTTPS.
+
 
 1. Используйте следующую команду в командной строке, чтобы проверить возможность подключения к кластеру HDInsight:
 
-        curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```bash
+    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    ```
 
-    Вы должны получить ответ, аналогичный показанному ниже:
+    Вы получите следующий ответ JSON:
 
         {"status":"ok","version":"v1"}
 
     Ниже приведены параметры, используемые в этой команде:
 
     * **-u**— имя пользователя и пароль, используемый для аутентификации запроса.
-    * **-G**— указывает, что это запрос GET.
+    * **-G** — указывает, что этот запрос является запросом GET.
 
-     Начало URL-адреса **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** будет одинаковым для всех запросов. Путь **/status** указывает, что по запросу серверу должно быть возвращено состояние WebHCat (другое название — Templeton).
+     Начало URL-адреса **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** одинаковое для всех запросов. Путь **/status** указывает, что по запросу серверу должно быть возвращено состояние WebHCat (другое название — Templeton).
 
 2. Чтобы отправить задание Pig Latin в кластер, используйте следующий код:
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
+    ```bash
+    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
+    ```
 
     Ниже приведены параметры, используемые в этой команде:
 
@@ -80,7 +82,7 @@ Curl используется для демонстрации возможнос
 
     * **user.name**— пользователь, выполняющий команду.
     * **execute**— оператор Pig Latin, который необходимо выполнить.
-    * **statusdir**— каталог, в который будет записано состояние этого задания.
+    * **statusdir** — каталог, в который будет записано состояние этого задания.
 
     > [!NOTE]
     > Обратите внимание, что при использовании Curl пробелы в операторах Pig Latin заменяются знаком `+`.
@@ -89,20 +91,24 @@ Curl используется для демонстрации возможнос
 
         {"id":"job_1415651640909_0026"}
 
-3. Чтобы проверить состояние задания, используйте следующую команду. Замените **JOBID** значением, возвращенным на предыдущем шаге. Например, если возвращено значение `{"id":"job_1415651640909_0026"}`, то **JOBID** будет `job_1415651640909_0026`.
+3. Чтобы проверить состояние задания, используйте следующую команду.
 
-        curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+     ```bash
+    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    ```
 
-    Если задание завершено, у него будет состояние **SUCCEEDED**(Успешно).
+     Замените `JOBID` значением, возвращенным на предыдущем шаге. Например, если возвращено значение `{"id":"job_1415651640909_0026"}`, то `JOBID` равно `job_1415651640909_0026`.
+
+    Если задание завершено, оно будет в состоянии **SUCCEEDED** (Успешно).
 
     > [!NOTE]
     > Этот запрос Curl возвращает документ JSON с информацией о задании. При этом jq используется только для получения значения состояния.
 
 ## <a id="results"></a>Просмотр результатов
 
-После изменения состояния задания на **Успешно** результаты задания можно получить из хранилища по умолчанию, которое использует кластер. Параметр `statusdir`, передаваемый с помощью запроса, содержит расположение выходного файла. В данном случае это **/example/pigcurl**.
+После изменения состояния задания на **Успешно** результаты задания можно получить из хранилища по умолчанию, которое использует кластер. Параметр `statusdir`, передаваемый с помощью запроса, содержит расположение выходного файла. В данном случае это `/example/pigcurl`.
 
-В качестве резервного хранилища для HDInsight можно использовать службу хранилища Azure или Azure Data Lake Store. Данные можно получить разными способами в зависимости от используемого хранилища. Дополнительные сведения о работе со службой хранилища Azure и Azure Data Lake Store см. в разделе [HDFS, хранилище BLOB-объектов и Azure Data Lake Store](hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) в документе об использовании HDInsight в Linux.
+В качестве хранилища данных по умолчанию HDInsight может использовать хранилище Azure или Azure Data Lake Store. Существуют различные способы получения данных в зависимости от их используемого типа. Дополнительные сведения см. в разделе о хранилище в документе [Linux-based HDInsight information](hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) (Сведения о HDInsight на базе Linux).
 
 ## <a id="summary"></a>Сводка
 

@@ -13,20 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: bbd4f044d85f2e22f27edc44b91fd42aef304ed2
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 8a5f6e8bf01c8bc38f3fd327acd0ddc8f9cdd7de
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Создание масштабируемого набора виртуальных машин и развертывание высокодоступного приложения в Windows
-В этом учебнике вы узнаете, как масштабируемые наборы виртуальных машин в Azure позволяют быстро масштабировать число виртуальных машин, где выполняется ваше приложение. Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. Можно вручную изменить число виртуальных машин в масштабируемом наборе или определить правила для автоматического масштабирования на основе использования ЦП, объема памяти или сетевого трафика. Чтобы ознакомиться с работой масштабируемого набора виртуальных машин, нужно создать базовый веб-сайт IIS, выполняющийся на нескольких виртуальных машинах Windows.
+Масштабируемый набор виртуальных машин обеспечивает развертывание и администрирование набора идентичных автомасштабируемых виртуальных машин. Можно вручную изменить число виртуальных машин в масштабируемом наборе или определить правила для автоматического масштабирования на основе использования ЦП, объема памяти или сетевого трафика. В рамках этого руководства вы развернете масштабируемый набор виртуальных машин в Azure. Вы узнаете, как выполнять следующие задачи:
 
-Для работы с этим руководством можно использовать последнюю версию модуля [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+> [!div class="checklist"]
+> * Использование расширения пользовательских скриптов для определения масштабируемого сайта IIS
+> * Создание балансировщика нагрузки для масштабируемого набора
+> * Создание масштабируемого набора виртуальных машин
+> * Увеличение или уменьшение количества экземпляров в масштабируемом наборе
+> * Создание правил автомасштабирования
+
+Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="scale-set-overview"></a>Обзор масштабируемого набора
@@ -38,10 +45,10 @@ ms.lasthandoff: 05/03/2017
 
 
 ## <a name="create-an-app-to-scale"></a>Создание приложения для масштабирования
-Прежде чем создать масштабируемый набор, выполните команду [az group create](/powershell/module/azurerm.resources/new-azurermresourcegroup) для создания группы ресурсов. В следующем примере создается группа ресурсов *myResourceGroupAutomate* в расположении *westus*.
+Прежде чем создать масштабируемый набор, выполните команду [az group create](/powershell/module/azurerm.resources/new-azurermresourcegroup) для создания группы ресурсов. В следующем примере создается группа ресурсов с именем *myResourceGroupAutomate* в расположении *EastUS*.
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location EastUS
 ```
 
 В предыдущем руководстве вы узнали, как [автоматизировать настройку виртуальных машин](tutorial-automate-vm-deployment.md) с помощью расширения пользовательских сценариев. Создайте конфигурацию масштабируемого набора, а затем примените расширение пользовательских сценариев, чтобы установить и настроить IIS.
@@ -49,7 +56,7 @@ New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location we
 ```powershell
 # Create a config object
 $vmssConfig = New-AzureRmVmssConfig `
-    -Location WestUS `
+    -Location EastUS `
     -SkuCapacity 2 `
     -SkuName Standard_DS2 `
     -UpgradePolicyMode Automatic
@@ -78,7 +85,7 @@ Azure Load Balancer представляет собой балансировщи
 # Create a public IP address
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupScaleSet `
-  -Location westus `
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIP
 
@@ -92,7 +99,7 @@ $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPo
 $lb = New-AzureRmLoadBalancer `
   -ResourceGroupName myResourceGroupScaleSet `
   -Name myLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -FrontendIpConfiguration $frontendIP `
   -BackendAddressPool $backendPool
 
@@ -142,7 +149,7 @@ $subnet = New-AzureRmVirtualNetworkSubnetConfig `
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName "myResourceGroupScaleSet" `
   -Name "myVnet" `
-  -Location "westus" `
+  -Location "EastUS" `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $subnet
 $ipConfig = New-AzureRmVmssIpConfig `
@@ -194,7 +201,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Loop through the instanaces in your scale set
-for ($i=0; $i -le ($set.Sku.Capacity - 1); $i++) {
+for ($i=0; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
     Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
       -VMScaleSetName myScaleSet `
       -InstanceId $i
@@ -284,6 +291,17 @@ Add-AzureRmAutoscaleSetting `
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этом учебнике вы узнали, как создать масштабируемый набор виртуальных машин. Перейдите к следующему руководству, чтобы узнать о принципах балансировки нагрузки для виртуальных машин.
+В рамках этого руководства вы создали набор масштабирования виртуальных машин. Вы научились выполнять следующие задачи:
 
-[Балансировка нагрузки между виртуальными машинами](tutorial-load-balancer.md)
+> [!div class="checklist"]
+> * Использование расширения пользовательских скриптов для определения масштабируемого сайта IIS
+> * Создание балансировщика нагрузки для масштабируемого набора
+> * Создание масштабируемого набора виртуальных машин
+> * Увеличение или уменьшение количества экземпляров в масштабируемом наборе
+> * Создание правил автомасштабирования
+
+Перейдите к следующему руководству, чтобы узнать о принципах балансировки нагрузки для виртуальных машин.
+
+> [!div class="nextstepaction"]
+> [Балансировка нагрузки между виртуальными машинами](tutorial-load-balancer.md)
+

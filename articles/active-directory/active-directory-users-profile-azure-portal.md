@@ -1,5 +1,6 @@
 ---
-title: "Добавление или изменение данных профиля пользователя в предварительной версии Azure Active Directory | Документация Майкрософт"
+
+title: "Добавление или изменение данных профиля пользователя в Azure Active Directory | Документы Майкрософт"
 description: "В этом разделе описывается, как в Azure Active Directory добавить профиль пользователя, включая изображение профиля."
 services: active-directory
 documentationcenter: 
@@ -12,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 0dc1f1ef73334187fe76302ff3bd5a5446dec768
-ms.openlocfilehash: 21370f9c30ac1dcaa979ab9724155c91bda128f7
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: ccc6dfaf1653d5888541d78f5e9e20b183709574
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory-preview"></a>Добавление или изменение данных профиля пользователя в предварительной версии Azure Active Directory
-В этой статье объясняется, как в предварительной версии Azure Active Directory (Azure AD) добавить данные профиля пользователя, в том числе изображение профиля или данные для аутентификации по телефону и электронной почте. [Что есть в предварительной версии?](active-directory-preview-explainer.md) Сведения о добавлении новых пользователей в организации см. в статье [Добавление пользователей из других каталогов или организаций-партнеров в предварительной версии Azure Active Directory](active-directory-users-create-azure-portal.md).
+# <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Добавление или изменение данных профиля пользователя в Azure Active Directory
+В этой статье объясняется, как в Azure Active Directory (Azure AD) добавить данные профиля пользователя, в том числе изображение профиля или данные для аутентификации по телефону и электронной почте. Сведения о добавлении новых пользователей в организации см. в статье [Добавление пользователей из других каталогов или организаций-партнеров в предварительной версии Azure Active Directory](active-directory-users-create-azure-portal.md).
 
 ## <a name="to-change-profile-information"></a>Изменение данных профиля
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
@@ -39,9 +41,9 @@ ms.lasthandoff: 02/27/2017
 6. Добавьте или измените данные профиля. На панели команд щелкните **Сохранить**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Добавление новых пользователей в предварительную версию Azure Active Directory](active-directory-users-create-azure-portal.md)
-* [Сброс пароля пользователя в предварительной версии Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
-* [Назначение пользователю ролей администратора в предварительной версии Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Добавление или изменение данных профиля пользователя в предварительной версии Azure Active Directory](active-directory-users-work-info-azure-portal.md)
-* [Удаление пользователя из каталога в предварительной версии Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
+* [Добавление новых пользователей в Azure Active Directory](active-directory-users-create-azure-portal.md)
+* [Сброс пароля пользователя в Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
+* [Назначение пользователю ролей администратора в Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
+* [Добавление или изменение данных профиля пользователя в Azure Active Directory](active-directory-users-work-info-azure-portal.md)
+* [Удаление пользователя из каталога в Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
 

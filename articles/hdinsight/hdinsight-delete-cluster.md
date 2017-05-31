@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 05/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: fbb561f4bfda27c74ffdc08c1b07f4adb83286ab
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 8095f8ae45efbee75a3f298a1994b42d6a2763cb
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Удаление кластера HDInsight с помощью браузера, PowerShell или Azure CLI
 
-Начисление оплаты начинается после создания кластера HDInsight и прекращается только после его удаления. Кластеры оплачиваются поминутно, поэтому всегда следует удалять кластер, когда он больше не нужен. В этом документе вы узнаете, как удалить кластер с помощью портала Azure, Azure PowerShell и Azure CLI.
+Начисление оплаты начинается после создания кластера HDInsight и прекращается только после его удаления. Кластеры оплачиваются поминутно, поэтому всегда следует удалять кластер, когда он больше не нужен. В этом документе вы узнаете, как удалить кластер с помощью портала Azure, Azure PowerShell и Azure CLI 1.0.
 
 > [!IMPORTANT]
-> При удалении кластера HDInsight не происходит удаление связанных с ним учетных записей хранения Azure. Так как учетная запись хранения не удаляется, данные сохраняются и их можно использовать в будущем.
+> При удалении кластера HDInsight не происходит удаление связанных с ним учетных записей хранения Azure. Это позволит использовать данные в будущем.
 
 ## <a name="azure-portal"></a>Портал Azure
 

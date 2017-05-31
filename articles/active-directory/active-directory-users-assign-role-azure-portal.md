@@ -1,5 +1,6 @@
 ---
-title: "Назначение пользователю ролей администратора в предварительной версии Azure Active Directory | Документация Майкрософт"
+
+title: "Назначение пользователю ролей администратора в Azure Active Directory | Документы Майкрософт"
 description: "В данном разделе поясняется, как изменить административную информацию о пользователе в Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,16 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
-ms.openlocfilehash: 3778964172946fa928e2a908943f50897957eb42
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: ebbadff39c736ec7364999f7644694e8a177073f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory-preview"></a>Назначение пользователю ролей администратора в предварительной версии Azure Active Directory
-В этой статье описывается назначение роли администратора пользователю в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md) Сведения о добавлении новых пользователей в организации см. в статье [Добавление пользователей из других каталогов или организаций-партнеров в предварительной версии Azure Active Directory](active-directory-users-create-azure-portal.md). По умолчанию добавленные пользователи не имеют прав администратора, но вы можете назначать им роли в любое время.
+# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Назначение пользователю ролей администратора в Azure Active Directory
+В этой статье описывается назначение роли администратора пользователю в Azure Active Directory (Azure AD). Сведения о добавлении новых пользователей в организации см. в статье [Добавление пользователей из других каталогов или организаций-партнеров в предварительной версии Azure Active Directory](active-directory-users-create-azure-portal.md). По умолчанию добавленные пользователи не имеют прав администратора, но вы можете назначать им роли в любое время.
 
 ## <a name="assign-a-role-to-a-user"></a>Назначение роли пользователю
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
@@ -43,9 +46,4 @@ ms.openlocfilehash: 3778964172946fa928e2a908943f50897957eb42
 * [Изменение сведений о работе пользователя](active-directory-users-work-info-azure-portal.md)
 * [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
 * [Удаление пользователя из Azure AD](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
