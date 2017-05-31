@@ -1,14 +1,14 @@
 ---
 title: "Создание брандмауэра для Azure Cosmos DB с помощью сценария Azure CLI | Документация Майкрософт"
 description: "Пример сценария Azure CLI для создания брандмауэра для Azure Cosmos DB."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample

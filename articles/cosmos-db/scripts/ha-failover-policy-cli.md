@@ -1,14 +1,14 @@
 ---
 title: "Создание политики отработки отказа с помощью скрипта Azure CLI для обеспечения высокой доступности | Документация Майкрософт"
 description: "Пример скрипта Azure CLI. Создание политики отработки отказа для обеспечения высокой доступности"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample

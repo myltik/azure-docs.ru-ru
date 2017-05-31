@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: pratshar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6e6d05d7a7595e17d026be6a448b2fa2cca9b816
 ms.openlocfilehash: a62fe406af18c9c7d9b58839bfa0d6e785b614ef
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>Проектирование сети для аварийного восстановления
+
 Эта статья предназначена для ИТ-специалистов, которые отвечают за проектирование, реализацию и поддержку инфраструктуры непрерывности бизнес-процессов и аварийного восстановления (BCDR) и которые хотят использовать Microsoft Azure Site Recovery (ASR) для поддержки и улучшения служб BCDR. В этом документе обсуждаются практические рекомендации по развертыванию сервера System Center Virtual Machine Manager, преимущества и недостатки растянутых подсетей по сравнению с отработкой отказа подсети и способы организации аварийного восстановления для виртуальных сайтов в Microsoft Azure.
 
 ## <a name="overview"></a>Обзор

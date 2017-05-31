@@ -1,14 +1,14 @@
 ---
 title: "Получение строки подключения базы данных Azure Cosmos DB для приложений MongoDB с помощью скрипта Azure CLI | Документация Майкрософт"
 description: "Получение строки подключения базы данных Azure Cosmos DB для приложений MongoDB с помощью скрипта Azure CLI"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample
