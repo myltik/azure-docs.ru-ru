@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 05/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 52b7728c3fc702e37f5c5fe3d6544117a11464e8
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: c23e7404f9eee6f1246cafc72c6733546cc82934
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -26,6 +27,8 @@ ms.lasthandoff: 03/30/2017
 > [!div class="op_single_selector"]
 > * [Портал Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell и диспетчер ресурсов Azure](application-gateway-web-application-firewall-powershell.md)
+
+Узнайте, как создать шлюз приложений с брандмауэром веб-приложения или добавить брандмауэр веб-приложения в существующий шлюз приложений.
 
 Брандмауэр веб-приложения (WAF) в шлюзе приложений Azure защищает веб-приложения от таких распространенных сетевых атак, как атаки путем внедрения кода SQL, атаки межсайтовых сценариев и захваты сеанса.
 
@@ -39,65 +42,53 @@ ms.lasthandoff: 03/30/2017
 
 Если вы прочитали раздел [Создание шлюза приложений с помощью PowerShell](application-gateway-create-gateway-arm.md), то уже понимаете, какие параметры SKU нужно настроить при создании шлюза приложений. При настройке SKU для шлюза приложений доступны дополнительные параметры, относящиеся к WAF. Какие-либо изменения самого шлюза приложений не требуются.
 
-**SKU**. Обычный шлюз приложений без WAF поддерживает размеры **Standard\_Small**, **Standard\_Medium** и **Standard\_Large**. После добавления WAF становятся доступны еще два SKU, **WAF\_Medium** и **WAF\_Large**. WAF не поддерживается в шлюзах приложения уровня "Мелкий".
-
-**Уровень**. Доступные значения: **Стандартный** или **WAF**. При использовании брандмауэра веб-приложения требуется выбрать уровень **WAF**.
-
-**Режим**. Этот параметр определяет режим WAF. Допустимые значения: **Обнаружение** и **Предотвращение**. Если WAF работает в режиме обнаружения, все угрозы заносятся в файл журнала. В режиме предотвращения события по-прежнему регистрируются в журнале, но злоумышленник получает от шлюза приложений ответ "403 — не авторизовано".
+| **Параметр** | **Дополнительные сведения**
+|---|---|
+|**SKU** |Обычный шлюз приложений без WAF поддерживает размеры **Standard\_Small**, **Standard\_Medium** и **Standard\_Large**. После добавления WAF становятся доступны еще два SKU, **WAF\_Medium** и **WAF\_Large**. WAF не поддерживается в шлюзах приложения уровня "Мелкий".|
+|**Уровень** | Доступные значения: **Стандартный** или **WAF**. При использовании брандмауэра веб-приложения требуется выбрать уровень **WAF**.|
+|**Режим** | Этот параметр определяет режим WAF. Допустимые значения: **Обнаружение** и **Предотвращение**. Если WAF работает в режиме обнаружения, все угрозы заносятся в файл журнала. В режиме предотвращения события по-прежнему регистрируются в журнале, но злоумышленник получает от шлюза приложений ответ "403 — не авторизовано".|
 
 ## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Добавление брандмауэра веб-приложения в существующий шлюз приложений
 
 Убедитесь, что у вас установлена последняя версия Azure PowerShell. Дополнительные сведения см. в статье [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
 
-### <a name="step-1"></a>Шаг 1
+1. Войдите в свою учетную запись Azure.
 
-Войдите в свою учетную запись Azure.
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
-```powershell
-Login-AzureRmAccount
-```
+2. Выберите подписку для этого сценария.
 
-### <a name="step-2"></a>Шаг 2
+    ```powershell
+    Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
+    ```
 
-Выберите подписку для этого сценария.
+3. Получите шлюз, в который следует добавить брандмауэр веб-приложения.
 
-```powershell
-Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
-```
+    ```powershell
+    $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
+    ```
 
-### <a name="step-3"></a>Шаг 3.
+1. Настройте SKU брандмауэра веб-приложения. Доступные размеры: **WAF\_Large** и **WAF\_Medium**. Для использования брандмауэра веб-приложения требуется уровень **WAF**, а емкость необходимо подтвердить при определении SKU.
 
-Получите шлюз, в который следует добавить брандмауэр веб-приложения.
+    ```powershell
+    $gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF -Capacity 2
+    ```
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
-```
+1. Настройте параметры WAF, как указано в следующем примере.
 
-### <a name="step-4"></a>Шаг 4.
+   Для параметра **FirewallMode** можно указать значение "Обнаружение" или "Предотвращение".
 
-Настройте SKU брандмауэра веб-приложения. Доступные размеры: **WAF\_Large** и **WAF\_Medium**. Для использования брандмауэра веб-приложения требуется уровень **WAF**, а емкость необходимо подтвердить при определении SKU.
+    ```powershell
+    $gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
+    ```
 
-```powershell
-$gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF -Capacity 2
-```
+1. Примените к шлюзу приложений параметры, определенные на предыдущем шаге.
 
-### <a name="step-5"></a>Шаг 5
-
-Настройте параметры WAF, как указано в следующем примере.
-
-Для параметра **WafMode** можно указать значение "Обнаружение" или "Предотвращение".
-
-```powershell
-$gw | Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention
-```
-
-### <a name="step-6"></a>Шаг 6
-
-Примените к шлюзу приложений параметры, определенные на предыдущем шаге.
-
-```powershell
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
-```
+    ```powershell
+    Set-AzureRmApplicationGateway -ApplicationGateway $gw
+    ```
 
 Эта команда обновляет шлюз приложений, добавляя в него брандмауэр веб-приложения. Рекомендуется ознакомиться с [диагностикой шлюза приложений](application-gateway-diagnostics.md) , чтобы понять, как просматривать журналы шлюза приложений. Из-за особенностей системы безопасности WAF необходимо регулярно просматривать журналы, чтобы понимать состояние безопасности веб-приложений.
 
@@ -107,35 +98,19 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 Убедитесь, что у вас установлена последняя версия Azure PowerShell. Дополнительные сведения см. в статье [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
 
-### <a name="step-1"></a>Шаг 1
+1. Войдите в Azure, выполнив `Login-AzureRmAccount`. Вам будет предложено указать свои учетные данные для проверки подлинности.
 
-Вход в Azure
+1. Просмотрите подписки учетной записи, выполнив `Get-AzureRmSubscription`.
 
-```powershell
-Login-AzureRmAccount
-```
+1. Выберите подписку Azure.
 
-Вам будет предложено указать свои учетные данные для проверки подлинности.
+    ```powershell
+    Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
+    ```
 
-### <a name="step-2"></a>Шаг 2
+### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Просмотрите подписки учетной записи.
-
-```powershell
-Get-AzureRmSubscription
-```
-
-### <a name="step-3"></a>Шаг 3.
-
-Выберите подписку Azure.
-
-```powershell
-Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
-```
-
-### <a name="step-4"></a>Шаг 4.
-
-Создайте группу ресурсов. Если вы используете существующую группу, пропустите этот шаг.
+Создайте группу ресурсов для шлюза приложений.
 
 ```powershell
 New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
@@ -148,154 +123,67 @@ New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 > [!NOTE]
 > Если вам нужно настроить пользовательскую пробу для шлюза приложений, ознакомьтесь со статьей [Создание пользовательской проверки для шлюза приложений с помощью PowerShell для диспетчера ресурсов Azure](application-gateway-create-probe-ps.md). Дополнительные сведения см. в статье [Обзор мониторинга работоспособности шлюза приложений](application-gateway-probe-overview.md).
 
-### <a name="step-5"></a>Шаг 5
+### <a name="configure-virtual-network"></a>Настройка виртуальной сети
 
-Назначьте диапазон адресов подсети для самого шлюза приложений.
+Шлюзу приложений требуется собственная подсеть. На этом шаге создается виртуальная сеть с адресным пространством 10.0.0.0/16 и две подсети: одна для шлюза приложений и одна для членов серверного пула.
 
 ```powershell
+# Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
 $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
-```
 
-> [!NOTE]
-> У подсети для приложения должно быть не менее 28 битов маски. Это значение позволяет оставить в подсети 10 доступных адресов для экземпляров шлюза приложений. Если подсеть будет меньше, то вы не сможете в будущем добавить экземпляры шлюза приложений.
-
-
-### <a name="step-6"></a>Шаг 6
-
-Назначьте диапазон адресов для внутреннего пула адресов.
-
-```powershell
+# Create a subnet configuration object for the backend pool members subnet
 $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
-```
 
-### <a name="step-7"></a>Шаг 7
-
-Создайте виртуальную сеть с указанными выше подсетями в группе ресурсов, созданной на шаге [Создание группы ресурсов](#create-the-resource-group)
-
-```powershell
+# Create the virtual network with the previous created subnets
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
 ```
 
-### <a name="step-8"></a>Шаг 8
+### <a name="configure-public-ip-address"></a>Настройка диапазонов общедоступных IP-адресов
 
-Получите ресурс виртуальной сети и ресурсы подсетей, которые будут использоваться при выполнении следующих действий.
-
-```powershell
-$vnet = Get-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
-$gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -VirtualNetwork $vnet
-$nicSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appsubnet' -VirtualNetwork $vnet
-```
-
-### <a name="step-9"></a>Шаг 9.
-
-Создайте ресурс общедоступного IP-адреса для шлюза приложений. Этот общедоступный IP-адрес используется на одном из следующих шагов.
+Для обработки внешних запросов шлюзу приложений требуется общедоступный IP-адрес. Это общедоступный IP-адрес не должен иметь определений `DomainNameLabel` для использования шлюзом приложений.
 
 ```powershell
+# Create a public IP address for use with the application gateway. Defining the domainnamelabel during creation is not supported for use with application gateway
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
 ```
 
-> [!IMPORTANT]
-> Шлюз приложений не поддерживает использование общедоступного IP-адреса, для которого метка домена была определена при создании. Поддерживается только общедоступный IP-адрес с динамически создаваемой меткой домена. Если для шлюза приложений требуется понятное DNS-имя, то рекомендуется использовать в качестве псевдонима запись CNAME.
-
-
-### <a name="step-10"></a>Шаг 10
-
-Перед созданием шлюза приложений необходимо настроить все элементы конфигурации. В ходе следующих шагов создаются необходимые элементы конфигурации для ресурса шлюза приложений.
-
-Создайте конфигурацию IP шлюза приложений, в которой указано, какую подсеть использует шлюз приложений. При запуске шлюз приложений получает IP-адрес из настроенной подсети. Затем шлюз маршрутизирует сетевой трафик на IP-адреса из внутреннего пула IP-адресов. Помните, что для каждого экземпляра требуется отдельный IP-адрес.
+### <a name="configure-the-application-gateway"></a>Настройка шлюза приложений
 
 ```powershell
+# Create a IP configuration. This configures what subnet the Application Gateway uses. When Application Gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
-```
 
-### <a name="step-11"></a>Шаг 11
-
-Настройте IP-адреса внутренних веб-серверов во внутреннем пуле IP-адресов. Эти IP-адреса будут использоваться для получения сетевого трафика от конечной точки с интерфейсным IP-адресом. Замените приведенные ниже IP-адреса и добавьте IP-адреса конечных точек своего приложения.
-
-```powershell
+# Create a backend pool to hold the addresses or NICs for the application that application gateway is protecting.
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
-```
 
-### <a name="step-12"></a>Шаг 12
-
-Передайте используемый сертификат в ресурсы внутреннего пула с поддержкой протокола SSL.
-
-```powershell
+# Upload the authenication certificate that will be used to communicate with the backend servers
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile <full path to .cer file>
-```
 
-### <a name="step-13"></a>Шаг 13
-
-Настройте параметры HTTP серверной части шлюза приложений. В параметрах HTTP укажите сертификат, переданный на предыдущем шаге.
-
-```powershell
+# Conifugre the backend HTTP settings to be used to define how traffic is routed to the backend pool. The authenication certificate used in the previous step is added to the backend http settings.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
-```
 
-### <a name="step-14"></a>Шаг 14
-
-Настройте интерфейсный порт IP для конечной точки с общедоступным IP-адресом. Это порт, к которому подключаются пользователи.
-
-```powershell
+# Create a frontend port to be used by the listener.
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
-```
 
-### <a name="step-15"></a>Шаг 15
-
-Создайте конфигурацию IP внешнего интерфейса, в которой частный или общедоступный IP-адрес сопоставляется с внешним интерфейсом шлюза приложений. На следующем шаге общедоступный IP-адрес, указанный на предыдущем шаге, будет связан конфигурацией IP внешнего интерфейса.
-
-```powershell
+# Create a frontend IP configuration to associate the public IP address with the application gateway
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
-```
 
-### <a name="step-16"></a>Шаг 16
-
-Настройте сертификат для шлюза приложений. Этот сертификат используется для шифрования и расшифровки трафика на шлюзе приложений.
-
-```powershell
+# Configure the certificate for the application gateway. This certificate is used to decrypt and re-encrypt the traffic on the application gateway.
 $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
-```
 
-### <a name="step-17"></a>Шаг 17
-
-Создайте прослушиватель HTTP для шлюза приложений. Назначьте используемую конфигурацию IP внешнего интерфейса, порт и сертификат SSL.
-
-```powershell
+# Create the HTTP listener for the application gateway. Assign the front-end ip configuration, port, and ssl certificate to use.
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
-```
 
-### <a name="step-18"></a>Шаг 18
-
-Создайте правило маршрутизации для балансировщика нагрузки, которое настраивает его поведение. В этом примере создается базовое правило с циклическим перебором.
-
-```powershell
+#Create a load balancer routing rule that configures the load balancer behavior. In this example, a basic round robin rule is created.
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-```
 
-### <a name="step-19"></a>Шаг 19
-
-Настройте размер экземпляра шлюза приложений.
-
-```powershell
+# Configure the SKU of the application gateway
 $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
-```
 
-> [!NOTE]
-> Можно выбрать размер **WAF\_Medium** или **WAF\_Large**. В случае использования WAF должен быть выбран уровень **WAF**. Емкость — любое число от 1 до 10.
-
-### <a name="step-20"></a>Шаг 20
-
-Настройте режим WAF, допустимые значения: **Предотвращение** и **Обнаружение**.
-
-```powershell
+#Configure the waf configuration settings.
 $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
-```
 
-### <a name="step-21"></a>Шаг 21
-
-Создайте шлюз приложений со всеми элементами конфигурации, описанными выше. В этом примере шлюз приложений называется "appgwtest".
-
-```powershell
+# Create the application gateway utilizing all the previously created configuration objects
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
 ```
 

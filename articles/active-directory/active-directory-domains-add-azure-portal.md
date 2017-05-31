@@ -1,5 +1,5 @@
 ---
-title: "Добавление имени личного домена в предварительной версии Azure Active Directory | Документация Майкрософт"
+title: "Добавление имени личного домена в Azure Active Directory | Документация Майкрософт"
 description: "Сведения о добавлении доменных имен компании в Azure Active Directory и проверке этих имен."
 services: active-directory
 documentationcenter: 
@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
-ms.openlocfilehash: 5153926f34961a397ef9632ca1f8ac868ba1986e
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 8f61e947d9667f5047729ac19dc2bf1e03a48c6b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="add-a-custom-domain-name-to-azure-active-directory-preview"></a>Добавление имени личного домена в предварительной версии Azure Active Directory
+# <a name="add-a-custom-domain-name-to-azure-active-directory"></a>Добавление имени личного домена в Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-domains-add-azure-portal.md)
 > * [классическом портале Azure](active-directory-add-domain.md)
 > 
-> 
 
-В вашей организации для работы используется одно или несколько доменных имен, при этом пользователи выполняют вход в корпоративную сеть, используя имя корпоративного домена. Если вы используете предварительную версию Azure Active Directory (Azure AD), вы можете также добавить доменное имя организации. [Что есть в предварительной версии?](active-directory-preview-explainer.md) После этого вы сможете назначать в каталоге привычные имена пользователей, например alice@contoso.com. Процесс прост:
+В вашей организации для работы используется одно или несколько доменных имен, при этом пользователи выполняют вход в корпоративную сеть, используя имя корпоративного домена. Используя Azure Active Directory (Azure AD), вы можете также добавить в эту службу корпоративное доменное имя организации. После этого вы сможете назначать в каталоге привычные имена пользователей, например alice@contoso.com. Процесс прост:
 
 1. Добавьте имя личного домена в каталог.
 2. Добавьте DNS-запись доменного имени в регистратор доменных имен.

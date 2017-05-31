@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 05/04/2017
 ms.author: abnarain
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: dfa78d1773afd0094ff98a5761a771101016ee13
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01f3ef6d0e8e43e702b8292a7c215d3df58817f2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -138,7 +139,7 @@ ms.lasthandoff: 03/27/2017
 | --- | --- | --- |
 | *.servicebus.windows.net |443, 80 |Используется для связи с серверной частью службы перемещения данных. |
 | *.core.windows.net |443 |Используется для промежуточного копирования с помощью большого двоичного объекта Azure (если оно настроено).|
-| *frontend.clouddatahub.net |443 |Используется для связи с серверной частью службы перемещения данных. |
+| *.frontend.clouddatahub.net |443 |Используется для связи с серверной частью службы перемещения данных. |
 
 
 Эти исходящие порты, как правило, включены на уровне брандмауэра Windows. В противном случае домены и порты можно соответствующим образом настроить на компьютере шлюза.
@@ -425,7 +426,7 @@ ms.lasthandoff: 03/27/2017
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. В Azure PowerShell перейдите в папку **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Выполните сценарий**RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде. Этот сценарий регистрирует агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
+1. В Azure PowerShell перейдите в папку **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Выполните сценарий **RegisterGateway.ps1**, связанный с локальной переменной **$Key**, как показано в следующей команде. Этот сценарий регистрирует агент клиента, установленный на вашем компьютере с логическим шлюзом, созданным ранее.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

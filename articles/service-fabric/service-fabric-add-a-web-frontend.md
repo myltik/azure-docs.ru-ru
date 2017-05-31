@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/28/2017
 ms.author: vturecek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 68ca454aebbad30d5ea2511b030f260a6a18b1ca
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 182c3d02883ceae83c9ba12c0f27085d133ac47a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -79,7 +79,7 @@ Service Fabric позволяет пользователям самим опре
     ![Создание проекта интерфейса для службы с отслеживанием состояния][vs-add-class-library-project]
 
 3. Чтобы интерфейс мог использоваться `ServiceProxy`, он должен быть производным от интерфейса IService. Этот интерфейс входит в один из пакетов NuGet Service Fabric. Чтобы добавить пакет, щелкните правой кнопкой мыши проект библиотеки классов и выберите **Управление пакетами NuGet**.
-4. Найдите пакет **Microsoft.ServiceFabric.Services** и установите его.
+4. Найдите пакет **Microsoft.ServiceFabric.Services.Remoting** и установите его.
    
     ![Добавление пакета NuGet для служб][vs-services-nuget-package]
 
@@ -163,12 +163,13 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 1. В проекте ASP.NET добавьте ссылку на библиотеку классов, которая содержит интерфейс `ICounter` .
 
-2. Добавьте в проект ASP.NET пакет Microsoft.ServiceFabric.Services (так же, как и для проекта библиотеки классов ранее). Будет добавлен класс `ServiceProxy` .
+2. Добавьте в проект ASP.NET пакет Microsoft.ServiceFabric.Services.Remoting (так же, как и для проекта библиотеки классов ранее). Будет добавлен класс `ServiceProxy` .
 
 4. В папке **Контроллеры** откройте класс `ValuesController`. Обратите внимание, что сейчас метод `Get` просто возвращает жестко запрограммированный строковый массив значений value1 и value2, соответствующих тем, которые мы видели ранее в браузере. Замените эту реализацию следующим кодом:
    
     ```c#
     using MyStatefulService.Interface;
+    using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;
    
     ...

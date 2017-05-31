@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2016
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 9443a00232420d58dea52ed01f31a4ef964a1620
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -34,6 +36,7 @@ ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
 | Попытки входа с возможно инфицированных устройств |2 ч |4 ч |8 ч |
 | Пользователи с аномальными событиями при входе |2 ч |4 ч |8 ч |
 | Пользователи с утерянными учетными данными |2 ч |4 ч |8 ч |
+| Все действия пользователя при входе |2 ч |4 ч |8 ч |
 | **Отчеты о приложениях** | | | |
 | Действия по подготовке учетных записей |2 ч |4 ч |8 ч |
 | Ошибки подготовки учетной записи |2 ч |4 ч |8 ч |
@@ -52,12 +55,5 @@ ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
 | Использование RMS |2 ч |4 ч |8 ч |
 | Использование устройства с RMS |2 ч |4 ч |8 ч |
 | Использование приложений с поддержкой RMS |2 ч |4 ч |8 ч |
-| **Закрытые отчеты предварительной версии** | | | |
-| Все действия пользователя при входе |2 ч |4 ч |8 ч |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

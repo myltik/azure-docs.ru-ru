@@ -1,5 +1,5 @@
 ---
-title: "Начало работы с условным доступом в Azure Active Directory — предварительная версия | Документация Майкрософт"
+title: "Начало работы с условным доступом в Azure Active Directory | Документы Майкрософт"
 description: "Тестирование условного доступа с помощью условия расположения."
 services: active-directory
 keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: ae60cd810b4beb26f714e2ea2566e5354c482fa8
-ms.openlocfilehash: 3022f5e27ddaf125161bbf7132b41a27024f40b6
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 52b65b24867906d0c574a323904d980e126bcbd2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="get-started-with-conditional-access-in-azure-active-directory---preview"></a>Начало работы с условным доступом в Azure Active Directory — предварительная версия
-
-Механизмы, описанные в этой статье, сейчас находятся на стадии [предварительной версии](active-directory-preview-explainer.md).
+# <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Начало работы с условным доступом в Azure Active Directory
 
 Условный доступ — функция Azure Active Directory, позволяющая вам определить условия, при которых авторизованным пользователям разрешен доступ к вашим приложениям. 
 
@@ -160,10 +160,5 @@ ms.openlocfilehash: 3022f5e27ddaf125161bbf7132b41a27024f40b6
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в статье об [условном доступе в Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

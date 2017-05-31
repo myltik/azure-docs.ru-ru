@@ -1,5 +1,5 @@
 ---
-title: "Разработка определяемых пользователем операторов U-SQL для заданий Azure Data Lake Analytics | Документация Майкрософт"
+title: "Разработка определяемых пользователем операторов U-SQLU (UDO) | Документы Майкрософт"
 description: "Узнайте, как разрабатывать определяемые пользователем операторы (с возможностью повторного использования) для заданий Data Lake Analytics. "
 services: data-lake-analytics
 documentationcenter: 
@@ -14,24 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ef0fa131cc665df68e13ee7be58330f571f3ac90
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ef310a094667f390addd5d0df3dc68d67100d2f4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="develop-u-sql-user-defined-operators-for-azure-data-lake-analytics-jobs"></a>Разработка определяемых пользователем операторов U-SQL для заданий Azure Data Lake Analytics
-Узнайте, как разрабатывать определяемые пользователем операторы (с возможностью повторного использования) для заданий Data Lake Analytics. Вам предстоит разработать пользовательский оператор для преобразования названий стран.
+# <a name="develop-u-sql-user-defined-operators-udos"></a>Разработка определяемых пользователем операторов U-SQLU (UDO)
+Узнайте, как разрабатывать определяемые пользователем операторы для обработки данных в задании U-SQL.
 
 Инструкции по разработке сборок общего назначения для U-SQL см. в статье [Разработка сборок U-SQL для заданий Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
-
-## <a name="prerequisites"></a>Предварительные требования
-* Visual Studio 2015, Visual Studio 2013 с обновлением 4 или Visual Studio 2012 с установленным Visual C++.
-* Пакет SDK Microsoft Azure для .NET (версии 2.5 или выше).  Его можно установить с помощью установщика веб-платформы.
-* Учетная запись аналитики озера данных.  См. статью [Руководство. Начало работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md).
-* Пройдите руководство [Приступая к работе с U-SQL Studio для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md) .
-* Подключение к Azure.
-* Загрузите исходные данные. Ознакомьтесь с руководством [Приступая к работе с U-SQL Studio для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md). 
 
 ## <a name="define-and-use-user-defined-operator-in-u-sql"></a>Определение и использование определяемых пользователем операторов в U-SQL
 **Создание и отправка задания U-SQL**
@@ -99,7 +93,7 @@ ms.openlocfilehash: ef0fa131cc665df68e13ee7be58330f571f3ac90
                 }
             }
         }
-6. Откройте файл Script.usql и вставьте следующий сценарий U-SQL:
+6. Откройте файл **Script.usql** и вставьте следующий сценарий U-SQL:
 
         @drivers =
             EXTRACT UserID      string,
@@ -128,13 +122,14 @@ ms.openlocfilehash: ef0fa131cc665df68e13ee7be58330f571f3ac90
         OUTPUT @drivers_CountryName
             TO "/Samples/Outputs/Drivers.csv"
             USING Outputters.Csv(Encoding.Unicode);
-7. В **обозревателе решений** щелкните правой кнопкой мыши файл **Script.usql** и выберите команду **Создать сценарий**.
-8. В **обозревателе решений** щелкните правой кнопкой мыши файл **Script.usql** и выберите команду **Отправить сценарий**.
-9. Если вы еще не подключились к своей подписке Azure, вам будет предложено ввести учетные данные Azure.
-10. Нажмите кнопку **Submit**(Отправить). Итоги отправки и ссылка на задание появятся в окне результатов, когда операция отправки будет завершена.
-11. Чтобы увидеть текущее состояние задания, нажмите кнопку «Обновить».
+7. Укажите учетную запись аналитики озера данных, базу данных и схему.
+8. В **обозревателе решений** щелкните правой кнопкой мыши файл **Script.usql** и выберите команду **Создать сценарий**.
+9. В **обозревателе решений** щелкните правой кнопкой мыши файл **Script.usql** и выберите команду **Отправить сценарий**.
+10. Если вы еще не подключились к своей подписке Azure, вам будет предложено ввести учетные данные Azure.
+11. Нажмите кнопку **Submit**(Отправить). Итоги отправки и ссылка на задание появятся в окне результатов, когда операция отправки будет завершена.
+12. Чтобы увидеть последнее состояние задания, нажмите кнопку **Обновить**.
 
-**Просмотр выходных данных задания**
+**Просмотр выходных данных**
 
 1. В **обозревателе сервера** разверните узлы **Azure**, **Data Lake Analytics**, а также учетную запись Data Lake Analytics. Затем разверните узел **Учетные записи хранения**, щелкните хранилище по умолчанию правой кнопкой мыши и выберите **Обозреватель**.
 2. Разверните узлы «Примеры» и «Выходные данные», а затем дважды щелкните **Drivers.csv**.
@@ -143,9 +138,4 @@ ms.openlocfilehash: ef0fa131cc665df68e13ee7be58330f571f3ac90
 * [Приступая к работе с аналитикой озера данных с помощью PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Приступая к работе с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
 * [Использование инструментов озера данных для Visual Studio для разработки приложений U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

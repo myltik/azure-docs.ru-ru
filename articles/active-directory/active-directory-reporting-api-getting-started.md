@@ -1,4 +1,5 @@
 ---
+
 title: "Начало работы с API отчетов Azure AD | Документация Майкрософт"
 description: "Как начать работу с API отчетов Azure Active Directory"
 services: active-directory
@@ -12,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2016
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3a8e9c802c265dacd1b8c3688855ce6ec0d90bb1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 414e6b0f23616f8f3d059f250335b0e530729741
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -43,10 +46,5 @@ Azure Active Directory предоставляет разнообразные о�
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Если вы хотите просмотреть все доступные конечные точки API Graph Azure AD, перейдите по адресу [https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

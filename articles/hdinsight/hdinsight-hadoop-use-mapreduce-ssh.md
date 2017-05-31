@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: fbf33ea6a6362857bf4bc92055cabd9b099a6d0c
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 04d5b7ea9835e3196bbe300384e9097d7c667e3f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -27,45 +28,43 @@ ms.lasthandoff: 04/12/2017
 
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
-В этой статье вы узнаете, как подключиться к Hadoop в кластере HDInsight по протоколу SSH и отправить задания MapReduce с помощью команд Hadoop, используя этот протокол.
+Узнайте, как отправлять задания MapReduce в HDInsight с помощью подключения SSH.
 
 > [!NOTE]
 > Если вы уже знаете, как использовать серверы Hadoop на платформе Linux, но не знакомы с HDInsight, см. статью [Сведения об использовании HDInsight в Linux](hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
-
 * Кластер HDInsight на основе Linux (Hadoop в HDInsight).
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе [Что представляют собой различные компоненты и версии Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)
 
-* Клиент SSH. Клиент SSH должен входить в состав операционных систем Linux, Unix и Mac OS. Пользователи Windows должны загрузить отдельный клиент, например [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* Клиент SSH. Дополнительные сведения см. в статье [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="ssh"></a>Подключение по SSH
 
-Подключитесь с помощью команды SSH, используя полное доменное имя (FQDN) кластера HDInsight. Полное доменное имя — это имя, присвоенное кластеру, заканчивающееся на **.azurehdinsight.net**. Например, следующая команда позволяет подключиться к кластеру с именем **myhdinsight**:
+Подключитесь к кластеру с помощью SSH. Например, следующая команда позволяет подключиться к кластеру с именем **myhdinsight**:
 
     ssh admin@myhdinsight-ssh.azurehdinsight.net
 
-**Если указан ключ сертификата для аутентификации SSH**, возможно, при создании кластера HDInsight потребуется указать расположение закрытого ключа в клиентской системе. Пример:
+**Если вы используете ключ сертификата для аутентификации SSH**, возможно, потребуется указать расположение закрытого ключа в клиентской системе. Пример:
 
     ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
 
-Если при создании кластера HDInsight **для аутентификации SSH был задан пароль**, при появлении запроса необходимо будет ввести пароль.
+**Если вы используете пароль для аутентификации SSH**, его необходимо ввести при запросе.
 
 Дополнительные сведения об использовании протокола SSH с HDInsight см. в разделе [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="hadoop"></a>Использование команд Hadoop
 
-1. После подключения к кластеру HDInsight используйте следующую команду **Hadoop** , чтобы запустить задание MapReduce:
+1. После подключения к кластеру HDInsight используйте следующую команду, чтобы запустить задание MapReduce:
 
-    ```
+    ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
     ```
 
-    При этом запустится класс **wordcount**, содержащийся в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **/example/data/gutenberg/davinci.txt**, а выходные данные сохраняются в **/example/data/WordCountOutput**.
+    Эта команда запускает класс `wordcount`, который содержится в файле `hadoop-mapreduce-examples.jar`. Она использует документ `/example/data/gutenberg/davinci.txt` в качестве входных данных, а выходные данные хранятся в `/example/data/WordCountOutput`.
 
     > [!NOTE]
     > Дополнительную информацию об этом задании MapReduce и примере данных см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
@@ -77,20 +76,20 @@ ms.lasthandoff: 04/12/2017
         File Output Format Counters
         Bytes Written=337623
 
-3. После завершения используйте следующую команду, чтобы вывести список выходных файлов, сохраненных в **wasb://example/data/WordCountOutput**.
+3. По завершении задания воспользуйтесь следующей командой, чтобы просмотреть выходные файлы:
 
-    ```
+    ```bash
     hdfs dfs -ls /example/data/WordCountOutput
     ```
 
-    Должно отобразиться два файла: **_SUCCESS** и **part-r-00000**. Файл **part-r-00000** содержит выходные данные этого задания.
+    Эта команда отображает два файла — `_SUCCESS` и `part-r-00000`. Файл `part-r-00000` содержит выходные данные этого задания.
 
     > [!NOTE]
     > Некоторые задания MapReduce могут разделять результаты на несколько файлов **part-r-№№№№№** . В этом случае используйте суффикс №№№№№, чтобы определить порядок файлов.
 
 4. Чтобы просмотреть выходные данные, используйте следующую команду:
 
-    ```
+    ```bash
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 

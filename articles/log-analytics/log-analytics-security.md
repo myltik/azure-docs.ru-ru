@@ -3,7 +3,7 @@ title: "Защита данных Log Analytics | Документация Ма�
 description: "Узнайте, как Log Analytics сохраняет вашу конфиденциальность и защищает данные."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
-ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: d0f4323c22858300d95af7407cdb14995507ee60
-ms.openlocfilehash: 952697dff7dca2779a6eb5375afa41c0b130aad4
-ms.lasthandoff: 11/23/2016
+ms.date: 05/03/2017
+ms.author: magoedte
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: fa33a031a9e05f3079f1ed68d2ac0902b3070fa6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -109,7 +110,9 @@ ms.lasthandoff: 11/23/2016
 ## <a name="certifications-and-attestations"></a>Сертификации и аттестации
 OMS Log Analytics соответствует следующим требованиям:
 
-* сертификаты [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm) и [27018:2014 ISO/IEC](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498);
+* [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm)
+* [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498)
+* [ISO 22301](https://azure.microsoft.com/en-us/blog/iso22301/)
 * [Стандарт безопасности данных индустрии платежных карт (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI), разработанный Советом по стандартам безопасности индустрии платежных карт;
 * [элементы управления организацией служб (SOC) 1 типа 1 и SOC 2 типа 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2);
 * требования [HIPAA и HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) для компаний, заключивших Соглашение с бизнес-партнерами HIPAA.

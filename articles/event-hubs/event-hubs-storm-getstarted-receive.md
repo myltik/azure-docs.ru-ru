@@ -12,19 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/03/2017
 ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 35bf064fdf2a766b8f699bed5c32d30c6c4dcd3c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 195f5b7453a2ca576cfdbf39acd1f644c9edad33
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Получение событий из концентраторов событий с помощью Apache Storm
+
 [Apache Storm](https://storm.incubator.apache.org) — это распределенная система вычислений в реальном времени, упрощающая надежную обработку неограниченных потоков данных. В этом разделе показано использование spout Storm концентраторов событий Azure для приема событий из концентраторов событий. С помощью Apache Storm можно разделить события между несколькими процессами, размещенными в разных узлах. Интеграция концентраторов событий с помощью Storm упрощает использование событий путем прозрачного определения контрольных точек в ходе выполнения с помощью установки Storm Zookeeper, управляя постоянными контрольными точками и одновременно облегчает получение от концентраторов событий.
 
 Дополнительные сведения о шаблонах получения концентраторов событий см. в статье [Обзор концентраторов событий][Event Hubs overview].
+
+## <a name="create-project-and-add-code"></a>Создание проекта и добавление кода
 
 В данном руководстве используется установка программы [HDInsight Storm][HDInsight Storm], которая поставляется вместе с уже доступным Spout концентраторов событий.
 
@@ -32,9 +36,9 @@ ms.lasthandoff: 04/18/2017
 2. Скопируйте файл `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` в локальную среду разработки. Он содержит пакет events-storm-spout.
 3. Для установки пакета в локальный репозиторий Maven выполните следующую команду. Это позволит добавить его в качестве ссылки в проекте Storm позже.
 
-```shell
-        mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
-```
+    ```shell
+    mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
+    ```
 4. В Eclipse создайте проект Maven (щелкните **File** (Файл), **New** (Создать), а затем **Project** (Проект)).
    
     ![][12]
@@ -42,35 +46,37 @@ ms.lasthandoff: 04/18/2017
 6. Выберите архетип **maven-archetype-quickstart** и нажмите кнопку **Next** (Далее).
 7. Вставьте параметры **GroupId** и **ArtifactId**, а затем нажмите кнопку **Finish** (Готово).
 8. В файле **pom.xml** добавьте следующие зависимости в узел `<dependency>`:
-```xml  
-        <dependency>
-            <groupId>org.apache.storm</groupId>
-            <artifactId>storm-core</artifactId>
-            <version>0.9.2-incubating</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.microsoft.eventhubs</groupId>
-            <artifactId>eventhubs-storm-spout</artifactId>
-            <version>0.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.netflix.curator</groupId>
-            <artifactId>curator-framework</artifactId>
-            <version>1.3.3</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>provided</scope>
-        </dependency>
-```
+
+    ```xml  
+    <dependency>
+        <groupId>org.apache.storm</groupId>
+        <artifactId>storm-core</artifactId>
+        <version>0.9.2-incubating</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.eventhubs</groupId>
+        <artifactId>eventhubs-storm-spout</artifactId>
+        <version>0.9</version>
+    </dependency>
+    <dependency>
+        <groupId>com.netflix.curator</groupId>
+        <artifactId>curator-framework</artifactId>
+        <version>1.3.3</version>
+        <exclusions>
+            <exclusion>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+            </exclusion>
+        </exclusions>
+        <scope>provided</scope>
+    </dependency>
+    ```
+
 9. В папке **src** создайте файл с именем **config.properties** и скопируйте следующее содержимое, подставляя значения ниже:
 
     ```java
@@ -236,12 +242,12 @@ ms.lasthandoff: 04/18/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о концентраторах событий см. в следующих источниках:
 
-* [Обзор концентраторов событий](event-hubs-what-is-event-hubs.md)
+* [Обзор концентраторов событий Azure][Event Hubs overview].
 * [Создание концентратора событий](event-hubs-create.md)
 * [Часто задаваемые вопросы о концентраторах событий](event-hubs-faq.md)
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
 [учебнике по анализу датчика HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 

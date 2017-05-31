@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: borisb
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3ea6083425b9f881ba82077cfecbe24964304a79
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 07815d691ffe57f0349f7a90ced4a2fcc1ab834f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/03/2017
 > 
 
 ## <a name="rhui-azure-infrastructure-update"></a>Обновление инфраструктуры Azure RHUI
-Начиная с сентября 2016 г. в Azure доступен новый набор серверов Red Hat Update Infrastructure (RHUI). Эти серверы развертываются с помощью [диспетчера трафика Azure](https://azure.microsoft.com/services/traffic-manager/), чтобы конечную точку (rhui-1.micrsoft.com) могла использовать любая виртуальная машина независимо от региона. Новые образы RHEL с оплатой по мере использования (PAYG) в Azure Marketplace (начиная с сентября 2016 г.) указывают на новые серверы Azure RHUI и не требуют каких-либо дополнительных действий.
+Начиная с сентября 2016 г. в Azure доступен новый набор серверов Red Hat Update Infrastructure (RHUI). Эти серверы развертываются с помощью [диспетчера трафика Azure](https://azure.microsoft.com/services/traffic-manager/), чтобы конечную точку (rhui-1.microsoft.com) могла использовать любая виртуальная машина независимо от региона. Новые образы RHEL с оплатой по мере использования (PAYG) в Azure Marketplace (начиная с сентября 2016 г.) указывают на новые серверы Azure RHUI и не требуют каких-либо дополнительных действий.
 
 ### <a name="determine-if-action-is-required"></a>Как определить, требуется ли действие
 Если вы столкнулись с проблемами при подключении к Azure RHUI с виртуальной машины RHEL (PAYG) в Azure, выполните следующие действия.

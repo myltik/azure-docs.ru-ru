@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 82c6bda147befa333ea3fa9cd619f6fd24974149
-ms.openlocfilehash: 19f800dcd676a62c31ac5a79af99b5e0cae8a806
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7a8f685c34709f6b2a2c7627f1a66659720100c0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -32,6 +33,14 @@ ms.lasthandoff: 03/31/2017
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Журналы потоков для групп безопасности сети — это компонент Наблюдателя за сетями, который позволяет просматривать сведения о входящем и исходящем IP-трафике через группу безопасности сети. Эти журналы потоков записываются в формате JSON. В них отображаются входящие и исходящие потоки по каждому правилу, сетевая карта, с которой связан поток, сведения о 5 кортежах потока (IP-адрес источника и места назначения, порт источника и места назначения, протокол), а также сведения о состоянии трафика (разрешен или запрещен).
+
+## <a name="register-insights-provider"></a>Регистрация поставщика Microsoft Insights
+
+Для успешного ведения журналов потоков должен быть зарегистрирован поставщик **Microsoft.Insights**. Если вы не знаете, зарегистрирован ли поставщик **Microsoft.Insights**, выполните следующий сценарий.
+
+```powershell
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
+```
 
 ## <a name="enable-network-security-group-flow-logs"></a>Включение журналов потоков для группы безопасности сети
 

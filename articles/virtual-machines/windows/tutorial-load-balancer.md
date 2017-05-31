@@ -13,20 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 5695d17360e75fd3ae7c76045500a2eb491eaa81
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: c9df0fedfb39ee162334304d56eb4df3a96dcd3e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Балансировка нагрузки виртуальных машин Windows в Azure для создания высокодоступного приложения
-В этом руководстве вы узнаете о различных компонентах балансировщика нагрузки Azure Load Balancer, распределяющего трафик и обеспечивающего высокую доступность. Чтобы ознакомиться с работой балансировщика нагрузки, нужно создать простой веб-сайт IIS, запущенный на трех виртуальных машинах Windows.
+Балансировка нагрузки обеспечивает более высокий уровень доступности за счет распределения входящих запросов между несколькими виртуальными машинами. В этом руководстве вы узнаете о различных компонентах балансировщика нагрузки Azure Load Balancer, распределяющего трафик и обеспечивающего высокую доступность. Вы узнаете, как выполнять следующие задачи:
 
-Для работы с этим руководством можно использовать последнюю версию модуля [Azure PowerShell](/powershell/azure/overview).
+> [!div class="checklist"]
+> * Создание Azure Load Balancer
+> * Создание пробы работоспособности балансировщика нагрузки
+> * Создание правил трафика балансировщика нагрузки
+> * Использование расширения пользовательских скриптов для создания базового сайта IIS
+> * Создание виртуальных машин и присоединение их к балансировщику нагрузки
+> * Просмотр балансировщика нагрузки в действии
+> * Добавление и удаление виртуальных машин из балансировщика нагрузки
+
+Для работы с этим руководством требуется модуль Azure PowerShell версии не ниже 3.6. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить обновление, ознакомьтесь со статьей, посвященной [установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="azure-load-balancer-overview"></a>Обзор Azure Load Balancer
@@ -40,12 +49,12 @@ Azure Load Balancer представляет собой балансировщи
 
 
 ## <a name="create-azure-load-balancer"></a>Создание Azure Load Balancer
-Этот раздел подробно описывает, как создать и настроить каждый из компонентов балансировщика нагрузки. Прежде чем создать балансировщик нагрузки, выполните команду [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) для создания группы ресурсов. В следующем примере создается группа ресурсов *myResourceGroupLoadBalancer* в расположении *westus*.
+Этот раздел подробно описывает, как создать и настроить каждый из компонентов балансировщика нагрузки. Прежде чем создать балансировщик нагрузки, выполните команду [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) для создания группы ресурсов. В следующем примере создается группа ресурсов с именем *myResourceGroupLoadBalancer* в расположении *EastUS*.
 
 ```powershell
 New-AzureRmResourceGroup `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus
+  -Location EastUS
 ```
 
 ### <a name="create-a-public-ip-address"></a>Создание общедоступного IP-адреса
@@ -54,7 +63,7 @@ New-AzureRmResourceGroup `
 ```powershell
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIP
 ```
@@ -80,7 +89,7 @@ $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPo
 $lb = New-AzureRmLoadBalancer `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Name myLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -FrontendIpConfiguration $frontendIP `
   -BackendAddressPool $backendPool
 ```
@@ -137,7 +146,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -AddressPrefix 192.168.1.0/24
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -Name myVnet `
   -AddressPrefix 192.168.0.0/16 `
   -Subnet $subnetConfig
@@ -160,7 +169,7 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroupLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -Name myNetworkSecurityGroup `
   -SecurityRules $nsgRule
 Set-AzureRmVirtualNetworkSubnetConfig `
@@ -179,7 +188,7 @@ for ($i=1; $i -le 3; $i++)
    New-AzureRmNetworkInterface `
      -ResourceGroupName myResourceGroupLoadBalancer `
      -Name myNic$i `
-     -Location westus `
+     -Location EastUS `
      -Subnet $vnet.Subnets[0] `
      -LoadBalancerBackendAddressPool $lb.BackendAddressPools[0]
 }
@@ -194,7 +203,7 @@ for ($i=1; $i -le 3; $i++)
 $availabilitySet = New-AzureRmAvailabilitySet `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Name myAvailabilitySet `
-  -Location westus `
+  -Location EastUS `
   -Managed `
   -PlatformFaultDomainCount 3 `
   -PlatformUpdateDomainCount 2
@@ -240,7 +249,7 @@ for ($i=1; $i -le 3; $i++)
   $vm = Add-AzureRmVMNetworkInterface `-VM $vm -Id $nic.Id
   New-AzureRmVM `
     -ResourceGroupName myResourceGroupLoadBalancer `
-    -Location westus `
+    -Location EastUS `
     -VM $vm
 }
 ```
@@ -263,7 +272,7 @@ for ($i=1; $i -le 3; $i++)
      -ExtensionType CustomScriptExtension `
      -TypeHandlerVersion 1.4 `
      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-     -Location westus
+     -Location EastUS
 }
 ```
 
@@ -314,7 +323,19 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В этом учебнике вы узнали, как создать веб-сайт IIS с балансировкой нагрузки. Перейдите к следующему руководству, чтобы научиться управлять сетевым взаимодействием виртуальных машин.
+В рамках этого руководства вы создали балансировщик нагрузки и присоединили к нему виртуальные машины. Вы научились выполнять следующие задачи:
 
-[Управление сетевым взаимодействием виртуальных машин Azure](./tutorial-virtual-network.md)
+> [!div class="checklist"]
+> * Создание Azure Load Balancer
+> * Создание пробы работоспособности балансировщика нагрузки
+> * Создание правил трафика балансировщика нагрузки
+> * Использование расширения пользовательских скриптов для создания базового сайта IIS
+> * Создание виртуальных машин и присоединение их к балансировщику нагрузки
+> * Просмотр балансировщика нагрузки в действии
+> * Добавление и удаление виртуальных машин из балансировщика нагрузки
+
+Перейдите к следующему руководству, чтобы научиться управлять сетевым взаимодействием виртуальных машин.
+
+> [!div class="nextstepaction"]
+> [Управление виртуальными сетями Azure и виртуальными машинами Windows с помощью Azure PowerShell](./tutorial-virtual-network.md)
 

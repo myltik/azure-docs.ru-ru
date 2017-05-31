@@ -1,5 +1,6 @@
 ---
-title: "Добавление или изменение сведений о работе пользователя в предварительной версии Azure Active Directory | Документация Майкрософт"
+
+title: "Добавление или изменение сведений о работе пользователя в Azure Active Directory | Документы Майкрософт"
 description: "В этом разделе описывается, как добавить номера телефонов, названия отделов и другие сведения о работе пользователя в Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b344136bdcfba22416933ced9a91ef2a82082d11
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: a7197ed0f08d38bb604641115a424b98ba5b5908
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="add-or-change-work-information-for-a-user-in-azure-active-directory-preview"></a>Добавление или изменение сведений о работе пользователя в предварительной версии Azure Active Directory
-В этой статье описывается, как в предварительной версии Azure Active Directory (Azure AD) добавить или изменить сведения о работе, например номера телефонов или названия отделов, для пользователя. [Что есть в предварительной версии?](active-directory-preview-explainer.md) Сведения о добавлении новых пользователей в организации см. в статье [Добавление пользователей из других каталогов или организаций-партнеров в предварительной версии Azure Active Directory](active-directory-users-create-external-azure-portal.md).
+# <a name="add-or-change-work-information-for-a-user-in-azure-active-directory"></a>Добавление или изменение сведений о работе пользователя в Azure Active Directory
+В этой статье описывается, как в Azure Active Directory (Azure AD) добавить или изменить сведения о работе, например номера телефонов или названия отделов, для пользователя. Сведения о добавлении новых пользователей в организации см. в статье [Добавление пользователей из других каталогов или организаций-партнеров в предварительной версии Azure Active Directory](active-directory-users-create-external-azure-portal.md).
 
 ## <a name="to-change-work-information"></a>Изменение сведений о работе
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
@@ -39,9 +41,9 @@ ms.lasthandoff: 11/17/2016
 6. Добавьте или измените сведения о работе. На панели команд щелкните **Сохранить**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Добавление новых пользователей в предварительную версию Azure Active Directory](active-directory-users-create-azure-portal.md)
-* [Сброс пароля пользователя в предварительной версии Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
-* [Назначение пользователю ролей администратора в предварительной версии Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Добавление или изменение данных профиля пользователя в предварительной версии Azure Active Directory](active-directory-users-profile-azure-portal.md)
-* [Удаление пользователя из каталога в предварительной версии Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
+* [Добавление новых пользователей в Azure Active Directory](active-directory-users-create-azure-portal.md)
+* [Сброс пароля пользователя в Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
+* [Назначение пользователю ролей администратора в Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
+* [Добавление или изменение данных профиля пользователя в Azure Active Directory](active-directory-users-profile-azure-portal.md)
+* [Удаление пользователя из каталога в Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
 

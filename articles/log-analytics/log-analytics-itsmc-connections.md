@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: v-jysur
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 283ae010aafe309bb09f7c49248b61717cb56dd0
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 732d968112913b252b40a37abc24f4de5d37999f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Подключение продуктов и служб ITSM с помощью соединителя управления ИТ-службами (предварительная версия)
@@ -95,9 +95,8 @@ ms.lasthandoff: 04/28/2017
 - Имя группы ресурсов
 - Расположение
 - сведения о сервере Service Manager (имя сервера, домен, имя пользователя и пароль);
-- URL-адрес для развертывания;
-- имя сайта для веб-приложения;
-- имя службы BizTalk.
+- префикс имени сайта для веб-приложения;
+- пространство имен ServiceBus.
 
 Сценарий создаст веб-приложение, используя имя, которое вы указали (и несколько дополнительных строк для обеспечения его уникальности). Он создаст **URL-адрес веб-приложения**, **идентификатор клиента** и **секрет клиента**.
 

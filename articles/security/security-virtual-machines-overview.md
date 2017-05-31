@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 05/04/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 70d22ae8d7f67f1e12a233e004f1eb749927e7d8
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 9307b1688ed9e3dc412d044e72bdf88b7bb4d1ec
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -48,7 +49,7 @@ ms.lasthandoff: 03/25/2017
 * Соответствие нормативным требованиям
 
 ## <a name="antimalware"></a>Защита от вредоносных программ;
-Azure предлагает антивредоносное ПО таких поставщиков систем безопасности, как Майкрософт, Symantec, Trend Micro, McAfee и Kaspersky, для защиты ваших виртуальных машин от вредоносных файлов, рекламного ПО и других угроз. Ниже в разделе с дополнительными сведениями приведены ссылки на статьи о партнерских решениях.
+Azure предлагает антивредоносное ПО таких поставщиков систем безопасности, как Майкрософт, Symantec, Trend Micro и Kaspersky, для защиты ваших виртуальных машин от вредоносных файлов, рекламного ПО и других угроз. Ниже в разделе с дополнительными сведениями приведены ссылки на статьи о партнерских решениях.
 
 Антивредоносное ПО Майкрософт для облачных служб и виртуальных машин предоставляет защиту в реальном времени, которая помогает обнаруживать и устранять вирусы, шпионское ПО и другие вредоносные программы.  Антивредоносное ПО Майкрософт позволяет использовать настраиваемые предупреждения о попытках установки или запуска известных вредоносных или нежелательных программ в системе Azure.
 
@@ -73,7 +74,6 @@ Azure предлагает антивредоносное ПО таких пос
 * [Развертывание решений по защите от вредоносных программ на виртуальных машинах Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Установка и настройка Trend Micro Deep Security как услуги на ВМ Windows](../virtual-machines/windows/classic/install-trend.md)
 * [Установка и настройка Symantec Endpoint Protection на виртуальной машине Windows](../virtual-machines/windows/classic/install-symantec.md)
-* [Новые возможности защиты виртуальных машин Azure от вредоносных программ — McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 * [Решения для защиты, представленные в Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
 ## <a name="hardware-security-module"></a>Аппаратные модули безопасности.

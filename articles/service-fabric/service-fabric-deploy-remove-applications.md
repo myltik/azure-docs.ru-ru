@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8268a0204137a95365a95c323507163c4ec6b33d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: ae79f305e22095f560f4d97aaa4300b4a8ba20d3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -65,12 +66,12 @@ PS C:\>Connect-ServiceFabricCluster
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
-Предположим, вы собрали и упаковали в Visual Studio приложение с именем *MyApplication*. По умолчанию имя типа приложения отображается в файле ApplicationManifest.xml как MyApplicationType.  Пакет приложения, который содержит необходимый манифест приложения, манифесты служб и пакеты code/config/data, находится в папке *C:\Users\username\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*. 
+Предположим, вы собрали и упаковали в Visual Studio 2015 приложение с именем *MyApplication*. По умолчанию имя типа приложения отображается в файле ApplicationManifest.xml как MyApplicationType.  Пакет приложения, который содержит необходимый манифест приложения, манифесты служб и пакеты code/config/data, находится в папке *C:\Users\\<имя_пользователя\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*. 
 
 Следующая команда выводит содержимое пакета приложения:
 
 ```powershell
-PS C:\> $path = 'C:\Users\user\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
+PS C:\> $path = 'C:\Users\\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
 PS C:\> tree /f $path
 Folder PATH listing for volume OSDisk
 Volume serial number is 0459-2393
@@ -139,6 +140,12 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)) -TimeoutSec 1800
 ```
 
+Командлет **Get-ImageStoreConnectionStringFromClusterManifest** , являющийся частью модуля PowerShell пакета SDK для Service Fabric, позволяет получить строку подключения хранилища образов.  Чтобы импортировать модуль пакета SDK, выполните следующую команду.
+
+```powershell
+Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
+```
+
 Если вы не укажете параметр *-ApplicationPackagePathInImageStore*, пакет приложения будет скопирован в папку Debug хранилища образов.
 
 Время, необходимое для загрузки пакета, зависит от нескольких факторов. Некоторые из них: число файлов в пакете, размер пакета и размеры файлов. Скорость сетевого подключения между исходным компьютером и кластером Service Fabric также влияет на время загрузки. Время ожидания по умолчанию для [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) — 30 минут.
@@ -156,7 +163,7 @@ PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
 Register application type succeeded
 ```
 
-MyApplicationV1 — это папка в хранилище образов, в которой находится пакет приложения. Тип приложения с именем MyApplicationType и версией 1.0.0 (оба параметра находятся в манифесте приложения) зарегистрирован в кластере.
+MyApplicationV1 — это папка в хранилище образов, в которой находится пакет приложения. Тип приложения с именем MyApplicationType и версией 1.0.0 (оба параметра находятся в манифесте приложения) зарегистрирован в кластере.
 
 Команда [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) возвращает данные только после того, как система успешно зарегистрирует пакет приложения. Продолжительность регистрации зависит от размера и содержимого пакета приложения. При необходимости можно увеличить время ожидания, указав параметр **-TimeoutSec** (по умолчанию время ожидания составляет 60 секунд).
 
@@ -209,7 +216,10 @@ HealthState            : Ok
 ```
 
 ## <a name="remove-an-application"></a>Удаление приложения
-Экземпляр приложения, который больше не нужен, можно удалить без возможности восстановления с помощью командлета [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps). Командлет [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) также удаляет все службы, которые относятся к этому приложению, и все их состояния. Эта операция необратима, и вы не сможете восстановить состояние приложения.
+Экземпляр приложения, который больше не нужен, можно удалить без возможности восстановления с помощью командлета [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps). Командлет [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) также удаляет все службы, которые относятся к этому приложению, и все их состояния. 
+
+> [!WARNING]
+> Эта операция необратима, и вы не сможете восстановить состояние приложения.
 
 ```powershell
 PS C:\> Remove-ServiceFabricApplication fabric:/MyApp
@@ -251,10 +261,16 @@ PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStor
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Команда Copy-ServiceFabricApplicationPackage запрашивает строку ImageStoreConnectionString
-В пакете разработки Service Fabric SDK уже предусмотрены все необходимые значения по умолчанию. Тем не менее, при необходимости значение ImageStoreConnectionString для всех команд должно совпадать со значением, используемым кластером Service Fabric. Значение ImageStoreConnectionString можно найти в манифесте кластера, используя команду [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps):
+В пакете разработки Service Fabric SDK уже предусмотрены все необходимые значения по умолчанию. Тем не менее, при необходимости значение ImageStoreConnectionString для всех команд должно совпадать со значением, используемым кластером Service Fabric. Значение ImageStoreConnectionString можно найти в манифесте кластера, используя команды [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) и Get-ImageStoreConnectionStringFromClusterManifest.
 
 ```powershell
-PS C:\> Get-ServiceFabricClusterManifest
+PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)
+```
+
+Командлет **Get-ImageStoreConnectionStringFromClusterManifest** , являющийся частью модуля PowerShell пакета SDK для Service Fabric, позволяет получить строку подключения хранилища образов.  Чтобы импортировать модуль пакета SDK, выполните следующую команду.
+
+```powershell
+Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
 Ниже представлено значение ImageStoreConnectionString из манифеста кластера.
@@ -286,8 +302,16 @@ PS C:\> Get-ServiceFabricClusterManifest
 - [Выполните сжатие пакета](service-fabric-package-apps.md#compress-a-package) перед копированием в хранилище образов.
 Сжатие уменьшает размер и число файлов, что, в свою очередь, снижает объем трафика и работу, которую необходимо выполнить Service Fabric. Операция загрузки может выполняться медленнее (особенно при выполнении сжатия), но регистрация и отмена регистрации типа приложения выполняются быстрее.
 - Задайте большее время ожидания для выполнения команды [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) с помощью параметра `TimeoutSec`.
-- Задайте параметр `Async` для команды [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Эта команда возвращается, когда кластер принимает команду, и подготовка продолжается асинхронно.
-По этой причине здесь нет необходимости указывать большее значение времени ожидания.
+- Задайте параметр `Async` для команды [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Эта команда возвращается, когда кластер принимает команду, и подготовка продолжается асинхронно. По этой причине здесь нет необходимости указывать большее значение времени ожидания. Чтобы вывести список зарегистрированных версий типов приложения и их состояние регистрации, используйте команду [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps). Эта команда используется, чтобы определить, что регистрация выполнена.
+
+```powershell
+PS C:\> Get-ServiceFabricApplicationType
+
+ApplicationTypeName    : MyApplicationType
+ApplicationTypeVersion : 1.0.0
+Status                 : Available
+DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
+```
 
 ### <a name="deploy-application-package-with-many-files"></a>Развертывание пакета приложения с несколькими файлами
 Проблема. Время ожидания для выполнения команды [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) истекает для пакета приложения с несколькими файлами (несколько тысяч).
@@ -295,7 +319,16 @@ PS C:\> Get-ServiceFabricClusterManifest
 - [Выполните сжатие пакета](service-fabric-package-apps.md#compress-a-package) перед копированием в хранилище образов. Сжатие уменьшает количество файлов.
 - Задайте большее время ожидания для выполнения команды [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) с помощью параметра `TimeoutSec`.
 - Задайте параметр `Async` для команды [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Эта команда возвращается, когда кластер принимает команду, и подготовка продолжается асинхронно.
-По этой причине здесь нет необходимости указывать большее значение времени ожидания. 
+По этой причине здесь нет необходимости указывать большее значение времени ожидания. Чтобы вывести список зарегистрированных версий типов приложения и их состояние регистрации, используйте команду [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps). Эта команда используется, чтобы определить, что регистрация выполнена.
+
+```powershell
+PS C:\> Get-ServiceFabricApplicationType
+
+ApplicationTypeName    : MyApplicationType
+ApplicationTypeVersion : 1.0.0
+Status                 : Available
+DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)

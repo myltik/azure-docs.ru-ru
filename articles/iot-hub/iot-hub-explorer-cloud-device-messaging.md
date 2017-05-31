@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 38121cccc81ef82226e9ea7cbc197e294bb723e3
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: a7abb8fb279e134b7f23df779f1c4548a9feb82d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="what-you-need"></a>Необходимые элементы
 
-- Изучите руководство [Настройка вашего устройства](iot-hub-raspberry-pi-kit-node-get-started.md), где описаны следующие требования:
+- Изучите руководство [Настройка вашего устройства](iot-hub-raspberry-pi-kit-node-get-started.md), где описаны следующие требования.
   - Активная подписка Azure.
   - Центр Интернета вещей Azure в подписке;
   - клиентское приложение, которое отправляет сообщения в Центр Интернета вещей Azure.
@@ -55,11 +56,11 @@ ms.lasthandoff: 04/25/2017
 1. Выполните следующую команду:
 
    ```bash
-   iothub-explorer monitor-events <device-id> --login <IoTHubConnectionString>
+   iothub-explorer monitor-events <device-id> --login "<IoTHubConnectionString>"
    ```
 
    > [!Note]
-   > Получите `<device-id>` и `<IoTHubConnectionString>` из Центра Интернета вещей. Обязательно выполните предыдущее руководство.
+   > Получите `<device-id>` и `<IoTHubConnectionString>` из Центра Интернета вещей. Обязательно выполните предыдущее руководство. Или можно попробовать использовать `iothub-explorer monitor-events <device-id> --login "HostName=<my-hub>.azure-devices.net;SharedAccessKeyName=<my-policy>;SharedAccessKey=<my-policy-key>"` при наличии `HostName`, `SharedAccessKeyName` и `SharedAccessKey`.
 
 ## <a name="send-cloud-to-device-messages"></a>Отправка сообщений из облака на устройство
 

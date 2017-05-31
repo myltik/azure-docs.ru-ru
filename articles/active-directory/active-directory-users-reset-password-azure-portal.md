@@ -1,4 +1,5 @@
 ---
+
 title: "Сброс паролей в Azure Active Directory | Документация Майкрософт"
 description: "В этом разделе описывается, как сбросить пароль пользователя в Azure Active Directory."
 services: active-directory
@@ -12,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 15cb521e928bab6c7966d19e74d9ae3bca99ef34
-ms.openlocfilehash: a5e48f43751e90f41ffd61049a17af3ff48d132e
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: b460232b4d47e6a70fb31f6c3917f359b49df338
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="reset-the-password-for-a-user-in-azure-active-directory---public-preview"></a>Сброс пароля пользователя в общедоступной предварительной версии Azure Active Directory
+# <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Сброс пароля пользователя в Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-users-reset-password-azure-portal.md)
 > * [классическом портале Azure](active-directory-create-users-reset-password.md)

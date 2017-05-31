@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 86c293e735f766dbacc7d0b83574f254573d0de8
-ms.openlocfilehash: 3f119409e031ca2b88694a011916f52aa9ef5d36
-ms.lasthandoff: 02/15/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: ac52924d928b293f4b1b58f0c25375f890c51837
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -264,7 +265,7 @@ POST
 
 #### <a name="on-premises-data-gateway"></a>Локальный шлюз данных
 
-Многие из управляемых соединителей приложений логики предоставляют безопасное подключение к локальным системам, включая файловую систему, SQL, SharePoint, DB2 и другие.  Для ретрансляции локальных данных шлюз использует зашифрованные каналы через служебную шину Azure, а весь трафик поступает из безопасного исходящего трафика от агента шлюза.  Дополнительные сведения о работе шлюза см. [в этой статье](logic-apps-gateway-install.md#how-the-gateway-works).
+Многие управляемые соединители для приложений логики предоставляют безопасное подключение к локальным системам, включая файловую систему, SQL, SharePoint, DB2 и другие. Шлюз ретранслирует данные из локальных источников по шифрованным каналам через служебную шину Azure. Весь трафик поступает как безопасный исходящий трафик от агента шлюза. Дополнительные сведения см. в разделе [Как работает шлюз](logic-apps-gateway-install.md#gateway-cloud-service).
 
 #### <a name="azure-api-management"></a>Cлужба управления Azure API 
 

@@ -1,5 +1,5 @@
 ---
-title: "Создание группы пользователей в предварительной версии Azure Active Directory | Документация Майкрософт"
+title: "Создание группы пользователей в Azure Active Directory | Документы Майкрософт"
 description: "Узнайте, как создать группу в Azure Active Directory и добавить в нее пользователей"
 services: active-directory
 documentationcenter: 
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 4b85a754dfa9632f27308a3d9234213533dea4c4
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9636d26ec62bb83b30fdc4ae8b1701da8ab532e8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.lasthandoff: 03/01/2017
 >
 >
 
-В этой статье объясняется, как создать и заполнить новую группу в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md) Группа используется для выполнения таких задач управления, как одновременное назначение лицензий или разрешений нескольким пользователям или устройствам.
+В этой статье объясняется, как создать и заполнить новую группу в Azure Active Directory. Группа используется для выполнения таких задач управления, как одновременное назначение лицензий или разрешений нескольким пользователям или устройствам.
 
 ## <a name="how-do-i-create-a-group"></a>Как создать группу?
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.

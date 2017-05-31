@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/04/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9519719a63387cb8c341c72e262c2aeaacc3cd4a
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: a694d01281cfdc4559f779f18b92d0412d59cf45
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/12/2017
 ## <a name="what-are-dynamic-groups"></a>Что такое динамические группы?
 Динамическая конфигурация членства в группе безопасности для Azure Active Directory (Azure AD) доступна на [портале Azure](https://portal.azure.com). Администраторы могут устанавливать правила для заполнения групп, создаваемых в Azure Active Directory на основе атрибутов пользователей (например, userType, отдел или страна). Это позволяет автоматически добавлять участников в группу безопасности или удалять их из нее в случае изменения их атрибутов. Эти группы можно использовать для обеспечения доступа к приложениям или облачным ресурсам, таким как сайты и документы SharePoint, а также для назначения лицензий участникам. Дополнительные сведения о динамических групп см. в статье [Выделенные группы в Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md).
 
-Для подписок AAD уровня "Премиум P1" и "Премиум P2" портал Azure теперь предоставляет возможность создания расширенных правил для поддержки более сложного динамического членства в группах Azure Active Directory на основе атрибутов. Дополнительные сведения о создании расширенных правил см. в статье [Создание расширенных правил членства в группе с помощью атрибутов в предварительной версии Azure Active Directory](active-directory-groups-dynamic-membership-azure-portal.md).
+Для подписок AAD уровня "Премиум P1" и "Премиум P2" портал Azure теперь предоставляет возможность создания расширенных правил для поддержки более сложного динамического членства в группах Azure Active Directory на основе атрибутов. Дополнительные сведения о создании расширенных правил см. в статье [Создание расширенных правил членства в группе с помощью атрибутов в Azure Active Directory](active-directory-groups-dynamic-membership-azure-portal.md).
 
 ## <a name="what-are-the-built-in-dynamic-groups"></a>Что такое встроенные динамические группы?
 Динамическая группа **Все пользователи** дает администраторам клиента возможность одним щелчком создать группу, которая содержит всех пользователей в клиенте. По умолчанию группа **Все пользователи** включает в себя всех пользователей в каталоге, в том числе участников и гостей.

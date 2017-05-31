@@ -12,23 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
-ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 49ba7e6d5d67b109632b08ce936357804c80da40
-ms.lasthandoff: 04/27/2017
+ms.date: 05/04/2017
+ms.author: rodejo
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 81fdae033afd90b77d3725f8c39b8a6c6bbc3812
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Настройка параметров групп с помощью командлетов Azure Active Directory
 
 > [!IMPORTANT]
-> Это содержимое относится только к единым группам, также известным как группы Office 365. В настоящее время эти командлеты находятся на этапе общедоступной предварительной версии.
+> Это содержимое относится только к единым группам, также известным как группы Office 365. 
 
 Параметры групп Office 365 настраиваются с помощью объектов Settings и SettingsTemplate. Изначально в каталоге не отображаются объекты Settings. Это означает, что каталог настроен с параметрами по умолчанию. Чтобы изменить параметры по умолчанию, необходимо с помощью шаблона параметров создать объект параметров. Шаблоны параметров определены корпорацией Майкрософт. Поддерживается несколько разных шаблонов параметров. Для настройки параметров группы для каталога будет использован шаблон Group.Unified. Для настройки параметров отдельной группы используйте шаблон Group.Unified.Guest. Этот шаблон используется для управления гостевым доступом к группе. 
 
-Командлеты являются частью модуля PowerShell версии 2 для Azure Active Directory. Дополнительные сведения об этом модуле и инструкции по его скачиванию и установке на компьютер см. в разделе [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) (PowerShell версии 2 для Azure Active Directory). Обратите внимание, что так как сейчас эти командлеты находятся на этапе общедоступной предварительной версии, потребуется установить предварительный выпуск модуля, который можно найти [здесь](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.85).
+Командлеты являются частью модуля PowerShell версии 2 для Azure Active Directory. Дополнительные сведения об этом модуле и инструкции по его скачиванию и установке на компьютер см. в разделе [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) (PowerShell версии 2 для Azure Active Directory). Можно установить выпуск версии 2 модуля [отсюда](https://www.powershellgallery.com/packages/AzureAD/).
+
+## <a name="retrieve-a-specific-settings-value"></a>Получение определенного значения параметра
+Если вам известно имя параметра, которое необходимо получить, можно использовать приведенный ниже командлет. В этом примере показано получение значения для параметра с именем "UsageGuidelinesUrl". Дополнительные сведения о параметрах каталога и их именах приводятся далее в этой статье.
+
+```powershell
+(Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+```
 
 ## <a name="create-settings-at-the-directory-level"></a>Создание параметров на уровне каталога
 Далее приведены действия, необходимые для создания параметров на уровне каталога, которые применяются ко всем единым группам в каталоге.

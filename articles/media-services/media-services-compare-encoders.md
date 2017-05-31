@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 5cbe0b7f71f8dfd6f3a41fa6ff4b0c6ab5e6985d
-ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 1c3118bc66afe7ef4f04d86d9b598128d1aadf82
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -25,7 +27,7 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 
 В этом разделе сравниваются возможности кодирования **Media Encoder Standard** и **рабочего процесса Media Encoder Premium**.
 
-### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>Тарифные единицы, используемые кодировщиками
+### <a id="billing"></a>Тарифные единицы, используемые кодировщиками
 | Имя обработчика мультимедиа | Применимые цены | Примечания |
 | --- | --- | --- |
 | **Стандартный кодировщик служб мультимедиа** |КОДИРОВЩИК |Плата за выполнение задач кодирования взимается на основе общей продолжительности (в минутах) всех файлов мультимедиа, созданных в качестве выходных файлов, по тарифу, указанному [здесь][1] в столбце "КОДИРОВЩИК". |
@@ -105,7 +107,9 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 | MPEG-2 (до 422 Profile и High Level, включая такие варианты, как XDCAM, XDCAM HD, XDCAM IMX, CableLabs® и D10) |Нет |Да |
 | MPEG-1 |Нет |Да |
 | Windows Media Video/VC-1 |Нет |Да |
-| Создание эскизов JPEG |Нет |Да |
+| Создание эскизов JPEG |Да |Да |
+| Создание эскизов PNG |Да |Да |
+| Создание эскизов BMP |Да |Нет |
 
 ### <a name="output-audio-codecs"></a>Выходные аудиокодеки
 | Выходные аудиокодеки | Стандартный кодировщик служб мультимедиа | Расширенный рабочий процесс кодировщика мультимедиа |
@@ -133,9 +137,4 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

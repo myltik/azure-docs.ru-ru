@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f4c63af2d873fb11c8503a30b104b9b7db7f74f0
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 7f708087dda4cfb7e998b42ce36632d5764c6c0e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c"></a>Развертывание виртуальной машины Azure с помощью C## #
+# <a name="deploy-an-azure-virtual-machine-using-c"></a>Развертывание виртуальной машины Azure с помощью C# #
 
 В этой статье показано, как использовать язык C# для создания виртуальной машины Azure и ее вспомогательных ресурсов.
 
@@ -34,15 +35,15 @@ ms.lasthandoff: 04/03/2017
 
 1. Если вы этого еще не сделали, установите [Visual Studio](https://www.visualstudio.com/).
 2. В Visual Studio выберите **Файл** > **Создать** > **Проект**.
-3. В разделе **Шаблоны** > **Visual C#** выберите пункт **Консольное приложение**, введите имя и расположение проекта, а затем нажмите кнопку **OK**.
+3. В разделе **Шаблоны** > **Visual C#** выберите пункт **Консольное приложение (.NET Framework)**, укажите имя и расположение проекта, а затем нажмите кнопку **OK**.
 
 ## <a name="step-2-install-libraries"></a>Шаг 2. Установка библиотек
 
 Самый простой способ установить библиотеки, необходимые для выполнения этих инструкций, — это использовать пакеты NuGet. Чтобы получить эти библиотеки в Visual Studio, выполните следующие действия.
 
 
-1. В обозревателе решений щелкните правой кнопкой мыши имя проекта и выберите пункт **Управление пакетами NuGet**, затем щелкните **Обзор**.
-2. В поле поиска введите *Microsoft.IdentityModel.Clients.ActiveDirectory*, щелкните **Установить** и следуйте инструкциям по установке пакета.
+1. В обозревателе решений щелкните правой кнопкой мыши имя проекта и выберите пункт **Управление пакетами NuGet**, а затем щелкните **Обзор**.
+2. В поле поиска введите *Microsoft.IdentityModel.Clients.ActiveDirectory*, выберите проект, щелкните **Установить** и следуйте инструкциям по установке пакета.
 3. В верхней части страницы выберите пункт **Включить предварительный выпуск**. В поле поиска введите *Microsoft.Azure.Management.Compute*, щелкните **Установить** и следуйте инструкциям по установке пакета.
 4. В поле поиска введите *Microsoft.Azure.Management.Network*, щелкните **Установить** и следуйте инструкциям по установке пакета.
 5. В поле поиска введите *Microsoft.Azure.Management.Storage*, щелкните **Установить** и следуйте инструкциям по установке пакета.
@@ -54,7 +55,7 @@ ms.lasthandoff: 04/03/2017
 
 Прежде чем выполнить этот шаг, убедитесь в наличии доступа к [субъекту-службе Active Directory](../../resource-group-authenticate-service-principal.md). Субъект-служба предоставляет маркер для аутентификации запросов к Azure Resource Manager.
 
-1. Откройте файл Program.cs для созданного проекта и добавьте в начало файла следующие операторы using:
+1. Откройте файл Program.cs для созданного проекта и добавьте в начало файла (к существующим операторам) следующие операторы using:
    
     ```
     using Microsoft.Azure;
@@ -75,8 +76,8 @@ ms.lasthandoff: 04/03/2017
     ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -88,9 +89,9 @@ ms.lasthandoff: 04/03/2017
 
     Замените следующие значения.
     
-    - Замените *{client-id}* идентификатором приложения Azure Active Directory. Этот идентификатор можно найти в колонке "Свойства" приложения AD. Чтобы найти приложение AD на портале Azure, в меню ресурса щелкните **Azure Active Directory** и выберите **Регистрация приложения**.
-    - Замените *{client-secret}* ключом доступа приложения AD. Этот идентификатор можно найти в колонке "Свойства" приложения AD.
-    - Замените *{tenant-id}* идентификатором клиента своей подписки. Идентификатор клиента можно найти в колонке "Свойства" для Azure Active Directory на портале Azure. Он называется *идентификатором каталога*.
+    - Замените *client-id* идентификатором приложения Azure Active Directory. Этот идентификатор можно найти в колонке "Свойства" приложения AD. Чтобы найти приложение AD на портале Azure, в меню ресурса щелкните **Azure Active Directory** и выберите **Регистрация приложения**.
+    - Замените *client-secret* ключом доступа приложения AD. Этот идентификатор можно найти в колонке "Свойства" приложения AD.
+    - Замените *tenant-id* идентификатором клиента своей подписки. Идентификатор клиента можно найти в колонке "Свойства" для Azure Active Directory на портале Azure. Он называется *идентификатором каталога*.
 
 3. Чтобы вызвать добавленный ранее метод, добавьте следующий код в метод Main в файле Program.cs:
    
@@ -101,7 +102,7 @@ ms.lasthandoff: 04/03/2017
 
 4. Сохраните файл Program.cs.
 
-## <a name="step-3-create-the-resources"></a>Шаг 3. Создание ресурсов
+## <a name="step-4-create-the-resources"></a>Шаг 4. Создание ресурсов
 
 ### <a name="register-the-providers-and-create-a-resource-group"></a>Регистрация поставщиков и создание группы ресурсов
 
@@ -360,8 +361,8 @@ ms.lasthandoff: 04/03/2017
                 new NetworkInterfaceIPConfiguration
                   {
                     Name = nicName,
-                    PublicIPAddress = pubipResponse,
-                    Subnet = subnetResponse
+                    PublicIPAddress = publicIP,
+                    Subnet = subnet
                   }
               }
           }

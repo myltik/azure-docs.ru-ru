@@ -1,5 +1,6 @@
 ---
-title: "Восстановление удаленной группы Office 365 в предварительной версии Azure Active Directory | Документация Майкрософт"
+
+title: "Восстановление удаленной группы Office 365 в Azure Active Directory | Документы Майкрософт"
 description: "Описывает, как в Azure Active Directory восстановить удаленную группу, просмотреть доступные для восстановления группы или удалить группу без возможности восстановления"
 services: active-directory
 documentationcenter: 
@@ -12,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4e2fe22953ff74214c0c20fdf2fabceeda63be35
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 473f3e464324cc2667428485235e3b942c736382
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Восстановление удаленной группы Office 365 в Azure Active Directory
 
-Когда вы удаляете группу Office 365 в предварительной версии Azure Active Directory (Azure AD), эта группа в течение 30 дней с момента удаления сохраняется, но не отображается. Это сделано для того, чтобы группу и ее содержимое можно было при необходимости восстановить. Эта функция действует в Azure AD исключительно для групп Office 365. Она недоступна для групп безопасности или групп рассылки.
+Когда вы удаляете группу Office 365 в Azure Active Directory (Azure AD), эта группа в течение 30 дней с момента удаления сохраняется, но не отображается. Это сделано для того, чтобы группу и ее содержимое можно было при необходимости восстановить. Эта функция действует в Azure AD исключительно для групп Office 365. Она недоступна для групп безопасности или групп рассылки.
 
 Для восстановления группы нужны разрешения любого из следующих видов.
 
@@ -37,8 +38,7 @@ ms.lasthandoff: 04/27/2017
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>Просмотр удаленных групп Office 365, которые доступны для восстановления
-Следующие командлеты можно использовать для просмотра удаленных групп, чтобы убедиться, что нужные группы еще не удалены окончательно. Эти командлеты входят в [модуль предварительной версии 2 PowerShell для Azure Active Directory](https://www.powershellgallery.com/packages/AzureADPreview). Дополнительные сведения об этом модуле можно найти в статье [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0) (Модуль PowerShell версии 2 для Azure Active Directory).
-Обратите внимание, что командлеты для управления обратимым удалением и восстановлением находятся на этапе общедоступной предварительной версии и иногда нам требуется внести критические изменения в командлеты предварительной версии. Поэтому не рекомендуется использовать эти командлеты в рабочей среде.
+Следующие командлеты можно использовать для просмотра удаленных групп, чтобы убедиться, что нужные группы еще не удалены окончательно. Эти командлеты являются частью [модуля Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/). Дополнительные сведения об этом модуле можно найти в статье [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0) (Модуль PowerShell версии 2 для Azure Active Directory).
 
 1.    Запустите следующий командлет, чтобы отобразить в клиенте все удаленные группы Office 365, которые доступны для восстановления.
   ```

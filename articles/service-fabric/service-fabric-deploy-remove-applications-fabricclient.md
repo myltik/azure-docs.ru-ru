@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e6c6b4acbc48cfbb8c26d09852f8b4c86fd6ea27
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: edc1a2b42f1148923b8acfd8b3ee35f790d7f230
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -46,7 +47,7 @@ ms.lasthandoff: 04/27/2017
 Если вы используете [Visual Studio для развертывания и отладки приложений](service-fabric-publish-app-remote-cluster.md) в локальном кластере разработки, все описанные выше действия выполняются автоматически с помощью сценария PowerShell.  Этот сценарий находится в папке *Scripts* проекта приложения. Эта статья содержит основные сведения о действиях, выполняемых этим сценарием. Они помогут вам выполнять те же операции вне Visual Studio. 
  
 ## <a name="connect-to-the-cluster"></a>Подключение к кластеру
-Подключитесь к кластеру, создав экземпляр [FabricClient](/dotnet/api/system.fabric.fabricclient) перед запуском всех примеров кода в этой статье. Примеры подключения к локальному кластеру разработки, удаленному кластеру или кластеру, защищенному с помощью Azure Active Directory, сертификатов X509 или Windows Active Directory, см. в статье [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis).  Чтобы подключиться к локальному кластеру разработки, выполните следующую команду:
+Подключитесь к кластеру, создав экземпляр [FabricClient](/dotnet/api/system.fabric.fabricclient) перед запуском всех примеров кода в этой статье. Примеры подключения к локальному кластеру разработки, удаленному кластеру или кластеру, защищенному с помощью Azure Active Directory, сертификатов X509 или Windows Active Directory, см. в статье [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Чтобы подключиться к локальному кластеру разработки, выполните следующую команду:
 
 ```csharp
 // Connect to the local cluster.
@@ -54,49 +55,65 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Загрузка пакета приложения
-Предположим, вы собрали и упаковали в Visual Studio приложение с именем *MyApplication*. По умолчанию имя типа приложения отображается в файле ApplicationManifest.xml как MyApplicationType.  Пакет приложения, который содержит необходимый манифест приложения, манифесты служб и пакеты code/config/data, находится в папке *C:\Users\username\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*.
+Предположим, вы собрали и упаковали в Visual Studio 2015 приложение с именем *MyApplication*. По умолчанию имя типа приложения отображается в файле ApplicationManifest.xml как MyApplicationType.  Пакет приложения, который содержит необходимый манифест приложения, манифесты служб и пакеты code/config/data, находится в папке *C:\Users\\<имя_пользователя\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*.
 
-Отправка пакета приложения означает, что он помещается в расположение, доступное внутренним компонентам Service Fabric.
-Если вы хотите проверить пакет приложения локально, используйте командлет [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps).
+Отправка пакета приложения означает, что он помещается в расположение, доступное внутренним компонентам Service Fabric. Service Fabric проверяет пакет приложения во время его регистрации. Однако если вы хотите проверить пакет приложения локально (перед отправкой), используйте командлет [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps).
 
-Метод [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) передает пакет приложения в хранилище образов кластера. 
+API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) отправляет пакет приложения в хранилище образов кластера. 
 
-Если пакет приложения большой или содержит большое количество файлов, с помощью PowerShell его можно [Сжать](service-fabric-package-apps.md#compress-a-package) и скопировать в хранилище образов. Сжатие уменьшает размер и количество файлов.
+Если пакет приложения большой или содержит большое количество файлов, с помощью PowerShell его можно [сжать](service-fabric-package-apps.md#compress-a-package) и скопировать в хранилище образов. Сжатие уменьшает размер и количество файлов.
 
 В статье [Общие сведения о параметре ImageStoreConnectionString](service-fabric-image-store-connection-string.md) вы найдете дополнительные сведения о хранилище образов и строке подключения к этому хранилищу.
 
 ## <a name="register-the-application-package"></a>Регистрация пакета приложения
 При регистрации пакета приложения его тип и версия, объявленные в манифесте приложения, становятся доступными для использования. Система считывает содержимое пакета, переданного на предыдущем этапе, проверяет пакет, обрабатывает его содержимое и копирует обработанный пакет во внутреннее системное расположение.  
 
-Метод [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) регистрирует тип приложения кластере и делает его доступным для развертывания.
+API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) регистрирует тип приложения кластере и делает его доступным для развертывания.
 
-Чтобы вывести список зарегистрированных версий типов приложения и их состояние регистрации, используйте метод [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync). Эта команда используется, чтобы определить, что регистрация выполнена.
+API [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) предоставляет сведения обо всех успешно зарегистрированных типах приложений. Этот API используется, чтобы определить, что регистрация выполнена.
 
 ## <a name="create-an-application-instance"></a>Создание экземпляра приложения
-Чтобы создать экземпляр приложения, можно использовать любую зарегистрированную версию типа приложения. Для этого выполните метод [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync). Имя приложения должно начинаться со схемы *fabric:* и быть уникальным для каждого экземпляра приложения. Если в манифесте приложения для конкретного его типа были определены службы по умолчанию, то они также будут созданы.
+Чтобы создать экземпляр приложения, можно использовать любой зарегистрированный тип приложения. Для этого примените API [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync). Имя приложения должно начинаться со схемы *"fabric:"* и быть уникальным для каждого экземпляра приложения (в кластере). Если в манифесте приложения для конкретного его типа были определены службы по умолчанию, то они также будут созданы.
 
-Для каждой версии зарегистрированного типа приложения можно создать несколько экземпляров приложения. Каждый экземпляр выполняется изолированно, используя собственный рабочий каталог и процесс.
+Для каждой версии зарегистрированного типа приложения можно создать несколько экземпляров приложения. Каждый экземпляр выполняется изолированно, используя собственный рабочий каталог и набор процессов.
 
-Чтобы увидеть, что нужные приложения и службы в кластере работают, выполните методы [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) и [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync).
+Чтобы увидеть, что нужные приложения и службы в кластере работают, воспользуйтесь API [GetApplicationListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync) и [GetServiceListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync).
 
 ## <a name="create-a-service-instance"></a>Создание экземпляра службы
-Экземпляр службы можно создать из типа службы с помощью метода [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync).  Если служба в манифесте приложения объявляется службой по умолчанию, экземпляр этой службы создается с помощью экземпляра приложения.  Вызов метода [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) для уже созданной службы возвращает исключение. 
+Экземпляр службы можно создать из типа службы с помощью API [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync).  Если служба в манифесте приложения объявляется службой по умолчанию, экземпляр этой службы создается с помощью экземпляра приложения.  Вызов API [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) для уже созданной службы возвращает исключение типа FabricException, содержащее код ошибки со значением FabricErrorCode.ServiceAlreadyExists.
 
 ## <a name="remove-a-service-instance"></a>Удаление экземпляра службы
-Если экземпляр службы больше не нужен, его можно удалить из выполняемого экземпляра приложения путем вызова метода [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync).  Эта операция необратима, и вы не сможете восстановить состояние службы.
+Если экземпляр службы больше не нужен, его можно удалить из выполняемого экземпляра приложения путем вызова API [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync).  
+
+> [!WARNING]
+> Эта операция необратима, и вы не сможете восстановить состояние службы.
 
 ## <a name="remove-an-application-instance"></a>Удаление экземпляра приложения
-Экземпляр приложения, который больше не нужен, можно удалить без возможности восстановления с помощью метода [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync). [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) автоматически удаляет все службы, относящиеся к этому приложению, и все их состояния. Эта операция необратима, и вы не сможете восстановить состояние приложения.
+Экземпляр приложения, который больше не нужен, можно удалить без возможности восстановления с помощью API [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync). [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) автоматически удаляет все службы, относящиеся к этому приложению, и все их состояния.
+
+> [!WARNING]
+> Эта операция необратима, и вы не сможете восстановить состояние приложения.
 
 ## <a name="unregister-an-application-type"></a>Отмена регистрации типа приложения
-Если определенная версия типа приложения больше не требуется, отмените регистрацию типа приложения, используя метод [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). Отмена регистрации неиспользуемых типов приложений помогает освободить пространство в хранилище, которое использует хранилище образов. Регистрацию типа приложения можно отменить в том случае, если на его основе не были созданы экземпляры приложений и нет ссылающихся на него незавершенных обновлений приложений.
+Если определенная версия типа приложения больше не требуется, отмените ее регистрацию, используя API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). Отмена регистрации неиспользуемых версий типов приложений помогает освободить пространство в хранилище, которое использует хранилище образов. Регистрацию версии типа приложения можно отменить в том случае, если на ее основе не были созданы экземпляры приложений и нет ссылающихся на нее незавершенных обновлений приложений.
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Удаление пакета приложения из хранилища образов
-Если пакет приложения больше не нужен, его можно удалить из хранилища образов, чтобы освободить системные ресурсы с помощью метода [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
+Если пакет приложения больше не нужен, его можно удалить из хранилища образов, чтобы освободить системные ресурсы с помощью API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
 
 ## <a name="troubleshooting"></a>Устранение неполадок
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Команда Copy-ServiceFabricApplicationPackage запрашивает строку ImageStoreConnectionString
-В пакете разработки Service Fabric SDK уже предусмотрены все необходимые значения по умолчанию. Тем не менее, при необходимости значение ImageStoreConnectionString для всех команд должно совпадать со значением, используемым кластером Service Fabric. Значение ImageStoreConnectionString можно найти в манифесте кластера, используя метод [Get-ServiceFabricClusterManifest](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.getclustermanifestasync).
+В пакете разработки Service Fabric SDK уже предусмотрены все необходимые значения по умолчанию. Тем не менее, при необходимости значение ImageStoreConnectionString для всех команд должно совпадать со значением, используемым кластером Service Fabric. Значение ImageStoreConnectionString можно найти в манифесте кластера, используя команды [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) и Get-ImageStoreConnectionStringFromClusterManifest.
+
+```powershell
+PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)
+```
+
+Командлет **Get-ImageStoreConnectionStringFromClusterManifest** , являющийся частью модуля PowerShell пакета SDK для Service Fabric, позволяет получить строку подключения хранилища образов.  Чтобы импортировать модуль пакета SDK, выполните следующую команду.
+
+```powershell
+Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
+```
+
 
 Ниже представлено значение ImageStoreConnectionString из манифеста кластера.
 
@@ -115,18 +132,18 @@ FabricClient fabricClient = new FabricClient();
 В статье [Общие сведения о параметре ImageStoreConnectionString](service-fabric-image-store-connection-string.md) вы найдете дополнительные сведения о хранилище образов и строке подключения к этому хранилищу.
 
 ### <a name="deploy-large-application-package"></a>Развертывание пакета приложения большего размера
-Проблема. Время ожидания метода [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) истекает для пакета большого приложения (несколько ГБ).
+Проблема. Время ожидания API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) истекает для пакета большого приложения (несколько ГБ).
 Попробуйте выполнить следующее.
 - Задайте больше времени ожидания для метода [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) с помощью параметра `timeout`. По умолчанию время ожидания составляет 30 минут.
 - Проверьте сетевое подключение между исходным компьютером и кластером. Если подключение медленное, рассмотрите возможность использовать машину с лучшим сетевым соединением.
 Возможно, клиентский компьютер находится не в одном регионе с кластером, тогда перейдите на компьютер, который находится с ним в одном регионе или в регионе поблизости.
 - Проверьте, достигнуто ли внешнее регулирование. Например, если хранилище образов настроено для использования хранилища Аzure, загрузку можно регулировать.
 
-Проблема. Отправка пакета завершена успешно, но время ожидания метода [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) истекло.
+Проблема. Отправка пакета завершена успешно, но время ожидания API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) истекло.
 Попробуйте выполнить следующее.
 - [Выполните сжатие пакета](service-fabric-package-apps.md#compress-a-package) перед копированием в хранилище образов.
 Сжатие уменьшает размер и число файлов, что, в свою очередь, снижает объем трафика и работу, которую необходимо выполнить Service Fabric. Операция загрузки может выполняться медленнее (особенно при выполнении сжатия), но регистрация и отмена регистрации типа приложения выполняются быстрее.
-- Задайте больше времени ожидания для метода [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) с помощью параметра `timeout`.
+- Задайте больше времени ожидания для API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) с помощью параметра `timeout`.
 
 ### <a name="deploy-application-package-with-many-files"></a>Развертывание пакета приложения с несколькими файлами
 Проблема. Время ожидания метода [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) для пакета приложения со множеством (несколько тысяч) файлов истекло.
@@ -184,7 +201,7 @@ static void Main(string[] args)
         }
     }
 
-    // Provision the application.  "MyApplicationV1" is the folder in the image store where the app package is located. 
+    // Provision the application.  "MyApplicationV1" is the folder in the image store where the application package is located. 
     // The application type with name "MyApplicationType" and version "1.0.0" (both are found in the application manifest) 
     // is now registered in the cluster.            
     try
