@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76cc9c79851cc040e6a36c5499a77c0d95948154
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: c91f840077ccd9e55a403533c97a852542f0d326
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -108,7 +110,7 @@ ms.openlocfilehash: 76cc9c79851cc040e6a36c5499a77c0d95948154
 Мы ведем активную работу по добавлению дополнительных источников данных в каталог данных Azure. Если вы хотите включить поддержку какого-либо источника данных, предложите свой вариант (или проголосуйте за него, если он уже указан) на [форуме каталога данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="q-how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Вопрос. Какое отношение каталог данных Azure имеет к каталогу данных в Power BI для Office 365?
-Каталог данных Azure можно рассматривать как следующий шаг на пути развития каталога данных. Каталог данных Azure предоставляет похожие возможности для публикации и обнаружения источников данных. Кроме того, в нем доступны более широкие сценарии и отсутствует привязка к Office 365. Вскоре после того, как каталог данных Azure станет общедоступным, оба каталога будут объединены в единую службу.
+Каталог данных Azure можно рассматривать как следующий шаг на пути развития каталога данных в Power BI. Начиная с весны 2017 г., каталог данных Azure позволяет включить общий доступ и обнаружение запросов в Excel 2016 и Power Query для Excel. Возможности каталога данных в Excel доступны пользователям с лицензиями Power BI Pro.
 
 ## <a name="q-what-permissions-does-a-user-need-to-register-assets-with-azure-data-catalog"></a>Вопрос. Какие разрешения необходимы пользователю для регистрации ресурсов в каталоге данных Azure?
 Пользователю, который запускает инструмент регистрации каталога данных Azure, требуется разрешение на чтение метаданных из источника данных. Если пользователь также включает предварительный просмотр, у него также должно быть разрешение на чтение данных из регистрируемых объектов.
@@ -127,9 +129,4 @@ ms.openlocfilehash: 76cc9c79851cc040e6a36c5499a77c0d95948154
 
 ## <a name="q-my-question-isnt-answered-here--what-should-i-do"></a>Вопрос. Я не нашел ответа на свой вопрос. Что делать?
 Перейдите на [форум каталога данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Ответы на вопросы, заданные на форуме, будут опубликованы здесь.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

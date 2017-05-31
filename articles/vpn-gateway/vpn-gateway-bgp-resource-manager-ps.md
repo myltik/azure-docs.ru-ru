@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 12df0d2afeb4abef4d22f7341c9b25ce504121c0
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d1f1852d720ebf51df9ec3207b070510b08a6483
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -112,7 +113,7 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subn
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2) Создание VPN-шлюза с номером AS
-Создайте шлюз для виртуальной сети TestVNet1. Обратите внимание, что для использования BGP обязательно нужен VPN-шлюз на основе маршрутов, а также дополнительный параметр -Asn, который задает номер ASN для TestVNet1. Создание шлюза может занять некоторое время (30 минут или более).
+Создайте шлюз для виртуальной сети TestVNet1. Обратите внимание, что для использования BGP обязательно нужен VPN-шлюз на основе маршрутов, а также дополнительный параметр -Asn, который задает номер ASN для TestVNet1. Если параметр ASN не указан, будет назначен параметр ASN 65515. Создание шлюза может занять некоторое время (30 минут или более).
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN

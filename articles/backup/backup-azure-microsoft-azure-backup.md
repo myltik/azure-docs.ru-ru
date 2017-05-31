@@ -16,9 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
-ms.openlocfilehash: 1462ee0e247fb5d590a70d23ece5723a065b4140
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: e8838095d621957fe6b4ee50464154617e1c4740
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -68,9 +70,12 @@ ms.openlocfilehash: 1462ee0e247fb5d590a70d23ece5723a065b4140
 С помощью дедупликации Windows Server можно выполнить дедупликацию хранилища DPM. См. дополнительные сведения об использовании [DPM и дедупликации](https://technet.microsoft.com/library/dn891438.aspx) при развертывании на виртуальных машинах Hyper-V.
 
 > [!NOTE]
-> Сервер службы архивации Azure невозможно установить на компьютере, выполняющем роль контроллера домена.
->
->
+> Сервер резервного копирования Azure предназначен для запуска на выделенном специализированном сервере. Сервер резервного копирования Azure можно установить на:
+> - компьютер, выполняющий роль контроллера домена;
+> - компьютер, на который установлена роль сервера приложений;
+> - компьютер, являющийся сервером управления System Center Operations Manager;
+> - компьютер, на котором выполняется Exchange Server;
+> - компьютер, который является узлом кластера.
 
 Необходимо присоединить сервер резервного копирования Azure к домену. Если вы планируете перемещать сервер на другой домен, рекомендуется присоединить сервер к новому домену перед установкой сервера резервного копирования Azure. Перемещение имеющегося компьютера-сервера службы архивации Azure в новый домен после развертывания *не поддерживается*.
 
@@ -275,9 +280,4 @@ ms.openlocfilehash: 1462ee0e247fb5d590a70d23ece5723a065b4140
 * [Резервное копирование сервера SQL Server](backup-azure-backup-sql.md)
 * [Резервное копирование сервера SharePoint](backup-azure-backup-sharepoint.md)
 * [Резервное копирование альтернативного сервера](backup-azure-alternate-dpm-server.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

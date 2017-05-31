@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 05/17/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: e89ec01cb47a87a45378f73d138224095bcbebed
-ms.openlocfilehash: 201d98c4f4ff29393ad308824ed0575f1ff602ee
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 9046879158a4617d478bcf1157d5ead3c1054fd8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="load-balance-containers-in-a-kubernetes-cluster-in-azure-container-service"></a>Балансировка нагрузки контейнеров в кластере Kubernetes в Службе контейнеров Azure 
 В этой статье рассматривается балансировка нагрузки в кластере Kubernetes в Службе контейнеров Azure. При балансировке нагрузки предоставляется доступный через Интернет IP-адрес для службы и распределяется сетевой трафик между модулями, запущенными в виртуальных машинах агента.
 
-Службу Kubernetes можно настроить для использования [Azure Load Balancer](../load-balancer/load-balancer-overview.md), чтобы управлять трафиком внешней сети (TCP или UDP). Благодаря дополнительной настройке возможна балансировка нагрузки и маршрутизация трафика HTTP или HTTPS или более сложные сценарии.
+Службу Kubernetes можно настроить для использования [Azure Load Balancer](../load-balancer/load-balancer-overview.md), чтобы управлять трафиком внешней сети (TCP). Благодаря дополнительной настройке возможна балансировка нагрузки и маршрутизация трафика HTTP или HTTPS или более сложные сценарии.
 
 ## <a name="prerequisites"></a>Предварительные требования
 * [Развертывание кластера Kubernetes](container-service-kubernetes-walkthrough.md) в Службе контейнеров Azure
@@ -34,7 +35,7 @@ ms.lasthandoff: 02/27/2017
 
 ## <a name="azure-load-balancer"></a>Azure Load Balancer
 
-По умолчанию кластер Kubernetes, развернутый в Службе контейнеров Azure, включает Azure Load Balancer с выходом в Интернет для виртуальных машин агента. (Для главных виртуальных машин настраивается отдельный ресурс балансировщика нагрузки.) Azure Load Balancer является балансировщиком нагрузки 4-го уровня (TCP, UDP).
+По умолчанию кластер Kubernetes, развернутый в Службе контейнеров Azure, включает Azure Load Balancer с выходом в Интернет для виртуальных машин агента. (Для главных виртуальных машин настраивается отдельный ресурс балансировщика нагрузки.) Azure Load Balancer является подсистемой балансировки нагрузки 4-го уровня. В настоящее время подсистема балансировки нагрузки поддерживает в Kubernetes только трафик TCP.
 
 При создании службы Kubernetes можно автоматически настроить балансировщик нагрузки Azure, чтобы обеспечить доступ к службе. Чтобы настроить балансировщик нагрузки, задайте для параметра `type` службы значение `LoadBalancer`. Балансировщик нагрузки создает правило для сопоставления открытого IP-адреса и номера порта для входящего трафика службы с закрытыми IP-адресами и номерами портов в модулях виртуальных машин (и наоборот для ответного трафика). 
 

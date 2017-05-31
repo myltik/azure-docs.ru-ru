@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 2075c7a1b8f3393e100ab92ae7d497c56965f887
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 944f67d1d5a56c3c478da0c3af0b1f9b8797eee1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -48,7 +49,7 @@ ms.lasthandoff: 01/31/2017
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
 * [Руководство разработчика для Центра Интернета вещей][lnk-devguide]
-* [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+* [Simulating a device with IoT Edge][lnk-iotedge] (Моделирование устройства с помощью Edge Интернета вещей)
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
@@ -57,13 +58,13 @@ ms.lasthandoff: 01/31/2017
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [раздел "Безопасность" руководства для разработчиков Центра Интернета вещей]: iot-hub-devguide-security.md.
 [Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
-[Event Hubs publisher policies]: ../event-hubs/event-hubs-what-is-event-hubs.md#event-publishers
+[Event Hubs publisher policies]: ../event-hubs/event-hubs-features.md#event-publishers
 [Azure Service Bus quotas]: ../service-bus-messaging/service-bus-quotas.md
 [Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 

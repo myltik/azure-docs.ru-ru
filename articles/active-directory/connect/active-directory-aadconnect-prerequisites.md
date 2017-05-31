@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: bb6f3a7710c52a210ea8014430285ba8917cc895
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 0ce1dbf9f2baf9369875370866690010fe8e9e37
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -29,8 +30,8 @@ ms.lasthandoff: 04/07/2017
 
 ### <a name="azure-ad"></a>Azure AD
 * Подписка Azure или [пробная подписка Azure](https://azure.microsoft.com/pricing/free-trial/). Она необходима только для доступа к порталу Azure и не требуется для использования Azure AD Connect. Если вы используете PowerShell или Office 365, то для работы с Azure AD Connect подписка Azure не требуется. При наличии лицензии на Office 365 можно также использовать портал Office 365. Платная лицензия на Office 365 также позволяет перейти на портал Azure с портала Office 365.
-  * Кроме того, можно воспользоваться функцией предварительного просмотра Azure AD на [портале Azure](https://portal.azure.com). Для этого не нужна лицензия Azure.
-* [Добавьте и подтвердите домен](../active-directory-add-domain.md) , который вы планируете использовать в Azure AD. Например, если вы планируете использовать для своих пользователей домен contoso.com, убедитесь, что он был подтвержден и вы используете не просто домен по умолчанию contoso.onmicrosoft.com.
+  * Кроме того, можно использовать [портал Azure](https://portal.azure.com). Для этого не нужна лицензия Azure AD.
+* [Добавьте и подтвердите домен](../active-directory-domains-add-azure-portal.md) , который вы планируете использовать в Azure AD. Например, если вы планируете использовать для своих пользователей домен contoso.com, убедитесь, что он был подтвержден и вы используете не просто домен по умолчанию contoso.onmicrosoft.com.
 * Клиент Azure AD по умолчанию может вмещать 50 тыс. объектов. После подтверждения домена этот предел увеличивается до 300 тыс. объектов. Если вам нужно еще больше объектов в Azure AD, необходимо отправить обращение в службу технической поддержки, чтобы дополнительно увеличить данный предел. Если вам необходимо более 500 тыс. объектов, то потребуется лицензия, например на Office 365, Azure AD Basic, Azure AD Premium или Enterprise Mobility + Security.
 
 ### <a name="prepare-your-on-premises-data"></a>Подготовка локальных данных
@@ -53,6 +54,7 @@ ms.lasthandoff: 04/07/2017
 * Если планируется использовать функцию **синхронизации паролей**, то сервер Azure AD Connect должен работать под управлением Windows Server 2008 R2 с пакетом обновления 1 (SP1) или более поздней версии.
 * Если вы планируете использовать **групповую управляемую учетную запись службы**, то сервер Azure AD Connect должен работать под управлением Windows Server 2012 или более поздней версии.
 * На сервере Azure AD Connect должна быть установлена платформа [.NET Framework 4.5.1](#component-prerequisites) или более поздней версии и среда [Microsoft PowerShell 3.0](#component-prerequisites) или более поздней версии.
+* На сервере Azure AD Connect должна быть отключена групповая политика транскрипции PowerShell.
 * При развертывании служб федерации Active Directory (AD FS) серверы, на которых будут установлены службы AD FS или прокси-служба веб-приложения, должны работать под управлением Windows Server 2012 R2 или более поздней версии. [удаленное управление Windows](#windows-remote-management) .
 * При развертывании служб федерации Active Directory необходимы [SSL-сертификаты](#ssl-certificate-requirements).
 * При развертывании служб федерации Active Directory необходимо настроить [разрешение имен](#name-resolution-for-federation-servers).
@@ -103,6 +105,8 @@ ms.lasthandoff: 04/07/2017
         </defaultProxy>
     </system.net>
 ```
+
+* Когда в процессе синхронизации каталогов Azure AD Connect отправляет веб-запрос в Azure AD, то для ответа Azure AD может потребоваться до 5 минут. Для прокси-серверов обычно настраивается время ожидания простоя подключения. Убедитесь, что в настройках для этого параметра задано не менее 6 минут.
 
 Дополнительную информацию об [элементе defaultProxy](https://msdn.microsoft.com/library/kd3cf2ex.aspx) вы можете найти на сайте MSDN.  
 В случае проблем с подключением изучите статью [Устранение неполадок подключения в Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).

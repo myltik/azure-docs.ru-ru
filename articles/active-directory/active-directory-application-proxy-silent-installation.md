@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 05/03/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
-ms.openlocfilehash: cf00d47efc613f7bdc152c1b5f0d0830fb44a785
-ms.lasthandoff: 02/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: f4d72d4d11ee64e3431879f6ad1b5d8d091a0c87
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="how-to-silently-install-the-azure-ad-application-proxy-connector"></a>Автоматическая установка соединителя прокси приложения Azure AD
-Необходимо иметь возможность отправки сценария установки на несколько серверов Windows или на серверы Windows, на которых отключен пользовательский интерфейс. Этот раздел описывает создание сценария Windows PowerShell, позволяющего реализовать автоматическую установку, а также устанавливающего и регистрирующего соединитель прокси приложения Azure AD.
+# <a name="silently-install-the-azure-ad-application-proxy-connector"></a>Автоматическая установка соединителя прокси приложения Azure AD
+Необходимо иметь возможность отправки сценария установки на несколько серверов Windows или на серверы Windows, на которых отключен пользовательский интерфейс. Этот раздел поможет вам создать сценарий Windows PowerShell, позволяющий выполнить автоматическую установку и регистрацию соединитель прокси приложения Azure AD.
 
 Эта возможность полезна в тех случаях, когда требуется:
 
@@ -31,10 +32,9 @@ ms.lasthandoff: 02/06/2017
 * интегрировать установку и регистрацию соединителя в другую процедуру;
 * создать стандартный образ сервера, который содержит биты соединителя, но не зарегистрирован.
 
-## <a name="enabling-access"></a>Включение доступа
-Прокси приложения работает путем установки в сети компактной службы Windows Server, называемой соединителем. Для работы соединителя прокси приложения он должен быть зарегистрирован в вашем каталоге Azure AD с использованием пароля и имени глобального администратора. Обычно эти сведения вводятся во всплывающем окне во время установки соединителя. Но вместо этого с помощью Windows PowerShell можно создать объект учетных данных и указать сведения для регистрации в нем. Кроме того, вы можете создать собственный маркер и использовать его для ввода сведений о регистрации.
+Прокси приложения работает путем установки в сети компактной службы Windows Server, называемой соединителем. Для работы соединителя прокси приложения он должен быть зарегистрирован в вашем каталоге Azure AD с использованием пароля и имени глобального администратора. Обычно эти сведения вводятся во всплывающем окне во время установки соединителя. Тем не менее с помощью Windows PowerShell можно создать объект учетных данных и указать в нем данные регистрации. Кроме того, вы можете создать собственный маркер и использовать его для ввода данных регистрации.
 
-## <a name="step-1--install-the-connector-without-registration"></a>Шаг 1. Установка соединителя без регистрации
+## <a name="install-the-connector"></a>Установка соединителя
 Установите MSI-файлы соединителя без регистрации соединителя следующим образом.
 
 1. Откройте окно командной строки.
@@ -42,24 +42,24 @@ ms.lasthandoff: 02/06/2017
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
-## <a name="step-2-register-the-connector-with-azure-active-directory"></a>Шаг 2. Регистрация соединителя в Azure Active Directory
-Регистрацию соединителя можно выполнить с помощью любого из следующих методов.
+## <a name="register-the-connector-with-azure-ad"></a>Регистрация соединителя в Azure AD
+Существуют два метода регистрации соединителя:
 
-* Регистрация соединителя с помощью объекта учетных данных Windows PowerShell
-* Регистрация соединителя с помощью токена, созданного в автономном режиме
+* регистрация соединителя с помощью объекта учетных данных Windows PowerShell;
+* регистрация соединителя с помощью маркера, созданного в автономном режиме.
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Регистрация соединителя с помощью объекта учетных данных Windows PowerShell
-1. Создайте объект учетных данных Windows PowerShell, выполнив приведенную команду, в которой \<username\> и \<password\> следует заменить именем пользователя и паролем для вашего каталога.
+1. Создайте объект учетных данных Windows PowerShell, выполнив следующую команду. Замените *\<username\>* и *\<password\>* именем пользователя и паролем для каталога.
    
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
-2. Перейдите в каталог **C:\Program Files\Microsoft AAD App Proxy Connector** и запустите сценарий с использованием созданного объекта учетных данных PowerShell: здесь $cred — имя созданного объекта учетных данных.
+2. Перейдите в каталог **C:\Program Files\Microsoft AAD App Proxy Connector** и запустите сценарий с использованием созданного объекта учетных данных PowerShell. Замените *$cred* именем созданного вами объекта учетных данных PowerShell.
    
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
-### <a name="register-the-connector-using-a-token-created-offline"></a>Регистрация соединителя с помощью токена, созданного в автономном режиме
+### <a name="register-the-connector-using-a-token-created-offline"></a>Регистрация соединителя с помощью маркера, созданного в автономном режиме
 1. Создайте автономный маркер с помощью класса AuthenticationContext, используя значения, указанные во фрагменте кода:
 
         using System;

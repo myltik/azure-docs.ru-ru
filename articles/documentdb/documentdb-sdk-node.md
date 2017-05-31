@@ -1,24 +1,25 @@
 ---
 title: "Ресурсы, интерфейсы API и пакеты SDK Node.js для Azure DocumentDB | Документация Майкрософт"
 description: "Сведения об API и пакете SDK для Node.js, включая даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB Node.js."
-services: documentdb
+services: cosmosdb
 documentationcenter: nodejs
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: dd6e6184dd755ea356cae1c4d50a2b7ba39da9fb
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d7cbebf9864c21c21ba14c0d45eb20d42e3732dc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 03/17/2017
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [Поставщик ресурсов REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -56,6 +57,12 @@ ms.lasthandoff: 03/17/2017
 
 ## <a name="release-notes"></a>Заметки о выпуске
 
+### <a name="1.12.0"/>1.12.0</a>
+* Добавлена поддержка использования [единиц запроса в минуту](../cosmos-db/request-units-per-minute.md).
+* Добавлена поддержка нового [уровня согласованности](documentdb-consistency-levels.md) с именем ConsistentPrefix.
+* Добавлена поддержка UriFactory.
+* Исправлена ошибка поддержки Юникода. (Проблема GitHub 171)
+
 ### <a name="1.11.0"/>1.11.0</a>
 * Добавлена поддержка статистических запросов (COUNT, MIN, MAX, SUM и AVG).
 * Добавлена возможность контролировать степень параллелизма для запросов между секциями.
@@ -78,7 +85,7 @@ ms.lasthandoff: 03/17/2017
 
 ### <a name="1.9.0"/>1.9.0</a>
 * Добавлена поддержка политики повтора для отрегулированных запросов. (Отрегулированные запросы порождают исключение слишком высокой частоты запросов с кодом ошибки 429.) По умолчанию при обнаружении кода ошибки 429 DocumentDB повторяет запрос девять раз, используя интервал retryAfter в заголовке ответа. Фиксированный интервал повтора теперь можно задать как часть свойства RetryOptions объекта ConnectionPolicy, если требуется игнорировать интервал retryAfter, возвращаемый сервером между повторными попытками. Теперь DocumentDB ожидает до 30 секунд, пока запрос регулируется (независимо от количества повторных попыток), и возвращает ответ с кодом ошибки 429. Этот интервал также можно переопределить в свойстве RetryOptions объекта ConnectionPolicy.
-* Теперь DocumentDB возвращает x-ms-throttle-retry-count и x-ms-throttle-retry-wait-time-ms в заголовке ответа на каждый запрос, чтобы обозначить количество повторных попыток при регулировании и совокупное время ожидания запроса между повторами.
+* Теперь Cosmos DB возвращает x-ms-throttle-retry-count и x-ms-throttle-retry-wait-time-ms в заголовке ответа на каждый запрос, чтобы обозначить количество повторных попыток при регулировании и совокупное время ожидания запроса между повторами.
 * Добавлен класс RetryOptions, предоставляющей свойство RetryOptions класса ConnectionPolicy, с помощью которого можно переопределить некоторые параметры повторных попыток по умолчанию.
 
 ### <a name="1.8.0"/>1.8.0</a>
@@ -152,12 +159,13 @@ ms.lasthandoff: 03/17/2017
 
 Новые функции, возможности и оптимизации добавляются только в текущую версию пакета SDK, поэтому рекомендуется как можно раньше обновлять пакет SDK до последней версии.
 
-Любые запросы к DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
+Любые запросы к Cosmos DB с помощью выведенного из эксплуатации пакета SDK будут отклонены службой.
 
 <br/>
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |10 мая 2017 г. |--- |
 | [1.11.0](#1.11.0) |16 марта 2017 г. |--- |
 | [1.10.2](#1.10.2) |27 января 2017 г. |--- |
 | [1.10.1](#1.10.1) |22 декабря 2016 г. |--- |
@@ -187,7 +195,7 @@ ms.lasthandoff: 03/17/2017
 ## <a name="faq"></a>Часто задаваемые вопросы
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## <a name="see-also"></a>Дополнительные материалы
-Дополнительные сведения о DocumentDB см. на странице документации по службе [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
+## <a name="see-also"></a>См. также
+Дополнительные сведения о Cosmos DB см. на странице службы [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/).
 
 

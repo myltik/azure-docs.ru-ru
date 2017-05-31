@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 0231c3148d03ffef0a518a68bb79398462da2605
-ms.openlocfilehash: 89721efbb9f05871716ca1b16ad0d54eaf1ffd62
-ms.lasthandoff: 12/07/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 0b63228e5b09f5d22fc55818986a0a2eb1204278
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -206,7 +207,7 @@ Output:
 В [этой статье](service-fabric-cluster-fabric-settings.md) описаны разные варианты настройки Service Fabric для кластера.
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>Исправления ОС на виртуальных машинах, составляющих кластер
-Эту возможность планируется реализовать в будущем как автоматическую функцию. Однако на данный момент за применение исправлений к виртуальным машинам отвечаете вы. Необходимо делать это по очереди для каждой виртуальной машины, чтобы не отключать более одной виртуальной машины в один момент времени.
+[Приложение для управления исправлениями](service-fabric-patch-orchestration-application.md), которое можно развернуть в кластере, позволяет установить исправления из Центра обновления Windows контролируемым образом, не нарушая доступность служб. 
 
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Обновления ОС на виртуальных машинах, составляющих кластер
 Вы должны обновить образ ОС на виртуальных машинах кластера; поочередно для каждой виртуальной машины. За это обновление отвечаете вы: в настоящее время автоматизация этой функции отсутствует.

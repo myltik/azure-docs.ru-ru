@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 4ef0118435020edc3a922c88a5a55400992cbc09
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 366c2c43ec50b0b6c47a25ea9b0e9d7109827429
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -66,7 +67,7 @@ ms.lasthandoff: 04/07/2017
 | Сброс пароля |Подготовка к включению компонента обратной записи паролей |
 
 ## <a name="custom-settings-installation"></a>Установка с пользовательскими параметрами
-При использовании пользовательских параметров перед установкой необходимо создать учетную запись для подключения к Active Directory. Разрешения, которые необходимо предоставить этой учетной записи, можно найти в разделе [Создание учетной записи AD DS](#create-the-ad-ds-account).
+Раньше при использовании пользовательских параметров перед установкой необходимо было создать учетную запись для подключения к Active Directory. Разрешения, которые необходимо предоставить этой учетной записи, можно найти в разделе [Создание учетной записи AD DS](#create-the-ad-ds-account). Используя Azure AD Connect версии 1.1.524.0 и более поздних версий, можно разрешить мастеру Azure AD Connect создать для вас учетную запись.
 
 | Страница мастера | Собираемые учетные данные | Необходимые разрешения | Область использования |
 | --- | --- | --- | --- |
@@ -86,9 +87,11 @@ ms.lasthandoff: 04/07/2017
 
 | Функция | Разрешения |
 | --- | --- |
+| msDS-ConsistencyGuid feature |Разрешения на запись для атрибута msDS-ConsistencyGuid, описанного в статье [Azure AD Connect: принципы проектирования](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
 | Синхронизация паролей |<li>Репликация изменений каталога</li>  <li>Репликация всех изменений каталога |
 | Гибридное развертывание Exchange |Запишите разрешения в атрибуты, описанные в статье [Гибридная обратная запись Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) для пользователей, групп и контактов. |
-| Обратная запись паролей |Запишите разрешения в атрибуты, описанные в статье [Приступая к работе с компонентами управления паролями](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) для пользователей. |
+| Общедоступная папка почты Exchange |Разрешения на чтение для атрибутов, описанных в статье [Службы синхронизации Azure AD Connect: атрибуты, синхронизируемые с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder), для общедоступных папок. | 
+| Обратная запись паролей |Запишите разрешения в атрибуты, описанные в статье [Приступая к работе с компонентами управления паролями](../active-directory-passwords.md) для пользователей. |
 | Обратная запись устройств |Разрешения, предоставленные с помощью сценария PowerShell, как описано в статье об [обратной записи устройств](active-directory-aadconnect-feature-device-writeback.md). |
 | Обратная запись групп |Объекты группы чтения, создания, обновления и удаления в подразделении, где должны располагаться группы рассылки. |
 
@@ -179,11 +182,13 @@ ms.lasthandoff: 04/07/2017
 
 ![Учетная запись AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 
-Имя сервера, на котором используется учетная запись, можно определить по второй части имени пользователя. На этом рисунке серверу присвоено имя FABRIKAMCON. При наличии промежуточных серверов каждый из них имеет собственную учетную запись. Число учетных записей службы синхронизации в Azure AD не должно превышать 10.
+Имя сервера, на котором используется учетная запись, можно определить по второй части имени пользователя. На этом рисунке серверу присвоено имя FABRIKAMCON. При наличии промежуточных серверов каждый из них имеет собственную учетную запись.
 
 При создании этой учетной записи службы используется длинный сложный пароль, который имеет неограниченный срок действия. Учетной записи назначается специальная роль **Учетная запись синхронизации каталогов** , которая имеет разрешения только на выполнение задач синхронизации каталогов. Эта специальная встроенная роль не может быть назначена за пределами мастера Azure AD Connect, а на портале Azure данная учетная запись отображается только с ролью **Пользователь**.
 
-![Роль учетной записи AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
+Число учетных записей службы синхронизации в Azure AD не должно превышать 20. Чтобы получить список существующих учетных записей службы Azure AD в Azure AD, выполните следующий командлет Azure AD PowerShell: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+
+Чтобы удалить неиспользуемые учетные записи службы Azure AD, выполните следующий командлет Azure AD PowerShell: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](../active-directory-aadconnect.md).

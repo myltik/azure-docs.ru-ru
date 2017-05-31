@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 05/16/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 446a7b585ca1204d49d76f71106799cbd2b0aa70
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 3013607e62a3ac532cb0c035130fe35e503a345c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -40,6 +41,7 @@ ms.lasthandoff: 03/29/2017
 | [Гибридный конвейер с локальным кластером Hadoop Hortonworks](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) |В этом примере локальный кластер Hadoop используется как целевой объект для выполнения заданий в фабрике данных, аналогично другим объектам вычислений, таким как кластер Hadoop на основе HDInsight в облаке. |
 | [Средство преобразования JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) |Позволяет преобразовать JSON из версии до 2015-07-01-preview в последнюю доступную версию или в версию 2015-07-01-preview (по умолчанию). |
 | [Пример входного файла U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |Это пример файла, который используется действием U-SQL. |
+| [Удаление файла большого двоичного объекта](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity) | В этом примере демонстрируется файл C#, который можно использовать как часть настраиваемого действия .NET ADF для удаления файлов из исходного расположения больших двоичных объектов Azure после копирования файлов.|
 
 ## <a name="azure-resource-manager-templates"></a>Шаблоны диспетчера ресурсов Azure
 Следующие шаблоны Azure Resource Manager для фабрики данных можно найти на портале GitHub.
@@ -101,7 +103,7 @@ ms.lasthandoff: 03/29/2017
    3. Выберите **подписку Azure** , в рамках которой вы хотите создать фабрику данных.
    4. Выберите **группу ресурсов** для фабрики данных.
    5. В качестве **региона** выберите **западную часть США**, **восточную часть США** или **Северную Европу**.
-   6. Нажмите кнопку **Далее**.
+   6. Щелкните **Далее**.
 6. На странице **Configure data stores** (Настройка хранилищ данных) укажите существующую **базу данных SQL Azure** и **учетную запись хранения Azure** (или создайте новые), а затем нажмите кнопку "Далее".
 7. На странице **Настройка вычислений** выберите значения по умолчанию и нажмите кнопку **Далее**.
 8. На странице **Сводка** проверьте все параметры и нажмите кнопку **Далее**.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 9b75d0ede3ec1b291936ee0a53778afe10ba91db
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 9932ac04699f49b7a3ea3dabe4d380fdc4d05ec1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -939,21 +939,21 @@ ms.lasthandoff: 04/28/2017
 <a id="replace" />
 
 ## <a name="replace"></a>replace
-`replace(originalString, oldCharacter, newCharacter)`
+`replace(originalString, oldString, newString)`
 
-Возвращает новую строку, где все экземпляры одного символа заменены другим символом.
+Возвращает новую строку, в которой все экземпляры одной строки заменены другой строкой.
 
 ### <a name="parameters"></a>Параметры
 
 | Параметр | Обязательно | Тип | Описание |
 |:--- |:--- |:--- |:--- |
-| исходная_строка |Да |string |Значение, в котором все экземпляры одного знака будут заменены другим знаком. |
-| старый_символ |Да |string |Символ, который удаляется из исходной строки. |
-| новый_символ |Да |string |Символ, добавляемый вместо удаляемого символа. |
+| исходная_строка |Да |string |Значение, в котором все экземпляры одной строки заменены другой строкой. |
+| oldString |Да |string |Строка, которая удаляется из исходной строки. |
+| newString |Да |string |Строка, добавляемая вместо удаляемой строки. |
 
 ### <a name="examples"></a>Примеры
 
-В следующем примере показано, как удалить все тире из предоставленной пользователем строки.
+В приведенном ниже примере показано, как удалить все тире из предоставленной пользователем строки и как заменить часть строки другой строкой.
 
 ```json
 {
@@ -967,9 +967,13 @@ ms.lasthandoff: 04/28/2017
     },
     "resources": [],
     "outputs": {
-        "stringOutput": {
+        "firstOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
+        },
+        "secodeOutput": {
+            "type": "string",
+            "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
     }
 }

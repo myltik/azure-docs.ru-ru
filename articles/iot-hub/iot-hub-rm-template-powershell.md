@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: dc9f9c39a8eb644229887f76b5c441d4211af059
-ms.openlocfilehash: 6f9c36239f8485313066a594eea74bfcd168536e
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: d55de6c3f49abf3ac117dcb265dd7f1bcaa05f24
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -45,20 +46,33 @@ ms.lasthandoff: 02/24/2017
 ## <a name="connect-to-your-azure-subscription"></a>Подключение к подписке Azure
 В командной строке PowerShell введите следующую команду, чтобы войти в подписку Azure.
 
-```
+```powershell
 Login-AzureRmAccount
+```
+
+Если у вас есть несколько подписок Azure, то при входе в Azure вы получите доступ ко всем подпискам Azure, связанным с вашими учетными данными. Используйте следующую команду, чтобы просмотреть подписки Azure, доступные для использования:
+
+```powershell
+Get-AzureRMSubscription
+```
+
+Используйте следующую команду, чтобы выбрать подписку, которая будет использоваться для выполнения команд для создания Центра Интернета вещей. Вы можете использовать имя подписки или идентификатор из выходных данных предыдущей команды:
+
+```powershell
+Select-AzureRMSubscription `
+    -SubscriptionName "{your subscription name}"
 ```
 
 Чтобы узнать, где можно развернуть центр IoT, и ознакомиться с текущими поддерживаемыми версиями API, используйте следующие команды:
 
-```
+```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).Locations
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
 ```
 
 Создайте группу ресурсов для хранения центра IoT, используя указанную ниже команду в одном из поддерживаемых расположений для центра IoT. В этом примере создается группа ресурсов с именем **MyIoTRG1**.
 
-```
+```powershell
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
@@ -67,7 +81,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 1. Используйте текстовый редактор, чтобы создать шаблон Azure Resource Manager с именем **template.json** с помощью следующего определения ресурса для создания стандартного Центра Интернета вещей. В этом примере в регион **Восточная часть США** добавляется Центр Интернета вещей, создаются две группы потребителей (**cg1** и **cg2**) для конечной точки, совместимой с концентраторами событий, и используется версия API **2016-02-03**. При использовании этого шаблона нужно передать имя центра IoT в качестве параметра с именем **hubName**. Текущий список расположений, которые поддерживают Центр Интернета вещей, указан на странице [Состояние Azure][lnk-status].
    
-    ```
+    ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
@@ -119,7 +133,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 2. Сохраните файл шаблона Azure Resource Manager на локальном компьютере. В этом примере предполагается, что файл сохраняется в папке **c:\templates**.
 3. Выполните следующую команду, чтобы развернуть новый центр IoT, передав в качестве параметра имя центра IoT. В данном примере это имя создаваемого центра IoT, например **abcmyiothub** (обратите внимание, что это должно быть глобально уникальное имя, поэтому оно должно содержать ваше имя или инициалы).
    
-    ```
+    ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
 4. В выходных данных отображаются ключи для созданного центра IoT.
@@ -143,7 +157,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+* [Отправка сообщений с устройства в облако с помощью имитации устройства (Linux) с использованием Edge Интернета вещей Azure][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -157,5 +171,5 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

@@ -1,31 +1,33 @@
 ---
-title: "Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: стандартные блоки | Документы Майкрософт"
+
+title: "Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: стандартные блоки | Документация Майкрософт"
 description: "Ознакомление со сценариями управления удостоверениями и доступом и их реализация"
 services: active-directory
 keywords: "azure active directory, сборник тренировочных заданий, подтверждение концепции, PoC"
 documentationcenter: 
 author: dstefanMSFT
-manager: asuthar
+manager: femila
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 05/04/2017
 ms.author: dstefan
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b6f26a338450619cef012467bf78b9469622ba08
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 9c81bc0c702d559eee8b5fbf2a0508697f4276a0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Сборник тренировочных заданий по подтверждению концепции для Azure Active Directory: стандартные блоки
 
-## <a name="catalog-of-actors"></a>Каталог субъектов
+## <a name="catalog-of-roles"></a>Каталог ролей
 
-| Субъект | Описание | Ответственность по подтверждению концепции |
+| Роль | Описание | Обязанности по подтверждению концепции |
 | --- | --- | --- |
 | **Группа по архитектуре удостоверений и разработке** | Обычно эта группа отвечает за проектирование решения, реализацию прототипов, проведение утверждений и передачу решения в работу. | Эти люди предоставляют среды и оценивают различные сценарии с точки зрения управляемости. |
 | **Группа по работе с локальными удостоверениями** | Управляет различными источниками удостоверений в локальной среде: лесами Active Directory, каталогами LDAP, системами подбора кадров и поставщиками удостоверений федерации. | Предоставляет доступ к локальным ресурсам, необходимым для сценариев подтверждения концепции.<br/>Этих сотрудников следует вовлекать в работу как можно меньше.|
@@ -151,7 +153,7 @@ ms.lasthandoff: 04/27/2017
 | Проведите рабочее собрание и выполните инструкции из учебника вместе с каждым субъектом. | [Руководство: интеграция Azure Active Directory с ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Назначьте приложение группе, указанной в предварительных требованиях. Если в область подтверждения концепции входит условный доступ, вы можете вернуться позже, чтобы добавить Многофакторную идентификацию и аналогичные компоненты. <br/>Обратите внимание, что это запустит процесс подготовки (если он настроен). |  [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Создание группы и добавление в нее пользователей в Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Используйте портал управления Azure AD, чтобы добавить приложение ServiceNow из коллекции.| [Портал управления Azure AD: корпоративные приложения](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Новые возможности управления корпоративными приложениями в Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
-| В колонке "Единый вход" приложения ServiceNow включите параметр "Вход на основе SAML". |  |
+| В колонке "Единый вход" приложения ServiceNow включите параметр "SAML-based Sign-on" (Вход на основе SAML). |  |
 | Укажите в полях "URL-адрес для входа" и "Идентификатор" URL-адрес ServiceNow.<br/>Установите флажок "Сделать сертификат активным"<br/>и сохраните параметры. |  |
 | Откройте колонку "Configure ServiceNow" (Настройка ServiceNow) в нижней части панели, чтобы просмотреть индивидуальные инструкции для настройки ServiceNow. |  |
 | Следуйте инструкциям для настройки ServiceNow. |  |
@@ -184,7 +186,7 @@ ms.lasthandoff: 04/27/2017
 | Шаг | Ресурсы |
 | --- | --- |
 | Установите расширение браузера. | [Расширение "Панель доступа" для Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Расширение "Панель доступа" для Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Расширение "Панель доступа" для Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Настройте приложение из коллекции. | [Новые возможности управления корпоративными приложениями в Azure Active Directory: обновленная и усовершенствованная коллекция приложений](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| Настройте приложение из коллекции. | [Новые возможности управления корпоративными приложениями в Azure Active Directory: обновленная и усовершенствованная коллекция приложений](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Настройте единый вход с паролем. | [Управление параметрами единого входа для корпоративных приложений на новом портале Azure: вход на основе пароля](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Назначьте приложение группе, указанной в предварительных требованиях. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Войдите на сайт https://myapps.microsoft.com/ в качестве тестового пользователя с правом доступа. |  |
@@ -210,7 +212,7 @@ ms.lasthandoff: 04/27/2017
 | Предварительные требования | Ресурсы |
 | --- | --- |
 | Список целевых приложений и точные URL-адреса входа заранее. Например, можно использовать Twitter. | [Twitter в Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Регистрация в Twitter](https://twitter.com/signup?lang=en) |
-| Общие учетные данные для этого приложения SaaS. | [Совместное использование учетных записей с помощью Azure AD](active-directory-sharing-accounts.md)<br/>[Автоматическая смена паролей Azure AD для Facebook, Twitter и LinkedIn перешла на этап предварительной версии! — блог по Enterprise Mobility + Security](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Общие учетные данные для этого приложения SaaS. | [Совместное использование учетных записей с помощью Azure AD](active-directory-sharing-accounts.md)<br/>[Автоматическая смена паролей Azure AD для Facebook, Twitter и LinkedIn перешла на этап предварительной версии! — блог по Enterprise Mobility + Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Учетные данные по меньшей мере двух членов группы, которые будут обращаться к одной учетной записи. Они должны входить в группу безопасности. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Доступ локального администратора к компьютеру, чтобы развернуть расширение панели доступа для Internet Explorer, Chrome или Firefox. | [Расширение "Панель доступа" для Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Расширение "Панель доступа" для Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Расширение "Панель доступа" для Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -219,7 +221,7 @@ ms.lasthandoff: 04/27/2017
 | Шаг | Ресурсы |
 | --- | --- |
 | Установите расширение браузера. | [Расширение "Панель доступа" для Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Расширение "Панель доступа" для Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Расширение "Панель доступа" для Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Настройте приложение из коллекции. | [Новые возможности управления корпоративными приложениями в Azure Active Directory: обновленная и усовершенствованная коллекция приложений](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| Настройте приложение из коллекции. | [Новые возможности управления корпоративными приложениями в Azure Active Directory: обновленная и усовершенствованная коллекция приложений](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Настройте единый вход с паролем. | [Управление параметрами единого входа для корпоративных приложений на новом портале Azure: вход на основе пароля](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Назначьте приложение группе, указанной в предварительных требованиях, пока задаете для нее учетные данные. | [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Входите в качестве разных пользователей, обращающихся к приложению как **к общей учетной записи.**  |  |
@@ -287,7 +289,7 @@ ms.lasthandoff: 04/27/2017
 | Добавьте универсальный соединитель LDAP. | [Технический справочник по универсальному соединителю LDAP: создание нового соединителя](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
 | Создайте профили выполнения для созданного соединителя (полный импорт, разностный импорт, полная синхронизация, разностная синхронизация, экспорт). | [Создание профиля выполнения для агента управления](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Использование соединителей с Synchronization Service Manager Azure AD Connect](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Запустите профиль полного импорта и убедитесь, что в пространстве соединителя есть объекты. | [Поиск объекта пространства соединителя](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Использование соединителей с Synchronization Service Manager Azure AD Connect: пространство поиска соединителя](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| Создайте правила синхронизации, чтобы объекты в метавселенной имели подходящие атрибуты для рабочих нагрузок. | [Синхронизация Azure AD Connect. Рекомендации по изменению конфигурации по умолчанию: изменения в правилах синхронизации](/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Служба синхронизации Azure AD Connect: общие сведения о декларативной подготовке](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Служба синхронизации Azure AD Connect: общие сведения о выражениях декларативной подготовки](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
+| Создайте правила синхронизации, чтобы объекты в метавселенной имели подходящие атрибуты для рабочих нагрузок. | [Синхронизация Azure AD Connect. Рекомендации по изменению конфигурации по умолчанию: изменения в правилах синхронизации](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Служба синхронизации Azure AD Connect: общие сведения о декларативной подготовке](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Служба синхронизации Azure AD Connect: общие сведения о выражениях декларативной подготовки](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Запустите полный цикл синхронизации. | [Синхронизация Azure AD Connect. Планировщик: запуск планировщика](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | При возникновении проблем выполните устранение неполадок. | [Устранение неполадок синхронизации объекта с Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | Убедитесь, что пользователь LDAP может войти и обратиться к приложению. | https://myapps.microsoft.com |
@@ -381,8 +383,8 @@ ms.lasthandoff: 04/27/2017
 | Предварительные требования | Ресурсы |
 | --- | --- |
 | Включите самостоятельное управление паролями в клиенте. | [Сброс паролей Azure Active Directory для ИТ-администраторов](active-directory-passwords.md) |
-| Включите обратную запись паролей для управления паролями в локальной среде. Обратите внимание, что для этого требуются определенные версии Azure AD Connect. | [Необходимые условия для обратной записи паролей](active-directory-passwords-getting-started.md#writeback-prerequisites) |
-| Определите пользователей подтверждения концепции, которые будут использовать эту функцию, и убедитесь, что они являются членами группы безопасности. Для полноценной демонстрации возможности пользователи не должны обладать правами администратора. | [Настройка управления паролями Azure Active Directory: ограничение доступа для сброса пароля](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
+| Включите обратную запись паролей для управления паролями в локальной среде. Обратите внимание, что для этого требуются определенные версии Azure AD Connect. | [Необходимые условия для обратной записи паролей](active-directory-passwords-writeback.md) |
+| Определите пользователей подтверждения концепции, которые будут использовать эту функцию, и убедитесь, что они являются членами группы безопасности. Для полноценной демонстрации возможности пользователи не должны обладать правами администратора. | [Настройка управления паролями Azure Active Directory: ограничение доступа для сброса пароля](active-directory-passwords-writeback.md) |
 
 
 ### <a name="steps"></a>Действия

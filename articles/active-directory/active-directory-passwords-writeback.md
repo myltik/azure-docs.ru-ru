@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9dc195040d0fa1321dff9ec97d9ca1e4770d325
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: fde08bfc3a73c54ee53b5d8efffd3001894416b3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -74,11 +74,23 @@ ms.lasthandoff: 05/08/2017
 
     Для многих из таких случаем имеется конкретное сообщение, позволяющее указать пользователю на возможности для устранения проблемы.
 
-## <a name="scenarios-supported-for-password-writeback"></a>Сценарии, поддерживаемые для обратной записи паролей
+## <a name="configuring-password-writeback"></a>Настройка компонента обратной записи паролей
 
 Мы советуем использовать функцию автоматического обновления [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md), если вы хотите использовать компонент обратной записи паролей.
 
-Дополнительные сведения см. в статье [Обновление Windows Azure Active Directory Sync и Azure Active Directory Sync](connect/active-directory-aadconnect-dirsync-deprecated.md).
+DirSync и Azure AD Sync больше не поддерживаются для включения компонента обратной записи паролей. Статья [Обновление Windows Azure Active Directory Sync и Azure Active Directory Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) содержит дополнительные сведения, которые помогут при переходе.
+
+В инструкциях ниже предполагается, что вы уже настроили Azure AD Connect в своей среде с помощью [стандартных](./connect/active-directory-aadconnect-get-started-express.md) или [пользовательских](./connect/active-directory-aadconnect-get-started-custom.md) параметров.
+
+1. Чтобы настроить и включить компонент обратной записи паролей, войдите на сервер Azure AD Connect и запустите мастер настройки **Azure AD Connect**.
+2. На экране приветствия щелкните **Настроить**.
+3. На экране "Дополнительные задачи" щелкните **Настроить параметры синхронизации** и нажмите кнопку **Далее**.
+4. На экране "Подключение к Azure AD" введите учетные данные глобального администратора и нажмите кнопку **Далее**.
+5. На экранах "Подключить каталоги" и "Фильтрация доменов и подразделений" можно нажать кнопку **Далее**.
+6. На экране "Дополнительные компоненты" установите флажок рядом с параметром **Обратная запись паролей** и нажмите кнопку **Далее**.
+   ![Включение обратной записи паролей в Azure AD Connect][Writeback]
+7. На экране "Готово к настройке" щелкните **Настроить** и дождитесь завершения процесса.
+8. При появлении экрана "Конфигурация завершена" можно нажать кнопку **Выйти**.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Требования к лицензированию для обратной записи паролей
 
@@ -175,12 +187,12 @@ ms.lasthandoff: 05/08/2017
 * [**Быстрое начало работы с самостоятельным сбросом пароля в Azure AD**](active-directory-passwords-getting-started.md). Запуск и выполнение службы самостоятельного управления паролями Azure AD. 
 * [**Licensing requirements for Azure AD self-service password reset**](active-directory-passwords-licensing.md) (Требования к лицензированию самостоятельного сброса пароля в Azure AD). Сведения о настройке лицензирования Azure AD.
 * [**Deploy password reset without requiring end-user registration**](active-directory-passwords-data.md) (Развертывание сброса пароля без регистрации пользователя). Сведения о необходимых данных и их использовании для управления паролями.
-* [**Развертывание функции сброса паролей для пользователей**](active-directory-passwords-best-practices.md). Рекомендации по планированию и развертыванию SSPR для пользователей.
+* [**Развертывание компонентов управления паролями и обучение пользователей их использованию**](active-directory-passwords-best-practices.md). Рекомендации по планированию и развертыванию SSPR для пользователей.
 * [**Настройка компонентов управления паролями в соответствии с требованиями организации**](active-directory-passwords-customize.md). Сведения о настройке интерфейса и параметров использования SSPR для организации.
 * [**Политики и ограничения для паролей в Azure Active Directory**](active-directory-passwords-policy.md). Общие сведения и информация об установке политик паролей Azure AD.
-* [**Параметры отчетов для управления паролями Azure AD**](active-directory-passwords-reporting.md). Определяйте, кто и когда использовал функцию SSPR.
+* [**Reporting options for Azure AD password management**](active-directory-passwords-reporting.md) (Параметры отчетов для управления паролями Azure AD). Определяйте, кто и когда использовал функцию SSPR.
 * [**Как работает управление паролями в Azure Active Directory**](active-directory-passwords-how-it-works.md). Сведения о принципе работы управления паролями.
 * [**Вопросы и ответы об управлении паролями**](active-directory-passwords-faq.md). Как? Почему? Что? Где? Кто? Когда? Здесь приведены ответы на интересующие вас вопросы.
 * [**Устранение неполадок, связанных с управлением паролями**](active-directory-passwords-troubleshoot.md). Сведения об устранении распространенных проблем с SSPR.
 
-
+[Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Включение обратной записи паролей в Azure AD Connect"

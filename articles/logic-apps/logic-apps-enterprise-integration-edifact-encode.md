@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 507fb3200fe62aaa813464e5d6152a79907fdef7
-ms.lasthandoff: 04/06/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: e83488f4ec420c2af40d373239ba6989387da3cb
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -93,6 +94,9 @@ ms.lasthandoff: 04/06/2017
 * Запрашивает техническое и (или) функциональное подтверждение (если настроено).
   * Техническим подтверждением является сообщение CONTRL, сообщающее о получении обмена.
   * Функциональным подтверждением является сообщение CONTRL, информирующее о принятии или отклонении полученного обмена, отдельной группы или сообщения, и содержащее список ошибок или неподдерживаемых функциональных возможностей.
+
+## <a name="view-swagger-file"></a>Просмотр файла Swagger
+Дополнительные сведения о Swagger для соединителя EDIFACT см.в [этой статье](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Обзор пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise") 
