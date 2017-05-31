@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 0fb4cc7b3c071eeb0bff15f9a57fc7e2106d7ca7
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 81dae4c35fead96af8a8a2823952a0bd7f2e537e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Service Fabric позволяет создавать и администриро
 * Микрослужбы позволяют масштабировать разные части приложения в зависимости от его потребностей.
 * Это позволяет разработчикам более гибко развертывать изменения, чтобы быстрее и чаще предоставлять клиентам новые функции.
 
-Сейчас на базе Service Fabric работают многие службы Майкрософт, в том числе база данных SQL Azure, Azure DocumentDB, Cortana, Microsoft Power BI, Microsoft Intune, концентраторы событий Azure, Центр Интернета вещей Azure, Skype для бизнеса, а также многие ключевые службы Azure.
+Сейчас на базе Service Fabric работают многие службы Майкрософт, в том числе база данных SQL Azure, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, концентраторы событий Azure, Центр Интернета вещей Azure, Skype для бизнеса, а также многие ключевые службы Azure.
 
 Платформа Service Fabric предназначена для создания собственных облачных служб любого размера с возможностью масштабирования до сотен и даже тысяч виртуальных машин.
 

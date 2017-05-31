@@ -1,34 +1,35 @@
 ---
-title: "Инструмент DocumentDB портала Azure: обозреватель скриптов | Документация Майкрософт"
-description: "Узнайте об обозревателе скриптов DocumentDB, средстве портала Azure для управления артефактами программирования на стороне сервера DocumentDB, включая хранимые процедуры JavaScript, триггеры и определяемые пользователем функции."
+title: "Средство Cosmos DB портала Azure: обозреватель скриптов | Документация Майкрософт"
+description: "Узнайте об обозревателе скриптов Azure Cosmos DB, средстве портала Azure для управления артефактами программирования на стороне сервера Azure Cosmos DB, включая хранимые процедуры JavaScript, триггеры и определяемые пользователем функции."
 keywords: "редактор JavaScript"
-services: documentdb
+services: cosmosdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 9d0620da-2449-4c17-82a4-24aaa46e9b3e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: kirillg
-translationtype: Human Translation
-ms.sourcegitcommit: 429687c6e5a196a3b489dc4dd79ae886b7ad9c38
-ms.openlocfilehash: ccff673996d53d2b3b2c177bfb6fff01613b7097
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e9c3e92dd1c35ff6893565e61f7e7b940b6ede7e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-documentdb-script-explorer"></a>Создавайте и запускайте хранимые процедуры, триггеры и определяемые пользователем функции с помощью обозревателя скриптов DocumentDB
-В этой статье приведены общие сведения об обозревателе скриптов [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), который представляет собой редактор JavaScript на портале Azure, позволяющий просматривать и запускать артефакты программирования на стороне сервера DocumentDB, включая хранимые процедуры, триггеры и пользовательские функции. Дополнительные сведения о программировании DocumentDB на стороне сервера см. в статье [Программирование DocumentDB на стороне сервера: хранимые процедуры, триггеры баз данных и определяемые пользователем функции](documentdb-programming.md).
+# <a name="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-azure-cosmos-db-script-explorer"></a>Создавайте и запускайте хранимые процедуры, триггеры и определяемые пользователем функции с помощью обозревателя скриптов Azure Cosmos DB.
+В этой статье приведены общие сведения об обозревателе скриптов [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), который представляет собой редактор JavaScript на портале Azure, позволяющий просматривать и запускать артефакты программирования на стороне сервера Cosmos DB, включая хранимые процедуры, триггеры и пользовательские функции. Дополнительные сведения о программировании Cosmos DB на стороне сервера см. в статье [Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs](documentdb-programming.md) (Программирование Azure Cosmos DB на стороне сервера: хранимые процедуры, триггеры баз данных и определяемые пользователем функции).
 
 ## <a name="launch-script-explorer"></a>Запуск обозревателя скриптов
-1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните ![значок Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните ![значок Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 
 
-    Если пункт **NoSQL (DocumentDB)** не отображается, то выберите внизу пункт **Больше служб** и щелкните ![значок Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
+    Если служба **Azure Cosmos DB** не отображается, то выберите внизу пункт **Больше служб** и щелкните ![значок Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**.
 2. В меню ресурсов выберите **Обозреватель скриптов**.
    
     ![Снимок экрана: команда "Обозреватель скриптов"](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -47,7 +48,7 @@ ms.lasthandoff: 02/15/2017
     ![Снимок экрана: команда обновления обозревателя скриптов](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 ## <a name="create-view-and-edit-stored-procedures-triggers-and-user-defined-functions"></a>Создание, просмотр и изменение хранимых процедур, триггеров и определяемых пользователем функций
-Обозреватель скриптов позволяет с легкостью выполнять операции CRUD с артефактами программирования на стороне сервера DocumentDB.  
+Обозреватель скриптов позволяет с легкостью выполнять операции CRUD с артефактами программирования на стороне сервера Cosmos DB.  
 
 * Чтобы создать скрипт, просто выберите соответствующую команду в окне обозревателя скриптов, укажите идентификатор, введите содержимое скрипта и щелкните **Сохранить**.
   
@@ -109,6 +110,5 @@ ms.lasthandoff: 02/15/2017
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о программировании DocumentDB на стороне сервера см. в статье [Программирование DocumentDB на стороне сервера: хранимые процедуры, триггеры баз данных и определяемые пользователем функции](documentdb-programming.md).
 
-[Схема обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/) — еще один полезный ресурс, который поможет вам узнать больше о DocumentDB.  
 
 

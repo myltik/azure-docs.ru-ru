@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/15/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: e14da5fa10533d922a6263e8f52a53c0eaa23393
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: faa6d403aa130738ae0b58ba1ffc828a1e37e9f4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -341,7 +342,7 @@ ms.lasthandoff: 04/25/2017
 ## <a name="indexing-documents-along-with-related-data"></a>Индексация документов и связанных данных
 
 У документов могут быть связанные метаданные (например, отдел, создавший документ), которые хранятся в виде структурированных данных в одном из следующих расположений.
--   В отдельном хранилище данных, таком как База данных SQL или DocumentDB.
+-   В отдельном хранилище данных, таком как база данных SQL или Azure Cosmos DB.
 -   Непосредственно в каждом документе в хранилище BLOB-объектов Azure в виде вложенных пользовательских метаданных. (Дополнительные сведения см. в разделе [Setting and Retrieving Properties and Metadata for Blob Resources](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) (Задание и получение свойств и метаданных для ресурсов больших двоичных объектов).)
 
 Можно индексировать документы вместе с их метаданными, назначив для каждого документа и его метаданных одно уникальное значение ключа и указав действие `mergeOrUpload` для каждого индексатора. Подробное описание этого решения приведено во внешней статье: [Combine documents with other data in Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Объединение документов с другими данными в Поиске Azure).

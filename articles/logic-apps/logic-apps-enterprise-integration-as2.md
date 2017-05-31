@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5733592fc1633d8722905c33dd267b4cbe1fe184
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; mandia
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 09a2373585f49a39192a841072d86e395ff311db
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -171,6 +172,9 @@ ms.lasthandoff: 03/10/2017
 2.    Вы также можете просмотреть соглашения в обзоре учетной записи интеграции. В колонке учетной записи интеграции выберите **Обзор**, а затем щелкните плитку **Соглашения**. 
 
     ![Выбор плитки "Соглашения" для просмотра всех соглашений](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+
+## <a name="view-the-swagger"></a>Просмотр Swagger
+Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Обзор пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise")  

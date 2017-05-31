@@ -1,6 +1,6 @@
 ---
 title: "Использование рекомендаций центра безопасности Azure для повышения уровня безопасности | Документация Майкрософт"
-description: " Использование политик безопасности и рекомендаций центра безопасности Azure для уменьшения рисков нарушения безопасности. "
+description: " Использование политик безопасности и рекомендаций центра безопасности Azure для уменьшения рисков нарушения безопасности "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 313801fc3b845cd30506b1a26918660e77d2a986
-ms.openlocfilehash: 67095e0d8752fb3a2bca692f65e77cde5fd1a966
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 36dd149812a0e8c8ca8ef2bac09c1920ec15d3ba
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -75,7 +77,7 @@ ms.openlocfilehash: 67095e0d8752fb3a2bca692f65e77cde5fd1a966
 
 1. Джефф выбирает плитку **Рекомендации**, чтобы открыть колонку **Рекомендации**.
    ![Выбор плитки рекомендаций][3]
-2. Джефф просматривает список рекомендаций. Он видит, что центр безопасности упорядочивает список рекомендаций по приоритету, от наиболее важных к наименее важным. Он решает выполнить первую по списку рекомендацию с высоким уровнем приоритета. В колонке **Рекомендации** он выбирает **Установить Endpoint Protection**.
+2. Джефф просматривает список рекомендаций. Он видит, что центр безопасности упорядочивает список рекомендаций по приоритету, от наиболее важных к наименее важным. Он решает выполнить рекомендацию с высоким уровнем приоритета. В колонке **Рекомендации** он выбирает **Установить Endpoint Protection**.
 3. Откроется колонка **Установить Endpoint Protection** со списком виртуальных машин, на которых не включена защита от вредоносных программ. Джефф просматривает список виртуальных машин, выбирает все виртуальные машины и нажимает кнопку **Установить на 3 виртуальных машинах**.
    ![Установка Endpoint Protection][4]
 4. Открывается колонка **Select Endpoint Protection** (Выбор Endpoint Protection), где Джефф видит два варианта решений для защиты от вредоносных программ. Он выбирает **Антивредоносное ПО Майкрософт**.
@@ -114,9 +116,4 @@ ms.openlocfilehash: 67095e0d8752fb3a2bca692f65e77cde5fd1a966
 [5]:./media/security-center-using-recommendations/microsoft-antimalware.png
 [6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
 [7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

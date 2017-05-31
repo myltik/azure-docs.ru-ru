@@ -1,24 +1,25 @@
 ---
-title: "Инструмент DocumentDB портала Azure: проводник документов | Документация Майкрософт"
-description: "Сведения о проводнике документов DocumentDB, средстве портала Azure для просмотра, изменения, создания и отправки документов JSON с помощью DocumentDB — базы данных документов NoSQL."
+title: "Средство Cosmos DB портала Azure: проводник документов | Документация Майкрософт"
+description: "Сведения о проводнике документов Azure Cosmos DB, средстве портала Azure для просмотра, изменения, создания и отправки документов JSON."
 keywords: "просмотр кода json"
-services: documentdb
+services: cosmosdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 029d81b3-6382-4799-a1bd-0dcbccd9968d
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: kirillg
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4338fc03664175b7c27a48f1ab682179c1035313
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 77f8512d9fa47eee25596aa3c407fd6889edbe0e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,14 +28,14 @@ ms.lasthandoff: 04/21/2017
 Эта статья содержит обзор двух способов для создания, изменения и запроса документов на портале — [обозревателя документов](#launch-document-explorer) и [обозревателя данных (предварительная версия)](#data-explorer).
 
 > [!NOTE]
-> В учетных записях DocumentDB с поддержкой протокола для MongoDB проводник документов не включен. Страница будет обновлена после включения этого компонента.
+> В учетных записях Azure Cosmos DB с поддержкой протокола для MongoDB проводник документов не включен. Страница будет обновлена после включения этого компонента.
 
 <a id="launch-document-explorer"></a>
 
 ## <a name="launch-document-explorer-in-the-azure-portal"></a>Запуск проводника документов на портале Azure
-1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните ![значок Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+1. На [портале Azure](https://portal.azure.com) в области навигации слева щелкните ![значок Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**. 
 
-    Если пункт **NoSQL (DocumentDB)** не отображается, то выберите внизу пункт **Больше служб** и щелкните ![значок Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
+    Если служба **Azure Cosmos DB** не отображается, то выберите внизу пункт **Больше служб** и щелкните ![значок Azure Cosmos DB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**.
 2. Выберите имя учетной записи. 
 3. В меню ресурсов выберите **Обозреватель документов**. 
    
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/21/2017
    > 
    > 
    
-    Если у вас уже есть данные из JSON-файлов, баз MongoDB и SQL Server, CSV-файлов, хранилища таблиц Azure, Amazon DynamoDB, HBase или других коллекций DocumentDB, вы можете быстро импортировать их с помощью [инструмента DocumentDB для переноса данных](documentdb-import-data.md) .
+    Если у вас уже есть данные из JSON-файлов, баз MongoDB и SQL Server, CSV-файлов, хранилища таблиц Azure, Amazon DynamoDB, HBase или других коллекций API DocumentDB, вы можете быстро импортировать их с помощью [средства API DocumentDB для переноса данных](documentdb-import-data.md).
 
 ## <a name="edit-a-json-document"></a>Изменение документа JSON
 1. [Запустите проводник документов](#launch-document-explorer).
@@ -70,7 +71,7 @@ ms.lasthandoff: 04/21/2017
    
     ![Снимок экрана: команда отмены в обозревателе документов](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## <a name="delete-a-document-from-documentdb"></a>Удаление документа из DocumentDB
+## <a name="delete-a-document-from-cosmos-db"></a>Удаление документа из Cosmos DB
 1. [Запустите проводник документов](#launch-document-explorer).
 2. Выберите документ в колонке **Обозреватель документов**, нажмите кнопку **Удалить** и подтвердите удаление. После подтверждения документ будет немедленно удален из списка проводника документов.
    
@@ -107,7 +108,7 @@ ms.lasthandoff: 04/21/2017
    
    ![Снимок экрана: колонка параметров в проводнике документов](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings2.png)
    
-   Проводник документов автоматически выведет обновленные результаты с документами, соответствующими запросу фильтра. Дополнительные сведения о грамматике SQL в DocumentDB см. в статье [SQL-запросы и синтаксис SQL в DocumentDB](documentdb-sql-query.md). Можно также распечатать копию [памятки по DocumentDB SQL](documentdb-sql-query-cheat-sheet.md).
+   Проводник документов автоматически выведет обновленные результаты с документами, соответствующими запросу фильтра. Дополнительные сведения о грамматике SQL в API DocumentDB см. в статье [SQL-запросы и синтаксис SQL в DocumentDB](documentdb-sql-query.md). Вы также можете распечатать копию [памятки по DocumentDB SQL](documentdb-sql-query-cheat-sheet.md).
    
    Поля раскрывающихся списков **База данных** и **Коллекция** можно использовать для простого изменения коллекции, документы которой просматриваются в настоящее время, без необходимости закрывать и повторно запускать проводник документов.  
    
@@ -157,18 +158,18 @@ ms.lasthandoff: 04/21/2017
 ![Снимок экрана с кнопкой "Создать коллекцию" на портале](./media/documentdb-view-JSON-document-explorer/azure-documentdb-data-explorer.png)
 
 ## <a name="work-with-json-documents-outside-the-portal"></a>Работа с документами JSON за пределами портала
-Использование проводника документов на портале Azure — это один из способов работы с документами в DocumentDB. Вы также можете работать с документами с помощью [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) или [клиентских пакетов SDK](documentdb-sdk-dotnet.md). Просмотреть код можно в статьях [Примеры DocumentDB .NET](documentdb-dotnet-samples.md#document-examples) и [Примеры DocumentDB для Node.js](documentdb-nodejs-samples.md#document-examples).
+Использование проводника документов на портале Azure — это один из способов работы с документами в Cosmos DB. Вы также можете работать с документами с помощью [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) или [клиентских пакетов SDK](documentdb-sdk-dotnet.md). Просмотреть код можно в статьях [Примеры DocumentDB .NET](documentdb-dotnet-samples.md#document-examples) и [Примеры DocumentDB для Node.js](documentdb-nodejs-samples.md#document-examples).
 
-Если вам нужно импортировать или перенести файлы из другого источника (JSON-файлы, MongoDB, SQL Server, CSV-файлы, хранилище таблиц Azure, Amazon DynamoDB или HBase), используйте для быстрого импорта данных [средство переноса данных](documentdb-import-data.md) DocumentDB.
+Если вам нужно импортировать или перенести файлы из другого источника (JSON-файлы, MongoDB, SQL Server, CSV-файлы, хранилище таблиц Azure, Amazon DynamoDB или HBase), используйте для быстрого импорта данных [средство переноса данных](documentdb-import-data.md) Cosmos DB.
 
 ## <a name="troubleshoot"></a>Устранение неполадок
 **Симптом**: проводник документов отображает сообщение **Документы не найдены**.
 
 **Решение**: убедитесь, что выбрана правильная подписка, а также база данных и коллекция, в которую были добавлены документы. Также убедитесь, что соблюдается ваша квота пропускной способности. Если вы используете максимальный уровень пропускной способности, при котором выполняется регулирование, то необходимо понизить уровень использования приложений, чтобы соблюдалась квота максимальной пропускной способности для коллекции.
 
-**Объяснение**: портал — это такое же приложение, как и любое другое; он выполняет вызовы к базе данных DocumentDB и коллекции. Если в данный момент ваши запросы регулируются по той причине, что вызовы совершаются из другого приложения, то портал также может регулироваться, из-за чего ресурсы не отображаются на портале. Чтобы устранить эту проблему, найдите причину повышенного использования пропускной способности, а затем обновите колонку портала. Сведения об измерении и понижении уровня использования пропускной способности см. в разделе [Пропускная способность](documentdb-performance-tips.md#throughput) статьи [Советы по улучшению производительности DocumentDB](documentdb-performance-tips.md).
+**Объяснение**: портал — это такое же приложение, как и любое другое; он выполняет вызовы к базе данных Cosmos DB и коллекции. Если в данный момент ваши запросы регулируются по той причине, что вызовы совершаются из другого приложения, то портал также может регулироваться, из-за чего ресурсы не отображаются на портале. Чтобы устранить эту проблему, найдите причину повышенного использования пропускной способности, а затем обновите колонку портала. Сведения об измерении и понижении уровня использования пропускной способности см. в разделе [Пропускная способность](documentdb-performance-tips.md#throughput) статьи [Советы по улучшению производительности DocumentDB](documentdb-performance-tips.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о грамматике SQL в DocumentDB, которую поддерживает проводник документов, см. в статье [SQL-запросы и синтаксис SQL в DocumentDB](documentdb-sql-query.md). Можно также распечатать копию [памятки по DocumentDB SQL](documentdb-sql-query-cheat-sheet.md).
+Дополнительные сведения о грамматике SQL в API DocumentDB, которую поддерживает проводник документов, см. в статье [SQL-запросы и синтаксис SQL в DocumentDB](documentdb-sql-query.md). Вы также можете распечатать копию [памятки по DocumentDB SQL](documentdb-sql-query-cheat-sheet.md).
 
 

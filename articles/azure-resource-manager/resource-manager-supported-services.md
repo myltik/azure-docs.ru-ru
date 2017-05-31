@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: bf4e400e30cc93ca8fa0cc727ada0f1b224b05cb
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 70a598c9a5bf514f62baa0c5275b2e44cd9776b8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -69,8 +70,8 @@ ms.lasthandoff: 04/21/2017
 ## <a name="databases"></a>Базы данных
 | служба | Доступность диспетчера ресурсов | Интерфейс REST API | Формат шаблона |
 | --- | --- | --- | --- | --- |
-| DocumentDB |Да |[DocumentDB REST](/rest/api/documentdbresourceprovider) |[Ресурсы DocumentDB](/azure/templates/microsoft.documentdb/databaseaccounts) |
-| кэш Redis; |Да | [REST для кэша Redis](/rest/api/redis) |[Ресурсы Redis](/azure/templates/microsoft.cache/redis) |
+| Azure Cosmos DB |Да |[REST Azure Cosmos DB](/rest/api/documentdbresourceprovider) |[Ресурсы Azure Cosmos DB](/azure/templates/microsoft.documentdb/databaseaccounts) |
+| Кэш Redis |Да | [REST для кэша Redis](/rest/api/redis) |[Ресурсы Redis](/azure/templates/microsoft.cache/redis) |
 | База данных SQL |Да |[Интерфейс REST базы данных SQL](/rest/api/sql) |[Ресурсы базы данных SQL](/azure/templates/microsoft.sql/servers) |
 | Хранилище данных SQL |Да | | |
 

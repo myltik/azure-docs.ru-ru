@@ -12,12 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/02/2017
+ms.date: 05/01/2017
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 56eeed7634fca840172ab828be5f202d80f3f4fb
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -80,7 +81,7 @@ ms.lasthandoff: 04/07/2017
 Существует два варианта обеспечить синхронизацию распределенных служб поиска: использовать [индексатор Поиска Azure](search-indexer-overview.md) или API Push (также называемый [REST API Поиска Azure](https://docs.microsoft.com/rest/api/searchservice/)).  
 
 ### <a name="azure-search-indexers"></a>Индексаторы Поиска Azure
-При использовании индексатора Поиска Azure выполняется импорт изменений данных из центрального хранилища данных, такого как база данных SQL Azure или DocumentDB. При создании новой службы поиска можно просто создать новый индексатор Поиска Azure для нее, который указывает на то же хранилище данных. В этом случае при каждом поступлении новых изменений в хранилище данных они будут индексироваться различными индексаторами.  
+При использовании индексатора поиска Azure выполняется импорт изменений данных из центрального хранилища данных, такого как база данных SQL Azure или Azure Cosmos DB. При создании новой службы поиска можно просто создать новый индексатор Поиска Azure для нее, который указывает на то же хранилище данных. В этом случае при каждом поступлении новых изменений в хранилище данных они будут индексироваться различными индексаторами.  
 
 Ниже приведен пример этой архитектуры.
 

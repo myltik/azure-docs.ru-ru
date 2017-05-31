@@ -1,24 +1,25 @@
 ---
 title: "Интерфейс API, пакет SDK и ресурсы для .NET Core (Azure DocumentDB) | Документация Майкрософт"
 description: "Сведения об API и пакетах SDK для .NET Core, в том числе даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB .NET Core."
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: d5552615bfa663f4604e29839ecf8f5fc25c328f
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: cb53a57be75f89390312473a2c80923514b295c2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/21/2017
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [Поставщик ресурсов REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -56,6 +57,15 @@ ms.lasthandoff: 04/21/2017
 
 > [!NOTE] 
 > Пакет SDK для DocumentDB .NET Core несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+
+*    Добавлена поддержка использования единиц запроса в минуту.
+*    Добавлена поддержка нового уровня согласованности с именем ConsistentPrefix.
+*    Добавлена поддержка запроса метрик отдельных секций.
+*    Добавлена поддержка ограничения размера маркера продолжения запросов.
+*    Добавлена поддержка более подробной трассировки невыполненных запросов.
+*    Внесены некоторые улучшения производительности в пакет SDK.
 
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
@@ -107,6 +117,7 @@ ms.lasthandoff: 04/21/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.3.0](#1.3.0) |10 мая 2017 г. |--- |
 | [1.2.2](#1.2.2) |19 апреля 2017 г. |--- |
 | [1.2.1](#1.2.1) |29 марта 2017 г. |--- |
 | [1.2.0](#1.2.0) |25 марта 2017 г. |--- |
@@ -117,6 +128,6 @@ ms.lasthandoff: 04/21/2017
 | [0.1.0-preview](#0.1.0-preview) |15 ноября 2016 г. |31 декабря 2016 г. |
 
 ## <a name="see-also"></a>См. также
-Дополнительные сведения о DocumentDB см. на странице документации по службе [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
+Дополнительные сведения о Cosmos DB см. на странице службы [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). 
 
 

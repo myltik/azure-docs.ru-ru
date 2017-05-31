@@ -1,48 +1,54 @@
 ---
-title: "Использование mongoimport и mongorestore с Azure DocumentDB | Документация Майкрософт"
-description: "Узнайте, как использовать mongoimport и mongorestore для импорта данных в учетную запись &quot;DocumentDB: API для MongoDB&quot;."
+title: "Использование mongoimport и mongorestore с API для MongoDB Azure Cosmos DB | Документация Майкрософт"
+description: "Узнайте, как использовать mongoimport и mongorestore для импорта данных в учетную запись API для MongoDB."
 keywords: mongoimport, mongorestore
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 05/10/2017
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 2af8691326550c631e6668890cb0d6b893fa7740
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 259bb45fea55a6e70d77747532f876e7b382183f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="migrate-data-to-documentdb-by-using-mongoimport-and-mongorestore"></a>Перенос данных в DocumentDB с помощью mongoimport и mongorestore
-> [!div class="op_single_selector"]
-> * [Импорт в DocumentDB](documentdb-import-data.md)
-> * [Импорт в API для MongoDB](documentdb-mongodb-migrate.md)
->
->
 
-Чтобы перенести данные в учетную запись Azure "DocumentDB: API для MongoDB", сделайте следующее:
+# <a name="azure-cosmos-db-how-to-import-mongodb-data"></a>Как импортировать данные MongoDB в Azure Cosmos DB? 
+
+Для переноса данных из MongoDB в учетную запись Azure Cosmos DB для использования с API MongoDB необходимо сделать следующее:
 
 * Скачайте файл *mongoimport.exe* или *mongorestore.exe* из [центра скачивания MongoDB](https://www.mongodb.com/download-center).
-* Получите [поддержку DocumentDB для строки подключения MongoDB](documentdb-connect-mongodb-account.md).
+* Получите [строку подключения API для MongoDB](documentdb-connect-mongodb-account.md).
 
-## <a name="before-you-begin"></a>Перед началом работы
+Если вы импортируете данные из MongoDB и планируете использовать их с API DocumentDB, используйте средство миграции данных для их переноса. Дополнительные сведения см. в статье [Импорт данных в DocumentDB с помощью средства миграции базы данных](documentdb-import-data.md).
 
-* Увеличьте пропускную способность. Продолжительность переноса данных зависит от пропускной способности, настроенной для коллекций. Увеличьте пропускную способность для крупных миграций. После переноса уменьшите пропускную способность для экономии расходов. Дополнительные сведения об увеличении пропускной способности на [портале Azure](https://portal.azure.com) см. в статье [Уровни производительности и ценовые категории в DocumentDB](documentdb-performance-levels.md).
+В рамках этого руководства рассматриваются следующие задачи:
 
-* Включите SSL. У DocumentDB строгие требования к безопасности и стандарты. Обязательно включите SSL при взаимодействии с учетной записью. Процедуры, описанные в оставшейся части статьи, включают инструкции по включению SSL для *mongoimport* и *mongorestore*.
+> [!div class="checklist"]
+> * Получение строки подключения
+> * Импорт данных MongoDB с помощью mongoimport.
+> * Импорт данных MongoDB с помощью mongorestore.
+
+## <a name="prerequisites"></a>Предварительные требования
+
+* Увеличьте пропускную способность. Продолжительность переноса данных зависит от пропускной способности, настроенной для коллекций. Увеличьте пропускную способность для крупных миграций. После переноса уменьшите пропускную способность для экономии расходов. Дополнительные сведения об увеличении пропускной способности на [портале Azure](https://portal.azure.com) см. в статье [Прекращение использования уровней производительности S1, S2 и S3 в DocumentDB](documentdb-performance-levels.md).
+
+* Включите SSL. В Azure Cosmos DB строгие требования к безопасности и стандарты. Обязательно включите SSL при взаимодействии с учетной записью. Процедуры, описанные в оставшейся части статьи, включают инструкции по включению SSL для *mongoimport* и *mongorestore*.
 
 ## <a name="find-your-connection-string-information-host-port-username-and-password"></a>Поиск сведений о строке подключения (узел, порт, имя пользователя и пароль)
 
-1. В левой панели на [портале Azure](https://portal.azure.com) щелкните запись **NoSQL (DocumentDB)**.
+1. В левой панели на [портале Azure](https://portal.azure.com) щелкните запись **Azure Cosmos DB**.
 2. На панели **Подписки** выберите имя своей учетной записи.
 3. В колонке **Строка подключения** щелкните **Строка подключения**.  
 На правой панели содержатся все сведения, необходимые для успешного подключения к учетной записи.
@@ -51,7 +57,7 @@ ms.lasthandoff: 03/08/2017
 
 ## <a name="import-data-to-api-for-mongodb-with-mongoimport"></a>Импорт данных в API для MongoDB с помощью mongoimport
 
-Чтобы импортировать данные в учетную запись DocumentDB, используйте следующий шаблон для выполнения импорта. Укажите *узел*, *имя пользователя* и *пароль* своей учетной записи.  
+Чтобы импортировать данные в учетную запись Azure Cosmos DB, используйте следующий шаблон для выполнения импорта. Укажите *узел*, *имя пользователя* и *пароль* своей учетной записи.  
 
 Шаблон:
 
@@ -63,7 +69,7 @@ ms.lasthandoff: 03/08/2017
 
 ## <a name="import-data-to-api-for-mongodb-with-mongorestore"></a>Импорт данных в API для MongoDB с помощью mongorestore
 
-Чтобы восстановить данные в учетной записи DocumentDB, используйте следующий шаблон для выполнения импорта. Укажите *узел*, *имя пользователя* и *пароль* своей учетной записи.
+Чтобы восстановить данные в API для учетной записи MongoDB, используйте следующий шаблон для выполнения импорта. Укажите *узел*, *имя пользователя* и *пароль* своей учетной записи.
 
 Шаблон:
 
@@ -74,5 +80,16 @@ ms.lasthandoff: 03/08/2017
     mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения см. в [примерах использования DocumentDB: API для MongoDB](documentdb-mongodb-samples.md).
+
+В этом руководстве вы выполнили следующее:
+
+> [!div class="checklist"]
+> * Получили строку подключения.
+> * Импортировали данные MongoDB с помощью mongoimport.
+> * Импортировали данные MongoDB с помощью mongorestore.
+
+Теперь вы можете перейти к следующему руководству, из которого вы узнаете, как запрашивать данные MongoDB с помощью Azure Cosmos DB. 
+
+> [!div class="nextstepaction"]
+>[Как выполнять запросы к данным в базе данных Azure Cosmos DB с помощью API для MongoDB](../cosmos-db/tutorial-query-mongodb.md)
 

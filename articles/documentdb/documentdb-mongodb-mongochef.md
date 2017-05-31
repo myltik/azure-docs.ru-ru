@@ -1,44 +1,45 @@
 ---
-title: "Использование MongoChef для MongoDB с Azure DocumentDB | Документация Майкрософт"
-description: "Узнайте, как использовать MongoChef с учетной записью &quot;DocumentDB: API для MongoDB&quot;."
+title: "Использование MongoChef c Azure Cosmos DB | Документация Майкрософт"
+description: "Узнайте, как использовать MongoChef с учетной записью API для MongoDB в Azure Cosmos DB"
 keywords: MongoChef
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/27/2017
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: eb5a10e414a4dcce50b34a54d0e56fd5f7a16737
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 8363b73cfae818449e5a907a17e742bf97e5107a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="use-mongochef-with-a-documentdb-api-for-mongodb-account"></a>Использование MongoChef с учетной записью "DocumentDB: API для MongoDB"
+# <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Использование MongoChef с учетной записью API для MongoDB в Azure Cosmos DB
 
-Чтобы подключиться к учетной записи Azure "DocumentDB: API для MongoDB", необходимо:
+Чтобы подключиться к учетной записи API для MongoDB в Azure Cosmos DB, необходимо:
 
 * скачать и установить [MongoChef](http://3t.io/mongochef)
-* подготовить сведения о [строке подключения](documentdb-connect-mongodb-account.md) для учетной записи "DocumentDB: API для MongoDB";
+* Подготовить сведения о [строке подключения](documentdb-connect-mongodb-account.md) для учетной записи API для MongoDB в Azure Cosmos DB.
 
 ## <a name="create-the-connection-in-mongochef"></a>создать подключение в MongoChef.
-Чтобы добавить в диспетчер подключений MongoChef учетную запись "DocumentDB: API для MongoDB", сделайте следующее.
+Чтобы добавить в диспетчер подключений MongoChef учетную запись API для MongoDB в Azure Cosmos DB, выполните следующие действия.
 
-1. Извлеките сведения о подключении учетной записи"DocumentDB: API для MongoDB". Ознакомьтесь с инструкциями [здесь](documentdb-connect-mongodb-account.md).
+1. Извлеките сведения о подключении API для MongoDB в Azure Cosmos DB. Ознакомьтесь с инструкциями [здесь](documentdb-connect-mongodb-account.md).
 
     ![Снимок экрана, колонка строки подключения](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. Щелкните **Connect** (Подключиться), чтобы открыть диспетчер подключений, и нажмите кнопку **New Connection** (Новое подключение).
 
     ![Снимок экрана диспетчера подключений MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
-3. В окне **New Connection** (Новое подключение) на вкладке **Server** (Сервер) введите узел (полное доменное имя) учетной записи "DocumentDB: API для MongoDB" и порт для подключения.
+3. В окне **Новое подключение** на вкладке **Сервер** введите узел (полное доменное имя) учетной записи API для MongoDB в Azure Cosmos DB.
 
     ![Снимок экрана диспетчера подключений MongoChef, вкладка серверов](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 4. В окне **New Connection** (Новое подключение) на вкладке **Authentication** (Аутентификация) выберите режим аутентификации **Standard (MONGODB-CR or SCARM-SHA-1)** (Стандартная (MONGODB CR или SCARM-SHA-1)), а также введите имя пользователя и пароль.  Подтвердите базу данных по умолчанию для проверки подлинности (admin) или укажите другое значение.
@@ -116,5 +117,5 @@ ms.lasthandoff: 03/08/2017
     ![Снимок экрана Mongo Chef, результаты запроса](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Ознакомьтесь с [примерами](documentdb-mongodb-samples.md) DocumentDB: API для MongoDB.
+* Ознакомьтесь с [примерами](documentdb-mongodb-samples.md) API для MongoDB в Azure Cosmos DB.
 

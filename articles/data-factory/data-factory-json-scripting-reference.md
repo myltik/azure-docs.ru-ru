@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: ab6076d430688ee54515ec4a0d960728ae1f1e48
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 306dde28a4af82197ae5a75bee83c0e7cf219e42
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -83,7 +84,7 @@ ms.lasthandoff: 04/27/2017
 | --- | --- | --- |
 | name |Имя действия. Укажите имя, представляющее операцию, для выполнения которой настроено действие.<br/><ul><li>Максимальное количество знаков: 260.</li><li>Должно начинаться с буквы, цифры или символа подчеркивания (_).</li><li>Следующие знаки не допускаются: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\".</li></ul> |Да |
 | Описание |Текст, описывающий для чего используется действие |Да |
-| type |Задает тип действия. Разные типы действий см. в разделах [ХРАНИЛИЩА ДАННЫХ](#data-stores) и [ДЕЙСТВИЯ ПРЕОБРАЗОВАНИЯ ДАННЫХ](#transformation-activities). |Да |
+| type |Задает тип действия. Разные типы действий описаны в разделах [ХРАНИЛИЩА ДАННЫХ](#data-stores) и [Действия преобразования данных](#data-transformation-activities). |Да |
 | inputs |Входные таблицы, используемые действием:<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Да |
 | outputs |Выходные таблицы, используемые действием.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Да |
 | linkedServiceName (имя связанной службы) |Имя связанной службы, используемой действием. <br/><br/>Для действия может потребоваться указать службу, связанную с обязательной вычислительной средой. |Да, для действий HDInsight, Машинного обучения Azure и действия хранимой процедуры. <br/><br/>Нет — для всех остальных |
@@ -371,7 +372,7 @@ structure:
 |:--- |:--- |
 | **Таблицы Azure** |[хранилище BLOB-объектов Azure](#azure-blob-storage) |
 | &nbsp; |[Хранилище озера данных Azure](#azure-datalake-store) |
-| &nbsp; |[Azure DocumentDB](#azure-documentdb) |
+| &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[База данных SQL Azure;](#azure-sql-database) |
 | &nbsp; |[Хранилище данных Azure SQL](#azure-sql-data-warehouse) |
 | &nbsp; |[Поиск Azure;](#azure-search) |
@@ -775,20 +776,20 @@ structure:
 
 Дополнительные сведения см. в статье о [соединителе Azure Data Lake Store](data-factory-azure-datalake-connector.md#copy-activity-properties). 
 
-## <a name="azure-documentdb"></a>Azure DocumentDB.
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB  
 
 ### <a name="linked-service"></a>Связанные службы
-Для определения связанной службы Azure DocumentDB задайте **DocumentDb** в качестве **типа** связанной службы и укажите в разделе **typeProperties** следующие свойства:  
+Для определения связанной службы Azure Cosmos DB задайте **DocumentDb** в качестве **типа** связанной службы и укажите в разделе **typeProperties** следующие свойства:  
 
 | **Свойство** | **Описание** | **Обязательный** |
 | --- | --- | --- |
-| connectionString |Указываемые сведения, необходимые для подключения к базе данных Azure DocumentDB. |Да |
+| connectionString |Указываемые сведения, необходимые для подключения к базе данных Azure Cosmos DB. |Да |
 
 #### <a name="example"></a>Пример
 
 ```json
 {
-    "name": "DocumentDbLinkedService",
+    "name": "CosmosDBLinkedService",
     "properties": {
         "type": "DocumentDb",
         "typeProperties": {
@@ -797,23 +798,23 @@ structure:
     }
 }
 ```
-Дополнительные сведения см. в статье о [соединителе DocumentDB](data-factory-azure-documentdb-connector.md#linked-service-properties).
+Дополнительные сведения см. в статье о [соединителе Azure Cosmos DB](data-factory-azure-documentdb-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Выборка
-Для определения набора данных Azure DocumentDb задайте **DocumentDbCollection** в качестве **типа** набора данных и укажите в разделе **typeProperties** следующие свойства: 
+Для определения набора данных Azure Cosmos DB задайте **DocumentDbCollection** в качестве **типа** набора данных и укажите в разделе **typeProperties** следующие свойства: 
 
 | **Свойство** | **Описание** | **Обязательный** |
 | --- | --- | --- |
-| collectionName |Имя коллекции документов DocumentDB. |Да |
+| collectionName |Имя коллекции Azure Cosmos DB. |Да |
 
 #### <a name="example"></a>Пример
 
 ```json
 {
-    "name": "PersonDocumentDbTable",
+    "name": "PersonCosmosDBTable",
     "properties": {
         "type": "DocumentDbCollection",
-        "linkedServiceName": "DocumentDbLinkedService",
+        "linkedServiceName": "CosmosDBLinkedService",
         "typeProperties": {
             "collectionName": "Person"
         },
@@ -825,16 +826,16 @@ structure:
     }
 }
 ```
-Дополнительные сведения см. в статье о [соединителе DocumentDB](data-factory-azure-documentdb-connector.md#dataset-properties).
+Дополнительные сведения см. в статье о [соединителе Azure Cosmos DB](data-factory-azure-documentdb-connector.md#dataset-properties).
 
-### <a name="documentdb-collection-source-in-copy-activity"></a>Источник коллекции DocumentDB в действии копирования
-При копировании данных из Azure DocumentDB задайте **DocumentDbCollectionSource** в качестве **типа источника** для действия копирования и укажите в разделе **source** следующие свойства:
+### <a name="azure-cosmos-db-collection-source-in-copy-activity"></a>Источник коллекции Azure Cosmos DB в действии копирования
+При копировании данных из Azure Cosmos DB задайте **DocumentDbCollectionSource** в качестве **типа источника** для действия копирования и укажите в разделе **source** следующие свойства:
 
 
 | **Свойство** | **Описание** | **Допустимые значения** | **Обязательный** |
 | --- | --- | --- | --- |
-| запрос |Запрос, нужный для чтения данных. |Строка запроса, поддерживаемая базой данных DocumentDB. <br/><br/>Пример: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Нет <br/><br/>Если не указано, то выполняется инструкция SQL `select <columns defined in structure> from mycollection`. |
-| nestingSeparator |Специальный символ, обозначающий, что документ является вложенным. |Любой символ. <br/><br/>DocumentDB — это хранилище NoSQL для JSON-документов, в которых разрешена иерархическая структура. Фабрика данных Azure позволяет обозначать иерархию с помощью разделителя nestingSeparator. В приведенных выше примерах это точка. Благодаря этому разделителю действие копирование создаст объект Name с тремя дочерними элементами, First, Middle и Last, в соответствии с элементами Name.First, Name.Middle и Name.Last в определении таблицы. |Нет |
+| запрос |Запрос, нужный для чтения данных. |Строка запроса, поддерживаемая Azure Cosmos DB. <br/><br/>Пример: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Нет <br/><br/>Если не указано, то выполняется инструкция SQL `select <columns defined in structure> from mycollection`. |
+| nestingSeparator |Специальный символ, обозначающий, что документ является вложенным. |Любой символ. <br/><br/>Azure Cosmos DB — это хранилище NoSQL для JSON-документов, в которых разрешена иерархическая структура. Фабрика данных Azure позволяет обозначать иерархию с помощью разделителя nestingSeparator. В приведенных выше примерах это точка. Благодаря этому разделителю действие копирование создаст объект Name с тремя дочерними элементами, First, Middle и Last, в соответствии с элементами Name.First, Name.Middle и Name.Last в определении таблицы. |Нет |
 
 #### <a name="example"></a>Пример
 
@@ -858,7 +859,7 @@ structure:
                 }
             },
             "inputs": [{
-                "name": "PersonDocumentDbTable"
+                "name": "PersonCosmosDBTable"
             }],
             "outputs": [{
                 "name": "PersonBlobTableOut"
@@ -866,7 +867,7 @@ structure:
             "policy": {
                 "concurrency": 1
             },
-            "name": "CopyFromDocDbToBlob"
+            "name": "CopyFromCosmosDbToBlob"
         }],
         "start": "2016-04-01T00:00:00",
         "end": "2016-04-02T00:00:00"
@@ -874,13 +875,13 @@ structure:
 }
 ```
 
-### <a name="documentdb-collection-sink-in-copy-activity"></a>Приемник коллекции DocumentDB в действии копирования
-При копировании данных в Azure DocumentDB задайте **DocumentDbCollectionSink** в качестве **типа приемника** для действия копирования и укажите в разделе **sink** следующие свойства:
+### <a name="azure-cosmos-db-collection-sink-in-copy-activity"></a>Приемник коллекции Azure Cosmos DB в действии копирования
+При копировании данных в Azure Cosmos DB задайте **DocumentDbCollectionSink** в качестве **типа приемника** для действия копирования и укажите в разделе **sink** следующие свойства:
 
 | **Свойство** | **Описание** | **Допустимые значения** | **Обязательный** |
 | --- | --- | --- | --- |
-| nestingSeparator |Такой специальный символ в имени исходного столбца, который указывает, что нужен вложенный документ. <br/><br/>См. пример выше: элемент `Name.First` в выходной таблице обуславливает в документе DocumentDB такую структуру JSON:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Символ, используемый для разделения уровней вложенности.<br/><br/>Значение по умолчанию — `.` (точка). |Символ, используемый для разделения уровней вложенности. <br/><br/>Значение по умолчанию — `.` (точка). |
-| writeBatchSize |Число параллельных запросов к службе DocumentDB для создания документов.<br/><br/>При копировании данных из или в DocumentDB с помощью этого свойства можно оптимизировать производительность. Если увеличить значение свойства writeBatchSize, то производительность повышается, потому что к базе данных DocumentDB начинает уходить больше параллельных запросов. Однако необходимо избежать регулирования, которое может вызвать сообщение об ошибке: "Высокая частота запросов".<br/><br/>Регулирование может произойти по ряду причин, включая размер документов, количество терминов в документах, политику индексации целевой коллекции и т. д. Для операций копирования вы можете использовать коллекцию получше (например, S3), чтобы обеспечить максимальную пропускную способность (2500 единиц запроса в секунду). |Число |Нет (значение по умолчанию — 5) |
+| nestingSeparator |Такой специальный символ в имени исходного столбца, который указывает, что нужен вложенный документ. <br/><br/>См. пример выше: элемент `Name.First` в выходной таблице обуславливает в документе Cosmos DB такую структуру JSON:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Символ, используемый для разделения уровней вложенности.<br/><br/>Значение по умолчанию — `.` (точка). |Символ, используемый для разделения уровней вложенности. <br/><br/>Значение по умолчанию — `.` (точка). |
+| writeBatchSize |Число параллельных запросов к службе Azure Cosmos DB для создания документов.<br/><br/>При копировании данных из или в Azure Cosmos DB с помощью этого свойства можно оптимизировать производительность. Если увеличить значение свойства writeBatchSize, то производительность повышается, потому что в Azure Cosmos DB начинает поступать больше параллельных запросов. Однако необходимо избежать регулирования, которое может вызвать сообщение об ошибке: "Высокая частота запросов".<br/><br/>Регулирование может произойти по ряду причин, включая размер документов, количество терминов в документах, политику индексации целевой коллекции и т. д. Для операций копирования вы можете использовать коллекцию получше (например, S3), чтобы обеспечить максимальную пропускную способность (2500 единиц запроса в секунду). |Число |Нет (значение по умолчанию — 5) |
 | writeBatchTimeout |Время ожидания до выполнения операции, пока не завершится срок ее действия. |Интервал времени<br/><br/> Пример: 00:30:00 (30 минут). |Нет |
 
 #### <a name="example"></a>Пример
@@ -910,12 +911,12 @@ structure:
                 "name": "PersonBlobTableIn"
             }],
             "outputs": [{
-                "name": "PersonDocumentDbTableOut"
+                "name": "PersonCosmosDbTableOut"
             }],
             "policy": {
                 "concurrency": 1
             },
-            "name": "CopyFromBlobToDocDb"
+            "name": "CopyFromBlobToCosmosDb"
         }],
         "start": "2016-04-14T00:00:00",
         "end": "2016-04-15T00:00:00"
@@ -923,7 +924,7 @@ structure:
 }
 ```
 
-Дополнительные сведения см. в статье о [соединителе DocumentDB](data-factory-azure-documentdb-connector.md#copy-activity-properties).
+Дополнительные сведения см. в статье о [соединителе Azure Cosmos DB](data-factory-azure-documentdb-connector.md#copy-activity-properties).
 
 ## <a name="azure-sql-database"></a>База данных SQL Azure
 
@@ -5097,7 +5098,7 @@ auto-
 
 Дополнительные сведения см. в статье о [соединителе SQL Server](data-factory-sqlserver-connector.md#linked-service-properties).
 
-## <a name="transformation-activites"></a>ДЕЙСТВИЯ ПРЕОБРАЗОВАНИЯ
+## <a name="data-transformation-activities"></a>Действия преобразования данных
 
 Действие | Описание
 -------- | -----------

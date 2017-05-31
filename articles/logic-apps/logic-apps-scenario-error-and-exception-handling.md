@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: b-hoedid
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: b996ed1889ec39de78dcee9bbcb18a5982fc5f7f
-ms.lasthandoff: 04/04/2017
+ms.author: LADocs; b-hoedid
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f68b27e007ad2de9e880f1fe0736d403f74dc80b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -46,12 +47,12 @@ ms.lasthandoff: 04/04/2017
 
 ## <a name="how-we-solved-the-problem"></a>Решение проблемы
 
-В качестве репозитория для записей журнала и ошибок мы выбрали [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") (DocumentDB означает, что записями этой базы данных являются документы). В Azure Logic Apps используется стандартный шаблон для всех ответов, поэтому нам не пришлось создавать настраиваемую схему. Чтобы **добавлять** и **запрашивать** записи журнала и записи об ошибках, можно было создать приложение API. В нем мы могли определить схему выполнения каждой из этих операций.  
+В качестве репозитория для записей журнала и ошибок мы выбрали [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") (Cosmos DB означает, что записями этой базы данных являются документы). В Azure Logic Apps используется стандартный шаблон для всех ответов, поэтому нам не пришлось создавать настраиваемую схему. Чтобы **добавлять** и **запрашивать** записи журнала и записи об ошибках, можно было создать приложение API. В нем мы могли определить схему выполнения каждой из этих операций.  
 
-Но существовало еще одно требование: автоматическое удаление записей через определенное время. DocumentDB поддерживает свойство [Срок жизни](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Срок жизни") (TTL), которое позволяет определить значение **Срок жизни** для каждой записи или всей коллекции. Эта возможность избавляет от необходимости вручную удалять записи из DocumentDB.
+Но существовало еще одно требование: автоматическое удаление записей через определенное время. Cosmos DB поддерживает свойство [Срок жизни](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Срок жизни") (TTL), которое позволяет определить значение **Срок жизни** для каждой записи или всей коллекции. Эта возможность избавляет от необходимости вручную удалять записи из Cosmos DB.
 
 > [!IMPORTANT]
-> Для работы с этим руководством необходимо создать базу данных DocumentDB и две коллекции ("Ведение журнала" и "Ошибки").
+> Для работы с этим руководством необходимо создать базу данных Cosmos DB и две коллекции ("Ведение журнала" и "Ошибки").
 
 ## <a name="create-the-logic-app"></a>Создание приложения логики
 
@@ -258,7 +259,7 @@ ms.lasthandoff: 04/04/2017
 }             
 ```
 
-#### <a name="insert-error-into-documentdb--request"></a>Добавление записи об ошибке в DocumentDB — запрос
+#### <a name="insert-error-into-cosmos-db--request"></a>Добавление записи об ошибке в Cosmos DB — запрос
 
 ``` json
 
@@ -281,7 +282,7 @@ ms.lasthandoff: 04/04/2017
 }
 ```
 
-#### <a name="insert-error-into-documentdb--response"></a>Добавление записи об ошибке в DocumentDB — ответ
+#### <a name="insert-error-into-cosmos-db--response"></a>Добавление записи об ошибке в Cosmos DB — ответ
 
 ``` json
 {
@@ -399,16 +400,16 @@ ms.lasthandoff: 04/04/2017
 ```
 
 
-## <a name="documentdb-repository-and-portal"></a>Репозиторий и портал DocumentDB
+## <a name="cosmos-db-repository-and-portal"></a>Репозиторий и портал Cosmos DB
 
-Благодаря использованию [DocumentDB](https://azure.microsoft.com/services/documentdb) наше решение предоставляет больше возможностей.
+Благодаря использованию [Cosmos DB](https://azure.microsoft.com/services/documentdb) наше решение предоставляет больше возможностей.
 
 ### <a name="error-management-portal"></a>Портал управления ошибками
 
-Чтобы просмотреть ошибки, полученные из DocumentDB, можно создать веб-приложение MVC, в котором будут отображаться соответствующие записи об ошибках. В текущую версию приложения входят операции **List**, **Details**, **Edit** и **Delete**.
+Чтобы просмотреть ошибки, полученные из Cosmos DB, можно создать веб-приложение MVC, в котором будут отображаться соответствующие записи об ошибках. В текущую версию приложения входят операции **List**, **Details**, **Edit** и **Delete**.
 
 > [!NOTE]
-> Операция Edit: DocumentDB заменяет весь документ. Записи в представлении списка (**List**) и в подробном представлении (**Detail**) приведены в качестве примера. Это не фактические записи о приемах пациентов.
+> Операция Edit: Cosmos DB заменяет весь документ. Записи в представлении списка (**List**) и в подробном представлении (**Detail**) приведены в качестве примера. Это не фактические записи о приемах пациентов.
 
 Ниже приведены примеры сведений о приложении MVC, созданные с помощью описанного выше метода.
 
@@ -492,3 +493,4 @@ ms.lasthandoff: 04/04/2017
 * [Примеры приложений логики и распространенные сценарии](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Мониторинг приложений логики](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Создание шаблона развертывания приложения логики](../logic-apps/logic-apps-create-deploy-template.md)
+

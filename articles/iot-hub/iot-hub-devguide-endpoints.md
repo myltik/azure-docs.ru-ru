@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: cdc50ec4bf98d7924ad5bf97c9a757f0bac01173
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b0b2e8f375fa0b80e4f933515e1e8a689478483e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -74,7 +75,7 @@ ms.lasthandoff: 03/23/2017
 ## <a name="field-gateways"></a>Шлюзы поля
 В решении Интернета вещей *полевой шлюз* располагается между устройствами и конечными точками Центра Интернета вещей. Обычно он находится ближе к устройствам. Устройства взаимодействуют напрямую с полевым шлюзом с помощью протоколов, поддерживаемых устройствами. Полевой шлюз подключается к конечной точке Центра Интернета вещей с помощью протокола, поддерживаемого Центром Интернета вещей. Полевой шлюз может представлять собой специализированное оборудование или маломощный компьютер с программным обеспечением, которое выполняет полный сценарий действий шлюза.
 
-Для реализации полевого шлюза можно использовать [пакет SDK для шлюза Azure IoT][lnk-gateway-sdk]. Эти пакеты SDK для устройств предлагают определенные функции, такие как возможность мультиплексировать обмен данными из нескольких устройств в рамках одного и того же подключения к Центру Интернета вещей.
+Для реализации полевого шлюза можно использовать [Edge Интернета вещей Azure][lnk-gateway-sdk]. Edge Интернета вещей предлагает определенные функции, такие как возможность мультиплексировать обмен данными из нескольких устройств в рамках одного и того же подключения к Центру Интернета вещей.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Другие справочные статьи в руководстве для разработчиков Центра Интернета вещей:
@@ -83,7 +84,7 @@ ms.lasthandoff: 03/23/2017
 * [Quotas and throttling][lnk-devguide-quotas] (Квоты и регулирование)
 * [Поддержка MQTT в центре IoT][lnk-devguide-mqtt]
 
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 
 [img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
 [lnk-amqp]: https://www.amqp.org/

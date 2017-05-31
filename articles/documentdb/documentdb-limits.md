@@ -1,18 +1,15 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: 9c5fc17927d719330926c8242008b61f6c88a298
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 46edcf8172daf3ea18ceaed5e35720f3caaccab9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="default-quotas-for-documentdb"></a>Квоты по умолчанию для DocumentDB
+# <a name="default-quotas-for-azure-cosmos-db"></a>Квоты по умолчанию для базы данных Azure Cosmos DB
 
-DocumentDB — это масштабная база данных, пропускную способность и хранилище которой можно масштабировать в соответствии с требованиями приложения. Если у вас возникнут вопросы по масштабированию DocumentDB, отправьте электронное сообщение по адресу askdocdb@microsoft.com.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+Azure Cosmos DB — это масштабная база данных, пропускную способность и хранилище которой можно масштабировать в соответствии с требованиями приложения. Если у вас возникнут вопросы по масштабированию Azure Cosmos DB, отправьте электронное сообщение по адресу askdocdb@microsoft.com.
 

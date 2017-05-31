@@ -1,32 +1,34 @@
 ---
-title: "Веб-канал изменений для ресурсов HL7 FHIR в Azure DocumentDB | Документация Майкрософт"
-description: "Узнайте, как настроить уведомления об изменениях в медицинских картах пациентов в системе HL7 FHIR с помощью Azure Logic Apps, DocumentDB и служебной шины."
+title: "Веб-канал изменений для ресурсов HL7 FHIR в Azure Cosmos DB | Документация Майкрософт"
+description: "Сведения о настройке уведомлений об изменениях в медицинских картах пациентов в системе HL7 FHIR с помощью Azure Logic Apps, Azure Cosmos DB и служебной шины."
 keywords: HL7 FHIR
-services: documentdb
+services: cosmosdb
 author: hedidin
 manager: jhubbard
 editor: mimig
 documentationcenter: 
 ms.assetid: 0d25c11f-9197-419a-aa19-4614c6ab2d06
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-translationtype: Human Translation
-ms.sourcegitcommit: c25274ad48edb0c89e3f177277af1a4ae5fb3eec
-ms.openlocfilehash: dafd6aa1172661e82bccb35dc29fd59b2c04dd6e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 634216e4653b26e27c3144c5002b8e66617461c9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-documentdb"></a>Уведомление пациентов об изменениях в медицинских картах HL7 FHIR с помощью Logic Apps и DocumentDB
+# <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Уведомление пациентов об изменениях в медицинских картах HL7 FHIR с помощью Logic Apps и Azure Cosmos DB
 
 Недавно специалист MVP по Azure Ховард Эдидин (Howard Edidin) получил запрос от медицинской организации, которая решила добавить новые функциональные возможности на свой портал для пациентов. Ей нужно было отправлять пациентам уведомления об изменениях в медицинских картах, а также предоставить пациентам возможность подписаться на такие уведомления. 
 
-Эта статья содержит пошаговое описание процесса, позволившего создать для этой организации веб-канал изменений с помощью DocumentDB, Logic Apps и служебной шины. 
+Эта статья содержит пошаговое описание процесса, позволившего создать для этой организации веб-канал изменений с помощью Azure Cosmos DB, Logic Apps и служебной шины. 
 
 ## <a name="project-requirements"></a>Проектные требования
 - Поставщики отправляют документы в формате XML, соответствующие архитектуре HL7 для консолидированных клинических документов (C-CDA). Документы C-CDA могут включать практически любые типы клинических документов, в том числе клинические (семейные истории болезни, журналы вакцинации и т. п.), административные, операционные и финансовые. 
@@ -38,15 +40,15 @@ ms.openlocfilehash: dafd6aa1172661e82bccb35dc29fd59b2c04dd6e
 На высоком уровне этот проект включал следующие этапы рабочего процесса. 
 1. Преобразование документов C-CDA в ресурсы FHIR.
 2. Регулярный опрос триггеров для выявления измененных ресурсов FHIR. 
-2. Вызов пользовательского приложения FhirNotificationApi для подключения к DocumentDB и получения новых и измененных документов.
+2. Вызов пользовательского приложения FhirNotificationApi для подключения к Azure Cosmos DB и получения новых и измененных документов.
 3. Сохранение ответа в очереди служебной шины.
 4. Опрос очереди служебной шины для отслеживания новых сообщений.
 5. Отправка пациентам уведомлений по электронной почте.
 
 ## <a name="solution-architecture"></a>Архитектура решения
 Для выполнения перечисленных выше требований и создания полного рабочего процесса в это решение потребовалось включить три приложения логики, перечисленные ниже.
-1. **Приложение HL7-FHIR-Mapping** получает документ HL7 C-CDA, преобразует его в ресурс FHIR, а затем сохраняет в DocumentDB.
-2. **Приложение EHR** запрашивает репозиторий FHIR в DocumentDB и сохраняет ответ в очередь служебной шины. Это приложение логики использует [приложение API](#api-app) для получения новых и измененных документов.
+1. **Приложение HL7-FHIR-Mapping** получает документ HL7 C-CDA, преобразует его в ресурс FHIR, а затем сохраняет в Azure Cosmos DB.
+2. **Приложение EHR** запрашивает репозиторий FHIR в Azure Cosmos DB и сохраняет ответ в очередь служебной шины. Это приложение логики использует [приложение API](#api-app) для получения новых и измененных документов.
 3. **Приложение для обработки уведомлений** отправляет по электронной почте уведомление, в текст которого включает документы ресурсов FHIR.
 
 ![Три приложения логики, используемые в этом решении HL7 FHIR](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-health-care-solution-hl7-fhir.png)
@@ -55,10 +57,10 @@ ms.openlocfilehash: dafd6aa1172661e82bccb35dc29fd59b2c04dd6e
 
 ### <a name="azure-services-used-in-the-solution"></a>Службы Azure, используемые в решении
 
-#### <a name="documentdb"></a>DocumentDB
-DocumentDB выполняет роль репозитория для ресурсов FHIR, как показано на следующем рисунке.
+#### <a name="azure-cosmos-db-documentdb-api"></a>API DocumentDB в Azure Cosmos DB
+Azure Cosmos DB выполняет роль репозитория для ресурсов FHIR, как показано на следующем рисунке.
 
-![Учетная запись Azure DocumentDB, используемая в этом руководстве по HL7 FHIR](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-account.png)
+![Учетная запись Azure Cosmos DB, используемая в этом руководстве по HL7 FHIR](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-account.png)
 
 #### <a name="logic-apps"></a>Приложения логики
 Приложения логики обрабатывают рабочий процесс. На следующих снимках экрана показаны приложения логики, созданные для этого решения. 
@@ -69,9 +71,9 @@ DocumentDB выполняет роль репозитория для ресур
     ![Приложение логики для получения медицинских карт HL7 FHIR](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-hl7-fhir-logic-apps-json-transform.png)
 
 
-2. **Приложение EHR** отправляет запросы в репозиторий FHIR в DocumentDB и сохраняет ответ в очередь служебной шины. Ниже приводится код приложения GetNewOrModifiedFHIRDocuments.
+2. **Приложение EHR** отправляет запросы в репозиторий FHIR в Azure Cosmos DB и сохраняет ответ в очередь служебной шины. Ниже приводится код приложения GetNewOrModifiedFHIRDocuments.
 
-    ![Приложение логики, используемое для запросов к Azure DocumentDB](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-hl7-fhir-logic-apps-api-app.png)
+    ![Приложение логики, используемое для запросов к Azure Cosmos DB](./media/documentdb-change-feed-hl7-fhir-logic-apps/documentdb-hl7-fhir-logic-apps-api-app.png)
 
 3. **Приложение для обработки уведомлений** отправляет по электронной почте уведомление, в текст которого включает документы ресурсов FHIR.
 
@@ -85,9 +87,9 @@ DocumentDB выполняет роль репозитория для ресур
 <a id="api-app"></a>
 
 #### <a name="api-app"></a>Приложение API
-Приложение API подключается к DocumentDB и запрашивает наличие новых или измененных документов FHIR по типу ресурса. Это приложение содержит один контроллер **FhirNotificationApi** с одной операцией **GetNewOrModifiedFhirDocuments** (см. раздел об [исходном коде для приложения API](#api-app-source)).
+Приложение API подключается к Azure Cosmos DB и запрашивает наличие новых или измененных документов FHIR по типу ресурса. Это приложение содержит один контроллер **FhirNotificationApi** с одной операцией **GetNewOrModifiedFhirDocuments** (см. раздел об [исходном коде для приложения API](#api-app-source)).
 
-Мы используем класс [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) из API-интерфейса .NET для DocumentDB. Дополнительные сведения см. в статье [Работа с поддержкой веб-канала изменений в Azure DocumentDB](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-change-feed). 
+Мы используем класс [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) из API-интерфейса .NET для DocumentDB в Azure Cosmos DB. Дополнительные сведения см. в статье [Работа с поддержкой веб-канала изменений в Azure DocumentDB](https://docs.microsoft.com/azure/documentdb/documentdb-change-feed). 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>Операция GetNewOrModifiedFhirDocuments
 
@@ -225,17 +227,12 @@ DocumentDB выполняет роль репозитория для ресур
 
 ## <a name="summary"></a>Сводка
 
-- Вы узнали, что в DocumentDB есть встроенная поддержка уведомлений о новых или измененных документах, и научились легко ее применять. 
+- Вы узнали, что в Azure Cosmos DB есть встроенная поддержка уведомлений о новых или измененных документах, и научились легко ее применять. 
 - Используя приложения логики, вы можете создавать рабочие процессы даже без написания кода.
 - Также вы узнали, как использовать очереди служебной шины Azure для обработки распространения документов HL7 FHIR.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения о DocumentDB см. на [домашней странице службы DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/). Подробную информацию о приложениях логики см. [здесь](https://azure.microsoft.com/en-us/services/logic-apps/).
+Дополнительные сведения о базе данных Azure Cosmos DB см. на [ее главной странице](https://azure.microsoft.com/services/documentdb/). Подробную информацию о приложениях логики см. [здесь](https://azure.microsoft.com/services/logic-apps/).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

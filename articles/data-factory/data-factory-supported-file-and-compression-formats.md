@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 06f7b38f5d08f2182f08d38a11dec526042c1828
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4b496eb3d82249e8dc29833fa7bf94ffbfd87ea0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -82,7 +83,7 @@ ms.lasthandoff: 03/31/2017
 * Вы копируете данные из текстового файла и хотите пропустить несколько строк в начале, которые не содержат ни данных, ни заголовка. Укажите `skipLineCount`, чтобы задать число пропускаемых строк. Если остальная часть файла содержит строку заголовка, можно также указать `firstRowAsHeader`. Если указаны `skipLineCount` и `firstRowAsHeader`, сначала пропускаются строки, а затем из входного файла считываются данные заголовка.
 
 ## <a name="json-format"></a>Формат JSON
-Чтобы **импортировать JSON-файл "как есть" в базу данных DocumentDB или экспортировать его из нее**, см. раздел [Документы JSON для импорта и экспорта](data-factory-azure-documentdb-connector.md#importexport-json-documents) статьи [Перемещение данных в хранилище данных DocumentDB и из него с помощью фабрики данных Azure](data-factory-azure-documentdb-connector.md).
+Чтобы **импортировать JSON-файл "как есть" в базу данных Azure Cosmos DB или экспортировать его из нее**, см. раздел [Документы JSON для импорта и экспорта](data-factory-azure-documentdb-connector.md#importexport-json-documents) статьи о [перемещении данных в базу данных Azure Cosmos DB и из нее](data-factory-azure-documentdb-connector.md).
 
 Если требуется проанализировать JSON-файлы или записать данные в формате JSON, задайте для свойства `type` в разделе `format` значение **JsonFormat**. В разделе `format` также можно указать следующие **необязательные** свойства. Инструкции по настройке см. в разделе [Пример JsonFormat](#jsonformat-example).
 

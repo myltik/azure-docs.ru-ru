@@ -16,10 +16,10 @@ ms.date: 04/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b600b7d67de24eab5395f085a2a424159b14ff28
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a0a3b7ad7757439b5f73c38e759761f671ca2e17
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Встроенные роли для управления доступом на основе ролей в Azure
@@ -55,7 +55,7 @@ ms.lasthandoff: 04/27/2017
 | [Участник фабрики данных](#data-factory-contributor) |Вы можете создавать фабрики данных и дочерние ресурсы внутри их, а также управлять ими. |
 | [Пользователь DevTest Labs](#devtest-labs-user) |Может просматривать все, а также подключать, запускать, перезагружать виртуальные машины и завершать их работу |
 | [Участник зоны DNS](#dns-zone-contributor) |Может управлять зонами и записями DNS. |
-| [Участник учетной записи DocumentDB](#documentdb-account-contributor) |Может управлять учетными записями DocumentDB |
+| [Участник учетной записи Azure Cosmos DB](#documentdb-account-contributor) |Может управлять учетными записями Azure Cosmos DB |
 | [Участник учетной записи интеллектуальных систем](#intelligent-systems-account-contributor) |Может управлять учетными записями интеллектуальных систем |
 | [Monitoring Reader](#monitoring-reader) (Читатель данных мониторинга) |Может читать все данные мониторинга. |
 | [Monitoring Contributor](#monitoring-contributor) (Участник мониторинга) |Может читать данные мониторинга и изменять параметры мониторинга. |
@@ -365,8 +365,8 @@ ms.lasthandoff: 04/27/2017
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Support/\* |Создание запросов в службу поддержки и управление ими. |
 
-### <a name="documentdb-account-contributor"></a>Участник учетной записи DocumentDB
-Может управлять учетными записями DocumentDB
+### <a name="azure-cosmos-db-account-contributor"></a>Участник учетной записи Azure Cosmos DB
+Может управлять учетными записями Azure Cosmos DB
 
 | **Действия** |  |
 | --- | --- |

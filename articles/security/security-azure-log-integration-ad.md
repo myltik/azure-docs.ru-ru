@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 03/29/2017
+ms.date: 05/09/2017
 ms.author: barclayn
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: f7c2f702a4ff2af8bb7487d49f5c6f9bf5199a49
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5e135be1e21173add3236f851609f1df0a5b0dee
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/14/2017
 События аудита Azure Active Directory помогают определить привилегированные действия, выполняемые в Azure Active Directory. Просмотреть типы событий, доступных для отслеживания, можно с помощью [событий отчета об аудите Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
 
 >[!NOTE]
-Необходимо успешно выполнить инструкции, описанные в [руководстве по началу работы](security-azure-log-integration-get-started.md), прежде чем приступить к действиям в этой статье.
+Ознакомьтесь со статьей [Интеграция журналов Azure с ведением журнала системы диагностики Azure и пересылкой событий Windows](security-azure-log-integration-get-started.md) и выполните все шаги до шага 3 раздела **Действия после установки и проверка** перед выполнением действий, описанных в этой статье.
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Интеграция журналов аудита Azure Active Directory
 
@@ -35,9 +36,9 @@ ms.lasthandoff: 04/14/2017
 2. Выполните приведенную ниже команду.
 
  ``azlog createazureid``
- 
+
  Эта команда запрашивает имя для входа Azure. Затем она создает субъект-службу Azure Active Directory в клиентах Azure AD, содержащих подписки Azure, для которых вошедший пользователь является администратором, соадминистратором или владельцем. Команда завершится ошибкой, если пользователь является только гостем в клиенте Azure AD. Аутентификация в Azure осуществляется через Azure Active Directory (AD). Создание субъекта-службы для службы интеграции Azlog приводит к созданию удостоверения Azure AD, которому будет предоставлен доступ на чтение из подписок Azure.
- 
+
 3. Выполните команду, указав идентификатор клиента. Для выполнения команды необходимо быть членом роли администратора клиента.
 
 ``Azlog.exe authorizedirectoryreader tenantId``
@@ -53,7 +54,7 @@ ms.lasthandoff: 04/14/2017
 
 Перенаправьте стандартный соединитель пересылки файлов SIEM в соответствующую папку, чтобы передавать данные экземпляру SIEM. Может потребоваться сопоставить некоторые поля согласно используемому продукту SIEM.
 
-Помощь сообщества можно получить на [форуме MSDN по интеграции журналов Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). С помощью этого форума сообщество разработчиков AzLog может помогать друг другу, делясь вопросами, ответами, советами и рекомендациями о том, как максимально использовать возможности интеграции журналов Azure. Кроме того, команда разработчиков службы интеграции журналов Azure отслеживает этот форум и помогает при любой возможности. 
+Помощь сообщества можно получить на [форуме MSDN по интеграции журналов Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). С помощью этого форума сообщество разработчиков AzLog может помогать друг другу, делясь вопросами, ответами, советами и рекомендациями о том, как максимально использовать возможности интеграции журналов Azure. Кроме того, команда разработчиков службы интеграции журналов Azure отслеживает этот форум и помогает при любой возможности.
 
 Можно также отправить [запрос в службу поддержки](../azure-supportability/how-to-create-azure-support-request.md). Для этого укажите в запросе службу **Интеграции журналов**.
 

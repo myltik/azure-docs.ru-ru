@@ -1,48 +1,49 @@
 ---
-title: "Новости, события и сообщество Azure DocumentDB | Документация Майкрософт"
-description: "Присоединяйтесь к сообществу Azure DocumentDB: заводите знакомства, демонстрируйте свои проекты и оттачивайте навыки."
-services: documentdb
+title: "Новости, события и сообщество Azure Cosmos DB | Документация Майкрософт"
+description: "Присоединяйтесь к сообществу Azure Cosmos DB: заводите знакомства, демонстрируйте свои проекты и оттачивайте навыки."
+services: cosmosdb
 documentationcenter: 
 author: aliuy
 manager: jhubbard
 editor: mimig
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: a7c366d29cf163c9c30c72751a992a0ebb3462cd
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a630467a2b5866e675bf008ae8d5d321a44389a3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="community-portal"></a>Портал сообщества
 ## <a name="community-spotlight"></a>В центре внимания сообщества
-Пора показать ваш проект миру! Расскажите нам о проекте, в котором используете DocumentDB, и мы поможем вам поделиться своими находками со всем миром. Чтобы отправить проект, напишите нам по адресу [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+Пора показать ваш проект миру! Расскажите нам о проекте, в котором используете Azure Cosmos DB (стек DocumentDB нового поколения), и мы поможем вам поделиться своими находками со всем миром. Чтобы отправить проект, напишите нам по адресу [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 ### <a name="documentdb-lumenize"></a>documentdb-lumenize
 *Ларри Маккероне (Larry Maccherone)*
 
-Агрегирование (группирование, сводные таблицы и многомерный куб) и временные преобразования как хранимые процедуры в DocumentDB.
+Агрегирование (группирование, сводные таблицы и многомерный куб) и временные преобразования как хранимые процедуры в API DocumentDB для Azure Cosmos DB.
 
 Ознакомьтесь с проектом на сайтах [GitHub](https://github.com/lmaccherone/documentdb-lumenize) и [npm](https://www.npmjs.com/package/lumenize).
 
 ### <a name="documentdb-studio"></a>DocumentDB Studio
 *Минг Лю (Ming Liu)*
 
-Средство просмотра и управления клиентами для службы Microsoft Azure DocumentDB.
+Средство просмотра клиентов и управления ими для службы API DocumentDB для Azure Cosmos DB.
 
 Ознакомьтесь с проектом на сайте [GitHub](https://github.com/mingaliu/DocumentDBStudio).
 
 ### <a name="doqmentdb"></a>DoQmentDB
 *Ариэль Машраки*
 
-DoQmentDB — это клиент на базе обещания Node.js, создающий слой типа MongoDB поверх DocumentDB.
+DoQmentDB — это клиент на базе обещания Node.js, создающий слой типа MongoDB поверх Azure Cosmos DB.
 
 Ознакомьтесь с проектом на сайтах [GitHub](https://github.com/a8m/doqmentdb) и [npm](https://www.npmjs.com/package/doqmentdb).
 
@@ -56,21 +57,21 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 ### <a name="swagger-rest-api-for-documentdb"></a>REST API Swagger для DocumentDB
 *Автор: Ховард Эдидин (Howard Edidin)*
 
-Файл REST API Swagger для DocumentDB, который можно легко развернуть в качестве приложения API.
+Файл REST API Swagger для DocumentDB базы данных Azure Cosmos DB, который можно легко развернуть в качестве приложения API.
 
 Ознакомьтесь с проектом на сайте [GitHub](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
 
 ### <a name="fluent-plugin-documentdb"></a>fluent-plugin-documentdb
 *Йоичи Кавасаки (Yoichi Kawasaki)*
 
-fluent-plugin-documentdb — это подключаемый модуль Fluentd для вывода в Azure DocumentDB.
+fluent-plugin-documentdb — это подключаемый модуль Fluentd для вывода в API DocumentDB для Azure Cosmos DB.
 
 Ознакомьтесь с проектом на сайтах [GitHub](https://github.com/yokawasa/fluent-plugin-documentdb) и [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
 
-*Узнайте о других проектах DocumentDB с открытым исходным кодом на сайте [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
+*Узнайте о других проектах Azure Cosmos DB с открытым исходным кодом на сайте [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
 
 ## <a name="news-blogs-and-articles"></a>Новости, блоги и статьи
-Чтобы оставаться в курсе последних новостей о DocumentDB, читайте [наш блог](https://azure.microsoft.com/blog/tag/documentdb/).
+Чтобы оставаться в курсе последних новостей об Azure Cosmos DB, читайте [наш блог](https://azure.microsoft.com/blog/tag/documentdb/).
 
 **Записи участников сообщества:**
 
@@ -231,10 +232,10 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 | --- | --- | --- |
 | Документация |[azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) |[Веб-сайт с документацией](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Соединитель Hadoop |[azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
-| Инструмент переноса данных |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Центре загрузки Майкрософт](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
+| Инструмент переноса данных |[azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) |[Центре загрузки Майкрософт](http://www.microsoft.com/download/details.aspx?id=46436) |
 
-## <a name="documentdb-wizards"></a>Мастера DocumentDB
-Мастера DocumentDB — это специалисты, продемонстрировавшие исключительную готовность помогать другим эффективно использовать Azure DocumentDB. Они делятся своей увлеченностью, знаниями и опытом с широкой общественностью и командой DocumentDB.
+## <a name="azure-cosmos-db-wizards"></a>Мастера Azure Cosmos DB
+Мастера Azure Cosmos DB — это специалисты, продемонстрировавшие исключительную готовность помогать другим эффективно использовать Azure Cosmos DB (база данных DocumentDB нового поколения). Они делятся своей увлеченностью, знаниями и опытом с широкой общественностью и командой Azure Cosmos DB.
 
 | Мастер | Фотография |
 | --- | --- |
@@ -247,6 +248,6 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 |  [Сантош Хари (Santosh Hari)](https://twitter.com/_s_hari) |[![Сантош Хари (Santosh Hari)](./media/documentdb-community/wizard-santosh-hari.jpg)](https://twitter.com/_s_hari) |
 | [Matías Quaranta](https://twitter.com/ealsur) (Матиас Куаранта) |[![Matías Quaranta](./media/documentdb-community/wizard-matias-quaranta.jpg)](https://twitter.com/ealsur) (Матиас Куаранта) |
 
-Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
+Хотите стать мастером Azure Cosmos DB? Несмотря на то что критериев для отбора мастеров не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, например StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
 
 
