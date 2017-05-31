@@ -17,15 +17,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 027597c73d7282ef929363bab904e7d3d423d3d4
-ms.openlocfilehash: db2757015cf8e821cffcfe39bcbd1559c23fc7ed
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5e28422158684c3aaf0ac3fdf5b19c80fbccfb02
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="lesson-5-create-your-first-azure-iot-gateway-module"></a>Урок 5. Создание первого модуля шлюза Azure IoT
-Пакет SDK для шлюза позволяет создавать модули, написанные на Java, .NET или Node.js, но в этом руководстве описаны шаги по созданию модуля на C.
+Edge Интернета вещей Azure позволяет создавать модули, написанные на Java, .NET или Node.js, но в этом руководстве описаны шаги по созданию модуля на C.
 
 ## <a name="what-you-will-do"></a>Выполняемая задача
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 02/23/2017
 
 ## <a name="what-you-need"></a>Необходимые элементы
 
-Пакет SDK для шлюза Azure IoT, установленный на главном компьютере.
+Edge Интернета вещей Azure, установленный на главном компьютере.
 
 ## <a name="folder-structure"></a>Структура папок
 
@@ -103,7 +104,7 @@ ms.lasthandoff: 02/23/2017
 
 С помощью приведенных ниже действий вы сможете создать новый модуль и скомпилировать его на устройстве Intel NUC. При получении сообщений модуль выводит их на экран с меткой времени. В этом разделе вы создадите первый настроенный модуль шлюза.
 
-Любой модуль SDK для шлюза Azure IoT должен реализовать следующие интерфейсы:
+Любой модуль Edge Интернета вещей Azure должен реализовать следующие интерфейсы:
 
    ```C
    pfModule_ParseConfigurationFromJson Module_ParseConfigurationFromJson

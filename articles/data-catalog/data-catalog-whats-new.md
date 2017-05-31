@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 03/03/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ef4517191084148ff3810226c927ee45a61b2c49
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9f9754aef4f1e933163cd80862c84ba8281def80
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 03/03/2017
 По состоянию на 16 сентября 2016 г. в каталог данных Azure добавлены следующие возможности.
 
 * Поддержка источников данных IBM DB2. Теперь пользователи могут регистрироваться и обнаруживать базы данных, таблицы и представления DB2.
-* Поддержка источников данных Azure DocumentDB. Теперь пользователи могут регистрироваться и обнаруживать базы данных и коллекции DocumentDB.
+* Поддержка источников данных Azure Cosmos DB. Теперь пользователи могут регистрироваться и обнаруживать базы данных и коллекции Cosmos DB.
 * Поддержка настройки имени каталога на портале каталога данных. Теперь администраторы каталога могут указать текст, который будет отображаться в заголовке на портале, например название организации.
 
 ## <a name="whats-new-for-the-week-of-august-26-2016-release"></a>Новые возможности выпуска от 26 августа 2016 г.

@@ -9,15 +9,15 @@ editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 8df9fbf4b09cb63cafc9d43592edc68068a28f14
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1469e7a2f5f41ef52c0ff77e6e70378951594135
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -159,7 +159,7 @@ Anaconda Python 2.7 устанавливается в папку C:\Anaconda, а
 * **AzCopy**используется для перемещения данных в учетную запись хранения Microsoft Azure и из нее. Чтобы ознакомиться со сведениями об использовании, введите **Azcopy** в командной строке. 
 * **Microsoft Azure Storage Explorer**используется для просмотра объектов, сохраненных в учетной записи хранения Azure, а также для перемещения данных в службу хранилища Azure и обратно. Для доступа к этому инструменту можно ввести **Storage Explorer** в поле поиска или найти его в меню "Пуск" в Windows. 
 * **Adlcopy**используется для перемещения данных в Azure Data Lake. Чтобы ознакомиться со сведениями об использовании, введите **adlcopy** в командной строке. 
-* **dtui**используется для перемещения данных в Azure DocumentDB (базу данных NoSQL в облаке) и обратно. Введите **dtui** в командной строке. 
+* **dtui** используется для перемещения данных в Azure Cosmos DB (базу данных NoSQL в облаке) и обратно. Введите **dtui** в командной строке. 
 * **Шлюз управления данными Майкрософт** позволяет перемещать данные между локальными источниками данных и облаком. Он используется в таких инструментах, как фабрика данных Azure. 
 * **Microsoft Azure PowerShell** — инструмент, используемый для управления ресурсами Azure на языке сценариев PowerShell, также установлен на вашей виртуальной машине. 
 

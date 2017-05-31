@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/05/2017
+ms.date: 05/01/2017
 ms.author: betorres
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: ab273c56fe9818ea65979376ec829032f67f04ed
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 16cb5a1e16a59200f0e731622398efcf24c3f777
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -62,11 +63,11 @@ ms.lasthandoff: 04/07/2017
 >
 
 ### <a name="using-the-rest-api"></a>Использование REST API
-И API REST и пакет SDK для .NET службы поиска Azure обеспечивают программный доступ к показателям обслуживания.  Если вы используете [индексаторы](https://msdn.microsoft.com/library/azure/dn946891.aspx) для загрузки индекса из базы данных SQL Azure или DocumentDB, для получения требуемых показателей имеется дополнительный API-интерфейс.
+И API REST и пакет SDK для .NET службы поиска Azure обеспечивают программный доступ к показателям обслуживания.  Если вы используете [индексаторы](https://msdn.microsoft.com/library/azure/dn946891.aspx) для загрузки индекса из базы данных SQL Azure или Azure Cosmos DB, для получения требуемых показателей имеется дополнительный API-интерфейс.
 
-* [Получение статистики индексов](https://msdn.microsoft.com/library/azure/dn798942.aspx)
-* [Подсчет документов](https://msdn.microsoft.com/library/azure/dn798924.aspx)
-* [Получение состояния индексатора](https://msdn.microsoft.com/library/azure/dn946884.aspx)
+* [Получение статистических данных индекса](/rest/api/searchservice/get-index-statistics)
+* [Подсчет документов](/rest/api/searchservice/count-documents)
+* [Получение состояния индексатора](/rest/api/searchservice/get-indexer-status)
 
 ## <a name="how-to-export-logs-and-metrics"></a>Экспорт журналов и метрик
 

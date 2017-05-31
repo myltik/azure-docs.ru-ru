@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: e8efc3204512b7213c44a15c25b38287465975df
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2b772afc946f1637cb8d61c198bc9cf18f42e1ba
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -122,7 +123,7 @@ ms.lasthandoff: 04/13/2017
 
 ## <a name="run-a-ble-sample-application-to-send-sensortag-data-to-your-iot-hub"></a>Запуск примера приложения BLE для отправки данных SensorTag в Центр Интернета вещей
 
-Пример приложения для подключения по Bluetooth с низким энергопотреблением (BLE) предоставляется в пакете SDK шлюза Azure IoT. Этот пример приложения собирает данные, поступающие через подключение BLE, и отправляет их в центр Интернета вещей. Для запуска примера приложения необходимо выполнить следующие действия:
+Пример приложения для подключения по Bluetooth с низким энергопотреблением (BLE) предоставляется в Edge Интернета вещей Azure. Этот пример приложения собирает данные, поступающие через подключение BLE, и отправляет их в центр Интернета вещей. Для запуска примера приложения необходимо выполнить следующие действия:
 
 1. настроить пример приложения;
 1. запустить его на шлюзе Интернета вещей.
@@ -170,5 +171,5 @@ ms.lasthandoff: 04/13/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-[Использование шлюза IoT для преобразования данных датчиков с помощью пакета SDK для шлюза Azure IoT](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+[Использование шлюза Интернета вещей для преобразования данных датчиков с помощью Edge Интернета вещей](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 

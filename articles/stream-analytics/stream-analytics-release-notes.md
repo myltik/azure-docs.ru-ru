@@ -15,10 +15,10 @@ ms.workload: data-services
 ms.date: 05/03/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 05c5476cbfd616ce47d6d93627c6e7dd4d8a0d6f
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6a5ec66172e7920a89ff8c0592224f01f19c9e41
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -85,7 +85,7 @@ ms.lasthandoff: 05/03/2017
 | --- | --- |
 | Общедоступная предварительная версия Azure IoT |Служба Stream Analytics включена в общедоступную предварительную версию пакета Azure IoT. |
 | Интеграция с порталом Azure |Помимо постоянного присутствия на портале управления Azure, служба Stream Analytics теперь интегрирована в [портал Azure](https://azure.microsoft.com/overview/preview-portal/). Обратите внимание, что функции Stream Analytics на портале предварительной версии в настоящий момент являются подмножеством функций портала управления Azure, в котором отсутствует возможность тестирования запросов в браузере, настройки выходных данных Power BI и перехода ко входным и выходным ресурсам в доступных вам подписках, а также создания новых. |
-| Поддержка выходных данных DocumentDB |Теперь задания Stream Analytics могут отправлять выходные данные в [DocumentDB](https://azure.microsoft.com/services/documentdb/). |
+| Поддержка выходных данных Cosmos DB |Теперь задания Stream Analytics могут отправлять выходные данные в [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). |
 | Поддержка ввода из центра IoT |Теперь задания Stream Analytics могут принимать данные из центров IoT. |
 | TIMESTAMP BY для разнородных событий |Если один поток данных содержит события нескольких типов с временными метками в разных полях, то вы можете использовать команду [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) с выражениями, чтобы указывать разные поля временных меток для каждого случая. |
 

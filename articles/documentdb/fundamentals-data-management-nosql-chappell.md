@@ -1,9 +1,11 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: 48380d1fd5394cc32b4e868a82f456497bc4a915
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 28af0300f7027ccce8207d0f767490bddd4bf532
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 
@@ -18,13 +20,8 @@ ms.openlocfilehash: 48380d1fd5394cc32b4e868a82f456497bc4a915
   
   * Дифференциация операционных данных, считывание и запись которых производится приложениями, от аналитических (предназначенных для бизнес-аналитики) для выбора оптимальной технологии.
   * Краткий обзор реляционных технологий.
-  * Введение в каждую из технологий Azure NoSQL: DocumentDB, хранилище таблиц HBase и HDInsight.
+  * Введение в каждую из технологий Azure NoSQL: Azure Cosmos DB, хранилище таблиц HBase и HDInsight.
   * Сравнение технологий NoSQL с базой данных Azure SQL. 
-  * Ситуации, подходящие для использования Azure DocumentDB, хранилища таблиц, HBase, HDInsight, базе данных SQL.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+  * Ситуации, подходящие для использования Azure Cosmos DB, хранилища таблиц, HBase, HDInsight, базе данных SQL.
 
 

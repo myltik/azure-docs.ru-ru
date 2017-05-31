@@ -12,17 +12,19 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/01/2016
+ms.date: 05/01/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
-ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 356ceb98106d080d8c24dedc3547bee33750156e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>Операции с индексаторами (API REST службы "Поиск Azure": версия 2015-02-28-Preview)
 > [!NOTE]
-> В этой статье описываются индексаторы, доступные в [REST API&2015;-02-28-Preview](search-api-2015-02-28-preview.md). В этой версии API добавлены предварительные версии индексатора хранилища BLOB-объектов Azure с извлечением документов и индексатора хранилища таблиц Azure, а также другие улучшения. Этот API также поддерживает общедоступные индексаторы, включая индексаторы для базы данных SQL Azure, SQL Server на виртуальных машинах Azure и Azure DocumentDB.
+> В этой статье описываются индексаторы, доступные в [REST API 2015-02-28-Preview](search-api-2015-02-28-preview.md). В этой версии API добавлены предварительные версии индексатора хранилища BLOB-объектов Azure с извлечением документов и индексатора хранилища таблиц Azure, а также другие улучшения. Этот API также поддерживает общедоступные индексаторы, включая индексаторы для базы данных SQL Azure, SQL Server на виртуальных машинах Azure и Azure Cosmos DB.
 > 
 > 
 
@@ -42,7 +44,7 @@ ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 В настоящее время поддерживаются следующие источники данных:
 
 * **База данных SQL Azure** и **SQL Server на виртуальных машинах Azure**. Пошаговое руководство для целевых платформ см. в [этой статье](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
-* **Azure DocumentDB.** Пошаговое руководство для целевых платформ см. в [этой статье](search-howto-index-documentdb.md). 
+* **Azure Cosmos DB**. Пошаговое руководство для целевых платформ см. в [этой статье](search-howto-index-documentdb.md). 
 * **Хранилище BLOB-объектов Azure**, включая следующие форматы документов: PDF, Microsoft Office (DOCX и DOC, XSLX и XLS, PPTX и PPT, MSG), HTML, XML, ZIP и текстовые файлы (включая JSON). Пошаговое руководство для целевых платформ см. в [этой статье](search-howto-indexing-azure-blob-storage.md).
 * **Хранилище таблиц Azure.** Пошаговое руководство для целевых платформ см. в [этой статье](search-howto-indexing-azure-tables.md).
 
@@ -123,13 +125,13 @@ ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 * `description`: необязательное описание. 
 * `type`. Обязательное. Должно быть одним из поддерживаемых типов источников данных.
   * `azuresql` — база данных SQL Azure или SQL Server на виртуальных машинах Azure.
-  * `documentdb` — Azure DocumentDB.
+  * `documentdb` — Azure Cosmos DB.
   * `azureblob` — хранилище BLOB-объектов Azure.
   * `azuretable` — хранилище таблиц Azure.
 * `credentials`:
   * Обязательное свойство `connectionString` задает строку подключения для источника данных. Формат строки подключения зависит от типа источника данных. 
     * Для SQL Azure это обычная строка подключения SQL Server. На портале Azure используйте параметр `ADO.NET connection string` для получения строки подключения.
-    * При использовании DocumentDB строка подключения должна быть в следующем формате: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Все значения являются обязательными. Эти значения можно найти на [портале Azure](https://portal.azure.com/).  
+    * При использовании Azure Cosmos DB строка подключения должна быть в следующем формате: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Все значения являются обязательными. Эти значения можно найти на [портале Azure](https://portal.azure.com/).  
     * Для хранилища BLOB-объектов и хранилища таблиц Azure это строка подключения учетной записи хранения. Формат описан [здесь](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/). Необходимо указать протокол конечной точки HTTPS.  
 * `container`, обязательный; указывает данные для индексирования с помощью свойств `name` и `query`. 
   * `name`, обязательный.
@@ -167,7 +169,7 @@ ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
         "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
     } 
 
-При использовании источников данных DocumentDB необходимо использовать свойство `_ts`, предоставленное в DocumentDB. 
+При использовании источников данных Azure Cosmos DB необходимо использовать свойство `_ts`, предоставленное в Azure Cosmos DB. 
 
 При использовании источников данных BLOB-объектов Azure служба поиска Azure автоматически использует политику обнаружения изменений верхнего предела на основе отметки времени последнего изменения большого двоичного объекта (вам не требуется указывать такую политику самостоятельно).   
 
@@ -178,7 +180,7 @@ ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 Интегрированное отслеживание изменений поддерживается, начиная со следующих версий баз данных SQL Server: 
 
 * SQL Server 2008 R2, если вы используете SQL Server на виртуальных машинах Azure.
-* База данных SQL Azure&12;, если вы используете базу данных SQL Azure.  
+* База данных SQL Azure 12, если вы используете базу данных SQL Azure.  
 
 При использовании встроенной политики отслеживания изменений SQL не указывайте отдельную политику обнаружения удаления данных, так как она уже поддерживает выявление удаленных строк. 
 
@@ -412,7 +414,7 @@ ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 * `maxFailedItems`. Количество не прошедших индексацию элементов, превышение которого рассматривается как сбой индексатора. Значение по умолчанию — 0. Сведения об ошибочных элементах возвращаются операцией [получения состояния индексатора](#GetIndexerStatus) . 
 * `maxFailedItemsPerBatch`. Количество не прошедших индексацию элементов в каждом пакете, превышение которого рассматривается как сбой индексатора. Значение по умолчанию — 0.
 * `base64EncodeKeys`. Указывает, будут ли ключи документа в кодировке base-64. Поиск Azure накладывает ограничения на символы, которые может содержать ключ документа. Однако данные источника могут содержать недопустимые символы. Если необходимо индексировать такие значения как ключи документов, этому флагу можно задать значение true. Значение по умолчанию — `false`.
-* `batchSize`: указывает количество элементов, которые считываются из источника данных и индексируются в рамках одного пакета для повышения производительности. Значение по умолчанию зависит от типа источника данных: 1000 для SQL Azure и DocumentDB и 10 для хранилища BLOB-объектов Azure.
+* `batchSize`: указывает количество элементов, которые считываются из источника данных и индексируются в рамках одного пакета для повышения производительности. Значение по умолчанию зависит от типа источника данных: 1000 — для SQL Azure и Azure Cosmos DB и 10 — для хранилища BLOB-объектов Azure.
 
 **Сопоставления полей**
 
@@ -796,9 +798,4 @@ ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 <td>Не поддерживаются. В настоящее время служба "Поиск Azure" поддерживает только типы примитивов и коллекции строк.</td>
 </tr>
 </table>
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -1,27 +1,29 @@
 ---
-title: "Примеры NoSQL Node.js для DocumentDB | Документация Майкрософт"
-description: "Примеры NoSQL Node.js для выполнения общих задач в DocumentDB, включая операции CRUD для документов JSON в базах данных NoSQL, можно найти на сайте GitHub."
+title: "Примеры Node.js для Azure Cosmos DB | Документация Майкрософт"
+description: "Примеры Node.js на сайте GitHub, позволяющие выполнять общие задачи в Azure Cosmos DB, в том числе операции CRUD."
 keywords: "Примеры Node.js"
-services: documentdb
+services: cosmosdb
 author: moderakh
 manager: jhubbard
 editor: monicar
 documentationcenter: nodejs
 ms.assetid: d87d97be-47a5-4928-8d46-a541fbb33213
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2017
 ms.author: moderakh
-translationtype: Human Translation
-ms.sourcegitcommit: 6d3872dfa5187ea4e0570fdfd0ed3804f461af3f
-ms.openlocfilehash: bc3350a094361817f68e31de6561d050a3295f61
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5415bef7706f1a621429f76fb451ff459693b0e9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="documentdb-nodejs-examples"></a>Примеры DocumentDB для Node.js
+# <a name="azure-cosmos-db-nodejs-examples"></a>Примеры Node.js для Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [Примеры .NET](documentdb-dotnet-samples.md)
 > * [Примеры Node.js](documentdb-nodejs-samples.md)
@@ -30,7 +32,7 @@ ms.openlocfilehash: bc3350a094361817f68e31de6561d050a3295f61
 > 
 > 
 
-Примеры решений, которые выполняют операции CRUD и другие распространенные операции с ресурсами Azure DocumentDB, содержатся в разделе [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) репозитория GitHub. Эта статья содержит:
+Примеры решений, которые выполняют операции CRUD и другие распространенные операции с ресурсами Azure Cosmos DB, содержатся в разделе [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) репозитория GitHub. Эта статья содержит:
 
 * Ссылки на задачи в каждом из примеров файлов проектов Node.js.
 * Ссылки на соответствующие справочные материалы по API.
@@ -100,7 +102,7 @@ ms.openlocfilehash: bc3350a094361817f68e31de6561d050a3295f61
 | [Создание индекса диапазона строкового пути](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L349-L425) |[IndexKind.Range](http://azure.github.io/azure-documentdb-node/global.html#IndexKind), [IndexingPolicy](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy), [DocumentClient.queryDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#queryDocument) |
 | [Создание коллекции с политикой индексирования (indexPolicy) по умолчанию, а затем ее обновление через Интернет](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L519-L614) |[DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection)<br> [DocumentClient.replaceCollection#replaceCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html) |
 
-Дополнительные сведения об индексации см. в статье [Политики индексации DocumentDB](documentdb-indexing-policies.md).
+Дополнительные сведения об индексации Azure Cosmos DB см. в [этой статье](documentdb-indexing-policies.md).
 
 ## <a name="server-side-programming-examples"></a>Примеры программирования на стороне сервера
 С помощью файла [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) в проекте [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) вы узнаете, как выполнять следующие задачи.
@@ -110,7 +112,7 @@ ms.openlocfilehash: bc3350a094361817f68e31de6561d050a3295f61
 | [Создание хранимой процедуры](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.ServerSideScripts/app.js#L44-L71) |[DocumentClient.createStoredProcedure](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createStoredProcedure) |
 | [Выполнение хранимой процедуры](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.ServerSideScripts/app.js#L73-L90) |[DocumentClient.executeStoredProcedure](http://azure.github.io/azure-documentdb-node/DocumentClient.html#executeStoredProcedure) |
 
-Дополнительные сведения о программировании на стороне сервера см. в статье [Программирование DocumentDB на стороне сервера: хранимые процедуры, триггеры баз данных и определяемые пользователем функции](documentdb-programming.md).
+Дополнительные сведения о программировании на стороне сервера в Azure Cosmos DB, в том числе о хранимых процедурах, триггерах баз данных и определяемых пользователем функциях, см. в [этой статье](documentdb-programming.md).
 
 ## <a name="partitioning-examples"></a>Примеры секционирования
 С помощью файла [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) в проекте [Partitioning](https://github.com/Azure/azure-documentdb-node/tree/master/samples/Partitioning) вы узнаете, как выполнять следующие задачи.
@@ -119,11 +121,6 @@ ms.openlocfilehash: bc3350a094361817f68e31de6561d050a3295f61
 | --- | --- |
 | [Использование HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) |[HashPartitionResolver](http://azure.github.io/azure-documentdb-node/HashPartitionResolver.html) |
 
-Дополнительные сведения о секционировании данных в DocumentDB см. в статье [Секционирование и масштабирование в Azure DocumentDB](documentdb-partition-data.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+Дополнительные сведения о секционировании данных в Azure Cosmos DB см. в статье [Секционирование, ключи секции и масштабирование в DocumentDB](documentdb-partition-data.md).
 
 

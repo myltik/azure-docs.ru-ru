@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: e776d095356e10ef47ca49e2a8b9f97d63fb80be
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: fd691f898e26bea0a304bcf52e5df9ee7db8b818
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -122,19 +123,8 @@ ms.lasthandoff: 04/04/2017
 
     Теперь у вас есть настроенное действие для отправки событий из приложения логики. 
 
-## <a name="technical-details"></a>Технические сведения
-
-### <a name="triggers"></a>триггеры;
-
-| Триггер | Описание |
-| --- | --- |
-| При наличии событий в концентраторе событий | Запускает рабочий процесс, когда в указанный концентратор событий поступают новые события. |
-
-### <a name="actions"></a>Действия
-
-| Действие | Описание |
-| --- | --- |
-| Отправка события | Отправляет событие на указанный концентратор событий. |
+## <a name="view-the-swagger"></a>Просмотр Swagger
+Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/eventhubs/). 
 
 ## <a name="get-help"></a>Получение справки
 

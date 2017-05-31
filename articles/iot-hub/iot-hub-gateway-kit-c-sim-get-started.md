@@ -17,10 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
-ms.openlocfilehash: 06161c2950fbe99d2e4f9c1b416695a5f9f18ca4
-ms.lasthandoff: 01/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 916fa40d9ac857dfa72197b40c232834593d3891
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -38,16 +39,16 @@ ms.lasthandoff: 01/25/2017
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>Урок 1. Настройка NUC
-![Урок&1;. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
+![Урок 1. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
 
-На этом уроке вы настроите Intel NUC (Next Unit of Computing) из набора в качестве шлюза Azure IoT, установите пакет SDK для шлюза Azure IoT на NUC и запустите пример приложения, чтобы проверить работоспособность шлюза.
+На этом уроке вы настроите Intel NUC (Next Unit of Computing) из набора в качестве шлюза Интернета вещей Azure, установите пакет Edge Интернета вещей Azure на NUC и запустите пример приложения, чтобы проверить работоспособность шлюза.
 
 *Предполагаемое время выполнения: 15 минут.*
 
 Перейдите к статье [Настройка Intel NUC в качестве шлюза Интернета вещей](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md).
 
 ## <a name="lesson-2-create-your-iot-hub"></a>Урок 2. Создание Центра Интернета вещей
-![Урок&2;. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
+![Урок 2. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
 
 В ходе этого урока вы установите инструменты и программное обеспечение на главном компьютере. Затем создадите бесплатную учетную запись Azure, подготовите Центр Интернета вещей Azure и создадите в нем первое устройство.
 
@@ -68,7 +69,7 @@ ms.lasthandoff: 01/25/2017
 Перейдите к разделу [Создание Центра Интернета вещей и регистрация устройства](iot-hub-gateway-kit-c-sim-lesson2-register-device.md).
 
 ## <a name="lesson-3-receive-messages-from-the-simulated-device-and-read-messages-from-your-iot-hub"></a>Урок 3. Получение сообщений из имитации устройства и чтение сообщений из вашего Центра Интернета вещей
-В ходе этого урока вы используете сценарии для автоматизации настройки и выполнения приложения для имитации устройства в шлюзе. Приложение для имитации устройства создает пример данных температуры и отправляет его в модуль Центра Интернета вещей. Модуль Центра Интернета вещей упаковывает полученные данные и отправляет их в Центр Интернета вещей через платформу шлюза, предоставленную в пакете SDK для шлюза Azure IoT.
+В ходе этого урока вы используете сценарии для автоматизации настройки и выполнения приложения для имитации устройства в шлюзе. Приложение для имитации устройства создает пример данных температуры и отправляет его в модуль Центра Интернета вещей. Модуль Центра Интернета вещей упаковывает полученные данные и отправляет их в Центр Интернета вещей через платформу шлюза, предоставленную в Edge Интернета вещей Azure.
 
 ![Урок 3. Сквозная схема](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson3.png)
 

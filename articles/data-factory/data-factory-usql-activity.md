@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: b41d906d6948f0f9e3cdb38b4a478b39f55ce219
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 88628fb2c07ad72c646f7e3ed076e7a4b1519200
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -40,8 +41,7 @@ ms.lasthandoff: 03/14/2017
 > Перед созданием конвейера с действием U-SQL в Data Lake Analytics следует создать учетную запись Data Lake Analytics. Дополнительные сведения об Azure Data Lake Analytics см. в статье [Начало работы с аналитикой озера данных Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 > 
 > В руководстве по [созданию первого конвейера](data-factory-build-your-first-pipeline.md) подробно описаны процедуры создания фабрики данных, связанных служб, наборов данных и конвейера. Для создания сущностей фабрики данных запустите предложенные фрагменты кода JSON в редакторе фабрики данных, Visual Studio или Azure PowerShell.
-> 
-> 
+
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Связанная служба аналитики озера данных Azure
 Можно создать связанную службу **Azure Data Lake Analytics** , чтобы связать службу вычислений Azure Data Lake Analytics с фабрикой данных Azure. Действие U-SQL Data Lake Analytics в конвейере ссылается на эту связанную службу. 
@@ -84,7 +84,7 @@ ms.lasthandoff: 03/14/2017
 | Учетные записи пользователей, которые не управляются с помощью Azure Active Directory (@hotmail.com, @live.com и т. д.) |12 часов |
 | Учетные записи пользователей, которые управляются Azure Active Directory (AAD) |14 дней после последнего запуска среза. <br/><br/>90 дней, если срез, основанный на связанной службе на основе OAuth, выполняется по крайней мере раз в 14 дней. |
 
-Чтобы избежать этой ошибки или исправить ее, вам потребуется повторно авторизоваться с помощью кнопки **Авторизовать** и повторно развернуть связанную службу, когда **срок действия маркера истечет**. Значения свойств **sessionId** и **authorization** также можно задавать программно с помощью кода, приведенного в следующем разделе. 
+Чтобы избежать этой ошибки или исправить ее, вам потребуется повторно авторизоваться с помощью кнопки **Авторизовать** и повторно развернуть связанную службу, когда **срок действия маркера истечет**. Значения свойств **sessionId** и **authorization** можно также задавать программно с помощью кода, приведенного в следующем разделе.
 
 ### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Программное создание значений свойств sessionId и authorization
 
@@ -176,12 +176,14 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 | Тип |Для свойства type нужно задать значение **DataLakeAnalyticsU-SQL**. |Да |
 | scriptPath |Путь к папке, содержащей скрипт U-SQL В имени файла учитывается регистр. |Нет (если используется скрипт) |
 | scriptLinkedService |Связанная служба, которая связывает хранилище, содержащее скрипт, с фабрикой данных |Нет (если используется скрипт) |
-| script |Указание сценария непосредственно в строке вместо использования scriptPath и scriptLinkedService. Например: "script" : "CREATE DATABASE test". |Нет (при использовании scriptPath и scriptLinkedService) |
+| script |Указание сценария непосредственно в строке вместо использования scriptPath и scriptLinkedService. Например, `"script": "CREATE DATABASE test"`. |Нет (при использовании scriptPath и scriptLinkedService) |
 | degreeOfParallelism |Максимальное количество узлов, используемых одновременно для выполнения задания. |Нет |
 | priority |Определяет, какие задания из всех в очереди должны запускаться в первую очередь. Чем меньше число, тем выше приоритет. |Нет |
 | parameters |Параметры скрипта U-SQL |Нет |
+| runtimeVersion | Версия среды выполнения обработчика U-SQL, которую нужно использовать. | Нет | 
+| compilationMode | <p>Режим компиляции U-SQL. Может иметь одно из следующих значений.</p> <ul><li>**Semantic**: выполнение только семантических проверок и необходимых проверок работоспособности.</li><li>**Full:** выполнение полной компиляции, включая проверку синтаксиса, оптимизацию, создание кода и т. д.</li><li>**SingleBox:** выполнение полной компиляции с параметром TargetType, заданным для SingleBox.</li></ul><p>Если не указать значение для этого свойства, сервер определит оптимальный режим компиляции. </p>| Нет | 
 
-Определение сценария см. в разделе [Определение сценария SearchLogProcessing.txt](#script-definition). 
+Определение сценария см. в разделе [Определение сценария SearchLogProcessing.txt](#sample-u-sql-script). 
 
 ## <a name="sample-input-and-output-datasets"></a>Примеры входных и выходных наборов данных
 ### <a name="input-dataset"></a>Входной набор данных

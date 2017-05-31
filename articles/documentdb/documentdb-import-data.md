@@ -1,51 +1,50 @@
 ---
-title: "Средство миграции базы данных для DocumentDB | Документация Майкрософт"
-description: "Из этой статьи вы узнаете, как использовать открытые средства переноса данных DocumentDB для импорта данных в DocumentDB из различных источников, включая MongoDB, SQL Server, хранилище таблиц, Amazon DynamoDB, файлы CSV и JSON. Преобразование CSV в JSON."
+title: "Средство миграции базы данных для Azure Cosmos DB | Документация Майкрософт"
+description: "Из этой статьи вы узнаете, как использовать открытые средства миграции данных Azure Cosmos DB для импорта данных в Azure Cosmos DB из различных источников, включая MongoDB, SQL Server, хранилище таблиц, Amazon DynamoDB, файлы CSV и JSON. Преобразование CSV в JSON."
 keywords: "csv в json, средства миграции базы данных, преобразование csv в json"
-services: documentdb
+services: cosmosdb
 author: andrewhoh
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/14/2017
+ms.date: 05/22/2017
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 41e0b9a875b350f5b4a8ce63711ba45e2acb8cae
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d3935aca19a9ea5e351105b72d090ac34608c9db
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="import-data-to-documentdb-with-the-database-migration-tool"></a>Импорт данных в DocumentDB с помощью средства миграции базы данных
-> [!div class="op_single_selector"]
-> * [Импорт в DocumentDB](documentdb-import-data.md)
-> * [Импорт в API для MongoDB](documentdb-mongodb-migrate.md)
->
->
+# <a name="how-to-import-data-into-azure-cosmos-db-for-the-documentdb-api"></a>Как импортировать данные в Azure Cosmos DB для API DocumentDB
 
-В этой статье показано, как использовать официальное средство миграции данных DocumentDB с открытым кодом для импорта данных в [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) из различных источников, включая JSON-файлы, CSV-файлы, SQL, MongoDB, хранилище таблиц Azure, Amazon DynamoDB и коллекции DocumentDB.
+В этом руководстве показано, как использовать средство миграции данных Azure Cosmos DB, с помощью которого можно импортировать данные из различных источников, включая JSON-файлы, CSV-файлы, SQL, MongoDB, табличное хранилище Azure, Amazon DynamoDB и коллекции DocumentDB, в Azure Cosmos DB. Средство миграции данных можно также использовать при миграции из односекционной коллекции в многосекционную для API DocumentDB.
 
-При импорте данных в API для базы данных MongoDB следуйте инструкциям в статье [Перенос данных в DocumentDB с помощью mongoimport и mongorestore](documentdb-mongodb-migrate.md).
+Это средство работает только при импорте данных в Azure Cosmos DB для использования с API DocumentDB. Импорт данных для использования с API таблицы или API Graph сейчас не поддерживается. 
 
-Ознакомившись с данной статьей, вы сможете ответить на следующие вопросы.  
+Чтобы импортировать данные для использования с API MongoDB, ознакомьтесь со статьей [Перенос данных в DocumentDB с помощью mongoimport и mongorestore](documentdb-mongodb-migrate.md).
 
-* Как импортировать JSON-файл, CSV-файл, данные SQL Server или данные MongoDB в DocumentDB?
-* Как импортировать в DocumentDB данные из хранилища таблиц Azure или Amazon DynamoDB?
-* Как переносить данные между коллекциями DocumentDB?
+В рамках этого руководства рассматриваются следующие задачи:
+
+> [!div class="checklist"]
+> * установка средства миграции данных;
+> * импорт данных из разных источников данных;
+> * экспорт данных из Azure Cosmos DB в JSON.
 
 ## <a id="Prerequisites"></a>Предварительные требования
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) или более поздняя версия.
 
-## <a id="Overviewl"></a>Обзор средства миграции данных DocumentDB
-Средство миграции данных DocumentDB — это решение с открытым исходным кодом, которое импортирует данные в DocumentDB из различных источников, таких как:
+## <a id="Overviewl"></a>Обзор средства миграции данных
+Средство миграции данных — это решение с открытым исходным кодом, которое импортирует данные в Azure Cosmos DB из различных источников, таких как:
 
 * файлы JSON;
 * MongoDB
@@ -54,17 +53,35 @@ ms.lasthandoff: 03/15/2017
 * табличное хранилище Azure;
 * Amazon DynamoDB
 * HBase
-* коллекции DocumentDB.
+* коллекции Azure Cosmos DB.
 
 Хотя средство импорта предоставляет графический интерфейс пользователя (dtui.exe), им также можно управлять из командной строки (dt.exe). К слову, существует параметр для вывода соответствующей команды после настройки импорта в пользовательском интерфейсе. Табличный источник данных (например, SQL Server или CSV-файлы) можно преобразовать так, чтобы создать иерархические связи (вложенные документы) во время импорта. Читайте дальше, чтобы узнать о доступных источниках, примерах команд для импорта из каждого источника, возможных целевых объектах и просмотре результатов импорта.
 
-## <a id="Install"></a>Установка средства миграции данных DocumentDB
+## <a id="Install"></a>Установка средства миграции данных
 Исходный код средства миграции доступен на портале GitHub в [этом репозитории](https://github.com/azure/azure-documentdb-datamigrationtool), а скомпилированная версия доступна в [Центре загрузки Майкрософт](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Вы можете скомпилировать решение или просто скачать и извлечь скомпилированную версию в каталог по своему усмотрению. Затем запустите:
 
 * **Dtui.exe**— версия средства с графическим интерфейсом;
 * **Dt.exe**— версия средства с командной строкой.
 
-## <a id="JSON"></a>Импорт файлов JSON
+## <a name="import-data"></a>Импорт данных
+
+После установки средства вы можете импортировать данные. Поддерживаются такие типы данных и виды импорта:
+
+* [файлы JSON](#JSON);
+* [MongoDB](#MongoDB)
+* [файлы экспорта MongoDB](#MongoDBExport);
+* [SQL Server](#SQL)
+* [CSV-файлы](#CSV);
+* [Хранилище таблиц Azure](#AzureTableSource)
+* [Amazon DynamoDB](#DynamoDBSource);
+* [Большой двоичный объект](#BlobImport)
+* [коллекции Azure Cosmos DB](#DocumentDBSource);
+* [HBase](#HBaseSource)
+* [массовый импорт Azure Cosmos DB](#DocumentDBBulkImport);
+* [последовательный импорт записей Azure Cosmos DB](#DocumentDSeqTarget).
+
+
+## <a id="JSON"></a>Импорт JSON-файлов
 Параметр импорта файлов JSON позволяет импортировать файлы JSON с одним или несколькими документами или файлы JSON, каждый из которых содержит массив документов JSON. Во время добавления папок, содержащих JSON-файлы для импорта, вы можете выполнить рекурсивный поиск файлов во вложенных папках.
 
 ![Снимок экрана: параметры исходного файла JSON — средства миграции базы данных](./media/documentdb-import-data/jsonsource.png)
@@ -72,24 +89,24 @@ ms.lasthandoff: 03/15/2017
 Ниже приведены некоторые примеры команд для импорта файлов JSON.
 
     #Import a single JSON file
-    dt.exe /s:JsonFile /s.Files:.\Sessions.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionThroughput:2500
+    dt.exe /s:JsonFile /s.Files:.\Sessions.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Sessions /t.CollectionThroughput:2500
 
     #Import a directory of JSON files
-    dt.exe /s:JsonFile /s.Files:C:\TESessions\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionThroughput:2500
+    dt.exe /s:JsonFile /s.Files:C:\TESessions\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Sessions /t.CollectionThroughput:2500
 
     #Import a directory (including sub-directories) of JSON files
-    dt.exe /s:JsonFile /s.Files:C:\LastFMMusic\**\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Music /t.CollectionThroughput:2500
+    dt.exe /s:JsonFile /s.Files:C:\LastFMMusic\**\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Music /t.CollectionThroughput:2500
 
     #Import a directory (single), directory (recursive), and individual JSON files
-    dt.exe /s:JsonFile /s.Files:C:\Tweets\*.*;C:\LargeDocs\**\*.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionThroughput:2500
+    dt.exe /s:JsonFile /s.Files:C:\Tweets\*.*;C:\LargeDocs\**\*.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:subs /t.CollectionThroughput:2500
 
     #Import a single JSON file and partition the data across 4 collections
-    dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionThroughput:2500
+    dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionThroughput:2500
 
 ## <a id="MongoDB"></a>Импорт из MongoDB
 
 > [!IMPORTANT]
-> При импорте в учетную запись DocumentDB с поддержкой MongoDB выполните эти [инструкции](documentdb-mongodb-migrate.md).
+> При импорте в учетную запись Azure Cosmos DB с поддержкой MongoDB выполните эти [инструкции](documentdb-mongodb-migrate.md).
 > 
 > 
 
@@ -111,15 +128,15 @@ ms.lasthandoff: 03/15/2017
 Ниже приведены некоторые примеры команд для импорта данных из MongoDB.
 
     #Import all documents from a MongoDB collection
-    dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZips /t.IdField:_id /t.CollectionThroughput:2500
+    dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:BulkZips /t.IdField:_id /t.CollectionThroughput:2500
 
     #Import documents from a MongoDB collection which match the query and exclude the loc field
-    dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionThroughput:2500
+    dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionThroughput:2500
 
-## <a id="MongoDBExport"></a>Импортировать файлы экспорта MongoDB
+## <a id="MongoDBExport"></a>Импорт файлов экспорта MongoDB
 
 > [!IMPORTANT]
-> При импорте в учетную запись DocumentDB с поддержкой MongoDB выполните эти [инструкции](documentdb-mongodb-migrate.md).
+> При импорте в учетную запись Azure Cosmos DB с поддержкой MongoDB выполните эти [инструкции](documentdb-mongodb-migrate.md).
 > 
 > 
 
@@ -131,7 +148,7 @@ ms.lasthandoff: 03/15/2017
 
 Ниже приведен пример команды для импорта данных из JSON-файлов экспорта MongoDB.
 
-    dt.exe /s:MongoDBExport /s.Files:D:\mongoemployees.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:employees /t.IdField:_id /t.Dates:Epoch /t.CollectionThroughput:2500
+    dt.exe /s:MongoDBExport /s.Files:D:\mongoemployees.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:employees /t.IdField:_id /t.Dates:Epoch /t.CollectionThroughput:2500
 
 ## <a id="SQL"></a>Импорт из SQL Server
 Параметр импорта из источника SQL позволяет импортировать данные из отдельной базы данных SQL Server и фильтровать записи для импорта с помощью запроса. Кроме того, можно изменить структуру документа, указав разделитель вложения (подробнее об этом чуть позже).  
@@ -153,19 +170,19 @@ ms.lasthandoff: 03/15/2017
 
 ![Снимок экрана: результаты запроса SQL](./media/documentdb-import-data/sqlqueryresults.png)
 
-Обратите внимание на псевдонимы, например Address.AddressType и Address.Location.StateProvinceName. Если указать разделитель вложения ".", средство импорта создает вложенные документы Address и Address.Location во время импорта. Ниже приведен пример полученного документа в DocumentDB:
+Обратите внимание на псевдонимы, например Address.AddressType и Address.Location.StateProvinceName. Если указать разделитель вложения ".", средство импорта создает вложенные документы Address и Address.Location во время импорта. Ниже приведен пример полученного документа в Azure Cosmos DB.
 
 *{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
 
 Ниже приведены некоторые примеры команд для импорта данных из SQL Server:
 
     #Import records from SQL which match a query
-    dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, * from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Stores /t.IdField:Id /t.CollectionThroughput:2500
+    dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, * from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Stores /t.IdField:Id /t.CollectionThroughput:2500
 
     #Import records from sql which match a query and create hierarchical relationships
-    dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionThroughput:2500
+    dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionThroughput:2500
 
-## <a id="CSV"></a>Импорт CSV-файлов — преобразование CSV в JSON
+## <a id="CSV"></a>Импорт CSV-файлов и преобразование CSV в JSON
 Параметр импорта из CSV-файла позволяет импортировать один или несколько CSV-файлов. Во время добавления папок, содержащих CSV-файлы для импорта, вы можете выполнить рекурсивный поиск файлов во вложенных папках.
 
 ![Снимок экрана: параметры источника CSV — преобразование CSV в JSON](media/documentdb-import-data/csvsource.png)
@@ -174,7 +191,7 @@ ms.lasthandoff: 03/15/2017
 
 ![Снимок экрана: примеры записей CSV — преобразование CSV в JSON](./media/documentdb-import-data/csvsample.png)
 
-Обратите внимание на псевдонимы, например DomainInfo.Domain_Name и RedirectInfo.Redirecting. Если указать разделитель вложения ".", средство импорта создает вложенные документы DomainInfo и RedirectInfo во время импорта. Ниже приведен пример полученного документа в DocumentDB:
+Обратите внимание на псевдонимы, например DomainInfo.Domain_Name и RedirectInfo.Redirecting. Если указать разделитель вложения ".", средство импорта создает вложенные документы DomainInfo и RedirectInfo во время импорта. Ниже приведен пример полученного документа в Azure Cosmos DB.
 
 *{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
@@ -187,10 +204,10 @@ ms.lasthandoff: 03/15/2017
 
 Далее показан пример команды для импорта CSV:
 
-    dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionThroughput:2500
+    dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionThroughput:2500
 
-## <a id="AzureTableSource"></a>Импорт из табличного хранилища Azure
-Параметр импорта из табличного хранилища Azure позволяет импортировать данные из отдельной таблицы хранилища Azure и фильтровать сущности таблицы для импорта при необходимости.  
+## <a id="AzureTableSource"></a>Импорт из хранилища таблиц Azure
+Параметр импорта из табличного хранилища Azure позволяет импортировать данные из отдельной таблицы хранилища Azure и фильтровать сущности таблицы для импорта при необходимости. Обратите внимание, что вы не можете использовать средство миграции данных для импорта данных службы хранилища таблиц Azure в Azure Cosmos DB для использования с API таблицы. Сейчас поддерживается только импорт в Azure Cosmos DB для использования с API DocumentDB.
 
 ![Снимок экрана: параметры источника табличного хранилища Azure](./media/documentdb-import-data/azuretablesource.png)
 
@@ -216,7 +233,7 @@ ms.lasthandoff: 03/15/2017
 
 Ниже приведен пример команды для импорта данных из табличного хранилища Azure.
 
-    dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionThroughput:2500
+    dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:metrics /t.CollectionThroughput:2500
 
 ## <a id="DynamoDBSource"></a>Импорт из Amazon DynamoDB
 Параметр импортера источника Amazon DynamoDB позволяет выполнять импорт из отдельной таблицы Amazon DynamoDB и при необходимости фильтровать сущности для импорта. Чтобы максимально упростить настройку импорта, представлено несколько шаблонов.
@@ -238,67 +255,67 @@ ms.lasthandoff: 03/15/2017
 
     dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
 
-## <a id="BlobImport"></a>Импорт файлов из хранилища больших двоичных объектов Azure
+## <a id="BlobImport"></a>Импорт файлов из хранилища BLOB-объектов Azure
 JSON-файл, файл экспорта MongoDB и параметры импорта источника файла CSV позволяют импортировать из хранилища больших двоичных объектов Azure один или несколько файлов. Чтобы выбрать файлы для импорта, просто предоставьте регулярное выражение после указания URL-адреса или ключа учетной записи для контейнера больших двоичных объектов.
 
 ![Снимок экрана: параметры исходного файла больших двоичных объектов](./media/documentdb-import-data/blobsource.png)
 
 Ниже приведен пример команды для импорта JSON-файлов из хранилища больших двоичных объектов Azure:
 
-    dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
+    dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:doctest
 
 ## <a id="DocumentDBSource"></a>Импорт из DocumentDB
-Параметр импортера источников DocumentDB позволяет импортировать данные из коллекций DocumentDB и, если нужно, фильтровать документы с помощью запроса.  
+Параметр импортера источников Azure Cosmos DB позволяет импортировать данные из коллекций Azure Cosmos DB и, если нужно, фильтровать документы с помощью запроса.  
 
-![Снимок экрана: параметры источника DocumentDB](./media/documentdb-import-data/documentdbsource.png)
+![Снимок экрана: параметры источника Azure Cosmos DB](./media/documentdb-import-data/documentdbsource.png)
 
-Для строки подключения DocumentDB используется следующий формат:
+Для строки подключения Azure Cosmos DB используется следующий формат:
 
-    AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+    AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;
 
-Строку подключения учетной записи DocumentDB можно получить из колонки "Ключи" на портале Azure, как описано в разделе [Управление учетной записью DocumentDB](documentdb-manage-account.md), однако в строку подключения необходимо добавить имя базы данных в следующем формате.
+Строку подключения учетной записи Azure Cosmos DB можно получить из колонки "Ключи" на портале Azure, как описано в статье об [управлении учетной записью Azure Cosmos DB](documentdb-manage-account.md), однако в строку подключения необходимо добавить имя базы данных в следующем формате:
 
-    Database=<DocumentDB Database>;
+    Database=<CosmosDB Database>;
 
 > [!NOTE]
-> Используйте команду Verify, чтобы проверить доступ к экземпляру DocumentDB, указанному в строке подключения.
+> Используйте команду Verify, чтобы проверить доступ к экземпляру Azure Cosmos DB, указанному в строке подключения.
 > 
 > 
 
-Чтобы импортировать данные из одной коллекции DocumentDB, введите ее имя. Чтобы выполнить импорт из нескольких коллекций DocumentDB, введите регулярное выражение, соответствующее имени одной коллекции либо именам нескольких (например, collection01 | collection02 | collection03). При необходимости можно указать или предоставить файл для запроса для фильтрации и обработки и импортируемых данных.
+Чтобы импортировать данные из одной коллекции Azure Cosmos DB, введите ее имя. Чтобы выполнить импорт из нескольких коллекций Azure Cosmos DB, введите регулярное выражение, соответствующее имени одной коллекции либо именам нескольких (например, collection01 | collection02 | collection03). При необходимости можно указать или предоставить файл для запроса для фильтрации и обработки и импортируемых данных.
 
 > [!NOTE]
 > Так как в поле коллекции можно вводить регулярные выражения, то, если вы импортируете данные из одной коллекции, имя которой содержит символы регулярного выражения, их нужно экранировать соответствующим образом.
 > 
 > 
 
-Параметр импорта DocumentDB предоставляет следующие дополнительные параметры:
+Параметр импорта Azure Cosmos DB предоставляет следующие дополнительные параметры:
 
-1. «Включить внутренние поля»: указывает, следует ли включать системные свойства документа DocumentDB в экспорт (например, _rid, _ts).
-2. "Число повторных попыток в случае сбоя": указывает количество повторных попыток подключения к DocumentDB при временном сбое (например, прерывания сетевого подключения).
-3. "Интервал повтора": указывает время ожидания между повторными попытками подключения к DocumentDB при временном сбое (например, прерывания сетевого подключения).
-4. "Режим подключения": указывает режим подключения для DocumentDB. Доступны варианты: DirectTcp, DirectHttps и Gateway. Режимы прямого подключения быстрее, а режим шлюза более удобен для брандмауэра, так как использует только порт 443.
+1. Include Internal Fields (Включить внутренние поля). Указывает, следует ли включать системные свойства документа Azure Cosmos DB в экспорт (например, _rid, _ts).
+2. Number of Retries on Failure (Число повторных попыток в случае сбоя). Указывает количество повторных попыток подключения к Azure Cosmos DB при временном сбое (например, прерывания сетевого подключения).
+3. Retry Interval (Интервал повтора). Указывает время ожидания между повторными попытками подключения к Azure Cosmos DB при временном сбое (например, прерывания сетевого подключения).
+4. Connection Mode (Режим подключения). Указывает режим подключения для Azure Cosmos DB. Доступны варианты: DirectTcp, DirectHttps и Gateway. Режимы прямого подключения быстрее, а режим шлюза более удобен для брандмауэра, так как использует только порт 443.
 
-![Снимок экрана: дополнительные параметры источника DocumentDB](./media/documentdb-import-data/documentdbsourceoptions.png)
+![Снимок экрана: дополнительные параметры источника Azure Cosmos DB](./media/documentdb-import-data/documentdbsourceoptions.png)
 
 > [!TIP]
 > Средство импорта по умолчанию использует режим подключения DirectTcp. При возникновении проблем с брандмауэром перейдите на режим шлюза, так как он использует только порт 443.
 > 
 > 
 
-Ниже приведены некоторые примеры команд для импорта данных из DocumentDB:
+Ниже приведены некоторые примеры команд для импорта данных из Azure Cosmos DB.
 
-    #Migrate data from one DocumentDB collection to another DocumentDB collections
-    dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:TEColl /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:TESessions /t.CollectionThroughput:2500
+    #Migrate data from one Azure Cosmos DB collection to another Azure Cosmos DB collections
+    dt.exe /s:DocumentDB  /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:TEColl /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:TESessions /t.CollectionThroughput:2500
 
-    #Migrate data from multiple DocumentDB collections to a single DocumentDB collection
-    dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:singleCollection /t.CollectionThroughput:2500
+    #Migrate data from multiple Azure Cosmos DB collections to a single Azure Cosmos DB collection
+    dt.exe /s:DocumentDB  /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:singleCollection /t.CollectionThroughput:2500
 
-    #Export a DocumentDB collection to a JSON file
-    dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
+    #Export an Azure Cosmos DB collection to a JSON file
+    dt.exe /s:DocumentDB  /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
 
 > [!TIP]
-> Средство импорта данных DocumentDB также поддерживает импорт данных из [эмулятора DocumentDB](documentdb-nosql-local-emulator.md). При импорте данных из локального эмулятора задайте следующую конечную точку: https://localhost:<port>. 
+> Средство импорта данных Azure Cosmos DB также поддерживает импорт данных из [эмулятора Azure Cosmos DB](documentdb-nosql-local-emulator.md). При импорте данных из локального эмулятора задайте следующую конечную точку: https://localhost:<port>. 
 > 
 > 
 
@@ -320,23 +337,23 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 
 Ниже приведен пример команды для импорта данных из HBase:
 
-    dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
+    dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
 ## <a id="DocumentDBBulkTarget"></a>Импорт в DocumentDB (массовый импорт)
-Средство массового импорта DocumentDB позволяет импортировать данные из любого доступного источника, используя хранимую процедуру DocumentDB для повышения эффективности. Это средство поддерживает импорт в односекционную коллекцию DocumentDB, а также сегментированный импорт, в рамках которого данные распределяются по нескольким односекционным коллекциям DocumentDB. Дополнительные сведения о секционировании данных см. в статье [Секционирование и масштабирование данных в Azure DocumentDB](documentdb-partition-data.md). Кроме того, это средство создает, выполняет и удаляет хранимые процедуры из целевых коллекций.  
+Средство массового импорта Azure Cosmos DB позволяет импортировать данные из любого доступного источника, используя хранимую процедуру Azure Cosmos DB для повышения эффективности. Это средство поддерживает импорт в односекционную коллекцию Azure Cosmos DB, а также сегментированный импорт, в рамках которого данные распределяются по нескольким односекционным коллекциям Azure Cosmos DB. Дополнительные сведения о секционировании данных см. в статье о [секционировании и масштабировании в Azure Cosmos DB](documentdb-partition-data.md). Кроме того, это средство создает, выполняет и удаляет хранимые процедуры из целевых коллекций.  
 
-![Снимок экрана: параметры массового импорта DocumentDB](./media/documentdb-import-data/documentdbbulk.png)
+![Снимок экрана: параметры массового импорта Azure Cosmos DB](./media/documentdb-import-data/documentdbbulk.png)
 
-Для строки подключения DocumentDB используется следующий формат:
+Для строки подключения Azure Cosmos DB используется следующий формат:
 
-    AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+    AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;
 
-Строку подключения учетной записи DocumentDB можно получить из колонки "Ключи" на портале Azure, как описано в разделе [Управление учетной записью DocumentDB](documentdb-manage-account.md), однако в строку подключения необходимо добавить имя базы данных в следующем формате.
+Строку подключения учетной записи Azure Cosmos DB можно получить из колонки "Ключи" на портале Azure, как описано в статье об [управлении учетной записью Azure Cosmos DB](documentdb-manage-account.md), однако в строку подключения необходимо добавить имя базы данных в следующем формате:
 
-    Database=<DocumentDB Database>;
+    Database=<CosmosDB Database>;
 
 > [!NOTE]
-> Используйте команду Verify, чтобы проверить доступ к экземпляру DocumentDB, указанному в строке подключения.
+> Используйте команду Verify, чтобы проверить доступ к экземпляру Azure Cosmos DB, указанному в строке подключения.
 > 
 > 
 
@@ -346,7 +363,7 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 2. Вы можете использовать сокращенный синтаксис: если ввести collection[3], будет отображен тот же набор коллекций, что и на этапе 1.
 3. Вы можете указать несколько подстановок. Например, коллекция [0–1] [0–9] создаст 20 имен коллекций с нулем в начале (collection01… 02… 03).
 
-Указав имена коллекций, выберите нужную пропускную способность коллекций (от 400 до 10 000 ЕЗ). Для повышения производительности выберите большее значение. Дополнительные сведения об уровнях производительности см. в разделе [Уровни производительности в DocumentDB](documentdb-performance-levels.md).
+Указав имена коллекций, выберите нужную пропускную способность коллекций (от 400 до 10 000 ЕЗ). Для повышения производительности выберите большее значение. Дополнительные сведения об уровнях производительности в Azure Cosmos DB см. в [этой статье](documentdb-performance-levels.md).
 
 > [!NOTE]
 > Параметр пропускной способности применяется только для создания коллекции. Если указанная коллекция уже существует, ее пропускная способность не будет изменена.
@@ -355,31 +372,31 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 
 Если нужно импортировать данные в несколько коллекций, средство импорта поддерживает сегментирование на основе хэша. Укажите в этом сценарии свойство документа, которое нужно использовать в качестве ключа секции (если не указать ключ секции, сегментирование документов по целевым коллекциям будет происходить произвольным образом).
 
-При необходимости можно указать, какое поле источника импорта следует использовать в качестве свойства идентификатора документа DocumentDB во время импорта (обратите внимание, что если документы не содержат это свойство, средство импорта создаст GUID для свойства идентификатора).
+При необходимости можно указать, какое поле источника импорта следует использовать в качестве свойства идентификатора документа Azure Cosmos DB во время импорта (обратите внимание, что если документы не содержат это свойство, средство импорта создаст GUID для свойства идентификатора).
 
 Во время импорта доступны ряд дополнительных параметров. Во-первых, хотя средство и предоставляет хранимую процедуру массового импорта по умолчанию (BulkInsert.js), вы можете указать собственную хранимую процедуру:
 
- ![Снимок экрана: параметр хранимой процедуры массового импорта DocumentDB](./media/documentdb-import-data/bulkinsertsp.png)
+ ![Снимок экрана: параметр хранимой процедуры массового импорта Azure Cosmos DB](./media/documentdb-import-data/bulkinsertsp.png)
 
 Кроме того, при импорте типов даты (например, из SQL Server или MongoDB) можно выбрать три параметра импорта:
 
- ![Снимок экрана: параметры импорта даты и времени импорта DocumentDB](./media/documentdb-import-data/datetimeoptions.png)
+ ![Снимок экрана: параметры импорта даты и времени импорта Azure Cosmos DB](./media/documentdb-import-data/datetimeoptions.png)
 
 * Строка: сохраняется как строковое значение.
 * Эпоха: сохраняется как век числовое значение эпохи.
 * Оба: сохраняются строковое значение и числовое значение эпохи. Этот параметр создает вложенный документ, например "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
-Средство массового импорта DocumentDB предоставляет следующие дополнительные параметры:
+Средство массового импорта Azure Cosmos DB предоставляет следующие дополнительные параметры:
 
 1. "Размер пакета": по умолчанию средство использует размер пакета 50.  При импорте больших документов рекомендуется уменьшить размер пакета. И наоборот, при импорте небольших документов рекомендуется увеличить размер пакета.
 2. "Максимальный размер скрипта (в байтах)": по умолчанию средство использует максимальный размер скрипта, равный 512 КБ.
 3. "Отключить автоматическое создание идентификатора": если каждый импортируемый документ содержит поле идентификатора, то выбор этого параметра может повысить производительность. Документы без поля уникального идентификатора не будут импортированы.
 4. "Обновление существующих документов": по умолчанию средство не заменяет существующие документы с конфликтами идентификаторов. При выборе этого параметра существующие документы с совпадающими идентификаторами будут перезаписываться. Эта функция пригодится для плановых миграций, которые используются для обновления существующих документов.
-5. "Число повторных попыток в случае сбоя": указывает количество повторных попыток подключения к DocumentDB при временном сбое (например, прерывания сетевого подключения).
-6. "Интервал повтора": указывает время ожидания между повторными попытками подключения к DocumentDB при временном сбое (например, прерывания сетевого подключения).
-7. "Режим подключения": указывает режим подключения для DocumentDB. Доступны варианты: DirectTcp, DirectHttps и Gateway. Режимы прямого подключения быстрее, а режим шлюза более удобен для брандмауэра, так как использует только порт 443.
+5. Number of Retries on Failure (Число повторных попыток в случае сбоя). Указывает количество повторных попыток подключения к Azure Cosmos DB при временном сбое (например, прерывания сетевого подключения).
+6. Retry Interval (Интервал повтора). Указывает время ожидания между повторными попытками подключения к Azure Cosmos DB при временном сбое (например, прерывания сетевого подключения).
+7. Connection Mode (Режим подключения). Указывает режим подключения для Azure Cosmos DB. Доступны варианты: DirectTcp, DirectHttps и Gateway. Режимы прямого подключения быстрее, а режим шлюза более удобен для брандмауэра, так как использует только порт 443.
 
-![Снимок экрана: дополнительные параметр массового импорта DocumentDB](./media/documentdb-import-data/docdbbulkoptions.png)
+![Снимок экрана: дополнительные параметры массового импорта Azure Cosmos DB](./media/documentdb-import-data/docdbbulkoptions.png)
 
 > [!TIP]
 > Средство импорта по умолчанию использует режим подключения DirectTcp. При возникновении проблем с брандмауэром перейдите на режим шлюза, так как он использует только порт 443.
@@ -387,20 +404,20 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 > 
 
 ## <a id="DocumentDBSeqTarget"></a>Импорт в DocumentDB (последовательный импорт записей)
-Средство последовательного импорта записей DocumentDB позволяет импортировать данные из любых доступных источников по одной записи. Этот параметр можно выбрать при импорте в существующую коллекцию, для которой достигнута квота хранимых процедур. Это средство поддерживает импорт в отдельную (односекционную или многосекционную) коллекцию DocumentDB, а также сегментированный импорт, в рамках которого данные распределяются по нескольким односекционным и (или) многосекционным коллекциям DocumentDB. Дополнительные сведения о секционировании данных см. в статье [Секционирование и масштабирование данных в Azure DocumentDB](documentdb-partition-data.md).
+Средство последовательного импорта записей Azure Cosmos DB позволяет импортировать данные из любых доступных источников по одной записи. Этот параметр можно выбрать при импорте в существующую коллекцию, для которой достигнута квота хранимых процедур. Это средство поддерживает импорт в отдельную (односекционную или многосекционную) коллекцию Azure Cosmos DB, а также сегментированный импорт, в рамках которого данные распределяются по нескольким односекционным и (или) многосекционным коллекциям Azure Cosmos DB. Дополнительные сведения о секционировании данных см. в статье о [секционировании и масштабировании в Azure Cosmos DB](documentdb-partition-data.md).
 
-![Снимок экрана: параметры последовательного импорта записей DocumentDB](./media/documentdb-import-data/documentdbsequential.png)
+![Снимок экрана: параметры последовательного импорта записей Azure Cosmos DB](./media/documentdb-import-data/documentdbsequential.png)
 
-Для строки подключения DocumentDB используется следующий формат:
+Для строки подключения Azure Cosmos DB используется следующий формат:
 
-    AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+    AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;
 
-Строку подключения учетной записи DocumentDB можно получить из колонки "Ключи" на портале Azure, как описано в разделе [Управление учетной записью DocumentDB](documentdb-manage-account.md), однако в строку подключения необходимо добавить имя базы данных в следующем формате.
+Строку подключения учетной записи Azure Cosmos DB можно получить из колонки "Ключи" на портале Azure, как описано в статье об [управлении учетной записью Azure Cosmos DB](documentdb-manage-account.md), однако в строку подключения необходимо добавить имя базы данных в следующем формате:
 
-    Database=<DocumentDB Database>;
+    Database=<CosmosDB Database>;
 
 > [!NOTE]
-> Используйте команду Verify, чтобы проверить доступ к экземпляру DocumentDB, указанному в строке подключения.
+> Используйте команду Verify, чтобы проверить доступ к экземпляру Azure Cosmos DB, указанному в строке подключения.
 > 
 > 
 
@@ -410,7 +427,7 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 2. Вы можете использовать сокращенный синтаксис: если ввести collection[3], будет отображен тот же набор коллекций, что и на этапе 1.
 3. Вы можете указать несколько подстановок. Например, коллекция [0–1] [0–9] создаст 20 имен коллекций с нулем в начале (collection01… 02… 03).
 
-Указав имена коллекций, выберите нужную пропускную способность коллекций (от 400 до 250 000 ЕЗ). Для повышения производительности выберите большее значение. Дополнительные сведения об уровнях производительности см. в разделе [Уровни производительности в DocumentDB](documentdb-performance-levels.md). Для любой операции импорта в коллекции с пропускной способностью выше 10 000 ЕЗ потребуется ключ секции. Если требуется пропускная способность более 250 000 ЕЗ, вам потребуется отправить запрос на портале, чтобы увеличить ограничения учетной записи.
+Указав имена коллекций, выберите нужную пропускную способность коллекций (от 400 до 250 000 ЕЗ). Для повышения производительности выберите большее значение. Дополнительные сведения об уровнях производительности в Azure Cosmos DB см. в [этой статье](documentdb-performance-levels.md). Для любой операции импорта в коллекции с пропускной способностью выше 10 000 ЕЗ потребуется ключ секции. Если требуется пропускная способность более 250 000 ЕЗ, вам потребуется отправить запрос на портале, чтобы увеличить ограничения учетной записи.
 
 > [!NOTE]
 > Параметр пропускной способности применяется только для создания коллекции. Если указанная коллекция уже существует, ее пропускная способность не будет изменена.
@@ -419,36 +436,36 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 
 Если нужно импортировать данные в несколько коллекций, средство импорта поддерживает сегментирование на основе хэша. Укажите в этом сценарии свойство документа, которое нужно использовать в качестве ключа секции (если не указать ключ секции, сегментирование документов по целевым коллекциям будет происходить произвольным образом).
 
-При необходимости можно указать, какое поле источника импорта следует использовать в качестве свойства идентификатора документа DocumentDB во время импорта (обратите внимание, что если документы не содержат это свойство, средство импорта создаст GUID для свойства идентификатора).
+При необходимости можно указать, какое поле источника импорта следует использовать в качестве свойства идентификатора документа Azure Cosmos DB во время импорта (обратите внимание, что если документы не содержат это свойство, средство импорта создаст GUID для свойства идентификатора).
 
 Во время импорта доступны ряд дополнительных параметров. При импорте типов даты (например, из SQL Server или MongoDB) можно выбрать три параметра импорта:
 
- ![Снимок экрана: параметры импорта даты и времени импорта DocumentDB](./media/documentdb-import-data/datetimeoptions.png)
+ ![Снимок экрана: параметры импорта даты и времени импорта Azure Cosmos DB](./media/documentdb-import-data/datetimeoptions.png)
 
 * Строка: сохраняется как строковое значение.
 * Эпоха: сохраняется как век числовое значение эпохи.
 * Оба: сохраняются строковое значение и числовое значение эпохи. Этот параметр создает вложенный документ, например "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
-Средство последовательного импорта записей DocumentDB предоставляет следующие дополнительные параметры:
+Средство последовательного импорта записей Azure Cosmos DB предоставляет следующие дополнительные параметры:
 
 1. "Количество параллельных запросов": по умолчанию средство использует 2 параллельных запроса. При импорте небольших документов рекомендуется увеличить число параллельных запросов. Обратите внимание, что если задать слишком большое число, производительность импорта может снизиться.
 2. "Отключить автоматическое создание идентификатора": если каждый импортируемый документ содержит поле идентификатора, то выбор этого параметра может повысить производительность. Документы без поля уникального идентификатора не будут импортированы.
 3. "Обновление существующих документов": по умолчанию средство не заменяет существующие документы с конфликтами идентификаторов. При выборе этого параметра существующие документы с совпадающими идентификаторами будут перезаписываться. Эта функция пригодится для плановых миграций, которые используются для обновления существующих документов.
-4. "Число повторных попыток в случае сбоя": указывает количество повторных попыток подключения к DocumentDB при временном сбое (например, прерывания сетевого подключения).
-5. "Интервал повтора": указывает время ожидания между повторными попытками подключения к DocumentDB при временном сбое (например, прерывания сетевого подключения).
-6. "Режим подключения": указывает режим подключения для DocumentDB. Доступны варианты: DirectTcp, DirectHttps и Gateway. Режимы прямого подключения быстрее, а режим шлюза более удобен для брандмауэра, так как использует только порт 443.
+4. Number of Retries on Failure (Число повторных попыток в случае сбоя). Указывает количество повторных попыток подключения к Azure Cosmos DB при временном сбое (например, прерывания сетевого подключения).
+5. Retry Interval (Интервал повтора). Указывает время ожидания между повторными попытками подключения к Azure Cosmos DB при временном сбое (например, прерывания сетевого подключения).
+6. Connection Mode (Режим подключения). Указывает режим подключения для Azure Cosmos DB. Доступны варианты: DirectTcp, DirectHttps и Gateway. Режимы прямого подключения быстрее, а режим шлюза более удобен для брандмауэра, так как использует только порт 443.
 
-![Снимок экрана: дополнительные параметры последовательного импорта записей DocumentDB](./media/documentdb-import-data/documentdbsequentialoptions.png)
+![Снимок экрана: дополнительные параметры последовательного импорта записей Azure Cosmos DB](./media/documentdb-import-data/documentdbsequentialoptions.png)
 
 > [!TIP]
 > Средство импорта по умолчанию использует режим подключения DirectTcp. При возникновении проблем с брандмауэром перейдите на режим шлюза, так как он использует только порт 443.
 > 
 > 
 
-## <a id="IndexingPolicy"></a>Указание политики индексирования при создании коллекций DocumentDB
-Если вы разрешили средству миграции создавать коллекции во время импорта, можно указать политику индексирования коллекций. В разделе дополнительных параметров массового импорта DocumentDB и параметров последовательной записи DocumentDB перейдите в раздел "Политика индексации".
+## <a id="IndexingPolicy"></a>Указание политики индексирования при создании коллекций Azure Cosmos DB
+Если вы разрешили средству миграции создавать коллекции во время импорта, можно указать политику индексирования коллекций. В разделе дополнительных параметров массового импорта Azure Cosmos DB и параметров последовательной записи Azure Cosmos DB перейдите в раздел "Политика индексации".
 
-![Снимок экрана: дополнительные параметры политики индексации DocumentDB](./media/documentdb-import-data/indexingpolicy1.png)
+![Снимок экрана: дополнительные параметры политики индексации Azure Cosmos DB](./media/documentdb-import-data/indexingpolicy1.png)
 
 С помощью дополнительного параметра политики индексации можно выбрать файл политики индексации, вручную ввести политику индексации или выбрать из набора шаблонов по умолчанию (щелкнув правой кнопкой в текстовом поле политики индексации).
 
@@ -457,24 +474,24 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 * По умолчанию. Эта политика лучше всего подходит при выполнении запросов равенства строк и использовании предложения ORDER BY, диапазона и запросов равенства для чисел. Эта политика имеет более низкий индекс служебных данных хранилища, чем "Диапазон".
 * Диапазон. Эта политика лучше всего подходит при использовании предложения ORDER BY, диапазона и запросов равенства на числах и строках. Эта политика имеет более высокий индекс служебных данных хранилища, чем "По умолчанию" или "Хэш".
 
-![Снимок экрана: дополнительные параметры политики индексации DocumentDB](./media/documentdb-import-data/indexingpolicy2.png)
+![Снимок экрана: дополнительные параметры политики индексации Azure Cosmos DB](./media/documentdb-import-data/indexingpolicy2.png)
 
 > [!NOTE]
-> Если не указать политику индексации, будет применена политика по умолчанию. Дополнительные сведения о политиках индексации см. в статье [Политики индексации DocumentDB](documentdb-indexing-policies.md).
+> Если не указать политику индексации, будет применена политика по умолчанию. Дополнительные сведения о политиках индексации Azure Cosmos DB см. в [этой статье](documentdb-indexing-policies.md).
 > 
 > 
 
 ## <a name="export-to-json-file"></a>Экспорт в файл JSON
-Средство экспорта JSON DocumentDB позволяет экспортировать любые доступные источники в JSON-файл, содержащий массив документов JSON. Средство автоматически выполняет экспорт или же вы можете просмотреть результирующую команду миграции и выполнить ее самостоятельно. Результирующий JSON-файл может храниться локально или в хранилище больших двоичных объектов Azure.
+Средство экспорта JSON Azure Cosmos DB позволяет экспортировать любые доступные источники в JSON-файл, содержащий массив документов JSON. Средство автоматически выполняет экспорт или же вы можете просмотреть результирующую команду миграции и выполнить ее самостоятельно. Результирующий JSON-файл может храниться локально или в хранилище больших двоичных объектов Azure.
 
-![Снимок экрана: параметры экспорта в локальный файл DocumentDB JSON](./media/documentdb-import-data/jsontarget.png)
+![Снимок экрана: параметры экспорта в локальный файл Azure Cosmos DB JSON](./media/documentdb-import-data/jsontarget.png)
 
-![Снимок экрана: параметр экспорта в хранилище больших двоичных объектов Azure DocumentDB JSON](./media/documentdb-import-data/jsontarget2.png)
+![Снимок экрана: параметр экспорта в хранилище BLOB-объектов Azure Cosmos DB JSON](./media/documentdb-import-data/jsontarget2.png)
 
 При необходимости можно настроить результирующий JSON, что приведет к увеличению размера полученного документа, но при этом содержимое станет более удобным для чтения.
 
     Standard JSON export
-    [{"id":"Sample","Title":"About Paris","Language":{"Name":"English"},"Author":{"Name":"Don","Location":{"City":"Paris","Country":"France"}},"Content":"Don's document in DocumentDB is a valid JSON document as defined by the JSON spec.","PageViews":10000,"Topics":[{"Title":"History of Paris"},{"Title":"Places to see in Paris"}]}]
+    [{"id":"Sample","Title":"About Paris","Language":{"Name":"English"},"Author":{"Name":"Don","Location":{"City":"Paris","Country":"France"}},"Content":"Don's document in Azure Cosmos DB is a valid JSON document as defined by the JSON spec.","PageViews":10000,"Topics":[{"Title":"History of Paris"},{"Title":"Places to see in Paris"}]}]
 
     Prettified JSON export
     [
@@ -491,7 +508,7 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
         "Country": "France"
       }
     },
-    "Content": "Don's document in DocumentDB is a valid JSON document as defined by the JSON spec.",
+    "Content": "Don's document in Azure Cosmos DB is a valid JSON document as defined by the JSON spec.",
     "PageViews": 10000,
     "Topics": [
       {
@@ -522,12 +539,22 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
     ![Снимок экрана: окно сводки](./media/documentdb-import-data/summarycommand.png)
 2. После проверки источника и назначения нажмите кнопку **Импорт**. Затраченное время, число передаваемых объектов и сведения об ошибках (если вы не указали имя файла при настройке расширенной конфигурации) обновляются в процессе импорта. После завершения вы можете экспортировать результаты (например, для обработки ошибок импорта).
    
-    ![Снимок экрана: параметры экспорта JSON DocumentDB](./media/documentdb-import-data/viewresults.png)
+    ![Снимок экрана: параметры экспорта в Azure Cosmos DB JSON](./media/documentdb-import-data/viewresults.png)
 3. Можно также запустить новую операцию импорта, сохранив существующие параметры (например, строку подключения, источник и назначение и т. д.) или сбросить все значения.
    
-    ![Снимок экрана: параметры экспорта JSON DocumentDB](./media/documentdb-import-data/newimport.png)
+    ![Снимок экрана: параметры экспорта в Azure Cosmos DB JSON](./media/documentdb-import-data/newimport.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения о DocumentDB см. в [схеме обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
+В этом руководстве вы выполнили следующее:
+
+> [!div class="checklist"]
+> * установка средства миграции данных;
+> * импорт данных из разных источников данных;
+> * экспорт данных из Azure Cosmos DB в JSON.
+
+Теперь вы можете перейти к следующему руководству, из которого вы узнаете, как запрашивать данные с помощью Azure Cosmos DB. 
+
+> [!div class="nextstepaction"]
+>[Как выполнять запросы с помощью SQL в базе данных Azure Cosmos DB](../cosmos-db/tutorial-query-documentdb.md)
 

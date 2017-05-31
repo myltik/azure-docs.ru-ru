@@ -1,6 +1,6 @@
 ---
 title: "Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure | Документация Майкрософт"
-description: "Данная статья поможет вам подготовить и создать ваши собственные ключи, защищенные аппаратным модулем безопасности, а затем передать их в хранилище ключей Azure."
+description: "Данная статья поможет вам подготовить и создать ваши собственные ключи, защищенные аппаратным модулем безопасности, а затем передать их в хранилище ключей Azure. Также известные как собственные ключи или BYOK."
 services: key-vault
 documentationcenter: 
 author: cabailey
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 05/09/2017
 ms.author: ambapat
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7b499b46d4edbe4e33c568b7c50e0a44dd75a00f
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f481de9d7eb23531b4be82c3b61e4f3850bed72e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,14 +28,14 @@ ms.lasthandoff: 04/27/2017
 
 Информация в этой статье поможет вам подготовить и создать ваши собственные ключи, защищенные аппаратным модулем безопасности, а затем передать их в хранилище ключей Azure.
 
-Эта функция недоступна для Китая. 
+Эта функция недоступна для Китая.
 
 > [!NOTE]
 > Дополнительные сведения о хранилище ключей Azure см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md)  
-> 
+>
 > Указания по началу работы, включая создание хранилища для ключей, защищенных аппаратным модулем безопасности, см. в статье [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md).
-> 
-> 
+>
+>
 
 Дополнительные сведения о создании и передаче ключей, защищенных аппаратным модулем безопасности, через Интернет:
 
@@ -62,7 +62,7 @@ Thales e-Security — ведущий международный поставщи
 | Подписка на Azure |Для создания хранилища ключей Azure требуется подписка Azure: [зарегистрируйтесь для получения бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/) |
 | Поддержка защищенных ключей аппаратных модулей безопасности в хранилище ключей Azure уровня "Премиум". |Дополнительные сведения об уровнях обслуживания и возможностях хранилища ключей Azure см. на веб-сайте [Цены на хранилище ключей Azure](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Аппаратный модуль безопасности Thales, смарт-карты и программное обеспечение поддержки |Вы должны иметь доступ к аппаратному модулю безопасности Thales и базовые знания о работе аппаратных модулей безопасности Thales. Список совместимых моделей или сведения о покупке аппаратного модуля безопасности, если у вас его нет, см. в статье [Аппаратный модуль безопасности Thales](https://www.thales-esecurity.com/msrms/buy). |
-| Следующее оборудование и программное обеспечение:<ol><li>Автономная рабочая станция x64 с операционной системой Windows версии не ниже Windows 7 и программным обеспечением Thales nShield версии не ниже 11.50.<br/><br/>Если рабочая станция выполняется на ОС Windows 7, [установите Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Рабочая станция, подключенная к Интернету, с операционной системой Windows версии не ниже Windows 7.</li><li>USB-накопитель или другое переносное устройство хранения, на котором имеется не менее 16 МБ свободного места.</li></ol> |По соображениям безопасности рекомендуется не подключать первую рабочую станцию к сети. Однако это не применяется принудительно программным путем.<br/><br/>Обратите внимание, что далее эта рабочая станция называется отключенной рабочей станцией.</p></blockquote><br/>Кроме того, если ключ клиента предназначен для производственной сети, рекомендуется использовать вторую, отдельную рабочую станцию для скачивания набора средств и отправки ключа клиента. Но в целях тестирования можно использовать первую рабочую станцию.<br/><br/>Обратите внимание, что далее вторая рабочая станция называется рабочей станцией, подключенной к Интернету.</p></blockquote><br/> |
+| Следующее оборудование и программное обеспечение:<ol><li>Автономная рабочая станция x64 с операционной системой Windows версии не ниже Windows 7 и программным обеспечением Thales nShield версии не ниже 11.50.<br/><br/>Если рабочая станция выполняется на ОС Windows 7, [установите Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Рабочая станция, подключенная к Интернету, с операционной системой Windows версии не ниже Windows 7 и установленным [Azure PowerShell](/powershell/azure/overview) **версии не ниже 1.1.0**.</li><li>USB-накопитель или другое переносное устройство хранения, на котором имеется не менее 16 МБ свободного места.</li></ol> |По соображениям безопасности рекомендуется не подключать первую рабочую станцию к сети. Однако это не применяется принудительно программным путем.<br/><br/>Обратите внимание, что далее эта рабочая станция называется отключенной рабочей станцией.</p></blockquote><br/>Кроме того, если ключ клиента предназначен для производственной сети, рекомендуется использовать вторую, отдельную рабочую станцию для скачивания набора средств и отправки ключа клиента. Но в целях тестирования можно использовать первую рабочую станцию.<br/><br/>Обратите внимание, что далее вторая рабочая станция называется рабочей станцией, подключенной к Интернету.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Создание и передача ключа в аппаратный модуль безопасности хранилища ключей Azure
 Для создания и передачи ключа в аппаратный модуль безопасности хранилища ключей Azure используются следующие пять шагов:
@@ -131,6 +131,13 @@ KeyVault-BYOK-Tools-Japan.zip
 453FFEA2F8F410720B68B8BAC4CF79135A7F37F4E491FF840BE9E69E88A98C90
 
 - - -
+**Корея**
+
+KeyVault-BYOK-Tools-Korea.zip
+
+C17B7E93224DA80F5668E09CF7DAE2F92527E8226179995BBE2E43DA4323595A
+
+- - -
 **Австралия**
 
 KeyVault-BYOK-Tools-Australia.zip
@@ -143,6 +150,13 @@ KeyVault-BYOK-Tools-Australia.zip
 KeyVault-BYOK-Tools-USGovCloud.zip
 
 3AAE1A96B9D15B899B8126CFC0380719EB54FDF2EA94489B43FAD21ECC745F64
+
+- - -
+**Министерство обороны США**
+
+KeyVault-BYOK-Tools-USGovernmentDoD.zip
+
+A61E78297B0732DF2682FDE63D7B572CE4D23B0BC27CC48AFF620BD060BB9E9D
 
 - - -
 **Канада**
@@ -182,7 +196,7 @@ ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
 
 * Пакет ключей обмена ключами с именем, начинающимся с **BYOK-KEK-pkg-.**
 * Пакет Security World с именем, начинающимся с **BYOK-SecurityWorld-pkg-**
-* Сценарий на Python с именем v**erifykeypackage.py.**
+* Сценарий на Python с именем **verifykeypackage.py.**
 * Исполняемый файл командной строки с именем **KeyTransferRemote.exe** и связанными библиотеками DLL.
 * Распространяемый пакет Visual C++ с именем **vcredist_x64.exe.**
 
@@ -194,9 +208,9 @@ ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
 ### <a name="step-21-prepare-the-disconnected-workstation-with-thales-hsm"></a>Шаг 2.1. Подготовка отключенной рабочей станции с помощью аппаратного модуля безопасности Thales
 Установите программное обеспечение поддержки nCipher (Thales) на компьютере Windows, а затем подключите к этому компьютеру аппаратный модуль безопасности Thales.
 
-Убедитесь, что инструменты Thales расположены в каталоге по вашему пути (**%nfast_home%\bin** и **%nfast_home%\python\bin**). Например, введите следующую команду:
+Убедитесь, что инструменты Thales расположены в каталоге по вашему пути (**%nfast_home%\bin**). Например, введите следующую команду:
 
-        set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
+        set PATH=%PATH%;"%nfast_home%\bin"
 
 Дополнительные сведения см. в руководстве пользователя, которое поставляется вместе с аппаратным модулем безопасности Thales.
 
@@ -208,9 +222,13 @@ ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
 3. Следуйте инструкциям по установке компонентов среды выполнения Visual C++ для Visual Studio 2013.
 
 ## <a name="step-3-generate-your-key"></a>Шаг 3. Создание ключа
-Чтобы создать свой ключ, выполните на отключенной рабочей станции указанные ниже действия.
+Чтобы создать свой ключ, выполните на отключенной рабочей станции указанные ниже действия. Для выполнения этого шага HSM должен находиться в режиме инициализации. 
 
-### <a name="step-31-create-a-security-world"></a>Шаг 3.1. Создание системы безопасности
+
+### <a name="step-31-change-the-hsm-mode-to-i"></a>Шаг 3.1. Изменение режима HSM на I
+Если вы используете Thales nShield Edge, для изменения режима сделайте следующее: 1. Используйте кнопку "Режим", чтобы выделить необходимый режим. 2) Через несколько секунд нажмите и удерживайте пару секунд кнопку "Очистить". Если режим изменится, светодиодный индикатор нового режима перестанет мигать и начнет светиться. Индикатор состояния может беспорядочно мигать в течение нескольких секунд. Затем, когда устройство будет готово, он станет мигать регулярно. В противном случае устройство останется в текущем режиме. При этом загорится соответствующий индикатор режима.
+
+### <a name="step-32-create-a-security-world"></a>Шаг 3.2. Создание системы безопасности
 Откройте командную строку и запустите новую программу системы безопасности Thales.
 
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
@@ -221,7 +239,11 @@ ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
 
 * Создайте резервную копию файла системы безопасности. Защитите файл системы безопасности, карты администратора и их закрепления и убедитесь, что все имеют доступ не больше, чем к одной карте.
 
-### <a name="step-32-validate-the-downloaded-package"></a>Шаг 3.2. Проверка загруженного пакета
+### <a name="step-33-change-the-hsm-mode-to-o"></a>Шаг 3.3. Изменение режима HSM на "O"
+Если вы используете Thales nShield Edge, для изменения режима сделайте следующее: 1. Используйте кнопку "Режим", чтобы выделить необходимый режим. 2) Через несколько секунд нажмите и удерживайте пару секунд кнопку "Очистить". Если режим изменится, светодиодный индикатор нового режима перестанет мигать и начнет светиться. Индикатор состояния может беспорядочно мигать в течение нескольких секунд. Затем, когда устройство будет готово, он станет мигать регулярно. В противном случае устройство останется в текущем режиме. При этом загорится соответствующий индикатор режима.
+
+
+### <a name="step-34-validate-the-downloaded-package"></a>Шаг 3.4. Проверка скачанного пакета
 Этот шаг необязателен, но рекомендуется, поскольку позволяет проверить следующее.
 
 * Ключ обмена ключами, включенный в набор инструментов, создан в подлинном аппаратном модуле безопасности Thales.
@@ -230,54 +252,60 @@ ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
 
 > [!NOTE]
 > Для проверки загруженного пакета аппаратный модуль безопасности должен быть подключен, включен и оснащен системой безопасности (которую вы только что создали).
-> 
-> 
+>
+>
 
 Проверка загруженного пакета
 
 1. Запустите сценарий verifykeypackage.py, указав одно из приведенных ниже значений в зависимости от вашего географического региона или экземпляра Azure.
-   
+
    * Для Северной Америки:
-     
-         python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
    * Для Европы:
-     
-         python verifykeypackage.py -k BYOK-KEK-pkg-EU-1 -w BYOK-SecurityWorld-pkg-EU-1
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-EU-1 -w BYOK-SecurityWorld-pkg-EU-1
    * Для Азии:
-     
-         python verifykeypackage.py -k BYOK-KEK-pkg-AP-1 -w BYOK-SecurityWorld-pkg-AP-1
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-AP-1 -w BYOK-SecurityWorld-pkg-AP-1
    * Для Латинской Америки:
-     
-         python verifykeypackage.py -k BYOK-KEK-pkg-LATAM-1 -w BYOK-SecurityWorld-pkg-LATAM-1
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-LATAM-1 -w BYOK-SecurityWorld-pkg-LATAM-1
    * Для Японии:
-     
-         python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
+   * Для Кореи:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-KOREA-1 -w BYOK-SecurityWorld-pkg-KOREA-1
    * Для Австралии:
-     
-         python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
    * Для [Azure для государственных организаций](https://azure.microsoft.com/features/gov/), использующего экземпляр Azure для правительства США:
-     
-         python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
+   * Для министерства обороны США:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-USDOD-1 -w BYOK-SecurityWorld-pkg-USDOD-1
    * Для Канады:
-     
-         python verifykeypackage.py -k BYOK-KEK-pkg-CANADA-1 -w BYOK-SecurityWorld-pkg-CANADA-1
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-CANADA-1 -w BYOK-SecurityWorld-pkg-CANADA-1
    * Для Германии:
-     
-         python verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-GERMANY-1 -w BYOK-SecurityWorld-pkg-GERMANY-1
    * Для Индии:
-     
-         python verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
      > [!TIP]
      > Программное обеспечение Thales включает файл python, который находится в каталоге в %NFAST_HOME%\python\bin.
-     > 
-     > 
+     >
+     >
 2. Должен появиться следующий текст, показывающий, что проверка пройдена: **Результат: УСПЕШНО**
 
 Этот сценарий проверяет цепочку до корневого ключа Thales подписавшего пользователя. Хэш этого корневого ключа встроен в сценарий и должен иметь значение **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Кроме того, вы можете проверить это значение отдельно на [веб-сайте Thales](http://www.thalesesec.com/).
 
 Теперь можно создать новый ключ.
 
-### <a name="step-33-create-a-new-key"></a>Шаг 3.3. Создание ключа
+### <a name="step-35-create-a-new-key"></a>Шаг 3.5. Создание ключа
 Создайте ключ с помощью программы **generatekey** в Thales.
 
 Для создания ключа выполните следующую команду:
@@ -296,8 +324,8 @@ ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
 
 > [!IMPORTANT]
 > После передачи ключа в хранилище ключей Azure корпорация Майкрософт не сможет экспортировать ключ обратно, поэтому крайне важно сделать резервную копию ключа и системы безопасности. За инструкциями и рекомендациями по резервному копированию ключа обращайтесь в компанию Thales.
-> 
-> 
+>
+>
 
 После этого ключ можно передать в хранилище ключей Azure.
 
@@ -305,109 +333,120 @@ ED331A6F1D34A402317D3F27D5396046AF0E5C2D44B5D10CCCE293472942D268
 Чтобы подготовить ключ к передаче, выполните на отключенной рабочей станции указанные ниже действия.
 
 ### <a name="step-41-create-a-copy-of-your-key-with-reduced-permissions"></a>Шаг 4.1. Создание копии ключа с ограниченными разрешениями
-Чтобы ограничить разрешения в ключе, выполните через командную строку одну из следующих команд в зависимости от вашего географического региона или экземпляра Azure.
+
+Откройте новую командную строку и измените текущий каталог на каталог, в который вы разархивировали ZIP-файл BYOK. Чтобы ограничить разрешения в ключе, выполните через командную строку одну из следующих команд в зависимости от вашего географического региона или экземпляра Azure.
 
 * Для Северной Америки:
-  
+
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-NA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-NA-1
 * Для Европы:
-  
+
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-EU-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-EU-1
 * Для Азии:
-  
+
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AP-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AP-1
 * Для Латинской Америки:
-  
+
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-LATAM-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-LATAM-1
 * Для Японии:
-  
+
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1
+* Для Кореи:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-KOREA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-KOREA-1
 * Для Австралии:
-  
+
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
 * Для [Azure для государственных организаций](https://azure.microsoft.com/features/gov/), использующего экземпляр Azure для правительства США:
-  
+
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
+* Для министерства обороны США:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USDOD-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USDOD-1
 * Для Канады:
-  
+
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-CANADA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-CANADA-1
 * Для Германии:
-  
+
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1
 * Для Индии:
-  
+
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
 
-При запуске этой команды замените *contosokey* тем же значением, которое вы указали при выполнении этапа **Шаг 3.3. Создание ключа** процедуры [Создание ключа](#step-3-generate-your-key) .
+При запуске этой команды замените *contosokey* тем же значением, которое вы указали при выполнении этапа **Шаг 3.5. Создание ключа** процедуры [Создание ключа](#step-3-generate-your-key) .
 
 Появится запрос на подключение карт администратора системы безопасности.
 
 После завершения команды появится текст **Результат: успешно<contosokey>, а копия ключа с ограниченными разрешениями появится в файле с именем key_xferacId_**.
 
-### <a name="step-42-inspect-the-new-copy-of-the-key"></a>Шаг 4.2. Проверка новой копии ключа
-При необходимости запустите служебные программы Thales, чтобы подтвердить минимальные разрешения в новом ключе:
+Вы можете проверить списки ACL, используя следующие команды и служебные программы Thales:
 
 * aclprint.py:
-  
+
         "%nfast_home%\bin\preload.exe" -m 1 -A xferacld -K contosokey "%nfast_home%\python\bin\python" "%nfast_home%\python\examples\aclprint.py"
 * kmfile-dump.exe:
-  
-        "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-  При запуске этих команд замените contosokey тем же значением, которое вы указали на этапе **Шаг 3.3. Создание ключа** в разделе [Создание ключа](#step-3-generate-your-key).
 
-### <a name="step-43-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>Шаг 4.3. Шифрование ключа с помощью ключа обмена ключами Майкрософт
+        "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
+  При запуске этих команд замените contosokey тем же значением, которое вы указали на этапе **Шаг 3.5. Создание ключа** в разделе [Создание ключа](#step-3-generate-your-key).
+
+### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>Шаг 4.2. Шифрование ключа с помощью ключа обмена ключами Майкрософт
 Выполните одну из следующих команд в зависимости от вашего географического региона или экземпляра Azure:
 
 * Для Северной Америки:
-  
+
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-NA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-NA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * Для Европы:
-  
+
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-EU-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-EU-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * Для Азии:
-  
+
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AP-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AP-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * Для Латинской Америки:
-  
+
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-LATAM-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-LATAM-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * Для Японии:
-  
+
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* Для Кореи:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-KOREA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-KOREA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * Для Австралии:
-  
+
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * Для [Azure для государственных организаций](https://azure.microsoft.com/features/gov/), использующего экземпляр Azure для правительства США:
-  
+
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* Для министерства обороны США:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USDOD-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USDOD-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * Для Канады:
-  
+
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-CANADA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-CANADA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * Для Германии:
-  
+
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-GERMANY-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-GERMANY-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * Для Индии:
-  
+
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 При выполнении команды следуйте приведенным ниже инструкциям.
 
-* Замените *contosokey* идентификатором, который вы использовали для создания ключа на этапе **Шаг 3.3. Создание ключа** в разделе [Создание ключа](#step-3-generate-your-key) .
+* Замените *contosokey* идентификатором, который вы использовали для создания ключа на этапе **Шаг 3.5. Создание ключа** в разделе [Создание ключа](#step-3-generate-your-key).
 * Замените *SubscriptionID* на идентификатор подписки Azure, содержащей ваше хранилище ключей. Это значение было получено ранее на этапе **Шаг 1.2. Получение идентификатора подписки Azure** процедуры [Подготовка рабочей станции, подключенной к Интернету](#step-1-prepare-your-internet-connected-workstation) .
 * Замените *ContosoFirstHSMKey* меткой, которая используется для имени выходного файла.
 
-После выполнения команды отобразится сообщение **Результат: успешно**, а в текущей папке появится новый файл с именем TransferPackage-*ContosoFirstHSMkey*.byok.
+После выполнения команды отобразится сообщение **Результат: успешно**, а в текущей папке появится новый файл с именем KeyTransferPackage-*ContosoFirstHSMkey*.byok.
 
-### <a name="step-44-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Шаг 4.4. Копирование пакета передачи ключа на рабочую станцию, подключенную к Интернету
+### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Шаг 4.3. Копирование пакета передачи ключа на рабочую станцию, подключенную к Интернету
 С помощью USB-накопителя или другого переносного устройства скопируйте выходной файл из предыдущего шага (KeyTransferPackage-ContosoFirstHSMkey.byok) на рабочую станцию, подключенную к Интернету.
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Шаг 5. Передача ключа в хранилище ключей Azure
 Наконец, на рабочей станции, подключенной к Интернету, запустите командлет [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey), чтобы отправить пакет передачи ключа, скопированный с отключенной рабочей станции, в аппаратный модуль безопасности хранилища ключей Azure.
 
-    Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+    Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
 При успешном завершении отправки на экране появятся свойства добавленного ключа.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь ключ, защищенный с помощью аппаратного модуля безопасности, можно использовать в хранилище ключей. Дополнительные сведения см. в разделе **Использование аппаратного модуля безопасности** руководства [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md).
-
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/28/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: ee4c87be43354696c63533d8cbf618b26a2708d3
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: de9453e6764279c481e569542433d095772f304d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,13 +50,34 @@ ms.lasthandoff: 05/02/2017
 Фабрика данных Azure защищает учетные данные хранилища данных, выполняя их **шифрование** с помощью **сертификатов, управляемых Майкрософт**. Эти сертификаты меняются каждые **два года**. Изменения включают продление сертификата и перемещение учетных данных. Зашифрованные учетные данные безопасно хранятся в **службе хранилища Azure, которая контролируется службами управления фабрики данных Azure**. Дополнительные сведения о безопасности службы хранилища Azure см. [здесь](../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Шифрование данных при передаче
-Передача всех данных между службами перемещения данных в фабрике данных и облачным хранилищем данных выполняется через защищенный канал HTTPS или TLS, если облачное хранилище данных поддерживает эти протоколы.
+Если облачное хранилище данных поддерживает протоколы HTTPS или TLS, то передача всех данных между службами перемещения данных в фабрике данных и облачным хранилищем данных выполняется через эти защищенные каналы.
 
 > [!NOTE]
 > Во время передачи данных в базу данных и из нее все подключения к **базе данных SQL Azure** и **хранилищу данных SQL Azure** должны быть зашифрованы (с помощью SSL или TLS). Во время разработки конвейера с помощью редактора JSON добавьте свойство **шифрования** и задайте для него в **строке подключения** значение **true**. Если вы используете [мастер копирования](data-factory-azure-copy-wizard.md), это свойство задается по умолчанию. Для службы **хранилища Azure** вы можете использовать в строке подключения протокол **HTTPS**.
 
 ### <a name="data-encryption-at-rest"></a>Шифрование неактивных данных
-Многие хранилища данных поддерживают шифрование неактивных данных. Мы советуем включить механизм шифрования данных для этих хранилищ данных. Например, включите прозрачное шифрование данных (TDE) для базы данных SQL Azure и хранилища данных SQL Azure. 
+Некоторые хранилища данных поддерживают шифрование неактивных данных. Мы советуем включить механизм шифрования данных для этих хранилищ данных. 
+
+#### <a name="azure-sql-data-warehouse"></a>Хранилище данных SQL Azure
+Прозрачное шифрование данных хранилища данных SQL Azure помогает защититься от вредоносных атак благодаря шифрованию и расшифровке неактивных данных в реальном времени. Этот процесс является прозрачным для клиента. Дополнительные сведения см. в статье [Защита базы данных в хранилище данных SQL](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+
+#### <a name="azure-sql-database"></a>База данных SQL Azure
+База данных SQL Azure также поддерживает прозрачное шифрование данных, которое помогает защититься от угрозы вредоносных атак за счет шифрования и расшифровки данных в реальном времени, не внося изменения в само приложение. Этот процесс является прозрачным для клиента. Дополнительные сведения см. в статье [Transparent Data Encryption with Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) (Прозрачное шифрование данных в базе данных SQL Azure). 
+
+#### <a name="azure-data-lake-store"></a>Хранилище озера данных Azure
+В Azure Data Lake Store можно также включить шифрование данных, хранящихся в учетной записи. При включении Data Lake Store автоматически шифрует данные перед сохранением и расшифровывает их до извлечения. Таким образом данные полностью прозрачны для клиента, который получает к ним доступ. Дополнительные сведения см. в статье [Обеспечение безопасности в хранилище озера данных Azure](../data-lake-store/data-lake-store-security-overview.md). 
+
+#### <a name="azure-blob-storage-and-azure-table-storage"></a>Хранилище BLOB-объектов Azure и хранилище таблиц Azure
+Хранилище BLOB-объектов Azure и хранилище таблиц Azure поддерживают функцию шифрования службы хранилища, которая автоматически шифрует данные перед их сохранением в хранилище и расшифровывает их до извлечения. Дополнительные сведения см. в статье [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](../storage/storage-service-encryption.md).
+
+#### <a name="amazon-s3"></a>Amazon S3
+Amazon S3 поддерживает шифрование неактивных данных для сервера и клиента. Дополнительные сведения см. в документации [Protecting Data Using Encryption](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html) (Защита данных с помощью шифрования). Сейчас фабрика данных не поддерживает Amazon S3 в виртуальном частном облаке.
+
+#### <a name="amazon-redshift"></a>Amazon Redshift
+Amazon Redshift поддерживает шифрование неактивных данных кластера. Дополнительные сведения см. в документации [Amazon Redshift Database Encryption](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) (Шифрование базы данных Amazon Redshift). Сейчас фабрика данных не поддерживает Amazon Redshift в виртуальном частном облаке. 
+
+#### <a name="salesforce"></a>Salesforce
+SalesForce поддерживает шифрование Shield Platform Encryption, которое позволяет зашифровать все файлы, вложения и настраиваемые поля. Дополнительные сведения см. в статье [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) (Основные сведения о потоке проверки подлинности OAuth веб-сервера).  
 
 ## <a name="hybrid-scenarios-using-data-management-gateway"></a>Гибридные сценарии (с использованием шлюза управления данных)
 Для использования гибридных сценариев необходимо установить шлюз управления данными. Его можно установить в локальной сети или внутри виртуальной сети (Azure), а также в виртуальном частном облаке (Amazon). Шлюзу должен быть предоставлен доступ к локальным хранилищам данных. Дополнительные сведения о шлюзе управления данными см. [здесь](data-factory-data-management-gateway.md). 
@@ -135,7 +156,7 @@ ms.lasthandoff: 05/02/2017
 | `*.azuredatalakestore.net` | 443 | (Необязательно.) Требуется, если местом назначения является Azure Data Lake Store. | 
 
 > [!NOTE] 
-> Вам может потребоваться управлять портами или создать утвержденный список доменов на уровне корпоративного брандмауэра в соответствии с определенными источниками данных. В таблице выше в качестве примеров используются база данных SQL Azure, хранилище данных SQL Azure и Azure Data Lake Store.   
+> Вам может потребоваться управлять портами или создать утвержденный список доменов на уровне корпоративного брандмауэра в соответствии с определенными источниками данных. В этой таблице в качестве примеров используются база данных SQL Azure, хранилище данных SQL Azure и Azure Data Lake Store.   
 
 В следующей таблице представлены требования к **входящему порту** для **брандмауэра Windows**.
 
@@ -153,7 +174,7 @@ ms.lasthandoff: 05/02/2017
 - [База данных SQL Azure;](../sql-database/sql-database-firewall-configure.md) 
 - [Хранилище данных Azure SQL](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal)
 - [Хранилище озера данных Azure](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure DocumentDB](../documentdb/documentdb-firewall-support.md)
+- [Azure Cosmos DB](../documentdb/documentdb-firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Часто задаваемые вопросы

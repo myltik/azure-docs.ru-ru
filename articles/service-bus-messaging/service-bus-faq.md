@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: sethm;jotaub
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 7f3ddc2d7036b9951d4796cf4664f870a0c5f4b6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 612fb681ab0c8fe77652041f8a1fc23ad0d3428a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -92,9 +92,16 @@ ms.lasthandoff: 05/03/2017
 
 ## <a name="subscription-and-namespace-management"></a>Управление подпиской и пространством имен
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Как перенести пространство имен в другую подписку Azure?
-Следуя [этим инструкциям](../azure-resource-manager/resource-group-move-resources.md#use-portal), с помощью портала Azure можно перенести пространства имен служебной шины в другую подписку. Если вы предпочитаете использовать PowerShell, выполните инструкции, приведенные ниже. 
 
-Следующая последовательность команд перемещает пространство имен из одной подписки Azure в другую. Для выполнения этой операции пространство имен уже должно быть активным, а пользователь, выполняющий команды PowerShell, должен обладать правами администратора в исходной и целевой подписках.
+Вы можете переместить пространство имен из одной подписки Azure в другую, используя [портал Azure](https://portal.azure.com) или выполняя команды PowerShell. При перемещении пространство имен уже должно быть активно. Пользователь, который выполняет команды, должен обладать правами администратора как в исходной, так и в целевой подписках.
+
+#### <a name="portal"></a>Microsoft Azure
+
+Чтобы использовать портал Azure для переноса пространств имен служебной шины в другую подписку, следуйте [этим инструкциям](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+
+#### <a name="powershell"></a>PowerShell
+
+Следующая последовательность команд PowerShell перемещает пространство имен из одной подписки Azure в другую. Для выполнения этой операции пространство имен уже должно быть активным, а пользователь, выполняющий команды PowerShell, должен обладать правами администратора в исходной и целевой подписках.
 
 ```powershell
 # Create a new resource group in target subscription

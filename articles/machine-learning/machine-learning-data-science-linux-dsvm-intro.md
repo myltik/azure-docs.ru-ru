@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: b94b8b84ae2cf26a1680f816460cc86c4d79e885
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d8ae05316b424af7d87c3c5ebdac575bcc04998d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -252,9 +253,9 @@ R — один из самых популярных языков для анал
 * **Microsoft Azure Storage Explorer**— это графический инструмент, который позволяет просматривать объекты, сохраненные в учетной записи хранения Azure, а также передавать и скачивать данные больших двоичных объектов Azure. Для доступа к обозревателю хранилищ воспользуйтесь значком рабочего стола. Его можно открыть из командной строки, введя **StorageExplorer**. Для этого необходимо выполнить вход в клиенте X2Go или настроить перенаправление X11.
 * **Библиотеки Azure**. Ниже приведены некоторые предварительно установленные библиотеки.
   
-  * **Python**. Среди установленных библиотек Python к Azure имеют отношение **azure**, **azureml**, **pydocumentdb** и **pyodbc**. Первые три библиотеки позволяют обращаться к службам хранилища Azure, Машинному обучению Azure и Azure DocumentDB (база данных NoSQL в Azure). Четвертая библиотека, pyodbc, (вместе с драйвером Microsoft ODBC для SQL Server) обеспечивает доступ к SQL Server, Базе данных SQL Azure и хранилищу данных SQL Azure из Python с помощью интерфейса ODBC. Для просмотра всех перечисленных библиотек введите команду **pip list**. Выполните эту команду как в среде Python версии 2.7, так и в среде Python версии 3.5.
+  * **Python**. Среди установленных библиотек Python к Azure имеют отношение **azure**, **azureml**, **pydocumentdb** и **pyodbc**. Первые три библиотеки позволяют обращаться к службам хранилища Azure, Машинному обучению Azure и Azure Cosmos DB (база данных NoSQL в Azure). Четвертая библиотека, pyodbc, (вместе с драйвером Microsoft ODBC для SQL Server) обеспечивает доступ к SQL Server, Базе данных SQL Azure и хранилищу данных SQL Azure из Python с помощью интерфейса ODBC. Для просмотра всех перечисленных библиотек введите команду **pip list**. Выполните эту команду как в среде Python версии 2.7, так и в среде Python версии 3.5.
   * **R**. Среди установленных библиотек R к Azure имеют отношение **AzureML** и **RODBC**.
-  * **Java**. Список библиотек Java для Azure можно найти в каталоге **/dsvm/sdk/AzureSDKJava** на виртуальной машине. Основные библиотеки — это API-интерфейсы для службы хранилища Azure и API-интерфейсы для управления Azure, драйверы DocumentDB и драйверы JDBC для SQL Server.  
+  * **Java**. Список библиотек Java для Azure можно найти в каталоге **/dsvm/sdk/AzureSDKJava** на виртуальной машине. Основные библиотеки — это API-интерфейсы для службы хранилища Azure и API-интерфейсы для управления Azure, драйверы Azure Cosmos DB и драйверы JDBC для SQL Server.  
 
 [Портал Azure](https://portal.azure.com) можно открыть в предустановленном браузере Firefox. На портале Azure можно создавать ресурсы Azure, а также управлять ими и отслеживать их.
 

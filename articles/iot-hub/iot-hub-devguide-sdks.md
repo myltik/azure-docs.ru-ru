@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: ff08ea2b6231b2344244b14e44bcfd9acd065508
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1cb65f738bd77179a7ed379e3c1664c5eb232a68
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.lasthandoff: 03/27/2017
 
 * **Пакеты SDK для служб** позволяют управлять Центром Интернета вещей и при необходимости отправлять сообщения на устройства Интернета вещей.
 
-* **Пакеты SDK для шлюза** позволяют создавать шлюзы, чтобы подключать устройства, не использующие ни один из поддерживаемых протоколов, или чтобы обрабатывать сообщения на границе, если это необходимо.
+* **Edge Интернета вещей Azure** позволяет создавать шлюзы, чтобы подключать устройства, не использующие ни один из поддерживаемых протоколов, или чтобы обрабатывать сообщения на границе, если это необходимо.
 
 Пакеты SDK предоставляются для поддержки нескольких языков программирования.
 
@@ -70,11 +71,11 @@ ms.lasthandoff: 03/27/2017
 > [!NOTE]
 > Сведения об установке двоичных файлов и зависимостей на компьютере для разработки с помощью диспетчера пакетов, зависящего от языка или платформы, см. в файле сведений в репозиториях GitHub.
 
-## <a name="azure-iot-gateway-sdks"></a>Пакеты SDK для шлюза Azure IoT
+## <a name="azure-iot-edge"></a>Edge Интернета вещей Azure
 
-Этот пакет SDK для шлюза IoT Azure содержит инфраструктуру и модули, предназначенные для создания решений шлюза IoT. Вы можете расширить пакет SDK, чтобы создавать шлюзы, адаптированные к любому комплексному сценарию.
+Edge Интернета вещей Azure содержит инфраструктуру и модули, предназначенные для создания решений шлюза Интернета вещей. Чтобы создавать шлюзы, адаптированные к любому комплексному сценарию, вы можете расширить Edge Интернета вещей.
 
-[Пакет SDK для шлюза Azure IoT][lnk-gateway-sdk] можно скачать с сайта GitHub.
+Вы можете скачать [Edge Интернета вещей Azure][lnk-gateway-sdk] с GitHub.
 
 ## <a name="online-api-reference-documentation"></a>Справочная документация по API в Интернете
 
@@ -87,7 +88,7 @@ ms.lasthandoff: 03/27/2017
 * [Пакет SDK для служб Azure IoT для Java][lnk-java-service-ref]
 * [Пакет SDK для устройств Azure IoT для Node.js][lnk-node-ref]
 * [Пакет SDK для служб Azure IoT для Node.js][lnk-node-service-ref]
-* [Пакет SDK для шлюза Azure IoT][lnk-gateway-ref]
+* [Edge Интернета вещей Azure][lnk-gateway-ref]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -110,7 +111,7 @@ ms.lasthandoff: 03/27/2017
 [lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device
 [lnk-python-service-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/service
 [lnk-certified]: https://catalog.azureiotsuite.com/
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 
 [lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
 [lnk-c-ref]: https://azure.github.io/azure-iot-sdk-c/index.html
@@ -119,7 +120,7 @@ ms.lasthandoff: 03/27/2017
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
 [lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth
 [lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html
-[lnk-gateway-ref]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
+[lnk-gateway-ref]: http://azure.github.io/iot-edge/api_reference/c/html/
 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
