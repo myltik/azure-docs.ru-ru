@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
-ms.openlocfilehash: 202134cd03bf776c1d646ae24c09a79e14fdc5d3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Отладка приложений в локальном контейнере Docker
 ## <a name="overview"></a>Обзор
-Инструменты Visual Studio для Docker обеспечивают согласованное выполнение разработки и проверки вашего приложения локально в контейнере Docker в Linux.
+Инструменты Visual Studio для Docker обеспечивают согласованное выполнение разработки и проверки вашего приложения в локальном контейнере Docker в Linux.
 Не нужно перезапустить контейнер каждый раз при внесении изменений в код.
-В этой статье рассказывается, как запускать веб-приложение ASP.NET Core в локальном контейнере Docker, вносить необходимые изменения и обновлять браузер для отображения сделанных изменений с помощью функций правки и обновления.
-В ней также будет показано, как устанавливать точки останова для отладки.
+В этой статье рассказывается, как запускать веб-приложение ASP.NET Core в локальном контейнере Docker, вносить необходимые изменения и обновлять браузер для отображения изменений с помощью функций правки и обновления.
+В ней также показано, как устанавливать точки останова для отладки.
 
 > [!NOTE]
 > Поддержка контейнера Windows будет реализована в следующем выпуске.
@@ -35,12 +37,11 @@ ms.openlocfilehash: 202134cd03bf776c1d646ae24c09a79e14fdc5d3
 ## <a name="prerequisites"></a>Предварительные требования
 Должны быть установлены следующие средства.
 
-* [Visual Studio 2015 с обновлением 2](https://go.microsoft.com/fwlink/?LinkId=691978)
-*  [Visual Studio 2015 с обновлением 3](https://go.microsoft.com/fwlink/?LinkId=691129)
-* [Пакет SDK для Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122)
+* [Последняя версия Visual Studio](https://www.visualstudio.com/downloads/)
+* Установить [пакет SDK для Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122).
 
 Для запуска контейнеров Docker локально потребуется локальный клиент Docker.
-Можно воспользоваться выпуском инструментария [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox), для которого требуется отключить Hyper-V, или можно воспользоваться [бета-версией Docker для Windows](https://beta.docker.com), для которой требуются Hyper-V и Windows 10.
+Можно воспользоваться версией [Docker Toolbox](https://www.docker.com/products/docker-toolbox), для которой требуется отключить Hyper-V. Также можно воспользоваться [бета-версией Docker для Windows](https://www.docker.com/get-docker), для которой требуются Hyper-V и Windows 10.
 
 При использовании Docker Toolbox необходимо [настроить клиент Docker](vs-azure-tools-docker-setup.md).
 
@@ -111,13 +112,8 @@ ms.openlocfilehash: 202134cd03bf776c1d646ae24c09a79e14fdc5d3
 
 ## <a name="presentations"></a>Презентации
 * [Steve Lasker: VS Live Las Vegas 2016 - Docker e2e (Стив Ласкер: презентация по Visual Studio и Docker E2E — Лас-Вегас, 2016 г.)](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
-* [Introduction to ASP.NET Core @ build 2016 - Where You At Demo](https://channel9.msdn.com/Events/Build/2016/B810) (Введение в ASP.NET Core (сборка 2016))
+* [Introduction to ASP.NET Core build 2016 - Where You At Demo](https://channel9.msdn.com/Events/Build/2016/B810) (Введение в ASP.NET Core (сборка 2016))
 * [Developing .NET apps in containers, Channel 9 (Разработка приложений .NET в контейнерах, Channel 9)](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

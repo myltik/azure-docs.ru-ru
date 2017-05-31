@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/20/2016
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 3074bf378f809a9857c7ea72521961368a14772c
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 307b327e4c04a0461e39930114eb193791cbda9a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -134,7 +135,7 @@ azure network dns record-set add-record MyResourceGroup  contoso.com  test-ns NS
 
 ### <a name="create-a-ptr-record"></a>Создание записи типа PTR
 
-В этом случае my-arpa-zone.com представляет зону ARPA вашего диапазона IP-адресов. Каждая запись PTR в этой зоне соответствует IP-адресу в этом диапазоне.  Имя записи&10; — это последний октет IP-адреса в этом диапазоне IP-адресов, представленном данной записью.
+В этом случае my-arpa-zone.com представляет зону ARPA вашего диапазона IP-адресов. Каждая запись PTR в этой зоне соответствует IP-адресу в этом диапазоне.  Имя записи 10 — это последний октет IP-адреса в этом диапазоне IP-адресов, представленном данной записью.
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup my-arpa-zone.com "10" PTR --ptrdname "myservice.contoso.com"
@@ -221,8 +222,6 @@ azure network dns record-set add-record MyResourceGroup contoso.com www A -a 5.6
 azure network dns record-set delete-record MyResourceGroup contoso.com www A -a 1.2.3.4
 ```
 
-В автоматически созданном наборе записей типа NS на вершине зоны (`-Name "@"`, включая кавычки) добавлять, удалять или изменять записи нельзя. В этом наборе можно изменить только срок жизни и метаданные набора записей.
-
 ### <a name="to-modify-a-cname-record"></a>Изменение записи CNAME
 
 Чтобы изменить запись CNAME, используйте команду `azure network dns record-set add-record` для добавления нового значения записи. В отличие от других типов записей, набор записей CNAME может содержать только одну запись. Таким образом, при добавлении новой записи существующая запись *заменяется*, и ее не нужно удалять отдельно.  Отобразится запрос на подтверждение этой замены.
@@ -241,6 +240,21 @@ azure network dns record-set add-record MyResourceGroup contoso.com www CNAME --
 
 ```azurecli
 azure network dns record-set set-soa-record rg1 contoso.com --email admin.contoso.com
+```
+
+
+### <a name="to-modify-ns-records-at-the-zone-apex"></a>Изменение записи NS на вершине зоны
+
+Набор записей типа NS на вершине зоны автоматически создается вместе с каждой зоной DNS. Он содержит имена DNS-серверов Azure, назначенные зоне.
+
+Вы можете добавить дополнительные имена серверов в этот набор записей NS, обеспечив поддержку совместного размещения доменов с использованием более чем одного поставщика DNS. Вы также можете изменить срок жизни и метаданные для этого набора записей. При этом вы не можете удалить или изменить предварительно заполненные DNS-серверы Azure.
+
+Обратите внимание, что это относится только к набору записей NS на вершине зоны. Другие наборы записей NS в зоне (используемые для делегирования дочерних зон) можно изменять без ограничений.
+
+В следующем примере показано, как добавить дополнительный сервер в набор записей NS на вершине зоны:
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Изменение срока жизни существующего набора записей

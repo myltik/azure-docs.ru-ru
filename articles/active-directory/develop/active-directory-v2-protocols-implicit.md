@@ -1,5 +1,5 @@
 ---
-title: "Неявный поток Azure AD версии 2.0 | Документация Майкрософт"
+title: "Защита одностраничных приложений с помощью неявного потока Azure AD версии 2.0 | Документация Майкрософт"
 description: "Сведения о создании веб-приложений с помощью реализации неявного потока данных в одностраничных приложениях Azure AD версии 2.0."
 services: active-directory
 documentationcenter: 
@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: c38acf898a96b63c348ce28fb315a4e30fdb460f
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2ac6f92d027c893316b6e310e4c3103ab0e51785
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -219,29 +222,13 @@ error=user_authentication_required
 Срок действия маркеров `id_token` и `access_token` очень короткий, поэтому приложение должно быть готово периодически обновлять их.  Чтобы обновить маркер любого типа, выполните тот же скрытый запрос iframe, приведенный выше, используя параметр `prompt=none` для управления поведением Azure AD.  Чтобы получить новый `id_token`, обязательно используйте `response_type=id_token` и `scope=openid`, а также параметр `nonce`.
 
 ## <a name="send-a-sign-out-request"></a>Отправка запроса на выход
-Сейчас конечная точка версии 2.0 не поддерживает `end_session_endpoint` OpenID Connect. Это значит, что приложение не может отправлять запросы на конечную точку версии 2.0 для прекращения сеанса пользователя и очистки файлов cookie, установленных конечной точкой версии 2.0.
-Для выполнения выхода пользователя приложение может просто завершить собственный сеанс с пользователем, не затрагивая сеанс пользователя с конечной точкой версии 2.0.  При следующей попытке входа пользователь увидит страницу выбора учетной записи с перечнем учетных записей, в которые выполнен вход.
-На этой странице пользователь может выйти из любой учетной записи, тем самым завершая сеанс с конечной точкой версии 2.0.
-
-<!--
-
-When you wish to sign the user out of the  app, it is not sufficient to clear your app's cookies or otherwise end the session with the user.  You must also redirect the user to the v2.0 endpoint for sign out.  If you fail to do so, the user will be able to re-authenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the v2.0 endpoint.
-
-You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
+OpenIdConnect `end_session_endpoint` позволяет приложению отправлять запросы на конечную точку версии 2.0 для прекращения сеанса пользователя и очистки файлов cookie, установленных конечной точкой версии 2.0.  Чтобы пользователь полностью вышел из веб-приложения, приложение должно завершить свой сеанс пользователя (обычно с помощью очистки кэша маркеров или файлов cookie), а затем перенаправить браузер на
 
 ```
-GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
-post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Parameter | | Description |
-| ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | recommended | The URL which the user should be redirected to after successful logout.  If not included, the user will be shown a generic message by the v2.0 endpoint.  |
-
--->
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+| Параметр |  | Описание |
+| --- | --- | --- |
+| tenant |обязательно |Значение `{tenant}` в пути запроса можно использовать для того, чтобы контролировать, кто может входить в приложение.  Допустимые значения: `common`, `organizations`, `consumers`, а также идентификаторы клиента.  Дополнительные сведения см. в [описании протоколов](active-directory-v2-protocols.md#endpoints). |
+| post_logout_redirect_uri | рекомендуется | URL-адрес, на который следует возвратить пользователя после выхода. Это значение должно соответствовать одному из универсальных кодов ресурсов (URI) перенаправления, зарегистрированных для приложения. Если оно не указано, то пользователю будет показано универсальное сообщение конечной точки версии 2.0. |

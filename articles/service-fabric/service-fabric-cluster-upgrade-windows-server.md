@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0c62f84993c83619cd55f9081450deaf0b21c090
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -112,6 +113,10 @@ ms.lasthandoff: 03/29/2017
 > Если вы используете кластер без подключения к Интернету, то потребуется отслеживать блог команды разработчиков Service Fabric, чтобы узнавать о новых выпусках. Система не будет показывать предупреждение о работоспособности кластера, чтобы оповещать вас о новом выпуске.  
 >
 >
+
+#### <a name="auto-provisioning-vs-manual-provisioning"></a>Автоматическая подготовка и подготовка вручную
+Чтобы включить автоматические операции скачивания и регистрации для получения последней версии кода, настройте службу обновления Service Fabric. См. инструкции Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt, доступные в [изолированном пакете](service-fabric-cluster-standalone-package-contents.md).
+Для выполнения операций вручную сделайте следующее.
 
 Прежде чем начать обновление конфигурации, измените конфигурацию кластера, присвоив следующему свойству значение false.
 

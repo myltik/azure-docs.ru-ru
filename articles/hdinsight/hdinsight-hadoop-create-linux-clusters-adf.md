@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b515ffeebb2ebb4455c48b98d085acef7556291b
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 8bdbe30bb435f06ba206bfde81b238fe7dcf544c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -573,7 +574,9 @@ FolderPath задает путь к папке, содержащей выход�
 ## <a name="appendix"></a>Приложение
 
 ### <a name="azure-cli-script"></a>Скрипт Azure CLI
-Для этого руководства вместо Azure PowerShell можно использовать Azure CLI. Чтобы использовать Azure CLI, вам необходимо сначала его установить. Сделайте следующее: [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+Для этого руководства вместо Azure PowerShell можно использовать Azure CLI. Чтобы использовать Azure CLI, вам необходимо сначала выполнить установку:
+
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 #### <a name="use-azure-cli-to-prepare-the-storage-and-copy-the-files"></a>Подготовка хранилища и копирование файлов с помощью Azure CLI
 

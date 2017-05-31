@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: b319970e0fd744b21bd0362f1de500a0f182d52e
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1bafa072519cff1599a0cae1d361207ad0fa35d5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -92,6 +93,9 @@ ms.lasthandoff: 03/10/2017
 * Запрашивает техническое и (или) функциональное подтверждение (если настроено).
   * Техническое подтверждение создается по результатам проверки заголовков. Техническое подтверждение сообщает о состоянии обработки получателем заголовка и окончания обмена.
   * Функциональное подтверждение создается по результатам проверки тела сообщения. Функциональное подтверждение сообщает обо всех ошибках, зарегистрированных при обработке полученного документа.
+
+## <a name="view-the-swagger"></a>Просмотр Swagger
+Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Обзор пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise") 

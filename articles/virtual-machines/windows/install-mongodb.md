@@ -12,31 +12,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ce95c31f34c86ac6fd4a7348024206bf45135995
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 5fdf061d6bf9961455377935304e9075ef4e59fa
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Установка и настройка базы данных MongoDB на виртуальной машине Windows в Azure
-[MongoDB](http://www.mongodb.org) — это популярная высокопроизводительная база данных NoSQL с открытым кодом. В этой статье приведены инструкции по установке и настройке MongoDB на виртуальной машине Windows Server 2012 R2 в Azure. [MongoDB можно также установить на виртуальной машине Linux в Azure](../linux/install-mongodb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+[MongoDB](http://www.mongodb.org) — это популярная высокопроизводительная база данных NoSQL с открытым кодом. В этой статье приведены инструкции по установке и настройке MongoDB на виртуальной машине Windows Server 2012 R2 в Azure. [MongoDB можно также установить на виртуальной машине Linux в Azure](../linux/install-mongodb.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Прежде чем установить и настроить MongoDB, необходимо создать виртуальную машину и по возможности добавить в нее диск данных. С помощью приведенных ниже ссылок можно ознакомиться со статьями, в которых описывается создание виртуальной машины и добавление диска данных.
 
-* [Создайте виртуальную машину Windows на портале Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [с помощью PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* [Подключите диск данных к виртуальной машине Windows Server на портале Azure](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [с помощью PowerShell](https://msdn.microsoft.com/library/mt603673.aspx).
+* Создайте виртуальную машину Windows на [портале Azure](quick-create-portal.md) или с помощью [PowerShell](quick-create-powershell.md).
+* Подключите диск данных к виртуальной машине Windows Server на [портале Azure](attach-disk-portal.md) или с помощью [PowerShell](attach-disk-ps.md).
 
-Чтобы начать установку и настройку MongoDB, [выполните вход в виртуальную машину Windows Server](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) с помощью удаленного рабочего стола.
+Чтобы начать установку и настройку MongoDB, [выполните вход в виртуальную машину Windows Server](connect-logon.md) с помощью удаленного рабочего стола.
 
 ## <a name="install-mongodb"></a>Установка MongoDB
 > [!IMPORTANT]
 > Функции безопасности MongoDB, такие как проверка подлинности и привязка IP-адреса, не включены по умолчанию. Функции безопасности необходимо включить перед развертыванием MongoDB в рабочей среде. Чтобы узнать больше, ознакомьтесь с [системой безопасности и аутентификацией MongoDB](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
-> 
-> 
+
 
 1. После подключения к виртуальной машине с помощью удаленного рабочего стола откройте Internet Explorer из меню **Пуск** этой виртуальной машины.
 2. При первом запуске Internet Explorer выберите **Использовать рекомендуемые параметры безопасности, конфиденциальности и совместимости** и нажмите кнопку **ОК**.
@@ -65,7 +65,7 @@ ms.lasthandoff: 04/03/2017
      
      ![Настройка переменных PATH](./media/install-mongodb/configure-path-variables.png)
      
-     Добавьте путь к папке MongoDB, `bin`. Обычно MongoDB устанавливается в папку `C:\Program Files\MongoDB`. Проверьте путь установки на виртуальной машине. В следующем примере в переменную `PATH` добавляется расположение по умолчанию для установки MongoDB.
+     Добавьте путь к папке MongoDB, `bin`. Приложение MongoDB обычно устанавливается в папку *C:\Program Files\MongoDB*. Проверьте путь установки на виртуальной машине. В следующем примере в переменную `PATH` добавляется расположение по умолчанию для установки MongoDB.
      
      ```
      ;C:\Program Files\MongoDB\Server\3.2\bin
@@ -73,8 +73,7 @@ ms.lasthandoff: 04/03/2017
      
      > [!NOTE]
      > Обязательно добавьте начальную точку с запятой (`;`), чтобы указать, что добавляется расположение в переменную `PATH`.
-     > 
-     > 
+
 2. Создайте каталоги данных и журналов MongoDB на диске данных. В меню **Пуск** выберите **Командная строка**. В следующих примерах создаются каталоги на диске F.
    
     ```
@@ -91,8 +90,7 @@ ms.lasthandoff: 04/03/2017
    
    > [!NOTE]
    > Фокус командной строки будет оставаться на этой задаче, пока выполняется экземпляр MongoDB. Не закрывайте окно командной строки, чтобы не прерывать выполнение MongoDB. Или установите MongoDB в качестве службы, как описано на следующем шаге.
-   > 
-   > 
+
 4. Для более надежной работы MongoDB установите `mongod.exe` как службу. Создание службы означает, что вам не нужно будет оставлять окно командной строки открытым каждый раз, когда необходимо использовать MongoDB. Создайте службу, как описано ниже, указав пути к своим каталогам данных и журналов, соответственно.
    
     ```
@@ -148,19 +146,22 @@ exit
 ## <a name="configure-firewall-and-network-security-group-rules"></a>Настройка брандмауэра и правил группы безопасности сети
 После установки и запуска MongoDB следует открыть порт в брандмауэре Windows для удаленного подключения к MongoDB. Чтобы создать правило входящего трафика, разрешающее передачу данных через TCP-порт 27017, откройте командную строку PowerShell для администрирования и введите следующую команду.
 
-```powerShell
-New-NetFirewallRule -DisplayName "Allow MongoDB" -Direction Inbound `
-    -Protocol TCP -LocalPort 27017 -Action Allow
+```powerahell
+New-NetFirewallRule `
+    -DisplayName "Allow MongoDB" `
+    -Direction Inbound `
+    -Protocol TCP `
+    -LocalPort 27017 `
+    -Action Allow
 ```
 
 Можно также создать правило с помощью графического средства управления **Брандмауэр Windows в режиме повышенной безопасности**. Создайте правило входящего трафика, чтобы разрешить использовать TCP-порт 27017.
 
-При необходимости создайте правило группы безопасности сети, чтобы разрешить доступ к MongoDB извне подсети в существующей виртуальной сети Azure. Правила группы безопасности сети можно создать с помощью [портала Azure](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) или [Azure PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Как и в правилах брандмауэра Windows, разрешите использование TCP-порта 27017 для виртуального сетевого интерфейса виртуальной машины MongoDB.
+При необходимости создайте правило группы безопасности сети, чтобы разрешить доступ к MongoDB извне подсети в существующей виртуальной сети Azure. Правила группы безопасности сети можно создать с помощью [портала Azure](nsg-quickstart-portal.md) или [Azure PowerShell](nsg-quickstart-powershell.md). Как и в правилах брандмауэра Windows, разрешите использование TCP-порта 27017 для виртуального сетевого интерфейса виртуальной машины MongoDB.
 
 > [!NOTE]
 > MongoDB использует TCP-порт 27017 по умолчанию. Этот порт можно изменить с помощью параметра `--port` при запуске `mongod.exe` вручную или из службы. Если вы изменяете порт, не забудьте обновить правила брандмауэра Windows и группы безопасности сети, созданные на предыдущих шагах.
-> 
-> 
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Из этого руководства вы узнали, как установить и настроить MongoDB на виртуальной машине Windows. Теперь вы можете получить доступ к MongoDB на виртуальной машине Windows, выполнив действия, описанные в дополнительных разделах [документации по MongoDB](https://docs.mongodb.com/manual/).

@@ -11,17 +11,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/15/2017
+ms.date: 5/10/2017
 ms.author: chackdan;maburlik
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: a09ee1955717d7e042c1df3382c4cecd40069e3a
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 54fa2a5ea9bd54add6df68db6ce492299ca94207
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 
 ---
 
-# <a name="package-contents-of-service-fabric-standalone-package-for-windows-server"></a>Содержимое изолированного пакета Service Fabric для Windows Server
+# <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Содержимое изолированного пакета Service Fabric для Windows Server
 В [скачанном](http://go.microsoft.com/fwlink/?LinkId=730690) изолированном пакете Service Fabric для Windows Server вы найдете приведенные ниже файлы.
 
 | **Имя файла** | **Краткое описание** |
@@ -37,6 +38,8 @@ ms.lasthandoff: 03/29/2017
 | EULA_ENU.txt |Условия лицензии на использование изолированного пакета Windows Server Microsoft Azure Service Fabric. Вы можете [загрузить копию лицензионного соглашения](http://go.microsoft.com/fwlink/?LinkID=733084). |
 | Readme.txt |Ссылка на заметки о выпуске и основные инструкции по установке. В этом документе находится сокращенный набор инструкций. |
 | ThirdPartyNotice.rtf |Примечание о включенном в пакет программном обеспечении сторонних производителей. |
+| Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe — запускается по требованию для сбора и отправки журналов трассировки в корпорацию Майкрософт для поддержки. |
+| Tools\ServiceFabricUpdateService.zip |Средство, используемое для включения автоматического обновления кода для кластеров, которые не имеют доступа к Интернету. Дополнительные сведения см. [здесь](service-fabric-cluster-upgrade-windows-server.md).|
 
 **Шаблоны** 
 | **Имя файла** | **Краткое описание** |
@@ -49,7 +52,7 @@ ms.lasthandoff: 03/29/2017
 | ClusterConfig.x509.MultiMachine.json |Пример файла конфигурации кластера, содержащего все параметры защищенного кластера разработки с несколькими виртуальными машинами или компьютерами, в том числе сведения о каждом узле, который находится в защищенном кластере. Этот кластер защищен с помощью сертификатов x.509. |
 | ClusterConfig.gMSA.Windows.MultiMachine.json |Пример файла конфигурации кластера, содержащего все параметры защищенного кластера разработки с несколькими виртуальными машинами или компьютерами, в том числе сведения о каждом узле, который находится в защищенном кластере. Кластер защищается с помощью [групповых управляемых учетных записей служб](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx). |
 
-# <a name="cluster-configuration-samples"></a>Примеры конфигурации кластера
+## <a name="cluster-configuration-samples"></a>Примеры конфигурации кластера
 Последние версии шаблонов конфигурации кластера можно найти на странице [примеров конфигурации изолированного кластера](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) на сайте GitHub.
 
 ## <a name="related"></a>Сопутствующие материалы

@@ -12,15 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 05/11/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: e9cb2f03600d49123693fcc88742d6fc75d9de16
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Создание приложения для магазина Windows с бесперебойной потоковой передачей
+
 Клиентский пакет SDK для бесперебойной потоковой передачи для Windows 8 позволяет разработчикам создавать приложения для магазина Windows, способные воспроизводить контент по требованию и в режиме реального времени с бесперебойной потоковой передачей. Помимо основных функций воспроизведения контента с бесперебойной потоковой передачей этот пакет SDK также предоставляет богатые возможности, такие как защита Microsoft PlayReady, ограничение уровня качества, Live DVR, переключение потока аудио, прослушивание событий ошибок и обновления состояния (например, изменения уровня качества) и т. д. Дополнительные сведения о поддерживаемых возможностях см. в [заметках к выпуску](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Дополнительные сведения см. на странице, посвященной [Player Framework для Windows 8](http://playerframework.codeplex.com/). 
 
 Этот учебный курс состоит из четырех занятий:
@@ -43,6 +46,7 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
 * [Урок 4.](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) Проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором дорожки.
 
 ## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Урок 1. Создание базового приложения для магазина с бесперебойной потоковой передачей
+
 На этом занятии предстоит создать приложение для магазина Windows с элементом управления MediaElement для воспроизведения контента с бесперебойной потоковой передачей.  Работающее приложение имеет следующий вид:
 
 ![Пример приложения для магазина Windows с бесперебойной потоковой передачей][PlayerApplication]
@@ -89,49 +93,49 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
 
 1. В обозревателе решений дважды щелкните **MainPage.xaml** , чтобы открыть его в режиме конструктора.
 2. Найдите теги **&lt;Grid&gt;** и **&lt;/Grid&gt;** в XAML-файле и вставьте между ними код ниже:
-   
-     <Grid.RowDefinitions>
-   
-         <RowDefinition Height="20"/>    <!-- spacer -->
-         <RowDefinition Height="50"/>    <!-- media controls -->
-         <RowDefinition Height="100*"/>  <!-- media element -->
-         <RowDefinition Height="80*"/>   <!-- media stream and track selection -->
-         <RowDefinition Height="50"/>    <!-- status bar -->
-     </Grid.RowDefinitions>
-   
-     <StackPanel Name="spMediaControl" Grid.Row="1" Orientation="Horizontal">
-         <TextBlock x:Name="tbSource" Text="Source :  " FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
-         <TextBox x:Name="txtMediaSource" Text="http://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
-         <Button x:Name="btnSetSource" Content="Set Source" Width="111" Height="43" Click="btnSetSource_Click"/>
-         <Button x:Name="btnPlay" Content="Play" Width="111" Height="43" Click="btnPlay_Click"/>
-         <Button x:Name="btnPause" Content="Pause"  Width="111" Height="43" Click="btnPause_Click"/>
-         <Button x:Name="btnStop" Content="Stop"  Width="111" Height="43" Click="btnStop_Click"/>
-         <CheckBox x:Name="chkAutoPlay" Content="Auto Play" Height="55" Width="Auto" IsChecked="{Binding AutoPlay, ElementName=mediaElement, Mode=TwoWay}"/>
-         <CheckBox x:Name="chkMute" Content="Mute" Height="55" Width="67" IsChecked="{Binding IsMuted, ElementName=mediaElement, Mode=TwoWay}"/>
-     </StackPanel>
-   
-     <StackPanel Name="spMediaElement" Grid.Row="2" Height="435" Width="1072"
-                 HorizontalAlignment="Center" VerticalAlignment="Center">
-         <MediaElement x:Name="mediaElement" Height="356" Width="924" MinHeight="225"
-                       HorizontalAlignment="Center" VerticalAlignment="Center" 
-                       AudioCategory="BackgroundCapableMedia" />
-         <StackPanel Orientation="Horizontal">
-             <Slider x:Name="sliderProgress" Width="924" Height="44"
-                     HorizontalAlignment="Center" VerticalAlignment="Center"
-                     PointerPressed="sliderProgress_PointerPressed"/>
-             <Slider x:Name="sliderVolume" 
-                     HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Vertical" 
-                     Height="79" Width="148" Minimum="0" Maximum="1" StepFrequency="0.1" 
-                     Value="{Binding Volume, ElementName=mediaElement, Mode=TwoWay}" 
-                     ToolTipService.ToolTip="{Binding Value, RelativeSource={RelativeSource Mode=Self}}"/>
+
+         <Grid.RowDefinitions>
+
+            <RowDefinition Height="20"/>    <!-- spacer -->
+            <RowDefinition Height="50"/>    <!-- media controls -->
+            <RowDefinition Height="100*"/>  <!-- media element -->
+            <RowDefinition Height="80*"/>   <!-- media stream and track selection -->
+            <RowDefinition Height="50"/>    <!-- status bar -->
+         </Grid.RowDefinitions>
+
+         <StackPanel Name="spMediaControl" Grid.Row="1" Orientation="Horizontal">
+            <TextBlock x:Name="tbSource" Text="Source :  " FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
+            <TextBox x:Name="txtMediaSource" Text="http://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
+            <Button x:Name="btnSetSource" Content="Set Source" Width="111" Height="43" Click="btnSetSource_Click"/>
+            <Button x:Name="btnPlay" Content="Play" Width="111" Height="43" Click="btnPlay_Click"/>
+            <Button x:Name="btnPause" Content="Pause"  Width="111" Height="43" Click="btnPause_Click"/>
+            <Button x:Name="btnStop" Content="Stop"  Width="111" Height="43" Click="btnStop_Click"/>
+            <CheckBox x:Name="chkAutoPlay" Content="Auto Play" Height="55" Width="Auto" IsChecked="{Binding AutoPlay, ElementName=mediaElement, Mode=TwoWay}"/>
+            <CheckBox x:Name="chkMute" Content="Mute" Height="55" Width="67" IsChecked="{Binding IsMuted, ElementName=mediaElement, Mode=TwoWay}"/>
          </StackPanel>
-     </StackPanel>
-   
-     <StackPanel Name="spStatus" Grid.Row="4" Orientation="Horizontal">
-         <TextBlock x:Name="tbStatus" Text="Status :  " 
-            FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
-         <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
-     </StackPanel>
+
+         <StackPanel Name="spMediaElement" Grid.Row="2" Height="435" Width="1072"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+            <MediaElement x:Name="mediaElement" Height="356" Width="924" MinHeight="225"
+                          HorizontalAlignment="Center" VerticalAlignment="Center" 
+                          AudioCategory="BackgroundCapableMedia" />
+            <StackPanel Orientation="Horizontal">
+                <Slider x:Name="sliderProgress" Width="924" Height="44"
+                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                        PointerPressed="sliderProgress_PointerPressed"/>
+                <Slider x:Name="sliderVolume" 
+                        HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Vertical" 
+                        Height="79" Width="148" Minimum="0" Maximum="1" StepFrequency="0.1" 
+                        Value="{Binding Volume, ElementName=mediaElement, Mode=TwoWay}" 
+                        ToolTipService.ToolTip="{Binding Value, RelativeSource={RelativeSource Mode=Self}}"/>
+            </StackPanel>
+         </StackPanel>
+
+         <StackPanel Name="spStatus" Grid.Row="4" Orientation="Horizontal">
+            <TextBlock x:Name="tbStatus" Text="Status :  " 
+               FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
+         </StackPanel>
    
    Элемент управления MediaElement используется для воспроизведения мультимедиа. Для управления мультимедиа в следующем уроке будет использоваться ползунок с именем sliderProgress.
 3. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
@@ -145,33 +149,35 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
 1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
 2. Добавьте следующую инструкцию using в начало файла:
    
-     using Windows.Media;
+        using Windows.Media;
 3. В начале класса **MainPage** добавьте следующие члены данных:
    
-     private MediaExtensionManager extensions = new MediaExtensionManager();
+         private MediaExtensionManager extensions = new MediaExtensionManager();
 4. В конце конструктора **MainPage** добавьте следующие две строки:
    
-     extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");   extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
+        extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
+        extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
 5. Добавьте в конце класса **MainPage** следующий код:
    
-   # <a name="region-ui-button-click-events"></a>События нажатия кнопки в пользовательском интерфейсе для region
-     private void btnPlay_Click(object sender, RoutedEventArgs e)   {
-   
+         # region UI Button Click Events
+         private void btnPlay_Click(object sender, RoutedEventArgs e)
+         {
+
          mediaElement.Play();
          txtStatus.Text = "MediaElement is playing ...";
-     }
-   
-     private void btnPause_Click(object sender, RoutedEventArgs e)   {
-   
+         }
+         private void btnPause_Click(object sender, RoutedEventArgs e)
+         {
+
          mediaElement.Pause();
          txtStatus.Text = "MediaElement is paused";
-     }
-   
-     private void btnSetSource_Click(object sender, RoutedEventArgs e)   {
-   
+         }
+         private void btnSetSource_Click(object sender, RoutedEventArgs e)
+         {
+
          sliderProgress.Value = 0;
          mediaElement.Source = new Uri(txtMediaSource.Text);
-   
+
          if (chkAutoPlay.IsChecked == true)
          {
              txtStatus.Text = "MediaElement is playing ...";
@@ -180,22 +186,22 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
          {
              txtStatus.Text = "Click the Play button to play the media source.";
          }
-     }
-   
-     private void btnStop_Click(object sender, RoutedEventArgs e)   {
-   
+         }
+         private void btnStop_Click(object sender, RoutedEventArgs e)
+         {
+
          mediaElement.Stop();
          txtStatus.Text = "MediaElement is stopped";
-     }
-   
-     private void sliderProgress_PointerPressed(object sender, PointerRoutedEventArgs e)   {
-   
+         }
+         private void sliderProgress_PointerPressed(object sender, PointerRoutedEventArgs e)
+         {
+
          txtStatus.Text = "Seek to position " + sliderProgress.Value;
          mediaElement.Position = new TimeSpan(0, 0, (int)(sliderProgress.Value));
-     }
-   
-   # <a name="endregion"></a>endregion
-   Здесь определяется обработчик события sliderProgress_PointerPressed.  Для его запуска требуется выполнить ряд дополнительных действий, которые будут рассматриваться на следующем уроке этого учебного курса.
+         }
+         # endregion
+
+Здесь определяется обработчик события sliderProgress_PointerPressed.  Для его запуска требуется выполнить ряд дополнительных действий, которые будут рассматриваться на следующем уроке этого учебного курса.
 6. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 Готовый код файла должен выглядеть следующим образом:
@@ -214,6 +220,7 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
 Вы завершили урок 1.  В этом уроке с помощью элемента управления MediaElement воспроизводится контент с бесперебойной потоковой передачей.  На следующем занятии будет добавлен ползунок, который позволит управлять воспроизведением такого контента.
 
 ## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Урок 2. Добавление ползунка для управления ходом воспроизведения мультимедиа
+
 На занятии 1 было создано приложение для магазина Windows с элементом управления XAML MediaElement для воспроизведения контента мультимедиа с бесперебойной потоковой передачей.  Этот элемент изначально имеет такие функции, как начало, останов и приостановка воспроизведения.  На этом занятии в приложение будет добавлен еще один элемент управления — ползунок.
 
 В этом учебном курсе для обновления положения ползунка на основе текущего положения элемента управления MediaElement будет использоваться таймер.  При воспроизведении контента в режиме реального времени также требуется обновлять время начала и окончания ползунка.  Для обработки лучше использовать событие обновления адаптивного источника.
@@ -233,34 +240,37 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
 
 1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
 2. Добавьте следующую инструкцию using в начало файла:
-   
-     using Microsoft.Media.AdaptiveStreaming;
+
+        using Microsoft.Media.AdaptiveStreaming;
 3. В начале класса MainPage добавьте следующие члены данных:
-   
-     private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
-     private IAdaptiveSourceManager adaptiveSourceManager;
+
+         private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
+         private IAdaptiveSourceManager adaptiveSourceManager;
 4. В конструкторе **MainPage** добавьте следующий код после строки **this.Initialize Components();** и строк кода регистрации, добавленных на предыдущем занятии:
-   
-     // Gets the default instance of AdaptiveSourceManager which manages Smooth //Streaming media sources.
-     adaptiveSourceManager = AdaptiveSourceManager.GetDefault(); // Sets property key value to AdaptiveSourceManager default instance.
-     // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
-     propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
+
+        // Gets the default instance of AdaptiveSourceManager which manages Smooth 
+        //Streaming media sources.
+        adaptiveSourceManager = AdaptiveSourceManager.GetDefault();
+        // Sets property key value to AdaptiveSourceManager default instance.
+        // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
+        propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
 5. В конструкторе **MainPage** измените два метода RegisterByteStreamHandler для добавления следующих параметров:
-   
-     // Registers Smooth Streaming byte-stream handler for ".ism" extension and, // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
-     // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
-     extensions.RegisterByteStreamHandler(
-   
-         "Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", 
-         ".ism", 
-         "text/xml", 
-         propertySet );
-     extensions.RegisterByteStreamHandler(
-   
-         "Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", 
-         ".ism", 
-         "application/vnd.ms-sstr+xml", 
-     propertySet);
+
+         // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
+         // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
+         // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
+         extensions.RegisterByteStreamHandler(
+
+            "Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", 
+            ".ism", 
+            "text/xml", 
+            propertySet );
+         extensions.RegisterByteStreamHandler(
+
+            "Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", 
+            ".ism", 
+            "application/vnd.ms-sstr+xml", 
+         propertySet);
 6. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 **Добавление обработчиков событий уровня диспетчера адаптивных источников**
@@ -271,16 +281,18 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
      private AdaptiveSource adaptiveSource = null;
 3. В конце класса **MainPage** добавьте следующий обработчик событий:
    
-   # <a name="region-adaptive-source-manager-level-events"></a>События уровня диспетчера адаптивных источников для region
-     private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)   {
-   
-         adaptiveSource = args.AdaptiveSource;
-     }
-   
-   # <a name="endregion-adaptive-source-manager-level-events"></a>События уровня диспетчера адаптивных источников для endregion
+         # region Adaptive Source Manager Level Events
+         private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
+         {
+
+            adaptiveSource = args.AdaptiveSource;
+         }
+
+         # endregion Adaptive Source Manager Level Events
 4. В конце конструктора **MainPage** добавьте следующую строку для подписки на событие открытия адаптивного источника:
    
-   adaptiveSourceManager.AdaptiveSourceOpenedEvent +=   new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+         adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
+           new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
 5. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 **Добавление обработчиков событий уровня адаптивного источника**
@@ -290,36 +302,39 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
    
      private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate;   private Manifest manifestObject;
 3. В конце класса **MainPage** добавьте следующие обработчики событий:
-   
-   # <a name="region-adaptive-source-level-events"></a>События уровня адаптивных источников для region
-     private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)   {
-   
-         adaptiveSource = args.AdaptiveSource;
-         manifestObject = args.AdaptiveSource.Manifest;
-     }
-   
-     private void mediaElement_AdaptiveSourceStatusUpdated(AdaptiveSource sender, AdaptiveSourceStatusUpdatedEventArgs args)   {
-   
-         adaptiveSourceStatusUpdate = args;
-     }
-   
-     private void mediaElement_AdaptiveSourceFailed(AdaptiveSource sender, AdaptiveSourceFailedEventArgs args)   {
-   
-         txtStatus.Text = "Error: " + args.HttpResponse;
-     }
-   
-   # <a name="endregion-adaptive-source-level-events"></a>События уровня адаптивных источников для endregion
+
+         # region Adaptive Source Level Events
+         private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
+         {
+
+            adaptiveSource = args.AdaptiveSource;
+            manifestObject = args.AdaptiveSource.Manifest;
+         }
+
+         private void mediaElement_AdaptiveSourceStatusUpdated(AdaptiveSource sender, AdaptiveSourceStatusUpdatedEventArgs args)
+         {
+
+            adaptiveSourceStatusUpdate = args;
+         }
+
+         private void mediaElement_AdaptiveSourceFailed(AdaptiveSource sender, AdaptiveSourceFailedEventArgs args)
+         {
+
+            txtStatus.Text = "Error: " + args.HttpResponse;
+         }
+
+         # endregion Adaptive Source Level Events
 4. В конце метода **mediaElement AdaptiveSourceOpened** добавьте следующий код, чтобы подписаться на события:
    
-     adaptiveSource.ManifestReadyEvent +=
-   
-                 mediaElement_ManifestReady;
-     adaptiveSource.AdaptiveSourceStatusUpdatedEvent += 
-   
-         mediaElement_AdaptiveSourceStatusUpdated;
-     adaptiveSource.AdaptiveSourceFailedEvent += 
-   
-         mediaElement_AdaptiveSourceFailed;
+         adaptiveSource.ManifestReadyEvent +=
+
+                    mediaElement_ManifestReady;
+         adaptiveSource.AdaptiveSourceStatusUpdatedEvent += 
+
+            mediaElement_AdaptiveSourceStatusUpdated;
+         adaptiveSource.AdaptiveSourceFailedEvent += 
+
+            mediaElement_AdaptiveSourceFailed;
 5. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 Эти же события доступны на уровне диспетчера адаптивных источников, который может использоваться для обработки функций, общих для всех элементов мультимедиа в приложении. Каждый адаптивный источник имеет свои собственные события, и все события AdaptiveSource будут передаваться каскадом в диспетчер AdaptiveSourceManager.
@@ -328,130 +343,151 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
 
 1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
 2. В конце класса **MainPage** добавьте следующие обработчики событий:
-   
-   # <a name="region-media-element-event-handlers"></a>Обработчики событий элементов списка воспроизведения для region
-     private void MediaOpened(object sender, RoutedEventArgs e)   {
-   
-         txtStatus.Text = "MediaElement opened";
-     }
-   
-     private void MediaFailed(object sender, ExceptionRoutedEventArgs e)   {
-   
-         txtStatus.Text= "MediaElement failed: " + e.ErrorMessage;
-     }
-   
-     private void MediaEnded(object sender, RoutedEventArgs e)   {
-   
-         txtStatus.Text ="MediaElement ended.";
-     }
-   
-   # <a name="endregion-media-element-event-handlers"></a>Обработчики событий элементов списка воспроизведения для endregion
+
+         # region Media Element Event Handlers
+         private void MediaOpened(object sender, RoutedEventArgs e)
+         {
+
+            txtStatus.Text = "MediaElement opened";
+         }
+
+         private void MediaFailed(object sender, ExceptionRoutedEventArgs e)
+         {
+
+            txtStatus.Text= "MediaElement failed: " + e.ErrorMessage;
+         }
+
+         private void MediaEnded(object sender, RoutedEventArgs e)
+         {
+
+            txtStatus.Text ="MediaElement ended.";
+         }
+
+         # endregion Media Element Event Handlers
 3. В конце конструктора **MainPage** добавьте следующий код для подписки на события:
-   
-     mediaElement.MediaOpened += MediaOpened;   mediaElement.MediaEnded += MediaEnded;   mediaElement.MediaFailed += MediaFailed;
+
+         mediaElement.MediaOpened += MediaOpened;
+         mediaElement.MediaEnded += MediaEnded;
+         mediaElement.MediaFailed += MediaFailed;
 4. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 **Добавление кода, связанного с ползунком**
 
 1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Просмотреть код**.
 2. Добавьте следующую инструкцию using в начало файла:
-   
-     using Windows.UI.Core;
+      
+        using Windows.UI.Core;
 3. В классе **MainPage** добавьте следующий член данных:
    
-     public static CoreDispatcher _dispatcher;   private DispatcherTimer sliderPositionUpdateDispatcher;
+         public static CoreDispatcher _dispatcher;
+         private DispatcherTimer sliderPositionUpdateDispatcher;
 4. В конце конструктора **MainPage** добавьте следующий код:
    
-     _dispatcher = Window.Current.Dispatcher;   PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);   sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
+         _dispatcher = Window.Current.Dispatcher;
+         PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
+         sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
 5. Добавьте в конце класса **MainPage** следующий код:
-   
-   # <a name="region-slidermediaplayer"></a>region sliderMediaPlayer
-     private double SliderFrequency(TimeSpan timevalue)   {
-   
-         long absvalue = 0;
-         double stepfrequency = -1;
-   
-         if (manifestObject != null)
+
+         # region sliderMediaPlayer
+         private double SliderFrequency(TimeSpan timevalue)
          {
-             absvalue = manifestObject.Duration - (long)manifestObject.StartTime;
+
+            long absvalue = 0;
+            double stepfrequency = -1;
+
+            if (manifestObject != null)
+            {
+                absvalue = manifestObject.Duration - (long)manifestObject.StartTime;
+            }
+            else
+            {
+                absvalue = mediaElement.NaturalDuration.TimeSpan.Ticks;
+            }
+
+            TimeSpan totalDVRDuration = new TimeSpan(absvalue);
+
+            if (totalDVRDuration.TotalMinutes >= 10 && totalDVRDuration.TotalMinutes < 30)
+            {
+               stepfrequency = 10;
+            }
+            else if (totalDVRDuration.TotalMinutes >= 30 
+                     && totalDVRDuration.TotalMinutes < 60)
+            {
+                stepfrequency = 30;
+            }
+            else if (totalDVRDuration.TotalHours >= 1)
+            {
+                stepfrequency = 60;
+            }
+
+            return stepfrequency;
          }
-         else
+
+         void updateSliderPositionoNTicks(object sender, object e)
          {
-             absvalue = mediaElement.NaturalDuration.TimeSpan.Ticks;
+
+            sliderProgress.Value = mediaElement.Position.TotalSeconds;
          }
-   
-         TimeSpan totalDVRDuration = new TimeSpan(absvalue);
-   
-         if (totalDVRDuration.TotalMinutes >= 10 && totalDVRDuration.TotalMinutes < 30)
+
+         public void setupTimer()
          {
-            stepfrequency = 10;
+
+            sliderPositionUpdateDispatcher = new DispatcherTimer();
+            sliderPositionUpdateDispatcher.Interval = new TimeSpan(0, 0, 0, 0, 300);
+            startTimer();
          }
-         else if (totalDVRDuration.TotalMinutes >= 30 
-                  && totalDVRDuration.TotalMinutes < 60)
+
+         public void startTimer()
          {
-             stepfrequency = 30;
+
+            sliderPositionUpdateDispatcher.Tick += updateSliderPositionoNTicks;
+            sliderPositionUpdateDispatcher.Start();
          }
-         else if (totalDVRDuration.TotalHours >= 1)
+
+         // Slider start and end time must be updated in case of live content
+         public async void setSliderStartTime(long startTime)
          {
-             stepfrequency = 60;
+
+            await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                TimeSpan timespan = new TimeSpan(adaptiveSourceStatusUpdate.StartTime);
+                double absvalue = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero);
+                sliderProgress.Minimum = absvalue;
+            });
          }
-   
-         return stepfrequency;
-     }
-   
-     void updateSliderPositionoNTicks(object sender, object e)   {
-   
-         sliderProgress.Value = mediaElement.Position.TotalSeconds;
-     }
-   
-     public void setupTimer()   {
-   
-         sliderPositionUpdateDispatcher = new DispatcherTimer();
-         sliderPositionUpdateDispatcher.Interval = new TimeSpan(0, 0, 0, 0, 300);
-         startTimer();
-     }
-   
-     public void startTimer()   {
-   
-         sliderPositionUpdateDispatcher.Tick += updateSliderPositionoNTicks;
-         sliderPositionUpdateDispatcher.Start();
-     }
-   
-     // Slider start and end time must be updated in case of live content   public async void setSliderStartTime(long startTime)   {
-   
-         await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+
+         // Slider start and end time must be updated in case of live content
+         public async void setSliderEndTime(long startTime)
          {
-             TimeSpan timespan = new TimeSpan(adaptiveSourceStatusUpdate.StartTime);
-             double absvalue = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero);
-             sliderProgress.Minimum = absvalue;
-         });
-     }
+
+            await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                TimeSpan timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime);
+                double absvalue = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero);
+                sliderProgress.Maximum = absvalue;
+            });
+         }
+
+         # endregion sliderMediaPlayer
+      
+>[!NOTE]
+>CoreDispatcher используется для внесения изменений в поток пользовательского интерфейса из других потоков. В случае возникновения узких мест в потоке-отправителе разработчик может использовать отправитель, предоставленный элементом пользовательского интерфейса, который планируется обновить.  Например:
    
-     // Slider start and end time must be updated in case of live content   public async void setSliderEndTime(long startTime)   {
-   
-         await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-         {
-             TimeSpan timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime);
-             double absvalue = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero);
-             sliderProgress.Maximum = absvalue;
-         });
-     }
-   
-   # <a name="endregion-slidermediaplayer"></a>endregion sliderMediaPlayer
-   **Примечание.** CoreDispatcher используется для внесения изменений в поток пользовательского интерфейса из других потоков. В случае возникновения узких мест в потоке-отправителе разработчик может использовать отправитель, предоставленный элементом пользовательского интерфейса, который планируется обновить.  Например:
-   
-     await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
-   
-       timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
-     double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
-   
-       sliderProgress.Maximum = absvalue; }); 
+         await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
+
+         timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
+         double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
+
+         sliderProgress.Maximum = absvalue; }); 
 6. В конце метода **mediaElement_AdaptiveSourceStatusUpdated** добавьте следующий код:
-   
-     setSliderStartTime(args.StartTime);   setSliderEndTime(args.EndTime);
+
+         setSliderStartTime(args.StartTime);
+         setSliderEndTime(args.EndTime);
 7. В конце метода **MediaOpened** добавьте следующий код:
-   
-   sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan); sliderProgress.Width = mediaElement.Width; setupTimer();
+
+         sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
+         sliderProgress.Width = mediaElement.Width;
+         setupTimer();
 8. Нажмите клавиши **CTRL+S** , чтобы сохранить файл.
 
 **Компиляция и тестирование приложения**
@@ -476,16 +512,16 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
 1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Конструктор представлений**.
 2. Найдите &lt;Grid.RowDefinitions&gt; и измените RowDefinitions следующим образом:
    
-        <Grid.RowDefinitions>            
+         <Grid.RowDefinitions>            
             <RowDefinition Height="20"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
+         </Grid.RowDefinitions>
 3. Внутри тегов &lt;Grid&gt;&lt;/Grid&gt; добавьте следующий код, чтобы определить элемент управления типа "поле со списком", который позволит пользователям просматривать список доступных потоков и выбирать нужные:
-   
-        <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
+
+         <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="300"/>
             </Grid.RowDefinitions>
@@ -507,7 +543,7 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
                     </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>
-        </Grid>
+         </Grid>
 4. Нажмите клавишу **CTRL+S** , чтобы сохранить изменения.
 
 **Изменение файла кода программной части**
@@ -561,10 +597,10 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
         #endregion class Stream
 3. В начале класса MainPage добавьте следующие определения переменных:
    
-        private List<Stream> availableStreams;
-        private List<Stream> availableAudioStreams;
-        private List<Stream> availableTextStreams;
-        private List<Stream> availableVideoStreams;
+         private List<Stream> availableStreams;
+         private List<Stream> availableAudioStreams;
+         private List<Stream> availableTextStreams;
+         private List<Stream> availableVideoStreams;
 4. Добавьте в класс MainPage следующую область:
    
         #region stream selection
@@ -743,7 +779,7 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
 1. В обозревателе решений щелкните правой кнопкой мыши файл **MainPage.xaml** и выберите команду **Конструктор представлений**.
 2. Найдите тег &lt;Grid&gt; с именем **gridStreamAndBitrateSelection** и добавьте следующий код в конце этого тега:
    
-        <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
+         <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
              <TextBlock Name="tbBitRate" Text="Available Bitrates:" FontSize="16" VerticalAlignment="Center"/>
              <Button Name="btnChangeTracks" Content="Submit" Click="btnChangeTrack_Click" />
@@ -756,7 +792,7 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
                  </DataTemplate>
              </ListBox.ItemTemplate>
          </ListBox>
-        </StackPanel>
+         </StackPanel>
 3. Нажмите клавиши **CTRL+S** , чтобы сохранить изменения
 
 **Изменение файла кода программной части**
@@ -903,20 +939,20 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
         #endregion track selection
 5. Найдите метод mediaElement_ManifestReady, измените следующий код в конце функции:
    
-        getTracks(manifestObject);
-        refreshAvailableTracksListBoxItemSource();
+         getTracks(manifestObject);
+         refreshAvailableTracksListBoxItemSource();
 6. В классе MainPage найдите область событий щелчка кнопок пользовательского интерфейса и добавьте следующее определение функции:
    
-        private void btnChangeStream_Click(object sender, RoutedEventArgs e)
-        {
+         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
+         {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
-   
+
             // Create a list of the selected streams
             createSelectedStreamsList(selectedStreams);
-   
+
             // Change streams on the presentation
             changeStreams(selectedStreams);
-        }
+         }
 
 **Компиляция и тестирование приложения**
 
@@ -940,10 +976,5 @@ ms.openlocfilehash: 2e0147d9f848f5610604e93dacd40713c3b149fe
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,36 +12,37 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/23/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8824f20a1f76f07aa6ea527ef1a8a6b986b18371
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 0f4ccf2cda1e580121533c092b5abe28eb737116
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Создание среды Docker в Azure с помощью расширения виртуальной машины Docker
-Docker — это популярная платформа для управления контейнерами и работы с образами, которая позволяет быстро работать с контейнерами в Linux. В Azure развертывание Docker можно выполнить несколькими разными способами в соответствии с конкретными потребностями. В этой статье рассматривается использование расширения виртуальной машины Docker и шаблонов Azure Resource Manager с помощью Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](dockerextension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Docker — это популярная платформа для управления контейнерами и работы с образами, которая позволяет быстро работать с контейнерами в Linux. В Azure развертывание Docker можно выполнить несколькими разными способами в соответствии с конкретными потребностями. В этой статье рассматривается использование расширения виртуальной машины Docker и шаблонов Azure Resource Manager с помощью Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](dockerextension-nodejs.md).
 
 ## <a name="azure-docker-vm-extension-overview"></a>Общие сведения о расширении виртуальных машин Docker для Azure
 Расширение виртуальных машин Docker для Azure устанавливает и настраивает управляющую программу Docker, клиент Docker и Docker Compose на виртуальной машине Linux. В отличие от использования только машины Docker или самостоятельного создания узла Docker с этим расширением вы получаете дополнительные элементы управления и компоненты. Благодаря этим дополнительным компонентам, таким как [Docker Compose](https://docs.docker.com/compose/overview/), расширение виртуальных машин Docker для Azure подходит для более надежных сред разработки или рабочих сред.
 
 Дополнительные сведения о различных методах развертывания, в том числе с помощью Docker Machine и служб контейнеров Azure, см. в следующих статьях:
 
-* Чтобы быстро создать прототип приложения, можно создать один узел Docker с помощью [машины Docker](docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Чтобы быстро создать прототип приложения, можно создать один узел Docker с помощью [машины Docker](docker-machine.md).
 * Чтобы создать готовые к работе, масштабируемые среды с дополнительными средствами планирования и управления, можно развернуть [кластер Docker Swarm в службах контейнеров Azure](../../container-service/container-service-deployment.md).
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Развертывание шаблона с помощью расширения виртуальных машин Docker для Azure
 Чтобы создать виртуальную машину Ubuntu, на которой установлено расширение виртуальной машины Docker для Azure (для установки и настройки узла Docker), мы используем готовый шаблон быстрого запуска. Шаблон можно найти в разделе [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)(Простое развертывание виртуальной машины Ubuntu с Docker). Вам нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
-Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `West US`:
+Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *westus*.
 
 ```azurecli
- az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location westus
 ```
 
-Затем, выполнив команду [az group deployment create](/cli/azure/group/deployment#create), разверните виртуальную машину с расширением виртуальной машины Docker для Azure с помощью [этого шаблона Azure Resource Manager из репозитория GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Введите собственные значения `newStorageAccountName`, `adminUsername`, `adminPassword` и `dnsNameForPublicIP`, как показано ниже.
+Затем, выполнив команду [az group deployment create](/cli/azure/group/deployment#create), разверните виртуальную машину с расширением виртуальной машины Docker для Azure с помощью [этого шаблона Azure Resource Manager из репозитория GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Укажите собственные значения для параметров *newStorageAccountName*, *adminUsername*, *adminPassword* и *dnsNameForPublicIP*, как показано ниже:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -54,14 +55,19 @@ az group deployment create --resource-group myResourceGroup \
 
 Подождите несколько минут до завершения развертывания. После завершения развертывания [перейдите к следующему шагу](#deploy-your-first-nginx-container), чтобы подключиться к виртуальной машине по протоколу SSH. 
 
-При необходимости, чтобы вернуть управление командной строке и позволить развертыванию работать в фоновом режиме, добавьте в предыдущую команду флаг `--no-wait`. Этот процесс позволит выполнять другую работу в интерфейсе командной строки, пока в течение нескольких минут будет продолжаться развертывание. После этого можно будет просмотреть сведения о состоянии узла Docker с помощью команды [az vm show](/cli/azure/vm#show). В следующем примере проверяется состояние виртуальной машины `myDockerVM` (это имя по умолчанию, указанное в шаблоне; не изменяйте его) в группе ресурсов `myResourceGroup`.
+При необходимости, чтобы вернуть управление командной строке и позволить развертыванию работать в фоновом режиме, добавьте в предыдущую команду флаг `--no-wait`. Этот процесс позволит выполнять другую работу в интерфейсе командной строки, пока в течение нескольких минут будет продолжаться развертывание. 
+
+После этого можно будет просмотреть сведения о состоянии узла Docker с помощью команды [az vm show](/cli/azure/vm#show). В следующем примере проверяется состояние виртуальной машины с именем *myDockerVM* (имя по умолчанию, указанное в шаблоне; не изменяйте его) в группе ресурсов *myResourceGroup*:
 
 ```azurecli
-az vm show --resource-group myResourceGroup --name myDockerVM \
-  --query [provisioningState] --output tsv
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --query [provisioningState] \
+    --output tsv
 ```
 
-Если эта команда возвращает `Succeeded`, значит, развертывание завершено, и вы сможете установить подключение SSH к виртуальной машине на следующем шаге.
+Если эта команда возвращает состояние *Succeeded*, значит, развертывание завершено, и вы сможете установить подключение SSH к виртуальной машине на следующем шаге.
 
 ## <a name="deploy-your-first-nginx-container"></a>Развертывание первого контейнера nginx
 Для просмотра сведений о виртуальной машине, включая DNS-имя, можно использовать команду `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`. Установите подключение по протоколу SSH к новому узлу Docker с локального компьютера, как показано ниже.
@@ -122,7 +128,7 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "DockerExtension",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.*",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
@@ -137,8 +143,8 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 
 Дополнительные сведения о вариантах развертывания Docker в Azure см. в следующих источниках:
 
-* [Использование машины Docker с драйвером Azure](docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
-* [Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure](docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Использование машины Docker с драйвером Azure](docker-machine.md)  
+* [Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure](docker-compose-quickstart.md)
 * [Развертывание кластера службы контейнеров Azure](../../container-service/container-service-deployment.md)
 
 

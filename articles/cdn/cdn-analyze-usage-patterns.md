@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 41d63ef88e9f0caf3d5f74841ec4670875fdaad1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/11/2017
 
 
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Анализ вариантов использования CDN Azure
-[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)] В руководстве ниже описано, как можно просматривать базовые отчеты на портале управления для профилей Verizon. Вы также можете экспортировать основные аналитические данные в хранилище, концентратор событий или журнал аналитики (oms) для профилей Verizon и Akamai [на портале Azure](cdn-log-analysis.md).
 
 Вы можете просмотреть способы использования CDN при помощи следующих отчетов:
 
@@ -32,8 +34,8 @@ ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9
 * Коэффициент попаданий в кэш
 * Переданные данные по протоколам IPV4/IPV6
 
-## <a name="accessing-advanced-http-reports"></a>Доступ к расширенным HTTP-отчетам
-1. В колонке профиля CDN нажмите кнопку **Управление** .
+## <a name="accessing-core-reports"></a>Доступ к базовым отчетам
+1. В колонке профиля сети CDN нажмите кнопку **Управление** .
    
     ![Кнопка управления в колонке профиля CDN](./media/cdn-reports/cdn-manage-btn.png)
    
@@ -136,10 +138,5 @@ ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9
 
 ## <a name="considerations"></a>Рекомендации
 Отчеты могут формироваться только за последние 18 месяцев.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

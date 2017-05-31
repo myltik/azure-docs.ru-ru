@@ -1,5 +1,5 @@
 ---
-title: "Установка MongoDB на виртуальную машину Linux с помощью Azure CLI 2.0 | Документация Майкрософт"
+title: "Установка MongoDB на виртуальную машину Linux с помощью Azure CLI | Документация Майкрософт"
 description: "Узнайте, как установить и настроить MongoDB на виртуальной машине Linux с помощью Azure CLI 2.0."
 services: virtual-machines-linux
 documentationcenter: 
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4a584a677df140f4923515527214dffd03846a74
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 0494e684d1996fe6208589b6dd806ecdcc2b7822
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Как установить и настроить MongoDB на виртуальной машине Linux
-[MongoDB](http://www.mongodb.org) — это популярная высокопроизводительная база данных NoSQL с открытым кодом. В этой статье показано, как установить и настроить MongoDB на виртуальной машине Linux с помощью Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](install-mongodb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Изучив представленные примеры, вы узнаете, как:
+[MongoDB](http://www.mongodb.org) — это популярная высокопроизводительная база данных NoSQL с открытым кодом. В этой статье показано, как установить и настроить MongoDB на виртуальной машине Linux с помощью Azure CLI 2.0. Эти действия можно также выполнить с помощью [Azure CLI 1.0](install-mongodb-nodejs.md). Изучив представленные примеры, вы узнаете, как:
 
 * [установить и настроить базовый экземпляр MongoDB вручную](#manually-install-and-configure-mongodb-on-a-vm);
 * [создать базовый экземпляр MongoDB на основе шаблона Resource Manager](#create-basic-mongodb-instance-on-centos-using-a-template);
@@ -30,15 +31,15 @@ ms.lasthandoff: 04/03/2017
 
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Установка и настройка MongoDB на виртуальной машине вручную
-База данных MongoDB [содержит инструкции по установке](https://docs.mongodb.com/manual/administration/install-on-linux/) для дистрибутивов Linux, в том числе Red Hat, CentOS, SUSE, Ubuntu и Debian. В следующем примере создается виртуальная машина `CentOS`, использующая ключ SSH, который хранится в каталоге `~/.ssh/id_rsa.pub`. Для создания этой среды необходимо установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
+База данных MongoDB [содержит инструкции по установке](https://docs.mongodb.com/manual/administration/install-on-linux/) для дистрибутивов Linux, в том числе Red Hat, CentOS, SUSE, Ubuntu и Debian. В следующем примере создается виртуальная машина *CentOS*. Для создания этой среды необходимо установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login).
 
-Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `West US`:
+Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
 ```azurecli
- az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#create). В следующем примере создается виртуальная машина `myVM` с именем пользователя `azureuser`, использующая аутентификацию с открытым ключом SSH и общедоступную запись DNS `mypublicdns`.
+Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#create). В следующем примере создается виртуальная машина *myVM* с именем пользователя *azureuser*, использующая аутентификацию с открытым ключом SSH и общедоступную запись *mypublicdns*:
 
 ```azurecli
 az vm create \
@@ -46,7 +47,7 @@ az vm create \
     --name myVM \
     --image CentOS \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --generate-ssh-keys \
     --public-ip-address-dns-name mypublicdns
 ```
 
@@ -59,33 +60,33 @@ az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
 Подключитесь к виртуальной машине по протоколу SSH с помощью имени пользователя и общедоступного DNS-адреса.
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-Чтобы добавить источники установки для MongoDB, создайте файл репозитория `yum`, как показано ниже:
+Чтобы добавить источники установки для MongoDB, создайте файл репозитория **yum**, как показано ниже:
 
 ```bash
-sudo touch /etc/yum.repos.d/mongodb-org-3.2.repo
+sudo touch /etc/yum.repos.d/mongodb-org-3.4.repo
 ```
 
 Откройте файл репозитория MongoDB для редактирования. Добавьте следующие строки.
 
 ```sh
-[mongodb-org-3.2]
+[mongodb-org-3.4]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
 ```
 
-Установите MongoDB, используя `yum`, как показано ниже:
+Установите MongoDB, используя **yum**, как показано ниже:
 
 ```bash
 sudo yum install -y mongodb-org
 ```
 
-По умолчанию в образах CentOS принудительно используется SELinux. Это препятствует доступу к MongoDB. Установите средства управления политиками и настройте SELinux так, чтобы база данных MongoDB могла использовать TCP-порт 27017 (по умолчанию): 
+По умолчанию в образах CentOS принудительно используется SELinux. Это препятствует доступу к MongoDB. Установите средства управления политиками и настройте SELinux так, чтобы база данных MongoDB могла использовать TCP-порт 27017 по умолчанию:
 
 ```bash
 sudo yum install -y policycoreutils-python
@@ -123,17 +124,17 @@ sudo chkconfig mongod on
 
 
 ## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Создание базового экземпляра MongoDB на виртуальной машине CentOS с использованием шаблона
-На виртуальной машине CentOS можно создать базовый экземпляр MongoDB, используя следующий шаблон быстрого запуска Azure из GitHub. В этом шаблоне используется расширение настраиваемых скриптов для Linux, что позволяет добавить в созданную виртуальную машину CentOS репозиторий `yum`, а затем установить MongoDB.
+На виртуальной машине CentOS можно создать базовый экземпляр MongoDB, используя следующий шаблон быстрого запуска Azure из GitHub. В этом шаблоне используется расширение настраиваемых скриптов для Linux, что позволяет добавить в созданную виртуальную машину CentOS репозиторий **yum**, а затем установить MongoDB.
 
 * [Базовый экземпляр MongoDB на виртуальной машине CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos): https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json.
 
-Для создания этой среды необходимо установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login). Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `West US`:
+Для создания этой среды необходимо установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login). Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Затем разверните шаблон MongoDB с помощью команды [az group deployment create](/cli/azure/group/deployment#create). При необходимости определите собственные имена и размеры ресурсов, таких как `newStorageAccountName`, `virtualNetworkName`, и `vmSize`.
+Затем разверните шаблон MongoDB с помощью команды [az group deployment create](/cli/azure/group/deployment#create). Определите необходимые имена и размеры ресурсов, например *newStorageAccountName*, *virtualNetworkName* и *vmSize*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -142,7 +143,7 @@ az group deployment create --resource-group myResourceGroup \
     "adminPassword": {"value": "P@ssw0rd!"},
     "dnsNameForPublicIP": {"value": "mypublicdns"},
     "virtualNetworkName": {"value": "myVnet"},
-    "vmSize": {"value": "Standard_DS1_v2"},
+    "vmSize": {"value": "Standard_DS2_v2"},
     "vmName": {"value": "myVM"},
     "publicIPAddressName": {"value": "myPublicIP"},
     "nicName": {"value": "myNic"}}' \
@@ -158,7 +159,7 @@ az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
 Подключитесь к виртуальной машине по протоколу SSH с помощью имени пользователя и общедоступного DNS-адреса.
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
 Проверьте установку базы данных MongoDB, подключившись к ней с помощью локального клиента `mongo`, как показано ниже:
@@ -180,20 +181,20 @@ test
 
 
 ## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Создание сложного сегментированного кластера MongoDB на виртуальной машине CentOS с использованием шаблона
-Используя следующий шаблон быстрого запуска Azure из GitHub, можно создать сложный сегментированный кластер MongoDB. Этот шаблон соответствует [рекомендациям для сегментированного кластера MongoDB](https://docs.mongodb.com/manual/core/sharded-cluster-components/) в отношении избыточности и высокой доступности. Он предусматривает создание двух сегментов с тремя узлами в каждом наборе реплик. Кроме того, он создает набор реплик сервера конфигурации и два сервера маршрутизации `mongos`. Это позволяет обеспечить согласованность приложений из разных сегментов.
+Используя следующий шаблон быстрого запуска Azure из GitHub, можно создать сложный сегментированный кластер MongoDB. Этот шаблон соответствует [рекомендациям для сегментированного кластера MongoDB](https://docs.mongodb.com/manual/core/sharded-cluster-components/) в отношении избыточности и высокой доступности. Он предусматривает создание двух сегментов с тремя узлами в каждом наборе реплик. Кроме того, он создает набор реплик сервера конфигурации и два сервера маршрутизации **mongos**. Это позволяет обеспечить согласованность приложений из разных сегментов.
 
 * [Сегментированный кластер MongoDB на виртуальной машине CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos): https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json.
 
 > [!WARNING]
 > Для развертывания сложного сегментированного кластера MongoDB требуется более 20 ядер. Обычно 20 ядер — это количество по умолчанию для региона, выделяемое на одну подписку. Отправьте запрос в службу поддержки Azure, чтобы увеличить количество ядер.
 
-Для создания этой среды необходимо установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login). Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `West US`:
+Для создания этой среды необходимо установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login). Сначала создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Затем разверните шаблон MongoDB с помощью команды [az group deployment create](/cli/azure/group/deployment#create). При необходимости определите собственные имена и размеры ресурсов, таких как `mongoAdminUsername`, `sizeOfDataDiskInGB`, и `configNodeVmSize`.
+Затем разверните шаблон MongoDB с помощью команды [az group deployment create](/cli/azure/group/deployment#create). Определите необходимые имена и размеры ресурсов, например *mongoAdminUsername*, *sizeOfDataDiskInGB* и *configNodeVmSize*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -211,21 +212,25 @@ az group deployment create --resource-group myResourceGroup \
     "replicaNodeVmSize": {"value": "Standard_DS3_v2"},
     "zabbixServerIPAddress": {"value": "Null"}}' \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json \
-  --name myMongoDBCluster --no-wait
+  --name myMongoDBCluster \
+  --no-wait
 ```
 
-На то, чтобы развернуть и настроить все экземпляры виртуальной машины, может потребоваться более одного часа. Флаг `--no-wait` в конце предыдущей команды используется для возвращения управления командной строке после того, как развертывание шаблона будет принято платформой Azure. Затем можно просмотреть состояние развернутой службы с помощью команды [az group deployment show](/cli/azure/group/deployment#show). Приведенный ниже пример позволяет просмотреть состояние развернутой службы `myMongoDBCluster` в группе ресурсов `myResourceGroup`.
+На то, чтобы развернуть и настроить все экземпляры виртуальной машины, может потребоваться более одного часа. Флаг `--no-wait` в конце предыдущей команды используется для возвращения управления командной строке после того, как развертывание шаблона будет принято платформой Azure. Затем можно просмотреть состояние развернутой службы с помощью команды [az group deployment show](/cli/azure/group/deployment#show). Приведенный ниже пример позволяет просмотреть состояние развернутой службы *myMongoDBCluster* в группе ресурсов *myResourceGroup*:
 
 ```azurecli
-az group deployment show --resource-group myResourceGroup --name myMongoDBCluster \
-    --query [properties.provisioningState] --output tsv
+az group deployment show \
+    --resource-group myResourceGroup \
+    --name myMongoDBCluster \
+    --query [properties.provisioningState] \
+    --output tsv
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-В этих примерах подключение к экземпляру MongoDB выполняется локально с помощью виртуальной машины. Чтобы подключится к экземпляру MongoDB из другой виртуальной машины или сети, [создайте соответствующие правила группы безопасности сети](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+В этих примерах подключение к экземпляру MongoDB выполняется локально с помощью виртуальной машины. Чтобы подключится к экземпляру MongoDB из другой виртуальной машины или сети, [создайте соответствующие правила группы безопасности сети](nsg-quickstart.md).
 
 Дополнительные сведения о создании с использованием шаблонов см. в статье [Общие сведения о диспетчере ресурсов Azure](../../azure-resource-manager/resource-group-overview.md).
 
-Для скачивания и выполнения скриптов на виртуальных машинах в шаблонах Azure Resource Manager используется расширение настраиваемых скриптов. Дополнительные сведения см. в статье [Использование расширения пользовательских сценариев Azure на виртуальных машинах Linux](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Для скачивания и выполнения скриптов на виртуальных машинах в шаблонах Azure Resource Manager используется расширение настраиваемых скриптов. Дополнительные сведения см. в статье [Использование расширения пользовательских сценариев Azure на виртуальных машинах Linux](extensions-customscript.md).
 
 

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 05/11/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: b7e99f8a4d7bc1cd30c71ce08ad38c13203f8b69
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -121,6 +122,7 @@ ms.lasthandoff: 03/14/2017
 * Многозначные и логические атрибуты в список не включаются.
 * Один атрибут нельзя одновременно использовать для различаемого имени и привязки, если только на странице настройки подключения не выбран параметр **Различаемое имя служит привязкой** .
 * Если на странице настройки подключения выбран параметр **Различаемое имя служит привязкой** , то на этой странице потребуется указать только атрибут различаемого имени. Этот атрибут также будет использоваться в качестве атрибута привязки.
+
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### <a name="schema-4-define-attribute-type-reference-and-direction"></a>Схема 4 (определение типа атрибута, ссылки и направления)
@@ -130,7 +132,8 @@ ms.lasthandoff: 03/14/2017
 
 * **DataType**. Используется для сопоставления типа атрибута с типом, известным для модуля синхронизации. По умолчанию используется тот же тип, который определен в схеме SQL, но типы DateTime и Reference не определяются автоматически. Для этих типов необходимо указать **DateTime** или **Reference**.
 * **Направление**. В качестве направления атрибута можно выбрать Import, Export или ImportExport. Значением по умолчанию является ImportExport.
-  ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
+
+![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
 Примечания:
 
@@ -150,6 +153,12 @@ ms.lasthandoff: 03/14/2017
 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
+>[!IMPORTANT]
+ Начиная с мая 2017 г. компонент "*" (или **любой параметр** изменен для поддержки потока импорта и экспорта. Если вы хотите использовать этот параметр, таблица или представление с несколькими значениями должны иметь атрибут, содержащий тип объекта.
+
+![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
+
+ </br> Если выбран компонент "*", также необходимо указать имя столбца с типом объекта.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
 
 После импорта вы увидите нечто похожее:
 
@@ -162,8 +171,7 @@ ms.lasthandoff: 03/14/2017
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
->[!IMPORTANT]
- *или**любой параметр** не может использоваться во время операций экспорта и удаления.
+
 
 Универсальный соединитель SQL поддерживает следующие способы импорта изменений.
 

@@ -8,13 +8,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 04/21/2017
+ms.date: 05/10/2017
 ms.author: bruceper
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 0a319f25149c41fcdde0722ce232b3e229b95d0d
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: b046e95e2167009727f6ea8f3dd237619c61434f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,6 +28,15 @@ ms.lasthandoff: 04/28/2017
 - Начиная с выпуска Key Vault от сентября 2016 г. в приложениях можно использовать [сертификаты](https://docs.microsoft.com/rest/api/keyvault/certificate-operations) Key Vault. См. дополнительные сведения о [ключах, секретах и сертификатах](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
 
 Дополнительные сведения о хранилище ключей Azure см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md).
+
+## <a name="public-preview---may-10-2017"></a>Общедоступная предварительная версия, 10 мая 2017 года
+
+>[!NOTE]
+>В этой предварительной версии Azure Key Vault только функция **обратимого удаления** находится на стадии предварительной версии. В целом Azure Key Vault — полностью рабочая служба.
+
+Эта предварительная версия включает нашу новую функцию обратимого удаления, восстанавливаемое удаление Key Vault и его объектов и обновленные интерфейсы для разработчиков, такие как [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) и [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/). 
+
+Дополнительные сведения о новой функции обратимого удаления Azure Key Vault см.в [этой статье](key-vault-ovw-soft-delete.md).
 
 ## <a name="videos"></a>Видеоролики
 
@@ -108,6 +117,11 @@ ms.lasthandoff: 04/28/2017
 - [Дисковое шифрование Azure](../security/azure-security-disk-encryption.md) использует стандартные для отрасли функции — [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) в Windows и [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) в Linux, — которые обеспечивают шифрование томов для системных дисков и дисков данных. Это решение интегрировано с хранилищем ключей Azure. Решение позволяет управлять ключами и секретами дискового шифрования через подписку хранилища ключей. Шифрование выполняется для всех данных на дисках виртуальных машин в хранилище Azure.
 - В [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) можно включить шифрование данных, хранящихся в учетной записи. Data Lake Store предоставляет два режима для управления главными ключами шифрования (MEKs), необходимыми для расшифровки любых данных, хранящихся в Data Lake Store. Вы можете позволить Data Lake Store управлять главными ключами шифрования или управлять ими самостоятельно с помощью учетной записи хранилища ключей Azure. Способ управления ключами можно задать во время создания учетной записи Data Lake Store. 
 - [Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) позволяет управлять собственным ключом клиента. Например, вместо того, чтобы вашим ключом клиента управляла корпорация Майкрософт (по умолчанию), вы можете сами управлять им в соответствии с определенными нормами своей организации. Сценарий с использованием собственного ключа клиента называется BYOK.
+
+## <a name="key-vault-overviews-and-concepts"></a>Основные сведения о Key Vault
+
+- [Системы безопасности и географические ограничения хранилища ключей Azure](key-vault-ovw-security-worlds.md)
+- [Общие сведения о функции обратимого удаления в хранилище ключей Azure](key-vault-ovw-soft-delete.md)
 
 ## <a name="social"></a>Социальные сети
 

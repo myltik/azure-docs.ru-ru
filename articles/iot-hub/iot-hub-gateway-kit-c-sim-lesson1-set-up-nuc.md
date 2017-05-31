@@ -17,10 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
-ms.openlocfilehash: 399ac2d571b65503da7d9cc47d2dec9aa5e4c3d7
-ms.lasthandoff: 01/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b87974be9570f7d03fe84ae0a1d1fa7e346ff189
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 01/25/2017
 ## <a name="what-you-will-do"></a>Выполняемая задача
 
 - Настройте Intel NUC в качестве шлюза Интернета вещей.
-- Установите пакет SDK для шлюза Azure IoT на Intel NUC.
+- Установите пакет Edge Интернета вещей Azure на Intel NUC.
 - Запустите пример приложения hello_world на Intel NUC для проверки работоспособности шлюза.
 Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
@@ -86,9 +87,9 @@ ms.lasthandoff: 01/25/2017
    Работа с Intel NUC выполняется более эффективно, если подключиться к нему через SSH-клиент с главного компьютера. Для этого вам нужны IP-адрес, имя пользователя и пароль. Вот пример использования SSH-клиента на macOS.
    ![SSH-клиент, запущенный на macOS](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## <a name="install-the-azure-iot-gateway-sdk-package"></a>Установка пакета SDK для шлюза Azure IoT
+## <a name="install-the-azure-iot-edge-package"></a>Установка пакета Edge Интернета вещей Azure
 
-Пакет SDK для шлюза Azure IoT содержит предварительно скомпилированные двоичные файлы самого пакета SDK и его зависимостей. В список этих файлов входят пакет SDK для шлюза Azure IoT, пакет SDK для Azure IoT и соответствующие средства. Пакет также содержит пример приложения hello_world, который используется для проверки работоспособности шлюза. Этот пакет SDK является основой шлюза. Для установки пакета выполните следующие действия.
+Пакет Edge Интернета вещей Azure содержит предварительно скомпилированные двоичные файлы самого пакета SDK и его зависимостей. В список этих файлов входят Edge Интернета вещей Azure, пакет SDK для Интернета вещей Azure и соответствующие средства. Пакет также содержит пример приложения hello_world, который используется для проверки работоспособности шлюза. Edge Интернета вещей является основой шлюза. Для установки пакета выполните следующие действия.
 
 1. Добавьте репозиторий облака Интернета вещей, выполнив в окне терминала следующие команды:
 
@@ -115,9 +116,9 @@ ms.lasthandoff: 01/25/2017
 
    Когда установка пакета завершится, Intel NUC должен выполнять функции шлюза.
 
-## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Запуск примера приложения hello_world из пакета SDK для шлюза Azure IoT
+## <a name="run-the-azure-iot-edge-helloworld-sample-application"></a>Запуск примера приложения hello_world из Edge Интернета вещей Azure
 
-Перейдите в каталог `azureiotgatewaysdk/samples` и запустите пример приложения hello_world. Этот пример приложения создает шлюз из файла `hello_world.json` и использует базовые компоненты архитектуры SDK для шлюза Azure IoT, чтобы каждые 5 секунд записывать в журнал сообщение "hello world".
+Перейдите в каталог `azureiotgatewaysdk/samples` и запустите пример приложения hello_world. Этот пример приложения создает шлюз из файла `hello_world.json` и использует базовые компоненты архитектуры Edge Интернета вещей Azure, чтобы каждые 5 секунд записывать в журнал сообщение Hello World.
 
 Чтобы запустить пример приложения hello_world, выполните следующую команду:
 

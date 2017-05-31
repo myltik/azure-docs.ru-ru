@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: ganesr;cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 23b88e4dd3af3cd3e1e13f80890311bdbfb7fe84
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: f708e7d53983551c578486ded9c5481048c7ee8b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -66,7 +66,7 @@ Select-AzureSubscription -SubscriptionName <VNET Subscription>
 Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
 ```
       
-Необходимо убедиться, что все ссылки на <ConnectionsToLocalNetwork> удалены из перемещаемых виртуальных сетей. В следующем фрагменте кода показан пример конфигурации сети:
+Необходимо убедиться, что все ссылки на &lt;ConnectionsToLocalNetwork&gt; удалены из перемещаемых виртуальных сетей. В следующем фрагменте кода показан пример конфигурации сети:
 
 ```
     <VirtualNetworkSite name="MyVNet" Location="East US">
@@ -88,7 +88,7 @@ Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
     </VirtualNetworkSite>
 ```
  
-Если <ConnectionsToLocalNetwork> не пустой, удалите в нем ссылки и повторно отправьте конфигурацию сети. Для этого можно выполнить следующий командлет PowerShell:
+Если раздел &lt;ConnectionsToLocalNetwork&gt; не пустой, удалите в нем ссылки и повторно отправьте конфигурацию сети. Для этого можно выполнить следующий командлет PowerShell:
 
 ```powershell
 Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml

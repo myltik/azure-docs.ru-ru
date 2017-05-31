@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 05/10/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: f89375510cdcb89d800edc2513f34e601f52efe9
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 20257c872eaa2e7610e525c4686350c206628974
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -94,8 +94,8 @@ ms.lasthandoff: 05/04/2017
 
 Для виртуальных машин Linux:
 
-* Установите последнюю версию [агента Linux](https://github.com/Azure/WALinuxAgent) с сайта GitHub.
-* [Обновите свойство виртуальной машины](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) , чтобы указать, что агент установлен.
+* Установите последнюю из репозитория дистрибутива. Мы **настоятельно рекомендуем** устанавливать агент только через репозиторий дистрибутива. Сведения об имени пакета см. в [репозитории агента Linux](https://github.com/Azure/WALinuxAgent). 
+* [Обновите свойство классической виртуальной машины](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), чтобы указать, что агент установлен.
 
 ### <a name="updating-the-vm-agent"></a>Обновление агента виртуальной машины
 Для виртуальных машин Windows:

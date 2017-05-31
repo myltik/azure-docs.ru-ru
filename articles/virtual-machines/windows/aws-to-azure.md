@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/10/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a6549999003d4b1c8e2b8a8e2a2fafef942bce43
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: e940a5653d81852c6440829010ec86bcadeadca7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
 
 # <a name="migrate-from-amazon-web-services-aws-to-azure-managed-disks"></a>Миграция из Amazon Web Services (AWS) на Управляемые диски Azure
 
-Можно перенести экземпляра EC2 Amazon Web Services (AWS) в Azure, передав его виртуальный жесткий диск. Если требуется создать несколько виртуальных машин в Azure из одного образа, необходимо сначала подготовить виртуальную машину, а затем экспортировать полученный универсальный виртуальный жесткий диск в локальный каталог. После передачи виртуального жесткого диска можно создать новую виртуальную машину Azure, использующую [управляемые диски](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) для хранения данных. Управляемые диски Azure избавляют от необходимости управлять учетными записями хранения для виртуальных машин IaaS в Azure. Вам достаточно выбрать уровень ("Премиум" или "Стандартный") и размер диска. Azure самостоятельно создаст диск и будет управлять им. 
+Экземпляр EC2 Amazon Web Services (AWS) можно перенести в Azure, передав его виртуальный жесткий диск. Если требуется создать несколько виртуальных машин в Azure из одного образа, необходимо сначала подготовить виртуальную машину к использованию, а затем экспортировать полученный универсальный виртуальный жесткий диск в локальный каталог. После передачи виртуального жесткого диска можно создать новую виртуальную машину Azure, использующую [управляемые диски](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) для хранения данных. Управляемые диски Azure избавляют от необходимости управлять учетными записями хранения для виртуальных машин IaaS в Azure. Вам нужно только выбрать нужный тип (Premium или Standard) и размер диска, а Azure самостоятельно создаст диск и будет управлять им. 
 
 Прежде чем начать эту процедуру, внимательно изучите [планирование миграции на управляемые диски](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 
@@ -41,7 +41,7 @@ Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](/powershell/azure/overview).
 
 
-## <a name="generalize-the-windows-vm-using-sysprep"></a>Подготовка виртуальной машины Windows к использованию с помощью Sysprep
+## <a name="generalize-the-vm"></a>Подготовка виртуальной машины к использованию
 
 При подготовке виртуальной машины с помощью Sysprep с ее виртуального жесткого диска удаляются все сведения о компьютере и личных учетных записях, и виртуальная машина подготавливается к использованию в качестве образа. Сведения о Sysprep см. в статье [Использование программы Sysprep: введение](http://technet.microsoft.com/library/bb457073.aspx).
 
@@ -63,7 +63,7 @@ Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 
 
 
-## <a name="export-the-vhd-from-an-ec2-instance"></a>Экспорт виртуального жесткого диска из экземпляра EC2
+## <a name="export-the-vhd-from-aws"></a>Экспорт виртуального жесткого диска из AWS
 
 1.    При использовании Amazon Web Services (AWS) экспортируйте экземпляр EC2 на виртуальный жесткий диск в контейнер Amazon S3. Выполните действия, описанные в документации по Amazon в разделе об экспорте экземпляров Amazon EC2, чтобы установить интерфейс командной строки Amazon EC2, а также выполнить команду create-instance-export-task и экспортировать экземпляр EC2 в файл VHD. При выполнении команды create-instance-export-task обязательно укажите значение VHD для переменной DISK_IMAGE_FORMAT. Экспортированный файл виртуального жесткого диска сохраняется в сегменте Amazon S3, назначенном во время этого процесса.
 
@@ -76,7 +76,12 @@ Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 
 
 
-## <a name="log-in-to-azure"></a>Вход в Azure
+## <a name="upload-the-vhd"></a>Отправка виртуального жесткого диска
+
+Войдите в Azure, создайте учетную запись хранения и передайте виртуальный жесткий диск в учетную запись хранения, прежде чем создавать образ. 
+
+### <a name="log-in-to-azure"></a>Вход в Azure
+
 Если вы еще не установили PowerShell, ознакомьтесь со статьей [How to install and configure Azure PowerShell](/powershell/azure/overview) (Установка и настройка Azure PowerShell).
 
 1. Откройте Azure PowerShell и войдите в свою учетную запись Azure. Откроется всплывающее окно для ввода данных учетной записи Azure.
@@ -95,10 +100,10 @@ Install-Module AzureRM.Compute -MinimumVersion 2.6.0
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
     ```
 
-## <a name="get-the-storage-account"></a>Получение учетной записи хранения
+### <a name="get-the-storage-account"></a>Получение учетной записи хранения
 Вам необходима учетная запись хранения Azure для хранения переданного образа виртуальной машины. Можно использовать существующую учетную запись хранения или создать новую. 
 
-Если для создания управляемого диска для виртуальной машины будет использоваться виртуальный жесткий диск, то расположение учетной записи хранения должно совпадать с расположением, в котором будет создаваться виртуальная машина.
+Если при создании управляемого диска для виртуальной машины используется виртуальный жесткий диск, расположение учетной записи хранения должно совпадать с расположением, в котором вы создаете виртуальную машину.
 
 Чтобы отобразить список доступных учетных записей хранения, введите:
 
@@ -137,9 +142,9 @@ Get-AzureRmStorageAccount
    * **Standard_RAGRS** — геоизбыточное хранилище с доступом только для чтения. 
    * **Premium_LRS** — локально избыточное хранилище уровня "Премиум". 
 
-## <a name="upload-the-vhd-to-your-storage-account"></a>Передача виртуального жесткого диска в учетную запись хранения
+### <a name="upload-the-vhd"></a>Отправка виртуального жесткого диска 
 
-Используйте командлет [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd), чтобы передать VHD в контейнер в учетной записи хранения. В этом примере файл **myVHD.vhd** передается из расположения `"C:\Users\Public\Documents\Virtual hard disks\"` в учетную запись хранения **mystorageaccount**, входящую в группу ресурсов **myResourceGroup**. Файл будет помещен в контейнер с именем **mycontainer**; новое имя файла — **myUploadedVHD.vhd**.
+Используйте командлет [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd), чтобы передать VHD в контейнер в учетной записи хранения. В этом примере файл **myVHD.vhd** передается из расположения `"C:\Users\Public\Documents\Virtual hard disks\"` в учетную запись хранения **mystorageaccount**, входящую в группу ресурсов **myResourceGroup**. Файл помещается в контейнер с именем **mycontainer**. Новое имя файла — **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -179,9 +184,9 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 
     Мы рекомендуем использовать службу импорта и экспорта, если предполагаемое время передачи больше 7 дней. Чтобы оценить предполагаемое время передачи на основе размера данных и средства передачи, используйте компонент [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html). 
 
-    Импорт и экспорт можно использовать для копирования в учетную запись хранения класса Standard. Необходимо осуществить копирование из учетной записи хранения Standard в учетную запись хранения Premium с помощью схожего с AzCopy средства.
+    Импорт и экспорт можно использовать для копирования в учетную запись хранения класса Standard. Чтобы использовать хранилище класса Premium, необходимо скопировать учетную запись хранения Standard в учетную запись хранения Premium с помощью средства AzCopy.
 
-## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Создание управляемого образа на основе переданного виртуального жесткого диска 
+## <a name="create-an-image"></a>Создание образа 
 
 Создайте управляемый образ с помощью универсального виртуального жесткого диска ОС.
 
@@ -204,7 +209,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
     $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
-## <a name="setup-some-variables-for-the-image"></a>Задание переменных для образа
+## <a name="create-vm-from-image"></a>Создание виртуальной машины на основе образа
 
 Сначала необходимо собрать основные сведения об образе и создать для него переменную. В этом примере используется управляемый образ виртуальной машины **myImage**, находящийся в группе ресурсов **myResourceGroup** в расположении **Западно-центральная часть США**. 
 
@@ -215,7 +220,7 @@ $imageName = "myImage"
 $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
 ```
 
-## <a name="create-a-virtual-network"></a>Создать виртуальную сеть
+### <a name="create-a-virtual-network"></a>Создать виртуальную сеть
 Создайте виртуальную сеть и подсеть [виртуальной сети](../../virtual-network/virtual-networks-overview.md).
 
 1. Создание подсети. В этом примере создается подсеть **mySubnet** с префиксом адреса **10.0.0.0/24**.  
@@ -232,7 +237,7 @@ $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
-## <a name="create-a-public-ip-address-and-network-interface"></a>Создание общедоступного IP-адреса и сетевого интерфейса
+### <a name="create-a-public-ip-and-nic"></a>Создание общедоступного IP-адреса и сетевой карты
 
 Чтобы обеспечить обмен данными с виртуальной машиной в виртуальной сети, требуются [общедоступный IP-адрес](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) и сетевой интерфейс.
 
@@ -251,7 +256,7 @@ $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
         -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
     ```
 
-## <a name="create-the-network-security-group-and-an-rdp-rule"></a>Создание группы безопасности сети и правила RDP
+### <a name="create-nsg"></a>Создание NSG
 
 Чтобы войти на виртуальную машину с помощью RDP, необходимо настроить группу безопасности сети, которая разрешает доступ по протоколу RDP через порт 3389. 
 
@@ -270,7 +275,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 ```
 
 
-## <a name="create-a-variable-for-the-virtual-network"></a>Создание переменной для виртуальной сети
+### <a name="create-network-variables"></a>Создание переменных сети
 
 Создайте переменную для готовой виртуальной сети. 
 
@@ -279,15 +284,15 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ```
 
-## <a name="get-the-credentials-for-the-vm"></a>Получение учетных данных для виртуальной машины
+### <a name="get-the-credentials"></a>Получение учетных данных 
 
-Следующий командлет откроет окно, в котором необходимо ввести новое имя пользователя и пароль, используемые в качестве учетной записи локального администратора для удаленного доступа к виртуальной машине. 
+Следующий командлет открывает окно, в котором необходимо ввести новое имя пользователя и пароль, которые будут использоваться в качестве учетной записи локального администратора для удаленного доступа к виртуальной машине. 
 
 ```powershell
 $cred = Get-Credential
 ```
 
-## <a name="set-variables-for-the-vm-name-computer-name-and-the-size-of-the-vm"></a>Задание переменных для имени виртуальной машины, имени компьютера и размера виртуальной машины
+### <a name="set-vm-variables"></a>Настройка переменных виртуальной машины 
 
 1. Создайте переменные для имени виртуальной машины и компьютера. В этом примере имя виртуальной машины задается как **myVM**, а имя компьютера — как **myComputer**.
 
@@ -307,7 +312,7 @@ $cred = Get-Credential
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 ```
 
-## <a name="set-the-vm-image-as-source-image-for-the-new-vm"></a>Настройка образа виртуальной машины в качестве исходного образа для новой виртуальной машины
+### <a name="set-the-vm-image"></a>Настройка образа виртуальной машины 
 
 Настройте исходный образ, используя идентификатор управляемого образа виртуальной машины.
 
@@ -315,7 +320,7 @@ $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 ```
 
-## <a name="set-the-os-configuration-and-add-the-nic"></a>Настройте конфигурацию операционной системы и добавьте сетевую карту.
+### <a name="set-the-os-configuration"></a>Настройка конфигурации операционной системы 
 
 Введите тип хранилища (PremiumLRS или StandardLRS) и размер диска операционной системы. В этом примере для типа учетной записи задается значение **PremiumLRS**, для размера диска — **128 ГБ**, а для кэширования диска — **ReadWrite**.
 
@@ -329,15 +334,15 @@ $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName 
 $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 ```
 
-## <a name="create-the-vm"></a>Создание виртуальной машины
+### <a name="create-the-vm"></a>Создание виртуальной машины
 
-Создайте виртуальную машину с использованием конфигурации, созданной и хранимой в переменной **$vm**.
+Создайте виртуальную машину, используя конфигурацию, которую мы создали и сохранили в переменной **$vm**.
 
 ```powershell
 New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location
 ```
 
-## <a name="verify-that-the-vm-was-created"></a>Проверка создания виртуальной машины
+## <a name="verify-the-vm"></a>Проверка виртуальной машины
 После завершения процесса новая виртуальная машина должна отображаться на [портале Azure](https://portal.azure.com) (выберите элементы **Обзор** > **Виртуальные машины**). Ее можно также увидеть, выполнив следующие команды PowerShell.
 
 ```powershell
