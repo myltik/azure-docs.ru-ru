@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: da3fc08cc5c506dba02ccda16940a28a4600a288
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b92cfff10dc0f10ebd4554d1614a23fb7dc46a37
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -86,6 +87,9 @@ ms.lasthandoff: 03/10/2017
 ## <a name="try-this-sample"></a>Пробное использование примера
 
 Чтобы попробовать развернуть полностью рабочее приложение логики и пример сценария AS2, см. [шаблон и сценарий приложения логики AS2](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+
+## <a name="view-the-swagger"></a>Просмотр Swagger
+Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Обзор Пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md) 

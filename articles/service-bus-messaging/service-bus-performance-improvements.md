@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 05/10/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: a9fd01e533f4ab76a68ec853a645941eff43dbfd
-ms.openlocfilehash: d077099a9fdc50cf78157bcb7f28d1d28583bea1
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: e6a0e480f7748f12f5e566cf4059b5b2c4242c09
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Рекомендации по повышению производительности с помощью обмена сообщениями через служебную шину
+
 В этой статье описывается использование [обмена данными через служебную шину Azure](https://azure.microsoft.com/services/service-bus/) для оптимизации производительности при обмене сообщениями в брокере. В первой части статьи описываются различные механизмы, которые можно использовать для повышения производительности. Во второй части приведены инструкции по эффективному использованию служебной шины для достижения максимальной производительности при определенных условиях.
 
 В этой статье термин "клиент" означает любую сущность, которая обращается к служебной шине. Клиент может быть как отправителем, так и получателем. Термин "отправитель" используется в отношении клиента очереди или раздела служебной шины, который отправляет сообщения в очередь или раздел. Термин "получатель" используется в отношении клиента очереди или подписки служебной шины, который получает сообщения из очереди или подписки.
@@ -130,7 +132,8 @@ Queue q = namespaceManager.CreateQueue(qd);
 Предварительная выборка не влияет на количество оплачиваемых операций обмена сообщениями и доступна только для протокола клиента служебной шины. Протокол HTTP не поддерживает предварительную выборку. Предварительная выборка доступна как для синхронных, так и для асинхронных операций получения.
 
 ## <a name="express-queues-and-topics"></a>Экспресс-очереди и экспресс-разделы
-Экспресс-сущности обеспечивают высокую пропускную способность и уменьшают частоту задержек. Если при использовании экспресс-сущностей сообщение отправляется в очередь или раздел, оно не помещается сразу же в хранилище сообщений. Вместо этого оно сохраняется в кэше, расположенном в памяти. Если сообщение остается в очереди больше нескольких секунд, оно автоматически записывается в постоянное хранилище. Это делается для защиты от потери данных в случае сбоя. Запись сообщения в кэш памяти повышает пропускную способность и сокращает задержки, так как в этом случае во время отправки сообщения исключается доступ к постоянному хранилищу. Сообщения, обработанные в течение нескольких секунд, не записываются в хранилище обмена сообщениями. В следующем примере создается экспресс-раздел.
+
+Экспресс-сущности обеспечивают высокую пропускную способность и уменьшают частоту задержек. Они поддерживаются только на уровне обмена сообщениями "Стандартный". Сущности, созданные в [пространстве имен уровня "Премиум"](service-bus-premium-messaging.md), не поддерживают параметр "Экспресс". Если при использовании экспресс-сущностей сообщение отправляется в очередь или раздел, оно не помещается сразу же в хранилище сообщений. Вместо этого оно сохраняется в кэше, расположенном в памяти. Если сообщение остается в очереди больше нескольких секунд, оно автоматически записывается в постоянное хранилище. Это делается для защиты от потери данных в случае сбоя. Запись сообщения в кэш памяти повышает пропускную способность и сокращает задержки, так как в этом случае во время отправки сообщения исключается доступ к постоянному хранилищу. Сообщения, обработанные в течение нескольких секунд, не записываются в хранилище обмена сообщениями. В следующем примере создается экспресс-раздел.
 
 ```csharp
 TopicDescription td = new TopicDescription(TopicName);
@@ -141,7 +144,7 @@ namespaceManager.CreateTopic(td);
 Если в экспресс-сущность отправляется сообщение с критически важной информацией, которая не должна быть потеряна, то отправитель может дать команду служебной шине принудительно записать сообщение в постоянное хранилище. Для этого свойству [ForcePersistence][ForcePersistence] задается значение **true**.
 
 > [!NOTE]
-> Обратите внимание, что транзакции не поддерживаются экспресс-сущностями.
+> Транзакции не поддерживаются экспресс-сущностями.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>Использование секционированных очередей или разделов
 Для обработки и хранения всех сообщений для сущности сообщений (очереди или раздела) внутри служебной шины используется один узел и хранилище обмена сообщениями. С другой стороны, секционирование очередей или разделов позволяет распределять их между несколькими узлами и хранилищами обмена сообщениями. Секционированные очереди и разделы не только повышают пропускную способность в сравнении с обычными очередями и разделами, но также обеспечивают высочайший уровень доступности. Чтобы создать секционированную сущность, задайте для свойства [EnablePartitioning][EnablePartitioning] значение **true**, как показано в следующем примере. Дополнительные сведения о секционированных сущностях см. в статье [Секционированные сущности обмена сообщениями][Partitioned messaging entities].
@@ -252,12 +255,12 @@ namespaceManager.CreateQueue(qd);
 [MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
 [PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
 [ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
-[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
-[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
-[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
-[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
-[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
-[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
-[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
 

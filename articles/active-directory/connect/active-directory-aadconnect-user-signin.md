@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/09/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1673e14285456307441c836ba2225556416d4a7b
-ms.openlocfilehash: 4c50968dd66ab351a5ef1b8e06557855870c5d4e
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6bc564cc5121a6b7b7896f1d90177140bee15fbb
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -131,7 +132,7 @@ ms.lasthandoff: 03/02/2017
 Мы настоятельно рекомендуем сохранить userPrincipalName как атрибут по умолчанию. Если этот атрибут нельзя маршрутизировать и проверить, то в качестве атрибута, который содержит идентификатор пользователя для входа, можно выбрать другой атрибут (например адрес электронной почты). Он называется альтернативным идентификатором. Значение альтернативного идентификатора должно соответствовать стандарту RFC 822. Альтернативный идентификатор может использоваться совместно с паролем единого входа или федеративным единым входом, образуя единое решение для входа.
 
 > [!NOTE]
-> Использование альтернативного идентификатора совместимо не со всеми рабочими нагрузками Office 365 при использовании сквозной аутентификации. Дополнительные сведения см. в статье [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx) (Настройка альтернативного идентификатора входа).
+> Использование альтернативного идентификатора совместимо не со всеми рабочими нагрузками Office 365. Дополнительные сведения см. в статье [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx) (Настройка альтернативного идентификатора входа).
 >
 >
 

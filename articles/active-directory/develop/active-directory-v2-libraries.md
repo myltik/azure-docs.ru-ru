@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2016
+ms.date: 05/01/2017
 ms.author: skwan;bryanla
-translationtype: Human Translation
-ms.sourcegitcommit: 9710381787cc1fe570443467b6980616879c503f
-ms.openlocfilehash: ab5576d09e5a51cd7ae602d57693558715e12d66
-ms.lasthandoff: 02/27/2017
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f0dcb0a9a7c2c9fd362f0ed242471f6c4e495234
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -42,57 +44,48 @@ Azure AD версии 2.0 поддерживает два типа библио�
 
 Список библиотек, совместимых с конечной точкой версии 2.0, см. в следующих разделах этой статьи.
 
-## <a name="microsoft-supported-client-libraries"></a>Клиентские библиотеки, поддерживаемые корпорацией Майкрософт
-| Платформа | Имя библиотеки | Загрузить | Исходный код | Образец |
-|:---:|:---:|:---:|:---:|:---:|
-| .NET, Магазин Windows, Xamarin |Библиотека аутентификации Майкрософт (MSAL) для .NET |[Microsoft.Identity.Client (NuGet)][ClientLib-NET-Lib] |[MSAL для .NET (GitHub)][ClientLib-NET-Repo] |[Пример классического собственного клиента Windows][ClientLib-NET-Sample] |
-| Node.js |Подключаемый модуль Passport.js Microsoft Azure Active Directory |[Passport-Azure-AD (npm)][ClientLib-Node-Lib] |[Passport-Azure-AD (GitHub)][ClientLib-Node-Repo] |Скоро |
 
-<!--- COMMENTING OUT UNTIL THEY ARE READY
-| iOS, Mac | Microsoft Authentication Library (MSAL) for ObjC | In development | In development | In development |
-| Android | Microsoft Authentication Library (MSAL) for Android | In development | In development | In development |
-| JavaScript | Microsoft Authentication Library (MSAL) for JavaScript | In development | In development | In development |
- -->
+## <a name="microsoft-supported-client-libraries"></a>Клиентские библиотеки, поддерживаемые корпорацией Майкрософт
+
+> [!IMPORTANT]
+> Библиотеки MSAL предварительной версии можно использовать в рабочей среде. Для этих библиотек предоставляется такая же поддержка рабочего уровня, как и для текущих рабочих библиотек (ADAL). Во время действия предварительной версии мы можем вносить изменения в API MSAL, формат внутреннего кэша и другие механизмы этих библиотек без уведомления. Вы будете применять их вместе с исправлениями ошибок или обновлениями функций. Это может повлиять на приложение. Например, изменение формата кэша может повлиять на пользователей (в частности, потребуется повторный вход). Изменение API может потребовать обновления кода. После выпуска общедоступной версии вам понадобится перейти на нее в течение шести месяцев, так как приложения, написанные с помощью предварительной версии библиотеки, могут перестать работать.
+
+| Платформа | Библиотека | Загрузить | Исходный код | Образец | Справочные материалы
+| --- | --- | --- | --- | --- | --- |
+| Клиент .NET, Магазин Windows, UWP, Xamarin iOS и Android | MSAL для .NET (предварительная версия) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Классическое приложение](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
+| JavaScript | MSAL.js (предварительная версия) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Одностраничное приложение](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
+| iOS, macOS | MSAL (предварительная версия) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [Приложение iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
+| Android | MSAL (предварительная версия) | [Центральный репозиторий](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Приложение Android](guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [Javadocs](http://javadoc.io/doc/com.microsoft.identity.client/msal) |
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Серверные библиотеки ПО промежуточного слоя, поддерживаемые корпорацией Майкрософт
-| Платформа | Имя библиотеки | Загрузить | Исходный код | Образец |
-|:---:|:---:|:---:|:---:|:---:|
-| .NET 4.x |ПО промежуточного слоя OWIN OpenID Connect для ASP.NET |[Microsoft.Owin.Security.OpenIdConnect (NuGet)][ServerLib-Net4-Owin-Oidc-Lib] |[Проект Katana (CodePlex)][ServerLib-Net4-Owin-Oidc-Repo] |[Пример веб-приложения][ServerLib-Net4-Owin-Oidc-Sample] |
-| .NET 4.x |ПО промежуточного слоя носителя OWIN OAuth для ASP.NET |[Microsoft.Owin.Security.OAuth (NuGet)][ServerLib-Net4-Owin-Oauth-Lib] |[Проект Katana (CodePlex)][ServerLib-Net4-Owin-Oauth-Repo] |[Пример веб-API][ServerLib-Net4-Owin-Oauth-Sample] |
-| .NET Core |ПО промежуточного слоя OWIN OpenID Connect для .NET Core |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[Безопасность ASP.NET (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[Пример веб-приложения][ServerLib-NetCore-Owin-Oidc-Sample] |
-| .NET Core |ПО промежуточного слоя носителя OWIN OAuth для .NET Core |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[Безопасность ASP.NET (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |Скоро |
-| Node.js |Подключаемый модуль Passport.js Microsoft Azure Active Directory |[Passport-Azure-AD (npm)][ServerLib-Node-Lib] |[Passport-Azure-AD (GitHub)][ServerLib-Node-Repo] |[Пример веб-приложения][ServerLib-Node-Sample] |
 
-<!--- COMMENTING UNTIL SAMPLE IS AVAILABLE
-| .NET 4.x, .NET Core | JSON Web Token Handler for .NET | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .NET (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
---->
+| Платформа | Библиотека | Загрузить | Исходный код | Образец | Справочные материалы
+| --- | --- | --- | --- | --- | --- |
+| .NET 4.x | ПО промежуточного слоя OWIN OpenID Connect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Приложение MVC](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
+| .NET 4.x | ПО промежуточного слоя носителя OWIN OAuth для AzureAD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
+| .NET 4.x | Обработчик JWT для .NET 4.5 | [NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/4.0.4.403061554) | [GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
+| .NET Core | ПО промежуточного слоя ASP.NET OpenID Connect |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[Безопасность ASP.NET (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[Приложение MVC](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-v2) |
+| .NET Core | ПО промежуточного слоя носителя ASP.NET OAuth |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[Безопасность ASP.NET (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |  |
+| .NET Core | Обработчик JWT для .NET Core  |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
+| Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Веб-приложение](active-directory-v2-devquickstarts-node-web.md)| |
+
 ## <a name="compatible-client-libraries"></a>Совместимые клиентские библиотеки
 | Платформа | Имя библиотеки | Проверенные версии | Исходный код | Образец |
 |:---:|:---:|:---:|:---:|:---:|
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Пример встроенного приложения](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Пример встроенного приложения](active-directory-v2-devquickstarts-ios.md) |
-| Java | [Scribe Java (scribejava)](https://github.com/scribejava/scribejava) | [Версия 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | Скоро |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[Безопасная проверка пароля](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-| PHP | [The PHP League (oauth2-client)](https://github.com/thephpleague/oauth2-client) | [Версия 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | Скоро |
-| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |[Веб-приложение](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
-| Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |Скоро |
-
-<!--- REMOVING BRANDON'S FOR NOW
-|  |  |  |  |  |
-| Android | [OAuth2 Client](https://github.com/wuman/android-oauth-client) |   | [OAuth2 Client](https://github.com/wuman/android-oauth-client)  | Coming soon  |
-| Java | [WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server) | [Version 5.2.0](http://wso2.com/products/identity-server/) | [Source](https://docs.wso2.com/display/IS500/Building+from+Source) | [Samples index](https://docs.wso2.com/display/IS500/Samples)  |
-| Java | [Java Gluu Server](https://gluu.org/docs/) |   | [oxAuth](https://github.com/GluuFederation/oxAuth)  | Coming soon |
-| Node.js | [NPM passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect) | 0.0.1  | [Passport-OpenID Connect](https://github.com/jaredhanson/passport-openidconnect) | Coming soon  |
-| PHP | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP) |   | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)  | Coming soon  |
--->
 
 ## <a name="compatible-server-middleware-libraries"></a>Совместимые серверные библиотеки ПО промежуточного слоя
-Скоро
+| Платформа | Имя библиотеки | Проверенные версии | Исходный код | Образец |
+|:---:|:---:|:---:|:---:|:---:|
+| Java | [Scribe Java (scribejava)](https://github.com/scribejava/scribejava) | [Версия 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
+| PHP | [The PHP League (oauth2-client)](https://github.com/thephpleague/oauth2-client) | [Версия 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
+| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |[Веб-приложение](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
+| Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>Связанная информация
 Дополнительные сведения о конечной точке Azure AD версии 2.0 см. в статье [Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении][AAD-App-Model-V2-Overview].
-
-Оставляйте свои замечания и пожелания в разделе DISQUS ниже. Они помогают нам улучшать содержимое веб-сайта.
 
 <!--Image references-->
 

@@ -1,36 +1,37 @@
 ---
-title: "Руководство по Power BI для соединителя DocumentDB | Документация Майкрософт"
-description: "Используйте этот учебник по Power BI для импорта JSON, создания информативных отчетов и визуализация данных с помощью соединителя DocumentDB и Power BI."
+title: "Руководство по Power BI для соединителя Azure Cosmos DB | Документация Майкрософт"
+description: "Используйте это руководство по Power BI для импорта JSON, создания информативных отчетов и визуализации данных с помощью соединителя Azure Cosmos DB и Power BI."
 keywords: "учебник по Power BI, визуализация данных, соединитель Power BI"
-services: documentdb
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
 ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2016
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: 089b250e36eb3e091ad63d716acaf6259a958898
-ms.openlocfilehash: 3f2103a1d3838b73f10d567721693a9b813d0edb
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 25a33ea4266dd5b7874df1c642ca05fbaf6a50fa
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="power-bi-tutorial-for-documentdb-visualize-data-using-the-power-bi-connector"></a>Учебник по Power BI для DocumentDB: визуализация данных с помощью соединителя Power BI
-[PowerBI.com](https://powerbi.microsoft.com/) — это веб-служба, с помощью которой можно создавать и совместно использовать панели мониторинга и отчеты с важными данными.  Power BI Desktop — это специальное средство создания отчетов, позволяющее получать данные из различных источников, объединять и преобразовывать их, создавая подробные отчеты и визуализации, и публиковать их в Power BI.  Последняя версия Power BI Desktop теперь позволяет подключаться к вашей учетной записи DocumentDB через соединитель DocumentDB для Power BI.   
+# <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Руководство по Power BI для Azure Cosmos DB: визуализация данных с помощью соединителя Power BI
+[PowerBI.com](https://powerbi.microsoft.com/) — это веб-служба, с помощью которой можно создавать и совместно использовать панели мониторинга и отчеты с важными данными.  Power BI Desktop — это специальное средство создания отчетов, позволяющее получать данные из различных источников, объединять и преобразовывать их, создавая подробные отчеты и визуализации, и публиковать их в Power BI.  Последняя версия Power BI Desktop теперь позволяет подключаться к вашей учетной записи Azure Cosmos DB через соединитель Azure Cosmos DB для Power BI.   
 
-В этом учебнике по Power BI мы рассматриваем действия для подключения к учетной записи DocumentDB в Power BI Desktop, переходим к коллекции для извлечения данных с помощью навигатора, преобразуем данные JSON в табличный формат с помощью редактора запросов Power BI Desktop, а также создаем и публикуем отчет в PowerBI.com.
+В этом руководстве по Power BI мы рассматриваем действия для подключения к учетной записи Azure Cosmos DB в Power BI Desktop, переходим к коллекции для извлечения данных с помощью навигатора, преобразуем данные JSON в табличный формат с помощью редактора запросов Power BI Desktop, а также создаем и публикуем отчет в PowerBI.com.
 
 После изучения этого учебника по Power BI вы сможете ответить на следующие вопросы.  
 
-* Как создавать отчеты с данными из DocumentDB с помощью Power BI Desktop?
-* Как подключиться к учетной записи DocumentDB в Power BI Desktop?
+* Как создавать отчеты с данными из Azure Cosmos DB с помощью Power BI Desktop?
+* Как подключиться к учетной записи Azure Cosmos DB в Power BI Desktop?
 * Как получить данные из коллекции в Power BI Desktop?
 * Как преобразовывать вложенные данные JSON в Power BI Desktop?
 * Как публиковать и совместно использовать отчеты в PowerBI.com?
@@ -39,16 +40,16 @@ ms.lasthandoff: 02/15/2017
 Перед выполнением инструкций в этом учебнике по Power BI убедитесь в наличии следующего:
 
 * [Последняя версия Power BI Desktop](https://powerbi.microsoft.com/desktop).
-* Доступ к нашей демонстрационной учетной записи или к данным в вашей учетной записи Azure DocumentDB.
+* Доступ к нашей демонстрационной учетной записи или к данным в вашей учетной записи Azure Cosmos DB.
   * В демонстрационной учетной записи используются данные о вулкане, показанные в этом руководстве. Использование этой демонстрационной учетной записи не регулируется соглашениями об уровне обслуживания. Она предназначена только для демонстрационных целей.  Мы оставляем за собой право вносить изменения в эту демонстрационную учетную запись, включая, кроме прочего, закрытие учетной записи, изменение ключа, ограничение доступа, изменение и удаление данных в любое время без уведомления или указания причины.
     * URL-адрес: https://analytics.documents.azure.com
     * Ключ только для чтения: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
-  * Информацию о создании учетной записи см. в статье [Как создать учетную запись DocumentDB в базе данных NoSQL с помощью портала Azure](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Для получения примера данных о вулкане, схожих с теми, которые используются в этом учебнике (но не содержат блоки GeoJSON), посетите [сайт NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5), а затем импортируйте данные с помощью [средства миграции данных DocumentDB](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
+  * Сведения о создании учетной записи см. в статье [Azure Cosmos DB. Создание веб-приложения API DocumentDB с использованием языка .NET и портала Azure](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Для получения примера данных о вулкане, схожих с теми, которые используются в этом руководстве (но не содержат блоки GeoJSON), посетите [сайт NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5), а затем импортируйте данные с помощью [средства миграции данных Azure Cosmos DB](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
 
 Для совместного использования отчетов в службе PowerBI.com необходимо настроить учетную запись в PowerBI.com.  Дополнительные сведения о бесплатной версии Power BI и Power BI Pro см. по адресу: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
 ## <a name="lets-get-started"></a>Начало работы
-Для работы с этим руководством представим, что вы геолог, изучающий вулканы по всему миру.  Данные о вулканах хранятся в учетной записи DocumentDB, а документы JSON выглядят, как показано ниже.
+Для работы с этим руководством представим, что вы геолог, изучающий вулканы по всему миру.  Данные о вулканах хранятся в учетной записи Cosmos DB, а документы JSON выглядят, как показано ниже.
 
     {
         "Volcano Name": "Rainier",
@@ -67,7 +68,7 @@ ms.lasthandoff: 02/15/2017
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-Вам нужно получить данные о вулканах из учетной записи DocumentDB и представить их в виде интерактивного отчета Power BI, подобного приведенному ниже.
+Вам нужно получить данные о вулканах из учетной Cosmos DB и представить их в виде интерактивного отчета Power BI, подобного приведенному ниже.
 
 ![После завершения этого учебника Power BI с соединителем Power BI вы сможете визуализировать данные в отчете о вулканах Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
@@ -81,26 +82,26 @@ ms.lasthandoff: 02/15/2017
    
     ![Представление отчета в Power BI Desktop — соединитель Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview.png)
 4. Откройте ленту **Главная** и щелкните **Получить данные**.  Откроется окно **Получение данных** .
-5. Выберите **Azure**, затем — **Microsoft Azure DocumentDB (Beta)** и щелкните **Подключение**.  Откроется окно **Подключение Microsoft Azure DocumentDB** .
+5. Выберите **Azure**, затем — **Microsoft Azure Cosmos DB (Beta)** и щелкните **Подключение**.  Откроется окно **Подключение Microsoft Azure Cosmos DB** .
    
     ![Получение данных в Power BI Desktop — соединитель Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
-6. Укажите URL-адрес конечной точки учетной записи DocumentDB, из которой необходимо получить данные, как показано ниже, и нажмите кнопку **ОK**. Этот URL-адрес можно найти в поле универсального кода ресурса (URI) в колонке **[Ключи](documentdb-manage-account.md#keys)** на портале Azure. Можно также использовать демонстрационную учетную запись, использующую URL-адрес `https://analytics.documents.azure.com`. 
+6. Укажите URL-адрес конечной точки учетной записи Cosmos DB, из которой необходимо получить данные, как показано ниже, и нажмите кнопку **ОK**. Этот URL-адрес можно найти в поле универсального кода ресурса (URI) в колонке **[Ключи](documentdb-manage-account.md#keys)** на портале Azure. Можно также использовать демонстрационную учетную запись, использующую URL-адрес `https://analytics.documents.azure.com`. 
    
     Не указывайте имя базы данных, имя коллекции и инструкцию SQL, т. к. эти поля являются необязательными.  Вместо этого мы будем использовать навигатор для выбора базы данных и коллекции для определения источника данных.
    
-    ![Учебник по Power BI для соединителя Power BI DocumentDB — окно подключения рабочего стола](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
+    ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — окно подключения рабочего стола](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 7. При подключении к этой конечной точке в первый раз отобразится запрос ключа учетной записи.  Этот ключ можно найти в поле **Первичный ключ** в колонке **[Ключи только для чтения](documentdb-manage-account.md#keys)** на портале Azure. Можно также использовать демонстрационную учетную запись, использующую ключ `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Введите ключ учетной записи и нажмите кнопку **Подключение**.
    
     При создании отчетов мы рекомендуем использовать ключ только для чтения.  Это позволит предотвратить потенциальные угрозы безопасности для главного ключа. Ключ только для чтения можно найти в колонке [Ключи](documentdb-manage-account.md#keys) на портале Azure. Можно также использовать сведения демонстрационной учетной записи, приведенные выше.
    
-    ![Учебник по Power BI для соединителя Power BI DocumentDB — ключ учетной записи](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
+    ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — ключ учетной записи](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 8. После подключения учетной записи откроется окно **Навигатор** .  В **Навигаторе** отобразится список баз данных в учетной записи.
 9. Выберите и разверните узел базы данных, которая будет источником данных для отчета. Если вы используете демонстрационную учетную запись, то выберите **volcanodb**.   
 10. Теперь выберите коллекцию, из которой необходимо извлечь данные. Если вы используете демонстрационную учетную запись, то выберите **volcano1**.
     
     В области «Предварительный просмотр» отображается список элементов **Запись** .  Документ представлен как тип **Запись** в Power BI. Точно так же вложенный блок JSON в документе является **Записью**.
     
-    ![Учебник по Power BI для соединителя Power BI DocumentDB — окно навигатора](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)
+    ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — окно навигатора](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)
 11. Нажмите кнопку **Изменить** , чтобы запустить редактор запросов для преобразования данных.
 
 ## <a name="flattening-and-transforming-json-documents"></a>Преобразование документов JSON в плоскую структуру и их трансформация
@@ -108,40 +109,40 @@ ms.lasthandoff: 02/15/2017
    ![Редактор запросов Power BI Desktop](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 2. В правой части заголовка столбца **Документ** щелкните кнопку развертывания.  Отобразится контекстное меню со списком полей.  Выберите поля, необходимые для вашего отчета, например "Volcano Name", "Country", "Region", "Location", "Elevation", "Type", "Status" и "Last Know Eruption", и нажмите кнопку **ОK**.
    
-    ![Учебник по Power BI для соединителя Power BI DocumentDB — раскрыть документы](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
+    ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — раскрыть документы](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
 3. В центральной области отобразится предварительный просмотр результата для выбранных полей.
    
-    ![Учебник по Power BI для соединителя Power BI DocumentDB — сделать результаты более плоскими](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflatten.png)
+    ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — сделать результаты более плоскими](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 4. В нашем примере свойство «Расположение» является блоком GeoJSON в документе.  Как видно, значение свойства «Расположение» представлено типом **Запись** в Power BI Desktop.  
 5. В правой части заголовка столбца «Расположение» нажмите кнопку развертывания.  Отобразится контекстное меню с типом и координатами полей.  Выберем поле «Координаты» и нажмем кнопку **ОK**.
    
-    ![Учебник по Power BI для соединителя Power BI DocumentDB — запись о расположении](./media/documentdb-powerbi-visualize/power_bi_connector_pbilocationrecord.png)
+    ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — запись о расположении](./media/documentdb-powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 6. Теперь в центральной области отображается столбец с координатами типа **Список** .  Как показано в начале этого руководства, данные GeoJSON в руководстве принадлежат типу «Точка» со значениями широты и долготы, записанными в массив координат.
    
     Элемент coordinates[0] представляет долготу, а элемент coordinates[1] — широту.
-    ![Учебник по Power BI для соединителя Power BI DocumentDB — список координат](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
+    ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — список координат](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 7. Чтобы преобразовать массив координат в плоскую структуру, мы создадим **настраиваемый столбец** , который называется LatLong.  Выберите ленту **Добавление столбца** и выберите команду **Добавить настраиваемый столбец**.  Откроется окно **Добавление настраиваемого столбца** .
 8. Укажите имя нового столбца, например LatLong.
 9. Затем укажите настраиваемую формулу для нового столбца.  В нашем примере мы соединим значения широты и долготы, разделяя их запятыми, как показано ниже, используя следующую формулу: `Text.From([Document.Location.coordinates]{1})&","&Text.From([Document.Location.coordinates]{0})`. Нажмите кнопку **ОК**.
    
     Дополнительные сведения о выражениях анализа данных (DAX), включая функции DAX, см. в статье [Основные сведения о DAX в Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
    
-    ![Учебник по Power BI для соединителя Power BI DocumentDB — добавление пользовательского столбца](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
+    ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — добавление пользовательского столбца](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 10. Теперь в центральной области отобразится новый столбец LatLong, содержащий значения широты и долготы, разделенные запятой.
     
-    ![Учебник по Power BI для соединителя Power BI DocumentDB — пользовательский столбец LatLong](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
+    ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — пользовательский столбец LatLong](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
     
     Если в новом столбце появляется сообщение об ошибке, убедитесь, что примененные шаги в разделе "Параметры запроса" соответствуют указанным на следующем рисунке:
     
     ![Примененные шаги должны быть такими: источник, навигация, развернут документ, развернуто расположение документа, добавлен настраиваемый элемент](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-applied-steps.png)
     
     Если ваши шаги отличаются, удалите лишние шаги и снова попробуйте добавить настраиваемый столбец. 
-11. Теперь мы завершили преобразование данных в табличный формат.  Для преобразования данных в DocumentDB можно использовать все функции, доступные в редакторе запросов.  Если вы используете пример, измените тип данных для столбца "Elevation" на **Целое число**, изменив **Тип данных** на ленте **Главная**.
+11. Теперь мы завершили преобразование данных в табличный формат.  Для преобразования данных в Cosmos DB можно использовать все функции, доступные в редакторе запросов.  Если вы используете пример, измените тип данных для столбца "Elevation" на **Целое число**, изменив **Тип данных** на ленте **Главная**.
     
-    ![Учебник по Power BI для соединителя Power BI DocumentDB — изменение типа столбца](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
+    ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — изменение типа столбца](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
 12. Чтобы сохранить модель данных, нажмите кнопку **Закрыть и применить** .
     
-    ![Учебник по Power BI для соединителя Power BI DocumentDB — закрыть и применить](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)
+    ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — закрыть и применить](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
 ## <a name="build-the-reports"></a>Создание отчетов
 Для создания отчетов, в которых наглядно представлены данные, используется представление отчета в Power BI Desktop.  Отчеты можно создавать путем перетаскивания полей на поле **Отчет** .
@@ -164,7 +165,7 @@ ms.lasthandoff: 02/15/2017
 5. Теперь на карте должны отображаться кружки, указывающие расположение каждого вулкана (размер пузырька соответствует высоте вулкана).
 6. Базовый отчет готов.  Его можно настроить, добавив дополнительные визуальные элементы.  В нашем случае мы добавили срез «Тип вулкана», чтобы сделать отчет интерактивным.  
    
-    ![Снимок экрана окончательного отчета Power BI Desktop после завершения работы с учебником Power BI для DocumentDB](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
+    ![Снимок экрана окончательного отчета Power BI Desktop после завершения работы с руководством Power BI для Azure Cosmos DB](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
 ## <a name="publish-and-share-your-report"></a>Публикация и совместное использование отчета
 Для совместного использования отчета необходимо иметь учетную запись в службе PowerBI.com.
@@ -206,12 +207,12 @@ ms.lasthandoff: 02/15/2017
 3. Щелкните **Изменить учетные данные**. 
    
     Появится всплывающее окно настройки. 
-4. Введите ключ для подключения к учетной записи DocumentDB для этого набора данных, а затем нажмите кнопку **Вход**. 
+4. Введите ключ для подключения к учетной записи Cosmos DB для этого набора данных, а затем нажмите кнопку **Вход**. 
 5. Разверните узел **Расписание обновлений** и настройте расписание для обновлений набора данных. 
 6. По завершении настройки расписания обновлений нажмите кнопку **Применить** .
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о Power BI см. в статье [Приступая к работе с Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
-* Дополнительные сведения о DocumentDB см. на [целевой странице документации по DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Дополнительные сведения о Cosmos DB см. на [целевой странице документации по Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 
