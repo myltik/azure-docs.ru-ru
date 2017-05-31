@@ -1,14 +1,14 @@
 ---
 title: "Руководство по настройке глобального распределения Azure Cosmos DB с помощью API MongoDB | Документация Майкрософт"
 description: "Сведения о настройке глобального распределения Azure Cosmos DB с помощью API MongoDB."
-services: cosmosdb
+services: cosmos-db
 keywords: "глобальное распределение, MongoDB"
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3cff5f474eac5be48cef1655ac312563c3ff473b
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 119ebb3f4966de08934c7d1fbd139229bda1d060
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -31,9 +31,9 @@ ms.lasthandoff: 05/10/2017
 
 > [!div class="checklist"]
 > * настройка глобального распределения на портале Azure;
-> * настройка глобального распределения с помощью [API MongoDB](../documentdb/documentdb-protocol-mongodb.md).
+> * настройка глобального распределения с помощью [API MongoDB](mongodb-introduction.md).
 
-[!INCLUDE [cosmosdb-tutorial-global-distribution-portal](../../includes/cosmosdb-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>Проверка региональных настроек с помощью API MongoDB
 Самый простой способом еще раз проверить глобальную конфигурацию в API для MongoDB — это выполнить команду *isMaster()* из оболочки Mongo.
@@ -94,7 +94,7 @@ var tag = new Tag("region", "Southeast Asia");
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
 ```
 
-На этом руководство завершено. Сведения об управлении согласованностью глобально реплицируемой учетной записи Azure Cosmos DB см. в [этой статье](../documentdb/documentdb-consistency-levels.md). Сведения о том, как функционирует репликация глобальной базы данных в Azure Cosmos DB, см. в статье о [глобальном распределении данных в Azure Cosmos DB](../documentdb/documentdb-distribute-data-globally.md).
+На этом руководство завершено. Сведения об управлении согласованностью глобально реплицируемой учетной записи Azure Cosmos DB см. в [этой статье](consistency-levels.md). Сведения о том, как функционирует репликация глобальной базы данных в Azure Cosmos DB, см. в статье о [глобальном распределении данных в Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -107,4 +107,4 @@ collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode
 Перейдите к следующему руководству, чтобы узнать о разработке в локальной среде с помощью локального эмулятора Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Разработка в локальной среде с помощью эмулятора](../documentdb/documentdb-nosql-local-emulator.md)
+> [Разработка в локальной среде с помощью эмулятора](local-emulator.md)
