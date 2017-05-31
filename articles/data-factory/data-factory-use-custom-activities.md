@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 864526efd2bc90bdd4beeb4c81173e85eee6f34b
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 44e0d7c920bc32bf3293ca5ab197b6d2332a43f8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -36,7 +36,6 @@ ms.lasthandoff: 04/27/2017
 > * [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
 > * [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
 
-
 Существует два типа действий, которые можно использовать в конвейере фабрики данных Azure.
 
 - [Действия перемещения данных](data-factory-data-movement-activities.md) для перемещения данных между [поддерживаемыми исходными хранилищами данных и хранилищами данных-приемниками](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
@@ -52,7 +51,7 @@ ms.lasthandoff: 04/27/2017
 > - Пользовательские действия .NET выполняются только в кластерах HDInsight на платформе Windows. Чтобы обойти это ограничение, используйте действие Map Reduce для запуска пользовательского кода Java в кластере HDInsight под управлением Linux. Другой вариант — использовать для выполнения пользовательских действий пул виртуальных машин пакетной службы Azure, а не кластер HDInsight.
 > - Невозможно использовать шлюз управления данными из пользовательского действия для доступа к локальным источникам данных. В настоящее время [шлюз управления данными](data-factory-data-management-gateway.md) поддерживает действие копирования и действие хранимой процедуры только в фабрике данных.   
 
-## <a name="walkthrough"></a>Пошаговое руководство
+## <a name="walkthrough-create-a-custom-activity"></a>Пошаговое руководство по созданию настраиваемого действия
 ### <a name="prerequisites"></a>Предварительные требования
 * Visual Studio 2012/2013/2015
 * Скачанный и установленный [пакет SDK для Azure .NET][azure-developer-center]
@@ -64,7 +63,7 @@ ms.lasthandoff: 04/27/2017
 
 1. Создание **учетной записи пакетной службы Azure** на [портале Azure](http://portal.azure.com). Инструкции см. в статье [Создание учетной записи пакетной службы Azure на портале Azure][batch-create-account].
 2. Запишите ключ и имя учетной записи пакетной службы Azure, а также URI и имя пула. Они понадобятся при создании связанной службы пакетной службы Azure.
-    1. На домашней странице учетной записи пакетной службы Azure отображается **URL-адрес** в следующем формате: `https://myaccount.westus.batch.azure.com`. В этом примере **myaccount** — это имя учетной записи пакетной службы Azure. URI, используемый в определении связанной службы — это URL-адрес без имени учетной записи. Например, `https://westus.batch.azure.com`.
+    1. На домашней странице учетной записи пакетной службы Azure отображается **URL-адрес** в следующем формате: `https://myaccount.westus.batch.azure.com`. В этом примере **myaccount** — это имя учетной записи пакетной службы Azure. URI, используемый в определении связанной службы — это URL-адрес без имени учетной записи. Например, `https://<region>.batch.azure.com`.
     2. В меню слева щелкните **Ключи** и скопируйте значение параметра **Первичный ключ доступа**.
     3. Чтобы использовать имеющийся пул, щелкните **Пулы** в меню и запишите **идентификатор** пула. Если у вас нет пула, перейдите к следующему шагу.     
 2. Создайте **пул пакетной службы Azure**.
@@ -89,7 +88,7 @@ ms.lasthandoff: 04/27/2017
 1. Создайте пользовательское действие, содержащее простую логику преобразования и обработки данных.
 2. Создайте фабрику данных Azure с конвейером, использующим пользовательское действие.
 
-## <a name="create-a-custom-activity"></a>Создать настраиваемое действие.
+### <a name="create-a-custom-activity"></a>Создать настраиваемое действие.
 Чтобы создать настраиваемое действие .NET, создайте проект **библиотеки классов .NET** с классом, который реализует интерфейс **IDotNetActivity**. У этого интерфейса есть только один метод [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) , и его сигнатура такова.
 
 ```csharp
@@ -113,10 +112,10 @@ public IDictionary<string, string> Execute(
 ### <a name="procedure"></a>Описание процедуры
 1. Создайте проект **библиотеки классов .NET** .
    <ol type="a">
-     <li>Запустите <b>Visual Studio 2015</b>, <b>Visual Studio 2013</b> или <b>Visual Studio 2012</b>.</li>
+     <li>Запустите <b>Visual Studio 2017</b>, <b>Visual Studio 2015</b>, <b>Visual Studio 2013</b> или <b>Visual Studio 2012</b>.</li>
      <li>Щелкните <b>Файл</b>, наведите указатель мыши на пункт <b>Создать</b> и щелкните <b>Проект</b>.</li>
      <li>Разверните раздел <b>Шаблоны</b> и выберите <b>Visual C#</b>. В этом руководстве используется язык C#, но для создания настраиваемого действия вы можете использовать любой язык .NET.;</li>
-     <li>Выберите тип <b>Библиотека классов</b> из списка типов проектов справа.</li>
+     <li>Выберите тип <b>Библиотека классов</b> из списка типов проектов справа. В VS 2017 выберите <b>Библиотека классов (.NET Framework)</b> .</li>
      <li>В поле <b>Имя</b> введите <b>MyDotNetActivity</b>.</li>
      <li>В качестве <b>расположения</b> укажите <b>C:\ADFGetStarted</b>.</li>
      <li>Нажмите кнопку <b>ОК</b> , чтобы создать проект.</li>
@@ -138,16 +137,27 @@ public IDictionary<string, string> Execute(
 5. Добавьте следующие инструкции с **using** в исходный файл в проекте.
 
     ```csharp
-    using System.IO;
-    using System.Globalization;
-    using System.Diagnostics;
-    using System.Linq;
 
-    using Microsoft.Azure.Management.DataFactories.Models;
-    using Microsoft.Azure.Management.DataFactories.Runtime;
+// Comment these lines if using VS 2017
+using System.IO;
+using System.Globalization;
+using System.Diagnostics;
+using System.Linq;
+// --------------------
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Blob;
+// Comment these lines if using <= VS 2015
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+// ---------------------
+
+using Microsoft.Azure.Management.DataFactories.Models;
+using Microsoft.Azure.Management.DataFactories.Runtime;
+
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
     ```
 6. Измените имя **пространства имен** на **MyDotNetActivityNS**.
 
@@ -379,14 +389,13 @@ public IDictionary<string, string> Execute(
     > Все файлы в ZIP-файле для настраиваемого действия должны размещаться на **верхнем уровне** без вложенных папок.
 
     ![Двоичные выходные файлы](./media/data-factory-use-custom-activities/Binaries.png)
-14. Создайте контейнер больших двоичных объектов **customactivitycontainer**, если он еще не создан.
+14. Создайте контейнер больших двоичных объектов **customactivitycontainer**, если он еще не создан.    
 15. Отправьте файл MyDotNetActivity.zip в виде большого двоичного объекта в контейнер customactivitycontainer в хранилище BLOB-объектов Azure **общего назначения** (не в "горячее" или "холодное" хранилище BLOB-объектов), на которое ссылается служба AzureStorageLinkedService.  
 
-> [!NOTE]
-> Если добавить этот проект действия .NET в решение в Visual Studio, содержащее проект фабрики данных, и добавить ссылку в проект действия .NET из проекта приложения фабрики данных, то не обязательно выполнять два последних шага по созданию ZIP-файла и его добавлению в хранилище BLOB-объектов Azure общего назначения. При публикации сущностей фабрики данных с помощью Visual Studio эти шаги выполняются автоматически в процессе публикации. Сведения о создании и публикации сущностей фабрики данных с помощью Visual Studio см. в статьях [Создание первого конвейера с помощью Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) и [Копирование данных из большого двоичного объекта Azure в SQL Azure](data-factory-copy-activity-tutorial-using-visual-studio.md).  
+> [!IMPORTANT]
+> Если добавить этот проект действия .NET в решение в Visual Studio, содержащее проект фабрики данных, и добавить ссылку в проект действия .NET из проекта приложения фабрики данных, то не обязательно выполнять два последних шага по созданию ZIP-файла и его добавлению в хранилище BLOB-объектов Azure общего назначения. При публикации сущностей фабрики данных с помощью Visual Studio эти шаги выполняются автоматически в процессе публикации. Дополнительные сведения см. в разделе [Проект фабрики данных в Visual Studio](#data-factory-project-in-visual-studio).
 
-
-## <a name="create-a-data-factory"></a>Создание фабрики данных 
+## <a name="create-a-pipeline-with-custom-activity"></a>Создание конвейера с настраиваемым действием
 Вы создали пользовательское действие и отправили ZIP-файл с двоичными файлами в контейнер больших двоичных объектов в учетной записи хранения Azure **общего назначения**. В этом разделе вы создадите фабрику данных Azure с конвейером, использующим пользовательское действие.
 
 Входной набор данных для пользовательского действия представляет собой большие двоичные объекты (файлы) в папке customactivityinput контейнера adftutorial в хранилище BLOB-объектов. Выходной набор данных для пользовательского действия представляет собой выходные большие двоичные объекты в папке customactivityoutput контейнера adftutorial в хранилище BLOB-объектов.
@@ -651,7 +660,21 @@ test custom activity Microsoft test custom activity Microsoft
 
 Подробные указания по мониторингу наборов данных и конвейеров см. в статье [Мониторинг конвейеров фабрики данных Azure и управление ими](data-factory-monitor-manage-pipelines.md).      
 
-### <a name="data-factory-and-batch-integration"></a>Интеграция фабрики данных и пакетной службы
+## <a name="data-factory-project-in-visual-studio"></a>Проект фабрики данных в Visual Studio  
+Можно создать и опубликовать сущности фабрики данных, используя Visual Studio вместо портала Azure. Подробные сведения о создании и публикации сущностей фабрики данных с помощью Visual Studio см. в статьях [Создание первого конвейера с помощью Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) и [Копирование данных из большого двоичного объекта Azure в SQL Azure](data-factory-copy-activity-tutorial-using-visual-studio.md).
+
+При создании проекта фабрики данных в Visual Studio выполните следующие дополнительные шаги:
+ 
+1. Добавьте проект фабрики данных в решение Visual Studio, содержащее проект настраиваемого действия. 
+2. Добавьте ссылку на проект действия .NET из проекта фабрики данных. Щелкните проект фабрики данных правой кнопкой мыши, наведите курсор на команду **Добавить** и щелкните **Ссылка**. 
+3. В диалоговом окне **Добавление ссылки** выберите проект **MyDotNetActivity** и нажмите кнопку **ОК**.
+4. Выполните сборку и опубликуйте решение.
+
+    > [!IMPORTANT]
+    > При публикации сущностей фабрики данных автоматически создается ZIP-файл, который затем передается в контейнер BLOB-объектов customactivitycontainer. Если контейнер BLOB-объектов не существует, то он также создается автоматически.  
+
+
+## <a name="data-factory-and-batch-integration"></a>Интеграция фабрики данных и пакетной службы
 Служба фабрики данных создает в пакетной службе Azure задание с именем **adf-poolname:job-xxx**. В меню слева щелкните **Задания**. 
 
 ![Фабрика данных Azure — задания пакетной службы](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
@@ -881,7 +904,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 ```
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>Создание пользовательского действия с помощью пакета SDK для .NET
-Следующий код создает фабрику данных на базе пошагового руководства в этой статье, используя пакет SDK для .NET. Дополнительные сведения об использовании пакета SDK для программного создания конвейеров см. в [этой статье](data-factory-copy-activity-tutorial-using-dotnet-api.md).
+В этой статье содержится пошаговое руководство, в котором с помощью портала Azure создается фабрика данных с конвейером, использующим настраиваемое действие. В приведенном ниже коде показано, как создать фабрику данных с помощью пакета SDK для .NET. Дополнительные сведения об использовании пакета SDK для программного создания конвейеров см. в статье [Руководство. Создание конвейера с действием копирования с помощью API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md). 
 
 ```csharp
 using System;
@@ -1120,8 +1143,11 @@ namespace DataFactoryAPITestApp
 }
 ```
 
+## <a name="debug-custom-activity-in-visual-studio"></a>Отладка настраиваемого действия в Visual Studio
+Пример [локальной среды фабрики данных Azure](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) на портале GitHub включает в себя инструмент, который позволяет выполнять отладку настраиваемых действий .NET в Visual Studio.  
 
-## <a name="examples"></a>Примеры
+
+## <a name="sample-custom-activities-on-github"></a>Примеры настраиваемых действий на портале GitHub
 | Образец | Результат настраиваемого действия |
 | --- | --- |
 | [Загрузчик данных HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |Загрузка данных из конечной точки HTTP в хранилище BLOB-объектов с помощью настраиваемого действия C# в фабрике данных Azure. |
@@ -1129,8 +1155,6 @@ namespace DataFactoryAPITestApp
 | [Запуск скрипта R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |Вызов сценария R путем запуска RScript.exe в кластере HDInsight, где уже установлен R. |
 | [Действие перекрестного домена приложения .NET](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Использование разных версий сборок, которые используются средством запуска фабрики данных. |
 | [Повторная обработка модели в службах Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Повторная обработка модели в службах Azure Analysis Services. |
-| [Локальная отладка пользовательского действия](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFCustomActivityRunner) | Средство запуска пользовательского действия позволяет выполнить шаг с заходом и отлаживать пользовательские действия .NET фабрики данных Azure (ADF) с помощью сведений, настроенных в конвейере. | 
-
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../batch/batch-account-create-portal.md

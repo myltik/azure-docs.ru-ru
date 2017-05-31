@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/13/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 5acfbfbe7327fc28fa909e6ef7e0f9b6ce8b0e54
-ms.openlocfilehash: e0be8f4617c2fdbe1cb6fe2f904bf9ea7056c55e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 8cb8aff4c3035ef8557e0ae0d254fcd750a9228a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -41,7 +43,7 @@ ms.openlocfilehash: e0be8f4617c2fdbe1cb6fe2f904bf9ea7056c55e
 > Если вы впервые используете прокси приложения, выберите приложение, для которого уже настроена аутентификация на основе пароля. Прокси приложения поддерживает и другие типы аутентификации, но настройка и запуск таких приложений требует меньше ресурсов. 
 
 1. Войдите на [портал Azure](https://portal.azure.com/) с учетной записью администратора.
-2. Выберите **Azure Active Directory** > **Корпоративные приложения** > **Добавить**.
+2. Выберите **Azure Active Directory** > **Корпоративные приложения** > **Новое приложение**.
 
   ![Добавление корпоративного приложения](./media/application-proxy-publish-azure-portal/add-app.png)
 
@@ -97,9 +99,4 @@ ms.openlocfilehash: e0be8f4617c2fdbe1cb6fe2f904bf9ea7056c55e
 - [Скачайте соединители](active-directory-application-proxy-enable.md) и [создайте группы соединителей](active-directory-application-proxy-connectors-azure-portal.md), чтобы публиковать приложения в разных сетях и расположениях.
 
 - [Настройте единый вход](application-proxy-sso-azure-portal.md) для опубликованного приложения.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

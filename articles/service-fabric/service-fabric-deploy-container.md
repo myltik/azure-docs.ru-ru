@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/17/2017
+ms.date: 5/16/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
-ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 17e9f4f81c60d86f804d1d9e6df2014dd4568d75
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="preview-deploy-a-windows-container-to-service-fabric"></a>Предварительная версия: развертывание контейнера Windows в Service Fabric
+# <a name="deploy-a-windows-container-to-service-fabric"></a>Развертывание контейнера Windows в Service Fabric
 > [!div class="op_single_selector"]
 > * [Развертывание контейнера Windows](service-fabric-deploy-container.md)
 > * [Развертывание контейнера Docker](service-fabric-deploy-container-linux.md)
@@ -29,10 +30,6 @@ ms.lasthandoff: 02/21/2017
 > 
 
 В этой статье подробно рассматривается создание контейнерных служб в контейнерах Windows.
-
-> [!NOTE]
-> Эта функция доступна в режиме предварительной версии для Windows Server 2016.
->  
 
 В Service Fabric реализовано несколько способов использования контейнеров для создания приложений, состоящих из контейнерных микрослужб. 
 
@@ -83,7 +80,7 @@ Visual Studio предоставляет шаблон службы Service Fabri
 "vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
 "vmImageVersion": { "defaultValue": "latest","type": "string"     },  
 ```
-Для создания кластера можно также использовать шаблон ARM кластера с&5; узлами, доступный [здесь](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype). Кроме того, можно прочитать [записи блога Leok](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) об использовании Service Fabric и контейнеров Windows.
+Для создания кластера можно также использовать шаблон ARM кластера с 5 узлами, доступный [здесь](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype). Кроме того, можно прочитать [записи блога Leok](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) об использовании Service Fabric и контейнеров Windows.
 
 <a id="manually"></a>
 

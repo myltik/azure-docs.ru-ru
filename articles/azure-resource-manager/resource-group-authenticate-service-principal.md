@@ -12,23 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: eb6bddbe4220418f7c525985ab6a15524589829e
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 2f8067a1a4ff7abfc41b28cbfd3482be11ae0e23
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-authenticate-service-principal.md)
-> * [Интерфейс командной строки Azure](resource-group-authenticate-service-principal-cli.md)
-> * [Портал](resource-group-create-service-principal-portal.md)
-> 
-> 
 
 При наличии приложения или сценария, которому требуется доступ к ресурсам, можно настроить удостоверение для приложения и аутентифицировать его с помощью собственных учетных данных. Этот идентификатор известен как субъект-служба. Такой подход позволяет выполнить следующие действия:
 
@@ -44,8 +38,30 @@ ms.lasthandoff: 04/27/2017
 
 Теперь перейдите к соответствующему разделу, чтобы выполнить проверку подлинности на основе [пароля](#create-service-principal-with-password) или [сертификата](#create-service-principal-with-certificate).
 
+## <a name="powershell-commands"></a>Команды PowerShell
+
+Для настройки субъекта-службы используются следующие команды.
+
+| Команда | Описание |
+| ------- | ----------- | 
+| [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Создает субъект-службу Azure Active Directory. |
+| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Присваивает указанную роль RBAC заданному субъекту в определенной области. |
+
+
 ## <a name="create-service-principal-with-password"></a>Создание субъекта-службы с использованием пароля
-Следующий сценарий создает удостоверение для приложения и назначает ему роль участника для указанной области:
+
+Чтобы создать субъект-службу с ролью "Участник" для своей подписки, используйте следующий сценарий. 
+
+```powershell
+Login-AzureRmAccount
+$sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password "{provide-password}"
+Sleep 20
+New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+```
+
+Пример бездействует 20 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
+
+Следующий сценарий позволяет указать область, отличную от подписки по умолчанию, и повторяет назначение роли при возникновении ошибки.
 
 ```powershell
 Param (
@@ -63,14 +79,14 @@ Param (
 
  [Parameter(Mandatory=$true)]
  [String] $Password
- )
+)
 
  Login-AzureRmAccount
  Import-Module AzureRM.Resources
 
  if ($SubscriptionId -eq "") 
  {
-    $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
+    $SubscriptionId = (Get-AzureRmContext).Subscription.Id
  }
  else
  {
@@ -86,11 +102,9 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
- # Create Azure Active Directory application with password
- $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -Password $Password
-
+ 
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -99,8 +113,8 @@ Param (
  {
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
     $Retries++;
  }
 ```
@@ -109,7 +123,6 @@ Param (
 
 * Чтобы предоставить удостоверению доступ к подписке по умолчанию, вам не нужно указывать параметры ResourceGroup и SubscriptionId.
 * Укажите параметр ResourceGroup только в том случае, если требуется ограничить область назначения роли определенной группой ресурсов.
-* Для однотенантных приложений URI домашней страницы и URI для идентификации не проверяются.
 *  В этом примере субъект-служба добавляется в роль участника. Сведения о других ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
 * Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
 * Чтобы предоставить субъекту-службе доступ к другим подпискам или группам ресурсов, выполните командлет `New-AzureRMRoleAssignment` повторно, указав другие области.
@@ -130,7 +143,22 @@ Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-id}
 ```
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Создание субъекта-службы с самозаверяющим сертификатом
-Чтобы создать самозаверяющий сертификат и субъект-службу с помощью Azure PowerShell 2.0 в Windows 10 или Windows Server 2016 Technical Preview, используйте следующий сценарий:
+
+Чтобы создать субъект-службу с самозаверяющим сертификатом и ролью "Участник" для своей подписки, используйте следующий сценарий. 
+
+```powershell
+Login-AzureRmAccount
+$cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
+$keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+
+$sp = New-AzureRMADServicePrincipal -DisplayName exampleapp -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+Sleep 20
+New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+```
+
+Пример бездействует 20 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
+
+Следующий сценарий позволяет указать область, отличную от подписки по умолчанию, и повторяет назначение роли при возникновении ошибки. Необходимо наличие Azure PowerShell 2.0 в Windows 10 или Windows Server 2016.
 
 ```powershell
 Param (
@@ -152,7 +180,7 @@ Param (
 
  if ($SubscriptionId -eq "") 
  {
-    $SubscriptionId = (Get-AzureRmContext).Subscription.SubscriptionId
+    $SubscriptionId = (Get-AzureRmContext).Subscription.Id
  }
  else
  {
@@ -171,10 +199,7 @@ Param (
  $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
  $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
- # Use Key credentials
- $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -183,8 +208,8 @@ Param (
  {
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
+    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
     $Retries++;
  }
 ```
@@ -193,8 +218,7 @@ Param (
 
 * Чтобы предоставить удостоверению доступ к подписке по умолчанию, вам не нужно указывать параметры ResourceGroup и SubscriptionId.
 * Укажите параметр ResourceGroup только в том случае, если требуется ограничить область назначения роли определенной группой ресурсов.
-* Для однотенантных приложений URI домашней страницы и URI для идентификации не проверяются.
-*  В этом примере субъект-служба добавляется в роль участника. Сведения о других ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
+* В этом примере субъект-служба добавляется в роль участника. Сведения о других ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
 * Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
 * Чтобы предоставить субъекту-службе доступ к другим подпискам или группам ресурсов, выполните командлет `New-AzureRMRoleAssignment` повторно, указав другие области.
 
@@ -278,10 +302,7 @@ Param (
  $KeyCredential.KeyId = $KeyId
  $KeyCredential.CertValue = $KeyValue
 
- # Use Key credentials
- $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $KeyId) -KeyCredentials $keyCredential
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -KeyCredentials $keyCredential
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -301,8 +322,7 @@ Param (
 На что следует обратить внимание в сценарии:
 
 * Доступ предоставляется в пределах подписки.
-* Для однотенантных приложений URI домашней страницы и URI для идентификации не проверяются.
-*  В этом примере субъект-служба добавляется в роль участника. Сведения о других ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
+* В этом примере субъект-служба добавляется в роль участника. Сведения о других ролях см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
 * Сценарий бездействует 15 секунд, чтобы данные нового субъекта-службы распространились в Azure Active Directory. Если сценарий не подождет достаточно долго, появится следующее сообщение об ошибке: "PrincipalNotFound: Principal {id} does not exist in the directory" (PrincipalNotFound: субъект {ИД} не существует в каталоге).
 * Чтобы предоставить субъекту-службе доступ к другим подпискам или группам ресурсов, выполните командлет `New-AzureRMRoleAssignment` повторно, указав другие области.
 
@@ -427,5 +447,6 @@ Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 * Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [Управление ресурсами клиента с помощью Azure Active Directory и Resource Manager](resource-manager-api-authentication.md).
 * Более подробное описание приложений и субъектов-служб см. в статье [Объекты приложений и объекты участников-служб](../active-directory/active-directory-application-objects.md). 
 * Дополнительные сведения о проверке подлинности Azure Active Directory см. в статье [Сценарии проверки подлинности в Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md).
+* Список доступных действий, которые можно разрешить или запретить пользователям, см. в разделе [Операции поставщиков ресурсов Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
 
 

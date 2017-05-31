@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/20/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 34146bd110661c12c4ec1e11d34d7bdfa3cac688
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: faa3c9d5de759e4d8c0589153ea93e83a580f983
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -93,7 +94,7 @@ ms.lasthandoff: 04/21/2017
 
   ![Диалоговое окно сертификата с ошибкой ](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
 
-  Выбранное хранилище сертификатов появится в **мастере импорта сертификатов**. Нажмите кнопку **Далее**.
+  Выбранное хранилище сертификатов появится в **мастере импорта сертификатов**. Щелкните **Далее**.
 
   ![Диалоговое окно сертификата с ошибкой ](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 

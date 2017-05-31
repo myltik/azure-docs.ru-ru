@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 570a98aafca6babc5a7089880d4120c2a8f4a0d8
-ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -34,7 +36,7 @@ ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
    
    * Включите частный пиринг Azure — он требуется для подключения к виртуальным машинам и (или) облачным службам, развернутым в виртуальных сетях.
    * Включите общедоступный пиринг Azure — он нужен в случае, если вы захотите подключиться к службам Azure, размещенным по общедоступным IP-адресам. Включение этого пиринга требуется для доступа к ресурсам Azure, если для частного пиринга Azure вы выбрали маршрутизацию по умолчанию.
-   * Включите пиринг Майкрософт — он требуется для доступа к службам Office 365 и CRM Online. 
+   * Включите пиринг Майкрософт — он требуется для доступа к Office 365 и Dynamics 365. 
      
      > [!IMPORTANT]
      > Для подключения к Майкрософт нельзя использовать прокси-сервер или ресурс, который используется для подключения к Интернету. Подключение к ExpressRoute и к Интернету через один и тот же ресурс приведет к асимметричной маршрутизации и вызовет проблемы подключения в вашей сети.
@@ -115,10 +117,5 @@ ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
   * [Создайте канал ExpressRoute.](expressroute-howto-circuit-arm.md)
   * [Настройка маршрутизации](expressroute-howto-routing-arm.md)
   * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

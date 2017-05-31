@@ -1,5 +1,6 @@
 ---
-title: "Добавление новых пользователей в предварительную версию Azure Active Directory | Документация Майкрософт"
+
+title: "Добавление новых пользователей в Azure Active Directory | Документация Майкрософт"
 description: "Узнайте, как добавлять новых пользователей или изменять сведения о них в Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,28 +13,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: f0e7890ba4c7ef281558886f8cb8bcc429944f06
-ms.openlocfilehash: 9c0c15c0bf876110fcf9dd01a7930d3b226dfbc4
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 5f1f28b6e0135fbd76fa5f6664f457f259dd9dd4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="add-new-users-to-azure-active-directory-preview"></a>Добавление новых пользователей в предварительную версию Azure Active Directory
+# <a name="add-new-users-to-azure-active-directory"></a>Добавление новых пользователей в Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Портал Azure](active-directory-users-create-azure-portal.md)
-> * [классический портал Azure](active-directory-create-users.md)
+> * [классическом портале Azure](active-directory-create-users.md)
 >
 >
 
-В этой статье объясняется, как добавить новых пользователей организации в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md)
+В этой статье объясняется, как добавить новых пользователей организации в Azure Active Directory (Azure AD). 
 
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 2. Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
 
-   ![Открытие страницы "Управление пользователями"](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
+   ![Открытие пользователей и групп](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
 3. В колонке **Пользователи и группы** выберите **Все пользователи** и щелкните **Добавить**.
 
    ![Выбор команды "Добавить"](./media/active-directory-users-create-azure-portal/create-users-add-command.png)

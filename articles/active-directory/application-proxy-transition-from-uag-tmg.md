@@ -1,6 +1,6 @@
 ---
-title: "Переход на прокси приложений Azure AD с Microsoft Forefront | Документация Майкрософт"
-description: "В этой статье представлены основные сведения о том, как перейти от решений Microsoft Forefront TMG и UAG на прокси приложений Azure Active Directory."
+title: "Установка новой версии прокси приложения Azure AD | Документация Майкрософт"
+description: "Выберите, какой прокси-сервер лучше всего подходит для обновления Microsoft Forefront или Unified Access Gateway."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/27/2017
 ms.author: kgremban
-ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 6e95e9abac988ae54a401927a92bdb397dd63eed
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: e9d5caa4d11012744ce9f26648166371f3aa17ba
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 ---
-# <a name="transition-to-azure-ad-application-proxies-from-microsoft-forefront"></a>Переход на прокси приложений Azure AD с Microsoft Forefront
+# <a name="upgrade-to-azure-ad-proxies-from-microsoft-forefront-or-unified-access-gateway"></a>Обновление Microsoft Forefront или Unified Access Gateway до прокси-серверов Azure AD
 
 В этой статье описано, как выполнять переход от решений Microsoft Forefront Threat Management Gateway (TMG) и Unified Access Gateway (UAG) на прокси приложения Azure AD.
 
@@ -28,16 +28,16 @@ ms.lasthandoff: 04/21/2017
 
 ## <a name="functionality-details-for-the-conversion"></a>Сведения о возможностях для преобразования
 
-|**Возможности TMG/UAG**|**Прокси-служба веб-приложения, прокси приложения Azure AD**|
+|**Возможности TMG/UAG**|**Современное решение**|
 |:-----|:-----|
-|Выборочная публикация HTTP для приложений браузера|Доступно в прокси-службе веб-приложения в Windows Server 2012 R2. Доступно в прокси приложения Azure AD уже сейчас.|
-|Интеграция со службами федерации Active Directory (AD FS)|Доступно в прокси-службе веб-приложения в Windows Server 2012 R2. Доступно в прокси приложения Azure AD уже сейчас.|
-|Расширенные протоколы публикации (например, Citrix, Lync, RDG)|Доступно в прокси-службе веб-приложения в Windows Server 2012 R2. Доступно в прокси приложения Azure AD уже сейчас.|
-|Предварительная аутентификация ActiveSync (HTTP Basic) и RDG|В настоящее время недоступно в прокси-службе веб-приложения или прокси приложения Azure AD.|
-|Microsoft Azure|Используйте Intune или System Center для работы с прокси-службой веб-приложения. Используйте панель доступа Azure AD или средство запуска приложений Office 365 для работы с прокси приложения Azure AD.|
-|Определение состояния работоспособности конечной точки|Используйте Intune или System Center.|
-|Туннелирование SSH|Используйте Windows SSL или возможности VPN.|
-|Брандмауэр уровня 2/3|Используйте возможности Windows Server.|
+|Выборочная публикация HTTP для приложений браузера|Прокси приложения Azure AD.|
+|Интеграция со службами федерации Active Directory (AD FS)|Прокси приложения Azure AD.|
+|Расширенные протоколы публикации (например, Citrix, Lync, RDG)|Прокси приложения Azure AD.|
+|Microsoft Azure|Панель доступа Azure AD или средство запуска приложений Office 365 для прокси приложения Azure AD.|
+|Определение состояния работоспособности конечной точки|Intune или System Center.|
+|Туннелирование SSH|SSL или VPN в Windows.|
+|Брандмауэр уровня 2/3|Windows Server|
+|Предварительная аутентификация ActiveSync (HTTP Basic) и RDG|Текущее решение от Майкрософт отсутствует.|
 |Брандмауэр веб-приложения|Текущее решение от Майкрософт отсутствует.|
 |Secure Web Gateway (прокси-сервер переадресации)|Текущее решение от Майкрософт отсутствует.|
 

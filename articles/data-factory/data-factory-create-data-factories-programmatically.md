@@ -15,59 +15,128 @@ ms.topic: article
 ms.date: 04/11/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8fcd609da46e88f7db90692c7e67011df64c9b4e
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 2f33c266c14b62f51745ff67069358c007bc00a2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных Azure для .NET
 ## <a name="overview"></a>Обзор
-Создание, отслеживание фабрик данных и управление ими программным способом с помощью пакета .NET SDK фабрики данных. Эта статья содержит пошаговое руководство по созданию образца консольного приложения .NET, которое будет создавать и отслеживать фабрику данных. Подробные сведения о пакете SDK для .NET фабрики данных см. в [справочнике по библиотеке классов фабрики данных](https://msdn.microsoft.com/library/mt415893.aspx).
+Создание, отслеживание фабрик данных и управление ими программным способом с помощью пакета .NET SDK фабрики данных. Эта статья содержит пошаговое руководство по созданию образца консольного приложения .NET, которое будет создавать и отслеживать фабрику данных. 
+
+> [!NOTE]
+> В этой статье рассматриваются не все API-интерфейсы .NET фабрики данных. Полную документацию по API .NET для фабрики данных см. в [справочнике по API .NET фабрики данных](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1). 
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Visual Studio 2012, 2013 или 2015
 * Скачанный и установленный [пакет SDK для Azure .NET](http://azure.microsoft.com/downloads/).
-* Добавьте собственное клиентское приложение в Azure Active Directory. Инструкции по добавлению приложения приведены в статье [Интеграция приложений с Azure Active Directory](../active-directory/active-directory-integrating-applications.md). Запишите значения полей **Идентификатор клиента** и **URI перенаправления**, отображенные на странице **Настройка**. Подробные инструкции представлены в статье [Руководство. Создание конвейера с действием копирования с помощью API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md). 
-* Получите значения полей **Идентификатор подписки** и **Идентификатор клиента**. Инструкции см. в разделе [Получение идентификаторов подписки и клиента Azure](#get-azure-subscription-and-tenant-ids).
-* Загрузите и установите пакеты NuGet для фабрик данных Azure. Инструкции приведены в этом пошаговом руководстве.
+* Azure PowerShell. Далее, чтобы установить Azure PowerShell на локальном компьютере, следуйте указаниям в разделе [Установка и настройка Azure PowerShell](/powershell/azure/overview) . С помощью Azure PowerShell вы создадите приложение Azure Active Directory.
+
+### <a name="create-an-application-in-azure-active-directory"></a>Создание приложения в Azure Active Directory
+Вы создадите приложение Azure Active Directory и субъект-службу для приложения, а затем назначите роль **Участник Data Factory** .
+
+1. Запустите **PowerShell**.
+2. Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
+
+    ```PowerShell
+    Login-AzureRmAccount
+    ```
+3. Выполните следующую команду, чтобы просмотреть все подписки для этой учетной записи.
+
+    ```PowerShell
+    Get-AzureRmSubscription
+    ```
+4. Выполните следующую команду, чтобы выбрать подписку, с которой вы собираетесь работать. Замените **&lt;NameOfAzureSubscription**&gt; именем своей подписки Azure.
+
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```
+
+   > [!IMPORTANT]
+   > Запишите значения **SubscriptionId** и **TenantId**, указанные в выходных данных этой команды.
+
+5. Создайте группу ресурсов Azure с именем **ADFTutorialResourceGroup** , выполнив следующую команду в PowerShell.
+
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
+
+    Если группа ресурсов уже есть, укажите, требуется или не требуется ее обновить (Y или N соответственно).
+
+    Если вы используете другую группу ресурсов, укажите ее имя вместо ADFTutorialResourceGroup.
+6. Создайте приложение Azure Active Directory.
+
+    ```PowerShell
+    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
+    ```
+
+    Если возникнет следующая ошибка, укажите другой URL-адрес и запустите команду еще раз.
+    
+    ```PowerShell
+    Another object with the same value for property identifierUris already exists.
+    ```
+7. Создайте субъект-службу AD.
+
+    ```PowerShell
+    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```
+8. Назначьте субъекту-службе роль **Участник Data Factory** .
+
+    ```PowerShell
+    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```
+9. Получите идентификатор приложения.
+
+    ```PowerShell
+    $azureAdApplication    
+    ```
+    Запишите идентификатор приложения (applicationID) из выходных данных.
+
+Вы должны получить следующие четыре значения:
+
+* Tenant ID
+* Идентификатор подписки
+* Идентификатор приложения
+* пароль (указан в первой команде).
 
 ## <a name="walkthrough"></a>Пошаговое руководство
-1. С помощью Visual Studio 2012 или 2013 создайте консольное приложение C# .NET.
-   1. Запустите **Visual Studio 2012, Visual Studio 2013 или Visual Studio 2015**.
+В этом пошаговом руководстве вы создадите фабрику данных с конвейером, который содержит действие копирования. Действие копирования копирует данные из папки в хранилище BLOB-объектов Azure в другую папку в том же хранилище. 
+
+Действие копирования перемещает данные в фабрике данных Azure. Это действие выполняется с помощью глобально доступной службы, обеспечивающей безопасное, надежное и масштабируемое копирование данных между разными хранилищами. Дополнительные сведения о действии копирования см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md).
+
+1. С помощью Visual Studio 2012, 2013 или 2015 создайте консольное приложение C# .NET.
+   1. Запустите **Visual Studio** 2012, 2013 или 2015.
    2. Щелкните **Файл**, наведите указатель мыши на пункт **Создать** и щелкните **Проект**.
    3. Разверните раздел **Шаблоны** и выберите **Visual C#**. В этом пошаговом руководстве используется C#, но можно использовать любой язык .NET.
    4. Выберите **Консольное приложение** в списке типов проектов справа.
-   5. В поле **Имя** введите **DataFactoryAPITestApp**.
-   6. В качестве **расположения** укажите **C:\ADFGetStarted**.
+   5. В качестве имени введите **DataFactoryAPITestApp** .
+   6. В качестве расположения укажите **C:\ADFGetStarted**.
    7. Нажмите кнопку **ОК** , чтобы создать проект.
 2. Щелкните **Инструменты**, наведите указатель мыши на **Диспетчер пакетов NuGet** и щелкните **Консоль диспетчера пакетов**.
-3. В окне **Консоль диспетчера пакетов**последовательно выполните следующие команды.
-
-    ```
-    Install-Package Microsoft.Azure.Management.DataFactories
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
-    ```
-4. Добавьте следующий раздел **appSetttings** в файл **App.config**. Эти значения конфигурации используются в методе **GetAuthorizationHeader** .
-
-   > [!IMPORTANT]
-   > Замените значения **AdfClientId**, **RedirectUri**, **SubscriptionId** и **ActiveDirectoryTenantId** собственными значениями.
-
-    ```XML
-    <appSettings>
-        <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-        <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-        <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+3. В **консоли диспетчера пакетов** выполните следующие действия.
+   1. Выполните следующую команду, чтобы установить пакет фабрики данных: `Install-Package Microsoft.Azure.Management.DataFactories`
+   2. Выполните следующую команду, чтобы установить пакет Azure Active Directory (используйте Active Directory API в коде): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
+4. Замените содержимое файла **App.config** в проекте следующим содержимым: 
     
-        <!-- Replace the following values with your own -->
-        <add key="AdfClientId" value="Your AAD application ID" />
-        <add key="RedirectUri" value="Your AAD application's redirect URI" />
-        <add key="SubscriptionId" value="your subscription ID" />
-        <add key="ActiveDirectoryTenantId" value="your tenant ID" />
-    </appSettings>
+    ```xml
+    <?xml version="1.0" encoding="utf-8" ?>
+    <configuration>
+        <appSettings>
+            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+
+            <add key="ApplicationId" value="your application ID" />
+            <add key="Password" value="Password you used while creating the AAD application" />
+            <add key="SubscriptionId" value= "Subscription ID" />
+            <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+        </appSettings>
+    </configuration>
     ```
-5. Добавьте следующие операторы **using** в файл исходного кода (Program.cs) в проекте.
+5. В файле App.Config замените значения **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** и **&lt;tenant ID&gt;** собственными значениями.
+6. Добавьте следующие инструкции **using** в файл **Program.cs** в проекте.
 
     ```csharp
     using System.Configuration;
@@ -87,20 +156,27 @@ ms.lasthandoff: 04/27/2017
 
     ```csharp
     // create data factory management client
-    string resourceGroupName = "resourcegroupname";
-    string dataFactoryName = "APITutorialFactorySP";
-    
+
+    //IMPORTANT: specify the name of Azure resource group here
+    string resourceGroupName = "ADFTutorialResourceGroup";
+
+    //IMPORTANT: the name of the data factory must be globally unique.
+    // Therefore, update this value. For example:APITutorialFactory05122017
+    string dataFactoryName = "APITutorialFactory";
+
     TokenCloudCredentials aadTokenCredentials = new TokenCloudCredentials(
             ConfigurationManager.AppSettings["SubscriptionId"],
-        GetAuthorizationHeader().Result);
-    
+            GetAuthorizationHeader().Result);
+
     Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
-    
+
     DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
     ```
 
-   > [!NOTE]
-   > Замените **resourcegroupname** на имя своей группы ресурсов Azure. Для создания группы ресурсов можно использовать командлет [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) .
+   > [!IMPORTANT]
+   > Замените значение **resourceGroupName** именем своей группы ресурсов Azure. Для создания группы ресурсов можно использовать командлет [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) .
+   >
+   > Измените имя фабрики данных (dataFactoryName) на уникальное. чтобы оно было глобально уникальным. Ознакомьтесь с разделом [Фабрика данных — правила именования](data-factory-naming-rules.md) , чтобы узнать о правилах именования артефактов фабрики данных.
 7. Добавьте следующий код, создающий **фабрику данных**, в метод **Main**.
 
     ```csharp
@@ -118,23 +194,23 @@ ms.lasthandoff: 04/27/2017
         }
     );
     ```
-8. Добавьте следующий код, создающий **связанную службу**, в метод **Main**.
+8. Добавьте следующий код, который создает **связанную службу хранилища Azure**, в метод **Main**.
 
-   > [!NOTE]
-   > Укажите **имя учетной записи** и **ключ учетной записи** для своей учетной записи хранения Azure в **ConnectionString**.
+   > [!IMPORTANT]
+   > Замените значения **storageaccountname** и **accountkey** именем и ключом вашей учетной записи хранения Azure.
 
     ```csharp
-    // create a linked service
-    Console.WriteLine("Creating a linked service");
+    // create a linked service for input data store: Azure Storage
+    Console.WriteLine("Creating Azure Storage linked service");
     client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
         new LinkedServiceCreateOrUpdateParameters()
         {
             LinkedService = new LinkedService()
             {
-                Name = "LinkedService-AzureStorage",
+                Name = "AzureStorageLinkedService",
                 Properties = new LinkedServiceProperties
                 (
-                    new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>")
+                    new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<accountkey>")
                 )
             }
         }
@@ -160,7 +236,7 @@ ms.lasthandoff: 04/27/2017
             Name = Dataset_Source,
             Properties = new DatasetProperties()
             {
-                LinkedServiceName = "LinkedService-AzureStorage",
+                LinkedServiceName = "AzureStorageLinkedService",
                 TypeProperties = new AzureBlobDataset()
                 {
                     FolderPath = "adftutorial/",
@@ -193,7 +269,7 @@ ms.lasthandoff: 04/27/2017
             Properties = new DatasetProperties()
             {
     
-                LinkedServiceName = "LinkedService-AzureStorage",
+                LinkedServiceName = "AzureStorageLinkedService",
                 TypeProperties = new AzureBlobDataset()
                 {
                     FolderPath = "adftutorial/apifactoryoutput/{Slice}",
@@ -280,24 +356,6 @@ ms.lasthandoff: 04/27/2017
         }
     });
     ```
-11. Добавьте следующий вспомогательный метод, используемый методом **Main**, в класс **Program**. Этот метод выводит диалоговое окно, которое позволяет ввести **имя пользователя** и **пароль**, используемые для входа на портал Azure.
-
-    ```csharp
-    public static async Task<string> GetAuthorizationHeader()
-    {
-        var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-        AuthenticationResult result = await context.AcquireTokenAsync(
-            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-            clientId: ConfigurationManager.AppSettings["AdfClientId"],
-            redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-            promptBehavior: PromptBehavior.Always);
-
-        if (result != null)
-            return result.AccessToken;
-
-        throw new InvalidOperationException("Failed to acquire token");
-    }
-    ```
 12. Добавьте следующий код в метод **Main** , чтобы получить состояние среза данных выходного набора данных. В этом примере ожидается только один срез.
 
     ```csharp
@@ -365,7 +423,27 @@ ms.lasthandoff: 04/27/2017
     Console.WriteLine("\nPress any key to exit.");
     Console.ReadKey();
     ```
-14. В обозревателе решений разверните проект **DataFactoryAPITestApp**, щелкните правой кнопкой мыши **Ссылки**, а затем выберите **Добавить ссылку**. Установите флажок для сборки `System.Configuration` и нажмите кнопку **ОК**.
+14. Добавьте следующий вспомогательный метод, используемый методом **Main**, в класс **Program**. Этот метод выводит диалоговое окно, которое позволяет ввести **имя пользователя** и **пароль**, используемые для входа на портал Azure.
+
+    ```csharp
+    public static async Task<string> GetAuthorizationHeader()
+    {
+        AuthenticationContext context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        ClientCredential credential = new ClientCredential(
+            ConfigurationManager.AppSettings["ApplicationId"],
+            ConfigurationManager.AppSettings["Password"]);
+        AuthenticationResult result = await context.AcquireTokenAsync(
+            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+            clientCredential: credential);
+
+        if (result != null)
+            return result.AccessToken;
+
+        throw new InvalidOperationException("Failed to acquire token");
+    }
+    ```
+
+15. В обозревателе решений разверните проект **DataFactoryAPITestApp**, щелкните правой кнопкой мыши **Ссылки**, а затем выберите **Добавить ссылку**. Установите флажок для сборки `System.Configuration` и нажмите кнопку **ОК**.
 15. Постройте консольное приложение. В меню щелкните **Собрать** и выберите **Собрать решение**.
 16. Убедитесь, что как минимум один файл существует в контейнере adftutorial в хранилище больших двоичных объектов Azure. В противном случае создайте файл Emp.txt в блокноте со следующим содержимым и передайте его в контейнер adftutorial.
 
@@ -375,97 +453,52 @@ ms.lasthandoff: 04/27/2017
     ```
 17. Запустите пример, щелкнув **Отладка** -> **Начать отладку** в меню. При появлении сообщения **Getting run details of a data slice** (Получение сведений о выполнении для среза данных) подождите несколько минут и нажмите клавишу **ВВОД**.
 18. Перейдите на портал Azure и убедитесь, что фабрика данных **APITutorialFactory** создана с использованием следующих артефактов:
-    * Связанная служба: **LinkedService_AzureStorage**.
+    * Связанная служба: **AzureStorageLinkedService**.
     * Набор данных: **DatasetBlobSource** и **DatasetBlobDestination**.
     * Конвейер: **PipelineBlobSample**
 19. Убедитесь, что выходной файл создан в папке **apifactoryoutput** в контейнере **adftutorial**.
 
-## <a name="log-in-without-popup-dialog-box"></a>Вход без всплывающего диалогового окна
-Приведенный выше в пошаговом руководстве пример кода запускает диалоговое окно для ввода учетных данных Azure. Если требуется выполнить программный вход без применения диалогового окна, ознакомьтесь со статьей [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам](../azure-resource-manager/resource-group-authenticate-service-principal.md).
-
-> [!IMPORTANT]
-> Добавьте веб-приложение в Azure Active Directory и запишите идентификатор клиента и секрет клиента приложения.
->
->
-
-### <a name="example"></a>Пример
-Создайте метод GetAuthorizationHeaderNoPopup.
+## <a name="get-a-list-of-failed-data-slices"></a>Получение списка невыполненных срезов данных 
 
 ```csharp
-public static async Task<string> GetAuthorizationHeaderNoPopup()
+// Parse the resource path
+var ResourceGroupName = "ADFTutorialResourceGroup";
+var DataFactoryName = "DataFactoryAPITestApp";
+
+var parameters = new ActivityWindowsByDataFactoryListParameters(ResourceGroupName, DataFactoryName);
+parameters.WindowState = "Failed";
+var response = dataFactoryManagementClient.ActivityWindows.List(parameters);
+do
 {
-    var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-    var context = new AuthenticationContext(authority.AbsoluteUri);
-    var credential = new ClientCredential(
-        ConfigurationManager.AppSettings["AdfClientId"],
-    ConfigurationManager.AppSettings["AdfClientSecret"]);
-    
-    AuthenticationResult result = await context.AcquireTokenAsync(
-        ConfigurationManager.AppSettings["WindowsManagementUri"],
-    credential);
+    foreach (var activityWindow in response.ActivityWindowListResponseValue.ActivityWindows)
+    {
+        var row = string.Join(
+            "\t",
+            activityWindow.WindowStart.ToString(),
+            activityWindow.WindowEnd.ToString(),
+            activityWindow.RunStart.ToString(),
+            activityWindow.RunEnd.ToString(),
+            activityWindow.DataFactoryName,
+            activityWindow.PipelineName,
+            activityWindow.ActivityName,
+            string.Join(",", activityWindow.OutputDatasets));
+        Console.WriteLine(row);
+    }
 
-    if (result != null)
-        return result.AccessToken;
-
-    throw new InvalidOperationException("Failed to acquire token");
+    if (response.NextLink != null)
+    {
+        response = dataFactoryManagementClient.ActivityWindows.ListNext(response.NextLink, parameters);
+    }
+    else
+    {
+        response = null;
+    }
 }
+while (response != null);
 ```
 
-Замените вызов **GetAuthorizationHeader** вызовом **GetAuthorizationHeaderNoPopup** в функции **Main**.
+## <a name="next-steps"></a>Дальнейшие действия
+Ниже приведен пример создания конвейера с использованием пакета SDK для .NET, который копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure. 
 
-```csharp
-TokenCloudCredentials aadTokenCredentials =
-    new TokenCloudCredentials(
-    ConfigurationManager.AppSettings["SubscriptionId"],
-    GetAuthorizationHeaderNoPopup().Result);
-```
-
-Ниже объясняется, как создать приложение Active Directory и субъект-службу и назначить ее роли "Участник фабрики данных".
-
-1. Создайте приложение AD.
-
-    ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "MyADAppForADF" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.myadappforadf.org/example" -Password "Pass@word1"
-    ```
-2. Создайте субъект-службу AD.
-
-    ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-    ```
-3. Добавьте субъект-службу в роль "Участник фабрики данных".
-
-    ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-    ```
-4. Получите идентификатор приложения.
-
-    ```PowerShell
-    $azureAdApplication
-    ```
-
-Запишите идентификатор приложения и пароль (секрет клиента) и используйте их в пошаговом руководстве.
-
-## <a name="get-azure-subscription-and-tenant-ids"></a>Получение идентификаторов подписки и клиента Azure
-Если на вашем компьютере не установлена последняя версия Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview) , чтобы установить ее.
-
-1. Запустите Azure PowerShell и выполните следующую команду.
-2. Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
-
-    ```PowerShell
-    Login-AzureRmAccount
-    ```
-
-    Если с этой учетной записью связана только одна подписка Azure, то следующие два шага выполнять н нужно.
-3. Выполните следующую команду, чтобы просмотреть все подписки для этой учетной записи.
-
-    ```PowerShell
-    Get-AzureRmSubscription
-    ```
-4. Выполните следующую команду, чтобы выбрать подписку, с которой вы собираетесь работать. Замените **NameOfAzureSubscription** именем своей подписки Azure.
-
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext
-    ```PowerShell
-
-Note down the **SubscriptionId** and **TenantId** values.
+- [Руководство. Создание конвейера с действием копирования с помощью API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 

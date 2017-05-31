@@ -5,7 +5,7 @@ services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
-ms.author: jonfan
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: e067ea1a800dbcbc1c95ec03c7437ab3c8a610d7
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; jonfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: e3aeaee3a71ae8b024153996431fba203a1cdfce
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -248,6 +249,9 @@ ms.lasthandoff: 03/10/2017
 2.    Вы также можете просмотреть соглашения в обзоре учетной записи интеграции. В колонке учетной записи интеграции выберите **Обзор**, а затем щелкните плитку **Соглашения**. 
 
     ![Выбор плитки "Соглашения" для просмотра всех соглашений](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+
+## <a name="view-swagger-file"></a>Просмотр файла Swagger
+Дополнительные сведения о Swagger для соединителя EDIFACT см.в [этой статье](/connectors/edifact/).
 
 ## <a name="learn-more"></a>Подробнее
 * [Обзор пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md "Обзор пакета интеграции Enterprise")  

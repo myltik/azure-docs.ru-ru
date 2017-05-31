@@ -14,23 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 0fbe1af87594aacd2eee4f706429e3674548d3fd
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 0b402602ed80d9eef5313fb29ba2bd05644f11f8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 
 ---
 
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Создание сред со множеством виртуальных машин и ресурсов PaaS с помощью шаблонов Azure Resource Manager
 
-[Портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) позволяет с легкостью [создать и добавить виртуальную машину в лабораторию](./devtest-lab-add-vm-with-artifacts.md). Этот вариант хорошо подходит, если одновременно создается только одна виртуальная машина. Но если среда содержит несколько виртуальных машин, то каждую из них необходимо создавать отдельно. Для сценариев, где задействовано многоуровневое веб-приложение или ферма SharePoint, требуется механизм создания множества виртуальных машин одним действием. С помощью шаблонов Azure Resource Manager теперь можно определить инфраструктуру и конфигурацию решения Azure и многократно развернуть множество виртуальных машин в согласованном состоянии. Эта функция обеспечивает следующие преимущества:
+[Портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) позволяет с легкостью [создать и добавить виртуальную машину в лабораторию](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Этот вариант хорошо подходит, если одновременно создается только одна виртуальная машина. Но если среда содержит несколько виртуальных машин, то каждую из них необходимо создавать отдельно. Для сценариев, где задействовано многоуровневое веб-приложение или ферма SharePoint, требуется механизм создания множества виртуальных машин одним действием. С помощью шаблонов Azure Resource Manager теперь можно определить инфраструктуру и конфигурацию решения Azure и многократно развернуть множество виртуальных машин в согласованном состоянии. Эта функция обеспечивает следующие преимущества:
 
 - Шаблоны Azure Resource Manager загружаются непосредственно из репозитория системы управления версиями (GitHub или Team Services Git).
 - После настройки пользователи могут создать среду, выбрав шаблон Azure Resource Manager на портале Azure, как они делают с другими типами [баз виртуальных машин](./devtest-lab-comparing-vm-base-image-types.md).
 - На основе шаблона Azure Resource Manager в среде можно подготовить ресурсы Azure PaaS, в дополнение к виртуальным машинам IaaS.
 - В лаборатории можно отслеживать стоимость сред, а также отдельных виртуальных машин, созданных другими типами баз.
 - Для сред у пользователей есть такое же средство управления политиками виртуальных машин, как и для виртуальных машин отдельной лаборатории.
+
+> [!NOTE]
+> Развертывание типа ресурса Microsoft.DevTestLab/labs (или его вложенных типов ресурсов, например Microsoft.DevTestLab/labs/virtualmachines) с помощью шаблонов ARM пока не поддерживается для этой процедуры. Для развертывания виртуальной машины убедитесь, что используется Microsoft.Compute/virtualmachines. Дополнительные примеры шаблонов ARM можно найти в [коллекции шаблонов быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-customdata/azuredeploy.json).
+>
+>
 
 ## <a name="configure-azure-resource-manager-template-repositories"></a>Настройка репозиториев шаблонов Azure Resource Manager
 

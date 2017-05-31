@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 564dd782834898709f89f85e10627d07b17138ce
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3f6ae31f577eb1bc70a06e183518aadbc6279159
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -138,7 +139,7 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 | Дополнительные сведения о принципах работы и ответы на часто задаваемые вопросы |[Автоматическая подготовка пользователей и ее отзыв для приложений SaaS](active-directory-saas-app-provisioning.md) |
 | Настройка способов сопоставления сведений между Azure AD и приложением SaaS |[Настройка сопоставлений атрибутов](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Запись выражений для сопоставления атрибутов](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Включение автоматической подготовки в любом приложении, которое поддерживает протокол SCIM |[Автоматическая подготовка пользователей и групп из Azure Active Directory в приложениях с использованием SCIM](active-directory-scim-provisioning.md) |
-| Получение уведомлений о сбоях при подготовке |[Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md) |
+| Составление отчетов о подготовке пользователей и устранение неполадок |[Отчеты об автоматической подготовке пользователей](active-directory-saas-provisioning-reporting.md)<br><br>[Уведомления о подготовке](active-directory-saas-account-provisioning-notifications.md)<br><br>[Устранение неполадок при подготовке пользователей](active-directory-application-provisioning-content-map.md) |
 | Ограничение количества пользователей, которые будут подготовлены для работы с приложением, на основе значений их атрибутов |[Подготовка приложений на основе атрибутов с использованием фильтров области](active-directory-saas-scoping-filters.md) |
 
 Автоматическая подготовка пользователей доступна для всех выпусков Azure AD, и ее можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), вы можете [использовать группы для управления отбором пользователей для подготовки](#managing-access-to-applications).
@@ -168,16 +169,16 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 Управление доступом к приложениям на основе групп поддерживается в [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) и [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/). Самостоятельное управление группами и приложениями, а также динамические группы — это функции [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/) .
 
 ### <a name="b2b-collaboration-enable-partner-access-to-applications"></a>Совместная работа B2B: партнерский доступ к приложениям
-Если ваша организация сотрудничает с другими компаниями, скорее всего, вам необходимо управлять партнерским доступом к корпоративным приложениям. Служба совместной работы Azure Active Directory B2B предоставляет простой и безопасный способ совместного использования приложений с партнерами. Эта функция в настоящее время находится на стадии предварительной версии.
+Если ваша организация сотрудничает с другими компаниями, скорее всего, вам необходимо управлять партнерским доступом к корпоративным приложениям. Служба совместной работы Azure Active Directory B2B предоставляет простой и безопасный способ совместного использования приложений с партнерами.
 
 | Путеводитель по статьям |  |
 |:---:| --- |
 | Общие сведения о различных функциях Azure AD, с помощью которых можно управлять внешними пользователями, такими как партнеры, клиенты и т. д. |[Сравнение возможностей управления внешними удостоверениями с помощью Azure Active Directory](active-directory-b2b-compare-external-identities.md) |
-| Общие сведения о предварительной версии службы совместной работы B2B и указания по началу работы |[Простая и надежная облачная интеграция партнеров с Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Служба Azure Active Directory B2B Collaboration](active-directory-b2b-collaboration-overview.md) |
-| Подробные сведения о службе совместной работы Azure AD B2B и о способах ее использования |[Принципы работы службы совместной работы B2B](active-directory-b2b-how-it-works.md)<br /><br />[Текущие ограничения предварительной версии службы совместной работы Azure AD B2B](active-directory-b2b-current-preview-limitations.md)<br /><br />[Подробное пошаговое руководство по использованию предварительной версии службы совместной работы Azure Active Directory (Azure AD) B2B](active-directory-b2b-detailed-walkthrough.md) |
+| Общие сведения о службе совместной работы B2B и указания по началу работы с ней. |[Простая и надежная облачная интеграция партнеров с Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Служба Azure Active Directory B2B Collaboration](active-directory-b2b-collaboration-overview.md) |
+| Подробные сведения о службе совместной работы Azure AD B2B и о способах ее использования |[Принципы работы службы совместной работы B2B](active-directory-b2b-how-it-works.md)<br /><br />[Текущие ограничения службы совместной работы Azure AD B2B](active-directory-b2b-current-limitations.md)<br /><br />[Подробное пошаговое руководство по использованию службы совместной работы Azure Active Directory (Azure AD) B2B](active-directory-b2b-detailed-walkthrough.md) |
 | Справочные статьи, содержащие технические сведения о том, как работает служба совместной работы Azure AD B2B |[Формат CSV-файла для добавления пользователей партнера](active-directory-b2b-references-csv-file-format.md)<br /><br />[Атрибуты пользователя, затронутые службой совместной работы Azure AD B2B](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[Формат внешнего пользовательского токена для предварительной версии службы Azure Active Directory B2B Collaboration](active-directory-b2b-references-external-user-token-format.md) |
 
-Предварительная версия службы совместной работы B2B в настоящее время доступна для [всех выпусков Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Служба совместной работы B2B в настоящее время доступна для [всех выпусков Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>Панель доступа: портал для доступа к приложениям и функциям самообслуживания
 На панели доступа Azure AD конечные пользователи могут запускать приложения и получать доступ к функциям самообслуживания, которые позволяют управлять приложениями и членством в группах. Помимо панели доступа в списке ниже приведены и другие варианты получения доступа к приложениям с поддержкой единого входа.

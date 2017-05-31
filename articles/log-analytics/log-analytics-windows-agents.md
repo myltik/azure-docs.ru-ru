@@ -3,7 +3,7 @@ title: "Подключение компьютеров Windows к Azure Log Analy
 description: "В этой статье приведена процедура подключения компьютеров Windows в локальной инфраструктуре к службе Log Analytics с помощью настраиваемой версии Microsoft Monitoring Agent (MMA)."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
-ms.author: banders
+ms.date: 05/12/2017
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 0868eb2269b3675a132e106cd66740b0ce52b00a
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: d95ab33460d5d86b1d2f6d7f0d4e7a9040568c29
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -31,9 +32,9 @@ ms.lasthandoff: 03/07/2017
 >[!NOTE]
 Для виртуальных машин, запущенных в Azure, установку можно упростить с помощью [расширения виртуальной машины](log-analytics-azure-vm-extension.md).
 
-На компьютерах, подключенных к Интернету, агент будет использовать интернет-подключение для отправки данных в OMS. Для компьютеров, не подключенных к Интернету, можно использовать прокси-сервер или [шлюз OMS](log-analytics-oms-gateway.md).
+На компьютерах, подключенных к Интернету, агент использует это подключение для отправки данных в OMS. Для компьютеров, не подключенных к Интернету, можно использовать прокси-сервер или [шлюз OMS](log-analytics-oms-gateway.md).
 
-Подключение компьютеров Windows к OMS выполняется в три простых этапа:
+Подключение компьютеров Windows к OMS выполняется в три простых этапа.
 
 1. Скачайте файл установки агента на портале OMS.
 2. Установка агента выбранным способом
@@ -43,15 +44,37 @@ ms.lasthandoff: 03/07/2017
 
 ![oms-direct-agent-diagram](./media/log-analytics-windows-agents/oms-direct-agent-diagram.png)
 
+Если установленные политики безопасности ИТ не разрешают компьютерам в вашей сети подключаться к Интернету, можно настроить эти компьютеры для подключения к шлюзу OMS. Дополнительные сведения и инструкции по настройке серверов для обмена данными со службой OMS через шлюз OMS см. в статье [Подключения компьютеров к OMS с помощью шлюза OMS без доступа к Интернету](log-analytics-oms-gateway.md).
 
 ## <a name="system-requirements-and-required-configuration"></a>Системные требования и необходимая конфигурация
-Перед установкой или развертыванием агентов просмотрите следующие сведения и убедитесь в том, что необходимые требования выполнены.
+Перед установкой или развертыванием агентов просмотрите следующие сведения и убедитесь в том, что требования выполнены.
 
 - MMA OMS можно устанавливать на компьютеры под управлением Windows Server 2008 SP 1 или более поздней версии либо Windows 7 SP1 или более поздней версии.
-- Вам потребуется подписка OMS.  Дополнительные сведения см. в статье [Начало работы с Log Analytics](log-analytics-get-started.md).
+- Вам понадобится подписка Azure.  Дополнительные сведения см. в статье [Начало работы с Log Analytics](log-analytics-get-started.md).
 - Каждый компьютер Windows должен иметь доступ к Интернету по протоколу HTTPS или к шлюзу OMS. Подключение может быть установлено напрямую, через прокси-сервер или через шлюз OMS.
 - MMA OMS можно устанавливать на автономные компьютеры, серверы и виртуальные машины. Если вы хотите подключить к OMS виртуальные машины, размещенные в Azure, см. статью [Подключение виртуальных машин Azure к службе Log Analytics](log-analytics-azure-vm-extension.md).
-- Агенту необходимо использовать TCP-порт 443 для различных ресурсов. Дополнительные сведения можно получить в статье [Настройка параметров прокси-сервера и брандмауэра в службе Log Analytics](log-analytics-proxy-firewall.md).
+- Агенту необходимо использовать TCP-порт 443 для различных ресурсов.
+
+### <a name="network"></a>Сеть
+
+Чтобы агенты Windows могли подключиться к службе OMS и зарегистрироваться в ней, им нужен доступ к сетевым ресурсам, включая номера портов и URL-адреса доменов.
+
+- Для прокси-серверов необходимо убедиться, что в параметрах агента настроены соответствующие ресурсы прокси-сервера.
+- Если используются брандмауэры, ограничивающие доступ к Интернету, вам или вашим сетевым инженерам следует настроить их таким образом, чтобы разрешить доступ к OMS. Настройка параметров агента не требуется.
+
+В следующей таблице показаны ресурсы, необходимые для обмена данными.
+
+>[!NOTE]
+>В некоторых из ресурсов упоминается Operational Insights — предыдущая версия OMS. Тем не менее, в будущем перечисленные ресурсы будут изменены.
+
+| Ресурс агента | порты; | Обход проверки HTTPS |
+|---|---|---|
+| *.ods.opinsights.azure.com | 443 | Да |
+| *.oms.opinsights.azure.com | 443 | Да |
+| *.blob.core.windows.net | 443 | Да |
+| *.azure-automation.net | 443 | Да |
+
+
 
 ## <a name="download-the-agent-setup-file-from-oms"></a>Загрузка файла установки агента из OMS
 1. На портале OMS на странице **Обзор** щелкните плитку **Параметры**.  Откройте расположенную сверху вкладку **Подключенные источники**.  
@@ -65,7 +88,7 @@ ms.lasthandoff: 03/07/2017
 2. На странице приветствия нажмите кнопку **Далее**.
 3. На странице "Условия лицензии" прочтите лицензию и нажмите кнопку **Принимаю**.
 4. На странице "Папка назначения" измените или оставьте папку установки по умолчанию и нажмите кнопку **Далее**.
-5. На странице "Параметры установки агента" можно подключить агент к Azure Log Analytics (OMS) или Operations Manager либо оставить поле пустым, чтобы настроить агент позднее. Нажмите кнопку **Далее**.   
+5. На странице "Параметры установки агента" можно подключить агент к Azure Log Analytics (OMS) или Operations Manager либо оставить поле пустым, чтобы настроить агент позднее. Щелкните **Далее**.   
     - Если выбрано подключение к Azure Log Analytics (OMS), вставьте **идентификатор рабочей области** и **ключ рабочей области (первичный ключ)**, скопированные в Блокнот на предыдущих шагах, и нажмите кнопку **Далее**.  
         ![Вставка идентификатора рабочей области и первичного ключа](./media/log-analytics-windows-agents/connect-workspace.png)
     - Если выбрано подключение к Operations Manager, введите **имя группы управления**, имя **сервера управления** и **порт сервера управления**, затем нажмите кнопку **Далее**. На странице "Учетная запись действия агента" выберите учетную запись Local System или учетную запись локального домена и нажмите кнопку **Далее**.  
@@ -75,24 +98,96 @@ ms.lasthandoff: 03/07/2017
 7. На странице "Настройка успешно завершена" нажмите кнопку **Готово**.
 8. После завершения установки на **панели управления** появится **Microsoft Monitoring Agent**. Здесь можно просмотреть конфигурацию и проверить, подключен ли агент к Operational Insights (OMS). При подключении к OMS агент выдает следующее сообщение: **Microsoft Monitoring Agent успешно подключен к службе Microsoft Operations Management Suite.**
 
+## <a name="configure-proxy-settings"></a>Настройка параметров прокси
+
+Далее описано, как настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью панели управления. Эту процедуру необходимо использовать для каждого сервера. Если вам нужно настроить несколько серверов, возможно, проще использовать скрипт для автоматизации этого процесса. Далее описано, [как настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью скрипта](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+
+### <a name="to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-control-panel"></a>Настройка параметров прокси-сервера для Microsoft Monitoring Agent с помощью панели управления
+1. Откройте **Панель управления**.
+2. Откройте **Microsoft Monitoring Agent**.
+3. Перейдите на вкладку **Параметры прокси-сервера**.  
+    ![вкладка параметров прокси-сервера](./media/log-analytics-windows-agents/proxy-direct-agent-proxy.png)
+4. Выберите **Использовать прокси-сервер** и введите URL-адрес и номер порта (если он нужен), как показано в примере. Если для доступа к прокси-серверу требуется проверка подлинности, введите имя пользователя и пароль.
+
+
+### <a name="verify-agent-connectivity-to-oms"></a>Проверка подключения к агенту OMS
+
+Можно легко проверить, могут ли агенты обмениваться данными с OMS, воспользовавшись следующей процедурой.
+
+1.    На компьютере, на котором установлен агент Windows, откройте панель управления.
+2.    Откройте "Microsoft Monitoring Agent".
+3.    Перейдите на вкладку "Azure Log Analytics (OMS)".
+4.    В столбце "Состояние" вы увидите, что агент успешно подключен к службе Operations Management Suite.
+
+![Агент подключен](./media/log-analytics-windows-agents/mma-connected.png)
+
+
+### <a name="to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script"></a>как настроить параметры прокси-сервера для Microsoft Monitoring Agent с помощью скрипта
+Скопируйте следующий пример, измените его, указав данные своей среды, сохраните его в файл с расширением PS1, затем выполните сценарий на каждом компьютере, который подключается непосредственно к службе OMS.
+
+    param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
+
+    # First we get the Health Service configuration object.  We need to determine if we
+    #have the right update rollup with the API we need.  If not, no need to run the rest of the script.
+    $healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+
+    $proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
+
+    if (!$proxyMethod)
+    {
+         Write-Output 'Health Service proxy API not present, will not update settings.'
+         return
+    }
+
+    Write-Output "Clearing proxy settings."
+    $healthServiceSettings.SetProxyInfo('', '', '')
+
+    $ProxyUserName = $cred.username
+
+    Write-Output "Setting proxy to $ProxyDomainName with proxy username $ProxyUserName."
+    $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
+
+
+
 ## <a name="install-the-agent-using-the-command-line"></a>Установка агента с помощью командной строки
 - Измените, а затем используйте следующий пример для установки агента с помощью командной строки. В примере выполняется полностью автоматическая установка.
 
     >[!NOTE]
     Для обновления агента необходимо использовать API сценариев службы Log Analytics. Сведения об обновлении агента см. в следующем разделе.
 
-    ```
+    ```dos
     MMASetup-AMD64.exe /Q:A /R:N /C:"setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1"
     ```
 
-Агент использует IExpress в качестве самоизвлечения с помощью команды `/c`. Воспользуйтесь параметрами командной строки в разделе [Параметры командной строки для IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) и затем обновите пример в соответствии со своими потребностями.
+Агент использует IExpress в качестве самоизвлечения с помощью команды `/c`. Воспользуйтесь параметрами командной строки в разделе [Параметры командной строки для IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) и затем измените пример в соответствии со своими потребностями.
 
-## <a name="upgrade-the-agent-and-add-a-workspace-using-a-script"></a>Обновление агента и добавление рабочей области с помощью сценария
-Можно обновить агент и добавить рабочую область с помощью API сценариев службы Log Analytics, как показано в следующем примере команды PowerShell.
+|Параметры MMA                   |Примечания         |
+|---------------------------------------|--------------|
+|ADD_OPINSIGHTS_WORKSPACE               | 1 — настройка агента для передачи отчетов в рабочую область.                |
+|OPINSIGHTS_WORKSPACE_ID                | Идентификатор добавляемой рабочей области (GUID).                    |
+|OPINSIGHTS_WORKSPACE_KEY               | Ключ рабочей области, используемый для первоначальной аутентификации в рабочей области. |
+|OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Укажите облачную среду, в которой находится рабочая область. <br> 0 — коммерческое облако Azure (по умолчанию). <br> 1 — Azure для государственных организаций. |
 
-```
+>[!NOTE]
+Если при использовании параметра `OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE` появляется сообщение `Command line option syntax error.`, можно выполнить приведенный ниже способ обхода.
+```dos
+MMASetup-AMD64.exe /C /T:.\MMAExtract
+cd .\MMAExtract
+setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+
+## Add a workspace using a script
+Add a workspace using the Log Analytics agent scripting API with the following example:
+
+```PowerShell
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 $mma.AddCloudWorkspace($workspaceId, $workspaceKey)
+$mma.ReloadConfiguration()
+```
+
+Чтобы добавить рабочую область в Azure для государственных организаций США, используйте следующий сценарий.
+```PowerShell
+$mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+$mma.AddCloudWorkspace($workspaceId, $workspaceKey, 1)
 $mma.ReloadConfiguration()
 ```
 
@@ -103,8 +198,8 @@ $mma.ReloadConfiguration()
 
 Вы можете использовать следующий пример сценария для установки агента с помощью DSC в службе автоматизации Azure. В примере выполняется установка 64-разрядного агента, идентифицируемого значением `URI`. Вы также можете использовать 32-разрядную версию, заменив значение универсального кода ресурса (URI). URI для обеих версий:
 
-- 64-разрядный агент Windows — https://go.microsoft.com/fwlink/?LinkId=828603
-- 32-разрядный агент Windows — https://go.microsoft.com/fwlink/?LinkId=828604
+- 64-разрядный агент Windows: https://go.microsoft.com/fwlink/?LinkId=828603
+- 32-разрядный агент Windows: https://go.microsoft.com/fwlink/?LinkId=828604
 
 
 >[!NOTE]
@@ -112,11 +207,11 @@ $mma.ReloadConfiguration()
 
 1. Импортируйте модуль DSC xPSDesiredStateConfiguration со страницы [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) в службу автоматизации Azure.  
 2.    Создайте в службе автоматизации Azure ресурсы-контейнеры для переменных *OPSINSIGHTS_WS_ID* и *OPSINSIGHTS_WS_KEY*. В качестве значения параметра *OPSINSIGHTS_WS_ID* укажите идентификатор рабочей области Log Analytics в OMS, а для параметра *OPSINSIGHTS_WS_KEY* — первичный ключ рабочей области.
-3.    Воспользуйтесь приведенным ниже сценарием и сохраните его под именем MMAgent.ps1
+3.    Скопируйте приведенный ниже сценарий и сохраните его как файл MMAgent.ps1.
 4.    Измените, а затем используйте следующий пример для установки агента с помощью DSC в службе автоматизации Azure. Импортируйте MMAgent.ps1 в службу автоматизации Azure с помощью интерфейса службы или командлета.
 5.    Назначьте узел конфигурации. В течение 15 минут узел проверит свою конфигурацию, а MMA будет помещен в узел.
 
-```
+```PowerShell
 Configuration MMAgent
 {
     $OIPackageLocalPath = "C:\MMASetup-AMD64.exe"
@@ -157,7 +252,7 @@ Configuration MMAgent
 
 `ProductId value` в сценарии MMAgent.ps1 уникален для каждой версии агента. При публикации обновленной версии каждого агента значение ProductId изменяется. Таким образом, когда ProductId изменится в будущем, версию агента можно найти с помощью простого сценария. Установив последнюю версию агента на тестовом сервере, получите установленное значение ProductId, выполнив следующий сценарий. Используя последнее значение ProductId, можно обновить значение в сценарии MMAgent.ps1.
 
-```
+```PowerShell
 $InstalledApplications  = Get-ChildItem hklm:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
 
 
@@ -215,19 +310,8 @@ foreach ($Application in $InstalledApplications)
 8.    На странице **Учетная запись действия агента**выберите учетную запись Local System или учетную запись локального домена.
 9.    Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Добавление группы управления**, и еще раз нажмите **ОК**, чтобы закрыть диалоговое окно **Свойства Microsoft Monitoring Agent**.
 
-## <a name="optionally-configure-agents-to-use-the-oms-gateway"></a>Настройка агентов на использование шлюза OMS (необязательно)
-
-Серверы и клиенты, не подключенные к Интернету, могут отправлять данные в OMS через шлюз OMS.  При использовании шлюза все данные из агентов отправляются через один и тот же сервер с доступом к Интернету. Шлюз передает данные из агентов в OMS напрямую, не анализируя их.
-
-Дополнительные сведения о шлюзе, а также о его установке и настройке см. в статье [Подключения компьютеров и устройств к OMS с помощью шлюза OMS](log-analytics-oms-gateway.md).
-
-Сведения о настройке агентов для использования прокси-сервера (в нашем случае шлюза OMS) см. в статье [Настройка параметров прокси-сервера и брандмауэра в службе Log Analytics](log-analytics-proxy-firewall.md).
-
-## <a name="optionally-configure-proxy-and-firewall-settings"></a>Настройка параметров прокси-сервера и брандмауэра (необязательно)
-Если в вашей среде есть прокси-серверы или брандмауэры, ограничивающие доступ к Интернету, включите агенты для обмена данными со службой OMS, как указано в статье [Настройка параметров прокси-сервера и брандмауэра в службе Log Analytics](log-analytics-proxy-firewall.md) .
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - [добавьте решения Log Analytics из коллекции решений](log-analytics-add-solutions.md) .
-- [Настройка параметров прокси-сервера и брандмауэра в службе Log Analytics](log-analytics-proxy-firewall.md) , чтобы агенты могли взаимодействовать со службой Log Analytics.
 

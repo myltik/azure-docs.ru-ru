@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/17/2017
 ms.author: asgang
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 06ac75a40ed1dc97046836388bb7938dabd2b9ac
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: f78a857a795031f6188635091c76431cd5440d1c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -39,6 +40,7 @@ ms.lasthandoff: 04/12/2017
 #### <a name="before-you-start"></a>Перед началом работы
 При репликации виртуальных машин VMware обратите внимание на следующее.
 
+* Учетная запись пользователя Azure должна содержать определенные [разрешения](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) для включения репликации новой виртуальной машины в Azure.
 * Виртуальные машины VMware обнаруживаются каждые 15 минут. Может пройти более 15 минут, прежде чем они будут обнаружены и отображены на портале. Обнаружение может также занять 15 минут или более при добавлении нового сервера vCenter или узла vSphere.
 * Изменения среды на виртуальной машине (например, установка средств VMware) также могут отобразиться на портале через 15 и более минут.
 * Время последнего обнаружения виртуальных машин VMware можно узнать в колонке **Серверы конфигурации** в поле **Последнее обнаружение** для сервера vCenter или узла vSphere.
@@ -105,19 +107,20 @@ ms.lasthandoff: 04/12/2017
 ![Включение репликации](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
 
 *Группа ресурсов*
-   
-  * Вы можете выбрать [группу ресурсов](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines), в которую будет добавлена машина после отработки отказа. Этот параметр можно изменить в любое время перед отработкой отказа. 
-  
+
+  * Вы можете выбрать [группу ресурсов](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines), в которую будет добавлена машина после отработки отказа. Этот параметр можно изменить в любое время перед отработкой отказа.
+
 > [!NOTE]
 > Если после отработки отказа переместить машину в другую группу ресурсов, параметры защиты этой машины будут нарушены.
- 
+
 *Группы доступности*
 
-Вы также можете выбрать [группу доступности](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines), в которую будет добавлена машина после отработки отказа. При выборе группы доступности учитывайте следующее:
+Вы также можете выбрать [группу доступности](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines), в которую будет добавлена машина после отработки отказа.
+При выборе группы доступности учитывайте следующее:
 
 * Отображаются только группы доступности, принадлежащие к указанной группе ресурсов.  
-* Машины в разных виртуальных сетях не могут входить в одну группу доступности. 
-* В одну группу доступности могут входить только виртуальные машины одинакового размера. 
+* Машины в разных виртуальных сетях не могут входить в одну группу доступности.
+* В одну группу доступности могут входить только виртуальные машины одинакового размера.
 
 *Свойства сети*
 

@@ -1,6 +1,6 @@
 ---
-title: "Имитация устройства с помощью пакета SDK для шлюза Azure IoT (Windows) | Документация Майкрософт"
-description: "Использование пакета SDK для шлюза Azure IoT в Windows для создания имитации устройства, отправляющего данные телеметрии через шлюз в Центр Интернета вещей."
+title: "Имитация устройства с помощью Edge Интернета вещей Azure (Windows) | Документация Майкрософт"
+description: "Сведения об использовании Edge Интернета вещей Azure в Windows для создания имитации устройства, отправляющего данные телеметрии через шлюз Интернета вещей Azure в Центр Интернета вещей."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: andbuc
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 458984f75eed3a7a3102c288798b55664afaa37d
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 0ea8483e19ddec447642a33c24c9ecdd9937ea11
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Использование пакета SDK для шлюза Azure IoT для отправки сообщений с устройства в облако с помощью имитации устройства (Windows)
+# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Отправка сообщений с устройства в облако с помощью имитации устройства (Windows) с использованием Edge Интернета вещей Azure
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>Сборка и запуск примера
@@ -34,18 +35,18 @@ ms.lasthandoff: 03/31/2017
 Сборка примера
 
 1. Откройте командную строку разработчика для **VS 2015** или **VS 2017**.
-2. Перейдите в корневую папку в локальной копии репозитория **azure-iot-gateway-sdk** .
-3. Запустите сценарий **tools\\build.cmd**. Этот сценарий создает файл решения Visual Studio выполняет сборку решения. Решение Visual Studio находится в папке **build** локальной копии репозитория **azure-iot-gateway-sdk**. В сценарии можно задать дополнительные параметры для выполнения сборки и модульного или сквозного тестирования. Это параметры **--run-unittests** и **--run-e2e-tests** соответственно.
+2. Перейдите в корневую папку в локальной копии репозитория **iot-edge**.
+3. Запустите сценарий **tools\\build.cmd**. Этот сценарий создает файл решения Visual Studio выполняет сборку решения. Решение Visual Studio находится в папке **build** локальной копии репозитория **iot-edge**. В сценарии можно задать дополнительные параметры для выполнения сборки и модульного или сквозного тестирования. Это параметры **--run-unittests** и **--run-e2e-tests** соответственно.
 
 Запуск примера
 
-В текстовом редакторе откройте файл **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** в локальной копии репозитория **azure-iot-gateway-sdk**. Этот файл настраивает модули в примере шлюза:
+В текстовом редакторе откройте файл **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** в локальной копии репозитория **iot-edge**. Этот файл настраивает модули Edge Интернета вещей в примере шлюза:
 
 * Модуль **IoTHub** подключается к центру IoT. Его необходимо настроить для отправки данных в центр IoT. В частности, укажите в качестве значения **IoTHubName** имя своего Центра Интернета вещей, а в качестве значения **IoTHubSuffix** — **azure-devices.net**. Для параметра **Transport** задайте одно из следующих значений: HTTP, AMQP или MQTT. В настоящее время только HTTP использует одно TCP-подключение для всех сообщений с устройства. Если задать значение AMQP или MQTT, то шлюз будет поддерживать отдельное TCP-подключение к Центру Интернета вещей для каждого устройства.
 * Модуль **mapping** сопоставляет MAC-адреса имитаций устройств с идентификаторами устройств Центра Интернета вещей. Убедитесь в том, что значения **deviceId** совпадают с идентификаторами двух устройств, добавленных в Центр Интернета вещей, а значения **deviceKey** содержат ключи этих двух устройств.
 * Модули **BLE1** и **BLE2** — это имитации устройств. Обратите внимание, что MAC-адреса модулей совпадают с адресами в модуле **mapping**.
 * Модуль **Logger** регистрирует активность вашего шлюза в файл.
-* Указанные в следующем примере значения **module path** предполагают, что вы клонировали репозиторий пакета SDK для шлюза IoT в корневую папку диска **C:**. Если вы загрузили его в другое место, измените соответственно значения **module path** .
+* Указанные в следующем примере значения **module path** предполагают, что вы клонировали репозиторий Edge Интернета вещей в корневую папку диска **C:**. Если вы загрузили его в другое место, измените соответственно значения **module path** .
 * Массив **links** в нижней части JSON-файла подключает модули **BLE1** и **BLE2** к модулю **mapping**, а модуль **mapping** — к модулю **IoTHub**. Это также гарантирует, что все сообщения будут зарегистрированы модулем **Logger** .
 
 ```
@@ -137,7 +138,7 @@ ms.lasthandoff: 03/31/2017
 
 Запуск примера
 
-1. В командной строке перейдите в корневую папку в локальной копии репозитория **azure-iot-gateway-sdk** .
+1. В командной строке перейдите в корневую папку в локальной копии репозитория **iot-edge**.
 2. Выполните следующую команду:
    
     ```
@@ -146,10 +147,10 @@ ms.lasthandoff: 03/31/2017
 3. Для мониторинга сообщений, получаемых Центром Интернета вещей из шлюза, можно использовать такие средства, как [обозреватель устройств][lnk-device-explorer] или [iothub-explorer][lnk-iothub-explorer].
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Если вы хотите подробнее изучить возможности пакета SDK для шлюза Интернета вещей и поэкспериментировать с примерами кода, то см. следующие учебники и ресурсы для разработчиков:
+Если вы хотите подробнее изучить возможности Edge Интернета вещей и поэкспериментировать с примерами кода, см. следующие руководства и ресурсы для разработчиков.
 
-* [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через реальное устройство с ОС Linux][lnk-physical-device]
-* [Пакет SDK для шлюза Azure IoT][lnk-gateway-sdk]
+* [Отправка сообщений с устройства в облако с помощью физического устройства (Linux) с использованием Edge Интернета вещей Azure][lnk-physical-device]
+* [Azure IoT Edge][lnk-gateway-sdk] (Edge Интернета вещей Azure).
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
@@ -157,11 +158,11 @@ ms.lasthandoff: 03/31/2017
 * [Все аспекты безопасности решения IoT][lnk-securing]
 
 <!-- Links -->
-[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
+[lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
 [lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge/
 
 [lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
 

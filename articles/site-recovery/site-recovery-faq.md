@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 63f2cf1617bf9c265273c6a8e91703542b9eb8d4
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: d3351e4a480caa1bf02e82545f130b14bf6f0910
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -115,6 +115,8 @@ Azure Site Recovery реплицирует данные в учетную зап
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Существуют ли предварительные требования для репликации виртуальных машин в Azure?
 Виртуальные машины, которые необходимо реплицировать в Azure, должны соответствовать [требованиям Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+
+Учетная запись пользователя Azure должна содержать определенные [разрешения](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) для включения репликации новой виртуальной машины в Azure.
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Можно ли реплицировать виртуальные машины Hyper-V второго поколения в Azure?
 Да. Во время отработки отказа Site Recovery преобразует машины второго поколения в первое. При восстановлении размещения машина преобразуется обратно во второе поколение. [Подробная информация](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
