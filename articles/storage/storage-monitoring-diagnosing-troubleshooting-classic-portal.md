@@ -533,7 +533,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | e2d06d78-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer .</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Waiting for response (Ожидание ответа). |
-| de8b1c3c-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt (Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt). |
+| de8b1c3c-... |Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparing to write request data (Подготовка к записи данных запроса). |
 | e2d06d78-... |Exception thrown while waiting for response: The remote server returned an error: (404) Not Found. (Возникло исключение при ожидании ответа. Удаленный сервер вернул ошибку: (404) — не найдено.) |
