@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 215f9baeda7cd0bcf3fd66893919575647849e7d
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 9de6a57671cf65c4aa5d8695d21e0932175b1183
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/22/2017
 
 ---
 # <a name="azure-active-directory-b2c-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C. Настройка пользовательского интерфейса в настраиваемой политике
@@ -30,14 +30,6 @@ ms.lasthandoff: 05/02/2017
 ## <a name="prerequisites"></a>Предварительные требования
 
 Прежде чем продолжить, необходимо ознакомиться со статьей [Azure Active Directory B2C. Приступая к работе с настраиваемыми политиками](active-directory-b2c-get-started-custom.md).  Для регистрации и входа с использованием локальных учетных записей необходимо иметь рабочую настраиваемую политику.
-
-### <a name="confirming-your-b2c-tenant"></a>Подтверждение клиента B2C
-
-Так как настраиваемые политики все еще доступны в закрытой предварительной версии, убедитесь, что ваш клиент Azure AD B2C включен для отправки настраиваемой политики.
-
-1. На [портале Azure](https://portal.azure.com) [переключитесь в контекст клиента Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) и откройте колонку Azure AD B2C.
-1. Щелкните **Все политики**.
-1. Проверьте, доступна ли кнопка **Отправить политику**.  Если она недоступна, введите адрес электронной почты AADB2CPreview@microsoft.com.
 
 ## <a name="the-page-ui-customization-feature"></a>Возможность настройки пользовательского интерфейса
 

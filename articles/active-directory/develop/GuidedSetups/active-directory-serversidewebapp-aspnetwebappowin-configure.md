@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6f50ced708cb79a39e190657e4720c515c09990f
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: ad4160abfef748033eeb84a2f07a37124ce3b4b1
 ms.contentlocale: ru-ru
 
 
@@ -47,14 +48,14 @@ ms.contentlocale: ru-ru
 <add key="Tenant" value="common" />
 <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" /> 
 ```
-9. Замените `ClientId` зарегистрированным идентификатором приложения.
-10. Замените `redirectUri` URL-адресом SSL проекта. 
+<!-- Workaround for Docs conversion bug -->
+<ol start="9">
+<li>
+Замените `ClientId` зарегистрированным идентификатором приложения.
+</li>
+<li>
+Замените `redirectUri` URL-адресом SSL проекта.
+</li>
+</ol>
 <!-- End Docs -->
-
-> Примечание
-> ### <a name="restricting-users-from-only-one-organization-to-sign-in-to-your-application"></a>Разрешение входа в приложение только пользователям одной организации
-> По умолчанию в приложение можно выполнить вход с помощью личных учетных записей (включая outlook.com, live.com и другие), а также рабочих и учебных учетных записей из любой компании или организации, которая использует Azure Active Directory. Если вы хотите, чтобы вход в приложение был настроен только для пользователей одной организации, замените параметр `Tenant` в файле `web.config` с `Common` на имя клиента организации, например `contoso.onmicrosoft.com`. После этого измените аргумент *ValidateIssuer* в классе запуска OWIN, задав ему значение `true`.
-Чтобы разрешить вход для пользователей из списка определенных организаций, задайте параметру `ValidateIssuer` значение `true` и используйте параметр `ValidIssuers`, чтобы указать список организаций.
-Другой вариант — реализовать пользовательский метод для проверки издателей с помощью `IssuerValidator parameter`. Дополнительные сведения о `TokenValidationParameters` см. в [этой статье MSDN](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters(v=vs.114).aspx).
-
 

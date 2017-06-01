@@ -15,10 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: d8acfd6e0206e8e97b7d49e280a7e72e0acadb6d
-ms.openlocfilehash: 9ce5278e66afb81c5cbfe3662c6654d39bbc9a54
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: a5bc3a72eccc48ec26ef5f029d780175d66080c0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Развертывание виртуального массива StorSimple. Подготовка портала Azure
@@ -74,7 +75,7 @@ ms.lasthandoff: 03/01/2017
 * Главная система должна быть в состоянии выделить указанный ниже объем ресурсов для подготовки виртуального массива.
   
   * Не менее 4 ядер.
-  * Не менее 8 ГБ ОЗУ. Если планируется настроить виртуальный массив как файловый сервер, то 8 ГБ ОЗУ обеспечат поддержку 2 млн файлов. Для поддержки 2–4 млн файлов требуется 16 ГБ ОЗУ.
+  * Не менее 8 ГБ ОЗУ. Если планируется настроить виртуальный массив как файловый сервер, то 8 ГБ ОЗУ обеспечат поддержку 2 млн файлов. Для поддержки 2–4 млн файлов потребуется 16 ГБ ОЗУ.
   * Один сетевой интерфейс.
   * Виртуальный диск размером 500 ГБ для системных данных.
 

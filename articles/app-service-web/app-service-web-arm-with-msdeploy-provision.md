@@ -13,9 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: f836bffd0610224b5cb69f4f6836dbc55e0721a3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 071be50ff7f72ecd711b2c3036f39b70df01a6ba
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -123,7 +125,7 @@ ms.openlocfilehash: f836bffd0610224b5cb69f4f6836dbc55e0721a3
 
 Свойство **packageUri** принимает универсальный код ресурса (URI) учетной записи хранения, который указывает на учетную запись хранения, куда будет загружен ZIP-пакет. При развертывании шаблона диспетчер ресурсов Azure задействует [подписанный URL-адрес](../storage/storage-dotnet-shared-access-signature-part-1.md) , чтобы загрузить пакет из учетной записи хранения локально. Это происходит автоматически благодаря скрипту PowerShell, который загружает пакет и вызывает API управления Azure, чтобы создать необходимые ключи и передать их в шаблон в качестве параметров (*_artifactsLocation* и *_artifactsLocationSasToken*). Потребуется определить параметры папки и имени файла, куда загружается пакет, внутри контейнера хранилища.
 
-Затем нужно добавить еще один вложенный ресурс, чтобы настроить привязки имени узла для использования личного домена. Сначала вам нужно убедиться, что у вас есть собственное имя узла, и предоставить его Azure для подтверждения. Дополнительные сведения см. в статье [Настройка личного доменного имени для службы приложений Azure](web-sites-custom-domain-name.md). Когда это будет сделано, в раздел Microsoft.Web/sites шаблона можно добавить следующее:
+Затем нужно добавить еще один вложенный ресурс, чтобы настроить привязки имени узла для использования личного домена. Сначала вам нужно убедиться, что у вас есть собственное имя узла, и предоставить его Azure для подтверждения. Дополнительные сведения см. в статье [Настройка личного доменного имени для службы приложений Azure](app-service-web-tutorial-custom-domain.md). Когда это будет сделано, в раздел Microsoft.Web/sites шаблона можно добавить следующее:
 
     {
         "apiVersion": "2015-08-01",
@@ -196,10 +198,5 @@ ms.openlocfilehash: f836bffd0610224b5cb69f4f6836dbc55e0721a3
     Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
 
 Теперь приложение развернуто, и вы можете перейти к нему по адресу https://www.yourcustomdomain.com.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

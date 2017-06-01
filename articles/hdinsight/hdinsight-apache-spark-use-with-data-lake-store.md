@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c801dc221d4aaa2c3ed0a7d10c5d58065b26e427
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 24e0372f024e574d049c63f444b5e8f6b0dfd065
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -28,8 +29,6 @@ ms.lasthandoff: 03/22/2017
 В этом руководстве для выполнения задания, которое считывает данные из учетной записи Data Lake Store, используется записная книжка Jupyter, доступная в кластерах HDInsight Spark.
 
 ## <a name="prerequisites"></a>Предварительные требования
-
-* Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Учетная запись Azure Data Lake Store. Следуйте инструкциям в разделе [Приступая к работе с хранилищем озера данных Azure на портале Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 
@@ -83,7 +82,7 @@ ms.lasthandoff: 03/22/2017
 
 3. Создайте новую записную книжку. Щелкните **Создать**, а затем выберите **PySpark**.
 
-    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.note.jupyter.createnotebook.png "Создание записной книжки Jupyter")
+    ![Создание записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Создание записной книжки Jupyter")
 
 4. Так как записная книжка была создана с помощью ядра PySpark, задавать контексты явно необязательно. Контексты Spark и Hive будут созданы автоматически при выполнении первой ячейки кода. Можно начать с импорта различных типов, необходимых для этого сценария. Для этого вставьте следующий фрагмент кода в ячейку и нажмите сочетание клавиш **SHIFT+ВВОД**.
 
@@ -91,7 +90,7 @@ ms.lasthandoff: 03/22/2017
 
     При каждом запуске задания в Jupyter в заголовке окна веб-браузера будет отображаться состояние **(Занято)** , а также название записной книжки. Кроме того, рядом с надписью **PySpark** в верхнем правом углу окна будет показан закрашенный кружок. После завершения задания этот значок изменится на кружок без заливки.
 
-     ![Состояние задания записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.jupyter.job.status.png "Состояние задания записной книжки Jupyter")
+     ![Состояние задания записной книжки Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Состояние задания записной книжки Jupyter")
 
 5. Загрузите пример данных во временную таблицу с помощью файла **HVAC.csv** , скопированного в учетную запись Data Lake Store. Получить доступ к данным в учетной записи хранилища озера данных можно с помощью следующего шаблона URL-адреса.
 
@@ -131,11 +130,11 @@ ms.lasthandoff: 03/22/2017
 
 7. После успешного выполнения задания по умолчанию будет показаны следующие табличные данные.
 
-      ![Вывод результатов запроса в виде таблицы](./media/hdinsight-apache-spark-use-with-data-lake-store/tabular.output.png "Вывод результатов запроса в виде таблицы")
+      ![Вывод результатов запроса в виде таблицы](./media/hdinsight-apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "Вывод результатов запроса в виде таблицы")
 
      Результаты также можно просмотреть и в других визуализациях. Например, диаграмма областей для тех же выходных данных будет выглядеть следующим образом.
 
-     ![Диаграмма с областями, показывающая результат запроса](./media/hdinsight-apache-spark-use-with-data-lake-store/area.output.png "Диаграмма с областями, показывающая результат запроса")
+     ![Диаграмма с областями, показывающая результат запроса](./media/hdinsight-apache-spark-use-with-data-lake-store/jupyter-area-output.png "Диаграмма с областями, показывающая результат запроса")
 
 8. Завершив работу с приложением, следует закрыть записную книжку, чтобы освободить ресурсы. Для этого в записной книжке в меню **Файл** выберите пункт **Close and Halt** (Закрыть и остановить). Это завершит работу записной книжки и закроет ее.
 

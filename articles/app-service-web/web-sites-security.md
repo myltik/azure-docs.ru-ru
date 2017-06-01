@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
-ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3071bf565b14966de2293205026c4524d7b0f0c5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -56,7 +57,7 @@ ms.lasthandoff: 03/02/2017
 Если вы хотите провести собственные тесты на защиту от несанкционированного доступа или воспользоваться другой системой сканирования или поставщиком услуг, выполните [процедуру утверждения тестов Azure на защиту от несанкционированного доступа](https://security-forms.azure.com/penetration-testing/terms) и получите предварительное разрешение на проведение желаемых тестов.
 
 ## <a name="https"></a> Безопасный обмен данными с клиентами
-Если вы используете для своего веб-приложения доменное имя **\*.azurewebsites.net**, то для доступа к приложению службы приложений по протоколу HTTPS не нужны дополнительные действия. Это связано с тем, что SSL-сертификат предоставляется для всех доменных имен **\*.azurewebsites.net**. Если сайт использует [имя личного домена](web-sites-custom-domain-name.md), то можно передать SSL-сертификат, чтобы [включить протокол HTTPS](web-sites-configure-ssl-certificate.md) для личного домена.
+Если вы используете для своего веб-приложения доменное имя **\*.azurewebsites.net**, то для доступа к приложению службы приложений по протоколу HTTPS не нужны дополнительные действия. Это связано с тем, что SSL-сертификат предоставляется для всех доменных имен **\*.azurewebsites.net**. Если сайт использует [имя личного домена](app-service-web-tutorial-custom-domain.md), то можно передать SSL-сертификат, чтобы [включить протокол HTTPS](app-service-web-tutorial-custom-ssl.md) для личного домена.
 
 Включение [HTTPS](https://en.wikipedia.org/wiki/HTTPS) помогает защититься от MITM-атак на обмен данными между приложением и его пользователями.
 

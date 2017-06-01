@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 98e5764f84f23ec586ebd823634b9024e4689c5c
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: c78b69188136d6df7887e92600984c4fa269d355
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -163,9 +164,9 @@ ms.lasthandoff: 02/16/2017
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [портале Azure]: https://portal.azure.com/
-[Настройка личного доменного имени в службе приложений Azure]: ./web-sites-custom-domain-name.md
+[Настройка личного доменного имени в службе приложений Azure]: ./app-service-web-tutorial-custom-domain.md
 [Настройка промежуточных сред для веб-приложений в службе приложений Azure]: ./web-sites-staged-publishing.md
-[Включение протокола HTTPS для приложения в службе приложений Azure]: ./web-sites-configure-ssl-certificate.md
+[Включение протокола HTTPS для приложения в службе приложений Azure]: ./app-service-web-tutorial-custom-ssl.md
 [Практическое руководство: мониторинг состояния конечной веб-точки]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Основы мониторинга для веб-приложений в службе приложений Azure]: ./web-sites-monitor.md
 [режим конвейера]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
