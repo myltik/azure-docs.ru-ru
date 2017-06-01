@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 05/23/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4faa029062fef6495debd5d787a1d86f4747453b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,14 +27,17 @@ ms.lasthandoff: 05/09/2017
 
 В этом кратком руководстве показано, как, используя [C# и ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx), подключиться к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных на платформах Windows, Mac OS и Ubuntu Linux.
 
+## <a name="prerequisites"></a>Предварительные требования
+
 Начальной точкой в руководстве являются ресурсы, созданные в одном из этих кратких руководств:
 
 - [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
+- [Создание базы данных с помощью PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-net"></a>Установка .NET
 
-В этом разделе предполагается, что у вас уже есть опыт разработки с использованием .NET и вы только начали изучение базы данных SQL Azure. Если вы новичок в разработке с использованием .NET, перейдите на страницу [создания приложения с помощью SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), выберите язык **C#** и операционную систему.
+В этом разделе предполагается, что у вас уже есть опыт разработки с использованием .NET и вы только начали изучение базы данных SQL Azure. Если вы новичок в разработке с использованием .NET, перейдите на страницу [создания приложения с помощью SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), выберите язык **C#** и операционную систему.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework и .NET Core**
 

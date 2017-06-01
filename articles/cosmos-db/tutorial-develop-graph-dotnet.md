@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB. Разработка с помощью API Graph на .NET | Документация Майкрософт"
 description: "Сведения о разработке с помощью API DocumentDB базы данных Azure Cosmos DB на .NET"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 64c412fc6b47da73e5430a4db4c007e4cf95aa47
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 94909fd1db426267eb60e5d7f4d753de82ca0377
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -45,7 +45,7 @@ Gremlin — это функциональный язык программиро
 Убедитесь, что у вас есть указанные ниже компоненты.
 
 * Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/). 
-    * Кроме того, в этом руководстве можно использовать [эмулятор Azure DocumentDB](../documentdb/documentdb-nosql-local-emulator.md).
+    * Кроме того, в этом руководстве можно использовать [эмулятор Azure DocumentDB](local-emulator.md).
 * [Visual Studio](http://www.visualstudio.com/)
 
 ## <a name="create-database-account"></a>Создание учетной записи базы данных
@@ -55,11 +55,11 @@ Gremlin — это функциональный язык программиро
 > [!TIP]
 > * Уже есть учетная запись Azure Cosmos DB? В таком случае перейдите к [настройке решения Visual Studio](#SetupVS).
 > * У вас была учетная запись Azure DocumentDB? Если да, ваша учетная запись теперь является учетной записью Azure Cosmos DB, поэтому вы можете сразу перейти к [настройке решения Visual Studio](#SetupVS).  
-> * Если вы используете эмулятор Azure Cosmos DB, выполните действия, описанные в статье об [эмуляторе Azure Cosmos DB](../documentdb/documentdb-nosql-local-emulator.md), чтобы настроить эмулятор и сразу перейти к [настройке решения Visual Studio](#SetupVS). 
+> * Если вы используете эмулятор Azure Cosmos DB, выполните действия, описанные в статье об [эмуляторе Azure Cosmos DB](local-emulator.md), чтобы настроить эмулятор и сразу перейти к [настройке решения Visual Studio](#SetupVS). 
 >
 > 
 
-[!INCLUDE [cosmosdb-create-dbaccount-graph](../../includes/cosmosdb-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a id="SetupVS"></a>Настройка решения Visual Studio
 1. Откройте **Visual Studio** у себя на компьютере.
@@ -98,7 +98,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Создание базы данных 
 
-Теперь создайте [базу данных](../documentdb/documentdb-resources.md#databases) Azure Cosmos DB с помощью метода [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) или [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) класса **DocumentClient** из [пакета SDK .NET для DocumentDB](../documentdb/documentdb-sdk-dotnet.md).  
+Теперь создайте [базу данных](documentdb-resources.md#databases) Azure Cosmos DB с помощью метода [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) или [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) класса **DocumentClient** из [пакета SDK .NET для DocumentDB](documentdb-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 
@@ -286,5 +286,5 @@ IDocumentQuery<Vertex> friendsOfFriendsOfThomas = client.CreateGremlinQuery<Vert
 Теперь вы можете создавать более сложные запросы и внедрять эффективную логику обхода графа с помощью Gremlin. 
 
 > [!div class="nextstepaction"]
-> [Выполнение запросов с помощью Gremlin](tutorial-query-graph.md)
+> [Как выполнять запросы к данным в базе данных Azure Cosmos DB с помощью API Graph (предварительная версия)](tutorial-query-graph.md)
 

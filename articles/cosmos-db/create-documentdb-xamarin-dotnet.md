@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB. Создание веб-приложения с проверкой подлинности Xamarin и Facebook | Документация Майкрософт"
 description: "В этой статье представлен пример кода .NET, который можно использовать для подключения и выполнения запросов к Azure Cosmos DB."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -16,18 +16,18 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 80aa96973799584118125829f9479fbd14431ac0
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: c8e2e688a7a8b99272c304df37ceff0f9ec52b19
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB. Создание веб-приложения с проверкой подлинности .NET, Xamarin и Facebook
 
-Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, пары "ключ — значение" и базы данных графов, используя преимущества возможностей глобального распределения и горизонтального масштабирования Azure Cosmos DB. 
+Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, пары "ключ — значение" и базы данных графов, используя преимущества возможностей глобального распределения и горизонтального масштабирования Azure Cosmos DB. 
 
-В этом кратком руководстве показано, как создать учетную запись Azure Cosmos DB, базу данных документов и коллекцию с использованием портала Azure. Затем вы создадите и развернете веб-приложение со списком задач на основе [API-интерфейса .NET для DocumentDB](../documentdb/documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/) и обработчика авторизации Azure Cosmos DB. Веб-приложение со списком задач реализовывает шаблон данных каждого пользователя, разрешающий им выполнять вход с помощью проверки подлинности Facebook, а также управлять собственными элементами.
+В этом кратком руководстве показано, как создать учетную запись Azure Cosmos DB, базу данных документов и коллекцию с использованием портала Azure. Затем вы создадите и развернете веб-приложение со списком задач на основе [API-интерфейса .NET для DocumentDB](documentdb-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/) и обработчика авторизации Azure Cosmos DB. Веб-приложение со списком задач реализовывает шаблон данных каждого пользователя, разрешающий им выполнять вход с помощью проверки подлинности Facebook, а также управлять собственными элементами.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -37,11 +37,11 @@ Azure Cosmos DB — это глобально распределенная мн
 
 ## <a name="create-a-database-account"></a>Создание учетной записи базы данных
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-collection"></a>Добавление коллекции
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>Клонирование примера приложения
 
@@ -114,7 +114,7 @@ Azure Cosmos DB — это глобально распределенная мн
 
 ## <a name="review-slas-in-the-azure-portal"></a>Просмотр соглашений об уровне обслуживания на портале Azure
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
@@ -128,5 +128,5 @@ Azure Cosmos DB — это глобально распределенная мн
 В этом кратком руководстве вы узнали, как создать учетную запись Azure Cosmos DB, коллекцию с помощью обозревателя данных, а также как создать и развернуть приложение Xamarin. Теперь можно импортировать дополнительные данные в учетную запись Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Импорт данных в DocumentDB с помощью средства миграции базы данных](../documentdb/documentdb-import-data.md)
+> [Импорт данных в DocumentDB с помощью средства миграции базы данных](import-data.md)
 

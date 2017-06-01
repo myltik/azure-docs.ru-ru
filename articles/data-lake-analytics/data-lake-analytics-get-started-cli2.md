@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 25278e621155e7c90b5bb870d08793d285f4edff
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3f957bda2c38bdeac3ee6b0dbd94fac497c8f7cf
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -56,15 +56,15 @@ az account set --subscription <subscription id>
 Для выполнения любых заданий требуется учетная запись Data Lake Analytics. Для создания учетной записи Data Lake Analytics необходимо указать следующие данные.
 
 * **Группа ресурсов Azure**. Учетная запись Data Lake Analytics должна быть создана в группе ресурсов Azure. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) позволяет работать с группами ресурсов в приложении. Вы можете развертывать, обновлять или удалять все ресурсы для приложения в рамках одной скоординированной операции.  
-  
+
     Чтобы отобразить существующие группы ресурсов в своей подписке выполните следующую команду:
-  
+
     ```azurecli
-    az group list 
+    az group list
     ```
 
     Чтобы создать новую группу ресурсов:
-  
+
     ```azurecli
     az group create --name "<Resource Group Name>" --location "<Azure Location>"
     ```
@@ -72,15 +72,15 @@ az account set --subscription <subscription id>
 * **Имя учетной записи Data Lake Analytics**. Каждой учетной записи Data Lake Analytics присвоено имя.
 * **Расположение.** Используйте один из центров обработки данных Azure, который поддерживает Data Lake Analytics.
 * **Учетная запись Data Lake Store по умолчанию** — каждая учетная запись Data Lake Analytics содержит учетную запись Data Lake Store по умолчанию.
-  
+
     Чтобы получить список существующих учетных записей Data Lake Store, выполните эту команду:
 
     ```azurecli
     az dls account list
     ```
-  
+
     Чтобы создать новую учетную запись Data Lake Store, выполните эту команду:
-  
+
     ```azurecli
     az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"
     ```
@@ -99,9 +99,9 @@ az dla account show --account "<Data Lake Analytics Account Name>"
 ```
 
 ## <a name="upload-data-to-data-lake-store"></a>Передача данных в хранилище озера данных
-В этом руководстве обрабатываются некоторые журналы поиска.  Журнал поиска может храниться в хранилище озера данных или в хранилище больших двоичных объектов Azure. 
+В этом руководстве обрабатываются некоторые журналы поиска.  Журнал поиска может храниться в хранилище озера данных или в хранилище больших двоичных объектов Azure.
 
-На портале Azure реализован пользовательский интерфейс для копирования файлов с образцами данных, включая файл журнала поиска, в учетную запись Data Lake Store по умолчанию. О передаче данных в учетную запись Data Lake Store по умолчанию см. в разделе [Подготовка исходных данных](data-lake-analytics-get-started-portal.md#prepare-source-data).
+На портале Azure реализован пользовательский интерфейс для копирования файлов с образцами данных, включая файл журнала поиска, в учетную запись Data Lake Store по умолчанию. О передаче данных в учетную запись Data Lake Store по умолчанию см. в разделе [Подготовка исходных данных](data-lake-analytics-get-started-portal.md).
 
 Чтобы передать файлы, используя интерфейс командной строки версии 2.0, выполните следующие команды:
 
@@ -118,7 +118,7 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 **Создание скрипта задания аналитики озера данных**
 
 Создайте текстовый файл со следующим скриптом U-SQL, а затем сохраните текстовый файл на своей рабочей станции.
-  
+
     @searchlog =
         EXTRACT UserId          int,
                 Start           DateTime,
@@ -133,8 +133,8 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
     OUTPUT @searchlog   
         TO "/Output/SearchLog-from-Data-Lake.csv"
     USING Outputters.Csv();
-  
-Этот сценарий U-SQL считывает файл исходных данных с помощью **Extractors.Tsv()**, а затем создает CSV-файл с помощью **Outputters.Csv()**. 
+
+Этот сценарий U-SQL считывает файл исходных данных с помощью **Extractors.Tsv()**, а затем создает CSV-файл с помощью **Outputters.Csv()**.
 
 Не меняйте эти два пути, если только исходный файл не был скопирован в другое место.  Аналитика озера данных создаст выходную папку, если ее не существует.
 
@@ -145,11 +145,11 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 Необходимо использовать абсолютные пути для доступа к файлам в связанных учетных записях хранения.  Для файлов, хранящихся в связанной учетной записи хранения Azure, используется следующий синтаксис:
 
     wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-  
+
   > [!NOTE]
   > Контейнер больших двоичных объектов Azure с разрешениями на доступ к общедоступным большим двоичным объектам или общедоступным контейнерам в настоящее время не поддерживается.      
-  > 
-  > 
+  >
+  >
 
 **Отправка заданий**
 
@@ -184,7 +184,7 @@ az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity 
 
 ```azurecli
 az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
-az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" 
+az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
 az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
 ```
@@ -205,5 +205,4 @@ az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-fro
 * Для знакомства с U-SQL см. статью о [начале работы с языком U-SQL для Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
 * Задачи управления описываются в руководстве по [управлению Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
 * Общие сведения об Azure Data Lake Analytics см. в [этой статье](data-lake-analytics-overview.md).
-
 

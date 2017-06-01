@@ -2,13 +2,13 @@
 title: "Создание веб-приложения с помощью API для MongoDB базы данных Azure Cosmos DB | Документация Майкрософт"
 description: "Руководство по базе данных Azure Cosmos DB, в котором создается веб-приложение базы данных с помощью API для MongoDB."
 keywords: "примеры mongodb"
-services: cosmosdb
+services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7d78ac544c7e001444c5112b20824f75f9723652
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: d92244361cf86ee8b3c8dc2384f3085644b92e60
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,13 +27,13 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB — это глобально распределенная многомодельная служба базы данных Майкрософт. Вы можете быстро создавать и запрашивать документы, пары "ключ — значение" и базы данных графов, используя преимущества возможностей глобального распределения и горизонтального масштабирования базы данных Azure Cosmos DB. 
 
-В этом руководстве показано, как создать учетную запись базы данных Azure Cosmos DB на портале Azure, а также базу данных и коллекцию для хранения данных с помощью [API MongoDB](../documentdb/documentdb-protocol-mongodb.md). 
+В этом руководстве показано, как создать учетную запись базы данных Azure Cosmos DB на портале Azure, а также базу данных и коллекцию для хранения данных с помощью [API MongoDB](mongodb-introduction.md). 
 
 В рамках этого руководства рассматриваются следующие задачи:
 
 > [!div class="checklist"]
 > * создание учетной записи Azure Cosmos DB; 
-> * обновление строки подключения;
+> * обновили строку подключения;
 > * создание приложения MongoDB на виртуальной машине. 
 
 
@@ -44,11 +44,11 @@ Azure Cosmos DB — это глобально распределенная мн
 > [!TIP]
 > * Уже есть учетная запись Azure Cosmos DB? В таком случае перейдите к [настройке решения Visual Studio](#SetupVS).
 > * У вас была учетная запись Azure DocumentDB? Если да, ваша учетная запись теперь является учетной записью Azure Cosmos DB, поэтому вы можете сразу перейти к [настройке решения Visual Studio](#SetupVS).  
-> * Если вы используете эмулятор Azure Cosmos DB, выполните действия, описанные в статье об [эмуляторе Azure Cosmos DB](../documentdb/documentdb-nosql-local-emulator.md), чтобы настроить эмулятор и сразу перейти к [настройке решения Visual Studio](#SetupVS). 
+> * Если вы используете эмулятор Azure Cosmos DB, выполните действия, описанные в статье об [эмуляторе Azure Cosmos DB](local-emulator.md), чтобы настроить эмулятор и сразу перейти к [настройке решения Visual Studio](#SetupVS). 
 >
 >
 
-[!INCLUDE [cosmosdb-create-dbaccount-mongodb](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## <a name="update-your-connection-string"></a>Обновление строки подключения
 
@@ -225,6 +225,6 @@ Azure Cosmos DB — это глобально распределенная мн
 Вы можете перейти к следующему руководству и импортировать данные MongoDB в базу данных Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Перенос данных MongoDB в Azure Cosmos DB](../documentdb/documentdb-mongodb-migrate.md)
+> [Перенос данных MongoDB в Azure Cosmos DB](mongodb-migrate.md)
 
 
