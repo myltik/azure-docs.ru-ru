@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 1013419f9283c3e81a6a6e8ed56a34d6ee5937ea
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Список задач администрирования и разработки в службах BizTalk
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 ## <a name="getting-started"></a>Приступая к работе
 При работе со службами BizTalk Microsoft Azure следует принимать во внимание несколько локальных и облачных компонентов. Для начала рассмотрим следующую схему.  
 
@@ -53,10 +58,5 @@ ms.openlocfilehash: 1013419f9283c3e81a6a6e8ed56a34d6ee5937ea
 [Обучение и создание сопоставлений и преобразований сообщений](https://msdn.microsoft.com/library/azure/hh689905.aspx)  
 [Использование службы адаптера BizTalk](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
 [Службы BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

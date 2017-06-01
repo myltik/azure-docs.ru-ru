@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
 ms.openlocfilehash: 4fb13a158c660105a5fc8f79a92c67ba65c5356d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>Службы BizTalk: имя и ключ издателя
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 В службах BizTalk в Azure используются имя и ключ издателя Service Bus, а также имя и ключ издателя службы Access Control. В частности:
 
 | Задача | Используемые имя и ключ издателя |
@@ -97,10 +102,5 @@ ms.openlocfilehash: 4fb13a158c660105a5fc8f79a92c67ba65c5356d
 * [Службы BizTalk: вкладки «Панель мониторинга», «Монитор» и «Масштаб»](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Службы BizTalk: резервное копирование и восстановление](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [Службы BizTalk: регулирование](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

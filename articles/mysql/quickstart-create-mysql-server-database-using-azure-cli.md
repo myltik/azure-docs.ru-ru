@@ -51,7 +51,7 @@ az group create --name mycliresource --location westus
 В следующем примере в группе ресурсов `mycliresource` создается сервер базы данных Azure для MySQL с именем `mycliserver`, который расположен в `westus`. Для сервера указано имя администратора для входа `myadmin` и пароль `Password01!`. Он создается с уровнем производительности **Базовый** и **50** единицами вычислений, которые совместно используются всеми базами данных на сервере. В зависимости от потребностей приложения можно увеличить или уменьшить масштаб вычислительных ресурсов и ресурсов хранилища.
 
 ```azurecli
-az mysql server create --resource-group mycliresource --name mycliserver--location westus --user myadmin --password Password01! --performance-tier Basic --compute-units 50
+az mysql server create --resource-group mycliresource --name mycliserver --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
 ![Создание сервера базы данных Azure для MySQL с помощью Azure CLI](./media/quickstart-create-mysql-server-database-using-azure-cli/3_az-mysq-server-create.png)

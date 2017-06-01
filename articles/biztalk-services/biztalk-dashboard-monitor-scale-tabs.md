@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Просмотр вкладок «Панель мониторинга», «Монитор», «Масштаб», «Настройка» и «Гибридное подключение»
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 После создания службы BizTalk и развертывания приложения можно изменить некоторые параметры службы BizTalk и отслеживать производительность приложения. 
 
 При запуске классического портала Azure автоматически открывается вкладка **ВСЕ ЭЛЕМЕНТЫ** . Чтобы просмотреть службу BizTalk, выберите ее на вкладке **Все элементы** или откройте вкладку **Службы BIZTALK**, а затем выберите имя нужной службы BizTalk.
