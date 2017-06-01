@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 04/26/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 1f59558d69993907bc2c37eaba03ad23e5ef8543
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 034b61fdeb34c03bb4b58145f04138410e0d6fc6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -252,7 +252,7 @@ SerDe — лучший выбор для синтаксического анал
 * [Использование Hive и HiveQL с Hadoop в HDInsight для анализа примера файла log4j Apache](hdinsight-use-hive.md)
 * [Анализ данных о задержке рейсов с помощью Hadoop в HDInsight](hdinsight-analyze-flight-delay-data.md)
 * [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data.md)
-* [Запуск задания Hadoop с помощью DocumentDB и HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
+* [Run an Apache Hive, Pig, or Hadoop job using Azure Cosmos DB and HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md) (Выполнение задания Apache Hive, Pig или Hadoop с помощью Azure Cosmos DB и HDInsight)
 
 [hdinsight-python]: hdinsight-python.md
 
