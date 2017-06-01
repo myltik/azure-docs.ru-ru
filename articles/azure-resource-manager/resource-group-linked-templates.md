@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 05/24/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 78b8902927977c3b7dca3bd6e24633858ef8e6e9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 9ab6d3e5e41f155b1404cee8a555078409c09c60
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/11/2017
 ```json
 "resources": [ 
   { 
-      "apiVersion": "2015-01-01", 
+      "apiVersion": "2017-05-10", 
       "name": "linkedTemplate", 
       "type": "Microsoft.Resources/deployments", 
       "properties": { 
@@ -53,7 +53,7 @@ ms.lasthandoff: 05/11/2017
 Как и для прочих типов ресурсов, вы можете задать зависимости между связанным шаблоном и другими ресурсами. Следовательно, если другим ресурсам требуется выходное значение из связанного шаблона, то вы можете обеспечить развертывание данного шаблона прежде этих ресурсов. Или, если связанный шаблон зависит от других ресурсов, то вы можете обеспечить их развертывание перед развертыванием связанного шаблона. Извлечь значение из связанного шаблона можно с помощью приведенного ниже синтаксиса.
 
 ```json
-"[reference('linkedTemplate').outputs.exampleProperty]"
+"[reference('linkedTemplate').outputs.exampleProperty.value]"
 ```
 
 Служба Resource Manager должна иметь доступ к связанному шаблону. В качестве связанного шаблона нельзя указать локальный файл или файл, доступный только в локальной сети. Можно предоставить только универсальный код ресурса (URI), который включает в себя **http** или **https**. Один из вариантов — разместить связанный шаблон в учетной записи хранения и использовать универсальный код ресурса (URI) этого элемента, как показано в примере ниже.
@@ -75,7 +75,7 @@ ms.lasthandoff: 05/11/2017
 },
 "resources": [
     {
-        "apiVersion": "2015-01-01",
+        "apiVersion": "2017-05-10",
         "name": "linkedTemplate",
         "type": "Microsoft.Resources/deployments",
         "properties": {
@@ -101,7 +101,7 @@ Resource Manager обрабатывает каждый связанный шаб
 ```json
 "resources": [ 
   { 
-     "apiVersion": "2015-01-01", 
+     "apiVersion": "2017-05-10", 
      "name": "linkedTemplate", 
      "type": "Microsoft.Resources/deployments", 
      "properties": { 
@@ -142,116 +142,6 @@ Resource Manager обрабатывает каждый связанный шаб
 }
 ```
 
-## <a name="conditionally-linking-to-templates"></a>Условное связывание шаблонов
-Вы можете связывать разные шаблоны, передавая значение параметра, на основе которого создается URI связанного шаблона. Такой подход удобен, если во время развертывания нужно указать определенный связанный шаблон. Например, один шаблон может использоваться для работы с существующей учетной записью хранения, а другой — для создания новой учетной записи.
-
-В следующем примере используются два параметра: один для имени учетной записи хранения и второй для определения используемой учетной записи (новая или существующая).
-
-```json
-"parameters": {
-    "storageAccountName": {
-        "type": "String"
-    },
-    "newOrExisting": {
-        "type": "String",
-        "allowedValues": [
-            "new",
-            "existing"
-        ]
-    }
-},
-```
-
-Создайте переменную для URI шаблона, которая содержит значение нового или существующего параметра.
-
-```json
-"variables": {
-    "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
-},
-```
-
-Укажите значение этой переменной для ресурса развертывания.
-
-```json
-"resources": [
-    {
-        "apiVersion": "2015-01-01",
-        "name": "linkedTemplate",
-        "type": "Microsoft.Resources/deployments",
-        "properties": {
-            "mode": "incremental",
-            "templateLink": {
-                "uri": "[variables('templatelink')]",
-                "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-                "StorageAccountName": {
-                    "value": "[parameters('storageAccountName')]"
-                }
-            }
-        }
-    }
-],
-```
-
-Для универсального кода ресурса (URI) определяется имя шаблона: **existingStorageAccount.json** или **newStorageAccount.json**. Создайте шаблоны для этих URI.
-
-Вот пример шаблона **existingStorageAccount.json** .
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "String"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
-А ниже — пример шаблона **newStorageAccount.json** . Обратите внимание, что объект учетной записи хранения, как и в шаблоне существующей учетной записи хранения, возвращается в выходных данных. Основной шаблон поддерживает любой из связанных шаблонов.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('StorageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('StorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
 ## <a name="complete-example"></a>Полный пример
 В следующих примерах шаблонов показано упрощенное размещение связанных шаблонов, чтобы проиллюстрировать некоторые основные понятия, используемые в этой статье. Предполагается, что шаблоны были добавлены в один контейнер в учетной записи хранения, для которой отключен общий доступ. Связанный шаблон передает значение обратно в основной шаблон в разделе **outputs** .
 
@@ -266,7 +156,7 @@ Resource Manager обрабатывает каждый связанный шаб
   },
   "resources": [
     {
-      "apiVersion": "2015-01-01",
+      "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
       "properties": {

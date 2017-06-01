@@ -3,7 +3,7 @@ title: "Подключение компьютеров Linux к Azure Log Analyti
 description: "Log Analytics позволяет собирать и обрабатывать данные, созданные компьютерами Linux."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: b01b0d3d61168c1eec52f3fd040b829e0c51a878
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 10da54ebce28dfdcd0f793b1c717e738150b72ae
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -750,7 +751,7 @@ sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/oms
 ### <a name="azure-diagnostics"></a>Диагностика Azure
 Для виртуальных машин Linux в Azure может потребоваться выполнить дополнительные действия, чтобы разрешить сбор данных с помощью системы диагностики Azure и Operations Management Suite. **версии 2.2** .
 
-Дополнительные сведения об установке и настройке расширения диагностики для Linux см. в разделе [Включение диагностического расширения Linux с помощью команды Azure CLI](../virtual-machines/linux/classic/diagnostic-extension.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension).
+Дополнительные сведения об установке и настройке расширения диагностики для Linux см. в разделе [Включение диагностического расширения Linux с помощью команды Azure CLI](../virtual-machines/linux/classic/diagnostic-extension-v2.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension).
 
 **Обновление расширения диагностики с версии 2.0 до версии 2.2 ASM интерфейса командной строки Azure:**
 

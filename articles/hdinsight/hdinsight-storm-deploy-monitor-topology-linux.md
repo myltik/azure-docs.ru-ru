@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 03/22/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 53092b0cfcf2bf9a09b36f6425724669f770e7fb
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 7db9f78641d1604b3804f9a3d1cac484b58b334d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/12/2017
 С помощью этого документа вы ознакомитесь с основами управления и мониторинга топологий Storm, работающих в Storm в кластерах HDInsight.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этой статье, вам потребуется Storm под управлением Linux в кластере HDInsight. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
+> Для выполнения действий, описанных в этой статье, вам потребуется Storm под управлением Linux в кластере HDInsight. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). 
 >
 > Сведения о развертывании и мониторинге топологий в HDInsight под управлением Windows см. в статье [Развертывание топологий Apache Storm в HDInsight под управлением Windows и управление ими](hdinsight-storm-deploy-monitor-topology.md).
 

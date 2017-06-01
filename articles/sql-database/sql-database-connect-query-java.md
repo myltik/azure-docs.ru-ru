@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 05/07/2017
-ms.author: andrela;carlrab;sstein
+ms.date: 05/23/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: defb32835971fe423e77a11817fce057fa7c929d
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 63ab7345b70d456d9d1ad23255d9ca7e777e161d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,10 +27,13 @@ ms.lasthandoff: 05/09/2017
 
 В этом кратком руководстве показано, как, используя [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server), подключиться к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных на платформах Mac OS, Ubuntu Linux и Windows.
 
+## <a name="prerequisites"></a>Предварительные требования
+
 Начальной точкой в руководстве являются ресурсы, созданные в одном из этих кратких руководств:
 
 - [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
+- [Создание базы данных с помощью PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-java-software"></a>Установка программного обеспечения Java
 
@@ -106,7 +109,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";
@@ -161,7 +164,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";
@@ -217,7 +220,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";
@@ -268,7 +271,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";

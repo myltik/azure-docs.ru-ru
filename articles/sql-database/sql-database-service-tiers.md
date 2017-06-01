@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 05/14/2017
+wms.date: 05/31/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1811c325e240a6688b09f7260b33fbe19d022cea
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9ea73d39a8fcee82e749d20accdd3a3c30cba94e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -54,7 +54,7 @@ ms.lasthandoff: 05/18/2017
 | Максимальный размер базы данных в эластичном пуле | 2 ГБ | 250 ГБ | 500 ГБ | 500 ГБ |
 | Максимальное количество баз данных на пул | 500  | 500 | 100 | 100 |
 | Максимальное количество DTU отдельной базы данных | 5 | 100 | 4000 | 1000 |
-| Максимальное количество DTU для одной базы данных в эластичном пуле | 5 | 100 | 4000 | 1000 |
+| Максимальное количество DTU для одной базы данных в эластичном пуле | 5 | 3000 | 4000 | 1000 |
 | Срок хранения резервной копии | 7 дней | 35 дней | 35 дней | 35 дней |
 ||||||
 

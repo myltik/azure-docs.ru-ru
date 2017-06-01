@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 8e2c1ccb003adafeaf315b23171f49d5b3f50cdb
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 7ad2a150cd4a7223b6eababb8519140ba856cd6e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 05/16/2017
 Платформа Hadoop обеспечивает высокий уровень доступности и надежности, реплицируя службы и данные на нескольких узлах в кластере. Однако стандартные дистрибутивы Hadoop обычно имеют один головной узел. Любой сбой такого узла может вызвать прекращение работы кластера. HDInsight предоставляет два головных узла для повышения доступности и надежности Hadoop.
 
 > [!IMPORTANT]
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="availability-and-reliability-of-nodes"></a>Доступность и надежность узлов
 

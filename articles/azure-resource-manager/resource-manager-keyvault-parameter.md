@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 23fb716997145152bd09d177b75973ad0b4ca9f3
-ms.openlocfilehash: 171cfe2a8750025914545701fa3423c7b9baa5f2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0bf872a44b8ed7cae53d2659aa7be878902130e9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -187,12 +189,6 @@ ms.openlocfilehash: 171cfe2a8750025914545701fa3423c7b9baa5f2
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Общие сведения о хранилищах ключей см. в разделе [Приступая к работе с хранилищем ключей Azure](../key-vault/key-vault-get-started.md).
-* Сведения об использовании хранилища ключей с виртуальной машиной см. в разделе [Вопросы безопасности при работе с диспетчером ресурсов Azure](best-practices-resource-manager-security.md).
 * Полные примеры использования ссылок на секреты ключей приведены [здесь](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

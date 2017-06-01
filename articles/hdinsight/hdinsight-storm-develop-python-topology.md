@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 3fc4f193d72d578711285a5b4c2062be65cf354c
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: dabe1c2df99ab6070f2008d6eb980085390fb572
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 05/16/2017
 В этой статье приведены сведения о создании топологии Apache Storm, использующей компоненты Python. Apache Storm поддерживает несколько языков и даже позволяет объединять компоненты из нескольких языков в одной топологии. Платформа Flux (впервые появилась в Storm 0.10.0) позволяет легко создавать решения, использующие компоненты Python.
 
 > [!IMPORTANT]
-> Сведения в этом документе были проверены с использованием Storm в HDInsight 3.5. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе о [нерекомендуемых версиях HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Сведения в этом документе были проверены с использованием Storm в HDInsight 3.5. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 Код для этого проекта доступен здесь: [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 

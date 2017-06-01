@@ -2,14 +2,12 @@
 redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 46edcf8172daf3ea18ceaed5e35720f3caaccab9
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 490ba561db6d3812d43c54d5f7554ef3bcfd4b66
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="default-quotas-for-azure-cosmos-db"></a>Квоты по умолчанию для базы данных Azure Cosmos DB
 
-Azure Cosmos DB — это масштабная база данных, пропускную способность и хранилище которой можно масштабировать в соответствии с требованиями приложения. Если у вас возникнут вопросы по масштабированию Azure Cosmos DB, отправьте электронное сообщение по адресу askdocdb@microsoft.com.
 

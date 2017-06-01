@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 9da3cf830857211fe414f55e250e222b9d17438b
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 098904d8b5262d8a19d1c10003e0bcaa668ef2dc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -42,7 +43,7 @@ ms.lasthandoff: 03/31/2017
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | У вас есть экземпляры AWS EC2, которые вы хотели бы перенести на управляемые диски Azure.                                     | [Migrate from Amazon Web Services (AWS) to Azure Managed Disks](aws-to-azure.md) (Миграция из Amazon Web Services (AWS) на управляемые диски Azure).                           |
 | У вас есть виртуальная машина на любой другой платформе виртуализации, на основе которой вы хотите создать образ для развертывания нескольких виртуальных машин Azure. | [Upload a generalized VHD to Azure and create a new VM using Managed Disks](upload-generalized-managed.md) (Отправка обобщенного виртуального жесткого диска в Azure и создание новой виртуальной машины, использующей управляемые диски). |
-| У вас есть уникальная виртуальная машина, настроенная под конкретные задачи, копию которой вы хотите создать в Azure.                                                      | [Upload a specialized VHD to Azure and create a new VM using Managed Disks](upload-specialized.md) (Отправка специализированного виртуального жесткого диска в Azure и создание новой виртуальной машины, использующей управляемые диски).         |
+| У вас есть уникальная виртуальная машина, настроенная под конкретные задачи, копию которой вы хотите создать в Azure.                                                      | [Upload a specialized VHD to Azure and create a new VM using Managed Disks](create-vm-specialized.md) (Отправка специализированного виртуального жесткого диска в Azure и создание новой виртуальной машины, использующей управляемые диски).         |
 
 
 ## <a name="overview-of-managed-disks"></a>Обзор управляемых дисков

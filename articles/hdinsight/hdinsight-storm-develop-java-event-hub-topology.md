@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e650731c3186b47adeb0e799a852961c30338550
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: ec20115e8316b96d740e1966494096964ec884b1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/12/2017
 * Кластер Apache Storm в HDInsight версии 3.5. Дополнительные сведения см. в статье [Руководство по Apache Storm в HDInsight: начало работы с анализом больших объемов данных в HDInsight с помощью примеров Storm Starter](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
     > [!IMPORTANT]
-    > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Чтобы узнать больше, ознакомьтесь с [нерекомендуемыми версиями HDInsight 3.3 и 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+    > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 * [Концентратор событий Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
@@ -242,6 +243,7 @@ ms.lasthandoff: 04/12/2017
     <includePluginDependencies>false</includePluginDependencies>
     <classpathScope>compile</classpathScope>
     <mainClass>${storm.topology}</mainClass>
+    <cleanupDaemonThreads>false</cleanupDaemonThreads>
     </configuration>
 </plugin>
 ```
