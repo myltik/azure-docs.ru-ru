@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 847d7c944d966f431f631d9d59c85b6307f72ceb
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 7576bf607a4bec60011ed0a009462f8cd3e0d598
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -39,7 +39,7 @@ Apache Ambari упрощает управление кластером Hadoop и
 Веб-интерфейс Ambari предоставляется по умолчанию с кластерами HDInsight, использующими операционную систему Linux.
 
 > [!IMPORTANT]
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). 
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date). 
 
 ## <a name="connectivity"></a>Соединение
 

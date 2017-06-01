@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 277966153733d0ce4610d711f3d2a96e3ff37ab8
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: e7519981642c438ca25b0479324ee159545bac8e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -32,13 +33,13 @@ Pig — это платформа, позволяющая создавать п�
 | **Используйте** , если требуется... | ... **интерактивная** оболочка | ...**пакетная** обработка | ...with этим **кластером операционной системы** | ...из этого **кластера операционной системы** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](hdinsight-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X или Windows |
-| [ИНТЕРФЕЙС REST API](hdinsight-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux или Windows |Linux, Unix, Mac OS X или Windows |
+| [REST API](hdinsight-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux или Windows |Linux, Unix, Mac OS X или Windows |
 | [.NET SDK для Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux или Windows |Windows (сейчас) |
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux или Windows |Windows |
 | [Удаленный рабочий стол](hdinsight-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 и 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Чтобы узнать больше, ознакомьтесь с [нерекомендуемыми версиями HDInsight 3.2 и 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a id="why"></a>Почему именно Pig?
 
@@ -108,7 +109,7 @@ HDInsight может запускать задания Pig Latin с помощь
 | [Удаленный рабочий стол](hdinsight-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 и 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Чтобы узнать больше, ознакомьтесь с [нерекомендуемыми версиями HDInsight 3.2 и 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="pig-and-sql-server-integration-services"></a>Использование Pig и SQL Server Integration Services
 

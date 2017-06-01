@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9662ff49e38d65fcba307bc3fc7a8ec699b13202
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: d10d86fdb6ade326fb49fded9676a6106ab53aef
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -36,7 +37,7 @@ Mahout — это библиотека [машинного обучения][ml]
 * Кластер HDInsight под управлением Linux. Дополнительные сведения о создании кластера см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux][getstarted].
 
 > [!IMPORTANT]
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Чтобы узнать больше, ознакомьтесь с [нерекомендуемыми версиями HDInsight 3.2 и 3.4](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="mahout-versioning"></a>Управление версиями Mahout
 

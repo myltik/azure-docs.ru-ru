@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 05/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b8c32f6e15d65efc8dc464017027d3cde94b2667
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f974c2714fc600d850baff64fdf65aae178e5068
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -54,7 +54,7 @@ HDInsight предоставляет несколько типов класте�
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux или Windows* |Windows |
 
 > [!IMPORTANT]
-> \* Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Чтобы узнать больше, ознакомьтесь с разделом [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> \* Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 >
 > Если вы используете кластер HDInsight на платформе Windows, вы можете использовать [консоль запросов](hdinsight-hadoop-use-hive-query-console.md) в браузере или [удаленный рабочий стол](hdinsight-hadoop-use-hive-remote-desktop.md) для выполнения запросов Hive.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.custom: sample
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 749826e11270f61e1525ad30ea6502327362f7f4
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 53ec86dc9e9f9011b754b798e57d8caa40a0706a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>Примеры Azure CLI для базы данных Azure для MySQL 
@@ -26,7 +26,8 @@ ms.lasthandoff: 05/10/2017
 | |  |
 |---|---|
 |**Создание сервера**||
-| [Создание сервера MySQL и настройка правила брандмауэра с помощью Azure CLI](./scripts/sample-create-server-and-firewall-rule.md) | Скрипт Azure CLI, который создает отдельный сервер базы данных Azure для MySQL и настраивает правило брандмауэра на уровне сервера. |
+| [Создание сервера MySQL и настройка правила брандмауэра с помощью Azure CLI](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | Скрипт Azure CLI, который создает отдельный сервер базы данных Azure для MySQL и настраивает правило брандмауэра на уровне сервера. |
 |**Масштабирование сервера**||
-| [Мониторинг и масштабирование сервера базы данных Azure для MySQL с помощью Azure CLI](./scripts/sample-scale-server.md) | Скрипт Azure CLI, который масштабирует отдельный сервер базы данных Azure для MySQL с учетом меняющихся требований к производительности. |
+| [Мониторинг и масштабирование сервера базы данных Azure для MySQL с помощью Azure CLI](./scripts/sample-scale-server.md?toc=%2fcli%2fazure%2ftoc.json) | Скрипт Azure CLI, который масштабирует отдельный сервер базы данных Azure для MySQL с учетом меняющихся требований к производительности. |
 |||
+

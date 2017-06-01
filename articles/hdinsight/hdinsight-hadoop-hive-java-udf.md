@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9691b7ffb9c2bd9dd3f9900a29fb898652d8d7bf
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 229bebe16b619f61f2dd4acb73602b97e64cb294
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/12/2017
 * Кластер HDInsight (под управлением Windows или Linux)
 
     > [!IMPORTANT]
-    > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Чтобы узнать больше, ознакомьтесь с [нерекомендуемыми версиями HDInsight 3.2 и 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+    > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
     Большинство шагов, описанных в этой статье, подходит для кластеров обоих типов. Тем не менее инструкции по отправке скомпилированных определяемых пользователем функций в кластер и их выполнению относятся только к кластерам под управлением Linux. Здесь также приведены ссылки на дополнительные сведения, которые можно использовать при работе с кластерами под управлением Windows.
 

@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 05/17/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 997c8623b9bc99074723f77237fbbbdba031d577
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 85d241d7c81d1c40abb6f98b84983aca8240463d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/18/2017
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/18/2017
 Azure REST API позволяет управлять службами, размещенными на платформе Azure, в том числе создавать ресурсы, например кластеры HDInsight.
 
 > [!IMPORTANT]
-> Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Чтобы узнать больше, ознакомьтесь с разделом [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 > [!NOTE]
 > В описанных в этом документе инструкциях для связи с Azure REST API используется служебная программа [curl (https://curl.haxx.se/)](https://curl.haxx.se/).
@@ -355,7 +355,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 ## <a name="troubleshoot"></a>Устранение неполадок
 
-Если при создании кластеров HDInsight возникли проблемы, ознакомьтесь с разделом [Access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters) (Требования к контролю доступа).
+Если при создании кластеров HDInsight возникли проблемы, см. раздел [Создание кластеров](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

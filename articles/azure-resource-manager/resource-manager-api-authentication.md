@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 8a8a28e6491855434c4445bedd5644d7da109f8a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -31,8 +32,6 @@ ms.lasthandoff: 04/21/2017
 2. **Доступ только для приложений.**Используйте этот метод для приложений, на которых запущены службы управляющих программ и запланированные задания. Удостоверение приложения предоставляет непосредственный доступ к ресурсам. Этот метод подходит для приложений, требующих долгосрочного автономного (автоматического) доступа Azure.
 
 В этой статье содержатся пошаговые инструкции по созданию приложения, поддерживающего оба эти метода авторизации. Здесь показано, как выполнить каждое действие, используя REST API или C#. Полное приложение ASP.NET MVC можно получить на странице [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
-
-Код, используемый в этой статье, выполняется в качестве веб-приложения, которое можно испытать на странице [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense).
 
 ## <a name="what-the-web-app-does"></a>Возможности веб-приложения
 Веб-приложение обеспечивает следующие возможности:
