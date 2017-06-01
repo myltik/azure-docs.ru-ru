@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 331c03cd0819aa4935f9b486ff38f54d23d6a7fd
 ms.openlocfilehash: e3d5f89b1c8525f791e73667d6f7cd6a999ab971
+ms.contentlocale: ru-ru
 ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Что можно и что нельзя сделать с помощью состояния службы BizTalk
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 В зависимости от текущего состояния службы BizTalk существуют операции, которые можно или нельзя выполнять со службой BizTalk.
 
 Например, можно подготовить новую службу BizTalk на классическом портале Azure. После успешного завершения этого процесса служба BizTalk переводится в состояние `active`. В активном состоянии службу BizTalk остановить, приостановить и удалить. Если при попытке остановить службу BizTalk произошел сбой, то она переходит в состояние `StopFailed`. Службу BizTalk в состоянии `StopFailed` можно перезапустить. При попытке выполнения запрещенной операции, например возобновления, произойдет следующая ошибка.

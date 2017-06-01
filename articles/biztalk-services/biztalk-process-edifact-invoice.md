@@ -14,13 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: b7ad7b91c6b836f26b45959ef65a99666a4bf69a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/08/2016
 
 
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Руководство по обработке счетов EDIFACT с помощью служб BizTalk Azure
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Портал служб BizTalk можно использовать для настройки и развертывания соглашений EDIFACT и X12. В этом руководстве описывается создание соглашения EDIFACT для обмена счетами между торговыми партнерами. В качестве примера здесь используется комплексное бизнес-решение с двумя торговыми партнерами, компаниями Contoso и Northwind, которые обмениваются сообщениями EDIFACT.  
 
 ## <a name="sample-based-on-this-tutorial"></a>Пример, который используется в этом руководстве
@@ -277,10 +282,5 @@ ms.openlocfilehash: b7ad7b91c6b836f26b45959ef65a99666a4bf69a
 [16]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-16.PNG  
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG  
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
