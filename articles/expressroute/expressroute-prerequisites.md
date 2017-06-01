@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 679b6962633cd734a1b1e339e8422da5b9c4ddfd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 873a3b83bf85c7e2d6d299bd25ebb135c300aacb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -33,8 +33,8 @@ ms.lasthandoff: 05/15/2017
 
 ## <a name="connectivity-provider"></a>Поставщик услуг подключения
 
-* Чтобы подключиться к Microsoft Cloud, можно работать с [партнером по подключению ExpressRoute](expressroute-locations.md#partners) . Подключение между локальной сетью и Майкрософт можно настроить [тремя различными способами](expressroute-introduction.md). 
-* Если ваш поставщик не является партнером по подключению ExpressRoute, вы можете подключиться к Microsoft Cloud через [поставщика облачных служб Exchange](expressroute-locations.md#c1partners).
+* Чтобы подключиться к Microsoft Cloud, можно работать с [партнером по подключению ExpressRoute](expressroute-locations.md#partners) . Подключение между локальной сетью и Майкрософт можно настроить [тремя различными способами](expressroute-introduction.md).
+* Если ваш поставщик не является партнером по подключению ExpressRoute, вы можете подключиться к Microsoft Cloud через [поставщика облачных служб Exchange](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Требования к сети
 * **Избыточное подключение.** Для физического соединения между вами и поставщиком услуг отсутствуют требования к избыточности. Майкрософт требует устанавливать избыточные сеансы BGP между маршрутизаторами Майкрософт и маршрутизаторами одноранговых участников, даже если у вас есть только [одно физическое подключение к облачной службе Exchange](expressroute-faqs.md#onep2plink).

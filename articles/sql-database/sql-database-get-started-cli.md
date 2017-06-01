@@ -16,10 +16,11 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: fb0cd3898703b9acf54d7ff70774bd090d39f0e5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: dccebad561b04306126f986193a57aee176aaa0d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -27,15 +28,17 @@ ms.lasthandoff: 04/22/2017
 
 Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. В этом руководстве подробно объясняется, как с помощью Azure CLI развернуть базу данных SQL Azure в [группе ресурсов Azure](../azure-resource-manager/resource-group-overview.md) на [логическом сервере базы данных Azure SQL](sql-database-features.md).
 
-Для работы с этим кратким руководством нужно установить последнюю версию [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
 
-Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
+Для работы с этим кратким руководством требуется Azure CLI версии не ниже 2.0.4. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="log-in-to-azure"></a>Вход в Azure
 
 Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране.
 
-```azurecli
+```azure-cli
 az login
 ```
 
@@ -43,7 +46,7 @@ az login
 
 Определите переменные для использования в скриптах этого руководства.
 
-```azurecli
+```azure-cli
 # The data center and resource name for your resources
 export resourcegroupname = myResourceGroup
 export location = westeurope
@@ -63,14 +66,14 @@ export databasename = mySampleDatabase
 
 Создайте [группу ресурсов Azure](../azure-resource-manager/resource-group-overview.md) с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов — это логический контейнер, в котором ресурсы Azure развертываются и администрируются как группа. В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `westeurope`.
 
-```azurecli
+```azurazure-cliecli
 az group create --name $resourcegroupname --location $location
 ```
 ## <a name="create-a-logical-server"></a>Создание логического сервера
 
 Создайте [логический сервер базы данных SQL Azure ](sql-database-features.md) с помощью команды [az sql server create](/cli/azure/sql/server#create). Логический сервер содержит группу баз данных, которыми можно управлять как группой. В примере ниже показано создание сервера со случайным именем в группе ресурсов с именем администратора `ServerAdmin` и паролем `ChangeYourAdminPassword1`. Замените эти предопределенные значения по своему усмотрению.
 
-```azurecli
+```azure-cli
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
     --admin-user $adminlogin --admin-password $password
 ```
@@ -79,7 +82,7 @@ az sql server create --name $servername --resource-group $resourcegroupname --lo
 
 Создайте [правило брандмауэра на уровне сервера базы данных Azure SQL](sql-database-firewall-configure.md) с помощью команды [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create). Правило брандмауэра на уровне сервера позволяет внешним приложениям, таким как SQL Server Management Studio или программе sqlcmd, подключаться к базе данных SQL через брандмауэр службы базы данных SQL. В следующем примере брандмауэр открыт только для других ресурсов Azure. Чтобы включить возможность внешнего подключения, измените IP-адрес на соответствующий адрес своей среды. Чтобы открыть все IP-адреса, используйте 0.0.0.0 как начальный IP-адрес, а 255.255.255.255 — как конечный.  
 
-```azurecli
+```azure-cli
 az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
     -n AllowYourIp --start-ip-address $startip --end-ip-address $endip
 ```
@@ -92,7 +95,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 Создайте на сервере базу данных с [уровнем производительности S0](sql-database-service-tiers.md) с помощью команды [az sql db create](/cli/azure/sql/db#create). В следующем примере создается база данных с именем `mySampleDatabase`, в которую загружается образец данных AdventureWorksLT. При необходимости замените эти предопределенные значения (другие краткие руководства в этой коллекции созданы на основе этого документа).
 
-```azurecli
+```azure-cli
 az sql db create --resource-group $resourcegroupname --server $servername \
     --name $databasename --sample-name AdventureWorksLT --service-objective S0
 ```

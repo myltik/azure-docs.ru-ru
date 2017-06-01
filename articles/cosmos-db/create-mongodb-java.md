@@ -1,13 +1,13 @@
 ---
 title: "Создание консольного приложения с использованием Java и API MongoDB в Azure Cosmos DB | Документация Майкрософт"
 description: "В этой статье представлен пример кода Java, который можно использовать для подключения и выполнения запросов к API MongoDB в Azure Cosmos DB."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: quick start connect
 ms.workload: 
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 22bce387c2b33759c1b83247f253c72fb3132739
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 1683afd842294b3b45ae4d0e53bbecdccadc1ed5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -39,13 +39,13 @@ Azure Cosmos DB — это глобально распределенная мн�
 
 ## <a name="create-a-database-account"></a>Создание учетной записи базы данных
 
-[!INCLUDE [mongodb-create-dbaccount](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+[!INCLUDE [mongodb-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## <a name="add-a-collection"></a>Добавление коллекции
 
 Присвойте новой базе данных имя **db**, а новой коллекции — **coll**.
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>Клонирование примера приложения
 
@@ -109,11 +109,11 @@ Azure Cosmos DB — это глобально распределенная мн�
 
 2. В окне терминала запустите `mvn exec:java -D exec.mainClass=GetStarted.Program`, чтобы запустить приложение Java.
 
-Теперь вы можете использовать [Robomongo](../documentdb/documentdb-mongodb-robomongo.md) / [Studio 3T](../documentdb/documentdb-mongodb-mongochef.md), чтобы запрашивать и изменять новые данные, а также работать с ними.
+Теперь вы можете использовать [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md), чтобы запрашивать и изменять новые данные, а также работать с ними.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Просмотр соглашений об уровне обслуживания на портале Azure
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 
@@ -127,7 +127,7 @@ Azure Cosmos DB — это глобально распределенная мн�
 В этом кратком руководстве вы узнали, как создать учетную запись Azure Cosmos DB, коллекцию с помощью обозревателя данных, а также как запустить консольное приложение. Теперь можно импортировать дополнительные данные в учетную запись Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Перенос данных в DocumentDB с помощью mongoimport и mongorestore](../documentdb/documentdb-mongodb-migrate.md)
+> [Перенос данных в DocumentDB с помощью mongoimport и mongorestore](mongodb-migrate.md)
 
 
 
