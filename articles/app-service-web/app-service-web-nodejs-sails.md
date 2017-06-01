@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 62f674945745eb019c92173798b6eef43337c9f3
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 09ececc567c09ea4e0b77d4d37445b7c232de23c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -188,7 +188,7 @@ ms.lasthandoff: 05/18/2017
 
 1. [Создайте учетную запись Cosmos DB с поддержкой протокола MongoDB](../documentdb/documentdb-create-mongodb-account.md).
 2. [Создайте коллекцию и базу данных Cosmos DB](../documentdb/documentdb-create-collection.md). Имя коллекции не имеет значения, но при подключении из Sails.js необходимо знать имя базы данных.
-3. [Найдите сведения о подключении к базе данных Cosmos DB](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+3. [Найдите сведения о подключении к базе данных Cosmos DB](../cosmos-db/connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. В терминале командной строки установите адаптер MongoDB:
 
         npm install sails-mongo --save
@@ -206,7 +206,7 @@ ms.lasthandoff: 05/18/2017
         },
 
     > [!NOTE] 
-    > Параметр `ssl: true` важен, так как он [требуется для Cosmos DB](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+    > Параметр `ssl: true` важен, так как он [требуется для Cosmos DB](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
     >
     >
 

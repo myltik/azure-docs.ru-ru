@@ -15,10 +15,11 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 3934d26e119c7064328671816943b636b6f90d76
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 870d8001b67b43d09427a626761ede1833101ddf
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/11/2017
 Пользовательский веб-интерфейс Tez является веб-страницей, которую можно использовать для получения общих сведений о заданиях и отладки заданий, использующих Tez в качестве подсистемы выполнения на кластерах HDInsight под управлением Windows. Пользовательский интерфейс Tez позволяет визуализировать задание в виде схемы связанных элементов, выполнять детализацию каждого элемента и получать статистические данные и данные журнала.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Кластер HDInsight на платформе Windows Инструкции по созданию кластера см. в статье [Приступая к работе с HDInsight на платформе Windows](hdinsight-hadoop-tutorial-get-started-windows.md).

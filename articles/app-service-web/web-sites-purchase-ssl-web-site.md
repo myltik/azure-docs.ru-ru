@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo;aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: c4e7ee86ad9dc7a51fff9e948757faaf5ca9b9c4
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: fb38555f1f299352f06deae1ca231895163068e5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Приобретение и настройка сертификата SSL для службы приложений Azure
@@ -91,7 +92,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="step-5---assign-certificate-to-app-service-app"></a>Шаг 5. Назначение сертификата приложению службы приложений
 
 > [!NOTE]
-> Прежде чем выполнять действия, описанные в этом разделе, необходимо связать личное доменное имя с приложением. Дополнительные сведения см. в разделе **[Сопоставление имени личного домена с приложением Azure](web-sites-custom-domain-name.md)**.
+> Прежде чем выполнять действия, описанные в этом разделе, необходимо связать личное доменное имя с приложением. Дополнительные сведения см. в разделе **[Сопоставление имени личного домена с приложением Azure](app-service-web-tutorial-custom-domain.md)**.
 >
 
 На **[портале Azure](https://portal.azure.com/)** щелкните **Служба приложений** в левой части страницы.

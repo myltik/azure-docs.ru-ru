@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: 9904ec79782b1790ecb21f31b078fea9936c8380
-ms.openlocfilehash: 305b7ce52d1313ecde641c952db291588fabf01c
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: a2f3c2d97df37e067670af48b37cc2e2dd3a36cc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -40,7 +43,7 @@ Azure AD публикует метаданные федерации по адр�
 
 Для **общих конечных точек** `TenantDomainName` является `common`. В этом документе перечислены только те элементы метаданных федерации, которые являются общими для всех клиентов Azure AD, размещенных на login.microsoftonline.com.
 
-Клиентская конечная точка может иметь такой адрес: `https:// login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Общая конечная точка имеет адрес [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Документ метаданных федерации можно просмотреть, введя этот URL-адрес в браузере.
+Клиентская конечная точка может иметь такой адрес: `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Общая конечная точка имеет адрес [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Документ метаданных федерации можно просмотреть, введя этот URL-адрес в браузере.
 
 ## <a name="contents-of-federation-metadata"></a>Содержимое метаданных федерации
 В следующем разделе приведены сведения, необходимые для служб, которые используют токены, выданные службой Azure AD.
@@ -155,9 +158,4 @@ URL-адреса для входа и выхода содержатся в эл�
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/common/saml2" />
   </IDPSSODescriptor>
 ```
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

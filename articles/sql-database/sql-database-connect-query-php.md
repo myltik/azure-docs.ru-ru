@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 05/07/2017
-ms.author: meetb;carlrab;sstein
+ms.date: 05/24/2017
+ms.author: meetb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 2c0dc1bef0bf2b7b78e8858943ad6e0ede214681
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 693bfdf7bb3d9d72fbd6ac42734ca261af7b492d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,10 +27,13 @@ ms.lasthandoff: 05/09/2017
 
 В этом кратком руководстве показано, как, используя [PHP](http://php.net/manual/en/intro-whatis.php), подключиться к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных на платформах Mac OS, Ubuntu Linux и Windows.
 
+## <a name="prerequisites"></a>Предварительные требования
+
 Начальной точкой в руководстве являются ресурсы, созданные в одном из этих кратких руководств:
 
 - [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
+- [Создание базы данных с помощью PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-php-and-database-communications-software"></a>Установка программного обеспечения связи PHP и базы данных
 
