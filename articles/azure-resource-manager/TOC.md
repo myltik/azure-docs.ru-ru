@@ -64,7 +64,6 @@
 #### [Портал](resource-group-create-service-principal-portal.md)
 ### [API проверки подлинности для доступа к подпискам](resource-manager-api-authentication.md)
 ### [Блокировка ресурсов](resource-group-lock-resources.md)
-### [Вопросы безопасности](best-practices-resource-manager-security.md)
 
 ## Задание политик ресурсов
 ### [Что представляют собой политики ресурсов?](resource-manager-policy.md)

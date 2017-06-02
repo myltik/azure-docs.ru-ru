@@ -11,7 +11,7 @@
 ## [Рекомендации по использованию хранилища данных SQL Azure](sql-data-warehouse-best-practices.md)
 ## [Управление](sql-data-warehouse-overview-manage.md)
 ## [Получение поддержки](sql-data-warehouse-get-started-create-support-ticket.md)
-## [Устранение неполадок](sql-data-warehouse-troubleshoot.md)
+
 
 # Практическое руководство
 
@@ -114,7 +114,7 @@
 
 ### [Обзор](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Сжатие ColumnStore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Запросы](sql-data-warehouse-manage-monitor.md)
+### [Мониторинг](sql-data-warehouse-manage-monitor.md)
 ### [Рабочая нагрузка](sql-data-warehouse-develop-concurrency.md)
 
 ## Безопасность
@@ -126,6 +126,9 @@
 ### [Шифрование](sql-data-warehouse-encryption-tde.md)
 ### [Шифрование с помощью T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Обнаружение угроз](sql-data-warehouse-security-threat-detection.md)
+
+## Устранение неполадок
+### [Устранение неполадок](sql-data-warehouse-troubleshoot.md)
 
 # Справочные материалы
 

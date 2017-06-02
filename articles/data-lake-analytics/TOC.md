@@ -1,8 +1,7 @@
 # Обзор
 ## [Что такое Data Lake Analytics?](data-lake-analytics-overview.md)
 
-# Начало работы
-## [Интерактивный учебник. Анализ журнала веб-сайта](data-lake-analytics-use-interactive-tutorials.md)
+# Приступая к работе
 ## [Портал Azure](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Пакет SDK для .NET](data-lake-analytics-get-started-net-sdk.md)
@@ -27,6 +26,8 @@
 
 ## Создание решений
 ### [Анализ журналов веб-сайтов](data-lake-analytics-analyze-weblogs.md)
+### [Интерактивный учебник. Анализ журнала веб-сайта](data-lake-analytics-use-interactive-tutorials.md)
+
 
 ## Управление
 ### [Портал Azure](data-lake-analytics-manage-use-portal.md)

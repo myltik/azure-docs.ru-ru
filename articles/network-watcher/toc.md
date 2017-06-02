@@ -13,34 +13,41 @@
 ## Управление захватом пакетов
 ### [Портал](network-watcher-packet-capture-manage-portal.md)
 ### [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](network-watcher-packet-capture-manage-cli.md)
+### [Интерфейс командной строки 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
+### [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## Проверка потоков для IP-адреса, поступающих на виртуальную машину и обратно
 ### [Портал](network-watcher-check-ip-flow-verify-portal.md)
 ### [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](network-watcher-check-ip-flow-verify-cli.md)
+### [Интерфейс командной строки 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
+### [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Анализ следующего прыжка
 ### [Портал](network-watcher-check-next-hop-portal.md)
 ### [PowerShell](network-watcher-check-next-hop-powershell.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](network-watcher-check-next-hop-cli.md)
+### [Интерфейс командной строки 1.0](network-watcher-check-next-hop-cli-nodejs.md)
+### [CLI 2.0](network-watcher-check-next-hop-cli.md)
 ### [REST](network-watcher-check-next-hop-rest.md)
 ## Просмотр топологии сети
 ### [PowerShell](network-watcher-topology-powershell.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](network-watcher-topology-cli.md)
+### [Интерфейс командной строки 1.0](network-watcher-topology-cli-nodejs.md)
+### [CLI 2.0](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Устранение неполадок VPN-шлюза и подключений
 ### [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](network-watcher-troubleshoot-manage-cli.md)
+### [Интерфейс командной строки 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
+### [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 ### [REST](network-watcher-troubleshoot-manage-rest.md)
 ## Анализ представления группы безопасности сети
 ### [PowerShell](network-watcher-security-group-view-powershell.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](network-watcher-security-group-view-cli.md)
+### [Интерфейс командной строки 1.0](network-watcher-security-group-view-cli-nodejs.md)
+### [CLI 2.0](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Настройка журналов потоков для NSG
 ### [Портал](network-watcher-nsg-flow-logging-portal.md)
 ### [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](network-watcher-nsg-flow-logging-cli.md)
+### [Интерфейс командной строки 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
+### [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
 # Практическое руководство
 ## [Мониторинг VPN-шлюза с помощью службы автоматизации Azure](network-watcher-monitor-with-azure-automation.md)

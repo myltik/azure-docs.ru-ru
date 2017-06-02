@@ -130,6 +130,8 @@
     items:
     - name: Общие сведения о создании виртуальных машин
       href: creation-choices.md
+    - name: Создание виртуальной машины на основе специализированного VHD
+      href: create-vm-specialized.md
     - name: Создание виртуальной машины с помощью шаблона
       href: ps-template.md
     - name: "Создание виртуальной машины с помощью\_C#"
@@ -215,20 +217,6 @@
       href: expand-data-disks.md
     - name: "Использование диска\_D в качестве диска данных"
       href: change-drive-letter.md
-    - name: Создание виртуальных машин с помощью неуправляемых дисков
-      items:
-      - name: Отправка VHD
-        href: upload-image.md
-      - name: Создание образа виртуальной машины с помощью неуправляемых дисков
-        href: capture-image.md
-      - name: Создание неуправляемой виртуальной машины на основе универсального образа VHD
-        href: create-vm-generalized.md
-      - name: Копирование виртуальной машины
-        href: vhd-copy.md
-      - name: Создание виртуальной машины на основе специализированного VHD
-        href: create-vm-specialized.md
-      - name: Подключение неуправляемого диска данных
-        href: attach-disk-portal.md
   - name: Сеть виртуальной машины
     href: ps-common-network-ref.md
     items:
@@ -341,10 +329,8 @@
       items:
       - name: Перенос из Amazon Web Services (AWS) в Azure
         href: aws-to-azure.md
-    - name: Отправка и создание виртуальной машины из универсального диска VHD
-      href: upload-generalized-managed.md
-    - name: Отправка и создание виртуальной машины из специализированного диска VHD
-      href: upload-specialized.md
+      - name: Отправка и создание виртуальной машины из универсального диска VHD
+        href: upload-generalized-managed.md
     - name: Переход с классической модели развертывания на модель Azure Resource Manager
       href: migration-classic-resource-manager-overview.md
       items:
