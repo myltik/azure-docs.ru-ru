@@ -14,10 +14,11 @@ ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: saeeda
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 992bbf513ac87b0d955f9dc4b27984ef03050b83
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 9756e9019d1f79c1fb17cf142daaaaca442722c7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -31,8 +32,6 @@ ms.lasthandoff: 03/17/2017
 >
 
 Если вы еще не работали с OAuth2 или OpenID Connect, вы не поймете большую часть примера конфигурации. Для начала мы рекомендуем просмотреть [общие сведения о протоколе](active-directory-b2c-reference-protocols.md).
-
-Не все сценарии и компоненты Azure Active Directory поддерживаются платформой B2C.  Чтобы определить, следует ли вам использовать платформу B2C, ознакомьтесь с [ограничениями этой платформы](active-directory-b2c-limitations.md).
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Создание каталога Azure AD B2C
 Перед использованием Azure AD B2C необходимо создать каталог или клиент. Каталог — это контейнер для всех пользователей, приложений, групп и т. д. Если каталог B2C еще не создан, [создайте его](active-directory-b2c-get-started.md), прежде чем продолжить.

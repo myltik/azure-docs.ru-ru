@@ -14,9 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/30/2016
 ms.author: dastrock; vittorib
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 52a4c326c7618b9a31df539c8b0eb0ced44ce609
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: d0602a61b0335ef2bb92e27051c286852bc08d35
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -47,7 +50,7 @@ ms.openlocfilehash: 52a4c326c7618b9a31df539c8b0eb0ced44ce609
 * Запишите назначенный вашему приложению **идентификатор приложения**. Он вскоре вам понадобится.
 * Добавьте для приложения **мобильную** платформу.
 
-## <a name="install-configure-msal"></a>Установка и настройка MSAL
+## <a name="install--configure-msal"></a>Установка и настройка MSAL
 Ваше приложение зарегистрировано в Майкрософт. Теперь вы можете установить MSAL и написать собственный код для работы с удостоверением.  Чтобы библиотека MSAL могла обмениваться информацией с конечной точкой версии 2.0, вам нужно предоставить определенную информацию о регистрации приложения.
 
 * Сначала добавьте MSAL в проект TodoListClient с помощью консоли диспетчера пакетов.
@@ -259,10 +262,5 @@ MSAL позволяет легко включать в приложение об
 
 ## <a name="get-security-updates-for-our-products"></a>Получение обновлений системы безопасности для наших продуктов
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

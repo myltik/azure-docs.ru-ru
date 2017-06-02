@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d6d506eef720488969c5b33fe4b94c02752c6b58
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 6adc34f208c6c4363b73f6e42b4a4d6ae2e4483f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-В этой статье предполагается, что вам уже известно, как [вручную сопоставить личный домен со службой приложений](web-sites-custom-domain-name.md).
+В этой статье предполагается, что вам уже известно, как [вручную сопоставить личный домен со службой приложений](app-service-web-tutorial-custom-domain.md).
 
 ## <a name="bind-the-domain-name-preemptively"></a>Заблаговременная привязка доменного имени
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/03/2017
 
 Для этого сделайте вот что.
 
-1. Сначала создайте проверочную запись типа TXT с реестром DNS, выполнив действия, описанные в разделе [Создание записей DNS](web-sites-custom-domain-name.md#createdns).
+1. Сначала создайте проверочную запись типа TXT с реестром DNS, выполнив действия, описанные в разделе [Создание записей DNS](app-service-web-tutorial-custom-domain.md#create-a).
 Для дополнительной записи типа TXT применяется соглашение, в соответствии с которым &lt;*поддомен*>.&lt;*корневой_домен*> сопоставляется с адресом &lt;*имя_приложения*>.azurewebsites.net.
 Примеры см. в таблице ниже.  
  
@@ -70,16 +71,16 @@ ms.lasthandoff: 04/03/2017
     </tr>
     </table>
 
-2. Затем добавьте имя личного домена в приложение Azure, выполнив действия, описанные в разделе [Включение имени личного домена для приложения](web-sites-custom-domain-name.md#enable).
+2. Затем добавьте имя личного домена в приложение Azure, выполнив действия, описанные в разделе [Включение имени личного домена для приложения](app-service-web-tutorial-custom-domain.md#enable-a).
 
     Теперь личный домен включен в приложении Azure. Единственное, что остается сделать, это обновить запись DNS с помощью регистратора домена.
 
-3. Наконец, обновите запись DNS домена, чтобы она указывала на приложение Azure, как показано в разделе [Создание записей DNS](web-sites-custom-domain-name.md#createdns). 
+3. Наконец, обновите запись DNS домена, чтобы она указывала на приложение Azure, как показано в разделе [Создание записей DNS](app-service-web-tutorial-custom-domain.md#create-a). 
 
     Пользовательский трафик должен перенаправляться в приложение Azure сразу после того, как произойдет распространение DNS.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Узнайте, как защитить имя личного домена с помощью протокола HTTPS, [приобретя SSL-сертификат в Azure](web-sites-purchase-ssl-web-site.md) или [используя SSL-сертификат из другого источника](web-sites-configure-ssl-certificate.md).
+Узнайте, как защитить имя личного домена с помощью протокола HTTPS, [приобретя SSL-сертификат в Azure](web-sites-purchase-ssl-web-site.md) или [используя SSL-сертификат из другого источника](app-service-web-tutorial-custom-ssl.md).
 
 > [!NOTE]
 > Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](https://azure.microsoft.com/try/app-service/), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.

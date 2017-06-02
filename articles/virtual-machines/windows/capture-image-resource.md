@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c3f5a66605b1a7059a7820ddda9463cb4277f055
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4ffbe7e28d8b4c7d421bec477455a94609cd127a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,9 +28,25 @@ ms.lasthandoff: 04/27/2017
 Ресурс управляемого образа можно создать из универсальной виртуальной машины, которая хранится в виде управляемого диска или неуправляемых дисков в учетной записи хранения. Затем образ можно использовать для создания нескольких виртуальных машин, использующих управляемые диски для хранения данных. 
 
 
-## <a name="prerequisites"></a>Предварительные требования
-Требуется [универсальная виртуальная машина](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), которая уже остановлена и освобождена. При подготовке виртуальной машины удаляются все сведения о вашей учетной записи и выполняется настройка ВМ для использования в качестве образа.
+## <a name="generalize-the-windows-vm-using-sysprep"></a>Подготовка виртуальной машины Windows к использованию с помощью Sysprep
 
+Помимо прочих действий Sysprep удаляет все сведения о вашей учетной записи и подготавливает машину к использованию в качестве образа. Сведения о Sysprep см. в статье [Использование программы Sysprep: введение](http://technet.microsoft.com/library/bb457073.aspx).
+
+Убедитесь, что Sysprep поддерживает роли сервера, запущенные на компьютере. Дополнительные сведения см. в статье [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка серверных ролей в Sysprep).
+
+> [!IMPORTANT]
+> Если вы еще не отправили виртуальный жесткий диск в Azure и собираетесь запустить Sysprep первый раз, прежде чем это делать, [подготовьте виртуальную машину](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+> 
+> 
+
+1. Выполните вход на виртуальную машину Windows.
+2. Откройте окно командной строки с правами администратора. Измените каталог на **%windir%\system32\sysprep** и запустите файл `sysprep.exe`.
+3. В диалоговом окне **Программа подготовки системы** выберите **Переход в окно приветствия системы (OOBE)** и убедитесь, что установлен флажок **Подготовка к использованию**.
+4. В разделе **Параметры завершения работы** выберите **Завершение работы**.
+5. Нажмите кнопку **ОК**.
+   
+    ![Запуск Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. После выполнения всех необходимых действий Sysprep завершает работу виртуальной машины. Не перезапускайте виртуальную машину.
 
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Создание управляемого образа на портале 

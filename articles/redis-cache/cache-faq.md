@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/25/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: cbd764b3c6ce912c825aa2756ac6f35c23d047bf
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: eeddc0da23192a0082f2fcddbb0cc5f3e4a72074
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -76,8 +77,6 @@ ms.lasthandoff: 04/26/2017
 Вопросы, обсуждаемые в этом разделе, посвящены общим проблемам мониторинга и устранения неполадок. Дополнительные сведения о мониторинге и устранении неполадок, связанных с экземплярами кэша Redis для Azure, см. в статьях [Как отслеживать кэш Redis для Azure](cache-how-to-monitor.md) и [Способы устранения проблем с кэшем Redis для Azure](cache-how-to-troubleshoot.md).
 
 * [Как отслеживать работоспособность и производительность моего кэша?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
-* [Почему изменились настройки учетной записи хранения диагностики кэша?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
-* [Почему диагностика включена для некоторых новых кэшей, но не включена для других?](#why-are-diagnostics-enabled-for-some-new-caches-but-not-others)
 * [Почему я наблюдаю простои?](#why-am-i-seeing-timeouts)
 * [Почему мой клиент был отключен от кэша?](#why-was-my-client-disconnected-from-the-cache)
 
@@ -426,12 +425,6 @@ StackExchange.Redis имеет много параметров. В этом ра
 * **Новый запрос на поддержку** , можно создать запрос по своему кэшу.
 
 Эти инструменты позволяют наблюдать за работоспособностью экземпляров кэша Redis для Azure и помогают управлять кэшируемыми приложениями. Для получения дополнительной информации ознакомьтесь с разделом "Настройки поддержки и устранения неполадок" статьи [Настройка кэша Azure Redis](cache-configure.md).
-
-### <a name="my-cache-diagnostics-storage-account-settings-changed-what-happened"></a>Почему изменились настройки учетной записи хранения диагностики кэша?
-Для экземпляров кэша в одном регионе и в рамках одной подписки используются общие параметры хранилища диагностики. Если изменяется конфигурация (включается или отключается диагностика либо изменяется учетная запись хранения), то новые настройки применяются ко всем кэшам в подписке, входящим в данный регион. Если параметры диагностики для кэша изменились, проверьте, не изменились ли параметры диагностики для другого кэша в той же подписке и в том же регионе. Один из способов сделать это — проверить журналы аудита для кэша на наличие в них события `Write DiagnosticSettings`. Дополнительные сведения о работе с журналами аудита см. в статьях [Просмотр журналов событий и аудита](../monitoring-and-diagnostics/insights-debugging-with-events.md) и [Операции аудита с помощью Resource Manager](../azure-resource-manager/resource-group-audit.md). Дополнительные сведения о мониторинге событий кэша Redis для Azure см. в разделе [Операции и оповещения](cache-how-to-monitor.md#operations-and-alerts).
-
-### <a name="why-are-diagnostics-enabled-for-some-new-caches-but-not-others"></a>Почему диагностика включена для некоторых новых кэшей, но не включена для других?
-Для экземпляров кэша в одном регионе и в рамках одной подписки используются одни и те же параметры хранилища диагностики. Если новый кэш создается в том же регионе и в рамках той же подписки, где уже есть кэш с включенной диагностикой, то в новом кэше диагностика включается с такими же параметрами.
 
 <a name="cache-timeouts"></a>
 

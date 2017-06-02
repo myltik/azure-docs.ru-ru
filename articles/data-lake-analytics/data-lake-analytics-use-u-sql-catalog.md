@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 64427583dba57716c23e1a01df820a263c5e7298
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: ef766161f53b92003c266f26af10a37790d8fad8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -38,7 +40,7 @@ ms.openlocfilehash: 64427583dba57716c23e1a01df820a263c5e7298
 Каждая учетная запись аналитики озера данных Azure имеет связанную с ней учетную запись хранилища озера данных Azure по умолчанию. Эта учетная запись хранилища озера данных называется учетной записью хранения озера данных по умолчанию. Каталог U-SQL хранится в учетной записи хранилища озера данных по умолчанию в папке /catalog. Не удаляйте файлы из папки /catalog.
 
 ### <a name="use-azure-portal"></a>Использование портала Azure
-См. раздел [Управление аналитикой озера данных с помощью портала](data-lake-analytics-manage-use-portal.md#view-u-sql-catalog).
+См. раздел [Управление аналитикой озера данных с помощью портала](data-lake-analytics-manage-use-portal.md#manage-data-lake-analytics-accounts).
 
 ### <a name="use-data-lake-tools-for-visual-studio"></a>Использование средств озера данных для Visual Studio.
 Можно воспользоваться средствами озера данных для Visual Studio, чтобы управлять каталогом.  Дополнительные сведения об инструментах см. в разделе [Using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) (Использование Data Lake Tools для Visual Studio).
@@ -60,30 +62,24 @@ ms.openlocfilehash: 64427583dba57716c23e1a01df820a263c5e7298
 
 ## <a name="see-also"></a>Дополнительные материалы
 * Приступая к работе
-  
+
   * [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
   * [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
   * [Начало работы с аналитикой озера данных с помощью пакета SDK Azure .NET](data-lake-analytics-get-started-net-sdk.md)
   * [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
   * [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
 * U-SQL и разработка
-  
+
   * [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
   * [Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
   * [Разработка определяемых пользователем операторов U-SQL для заданий Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 * управления
-  
+
   * [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
   * [Управление аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
   * [Устранение неполадок с заданиями аналитики озера данных Azure с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 * Полный учебник
-  
+
   * [Использование интерактивных учебников по аналитике озера данных Azure](data-lake-analytics-use-interactive-tutorials.md)
   * [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

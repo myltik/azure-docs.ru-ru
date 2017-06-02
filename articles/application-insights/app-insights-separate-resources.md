@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 896bf83de9095007e4f189f50a5e13c216e6ebd2
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 0ee19b46a0e882571f6193471be69fa097d98936
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -140,7 +140,26 @@ ms.lasthandoff: 05/17/2017
 
     Чтобы разрешить MSBuild генерировать номера версий, задайте версию вида `1.0.*` в файле AssemblyReference.cs.
 
+## <a name="version-and-release-tracking"></a>Отслеживание версии и выпуска
+Для отслеживания версии приложения убедитесь, что во время выполнения процесса Microsoft Build Engine создается `buildinfo.config`. Добавьте в CSPROJ-файл:  
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup>
+```
+
+При наличии данных сборки веб-модуль Application Insights автоматически добавляет **версию приложения** как свойство для каждого элемента телеметрии. Это позволяет применить фильтр по версии при [диагностическом поиске](app-insights-diagnostic-search.md) или [изучении метрик](app-insights-metrics-explorer.md).
+
+Обратите внимание, что номер версии сборки создается только Microsoft Build Engine, а не в процессе сборки в Visual Studio.
+
+### <a name="release-annotations"></a>Примечания к выпуску
+Если используется Visual Studio Team Services, можно настроить [добавление маркера заметки](app-insights-annotations.md) к диаграммам при выпуске новой версии. На следующем рисунке показано, как появляется этот маркер.
+
+![Снимок экрана, где показана диаграмма с примером заметки о новом выпуске](./media/app-insights-asp-net/release-annotation.png)
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Monitor multi-component applications with Application Insights (preview)](app-insights-monitor-multi-role-apps.md) (Мониторинг приложений с несколькими компонентами с помощью Application Insights (предварительная версия))
 * [Добавление свойств: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties)
+

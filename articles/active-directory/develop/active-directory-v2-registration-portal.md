@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 19d8d860e39139d3003c216659b7203e2482154e
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: b961254274409215d79b5cb2c9ee230a97b42769
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -45,10 +48,5 @@ ms.openlocfilehash: 19d8d860e39139d3003c216659b7203e2482154e
 Если поддержка Live SDK отключена, секрет приложения записывается только в хранилище данных Azure AD.  В хранилище данных Azure AD действуют нормы корпоративного уровня, обеспечивающие соответствие определенным стандартам, таким как FISMA.  При включении поддержки Live SDK приложение перестанет соответствовать некоторым из этих стандартов.
 
 Если впоследствии вы захотите использовать конечную точку Azure AD 2.0, поддержку Live SDK можно будет спокойно отключить.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

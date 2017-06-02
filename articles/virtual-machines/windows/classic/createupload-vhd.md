@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2016
+ms.date: 05/23/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 62c428215c5bd89789ae65bd420281a2f16f33a1
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 1d2b51f2a8a03a94b7ce92af54f89128bcfc9471
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/27/2017
 В этой статье показан процесс передачи собственного универсального образа виртуальной машины как виртуального жесткого диска (VHD-файла) и дальнейшего его использования для создания виртуальных машин. Дополнительные сведения о дисках и виртуальных жестких дисках в Microsoft Azure см. в статье [О дисках и виртуальных жестких дисках для виртуальных машин](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Вы также можете [отправить](../../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) виртуальную машину, используя модель Resource Manager.
+> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Вы также можете [отправить](../upload-generalized-managed.md) виртуальную машину, используя модель Resource Manager.
 
 ## <a name="prerequisites"></a>Предварительные требования
 В этой статье предполагается, что у вас есть следующие компоненты.

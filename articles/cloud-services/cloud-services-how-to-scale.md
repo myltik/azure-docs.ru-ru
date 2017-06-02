@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 488b16623300d80a53a61badee420de106c418b0
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c7fb1c796556baf09a34c4bc6ed71964071d5874
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -42,9 +43,6 @@ ms.lasthandoff: 03/25/2017
 * Можно масштабировать ресурсы, привязанные к используемой облачной службе. Дополнительные сведения о связанных ресурсах см. в разделе [Практическое руководство. Привязка ресурсов к облачной службе](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
 * В целях обеспечения высокой доступности приложения необходимо убедиться, что приложение развернуто с двумя и более экземплярами ролей. Дополнительные сведения см. в разделе [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/).
-
-> [!WARNING]
-> Автомасштабирование работает только с классическими учетными записями хранения Azure. Оно не работает с учетными записями хранения Azure Resource Manager.
 
 ## <a name="schedule-scaling"></a>Планирование масштабирования
 По умолчанию все роли следуют установленному расписанию. Это значит, что изменения в параметрах действуют все время в течение года. При желании вы можете настроить ручное или автоматическое масштабирование для одного из следующих режимов:

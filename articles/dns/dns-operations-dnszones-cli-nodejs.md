@@ -13,18 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 9b545937f3e375dfcef815a66263a57bd5042f69
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 588c87749f049eff5b9e0729f6769c8367ba41e4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 ---
 
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-10"></a>Как управлять зонами DNS в службе DNS Azure с помощью Azure CLI 1.0
 
 > [!div class="op_single_selector"]
-> * [Интерфейс командной строки Azure](dns-operations-dnszones-cli.md)
+> * [Портал](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
+> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 В этом руководстве показано, как управлять зонами DNS с помощью кроссплатформенного Azure CLI 1.0, доступного для Windows, Mac и Linux. Зонами DNS также можно управлять с помощью [Azure PowerShell](dns-operations-dnszones.md) или портала Azure.
 

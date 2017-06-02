@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: bc0b0b652312f6bcc27a981da766e19cded7bd6c
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 1b62ab8fe4f8a736821eb9da3d77fe2f654de745
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -126,7 +126,5 @@ ms.lasthandoff: 05/08/2017
 ### <a name="how-do-i-report-issues-with-azure-ad-b2c"></a>Как сообщать о проблемах с Azure AD B2C?
 Ознакомьтесь со статьей [Azure Active Directory B2C: регистрация запросов в службу поддержки](active-directory-b2c-support.md).
 
-## <a name="more-information"></a>Дополнительные сведения
-Ознакомьтесь также с действующими [ограничениями для текущей версии службы](active-directory-b2c-limitations.md).
 
 

@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 40ace51c4ba74039b3a5d5997acdf2da7b98b4a9
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 759631bca9b29134098dba55ef07513d0ee42549
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -75,11 +76,11 @@ ms.lasthandoff: 04/17/2017
 
 -   У вас есть разрешение на изменение параметров для редактирования объекта групповой политики. По умолчанию такое разрешение имеют члены следующих групп безопасности: «Администраторы домена», «Администраторы предприятия» и «Владельцы-создатели групповой политики». [Подробнее](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Пошаговые инструкции по настройке групповой политики и ее развертыванию для пользователей см. в учебнике [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
+Пошаговые инструкции по настройке групповой политики и ее развертыванию для пользователей см. в учебнике [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md).
 
 ## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Устранение неполадок панели доступа в Internet Explorer
 
-Сведения о доступе к средству диагностики и пошаговые инструкции по настройке расширения для Internet Explorer см. в руководстве [Устранение неполадок расширения "Панель доступа" для Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot).
+Сведения о доступе к средству диагностики и пошаговые инструкции по настройке расширения для Internet Explorer см. в руководстве [Устранение неполадок расширения "Панель доступа" для Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
 ## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Действия по устранению неполадок безрезультатны
 
