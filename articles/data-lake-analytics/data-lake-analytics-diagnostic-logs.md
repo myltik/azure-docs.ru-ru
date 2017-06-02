@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
-ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
-ms.lasthandoff: 02/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 71a839d9c076d33c404a56bf0544666dc86eaa4d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -30,14 +31,6 @@ ms.lasthandoff: 02/11/2017
 * список пользователей, которые получали доступ к данным;
 * частота доступа к данным;
 * объем данных, хранящихся в учетной записи.
-
-## <a name="prerequisites"></a>Предварительные требования
-
-* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* **Включите свою подписку Azure** для общедоступной предварительной версии Data Lake Analytics. Ознакомьтесь с [инструкциями](data-lake-analytics-get-started-portal.md).
-
-* **Учетная запись Azure Data Lake Analytics**. Следуйте инструкциям, приведенным в [руководстве по началу работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md).
 
 ## <a name="enable-logging"></a>Включение ведения журналов
 

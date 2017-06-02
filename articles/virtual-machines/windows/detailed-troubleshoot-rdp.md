@@ -3,7 +3,7 @@ title: "Подробное руководство по устранению не
 description: "Подробное руководство по устранению неполадок с удаленным рабочим столом, не позволяющих подключиться к виртуальным машинам Windows в Azure"
 services: virtual-machines-windows
 documentationcenter: 
-author: iainfoulds
+author: genlin
 manager: timlt
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 12/20/2016
-ms.author: iainfou
+ms.date: 05/26/2017
+ms.author: genli
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2e84a7f8d0f8d15a808092deab8cc7a9bca1541d
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3ba81282cd7b58cc118497c14e911fc89815d6d4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,9 +28,9 @@ ms.lasthandoff: 04/27/2017
 В этой статье приводятся подробные инструкции по диагностике и устранению сложных ошибок удаленного рабочего стола для виртуальных машин Azure на базе Windows.
 
 > [!IMPORTANT]
-> Чтобы устранить более распространенные ошибки удаленного рабочего стола, обязательно ознакомьтесь с [основными способами устранения неполадок удаленного рабочего стола](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), прежде чем продолжить.
+> Чтобы устранить более распространенные ошибки удаленного рабочего стола, обязательно ознакомьтесь с [основными способами устранения неполадок удаленного рабочего стола](troubleshoot-rdp-connection.md), прежде чем продолжить.
 
-Вам может встретиться сообщение об ошибке удаленного рабочего стола, не похожее ни на одно из сообщений, описанных в статье [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Выполните следующие действия, чтобы определить, почему клиент удаленного рабочего стола (RDP) не может подключиться к службе удаленного рабочего стола на виртуальной машине Azure.
+Вам может встретиться сообщение об ошибке удаленного рабочего стола, не похожее ни на одно из сообщений, описанных в статье [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](troubleshoot-rdp-connection.md). Выполните следующие действия, чтобы определить, почему клиент удаленного рабочего стола (RDP) не может подключиться к службе удаленного рабочего стола на виртуальной машине Azure.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 04/27/2017
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
 
-Если у вас нет такого компьютера, создайте и протестируйте новую виртуальную машину Azure, размещенную в собственной группе ресурсов или облачной службе. Дополнительные сведения см. в статье [Создание виртуальной машины Windows в среде Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). По завершении проверки удалите виртуальную машину и группу ресурсов или облачную службу.
+Если у вас нет такого компьютера, создайте и протестируйте новую виртуальную машину Azure, размещенную в собственной группе ресурсов или облачной службе. Дополнительные сведения см. в статье [Создание виртуальной машины Windows в среде Azure](../virtual-machines-windows-hero-tutorial.md). По завершении проверки удалите виртуальную машину и группу ресурсов или облачную службу.
 
 Если вам удается установить соединение с удаленным рабочим столом с компьютера, непосредственно подключенного к Интернету, проверьте, нет ли на пограничном устройстве интрасети вашей организации:
 
@@ -99,10 +99,8 @@ ms.lasthandoff: 04/27/2017
 
 > [!NOTE]
 > Для виртуальных машин, созданных в Resource Manager, см. раздел [Источник 4: группы безопасности сети](#source-4-network-security-groups).
-> 
-> 
 
-Если у вас нет другой виртуальной машины в той же облачной службе или виртуальной сети, создайте ее. Для этого выполните действия, описанные в статье [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). По завершении теста удалите тестовую виртуальную машину.
+Если у вас нет другой виртуальной машины в той же облачной службе или виртуальной сети, создайте ее. Для этого выполните действия, описанные в статье [Создание первой виртуальной машины Windows на портале Azure](../virtual-machines-windows-hero-tutorial.md). По завершении теста удалите тестовую виртуальную машину.
 
 Если вам удается подключиться к удаленному рабочему столу на виртуальной машине в той же облачной службе или виртуальной сети, проверьте перечисленные ниже компоненты.
 
@@ -126,7 +124,7 @@ ms.lasthandoff: 04/27/2017
 ## <a name="source-5-windows-based-azure-vm"></a>Источник 5: виртуальная машина Azure под управлением Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Следуйте инструкциям в [этой статье](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). В ней объясняется, как вернуть службу удаленного рабочего стола на виртуальной машине в исходное состояние.
+Следуйте инструкциям в [этой статье](reset-rdp.md). В ней объясняется, как вернуть службу удаленного рабочего стола на виртуальной машине в исходное состояние.
 
 * будет включено правило по умолчанию «Удаленный рабочий стол» в брандмауэре Windows (TCP-порт 3389);
 * будут разрешены подключения к удаленным рабочим столам в реестре (для параметра HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections будет установлено значение 0).
@@ -146,10 +144,12 @@ ms.lasthandoff: 04/27/2017
 
 Затем введите имя своей подписки Azure, имя облачной службы и имя виртуальной машины (удалив знаки "<" и ">"). После этого выполните следующие команды.
 
-    $subscr="<Name of your Azure subscription>"
-    $serviceName="<Name of the cloud service that contains the target virtual machine>"
-    $vmName="<Name of the target virtual machine>"
-    .\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
+```powershell
+$subscr="<Name of your Azure subscription>"
+$serviceName="<Name of the cloud service that contains the target virtual machine>"
+$vmName="<Name of the target virtual machine>"
+.\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
+```
 
 Правильное имя подписки можно получить из свойства *SubscriptionName* в выходных данных команды **Get-AzureSubscription**. Имя облачной службы для виртуальной машины можно получить из столбца *ServiceName* в выходных данных команды **Get-AzureVM**.
 
@@ -157,37 +157,49 @@ ms.lasthandoff: 04/27/2017
 
 Затем инициируйте удаленный сеанс Azure PowerShell с помощью следующих команд.
 
-    $uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
-    $creds = Get-Credential
-    Enter-PSSession -ConnectionUri $uri -Credential $creds
+```powershell
+$uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
+$creds = Get-Credential
+Enter-PSSession -ConnectionUri $uri -Credential $creds
+```
 
 Указав действительные учетные данные администратора, вы должны увидеть в командной строке Azure PowerShell примерно следующее:
 
-    [cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
+```powershell
+[cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
+```
 
 Первая часть строки — это имя облачной службы, в которой находится целевая виртуальная машина (может отличаться от "cloudservice4testing.cloudapp.net"). Теперь можно выполнить команды Azure PowerShell для этой облачной службы, чтобы проанализировать перечисленные выше проблемы и исправить конфигурацию.
 
 ### <a name="to-manually-correct-the-remote-desktop-services-listening-tcp-port"></a>Изменение вручную TCP-порта прослушивания служб удаленных рабочих столов
 Выполните приведенную команду в командной строке удаленного сеанса Azure PowerShell.
 
-    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```powershell
+Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```
 
 Свойство PortNumber содержит текущий номер порта. При необходимости вы можете восстановить номер порта удаленного рабочего стола по умолчанию (3389) с помощью следующей команды:
 
-    Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
+```powershell
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
+```
 
 Убедитесь в том, что номер порта изменен на 3389, с помощью следующей команды:
 
-    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```powershell
+Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```
 
 Закройте удаленный сеанс Azure PowerShell с помощью этой команды:
 
-    Exit-PSSession
+```powershell
+Exit-PSSession
+```
 
 Также убедитесь в том, что на конечной точке удаленного рабочего стола для виртуальной машины Azure в качестве внутреннего порта задан TCP-порт 3398. Перезапустите виртуальную машину Azure и попробуйте установить подключение к удаленному рабочему столу еще раз.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
-[Сброс пароля или службы удаленных рабочих столов для виртуальных машин Windows](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Сброс пароля или службы удаленных рабочих столов для виртуальных машин Windows](reset-rdp.md)
 
 [Установка и настройка Azure PowerShell](/powershell/azure/overview)
 

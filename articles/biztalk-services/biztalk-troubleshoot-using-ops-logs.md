@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: c4a8ea0612ab4792f2fccb2295bdf365b742111d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Службы BizTalk: устранение неполадок с помощью журналов операций
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 ## <a name="what-are-the-operation-logs"></a>Что такое журналы операций
 Журналы операций — это компонент служб управления, доступный на классическом портале Azure, который позволяет просматривать журналы операций, выполняемых в службах Azure, в том числе службы BizTalk. Это позволяет просматривать данные журнала, относящиеся к операциям управления, которые выполнены для подписки на службу BizTalk 180 дней назад или позднее.
 
@@ -36,7 +41,7 @@ ms.openlocfilehash: c4a8ea0612ab4792f2fccb2295bdf365b742111d
 3. Щелкните флажок, чтобы просмотреть отфильтрованный список. На следующем рисунке показаны действия, связанные с тестовой службой BizTalk:  ![Просмотр журналов действий][ViewLogs] 
 4. Чтобы узнать больше о конкретной операции, выберите строку и щелкните **Подробности** на панели задач в нижней части страницы.
 
-## <a name="a-namebizopsaoperations-tracked-using-azure-management-services"></a><a name="bizops"></a>Операции, отслеживаемые с помощью служб управления Azure
+## <a name="bizops"></a>Операции, отслеживаемые с помощью служб управления Azure
 В следующей таблице перечислены операции, которые отслеживаются с помощью служб управления Azure.
 
 | Имя операции | Задача |
@@ -69,10 +74,5 @@ ms.openlocfilehash: c4a8ea0612ab4792f2fccb2295bdf365b742111d
 * [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

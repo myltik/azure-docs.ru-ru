@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: e820ca068bd9be151c4241bb233806847855933c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ad0610c1aed8e21f322516a4b7ea41bf55cc200e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -43,7 +45,7 @@ ms.openlocfilehash: e820ca068bd9be151c4241bb233806847855933c
 * **Учетная запись Data Lake Analytics**.  Ознакомьтесь с разделом [Создание учетной записи Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
 
     Средства озера данных не поддерживают создание учетных записей аналитики озера данных.  Поэтому ее необходимо создать с помощью портала Azure, Azure PowerShell, пакета SDK .NET или интерфейса командной строки Azure.
-* **Передача примера данных в учетную запись Data Lake Analytics.** Ознакомьтесь с разделом о [копировании файлов с примерами данных](data-lake-analytics-get-started-portal.md#prepare-source-data).
+* **Передача примера данных в учетную запись Data Lake Analytics.** Ознакомьтесь с разделом о [копировании файлов с примерами данных](data-lake-analytics-get-started-portal.md).
 
     Чтобы выполнить задание аналитики озера данных, потребуются некоторые данные. Несмотря на то, что средства озера данных поддерживают передачу данных, чтобы упростить работу с этим руководством, для передачи примера данных мы используем портал.
 
@@ -200,9 +202,4 @@ ms.openlocfilehash: e820ca068bd9be151c4241bb233806847855933c
 * [Разработка сценариев U-SQL с помощью средств озера данных для Visual Studio.](data-lake-analytics-data-lake-tools-get-started.md)
 * [Начало работы с языком U-SQL в службе аналитики озера данных Azure.](data-lake-analytics-u-sql-get-started.md)
 * [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных.](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

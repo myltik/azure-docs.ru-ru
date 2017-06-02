@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
-ms.openlocfilehash: 84cd0c3eb2753a209d0aebda405f0b98a487140d
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2c967d759806b47862179ecf9e9a89801134192a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -137,7 +138,7 @@ ms.lasthandoff: 02/17/2017
    
     2. В текстовое поле **URL-адрес ответа** вставьте значение, скопированное из приложения Litmos на предыдущем шаге.
    
-    3. Нажмите кнопку **Далее**.
+    3. Щелкните **Далее**.
 9. На странице **Настройка единого входа в Litmos** выполните следующие действия.
    
     ![единого входа Azure AD][2] 
@@ -174,7 +175,7 @@ ms.lasthandoff: 02/17/2017
     | --- | --- |
     | Email |user.mail |
     | FirstName |user.givenname |
-    | Lastname |user.surname |
+    | LastName |user.surname |
     
     Для каждой строки данных в таблице выше выполните следующие действия.
     
@@ -214,7 +215,7 @@ ms.lasthandoff: 02/17/2017
    
     2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
    
-    3. Нажмите кнопку **Далее**.
+    3. Щелкните **Далее**.
 6. На странице диалогового окна **Профиль пользователя** выполните следующие действия. 
    
    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_06.png) 
@@ -226,7 +227,7 @@ ms.lasthandoff: 02/17/2017
    3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
    
    4. В списке **Роль** выберите **Пользователь**.
-   5. Нажмите кнопку **Далее**.
+   5. Щелкните **Далее**.
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-litmos-tutorial/create_aaduser_07.png) 

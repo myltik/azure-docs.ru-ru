@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/18/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 59db0f71f1eec6a2bd5e2b0b7ee8c2c4bc373430
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -123,7 +123,7 @@ ms.lasthandoff: 05/12/2017
     В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<server-base-url>/plugins/servlet/samlsso`
      
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Замените их фактическими значениями идентификатора, URL-адреса ответа и URL-адреса входа. Обратитесь к [группе поддержки SAML SSO for Jira by resolution GmbH](mailto:c.eitel@resolution.de) для получения этих значений. 
+    > Эти значения приведены в качестве примера. Замените их фактическими значениями идентификатора, URL-адреса ответа и URL-адреса входа. Обратитесь к [группе поддержки SAML SSO for Jira by resolution GmbH](https://www.resolution.de/go/support) для получения этих значений. 
 
 5. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
@@ -288,7 +288,7 @@ ms.lasthandoff: 05/12/2017
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент SAML SSO for Jira by resolution GmbH на панели доступа, вы должны автоматически войти в свое приложение SAML SSO for Jira by resolution GmbH.
-Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586). 
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 

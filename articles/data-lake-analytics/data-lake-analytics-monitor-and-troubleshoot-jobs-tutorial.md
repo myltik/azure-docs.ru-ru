@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: b2b19a6f2ea20c414119e9dfbf84fda92dd93402
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,7 +33,7 @@ ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
 
 * **Базовые знания о процедуре выполнения заданий Data Lake Analytics**. Ознакомьтесь со статьей [Руководство. Начало работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md).
 * **Учетная запись Data Lake Analytics**. Ознакомьтесь со статьей [Руководство. Начало работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-* **Копия примера данных в учетной записи Data Lake Store по умолчанию**.  Ознакомьтесь со статьей [Подготовка образца данных](data-lake-analytics-get-started-portal.md#prepare-source-data).
+* **Копия примера данных в учетной записи Data Lake Store по умолчанию**.  Ознакомьтесь со статьей [Подготовка образца данных](data-lake-analytics-get-started-portal.md).
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Отправка задания аналитики озера данных
 Теперь вы создадите задание U-SQL с неправильным именем исходного файла.  
@@ -40,7 +42,7 @@ ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
 
 1. На портале Azure щелкните **Microsoft Azure** в левом верхнем углу.
 2. Щелкните элемент с именем вашей учетной записи аналитики озера данных.  Она была закреплена здесь при создании учетной записи.
-   Если учетная запись здесь не закреплена, ознакомьтесь с инструкциями из статьи [Открытие учетной записи аналитики из портала](data-lake-analytics-manage-use-portal.md#access-adla-account).
+   Если учетная запись здесь не закреплена, ознакомьтесь с инструкциями из статьи [Открытие учетной записи аналитики из портала](data-lake-analytics-manage-use-portal.md#manage-data-sources).
 3. Выберите команду **Создать задание** в верхнем меню.
 4. Введите имя задания и следующий скрипт U-SQL:
 
@@ -102,9 +104,4 @@ ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
 * [Начало работы с аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Начало работы с аналитикой озера данных Azure и U-SQL с помощью Visual Studio](data-lake-analytics-u-sql-get-started.md)
 * [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

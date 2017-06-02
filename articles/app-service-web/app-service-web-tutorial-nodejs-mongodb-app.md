@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 25fec75615d2376f3e566b509536eadd03590c0e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 2a3d63b3829e750b62658d720522ae1abf89cd86
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Разработка веб-приложения на основе Node.js и MongoDB в Azure
@@ -221,7 +221,7 @@ db: {
 ```
 
 > [!NOTE] 
-> Параметр `ssl=true` важен, так как для [Cosmos DB требуется протокол SSL](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+> Параметр `ssl=true` важен, так как для [Cosmos DB требуется протокол SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
@@ -269,16 +269,7 @@ MEAN.JS version: 0.5.0
 
 Создайте план службы приложений, выполнив команду [az appservice plan create](/cli/azure/appservice/plan#create). 
 
-> [!NOTE] 
-> План службы приложений представляет собой коллекцию физических ресурсов, используемых для размещения приложений. Все приложения, назначенные плану службы приложений, совместно используют ресурсы, определенные в нем. Поэтому, разместив несколько приложений, вы сможете сэкономить. 
-> 
-> Планы службы приложений определяют такие компоненты: 
-> 
-> * регион (Северная Европа, восточная часть США, Юго-Восточная Азия); 
-> * размер экземпляра (небольшой, средний, крупный); 
-> * число масштабируемых элементов (один, два, три экземпляра и т. д.); 
-> * SKU ("Бесплатный", "Общий", "Базовый", "Стандартный", "Премиум"). 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 В следующем примере создается план службы приложений _myAppServicePlan_ в ценовой категории **Бесплатный**.
 
@@ -643,7 +634,7 @@ az appservice web log tail \
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
  
-Если эти ресурсы не требуются для изучения другого руководства (см. раздел [Дальнейшие действия](#next)), их можно удалить, выполнив следующую команду. 
+Если эти ресурсы не требуются для изучения другого руководства (см. раздел [Дальнейшие действия](#next)), их можно удалить, выполнив следующие команды: 
   
 ```azurecli 
 az group delete --name myResourceGroup 
@@ -663,7 +654,7 @@ az group delete --name myResourceGroup
 > * Потоковая передача журналов из Azure в окно терминала.
 > * Управление приложением на портале Azure.
 
-Перейдите к следующему руководству, чтобы научиться сопоставлять настраиваемое DNS-имя с приложением.
+Перейдите к следующему руководству, чтобы научиться сопоставлять пользовательские DNS-имена.
 
 > [!div class="nextstepaction"] 
 > [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](app-service-web-tutorial-custom-domain.md)

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
-ms.author: femila
+ms.date: 05/23/2017
+ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e8d3eb7e336383eb639e55656b26d881e8c2adb0
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 8e8723c6dc81012a0dddd4e0a28c4d4af6828c6c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/29/2017
 
 * **Администратор выставления счетов.** Совершает покупки, управляет подписками и запросами в службу поддержки, а также отслеживает работоспособность службы.
 
-* **Администратор соответствия требованиям.** Пользователи с этой ролью имеют разрешения на управление в центре безопасности и соответствия требованиям Office 365 и центре администрирования Exchange. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1).
+* **Администратор соответствия требованиям.** Пользователи с этой ролью имеют разрешения на управление в центре безопасности и соответствия требованиям Office 365 и центре администрирования Exchange. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Администратор службы CRM.** Пользователи с этой ролью имеют глобальные разрешения в Microsoft CRM Online при наличии этой службы, а также возможность управлять запросами в службу поддержки и отслеживать работоспособность служб. Дополнительные сведения см. в статье [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -139,6 +139,20 @@ ms.lasthandoff: 03/29/2017
 
 ## <a name="details-about-the-global-administrator-role"></a>Сведения о роли глобального администратора
 Глобальный администратор имеет доступ ко всем административным функциям. По умолчанию роль глобального администратора каталога назначается пользователю, зарегистрировавшему подписку Azure. Только глобальные администраторы могут назначать другие административные роли.
+
+### <a name="to-add-a-colleague-as-a-global-administrator"></a>Добавление коллеги в качестве глобального администратора
+
+1. Войдите в [Центр администрирования Azure Active Directory](https://aad.portal.azure.com) с помощью учетной записи глобального администратора каталога клиента.
+
+   ![Открытие Центра администрирования Azure AD](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
+
+2. Выберите **Пользователи и группы &gt; Все пользователи**.
+
+3. Найдите пользователя, которого требуется назначить глобальным администратором, и откройте колонку этого пользователя.
+
+4. В колонке пользователя щелкните **Роль каталога**.
+ 
+5. В колонке роли каталога выберите роль **Глобальный администратор** и сохраните изменения.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Назначение и удаление ролей администратора
 Дополнительные сведения см. в статье [Назначение пользователю ролей администратора в предварительной версии Azure Active Directory](active-directory-users-assign-role-azure-portal.md).

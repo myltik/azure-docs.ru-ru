@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: a71b3f455c2e84cd6aa4401621a24d5585e0da3c
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3a401be134d034ee6ed4c88df4ed728b727894c0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,38 +31,13 @@ ms.lasthandoff: 04/28/2017
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-a-ruby-application"></a>Создание приложения Ruby
-Инструкции см. в разделе [Создание приложения Ruby в Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
-
-## <a name="configure-your-application-to-use-service-bus"></a>Настройка приложения для использования служебной шины
-Для использования служебной шины скачайте и используйте пакет Azure Ruby, который содержит набор библиотек, взаимодействующих со службами REST хранилища.
-
-### <a name="use-rubygems-to-obtain-the-package"></a>Использование RubyGems для получения пакета
-1. Используйте интерфейс командной строки, например **PowerShell** (Windows), **Terminal** (Mac) или **Bash** (Unix).
-2. Введите "gem install azure" в окне командной строки, чтобы установить пакеты и зависимости.
-
-### <a name="import-the-package"></a>Импорт пакета
-Используйте свой любимый текстовый редактор, чтобы добавить следующий код в начало файла Ruby, где планируется использовать хранилище.
-
-```ruby
-require "azure"
-```
-
-## <a name="set-up-a-service-bus-connection"></a>Настройка подключения к Service Bus
-Модуль Azure считывает переменные среды **AZURE\_SERVICEBUS\_NAMESPACE** и **AZURE\_SERVICEBUS\_ACCESS\_KEY**, в которых содержатся сведения, необходимые для подключения к служебной шине. Если эти переменные среды не заданы, необходимо указать сведения о пространстве имен перед использованием **Azure::ServiceBusService** с помощью следующего кода:
-
-```ruby
-Azure.config.sb_namespace = "<your azure service bus namespace>"
-Azure.config.sb_access_key = "<your azure service bus access key>"
-```
-
-Задайте для пространства имен только созданное значение, а не весь URL-адрес. Например, используйте **yourexamplenamespace**, а не yourexamplenamespace.servicebus.windows.net.
+[!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="create-a-topic"></a>Создание раздела
 Объект **Azure::ServiceBusService** позволяет работать с разделами. Следующий код создает объект **Azure::ServiceBusService**. Чтобы создать раздел, используйте метод **create\_topic()**. В следующем примере создается раздел или выводятся возникающие ошибки.
 
 ```ruby
-azure_service_bus_service = Azure::ServiceBusService.new
+azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
 begin
   topic = azure_service_bus_service.create_queue("test-topic")
 rescue

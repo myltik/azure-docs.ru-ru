@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/18/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2d6ef39ad4678d331eadd2c0bfd6ff93c99da501
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: db9f2174e9928083957f160be8c268fe21cd4169
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-- Для проверки подлинности модулей Runbook используется [учетная запись запуска от имени Azure](automation-sec-configure-azure-runas-account.md).  Этот метод проверки подлинности считается самым оптимальным, так как он использует сертификат, а не пароль, который может устареть или часто меняться.  
+- Для проверки подлинности модулей Runbook используется [учетная запись запуска от имени Azure](automation-offering-get-started.md#authentication-methods).  Этот метод проверки подлинности считается самым оптимальным, так как он использует сертификат, а не пароль, который может устареть или часто меняться.  
 
 - С помощью этого решения можно управлять только теми виртуальными машинами, которые принадлежат к той же подписке, что и учетная запись службы автоматизации.  
 

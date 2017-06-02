@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fd09b1788d609f7ad51d9dd20e7643ebeb02562c
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 3b7d29e48c91f40e8782a5e32a52998b815fe331
 ms.contentlocale: ru-ru
 
 
@@ -117,7 +118,7 @@ else
 ```
 <!--start-collapse-->
 ### <a name="more-information"></a>Дополнительные сведения
-> С помощью этой страницы можно добавить кнопку входа в формате SVG с черным фоном:<br/>![Вход с учетной записью Майкрософт](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> Расширенный список кнопок входа можно найти [здесь](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines).
+> С помощью этой страницы можно добавить кнопку входа в формате SVG с черным фоном:<br/>![Вход с учетной записью Майкрософт](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> Расширенный список кнопок входа можно найти [здесь](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Добавление контроллера для отображения утверждений пользователя

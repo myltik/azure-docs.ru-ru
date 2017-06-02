@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: fbc5cc4a332877451867ca434db40d67ee623a0f
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 61054d9e118a3c90dec3330004625a25102a08cc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,10 +28,10 @@ ms.lasthandoff: 05/16/2017
 ## <a name="subscription-eligibility"></a>Доступность в зависимости от подписки
 Активные подписчики Visual Studio (пользователи, которые приобрели лицензию на подписку Visual Studio) могут использовать клиент Windows в целях разработки и тестирования. Вы можете использовать клиент Windows на собственном оборудовании и виртуальных машинах Azure, работающих в любом типе подписки Azure. Клиент Windows не может быть развернут или использоваться в Azure в обычной рабочей среде, а также недоступен для пользователей, не являющихся активными подписчиками Visual Studio.
 
-Для вашего удобства мы выбрали несколько образов Windows 10 из коллекции Azure, которые можно использовать для разработки и тестирования. См. раздел [Доступные предложения для разработки и тестирования](#eligible-offers). Подписчики Visual Studio с предложением любого типа также смогут [правильно подготавливать и создавать](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 64-разрядные образы Windows 7, Windows 8 или Windows 10, а затем [отправлять их в Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Они также могут использоваться только активными подписчиками Visual Studio и только в целях разработки и тестирования.
+Для вашего удобства мы выбрали несколько образов Windows 10 из коллекции Azure, которые можно использовать для разработки и тестирования. См. раздел [Доступные предложения для разработки и тестирования](#eligible-offers). Подписчики Visual Studio с предложением любого типа также смогут [правильно подготавливать и создавать](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 64-разрядные образы Windows 7, Windows 8 или Windows 10, а затем [отправлять их в Azure](upload-generalized-managed.md). Они также могут использоваться только активными подписчиками Visual Studio и только в целях разработки и тестирования.
 
 ## <a name="eligible-offers"></a>Доступные предложения
-В следующей таблице перечислены идентификаторы предложений, которые доступны для развертывания Windows 10 с помощью коллекции Azure. Образы Windows 10 отображаются только для указанных ниже предложений. Подписчики Visual Studio, которым необходимо запустить клиент Windows с помощью другого типа предложения, должны [правильно подготовить и создать](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 64-разрядный образ Windows 7, Windows 8 или Windows 10, а затем [передать его в Azure](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+В следующей таблице перечислены идентификаторы предложений, которые доступны для развертывания Windows 10 с помощью коллекции Azure. Образы Windows 10 отображаются только для указанных ниже предложений. Подписчики Visual Studio, которым необходимо запустить клиент Windows с помощью другого типа предложения, должны [правильно подготовить и создать](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 64-разрядный образ Windows 7, Windows 8 или Windows 10, а затем [передать его в Azure](upload-generalized-managed.md).
 
 | Название предложения | Номер предложения | Доступные образы клиента |
 |:--- |:---:|:---:|
