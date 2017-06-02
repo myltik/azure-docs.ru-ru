@@ -1,5 +1,6 @@
 # Обзор
 ## [Что такое службы Azure Analysis Services?](analysis-services-overview.md)
+## [Поддерживаемые источники данных](analysis-services-datasource.md)
 
 # Быстрое начало работы
 ## [Создание сервера (портал)](analysis-services-create-server.md)
@@ -17,7 +18,7 @@
 ### [Занятие 6. Создание мер](tutorials/aas-lesson-6-create-measures.md)  
 ### [Занятие 7. Создание ключевых показателей эффективности](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 ### [Занятие 8. Создание перспектив](tutorials/aas-lesson-8-create-perspectives.md) 
-### [Занятие 9. Создание иерархий](tutorials/aas-lesson-9-create-hierarchies.md)  
+### [Занятие 9. Создание иерархий](tutorials/aas-lesson-9-create-hierarchies.md) 
 ### [Занятие 10. Создание разделов](tutorials/aas-lesson-10-create-partitions.md) 
 ### [Занятие 11. Создание ролей](tutorials/aas-lesson-11-create-roles.md)
 ### [Занятие 12. Анализ в Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
@@ -36,7 +37,6 @@
 ## [Получение клиентских библиотек](analysis-services-data-providers.md)
 ## [Резервное копирование и восстановление](analysis-services-backup.md)
 ## [Высокая доступность](analysis-services-bcdr.md)
-## [Подключения к источникам данных](analysis-services-datasource.md)
 ## [Создание ODC-файла](analysis-services-odc.md)
 
 # Справочные материалы

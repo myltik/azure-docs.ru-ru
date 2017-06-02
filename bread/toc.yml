@@ -113,7 +113,7 @@
     - name: API компьютерного зрения
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
-    - name: Настраиваемая служба распознавания речи
+    - name: Пользовательская служба распознавания речи
       tocHref: /azure/cognitive-services/custom-speech-service/
       topicHref: /azure/cognitive-services/custom-speech-service/
     - name: Custom Vision Service
