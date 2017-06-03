@@ -9,6 +9,7 @@ ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 05/02/2017
 ms.topic: hero-article
 ms.service: functions
+ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
 ms.translationtype: Human Translation
@@ -35,11 +36,13 @@ ms.lasthandoff: 05/18/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ## <a name="log-in-to-azure"></a>Вход в Azure
 
 Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране. 
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -49,7 +52,7 @@ az login
 
 В следующем примере создается группа ресурсов `myResourceGroup`:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 ## <a name="create-an-azure-storage-account"></a>Создание учетной записи хранения Azure
@@ -58,7 +61,7 @@ az group create --name myResourceGroup --location westeurope
 
 В следующей команде замените `<storage_name>` глобально уникальным именем своей учетной записи хранения везде, где встречается этот заполнитель. Имя учетной записи хранения должно содержать от 3 до 24 символов и состоять только из цифр и строчных букв.
 
-```azurecli
+```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
@@ -88,7 +91,7 @@ az storage account create --name <storage_name> --location westeurope --resource
 
 В следующей команде замените `<app_name>` уникальным именем вашего приложения функции, а `<storage_name>` — именем учетной записи хранения. `<app_name>` используется по умолчанию в качестве домена DNS для приложения-функции. Поэтому это имя должно быть уникальным для всех приложений в Azure. 
 
-```azurecli
+```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
 Приложение-функция по умолчанию создается с планом потребления. Это означает, что ресурсы добавляются динамически по мере необходимости для вашей функции, а вы платите только при выполнении функций. Дополнительные сведения см. в статье [Выбор правильного плана обслуживания для Функций Azure](functions-scale.md). 
@@ -119,7 +122,7 @@ az functionapp create --name <app_name> --storage-account  <storage_name>  --res
 
 Существует несколько способов создания кода функции в новом приложении-функции. Этот раздел связан с примером репозитория Azure. В следующем коде замените заполнитель `<app_name>` именем созданного приложения-функции. 
 
-```azurecli
+```azurecli-interactive
 az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
 ```
 После задания источника развертывания в Azure CLI появятся следующие сведения (значения null удалены для удобства):
@@ -159,7 +162,7 @@ curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 
 Другие краткие руководства в этой коллекции созданы на основе этого документа. Если вы планируете продолжать работу с этими руководствами по быстрому запуску или обычными руководствами, не удаляйте созданные ресурсы. Если вы не планируете продолжать работу, удалите все созданные ресурсы с помощью следующей команды:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 При появлении запроса введите `y`.

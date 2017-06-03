@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 04/11/2017
 ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: a9ab21a4eb6839006c4a7eca2037308646180010
@@ -28,6 +29,10 @@ ms.lasthandoff: 05/15/2017
 Этот пример сценария создает приложение-функцию Azure, которое является контейнером для ваших функций. Приложение-функция создается с помощью [плана потребления](../functions-scale.md#consumption-plan), который идеально подходит для рабочих нагрузок, выполняемых на основе событий без использования сервера.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Пример скрипта
 

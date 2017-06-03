@@ -80,7 +80,7 @@ az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Mic
 
 После выполнения примера сценария можно удалить группу ресурсов, виртуальную машину и все связанные с ней ресурсы, выполнив следующую команду:
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup --no-wait --yes
 ```
 

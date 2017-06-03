@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 04/11/2017
 ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 8c98e392c1c735458184bb782ed9c42f468f33de
@@ -27,6 +28,10 @@ ms.lasthandoff: 05/15/2017
 Этот пример сценария создает приложение-функцию Azure, которое является контейнером для ваших функций. Приложение-функция создается с помощью выделенного плана службы приложений. Это означает, что ресурсы сервера всегда включены.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Пример скрипта
 

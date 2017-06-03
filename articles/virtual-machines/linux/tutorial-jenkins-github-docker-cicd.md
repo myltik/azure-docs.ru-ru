@@ -70,13 +70,13 @@ runcmd:
 
 Прежде чем создать виртуальную машину, выполните команду [az group create](/cli/azure/group#create), чтобы создать группу ресурсов. В следующем примере создается группа ресурсов с именем *myResourceGroupJenkins* в расположении *eastus*.
 
-```azurecli-interactive
+```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
 Теперь создайте виртуальную машину командой [az vm create](/cli/azure/vm#create). Используйте параметр `--custom-data`, чтобы передать файл конфигурации cloud-init. Укажите полный путь к конфигурации *cloud-init-jenkins.txt*, если этот файл сохранен вне текущего рабочего каталога.
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
     --name myVM \
     --image UbuntuLTS \
@@ -89,7 +89,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 Чтобы разрешить веб-трафик к вашей виртуальной машине, используйте команду [az vm open-port](/cli/azure/vm#open-port) для открытия порта *8080* для трафика Jenkins и порта *1337* для приложения Node.js, которое используется для запуска примера приложения:
 
-```azurecli
+```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 --priority 1002
 ```
@@ -98,7 +98,7 @@ az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 
 ## <a name="configure-jenkins"></a>Настройка Jenkins
 Чтобы получить доступ к экземпляру Jenkins, получите общедоступный IP-адрес виртуальной машины:
 
-```azurecli
+```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
@@ -212,7 +212,7 @@ COPY index.js /var/www/
 
 При необходимости снова получите общедоступный IP-адрес виртуальной машины:
 
-```azurecli
+```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 

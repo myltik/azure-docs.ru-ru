@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2017
-ms.author: mikhegn@microsoft.com
-translationtype: Human Translation
+ms.author: mikhegn
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0eefa64d6292dec14842c031ebad80fa9094436d
 ms.openlocfilehash: 535e33eec22ed1c488cace9442328084b416b7a8
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/22/2017
 
 

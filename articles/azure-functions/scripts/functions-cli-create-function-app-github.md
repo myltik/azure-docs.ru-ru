@@ -8,6 +8,7 @@ ms.author: cfowler
 ms.date: 04/27/2017
 ms.topic: sample
 ms.service: functions
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: f87cf7d300b4c2b89ad692aadcda958e9747c7f9
@@ -20,6 +21,10 @@ ms.lasthandoff: 05/15/2017
 Этот пример сценария создает приложение-функцию с помощью [плана потребления](../functions-scale.md#consumption-plan) со связанными ресурсами и развертывает код функции из открытого репозитория GitHub (без непрерывного развертывания). Для непрерывной доставки кода функции из GitHub см. статью [Создание службы приложений](functions-cli-create-function-app-github-continuous.md).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Пример скрипта
 

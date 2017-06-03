@@ -56,12 +56,12 @@ ms.lasthandoff: 05/31/2017
 
 Создайте группу ресурсов.
 
-```azurecli-interactive
+```azurecli-interactive 
 az group create --name myResourceGroupAvailability --location eastus
 ```
 
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -77,7 +77,7 @@ az vm availability-set create \
 
 При создании виртуальной машины с помощью команды [az vm create](/cli/azure/vm#create) вы указываете группу доступности, задав ее имя с помощью параметра `--availability-set`.
 
-```azurecli
+```azurecli-interactive 
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
@@ -99,7 +99,7 @@ done
 
 Позднее вы можете добавить в группу доступности другие виртуальные машины, но следует понимать, какие размеры виртуальных машин доступны на оборудовании. Выполните команду [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes) для получения списка всех доступных размеров в аппаратном кластере для группы доступности.
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \
