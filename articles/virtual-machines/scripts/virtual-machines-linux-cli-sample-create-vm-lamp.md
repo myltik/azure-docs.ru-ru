@@ -46,7 +46,7 @@ ms.lasthandoff: 05/15/2017
 
 Выполните следующую команду, чтобы удалить группу ресурсов, масштабируемый набор, виртуальные машины и все связанные с ней ресурсы.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 

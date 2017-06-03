@@ -11,14 +11,15 @@ ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 04/18/2016
+ms.date: 05/08/2017
 ms.author: ninarn
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 66f7cc63d311b6b5cd223fe0d8a9bf9f636abef1
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/20/2017
 
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/20/2017
 
 Эластичный пул можно создать двумя способами. Если вы знаете требуемые настройки пула, вы можете создать его с нуля, или же можно следовать рекомендациям службы. База данных SQL автоматически предоставляет интеллектуальные рекомендации по настройке эластичного пула, если это экономически выгодно для вас с учетом последних данных телеметрии об использовании баз данных.
 
-На сервере можно создать несколько пулов, но в один пул нельзя добавлять базы данных с разных серверов. 
+На сервере можно создать несколько пулов, но в один пул нельзя добавлять базы данных с разных серверов.
 
 > [!NOTE]
 > Пулы эластичных БД общедоступны во всех регионах Azure, кроме западной Индии, где сейчас доступна только предварительная версия.  Общедоступные пулы эластичных БД появятся в этом регионе в самое ближайшее время.
@@ -158,7 +159,7 @@ ms.lasthandoff: 04/20/2017
 
     ![Щелкните "Изменить".](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
-    
+
 
 3. Нажмите кнопку **ОК**.
 

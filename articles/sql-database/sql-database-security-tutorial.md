@@ -9,7 +9,7 @@ editor:
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-secure
+ms.custom: tutorial-secure, mvc
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -112,7 +112,7 @@ ms.lasthandoff: 05/09/2017
 3. В окне запроса введите следующее:
 
     ```sql
-    CREATE USER 'ApplicationUserUser' WITH PASSWORD = 'strong_password';
+    CREATE USER ApplicationUserUse' WITH PASSWORD = 'YourStrongPassword1';
     ```
 
 4. На панели инструментов щелкните **Выполнить**, чтобы создать пользователя.
@@ -120,8 +120,8 @@ ms.lasthandoff: 05/09/2017
 5. По умолчанию пользователь может подключаться к базе данных, но не имеет разрешений на чтение и запись данных. Чтобы предоставить эти разрешения только что созданному пользователю, выполните следующие две команды в новом окне запроса.
 
     ```sql
-    ALTER ROLE db_datareader ADD MEMBER 'ApplicationUserUser';
-    ALTER ROLE db_datawriter ADD MEMBER 'ApplicationUserUser';
+    ALTER ROLE db_datareader ADD MEMBER ApplicationUserUser;
+    ALTER ROLE db_datawriter ADD MEMBER ApplicationUserUser;
     ```
 
 Рекомендуется создавать эти учетные записи без прав администратора на уровне базы данных для подключения к базе данных, если только не требуется выполнять задачи администрирования, например создавать пользователей. Ознакомьтесь с [руководством по Azure Active Directory](./sql-database-aad-authentication-configure.md), посвященном аутентификации с помощью Azure Active Directory.
