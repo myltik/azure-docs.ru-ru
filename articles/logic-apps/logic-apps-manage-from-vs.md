@@ -34,7 +34,7 @@ ms.lasthandoff: 03/02/2017
 ### <a name="prerequisites"></a>Предварительные требования
 
 * [Visual Studio 2015 или Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [пакет Azure SDK последней версии](https://azure.microsoft.com/downloads/) (версия&2;.9.1 или выше);
+* [пакет Azure SDK последней версии](https://azure.microsoft.com/downloads/) (версия 2.9.1 или выше);
 * [Visual Studio Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)
 * доступ к Интернету при использовании внедренного конструктора.
 
