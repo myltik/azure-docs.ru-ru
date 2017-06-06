@@ -2,6 +2,6 @@
 
 Чтобы очистить ресурсы, выполните следующую команду:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```

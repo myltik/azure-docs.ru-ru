@@ -50,6 +50,8 @@ ms.lasthandoff: 05/31/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ## <a name="prepare-local-mysql"></a>Подготовка локальной базы данных MySQL
 
 На этом шаге вы создадите базу данных на локальном сервере MySQL для использования в этом руководстве.
@@ -156,7 +158,7 @@ php artisan serve
 
 Теперь воспользуемся Azure CLI 2.0 в окне терминала, чтобы создать ресурсы, необходимые для размещения приложения PHP в службе приложений Azure. Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране. 
 
-```azurecli 
+```azurecli-interactive 
 az login 
 ``` 
 
@@ -166,7 +168,7 @@ az login
 
 В следующем примере создается группа ресурсов в регионе "Северная Европа".
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location "North Europe"
 ```
 
@@ -178,7 +180,7 @@ az group create --name myResourceGroup --location "North Europe"
 
 В следующей команде замените _&lt;mysql_server_name>_ уникальным именем своего сервера MySQL везде, где встречается этот заполнитель. Это имя является частью имени узла сервера MySQL (`<mysql_server_name>.database.windows.net`), поэтому оно должно быть глобально уникальным. Аналогичным образом замените _&lt;admin_user>_ и _&lt;admin_password>_ собственными значениями.
 
-```azurecli
+```azurecli-interactive
 az mysql server create \
     --name <mysql_server_name> \
     --resource-group myResourceGroup \
@@ -206,7 +208,7 @@ az mysql server create \
 
 Создайте правило брандмауэра для сервера MySQL, чтобы разрешить подключения клиентов, выполнив команду [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create). 
 
-```azurecli
+```azurecli-interactive
 az mysql server firewall-rule create \
     --name allIPs \
     --server <mysql_server_name> \
@@ -332,7 +334,7 @@ git commit -m "keep sensitive data out of git"
 
 В следующем примере создается план службы приложений _myAppServicePlan_ в ценовой категории **Бесплатный**.
 
-```azurecli
+```azurecli-interactive
 az appservice plan create \
     --name myAppServicePlan \
     --resource-group myResourceGroup \
@@ -363,7 +365,7 @@ az appservice plan create \
 
 В следующей команде замените заполнитель _&lt;appname>_ уникальным именем своего приложения. Это уникальное имя используется в доменном имени по умолчанию для веб-приложения, поэтому оно должно быть уникальным для всех приложений в Azure. Позже можно сопоставить любые пользовательские записи DNS с веб-приложением, прежде чем предоставлять его пользователям. 
 
-```azurecli
+```azurecli-interactive
 az appservice web create \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -393,7 +395,7 @@ az appservice web create \
 
 Следующая команда задает версию PHP _7.0_.
 
-```azurecli
+```azurecli-interactive
 az appservice web config update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -408,7 +410,7 @@ az appservice web config update \
 
 Следующая команда позволяет настроить параметры приложения `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` и `DB_PASSWORD`. Замените заполнители _&lt;appname>_, _&lt;mysql_server_name>_, _&lt;phpapp_user>_ и _&lt;phpapp_password>_ собственными значениями.
 
-```azurecli
+```azurecli-interactive
 az appservice web config appsettings update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -440,7 +442,7 @@ php artisan key:generate --show
 
 Задайте ключ приложения в веб-приложении службы приложений с помощью команды [az appservice web config appsettings update](/cli/azure/appservice/web/config/appsettings#update). Замените заполнители _&lt;appname>_ и _&lt;outputofphpartisankey:generate>_ собственными значениями.
 
-```azurecli
+```azurecli-interactive
 az appservice web config appsettings update \
     --name <app_name> \
     --resource-group myResourceGroup \
@@ -483,13 +485,13 @@ az resource update \
 
 Если вы ранее создали имя пользователя и пароль для развертывания, то можете отобразить это имя пользователя, выполнив следующую команду.
 
-```azurecli
+```azurecli-interactive
 az appservice web deployment user show
 ```
 
 Если у вас еще нет пользователя развертывания, выполните команду [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set), чтобы создать учетные данные развертывания. 
 
-```azurecli
+```azurecli-interactive
 az appservice web deployment user set \
     --user-name <username> \
     --password <minimum-8-char-capital-lowercase-number>
@@ -507,7 +509,7 @@ az appservice web deployment user set \
 
 Чтобы настроить доступ локального репозитория Git к веб-приложению Azure, выполните команду [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git). 
 
-```azurecli
+```azurecli-interactive
 az appservice web source-control config-local-git \
     --name <app_name> \
     --resource-group myResourceGroup
@@ -718,7 +720,7 @@ git push azure master
 
 Чтобы настроить потоки для журналов, выполните команду [az appservice web log tail](/cli/azure/appservice/web/log#tail).
 
-```azurecli 
+```azurecli-interactive 
 az appservice web log tail \
     --name <app_name> \
     --resource-group myResourceGroup 
@@ -763,7 +765,7 @@ az appservice web log tail \
  
 Если эти ресурсы не требуются для изучения другого руководства (см. раздел [Дальнейшие действия](#next)), их можно удалить, выполнив следующие команды: 
   
-```azurecli 
+```azurecli-interactive
 az group delete --name myResourceGroup 
 ``` 
 

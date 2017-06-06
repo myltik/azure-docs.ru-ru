@@ -39,6 +39,8 @@ ms.lasthandoff: 05/31/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>Проверка локальной установки PostgreSQL и создание базы данных
 На этом шаге нужно убедиться, что локальная база данных PostgreSQL запущена.
 
@@ -120,7 +122,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
 
 Теперь воспользуемся Azure CLI 2.0 в окне терминала, чтобы создать ресурсы, необходимые для размещения приложения Python в службе приложений Azure.  Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране. 
 
-```azurecli 
+```azurecli-interactive 
 az login 
 ``` 
    
@@ -130,7 +132,7 @@ az login
 
 В следующем примере создается группа ресурсов в регионе "Западная часть США".
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location "West US"
 ```
 
@@ -142,7 +144,7 @@ az group create --name myResourceGroup --location "West US"
 
 В следующей команде замените `<postgresql_name>` уникальным именем своего сервера PostgreSQL везде, где встречается этот заполнитель. Это уникальное имя используется как часть конечной точки PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), поэтому оно должно быть уникальным на всех серверах в Azure. 
 
-```azurecli
+```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <my_admin_username>
 ```
 
@@ -178,7 +180,7 @@ az postgres server create --resource-group myResourceGroup --name <postgresql_na
 
 Прежде чем можно будет получить доступ к базе данных, необходимо разрешить к ней доступ со всех IP-адресов. Это можно сделать с помощью следующей команды Azure CLI.
 
-```azurecli
+```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
 ```
 
@@ -288,7 +290,7 @@ INFO  [alembic.runtime.migration] Will assume transactional DDL.
 
 В приведенной команде замените `<registry_name>` уникальным именем реестра контейнеров Azure по своему усмотрению, чтобы создать реестр контейнеров.
 
-```azurecli
+```azurecli-interactive
 az acr create --name <registry_name> --resource-group myResourceGroup --location "West US" --sku Basic
 ```
 
@@ -318,7 +320,7 @@ az acr create --name <registry_name> --resource-group myResourceGroup --location
 
 Чтобы получить доступ к учетным данным, необходимо включить режим администратора.
 
-```azurecli
+```azurecli-interactive
 az acr update --name <registry_name> --admin-enabled true
 az acr credential show -n <registry_name>
 ```
@@ -359,7 +361,7 @@ docker push <registry_name>.azurecr.io/flask-postgresql-sample
 
 В следующем примере создается план службы приложений на основе Linux `myAppServicePlan` в ценовой категории S1.
 
-```azurecli
+```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
 ```
 
@@ -407,7 +409,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 В следующей команде замените `<app_name>` на уникальное имя своего приложения. Это уникальное имя будет использоваться в доменном имени веб-приложения по умолчанию, поэтому оно должно быть уникальным для всех приложений в Azure. Позже можно сопоставить любые пользовательские записи DNS с веб-приложением, прежде чем предоставлять его пользователям. 
 
-```azurecli
+```azurecli-interactive
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
@@ -439,7 +441,7 @@ az appservice web create --name <app_name> --resource-group myResourceGroup --pl
 
 Ниже описывается, как указать сведения о подключении к базе данных в качестве параметров приложения. Мы дополнительно используем переменную `PORT`, чтобы указать, что требуется сопоставить порт 5000 из контейнера Docker для получения трафика HTTP через порт 80.
 
-```azurecli
+```azurecli-interactive
 az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
 ```
 
@@ -455,7 +457,7 @@ az appservice web config container update --resource-group myResourceGroup --nam
 
 При каждом обновлении контейнера Docker или изменении указанных выше параметров следует перезапустить приложение, чтобы применить все параметры и извлечь из реестра последний контейнер.
 
-```azurecli
+```azurecli-interactive
 az appservice web restart --resource-group myResourceGroup --name <app_name>
 ```
 
