@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.custom: pim
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
 ms.openlocfilehash: f70fec829b273de97fc49e61ba42d511b6b141b3
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/06/2017
-
 
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Как активировать и деактивировать роли в компоненте управления привилегированными пользователями Azure AD

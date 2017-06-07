@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 6/06/2017
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
 ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/10/2016
 
 
 ---
@@ -54,7 +56,7 @@ ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
 3. Используйте `Set-AzureRmLogProfile`, чтобы создать профиль:
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
 ServiceBusRuleID — это строка в таком формате: {идентификатор_ресурса_служебной_шины} /authorizationrules/{имя_ключа}. Например: 
@@ -79,10 +81,5 @@ ServiceBusRuleID — это строка в таком формате: `{service
 * [Архивация журнала действий Azure](monitoring-archive-activity-log.md)
 * [Общие сведения о журнале действий Azure](monitoring-overview-activity-logs.md)
 * [Настройка объекта webhook для оповещений журнала действий Azure](insights-auditlog-to-webhook-email.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
