@@ -165,7 +165,7 @@ Python позволяет с легкостью выполнить эти тре
 3. Чтобы mapper.py и reducer.py имели правильные концы строк, используйте следующие команды:
 
     ```bash
-    perl -pi -e 's/\r\n/\n/g' mappery.py
+    perl -pi -e 's/\r\n/\n/g' mapper.py
     perl -pi -e 's/\r\n/\n/g' reducer.py
     ```
 

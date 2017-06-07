@@ -12,11 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 06/02/2017
 ms.author: garye
-translationtype: Human Translation
+ROBOTS: NOINDEX
+redirect_url: /azure/machine-learning/machine-learning-consume-web-services
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
 ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -76,7 +81,7 @@ ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
 4. Щелкните веб-службу.
 5. Щелкните конечную точку. Элемент "КЛЮЧ API" находится в правом нижнем углу.
 
-## <a name="a-idconnectaconnect-to-a-machine-learning-web-service"></a><a id="connect"></a>Подключение к веб-службе машинного обучения
+## <a id="connect"></a>Подключение к веб-службе машинного обучения
 К веб-службе машинного обучения можно подключиться, используя любой язык программирования, поддерживающий HTTP-запрос и HTTP-ответ. Примеры на языках C#, Python и R можно просмотреть на странице справки веб-службы машинного обучения.
 
 **Справка по API машинного обучения.** Страница справки по API машинного обучения Azure создается при развертывании веб-службы. См. статью [Шаг 5. Развертывание веб-службы машинного обучения Azure](machine-learning-walkthrough-5-publish-web-service.md).
@@ -123,10 +128,5 @@ ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
 1. Разверните эксперимент "Sample 1: Download dataset from UCI: Adult 2 class dataset" (Пример 1. Скачивание набора данных из UCI: набор данных для класса Adult 2), входящий в набор примеров машинного обучения.
 2. Назначьте apiKey ключ из веб-службы. См. раздел **Получение ключа авторизации Машинного обучения Azure** в начале этой статьи.
 3. Назначьте serviceUri универсальный код ресурса запроса.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
