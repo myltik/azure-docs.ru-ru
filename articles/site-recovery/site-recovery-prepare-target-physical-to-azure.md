@@ -27,7 +27,7 @@ ms.lasthandoff: 02/13/2017
 > * [Виртуальные машины VMware](./site-recovery-prepare-target-vmware-to-azure.md)
 > * [Физические серверы](./site-recovery-prepare-target-physical-to-azure.md)
 
-В этой статье описывается, как подготовить среду Azure к запуску репликации&64;-разрядных физических серверов Windows или Linux в Azure.
+В этой статье описывается, как подготовить среду Azure к запуску репликации 64-разрядных физических серверов Windows или Linux в Azure.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
