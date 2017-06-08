@@ -11,14 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: deprecated
+ms.topic: article
 ms.date: 01/18/2017
 ms.author: zhangya;bradsev
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: machine-learning-data-science-create-features
-translationtype: Human Translation
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
 ms.openlocfilehash: c6b88355df430e78594fc1283c9df01ad6e27e20
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -78,7 +81,7 @@ ms.openlocfilehash: c6b88355df430e78594fc1283c9df01ad6e27e20
 
 ![Сравнение результатов производительности](./media/machine-learning-feature-selection-and-engineering/result1.png)
 
-### <a name="a-nameexample2a-example-2-creating-features-in-text-mining"></a><a name="example2"></a> Пример 2. Создание признаков в интеллектуальном анализе текста
+### <a name="example2"></a> Пример 2. Создание признаков в интеллектуальном анализе текста
 Реконструирование признаков широко применяется в задачах, связанных с интеллектуальным анализом текста, например классификации документов и анализе тональностей. Например, если вы хотите классифицировать документы по нескольким категориям, типичным предположением является следующее: слова или фразы, которые встречаются в одной категории документов, с меньшей вероятностью встречаются в другой категории. Иными словами, частота распределения слов или фраз может характеризовать разные категории документов. В приложениях интеллектуального анализа текста отдельные части текстового содержимого обычно служат в качестве входных данных, поэтому для создания признаков, связанных с частотой слова или фразы, необходим процесс конструирования признаков.
 
 Для выполнения этой задачи вызывается метод *хэширования признаков*, чтобы эффективно превратить произвольные признаки текста в индексы. Вместо того чтобы сопоставлять каждый признак текста (слова или фразы) для определенного индекса, этот метод применяет хэш-функции к признакам и непосредственно использует их хэш-значения как индексы.
@@ -133,9 +136,4 @@ ms.openlocfilehash: c6b88355df430e78594fc1283c9df01ad6e27e20
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,12 +1,27 @@
 ---
-
-ROBOTS: NOINDEX, NOFOLLOW
+title: "Тест на разницу в пропорциях (устаревшая версия) | Документация Майкрософт"
+description: "Сведения о тесте на разницу в пропорциях (устаревшая версия)."
+services: machine-learning
+documentationcenter: 
+author: aniedea
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 9356b821-5345-44f6-8e26-719f2dea5e6d
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/06/2017
+ms.author: aniedea
+ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
+redirect_document_id: TRUE
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: b2194dd1742d175abb4f85158c4aae81bb4aa044
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 18023b5057d1eeca88a341d62cbeb543102b3abf
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 01/11/2017
 
 
 ---

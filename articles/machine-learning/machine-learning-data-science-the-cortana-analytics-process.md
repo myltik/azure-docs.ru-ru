@@ -11,14 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: deprecated
+ms.topic: article
 ms.date: 01/18/2017
 ms.author: bradsev
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: data-science-process-overview
-translationtype: Human Translation
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 49bb8201a93e622774e197801b566caa03ed28a6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -83,10 +86,5 @@ ms.openlocfilehash: 49bb8201a93e622774e197801b566caa03ed28a6
 * [Процесс обработки и анализа данных группы на практике: использование кластеров HDInsight Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
 * [Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight.](machine-learning-data-science-spark-overview.md)
 * [Полное пошаговое руководство по масштабируемому анализу данных в озере данных Azure](machine-learning-data-science-process-data-lake-walkthrough.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
