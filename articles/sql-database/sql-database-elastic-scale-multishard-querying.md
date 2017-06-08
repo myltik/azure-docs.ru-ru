@@ -8,16 +8,18 @@ author: torsteng
 editor: 
 ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 873df52da976597ddfaa8f777b90382bfa7723fc
 ms.openlocfilehash: aa54ec3d982ea4422422bd4e520d2211aad57159
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -75,10 +77,5 @@ ms.openlocfilehash: aa54ec3d982ea4422422bd4e520d2211aad57159
 Классы и методы **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)**.
 
 Управление сегментами с использованием [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md). Она включает в себя новое пространство имен с именем [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx), предоставляющее возможность выполнять запрос к нескольким сегментам, используя один запрос и один результат. Это позволяет абстрагировать обработку запросов по набору сегментов. Также предоставляются альтернативные политики выполнения, в особенности частичные результаты для обработки сбоев при выполнении запросов по нескольким сегментам.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
