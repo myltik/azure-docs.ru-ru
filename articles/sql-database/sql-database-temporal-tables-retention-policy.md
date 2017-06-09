@@ -157,7 +157,7 @@ CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 На следующем рисунке показан план для простого запроса.
 
 ````
-SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
+SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 ````
 
 План запроса содержит дополнительный фильтр, применяемый к столбцу окончания периода (ValidTo) в операторе "Clustered Index Scan" (Сканирование кластеризованного индекса) в таблице исторических данных (выделено). В этом примере предполагается, что для таблицы WebsiteUserInfo задан срок хранения "1 MONTH" (1 месяц).
