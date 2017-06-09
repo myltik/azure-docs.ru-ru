@@ -9,17 +9,18 @@ editor:
 tags: 
 ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: dcd7aef734da26a4357d11ff3da9501f55963a00
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -50,7 +51,7 @@ ms.lasthandoff: 04/15/2017
 * Учетная запись и подписка Azure. Вы можете зарегистрироваться, чтобы получить [бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/).
 * Любая база данных, позволяющая создать таблицу.
   
-  * При необходимости вы можете быстро [создать демонстрационную базу данных **AdventureWorksLT**](sql-database-get-started-portal.md).
+  * При необходимости вы можете быстро [создать демонстрационную базу данных **AdventureWorksLT**](sql-database-get-started.md).
 * SQL Server Management Studio (ssms.exe), в идеале — последняя ежемесячная версия обновления. 
   Ресурсы для загрузки последней версии файла ssms.exe:
   

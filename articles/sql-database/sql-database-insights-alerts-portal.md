@@ -1,23 +1,24 @@
 ---
 title: "Создание оповещений для базы данных SQL с помощью портала Azure | Документация Майкрософт"
 description: "Используйте портал Azure для создания оповещений базы данных SQL, которые могут активировать уведомления или автоматизированные операции при выполнении заданных условий."
-author: aamalvea
+author: CarlRabeler
 manager: jhubbard
 editor: 
 services: sql-database
 documentationcenter: 
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: aamalvea
-translationtype: Human Translation
+ms.author: carlrab
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2679681c77dd6a3410bbe6ddbcf562924b13bfe6
 ms.openlocfilehash: afa21052281200768db24ce35a94097f23f23efe
+ms.contentlocale: ru-ru
 ms.lasthandoff: 11/17/2016
 
 
@@ -74,7 +75,7 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="sql-database-alert-values-and-thresholds"></a>Значения, в том числе пороговые, для оповещений базы данных SQL
 
-| Тип ресурса    | Имя метрики | Понятное имя | Тип статистической обработки | Минимальный интервал времени для оповещений|
+| Тип ресурса | Имя метрики | Понятное имя | Тип статистической обработки | Минимальный интервал времени для оповещений|
 | --- | --- | --- | --- | --- |
 | База данных SQL | cpu_percent | Процент использования ЦП | Средняя | 5 мин |
 | База данных SQL | physical_data_read_percent | Процент операций ввода/вывода данных | Средняя | 5 мин |
@@ -91,7 +92,7 @@ ms.lasthandoff: 11/17/2016
 | База данных SQL | sessions_percent | Sessions percent | Средняя | 5 мин |
 | База данных SQL | dtu_limit | DTU limit | Средняя | 5 мин |
 | База данных SQL | dtu_used | DTU used | Средняя | 5 мин |
-||||||               
+||||||           
 | Хранилище данных SQL | cpu_percent | Процент использования ЦП | Средняя | 10 минут |
 | Хранилище данных SQL | physical_data_read_percent | Процент операций ввода/вывода данных | Средняя | 10 минут |
 | Хранилище данных SQL | storage | Total database size | Максимальная | 10 минут |
@@ -102,7 +103,7 @@ ms.lasthandoff: 11/17/2016
 | Хранилище данных SQL | dwu_limit | Лимит DWU. | Максимальная | 10 минут |
 | Хранилище данных SQL | dwu_consumption_percent | DWU percentage | Средняя | 10 минут |
 | Хранилище данных SQL | dwu_used | DWU used | Средняя | 10 минут |
-||||||                     
+||||||               
 | Эластичный пул | cpu_percent | Процент использования ЦП | Средняя | 5 мин |
 | Эластичный пул | physical_data_read_percent | Процент операций ввода/вывода данных | Средняя | 5 мин |
 | Эластичный пул | log_write_percent | Log IO percentage | Средняя | 5 мин |

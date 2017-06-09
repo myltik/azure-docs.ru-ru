@@ -11,7 +11,7 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-=article
+ms.topic: hero-article
 ms.date: 04/05/2017
 ms.author: raynew
 ms.translationtype: Human Translation
@@ -210,7 +210,7 @@ ms.lasthandoff: 05/17/2017
 
 2. Site Recovery проверяет наличие одной или нескольких совместимых учетных записей хранения и сетей Azure.
 
-      ![Хранилище](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+    ![Хранилище](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
 3. Если учетная запись хранения еще не создана и ее нужно создать с помощью Resource Manager, щелкните **+Storage account** (+ Учетная запись хранения).  В колонке **Создание учетной записи хранения** укажите имя, тип, подписку и расположение учетной записи. Учетная запись должна находиться в том же регионе, что и хранилище служб восстановления.
 

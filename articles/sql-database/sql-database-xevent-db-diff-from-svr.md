@@ -9,17 +9,18 @@ editor:
 tags: 
 ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 8c94c8789696507d89e08a637067ca040d45246a
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
+ms.openlocfilehash: 6766242bef4e6f976a621547941e8e34a4915c6c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/10/2017
 
 В этом разделе объясняется, чем расширенные события в Базе данных SQL Azure отличается от расширенных событий в Microsoft SQL Server.
 
-- В Базе данных SQL функция расширенных событий появилась во второй половине 2015 года.
+- В Базе данных SQL версии 12 функция расширенных событий появилась во второй половине 2015 года.
 - SQL Server включает расширенные события с 2008 года.
 - Набор функций расширенных событий в Базе данных SQL представляет собой устойчивое подмножество функций SQL Server.
 
