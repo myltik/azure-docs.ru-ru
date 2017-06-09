@@ -160,7 +160,7 @@ ms.lasthandoff: 05/15/2017
 
 [Набор средств Azure для Eclipse]: ./azure-toolkit-for-eclipse.md
 [Набор средств Azure для IntelliJ]: ./azure-toolkit-for-intellij.md
-[Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Создание веб-приложения Azure (цен. категория "Базовый") с помощью Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Создание веб-приложения Azure (цен. категория "Базовый") в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Установка набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Установка набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-installation.md

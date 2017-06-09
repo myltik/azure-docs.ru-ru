@@ -40,7 +40,7 @@ ms.lasthandoff: 03/31/2017
 >
 
 Просмотрите следующее ознакомительное видео о журнале действий:
-> [https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 > 
 >
 
