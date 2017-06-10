@@ -3,7 +3,7 @@ title: "Архивация и восстановление для SQL Server | �
 description: "Содержит сведения об архивации и восстановлении баз данных SQL Server на виртуальных машинах Azure."
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MikeRayMSFT
 manager: jhubbard
 editor: 
 tags: azure-resource-management
@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
-ms.author: jroth
-translationtype: Human Translation
+ms.author: mikeray
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: f05ef18fb33942883ba164985721ce2d4f79d3fa
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/31/2017
 
 
