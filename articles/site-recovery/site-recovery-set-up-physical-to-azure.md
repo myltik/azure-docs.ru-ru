@@ -67,7 +67,7 @@ ms.lasthandoff: 02/13/2017
 #### <a name="run-azure-site-recovery-unified-setup"></a>Выполнение единой установки Azure Site Recovery
 
 > [!TIP]
-> Если системное время на компьютере отличается от местного более чем на&5; минут, то регистрация сервера конфигурации завершится сбоем. Перед началом установки синхронизируйте системное время с [сервером времени](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service).
+> Если системное время на компьютере отличается от местного более чем на 5 минут, то регистрация сервера конфигурации завершится сбоем. Перед началом установки синхронизируйте системное время с [сервером времени](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service).
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
