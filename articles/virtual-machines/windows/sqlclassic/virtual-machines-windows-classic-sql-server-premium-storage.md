@@ -272,7 +272,7 @@ ms.lasthandoff: 04/04/2017
 
 
 #### <a name="step-3-use-existing-image"></a>Шаг 3. Используйте существующий образ
-Вы можете использовать существующий образ. Вы также можете [взять образ имеющегося компьютера](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Обратите внимание, виртуальная машина, образ которой вы создаете, не обязательно должна быть серии DS*. Далее показано, как скопировать созданный образ в учетную запись хранилища уровня "Премиум" с помощью командлета PowerShell **Start-AzureStorageBlobCopy**.
+Вы можете использовать существующий образ. Вы также можете [взять образ имеющегося компьютера](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Обратите внимание, виртуальная машина, образ которой вы создаете, не обязательно должна быть серии DS\*. Далее показано, как скопировать созданный образ в учетную запись хранилища уровня "Премиум" с помощью командлета PowerShell **Start-AzureStorageBlobCopy**.
 
     #Get storage account keys:
     #Standard Storage account
