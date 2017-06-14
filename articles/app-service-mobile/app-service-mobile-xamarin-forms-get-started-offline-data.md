@@ -14,9 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 62610da9598077ffd17b97e9427149310c639a1a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -162,9 +164,4 @@ ms.openlocfilehash: 62610da9598077ffd17b97e9427149310c639a1a
 [6]: https://www.getpostman.com/
 [7]: http://www.telerik.com/fiddler
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
