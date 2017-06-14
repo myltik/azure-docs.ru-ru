@@ -639,8 +639,8 @@ _**Рис. 7.** Пример высокодоступного сервера С
 
 Дополнительные сведения о кластеризации SQL Server в Azure посредством модели развертывания с помощью Azure Resource Manager можно найти в следующих статьях:
 
-* [Configure Always On availability group in Azure Virtual Machines manually by using Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual] (Настройка группы доступности AlwaysOn на виртуальных машинах Azure с использованием Resource Manager)
-* [Configure an Azure internal load balancer for an Always On availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener] (Настройка внутреннего балансировщика нагрузки для группы доступности AlwaysOn в Azure)
+* [Настройка группы доступности AlwaysOn на виртуальных машинах Azure с использованием Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Настройка внутреннего балансировщика нагрузки для группы доступности AlwaysOn в Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
 ## <a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> Сценарии комплексного развертывания с высоким уровнем доступности
 
