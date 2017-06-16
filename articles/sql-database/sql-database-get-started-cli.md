@@ -38,7 +38,7 @@ Azure CLI используется для создания ресурсов Azur
 
 Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 

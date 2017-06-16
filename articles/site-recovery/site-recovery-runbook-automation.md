@@ -11,12 +11,13 @@ ms.service: site-recovery
 ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.workload: required
+ms.workload: storage-backup-recovery
 ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 198caeea693fbc48b6e0eb1c9c8ee559e0553261
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/31/2017
 
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 03/31/2017
 
     ![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
 - - -
-1. Чтобы добавить модуль Runbook, нажмите кнопку "Настроить". 
+1. Чтобы добавить модуль Runbook, нажмите кнопку "Настроить".
 
     ![](media/site-recovery-runbook-automation-new/customize-rp.PNG)
 
@@ -41,10 +42,10 @@ ms.lasthandoff: 03/31/2017
 1. Щелкните правой кнопкой мыши начальную группу 1 и выберите "Добавить завершающее действие".
 2. Щелкните, чтобы выбрать сценарий в новой колонке.
 3. Назовите этот сценарий "Hello, World".
-4. Выберите имя учетной записи службы автоматизации Azure. 
+4. Выберите имя учетной записи службы автоматизации Azure.
     >[!NOTE]
     > Учетная запись службы автоматизации может находиться в любом географическом регионе Azure, но должна быть в той же подписке, что и хранилище Site Recovery.
-    
+
 5. Выберите Runbook из учетной записи службы автоматизации. Этот модуль Runbook представляет сценарий, который будет запущен после восстановления первой группы во время выполнения плана восстановления.
 
     ![](media/site-recovery-runbook-automation-new/update-rp.PNG)
@@ -71,13 +72,13 @@ ms.lasthandoff: 03/31/2017
         "VmMap":{"7a1069c6-c1d6-49c5-8c5d-33bfce8dd183":
 
                 { "SubscriptionId":"7a1111111-c1d6-49c5-8c5d-111ce8dd183",
-                
+
                 "ResourceGroupName":"ContosoRG",
-                
+
                 "CloudServiceName":"pod02hrweb-Chicago-test",
 
                 "RoleName":"Fabrikam-Hrweb-frontend-test",
-                
+
                 "RecoveryPointId":"TimeStamp"}
 
                 }
@@ -165,15 +166,15 @@ ms.lasthandoff: 03/31/2017
     $NSGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSG"
     $NSGRGValue = $RecoveryPlanContext.RecoveryPlanName + "-NSGRG"
 
-    $NSGnameVar = Get-AutomationVariable -Name $NSGValue 
+    $NSGnameVar = Get-AutomationVariable -Name $NSGValue
     $RGnameVar = Get-AutomationVariable -Name $NSGRGValue
 ```
 
 Теперь вы можете использовать переменные в модуле Runbook, что позволит применить NSG к сетевому интерфейсу виртуальной машины, для которой выполняется отработка отказа.
 
 ```
-     InlineScript { 
-         if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
+     InlineScript {
+        if (($Using:NSGname -ne $Null) -And ($Using:NSGRGname -ne $Null)) {
             $NSG = Get-AzureRmNetworkSecurityGroup -Name $Using:NSGname -ResourceGroupName $Using:NSGRGname
             Write-output $NSG.Id
             #Apply the NSG to a network interface
@@ -213,17 +214,17 @@ ms.lasthandoff: 03/31/2017
 3. Используйте эту переменную в модуле Runbook, чтобы применить группу NSG к виртуальной машине, если в контексте плана восстановления будет обнаружен любой из указанных идентификаторов VMGUID.
 
     ```
-        $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName 
+        $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
     ```
 
 4. В модуле Runbook выполните циклический перебор виртуальных машин, входящих в контекст плана восстановления, проверяя наличие этих виртуальных машин в **$VMDetailsObj**. Если встречается совпадение, примените NSG, используя свойства переменной.
     ```
         $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
         $vmMap = $RecoveryPlanContext.VmMap
-           
+
         foreach($VMID in $VMinfo) {
             Write-output $VMDetailsObj.value.$VMID
-            
+
             if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
                 $VM = $vmMap.$VMID
                 # Access the properties of the variable

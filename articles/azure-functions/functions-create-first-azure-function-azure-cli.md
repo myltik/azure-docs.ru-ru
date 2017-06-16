@@ -42,7 +42,7 @@ ms.lasthandoff: 05/18/2017
 
 Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране. 
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
