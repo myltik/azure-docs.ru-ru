@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 06/16/2017
 ms.author: ryanwi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 51ed17ab8f036f00b285232500dc9f606f2a7e2f
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 04/27/2017
             {
                 "CertificateThumbprint": "[Thumbprint]",
                 "IsAdmin": false
-            }, 
+            },
             {
                 "CertificateThumbprint": "[Thumbprint]",
                 "IsAdmin": true
@@ -58,17 +59,17 @@ ms.lasthandoff: 04/27/2017
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint" : "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint]",
                 "IsAdmin": true
             }
-        ]
-        "ReverseProxyCertificate":{
+        ],
+        "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
         }
     }
-}
+},
 ```
 
 В этом разделе описываются сертификаты, необходимые для обеспечения безопасности автономного кластера Windows. При указании сертификата кластера задайте для параметра **ClusterCredentialType** значение _**X509**_. При указании сертификата сервера для внешних соединений задайте для параметра **ServerCredentialType** значение _**X509**_. Хотя это не обязательно, рекомендуется иметь оба этих сертификата, чтобы должным образом защитить кластер. Если для этих параметров задано значение *X509*, то вам также нужно указать соответствующие сертификаты, иначе Service Fabric породит исключение. В некоторых сценариях может потребоваться указать только один из параметров, _ClientCertificateThumbprints_ или _ReverseProxyCertificate_. В этих случаях не нужно задавать для _ClusterCredentialType_ или _ServerCredentialType_ значение _X509_.

@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -30,8 +32,8 @@ ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
 
 > [!NOTE]
 > Если клиент или торговый представитель Azure обращается в Майкрософт с запросом о кредите или возврате, применяются те же правила, согласно которым предоставляются службы Azure. Если в правилах указано, что кредит или возврат подлежит выплате, то мы на основании вашего разрешения заблаговременно предоставим кредит или возврат Клиенту или Торговому представителю Azure (в зависимости от того, что применимо). Если в правилах не указано, что кредит или возврат подлежит выплате, то мы можем предложить Клиенту или Торговому представителю Azure связаться непосредственно с нами.
-> 
-> 
+>
+>
 
   ![1_RequestRefund][1]
 
@@ -39,12 +41,12 @@ ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
 2. В поле **Тип проблемы** выберите **Managing Customers** (Управление клиентами).
 3. В поле **Категория** выберите **Approve or request a customer refund** (Утвердить или запросить возврат клиенту).
 4. Нажмите кнопку **Отправить запрос**.
-   
+
    ![2_RequestRefund][2]
 
 1. Введите контактные данные.
 2. В поле **В чем состоит проблема** введите следующие данные:
-   
+
    * Идентификатор подписки соответствующего клиента
    * Имя клиента
    * Требуемая сумма кредита
@@ -83,8 +85,8 @@ ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
 
 > [!NOTE]
 > Для проверки можете указать свой номер телефона или адрес электронной почты.
-> 
-> 
+>
+>
 
 ![protectacct][6]
 
@@ -121,9 +123,4 @@ ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
