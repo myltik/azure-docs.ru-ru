@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 06/16/2017
 ms.author: corywink
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/10/2017
 
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 03/10/2017
 6. Выберите **Запрос**. Это действие указывает, что в качестве триггера выступает входящий HTTP-запрос с полезными данными в определенном формате JSON.
 7. Вставьте следующий код в поле "Схема JSON текста запроса":
    
-    ```
+    ```json
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "id": "/",
@@ -109,14 +110,14 @@ ms.lasthandoff: 03/10/2017
 
 1. С помощью клиента git клонируйте последнюю версию [репозитория github azure-iot-remote-monitoring][lnk-rmgithub]. Например:
    
-    ```
+    ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
 2. В Visual Studio откройте файл **RemoteMonitoring.sln** из локальной копии репозитория.
 3. Откройте файл **ActionRepository.cs** в папке **Infrastructure\\Repository**.
 4. Измените словарь **actionIds**, указав в нем значение **HTTP POST на этот URL-адрес**, записанное из приложения логики.
    
-    ```
+    ```csharp
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
         { "Send Message", "<Http Post to this URL>" },
@@ -132,9 +133,9 @@ ms.lasthandoff: 03/10/2017
 2. Для локального развертывания следуйте инструкциям [по локальному развертыванию][lnk-localdeploy].
 3. Для развертывания в облако с обновлением существующего развертывания в облаке следуйте [этим][lnk-clouddeploy] инструкциям. В качестве имени развертывания используйте имя исходного развертывания. Например, если исходное развертывание называлось **demologicapp**, используйте следующую команду:
    
-   ``
+   ```cmd
    build.cmd cloud release demologicapp
-   ``
+   ```
    
    При запуске сценария сборки обязательно используйте те же учетную запись, подписку, регион Azure и экземпляр Active Directory, которые применялись при подготовке решения.
 

@@ -23,7 +23,7 @@ ms.lasthandoff: 05/16/2017
 
 ---
 
-# <a name="implement-oracle-data-guard-on-azure-linux-vm"></a>Реализация Oracle Data Guard на виртуальной машине Azure под управлением Linux
+# <a name="implement-oracle-data-guard-on-azure-linux-vm"></a>Реализация Oracle Data Guard на виртуальной машине Azure под управлением Linux 
 
 Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. В данном руководстве описывается, как с помощью Azure CLI развернуть базу данных Oracle 12c, используя образ из коллекции Marketplace. В этом документе показано пошаговое руководство по установке и настройке Data Guard на виртуальной машине Azure после создания базы данных Oracle.
 
