@@ -5,20 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
 ms.openlocfilehash: 07b14394b0e07fd78d70d77aeef8a2feb17284e0
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/17/2017
-
 
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Интеграция каталогов между сервером Azure Multi-Factor Authentication и Active Directory
@@ -95,7 +96,7 @@ ms.lasthandoff: 02/17/2017
 | Добавочный номер |Введите имя атрибута, который содержит добавочный номер телефона в записи пользователя.  Добавочный номер используется только для основного номера телефона.  Значение по умолчанию — пусто. <br><br>Если атрибут добавочного номера не указан, добавочный номер можно включить в атрибут телефона. В этом случае перед добавочным номером нужно указать символ "x", чтобы добавочный номер можно было правильно определить.  Например, для атрибута 555-123-4567 x890 будут определены основной номер 555-123-4567 и добавочный номер 890. |
 | Кнопка «Восстановить значения по умолчанию» |Для возврата всех атрибутов в значения по умолчанию нажмите кнопку **Восстановить значения по умолчанию**.  Значения по умолчанию подходят для Active Directory или ADAM. |
 
-Чтобы изменить атрибуты, нажмите кнопку **Изменить** на вкладке "Атрибуты".  Откроется окно, в котором можно изменить атрибуты. Щелкните **...** рядом с любым атрибутом, чтобы открыть окно, в котором можно выбрать, какие атрибуты следует отобразить. 
+Чтобы изменить атрибуты, нажмите кнопку **Изменить** на вкладке "Атрибуты".  Откроется окно, в котором можно изменить атрибуты. Щелкните **...** рядом с любым атрибутом, чтобы открыть окно, в котором можно выбрать, какие атрибуты следует отобразить.
 
 ![Изменить атрибуты](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
@@ -138,5 +139,4 @@ ms.lasthandoff: 02/17/2017
 Можно настроить дополнительные серверы Multi-Factor Authentication, которые могут использоваться в качестве резервного прокси-сервера RADIUS, прокси-сервера LDAP или для проверки подлинности IIS. Настройки синхронизации доступны всем агентам. Однако служба сервера Multi-Factor Authentication может быть запущена только для одного из этих агентов. На этой вкладе можно выбрать сервер Multi-Factor Authentication, для которого должна быть включена синхронизация.
 
 ![Серверы Azure Multi-Factor Authentication](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-
 
