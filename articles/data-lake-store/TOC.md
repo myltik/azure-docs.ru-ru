@@ -10,7 +10,6 @@
 ## [Использование пакета SDK для .NET](data-lake-store-get-started-net-sdk.md)
 ## [Использование пакета SDK для Java](data-lake-store-get-started-java-sdk.md)
 ## [Использование REST API](data-lake-store-get-started-rest-api.md)
-## [Использование интерфейса командной строки Azure](data-lake-store-get-started-cli.md)
 ## [Использование Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 ## [Использование Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Использование Python](data-lake-store-get-started-python.md)

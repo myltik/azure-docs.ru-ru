@@ -7,15 +7,15 @@
 ## [Выбор расположения для развертывания](multi-factor-authentication-get-started.md)
 ## [Многофакторная идентификация (MFA) в облаке](multi-factor-authentication-get-started-cloud.md)
 ## [Локальная Многофакторная идентификация (MFA)](multi-factor-authentication-get-started-server.md)
-## [Многофакторная идентификация (MFA) для пользователей Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+## [Многофакторная идентификация (MFA) для пользователей Office 365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [Рекомендации по обеспечению безопасности](multi-factor-authentication-security-best-practices.md)
 
 # Практическое руководство
 ## Развертывание и использование
-### [Создание поставщика аутентификации](multi-factor-authentication-get-started-auth-provider.md)
 ### [Настройка параметров](multi-factor-authentication-whats-next.md)
 ### [Отчеты в MFA](multi-factor-authentication-manage-reports.md)
 ### [Использование существующих серверов политики сети](multi-factor-authentication-nps-extension.md)
+### [Создание поставщика аутентификации](multi-factor-authentication-get-started-auth-provider.md)
 ### Локальная Многофакторная идентификация (MFA) Azure
 #### [Установка портала пользователей](multi-factor-authentication-get-started-portal.md)
 #### [Расширенные конфигурации VPN](multi-factor-authentication-advanced-vpn-configurations.md)
