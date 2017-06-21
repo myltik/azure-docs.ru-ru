@@ -3,7 +3,7 @@ title: "Примеры кода Azure Active Directory | Документаци�
 description: "Список примеров кода Azure Active Directory, сгруппированных по сценарию."
 services: active-directory
 documentationcenter: dev-center-name
-author: priyamohanram
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433

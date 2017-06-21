@@ -3,7 +3,7 @@ title: "Сценарии аутентификации в Azure Active Directory�
 description: "Обзор пяти наиболее распространенных сценариев проверки подлинности для Azure Active Directory (AAD)"
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
+author: skwan
 manager: mbaldwin
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: bryanla
+ms.author: skwan
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df

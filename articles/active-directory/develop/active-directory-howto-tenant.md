@@ -3,7 +3,7 @@ title: "Как получить клиент Azure AD | Документаци�
 description: "Как получить клиент Azure Active Directory для регистрации и создания приложений."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: bryanla
 manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/28/2015
-ms.author: dastrock
+ms.author: bryanla
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd

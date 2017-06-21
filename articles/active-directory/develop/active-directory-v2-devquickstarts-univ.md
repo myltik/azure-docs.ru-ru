@@ -3,7 +3,7 @@ title: "Универсальное приложение для Windows для Az
 description: "Как создать универсальное приложение Windows, которое поддерживает вход пользователей в систему с помощью лично, рабочей и учебной учетной записью Майкрософт."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: d2c92b65-3c1d-46d1-81c8-88f32f6b2c4b
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.date: 02/20/2016
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e

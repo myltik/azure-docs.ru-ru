@@ -3,7 +3,7 @@ title: "Библиотеки аутентификации Azure Active Directory
 description: "Сведения о совместимых клиентских библиотеках и серверных библиотеках ПО промежуточного слоя, а также ссылки на связанные библиотеки, исходный код и примеры для конечной точки Azure Active Directory версии 2.0."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/01/2017
-ms.author: skwan;bryanla
+ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
