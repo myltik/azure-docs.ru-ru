@@ -40,12 +40,7 @@
 #### [PowerShell (классическая модель)](virtual-network-create-udr-classic-ps.md)
 #### [Интерфейс командной строки (классическая модель)](virtual-network-create-udr-classic-cli.md)
 
-### Пиринг между виртуальными сетями
-#### [Портал](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [Шаблон](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-### [Типы IP-адресов и методы распределения в Azure](virtual-network-public-ip-address.md) (раздел "Общедоступные IP-адреса")
+### [Пиринг между виртуальными сетями](virtual-network-create-peering.md)
 
 ### Виртуальные машины
 #### Создание виртуальной машины со статическим общедоступным IP-адресом
@@ -118,6 +113,7 @@
 #### [Добавление, изменение и удаление IP-адресов](virtual-network-network-interface-addresses.md)
 ### Виртуальные машины
 #### [Перемещение виртуальной машины в другую подсеть](virtual-networks-move-vm-role-to-subnet.md)
+### [Типы IP-адресов и методы распределения в Azure](virtual-network-public-ip-address.md)
 
 ## Устранение неполадок
 ### Группы безопасности сети
