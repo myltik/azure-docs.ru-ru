@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 0b82a0c4e140d2084d7570f8c7eab1f809f15d9d
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: a05c878f876eadc5160ef9765f764595cade76a9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -28,10 +28,10 @@ ms.lasthandoff: 05/23/2017
 В этой статье показано, как создать подключение VPN-шлюза между виртуальными сетями. Виртуальные сети могут относиться к одному или разным регионам и к одной или разным подпискам. Приведенные в этой статье инструкции относятся к модели развертывания с помощью Resource Manager и выполняются с помощью Azure CLI. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager — портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager — PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Resource Manager — Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Классическая модель — портал Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Интерфейс командной строки Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Портал Azure (классический)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Подключение с использованием разных моделей развертывания — портал Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Подключение с использованием разных моделей развертывания — PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
@@ -146,7 +146,7 @@ ms.lasthandoff: 05/23/2017
 7. Создайте шлюз для виртуальной сети TestVNet1. Для подключений типа VNet-to-VNet необходимо использовать тип VPN RouteBased. При выполнении этой команды с использованием параметра --no-wait вы не увидите ответа или выходных данных. Этот параметр позволяет создать шлюз в фоновом режиме. Это не означает, что создание VPN-шлюза завершается немедленно. Этот процесс часто занимает 45 минут и более, в зависимости от используемого номера SKU-шлюза.
 
   ```azurecli
-  az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
 ### <a name="TestVNet4"></a>Шаг 3. Создание и настройка TestVNet4
@@ -181,7 +181,7 @@ ms.lasthandoff: 05/23/2017
 6. Создайте шлюз виртуальной сети TestVNet4.
 
   ```azurecli
-  az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
 ### <a name="step-4---create-the-connections"></a>Шаг 4. Создание подключений
@@ -318,10 +318,10 @@ ms.lasthandoff: 05/23/2017
 6. Создание шлюза TestVNet5
 
   ```azurecli
-  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku Standard --vpn-type RouteBased --no-wait
+  az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-6---create-the-connections"></a>Шаг 6. Создание подключений
+### <a name="step-8---create-the-connections"></a>Шаг 8. Создание подключений
 
 Так как шлюзы находятся в разных подписках, мы разделили этот шаг на два сеанса интерфейса командной строки, обозначенные как **[Подписка 1]** и **[Подписка 5]**. Чтобы переключиться между подписками, выведите список доступных в учетной записи подписок с помощью команды az account list --all, а затем с помощью команды az account set --subscription <subscriptionID> переключитесь на нужную подписку.
 
@@ -371,3 +371,4 @@ ms.lasthandoff: 05/23/2017
 
 * Установив подключение, можно добавить виртуальные машины в виртуальные сети. Дополнительные сведения см. в [документации по виртуальным машинам](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Сведения о BGP см. в статьях [Обзор использования BGP с VPN-шлюзами Azure](vpn-gateway-bgp-overview.md) и [Настройка BGP на VPN-шлюзах Azure с помощью Azure Resource Manager и PowerShell](vpn-gateway-bgp-resource-manager-ps.md).
+

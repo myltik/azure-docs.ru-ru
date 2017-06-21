@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: meetb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 5fae11119500fd3be3af3e573d45f6cc5880e037
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 99195b43a1577f978562864bac5fa12cdeb95d63
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-sql-database-use-python-to-connect-and-query-data"></a>База данных SQL Azure: подключение и запрос данных с помощью Python
@@ -36,7 +36,7 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="install-the-python-and-database-communication-libraries"></a>Установка библиотек связи Python и базы данных
 
-В этом разделе предполагается, что у вас уже есть опыт разработки на Python и вы только начали работу с Базой данных SQL Azure. Если вы новичок в разработке на Python, перейдите на страницу [создания приложения с помощью SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), выберите язык **Python** и операционную систему.
+В этом разделе предполагается, что у вас уже есть опыт разработки на Python и вы только начали работу с Базой данных SQL Azure. Если вы новичок в разработке на Python, перейдите на страницу [создания приложения с помощью SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), выберите язык **Python** и операционную систему.
 
 ### <a name="mac-os"></a>**Mac OS**
 Откройте терминал и перейдите в каталог, в котором вы планируете создать сценарий Python. Введите следующие команды, чтобы установить **brew**, **драйвер Microsoft ODBC для Mac** и **pyodbc**. pyodbc использует драйвер Microsoft ODBC в Linux для подключения к базам данных SQL.
@@ -88,7 +88,7 @@ pip install pyodbc==3.1.1
    
 ## <a name="select-data"></a>Выбор данных
 
-Используйте следующий код, чтобы запросить 20 наиболее популярных продуктов по категории, используя функцию [pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) в инструкции Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Функция [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) используется для извлечения результирующего набора из запроса к базе данных SQL. Эта функция принимает запрос и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте следующий код, чтобы запросить 20 наиболее популярных продуктов по категории, используя функцию [pyodbc.connect](https://github.com/mkleehammer/pyodbc/wiki) в инструкции Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Функция [cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) используется для извлечения результирующего набора из запроса к базе данных SQL. Эта функция принимает запрос и возвращает результирующий набор, по которому может быть выполнена итерация с использованием **cursor.fetchone()**. Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -107,7 +107,7 @@ while row:
 ```
 
 ## <a name="insert-data"></a>Добавление данных
-Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product с помощью функции [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкции Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product с помощью функции [cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) и инструкции Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -124,7 +124,7 @@ cnxn.commit()
 ```
 
 ## <a name="update-data"></a>Обновление данных
-Используйте следующий код, чтобы обновить новый продукт, добавленный ранее, с помощью функции [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкции Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте следующий код, чтобы обновить новый продукт, добавленный ранее, с помощью функции [cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) и инструкции Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -143,7 +143,7 @@ cnxn.commit()
 ```
 
 ## <a name="delete-data"></a>Удаление данных
-Используйте следующий код, чтобы удалить новый продукт, добавленный ранее, с помощью функции [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) и инструкции Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
+Используйте следующий код, чтобы удалить новый продукт, добавленный ранее, с помощью функции [cursor.execute](https://github.com/mkleehammer/pyodbc/wiki/Cursor) и инструкции Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
 
 ```Python
 import pyodbc
@@ -164,6 +164,6 @@ cnxn.commit()
 
 - [Проектирование первой базы данных SQL Azure](sql-database-design-first-database.md)
 - [Microsoft Python Drivers for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/) (Драйверы Microsoft Python для SQL Server)
-- [Центр по разработке для Python](/develop/python/)
+- [Центр по разработке для Python](https://azure.microsoft.com/develop/python/?v=17.23h)
 
 

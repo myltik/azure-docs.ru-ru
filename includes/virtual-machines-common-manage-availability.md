@@ -25,9 +25,9 @@
    ![Схема конфигурации домена обновления и домена сбоя](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Использование управляемых дисков для виртуальных машин в группе доступности
-Если сейчас вы используете виртуальные машины с неуправляемыми дисками, мы настоятельно рекомендуем [преобразовать виртуальные машины в группе доступности для использования управляемых дисков](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set).
+Если сейчас вы используете виртуальные машины с неуправляемыми дисками, мы настоятельно рекомендуем [преобразовать виртуальные машины в группе доступности для использования управляемых дисков](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-[Управляемые диски](../articles/storage/storage-managed-disks-overview.md) обеспечивают более высокую надежность групп доступности. При их использовании диски разных виртуальных машин в группе доступности достаточно изолированы друг от друга, что позволяет избежать одиночных точек сбоя. Это достигается за счет автоматического размещения дисков в разных кластерах хранилища. В случае сбоя кластера хранилища из-за проблем с оборудованием или программным обеспечением выйдет из строя только тот экземпляр виртуальной машины, диски которой расположены в этом стеке. 
+[Управляемые диски](../articles/storage/storage-managed-disks-overview.md) обеспечивают более высокую надежность групп доступности. При их использовании диски разных виртуальных машин в группе доступности достаточно изолированы друг от друга, что позволяет избежать одиночных точек сбоя. Это достигается за счет автоматического размещения дисков в разных кластерах хранилища. В случае сбоя кластера хранилища из-за проблем с оборудованием или программным обеспечением выйдет из строя только тот экземпляр виртуальной машины, диски которой расположены в этом стеке.
 
 ![Управляемые диски в доменах сбоя](./media/virtual-machines-common-manage-availability/md-fd.png)
 
@@ -36,7 +36,7 @@
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-Если вы планируете использовать виртуальные машины с [неуправляемыми дисками](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks), выполните указанные ниже рекомендации для учетных записей хранения, в которых хранятся виртуальные жесткие диски (VHD) виртуальных машин в виде [страничных BLOB-объектов](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs). 
+Если вы планируете использовать виртуальные машины с [неуправляемыми дисками](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks), выполните указанные ниже рекомендации для учетных записей хранения, в которых хранятся виртуальные жесткие диски (VHD) виртуальных машин в виде [страничных BLOB-объектов](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Храните все диски (операционной системы и данных), связанные с одной виртуальной машиной, в одной учетной записи хранения**.
 2. Прежде чем добавить дополнительные VHD в учетную запись хранения, **просмотрите [ограничения](../articles/storage/storage-scalability-targets.md) на количество неуправляемых дисков в учетной записи хранения**.
@@ -62,4 +62,3 @@
 [Объединение балансировщика нагрузки с группами доступности]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Использование управляемых дисков для виртуальных машин в группе доступности]: #use-managed-disks-for-vms-in-an-availability-set
-
