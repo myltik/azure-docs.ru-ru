@@ -155,7 +155,7 @@
 #### [Повторное обучение существующей веб-службы](machine-learning-retrain-existing-resource-manager-based-web-service.md)
 #### [Устранение неполадок](machine-learning-troubleshooting-retraining-models.md)
 ### Использование моделей
-#### [Обзор](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [Обзор](machine-learning-consume-web-services.md)
 #### [Использование Excel](machine-learning-consuming-from-excel.md)
 #### [Использование надстройки Excel](machine-learning-excel-add-in-for-web-services.md)
 #### [Использование шаблона веб-приложений](machine-learning-consume-web-service-with-web-app-template.md)

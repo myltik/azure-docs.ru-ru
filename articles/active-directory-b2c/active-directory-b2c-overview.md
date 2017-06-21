@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: ca9dc5a2c0e7de46ebc29cce0ea7e667b7aa3093
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: f3c2760ec66c0292ebeb53d0acb5f9ee1df388ae
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -43,7 +43,7 @@ Azure AD B2C — это облачное решение, позволяющее 
 | <center>![Классические и мобильные приложения](../active-directory/develop/media/active-directory-developers-guide/NativeApp_Icon.png)<br />Классические и мобильные приложения</center> | [Azure Active Directory B2C: поток кода авторизации OAuth 2.0](active-directory-b2c-reference-oauth-code.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><br />[iOS](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)<br /><br />[Android](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)<br /><br />[Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) |  |
 | <center>![Веб-приложения](../active-directory/develop/media/active-directory-developers-guide/Web_app.png)<br />Веб-приложения</center> | [Обзор](active-directory-b2c-reference-oidc.md)<br /><br />[ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)<br /><br />[ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | [Node.js](active-directory-b2c-devquickstarts-web-node.md) |  |
 | <center>![Одностраничные приложения](../active-directory/develop/media/active-directory-developers-guide/SPA.png)<br />Одностраничные приложения</center> | [Обзор](active-directory-b2c-reference-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)<br /><br /> |  |  |
-| <center>![Веб-интерфейсы API](../active-directory/develop/media/active-directory-developers-guide/Web_API.png)<br />Веб-интерфейсы API</center> | [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)<br /><br />[Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)<br /><br />[Вызов веб-API .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md) | &nbsp; |
+| <center>![Веб-интерфейсы API](../active-directory/develop/media/active-directory-developers-guide/Web_API.png)<br />Веб-интерфейсы API</center> | [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)<br /><br /> [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)<br /><br /> [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | [Вызов веб-API .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md) |
 
 ## <a name="whats-new"></a>Новые возможности
 

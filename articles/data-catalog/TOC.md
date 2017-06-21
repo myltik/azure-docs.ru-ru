@@ -23,6 +23,7 @@
 
 # Справочные материалы
 ## [REST](/rest/api/datacatalog/)
+## [Справочник по синтаксису поиска](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Понятия, используемые разработчиками](data-catalog-developer-concepts.md)
 ## [Примеры для разработчиков](data-catalog-samples.md)
 
@@ -34,8 +35,3 @@
 ## [Цены](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -15,23 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d0cedf73aa3f73e672a73b6abaca5eb8c22a76a7
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 63d0972f31c2b26b391d5ba019f3e415d8053511
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal-classic"></a>Создание виртуальной сети с подключением типа "сайт — сайт" с помощью классического портала (классическая модель развертывания)
 
+[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
+
 В этой статье показано, как с помощью классического портала создать подключение типа "сеть — сеть" с использованием VPN-шлюза между вашей локальной сетью к виртуальной. Приведенные в этой статье инструкции относятся к классической модели развертывания. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager — портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager — PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager — интерфейс командной строки](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Классическая модель — портал Azure](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Классическая модель — классический портал](vpn-gateway-site-to-site-create.md)
+> * [Портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Портал Azure (классический)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Классический портал (классическая модель)](vpn-gateway-site-to-site-create.md)
 > 
 >
 

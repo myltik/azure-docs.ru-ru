@@ -48,6 +48,7 @@
 #### [Типы данных](sql-data-warehouse-tables-data-types.md)
 #### [Распределенные таблицы](sql-data-warehouse-tables-distribute.md)
 #### [Индексы](sql-data-warehouse-tables-index.md)
+#### [Удостоверение](sql-data-warehouse-tables-identity.md)
 #### [Секции](sql-data-warehouse-tables-partition.md)
 #### [Статистика](sql-data-warehouse-tables-statistics.md)
 #### [Временные](sql-data-warehouse-tables-temporary.md)

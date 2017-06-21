@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 50934bcc065b4039467d7371d4bbac11f5933888
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: c614efa25e2e7ddbb9b6c90094cf84fa8b6b4243
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -27,9 +28,10 @@ ms.lasthandoff: 04/25/2017
 В этой статье показано, как создать подключение VPN-шлюза между виртуальными сетями. Виртуальные сети могут относиться к одному или разным регионам и к одной или разным подпискам. Приведенные в этой статье инструкции относятся к модели развертывания с помощью Resource Manager и портала Azure. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager — портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager — PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Классическая модель — портал Azure](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Интерфейс командной строки Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Портал Azure (классический)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Подключение с использованием разных моделей развертывания — портал Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Подключение с использованием разных моделей развертывания — PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
