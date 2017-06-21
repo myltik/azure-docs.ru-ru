@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cb0ff55a6d09ce52a7633316bc03aa3e25ff9b17
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: d2d2892cf7704078c4ee21cbdf33dd4f1cf86316
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -209,7 +209,7 @@ private async Task GetStartedDemo()
 
 ## <a id="CreateColl"></a>Этап 5: создание коллекции
 > [!WARNING]
-> С использованием элемента **CreateDocumentCollectionAsync** можно создать новую коллекцию с зарезервированной пропускной способностью и соответствующей ценой. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
+> С использованием элемента **CreateDocumentCollectionAsync** можно создать новую коллекцию с зарезервированной пропускной способностью и соответствующей ценой. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 Вы можете создать [коллекцию](documentdb-resources.md#collections), используя метод [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) класса **DocumentClient**. Коллекция представляет собой контейнер документов JSON и связанную с ними логику в виде приложения JavaScript.
 

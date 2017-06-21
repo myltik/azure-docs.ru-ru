@@ -16,10 +16,10 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 079632f304112e1034abbd7385506292f10e128d
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/15/2017
 
 Azure CLI 2.0 — это новый интерфейс командной строки Azure для управления ресурсами Azure. Его можно использовать в Windows, Linux и macOS. Azure CLI 2.0 оптимизирован для администрирования ресурсов Azure и управления ими из командной строки. При помощи этого интерфейса вы можете управлять учетными записями пакетной службы Azure, а также такими ресурсами, как пулы, задания и задачи. Кроме того, Azure CLI позволяет создавать и выполнять скрипты для многих однотипных задач, выполняемых с помощью API-интерфейсов пакетной службы, портала Azure и командлетов PowerShell пакетной службы.
 
-В этой статье содержатся общие сведения об использовании [Azure CLI версии 2.0](https://docs.microsoft.com/cli/azure/overview) с пакетной службой. Общие сведения об использовании интерфейса командной строки с Azure см. в статье [Начало работы с Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md).
+В этой статье содержатся общие сведения об использовании [Azure CLI версии 2.0](https://docs.microsoft.com/cli/azure/overview) с пакетной службой. Общие сведения об использовании интерфейса командной строки с Azure см. в статье [Начало работы с Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 Корпорация Майкрософт советует использовать последнюю версию Azure CLI — версию 2.0. Дополнительные сведения о ней см. в записи блога о [выпуске общедоступной версии Azure CLI 2.0](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
 

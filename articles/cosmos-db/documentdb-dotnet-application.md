@@ -1,6 +1,6 @@
 ---
 title: "Руководство по ASP.NET MVC для Azure Cosmos DB. Разработка веб-приложения | Документация Майкрософт"
-description: "Это руководство по MVC для ASP.NET поможет вам создать веб-приложение MVC с использованием Azure Cosmos DB. С помощью этого руководства по ASP NET MVC вы сможете сохранить файл JSON и получить доступ к данным из приложения &quot;Список дел&quot;, размещенного на веб-сайтах Azure."
+description: "Это руководство по MVC для ASP.NET поможет вам создать веб-приложение MVC с использованием Azure Cosmos DB. С помощью этого руководства по ASP NET MVC вы сможете сохранить файл JSON и получить доступ к данным из приложения \"Список дел\", размещенного на веб-сайтах Azure."
 keywords: "руководство по asp.net mvc, разработка веб-приложений, веб-приложение mvc, пошаговое руководство asp net mvc"
 services: cosmos-db
 documentationcenter: .net
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: a685c74ff6c36a5ca8320f3c69fc4b60c0236a6b
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 6623265ea98370db74fd9e2061d1128c44e9cd0e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -567,7 +567,7 @@ ms.lasthandoff: 05/31/2017
 ## <a name="_Toc395637775"></a>Дальнейшие действия
 Поздравляем! Вы только что создали свое первое веб-приложение ASP.NET MVC с помощью Azure Cosmos DB и опубликовали его на веб-сайтах Azure. Исходный код полного приложения, включая функции детализации и удаления, не описанные в этом руководстве, можно скачать или клонировать с портала [GitHub][GitHub]. Поэтому, если вы хотите добавить эти функции в приложение, скопируйте код и добавьте его в это приложение.
 
-Чтобы добавить дополнительные функции в приложение, ознакомьтесь с интерфейсами API, доступными в [библиотеке DocumentDB .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx). Вы также можете быть соавтором библиотеки DocumentDB .NET на портале [GitHub][GitHub]. 
+Чтобы добавить дополнительные функции в приложение, ознакомьтесь с интерфейсами API, доступными в [библиотеке DocumentDB .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet). Вы также можете быть соавтором библиотеки DocumentDB .NET на портале [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
