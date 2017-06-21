@@ -3,7 +3,7 @@ title: "API Graph Azure Active Directory | Документация Майкро
 description: "Общие сведения и краткое руководство по API Graph, который обеспечивает программный доступ к Azure AD через конечные точки API-интерфейса REST."
 services: active-directory
 documentationcenter: 
-author: PatAltimore
+author: viv-liu
 manager: mbaldwin
 editor: mbaldwin
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: patricka
+ms.author: viviali
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7

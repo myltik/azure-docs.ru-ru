@@ -3,7 +3,7 @@ title: "Интеграция приложений с Azure Active Directory | Д
 description: "Сведения о том, как добавить, обновить или удалить приложение в Active Directory (Azure AD)."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: lnalepa
 manager: mbaldwin
 editor: mbaldwin
 ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
-ms.author: mbaldwin;bryanla
+ms.author: lenalepa
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68

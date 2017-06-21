@@ -2,7 +2,7 @@
 title: "Протоколы проверки подлинности Azure Active Directory | Документация Майкрософт"
 description: "Обзор протоколов проверки подлинности, поддерживаемых в Azure Active Directory (AD)"
 documentationcenter: dev-center-name
-author: bryanla
+author: priyamohanram
 services: active-directory
 manager: mbaldwin
 editor: 

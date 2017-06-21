@@ -3,7 +3,7 @@ title: "Как создать приложение, поддерживающее
 description: "Пошаговые инструкции по созданию приложения, которое может реализовать вход пользователя из любого клиента Azure Active Directory, также известного как мультитенантное приложение."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2017
-ms.author: skwan;bryanla
+ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
