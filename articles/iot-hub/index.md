@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: d7f6274b6c72827c0f73da816a524bc35a30bb27
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 02c0d1834ee5e4b6aeebccc0d25bba49f8e5afe2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 05/16/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>Командная строка</h3>
-                        <p><a href="/cli/azure/iot">Интерфейс командной строки Azure</a></p>
+                        <p><a href="/cli/azure/iot">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -159,12 +159,11 @@ ms.lasthandoff: 05/16/2017
                         <h3>Языки</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (служба)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (устройства)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">Пакет SDK для устройства C</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (служба)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (устройства)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html">Node (служба)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html">Node (устройства)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/">Пакеты SDK для Центра Интернета вещей Azure</a></p>
-                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">Пакеты SDK для Node.js</a></p>
+                        <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a> (Edge Интернета вещей Azure)</p>
                     </div>
                 </div>
             </div>
@@ -178,6 +177,7 @@ ms.lasthandoff: 05/16/2017
                         <h3>REST</h3>
                         <p><a href="/rest/api/iothub/iothubresource">REST (поставщик ресурсов)</a></p>
                         <p><a href="/rest/api/iothub/deviceapi">REST (удостоверения устройств)</a></p>
+                        <p><a href="/rest/api/iothub/devicetwinapi">REST (двойники устройств)</a></p>
                         <p><a href="/rest/api/iothub/httpruntime">REST (передача сообщений на устройства)</a></p>
                         <p><a href="/rest/api/iothub/jobapi">REST (задания)</a></p>
                     </div>

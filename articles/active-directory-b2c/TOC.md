@@ -3,6 +3,7 @@
 # Начало работы
 ## [Создание каталога Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Регистрация приложения](active-directory-b2c-app-registration.md)
+## [Встроенные политики](active-directory-b2c-reference-policies.md)
 ## Классические и мобильные приложения
 ### [Обзор](active-directory-b2c-reference-oauth-code.md)
 ### iOS
@@ -24,6 +25,7 @@
 ### [Использование JavaScript и Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Веб-API
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Вызов веб-API .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
@@ -63,6 +65,7 @@
 #### [Получение дополнительных утверждений](active-directory-b2c-rest-api-step-custom.md)
 ### Настройка процедуры входа
 #### [Настройка пользовательского ввода](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Настраиваемые атрибуты](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Настройка пользовательского интерфейса](active-directory-b2c-ui-customization-custom.md)
 #### [Настройка токенов](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Устранение неполадок
@@ -74,7 +77,6 @@
 ## Глоссарий
 ### [Типы приложений](active-directory-b2c-apps.md)
 ### [Протоколы аутентификации](active-directory-b2c-reference-protocols.md)
-### [Встроенные политики](active-directory-b2c-reference-policies.md)
 ### [Маркеры](active-directory-b2c-reference-tokens.md)
 ## [Доступность в регионах и размещение данных](active-directory-b2c-reference-tenant-type.md)
 ## [Настройка оплаты](active-directory-b2c-how-to-enable-billing.md)

@@ -1,13 +1,14 @@
 # Обзор
 ## [Что такое Site Recovery?](site-recovery-overview.md)
-## [Как работает Site Recovery?](site-recovery-components.md)
+## [Как работает Site Recovery?](site-recovery-azure-to-azure-architecture.md)
 ## [Как работает репликация Hyper-V в Azure?](site-recovery-hyper-v-azure-architecture.md)
 ## [Какие рабочие нагрузки можно защитить?](site-recovery-workload.md)
-## [Таблица поддержки Site Recovery](site-recovery-support-matrix-to-azure.md)
+## [Таблица поддержки Site Recovery](site-recovery-support-matrix-azure-to-azure.md)
 ## [Часто задаваемые вопросы](site-recovery-faq.md)
 ## [Просмотр введения](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Начало работы
+## [Репликация виртуальных машин Azure (предварительная версия)](site-recovery-azure-to-azure.md)
 ## [Репликация виртуальных машин VMware в Azure](site-recovery-vmware-to-azure.md)
 ## [Репликация физических серверов в Azure](site-recovery-physical-servers-to-azure.md)
 ## [Репликация виртуальных машин Hyper-V в Azure (с использованием VMM)](site-recovery-vmm-to-azure.md)
@@ -18,9 +19,10 @@
 
 # Практическое руководство
 ## План
-### [Необходимые условия для репликации Azure](site-recovery-prereq.md)
-### [Планирование сетевой инфраструктуры](site-recovery-network-design.md)
-### [Планирование сетевого сопоставления](site-recovery-network-mapping.md)
+### [Необходимые условия для репликации Azure](site-recovery-azure-to-azure-prereq.md)
+### [Планирование исходящих сетевых подключений для виртуальных машин Azure (предварительная версия)](site-recovery-azure-to-azure-networking-guidance.md)
+### [Планирование сетевой инфраструктуры для локальных компьютеров](site-recovery-network-design.md)
+### [Планирование сетевого сопоставления](site-recovery-network-mapping-azure-to-azure.md)
 ### [Планирование ресурсов и масштабирование репликации VMware в Azure](site-recovery-plan-capacity-vmware.md)
 ### [Использование планировщика развертывания для репликации VMware в Azure](site-recovery-deployment-planner.md)
 ### [Использование планировщика ресурсов для репликации Hyper-V](site-recovery-capacity-planner.md)
@@ -33,19 +35,21 @@
 ### [Развертывание службы Mobility Service для репликации VMware](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [Развертывание службы Mobility Service с помощью System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 #### [Развертывание службы Mobility Service с помощью Azure Automation DSC](site-recovery-automate-mobility-service-install.md)
-### [Включение репликации](site-recovery-replicate-vmware-to-azure.md)
+### [Включение репликации](site-recovery-replicate-azure-to-azure.md)
 ## Отработка отказа и восстановление размещения
-### [Отработка отказа защищенных виртуальных машин](site-recovery-failover.md)
 ### [Настройка планов восстановления](site-recovery-create-recovery-plans.md)
 #### [Добавление модуля Runbook Azure в планы восстановления](site-recovery-runbook-automation.md)
 ### [Запуск тестовой отработки отказа](site-recovery-test-failover-to-azure.md)
-### [Повторное включение защиты виртуальных машин после отработки отказа](site-recovery-how-to-reprotect.md)
+### [Отработка отказа защищенных виртуальных машин](site-recovery-failover.md)
+### [Повторное включение защиты виртуальных машин после отработки отказа](site-recovery-how-to-reprotect-azure-to-azure.md)
 ### [Восстановление размещения из Azure](site-recovery-failback-azure-to-vmware.md)
 
 ## Миграция
 ### [Миграция в облако Azure](site-recovery-migrate-to-azure.md)
 ### [Миграция между регионами Azure](site-recovery-migrate-azure-to-azure.md)
 ### [Перенос экземпляров AWS Windows в Azure](site-recovery-migrate-aws-to-azure.md)
+### [Репликация перенесенных компьютеров в другой регион Azure](site-recovery-azure-to-azure-after-migration.md)
+
 ## Рабочие нагрузки
 ### [Active Directory и DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
@@ -68,7 +72,10 @@
 ### [Управление масштабируемыми серверами обработки](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [Управление серверами vCenter](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [Удаление серверов и отключение защиты](site-recovery-manage-registration-and-protection.md)
-## [Мониторинг и устранение неполадок](site-recovery-monitoring-and-troubleshooting.md)
+## Устранение неполадок
+### [Сбор журналов](site-recovery-monitoring-and-troubleshooting.md)
+### [Проблемы репликации виртуальных машин Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
+### [Проблемы репликации из локальной среды в Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/module/azurerm.siterecovery)

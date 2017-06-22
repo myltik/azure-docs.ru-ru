@@ -116,7 +116,7 @@
 ### [Выборка](app-insights-sampling.md)
 
 ## Управление
-### [Управление ценами и квотами](app-insights-pricing.md)
+### [Управление ценами и объемом данных](app-insights-pricing.md)
 ### [Мониторинг производительности приложений с помощью Application Insights для SCOM](app-insights-scom.md)
 
 ## экспорт.

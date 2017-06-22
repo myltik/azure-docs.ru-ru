@@ -41,6 +41,7 @@
 ### [Подключение виртуальных машин для управления](automation-dsc-onboarding.md)
 ### [Компиляция конфигураций DSC](automation-dsc-compile.md)
 ### [Непрерывное развертывание с помощью Chocolatey](automation-dsc-cd-chocolatey.md)
+### [Пересылка данных отчетов Azure Automation DSC в OMS Log Analytics](automation-dsc-diagnostics.md)
 ## Ресурсы службы автоматизации
 ### [Сертификаты](automation-certificates.md)
 ### [Подключения](automation-connections.md)

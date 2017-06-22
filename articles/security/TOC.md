@@ -10,6 +10,7 @@
 ### [Расширенное обнаружение угроз](azure-threat-detection.md)
 ### [Ведение журналов и аудит](azure-log-audit.md)
 ### [Изоляция в общедоступном облаке](azure-isolation.md)
+### [Технические возможности обеспечения безопасности](azure-security-technical-capabilities.md)
 
 # Начало работы
 ## [Приступая к работе с системой безопасности Azure](azure-security-getting-started.md)
@@ -18,6 +19,7 @@
 
 ## Безопасность сети
 ### [Рекомендации по обеспечению сетевой безопасности](azure-security-network-security-best-practices.md)
+###[Сетевая безопасность Azure](azure-network-security.md)
 ### [Защита границ](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Архитектура защищенной гибридной сети](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
