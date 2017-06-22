@@ -1,6 +1,7 @@
 # Обзор
 ## [О сетях Azure](networking-overview.md)
 ## Архитектура
+### [Виртуальные центры данных](networking-virtual-datacenter.md)
 ### [Асимметричная маршрутизация с использованием нескольких сетевых путей](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Проектирование безопасной сети](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Звездообразная топология](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -44,8 +45,9 @@
 ### [Проверка IP-потоков для виртуальной машины](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Примеры сценариев
 ### [Интерфейс командной строки Azure](cli-samples.md)
+### [PowerShell](powershell-samples.md)
 ## Учебники
-### [How to load balance Linux virtual machines in Azure to create a highly available application](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json) (Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения)
+### [Балансировка нагрузки виртуальных машин Linux в Azure для создания высокодоступного приложения](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Подключение компьютера к виртуальной сети](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 
