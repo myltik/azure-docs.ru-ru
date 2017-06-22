@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/06/2017
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 02cb05f42e555931dffa0fdec21b19ce0468e1de
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: d44570c7faa3e2468022ef539239c88f0418b2fa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -47,11 +47,9 @@ Azure Data Lake Analytics — это служба обработки задан
     Data Lake Analytics оптимизирована для работы с Azure Data Lake, благодаря чему обеспечивается наивысший уровень производительности, пропускной способности и параллельной обработки для рабочих нагрузок больших данных.  Data Lake Analytics также может работать с хранилищем BLOB-объектов Azure и базой данных SQL Azure.
 
 ## <a name="see-also"></a>Дополнительные материалы
-* Приступая к работе
+* Начало работы
   
-  * [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
-  * [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-  * [Начало работы с аналитикой озера данных с помощью пакета SDK Azure .NET](data-lake-analytics-get-started-net-sdk.md)
+  * Начало работы с Data Lake Analytics с помощью [портала Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Пакет SDK для Azure .NET](data-lake-analytics-get-started-net-sdk.md)
   * [Начало работы с языком U-SQL в службе аналитики озера данных Azure.](data-lake-analytics-u-sql-get-started.md)
 
 * управления

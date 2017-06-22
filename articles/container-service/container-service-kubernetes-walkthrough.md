@@ -18,10 +18,10 @@ ms.date: 05/08/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2ec155129374c03ba7e0ecaa5d2bf29a1d3111aa
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 0604a85192ed632b621113b98cc44172c584ea01
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -78,7 +78,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 Через несколько минут команда будет выполнена, и вы получите рабочий кластер Kubernetes.
 
 > [!IMPORTANT]
-> Если у вашей учетной записи нет разрешения на создание субъекта-службы Azure AD, команда создаст сообщение об ошибке: `Insufficient privileges to complete the operation.`. Дополнительные сведения см. в статье [Сведения о субъекте-службе Azure Active Directory для кластера Kubernetes в службе контейнеров Azure](container-service-kubernetes-service-principal.md).
+> Если у учетной записи нет разрешений на создание субъекта-службы Azure AD, команда вернет похожее сообщение об ошибке: **Недостаточно привилегий для выполнения операции**. Дополнительные сведения см. в статье [о субъекте-службе для кластера Kubernetes](container-service-kubernetes-service-principal.md).
 > 
 
 

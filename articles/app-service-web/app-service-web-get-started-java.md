@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 1249d7ac42bec02227d47500fe3aabb601a36f88
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="create-your-first-java-web-app-in-azure-in-five-minutes"></a>Создание первого веб-приложения Java в Azure за пять минут
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/08/2017
 
 ![Переход к веб-приложению](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="before-you-begin"></a>Перед началом работы
+## <a name="prerequisites"></a>Предварительные требования
 
 В этом руководстве показано, как создать и развернуть веб-приложение Java в Azure, используя интегрированную среду разработки Eclipse для разработчиков Java EE. Если у вас еще не установлен Eclipse, его можно загрузить бесплатно по ссылке http://www.eclipse.org/.
 
