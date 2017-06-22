@@ -32,6 +32,7 @@
 ### [Параметры единого входа пользователей](active-directory-aadconnect-user-signin.md)
 ### [Поддержка нескольких доменов для федерации](active-directory-aadconnect-multiple-domains.md)
 ### [Автоматическое обновление](active-directory-aadconnect-feature-automatic-upgrade.md)
+### [Использование поставщика удостоверений (IdP) SAML 2.0 для единого входа](active-directory-aadconnect-federation-saml-idp.md)
 
 
 

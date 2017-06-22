@@ -12,10 +12,6 @@
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Использование виртуального шлюза
-#### [Моделирование в Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Моделирование в Windows](iot-hub-windows-iot-edge-get-started.md)
-
 ### Использование физического устройства
 #### [Приступая к работе с Raspberry Pi 3 (Node.JS)](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Подключение устройства Raspberry Pi 3 к Центру Интернета вещей с помощью C](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -31,6 +27,8 @@
 ##### [Настройка Intel NUC в качестве шлюза](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Подключение шлюза к Центру Интернета вещей](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Использование шлюза для преобразования данных](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [Использование онлайн-симулятора устройств](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
 ## [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -48,15 +46,21 @@
 ### [Поддержка дополнительных протоколов](iot-hub-protocol-gateway.md)
 ## [Разработка](iot-hub-how-to.md)
 ### [Руководство для разработчиков](iot-hub-devguide.md)
-#### [Отправка и получение сообщений](iot-hub-devguide-messaging.md)
 #### [Руководство по функциям передачи из устройства в облако](iot-hub-devguide-d2c-guidance.md)
 #### [Руководство по функциям передачи из облака в устройство](iot-hub-devguide-c2d-guidance.md)
+#### [Отправка и получение сообщений](iot-hub-devguide-messaging.md)
+##### [Оправка сообщений, пересылаемых с устройства в облако, в Центр Интернета вещей](iot-hub-devguide-messages-d2c.md)
+##### [Чтение сообщений, пересылаемых с устройства в облако, из встроенной конечной точки](iot-hub-devguide-messages-read-builtin.md)
+##### [Использование пользовательских конечных точек и правил маршрутизации для сообщений, отправляемых с устройства в облако](iot-hub-devguide-messages-read-custom.md)
+##### [Отправка сообщений, пересылаемых из облака на устройство, из Центра Интернета вещей](iot-hub-devguide-messages-c2d.md)
+##### [Создание и чтение сообщений Центра Интернета вещей](iot-hub-devguide-messages-construct.md)
 #### [Передача файлов с устройства](iot-hub-devguide-file-upload.md)
 #### [Управление удостоверениями устройств](iot-hub-devguide-identity-registry.md)
 #### [Управление доступом к Центру Интернета вещей](iot-hub-devguide-security.md)
 #### [Основные сведения о двойниках устройств](iot-hub-devguide-device-twins.md)
 #### [Вызов прямых методов на устройстве](iot-hub-devguide-direct-methods.md)
 #### [Планирование заданий на нескольких устройствах](iot-hub-devguide-jobs.md)
+#### [Выбор протокола связи](iot-hub-devguide-protocols.md)
 #### [Конечные точки Центра Интернета вещей](iot-hub-devguide-endpoints.md)
 #### [Язык запросов](iot-hub-devguide-query-language.md)
 #### [Квоты и регулирование](iot-hub-devguide-quotas-throttling.md)
@@ -119,19 +123,23 @@
 ### [Архитектура безопасности](iot-hub-security-architecture.md)
 ### [Защита развернутой службы Интернета вещей](iot-hub-security-deployment.md)
 ## IoT Edge
+### Приступая к работе
+#### [Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### Моделирование устройства
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Использование реального устройства](iot-hub-iot-edge-physical-device.md)
 
 # Справочные материалы
-## [Предварительная версия Azure CLI 2.0](/cli/azure/iot)
+## [Azure CLI 2.0](/cli/azure/iot)
 ## [.NET (служба)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (устройства)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (служба)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (устройства)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Пакеты SDK для Центра Интернета вещей Azure](http://azure.github.io/azure-iot-sdks/)
-## [Azure IoT Edge](http://azure.github.io/iot-edge/)
+## [Пакеты SDK для Node.js](http://azure.github.io/azure-iot-sdk-node/)
+## [Пакет SDK для устройства C](https://azure.github.io/azure-iot-sdk-c/index.html)
+## [Edge Интернета вещей Azure](http://azure.github.io/iot-edge/)
 ## [REST (поставщик ресурсов)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST (удостоверения устройств)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
 ## [REST (двойники устройств)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)

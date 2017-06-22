@@ -17,6 +17,7 @@
 
 ## [Azure CLI 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
+## [Заголовки данных телеметрии](container-registry-headers.md)
 
 # Сопутствующие материалы
 

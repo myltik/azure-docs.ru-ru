@@ -69,7 +69,7 @@
     href: functions-how-to-use-azure-function-app-settings.md
   - name: Непрерывное развертывание для Функций Azure
     href: functions-continuous-deployment.md
-  - name: 'Развертывание функций, используя инфраструктуру как код'
+  - name: Автоматическое развертывание ресурсов
     href: functions-infrastructure-as-code.md
   - name: Мониторинг функций Azure
     href: functions-monitoring.md
@@ -85,35 +85,31 @@
   items:
   - name: Привязки
     items:
-    - name: Привязки Cosmos DB
+    - name: Хранилище BLOB-объектов
+      href: functions-bindings-storage-blob.md
+    - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: Привязки концентратора событий
+    - name: Концентратор событий
       href: functions-bindings-event-hubs.md
-    - name: Привязки HTTP и webhook
+    - name: Внешний файл
+      href: functions-bindings-external-file.md
+    - name: HTTP и вызовы webhook
       href: functions-bindings-http-webhook.md
-    - name: Привязки мобильных приложений
+    - name: Мобильные приложения
       href: functions-bindings-mobile-apps.md
-    - name: Выходная привязка для концентратора уведомлений
+    - name: Центры уведомлений
       href: functions-bindings-notification-hubs.md
-    - name: 'Триггеры и привязки служебной шины, используемые для очередей и разделов'
+    - name: Хранилище очередей
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Service Bus
       href: functions-bindings-service-bus.md
-    - name: Привязки SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Привязки хранилища
-      items:
-      - name: Привязки больших двоичных объектов
-        href: functions-bindings-storage-blob.md
-      - name: Привязки очередей
-        href: functions-bindings-storage-queue.md
-      - name: Привязки таблиц
-        href: functions-bindings-storage-table.md
-      - name: Привязки внешнего файла
-        href: functions-bindings-external-file.md
-    - name: Привязки SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Триггер таймера
+    - name: Хранилище таблиц
+      href: functions-bindings-storage-table.md
+    - name: Таймер
       href: functions-bindings-timer.md
-    - name: Привязка к выходным данным Twilio
+    - name: Twilio
       href: functions-bindings-twilio.md
   - name: Справочник по OpenAPI
     href: functions-api-definition.md     

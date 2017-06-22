@@ -140,6 +140,14 @@
       href: move-vm.md
     - name: Создание высокодоступных виртуальных машин
       href: create-cli-complete.md
+    - name: Ansible
+      items:
+      - name: Установка и настройка
+        href: ansible-install-configure.md
+      - name: Создание простой виртуальной машины
+        href: ansible-create-vm.md
+      - name: Создание полной виртуальной машины
+        href: ansible-create-complete-vm.md
     - name: Развертывание приложения с помощью шаблона виртуальной машины
       items:
       - name: Обзор учебника
@@ -194,7 +202,7 @@
       href: upload-vhd.md
     - name: Запись существующей виртуальной машины в образ
       href: capture-image.md
-    - name: 'Создание образов, рекомендованных для Azure'
+    - name: Создание образов Azure
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -206,6 +214,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: Управление хранилищем виртуальной машины
     items:
     - name: Управляемые диски Azure

@@ -7,8 +7,9 @@
 ## [Создание приложения логики](logic-apps-create-a-logic-app.md)
 ## [Шаблоны для приложений логики](logic-apps-use-logic-app-templates.md)
 ## [Создание приложений логики на основе шаблонов](logic-apps-arm-provision.md)
+## [Перемещение приложений MABS в приложения логики](logic-apps-move-from-mabs.md)
 
-# Практическое руководство:
+# Практическое руководство
 ## Создание
 ### [Создание и развертывание приложений логики в Visual Studio](logic-apps-deploy-from-vs.md)
 ### [Добавление условий и запуск рабочих процессов](logic-apps-use-logic-app-features.md)
@@ -80,6 +81,7 @@
 ### [Цены](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [Измерение использования](logic-apps-pricing.md)
 
+
 # Бессерверные приложения
 ## Обзор
 ### [Бессерверные приложения в Azure](logic-apps-serverless-overview.md)
@@ -106,12 +108,12 @@
 ### [Dynamics 365 CRM Online](../connectors/connectors-create-api-crmonline.md)
 ### [EDIFACT](logic-apps-enterprise-integration-edifact.md)
 ### [Концентраторы событий](../connectors/connectors-create-api-azure-event-hubs.md)
-### [Перемещение данных в локальную файловую систему или из нее с помощью фабрики данных Azure](logic-apps-using-file-connector.md)
+### [Файловая система](logic-apps-using-file-connector.md)
 ### [Неструктурированный файл](logic-apps-enterprise-integration-flatfile.md)
 ### [FTP](../connectors/connectors-create-api-ftp.md)
 ### [HTTP](../connectors/connectors-native-http.md)
 ### [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
-### [webhook HTTP](../connectors/connectors-native-webhook.md).
+### [webhook HTTP](../connectors/connectors-native-webhook.md)
 ### [Informix](../connectors/connectors-create-api-informix.md)
 ### [Учетная запись интеграции](logic-apps-enterprise-integration-metadata.md)
 ### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
@@ -128,6 +130,8 @@
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
 ### [X12](logic-apps-enterprise-integration-x12.md)
 ### [Проверка XML](logic-apps-enterprise-integration-xml-validation.md)
+
+## [Соединители: полные сведения](https://docs.microsoft.com/connectors/)
 ## Журнал схем
 ### [Общедоступная версия](logic-apps-schema-2016-04-01.md)
 ### [Предварительная версия](logic-apps-schema-2015-08-01.md)

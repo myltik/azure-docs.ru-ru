@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: Отправка существующего приложения
         href: web-sites-java-add-app.md
-      - name: Удаленная отладка Eclipse
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: Удаленная отладка IntelliJ
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: Использование приложения Django с MySQL
@@ -162,8 +158,6 @@
       items:
       - name: Приобретение домена
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: Сопоставление стороннего домена
-        href: web-sites-custom-domain-name.md
       - name: Сопоставление доменов с помощью диспетчера трафика
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: Сопоставление доменов GoDaddy
@@ -204,10 +198,6 @@
         href: web-sites-authentication-authorization.md
       - name: Приложения с мультитенантной базой данных
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Назначение пользовательских SSL-сертификатов
-      items:
-      - name: Настройка стороннего SSL-сертификата
-        href: web-sites-configure-ssl-certificate.md
     - name: Принудительное использование HTTPS
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: Настройка взаимной проверки подлинности TLS
@@ -278,6 +268,16 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Устранение проблем с производительностью
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: Часто задаваемые вопросы
+      items:
+      - name: 'Часто задаваемые вопросы о доступности, производительности и приложениях'
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: Часто задаваемые вопросы о развертывании
+        href: app-service-web-deployment-faq.md
+      - name: Часто задаваемые вопросы о технологиях с открытым кодом
+        href: app-service-web-open-source-technologies-faq.md
+      - name: Часто задаваемые вопросы о настройке и управлении
+        href: app-service-web-configuration-and-management-faq.md
   - name: Цены
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Сведения о квотах

@@ -5,6 +5,7 @@
 ## [Основные сведения о решениях для идентификации в Azure](understand-azure-identity-solutions.md)
 ## [Предварительное ознакомление с интерфейсом портала Azure](active-directory-preview-explainer.md)
 
+
 # Начало работы
 ## [Получение клиента Azure AD](active-directory-howto-tenant.md)
 ## [Регистрация для использования Azure AD Premium](active-directory-get-started-premium.md)
@@ -14,7 +15,8 @@
 ### [Классический портал.](active-directory-licensing-what-is.md)
 ## [Получение Azure для организации](sign-up-organization.md)
 ## [Часто задаваемые вопросы](active-directory-faq.md)
-## [Руководства по приложениям SaaS](active-directory-saas-tutorial-list.md)
+## [Как получить поддержку для Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [Руководства по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 
 # Практическое руководство
 ## планирование и разработка

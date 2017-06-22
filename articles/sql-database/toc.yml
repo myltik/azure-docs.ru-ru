@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: Создание базы данных с помощью PowerShell
     href: sql-database-get-started-powershell.md
-  - name: Управление
+  - name: Подключение и запросы
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: VS Code
       href: sql-database-connect-query-vscode.md
-  - name: Подключение
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -37,7 +35,7 @@
   items:
   - name: 1. Создание и разработка новой базы данных SQL
     href: sql-database-design-first-database.md
-  - name: 2. Перенос существующего сервера SQL Server
+  - name: 2. Перенос базы данных SQL Server
     href: sql-database-migrate-your-sql-server-database.md
   - name: "3.\_Защита базы данных SQL"
     href: sql-database-security-tutorial.md
@@ -45,26 +43,8 @@
     href: sql-database-performance-tutorial.md
   - name: "5.\_Реализация мультитенантного приложения"
     href: sql-database-multi-tenant-application.md
-  - name: Руководства по Wingtip SaaS
-    items:
-    - name: Введение в Wingtip SaaS
-      href: sql-database-wtp-overview.md
-    - name: Развертывание примера Wingtip SaaS
-      href: sql-database-saas-tutorial.md
-    - name: Подготовка и каталогизация новых клиентов
-      href: sql-database-saas-tutorial-provision-and-catalog.md
-    - name: Мониторинг производительности
-      href: sql-database-saas-tutorial-performance-monitoring.md
-    - name: Восстановление одного клиента
-      href: sql-database-saas-tutorial-restore-single-tenant.md
-    - name: Управление схемами клиента
-      href: sql-database-saas-tutorial-schema-management.md
-    - name: Выполнение ad-hoc-аналитики
-      href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Мониторинг с помощью Log Analytics
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: Управление аналитикой клиента
-      href: sql-database-saas-tutorial-tenant-analytics.md
+  - name: 6. Реализация географически распределенной базы данных
+    href: sql-database-implement-geo-distributed-database.md 
 - name: Примеры
   items:
   - name: Инфраструктура CLI Azure
@@ -145,7 +125,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Аудит
       href: sql-database-auditing.md
-    - name: Аудит и TDS
+    - name: Аудит таблиц и TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: Обнаружение угроз
       href: sql-database-threat-detection.md
@@ -175,25 +155,12 @@
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
     - name: Обновление приложений
       href: sql-database-manage-application-rolling-upgrade.md
-  - name: Разработка
+  - name: Разработка базы данных
     items:
     - name: Обзор
       href: sql-database-develop-overview.md
     - name: Соединение
       href: sql-database-libraries.md
-    - name: 'Проектирование приложений: SaaS'
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: 'Безопасность: SaaS'
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: 'Порты: ADO.NET'
-      href: sql-database-develop-direct-route-ports-adonet-v12.md
-    - name: Проверка подлинности приложения
- 
-      href: sql-database-client-id-keys.md
-    - name: Сообщения об ошибках
-      href: sql-database-develop-error-messages.md
-    - name: Dapper
-      href: sql-database-elastic-scale-working-with-dapper.md
     - name: Данные JSON
       href: sql-database-json-features.md
     - name: В памяти
@@ -231,8 +198,6 @@
       href: sql-database-monitoring-with-dmvs.md
     - name: Руководство по производительности
       href: sql-database-performance-guidance.md
-    - name: Пакетная обработка
-      href: sql-database-use-batching-to-improve-performance.md
     - name: Расширенные события
       href: sql-database-xevent-db-diff-from-svr.md
     - name: Уровни совместимости
@@ -355,6 +320,8 @@
       href: sql-database-xevent-code-event-file.md
     - name: 'Расширенные события: кольцевой буфер'
       href: sql-database-xevent-code-ring-buffer.md
+    - name: Ведения журнала диагностики
+      href: sql-database-metrics-diag-logging.md
   - name: Управление
     items:
     - name: Служба автоматизации Azure
@@ -363,6 +330,25 @@
       href: sql-database-ssms-remoteapp.md
     - name: 'SSMS: MFA'
       href: sql-database-ssms-mfa-authentication-configure.md
+  - name: Разработка приложений
+    items:
+    - name: 'Порты: ADO.NET'
+      href: sql-database-develop-direct-route-ports-adonet-v12.md
+    - name: Проверка подлинности приложения
+ 
+      href: sql-database-client-id-keys.md
+    - name: Сообщения об ошибках
+      href: sql-database-develop-error-messages.md
+    - name: Dapper
+      href: sql-database-elastic-scale-working-with-dapper.md
+    - name: Пакетная обработка для повышения производительности
+      href: sql-database-use-batching-to-improve-performance.md
+    - name: Проектирование приложений SaaS
+      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: Безопасность приложений SaaS
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: Руководство по приложениям SaaS
+      href: sql-database-wtp-overview.md
 - name: Справочные материалы
   items:
   - name: PowerShell
@@ -442,5 +428,3 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: Пользовательская панель мониторинга эластичного пула
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
-
-
