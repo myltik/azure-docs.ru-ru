@@ -14,8 +14,8 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 793d948b25a2b6c408359de03433746a9494e1d1
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: fdeed4a1749e2c0115fe68b1b4318e1f0ddecbe5
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/25/2017
 
@@ -172,5 +172,6 @@ az postgres server delete --resource-group myresourcegroup --name mypgserver-201
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Перенесите базу данных, использовав [экспорт и импорт](./howto-migrate-using-export-and-import.md) или [дамп и восстановление](./howto-migrate-using-dump-and-restore.md).
-- Технический обзор см. в статье [What is Azure Database for PostgreSQL?](overview.md) (Обзор базы данных Azure для PostgreSQL)
+> [!div class="nextstepaction"]
+> [Перенос базы данных с помощью экспорта и импорта](./howto-migrate-using-export-and-import.md)
+

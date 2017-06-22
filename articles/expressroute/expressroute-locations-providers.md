@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2017
-ms.author: cherylmc
+ms.date: 05/24/2017
+ms.author: kaanan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: b72acb9c1d2b746bfdc3ac724b9c8760e0d4b257
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 597c0840f5b8bca3c19c644782d7cac20833ce1a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
@@ -42,7 +42,7 @@ ExpressRoute поддерживается во всех регионах и ра
 
 | **Геополитический регион** | **Регионы Azure** | **Расположения ExpressRoute** |
 | --- | --- | --- |
-| **Северная Америка** |Восточная часть США, западная часть США, восточная часть США 2, западная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США, западно-центральная часть США, центральная часть Канады, восточная часть Канады |Атланта, Чикаго, Даллас, Денвер+, Лас-Вегас, Лос-Анджелес, Майами, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия), Монреаль, Квебек, Торонто |
+| **Северная Америка** |Восточная часть США, западная часть США, восточная часть США 2, западная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США, западно-центральная часть США, центральная часть Канады, восточная часть Канады |Атланта, Чикаго, Даллас, Денвер, Лас-Вегас, Лос-Анджелес, Майами, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия), Монреаль, Квебек, Торонто |
 | **Северная Америка** |Южная часть Бразилии |Сан-Паулу |
 | **Европа** |Северная Европа, Западная Европа, запад Соединенного Королевства, юг Соединенного Королевства |Амстердам, Дублин, Лондон, Ньюпорт (Уэльс), Париж |
 | **Азия** |Восточная Азия, Юго-Восточная Азия |Гонконг, Сингапур |
@@ -76,7 +76,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Ченнай** | Airtel+, Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Чикаго** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group |
 | **Даллас** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
-| **Денвер** |CoreSite+ |
+| **Денвер** |CoreSite |
 | **Дублин** |Colt, Telecity Group |
 | **Гонконг** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Лас-Вегас** |Level 3 Communications+, Megaport |
@@ -86,8 +86,8 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Майами** |Megaport |
 | **Монреаль** |Bell Canada, Cologix |
 | **Мумбай** |Airtel+, Tata Communications |
-| **Ньюпорт (Уэльс)** |Next Generation Data |
 | **Нью-Йорк** |Coresite, Equinix, Megaport, Zayo Group |
+| **Ньюпорт (Уэльс)** |Next Generation Data |
 | **Осака** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Париж** |Interxion, Equinix |
 | **Квебек** | Megaport |
@@ -129,7 +129,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Берлин** |Colt+, e-shelter, Megaport+ |
 | **Франкфурт** |Colt, Equinix, Interxion |
 
-## <a name="c1partners"></a>Подключение через других поставщиков услуг
+## <a name="c1partners"></a>Подключение через поставщиков Exchange
 Вы можете создать подключение, даже если ваш поставщик услуг подключения не указан в предыдущих разделах.
 
 * Узнайте у своего поставщика услуг подключения, подключен ли он к какому-либо Exchange, указанному в таблице выше. Дополнительные сведения об услугах, предлагаемых поставщиками Exchange, см. по ссылкам ниже. Несколько поставщиков услуг подключения уже подключены к серверам Ethernet Exchange.
@@ -145,6 +145,7 @@ ExpressRoute поддерживается во всех регионах и ра
 * Закажите канал ExpressRoute с Exchange у вашего поставщика услуг подключения для связи с Майкрософт.
   * Для настройки подключения выполните действия, описанные в статье [Создание и изменение канала ExpressRoute с помощью PowerShell](expressroute-howto-circuit-classic.md) .
 
+## <a name="c1partners"></a>Подключение через дополнительных поставщиков услуг
 | **Расположение** | **Exchange** | **Поставщики услуг подключения** |
 | --- | --- | --- |
 | **Амстердам** | Equinix, Telecity | Eurofiber , Fastweb S.p.A, Nianet |
@@ -155,7 +156,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Лос-Анджелес** | Equinix |Transtelco |
 | **Мадрид** | Level3 | Zertia |
 | **Монреаль** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers |
-| **Нью-Йорк** |Equinix | Lightower |
+| **Нью-Йорк** |Equinix, Megaport | Lightower, Webair |
 | **Сиэтл;** |Equinix | Alaska Communications |
 | **Кремниевая долина** |Equinix | Cox Business, Windstream |
 | **Сингапур** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |

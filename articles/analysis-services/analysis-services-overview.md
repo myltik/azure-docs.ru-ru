@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 89c19e9b64fc4e1fea68c717fd5f5e0e054ac10c
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cc85ae1c6642e763e57327c151ec68845f7673f7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -55,11 +55,9 @@ ms.lasthandoff: 05/18/2017
 ## <a name="data-sources"></a>Источники данных
 Модели данных, развернутые на серверах в Azure, поддерживают подключение к локальным и облачным источникам данных. Вы также можете получить гибридное решение бизнес-аналитики, объединив данные из локальных и облачных источников.
 
-![Источники данных](./media/analysis-services-overview/aas-overview-data-sources.png)
+Так как сервер находится в облаке, подключение к облачным источникам данных не вызывает затруднений. При подключении к локальным источникам данных [локальный шлюз данных](analysis-services-gateway.md) обеспечивает быстрое и надежное соединение с сервером в облаке.
 
-Так как сервер находится в облаке, подключение к облачным источникам данных не вызывает затруднений. При подключении к локальным источникам данных [локальный шлюз данных](analysis-services-gateway.md) обеспечивает быстрое и надежное соединение с сервером служб Analysis Services в облаке.
-
-\* Только для табличных моделей 1400.
+Дополнительные сведения о поддерживаемых локальных источниках данных см. в статье [Подключения к источникам данных](analysis-services-datasource.md).
 
 
 ## <a name="explore-your-data-from-anywhere"></a>Анализ данных из любого расположения

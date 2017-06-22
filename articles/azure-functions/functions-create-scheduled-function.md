@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 1478a2eedad496d3113fef28920d10859d11b1ce
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: f35f693131bd1f4f47b161afb0a4f38d4f00bbd6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -47,18 +47,20 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="create-a-timer-triggered-function"></a>Создание функции, активируемой по таймеру
 
-1. Разверните свое приложение-функцию, нажмите кнопку **+** рядом с пунктом **Функции**, а затем щелкните шаблон **TimerTrigger** для нужного языка. Затем используйте настройки, указанные в таблице, и щелкните**Создать**:
+1. Разверните свое приложение-функцию, нажмите кнопку **+** рядом с пунктом **Функции**, а затем щелкните шаблон **TimerTrigger** для нужного языка. Затем используйте настройки, указанные в таблице.
 
-| Настройка | Рекомендуемое значение | Описание |
-|---|---|---|
-| **Имя функции** | TimerTriggerCSharp1 | Определяет имя функции, активируемой по таймеру. |
-| **[Расписание](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | [Выражение CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) с шестью полями, в котором запланировано ежеминутное выполнение функции. |
+    ![Создайте функцию, активируемую по таймеру, на портале Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 
-Будет создана функция на выбранном вами языке, которая будет выполняться каждую минуту.
+    | Настройка | Рекомендуемое значение | Описание |
+    |---|---|---|
+    | **Имя функции** | TimerTriggerCSharp1 | Определяет имя функции, активируемой по таймеру. |
+    | **[Расписание](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | [Выражение CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) с шестью полями, в котором запланировано ежеминутное выполнение функции. |
 
-1. Проверьте выполнение, просмотрев записанные в журналах сведения трассировки.
+2. Щелкните **Создать**. Будет создана функция на выбранном вами языке, которая будет выполняться каждую минуту.
 
-![Средство просмотра журналов Функций на портале Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+3. Проверьте выполнение, просмотрев записанные в журналах сведения трассировки.
+
+    ![Средство просмотра журналов Функций на портале Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
 Теперь вы можете изменить расписание функции, чтобы она выполнялась реже, например раз в час. 
 
