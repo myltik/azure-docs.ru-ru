@@ -1,5 +1,4 @@
 ---
-
 title: "Отчеты о действиях входа на портале Azure Active Directory | Документация Майкрософт"
 description: "Общие сведения об отчетах о действиях входа на портале Azure Active Directory."
 services: active-directory
@@ -16,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -37,6 +36,17 @@ ms.lasthandoff: 05/09/2017
     - **Пользователи, находящиеся в группе риска**. Такая пометка означает, что конфиденциальность учетной записи пользователя, возможно, нарушена. Дополнительные сведения см. в разделе "Пользователи, помеченные для события риска".
 
 В этом разделе содержатся общие сведения о действиях входа.
+
+## <a name="pre-requisite"></a>Предварительные требования
+
+### <a name="who-can-access-the-data"></a>Кто может получить доступ к данным?
+* Пользователи с ролью администратора безопасности или читателя безопасности
+* Глобальные администраторы
+* Любой пользователь (не администратор) может получить доступ к своим данным о действиях входа. 
+
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Какие лицензии Azure AD требуются для доступа к действию входа?
+* Для просмотра отчета о всех действиях входа с клиентом должна быть связана лицензия Azure AD Premium.
+
 
 ## <a name="signs-in-activities"></a>Действия входа
 

@@ -1,1 +1,3 @@
-При необходимости установите Azure PowerShell с помощью инструкции, приведенной в [руководстве Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), а затем выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure. 
+Для работы с этим примером требуется модуль Azure PowerShell версии не ниже 4.0. Чтобы узнать версию, выполните команду ` Get-Module -ListAvailable AzureRM`. Если вам необходимо выполнить установку или обновление, см. статью [об установке модуля Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+
+Выполните команду `Login-AzureRmAccount`, чтобы создать подключение к Azure. 

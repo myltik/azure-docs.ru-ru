@@ -16,10 +16,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -38,6 +38,10 @@ ms.lasthandoff: 05/09/2017
 
 В этом разделе содержатся общие сведения о действиях аудита.
  
+## <a name="who-can-access-the-data"></a>Кто может получить доступ к данным?
+* Пользователи с ролью администратора безопасности или читателя безопасности
+* Глобальные администраторы
+* Отдельные пользователи (не администраторы) могут просматривать собственные действия.
 
 
 ## <a name="audit-logs"></a>Журналы аудита
@@ -102,10 +106,11 @@ ms.lasthandoff: 05/09/2017
 - Core directory (Основной каталог);
 - Self-service password management (Самостоятельное управление паролями);
 - Самостоятельное управление группами
-- "Подготовка учетных записей";
-- Automated password rollover (Автоматическая смена пароля);
-- Invited users (Приглашаемые пользователи);
+- Подготовка учетной записи — автоматическая смена паролей
+- Приглашенные пользователи
 - MIM Service (Служба MIM).
+- Защита идентификации
+- B2C
 
 С помощью фильтра **Тип ресурса действия** можно выбрать один из следующих фильтров:
 
@@ -124,148 +129,9 @@ ms.lasthandoff: 05/09/2017
 - O365
 
 
-
-
 Фильтр **Действие** зависит от выбранной категории и типа ресурса действия. Вы можете выбрать определенное действие или просмотреть все. 
 
-| Категория действия| Тип ресурса действия| Действие |
-| :-- | :-: | :-- |
-| "Core Directory" (Основной каталог);| Группа| Delete Group Settings (Удаление параметров группы)|
-| "Core Directory" (Основной каталог);| Каталог| Update Domain (Обновление домена)|
-| "Core Directory" (Основной каталог);| Каталог| Remove Partner From Company (Удаление партнера из компании)|
-| "Core Directory" (Основной каталог);| Пользователь| Update Role (Обновление роли)|
-| "Core Directory" (Основной каталог);| Пользователь| Add Role From Template (Добавление роли на основе шаблона)|
-| "Core Directory" (Основной каталог);| Группа| Add App Role Assignment To Group (Добавление назначения роли приложения в группу)|
-| "Core Directory" (Основной каталог);| Группа| Start Applying Group Based License To Users (Начать назначать пользователям лицензию, назначенную группе)|
-| "Core Directory" (Основной каталог);| Приложение| Add Service Principal (Добавление субъекта-службы)|
-| "Core Directory" (Основной каталог);| Политика| Update Policy (Обновление политики)|
-| "Core Directory" (Основной каталог);| Политика| Add Policy To Service Principal (Добавление политики субъекта-службы)|
-| "Core Directory" (Основной каталог);| Устройство| Add Registered Owner To Device (Добавление зарегистрированного владельца устройства)|
-| "Core Directory" (Основной каталог);| Устройство| Add Registered Users To Device (Добавление зарегистрированных пользователей устройства)|
-| "Core Directory" (Основной каталог);| Устройство| Update Device Configuration (Обновление конфигурации устройства)|
-| "Self-service Password Management" (Самостоятельное управление паролями);| Пользователь| Reset Password (Self-Service) (Сброс пароля (самостоятельный))|
-| "Self-service Password Management" (Самостоятельное управление паролями);| Пользователь| Unlock User Account (Self-Service) (Разблокирование учетной записи пользователя (самостоятельное))|
-| "Self-service Password Management" (Самостоятельное управление паролями);| Пользователь| Reset Password (By Admin) (Сброс пароля (администратор))|
-| "Self-service Group Management" (Самостоятельное управление группами);| Группа| Delete A Pending Request To Join A Group (Удаление ожидающего запроса на присоединение к группе)|
-| "Account Provisioning" (Подготовка учетных записей).| Приложение| Process Escrow (Обработка эскроу)|
-| "Automated Password Rollover" (Автоматическая смена пароля)| Приложение| "Automated Password Rollover" (Автоматическая смена пароля)|
-| Invited Users (Приглашаемые пользователи)| Другие| Batch Invites Processed (Обработанный пакет приглашений)|
-| "Core Directory" (Основной каталог);| Каталог| Remove Verified Domain (Удаление проверенного домена)|
-| "Core Directory" (Основной каталог);| Каталог| Add Unverified Domain (Добавление непроверенного домена)|
-| "Core Directory" (Основной каталог);| Каталог| Add Verified Domain (Добавление проверенного домена)|
-| "Core Directory" (Основной каталог);| Каталог| Set Directory Feature On Tenant (Установка поддержки каталога в клиенте)|
-| "Core Directory" (Основной каталог);| Каталог| Set Dirsyncenabled Flag (Установка флага Dirsyncenabled)|
-| "Core Directory" (Основной каталог);| Каталог| Create Company Settings (Создание параметров организации)|
-| "Core Directory" (Основной каталог);| Каталог| Update Company Settings (Обновление параметров организации)|
-| "Core Directory" (Основной каталог);| Каталог| Delete Company Settings (Удаление параметров организации)|
-| "Core Directory" (Основной каталог);| Каталог| Set Company Allowed Data Location (Задание расположения данных организации)|
-| "Core Directory" (Основной каталог);| Каталог| Set Company Multinational Feature Enabled (Включение функции многонациональности для организации)|
-| "Core Directory" (Основной каталог);| Пользователь| Обновление пользователя|
-| "Core Directory" (Основной каталог);| Пользователь| Удаление пользователя|
-| "Core Directory" (Основной каталог);| Группа| Remove Member From Group (Удаление участника группы)|
-| "Core Directory" (Основной каталог);| Группа| Set Group License (Настройка лицензии для группы)|
-| "Core Directory" (Основной каталог);| Группа| Create Group Settings (Создание параметров группы)|
-| "Core Directory" (Основной каталог);| Приложение| Update Service Principal (Обновление субъекта-службы)|
-| "Core Directory" (Основной каталог);| Приложение| Удалить приложение|
-| "Core Directory" (Основной каталог);| Приложение| Update Application (Обновление приложения)|
-| "Core Directory" (Основной каталог);| Приложение| Remove Service Principal (Удаление субъекта-службы)|
-| "Core Directory" (Основной каталог);| Приложение| Add Service Principal Credentials (Добавление учетных данных субъекта-службы)|
-| "Core Directory" (Основной каталог);| Приложение| Remove App Role Assignment From Service Principal (Удаление назначения роли приложения из субъекта-службы)|
-| "Core Directory" (Основной каталог);| Приложение| Remove Owner From Application (Удаление владельца приложения)|
-| "Core Directory" (Основной каталог);| Устройство| Remove Registered Owner From Device (Удаление зарегистрированного владельца устройства)|
-| "Self-service Password Management" (Самостоятельное управление паролями);| Пользователь| Self-Serve Password Reset Flow Activity Progress (Ход выполнения процесса самостоятельного сброса пароля)|
-| "Account Provisioning" (Подготовка учетных записей).| Приложение| Администрирование|
-| "Account Provisioning" (Подготовка учетных записей).| Приложение| Directory Operation (Операция с каталогом)|
-| MIM Service (Служба MIM)| Группа| Remove Member (Удаление участника)|
-| "Core Directory" (Основной каталог);| Политика| Удаление политики|
-| Invited Users (Приглашаемые пользователи)| Пользователь| Viral Tenant Creation (Создание вирусного клиента)|
-| "Core Directory" (Основной каталог);| Каталог| Update External Secrets (Обновление внешних секретов)|
-| "Core Directory" (Основной каталог);| Каталог| Set Rights Management Properties (Установка свойств управления правами)|
-| "Core Directory" (Основной каталог);| Каталог| Update Company (Обновление организации)|
-| "Core Directory" (Основной каталог);| Пользователь| Добавить пользователя|
-| "Core Directory" (Основной каталог);| Пользователь| Convert Federated User To Managed (Преобразование федеративного пользователя в управляемого)|
-| "Core Directory" (Основной каталог);| Пользователь| Create Application Password For User (Создание пароля приложения для пользователя)|
-| "Core Directory" (Основной каталог);| Группа| Add Member To Group (Добавление участника группы)|
-| "Core Directory" (Основной каталог);| Группа| Добавить группу|
-| "Core Directory" (Основной каталог);| Приложение| Consent To Application (Разрешение на приложение)|
-| "Core Directory" (Основной каталог);| Приложение| Добавление приложения|
-| "Core Directory" (Основной каталог);| Приложение| Add Owner To Service Principal (Добавление владельца субъекта-службы)|
-| "Core Directory" (Основной каталог);| Приложение| Remove Oauth2Permissiongrant (Удаление записи Oauth2Permissiongrant)|
-| "Core Directory" (Основной каталог);| Политика| Remove Policy Credentials (Удаление учетных данных политики)|
-| "Core Directory" (Основной каталог);| Устройство| Delete Device Configuration (Удаление конфигурации устройства)|
-| "Self-service Group Management" (Самостоятельное управление группами);| Группа| Set Dynamic Group Properties (Задание свойств динамической группы)|
-| "Self-service Group Management" (Самостоятельное управление группами);| Группа| Update Lifecycle Management Policy (Обновление политики управления жизненным циклом)|
-| "Account Provisioning" (Подготовка учетных записей).| Приложение| Synchronization Rule Action (Действие правила синхронизации)|
-| Invited Users (Приглашаемые пользователи)| Другие| Batch Invites Uploaded (Отправленный пакет приглашений)|
-| MIM Service (Служба MIM)| Группа| Добавить участника|
-| "Core Directory" (Основной каталог);| Пользователь| Set License Properties (Задание свойств лицензии)|
-| "Core Directory" (Основной каталог);| Пользователь| Восстановление учетной записи пользователя|
-| "Core Directory" (Основной каталог);| Пользователь| Remove Member From Role (Удаление участника из роли)|
-| "Core Directory" (Основной каталог);| Пользователь| Remove App Role Assignment From User (Удаление назначения роли приложения из учетной записи пользователя)|
-| "Core Directory" (Основной каталог);| Пользователь| Remove Scoped Member From Role (Удаление участника с заданной областью из роли)|
-| "Core Directory" (Основной каталог);| Группа| Обновление группы|
-| "Core Directory" (Основной каталог);| Группа| Add Owner To Group (Добавление владельца группы)|
-| "Core Directory" (Основной каталог);| Группа| Finish Applying Group Based License To Users (Завершить назначать пользователям лицензию, назначенную группе)|
-| "Core Directory" (Основной каталог);| Группа| Remove App Role Assignment From User (Удаление назначения роли приложения из группы)|
-| "Core Directory" (Основной каталог);| Группа| Set Group To Be Managed By User (Задание пользователя для управления группой)|
-| "Core Directory" (Основной каталог);| Приложение| Add Oauth2Permissiongrant (Добавление записи Oauth2Permissiongrant)|
-| "Core Directory" (Основной каталог);| Приложение| Add App Role Assignment To Service Principal (Добавление назначения роли приложения в субъект-службу)|
-| "Core Directory" (Основной каталог);| Приложение| Remove Service Principal Credentials (Удаление учетных данных субъекта-службы)|
-| "Core Directory" (Основной каталог);| Политика| Remove Policy From Service Principal (Удаление политики субъекта-службы)|
-| "Core Directory" (Основной каталог);| Устройство| Update Device (Обновление устройства)|
-| "Core Directory" (Основной каталог);| Устройство| Add Device (Добавление устройства)|
-| "Core Directory" (Основной каталог);| Устройство| Add Device Configuration (Добавление конфигурации устройства)|
-| "Self-service Password Management" (Самостоятельное управление паролями);| Пользователь| Change Password (Self-Service) (Изменение пароля (самостоятельное))|
-| "Self-service Password Management" (Самостоятельное управление паролями);| Пользователь| User Registered For Self-Service Password Reset (Регистрация пользователей для самостоятельного сброса пароля)|
-| "Self-service Group Management" (Самостоятельное управление группами);| Группа| Approve A Pending Request To Join A Group (Подтверждение ожидающего запроса на присоединение к группе)|
-| "Core Directory" (Основной каталог);| Каталог| Remove Unverified Domain (Удаление непроверенного домена)|
-| "Core Directory" (Основной каталог);| Каталог| Проверка домена|
-| "Core Directory" (Основной каталог);| Каталог| Set Domain Authentication (Установка проверки подлинности домена)|
-| "Core Directory" (Основной каталог);| Каталог| Установка политики паролей|
-| "Core Directory" (Основной каталог);| Каталог| Add Partner To Company (Добавление партнера для компании)|
-| "Core Directory" (Основной каталог);| Каталог| Promote Company To Partner (Продвижение компании до партнера)|
-| "Core Directory" (Основной каталог);| Каталог| Set Partnership (Настройка партнерства)|
-| "Core Directory" (Основной каталог);| Каталог| Set Accidental Deletion Threshold (Задание порогового значения случайного удаления)|
-| "Core Directory" (Основной каталог);| Каталог| Demote Partner (Изменение типа партнера)|
-| Invited Users (Приглашаемые пользователи)| Пользователь| Invite External User (Приглашение внешнего пользователя)|
-| "Account Provisioning" (Подготовка учетных записей).| Приложение| Импорт|
-| "Core Directory" (Основной каталог);| Приложение| Remove Owner From Service Principal (Удаление владельца субъекта-службы)|
-| "Core Directory" (Основной каталог);| Устройство| Remove Registered Users From Device (Удаление зарегистрированных пользователей устройства)|
-| "Core Directory" (Основной каталог);| Каталог| Установка информации о компании|
-| "Core Directory" (Основной каталог);| Каталог| Set Federation Settings On Domain (Установка параметров федерации для домена)|
-| "Core Directory" (Основной каталог);| Каталог| Create Company (Создать организацию)|
-| "Core Directory" (Основной каталог);| Каталог| Purge Rights Management Properties (Очистка свойств управления правами)|
-| "Core Directory" (Основной каталог);| Каталог| Set Dirsync Feature (Установка компонента Dirsync)|
-| "Core Directory" (Основной каталог);| Каталог| Verify Email Verified Domain (Проверка домена с помощью электронной почты)|
-| "Core Directory" (Основной каталог);| Пользователь| Change User License (Изменение лицензии пользователя)|
-| "Core Directory" (Основной каталог);| Пользователь| Change User Password (Смена пароля пользователя)|
-| "Core Directory" (Основной каталог);| Пользователь| Сбросить пароль пользователя|
-| "Core Directory" (Основной каталог);| Пользователь| Add App Role Assignment Grant To User (Добавление назначения роли приложения пользователю)|
-| "Core Directory" (Основной каталог);| Пользователь| Add Member To Role (Добавление участника роли)|
-| "Core Directory" (Основной каталог);| Пользователь| Delete Application Password For User (Удаление пароля приложения для пользователя)|
-| "Core Directory" (Основной каталог);| Пользователь| Update User Credentials (Обновление учетных данных пользователя)|
-| "Core Directory" (Основной каталог);| Пользователь| Set User Manager (Настройка диспетчера пользователей)|
-| "Core Directory" (Основной каталог);| Пользователь| Add Scoped Member To Role (Добавление участника с заданной областью в роль)|
-| "Core Directory" (Основной каталог);| Группа| Удалить группу|
-| "Core Directory" (Основной каталог);| Группа| Remove Owner From Group (Удаление владельца группы)|
-| "Core Directory" (Основной каталог);| Группа| Update Group Settings (Обновление параметров группы)|
-| "Core Directory" (Основной каталог);| Приложение| Add Owner To Application (Добавление владельца приложения)|
-| "Core Directory" (Основной каталог);| Приложение| Отозвать согласие|
-| "Core Directory" (Основной каталог);| Политика| Добавить политику|
-| "Core Directory" (Основной каталог);| Устройство| Удалить устройство|
-| "Self-service Password Management" (Самостоятельное управление паролями);| Пользователь| Blocked From Self-Service Password Reset (Блокировка от самостоятельного сброса пароля)|
-| "Self-service Group Management" (Самостоятельное управление группами);| Группа| Request To Join A Group (Запрос на присоединение к группе)|
-| "Self-service Group Management" (Самостоятельное управление группами);| Группа| Create Lifecycle Management Policy (Создание политики управления жизненным циклом)|
-| "Self-service Group Management" (Самостоятельное управление группами);| Группа| Reject A Pending Request To Join A Group (Отклонение ожидающего запроса на присоединение к группе)|
-| "Self-service Group Management" (Самостоятельное управление группами);| Группа| Cancel A Pending Request To Join A Group (Отмена ожидающего запроса на присоединение к группе)|
-| "Self-service Group Management" (Самостоятельное управление группами);| Группа| Renew Group (Возобновление группы)|
-| "Account Provisioning" (Подготовка учетных записей).| Приложение| экспорт.|
-| "Account Provisioning" (Подготовка учетных записей).| Приложение| Другие|
-| Invited Users (Приглашаемые пользователи)| Пользователь| Активация приглашения внешнего пользователя|
-| Invited Users (Приглашаемые пользователи)| Пользователь| Viral User Creation (Создание вирусного пользователя)|
-| Invited Users (Приглашаемые пользователи)| Пользователь| Assign External User To Application (Назначение внешнего пользователя для приложения)|
-
-
+Чтобы получить список всех действий аудита, используйте API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, где $tenantdomain — это доменное имя, или см. статью о [событиях в отчете аудита](active-directory-reporting-audit-events.md#list-of-audit-report-events).
 
 
 ## <a name="audit-logs-shortcuts"></a>Ярлыки журналов аудита
@@ -274,9 +140,6 @@ ms.lasthandoff: 05/09/2017
 
 - Пользователи и группы
 - корпоративные приложения.
-
-Полный список событий отчета аудита см. в разделе [Список событий отчета аудита](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
 
 ### <a name="users-and-groups-audit-logs"></a>Журналы аудита пользователей и групп
 

@@ -10,28 +10,32 @@ manager: jhubbard
 editor: 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/15/2017
+ms.date: 05/26/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 05cbc0c80a4e622f537772c698e2711a7a85c00d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Подключайтесь к базе данных Azure SQL и создавайте запросы к ней с помощью SQL Server Management Studio
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) — это средство управления, используемое для создания и администрирования ресурсов SQL Server с помощью пользовательского интерфейса или скриптов. В этом кратком руководстве показано, как использовать SSMS для подключения к базе данных Azure SQL, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных. 
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) — это интегрированная среда для управления любой инфраструктурой SQL, от SQL Server до базы данных SQL для Microsoft Windows. В этом кратком руководстве показано, как использовать SSMS для подключения к базе данных Azure SQL, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных. 
+
+## <a name="prerequisites"></a>Предварительные требования
 
 Начальной точкой в руководстве являются ресурсы, созданные в одном из этих кратких руководств:
 
 - [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
+- [Создание базы данных с помощью PowerShell](sql-database-get-started-powershell.md)
 
 Перед началом работы установите последнюю версию [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
@@ -43,11 +47,11 @@ ms.lasthandoff: 04/20/2017
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
 3. На странице **Обзор** базы данных просмотрите полное имя сервера, как показано на рисунке ниже. Вы можете навести указатель мыши на имя сервера, чтобы отобразился пункт **Щелкните, чтобы скопировать**.
 
-   ![Сведения о подключении](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![Сведения о подключении](./media/sql-database-get-started-portal/server-name.png) 
 
 4. Если вы забыли данные для входа на сервер базы данных SQL Azure, перейдите к соответствующей странице, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль. 
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Подключение к базе данных на логическом сервере базы данных SQL
+## <a name="connect-to-your-database"></a>Подключение к базе данных
 
 Используйте SQL Server Management Studio для подключения к серверу базы данных SQL Azure. 
 
@@ -58,11 +62,14 @@ ms.lasthandoff: 04/20/2017
 1. Откройте среду SQL Server Management Studio.
 
 2. В диалоговом окне **Подключение к серверу** введите следующие значения.
-   - **Тип сервера** — укажите ядро СУБД.
-   - **Имя сервера** — введите полное имя сервера, например **mynewserver20170313.database.windows.net**.
-   - **Проверка подлинности** — укажите проверку подлинности SQL Server.
-   - **Имя входа** — введите учетную запись администратора сервера.
-   - **Пароль** — введите пароль учетной записи администратора сервера.
+
+   | Настройка       | Рекомендуемое значение | Описание | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Тип сервера** | Ядро СУБД | Это обязательное значение. |
+   | **Server name** (Имя сервера) | Полное имя сервера | Имя должно быть примерно таким: **mynewserver20170313.database.windows.net**. |
+   | **Аутентификация** | проверка подлинности SQL Server | В рамках работы с этим руководством мы настроили только один тип проверки подлинности — проверку подлинности SQL. |
+   | **Имя входа** | Учетная запись администратора сервера | Это учетная запись, указанная при создании сервера. |
+   | **Пароль** | Пароль учетной записи администратора сервера | Это пароль, указанный при создании сервера. |
 
    ![Подключение к серверу](./media/sql-database-connect-query-ssms/connect.png)  
 

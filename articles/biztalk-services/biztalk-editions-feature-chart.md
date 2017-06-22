@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="biztalk-services-editions-chart"></a>Службы BizTalk: диаграмма выпусков
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Существует несколько выпусков служб BizTalk Azure. С помощью этой статьи можно определить, какой выпуск лучше соответствует вашему сценарию и бизнес-потребностям.
 
 ## <a name="compare-the-editions"></a>Сравнение выпусков
@@ -54,12 +59,12 @@ ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
         <th>Developer</th>
         <th>базовая;</th>
         <th>Стандартная</th>
-        <th>Премиум</th>
+        <th>Premium</th>
 </tr>
 
 <tr>
 <td><strong>Начальная цена</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Цены — службы BizTalk Azure</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Калькулятор стоимости Azure</a></td>
+<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Цены — службы BizTalk Azure</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full">Калькулятор цен Azure</a></td>
 </tr>
 <tr>
 <td><strong>Минимальная конфигурация по умолчанию</strong></td>
@@ -70,7 +75,7 @@ ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
 <td>1 Модуль Premium</td>
 </tr>
 <tr>
-<td><strong>Масштаб</strong></td>
+<td><strong>Масштабирование</strong></td>
 <td>Без масштабирования</td>
 <td>Без масштабирования</td>
 <td>Да, с шагом в 1 модуль Basic</td>
@@ -158,7 +163,7 @@ ms.openlocfilehash: b8d2b49a416883376302c9b3cc5924877b404a95
 <td>Включено</td>
 </tr>
 <tr>
-<td><strong>Архивация и восстановление</strong></td>
+<td><strong>Резервное копирование и восстановление</strong></td>
 <td>Не включено</td>
 <td>Включено</td>
 <td>Включено</td>
@@ -251,10 +256,5 @@ BizTalk Server на виртуальных машинах Azure предоста
 * [Службы BizTalk: регулирование](biztalk-throttling-thresholds.md)<br/>
 * [Службы BizTalk: имя и ключ издателя](biztalk-issuer-name-issuer-key.md)<br/>
 * [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

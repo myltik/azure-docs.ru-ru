@@ -1,4 +1,5 @@
 # Обзор
+
 ## [Что такое Azure DNS?](dns-overview.md)
 ## [Зоны и записи DNS](dns-zones-records.md)
 ## [Делегирование DNS с помощью DNS Azure](dns-domain-delegation.md)
@@ -18,17 +19,21 @@
 # Практическое руководство
 
 ## Управление зонами DNS
+### [Портал](dns-operations-dnszones-portal.md)
 ### [PowerShell](dns-operations-dnszones.md)
-### [Интерфейс командной строки Azure](dns-operations-dnszones-cli.md)
+### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
-
-## [Управление зонами DNS](dns-operations-recordsets-portal.md)
+## Управление зонами DNS
+### [Портал](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Интерфейс командной строки Azure](dns-operations-recordsets-cli.md)
+### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 
-## [Управление записями обратного преобразования DNS](dns-reverse-dns-record-operations-ps.md)
-### [Интерфейс командной строки Azure](dns-reverse-dns-record-operations-cli.md)
-### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+## Управление обратным поиском DNS
+### [Обзор](dns-reverse-dns-overview.md)
+### [Размещение зон обратного поиска в Azure DNS](dns-reverse-dns-hosting.md)
+### [Управление записями обратного поиска DNS для служб Azure](dns-reverse-dns-for-azure-services.md)
 
 ## [Импорт и экспорт файла зоны DNS](dns-import-export.md)
 ## [Интеграция с другими службами Azure](dns-for-azure-services.md)

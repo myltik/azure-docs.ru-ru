@@ -2,6 +2,7 @@
 ## [Azure DevTest Labs](devtest-lab-overview.md)
 ## [Основные понятия](devtest-lab-concepts.md)
 ## Сценарии
+### [Использование лабораторий для разработчиков](devtest-lab-developer-lab.md)
 ### [Использование лабораторий для обучения](devtest-lab-training-lab.md)
 
 # Начало работы

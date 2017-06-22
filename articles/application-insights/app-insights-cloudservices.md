@@ -3,6 +3,7 @@ title: "Application Insights для облачных служб Azure | Доку
 description: "Эффективное отслеживание веб-ролей и рабочих ролей с помощью Application Insights"
 services: application-insights
 documentationcenter: 
+keywords: "WAD2AI, система диагностики Azure"
 author: CFreemanwa
 manager: carmonm
 editor: alancameronwills
@@ -15,15 +16,15 @@ ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bfae0fcf992c38d7afef6140fdd79d87ab0ecb4f
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: a5e5cc37c4635b78279a5e240603b6a728922eb8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights для облачных служб Azure
-[Приложения облачных служб Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) можно отслеживать с помощью [Application Insights][start], чтобы оценить показатели доступности, производительности, сбоев и использования. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
+С помощью [Application Insights][start] можно отслеживать [приложения облачной службы Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) на предмет доступности, производительности, сбоев и использования, объединяя данные из пакета SDK Application Insights с данными [диагностики Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) из облачных служб. Благодаря получаемым данным о производительности и эффективности работы приложения на практике вы можете принимать осознанные решения о направлении разработки в каждом жизненном цикле.
 
 ![Пример](./media/app-insights-cloudservices/sample.png)
 
@@ -143,7 +144,7 @@ ms.lasthandoff: 05/10/2017
 * Ознакомьтесь с разделом [Устранение неполадок][qna].
 
 ## <a name="view-azure-diagnostic-events"></a>Просмотр событий диагностики Azure
-Где найти средства диагностики:
+Источники данных [диагностики Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) в Application Insights:
 
 * Счетчики производительности отображаются в виде настраиваемых метрик. 
 * Журналы событий Windows отображаются в виде трассировок и настраиваемых событий.

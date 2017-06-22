@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
+ms.date: 05/30/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 14a5da0430b4eaaa61ef875e59454e2b6d88de91
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: aa27689f564aedf61174fecaae76b5bf60951482
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -43,7 +44,7 @@ ms.lasthandoff: 03/31/2017
 На страницах сведений этих шаблонов есть кнопка, связанная с функцией развертывания на портале. Чтобы развернуть масштабируемый набор, нажмите кнопку, а затем укажите на портале все необходимые параметры. Если вы не уверены, поддерживает ли ресурс верхний или смешанный регистр, для надежности вводите значения параметров, используя числа и буквы в нижнем регистре. [Вот полезный видеоролик](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player) с анализом шаблона масштабируемого набора виртуальных машин.
 
 ## <a name="scaling-a-scale-set-out-and-in"></a>Уменьшение или увеличение масштаба масштабируемого набора
-Чтобы изменить число виртуальных машин в масштабируемом наборе, в разделе **Параметры** щелкните **Масштабирование**. 
+Чтобы изменить число виртуальных машин в масштабируемом наборе, в разделе **Параметры**  щелкните **Масштабирование**. 
 
 Емкость масштабируемого набора можно также изменить в командной строке с помощью команды **scale** в [Azure CLI](https://github.com/Azure/azure-cli). Например, чтобы изменить размер масштабируемого набора до 10 виртуальных машин, выполните следующую команду:
 
@@ -160,7 +161,7 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
 
 **Вопрос.** Можно ли указать последовательность выполнения при использовании нескольких расширений в масштабируемом наборе?
 
-**Ответ.** Напрямую нет, но при использовании расширения customScript ваш скрипт может подождать, пока завершится выполнение другого расширения (например, путем [мониторинга журнала расширений](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Дополнительные рекомендации по виртуализации расширения см. в записи блога [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Последовательность расширений в наборах масштабирования виртуальных машин Azure).
+**Ответ.** Напрямую нет, но при использовании расширения customScript ваш скрипт может подождать, пока завершится выполнение другого расширения. Дополнительные рекомендации по виртуализации расширения см. в записи блога [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Последовательность расширений в наборах масштабирования виртуальных машин Azure).
 
 **Вопрос.** Работают ли масштабируемые наборы с группами доступности Azure?
 

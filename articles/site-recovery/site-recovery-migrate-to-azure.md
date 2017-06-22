@@ -8,16 +8,17 @@ manager: jwhit
 editor: 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 77ebe20940bce0e21caa60567e1ccffaba7351b3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -80,4 +81,6 @@ ms.lasthandoff: 04/06/2017
 - [Репликация виртуальных машин Hyper-V (без VMM) в облако Azure с помощью службы Azure Site Recovery и портала Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Перенос виртуальных машин IaaS Azure между регионами Azure с помощью Azure Site Recovery](site-recovery-migrate-azure-to-azure.md)
 - [Перенос виртуальных машин из Amazon Web Services (AWS) в Azure с помощью Azure Site Recovery](site-recovery-migrate-aws-to-azure.md)
+- [Подготовьте перенесенные виртуальные машины для включения репликации](site-recovery-azure-to-azure-after-migration.md) в другой регион в целях аварийного восстановления.
+- Включите защиту рабочих нагрузок, [выполнив репликацию виртуальных машин Azure.](site-recovery-azure-to-azure.md)
 

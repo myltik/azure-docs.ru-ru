@@ -12,7 +12,7 @@
 
 ## Создание шаблона
 ### [Сведения о шаблонах масштабируемых наборов](virtual-machine-scale-sets-mvss-start.md)
-### [Добавление виртуальной сети](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Использование существующей виртуальной сети](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [Использование пользовательского образа](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## Развернуть
