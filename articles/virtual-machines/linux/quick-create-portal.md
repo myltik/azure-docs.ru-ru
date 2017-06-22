@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ff4bf9c9e3bfbd0e51cdb91be85dec15db6cd758
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -107,13 +108,13 @@ sudo apt-get -y install nginx
 6. Нажмите кнопку **ОК**.
 
 
-## <a name="view-the-ngix-welcome-page"></a>Просмотр страницы приветствия nginx
+## <a name="view-the-nginx-welcome-page"></a>Просмотр страницы приветствия nginx
 
 Установив NGINX и открыв порт 80 для виртуальной машины, вы можете получить доступ к веб-серверу через Интернет. Откройте веб-браузер и введите общедоступный IP-адрес виртуальной машины. Общедоступный IP-адрес можно найти в колонке "Виртуальная машина" на портале Azure.
 
 ![Сайт nginx по умолчанию](./media/quick-create-cli/nginx.png) 
 
-## <a name="delete-virtual-machine"></a>Удаление виртуальной машины
+## <a name="clean-up-resources"></a>Очистка ресурсов
 
 Ставшие ненужными группу ресурсов, виртуальную машину и все связанные ресурсы можно удалить, выполнив следующую команду. Для этого выберите группу ресурсов в колонке виртуальной машины и нажмите кнопку **Удалить**.
 

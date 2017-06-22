@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Создание служб BizTalk с помощью портала Azure
 
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+
 > [!TIP]
 > Для входа на портал Azure требуются учетная запись и подписка Azure. Если учетной записи нет, можно создать бесплатную пробную учетную запись всего за несколько минут. См. страницу [Бесплатная пробная версия Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
-> 
-> 
+
 
 ## <a name="create-a-biztalk-service"></a>Создание службы BizTalk
 В зависимости от выбранного выпуска вам могут быть доступны не все настройки службы BizTalk.
@@ -41,9 +45,9 @@ ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
     <tr>
     <td><strong>Имя службы BizTalk</strong></td>
     <td>Можно ввести любое имя, но рекомендуется использовать конкретные имена. Некоторые примеры:<br/><br/>
-    <em>mycompany</em>.biztalk.windows.net;<br/>
-    <em>mycompanymyapplication</em>.biztalk.windows.net;<br/>
-    <em>myapplication</em>.biztalk.windows.net.<br/><br/>К введенному имени автоматически добавляется ".biztalk.windows.net". Таким образом, создается URL-адрес, используемый для доступа к вашей службе BizTalk, например <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
+    <em>mycompany</em>.biztalk.windows.net<br/>
+    <em>mycompanymyapplication</em>.biztalk.windows.net<br/>
+    <em>myapplication</em>.biztalk.windows.net<br/><br/>К введенному имени автоматически добавляется ".biztalk.windows.net". Таким образом, создается URL-адрес, используемый для доступа к вашей службе BizTalk, например <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
     </td>
     </tr>
     <tr>
@@ -58,17 +62,15 @@ ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
     <tr>
     <td><strong>URL-адрес домена</strong></td>
     <td><strong>Необязательный</strong>. По умолчанию используется следующий URL-адрес домена: <em>YourBizTalkServiceName</em>.biztalk.windows.net. Можно также указать пользовательский домен. Например, если вы используете домен <em>contoso</em>, можно ввести следующее: <br/><br/>
-    <em>MyCompany</em>.contoso.com;<br/>
-    <em>MyCompanyMyApplication</em>.contoso.com;<br/>
-    <em>MyApplication</em>.contoso.com;<br/>
-    <em>YourBizTalkServiceName</em>.contoso.com.<br/>
+    <em>MyCompany</em>.contoso.com<br/>
+    <em>MyCompanyMyApplication</em>.contoso.com<br/>
+    <em>MyApplication</em>.contoso.com<br/>
+    <em>YourBizTalkServiceName</em>.contoso.com<br/>
     </td>
     </tr>
     </table>
-   Выберите стрелку ДАЛЕЕ.
-5. Укажите параметры хранилища и базы данных.
-   
-    <table border="1">
+Выберите стрелку ДАЛЕЕ.
+5. Укажите параметры хранилища и базы данных.  <table border="1">
     <tr>
     <td><strong>Учетная запись хранения для мониторинга и архивации</strong></td>
     <td>Выберите существующую учетную запись хранения или параметр «Создать новую учетную запись хранения». <br/><br/>При создании учетной записи хранения введите <strong>Имя учетной записи хранения</strong>.</td>
@@ -78,21 +80,19 @@ ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
     <td>Если используется существующая база данных SQL Azure, ее нельзя использовать в другой службе BizTalk. Потребуются имя и пароль для входа в систему, которые были указаны при создании сервера базы данных SQL Azure.<br/><br/><strong>СОВЕТ.</strong> Создайте базу данных отслеживания и учетную запись хранения для мониторинга и архивации в одном регионе службы BizTalk.</td>
     </tr>
     </table>
-   Выберите стрелку ДАЛЕЕ.
-6. Введите параметры базы данных.
-   
-    <table border="1">
+Выберите стрелку ДАЛЕЕ.
+6. Введите параметры базы данных.  <table border="1">
     <tr>
     <td><strong>Имя</strong></td>
     <td>Параметр доступен в том случае, если на предыдущем экране был выбран параметр <strong>Создать экземпляр базы данных SQL</strong>.
     <br/><br/>
-    Введите имя базы данных SQL, которую будет использовать служба BizTalk.</td>
+Введите имя базы данных SQL, которую будет использовать служба BizTalk.</td>
     </tr>
     <tr>
     <td><strong>Сервер</strong></td>
     <td>Параметр доступен в том случае, если на предыдущем экране был выбран параметр <strong>Создать экземпляр базы данных SQL</strong>.
     <br/><br/>
-    Выберите имеющийся или создайте новый сервер базы данных SQL.</td>
+Выберите существующий сервер базы данных SQL или создайте новый.</td>
     </tr>
     <tr>
     <td><strong>Имя входа на сервер</strong></td>
@@ -120,7 +120,7 @@ ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 * [Добавление готового сертификата для рабочей среды](#AddCert)
 * [Извлечение пространства имен контроля доступа](#ACS)
 
-#### <a name="a-nameinstallcertainstall-the-certificate-on-a-local-computer"></a><a name="InstallCert"></a>Установка сертификата на локальном компьютере
+#### <a name="InstallCert"></a>Установка сертификата на локальном компьютере
 На этапе подготовки службы BizTalk создается самозаверяющий сертификат, который связывается с вашей подпиской службы BizTalk. Этот сертификат необходимо загрузить и установить на компьютерах, используемых для развертывания приложений службы BizTalk или отправки сообщений в конечную точку службы BizTalk.
 
 1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -130,13 +130,13 @@ ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
    ![Изменение SSL-сертификата][QuickGlance]
 5. Дважды щелкните кнопкой мыши по сертификату и выполните все инструкции мастера, чтобы завершить установку. Убедитесь, что сертификат устанавливается в **Хранилище корневых центров сертификации пользователей** .
 
-#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Добавление готового сертификата для рабочей среды
+#### <a name="AddCert"></a>Добавление готового сертификата для рабочей среды
 Самозаверяющий сертификат, созданный автоматически при создании служб BizTalk, предназначен исключительно для использования в среде разработки. Для выполнения рабочих сценариев замените его готовым сертификатом для рабочей среды.
 
 1. На вкладке **Панель мониторинга** выберите **Обновить SSL-сертификат**.
 2. Перейдите к своему закрытому SSL-сертификату (*имя_сертификата*.pfx), который содержит имя службы BizTalk, введите пароль и щелкните значок галочки.
 
-#### <a name="a-nameacsaget-the-access-control-namespace"></a><a name="ACS"></a>Извлечение пространства имен контроля доступа
+#### <a name="ACS"></a>Извлечение пространства имен контроля доступа
 1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. В левой области навигации щелкните **СЛУЖБЫ BIZTALK** , а затем выберите свою службу BizTalk.
 3. На панели задач выберите **Сведения о подключении**:  
@@ -171,7 +171,7 @@ ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 <td>Подписка Azure.</td>
 <td>Подписка определяет, кто может входить на портал Azure. Владелец учетной записи создает подписку на странице <a HREF="https://account.windowsazure.com/Subscriptions">подписок Azure</a>.
 <br/><br/>
-В учетную запись Azure может входить несколько подписок, и ею могут управлять все пользователи, у которых есть соответствующие права. Например, владелец учетной записи Azure создает подписку с именем <em>BizTalkServiceSubscription</em> и предоставляет администраторам BizTalk в компании (например, ContosoBTSAdmins@live.com)) доступ к этой подписке. В этом сценарии администраторы BizTalk входят на портал Azure с полными правами администратора на все размещенные службы в подписке, в том числе службы BizTalk Azure. Администраторы BizTalk не являются владельцами учетной записи Azure и, следовательно, не имеют доступа к каким-либо данным для выставления счетов.
+В учетную запись Azure может входить несколько подписок, и ею могут управлять все пользователи, у которых есть соответствующие права. Например, владелец учетной записи Azure создает подписку с именем <em>BizTalkServiceSubscription</em> и предоставляет администраторам BizTalk в компании (например, ContosoBTSAdmins@live.com) доступ к этой подписке. В этом сценарии администраторы BizTalk входят на портал Azure с полными правами администратора на все размещенные службы в подписке, в том числе службы BizTalk Azure. Администраторы BizTalk не являются владельцами учетной записи Azure и, следовательно, не имеют доступа к каким-либо данным для выставления счетов.
 <br/><br/>Дополнительные сведения см. в статье 
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Использование назначений ролей для управления доступом к ресурсам в подписке Azure</a>.
 </td>
@@ -232,8 +232,8 @@ ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 <br/>
 
 <ul>
-<li><strong>Расширенное использование ключа</strong>. Службы BizTalk Azure требуют как минимум проверки подлинности сервера.</li>
-<li><strong>Общее имя</strong>. Введите полное доменное имя (FQDN) URL-адреса службы BizTalk Azure. См. раздел <a HREF="#BizTalk">Создание службы BizTalk</a> в этой статье.</li>
+<li><strong>Расширенное использование ключа.</strong> Службы BizTalk Azure требуют как минимум проверки подлинности сервера.</li>
+<li><strong>Общее имя.</strong> Введите полное доменное имя (FQDN) URL-адреса службы BizTalk Azure. См. раздел <a HREF="#BizTalk">Создание службы BizTalk</a> в этой статье.</li>
 </ul>
 <br/>
 По окончании создания службы BizTalk можно добавить новый или имеющийся сертификат.
@@ -262,7 +262,7 @@ ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 * [Службы BizTalk: регулирование](biztalk-throttling-thresholds.md)<br/>
 * [Службы BizTalk: имя и ключ издателя](biztalk-issuer-name-issuer-key.md)<br/>
 * [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Гибридные подключения](integration-hybrid-connection-overview.md)
+* [гибридных подключений](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png
@@ -271,9 +271,4 @@ ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 [QuickGlance]: ./media/biztalk-provision-services/WABS_QuickGlance.png
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

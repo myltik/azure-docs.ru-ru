@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 63b6086b7bab5cb61ed6f4a229afd1ffa44cc31e
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/18/2017
 
 [Предварительно настроенное решение][lnk-preconfigured-solutions] подключенной фабрики IoT Suite представляет собой законченную реализацию отраслевого решения, которое умеет выполнять следующие задачи.
 
-* Подключается к виртуальным отраслевым устройствам под управлением серверов OPC UA на производственных линиях виртуальной фабрики и к физическим устройствам сервера OPC UA.
+* Подключается к виртуальным отраслевым устройствам под управлением серверов OPC UA на производственных линиях виртуальной фабрики и к физическим устройствам сервера OPC UA. Дополнительные сведения об OPC UA см. в разделе [Часто задаваемые вопросы][lnk-faq].
 * Показывает оперативные ключевые показатели эффективности и общую эффективность оборудования этих устройств и производственных линий.
 * Демонстрирует, как можно использовать облачное приложение для взаимодействия с серверными системами OPC UA.
 * Позволяет подключать собственные устройства под управлением сервера OPC UA.
@@ -132,3 +132,4 @@ TSI отправляет запрос к данным узла с помощью
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-faq]: iot-suite-faq.md

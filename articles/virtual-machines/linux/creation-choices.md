@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 756711abb014829971af126c5cb60c12e79c920e
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: b2f93579eb1c7a69d0dbd1b0ef112aed9b2168c3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 05/11/2017
     az group create --name myResourceGroup --location eastus
     ```
     
-  * С помощью команды [az vm create](/cli/azure/vm#create) создайте виртуальную машину с именем *myVM*, используя последний образ *UbuntuLTS*, и сгенерируйте ключи SSH, если они уже существуют в *~/.ssh*:
+  * С помощью команды [az vm create](/cli/azure/vm#create) создайте виртуальную машину с именем *myVM*, используя последний образ *UbuntuLTS*, и сгенерируйте ключи SSH, если они еще не существуют в *~/.ssh*:
 
     ```azurecli
     az vm create \

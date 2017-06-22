@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/25/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 74cd4dbf74afbf5e7e0e7d0b7aca49b5aa214b83
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -245,6 +245,13 @@ ms.lasthandoff: 05/10/2017
 В колонке "Обзор" выберите **Параметры** и **Тесты производительности**. При создании теста вам будет предложено подключиться к учетной записи служб Visual Studio Team Services или создать ее.
 
 По завершении теста на экране отобразится время ответа и число успешных попыток.
+
+
+![тест производительности;](./media/app-insights-monitor-web-app-availability/perf-test.png)
+
+> [!TIP]
+> Чтобы увидеть результаты теста производительности, используйте [Live Stream](app-insights-live-stream.md) и [профилировщик](app-insights-profiler.md).
+>
 
 ## <a name="automation"></a>Автоматизация
 * [Используйте сценарии PowerShell, чтобы настройка теста доступности](app-insights-powershell.md#add-an-availability-test) выполнялась автоматически.

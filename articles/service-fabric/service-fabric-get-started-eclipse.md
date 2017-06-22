@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/03/2016
 ms.author: saysa
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: c50c77b3288bc0a2d9148d04c6fc45aa24882ebb
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 9cc621380a6b22a6b1da617d76c56e4773bb3dde
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -37,7 +37,8 @@ Eclipse является одной из наиболее часто испол�
 2.  Для установки подключаемого модуля Service Fabric в Eclipse Neon щелкните **Help** > **Install New Software** (Справка > Установка нового программного обеспечения).
   1.    В поле **Work with** (Работать с) введите **http://dl.microsoft.com/eclipse**.
   2.    Щелкните **Добавить**.
-    ![Подключаемый модуль Service Fabric для Eclipse Neon][sf-eclipse-plugin-install]
+
+         ![Подключаемый модуль Service Fabric для Eclipse Neon][sf-eclipse-plugin-install] 
   3.    Выберите подключаемый модуль Service Fabric и нажмите кнопку **Next** (Далее).
   4.    Выполните установку и примите условия лицензионного соглашения на использование программного обеспечения корпорации Майкрософт.
 
@@ -149,7 +150,7 @@ Eclipse является одной из наиболее часто испол�
 
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png

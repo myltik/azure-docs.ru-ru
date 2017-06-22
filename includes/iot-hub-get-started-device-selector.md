@@ -1,4 +1,5 @@
 > [!div class="op_single_selector"]
+> * [Веб-симулятор Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)   
 > * [Подключение виртуального устройства к Центру Интернета вещей с помощью .NET](../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md)
 > * [Подключение виртуального устройства к Центру Интернета вещей с помощью Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 > * [Подключение виртуального устройства к Центру Интернета вещей с помощью Node](../articles/iot-hub/iot-hub-node-node-getstarted.md)

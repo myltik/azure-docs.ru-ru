@@ -1,6 +1,6 @@
 | Ресурс | Ограничение |
 | --- | --- |
-| Объем кэша |530 ГБ ([свяжитесь с нами](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase) для получения дополнительных сведений) |
+| Объем кэша |530 ГБ |
 | Базы данных |64 |
 | Макс. число подключенных клиентов |40 000 |
 | Реплики кэша Radis (для высокого уровня доступности) |1 |
@@ -10,5 +10,5 @@
 
 Дополнительные сведения об ограничениях конфигурации кэша Redis для Azure см. в разделе [Конфигурация сервера Redis по умолчанию](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 
-Поскольку настройка и управление экземплярами кэша Redis для Azure осуществляется корпорацией Майкрософт, кэш Redis для Azure поддерживает не все команды Redis. Дополнительные сведения см. в разделе [Команды Redis, не поддерживаемые в кэше Redis для Azure]((redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
+Поскольку настройка и управление экземплярами кэша Redis для Azure осуществляется корпорацией Майкрософт, кэш Redis для Azure поддерживает не все команды Redis. Дополнительные сведения см. в разделе [Команды Redis не поддерживаются в кэше Redis для Azure](../articles/redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache).
 
