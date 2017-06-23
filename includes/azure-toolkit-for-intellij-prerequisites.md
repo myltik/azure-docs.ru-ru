@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Набор средств Azure для IntelliJ требует установки следующих программных компонентов:
 
 * IntelliJ IDEA Ultimate Edition. Его можно скачать по адресу <https://www.jetbrains.com/idea/download/>.
