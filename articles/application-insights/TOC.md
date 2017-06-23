@@ -43,6 +43,7 @@
 ### Таблицы Azure
 #### [Профилировщик](app-insights-profiler.md)
 #### [Диагностика](app-insights-azure-diagnostics.md)
+#### [Предварительные версии](app-insights-previews.md)
 
 ### ASP.NET:
 #### [Сбор дополнительных данных телеметрии](app-insights-asp-net-more.md)
@@ -91,8 +92,9 @@
 
 ### Использование
 #### [Обзор](app-insights-usage-overview.md)
-#### [Сохранение](app-insights-usage-retention.md)
 #### [Пользователи, сеансы, события](app-insights-usage-segmentation.md)
+#### [Сохранение](app-insights-usage-retention.md)
+#### [Книги](app-insights-usage-workbooks.md)
 
 ### Аналитика
 
@@ -108,6 +110,7 @@
 ### [Создание ресурсов](app-insights-powershell-script-create-resource.md)
 ### [Задание оповещений](app-insights-powershell-alerts.md)
 ### [Получение системы диагностики Azure](app-insights-powershell-azure-diagnostics.md)
+### [Автоматизация с помощью Microsoft Flow](app-insights-automate-with-flow.md)
 
 ## Разработка
 

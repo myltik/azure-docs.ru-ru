@@ -1,6 +1,6 @@
 # Обзор
 ## [Что такое Resource Manager?](resource-group-overview.md)
-## [Поставщики Resource Manager, регионы, версии API и схемы](resource-manager-supported-services.md)
+## [Поставщики и типы ресурсов](resource-manager-supported-services.md)
 ## [Развертывание с помощью Azure Resource Manager и классическое развертывание: сведения о моделях развертывания и состоянии ресурсов](resource-manager-deployment-model.md)
 ## [Корпоративный каркас Azure: рекомендуемая система управления подписками](resource-manager-subscription-governance.md)
 ## [Обзор управляемых приложений Azure](managed-application-overview.md)
@@ -67,12 +67,13 @@
 
 ## Задание политик ресурсов
 ### [Что представляют собой политики ресурсов?](resource-manager-policy.md)
-### [Назначение политики с помощью портала](resource-manager-policy-portal.md)
-### [Назначение политики с помощью скрипта](resource-manager-policy-create-assign.md)
-### [Политики тегов ресурсов](resource-manager-policy-tags.md)
-### [Политики хранения](resource-manager-policy-storage.md)
-### [Политики виртуальных машин Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Политики виртуальных машин Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Назначение политик с помощью портала](resource-manager-policy-portal.md)
+### [Назначение политик с помощью скриптов](resource-manager-policy-create-assign.md)
+### Примеры
+#### [Теги ресурсов](resource-manager-policy-tags.md)
+#### [Хранилище](resource-manager-policy-storage.md)
+#### [Виртуальные машины Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Виртуальные машины Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Использование управляемых приложений
 ### [Создание и публикация управляемого приложения Azure](managed-application-publishing.md)

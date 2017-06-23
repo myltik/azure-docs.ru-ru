@@ -1,6 +1,7 @@
 # Обзор
 
 ## [Введение](storage-introduction.md)
+## [Выбор больших двоичных объектов, файлов или дисков данных](storage-decide-blobs-files-disks.md)
 
 # Начало работы
 
@@ -50,6 +51,7 @@
 ### [Добавление управляемого диска к виртуальной машине Linux](../virtual-machines/linux/add-disk.md)
 ### [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Создание копии диска VHD, хранящегося в виде управляемого диска, с использованием моментальных снимков в Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Использование управляемых дисков в шаблонах Resource Manager](storage-using-managed-disks-template-deployments.md)
 
 # Практическое руководство
 ## [Создание учетной записи хранения](storage-create-storage-account.md)
@@ -70,7 +72,8 @@
 ### [Примеры](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Использование файлов
 ### [Обзор](/rest/api/storageservices/File-Service-Concepts)
-### [Устранение неполадок файлов Azure](storage-troubleshoot-file-connection-problems.md)
+### [Устранение неполадок с файлами Azure (Windows)](storage-troubleshoot-windows-file-connection-problems.md)
+### [Устранение неполадок с файлами Azure (Linux)](storage-troubleshoot-linux-file-connection-problems.md)
 ### [Примеры](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Использование дисков
 ### [Диски и VHD для виртуальных машин Windows](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +112,7 @@
 ## Безопасность
 ### [Руководство по обеспечению безопасности](storage-security-guide.md)
 ### [Шифрование неактивных данных](storage-service-encryption.md)
+### [Шифрование при хранении с помощью ключей пользователя](storage-service-encryption-customer-managed-keys.md)
 ### [Аутентификация на основе общего ключа](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [Подписанные URL-адреса (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Учебник. Шифрование и расшифровка больших двоичных объектов с помощью хранилища ключей Azure](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -130,7 +134,8 @@
 ### [Руководство по аварийному восстановлению](storage-disaster-recovery-guidance.md)
 ## Передача данных
 ### [Перемещение данных в хранилище и из него](storage-moving-data.md)
-### [Служебная программа командной строки AzCopy](storage-use-azcopy.md)
+### [AzCopy в Windows](storage-use-azcopy.md)
+### [AzCopy в Linux](storage-use-azcopy-linux.md)
 ### [Использование службы импорта и экспорта](storage-import-export-service.md)
 ### [Использование средства импорта и экспорта](storage-import-export-tool-how-to.md)
 #### [Настройка средства импорта и экспорта](storage-import-export-tool-setup.md)

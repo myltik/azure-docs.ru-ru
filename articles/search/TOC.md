@@ -78,6 +78,7 @@
 ## [REST для службы (предварительная версия)](search-api-2015-02-28-preview.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/search/)
 ## Сайты с демоверсиями
+### [Search Analyzer Demo](http://alice.unearth.ai/)
 ### [Приложение с описаниями заданий](http://aka.ms/azjobsdemo)
 ### [Демонстрационные приложения, работающие в реальном времени](https://searchsamples.azurewebsites.net/)
 ## Обучающие программы и учебники

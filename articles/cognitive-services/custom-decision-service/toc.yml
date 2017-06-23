@@ -1,14 +1,16 @@
-- name: "Custom Decision Service"
+- name: Служба пользовательских решений
   href: ../index.md
-- name: "Overview"
+- name: Обзор
   href: custom-decision-service-overview.md
-- name: "Get started"
+- name: Начало работы
   items:
-  - name: "Call API from a browser"
+  - name: Регистрация приложения
+    href: custom-decision-service-get-started-register.md
+  - name: Вызов API из браузера
     href: custom-decision-service-get-started-browser.md
-  - name: "Call API from an app"
+  - name: Вызов API из приложения
     href: custom-decision-service-get-started-app.md
-- name: "Tutorial"
+- name: Учебник
   href: custom-decision-service-tutorial.md
-- name: "API reference"
+- name: Справочник по API
   href: custom-decision-service-api-reference.md

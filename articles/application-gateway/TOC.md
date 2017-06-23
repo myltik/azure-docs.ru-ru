@@ -41,6 +41,7 @@
 ### [Портал](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (классическая модель)](application-gateway-create-probe-classic-ps.md)
+## [Интеграция центра безопасности Azure](application-gateway-integration-security-center.md)
 ## [Комбинирование служб балансировки нагрузки](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Устранение неполадок
 ### [Устранение ошибок в шлюзе приложений](application-gateway-troubleshooting-502.md)

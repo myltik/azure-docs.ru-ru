@@ -1,5 +1,6 @@
 # [Обзор](active-directory-developers-guide.md)
-## [Базовые сведения об аутентификации ](active-directory-authentication-scenarios.md)
+## [Почему именно Azure?](https://azure.microsoft.com/develop/identity/signin/)
+## [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md)
 ## [Типы приложений](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Начало работы
 ## Классические и мобильные приложения
@@ -71,6 +72,7 @@
 ### [Поддерживаемые маркеры и типы утверждений](active-directory-token-and-claims.md)
 ### [Смена ключей подписывания](active-directory-signing-key-rollover.md)
 ### [Метаданные федерации](active-directory-federation-metadata.md)
+### [Учетные данные сертификата](active-directory-certificate-credentials.md)
 ## [Объекты приложения](active-directory-application-objects.md)
 ### [Приложения и Azure AD](active-directory-how-applications-are-added.md)
 ## [Манифест приложения](active-directory-application-manifest.md)
@@ -101,4 +103,5 @@
 #### [Предоставление учетных данных клиента OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Поток Oauth 2.0 On-Behalf-Of](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Справочник по маркерам](active-directory-v2-tokens.md)
+#### [Учетные данные сертификата](active-directory-certificate-credentials.md)
 ### [Области действия](active-directory-v2-scopes.md)

@@ -21,6 +21,9 @@
 ### [Изменение идентификатора клиента](key-vault-subscription-move-fix.md)
 ### [Доступность и избыточность](key-vault-disaster-recovery-guidance.md)
 ### [Защита хранилища ключей](key-vault-secure-your-key-vault.md)
+### [Общие сведения о безопасности систем](key-vault-ovw-security-worlds.md)
+### [Общие сведения об обратимом удалении](key-vault-ovw-soft-delete.md)
+### [Общие сведения о ключах учетной записи хранения](key-vault-ovw-storage-keys.md)
 
 ## Автоматизация
 ### [Служба автоматизации Azure](automation-manage-key-vault.md)
@@ -43,7 +46,7 @@
 ## [Многофакторная идентификация](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Ресурсы
-## [Сведения о ключах и секретах](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Сведения о ключах, секретах и сертификатах](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [Примеры кода](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Цены](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Блог](http://blogs.technet.com/b/kv/)

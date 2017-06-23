@@ -16,12 +16,13 @@
 ### [Устранение неполадок и мониторинг](troubleshooting-monitoring.md)
 ## SAP HANA на виртуальных машинах
 ### [SAP HANA с одним экземпляром](hana-get-started.md)
-### [Руководство по развертыванию S/4 HANA или BW/4 HANA](cal-s4h.md)
+### [Руководство по развертыванию S/4 HANA или BW/4 HANA SAP CAL](cal-s4h.md)
 ### [Высокая доступность виртуальных машин](sap-hana-high-availability.md)
 ### [Обзор службы архивации](sap-hana-backup-guide.md)
 ### [Резервное копирование на уровне файлов](sap-hana-backup-file-level.md)
 ### [Резервные копии моментальных снимков хранилища](sap-hana-backup-storage-snapshots.md)
 ## SAP NetWeaver
+### [Руководство по развертыванию интегрированных сред разработки SAP и SAP CAL в Windows или SQL Server](sap-cal-ides-erp6-ehp7-sp3-sql.md)
 ### [Обзор и архитектура](suse-quickstart.md)
 ### [Планирование и реализация](planning-guide.md)
 ### [Высокая доступность](high-availability-guide.md)
