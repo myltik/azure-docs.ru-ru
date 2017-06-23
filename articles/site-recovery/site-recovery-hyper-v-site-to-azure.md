@@ -14,6 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/05/2017
 ms.author: raynew
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: hyper-v-site-walkthrough-overview
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: 0ef782a7bb7a98da2ec63c91732b3d5ddd959848
@@ -21,6 +23,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 05/17/2017
 
 ---
+
 
 # <a name="replicate-hyper-v-virtual-machines-without-vmm-to-azure-using-azure-site-recovery-with-the-azure-portal"></a>Репликация виртуальных машин Hyper-V (без VMM) в облако Azure с помощью службы Azure Site Recovery и портала Azure
 
@@ -270,7 +273,7 @@ ms.lasthandoff: 05/17/2017
 
 10. Нажмите кнопку **OK**, чтобы сохранить изменения. Позже можно задать дополнительные свойства.
 
-     ![Включение репликации](./media/site-recovery-hyper-v-site-to-azure/enable-replication6-with-exclude-disk.png)
+    ![Включение репликации](./media/site-recovery-hyper-v-site-to-azure/enable-replication6-with-exclude-disk.png)
 
 11. Щелкнув **Параметры репликации** > **Настройка параметров репликации**, выберите политику репликации, которую необходимо применить к защищенным виртуальным машинам. Нажмите кнопку **ОК**. Политику репликации можно изменить, последовательно выбрав **Политики репликации** > имя_политики > **Изменить параметры**. Изменения будут применяться к компьютерам, для которых уже выполняется репликация, и к новым компьютерам.
 
