@@ -29,8 +29,8 @@
 ### [Распространенные метрики](insights-autoscale-common-metrics.md)
 ### [Распространенные шаблоны](monitoring-autoscale-common-scale-patterns.md)
 ### [Автомасштабирование с помощью пользовательской метрики](monitoring-autoscale-scale-by-custom-metric.md)
-### [Автомасштабирование масштабируемых наборов ВМ с помощью шаблонов Resource Manager](insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Автоматическое масштабирование виртуальных машин в масштабируемом наборе виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+### [Автомасштабирование масштабируемых наборов виртуальных машин с помощью шаблонов Resource Manager](insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### [Автомасштабирование виртуальных машин в масштабируемых наборах виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Настройка веб-перехватчиков webhook и уведомлений по электронной почте для автомасштабирования](insights-autoscale-to-webhook-email.md)
 ## Использование журнала действий
 ### [Просмотр событий в журнале действий](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
@@ -39,10 +39,10 @@
 ### [Потоковая передача журналов действий в концентраторы событий](monitoring-stream-activity-logs-event-hubs.md)
 ### [Операции аудита с помощью диспетчера ресурсов](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Создание оповещений о журнале действий с помощью Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-## Уведомления службы
+## Использование уведомлений службы
 ### [Просмотр уведомлений службы](monitoring-service-notifications.md)
 ### [Настройка оповещений об уведомлениях службы](monitoring-activity-log-alerts-on-service-notifications.md)
-## Группы действий
+## Использование групп действий
 ### [Дополнительные сведения о схеме webhook](monitoring-activity-log-alerts-webhook.md)
 ### [Поведение оповещений в SMS](monitoring-sms-alert-behavior.md)
 ### [Ограничение по количеству оповещений](monitoring-alerts-rate-limiting.md)

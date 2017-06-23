@@ -45,10 +45,12 @@
 ### [Интеграция Enterprise с EDIFACT](logic-apps-enterprise-integration-edifact.md)
 ### [Кодирование EDIFACT](logic-apps-enterprise-integration-edifact-encode.md)
 ### [Декодирование EDIFACT](logic-apps-enterprise-integration-edifact-decode.md)
+### [Как обрабатывать документы EDIFACT при наличии сегмента UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [Интеграция Enterprise с X12](logic-apps-enterprise-integration-x12.md)
 ### [Кодирование X12](logic-apps-enterprise-integration-x12-encode.md)
 ### [Декодирование X12](logic-apps-enterprise-integration-x12-decode.md)
 ### [Аварийное восстановление](logic-apps-enterprise-integration-b2b-business-continuity.md)
+### [Ошибки и решения](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Доступ к локальным данным
 ### [Подключение к локальным данным](logic-apps-gateway-connection.md)
@@ -75,7 +77,6 @@
 ### [Вызов приложений логики с помощью Функций Azure](logic-apps-scenario-function-sb-trigger.md)
 ### [Добавление обработки ошибок и исключений](logic-apps-scenario-error-and-exception-handling.md)
 ### [Обработка B2B](logic-apps-enterprise-integration-b2b.md)
-### [Как обрабатывать документы EDIFACT при наличии сегмента UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 
 ## Цены и выставление счетов
 ### [Цены](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -116,6 +117,7 @@
 ### [webhook HTTP](../connectors/connectors-native-webhook.md)
 ### [Informix](../connectors/connectors-create-api-informix.md)
 ### [Учетная запись интеграции](logic-apps-enterprise-integration-metadata.md)
+### [MQ](../connectors/connectors-create-api-mq.md)
 ### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
 ### [База данных Oracle](../connectors/connectors-create-api-oracledatabase.md)
 ### [Запросы и ответы](../connectors/connectors-native-reqres.md)

@@ -6,13 +6,15 @@
 # [Приступая к работе](iot-hub-get-started.md)
 
 ## Настройка вашего устройства
-### Использование виртуального устройства
+### [Моделирование устройства на ПК](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### Использование физического устройства
+### [Использование онлайн-симулятора](iot-hub-raspberry-pi-web-simulator-get-started.md)
+
+### [Использование физического устройства](iot-hub-get-started-physical.md)
 #### [Приступая к работе с Raspberry Pi 3 (Node.JS)](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Подключение устройства Raspberry Pi 3 к Центру Интернета вещей с помощью C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
@@ -28,15 +30,14 @@
 ##### [Подключение шлюза к Центру Интернета вещей](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Использование шлюза для преобразования данных](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-### [Использование онлайн-симулятора устройств](iot-hub-raspberry-pi-web-simulator-get-started.md)
-
-## [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
-## [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
-## [Визуализация данных в Power BI](iot-hub-live-data-visualization-in-power-bi.md)
-## [Визуализация данных в веб-приложениях](iot-hub-live-data-visualization-in-web-apps.md)
-## [Создание прогноза погоды с помощью Машинного обучения Azure](iot-hub-weather-forecast-machine-learning.md)
-## [Управление устройствами с помощью средства iothub-explorer](iot-hub-device-management-iothub-explorer.md)
-## [Удаленный мониторинг и использование уведомлений с помощью Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+## Расширенные сценарии IoT
+### [Управление обменом сообщениями между устройством и облаком с помощью обозревателя Центра Интернета вещей](iot-hub-explorer-cloud-device-messaging.md)
+### [Сохранение сообщений Центра Интернета вещей в хранилище данных Azure](iot-hub-store-data-in-azure-table-storage.md)
+### [Визуализация данных в Power BI](iot-hub-live-data-visualization-in-power-bi.md)
+### [Визуализация данных в веб-приложениях](iot-hub-live-data-visualization-in-web-apps.md)
+### [Создание прогноза погоды с помощью Машинного обучения Azure](iot-hub-weather-forecast-machine-learning.md)
+### [Управление устройствами с помощью средства iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+### [Удаленный мониторинг и использование уведомлений с помощью Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Практическое руководство
 ## План
@@ -54,13 +55,13 @@
 ##### [Использование пользовательских конечных точек и правил маршрутизации для сообщений, отправляемых с устройства в облако](iot-hub-devguide-messages-read-custom.md)
 ##### [Отправка сообщений, пересылаемых из облака на устройство, из Центра Интернета вещей](iot-hub-devguide-messages-c2d.md)
 ##### [Создание и чтение сообщений Центра Интернета вещей](iot-hub-devguide-messages-construct.md)
+##### [Выбор протокола связи](iot-hub-devguide-protocols.md)
 #### [Передача файлов с устройства](iot-hub-devguide-file-upload.md)
 #### [Управление удостоверениями устройств](iot-hub-devguide-identity-registry.md)
 #### [Управление доступом к Центру Интернета вещей](iot-hub-devguide-security.md)
 #### [Основные сведения о двойниках устройств](iot-hub-devguide-device-twins.md)
 #### [Вызов прямых методов на устройстве](iot-hub-devguide-direct-methods.md)
 #### [Планирование заданий на нескольких устройствах](iot-hub-devguide-jobs.md)
-#### [Выбор протокола связи](iot-hub-devguide-protocols.md)
 #### [Конечные точки Центра Интернета вещей](iot-hub-devguide-endpoints.md)
 #### [Язык запросов](iot-hub-devguide-query-language.md)
 #### [Квоты и регулирование](iot-hub-devguide-quotas-throttling.md)
@@ -122,17 +123,31 @@
 ### [Рекомендации по обеспечению безопасности](iot-hub-security-best-practices.md)
 ### [Архитектура безопасности](iot-hub-security-architecture.md)
 ### [Защита развернутой службы Интернета вещей](iot-hub-security-deployment.md)
-## IoT Edge
-### Приступая к работе
+## Edge Интернета вещей Azure
+### [Обзор](iot-hub-iot-edge-overview.md)
+### Начало работы
 #### [Linux](iot-hub-linux-iot-edge-get-started.md)
 #### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### Моделирование устройства
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [Использование реального устройства](iot-hub-iot-edge-physical-device.md)
+### Создание модуля
+#### [Java](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-java-modules-windows-10ubuntu-linux-14)
+#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-net-modules-windows-10)
+#### [Node.js](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-javascript-modules-windows-10ubuntu-linux-14)
+### Создание
+#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
+#### [Модуль .NET Сore](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
+#### [Управляемый шлюз .NET Сore](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
+#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
+#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
+#### [Динамическое добавление модулей](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
+#### [Внепроцессный модуль прокси](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
+#### [Узел собственного модуля](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Справочные материалы
-## [Azure CLI 2.0](/cli/azure/iot)
+## [Интерфейс командной строки Azure](/cli/azure/iot)
 ## [.NET (служба)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (устройства)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (служба)](/java/api/com.microsoft.azure.sdk.iot.service)
@@ -164,4 +179,4 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Центре разработчика для IoT в Azure](https://azure.microsoft.com/develop/iot/)
 ## [Каталог устройств, сертифицированных по программе Microsoft Azure Certified for IoT](https://catalog.azureiotsuite.com/)
-## [Технические примеры использования](https://microsoft.github.io/techcasestudies/#technology=IoT)
+## [Технические примеры использования](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

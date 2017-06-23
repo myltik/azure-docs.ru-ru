@@ -11,7 +11,7 @@
 ### [Создание автономной учетной записи службы автоматизации](automation-create-standalone-account.md)
 ### [Создание учетной записи пользователя Azure AD](automation-create-aduser-account.md)
 ### [Настройка проверки подлинности с помощью AWS](automation-config-aws-account.md)
-### [Создание учетной записи запуска от имени Azure с помощью PowerShell](automation-update-account-powershell.md)
+### [Создание учетной записи запуска от имени](automation-create-runas-account.md)
 ### [Проверка настройки учетной записи службы автоматизации](automation-verify-runas-authentication.md)
 ### [Управление доступом на основе ролей](automation-role-based-access-control.md)
 ### [Управление учетной записью службы автоматизации](automation-manage-account.md)
@@ -56,12 +56,12 @@
 ### [Исправление неполадок с помощью оповещения о виртуальной машине Azure](automation-azure-vm-alert-integration.md)
 ### [Запуск и остановка виртуальной машины с помощью тегов JSON](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Удаление группы ресурсов](automation-scenario-remove-resourcegroup.md)
-### [Запуск и остановка виртуальных машин в нерабочее время](automation-solution-vm-management.md)
 ### [Интеграция системы управления версиями с помощью GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Интеграция системы управления версиями с помощью VSTS](automation-scenario-source-control-integration-with-VSTS.md)
 ## Решения
 ### [Отслеживание изменений](../log-analytics/log-analytics-change-tracking.md)
 ### [Управление обновлениями](../operations-management-suite/oms-solution-update-management.md)
+### [Запуск и остановка виртуальных машин в нерабочее время](automation-solution-vm-management.md)
 ## Монитор
 ### [Пересылка данных задания службы автоматизации Azure в Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Отмена привязки учетной записи службы автоматизации Azure к Log Analytics](automation-unlink-from-log-analytics.md)

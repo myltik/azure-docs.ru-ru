@@ -4,6 +4,7 @@
 
 # Начало работы
 ## [Создание пространства имен](relay-create-namespace-portal.md)
+## [Создание гибридных локальные и облачных приложений](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## через гибридные подключения
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)

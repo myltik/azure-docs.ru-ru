@@ -17,11 +17,21 @@
 ## [Часто задаваемые вопросы](active-directory-faq.md)
 ## [Как получить поддержку для Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [Руководства по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
+## Элементы управления Azure AD
+### [Выполнение проверки доступа](active-directory-azure-ad-controls-complete-an-access-review.md)
+### [Создание проверки доступа](active-directory-azure-ad-controls-create-an-access-review.md)
+### [Как выполнить проверку доступа](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 # Практическое руководство
 ## планирование и разработка
 ### [Основы архитектуры Azure AD](active-directory-architecture.md)
+### [Защита политик и конфигураций электронной почты](secure-email-introduction.md)
+#### [Рекомендуемые политики](secure-email-recommended-policies.md)
+#### [Развертывание политик и конфигураций](secure-email-deploy-recommended-policies.md)
+#### [Описания служб EMS и Office 365](secure-email-ems-office365-service-descriptions.md)
 ### [Развертывание решения для гибридной идентификации](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Сопоставление утверждений в Azure Active Directory](active-directory-claims-mapping.md)
 
 #### Определение требований
 ##### [Удостоверение](active-directory-hybrid-identity-design-considerations-business-needs.md)
@@ -42,7 +52,17 @@
 ## Управление пользователями
 ### Добавление пользователей
 #### [Портал Azure](active-directory-users-create-azure-portal.md)
-#### [Классический портал.](active-directory-create-users.md)
+#### [Классический портал](active-directory-create-users.md)
+### Элементы управления Azure AD
+#### [Гостевой доступ с использованием проверок доступа](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+#### [Управление доступом пользователей с помощью проверок](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+
+### [Назначение лицензий с помощью групп](active-directory-licensing-whatis-azure-portal.md)
+#### [Назначение лицензий группе](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Поиск и устранение проблем с лицензированием групп](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
+#### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
+#### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 
 ### [Добавление пользователей из других каталогов (классический портал)](active-directory-create-users-external.md)
 ### [Удаление пользователей](active-directory-users-delete-user-azure-portal.md)
@@ -50,6 +70,8 @@
 ### [Сброс пароля](active-directory-users-reset-password-azure-portal.md)
 ### [Управление сведениями о работе пользователей](active-directory-users-work-info-azure-portal.md)
 ### [Совместное использование учетных записей](active-directory-sharing-accounts.md)
+
+
 
 ## [Управление группами и членами](active-directory-manage-groups.md)
 ### Управление группами
@@ -59,6 +81,12 @@
 ### [Управление членами группы](active-directory-groups-members-azure-portal.md)
 ### [Управление владельцами групп](active-directory-accessmanagement-managing-group-owners.md)
 ### [Управление членством в группах](active-directory-groups-membership-azure-portal.md)
+### [Назначение лицензий с помощью групп](active-directory-licensing-whatis-azure-portal.md)
+#### [Назначение лицензий группе](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Поиск и устранение проблем с лицензированием групп](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
+#### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
+#### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
 ### [Просмотр всех групп](active-directory-groups-view-azure-portal.md)
 ### [Включение выделенных групп](active-directory-accessmanagement-dedicated-groups.md)
 ### [Включение доступа для групп в приложениях SaaS](active-directory-accessmanagement-group-saasapps.md)
@@ -68,13 +96,7 @@
 #### [Командлеты](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Создание дополнительных правил
 #### [Портал Azure](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [Классический портал.](active-directory-accessmanagement-groups-with-advanced-rules.md)
-### [Групповое лицензирование](active-directory-licensing-whatis-azure-portal.md)
-#### [Назначение лицензий группе](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Поиск и устранение проблем лицензирования группы](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Перевод отдельных лицензированных пользователей на групповое лицензирование](active-directory-licensing-group-migration-azure-portal.md)
-#### [Дополнительные сценарии группового лицензирования](active-directory-licensing-group-advanced.md)
-#### [Примеры PowerShell для группового лицензирования](active-directory-licensing-ps-examples.md)
+#### [Классический портал](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [Настройка групп самообслуживания](active-directory-accessmanagement-self-service-group-management.md)
 ### [Устранение неполадок](active-directory-accessmanagement-troubleshooting.md)
 
@@ -92,14 +114,15 @@
 ### Устранение неполадок
 #### [Отсутствующие данные аудита](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Отсутствующие данные в файлах для скачивания](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    [Программный доступ](active-directory-reporting-api-getting-started-azure-portal.md)
+#### [Ошибки пакета содержимого журналов действий Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
+### [Программный доступ](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Справочные материалы по аудиту](active-directory-reporting-api-audit-reference.md)
 #### [Справочник по входу](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Предварительные требования](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Примеры аудита](active-directory-reporting-api-audit-samples.md)
 #### [Примеры входа](active-directory-reporting-api-sign-in-activity-samples.md)
-#### [Получение данных](active-directory-reporting-api-with-certificates.md)
-### [Классический портал.](active-directory-view-access-usage-reports.md)
+#### [Использование сертификатов](active-directory-reporting-api-with-certificates.md)
+### [Классический портал](active-directory-view-access-usage-reports.md)
 #### [Отчеты Azure AD](active-directory-reporting-getting-started.md)
 #### [Руководство по отчетам](active-directory-reporting-guide.md)
 #### [Известные сети](active-directory-known-networks.md)
@@ -165,6 +188,8 @@
 ### [Обнаружение облачных приложений](active-directory-cloudappdiscovery-whatis.md)
 #### [Обновление параметров реестра](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Общие сведения о безопасности и конфиденциальности](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+### Элементы управления Azure AD
+####[Администрирование программ и их элементов управления](active-directory-azure-ad-controls-manage-programs-and-controls.md)
 
 ### [Удаленный доступ к приложениям с помощью прокси приложения](active-directory-application-proxy-get-started.md)
 #### Начало работы

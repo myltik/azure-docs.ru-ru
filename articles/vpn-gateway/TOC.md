@@ -50,6 +50,7 @@
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell (классическая модель)](vpn-gateway-about-forced-tunneling.md)
 ## Изменение настроек локального сетевого шлюза
+### [Портал Azure](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Интерфейс командной строки Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [Проверка подключения VPN-шлюза](vpn-gateway-verify-connection-resource-manager.md)
@@ -59,6 +60,7 @@
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (классическая модель)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [Настройка VPN-шлюза (классическая модель)](vpn-gateway-configure-vpn-gateway-mp.md)
+## [SKU шлюзов (старая версия)](vpn-gateway-about-skus-legacy.md)
 ## Устранение неполадок
 ### [Проверка пропускной способности VPN для виртуальной сети](vpn-gateway-validate-throughput-to-vnet.md)
 

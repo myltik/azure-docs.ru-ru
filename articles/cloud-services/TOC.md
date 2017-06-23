@@ -102,7 +102,11 @@
 ### [Распространенные проблемы с развертыванием](cloud-services-troubleshoot-deployment-problems.md)
 ### [Роль не запускается](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Инструкции по восстановлению](cloud-services-disaster-recovery-guidance.md)
-### [Часто задаваемые вопросы об облачных службах](cloud-services-faq.md)
+### Часто задаваемые вопросы об облачных службах
+#### [Часто задаваемые вопросы о доступности приложений и служб](cloud-services-application-and-service-availability-faq.md)
+#### [Часто задаваемые вопросы о настройке и управлении](cloud-services-configuration-and-management-faq.md)
+#### [Часто задаваемые вопросы о подключениях и сетях](cloud-services-connectivity-and-networking-faq.md)
+#### [Часто задаваемые вопросы о развертывании](cloud-services-deployment-faq.md)
 
 # Справочные материалы
 ## [Схема XML в CSDEF-файле](https://msdn.microsoft.com/library/azure/ee758711)

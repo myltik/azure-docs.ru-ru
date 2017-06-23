@@ -11,6 +11,7 @@
 ### [Ведение журналов и аудит](azure-log-audit.md)
 ### [Изоляция в общедоступном облаке](azure-isolation.md)
 ### [Технические возможности обеспечения безопасности](azure-security-technical-capabilities.md)
+### [Управление в Azure](governance-in-azure.md)
 
 # Начало работы
 ## [Приступая к работе с системой безопасности Azure](azure-security-getting-started.md)

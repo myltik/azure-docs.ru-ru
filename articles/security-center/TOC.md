@@ -5,11 +5,13 @@
 ## Сценарии
 ### [Реагирование на инциденты](security-center-incident-response.md)
 ### [Использование рекомендаций для повышения уровня безопасности](security-center-using-recommendations.md)
+## [Платформа миграции](security-center-platform-migration.md)
 
-# Приступая к работе
+# Начало работы
 ## [Краткое руководство](security-center-get-started.md)
 ## [Планирование и эксплуатация](security-center-planning-and-operations-guide.md)
 ## [Разрешения](security-center-permissions.md)
+## [Поддерживаемые платформы](security-center-os-coverage.md)
 ## [Интеграция партнеров](security-center-partner-integration.md)
 ## [Часто задаваемые вопросы](security-center-faq.md)
 

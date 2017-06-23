@@ -6,7 +6,13 @@
 ## [Настройка среды разработки](media-services-set-up-computer.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST](media-services-rest-how-to-use.md)  
-## Подключение программными средствами
+## [Использование аутентификации AAD для доступа к API](media-services-use-aad-auth-to-access-ams-api.md)
+###[Использование портала для управления аутентификацией AAD](media-services-portal-get-started-with-aad.md)
+###[Доступ к API с помощью .NET](media-services-dotnet-get-started-with-aad.md)
+###[Доступ к API с помощью REST](media-services-rest-connect-with-aad.md)
+###[Использование интерфейса командной строки для создания и настройки приложения AAD](media-services-cli-create-and-configure-aad-app.md)
+###[Использование PowerShell для создания и настройки приложения AAD](media-services-powershell-create-and-configure-aad-app.md)
+## Подключение программными средствами с помощью ключей ACS
 ### [.NET](media-services-dotnet-connect-programmatically.md)
 ### [REST](media-services-rest-connect-programmatically.md)
 
@@ -214,7 +220,7 @@
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (управление службами)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [REST](/rest/api/media/mediaservice)  
 
 # Ресурсы
 ## [Заметки о выпуске](media-services-release-notes.md)
