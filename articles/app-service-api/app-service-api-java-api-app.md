@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 26f2fba953870564292ef3e986a3151373f6babf
-ms.lasthandoff: 01/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -153,7 +154,7 @@ ms.lasthandoff: 01/05/2017
 1. Откройте файл модели *Contact.java*, расположенный в папке *src/gen/java/io/swagger/model*, с помощью [Visual Studio Code] или текстового редактора на ваш выбор. 
    
     ![Открыть файл модели контактов][open-contact-model-file]
-2. Добавьте следующий конструктор в класс **Contact** . 
+2. Добавьте следующий конструктор в класс **Contact**. 
    
         public Contact(Integer id, String name, String email) 
         {
@@ -291,7 +292,7 @@ ms.lasthandoff: 01/05/2017
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
-[онлайн-редактор Swagger]: http://editor.swagger.io/
+[онлайн-редактор Swagger]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
 [пакете SDK для Java для службы хранилища]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/

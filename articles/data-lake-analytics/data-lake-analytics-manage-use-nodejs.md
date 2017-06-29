@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: e6440522ced33a48925cfabc64da055b8700b253
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 769cf9b09eecd204c8b5b944065dad57a6d73231
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -34,8 +36,8 @@ ms.openlocfilehash: e6440522ced33a48925cfabc64da055b8700b253
 
 ## <a name="features"></a>Функции
 * Управление учетными записями: создание, получение, получение списков, обновление и удаление.
-* Управление заданиями: отправка, получение, получение списков и отмена.
-* Управление каталогами: получение, получение списков, создание (секретов), обновление (секретов), удаление (секретов).
+* Управление заданиями: отправка, получение, перечисление и отмена.
+* Управление каталогами: получение и перечисление.
 
 ## <a name="how-to-install"></a>Установка
 ```bash
@@ -137,10 +139,5 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 ## <a name="see-also"></a>Дополнительные материалы
 * [Пакет Microsoft Azure SDK для Node.js](https://github.com/azure/azure-sdk-for-node)
 * [Пакет Microsoft Azure SDK для Node.js — управление хранилищем озера данных](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

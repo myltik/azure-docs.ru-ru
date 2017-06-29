@@ -1,7 +1,9 @@
-Сведения о конфигурации VPN-устройства см. по приведенным ниже ссылкам.
+Сведения о конфигурации см. по приведенным ниже ссылкам.
 
-- См. дополнительные сведения о [совместимых VPN-устройствах](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md). 
+- См. дополнительные сведения о [совместимых VPN-устройствах](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
+- Прежде чем настраивать VPN-устройство, которое вы хотите использовать, проверьте его на наличие [известных проблем совместимости устройств](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known).
 - См. дополнительные сведения о [проверенных VPN-устройствах](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Ссылки на инструкции по настройке устройств будут предоставляться по мере возможности. Актуальные сведения о конфигурации всегда лучше проверять у производителей устройств.
 - См. дополнительные сведения о [примерах изменения конфигурации устройств](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing).
-- См. сведения о [параметрах IPsec/IKE](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec).
-- Прежде чем настраивать VPN-устройство, которое вы хотите использовать, проверьте его на наличие [известных проблем совместимости устройств](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known).
+- См. дополнительные сведения о [требованиях к шифрованию и VPN-шлюзах Azure](../articles/vpn-gateway/vpn-gateway-about-compliance-crypto.md).
+- См. дополнительные сведения о [VPN-устройствах и параметрах IPsec/IKE для подключений типа "сеть — сеть" через VPN-шлюз](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec).
+- См. инструкции по [настройке политики IPsec/IKE для VPN-подключений типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть"](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md).

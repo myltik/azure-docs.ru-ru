@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 1691ef4a3de8f17d61aeead05b7d9eaeadc2d58a
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>Занятие 7. Создание ключевых показателей эффективности
@@ -47,7 +47,7 @@ ms.lasthandoff: 05/05/2017
     InternetCurrentQuarterSalesPerformance :=DIVIDE([InternetCurrentQuarterSales]/[InternetPreviousQuarterSalesProportionToQTD],BLANK())  
     ```
 
-    Эта мера будет служить базовой для ключевого показателя эффективности.  
+    Эта мера будет использоваться в качестве базовой для ключевого показателя эффективности.  
   
 4.  Щелкните правой кнопкой мыши **InternetCurrentQuarterSalesPerformance** > **Создать ключевой показатель эффективности**.   
   
@@ -60,7 +60,7 @@ ms.lasthandoff: 05/05/2017
     ![aas-lesson7-kpi](../tutorials/media/aas-lesson7-kpi.png)
     
     > [!TIP]  
-    > Обратите внимание на развертываемую метку **Описания** под доступными стилями значков. Она позволяет вводить описания для различных элементов КПЭ, чтобы сделать их более понятными в клиентских приложениях.  
+    > Обратите внимание на развертываемую метку **Описания** под доступными стилями значков. Используйте описания для разных элементов ключевых показателей эффективности, чтобы сделать их более понятными в клиентских приложениях.  
   
 9. Нажмите кнопку **ОК**, чтобы завершить создание КПЭ.  
   

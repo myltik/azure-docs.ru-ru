@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 06/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: c2e78e0191be6ac7d828402859c04c486e8df594
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 391870380280d6783223849ce383113bf1dd6d31
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/21/2017
 Log Analytics — это служба в [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md), которая отслеживает облачные и локальные среды, чтобы поддерживать уровень их доступности и производительности.  Она собирает данные, формируемые ресурсами в облачных и локальных средах, а также другими средствами мониторинга, и на их основе предоставляет аналитические сведения для нескольких источников.  В этой статье кратко описано значение Log Analytics, представлены общие сведения о работе этой службы, а также содержатся ссылки на более подробные источники.
 
 ## <a name="is-log-analytics-for-you"></a>Подходит ли вам Log Analytics?
-Если у вас нет средства мониторинга среды Azure, мы рекомендуем использовать [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md). Эта платформа собирает и анализирует данные мониторинга для ресурсов Azure.  Log Analytics может собирать данные Azure Monitor, сопоставлять их с другими данными и на основе полученных результатов предоставлять дополнительный анализ.
+Если у вас нет средства мониторинга среды Azure, мы рекомендуем использовать [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md). Эта платформа собирает и анализирует данные мониторинга для ресурсов Azure.  Log Analytics может [собирать данные Azure Monitor](log-analytics-azure-storage.md), сопоставлять их с другими данными и на основе полученных результатов выполнять дополнительный анализ.
 
 Если вы хотите отслеживать локальную среду или у вас уже есть средство мониторинга, использующие такие решения, как Azure Monitor или System Center Operations Manager, служба Log Anlalytics может быть особенно полезной.  Эта служба собирает данные непосредственно из агентов, а также из других средств в едином репозитории.  Средства анализа в Log Analytics, такие как поиск по журналам, представления и решения, обрабатывают все собранные данные, предоставляя централизованный анализ всей среды.
 

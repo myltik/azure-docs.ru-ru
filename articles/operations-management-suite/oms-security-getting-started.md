@@ -4,7 +4,7 @@ description: "Эта статья поможет вам приступить к 
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -138,6 +139,12 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 ### <a name="threat-intelligence"></a>Аналитика угроз
 
 С помощью функции "Анализ угроз", доступной в решении OMS "Безопасность и аудит", ИТ-администраторы могут выявлять угрозы безопасности в среде, например определять, что конкретный компьютер является частью бот-сети. Компьютеры могут стать узлами в бот-сети, если злоумышленники незаконно установят вредоносную программу, которые тайно подключает этот компьютер к среде управления и контроля. С его помощью также можно выявить потенциальные угрозы, поступающие по нелегальным каналам связи, таким как даркнет. Дополнительные сведения об анализе угроз см. в статье [Мониторинг и реагирование на оповещения безопасности в решении "Безопасность и аудит" Operations Management Suite](oms-security-responding-alerts.md).
+
+В некоторых случаях можно заметить потенциально вредоносные IP-адреса, поступившие с одного отслеживаемого компьютера:
+
+![Карта анализа угроз](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Это и другие предупреждения одной категории создаются системой безопасности OMS с использованием [аналитики угроз корпорации Майкрософт](https://youtu.be/O4WtxgUrDc8). Данные аналитики угроз собираются корпорацией Майкрософт, а также приобретаются у ведущих поставщиков решений по аналитике угроз. Эти данные часто обновляются и адаптируются в соответствии с быстрым изменением угроз. При этом предупреждения системы безопасности следует [анализировать](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) вместе с данными из других источников, поставляющих сведения о безопасности. 
 
 ### <a name="baseline-assessment"></a>Оценка базовых показателей
 

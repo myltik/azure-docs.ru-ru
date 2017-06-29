@@ -15,9 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53f9d5b37e6f754540e70b534555750dd54895d0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 426294e0dc3e877565bd57e899fdc79a1bd31c21
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -38,7 +40,7 @@ ms.openlocfilehash: 53f9d5b37e6f754540e70b534555750dd54895d0
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с данным учебником требуется следующее:
 
-* [XCode 6.0 ][Install Xcode];
+* [Xcode 6.0][Install Xcode]
 * устройство под управлением iOS 7.0 (или более поздней версии);
 * Участие в программе для разработчиков на платформе iOS
 * [Xamarin Studio]
@@ -76,7 +78,7 @@ ms.openlocfilehash: 53f9d5b37e6f754540e70b534555750dd54895d0
 #### <a name="create-a-new-project"></a>Создание нового проекта
 1. В Xamarin Studio создайте новый проект iOS и выберите шаблон **Unified API** > **Single View Application** (Единый API > Приложение с одним представлением).
    
-       ![Xamarin Studio - Select Application Type][31]
+     ![Выбор типа приложения в Xamarin Studio][31]
 2. Добавьте ссылку на компонент обмена сообщениями Azure. В представлении решения щелкните правой кнопкой мыши папку **Components** (Компоненты) для вашего проекта и выберите пункт **Get More Components** (Получить дополнительные компоненты). Найдите компонент **Мобильные службы Azure** и добавьте его в проект.
 3. В файле **AppDelegate.cs**добавьте следующий оператор using:
    
@@ -277,32 +279,27 @@ Push-уведомления обычно отправляются через с�
 
 
 <!-- URLs. -->
-[Пакет SDK для мобильных служб iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Мои приложения]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Пакет Live SDK для Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Классический портал Azure]: https://manage.windowsazure.com/
+[классический портал Azure]: https://manage.windowsazure.com/
 [Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[Инструкции по использованию концентраторов уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Установка Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Портал подготовки iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Использование концентраторов уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[Служба push-уведомлений Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
-[Компонент мобильных служб Azure]: http://components.xamarin.com/view/azure-mobile-services/
+[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin Studio]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
-[Портал Azure]: https://portal.azure.com
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+[портале Azure]: https://portal.azure.com
 

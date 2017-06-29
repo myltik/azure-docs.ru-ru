@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8cfe8689494a9f85d1533d259a2744e18407ecef
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 053e2ae7f382bc55a6638ccd612289ab2ba64e52
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -82,7 +82,12 @@ ms.lasthandoff: 05/08/2017
 
     ![Управление доступом к подписке][subscription_access]
 
-4. В колонке **Добавить разрешения** выберите роль **Участник** и выполните поиск по запросу **MicrosoftAzureBatch** (без пробелов). Выберите **MicrosoftAzureBatch** и нажмите кнопку **Сохранить**.
+4. В колонке **Добавление разрешений** выберите роль **Участник** и выполните поиск API пакетной службы. Продолжайте поиск для каждой из этих строк, пока не найдете API:
+    1. **MicrosoftAzureBatch**;
+    2. **Microsoft Azure Batch**. Более новые клиенты Azure AD могут использовать это имя.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** — это идентификатор API пакетной службы. 
+
+5. Найдя API пакетной службы, выберите его и нажмите кнопку **Сохранить**.
 
     ![Добавление разрешений для пакетной службы][add_permission]
 

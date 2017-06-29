@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 42fabff59577db5feb98e5c03d7a2b6d3d2461c3
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: ba8db575c8731e4f9067a6635e745da12c8667dd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Создание функции, активируемой хранилищем очередей Azure
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/25/2017
 
 - Скачайте и установите [обозреватель хранилищ Microsoft Azure](http://storageexplorer.com/).
 
-- Вам понадобится подписка Azure. Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начать работу.
+- Подписка Azure. Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начать работу.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -49,15 +49,21 @@ ms.lasthandoff: 05/25/2017
 
 ## <a name="create-a-queue-triggered-function"></a>Создание функции, активируемой очередью
 
-Разверните свое приложение-функцию, нажмите кнопку **+** рядом с **Функции**, а затем щелкните шаблон **QueueTrigger** для нужного языка. Затем используйте настройки, указанные в таблице, и щелкните **Создать**.
+1. Разверните приложение-функцию и нажмите кнопку **+** рядом с элементом **Функции**. Если это первая функция в приложении-функции, выберите **Пользовательская функция**. Откроется полный набор шаблонов функций.
 
-![Создайте функцию, активируемую очередью службы хранилища.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Страница быстрого начала работы с функциями на портале Azure](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-| Настройка | Рекомендуемое значение | Описание |
-|---|---|---|
-| **Имя очереди**   | myqueue-items    | Имя очереди для подключения к вашей учетной записи хранения. |
-| **Подключение к учетной записи хранения** | AzureWebJobStorage | Вы можете использовать подключение к учетной записи хранения, которое уже используется вашим приложением-функцией, или создать его.  |
-| **Имя функции** | Уникальное для вашего приложения-функции | Имя функции, активируемой очередью. |
+2. Выберите шаблон **QueueTrigger** для нужного языка и используйте параметры, как указано в таблице.
+
+    ![Создайте функцию, активируемую очередью службы хранилища.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    
+    | Настройка | Рекомендуемое значение | Описание |
+    |---|---|---|
+    | **Имя очереди**   | myqueue-items    | Имя очереди для подключения к вашей учетной записи хранения. |
+    | **Подключение к учетной записи хранения** | AzureWebJobStorage | Вы можете использовать подключение к учетной записи хранения, которое уже используется вашим приложением-функцией, или создать его.  |
+    | **Имя функции** | Уникальное для вашего приложения-функции | Имя функции, активируемой очередью. |
+
+3. Щелкните **Создать**, чтобы создать функцию.
 
 Затем необходимо подключиться к своей учетной записи хранения Azure и создать очередь службы хранилища **myqueue-items**.
 

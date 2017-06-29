@@ -10,27 +10,27 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 0cce578185ba7811e4b13cc061a2adcb18452b13
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 893371145d77e156843271907aeef0c3756d0403
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-5-create-calculated-columns"></a>Занятие 5. Создание вычисляемых столбцов
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-В этом занятии вы создадите в модели данные, добавив вычисляемые столбцы. Вычисляемые столбцы можно создать (в качестве пользовательских столбцов) при использовании функции получения данных, с помощью редактора запросов или позднее в конструкторе моделей. Последним способом вы воспользуетесь здесь. Дополнительные сведения см. в разделе [Вычисляемые столбцы](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).
+В этом занятии вы создадите в модели данные, добавив вычисляемые столбцы. Вычисляемые столбцы можно создать (в качестве настраиваемых столбцов) при использовании функции получения данных, с помощью редактора запросов или позднее в конструкторе моделей. Последним способом вы и воспользуетесь. Дополнительные сведения см. в разделе [Вычисляемые столбцы](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).
   
-Вы создадите пять вычисляемых столбцов в трех разных таблицах. Шаги для каждой из задач немного отличаются. Это позволяет продемонстрировать несколько способов для создания, переименования и перемещения столбцов.  
+Вы создадите пять вычисляемых столбцов в трех разных таблицах. Шаги для каждой задачи немного отличаются, что позволяет продемонстрировать несколько способов создания и переименования столбцов, а также их перемещения в таблице.  
 
-Кроме того, здесь вы впервые воспользуетесь выражениями анализа данных (DAX). DAX — это специальный язык, позволяющий создавать сложные настраиваемые выражения формул для табличных моделей. В этом учебнике вы будете использовать DAX для создания вычисляемых столбцов, мер и фильтров ролей. Дополнительные сведения см. в разделе [DAX в табличных моделях](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
+Кроме того, на этом занятии вы впервые воспользуетесь выражениями анализа данных (DAX). DAX — это специальный язык, позволяющий создавать сложные настраиваемые выражения формул для табличных моделей. В этом руководстве вы будете использовать DAX для создания вычисляемых столбцов, мер и фильтров ролей. Дополнительные сведения см. в разделе [DAX в табличных моделях](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
   
 Предполагаемое время выполнения этого занятия: **15 минут**  
   
@@ -67,7 +67,7 @@ ms.lasthandoff: 05/05/2017
   
 #### <a name="create-a-dayofweek-calculated-column-in-the-dimdate-table"></a>Создание вычисляемого столбца DayOfWeek в таблице DimDate  
   
-1.  Пока таблица **DimDate** активна, откройте меню **Столбец** и выберите элемент **Добавить столбец**.  
+1.  Пока таблица **DimDate** активна, откройте меню **Столбец** и выберите **Добавить столбец**.  
   
 2.  В строке формул введите следующую формулу:  
     
@@ -99,7 +99,7 @@ ms.lasthandoff: 05/05/2017
   
 3.  Переименуйте столбец в **ProductSubcategoryName**.  
   
-Вычисляемый столбец ProductSubcategoryName используется для создания иерархии в таблице DimProduct, которая включает данные из столбца EnglishProductSubcategoryName таблицы DimProductSubcategory. Иерархии не могут охватывать более одной таблицы. Вы создадите иерархии позднее в занятии 9.  
+Вычисляемый столбец ProductSubcategoryName используется для создания иерархии в таблице DimProduct, которая включает данные из столбца EnglishProductSubcategoryName таблицы DimProductSubcategory. Иерархии не могут охватывать более одной таблицы. Вы создадите иерархии позднее в занятии 9.  
   
 #### <a name="create-a-productcategoryname-calculated-column-in-the-dimproduct-table"></a>Создание вычисляемого столбца ProductCategoryName в таблице DimProduct  
   
