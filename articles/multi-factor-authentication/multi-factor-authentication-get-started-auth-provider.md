@@ -5,32 +5,39 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: a7dd5030-7d40-4654-8fbd-88e53ddc1ef5
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/24/2017
+ms.date: 06/14/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: b0c3c5dfd695b28b75bf44c9f835b34966413a9a
-ms.lasthandoff: 04/18/2017
-
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 160b4a0f7db327f5114bb45f1d2a7f6633aee17c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/20/2017
 
 ---
+
 # <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Начало работы с поставщиком Azure Multi Factor Authentication
 Двухфакторная проверка подлинности доступна по умолчанию для глобальных администраторов, у которых есть служба Azure Active Directory, и для пользователей Office 365. Однако если вы хотите использовать преимущества [дополнительных функций](multi-factor-authentication-whats-next.md), необходимо приобрести полную версию службы многофакторной идентификации Microsoft Azure (MFA).
 
-> [!NOTE]
-> Поставщик Azure MFA используется для получения всех преимуществ полной версии Azure MFA. Он предназначен для пользователей, у которых **нет лицензий Azure MFA, Azure AD Premium или Enterprise Mobility Suite**.  Эти решения по умолчанию включают в себя полную версию Azure MFA.  Если у вас есть лицензии, вам не нужно создавать поставщик Azure Multi Factor Authentication.
+Поставщик Azure MFA используется для получения всех преимуществ полной версии Azure MFA. Он предназначен для пользователей, у которых **нет лицензий Azure MFA, Azure AD Premium или Enterprise Mobility + Security (EMS)**.  Эти решения по умолчанию включают в себя полную версию Azure MFA. Если у вас есть лицензии, вам не нужно создавать поставщик Azure Multi Factor Authentication.
 
 Поставщик Azure Multi Factor Authentication требуется, если вы хотите скачать пакет SDK.
 
 > [!IMPORTANT]
-> Если вы хотите скачать пакет SDK, необходимо создать поставщик Azure Multi-Factor Authentication, даже если у вас уже есть лицензии Azure MFA, AAD Premium или EMS.  Если вы решили создать для этой цели поставщик Azure Multi-Factor Authentication и у вас уже есть лицензии, не забудьте создать поставщик на базе модели **На включенного пользователя**. Свяжите поставщик с каталогом, содержащим лицензии Azure MFA, Azure AD Premium или EMS.  При такой конфигурации с вас будет взиматься плата, только если количество уникальных пользователей, использующих двухфакторную проверку подлинности, превысит количество лицензий, которыми вы владеете.
+> Если вы хотите скачать пакет SDK, необходимо создать поставщик Azure Multi-Factor Authentication, даже если у вас уже есть лицензии Azure MFA, AAD Premium или EMS.  Если вы решили создать для этой цели поставщик Azure Multi-Factor Authentication и у вас уже есть лицензии, не забудьте создать поставщик на базе модели **На включенного пользователя**. Свяжите поставщик с каталогом, содержащим лицензии Azure MFA, Azure AD Premium или EMS. При такой конфигурации с вас будет взиматься плата, только если количество уникальных пользователей, использующих двухфакторную проверку подлинности, превысит количество лицензий, которыми вы владеете.
+
+## <a name="what-is-an-azure-multi-factor-auth-provider"></a>Что такое поставщик Azure Multi Factor Authentication?
+
+Если у вас нет лицензий Многофакторной идентификации Azure, вы можете создать поставщик для обязательной двухфакторной проверки подлинности пользователей. Если вы разрабатываете пользовательское приложение и хотите включить Azure MFA, создайте поставщик проверки подлинности и [скачайте пакет SDK](multi-factor-authentication-sdk.md).
+
+Поставщики проверки подлинности бывают двух типов. Их отличие заключается в способе оплаты за подписку Azure. При оплате за каждую проверку подлинности вычисляется количество событий проверки подлинности, выполненных для клиента в течение месяца. Этот вариант подойдет, если проверка подлинности редко выполняется для определенного числа пользователей. Например, если MFA требуется для пользовательского приложения. При оплате за каждого пользователя вычисляется количество пользователей в клиенте, выполнявших двухфакторную проверку подлинности в течение месяца. Этот вариант подойдет, если количества имеющихся лицензий для пользователей недостаточно для MFA.
 
 ## <a name="create-a-multi-factor-auth-provider"></a>Создание поставщика многофакторной идентификации
 Ниже показано, как создать поставщик Azure Multi Factor Authentication.
@@ -57,5 +64,4 @@ ms.lasthandoff: 04/18/2017
         ![Создание поставщика MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 8. После нажатия кнопки "Создать" будет создан поставщик Multi-Factor Authentication и появится сообщение **Поставщик Multi-Factor Authentication успешно создан**. Нажмите кнопку **ОК**.
    ![Создание поставщика MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
-
 

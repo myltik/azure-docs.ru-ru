@@ -1,6 +1,6 @@
 ---
-title: "Соединение локальной сети с виртуальной сетью Azure с помощью VPN типа &quot;сеть — сеть&quot; и интерфейса командной строки | Документация Майкрософт"
-description: "Сведения о создании подключения IPsec между локальной сетью и виртуальной сетью Azure через общедоступный Интернет. Они помогут вам создать подключение типа &quot;сеть — сеть&quot; с использованием VPN-шлюза и интерфейса командной строки."
+title: "Соединение локальной сети с виртуальной сетью Azure с помощью VPN типа \"сеть — сеть\" и интерфейса командной строки | Документация Майкрософт"
+description: "Сведения о создании подключения IPsec между локальной сетью и виртуальной сетью Azure через общедоступный Интернет. Они помогут вам создать подключение типа \"сеть — сеть\" с использованием VPN-шлюза и интерфейса командной строки."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 06/01/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7132c83168efcebc9ac03b42afdec9f760e4fcbe
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 43ac7ccada8aa156d41b42839cac0644c061f25c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -28,11 +28,11 @@ ms.lasthandoff: 05/09/2017
 В этой статье показано, как с помощью Azure CLI создавать подключение типа "сеть — сеть" с использованием VPN-шлюза между вашей локальной сетью к виртуальной. Приведенные в этой статье инструкции относятся к модели развертывания с помощью Resource Manager. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:<br>
 
 > [!div class="op_single_selector"]
-> * [Resource Manager — портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> * [Resource Manager — PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-> * [Resource Manager — интерфейс командной строки](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
-> * [Классическая модель — портал Azure](vpn-gateway-howto-site-to-site-classic-portal.md)
-> * [Классическая модель — классический портал](vpn-gateway-site-to-site-create.md)
+> * [Портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+> * [Портал Azure (классический)](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Классический портал (классическая модель)](vpn-gateway-site-to-site-create.md)
 > 
 >
 
@@ -45,10 +45,10 @@ ms.lasthandoff: 05/09/2017
 
 Перед началом настройки убедитесь, что удовлетворены следующие требования:
 
-* Убедитесь, что выбрана модель развертывания с помощью Resource Manager. [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
+* Убедитесь, что выбрана модель развертывания с помощью Resource Manager. [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-rm-include.md)]
 * Совместимое VPN-устройство и пользователь, который может настроить его. Дополнительные сведения о совместимых устройствах VPN и их настройке см. в [этой статье](vpn-gateway-about-vpn-devices.md).
 * Внешний общедоступный IPV4-адрес для VPN-устройства. Этот IP-адрес не может располагаться вне преобразования сетевых адресов (NAT).
-* Если вы не знаете диапазоны IP-адресов в своей конфигурации локальной сети, найдите того, кто сможет предоставить вам нужную информацию. При создании этой конфигурации необходимо указать префиксы диапазона IP-адресов, которые Azure будет направлять к локальному расположению. Ни одна из подсетей локальной сети не может перекрывать виртуальные подсети, к которым вы хотите подключиться. 
+* Если вы не знаете диапазоны IP-адресов в своей конфигурации локальной сети, найдите того, кто сможет предоставить вам нужную информацию. При создании этой конфигурации необходимо указать префиксы диапазона IP-адресов, которые Azure будет направлять к локальному расположению. Ни одна из подсетей локальной сети не может перекрывать виртуальные подсети, к которым вы хотите подключиться.
 * Последняя версия команд интерфейса командной строки (версии 2.0 или более поздней). Сведения об установке команд интерфейса командной строки см. в статьях [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Установка Azure CLI 2.0) и [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) (Приступая к работе с Azure CLI 2.0).
 
 ### <a name="example-values"></a>Примеры значений
@@ -67,7 +67,7 @@ Subnet                  = 10.12.0.0/24
 GatewaySubnet           = 10.12.255.0/27 
 LocalNetworkGatewayName = Site2 
 LNG Public IP           = <VPN device IP address>
-LocalAddrPrefix1        = 10.0.0.0/24 
+LocalAddrPrefix1        = 10.0.0.0/24
 LocalAddrPrefix2        = 20.0.0.0/24   
 GatewayName             = VNet1GW 
 PublicIP                = VNet1GWIP 
@@ -90,7 +90,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="VNet"></a>3. Создать виртуальную сеть
 
-Если у вас еще нет виртуальной сети, создайте ее, используя команду [az network vnet create](/cli/azure/network/vnet#create). При создании виртуальной сети убедитесь, что указанные адресные пространства не перекрываются ни с одним из адресных пространств, которые используются в локальной сети. 
+Если у вас еще нет виртуальной сети, создайте ее, используя команду [az network vnet create](/cli/azure/network/vnet#create). При создании виртуальной сети убедитесь, что указанные адресные пространства не перекрываются ни с одним из адресных пространств, которые используются в локальной сети.
 
 В следующем примере создаются виртуальная сеть TestVNet1 и подсеть Subnet1.
 
@@ -146,12 +146,12 @@ az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocati
 
 * Для конфигурации "сеть — сеть" задайте для параметра *--gateway-type* значение *Vpn*. Тип шлюза всегда зависит от реализуемой конфигурации. Дополнительные сведения см. в разделе [Типы шлюзов](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 * У параметра *--vpn-type* может быть значение *RouteBased* (в некоторых документах такой шлюз называется шлюзом с динамической маршрутизацией) или *PolicyBased* (в некоторых документах — шлюз со статической маршрутизацией). Этот параметр зависит от требований устройства, к которому вы подключаетесь. Дополнительные сведения о VPN-шлюзах см. в [этой статье](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
-* У параметра *--sku* может быть значение Basic, Standard или HighPerformance. К определенным номерам SKU применяются ограничения настройки. Дополнительные сведения см. в разделе о [номерах SKU шлюзов](vpn-gateway-about-vpngateways.md#gateway-skus).
+* Выберите SKU шлюза, который нужно использовать. К определенным номерам SKU применяются ограничения настройки. Дополнительные сведения см. в разделе о [номерах SKU шлюзов](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Чтобы создать VPN-шлюз, используйте команду [az network vnet-gateway create](/cli/azure/network/vnet-gateway#create). При выполнении этой команды с использованием параметра --no-wait вы не увидите ответа или выходных данных. Этот параметр позволяет создать шлюз в фоновом режиме. Процесс создания шлюза занимает около 45 минут.
 
 ```azurecli
-az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku Standard --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
 ## <a name="VPNDevice"></a>8. Настройка устройства VPN
@@ -183,15 +183,19 @@ az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --v
 
 ## <a name="toverify"></a>10. Проверка VPN-подключения
 
-[!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)] 
+[!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 Если вы хотите использовать другой метод проверки подключения, см. статью [Проверка соединения VPN-шлюза](vpn-gateway-verify-connection-resource-manager.md).
+
+## <a name="connectVM"></a>Подключение к виртуальной машине
+
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
 ## <a name="common-tasks"></a>Стандартные задачи
 
 Этот раздел содержит общие команды, которые могут быть полезны при работе с конфигурациями подключения типа "сайт — сайт". Полный список сетевых команд интерфейса командной строки см. в разделе об [управлении ресурсами сети Azure](/cli/azure/network).
 
-[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)] 
+[!INCLUDE [local network gateway common tasks](../../includes/vpn-gateway-common-tasks-cli-include.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -199,3 +203,4 @@ az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --v
 * Сведения о BGP см. в статьях [Обзор использования BGP с VPN-шлюзами Azure](vpn-gateway-bgp-overview.md) и [Настройка BGP на VPN-шлюзах Azure с помощью Azure Resource Manager и PowerShell](vpn-gateway-bgp-resource-manager-ps.md).
 * Сведения о принудительном туннелировании см. в [этом разделе](vpn-gateway-forced-tunneling-rm.md).
 * Список сетевых команд Azure CLI см. в статье об [Azure CLI](https://docs.microsoft.com/cli/azure/network).
+

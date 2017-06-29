@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/17/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 04b809a6fdd7b993a048a67f66a9851c2a7bf3d2
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 0b15399cade0a9dc21b2274a64172d65f2f4e877
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -29,12 +29,12 @@ ms.lasthandoff: 05/18/2017
 ## <a name="before-you-begin"></a>Перед началом работы
 Для начала работы необходимы перечисленные ниже компоненты и данные.
 
-* **Сервер Analysis Services** в Azure. Дополнительные сведения см. в статье [Create an Analysis Services in Azure](analysis-services-create-server.md) (Создание служб Analysis Services в Azure).
-* **Проект табличной модели** в SSDT или существующая табличная модель на уровне совместимости 1200 или более поздней в экземпляре служб Analysis Services. Не создавали такую модель ранее? Ознакомьтесь с [руководством по Adventure Works](https://msdn.microsoft.com/library/hh231691.aspx).
+* **Сервер Analysis Services** в Azure. См. дополнительные сведения о [создании сервера Azure Analysis Services](analysis-services-create-server.md).
+* **Проект табличной модели** в SSDT или существующая табличная модель на уровне совместимости 1200 и выше. Не создавали такую модель ранее? Ознакомьтесь с [руководством по Adventure Works](https://msdn.microsoft.com/library/hh231691.aspx).
 * **Локальный шлюз**. Если один или несколько источников данных находятся в локальной сети вашей организации, необходимо установить [локальный шлюз данных](analysis-services-gateway.md). Этот шлюз необходим для подключения сервера в облаке к локальным источникам данных для обработки и обновления данных в модели.
 
 > [!TIP]
-> Перед развертыванием убедитесь, что можете обрабатывать данные в таблицах. В средстве SSDT последовательно выберите элементы **Модель** > **Обработать** > **Обработать все**. Если произойдет сбой обработки, развертывание также завершится сбоем.
+> Перед развертыванием убедитесь, что можете обрабатывать данные в таблицах. В средстве SSDT последовательно выберите элементы **Модель** > **Обработать** > **Обработать все**. Если обработка завершается сбоем, вы не сможете выполнить развертывание.
 > 
 > 
 

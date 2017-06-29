@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: eb85d8ef6b29605d7e26b0d2139a4a95c35141fb
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: b004310a3b2667134c9ad890bd907dc8ae439dd9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Руководство. Начало работы с Azure Data Lake Analytics с помощью портала Azure
+# <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Начало работы с Azure Data Lake Analytics с помощью портала Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Узнайте, как с помощью портала Azure создавать учетные записи Azure Data Lake Analytics, определять задания в [U-SQL](data-lake-analytics-u-sql-get-started.md) и отправлять их в службу Data Lake Analytics. Дополнительные сведения о Data Lake Analytics см. в [обзоре Azure Data Lake Analytics](data-lake-analytics-overview.md).
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/31/2017
 
 Прежде чем приступать к изучению этого руководства, необходимо оформить **подписку Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="create-data-lake-analytics-account"></a>Создание учетной записи аналитики озера данных
+## <a name="create-a-data-lake-analytics-account"></a>Создание учетной записи аналитики озера данных
 
 Теперь мы одновременно создадим учетные записи Data Lake Analytics и Data Lake Store.  Этот простой шаг занимает около минуты.
 
@@ -46,38 +46,32 @@ ms.lasthandoff: 05/31/2017
 4. При необходимости выберите ценовую категорию для учетной записи Data Lake Analytics.
 5. Щелкните **Создать**. 
 
-## <a name="create-and-submit-data-lake-analytics-jobs"></a>Создание и отправка заданий аналитики озера данных
-После подготовки исходных данных можно приступать к разработке скрипта U-SQL.  
 
-**Отправка задания**
+## <a name="your-first-u-sql-script"></a>Первый скрипт U-SQL
 
-1. В учетной записи Data Lake Analytics щелкните **Новое задание**.
-2. Введите **Имя задания**и следующий скрипт U-SQL:
+Ниже приводится очень простой скрипт U-SQL. Он определяет небольшой набор данных (в рамках скрипта) и записывает его в Azure Data Lake Store по умолчанию как файл с именем `/data.csv`.
 
 ```
-@searchlog =
-    EXTRACT UserId          int,
-            Start           DateTime,
-            Region          string,
-            Query           string,
-            Duration        int?,
-            Urls            string,
-            ClickedUrls     string
-    FROM "/Samples/Data/SearchLog.tsv"
-    USING Extractors.Tsv();
-
-OUTPUT @searchlog   
-    TO "/Output/SearchLog-from-Data-Lake.csv"
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS 
+              D( customer, amount );
+OUTPUT @a
+    TO "/data.csv"
     USING Outputters.Csv();
 ```
 
+## <a name="submit-a-u-sql-job"></a>Отправка задания U-SQL
 
-Этот сценарий U-SQL считывает файл исходных данных с помощью **Extractors.Tsv()**, а затем создает CSV-файл с помощью **Outputters.Csv()**.
-
-1. Щелкните **Отправить задание**.   
-2. Подождите, пока состояние задания не изменится на **Успешно**.
-3. Если задание завершилось сбоем, см. статью [Устранение неполадок с заданиями Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-4. Перейдите на вкладку **Выходные данные** и щелкните `SearchLog-from-Data-Lake.csv`. 
+1. В учетной записи Data Lake Analytics щелкните **Новое задание**.
+2. Вставьте в текст скрипт U-SQL, представленный выше. 
+3. Щелкните **Отправить задание**.   
+4. Подождите, пока состояние задания не изменится на **Успешно**.
+5. Если задание завершилось сбоем, см. сведения о [мониторинге и устранении неполадок с заданиями Azure Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+6. Перейдите на вкладку **Выходные данные** и щелкните `SearchLog-from-Data-Lake.csv`. 
 
 ## <a name="see-also"></a>См. также
 

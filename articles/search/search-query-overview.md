@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -62,4 +62,10 @@ ms.lasthandoff: 04/27/2017
 ## <a name="hit-highlighting"></a>Выделение совпадений
 В службе поиска Azure вы можете легко выделить конкретную часть результатов поиска, которые соответствуют поисковому запросу. Для этого воспользуйтесь параметрами `highlight`, `highlightPreTag` и `highlightPostTag`. Вы можете указать, в каких *поддерживающих поиск* полях следует выделять вхождения. Кроме того, можно указать конкретные теги строк, которые нужно добавлять к началу и концу вхождений, которые возвращает служба поиска Azure.
 
+## <a name="try-out-query-syntax"></a>Знакомство с синтаксисом запросов
 
+Лучший способ разобраться в синтаксисе запросов — практиковаться в их отправке с последующим просмотром результатов.
+
++ Используйте [обозреватель поиска](search-explorer.md) на портале Azure. Развернув [индекс образцов](search-get-started-portal.md) и используя средства на портале, можно быстро создать запрос индекса.
+
++ Используйте [Fiddler](search-fiddler.md) или Chrome Postman для отправки запросов индекса, переданного в службу поиска. Оба средства поддерживают вызовы REST к конечной точке HTTP. 

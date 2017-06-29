@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 0c7ef7004618966ae8c2d32027c460b2b643923e
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: f00ca3b8a35c0c49277457bd42fe8a314520d5a5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -51,7 +52,7 @@ ms.lasthandoff: 05/18/2017
 
 1. Разверните новое приложение-функцию, нажмите кнопку **+** рядом с **Функции**.
 
-2.  На странице **Get started quickly** (Быстрое начало работы) щелкните **Webhook + API**, выберите язык для функции и щелкните **Создать функцию**. 
+2.  На странице **Быстрое начало работы** щелкните **Веб-перехватчик + API**, выберите язык для функции и щелкните **Создать функцию**. 
    
     ![Быстрое начало работы с Функциями на портале Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 05/18/2017
 
 ## <a name="test-the-function"></a>Проверка функции
 
-1. В новой функции щелкните **< /> Получить URL-адрес функции** и скопируйте **URL-адрес функции**. 
+1. В новой функции щелкните **</> Получить URL-адрес функции**, выберите **По умолчанию (ключ функции)**и нажмите кнопку **Копировать**. 
 
     ![Копирование URL-адреса функции с портала Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 

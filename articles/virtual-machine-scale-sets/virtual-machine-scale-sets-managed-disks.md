@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/21/2017
+ms.date: 6/01/2017
 ms.author: negat
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 4ec20a30f423d4b30e953f873100be90167f987b
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -45,7 +46,7 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 ## <a name="api-versions"></a>Версии API
 
-Текущая общедоступная версия API для масштабируемых наборов с управляемыми дисками — `2016-04-30-preview`. Масштабируемые наборы с неуправляемыми дисками будут по-прежнему работать даже в новых версиях API, которые поддерживают управляемые диски. Однако для масштабируемых наборов с неуправляемыми дисками будут недоступны преимущества управляемых дисков, даже если использовать эти новые версии API.
+Для использования масштабируемых наборов с управляемыми дисками требуется версия Microsoft.Compute APi `2016-04-30-preview` или выше. Масштабируемые наборы с неуправляемыми дисками будут по-прежнему работать даже в новых версиях API, которые поддерживают управляемые диски. Однако для масштабируемых наборов с неуправляемыми дисками будут недоступны преимущества управляемых дисков, даже если использовать эти новые версии API.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

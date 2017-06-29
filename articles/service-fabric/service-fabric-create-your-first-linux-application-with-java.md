@@ -3,7 +3,7 @@ title: "Создание приложения микрослужб Azure на п
 description: "Создание и развертывание приложения Service Fabric с помощью Java"
 services: service-fabric
 documentationcenter: java
-author: seanmck
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
@@ -12,16 +12,17 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: eedddf7a40acfba7513efd810d115f1afe2f224d
-ms.lasthandoff: 03/23/2017
+ms.date: 06/02/2017
+ms.author: ryanwi
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 4ffab9eb858b05d3f5894e8753fb0fd4f38c4087
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/03/2017
 
 
 ---
-# <a name="create-your-first-azure-service-fabric-application"></a>Создание первого приложения Azure Service Fabric
+# <a name="create-your-first-service-fabric-java-application-on-linux"></a>Создание первого Java-приложения Service Fabric в Linux
 > [!div class="op_single_selector"]
 > * [C# для Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java для Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -29,38 +30,21 @@ ms.lasthandoff: 03/23/2017
 >
 >
 
-Service Fabric предоставляет пакеты SDK для создания служб в среде Linux с помощью .NET Core и Java. В этом руководстве мы создадим приложение для Linux, а также службу с использованием Java.  
-
-> [!NOTE]
-> Первоклассный встроенный язык программирования Java поддерживается только в предварительной версии Linux (планируется поддержка Windows). Тем не менее все приложения, включая приложения Java, можно запустить в качестве гостевых исполняемых файлов или же в контейнерах Windows или Linux. Дополнительные сведения см. в статьях [Развертывание гостевого исполняемого файла в Service Fabric](service-fabric-deploy-existing-app.md) и [Предварительная версия: развертывание контейнера в Service Fabric](service-fabric-deploy-container.md).
->
-
-## <a name="video-tutorial"></a>Видеоруководство
-
-В следующем видео Microsoft Virtual Academy представлено пошаговое создание приложения Java под управлением Linux:  
-<center><a target="\_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
-
+Используя это краткое руководство, вы создадите первое Java-приложение Azure Service Fabric в среде разработки Linux всего за несколько минут.  В результате вы получите простое приложение Java с одной службой, работающее в кластере локальной разработки.  
 
 ## <a name="prerequisites"></a>Предварительные требования
-Перед началом работы [настройте среду разработки Linux](service-fabric-get-started-linux.md). Если вы используете Mac OS X, вы можете [настроить универсальную среду Linux на виртуальной машине с помощью Vagrant](service-fabric-get-started-mac.md).
+Перед началом работы установите пакет SDK для Service Fabric, Azure CLI и настройте кластер разработки в своей [среде разработки Linux](service-fabric-get-started-linux.md). Если вы используете Mac OS X, можно [настроить среду разработки Linux на виртуальной машине с помощью Vagrant](service-fabric-get-started-mac.md).
 
 ## <a name="create-the-application"></a>Создание приложения
-Приложение Service Fabric может содержать одну или несколько служб, каждая из которых выполняет определенную роль в работе приложения. Пакет Service Fabric SDK для Linux включает генератор [Yeoman](http://yeoman.io/) , который упрощает создание первой службы и добавление последующих. Итак, с помощью Yeoman мы создадим приложение с одной службой.
+Приложение Service Fabric содержит одну или несколько служб, каждая из которых выполняет определенную роль в работе приложения. Пакет Service Fabric SDK для Linux включает генератор [Yeoman](http://yeoman.io/) , который упрощает создание первой службы и добавление последующих.  Кроме того, можно создать, собрать и развернуть Java-приложения Service Fabric с помощью подключаемого модуля для Eclipse. См. статью [Подключаемый модуль Service Fabric для разработки приложений Eclipse на Java](service-fabric-get-started-eclipse.md). В этом руководстве используйте Yeoman для создания приложения с одной службой, которая сохраняет и получает значение счетчика.
 
 1. В окне терминала введите ``yo azuresfjava``.
-2. Присвойте имя приложению.
-3. Выберите тип первой службы и присвойте ей имя. В этом примере мы выберем службу Reliable Actor.
-
+2. Присвойте имя приложению. 
+3. Выберите тип первой службы и присвойте ей имя. Для этого примера выберите службу Reliable Actor. Дополнительные сведения о других типах служб см. в статье [Общие сведения о модели программирования Service Fabric](service-fabric-choose-framework.md).
    ![Генератор Service Fabric Yeoman для Java][sf-yeoman]
 
-> [!NOTE]
-> Дополнительные сведения о доступных возможностях см. в статье [Общие сведения о модели программирования Service Fabric](service-fabric-choose-framework.md).
->
-
 ## <a name="build-the-application"></a>Создание приложения
-Шаблоны Service Fabric для Yeoman включают скрипт сборки для [Gradle](https://gradle.org/), который можно использовать для создания приложения из терминала.
+Шаблоны Service Fabric для Yeoman включают скрипт сборки для [Gradle](https://gradle.org/), который можно использовать для создания приложения из терминала. Используйте следующую команду, чтобы собрать и упаковать приложение:
 
   ```bash
   cd myapp
@@ -82,42 +66,43 @@ Service Fabric предоставляет пакеты SDK для создани
     ./install.sh
     ```
 
-3. Откройте в браузере Service Fabric Explorer и перейдите по адресу http://localhost:19080/Explorer (если используется Vagrant в Mac OS X, замените localhost частным IP-адресом ВМ).
+3. Откройте в браузере [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) и перейдите по адресу http://localhost:19080/Explorer (если используется Vagrant в Mac OS X, замените localhost частным IP-адресом ВМ).
 
-4. Разверните узел приложения. Вы увидите одну запись для типа приложения и еще одну — для первого экземпляра этого типа.
+4. Разверните узел **Приложения**. Вы увидите одну запись для типа приложения и еще одну — для первого экземпляра этого типа.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Запуск тестового клиента и отработка отказа
 Проекты субъекта предполагают использование дополнительных средств. Например, для отправки сообщений им требуется другая служба или клиент. Шаблон субъекта включает простой тестовый скрипт, обеспечивающий взаимодействие со службой субъекта.
 
-1. Запустите этот скрипт с помощью служебной программы для отслеживания, чтобы просмотреть выходные данные службы субъекта.
+1. Запустите этот скрипт с помощью служебной программы для отслеживания, чтобы просмотреть выходные данные службы субъекта.  Сценарий теста вызывает для субъекта метод `setCountAsync()`, увеличивающий значение счетчика. Затем для субъекта вызывается метод `getCountAsync()`, чтобы получить новое значение счетчика и вывести его на консоль.
 
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
 
-2. В Service Fabric Explorer найдите узел, в котором размещена первичная реплика службы субъекта. В нашем примере это узел 3.
+2. В Service Fabric Explorer найдите узел, в котором размещена первичная реплика службы субъекта. В нашем примере это узел 3. Первичная реплика службы обрабатывает операции чтения и записи.  Затем изменения в состоянии службы реплицируются во вторичные реплики, выполняющиеся на узлах 0 и 1, как показано на снимке экрана ниже.
 
     ![Поиск первичной реплики в Service Fabric Explorer][sfx-primary]
 
-3. Щелкните найденный узел, а затем щелкните в меню "Действия" пункт **Отключить (перезапустить)** . Это действие перезапускает один из пяти узлов в локальном кластере и выполняет принудительную отработку отказа с переходом на одну из вторичных реплик, запущенных на другом узле. После этого обратите внимание на выходные данные тестового клиента: счетчик будет увеличиваться несмотря на отработку отказа.
+3. В разделе **Узлы** щелкните найденный узел, а затем выберите в меню "Действия" пункт **Отключить (перезапустить)**. После этого узел, на котором запущена первичная реплика службы, перезапускается и выполняется принудительная отработка отказа с переходом на одну из вторичных реплик, запущенных на другом узле.  Вторичная реплика повышается до первичной, на другом узле создается еще одна вторичная реплика, и первичная реплика начинает выполнять операции чтения и записи. После перезапуска узла обратите внимание на выходные данные тестового клиента: счетчик будет увеличиваться несмотря на отработку отказа.
 
-## <a name="create-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Создание и развертывание приложения с помощью подключаемого модуля Eclipse Neon
-
-Service Fabric можно использовать для создания, сборки и развертывания приложения Service Fabric на Java с помощью Eclipse. При установке Eclipse выберите **интегрированную среду разработки Eclipse для разработчиков Java**. Кроме того, в настоящее время Service Fabric поддерживает подключаемый модуль Eclipse **Neon**. Подробную документацию см. в статье [Getting started with Eclipse Plugin for Service Fabric Java application development](service-fabric-get-started-eclipse.md) (Начало работы с подключаемым модулем Eclipse для разработки приложения Service Fabric на Java).
-
-## <a name="adding-more-services-to-an-existing-application"></a>Добавление дополнительных служб в существующее приложение
-
-### <a name="using-command-line-utility"></a>Использование служебной программы командной строки
-Чтобы добавить службу в приложение, созданное с использованием `yo`, сделайте следующее:
+## <a name="add-another-service-to-the-application"></a>Добавление в приложение еще одной службы
+Чтобы добавить службу в существующее приложение при помощи `yo`, выполните инструкции ниже.
 1. Перейдите в корневой каталог существующего приложения.  Например, `cd ~/YeomanSamples/MyApplication`, если `MyApplication` является приложением, созданным с помощью Yeoman.
 2. Запустите `yo azuresfjava:AddService`
+3. Создайте и разверните приложение, как в предыдущих шагах.
 
-### <a name="using-service-fabric-eclipse-plugin-for-java-on-linux"></a>Использование подключаемого модуля Service Fabric Eclipse для Java на платформе Linux
-Сведения о добавлении службы в имеющееся приложение, созданное с помощью подключаемого модуля Eclipse для Service Fabric, см. в [этой документации](service-fabric-get-started-eclipse.md#add-a-service-fabric-service-to-your-service-fabric-application).
+## <a name="remove-the-application"></a>Удаление приложения
+С помощью скрипта для удаления экземпляра приложения (включен в шаблон) отмените регистрацию пакета приложения и удалите его из хранилища образов кластера.
+
+```bash
+./uninstall.sh
+```
+
+В обозревателе Service Fabric вы увидите, что приложение и его тип больше не отображаются в узле **Приложения**.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Getting started with Eclipse Plugin for Service Fabric Java application development](service-fabric-get-started-eclipse.md) (Начало работы с подключаемым модулем Eclipse для разработки приложения Service Fabric на Java)
+* [Подключаемый модуль Service Fabric для разработки приложений Eclipse на Java](service-fabric-get-started-eclipse.md)
 * [Общие сведения о надежных субъектах Service Fabric](service-fabric-reliable-actors-introduction.md)
 * [Использование интерфейса командной строки Azure для взаимодействия с кластером Service Fabric](service-fabric-azure-cli.md)
 * [Устранение неполадок при развертывании](service-fabric-azure-cli.md#troubleshooting)

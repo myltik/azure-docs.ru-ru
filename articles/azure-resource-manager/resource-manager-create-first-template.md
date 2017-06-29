@@ -15,10 +15,10 @@ ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 80fd9d79652e4f0d9c4c524e3a762bcc3462bb53
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 05/11/2017
        {
          "name": "string",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-05-01",
+         "apiVersion": "2016-12-01",
          "sku": {
            "name": "string"
          },
@@ -102,6 +102,8 @@ ms.lasthandoff: 05/11/2017
    }
    ```
 
+  VS Code может указывать на то, что 2016-12-01 не является допустимой версией API. Если вы используете номер версии из справочной документации по шаблонам, это предупреждение можно игнорировать. Это предупреждение отображается, если схема не обновлена до последнего номера версии от поставщика ресурсов. 
+  
   Предыдущий пример включает множество значений-заполнителей и некоторые свойства, которые, возможно, не потребуются в вашей учетной записи хранения.
 
 ## <a name="set-values-for-storage-account"></a>Настройка значений для учетной записи хранения
@@ -117,7 +119,7 @@ ms.lasthandoff: 05/11/2017
      {
        "name": "string",
        "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-05-01",
+       "apiVersion": "2016-12-01",
        "sku": {
          "name": "string"
        },
@@ -156,7 +158,7 @@ ms.lasthandoff: 05/11/2017
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -199,7 +201,7 @@ VS Code опять предложит доступные функции.
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -328,7 +330,7 @@ VS Code опять предложит доступные функции.
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },

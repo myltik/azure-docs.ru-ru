@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cc85ae1c6642e763e57327c151ec68845f7673f7
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 34726377836d00d484ca01edb098f6c7cbfa9dbf
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -31,7 +31,6 @@ ms.lasthandoff: 05/31/2017
 Ознакомьтесь с этим видео, чтобы узнать больше о том, как службы Azure Analysis Services дополняют общие возможности средств бизнес-аналитики корпорации Майкрософт и как воспользоваться преимуществами переноса моделей данных в облако.
 
 
->
 >[!Видео https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >
@@ -43,7 +42,7 @@ ms.lasthandoff: 05/31/2017
 ## <a name="use-the-tools-you-already-know"></a>Использование знакомых инструментов
 ![Средства разработчика бизнес-аналитики](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-При создании моделей данных для служб Analysis Services Azure можно использовать те же средства, что и для служб SQL Server Analysis Services. Для создания и развертывания модели можно использовать [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) или [Azure Powershell](/powershell/azureps-cmdlets-docs) и шаблоны [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) в [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+При создании моделей данных для служб Analysis Services Azure можно использовать те же средства, что и для служб SQL Server Analysis Services. Создание и развертывание моделей с помощью [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx). Управление серверами и базами данных модели с помощью [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Автоматизация задач с помощью [Powershell](analysis-services-powershell.md) и шаблонов [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
 
 ## <a name="supports-the-latest-features"></a>Поддержка новых возможностей
 Службы Azure Analysis Services поддерживают табличные модели на уровне совместимости 1200 и 1400 (предварительная версия).
@@ -55,9 +54,7 @@ ms.lasthandoff: 05/31/2017
 ## <a name="data-sources"></a>Источники данных
 Модели данных, развернутые на серверах в Azure, поддерживают подключение к локальным и облачным источникам данных. Вы также можете получить гибридное решение бизнес-аналитики, объединив данные из локальных и облачных источников.
 
-Так как сервер находится в облаке, подключение к облачным источникам данных не вызывает затруднений. При подключении к локальным источникам данных [локальный шлюз данных](analysis-services-gateway.md) обеспечивает быстрое и надежное соединение с сервером в облаке.
-
-Дополнительные сведения о поддерживаемых локальных источниках данных см. в статье [Подключения к источникам данных](analysis-services-datasource.md).
+Так как сервер находится в облаке, подключение к облачным источникам данных не вызывает затруднений. При подключении к локальным источникам данных [локальный шлюз данных](analysis-services-gateway.md) обеспечивает быстрое и надежное соединение с сервером в облаке. Дополнительные сведения о поддерживаемых локальных источниках данных см. в статье [Подключения к источникам данных](analysis-services-datasource.md).
 
 
 ## <a name="explore-your-data-from-anywhere"></a>Анализ данных из любого расположения
@@ -84,13 +81,17 @@ ms.lasthandoff: 05/31/2017
 Дополнительные сведения о центре безопасности Azure см. [здесь](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
 
 ## <a name="get-help"></a>Получение справки
-Службы Azure Analysis Services просты в настройке и управлении. Здесь представлены все сведения, необходимые для создания сервера и управления им. Процедуры создания модели данных для развертывания на удаленном и локальном сервере практические ничем не отличаются. В разделе [служб Analysis Services на сайте MSDN](https://msdn.microsoft.com/library/bb522607.aspx) есть обширная библиотека статей с общими сведениями и инструкциями, а также руководств и справочных статей.
 
-[На сайте Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services) содержится ряд полезных видео об Azure Analysis Services.
+### <a name="documentation"></a>Документация
+Службы Azure Analysis Services просты в настройке и управлении. Здесь представлены все сведения, необходимые для создания сервера и управления им. Процедуры создания модели данных для развертывания на удаленном и локальном сервере практические ничем не отличаются. В разделе [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) доступна обширная библиотека статей с общими и справочными сведениями, инструкциями и руководствами.
 
-Обновления вносятся очень часто. Вы всегда можете узнать последние новости в [блоге по Azure Analysis Services](https://go.microsoft.com/fwlink/?linkid=830920).
+### <a name="videos"></a>Видеоролики
+[На сайте Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services) доступны полезные видео об Azure Analysis Services.
 
-## <a name="community"></a>Сообщество
+### <a name="blogs"></a>Блоги
+Обновления вносятся очень часто. Вы всегда можете узнать последние новости в [блоге команды разработчиков служб Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/) и [блоге Azure](https://azure.microsoft.com/blog/).
+
+### <a name="community"></a>Сообщество
 Уже есть активное сообщество пользователей служб Analysis Services. Присоединяйтесь к обсуждению на [форуме по Azure Analysis Services](https://aka.ms/azureanalysisservicesforum).
 
 ## <a name="feedback"></a>Отзыв
@@ -100,5 +101,4 @@ ms.lasthandoff: 05/31/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда вы достаточно знаете о службах Azure Analysis Services, пора приступать к работе. Узнайте, как [создать сервер](analysis-services-create-server.md) в Azure и [развернуть на нем табличную модель](analysis-services-deploy.md).
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Создание первого веб-приложения Java в Azure за пять минут | Документация Майкрософт"
-description: "Узнайте, как просто запускать веб-приложения в службе приложений, развернув пример приложения Java."
+title: "Создание первого веб-приложения Java в Azure"
+description: "Узнайте, как запускать веб-приложения в службе приложений, развернув базовое приложение Java."
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
@@ -12,63 +12,58 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 6/7/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 1249d7ac42bec02227d47500fe3aabb601a36f88
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: a805d92fbe1043b9143140bdbfb8626362aa8bb5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 ---
-# <a name="create-your-first-java-web-app-in-azure-in-five-minutes"></a>Создание первого веб-приложения Java в Azure за пять минут
+# <a name="create-your-first-java-web-app-in-azure"></a>Создание первого веб-приложения Java в Azure
 
-[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
+[Веб-приложения](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) [службы приложений Azure](../app-service/app-service-value-prop-what-is.md) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом кратком руководстве показано, как развернуть веб-приложение Java в службе приложений с помощью [интегрированной среды разработки Eclipse для разработчиков Java EE](http://www.eclipse.org/).
 
-Это краткое руководство поможет вам развернуть первое веб-приложение Java в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md) за считаные минуты. Поработав с этим руководством, вы получите простое веб-приложение на платформе Java, работающее в облаке.
-
-![Переход к веб-приложению](./media/app-service-web-get-started-java/browse-web-app-1.png)
+!["Hello Azure!" Пример веб-приложения](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-В этом руководстве показано, как создать и развернуть веб-приложение Java в Azure, используя интегрированную среду разработки Eclipse для разработчиков Java EE. Если у вас еще не установлен Eclipse, его можно загрузить бесплатно по ссылке http://www.eclipse.org/.
+Для работы с этим кратким руководством установите:
 
-Чтобы упростить процесс публикации веб-приложений Java в Azure, используйте инструкции, описанные в руководстве [Набор средств Azure для Eclipse](/azure/azure-toolkit-for-eclipse). Инструкции по установке набора средств Azure см. в статье [Установка набора средств Azure для Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+* Бесплатную [интегрированную среду разработки Eclipse для разработчиков Java EE](http://www.eclipse.org/downloads/). В этом кратком руководстве используется Eclipse Neon.
+* [Набор средств Azure для Eclipse](/azure/azure-toolkit-for-eclipse-installation).
 
-> [!NOTE]
->
-> В этом руководстве можно также использовать [IntelliJ IDEA](https://www.jetbrains.com/idea/) от компании JetBrains. Некоторые действия для этой среды разработки могут отличаться, несмотря на то, что имеется [набор средств Azure для IntelliJ](/azure/azure-toolkit-for-intellij), который позволяет упростить процесс публикации в этой среде.
->
-
-Для работы с этим руководством вам потребуется подписка Azure. Если у вас нет подписки Azure, вы можете активировать [преимущества для подписчиков MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или зарегистрироваться для получения [бесплатной учетной записи Azure](https://azure.microsoft.com/pricing/free-trial/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Создание динамических веб-проектов в Eclipse
 
-В Eclipse откройте меню **File** (Файл), выберите пункт **New** (Создать) и щелкните **Dynamic Web Project** (Динамический веб-проект).
+В Eclipse щелкните **File** (Файл) > **New** (Создать) > **Dynamic Web Project** (Динамический веб-проект).
 
 В диалоговом окне **New Dynamic Web Project** (Новый динамический веб-проект) присвойте проекту имя **MyFirstJavaOnAzureWebApp** и нажмите кнопку **Finish** (Готово).
    
-![Диалоговое окно динамического веб-проекта](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
+![Диалоговое окно создания динамического веб-проекта](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
-> [!NOTE]
->
-> Если у вас установлена локальная среда [Apache Tomcat](https://tomcat.apache.org/), укажите это в поле **Целевая среда выполнения**.
->
+### <a name="add-a-jsp-page"></a>Добавление страницы JSP
 
-После создания динамического веб-проекта добавьте новую страницу JSP, развернув проект в обозревателе проектов, щелкните правой кнопкой мыши папку **WebContent**, а затем нажмите кнопку **Создать** и выберите **JSP File** (JSP-файл).
+Если обозреватель проектов не отображается, разверните его.
 
-![Новое меню файла JSP](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
+![Рабочая область Java EE для Eclipse](./media/app-service-web-get-started-java/pe.png)
 
-В диалоговом окне New JSP File (Создание JSP-файла) укажите имя файла **index.jsp**, оставьте родительскую папку **MyFirstJavaOnAzureWebApp/WebContent** без изменений, а затем нажмите кнопку **Далее**.
+В обозревателе проектов разверните проект **MyFirstJavaOnAzureWebApp**.
+Щелкните правой кнопкой мыши **WebContent**, а затем щелкните **New** (Создать) > **JSP File** (JSP-файл).
 
-![Диалоговое окно New JSP File (Создание JSP-файла)](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
+![Меню для нового JSP-файла в обозревателе проектов](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
 
-На следующей странице диалогового окна New JSP File (Создание JSP-файла) укажите имя файла **index.jsp**, оставьте родительскую папку **MyFirstJavaOnAzureWebApp/WebContent** без изменений, а затем нажмите кнопку **Готово**.
+В диалоговом окне **New JSP File** (Создание JSP-файла):
 
-![Диалоговое окно New JSP File (Создание JSP-файла)](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-2.png)
+* Назовите файл **index.jsp**.
+* Выберите **Готово**.
 
-Когда в Eclipse откроется новая страница, замените существующий раздел `<body></body>` следующим кодом:
+  ![Диалоговое окно New JSP File (Создание JSP-файла)](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
+
+В файле index.jsp замените элемент `<body></body>` следующей разметкой:
 
 ```jsp
 <body>
@@ -76,162 +71,133 @@ ms.lasthandoff: 05/31/2017
 </body>
 ```
 
-Сохраните изменения на странице.
+Сохраните изменения.
 
-## <a name="publish-your-web-app-to-azure"></a>Публикация веб-приложения в Azure
+## <a name="publish-the-web-app-to-azure"></a>Публикация веб-приложения в Azure
 
-Чтобы развернуть веб-приложение в Azure, воспользуйтесь преимуществом некоторых функциональных возможностей, предоставляемых набором инструментов Azure для Eclipse.
+В обозревателе проектов щелкните правой кнопкой мыши проект и выберите **Azure** > **Publish as Azure Web App** (Опубликовать как веб-приложение Azure).
 
-Чтобы начать процесс публикации, используйте один из следующих методов:
+![Контекстное меню Publish as Azure Web App (Опубликовать как веб-приложение Azure)](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-* Щелкните правой кнопкой мыши проект в Eclipse **Обозреватель проектов**, щелкните **Azure**, а затем выберите **Publish as Azure Web App** (Опубликовать как веб-приложение Azure).
+В диалоговом окне **Azure Sign In** (Вход в Azure) оставьте параметр **Interactive** (Интерактивный), а затем выберите **Sign in** (Войти).
 
-   ![Контекстное меню Publish as Azure Web App (Опубликовать как веб-приложение Azure)](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
+Следуйте инструкциям по входу.
 
-* Щелкните значок **Опубликовать** на панели инструментов Eclipse, а затем щелкните **Publish as Azure Web App** (Опубликовать как веб-приложение Azure).
+### <a name="deploy-web-app-dialog-box"></a>Диалоговое окно развертывания веб-приложения
 
-   ![Раскрывающееся меню Publish as Azure Web App (Опубликовать как веб-приложение Azure)](./media/app-service-web-get-started-java/publish-as-azure-web-app-drop-down-menu.png)
+После входа в учетную запись Azure отобразится диалоговое окно **Deploy Web App** (Развертывание веб-приложения).
 
-Если вы еще не вошли в свою учетную запись Azure, появится запрос на вход: Для этого выполните следующие действия.
-
-1. Существует два различных варианта для входа в учетную запись Azure. В этом руководстве выберите **интерактивный**.
-
-   ![Диалоговое окно входа в Azure](./media/app-service-web-get-started-java/azure-signin-dialog-box.png)
-
-1. Введите учетные данные Azure и нажмите кнопку **Войти**.
-
-   ![Диалоговое окно входа в Azure](./media/app-service-web-get-started-java/azure-login-dialog-box.png)
-
-1. Выберите подписку Azure и нажмите кнопку **Выбрать**.
-
-   ![Диалоговое окно входа в Azure](./media/app-service-web-get-started-java/select-azure-subscriptions-dialog-box.png)
-
-> [!NOTE]
->
-> Подробные инструкции об **интерактивном** и **автоматическом** входе в систему см. в статье [Azure Sign In Instructions for the Azure Toolkit for Eclipse](https://go.microsoft.com/fwlink/?linkid=846174) (Инструкции для входа в Azure. Набор инструментов Azure для Eclipse).
->
-
-После входа в учетную запись Azure отобразится диалоговое окно **Deploy Web App** (Развертывание веб-приложения). Если это первая публикация веб-приложения в Azure, служб приложений не будет в списке. Если это так или если вы хотите создать службу приложений, создайте ее на следующем этапе. Для этого нажмите кнопку **Создать**.
+Нажмите кнопку **Создать**.
 
 ![Диалоговое окно развертывания веб-приложения](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
-Когда отобразится диалоговое окно **Create App Service** (Создание службы приложений), необходимо ввести исходные данные:
+### <a name="create-app-service-dialog-box"></a>Диалоговое окно "Создание службы приложений"
 
-* Уникальное имя, которое станет DNS-адресом веб-приложения. Например, **MyJavaWebApp** станет *myjavawebapp.azurewebsites.net*.
+Откроется диалоговое окно **Create App Service** (Создание службы приложений) со значениями по умолчанию. Число **170602185241**, показанное на следующем изображении, отличается от числа, которое появится в вашем диалоговом окне.
 
-* Веб-контейнер, который будет использовать веб-приложение, например **последняя версия Tomcat 8.5**.
+![Диалоговое окно "Создание службы приложений"](./media/app-service-web-get-started-java/cas1.png)
 
-* Вашу подписку Azure.
+В диалоговом окне **Create App Service** (Создание службы приложений):
 
-   ![Диалоговое окно Create App Service (Создание службы приложений)](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
+* Оставьте созданное имя для веб-приложения. Это имя должно быть уникальным в Azure. Имя является частью URL-адреса веб-приложения. Например, если имя веб-приложения — **MyJavaWebApp**, то URL-адрес будет *myjavawebapp.azurewebsites.net*.
+* Оставьте веб-контейнер по умолчанию.
+* Выберите подписку Azure.
+* На вкладке **App service plan** (План службы приложений):
 
-Если у вас есть существующие планы службы приложений или если вы хотите создать план службы, необходимо указать следующие сведения:
+  * **Create new** (Создать). Оставьте имя по умолчанию, которое является именем плана службы приложений.
+  * **Location** (Расположение): Выберите **West Europe** (Западная Европа) или ближайшее расположение.
+  * **Pricing tier** (Ценовая категория). Выберите бесплатный вариант. Сведения о функциях см. на странице [цен на службу приложений](https://azure.microsoft.com/pricing/details/app-service/).
 
-* Уникальное имя для нового плана службы. Это имя будет отображаться в будущем при публикации веб-приложений с помощью набора инструментов Azure, а также указано в списке на [портале Azure](https://portal.azure.com) при управлении вашей учетной записью.
+   ![Диалоговое окно "Создание службы приложений"](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
-* Географическое расположение, где будет создаваться план службы.
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-* Ценовую категорию плана службы.
+### <a name="resource-group-tab"></a>Вкладка Resource group (Группа ресурсов)
 
-   ![Создание плана службы приложений](./media/app-service-web-get-started-java/create-app-service-plan.png)
+Выберите вкладку **Resource group** (Группа ресурсов). Оставьте значение по умолчанию для группы ресурсов.
 
-Щелкните вкладку **Группа ресурсов**. Если у вас нет существующей группы ресурсов или если вы хотите создать ее, необходимо указать уникальное имя новой группы ресурсов. В противном случае выберите существующую группу ресурсов в раскрывающемся меню.
+![Вкладка Resource group (Группа ресурсов)](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
 
-![Создание плана службы приложений](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
+[!INCLUDE [resource-group](../../includes/resource-group.md)]
 
-Наконец, щелкните вкладку **JDK**. Здесь представлено несколько вариантов, что позволяет разработчикам указывать сторонние или пользовательские наборы Java Developer Kit (JDK). В целях этого руководства выберите **По умолчанию**, а затем нажмите кнопку **Создать**.
+Нажмите кнопку **Создать**.
 
-![Создание плана службы приложений](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
+<!--
+### The JDK tab
 
-Набор средств Azure приступит к созданию службы приложений и отобразит диалоговое окно хода выполнения во время обработки.
+Select the **JDK** tab. Keep the default, and then select **Create**.
 
-![Индикатор выполнения процесса создания плана службы приложений](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
+![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
+-->
 
-После создания службы приложений необходимо выбрать, нужно ли развертывать веб-приложение в корневом каталоге веб-сайта. Например, если у вас есть служба приложений в *wingtiptoys.azurewebsites.net* и вы не выполните развертывание в корневой каталог, тогда веб-приложение **MyFirstJavaOnAzureWebApp** будет развернуто в каталоге *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
+Набор средств Azure создает веб-приложение и отображает диалоговое окно хода выполнения.
 
-![Развертывание веб-приложения в корневой каталог](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
+![Диалоговое окно Create App Service Progress (Прогресс создания службы приложений)](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
-Выполнив предыдущие действия, щелкните **Развернуть** для публикации веб-приложения в Azure.
+### <a name="deploy-web-app-dialog-box"></a>Диалоговое окно развертывания веб-приложения
 
-![Развертывание веб-приложения в Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
+В диалоговом окне **Deploy Web App** (Развертывание веб-приложения) установите флажок **Deploy to root** (Развернуть в корень). Если у вас есть служба приложений в *wingtiptoys.azurewebsites.net* и вы не выполните развертывание в корневой каталог, тогда веб-приложение **MyFirstJavaOnAzureWebApp** будет развернуто в каталоге *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
-Поздравляем! Веб-приложение успешно развернуто в Azure. Теперь можно просмотреть веб-приложение на веб-сайте Azure:
+![Диалоговое окно развертывания веб-приложения](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
-![Переход к веб-приложению](./media/app-service-web-get-started-java/browse-web-app-1.png)
+В диалоговом окне отображаются выбранные значения Azure, JDK и веб-контейнера.
 
-## <a name="updating-your-web-app"></a>Обновление веб-приложения
+Нажмите кнопку **Deploy** (Развернуть) для публикации веб-приложения в Azure.
 
-После успешной публикации веб-приложения в Azure его обновление существенно упростится. Далее представлен процесс публикации изменений в веб-приложении.
+После завершения публикации щелкните ссылку **Опубликовано** в диалоговом окне **Журнал действий Azure**.
 
-Сначала измените пример кода JSP из более ранней версии, чтобы заголовок заменился на сегодняшнюю дату:
+![Диалоговое окно "Журнал действий Azure"](./media/app-service-web-get-started-java/aal.png)
+
+Поздравляем! Веб-приложение успешно развернуто в Azure. 
+
+!["Hello Azure!" Пример веб-приложения](./media/app-service-web-get-started-java/browse-web-app-1.png)
+
+## <a name="update-the-web-app"></a>Обновление веб-приложения
+
+Измените пример кода JSP на другое сообщение.
 
 ```jsp
-<%@ page
-    language="java"
-    contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
-    import="java.text.SimpleDateFormat"
-    import="java.util.Date" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<% SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd"); %>
-<title><% out.println(date.format(new Date())); %></title>
-</head>
 <body>
-<h1><% out.println("Hello Azure!"); %></h1>
+<h1><% out.println("Hello again Azure!"); %></h1>
 </body>
-</html>
 ```
 
-Сохранив изменения, щелкните проект правой кнопкой мыши в **обозревателе проектов** Eclipse, выберите **Azure**, а затем — **Publish as Azure Web App** (Опубликовать как веб-приложение Azure).
+Сохраните изменения.
 
-![Публикация обновленного веб-приложения](./media/app-service-web-get-started-java/publish-updated-web-app-context-menu.png)
+В обозревателе проектов щелкните правой кнопкой мыши проект и выберите **Azure** > **Publish as Azure Web App** (Опубликовать как веб-приложение Azure).
 
-Когда откроется диалоговое окно **Deploy Web App** (Развертывание веб-приложения), появятся предыдущие службы приложений. Чтобы обновить веб-приложение, выделите службу приложений и нажмите кнопку **Развернуть** для публикации изменений.
-
-![Развертывание веб-приложения в Azure](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
+Появится диалоговое окно **Deploy Web App** (Развертывание веб-приложения) с ранее созданной службой приложений. 
 
 > [!NOTE]
+> Устанавливайте флажок **Deploy to root** (Развернуть в корень) при каждой публикации.
 >
-> Во время развертывания веб-приложения в корневую папку службы приложений нужно устанавливать флажок **Deploy to root** (Развернуть в корень) каждый раз при публикации изменений.
->
 
-После публикации изменений можно заметить, что заголовок страницы в браузере изменился на сегодняшнюю дату.
+Выберите веб-приложение и щелкните **Deploy** (Развернуть) для публикации изменений.
 
-![Переход к веб-приложению](./media/app-service-web-get-started-java/browse-web-app-2.png)
+Когда появится ссылка **Publishing** (Публикация), щелкните ее и перейдите к веб-приложению, чтобы увидеть изменения.
 
-## <a name="clean-up-resources"></a>Очистка ресурсов
+## <a name="manage-the-web-app"></a>Управление веб-приложением
 
-Чтобы удалить веб-приложение, используйте **обозреватель Azure**, входящий в состав набора средств Azure. Если представление **обозревателя Azure** еще не отображается в Eclipse, сделайте следующее:
+Перейдите на <a href="https://portal.azure.com" target="_blank">портал Azure</a>, чтобы увидеть созданное веб-приложение.
 
-1. Щелкните **Окно**, **Show View** (Показать представление), а затем выберите **Другие**.
+В меню слева выберите **Группы ресурсов**.
 
-   ![Меню Show View (Показать представление)](./media/app-service-web-get-started-java/show-azure-explorer-view-1.png)
+![Переход к группе ресурсов](media/app-service-web-get-started-java/rg.png)
 
-2. Когда откроется диалоговое окно **Show View** (Показать представление), выберите **Azure Explorer** (Обозреватель Azure) и нажмите кнопку **ОК**.
+Выберите группу ресурсов. На странице отображаются ресурсы, созданные в этом кратком руководстве.
 
-   ![Диалоговое окно Show View (Показать представление)](./media/app-service-web-get-started-java/show-azure-explorer-view-2.png)
+![Группа ресурсов myresourcegroup.](media/app-service-web-get-started-java/rg2.png)
 
-Чтобы удалить веб-приложение из обозревателя Azure, разверните узел **Веб-приложения**, затем щелкните веб-приложение правой кнопкой мыши и выберите **Удалить**.
+Выберите веб-приложение (**webapp-170602193915** на предыдущем рисунке).
 
-![Удаление веб-приложения](./media/app-service-web-get-started-java/delete-web-app-context-menu.png)
+Появится страница **Обзор**. Здесь вы можете наблюдать за работой приложения. Вы можете выполнять базовые задачи управления: обзор, завершение, запуск, перезагрузку и удаление. На вкладках в левой части страницы отображаются различные конфигурации, которые можно открыть. 
 
-При появлении запроса на удаление веб-приложения нажмите кнопку **ОК**.
+![Страница службы приложений на портале Azure](media/app-service-web-get-started-java/web-app-blade.png)
+
+[!INCLUDE [clean-up-section-portal-web-app](../../includes/clean-up-section-portal-web-app.md)]
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
-
-* [Набор средств Azure для Eclipse (в этой статье)](../azure-toolkit-for-eclipse.md)
-  * [Новые возможности набора средств Azure для Eclipse](../azure-toolkit-for-eclipse-whats-new.md)
-  * [Установка набора средств Azure для Eclipse](../azure-toolkit-for-eclipse-installation.md)
-  * [Sign In Instructions for the Azure Toolkit for Eclipse](https://go.microsoft.com/fwlink/?linkid=846174) (Инструкции по входу для набора средств Azure для Eclipse)
-* [Набор средств Azure для IntelliJ](../azure-toolkit-for-intellij.md)
-  * [Новые возможности набора средств Azure для IntelliJ](../azure-toolkit-for-intellij-whats-new.md)
-  * [Установка набора средств Azure для IntelliJ](../azure-toolkit-for-intellij-installation.md)
-  * [Sign In Instructions for the Azure Toolkit for IntelliJ](https://go.microsoft.com/fwlink/?linkid=846179) (Инструкции по входу для набора средств Azure для IntelliJ)
-
-Дополнительные сведения об использовании Azure см. в [центре разработчиков Java для Azure](https://azure.microsoft.com/develop/java/) и на странице [инструментов Java для Visual Studio Team Services](https://java.visualstudio.com/).
+> [!div class="nextstepaction"]
+> [Сопоставление пользовательского домена](app-service-web-tutorial-custom-domain.md)
 

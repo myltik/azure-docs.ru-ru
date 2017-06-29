@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: aabd0481e6dd264e9a5e91c2e4b2b83f01227db1
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 17b0740f11fcfe200191f8695b6d885df41e68e2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -155,10 +156,13 @@ ms.lasthandoff: 04/20/2017
 Да. Установите агент службы архивации Azure в гостевой ОС Windows и создайте резервную копию файлов и папок во временном хранилище. Удаление данных из временного хранилища приведет к сбою заданий резервного копирования. Кроме того, если удалить данные из временного хранилища, их можно восстановить только в постоянном хранилище.
 
 
-## <a name="azure-backup-server-and-data-protection-manager"></a>Сервер резервного копирования Azure и Data Protection Manager
+## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure Backup Server и System Center Data Protection Manager
 
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Можно ли использовать сервер службы архивации Azure, чтобы создать резервную копию для восстановления исходного состояния физического сервера? <br/>
 Да.
+
+### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>Можно ли зарегистрировать сервер DPM в нескольких хранилищах? <br/>
+Нет. Сервер DPM или MABS можно зарегистрировать только в одном хранилище.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>Какая версия System Center Data Protection Manager поддерживается? <br/>
 Мы советуем установить [последнюю](http://aka.ms/azurebackup_agent) версию агента службы архивации Azure на последний накопительный пакет обновления для System Center Data Protection Manager (DPM). По состоянию на август 2016 г. последним обновлением является накопительный пакет обновления версии 11.

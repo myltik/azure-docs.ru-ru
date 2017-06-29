@@ -29,5 +29,8 @@
 | [GS1–GS5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180–240* |
 | [H](../articles/virtual-machines/windows/sizes-hpc.md) |290–300* |
 | [L4s-L32s](../articles/virtual-machines/windows/sizes-storage.md) |180–240* |
+| [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160–180** |
 
 Единицы ACU, помеченные звездочкой, основаны на технологии Intel® Turbo для увеличения частоты ЦП и значительного повышения производительности.  Степень увеличения производительности может различаться в зависимости от размера виртуальной машины, рабочей нагрузки и других рабочих нагрузок, выполняющихся на том же узле.
+
+** С поддержкой технологии Hyper-Threading. 

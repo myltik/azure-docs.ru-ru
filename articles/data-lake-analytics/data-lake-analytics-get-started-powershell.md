@@ -15,60 +15,62 @@ ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 6985dff332928d704f30e167c3bddb62bcc6cac1
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: faf17bcac66a70fc78bb171e172886fd2dcadca8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Руководство. Начало работы с аналитикой озера данных Azure с помощью Azure PowerShell
+# <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Начало работы с Azure Data Lake Analytics с помощью Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Узнайте, как использовать Azure PowerShell для создания учетных записей Azure Data Lake Analytics, а затем отправлять и выполнять задания U-SQL. Дополнительные сведения о Data Lake Analytics см. в [обзоре Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 Перед началом работы с этим руководством необходимо иметь следующую информацию:
 
-* **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Учетная запись Azure Data Lake Analytics**. См. раздел [Начало работы с Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 * <seg>
   **Рабочая станция с Azure PowerShell**.</seg> См. статью [Установка и настройка Azure PowerShell](/powershell/azure/overview).
 
+## <a name="log-in-to-azure"></a>Вход в Azure
+
+Для работы с руководством необходим опыт работы с Azure PowerShell. В частности вам нужно знать, как выполнить вход в Azure. Если вам нужна помощь, см. раздел [Начало работы с Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps).
+
+Вход в систему с использованием имени подписки:
+
+```
+Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
+```
+
+Вместо имени подписки для входа можно использовать ее идентификатор:
+
+```
+Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+
+При успешном выполнении этой команды выходные данные будут выглядеть так:
+
+```
+Environment           : AzureCloud
+Account               : joe@contoso.com
+TenantId              : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+SubscriptionId        : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+SubscriptionName      : ContosoSubscription
+CurrentStorageAccount :
+```
+
 ## <a name="preparing-for-the-tutorial"></a>Подготовка к работе с руководством
-Для создания учетной записи Data Lake Analytics сперва необходимо указать следующее.
 
-* **Группа ресурсов Azure**. В группе ресурсов Azure необходимо создать учетную запись Data Lake Analytics.
-* **Имя учетной записи Data Lake Analytics**. Имя учетной записи Data Lake должно содержать только буквы в нижнем регистре и цифры.
-* **Расположение**: один из центров обработки данных Azure, который поддерживает аналитику озера данных.
-* **Учетная запись Data Lake Store по умолчанию**. Каждая учетная запись Data Lake Analytics содержит учетную запись Data Lake Store по умолчанию. Эти учетные записи должны находиться в одном расположении.
-
-Во фрагментах кода PowerShell в этом руководстве для хранения такой информации используются следующие переменные:
+В этом руководстве во фрагментах кода PowerShell для хранения информации используются следующие переменные:
 
 ```
 $rg = "<ResourceGroupName>"
-$adls = "<DataLakeAccountName>"
+$adls = "<DataLakeStoreAccountName>"
 $adla = "<DataLakeAnalyticsAccountName>"
 $location = "East US 2"
-```
-
-## <a name="create-a-data-lake-analytics-account"></a>Создание учетной записи аналитики озера данных
-
-Если у вас еще нет группы ресурсов, создайте ее. 
-
-```
-New-AzureRmResourceGroup -Name  $rg -Location $location
-```
-
-Для каждой учетной записи Data Lake Analytics необходима учетная запись Data Lake Store по умолчанию, которая используется для хранения журналов. Можно повторно использовать существующую учетную запись или создать новую. 
-
-```
-New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
-```
-
-После создания группы ресурсов и учетной записи Data Lake Store создайте учетную запись Data Lake Analytics.
-
-```
-New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
 ## <a name="get-information-about-a-data-lake-analytics-account"></a>Получение сведений об учетной записи Data Lake Analytics
@@ -79,9 +81,10 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 ## <a name="submit-a-u-sql-job"></a>Отправка задания U-SQL
 
-Создайте текстовый файл со следующим скриптом U-SQL:
+Создайте переменную для хранения скрипта U-SQL PowerShell.
 
 ```
+$script = @"
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -92,26 +95,29 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 OUTPUT @a
     TO "/data.csv"
     USING Outputters.Csv();
+
+"@
 ```
 
 Отправьте скрипт.
 
 ```
-Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
+$job = Submit-AdlJob -AccountName $adla –Script $script
 ```
 
-## <a name="monitor-u-sql-jobs"></a>Мониторинг заданий U-SQL
-
-Откройте список всех заданий в учетной записи. Результаты включают в себя текущие и недавно завершенные задания.
+Или же можно сохранить скрипт в файл, а затем отправить его с помощью следующей команды:
 
 ```
-Get-AdlJob -Account $adla
+$filename = "d:\test.usql"
+$script | out-File $filename
+$job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
 ```
 
-Получите состояние конкретного задания.
+
+Получите состояние конкретного задания. Продолжайте использовать этот командлет, пока задание не будет выполнено.
 
 ```
-Get-AdlJob -AccountName $adla -JobId $job.JobId
+$job = Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
 
 Вместо того чтобы снова и снова вызывать командлет Get-AdlAnalyticsJob, пока задание не будет завершено, можно использовать командлет Wait-AdlJob.
@@ -120,31 +126,10 @@ Get-AdlJob -AccountName $adla -JobId $job.JobId
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-По завершении задания проверьте, существует ли выходной файл, открыв список файлов в папке.
+Загрузите выходной файл.
 
 ```
-Get-AdlStoreChildItem -Account $adls -Path "/"
-```
-
-Проверьте наличие файла.
-
-```
-Test-AdlStoreItem -Account $adls -Path "/data.csv"
-```
-
-## <a name="uploading-and-downloading-files"></a>Отправка и скачивание файлов
-
-Скачайте выходные данные скрипта U-SQL.
-
-```
-Export-AdlStoreItem -AccountName $adls -Path "/data.csv"  -Destination "D:\data.csv"
-```
-
-
-Отправьте файл, который необходимо использовать в качестве входных данных для скрипта U-SQL.
-
-```
-Import-AdlStoreItem -AccountName $adls -Path "D:\data.tsv" -Destination "/data_copy.csv" 
+Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## <a name="see-also"></a>См. также

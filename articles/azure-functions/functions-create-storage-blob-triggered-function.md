@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 05/31/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: c0d1271bc083688bbc72bd2556546c2f738e7345
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: a55f28fad4c70e49e417d2856568791b313ad1eb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Создание функции, активируемой хранилищем BLOB-объектов Azure
@@ -31,11 +31,8 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Перед выполнением этого примера вам понадобится сделать следующее:
-
-- Скачайте и установите [обозреватель хранилищ Microsoft Azure](http://storageexplorer.com/).
-
-Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
++ Скачайте и установите [обозреватель хранилищ Microsoft Azure](http://storageexplorer.com/).
++ Подписка Azure. Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начать работу.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
@@ -51,15 +48,21 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Создание функции, активируемой хранилищем BLOB-объектов
 
-Разверните свое приложение-функцию, нажмите кнопку **+** рядом с **Функции**, а затем щелкните шаблон **BlobTrigger** для нужного языка. Затем используйте настройки, указанные в таблице, и щелкните**Создать**.
+1. Разверните приложение-функцию и нажмите кнопку **+** рядом с элементом **Функции**. Если это первая функция в приложении-функции, выберите **Пользовательская функция**. Откроется полный набор шаблонов функций.
 
-![Создание функции, активируемой хранилищем BLOB-объектов.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Страница быстрого начала работы с функциями на портале Azure](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-| Настройка | Рекомендуемое значение | Описание |
-|---|---|---|
-| **Путь**   | mycontainer/{name}    | Расположение в хранилище BLOB-объектов отслеживается. Имя файла большого двоичного объекта передается в привязке как параметр _name_.  |
-| **Подключение к учетной записи хранения** | AzureWebJobStorage | Вы можете использовать подключение к учетной записи хранения, которое уже используется вашим приложением-функцией, или создать его.  |
-| **Имя функции** | Уникальное для вашего приложения-функции | Имя функции, активируемой очередью. |
+2. Выберите шаблон **BlobTrigger** для нужного языка и используйте параметры, как указано в таблице.
+
+    ![Создание функции, активируемой хранилищем BLOB-объектов.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+
+    | Настройка | Рекомендуемое значение | Описание |
+    |---|---|---|
+    | **Путь**   | mycontainer/{name}    | Расположение в хранилище BLOB-объектов отслеживается. Имя файла большого двоичного объекта передается в привязке как параметр _name_.  |
+    | **Подключение к учетной записи хранения** | AzureWebJobStorage | Вы можете использовать подключение к учетной записи хранения, которое уже используется вашим приложением-функцией, или создать его.  |
+    | **Имя функции** | Уникальное для вашего приложения-функции | Имя функции, активируемой большим двоичным объектом. |
+
+3. Щелкните **Создать**, чтобы создать функцию.
 
 Затем необходимо подключится к своей учетной записи хранения Azure и создать контейнер **mycontainer**.
 
@@ -111,3 +114,4 @@ ms.lasthandoff: 05/12/2017
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Дополнительные сведения о триггерах хранилища BLOB-объектов см.в статье [Привязки больших двоичных объектов службы хранилища для Функций Azure](functions-bindings-storage-blob.md).
+

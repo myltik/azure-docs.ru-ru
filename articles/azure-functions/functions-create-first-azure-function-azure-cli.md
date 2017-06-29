@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3dc0e1b26c95ac6583dd3b1068b36deb54f7ac5a
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 2292b35819c5a98b690041e10f6e6d1a93fa7837
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -31,20 +31,14 @@ ms.lasthandoff: 05/18/2017
 Перед выполнением этого примера вам понадобится следующее:
 
 + Активная учетная запись [GitHub](https://github.com). 
-+ [Установленный Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 + Активная подписка Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Вход в Azure
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране. 
-
-```azurecli
-az login
-```
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 

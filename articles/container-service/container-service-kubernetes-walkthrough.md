@@ -1,6 +1,6 @@
 ---
-title: "Быстрый запуск кластера Kubernetes в Azure | Документация Майкрософт"
-description: "Развертывание кластера Kubernetes в службе контейнеров Azure и начало работы с ним."
+title: "Краткое руководство: кластер Azure Kubernetes для Linux | Документация Майкрософт"
+description: "Вы научитесь быстро создавать кластер Kubernetes для контейнеров Linux в Службе контейнеров Azure при помощи Azure CLI."
 services: container-service
 documentationcenter: 
 author: anhowe
@@ -14,191 +14,154 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/31/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 0604a85192ed632b621113b98cc44172c584ea01
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 25043f6bf5e5ab3def8563bd2c096b79706bfec1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
-# <a name="get-started-with-a-kubernetes-cluster-in-container-service"></a>Приступая к работе с кластером Kubernetes в службе контейнеров Azure
+# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Развертывание кластера Kubernetes для контейнеров Linux
 
+Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. В этом руководстве рассматривается развертывание кластера [Kubernetes](https://kubernetes.io/docs/home/) с помощью Azure CLI в [Службе контейнеров Azure](container-service-intro.md). После развертывания кластера к нему можно подключиться при помощи программы командной строки Kubernetes `kubectl` и развернуть первый контейнер Linux.
 
-В этом пошаговом руководстве показано, как с помощью команд Azure CLI 2.0 создать кластер Kubernetes в службе контейнеров Azure. После этого можно использовать программу командной строки `kubectl`, чтобы приступить к работе с контейнерами в кластере.
+Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-На следующем рисунке показана архитектура кластера службы контейнеров с одним главным узлом и двумя агентами Linux. Основной узел обслуживает REST API кластера Kubernetes. Узлы агента группируются в группы доступности Azure. На них запускаются контейнеры. Все виртуальные машины размещены в одной частной виртуальной сети и полностью доступны друг для друга.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![Схема кластера Kubernetes в Аzure](media/container-service-kubernetes-walkthrough/kubernetes.png)
+Если у вас еще нет подписки Azure, создайте [бесплатную](https://azure.microsoft.com/free/) учетную запись Azure, прежде чем начинать работу.
 
-Дополнительные сведения см. в статье [Общие сведения о решениях для размещения контейнера Docker с помощью службы контейнеров Azure](container-service-intro.md) и [документации Kubernetes](https://kubernetes.io/docs/home/).
+## <a name="log-in-to-azure"></a>Вход в Azure 
 
-## <a name="prerequisites"></a>Предварительные требования
-Чтобы создать кластер Службы контейнеров Azure с помощью Azure CLI 2.0, необходимо следующее:
-* учетная запись Azure ([получите бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/));
-* установленный и настроенный [Azure CLI 2.0](/cli/azure/install-az-cli2).
+Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране.
 
-Кроме того, вам понадобится (или вы можете использовать) Azure CLI, чтобы автоматически создать кластер Службы контейнеров Azure во время развертывания кластера.
-
-* **Открытый ключ SSH RSA**. Если вы хотите заранее создать ключи SSH RSA, ознакомьтесь с руководствами [Как создать и использовать пару из открытого и закрытого ключей SSH для виртуальных машин Linux в Azure](../virtual-machines/linux/mac-create-ssh-keys.md) и [Использование ключей SSH с Windows в Azure](../virtual-machines/linux/ssh-from-windows.md). 
-
-* **Секрет и идентификатор клиента субъекта-службы**. Инструкции по созданию субъекта-службы Azure Active Directory см. в статье [Сведения о субъекте-службе Azure Active Directory для кластера Kubernetes в службе контейнеров Azure](container-service-kubernetes-service-principal.md).
-
- Пример команды в этой статье автоматически создает ключи SSH и субъект-службу.
-
-## <a name="create-your-kubernetes-cluster"></a>Создание кластера Kubernetes
-
-Ниже кратко описаны команды оболочки, использующие Azure CLI 2.0 для создания кластера. 
-
-### <a name="create-a-resource-group"></a>Создание группы ресурсов
-Чтобы создать кластер, вам сначала необходимо создать группу ресурсов в расположении, в котором [доступна](https://azure.microsoft.com/regions/services/) Служба контейнеров Azure. Выполните команды, как показано ниже.
-
-```azurecli
-RESOURCE_GROUP=my-resource-group
-LOCATION=westus
-az group create --name=$RESOURCE_GROUP --location=$LOCATION
+```azurecli-interactive
+az login
 ```
 
-### <a name="create-a-cluster"></a>Создание кластера
-Создайте кластер Kubernetes в группе ресурсов с помощью команды `az acs create` с `--orchestrator-type=kubernetes`. Синтаксис команды см. в [документации](/cli/azure/acs#create) по `az acs create`.
+## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Эта версия команды автоматически создает ключи SSH RSA и субъект-службу для кластера Kubernetes.
+Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure — это логическая группа, в которой выполняется развертывание и администрирование ресурсов Azure. 
 
+В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
-
-```azurecli
-DNS_PREFIX=some-unique-value
-CLUSTER_NAME=any-acs-cluster-name
-az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --generate-ssh-keys
+```azurecli-interactive 
+az group create --name myResourceGroup --location eastus
 ```
 
-Через несколько минут команда будет выполнена, и вы получите рабочий кластер Kubernetes.
+## <a name="create-kubernetes-cluster"></a>Создание кластера Kubernetes
+Создание кластера Kubernetes в Службе контейнеров Azure с помощью команды [az acs create](/cli/azure/acs#create). 
 
-> [!IMPORTANT]
-> Если у учетной записи нет разрешений на создание субъекта-службы Azure AD, команда вернет похожее сообщение об ошибке: **Недостаточно привилегий для выполнения операции**. Дополнительные сведения см. в статье [о субъекте-службе для кластера Kubernetes](container-service-kubernetes-service-principal.md).
-> 
-
+В следующем примере создается кластер с именем *myK8sCluster* при помощи одного главного узла Linux и двух узлов агентов Linux. В этом примере создаются ключи SSH, если их еще нет в расположениях по умолчанию. Чтобы использовать определенный набор ключей, используйте параметр `--ssh-key-value`. Измените имя кластера в соответствии со своей средой. 
 
 
-### <a name="connect-to-the-cluster"></a>Подключение к кластеру
 
-Для подключения к кластеру Kubernetes с клиентского компьютера используйте [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/) — клиент командной строки Kubernetes. 
-
-Установите `kubectl` с помощью команды `az acs kubernetes install-cli`, если вы еще этого не сделали. (Этот клиент также можно скачать с [сайта Kubernetes](https://kubernetes.io/docs/tasks/kubectl/install/).)
-
-```azurecli
-sudo az acs kubernetes install-cli
+```azurecli-interactive 
+az acs create --orchestrator-type=kubernetes \
+    --resource-group myResourceGroup \
+    --name=myK8sCluster \
+    --agent-count=2 \
+    --generate-ssh-keys 
 ```
 
-> [!TIP]
-> По умолчанию эта команда устанавливает двоичный файл `kubectl` в каталоге `/usr/local/bin/kubectl` в системе Linux и macOS или в каталоге `C:\Program Files (x86)\kubectl.exe` в Windows. Чтобы указать другой путь установки, используйте параметр `--install-location`.
->
-> После установки файла `kubectl` убедитесь, что его каталог расположен в системном пути или добавьте его в этот путь. 
->
+Через несколько минут выполнение команды завершается, и отображаются сведения о развертывании.
 
+## <a name="install-kubectl"></a>Установка kubectl
 
-Затем выполните приведенную ниже команду, чтобы скачать конфигурацию главного кластера Kubernetes в файл `~/.kube/config`.
+Для подключения к кластеру Kubernetes с клиентского компьютера используйте [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), клиент командной строки Kubernetes. 
 
-```azurecli
-az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
+Если вы используете Azure CloudShell, установка `kubectl` уже выполнена. Для локальной установки можно использовать команду [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
+
+В следующем примере `kubectl` устанавливается в систему с помощью Azure CLI. Если вы используете Azure CLI в macOS или Linux, возможно, потребуется выполнить команду с `sudo`.
+
+```azurecli-interactive 
+az acs kubernetes install-cli 
 ```
 
-Дополнительные варианты установки и настройки `kubectl` см. в статье [Создание удаленного подключения к кластеру Kubernetes, DC/OS или Docker Swarm](container-service-connect.md).
+## <a name="connect-with-kubectl"></a>Подключение с помощью kubectl
 
-На этом этапе все должно быть готово для доступа к кластеру с компьютера. Попробуйте выполнить следующую команду.
+Чтобы настроить `kubectl` для подключения к кластеру Kubernetes, запустите команду [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). В следующем примере загружается конфигурация для кластера Kubernetes.
 
-```bash
+```azurecli-interactive 
+az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+```
+
+Чтобы проверить подключение между кластером и компьютером, попробуйте выполнить следующую команду:
+
+```azurecli-interactive
 kubectl get nodes
 ```
 
-Проверьте, отображается ли список компьютеров в кластере.
+При помощи `kubectl` выводится список главных узлов и узлов агентов.
 
-## <a name="create-your-first-kubernetes-service"></a>Создание первой службы Kubernetes
+```azurecli-interactive
+NAME                    STATUS                     AGE       VERSION
+k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
+k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
+k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
-Выполнив инструкции из этого руководства, вы научитесь:
-* развертывать приложение Docker и предоставлять к нему доступ;
-* использовать `kubectl exec` для выполнения команд в контейнере; 
-* получать доступ к панели мониторинга Kubernetes.
-
-### <a name="start-a-container"></a>Запуск контейнера
-Чтобы запустить контейнер (в данном случае веб-сервер Nginx), выполните приведенную ниже команду.
-
-```bash
-kubectl run nginx --image nginx
 ```
 
-Эта команда запускает контейнер Docker Nginx в pod на одном из узлов.
 
-Чтобы просмотреть запущенный контейнер, выполните приведенную команду.
+## <a name="deploy-an-nginx-container"></a>Развертывание контейнера nginx
 
-```bash
+Можно запустить контейнер Docker внутри группы контейнеров Kubernetes (объект *pod*), которая содержит один или несколько контейнеров. 
+
+Команда ниже запускает контейнер Docker nginx в модуле Kubernetes на одном из узлов. В данном случае контейнер работает с веб-сервером nginx, извлеченным из образа в [концентраторе Docker](https://hub.docker.com/_/nginx/).
+
+```azurecli-interactive
+kubectl run nginx --image nginx
+```
+Чтобы убедиться, что контейнер работает, запустите команду:
+
+```azurecli-interactive
 kubectl get pods
 ```
 
-### <a name="expose-the-service-to-the-world"></a>Предоставление доступа к службе
-Чтобы сделать службу доступной по всему миру, создайте `Service` Kubernetes типа `LoadBalancer`.
+## <a name="view-the-nginx-welcome-page"></a>Просмотр страницы приветствия nginx
+Чтобы предоставить серверу nginx общедоступный IP-адрес, введите следующую команду:
 
-```bash
+```azurecli-interactive
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
-В результате выполнения этой команды Kubernetes создаст правило Azure Load Balancer с общедоступным IP-адресом. Распространение изменений в подсистеме балансировки нагрузки занимает несколько минут. Дополнительные сведения см. в разделе [Балансировка нагрузки контейнеров в кластере Kubernetes в Службе контейнеров Azure](container-service-kubernetes-load-balancing.md).
+С ее помощью Kubernetes создаст службу и [правило подсистемы балансировки нагрузки Azure](container-service-kubernetes-load-balancing.md) с общедоступным IP-адресом для службы. 
 
-Выполните следующую команду, чтобы посмотреть, как изменится состояние службы `pending` и отобразится внешний IP-адрес.
+Выполните следующую команду, чтобы просмотреть состояние службы.
 
-```bash
-watch 'kubectl get svc'
+```azurecli-interactive
+kubectl get svc
 ```
 
-  ![Изображение смены состояния ожидания на использование внешнего IP-адреса](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
-
-Полученный внешний IP-адрес можно ввести в браузере.
-
-  ![Изображение перехода на страницу Nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
-
-
-### <a name="browse-the-kubernetes-ui"></a>Обзор пользовательского интерфейса Kubernetes
-Чтобы просмотреть веб-интерфейс Kubernetes, можно использовать:
-
-```bash
-kubectl proxy
-```
-Эта команда запускает проверенный прокси-сервер на локальном узле. Его можно использовать для просмотра пользовательского веб-интерфейса Kubernetes здесь: [http://localhost:8001/ui](http://localhost:8001/ui). Дополнительные сведения см. в разделе [Использование веб-интерфейса Kubernetes со Службой контейнеров Azure](container-service-kubernetes-ui.md).
-
-![Изображение панели мониторинга Kubernetes](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
-
-### <a name="remote-sessions-inside-your-containers"></a>Удаленные сеансы в контейнерах
-Kubernetes позволяет выполнять команды в удаленном контейнере Docker, запущенном в кластере.
-
-```bash
-# Get the name of your nginx pods
-kubectl get pods
+Изначально IP-адрес выглядит так: `pending`. Через несколько минут установка внешнего IP-адреса для службы будет завершена:
+  
+```azurecli-interactive
+NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       
+kubernetes   10.0.0.1       <none>          443/TCP        21h       
+nginx        10.0.111.25    52.179.3.96     80/TCP         22m
 ```
 
-Используя имя модуля, можно запустить удаленную команду в модуле. Например:
+Страницу приветствия nginx, отображающуюся для внешнего IP-адреса по умолчанию, можно просмотреть в любом веб-браузере:
 
-```bash
-kubectl exec <pod name> date
+![Изображение перехода на страницу Nginx](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
+
+
+## <a name="delete-cluster"></a>Удаление кластера
+Чтобы удалить ненужные кластер, группу ресурсов, службу контейнеров и все связанные с ней ресурсы, выполните команду [az group delete](/cli/azure/group#delete).
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
 ```
-
-Кроме того, можно получить полностью интерактивный сеанс с помощью флагов `-it`:
-
-```bash
-kubectl exec <pod name> -it bash
-```
-
-![Удаленный сеанс внутри контейнера](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
-
 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Чтобы расширить возможности работы с кластером Kubernetes, воспользуйтесь приведенными ниже ресурсами.
+В этом кратком руководстве развернуты кластер Kubernetes, подключенный к `kubectl`, и модуль с контейнером nginx. Дополнительные сведения о Службе контейнеров Azure см. далее в руководстве по кластерам Kubernetes.
 
-* В [учебном курсе по Kubernetes](https://katacoda.com/embed/kubernetes-bootcamp/1/) описано, как выполнять развертывание, масштабирование, обновление и отладку контейнерных приложений.
-* В [руководстве по Kubernetes](http://kubernetes.io/docs/user-guide/) показано, как выполнять команды в существующем кластере Kubernetes.
-* На странице с [примерами Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples) представлены примеры запуска реальных приложений с использованием Kubernetes.
+> [!div class="nextstepaction"]
+> [Create container images to be used with Azure Container Service](./container-service-tutorial-kubernetes-prepare-app.md) (Создание образов контейнеров для использования со Службой контейнеров Azure)
 

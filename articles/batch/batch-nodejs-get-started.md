@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 23e833b9eb926c81fd8c02cd96d43da8cffcaa43
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 
@@ -281,7 +281,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
 Можно отправить скрипт в учетную запись хранения Azure и создать URI SAS для доступа к нему. Этот процесс можно автоматизировать с помощью пакета SDK для службы хранилища Azure для Node.js.
 
 > [!Tip]
-> Задача подготовки задания выполняется только на узлах виртуальных машин, где необходимо выполнить определенную задачу. Если задачу установки требуемых компонентов необходимо выполнить на всех узлах независимо от выполняемых задач, можно использовать свойство [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) при добавлении пула. Для справки можно использовать следующее определение задачи подготовки.
+> Задача подготовки задания выполняется только на узлах виртуальных машин, где необходимо выполнить определенную задачу. Если требуемые компоненты нужно установить на всех узлах независимо от выполняемых задач, при добавлении пула можно использовать свойство [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add). Для справки можно использовать следующее определение задачи подготовки.
 >
 >
 

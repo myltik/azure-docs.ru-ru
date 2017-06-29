@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 05/29/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
-ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 6cf4ec4f777ea1f2b852945ab82da2547946f378
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -29,7 +31,7 @@ ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 
 1. Откройте оснастку управления AD FS.
 2. В левой части выберите **Отношения доверия проверяющей стороны**.
-3. Щелкните правой кнопкой мыши **Microsoft Office 365 Identity Platform** (Платформа удостоверений Microsoft Office 365) и выберите **Изменить правила утверждений...**.
+3. Щелкните правой кнопкой мыши **Платформа удостоверений Microsoft Office 365** и выберите **Изменить правила утверждений**.
 
    ![Облако](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
@@ -88,15 +90,12 @@ ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 3. В разделе "Каталог" выберите каталог, в котором нужно настроить надежные IP-адреса.
 4. Выбрав нужный каталог, щелкните **Настроить**.
 5. В разделе многофакторной идентификации щелкните **Управление параметрами службы**.
-6. На странице настроек службы в списке надежных IP-адресов выберите **Пропустить многофакторную проверку подлинности для запросов от федеративных пользователей из моей интрасети**.
+6. На странице настроек службы в списке надежных IP-адресов выберите **Пропустить многофакторную проверку подлинности для запросов от федеративных пользователей из моей интрасети**.  
+
    ![Облако](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+   
 7. Щелкните **Сохранить**.
 8. После применения обновлений щелкните **Закрыть**.
 
 Это все! Теперь федеративные пользователи Office 365 должны использовать MFA только в том случае, если утверждение сформировано за пределами корпоративной сети.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

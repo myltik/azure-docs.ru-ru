@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 06/15/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f3e1cfb23a28d0d1fc7a60bdc8b282b72984fd03
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Введение в Apache Kafka в HDInsight (предварительная версия)
@@ -39,6 +39,12 @@ Kafka предоставляет следующие возможности.
 * Порядок доставки. В каждой секции записи сохраняются в потоке в том порядке, в котором они были получены. Достаточно связать один процесс пользователя с секцией — и записи будут обрабатываться в определенном порядке.
 
 * Отказоустойчивость. Для обеспечения отказоустойчивости секции могут реплицироваться между узлами.
+
+* Интеграция с управляемыми дисками Azure: управляемые диски обеспечивают высокие показатели масштабируемости и пропускной способности для дисков, используемых виртуальными машинами в кластере HDInsight.
+
+    Управляемые диски по умолчанию включены для Kafka в HDInsight. Число используемых для каждого узла дисков можно настроить во время создания HDInsight. См. дополнительные сведения об [управляемых дисках Azure](../storage/storage-managed-disks-overview.md).
+
+    См. сведения о [настройке числа управляемых дисков и повышении степени масштабируемости для Kafka в HDInsight](hdinsight-apache-kafka-scalability.md).
 
 ## <a name="use-cases"></a>Варианты использования
 

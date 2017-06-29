@@ -1,7 +1,7 @@
 ---
-title: "Начало работы с кластером HBase в Azure HDInsight | Документация Майкрософт"
-description: "Следуйте инструкциям этого учебника по HBase, чтобы начать работу с Apache HBase на Hadoop в HDInsight. Создание таблиц из оболочки HBase и обращение к ним с помощью Hive."
-keywords: "Apache HBase,HBase,оболочка HBase,руководство по HBase,Beeline"
+title: "Начало работы с примером HBase в HDInsight в Azure | Документация Майкрософт"
+description: "Сведения об использовании Apache HBase в HDInsight. Создание таблиц из оболочки HBase и обращение к ним с помощью Hive."
+keywords: "hbasecommand, пример hbase"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,21 +17,21 @@ ms.topic: get-started-article
 ms.date: 05/09/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5f9b421571fa98d9881a9e955b05041de124f922
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 5bac1fcc39d052dd1bd9bf710a45a3494b70cae9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Linux в HDInsight
+# <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Начало работы с примером Apache HBase в HDInsight
 
 Узнайте, как создавать кластеры HBase в HDInsight, создавать таблицы HBase и запрашивать таблицы с помощью Hive. Для получения общих сведений по HBase обратитесь к разделу [Что такое HBase в HDInsight][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="prerequisites"></a>Предварительные требования
-Перед началом работы с этим руководством по HBase необходимо иметь следующие элементы:
+Для работы с этим примером HBase вам понадобится:
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell(SSH).](hdinsight-hadoop-linux-use-ssh-unix.md) 
@@ -76,7 +76,7 @@ ms.lasthandoff: 05/10/2017
 
 **Использование оболочки HBase**
 
-1. Из SSH выполните следующую команду:
+1. Из SSH выполните следующую команду HBase:
    
         hbase shell
 2. Создайте HBase с двумя столбцами:
@@ -239,7 +239,7 @@ HBase на HDInsight поставляется с веб-интерфейсом �
 
 ## <a name="troubleshoot"></a>Устранение неполадок
 
-Если при создании кластеров HDInsight возникли проблемы, ознакомьтесь с разделом [Access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters) (Требования к контролю доступа).
+Если при создании кластеров HDInsight возникли проблемы, см. раздел [Создание кластеров](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Из этого руководства по HBase для HDInsight вы узнали, как создать кластер HBase, а также как создавать таблицы и просматривать данные в них из оболочки HBase. Вы также узнали, как использовать Hive для запроса данных из таблиц HBase и как использовать интерфейсы REST API на C# для HBase для создания таблицы HBase и извлечения данных из нее.
