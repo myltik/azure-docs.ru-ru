@@ -103,7 +103,7 @@ ms.lasthandoff: 05/18/2017
 2. Откройте папку "Базы данных", разверните папку **Системные базы данных**, щелкните правой кнопкой мыши базу данных **master** и щелкните **Создать запрос**.
 3. Чтобы отобразить все базы данных с соединениями георепликации, воспользуйтесь приведенной ниже инструкцией.
    
-        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].geo_replication_links;
+        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].dm_geo_replication_links;
 4. Нажмите кнопку **Выполнить** для выполнения запроса.
 5. Откройте папку "Базы данных", разверните папку **Системные базы данных**, щелкните правой кнопкой мыши базу данных **MyDB** и щелкните **Создать запрос**.
 6. Чтобы отобразить задержки репликации и время последней репликации ваших баз данных-получателей MyDB, воспользуйтесь приведенной ниже инструкцией.
