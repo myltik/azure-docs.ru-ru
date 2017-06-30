@@ -41,8 +41,8 @@ ms.lasthandoff: 05/11/2017
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-            "storageAccountName": {
-                "type": "String"
+          "storageAccountName": {
+              "type": "String"
           }
       },
       "resources": [{
@@ -54,10 +54,10 @@ ms.lasthandoff: 05/11/2017
               "name": "Standard_LRS"
           },
           "kind": "Storage",
-          "properties": {        
+          "properties": {       
           }
       }],
-      "outputs": {        
+      "outputs": {      
       }
   }
   ```
@@ -102,7 +102,7 @@ ms.lasthandoff: 05/11/2017
               "Parameters": {
                   "storageAccountName": {
                       "value": "[parameters('storageAccountName')]"
-                  }                
+                  }             
               }
           }
       }]
@@ -118,13 +118,13 @@ ms.lasthandoff: 05/11/2017
 Затем создайте приложение или группу пользователей. Их можно использовать, чтобы управлять ресурсами от имени пользователя. Этой группе ресурсов или приложению предоставляются разрешения в управляемой группе ресурсов в соответствии с назначенной ролью. Это может быть любая встроенная роль RBAC, например **Владелец** или **Участник**. Отдельному пользователю можно также предоставить разрешения на управление ресурсами, но обычно это право предоставляется группе пользователей. Чтобы создать группу пользователей Active Directory, выполните следующую команду:
 
 ```azurecli
-az ad group create –display-name "name" –mail-nickname "nickname"
+az ad group create --display-name "name" --mail-nickname "nickname"
 ```
 
 Вы также можете использовать имеющуюся группу. Теперь нужно получить идентификатор объекта созданной или имеющейся группы пользователей. Пример команды ниже позволяет получить идентификатор объекта из отображаемого имени, используемого для создания группы.
 
 ```azurecli
-az ad group show –group "groupName"
+az ad group show --group "groupName"
 ```
 
 Пример:
@@ -210,3 +210,4 @@ az managedapp definition create -n ravtestAppDef4 -l "westcentralus"
 * Примеры файлов см. в репозитории с [управляемыми приложениями](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
 * См. сведения об [использовании управляемого приложения Azure](managed-application-consumption.md) для пользователя.
 * Дополнительные сведения о создании файла определения пользовательского интерфейса для управляемого приложения см. в статье [Начало работы с CreateUiDefinition](managed-application-createuidefinition-overview.md).
+

@@ -1,4 +1,4 @@
---- 
+---
 title: "Подключаемый модуль Azure Service Fabric для Eclipse | Документация Майкрософт"
 description: "Начало работы с подключаемым модулем Service Fabric для Eclipse."
 services: service-fabric
@@ -12,7 +12,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/03/2016
+ms.date: 06/29/2016
 ms.author: saysa
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
@@ -38,7 +38,7 @@ Eclipse является одной из наиболее часто испол�
   1.    В поле **Work with** (Работать с) введите **http://dl.microsoft.com/eclipse**.
   2.    Щелкните **Добавить**.
 
-         ![Подключаемый модуль Service Fabric для Eclipse Neon][sf-eclipse-plugin-install] 
+         ![Подключаемый модуль Service Fabric для Eclipse Neon][sf-eclipse-plugin-install]
   3.    Выберите подключаемый модуль Service Fabric и нажмите кнопку **Next** (Далее).
   4.    Выполните установку и примите условия лицензионного соглашения на использование программного обеспечения корпорации Майкрософт.
 
