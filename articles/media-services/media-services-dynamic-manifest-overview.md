@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: cenkd;juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
 ms.openlocfilehash: d0f9899d6b8cc83ea4f2836444b41a9dabe7fea7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -92,7 +94,7 @@ URL-адрес Smooth Streaming с фильтром
 > 
 > 
 
-### <a name="a-idfiltersafilters"></a><a id="filters"></a>Фильтры
+### <a id="filters"></a>Фильтры
 Существуют два типа фильтров активов. 
 
 * Глобальные фильтры (могут применяться к любому активу в учетной записи служб мультимедиа Azure, имеют срок существования учетной записи). 
@@ -100,7 +102,7 @@ URL-адрес Smooth Streaming с фильтром
 
 Глобальные и локальные типы фильтров обладают в точности одинаковыми свойствами. Основное различие между ними — в сценариях, к которым более подходит тот или иной тип фильтра. Глобальные фильтры обычно подходят для профилей устройств (фильтрация представлений), в то время как локальные могут использоваться для обрезки определенного актива.
 
-## <a name="a-idscenariosacommon-scenarios"></a><a id="scenarios"></a>Распространенные сценарии
+## <a id="scenarios"></a>Распространенные сценарии
 Как уже было сказано прежде, при доставке содержимого клиентам (в виде потоковой трансляции событий в режиме реального времени или видео по запросу) вашей целью является доставка видео высокого качества для различных устройств в разных сетевых условиях. Кроме этого, возможны и другие требования, задействующие фильтрацию активов и использование **динамических манифестов**. В следующих разделах содержится краткий обзор различных сценариев фильтрации.
 
 * Указание только части представлений аудио и видео, которые могут обрабатываться определенными устройствами (вместо всех представлений, связанных с активом). 
@@ -210,9 +212,4 @@ URL-адрес Smooth Streaming с фильтром
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

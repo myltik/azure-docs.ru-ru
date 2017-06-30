@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: 249b87ecc9e43fa26a74e27f91f807d60b275eeb
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/13/2017
 
 
@@ -115,7 +116,7 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-### <a name="a-idfmp4v20asmooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>Манифест Smooth Streaming 2.0 (манифест прежних версий)
+### <a id="fmp4_v20"></a>Манифест Smooth Streaming 2.0 (манифест прежних версий)
 По умолчанию формат манифеста Smooth Streaming содержит тег повтора (r-tag). Однако некоторые проигрыватели не поддерживают r-tag. Клиенты с этими проигрывателями могут использовать формат, который отключает r-tag.
 
 {имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest(format=fmp4-v20)
