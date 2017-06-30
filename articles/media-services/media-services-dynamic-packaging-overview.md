@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: da455a350f61e17425cd308d0fdc8bb5294a0b76
 ms.openlocfilehash: 574921fdecdadaa48c572685f7486d4e7b1d25f4
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/27/2017
 
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 01/27/2017
 2. [Сформируйте наборы мультискоростных MP4-файлов в формате H.264 с помощью стандартного кодировщика служб мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md).
 3. [Выполните потоковую передачу содержимого](media-services-deliver-content-overview.md).
 
-## <a name="a-idunsupportedformatsaformats-that-are-not-supported-by-dynamic-packaging"></a><a id="unsupported_formats"></a>Форматы, не поддерживаемые динамической упаковкой
+## <a id="unsupported_formats"></a>Форматы, не поддерживаемые динамической упаковкой
 Перечисленные ниже форматы файлов не поддерживаются технологией динамической упаковки.
 
 * MP4-файлы в формате Dolby Digital.
