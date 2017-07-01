@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
@@ -76,9 +76,9 @@ ms.lasthandoff: 05/12/2017
 Выпуск Spark 2.0.1 теперь доступен в кластерах Spark (HDInsight версии 3.5).
 
 ## <a name="11162016---release-of-r-server-90-on-hdinsight-35-spark-20"></a>Выпуск R Server 9.0 в HDInsight 3.5 (Spark 2.0) от 16.11.2016
-*    Кластеры R Server теперь включают параметры для двух версий: R Server 9.0 в HDI 3.5 (Spark 2.0) и R Server 8.0 в HDI 3.4 (Spark 1.6).
-*    R Server 9.0 в HDI 3.5 (Spark 2.0) основан на R 3.3.2 и содержит новые функции источника данных ScaleR под названием RxHiveData и RxParquetData. Они позволяют передавать данные из Hive и Parquet напрямую в таблицы данных Spark для анализа с помощью ScaleR. Дополнительные сведения об этих функциях в R см. в интернет-справке. Ее можно вызвать, выполнив команды **?RxHiveData** и **?RxParquetData**.
-*    Теперь выпуск RStudio Server Community Edition устанавливается по умолчанию (с параметром opt-out) в колонке "Настройка кластера" как часть потока подготовки.
+*   Кластеры R Server теперь включают параметры для двух версий: R Server 9.0 в HDI 3.5 (Spark 2.0) и R Server 8.0 в HDI 3.4 (Spark 1.6).
+*   R Server 9.0 в HDI 3.5 (Spark 2.0) основан на R 3.3.2 и содержит новые функции источника данных ScaleR под названием RxHiveData и RxParquetData. Они позволяют передавать данные из Hive и Parquet напрямую в таблицы данных Spark для анализа с помощью ScaleR. Дополнительные сведения об этих функциях в R см. в интернет-справке. Ее можно вызвать, выполнив команды **?RxHiveData** и **?RxParquetData**.
+*   Теперь выпуск RStudio Server Community Edition устанавливается по умолчанию (с параметром opt-out) в колонке "Настройка кластера" как часть потока подготовки.
 
 ## <a name="11092016---release-of-spark-20-on-hdinsight"></a>Выпуск Spark 2.0 в HDInsight от 09.11.2016
 * Кластеры Spark 2.0 в HDInsight 3.5 теперь поддерживают службы Livy и Jupyter.
