@@ -87,7 +87,7 @@ Azure Stream Analytics является полностью управляемо�
 <!--Article references-->
 
 [Introduction to Azure Stream Analytics]: ../stream-analytics/stream-analytics-introduction.md
-[Get started using Azure Stream Analytics]: ../stream-analytics/stream-analytics-get-started.md
+[Get started using Azure Stream Analytics]: ../stream-analytics/stream-analytics-real-time-fraud-detection.md
 [SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop.md
 [SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integrate.md
 

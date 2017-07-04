@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b80ee30379e9aac207cfe420cae17da57ea123a5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8d876a0f2168ee9375a3905d5d5a562ab1194cf3
 ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
-ms.lasthandoff: 03/02/2017
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -460,7 +461,7 @@ Azure AD позволяет организациям (известным как 
 }
 ```
 
-### <a name="a-configure-arm-aconfigure-resource-manager-template-parameters"></a><a "configure-arm" ></a>Настройка параметров шаблона Resource Manager
+### <a "configure-arm" ></a>Настройка параметров шаблона Resource Manager
 Наконец, используйте полученные значения из хранилища ключей и с помощью команд PowerShell Azure AD для заполнения файла параметров.
 
 ```json
