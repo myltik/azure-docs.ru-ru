@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 2faf328e6622b9a1e3b529d62b61061659041fbd
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/10/2017
 
 
@@ -24,8 +25,8 @@ ms.lasthandoff: 03/10/2017
 
 Это руководство касается следующих клиентов:
 
--    Windows 10
--    Windows Server 2016
+-   Windows 10
+-   Windows Server 2016
 
 Сведения о других клиентах Windows см. в статье [Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров для клиентов Windows нижнего уровня](active-directory-device-registration-troubleshoot-windows-legacy.md).
 

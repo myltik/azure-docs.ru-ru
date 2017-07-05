@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: dccebad561b04306126f986193a57aee176aaa0d
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: df42834bca821b16e9dd1bc57d735d346f12ca1d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -30,17 +30,9 @@ Azure CLI используется для создания ресурсов Azur
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
 
-Для работы с этим кратким руководством требуется Azure CLI версии не ниже 2.0.4. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0](/cli/azure/install-azure-cli). 
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Вход в Azure
-
-Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране.
-
-```azurecli
-az login
-```
+Если вы решили установить и использовать CLI локально, для выполнения инструкций в этом руководстве потребуется Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="define-variables"></a>Определение переменных
 
@@ -57,7 +49,7 @@ export adminlogin = ServerAdmin
 export password = ChangeYourAdminPassword1
 # The ip address range that you want to allow to access your DB
 export startip = "0.0.0.0"
-export endip = "0.0.0.1"
+export endip = "0.0.0.0"
 # The database name
 export databasename = mySampleDatabase
 ```
