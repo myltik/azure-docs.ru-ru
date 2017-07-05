@@ -12,14 +12,14 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 96ed03c48c4be12638aae6ab30f3843a7e68c995
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: d69e70ae178c9ae889d44998938cb2c215ff10ba
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -68,9 +68,9 @@ ms.lasthandoff: 05/31/2017
 ## <a id="GitClone"></a>Этап 2. Клонирование проекта GitHub
 [Чтобы приступить к работе с Azure Cosmos DB и Java](https://github.com/Azure-Samples/documentdb-java-getting-started), сначала клонируйте репозиторий GitHub. Например, чтобы получить образец проекта в локальной среде, в локальном каталоге выполните следующую команду.
 
-    git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
+    git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
 
-    cd documentdb-java-getting-started
+    cd azure-cosmos-db-documentdb-java-getting-started
 
 В этом каталоге находится файл `pom.xml` проекта и папка `src` с исходным кодом Java. Кроме того, здесь также находится файл `Program.java` с инструкцией по выполнению простых операций с помощью Azure DocumentDB, таких как создание документов и запрос данных в коллекции. В файле `pom.xml` содержится зависимость от [пакета Java SDK для DocumentDB в Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 05/31/2017
 ![Снимок экрана портала Azure в ходе работы с руководством по NoSQL при создании консольного приложения Java. Отображается учетная запись Azure Cosmos DB со следующими выделенными элементами: активный концентратор, кнопка "Ключи" в колонке учетной записи Azure Cosmos DB, а также значение универсального кода ресурса (URI), первичный и вторичный ключи в колонке "Ключи".][keys]
 
 ## <a name="step-4-create-a-database"></a>Этап 4: создание базы данных
-[Базу данных](documentdb-resources.md#databases) Azure Cosmos DB можно создать с помощью метода [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) класса **DocumentClient**. База данных представляет собой логический контейнер для хранения документов JSON, разделенных между коллекциями.
+[Базу данных](documentdb-resources.md#databases) Azure Cosmos DB можно создать с помощью метода [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) класса **DocumentClient**. База данных представляет собой логический контейнер для хранения документов JSON, разделенных между коллекциями.
 
     Database database = new Database();
     database.setId("familydb");
@@ -102,11 +102,11 @@ ms.lasthandoff: 05/31/2017
 
 ## <a id="CreateColl"></a>Этап 5: создание коллекции
 > [!WARNING]
-> Элемент **createCollection** создает коллекцию с зарезервированной пропускной способностью и соответствующей ценой. Дополнительные сведения см. на [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
+> Элемент **createCollection** создает коллекцию с зарезервированной пропускной способностью и соответствующей ценой. Дополнительные сведения см. на [странице цен](https://azure.microsoft.com/pricing/details/cosmos-db/).
 > 
 > 
 
-Вы можете создать [коллекцию](documentdb-resources.md#collections), используя метод [createCollection](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createCollection-java.lang.String-com.microsoft.azure.documentdb.DocumentCollection-com.microsoft.azure.documentdb.RequestOptions-) класса **DocumentClient**. Коллекция представляет собой контейнер документов JSON и связанную с ними логику в виде приложения JavaScript.
+Вы можете создать [коллекцию](documentdb-resources.md#collections), используя метод [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) класса **DocumentClient**. Коллекция представляет собой контейнер документов JSON и связанную с ними логику в виде приложения JavaScript.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -120,7 +120,7 @@ ms.lasthandoff: 05/31/2017
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Шаг 6. Создание документов JSON
-[Документ](documentdb-resources.md#documents) можно создать с помощью метода [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) класса **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь мы можем добавить один или несколько документов. Если у вас уже есть данные, которые необходимо хранить в базе данных, вы можете использовать [средство миграции данных](import-data.md) DocumentDB, чтобы импортировать данные в базу данных.
+[Документ](documentdb-resources.md#documents) можно создать с помощью метода [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) класса **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь мы можем добавить один или несколько документов. Если у вас уже есть данные, которые необходимо хранить в базе данных, вы можете использовать [средство миграции данных](import-data.md) DocumentDB, чтобы импортировать данные в базу данных.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -143,7 +143,7 @@ ms.lasthandoff: 05/31/2017
 ![На схеме представлены иерархические отношения между учетной записью, оперативной базой данных, коллекцией и документами, используемыми в руководстве по NoSQL при создании консольного приложения Java.](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Шаг 7. Запрос ресурсов Azure Cosmos DB
-Azure Cosmos DB поддерживает [полнофункциональные запросы](documentdb-sql-query.md) к документам JSON, хранящимся в каждой коллекции.  Ниже приведен образец кода, который позволяет запросить документы в Azure Cosmos DB, используя синтаксис SQL с методом [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-).
+Azure Cosmos DB поддерживает [полнофункциональные запросы](documentdb-sql-query.md) к документам JSON, хранящимся в каждой коллекции.  Ниже приведен образец кода, который позволяет запросить документы в Azure Cosmos DB, используя синтаксис SQL с методом [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments).
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -156,7 +156,7 @@ Azure Cosmos DB поддерживает [полнофункциональные
     }
 
 ## <a id="ReplaceDocument"></a>Шаг 8. Замена документа JSON
-Azure Cosmos DB поддерживает обновление документов JSON с помощью метода [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-).
+Azure Cosmos DB поддерживает обновление документов JSON с помощью метода [replaceDocument](/java/api/com.microsoft.azure.documentdb._document_client.replacedocument).
 
     // Update a property
     andersenFamily.Children[0].Grade = 6;
@@ -167,7 +167,7 @@ Azure Cosmos DB поддерживает обновление документо
         null);
 
 ## <a id="DeleteDocument"></a>Шаг 9. Удаление документа JSON
-Аналогичным образом Azure Cosmos DB поддерживает удаление документов JSON с помощью метода [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-).  
+Аналогичным образом Azure Cosmos DB поддерживает удаление документов JSON с помощью метода [deleteDocument](/java/api/com.microsoft.azure.documentdb._document_client.deletedocument).  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
@@ -177,7 +177,7 @@ Azure Cosmos DB поддерживает обновление документо
     this.client.deleteDatabase("/dbs/familydb", null);
 
 ## <a id="Run"></a>Этап 11. Запуск консольного приложения Java
-Чтобы запустить приложение в окне консоли, сначала скомпилируйте его с помощью Maven.
+Чтобы запустить приложение из консоли, перейдите в папку проекта и выполните компиляцию с помощью Maven:
     
     mvn package
 

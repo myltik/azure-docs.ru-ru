@@ -178,7 +178,7 @@ ms.lasthandoff: 04/03/2017
 После создания ресурса приложения вам понадобится ключ инструментирования. 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>"
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
     $details = Get-AzureRmResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```

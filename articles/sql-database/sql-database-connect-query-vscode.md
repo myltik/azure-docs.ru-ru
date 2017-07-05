@@ -10,18 +10,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: quick start manage, mvc
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/24/2017
+ms.date: 06/20/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 82c8a34fcccb6d19dc82110a6d95a80d748835f0
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: ca0b1dc8fdf13112510574741a319f0fbebadf93
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -69,7 +69,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
 3. На странице **Обзор** базы данных просмотрите полное имя сервера, как показано на следующем рисунке. Вы можете навести указатель мыши на имя сервера, чтобы отобразился пункт **Щелкните, чтобы скопировать**.
 
-   ![Сведения о подключении](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![Сведения о подключении](./media/sql-database-get-started-portal/server-name.png) 
 
 4. Если вы забыли данные для входа на сервер базы данных SQL Azure, перейдите к соответствующей странице, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль. 
 
@@ -84,7 +84,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
    ![Языковой режим SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Подключение к базе данных на логическом сервере базы данных SQL
+## <a name="connect-to-your-database"></a>Подключение к базе данных
 
 С помощью Visual Studio Code подключитесь к серверу базы данных SQL Azure.
 
@@ -191,10 +191,5 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о подключении к базе данных SQL с помощью SQL Server Management Studio и выполнении запроса к ней см. [здесь](sql-database-connect-query-ssms.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью .NET](sql-database-connect-query-dotnet.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью PHP](sql-database-connect-query-php.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Node.js](sql-database-connect-query-nodejs.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Java](sql-database-connect-query-java.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Python](sql-database-connect-query-python.md).
-- См. дополнительные сведения о [подключении и создании запросов с помощью Ruby](sql-database-connect-query-ruby.md).
+- Статью из журнала MSDN, посвященную использованию кода Visual Studio, можно просмотреть в записи блога о [создании базы данных IDE с помощью расширения MSSQL](https://msdn.microsoft.com/magazine/mt809115).
 

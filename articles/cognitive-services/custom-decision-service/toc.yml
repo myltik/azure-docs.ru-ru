@@ -1,16 +1,20 @@
-- name: Служба пользовательских решений
+- name: Custom Decision Service
   href: ../index.md
-- name: Обзор
+- name: Overview
   href: custom-decision-service-overview.md
-- name: Начало работы
+- name: Get started
   items:
-  - name: Регистрация приложения
+  - name: Register your application
     href: custom-decision-service-get-started-register.md
-  - name: Вызов API из браузера
+  - name: Call API from a browser
     href: custom-decision-service-get-started-browser.md
-  - name: Вызов API из приложения
+  - name: Call API from an app
     href: custom-decision-service-get-started-app.md
-- name: Учебник
+- name: Tutorial
   href: custom-decision-service-tutorial.md
-- name: Справочник по API
+- name: API reference
   href: custom-decision-service-api-reference.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

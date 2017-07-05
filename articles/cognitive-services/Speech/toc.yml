@@ -1,33 +1,37 @@
-- name: Документация по API распознавания речи Bing
+- name: Bing Speech Documentation
   href: ../index.md
-- name: Обзор
+- name: Overview
   href: Home.md
-- name: Приступая к работе
+- name: Get started
   items:
-  - name: "C# (REST API)\_\_"
+  - name: 'C#(REST API)  '
     href: GetStarted/GetStartedREST.md
-  - name: cURL (REST API)
+  - name: cURL(REST API)
     href: GetStarted/GetStarted-cURL.md
-  - name: "JavaScript (Websocket API)\_\_\_"
+  - name: 'JavaScript(Websocket API)   '
  
     href: GetStarted/GetStartedJSWebsockets.md
-  - name: 'C# (клиентская библиотека)'
+  - name: 'C#(Client Library)'
     href: GetStarted/GetStartedCSharpDesktop.md
-  - name: 'C# (библиотека службы)'
+  - name: 'C#(Service Library)'
     href: GetStarted/GetStartedCSharpServiceLibrary.md
-  - name: "Objective\_C на платформе iOS (клиентская библиотека)\_\_\_"
+  - name: 'Objective C on iOS(Client Library)   '
     href: GetStarted/Get-Started-ObjectiveC-iOS.md
-  - name: Java на платформе Android (клиентская библиотека)
+  - name: Java on Android(Client Library)
     href: GetStarted/GetStartedJavaAndroid.md
-- name: Справочные материалы
+- name: Reference
   items: 
-  - name: Справочник по API распознавания речи
+  - name: Speech recognition API reference
     href: API-Reference-REST/BingVoiceRecognition.md
-  - name: Справочник по API преобразования текста в речь
+  - name: Text-to-speech API reference
     href: API-Reference-REST/BingVoiceOutput.md
-  - name: Протокол WebSocket
+  - name: Websocket Protocol
     href: API-Reference-REST/websocketprotocol.md
-  - name: Пакеты SDK и примеры
+  - name: SDKs & Samples
     items:
     - name: JavaScript
       href: https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
