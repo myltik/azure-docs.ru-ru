@@ -17,7 +17,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: de9453e6764279c481e569542433d095772f304d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -33,10 +33,10 @@ ms.lasthandoff: 05/10/2017
 Сама фабрика данных Azure не хранит никакие данные, за исключением учетных данных связанной службы для облачных хранилищ данных, зашифрованных с помощью сертификатов. Она предоставляет возможность создавать управляемые данными рабочие процессы для обработки данных с помощью [служб вычислений](data-factory-compute-linked-services.md) в других регионах или локальной среде и оркестрации перемещения данных между [поддерживаемыми хранилищами](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Кроме того, с помощью фабрики данных можно [отслеживать рабочие процессы и управлять ими](data-factory-monitor-manage-pipelines.md) , используя программные методы и пользовательский интерфейс.
 
 Перемещение данных с помощью фабрики данных Azure было **сертифицировано** для:
--    [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA);  
--    [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001);  
--    [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018); 
--    [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification).
+-   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA);  
+-   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001);  
+-   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018); 
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification).
      
 Если вас интересует, как Azure обеспечивает соответствие требованиям и защищает собственную инфраструктуру, посетите [центр управления безопасностью Майкрософт](https://www.microsoft.com/TrustCenter/default.aspx). 
 
@@ -120,7 +120,7 @@ SalesForce поддерживает шифрование Shield Platform Encrypt
  
 Вы также можете использовать [VPN-подключение IPSec](../vpn-gateway/vpn-gateway-about-vpn-devices.md) или [Express Route](../expressroute/expressroute-introduction.md), чтобы в дальнейшем обеспечить безопасность коммуникационного канала между локальной сетью и Azure.
 
-Виртуальная сеть — это логическое представление сети в облаке. Вы можете подключить локальную сеть к виртуальной сети Azure (VNet), настроив VPN-подключение IPSec типа "сеть — сеть" или Express Route (частный пиринг).        
+Виртуальная сеть — это логическое представление сети в облаке. Вы можете подключить локальную сеть к виртуальной сети Azure (VNet), настроив VPN-подключение IPSec типа "сеть — сеть" или Express Route (частный пиринг).     
 
 В таблице ниже представлены общие рекомендации для настройки шлюза и сети на основе различных комбинаций исходного и целевого расположений для гибридного перемещения данных.
 
@@ -142,7 +142,7 @@ SalesForce поддерживает шифрование Shield Platform Encrypt
 
 ### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Параметры конфигурации брандмауэра и добавление IP-адреса шлюза в список разрешенных
 
-#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>Требования к брандмауэру для локальной или частной сети    
+#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>Требования к брандмауэру для локальной или частной сети   
 На предприятии **корпоративный брандмауэр** работает на центральном маршрутизаторе организации. А **брандмауэр Windows** работает как управляющая программа на локальном компьютере, на котором установлен шлюз. 
 
 В таблице ниже представлены **исходящий порт** и требования к домену для **корпоративного брандмауэра**.
@@ -152,7 +152,7 @@ SalesForce поддерживает шифрование Shield Platform Encrypt
 | `*.servicebus.windows.net` | 443, 80 | Требуется шлюзу для подключения к службам перемещения данных в фабрике данных. |
 | `*.core.windows.net` | 443 | Используется шлюзом для подключения к учетной записи хранения Azure при помощи функции [промежуточного копирования](data-factory-copy-activity-performance.md#staged-copy). | 
 | `*.frontend.clouddatahub.net` | 443 | Требуется шлюзу для подключения к службе фабрики данных Azure. | 
-| `*.database.windows.net` | 1433    | (Необязательно.) Требуется, если местом назначения является база данных SQL Azure или хранилище данных SQL Azure. Используйте функцию промежуточного копирования, чтобы копировать данные в базу данных SQL Azure или хранилище данных SQL Azure без необходимости открывать порт 1433. | 
+| `*.database.windows.net` | 1433   | (Необязательно.) Требуется, если местом назначения является база данных SQL Azure или хранилище данных SQL Azure. Используйте функцию промежуточного копирования, чтобы копировать данные в базу данных SQL Azure или хранилище данных SQL Azure без необходимости открывать порт 1433. | 
 | `*.azuredatalakestore.net` | 443 | (Необязательно.) Требуется, если местом назначения является Azure Data Lake Store. | 
 
 > [!NOTE] 
