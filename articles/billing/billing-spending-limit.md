@@ -4,7 +4,7 @@ description: "Описывает, как работает предельная �
 services: 
 documentationcenter: 
 author: genlin
-manager: vikdesai
+manager: jlian
 editor: 
 tags: billing
 ms.service: billing
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: genli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 39ae134d8927f5123667b64bbd0c659cd5f62ffc
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/21/2017
 
 

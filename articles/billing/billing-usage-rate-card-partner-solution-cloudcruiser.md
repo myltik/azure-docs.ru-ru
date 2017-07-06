@@ -4,7 +4,7 @@ description: "В нем описан уникальный опыт Cloud Cruiser
 services: 
 documentationcenter: 
 author: BryanLa
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 02/03/2017
 ms.author: mobandyo;sirishap;bryanla
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 09c18ca6a967c2930ddd2b16d37f0bc606712ea1
 ms.openlocfilehash: 125b777e0ab05066cf066789b603b8edb15a0936
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -223,9 +225,4 @@ Cloud Cruiser может по-разному использовать интег
 [12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Рис. 12. Данные API использования, импортированные на лист UsageAPI"
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Рис. 13. Создание полей для сведений о тегах"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Рис. 14. Заполнение структуры учетной записи данными из результатов поиска"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
