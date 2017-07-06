@@ -1,5 +1,5 @@
 ---
-title: "Действие &quot;Хранимая процедура SQL Server&quot;"
+title: "Действие \"Хранимая процедура SQL Server\""
 description: "Узнайте, как с помощью действия хранимой процедуры SQL Server можно вызвать хранимую процедуру в Базе данных SQL Azure или хранилище данных SQL Azure из конвейера фабрики данных."
 services: data-factory
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 726f1e2caa4ad313510355c52bcdc100fc1fb488
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 0bba06d4d4b8377fe9e4e605754e3322a2828c64
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---

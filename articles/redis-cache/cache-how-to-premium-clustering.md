@@ -1,5 +1,5 @@
 ---
-title: "Как настроить кластеризацию для кэша Redis для Azure уровня &quot;Премиум&quot; | Документация Майкрософт"
+title: "Как настроить кластеризацию для кэша Redis для Azure уровня \"Премиум\" | Документация Майкрософт"
 description: "Узнайте, как настроить кластеризацию и управлять ей для экземпляров кэша Redis для Azure уровня Премиум"
 services: redis-cache
 documentationcenter: 
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 07/05/2017
 ms.author: sdanie
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f

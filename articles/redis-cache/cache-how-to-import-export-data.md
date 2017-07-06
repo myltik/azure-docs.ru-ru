@@ -1,6 +1,6 @@
 ---
 title: "Импорт и экспорт данных в кэше Redis для Azure | Документация Майкрософт"
-description: "Вы можете узнать, как импортировать данные в хранилище BLOB-объектов и экспортировать их оттуда с использованием экземпляров кэша Redis для Azure категории &quot;Премиум&quot;"
+description: "Вы можете узнать, как импортировать данные в хранилище BLOB-объектов и экспортировать их оттуда с использованием экземпляров кэша Redis для Azure категории \"Премиум\""
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 07/05/2017
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
 ms.openlocfilehash: 0fc176eca038801725492f905442ba4dd9d2fabe
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/28/2017
 
 
