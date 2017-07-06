@@ -6,7 +6,7 @@ keywords: "Управление паролями Active Directory, управл�
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
