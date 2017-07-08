@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 6/29/2017
 ms.author: sumukhs
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
 ms.openlocfilehash: 9610c37111bf8fd36c1eaea4f48e46953661aacf
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -92,10 +94,5 @@ ms.openlocfilehash: 9610c37111bf8fd36c1eaea4f48e46953661aacf
 ## <a name="remarks"></a>Примечания
 Параметр BatchAcknowledgementInterval управляет задержкой репликации. Значение&0; обеспечивает минимальную возможную задержку за счет уменьшения скорости репликации (потому что необходимо отправлять и обрабатывать большее количество сообщений с подтверждениями, каждое из которых содержит меньше подтверждений).
 По мере увеличения значения BatchAcknowledgementInterval увеличивается общая скорость репликации и задержка операций. Это непосредственно перетекает в задержку фиксаций транзакций.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4503810769d88ea554885f39902349046981ec88
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -62,10 +64,5 @@ Azure Mobile Engagement — это служба, предназначенная
 Итак, чтобы подвести итог, Mobile Engagement предназначена не только для сбора аналитики — это не "еще один аналитический продукт от корпорации Майкрософт". Основная задача продукта — отправка целевых push-уведомлений, и для достижения этой цели мы собираем данные об анализе поведения. Но основной задачей при этом остается отправка push-уведомлений, которые будут наиболее полезны для пользователей приложений, чтобы они не сочли их нежелательными. 
 
 Для получения дополнительных сведений посмотрите это [краткое видео](mobile-engagement-overview.md) о Mobile Engagement. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

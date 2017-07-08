@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a6956a8fd885251c07c31c4e677dba738ec93c64
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c059fd74854813615754e67547497b7ededbe4dd
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -81,10 +83,5 @@ ms.openlocfilehash: a6956a8fd885251c07c31c4e677dba738ec93c64
 
 ## <a name="virtual-device-updates-in-the-february-release"></a>Обновления виртуального устройства в февральском выпуске
 Эта версия не содержит никаких обновлений для виртуального устройства. Установка этого обновления не приведет к изменению версии программного обеспечения виртуального устройства.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,10 +1,16 @@
 
-[Azure Cloud Shell](../articles/cloud-shell/quickstart.md) (общедоступная предварительная версия) — это предварительно настроенная веб-оболочка, упрощающая использование средств Azure. C Cloud Shell у вас всегда есть последние версии доступных средств и вам не нужно устанавливать их, обновлять или отдельно входить в них. Просто нажмите кнопку **Попробовать** в верхнем правом углу блока кода в этой статье, чтобы запустить Cloud Shell.
+## <a name="launch-azure-cloud-shell"></a>Запуск Azure Cloud Shell
 
-![Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png)
+Azure Cloud Shell — это бесплатная оболочка Bash, которую можно запускать непосредственно на портале Azure. Она включает предварительно установленный интерфейс Azure CLI и настроена для использования с вашей учетной записью. Нажмите кнопку меню **Cloud Shell** в правом верхнем углу [портала Azure](https://portal.azure.com).
 
-Также Cloud Shell можно открыть на портале Azure, нажав кнопку ![Cloud Shell](./media/cloud-shell-try-it/cs-button.png) на верхней панели навигации. 
- 
+[![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
+
+Кнопка запускает интерактивную оболочку, с помощью которой можно выполнять действия, описанные в этом разделе:
+
+[![Снимок экрана с окном Azure Cloud Shell на портале](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
+
+
+
 
 
 

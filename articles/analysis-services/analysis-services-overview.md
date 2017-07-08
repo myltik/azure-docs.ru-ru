@@ -31,7 +31,7 @@ ms.lasthandoff: 06/17/2017
 Ознакомьтесь с этим видео, чтобы узнать больше о том, как службы Azure Analysis Services дополняют общие возможности средств бизнес-аналитики корпорации Майкрософт и как воспользоваться преимуществами переноса моделей данных в облако.
 
 
->[!Видео https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
+>[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >
 

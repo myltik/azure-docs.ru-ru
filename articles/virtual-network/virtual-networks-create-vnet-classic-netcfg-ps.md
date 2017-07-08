@@ -1,5 +1,5 @@
 ---
-title: "Создание виртуальной сети с помощью файла конфигурации сети на портале Azure | Документация Майкрософт"
+title: "Создание виртуальной сети с помощью файла конфигурации сети | PowerShell | Классическая модель | Документация Майкрософт"
 description: "Узнайте, как создать виртуальную сеть с помощью файла конфигурации сети на портале Azure."
 services: virtual-network
 documentationcenter: 
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c8c37891e5a465749a225e5952058930f9b4682
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d4484ea46095f1969db0b01bdef69c212da8acdd
+ms.openlocfilehash: a67c3f73d9e56ab0081836ba5db62f5a01c7b6bc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="create-a-virtual-network-classic-by-using-powershell"></a>Создание (классической) виртуальной сети с помощью PowerShell
+# <a name="create-a-virtual-network-classic-using-a-network-configuration-file-with-powershell"></a>Создание виртуальной сети (классической) с помощью файла конфигурации сети и PowerShell
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -33,10 +35,5 @@ ms.openlocfilehash: 3c8c37891e5a465749a225e5952058930f9b4682
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-classic-netcfg-ps-include](../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 21cbbb10065df9ae9c63b775a6526ea9c4f92136
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -32,7 +34,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 > 
 > 
 
-## <a name="a-nameassetfilesa-assetfiles-element-root-element"></a><a name="AssetFiles"></a> Элемент AssetFiles (корневой элемент)
+## <a name="AssetFiles"></a> Элемент AssetFiles (корневой элемент)
 Содержит коллекцию [элементов AssetFile](media-services-input-metadata-schema.md#AssetFile) для задания кодирования.  
 
 Пример XML-файла см. в разделе [Пример XML-файла](media-services-input-metadata-schema.md#xml) в конце статьи.  
@@ -41,7 +43,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | --- | --- |
 | **AssetFile**<br /><br /> minOccurs="1" maxOccurs="unbounded" |Один дочерний элемент. Дополнительные сведения см. в разделе [Элемент AssetFile](media-services-input-metadata-schema.md#AssetFile). |
 
-## <a name="a-nameassetfilea-assetfile-element"></a><a name="AssetFile"></a> Элемент AssetFile
+## <a name="AssetFile"></a> Элемент AssetFile
  Содержит атрибуты и элементы, описывающие файл ресурса-контейнера.  
 
  Пример XML-файла см. в разделе [Пример XML-файла](media-services-input-metadata-schema.md#xml) в конце статьи.  
@@ -71,7 +73,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **AudioTracks**<br /><br /> minOccurs="0" | |Каждый физический файл ресурса-контейнера может содержать ноль или более звуковых дорожек, чередуемых в соответствующем формате ресурса-контейнера. Этот элемент содержит коллекцию всех [элементов AudioTracks](media-services-input-metadata-schema.md#AudioTracks), которые являются частью файла ресурса-контейнера. |
 | **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Метаданные файла ресурса-контейнера, представленные в виде строки "ключ —значение". Например:<br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
-## <a name="a-nametracktypea-tracktype"></a><a name="TrackType"></a> TrackType
+## <a name="TrackType"></a> TrackType
 Пример XML-файла см. в разделе [Пример XML-файла](media-services-input-metadata-schema.md#xml) в конце статьи.  
 
 ### <a name="attributes"></a>Атрибуты
@@ -96,7 +98,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **Disposition**<br /><br /> minOccurs="0" maxOccurs="1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |Содержит сведения о презентации (например, указывает, предназначена ли конкретная звуковая дорожка для людей с нарушениями зрения). |
 | **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Общие строки "ключ —значение", которые можно использовать для хранения различных сведений. Например, key="language" и value="eng". |
 
-## <a name="a-nameaudiotracktypea-audiotracktype-inherits-from-tracktype"></a><a name="AudioTrackType"></a> AudioTrackType (наследуется из TrackType)
+## <a name="AudioTrackType"></a> AudioTrackType (наследуется из TrackType)
  **AudioTrackType** — это глобальный сложный тип, который наследуется из [TrackType](media-services-input-metadata-schema.md#TrackType).  
 
  Этот тип представляет конкретную звуковую дорожку в файле ресурса-контейнера.  
@@ -113,7 +115,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **Bitrate** |**xs:int** |Средняя скорость аудиопотока в битах в секунду, вычисленная на основе файла ресурса-контейнера. Подсчитываются только полезные данные элементарного потока, издержки на упаковку не включаются. |
 | **BitsPerSample** |**xs:int** |Битов на выборку для формата wFormatTag. |
 
-## <a name="a-namevideotracktypea-videotracktype-inherits-from-tracktype"></a><a name="VideoTrackType"></a> VideoTrackType (наследуется из TrackType)
+## <a name="VideoTrackType"></a> VideoTrackType (наследуется из TrackType)
 **VideoTrackType** — это глобальный сложный тип, который наследуется из [TrackType](media-services-input-metadata-schema.md#TrackType).  
 
 Этот тип представляет конкретную видеодорожку в файле ресурса-контейнера.  
@@ -139,7 +141,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **MaxGOPBitrate** |**xs:int** |Максимальная средняя скорость группы изображений (GOP) для данной видеодорожки в килобитах в секунду. |
 | **HasBFrames** |**xs:int** |Количество видеодорожек с кадрами B. |
 
-## <a name="a-namemetadatatypea-metadatatype"></a><a name="MetadataType"></a> MetadataType
+## <a name="MetadataType"></a> MetadataType
 **MetadataType** — глобальный сложный тип, описывающий метаданные файла ресурса-контейнера в виде строк "ключ —значение". Например, key="language" и value="eng".  
 
 Пример XML-файла см. в разделе [Пример XML-файла](media-services-input-metadata-schema.md#xml) в конце статьи.  
@@ -150,7 +152,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **key**<br /><br /> Обязательно |**xs:string** |Ключ в паре "ключ — значение". |
 | **значение**<br /><br /> Обязательно |**xs:string** |Значение в паре "ключ — значение". |
 
-## <a name="a-nameprogramtypea-programtype"></a><a name="ProgramType"></a> ProgramType
+## <a name="ProgramType"></a> ProgramType
 **ProgramType** — глобальный сложный тип, описывающий программу.  
 
 ### <a name="attributes"></a>Атрибуты
@@ -163,7 +165,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **StartPTS** |**xs: long** |Метка времени начала презентации. |
 | **EndPTS** |**xs: long** |Метка времени окончания презентации. |
 
-## <a name="a-namestreamdispositiontypea-streamdispositiontype"></a><a name="StreamDispositionType"></a> StreamDispositionType
+## <a name="StreamDispositionType"></a> StreamDispositionType
 **StreamDispositionType** — глобальный сложный тип, описывающий поток.  
 
 Пример XML-файла см. в разделе [Пример XML-файла](media-services-input-metadata-schema.md#xml) в конце статьи.  
@@ -183,7 +185,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **CleanEffects**<br /><br /> Обязательно |**xs:int** |Установите значение 1, чтобы указать, что эта дорожка содержит чистые эффекты. |
 | **AttachedPic**<br /><br /> Обязательно |**xs:int** |Установите значение 1, чтобы указать, что эта дорожка содержит изображения. |
 
-## <a name="a-nameprogramsa-programs-element"></a><a name="Programs"></a> Элемент Programs
+## <a name="Programs"></a> Элемент Programs
 Оболочечный элемент, содержащий несколько элементов **Program**.  
 
 ### <a name="child-elements"></a>Дочерние элементы
@@ -191,7 +193,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | --- | --- | --- |
 | **Program**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |Содержит сведения о программах в файле ресурса-контейнера (в формате MPEG-TS). |
 
-## <a name="a-namevideotracksa-videotracks-element"></a><a name="VideoTracks"></a> Элемент VideoTracks
+## <a name="VideoTracks"></a> Элемент VideoTracks
  Оболочечный элемент, содержащий несколько элементов **VideoTrack**.  
 
  Пример XML-файла см. в разделе [Пример XML-файла](media-services-input-metadata-schema.md#xml) в конце статьи.  
@@ -201,7 +203,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | --- | --- | --- |
 | **VideoTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[VideoTrackType (наследуется из TrackType)](media-services-input-metadata-schema.md#VideoTrackType) |Содержит сведения о видеодорожках в файле ресурса-контейнера. |
 
-## <a name="a-nameaudiotracksa-audiotracks-element"></a><a name="AudioTracks"></a> Элемент AudioTracks
+## <a name="AudioTracks"></a> Элемент AudioTracks
  Оболочечный элемент, содержащий несколько элементов **AudioTrack**.  
 
  Пример XML-файла см. в разделе [Пример XML-файла](media-services-input-metadata-schema.md#xml) в конце статьи.  
@@ -211,7 +213,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | --- | --- | --- |
 | **AudioTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[AudioTrackType (наследуется из TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |Содержит сведения о звуковых дорожках в файле ресурса-контейнера. |
 
-## <a name="a-namecodea-schema-code"></a><a name="code"></a> Код схемы
+## <a name="code"></a> Код схемы
     <?xml version="1.0" encoding="utf-8"?>  
     <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.0"  
                xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata"  
@@ -610,7 +612,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
     </xs:schema>  
 
 
-## <a name="a-namexmla-xml-example"></a><a name="xml"></a> Пример XML-файла
+## <a name="xml"></a> Пример XML-файла
 Ниже приведен пример файла входных метаданных.  
 
     <?xml version="1.0" encoding="utf-8"?>  
@@ -645,10 +647,5 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

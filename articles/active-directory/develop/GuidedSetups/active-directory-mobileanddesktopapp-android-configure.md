@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 842f6667d79d6a2cf3ab6fb7ccff575055585dca
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 9b23f34300248ff87ed4a6abbeb6cfdda6570581
 ms.contentlocale: ru-ru
 
 
@@ -26,9 +26,9 @@ ms.contentlocale: ru-ru
 ## <a name="create-an-application-express"></a>Создание приложения (экспресс)
 Теперь вам необходимо зарегистрировать приложение на *портале регистрации приложений Майкрософт*:
 1. Зарегистрируйте свое приложение на [портале регистрации приложений Майкрософт](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
-2.    Введите имя для приложения и адрес электронной почты.
-3.    Выберите параметр Guided Setup (Пошаговая настройка).
-4.    Следуйте инструкциям, чтобы получить идентификатор приложения. Затем вставьте его в свой код.
+2.  Введите имя для приложения и адрес электронной почты.
+3.  Выберите параметр Guided Setup (Пошаговая настройка).
+4.  Следуйте инструкциям, чтобы получить идентификатор приложения. Затем вставьте его в свой код.
 
 ### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Добавление сведений о регистрации приложения в решение (дополнительно)
 Теперь вам необходимо зарегистрировать приложение на *портале регистрации приложений Майкрософт*:
@@ -36,8 +36,8 @@ ms.contentlocale: ru-ru
 2. Введите имя для приложения и адрес электронной почты. 
 3. Убедитесь, что параметр Guided Setup (Пошаговая настройка) не выбран.
 4. Щелкните `Add Platforms`, а затем — `Native Application` и нажмите кнопку "Сохранить".
-5.    Откройте `MainActivity` (выберите `app` > `java` > *`{host}.{namespace}`*).
-6.    Замените заполнитель *[Enter the application Id here]* в строке, начинающейся с `final static String CLIENT_ID`, только что зарегистрированным идентификатором приложения:
+5.  Откройте `MainActivity` (выберите `app` > `java` > *`{host}.{namespace}`*).
+6.  Замените заполнитель *[Enter the application Id here]* в строке, начинающейся с `final static String CLIENT_ID`, только что зарегистрированным идентификатором приложения:
 
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
