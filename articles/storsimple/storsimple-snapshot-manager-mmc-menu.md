@@ -4,7 +4,7 @@ description: "Узнайте, как использовать стандартн
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
 ms.service: storsimple
@@ -12,17 +12,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/25/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b2be03e12b2deaecb352f8703650cf23cdefdebd
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Использование действий меню MMC в диспетчере моментальных снимков StorSimple
+
 ## <a name="overview"></a>Обзор
-В диспетчере моментальных снимков StorSimple все меню действия и варианты панели **Действия** включают указанные ниже действия. 
+В диспетчере моментальных снимков StorSimple все меню действия и варианты панели **Действия** включают указанные ниже действия.
 
 * Просмотр
 * Новое окно отсюда 
@@ -99,10 +102,5 @@ ms.openlocfilehash: b2be03e12b2deaecb352f8703650cf23cdefdebd
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о [пользовательском интерфейсе диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md).
 * Узнайте больше об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
 title: "Политики архивации StorSimple Snapshot Manager | Документация Майкрософт"
-description: "Узнайте, как использовать оснастку консоли MMC &quot;Диспетчер моментальных снимков StorSimple&quot; для создания политик архивации, которые контролируют архивацию по расписанию, и управления этими политиками."
+description: "Узнайте, как использовать оснастку консоли MMC \"Диспетчер моментальных снимков StorSimple\" для создания политик архивации, которые контролируют архивацию по расписанию, и управления этими политиками."
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
 ms.service: storsimple
@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/12/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
 ms.openlocfilehash: 88fc29b81c9502374a25cb34175ad1ee7c25423f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -93,9 +95,4 @@ ms.openlocfilehash: 88fc29b81c9502374a25cb34175ad1ee7c25423f
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
 * Узнайте о [просмотре заданий архивации и управлении ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-jobs.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
