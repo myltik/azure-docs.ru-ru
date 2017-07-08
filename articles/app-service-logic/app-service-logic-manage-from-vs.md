@@ -1,8 +1,8 @@
 ---
-redirect_url: /azure/logic-apps/logic-apps-create-a-logic-app
+redirect_url: /azure/logic-apps/logic-apps-manage-from-vs
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 85595d4a67a7ccd16d8a00ad65c8cc7f5eea5b99
-ms.openlocfilehash: 4497ad20e1532540c6149b1c6f43dc4742b59553
+ms.openlocfilehash: 8223ce9347d164887e46ca751f9205e13c1e8972
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 

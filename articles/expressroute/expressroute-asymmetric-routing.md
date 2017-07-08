@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamam
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -71,10 +73,5 @@ ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
 
 ## <a name="asymmetric-routing-detection"></a>Обнаружение асимметричной маршрутизации
 Лучшим подтверждением того, что сетевой трафик проходит по ожидаемому пути, является трассировка маршрута. Если вы ожидаете, что трафик от вашего локального SMTP-сервера в Майкрософт будет проходить через Интернет, ожидаемым маршрутом при трассировке будет маршрут от SMTP-сервера к Office 365. Ее результат подтвердит, что трафик из вашей сети действительно направляется к Интернету, а не к ExpressRoute.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

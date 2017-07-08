@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 51de0e9aa1d29d0b3f3ffc4f126b8ca688be3504
 ms.openlocfilehash: 5e96805f8880a30a5fc8779d8f07addb6d068c09
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -46,10 +48,5 @@ ms.openlocfilehash: 5e96805f8880a30a5fc8779d8f07addb6d068c09
 Вместо сопоставления нескольких ресурсов, таких как сетевые адаптеры и виртуальные машины, наборы для масштабирования виртуальных машин включают свойства сети, хранилища, виртуальных машин и расширений, которые можно настраивать централизованно.
 
 Общие сведения о масштабируемых наборах виртуальных машин см. на странице [Наборы для масштабирования виртуальных машин](https://azure.microsoft.com/services/virtual-machine-scale-sets/). на [документации](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

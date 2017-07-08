@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b79492914bb52e970343a2e829622122f03642b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 31ed9dad8ba56a3746873b7b35e678e97743fbfe
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -118,7 +120,7 @@ ms.openlocfilehash: 2b79492914bb52e970343a2e829622122f03642b
    
    1. Выберите **Управление компьютером** ->**Управление дисками**.
    2. Щелкните правой кнопкой мыши пункт **Управление дисками** и выберите **Повторить проверку дисков**.
-   3. В списке дисков выберите обновленный том, щелкните его правой кнопкой мыши и выберите пункт **Расширить том**. Откроется мастер расширения тома. Нажмите кнопку **Далее**.
+   3. В списке дисков выберите обновленный том, щелкните его правой кнопкой мыши и выберите пункт **Расширить том**. Откроется мастер расширения тома. Щелкните **Далее**.
    4. Завершите работу мастера, приняв значения по умолчанию. После завершения работы мастера размер тома должен увеличиться.
 
 ![Доступное видео](./media/storsimple-manage-volumes/Video_icon.png) **Доступное видео**
@@ -177,10 +179,5 @@ ms.openlocfilehash: 2b79492914bb52e970343a2e829622122f03642b
 ## <a name="next-steps"></a>Дальнейшие действия
 * Информация о [Клонировании тома StorSimple](storsimple-clone-volume.md).
 * Информация об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
