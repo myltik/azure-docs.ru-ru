@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
-ms.author: edmaca, yanacai
+ms.date: 06/28/2017
+ms.author: saveenr, yanacai
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: b2fd62683f0272da271eebeb6eb3a71388ecb59e
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 401e2d84e5e2eb9f66a16b299fbb93bd1943e04b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 06/20/2017
 
 * **Visual Studio**: поддерживаются все выпуски, кроме Express.
     * Visual Studio 2017
-    * Visual Studio 2015 с обновлением 4
+    * Visual Studio 2015
     * Visual Studio 2013
 * **Microsoft Azure SDK для .NET** (версии 2.7.1 или выше).  Можно установить его с помощью [установщика веб-платформы](http://www.microsoft.com/web/downloads/platform.aspx).
 * Учетная запись **Data Lake Analytics**. Чтобы создать учетную запись, ознакомьтесь со статьей [Руководство. Начало работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md).
@@ -89,10 +89,10 @@ OUTPUT @a
 
     ![График выполнения задания аналитики озера данных U-SQL в Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-   *  В окне **Сводные данные задания** представлена сводка задания.   
+   * В окне **Сводные данные задания** представлена сводка задания.   
    * В окне **Сведения о задании** содержатся более конкретные сведения о задании, в частности о скрипте, ресурсах и вершинах.
-   *  В окне **Граф задания** визуализируется ход выполнения задания.
-   *  В окне **Операции с метаданными** представлены сведения обо всех действиях, выполненных в каталоге U-SQL.
+   * В окне **Граф задания** визуализируется ход выполнения задания.
+   * В окне **Операции с метаданными** представлены сведения обо всех действиях, выполненных в каталоге U-SQL.
    * В окне **Данные** отображаются все входные и выходные данные.
    * В окне **Диагностика** представлены данные расширенного анализа для выполнения задания и оптимизации производительности.
 

@@ -16,17 +16,16 @@ ms.topic: hero-article
 ms.date: 05/24/2017
 ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 2d1092af00c1bce3e47d980a512a25eff1f0d9b6
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: c5d09cf03c87c8da1d8588be62fea3f0cc3eec4f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 06/22/2017
 
 ---
 
 # <a name="azure-sql-database-use-ruby-to-connect-and-query-data"></a>База данных SQL Azure: подключение и запрос данных с помощью Ruby
 
-В этом кратком руководстве показано, как, используя [Ruby](https://Ruby.org), подключиться к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных на платформах Mac OS и Ubuntu Linux.
+В этом кратком руководстве показано, как, используя [Ruby](https://www.ruby-lang.org), подключиться к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных на платформах Mac OS и Ubuntu Linux.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
