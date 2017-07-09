@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ead9fcc5ec582420d731faccb7abba0dc815ed84
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -69,7 +70,7 @@ ms.lasthandoff: 04/07/2017
 #### <a name="azure-requirements"></a>Требования Azure
 Перед подготовкой виртуального устройства вам необходимо будет сделать следующее в среде Azure.
 
-* [Настройте виртуальную сеть в Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md)для виртуального устройства. При использовании хранилища класса Premium необходимо создать виртуальную сеть в регионе Azure, поддерживающем хранилище класса Premium. Регионы хранилища класса Premium — это регионы, соответствующие строке *Дисковый накопитель* в списке [служб Azure по регионам](https://azure.microsoft.com/en-us/regions/services).
+* [Настройте виртуальную сеть в Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)для виртуального устройства. При использовании хранилища класса Premium необходимо создать виртуальную сеть в регионе Azure, поддерживающем хранилище класса Premium. Регионы хранилища класса Premium — это регионы, соответствующие строке *Дисковый накопитель* в списке [служб Azure по регионам](https://azure.microsoft.com/en-us/regions/services).
 * Рекомендуется использовать DNS-сервер по умолчанию, предоставленный Azure, вместо того, чтобы указывать имя собственного DNS-сервера. Если DNS-имя сервера не является допустимым или если DNS-сервер не может правильно разрешать IP-адреса, создание виртуального устройства завершится с ошибкой.
 * Подключения типа "точка-сеть" и "сеть-сеть" являются необязательными. При необходимости можно настроить эти параметры для более сложных сценариев.
 * Вы можете создать [виртуальные машины Azure](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (серверы узла) в виртуальной сети, которая может использовать тома, предоставляемые виртуальным устройством. Эти серверы должны соответствовать следующим требованиям.                             
