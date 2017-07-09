@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 51f35173f386463eac0d5131e80534511bccbcd8
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: ea90a62ffee9c766985f76e1c0abc1585bebc69b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -49,7 +49,7 @@ Stream Analytics предоставляет журналы двух типов:
 
     ![Включение журналов диагностики](./media/stream-analytics-job-diagnostic-logs/image2.png)
 
-3.  На странице **Параметры диагностики** для параметра **Состояние** выберите значение **Вкл.**.
+3.  На странице **Параметры диагностики** для параметра **Состояние** выберите значение **Вкл**.
 
     ![Изменение состояния для журналов диагностики](./media/stream-analytics-job-diagnostic-logs/image3.png)
 
@@ -124,7 +124,7 @@ properties | Сведения о записи журнала, сериализо
 ## <a name="next-steps"></a>Дальнейшие действия
 
 * [Что такое Stream Analytics?](stream-analytics-introduction.md)
-* [Приступая к работе с Azure Stream Analytics: выявление мошенничества в режиме реального времени](stream-analytics-get-started.md)
+* [Приступая к работе с Azure Stream Analytics: выявление мошенничества в режиме реального времени](stream-analytics-real-time-fraud-detection.md)
 * [Масштабирование заданий Azure Stream Analytics для повышения пропускной способности базы данных](stream-analytics-scale-jobs.md)
 * [Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) (Справочник по языку запросов Stream Analytics)
 * [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) (Справочник по API-интерфейсу REST для управления Stream Analytics)

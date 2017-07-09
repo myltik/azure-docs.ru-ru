@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1a0f69e6530f1ab3734e1a44e5be056aacb0fff0
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c420b38fbe8054bc4b701f89ebc417677ca47a27
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 05/18/2017
 
 На следующем рисунке показана конечная точка с балансировкой нагрузки для веб-трафика, которая является общей для трех виртуальных машин на общедоступном и частном TCP-портах 80. Эти три виртуальные машины находятся в наборе балансировки нагрузки.
 
-![пример общедоступной подсистемы балансировки нагрузки](./media/load-balancer-internet-overview/IC727496.png))
+![пример общедоступной подсистемы балансировки нагрузки](./media/load-balancer-internet-overview/IC727496.png)
 
 Рисунок 1. Конечная точка с балансировкой нагрузки для веб-трафика
 

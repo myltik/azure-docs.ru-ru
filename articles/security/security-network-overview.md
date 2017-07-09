@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: e74f3f7ed4ab0a7a37047b1277e76b6695f3884f
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 27243856d0c6b70c7515b6bde66b99ef6160eb36
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -220,7 +220,7 @@ VPN-подключения "точка — сеть" и "сеть — сеть" 
 Подробнее.
 
 * [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md)
-* [Управление DNS-серверами, используемыми виртуальной сетью](../virtual-network/virtual-networks-manage-dns-in-vnet.md)
+* [Управление DNS-серверами, используемыми виртуальной сетью](../virtual-network/virtual-network-manage-network.md#dns-servers)
 
 Для внешнего разрешения DNS доступно два варианта.
 

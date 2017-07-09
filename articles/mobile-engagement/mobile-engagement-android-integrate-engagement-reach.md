@@ -12,12 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 06/27/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd8ba95ee1fb2703926fb35cdb49e6a503637a7d
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -28,11 +29,6 @@ ms.lasthandoff: 11/17/2016
 > 
 
 ## <a name="standard-integration"></a>Стандартная интеграция
-Для SDK Reach требуется **библиотека поддержки Android (версии&4;)**.
-
-Самый быстрый способ добавить библиотеку в проект **Eclipse** — `Right click on your project -> Android Tools -> Add Support Library...`.
-
-Если вы не используете Eclipse, ознакомьтесь с инструкциями [здесь].
 
 Скопируйте файлы ресурсов Reach из SDK в проект:
 
@@ -107,10 +103,6 @@ ms.lasthandoff: 11/17/2016
           <uses-permission android:name="android.permission.VIBRATE" />
   
   Без этого разрешения Android не допустит отображения системных уведомлений, если в диспетчере кампаний Reach установлен флажок "Звонок" или "Вибросигнал".
-* Если приложение собрано с помощью **ProGuard** и при этом возникают ошибки, связанные с библиотекой поддержки Android или с JAR-файлом Engagement, добавьте следующие строки в файл `proguard.cfg`:
-  
-          -dontwarn android.**
-          -keep class android.support.v4.** { *; }
 
 ## <a name="native-push"></a>Системные push-уведомления
 Теперь, когда модуль Reach настроен, необходимо настроить системные push-уведомления, чтобы можно было получать уведомления в рамках кампаний на устройстве.
@@ -636,7 +628,7 @@ ms.lasthandoff: 11/17/2016
 
 Как видите, если вызвать `actionContent(this)`, а затем завершить действие, то можно безопасно вызывать `exitContent(this)` без нежелательных последствий.
 
-[здесь]:http://developer.android.com/tools/extras/support-library.html#Downloading
+[here]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
 

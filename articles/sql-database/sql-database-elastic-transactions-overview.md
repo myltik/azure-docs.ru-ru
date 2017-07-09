@@ -16,10 +16,10 @@ ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: ceb2d7a28cc416186f3faf1dc5228fce161c34c5
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: f7f1ad3f1933b39a0030a784cae40521254037d6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -147,7 +147,7 @@ Azure включает несколько предложений для разм
 * Транзакции между службами WCF не поддерживаются. Например, если у вас есть метод службы WCF, выполняющий транзакцию, включение вызова в область транзакции завершится ошибкой с исключением [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Еще не оценили преимущества транзакций эластичной базы данных для приложений Azure? См. [схему документации](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Все возникшие вопросы задавайте на [форуме по базам данных SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted), а запросы новых функций оставляйте на [форуме отзывов и предложений по базам данных SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Все возникшие вопросы задавайте на [форуме по базам данных SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted), а запросы новых функций оставляйте на [форуме отзывов и предложений по базам данных SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

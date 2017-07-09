@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 22fe6397120c36e1aa716f4711fbe9e7c72d17e8
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 1895094b28d9596eec644078b6f9a877b526b89e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -287,10 +288,13 @@ ms.lasthandoff: 04/11/2017
     }
    
     <mark>[Authorize(Roles="Domain Admins")]</mark>
-    public ActionResult Contact()  {      ViewBag.Message = "Страница с контактной информацией.";
+    public ActionResult Contact()
+    {
+        ViewBag.Message = "Your contact page.";
    
         return View();
-    }  </pre>
+    }
+    </pre>
    
     Так как я добавил **тестового пользователя** в группу **Test Group** в своей лабораторной среде AD FS, я буду использовать эту тестовую группу для проверки авторизации на `About`. Для `Contact` я проведу тестирование отрицательного случая группы **Domain Admins**, к которой не принадлежит **тестовый пользователь**.
 3. Запустите отладчик, нажав клавишу `F5` , и войдите в систему, а затем нажмите кнопку **О программе**. Должна отобразиться страница `~/About/Index` , если прошедший аутентификацию пользователь авторизован для этого действия.
@@ -350,7 +354,6 @@ ms.lasthandoff: 04/11/2017
 <a name="bkmk_resources"></a>
 
 ## <a name="further-resources"></a>Дополнительные ресурсы
-* [Защита приложения с помощью SSL и атрибута авторизации](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
 * [Проверка подлинности в приложении Azure с помощью локального каталога Active Directory](web-sites-authentication-authorization.md)
 * [Создание бизнес-приложения Azure с проверкой подлинности Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
 * [Использование локальной аутентификации в организации (AD FS) с использованием ASP.NET в Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)

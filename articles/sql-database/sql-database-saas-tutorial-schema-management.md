@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: cbe2b6bbc8e193bdbbf08572a8488239c633548d
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 84c27de6b5fafb3b9236fed77a9d0557d89d217c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -64,7 +64,7 @@ ms.lasthandoff: 05/25/2017
 
 ## <a name="get-the-wingtip-application-scripts"></a>Получение сценариев приложения Wingtip
 
-Скрипты и исходный код приложения SaaS Wingtip доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Указания по скачиванию скриптов SaaS Wingtip см. [здесь](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+Скрипты и исходный код приложения SaaS Wingtip доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Указания по скачиванию скриптов SaaS Wingtip см. [здесь](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Создание базы данных учетных записей заданий и учетной записи задания
 
@@ -136,3 +136,4 @@ ms.lasthandoff: 05/25/2017
 * [Руководства по SaaS WTP базы данных SQL](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Управление масштабируемыми облачными базами данных](sql-database-elastic-jobs-overview.md)
 * [Создание развернутых баз данных SQL Azure и управление ими с помощью заданий обработки эластичных БД (предварительная версия)](sql-database-elastic-jobs-create-and-manage.md)
+

@@ -4,7 +4,7 @@ description: "Добавление многосайтовых подключен
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
@@ -16,18 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 9550b0076105b018bd8ede50519ac96bfb773001
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Добавление подключения типа "сеть — сеть" к виртуальной сети с помощью существующего подключения VPN-шлюза
+
 > [!div class="op_single_selector"]
-> * [Resource Manager: портал](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-> * [Классическая модель: PowerShell](vpn-gateway-multi-site.md)
-> 
+> * [Портал Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [PowerShell (классическая модель)](vpn-gateway-multi-site.md)
+>
 > 
 
 В этой статье рассматривается использование портала Azure для добавления подключений типа "сеть — сеть" (S2S) к VPN-шлюзу с имеющимся подключением. Этот тип подключения часто называется "многосайтовым". Можно добавить подключение типа "сеть-сеть" к виртуальной сети, которая уже имеет подключение типа "сеть-сеть", "точка-сеть" или "виртуальная сеть — виртуальная сеть". При добавлении подключения есть некоторые ограничения. Прежде чем начать настройку, просмотрите раздел [Перед началом работы](#before) в этой статье. 
