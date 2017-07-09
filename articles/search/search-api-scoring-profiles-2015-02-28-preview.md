@@ -297,8 +297,8 @@ ms.lasthandoff: 03/31/2017
 
 Дополнительные примеры см. в [документе о типах данных в схеме XML (веб-сайт W3.org)](http://www.w3.org/TR/xmlschema11-2/).
 
-**Ознакомьтесь также с разделом **
-[Azure Search Service REST](http://msdn.microsoft.com/library/azure/dn798935.aspx) (REST службы поиска Azure) на сайте MSDN. <br/>
+**Ознакомьтесь также с разделом**
+[REST службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) на сайте MSDN. <br/>
 [Создание индекса (API Поиска Azure)](http://msdn.microsoft.com/library/azure/dn798941.aspx) (на сайте MSDN).<br/>
 [Добавление профиля оценки в индекс поиска](http://msdn.microsoft.com/library/azure/dn798928.aspx) (на сайте MSDN).<br/>
 
