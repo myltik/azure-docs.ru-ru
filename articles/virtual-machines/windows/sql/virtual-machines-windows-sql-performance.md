@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/28/2017
+ms.date: 06/27/2017
 ms.author: jroth
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: d09d2317fc7b94f7b63712e7309a49e16fd1aaa2
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 9704c6cc846df5a8e129f48ea6378140c8338279
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -165,8 +165,6 @@ ms.lasthandoff: 05/09/2017
 * **Файлы данных SQL Server в Azure**: эта новая функция [Файлы данных SQL Server в Azure](https://msdn.microsoft.com/library/dn385720.aspx)доступна, начиная с SQL Server 2014. Выполнение SQL Server с файлами данных в Azure демонстрирует уровень производительности, сравнимый с использованием дисков данных Azure.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
-Если вы заинтересованы в более подробном изучении возможностей SQL Server и хранилища уровня "Премиум", то см. статью [Использование хранилища Azure Premium Storage с SQL Server на виртуальных машинах](../classic/sql-server-premium-storage.md).
 
 Рекомендации по безопасности см. в статье [Вопросы безопасности SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-security.md).
 

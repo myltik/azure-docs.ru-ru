@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c30ffa9e392bb6411312b0789ae6e8218f770bc1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: b82bb1ab419831e803689edb2a2a7fe256dde5a2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="enable-monitoring-and-diagnostics"></a>Включение мониторинга и диагностики
-На [портале Azure](https://portal.azure.com)можно настроить данные мониторинга и диагностики ваших ресурсов. Для программной настройки диагностики можно также использовать [REST API](https://msdn.microsoft.com/library/azure/dn931932.aspx) или [пакет SDK для .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
+На [портале Azure](https://portal.azure.com)можно настроить данные мониторинга и диагностики ваших ресурсов. Для программной настройки диагностики можно также использовать [REST API](https://msdn.microsoft.com/library/azure/dn931932.aspx) или [пакет SDK для .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor).
 
 Данные диагностики, мониторинга и метрик в Azure сохраняются в выбранной учетной записи хранения. Это позволяет использовать любые средства для чтения данных — от обозревателя хранилища до Power BI и средств сторонних поставщиков.
 
@@ -65,10 +67,5 @@ ms.openlocfilehash: c30ffa9e392bb6411312b0789ae6e8218f770bc1
 * [Отслеживайте производительность приложения](../application-insights/app-insights-azure-web-apps.md) , чтобы точно понять, как ваш код работает в облаке.
 * [Просматривайте журналы событий и действий](insights-debugging-with-events.md), чтобы знать обо всем, что произошло в службе.
 * [Отслеживайте работоспособность службы](insights-service-health.md) , чтобы знать, когда производительность Azure снизилась или работа службы нарушилась.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

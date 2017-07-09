@@ -14,12 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2016
+ms.date: 05/30/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8c5342fd2c35bbda94ec8496e9ca74454d44d17f
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 24f903c6b8b982599904b95f86d648927a3be5ce
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -225,10 +226,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 
 * Выполните сброс удаленного доступа на [портале Azure](https://portal.azure.com). На портале Azure выберите свою виртуальную машину и нажмите кнопку **Reset Remote...** (Удаленный сброс...).
 * Перезапустите виртуальную машину. На [портале Azure](https://portal.azure.com) выберите свою виртуальную машину и нажмите кнопку **Перезапуск**.
-  
-    -ИЛИ-
-  
-    На [классическом портале Azure](https://manage.windowsazure.com) откройте **Виртуальные машины** > **Экземпляры** > **Перезагрузить**.
+    
 * Повторно разверните виртуальную машину на новом узле Azure. Сведения о повторном развертывании виртуальной машины на новом узле Azure см. [здесь](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Обратите внимание, что после этой операции будут потеряны данные на временном диске, а также изменятся динамические IP-адреса, связанные с виртуальной машиной.

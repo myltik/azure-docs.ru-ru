@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 06/12/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2bf6bd76b653e30f38595631eff576d8eeb8efda
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: c58de22e29b6403e88bf22bdfe704a25757cdfca
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -33,11 +33,6 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="connect-to-service-fabric-explorer"></a>Подключение к обозревателю Service Fabric
 Если вы следовали указаниям по [подготовке среды разработки](service-fabric-get-started.md), вы можете запустить Service Fabric Explorer на локальном кластере, перейдя по адресу http://localhost:19080/Explorer.
-
-> [!NOTE]
-> Если вы используете Internet Explorer(IE) с обозревателем Service Fabric для управления удаленным кластером, необходимо настроить некоторые параметры Internet Explorer. Чтобы все сведения загружалась правильно, выберите **Сервис** > **Параметры просмотра в режиме совместимости** и снимите флажок **Отображать сайты интрасети в режиме совместимости**.
->
->
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Основные сведения о структуре обозревателя Service Fabric
 Перейти к обозревателю Service Fabric можно с помощью дерева в левой части окна. В корне дерева на панели мониторинга кластера представлены общие сведения о кластере, включая общие сведения о приложении и работоспособности узла кластера.

@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: df0e99dd79c970dfc4d66565c1286c0c9a5ec532
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: fea70b389b1f1d6af963e3f14fdc48e8d857dd53
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -27,12 +27,12 @@ ms.lasthandoff: 05/18/2017
 > [!div class="op_single_selector"]
 > * [Внутренний прослушиватель](../classic/ps-sql-int-listener.md)
 > * [Внешний прослушиватель](../classic/ps-sql-ext-listener.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Обзор
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель Azure Resource Manager и классическая модель](../../../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний рекомендуется использовать модель Resource Manager.
 
 Дополнительные сведения о настройке прослушивателя для группы доступности AlwaysOn в модели Resource Manager см. в [этой статье](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
@@ -69,37 +69,37 @@ ms.lasthandoff: 05/18/2017
 6. Запустите `Get-AzurePublishSettingsFile`. Он перенаправит вас в браузер для скачивания файла параметров публикации в локальный каталог. Может потребоваться ввод учетных данных для входа в подписку Azure.
 
 7. Выполните следующую команду `Import-AzurePublishSettingsFile`, указав путь к скачанному файлу параметров публикации:
-   
+
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
-   
+
     После импорта файла параметров публикации вы сможете управлять подпиской Azure в сеансе PowerShell.
-    
+
 8. Для *балансировщика нагрузки* вам потребуется назначить статический IP-адрес. Изучите текущую конфигурацию виртуальной сети, выполнив следующую команду:
-   
+
         (Get-AzureVNetConfig).XMLConfiguration
 9. Обратите внимание на имя *Subnet* для подсети, содержащей виртуальные машины с репликами. Это имя присваивается параметру $SubnetName в скрипте.
 
 10. Обратите внимание на имя *VirtualNetworkSite* и начальный префикс подсети *AddressPrefix*, содержащей виртуальные машины с репликами. Определите доступные IP-адреса. Для этого передайте оба значения в команду `Test-AzureStaticVNetIP` и изучите значение *AvailableAddresses*. Например, если виртуальная сеть называется *MyVNet*, а диапазон адресов подсети начинается с *172.16.0.128*, следующая команда выведет список доступных адресов:
-   
+
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 11. Выберите один из доступных адресов и используйте его в качестве значения параметра $ILBStaticIP в приведенном ниже скрипте.
 
 12. Скопируйте приведенный ниже скрипт PowerShell в текстовый редактор и задайте подходящие для среды значения переменных. Для некоторых параметров указаны значения по умолчанию.  
 
-    Вы не сможете добавить внутренний балансировщик нагрузки к имеющимся развернутым службам, использующим территориальные группы. Дополнительные сведения о требованиях внутреннего балансировщика нагрузки см. в статье [Обзор внутренней подсистемы балансировки нагрузки](../../../load-balancer/load-balancer-internal-overview.md). 
-    
+    Вы не сможете добавить внутренний балансировщик нагрузки к имеющимся развернутым службам, использующим территориальные группы. Дополнительные сведения о требованиях внутреннего балансировщика нагрузки см. в статье [Обзор внутренней подсистемы балансировки нагрузки](../../../load-balancer/load-balancer-internal-overview.md).
+
     Если ваша группа доступности охватывает несколько регионов Azure, приведенный сценарий нужно будет запустить в каждом центре данных для всех облачных служб и узлов, которые находятся в этом центре.
-   
+
         # Define variables
         $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
         $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
         $SubnetName = "<MySubnetName>" # subnet name that the replicas use in the virtual network
         $ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
         $ILBName = "AGListenerLB" # customize the ILB name or use this default value
-   
+
         # Create the ILB
         Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
-   
+
         # Configure a load-balanced endpoint for each node in $AGNodes by using ILB
         ForEach ($node in $AGNodes)
         {
@@ -107,11 +107,6 @@ ms.lasthandoff: 05/18/2017
         }
 
 13. Присвоив значения переменным, скопируйте скрипт из текстового редактора в текущий сеанс PowerShell и выполните его. Если в командной строке отображается **>>**, нажмите клавишу ВВОД еще раз, чтобы начать выполнение скрипта.
-
-> [!NOTE]
-> Так как сейчас классический портал Azure не поддерживает внутренний балансировщик нагрузки, на нем не отобразится внутренний балансировщик нагрузки или конечные точки. Но команда `Get-AzureEndpoint` вернет внутренний IP-адрес, если на портале запущен балансировщик нагрузки. В противном случае будет возвращено значение null.
-> 
-> 
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Проверка наличия пакета KB2854082
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -128,33 +123,33 @@ ms.lasthandoff: 05/18/2017
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>Настройка кластерных ресурсов в PowerShell
 1. Чтобы использовать внутренний балансировщик нагрузки, вам потребуется указать IP-адрес ранее созданного внутреннего балансировщика нагрузки. Этот IP-адрес можно получить в PowerShell, выполнив следующий скрипт:
-   
+
         # Define variables
         $ServiceName="<MyServiceName>" # the name of the cloud service that contains the AG nodes
         (Get-AzureInternalLoadBalancer -ServiceName $ServiceName).IPAddress
 
 2. Войдите на одну из виртуальных машин и скопируйте скрипт PowerShell для операционной системы в текстовый редактор. Затем присвойте переменным записанные ранее значения.
-   
+
     Для Windows Server 2012 или более поздней версии используйте следующий скрипт:
-   
+
         # Define variables
         $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
         $IPResourceName = "<IPResourceName>" # the IP address resource name
         $ILBIP = “<X.X.X.X>” # the IP address of the ILB
-   
+
         Import-Module FailoverClusters
-   
+
         Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-   
+
     Для Windows Server 2008 R2 используйте следующий скрипт:
-   
+
         # Define variables
         $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
         $IPResourceName = "<IPResourceName>" # the IP address resource name
         $ILBIP = “<X.X.X.X>” # the IP address of the ILB
-   
+
         Import-Module FailoverClusters
-   
+
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
 3. Присвоив значения переменным, откройте окно Windows PowerShell с повышенными правами. Вставьте скрипт из текстового редактора в текущий сеанс PowerShell и выполните скрипт. Если в командной строке отображается **>>**, нажмите клавишу ВВОД еще раз, чтобы начать выполнение скрипта.
@@ -173,5 +168,4 @@ ms.lasthandoff: 05/18/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-
 

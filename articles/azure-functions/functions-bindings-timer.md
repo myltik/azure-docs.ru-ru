@@ -16,15 +16,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
 ms.author: chrande; glenga
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2542d8c750fc7e1bcc31a9c0eb1672402facfd58
-ms.openlocfilehash: 146884833e968767c14d7e4f924762a592e427e2
-ms.lasthandoff: 03/01/2017
+ms.custom: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 12a793c4df497f221dbd592ca3d249b8c1f65e04
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="schedule-code-execution-with-azure-functions"></a>Настройка триггеров для выполнения кода с помощью Функций Azure
+# <a name="azure-functions-timer-trigger"></a>Триггеры с таймерами в функциях Azure
+
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 В этой статье описывается настройка и программирование триггеров с таймерами в Функциях Azure. Функции Azure поддерживают привязку триггеров к таймерам, благодаря чему вы можете выполнять код функции по определенному расписанию. 
@@ -60,13 +62,13 @@ ms.lasthandoff: 03/01/2017
 
 ```json
 "schedule": "0 0 15 * * *",
-```    
+``` 
 
 Кроме того, можно добавить новый параметр приложения с именем `WEBSITE_TIME_ZONE` для приложения-функции и задать **Восточное поясное время** в качестве значения.  Затем можно использовать следующее выражение CRON для 10:00 по восточному поясному времени: 
 
 ```json
 "schedule": "0 0 10 * * *",
-```    
+``` 
 
 
 <a name="examples"></a>

@@ -14,13 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ad6e548b5998d5ee0b66e3d33da9fa97efb7c97c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: fceb6b0671e0f77c1f8f92bbb49c986fda3660ea
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Создание гибридных подключений и управление ими
+
+> [!IMPORTANT]
+> Гибридные подключения BizTalk больше не используются. Они заменены гибридными подключениями службы приложений. Дополнительную информацию, включая сведения об управлении существующими гибридными подключениями BizTalk, см. в статье [Гибридные подключения к службе приложений Azure](../app-service/app-service-hybrid-connections.md).
+
+
 ## <a name="overview-of-the-steps"></a>Описание действий
 1. Создание гибридного подключения путем ввода **host name** или **FQDN** of the on-premises resource in your private netwилиk.
 2. Связывание веб-приложений Azure или мобильных приложений Azure с гибридным подключением.
@@ -42,7 +49,7 @@ ms.openlocfilehash: ad6e548b5998d5ee0b66e3d33da9fa97efb7c97c
 > 
 > 
 
-## <a name="a-namecreatehybridconnectionacreate-a-hybrid-connection"></a><a name="CreateHybridConnection"></a>Создание гибридного подключения
+## <a name="CreateHybridConnection"></a>Создание гибридного подключения
 Гибридное подключение можно создать на портале Azure с помощью веб-приложений **или** служб BizTalk. 
 
 **Сведения о создании гибридных подключений с помощью веб-приложений** см. в статье [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](../app-service-web/web-sites-hybrid-connection-get-started.md). Кроме того, диспетчер гибридных подключений можно установить из веб-приложения. Этот метод является предпочтительным. 
@@ -68,17 +75,17 @@ ms.openlocfilehash: ad6e548b5998d5ee0b66e3d33da9fa97efb7c97c
 * Можно создать несколько гибридных подключений. См. число разрешенных подключений в статье [Службы BizTalk: диаграмма выпусков](biztalk-editions-feature-chart.md). 
 * Каждое гибридное подключение создается с помощью пары строк подключения: ключи приложений, которые ОТПРАВЛЯЮТ и локальные ключи, которые ПРОСЛУШИВАЮТ. В каждой паре есть первичный и вторичный ключи. 
 
-## <a name="a-namelinkwebsitealink-your-azure-app-service-web-app-or-mobile-app"></a><a name="LinkWebSite"></a>Связывание веб-приложения службы приложений Azure или мобильного приложения
+## <a name="LinkWebSite"></a>Связывание веб-приложения службы приложений Azure или мобильного приложения
 Чтобы связать веб-приложение или мобильное приложение с существующим гибридным подключением, в колонке "Гибридные подключения" выберите элемент **Использовать существующее гибридное подключение**. См. статью [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
-## <a name="a-nameinstallhcmainstall-the-hybrid-connection-manager-on-premises"></a><a name="InstallHCM"></a>Локальная установка диспетчера гибридных подключений
+## <a name="InstallHCM"></a>Локальная установка диспетчера гибридных подключений
 После создания гибридного подключения необходимо установить диспетчер гибридных подключений на локальном ресурсе. Его можно скачать из веб-приложения Azure или из службы BizTalk. Действия, выполняемые в службе BizTalk: 
 
 1. Перейдите на [классический портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. В левой панели навигации щелкните **Службы BizTalk** , а затем выберите нужную службу BizTalk. 
 3. Откройте вкладку **Гибридные подключения**:  
    ![вкладка "Гибридные подключения"][HybridConnectionTab]
-4. На панели задач нажмите кнопку программу локальной установки  
+4. На панели задач нажмите кнопку **программу локальной установки**  
    ![программу локальной установки][HCOnPremSetup]
 5. Щелкните **Установить и настроить** , чтобы запустить или загрузить диспетчер гибридных подключений в локальной системе. 
 6. Установите флажок для запуска процесса установки. 
@@ -106,7 +113,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 * Для прохождения авторизации диспетчер гибридных подключений должен использовать допустимую локальную строку подключения. Для прохождения авторизации веб-приложение или мобильное приложение Azure должны использовать допустимую строку подключения к приложению.
 * Гибридные подключения можно масштабировать путем установки другого экземпляра диспетчера гибридных подключений на другом сервере. Настройте локальный прослушиватель для использования того же адреса в качестве первого локального прослушивателя. В этом случае трафик распределяется случайно (путем циклического перебора) между активными локальными прослушивателями. 
 
-## <a name="a-namemanagehybridconnectionamanage-hybrid-connections"></a><a name="ManageHybridConnection"></a>Управление гибридными подключениями
+## <a name="ManageHybridConnection"></a>Управление гибридными подключениями
 Для управления гибридными подключениями можно выбрать следующие варианты:
 
 * Использование страницы службы BizTalk на портале Azure. 
@@ -117,7 +124,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 2. В левой панели навигации щелкните **Службы BizTalk** , а затем выберите нужную службу BizTalk. 
 3. Откройте вкладку **Гибридные подключения**:  
    ![вкладка "Гибридные подключения"][HybridConnectionTab]
-4. Выберите гибридное подключение. На панели задач нажмите кнопку Управление подключением  
+4. Выберите гибридное подключение. На панели задач нажмите кнопку **Управление подключением**  
    ![Управление параметрами][HCManageConnection]
    
     **Управление подключением** содержится перечень строк подключения к приложению и локальных строк подключения. Вы можете скопировать сроки подключений или повторно создать ключ доступа, используемый в строке подключения. 
@@ -151,9 +158,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

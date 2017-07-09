@@ -15,10 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: riande
-translationtype: Human Translation
-ms.sourcegitcommit: 3f6bb2604d6f20e299ae5583a0ad215f02b9b803
-ms.openlocfilehash: 016d44cb57d5ad76dc0b115be6fbac6835d84396
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 64c18f2cfabbb7af6ffd89b4c2a9095fca1cf799
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -668,8 +669,6 @@ Visual Studio начнет процесс копирования файлов в
 > 
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Для фактического приложения потребуется проверка подлинности и авторизация, и для этого будет использоваться база данных членства. Учебник [Развертывание безопасного приложения ASP.NET MVC с OAuth, членством и базой данных SQL](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) основан на данном учебнике и содержит сведения о развертывании веб-приложения с базой данных членства.
-
 Другой способ хранения данных в приложении Azure — использование хранилища Azure, обеспечивающего хранение нереляционных данных в виде BLOB-объектов и таблиц. Дополнительная информация о Web API, ASP.NET MVC и Window Azure содержится по ссылкам ниже.
 
 * [Начало работы с Entity Framework 6 Code First с помощью MVC 5][EFCodeFirstMVCTutorial]

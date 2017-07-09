@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 8f1f22d1609dc34369a131e79eb2a1c0be9fe552
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e33f69bf04b32a31aae3c311c41aa44e4da5016a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -95,7 +95,7 @@ ms.lasthandoff: 05/18/2017
 Подробнее о правилах генерации оповещений базы данных см. в разделах [Получение уведомлений об оповещениях](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) и [Получение информации о работоспособности службы](../monitoring-and-diagnostics/insights-service-health.md).
 
 ### <a name="enable-auditing"></a>Включение аудита
-Если для доступа к базе данных требуется аудит, то после восстановления базы данных необходимо включить аудит. На необходимость аудита указывает использование в клиентских приложениях строк защищенного подключения в виде *.database.secure.windows.net. Дополнительные сведения см. в статье [Аудит базы данных](sql-database-auditing.md).
+Если для доступа к базе данных требуется аудит, то после восстановления базы данных необходимо включить аудит. Дополнительные сведения см. в статье [Аудит базы данных](sql-database-auditing.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь с разделом [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md)

@@ -1,7 +1,7 @@
 ---
 title: "Введение в функции окна Stream Analytics | Документация Майкрософт"
-description: "Узнайте о трех функциях окна в Stream Analytics (&quot;переворачивающееся&quot;, &quot;прыгающее&quot; и &quot;скользящее&quot; окно)."
-keywords: "&quot;переворачивающееся&quot; окно, &quot;скользящее&quot; окно, &quot;прыгающее&quot; окно"
+description: "Узнайте о трех функциях окна в Stream Analytics (\"переворачивающееся\", \"прыгающее\" и \"скользящее\" окно)."
+keywords: "\"переворачивающееся\" окно, \"скользящее\" окно, \"прыгающее\" окно"
 documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 8f814708c4536e709fbe85b8a3a7bfb44e44e81f
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 10115f445ae3aeb862446b340213b18698459f7c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/01/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
-* [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
+* [Приступая к работе с Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

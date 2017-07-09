@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2017
+ms.date: 06/23/2017
 ms.author: ruturajd@microsoft.com
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 198caeea693fbc48b6e0eb1c9c8ee559e0553261
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 0482b104e18a934142f1cd18fd7265132d5b82bc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -249,7 +249,7 @@ ms.lasthandoff: 03/31/2017
 
 
 
-## <a name="additional-resources"></a>дополнительные ресурсы.
+## <a name="additional-resources"></a>Дополнительные ресурсы
 [Учетная запись запуска от имени службы автоматизации Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 [Обзор службы автоматизации Azure](http://msdn.microsoft.com/library/azure/dn643629.aspx "Обзор службы автоматизации Azure")

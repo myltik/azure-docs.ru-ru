@@ -1,52 +1,9 @@
 ---
-title: "Использование общедоступных IP-адресов в виртуальной сети"
-description: "Узнайте, как настроить виртуальную сеть для использования общедоступных IP-адресов"
-services: virtual-network
-documentationcenter: na
-author: jimdial
-manager: carmonm
-editor: tysonn
-ms.assetid: b6e5dd7c-84ea-491d-8314-88e63a4da108
-ms.service: virtual-network
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/27/2016
-ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ac3d099430267b33192899dbe9c9c35eb25b02e
-
+redirect_url: /azure/virtual-network/virtual-network-manage-network
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 03dfb0dd8968a1bf2ca6e2dfba4932cb7207c4f4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/28/2017
 
 ---
-# <a name="public-ip-address-space-in-a-virtual-network-vnet"></a>Общедоступное пространство IP-адресов в виртуальной сети (VNet)
-Виртуальные сети могут содержать открытые и закрытые (блоки адресов RFC 1918) пространства IP-адресов. При добавлении общедоступного диапазона IP-адресов он будет рассматриваться как часть закрытого пространства IP-адресов VNet, доступная только в пределах виртуальной сети, взаимосвязанных виртуальных сетей и из локального расположения.
-
-На рисунке ниже показана виртуальная сеть, которая содержит открытые и закрытые пространства IP-адресов.
-
-![Концепция общедоступных IP-адресов](./media/virtual-networks-public-ip-within-vnet/IC775683.jpg)
-
-## <a name="how-do-i-add-a-public-ip-address-range"></a>Как добавить общедоступный диапазон IP-адресов?
-Диапазон общедоступных IP-адресов добавляется таким же образом, как и диапазон частных адресов: с помощью файла *netcfg* или путем добавления конфигурации на [портале Azure](http://portal.azure.com). Общедоступный диапазон IP-адресов можно добавить во время создания виртуальной сети или можно вернуться и добавить его позднее. В приведенном ниже примере показаны открытое и закрытое пространства IP-адресов, настроенные в одной и той же виртуальной сети.
-
-![Общедоступный IP-адрес на портале](./media/virtual-networks-public-ip-within-vnet/IC775684.png)
-
-## <a name="are-there-any-limitations"></a>Существуют ли какие-либо ограничения?
-Существует несколько запрещенных диапазонов IP-адресов:
-
-* 224.0.0.0/4 (многоадресная рассылка)
-* 255.255.255.255/32 (широковещательный адрес)
-* 127.0.0.0/8 (адрес обратной связи)
-* 169.254.0.0/16 (link-local)
-* 168.63.129.16/32 (внутренний DNS)
-
-## <a name="next-steps"></a>Дальнейшие действия
-[Управление DNS-серверами, используемыми виртуальной сетью (VNet)](virtual-networks-manage-dns-in-vnet.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
