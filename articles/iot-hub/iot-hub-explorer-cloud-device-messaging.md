@@ -70,7 +70,7 @@ ms.lasthandoff: 05/08/2017
 1. Запустите сеанс в Центре Интернета вещей с помощью следующей команды:
 
    ```bash
-   iothub-explorer login <IoTHubConnectionString>
+   iothub-explorer login `<IoTHubConnectionString>`
    ```
 
 1. Отправьте сообщение на устройство с помощью следующей команды:
@@ -89,3 +89,4 @@ ms.lasthandoff: 05/08/2017
 Вы узнали, как отслеживать сообщения, отправляемые из устройства Интернета вещей в облако Центра Интернета вещей, и отправлять сообщения из этого облака на устройство.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
