@@ -23,7 +23,8 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 03/03/2017
 
 ---
-# <a name="understand-your-azure-billing-for-external-service-charges"></a>Основные сведения о выставлении счетов за использование внешних служб в Azure
+<a id="understand-your-azure-billing-for-external-service-charges" class="xliff"></a>
+# Основные сведения о выставлении счетов за использование внешних служб в Azure
 Ранее внешние службы назывались заказами Azure Marketplace. Обычно это службы, публикуемые сторонними поставщиками для использования в Azure, но при этом они полностью интегрируются в Azure. Например, ClearDB и SendGrid — это внешние службы, которые можно приобрести в Azure, но которые не опубликованы корпорацией Майкрософт.
 
 При подготовке новой внешней службы или ресурса отображается предупреждение.
@@ -35,13 +36,15 @@ ms.lasthandoff: 03/03/2017
 > 
 > 
 
-## <a name="how-external-services-are-billed"></a>Как выставляются счета за внешние службы
+<a id="how-external-services-are-billed" class="xliff"></a>
+## Как выставляются счета за внешние службы
 - Счета за внешние службы выставляются отдельно. Они обрабатываются как отдельные заказы в подписке Azure. Расчетный период для каждой службы задается при ее покупке. Его не следует путать с расчетным периодом подписки, в которой вы приобрели службу. Вы будете получать отдельные счета, плата за которые будет отдельно взиматься с кредитной карты.
 - У каждой внешней службы своя модель выставления счетов. Одни службы используют модель с оплатой по мере использования, другие — модель с ежемесячными платежами. Для оплаты внешних служб Azure нужна кредитная карта, их нельзя приобрести посредством оплаты счета.
 - Для оплаты внешних служб невозможно использовать бесплатные кредитные средства. Если вы используете подписку Azure, которая включает в себя [бесплатные деньги на счете](https://azure.microsoft.com/pricing/spending-limits/), то ими невозможно оплачивать счета за внешние службы. Для покупки внешних служб используйте кредитную карту.
 
 
-## <a name="view-external-service-spending-and-history-in-the-azure-portal"></a>Просмотр расходов на внешние службы и журнала на портале Azure
+<a id="view-external-service-spending-and-history-in-the-azure-portal" class="xliff"></a>
+## Просмотр расходов на внешние службы и журнала на портале Azure
 Можно просмотреть список внешних служб для каждой подписки на [портале Azure](https://portal.azure.com/). 
 
 1. Войдите на [портал Azure](https://portal.azure.com/) в качестве администратора учетной записи.
@@ -58,10 +61,12 @@ ms.lasthandoff: 03/03/2017
    
     ![Просмотрите журнал выставленных счетов за внешние службы.](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png)
 
-## <a name="view-external-service-spending-for-enterprise-agreement-ea-customers"></a>Просмотр расходов на внешние службы для клиентов с соглашением Enterprise (EA)
+<a id="view-external-service-spending-for-enterprise-agreement-ea-customers" class="xliff"></a>
+## Просмотр расходов на внешние службы для клиентов с соглашением Enterprise (EA)
 Клиенты с соглашением Enterprise могут просматривать данные о расходах на внешние службы и скачивать отчеты на портале EA. Чтобы приступить к работе, см. статью [Azure Marketplace for EA Customers](https://ea.azure.com/helpdocs/azureMarketplace) (Azure Marketplace для клиентов с соглашением Enterprise).
 
-## <a name="manage-payment-methods-for-external-service-orders"></a>Управление способами оплаты заказов внешних служб
+<a id="manage-payment-methods-for-external-service-orders" class="xliff"></a>
+## Управление способами оплаты заказов внешних служб
 Измените метод оплаты заказов внешних служб в [Центре управления учетной записью](https://account.windowsazure.com/).
 
 > [!NOTE]
@@ -82,12 +87,14 @@ ms.lasthandoff: 03/03/2017
    
     ![Выберите "Изменить информацию".](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
 
-## <a name="cancel-an-external-service-order"></a>Отмена заказа внешней службы
+<a id="cancel-an-external-service-order" class="xliff"></a>
+## Отмена заказа внешней службы
 Если вы хотите отменить заказ внешней службы, то удалите соответствующий ресурс на [портале Azure](https://portal.azure.com).
 
 ![Удалите ресурс.](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
+<a id="need-help-contact-support" class="xliff"></a>
+## Требуется помощь? Обратитесь в службу поддержки.
 Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
 
 
