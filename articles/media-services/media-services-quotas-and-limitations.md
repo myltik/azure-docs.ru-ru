@@ -12,24 +12,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2017
+ms.date: 07/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: cc6737217ee24f1e698644648ad4f1552f900d96
+ms.contentlocale: ru-ru
 ms.lasthandoff: 11/17/2016
 
 
 ---
-# <a name="quotas-and-limitations"></a>Квоты и ограничения
+<a id="quotas-and-limitations" class="xliff"></a>
+# Квоты и ограничения
 В этом разделе описываются квоты и ограничения, связанные со службами мультимедиа Microsoft Azure.
 
 [!INCLUDE [azure-mediaservices-limits](../../includes/azure-mediaservices-limits.md)]
 
-## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
+<a id="media-services-learning-paths" class="xliff"></a>
+## Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Отзывы
+<a id="provide-feedback" class="xliff"></a>
+## Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
