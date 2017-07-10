@@ -23,22 +23,26 @@ ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="associate-an-office-365-tenant-to-an-azure-subscription"></a>Связывание клиента Office 365 с подпиской Azure
+<a id="associate-an-office-365-tenant-to-an-azure-subscription" class="xliff"></a>
+# Связывание клиента Office 365 с подпиской Azure
 Свяжите отдельные подписки Azure и Office 365, чтобы иметь доступ к клиенту Office 365 из подписки Azure. Чтобы связать подписки, войдите в Azure, используя учетную запись администратора служб Azure, добавьте каталог, а затем добавьте учетные записи организации Office 365 в клиент Azure Active Directory.
 
 Если вам необходима подписка Office 365 для пользователей в экземпляре Azure Active Directory, или у вас есть учетная запись Office 365, но нет учетной записи Azure, то см. статью [Регистрация в Azure с помощью учетной записи Office 365](billing-use-existing-office-365-account-azure-subscription.md). 
 
-## <a name="before-you-begin"></a>Перед началом работы
+<a id="before-you-begin" class="xliff"></a>
+## Перед началом работы
 * Необходимо иметь учетные данные администратора служб подписки Azure. Учетная запись соадминистратора не позволяет выполнить некоторые действия, описанные в этой статье. Чтобы изменить администратора службы, см. статью [Добавление или изменение ролей администратора Azure](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription).
 * Необходимо иметь учетные данные глобального администратора клиента Office 365.
 * Адрес электронной почты администратора служб не должен содержаться на клиенте Office 365.
 * Адрес электронной почты администратора служб не должен совпадать с адресом электронной почты любого из глобальных администраторов клиента Office 365.
 * Если вы используете электронный адрес, который одновременно представляет учетную запись Майкрософт и учетную запись организации, то временно измените роль администратора служб своей подписки Azure, чтобы использовать другую учетную запись Майкрософт. Учетную запись Майкрософт можно создать на [странице регистрации учетных записей Майкрософт](https://signup.live.com/).
 
-## <a name="link-office-365-tenant-to-azure-subscription"></a>Связывание клиента Office 365 с подпиской Azure
+<a id="link-office-365-tenant-to-azure-subscription" class="xliff"></a>
+## Связывание клиента Office 365 с подпиской Azure
 Чтобы связать клиент Office 365 с подпиской Azure, выполните описанные ниже действия.
 
-### <a name="step-1-add-office-365-tenant-to-your-azure-subscription"></a>Шаг 1. Добавление клиента Office 365 в подписку Azure
+<a id="step-1-add-office-365-tenant-to-your-azure-subscription" class="xliff"></a>
+### Шаг 1. Добавление клиента Office 365 в подписку Azure
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com/), используя учетные данные администратора службы.
 
@@ -98,7 +102,8 @@ ms.lasthandoff: 02/22/2017
    
 5. Щелкните **Завершить** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
 
-### <a name="step-3-add-your-office-365-organizational-accounts-as-co-administrators-to-the-azure-active-directory-tenant"></a>Шаг 3. Добавление учетных записей Office 365 организации в качестве соадминистраторов в клиент Azure Active Directory
+<a id="step-3-add-your-office-365-organizational-accounts-as-co-administrators-to-the-azure-active-directory-tenant" class="xliff"></a>
+### Шаг 3. Добавление учетных записей Office 365 организации в качестве соадминистраторов в клиент Azure Active Directory
    
 1. Откройте вкладку **Администраторы**, а затем щелкните **Добавить**.
    
@@ -121,7 +126,8 @@ ms.lasthandoff: 02/22/2017
    
     ![Снимок экрана страницы входа в Azure](./media/billing-add-office-365-tenant-to-azure-subscription/s324_azure-sign-in-with-co-admin.png)
 
-## <a name="need-help-contact-support"></a>Требуется помощь? Обратитесь в службу поддержки.
+<a id="need-help-contact-support" class="xliff"></a>
+## Требуется помощь? Обратитесь в службу поддержки.
 Если вам все еще нужна помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
 
 
