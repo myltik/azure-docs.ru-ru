@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -55,7 +57,7 @@ ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
 
 В озере данных Azure хранятся контейнеры для данных — папки и файлы. Операции с хранимыми данными осуществляются через пакеты SDK, портал Azure и Azure PowerShell. Используя эти интерфейсы и соответствующие контейнеры, вы можете сохранять любые типы данных. Хранилище озера данных обрабатывает сохраняемые данные без учета их типа.
 
-## <a name="a-namedatalakestoresecurityasecuring-data-in-azure-data-lake-store"></a><a name="DataLakeStoreSecurity"></a>Защита данных в хранилище озера данных Azure
+## <a name="DataLakeStoreSecurity"></a>Защита данных в хранилище озера данных Azure
 В хранилище озера данных Azure используются Azure Active Directory для проверки подлинности и списки контроля доступа (ACL) для управления доступом к данным.
 
 | Функция | Описание |
@@ -101,10 +103,5 @@ ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
 * [Use Apache Sqoop to move data between relational sources and Azure Data Lake Store (Использование Apache Sqoop для перемещения данных между реляционными источниками и хранилищем озера данных Azure)](https://mix.office.com/watch/1butcdjxmu114)
 * [Data Orchestration using Azure Data Factory for Azure Data Lake Store (Оркестрация данных с помощью фабрики данных Azure для хранилища озера данных Azure)](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Securing Data in the Azure Data Lake Store (Защита данных в хранилище озера данных Azure)](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
