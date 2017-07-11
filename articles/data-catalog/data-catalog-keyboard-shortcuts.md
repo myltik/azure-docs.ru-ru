@@ -1,5 +1,5 @@
 ---
-title: "Каталог данных Azure | Документация Майкрософт"
+title: "Сочетания клавиш для каталога данных Azure | Документация Майкрософт"
 description: "В этой статье представлены сочетания клавиш для каталога данных Azure."
 services: data-catalog
 documentationcenter: 
@@ -13,17 +13,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 190f46f9994be1a0699488eb813955070070ee51
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
+ms.openlocfilehash: 809b010fbbc0b5c1cbc2d5d5474374a4467defb4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/24/2017
 
 
 ---
-# <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Сочетания клавиш для каталога данных Azure
-## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Сочетания клавиш для инструмента регистрации источников данных в каталоге данных
-### <a name="general-keyboard-shortcuts"></a>Основные сочетания клавиш
+<a id="keyboard-shortcuts-for-azure-data-catalog" class="xliff"></a>
+
+# Сочетания клавиш для каталога данных Azure
+<a id="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool" class="xliff"></a>
+
+## Сочетания клавиш для инструмента регистрации источников данных в каталоге данных
+<a id="general-keyboard-shortcuts" class="xliff"></a>
+
+### Основные сочетания клавиш
 | Операция | Нажмите клавишу |
 | --- | --- |
 | Tab для перехода между элементами управления на странице. |Tab |
@@ -32,24 +40,32 @@ ms.openlocfilehash: 190f46f9994be1a0699488eb813955070070ee51
 | Восстановить или свернуть страницу |WIN + СТРЕЛКА ВНИЗ |
 | Открыть страницу меню |ALT + ПРОБЕЛ |
 
-### <a name="authentication-page"></a>Страница проверки подлинности
+<a id="authentication-page" class="xliff"></a>
+
+### Страница проверки подлинности
 | Операция | Нажмите клавишу |
 | --- | --- |
 | Войти в службу. |ALT + S |
 
-### <a name="data-source-selection-page"></a>Страница выбора источника данных
+<a id="data-source-selection-page" class="xliff"></a>
+
+### Страница выбора источника данных
 | Операция | Нажмите клавишу |
 | --- | --- |
 | Перейти на следующую страницу (если она включена). |ALT + N |
 | Изменить выбранный тип, когда выделен заголовок. |СТРЕЛКА ВВЕРХ, ПРАВО, ВЛЕВО ИЛИ ВНИЗ |
 
-### <a name="data-source-connection-page"></a>Страница подключения к источнику данных
+<a id="data-source-connection-page" class="xliff"></a>
+
+### Страница подключения к источнику данных
 | Операция | Нажмите клавишу |
 | --- | --- |
 | Перейти на предыдущую страницу (если она включена). |ALT + P |
 | Нажать кнопку "Подключение". |ALT + C |
 
-### <a name="connection-context-page"></a>Страница контекста подключения
+<a id="connection-context-page" class="xliff"></a>
+
+### Страница контекста подключения
 | Операция | Нажмите клавишу |
 | --- | --- |
 | Нажать кнопку регистрации (если включена). |ALT + R |
@@ -59,20 +75,26 @@ ms.openlocfilehash: 190f46f9994be1a0699488eb813955070070ee51
 | Развернуть узел дерева в иерархии серверов. |СТРЕЛКА ВПРАВО |
 | Переместить выбранные элементы в список **Доступные объекты** или **Объекты для регистрации**. |ПРОБЕЛ |
 
-### <a name="publish-progress-page"></a>Страница публикации хода выполнения
+<a id="publish-progress-page" class="xliff"></a>
+
+### Страница публикации хода выполнения
 | Операция | Нажмите клавишу |
 | --- | --- |
 | Нажать кнопку отмены |ALT + C |
 | Нажать кнопку регистрации дополнительных объектов |ALT + R |
 | Нажать кнопку просмотра портала |ALT+V |
 
-### <a name="publish-progress-page"></a>Страница публикации хода выполнения
+<a id="publish-progress-page" class="xliff"></a>
+
+### Страница публикации хода выполнения
 | Операция | Нажмите клавишу |
 | --- | --- |
 | Нажать кнопку сохранения (если включена) |ALT + S |
 | Нажать кнопку отмены |ALT + C |
 
-## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Сочетания клавиш для портала каталога данных
+<a id="keyboard-shortcuts-for-the-data-catalog-portal" class="xliff"></a>
+
+## Сочетания клавиш для портала каталога данных
 | Операция | Нажмите клавишу |
 | --- | --- |
 | Перейти. |TAB и SHIFT+TAB |
@@ -85,10 +107,5 @@ ms.openlocfilehash: 190f46f9994be1a0699488eb813955070070ee51
 | Переключить меню поиска совпадений. |ALT + S |
 | Переключить меню **Открыть в** . |ALT+O |
 | Изучить контейнер, если ресурс является контейнером. |ALT+L |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
