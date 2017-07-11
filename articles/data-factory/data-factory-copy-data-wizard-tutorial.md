@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/24/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
@@ -22,7 +22,8 @@ ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных
+<a id="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard" class="xliff"></a>
+# Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
@@ -39,10 +40,12 @@ ms.lasthandoff: 05/17/2017
 
 В этом руководстве показано, как создать фабрику данных Azure, запустить мастер копирования и выполнить шаги, чтобы предоставить сведения о сценарии приема и перемещения данных. После завершения работы в мастере он автоматически создаст конвейер с действием копирования, позволяющим перенести данные из хранилища BLOB-объектов Azure в базу данных SQL Azure. Дополнительные сведения о действии копирования см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+## Предварительные требования
 Прежде чем начать работу с этим руководством, выполните необходимые действия, перечисленные в [этой обзорной статье](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
-## <a name="create-data-factory"></a>Создание фабрики данных
+<a id="create-data-factory" class="xliff"></a>
+## Создание фабрики данных
 На этом шаге с помощью портала Azure создается фабрика данных с именем **ADFTutorialDataFactory**.
 
 1. Войдите на [портал Azure](https://portal.azure.com).
@@ -71,7 +74,8 @@ ms.lasthandoff: 05/17/2017
    
    ![Домашняя страница фабрики данных](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## <a name="launch-copy-wizard"></a>Запуск мастера копирования
+<a id="launch-copy-wizard" class="xliff"></a>
+## Запуск мастера копирования
 1. Чтобы запустить **мастер копирования**, на вкладке фабрики данных щелкните **Копирование данных [предварительная версия]**. 
    
    > [!NOTE]
@@ -133,7 +137,8 @@ ms.lasthandoff: 05/17/2017
     
     ![Средство копирования — параметры производительности](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-## <a name="launch-monitor-and-manage-application"></a>Запуск приложения для отслеживания и управления
+<a id="launch-monitor-and-manage-application" class="xliff"></a>
+## Запуск приложения для отслеживания и управления
 1. На странице **развертывания** щелкните ссылку: `Click here to monitor copy pipeline`.
    
    ![Средство копирования — развертывание выполнено](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
@@ -149,7 +154,8 @@ ms.lasthandoff: 05/17/2017
 
     Дополнительные сведения об использовании этого приложения см. в статье [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью приложения для мониторинга и управления](data-factory-monitor-manage-app.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+## Дальнейшие действия
 В этом руководстве в ходе операции копирования вы использовали хранилище BLOB-объектов Azure как исходное хранилище данных, а базу данных SQL Azure — как целевое хранилище данных. В следующей таблице приведен список хранилищ данных, которые поддерживаются в качестве источников и целевых расположений для действия копирования. 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]

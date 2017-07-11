@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
@@ -22,7 +22,8 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Преобразование данных с помощью сценариев U-SQL в Azure Data Lake Analytics 
+<a id="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics" class="xliff"></a>
+# Преобразование данных с помощью сценариев U-SQL в Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Действие Hive](data-factory-hive-activity.md) 
 > * [Действие Pig](data-factory-pig-activity.md)
@@ -43,7 +44,8 @@ ms.lasthandoff: 07/06/2017
 > В руководстве по [созданию первого конвейера](data-factory-build-your-first-pipeline.md) подробно описаны процедуры создания фабрики данных, связанных служб, наборов данных и конвейера. Для создания сущностей фабрики данных запустите предложенные фрагменты кода JSON в редакторе фабрики данных, Visual Studio или Azure PowerShell.
 
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Связанная служба аналитики озера данных Azure
+<a id="azure-data-lake-analytics-linked-service" class="xliff"></a>
+## Связанная служба аналитики озера данных Azure
 Можно создать связанную службу **Azure Data Lake Analytics** , чтобы связать службу вычислений Azure Data Lake Analytics с фабрикой данных Azure. Действие U-SQL Data Lake Analytics в конвейере ссылается на эту связанную службу. 
 
 В следующем примере представлено определение JSON для связанной службы аналитики озера данных Azure. 
@@ -86,7 +88,8 @@ ms.lasthandoff: 07/06/2017
 
 Чтобы избежать этой ошибки или исправить ее, вам потребуется повторно авторизоваться с помощью кнопки **Авторизовать** и повторно развернуть связанную службу, когда **срок действия маркера истечет**. Значения свойств **sessionId** и **authorization** можно также задавать программно с помощью кода, приведенного в следующем разделе.
 
-### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Программное создание значений свойств sessionId и authorization
+<a id="to-programmatically-generate-sessionid-and-authorization-values" class="xliff"></a>
+### Программное создание значений свойств sessionId и authorization
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -115,7 +118,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 Подробные сведения о классах фабрики данных, используемых в коде, см. в статьях [AzureDataLakeStoreLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) и [AuthorizationSessionGetResponse — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Для использования класса WindowsFormsWebAuthenticationDialog следует добавить ссылку на Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll. 
 
-## <a name="data-lake-analytics-u-sql-activity"></a>Действие U-SQL в аналитике озера данных
+<a id="data-lake-analytics-u-sql-activity" class="xliff"></a>
+## Действие U-SQL в аналитике озера данных
 В следующем фрагменте кода JSON определяется конвейер с действием U-SQL в аналитике озера данных. Определение действия содержит ссылку на созданную ранее связанную службу аналитики озера данных Azure.   
 
 ```JSON
@@ -185,8 +189,10 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 Определение сценария см. в разделе [Определение сценария SearchLogProcessing.txt](#sample-u-sql-script). 
 
-## <a name="sample-input-and-output-datasets"></a>Примеры входных и выходных наборов данных
-### <a name="input-dataset"></a>Входной набор данных
+<a id="sample-input-and-output-datasets" class="xliff"></a>
+## Примеры входных и выходных наборов данных
+<a id="input-dataset" class="xliff"></a>
+### Входной набор данных
 В этом примере входной набор данных находится в хранилище озера данных Azure (файл SearchLog.tsv в папке datalake/input). 
 
 ```JSON
@@ -212,7 +218,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }    
 ```
 
-### <a name="output-dataset"></a>Выходной набор данных
+<a id="output-dataset" class="xliff"></a>
+### Выходной набор данных
 В этом примере выходные данные, порождаемые скриптом U-SQL, сохраняются в хранилище озера данных Azure (папка datalake/output). 
 
 ```JSON
@@ -232,7 +239,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-### <a name="sample-data-lake-store-linked-service"></a>Пример связанной службы Data Lake Store
+<a id="sample-data-lake-store-linked-service" class="xliff"></a>
+### Пример связанной службы Data Lake Store
 Вот определение примера связанной службы Azure Data Lake Store, используемой наборами входных и выходных данных. 
 
 ```JSON
@@ -251,7 +259,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 Описания свойств JSON см. в статье [Перемещение данных в озеро данных Azure и обратно с помощью фабрики данных Azure](data-factory-azure-datalake-connector.md). 
 
-## <a name="sample-u-sql-script"></a>Пример сценария U-SQL
+<a id="sample-u-sql-script" class="xliff"></a>
+## Пример сценария U-SQL
 
 ```
 @searchlog =
@@ -284,7 +293,8 @@ OUTPUT @rs1
 
 В определении конвейера для заданий, которые выполняются в службе Azure Data Lake Analytics, можно определить другие свойства, например degreeOfParallelism и priority.
 
-## <a name="dynamic-parameters"></a>Динамические параметры
+<a id="dynamic-parameters" class="xliff"></a>
+## Динамические параметры
 В примере определения конвейера параметрам in и out присвоено жестко заданные значения. 
 
 ```JSON
