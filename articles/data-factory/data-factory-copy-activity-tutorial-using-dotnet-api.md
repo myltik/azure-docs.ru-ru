@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
@@ -22,7 +22,8 @@ ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Руководство. Создание конвейера с действием копирования с помощью API .NET
+<a id="tutorial-create-a-pipeline-with-copy-activity-using-net-api" class="xliff"></a>
+# Руководство. Создание конвейера с действием копирования с помощью API .NET
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
@@ -44,13 +45,15 @@ ms.lasthandoff: 06/14/2017
 > 
 > В этом руководстве конвейер данных копирует данные из исходного хранилища данных в целевое. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [руководстве по созданию конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+## Предварительные требования
 * Ознакомьтесь с [обзором руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования** .
 * Visual Studio 2012, 2013 или 2015
 * Скачайте и установите пакет [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 * Azure PowerShell. Далее, чтобы установить Azure PowerShell на локальном компьютере, следуйте указаниям в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md) . С помощью Azure PowerShell вы создадите приложение Azure Active Directory.
 
-### <a name="create-an-application-in-azure-active-directory"></a>Создание приложения в Azure Active Directory
+<a id="create-an-application-in-azure-active-directory" class="xliff"></a>
+### Создание приложения в Azure Active Directory
 Вы создадите приложение Azure Active Directory и субъект-службу для приложения, а затем назначите роль **Участник Data Factory** .
 
 1. Запустите **PowerShell**.
@@ -117,7 +120,8 @@ ms.lasthandoff: 06/14/2017
 * Идентификатор приложения
 * пароль (указан в первой команде).
 
-## <a name="walkthrough"></a>Пошаговое руководство
+<a id="walkthrough" class="xliff"></a>
+## Пошаговое руководство
 1. С помощью Visual Studio 2012, 2013 или 2015 создайте консольное приложение C# .NET.
    1. Запустите **Visual Studio** 2012, 2013 или 2015.
    2. Щелкните **Файл**, наведите указатель мыши на пункт **Создать** и щелкните **Проект**.
@@ -516,7 +520,8 @@ ms.lasthandoff: 06/14/2017
    * Конвейер: **PipelineBlobSample**
 20. Убедитесь, что в таблице **emp** в указанной базе данных Azure SQL созданы две записи сотрудников.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+## Дальнейшие действия
 Полную документацию по .NET API для Data Factory см. в [Справочник по .NET API фабрики данных](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
 
 В этом руководстве в ходе операции копирования вы использовали хранилище BLOB-объектов Azure как исходное хранилище данных, а базу данных SQL Azure — как целевое хранилище данных. В следующей таблице приведен список хранилищ данных, которые поддерживаются в качестве источников и целевых расположений для действия копирования. 
