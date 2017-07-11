@@ -21,7 +21,8 @@ ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="azure-active-directory-automatic-device-registration-faq"></a>Вопросы и ответы об автоматической регистрации устройств в Azure Active Directory
+<a id="azure-active-directory-automatic-device-registration-faq" class="xliff"></a>
+# Вопросы и ответы об автоматической регистрации устройств в Azure Active Directory
 
 **Вопрос. Мной недавно было зарегистрировано устройство. Почему оно отсутствует в моих сведениях о пользователе на портале Azure?**
 
