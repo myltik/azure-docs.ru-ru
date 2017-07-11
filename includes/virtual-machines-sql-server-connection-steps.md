@@ -1,4 +1,6 @@
-### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Откройте TCP-порты в брандмауэре Windows для экземпляра ядра СУБД по умолчанию
+<a id="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine" class="xliff"></a>
+
+### Откройте TCP-порты в брандмауэре Windows для экземпляра ядра СУБД по умолчанию
 1. Подключитесь к виртуальной машине через удаленный рабочий стол. Подробные инструкции по подключению к виртуальной машине см. в разделе [Открывать виртуальные машины с помощью удаленного рабочего стола](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
 2. После входа введите **WF.msc**на начальном экране и нажмите клавишу ВВОД.
    
@@ -27,7 +29,9 @@
 
 При необходимости откройте дополнительные порты для других компонентов. Дополнительные сведения содержатся в разделе [Настройка брандмауэра Windows для разрешения доступа к SQL Server](http://msdn.microsoft.com/library/cc646023.aspx).
 
-### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>Настройка SQL Server для прослушивания через протокол TCP
+<a id="configure-sql-server-to-listen-on-the-tcp-protocol" class="xliff"></a>
+
+### Настройка SQL Server для прослушивания через протокол TCP
 1. При установленном подключении к виртуальной машине на начальной странице введите **SQL Server Configuration Manager** и нажмите клавишу ВВОД.
    
     ![Откройте SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
@@ -35,14 +39,16 @@
 3. В области консоли щелкните **Протоколы для MSSQLSERVER** (имя экземпляра по умолчанию). В области сведений щелкните правой кнопкой мыши **TCP** и выберите пункт **Включить** (если этот тип протокола еще не включен).
    
     ![Включение TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. В области консоли выберите **Службы SQL Server**. В области сведений щелкните правой кнопкой мыши **SQL Server (*имя экземпляра*) **(экземпляр по умолчанию —** SQL Server (MSSQLSERVER)**) и выберите пункт** Перезагрузить** чтобы остановить и перезапустить экземпляр SQL Server.
+4. В области консоли выберите **Службы SQL Server**. В области сведений щелкните правой кнопкой мыши **SQL Server (*имя экземпляра*) **(экземпляр по умолчанию —** SQL Server (MSSQLSERVER)**), и выберите пункт** Перезагрузить** чтобы остановить и перезапустить экземпляр SQL Server.
    
     ![Перезапустите ядро СУБД](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 5. Закройте диспетчер конфигурации SQL Server.
 
 Дополнительные сведения о включении протоколов для компонента Ядро СУБД SQL Server см. в статье [Включение или отключение сетевого протокола сервера](http://msdn.microsoft.com/library/ms191294.aspx).
 
-### <a name="configure-sql-server-for-mixed-mode-authentication"></a>Настройка SQL Server на проверку подлинности в смешанном режиме
+<a id="configure-sql-server-for-mixed-mode-authentication" class="xliff"></a>
+
+### Настройка SQL Server на проверку подлинности в смешанном режиме
 Компонент SQL Server Database Engine не может использовать проверку подлинности Windows без среды домена. Чтобы подключиться к компоненту Database Engine с другого компьютера, необходимо настроить для SQL Server смешанный режим проверки подлинности. Смешанный режим позволяет выполнять проверку подлинности SQL Server и проверку подлинности Windows.
 
 > [!NOTE]
@@ -68,7 +74,9 @@
     ![Перезагрузить](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. В диалоговом окне SQL Server Management Studio щелкните **Да** для подтверждения перезапуска SQL Server.
 
-### <a name="create-sql-server-authentication-logins"></a>Создание учетных записей проверки подлинности SQL Server
+<a id="create-sql-server-authentication-logins" class="xliff"></a>
+
+### Создание учетных записей проверки подлинности SQL Server
 Чтобы подключиться к компоненту Database Engine с другого компьютера, необходимо создать как минимум одну учетную запись проверки подлинности SQL Server.
 
 1. В обозревателе объектов SQL Server Management Studio разверните папку экземпляра сервера, на котором требуется создать новую учетную запись.
