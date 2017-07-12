@@ -13,46 +13,52 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
+ms.date: 06/21/2017
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 95cf7ebd9528dc5b258c96d3f3d62a9ab850d93d
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 1e2dad92647630c8b9a4e7676eee9288c87daf44
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="connectors-list"></a>Список соединителей
+<a id="connectors-list" class="xliff"></a>
+
+# Список соединителей
 > [!TIP]
 > Здесь содержится [полный список](#az) всех доступных соединителей, которые можно использовать в приложениях логики. В [сведениях о соединителях](/connectors/) перечислены все триггеры и действия, определенные в Swagger, а также ограничения для каждого соединителя.
 
-Соединители являются неотъемлемой частью при создании приложения логики. С помощью этих соединителей вы можете значительно расширить свои локальные и облачные приложения, чтобы выполнять различные действия с данными, которые вы создадите, а также с существующими данными. Доступны следующие категории соединителей: 
+Соединители являются неотъемлемой частью при создании приложений логики. С помощью этих соединителей вы можете значительно расширить свои локальные и облачные приложения, чтобы выполнять различные действия с данными, которые вы создадите, а также с существующими данными. Доступны следующие категории соединителей: 
 
-* **Стандартные соединители.** Автоматически доступны при использовании приложений логики. К примерам относятся соединитель служебной шины, DropBox, GoogleDrive, Power BI, Oracle Database, OneDrive и многие другие.
+* **Стандартные соединители.** Автоматически доступны при использовании приложений логики. Примеры включают соединители служебной шины, Power BI, Oracle Database, OneDrive и пр.
 
 * **Соединители для учетной записи интеграции.** Доступны при приобретении учетной записи интеграции. С помощью этих соединителей вы можете преобразовать и проверять XML, обрабатывать сообщения типа "бизнес — бизнес" с помощью AS2, X12 или EDIFACT, а также кодировать и декодировать неструктурированные файлы. Если вы работаете с BizTalk Server, тогда эти соединители подойдут для расширения рабочих процессов BizTalk в Azure.  
 
     У BizTalk Server также есть [адаптер Logic Apps](https://msdn.microsoft.com/library/mt787163.aspx), который поддерживает получение данных из приложения логики, а также их передачу в это приложение.
 
-* **Корпоративные соединители.** Сюда относятся MQ и SAP. Для них предусмотрена дополнительная стоимость. 
+* **Корпоративные соединители.** Сюда относятся MQ и SAP. Доступны за дополнительную плату. 
 
 [Страница цен на приложения логики](https://azure.microsoft.com/pricing/details/logic-apps/) и статья [Модель ценообразования приложений логики](../logic-apps/logic-apps-pricing.md) содержат дополнительные сведения о стоимости. 
 
-## <a name="popular-connectors"></a>Популярные соединители
+<a id="popular-connectors" class="xliff"></a>
+
+## Популярные соединители
 Тысячи приложений и миллионы выполнений успешно обрабатывают данные и сведения с помощью этих соединителей. В таблице ниже приведены самые распространенные соединители, включая те, которым отдают предпочтение пользователи.
 
 | |  |  |  |
 | --- | --- | --- | --- |
 | [![API Icon][AzureBlobStorageicon]<br/>**Хранилище BLOB-объектов<br/>Azure** ][AzureBlobStoragedoc] | Если вы хотите автоматизировать какие-либо задачи с помощью учетной записи хранения, тогда вам стоит рассмотреть этот вариант. Поддерживает выполнение операций CRUD (создание, чтение, обновление и удаление). | [![API Icon][Azure-Functionsicon]<br/>**Функции Azure**][azure-functionsdoc] | Создавайте функции, с помощью которых можно выполнять настраиваемые фрагменты кода C# или Node.js, а затем используйте эти функции в приложении логики.  |
-| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Это наиболее востребованный соединитель. Он содержит триггеры и действия, позволяющие автоматизировать рабочие процессы на основе интересов и даже больше. | [![API Icon][Event-Hubs-icon]<br/>**Концентраторы событий**][event-hubs-doc] | Используйте события и публикуйте их в концентраторе событий. Например, вы можете получить выходные данные из приложения логики с помощью соединителя концентраторов событий, а затем отправить их любому поставщику аналитики в реальном времени. |
+| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Это один из самых популярных соединителей. Он содержит триггеры и действия, позволяющие автоматизировать рабочие процессы на основе интересов и даже больше. | [![API Icon][Event-Hubs-icon]<br/>**Концентраторы событий**][event-hubs-doc] | Используйте события и публикуйте их в концентраторе событий. Например, вы можете получить выходные данные из приложения логики с помощью соединителя концентраторов событий, а затем отправить эти сведения любому поставщику аналитики в реальном времени. |
 | [![API Icon][FTPicon]<br/>**FTP**][FTPdoc] | Если вы можете получить доступ к FTP-серверу из Интернета, вы можете автоматизировать рабочие процессы для работы с файлами и папками. <br/><br/>С соединителем SFTP также доступен протокол SFTP. | [![API Icon][HTTPicon]<br/>**HTTP**][httpdoc] | Используйте приложения логики для взаимодействия с любой конечной точкой через протокол HTTP. |
 | [![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Доступны множество триггеров и действий для использования в рабочих процессах почты и событий Office 365. <br/><br/>Этот соединитель предоставляет действие для *письма с запросом на утверждение*, чтобы утвердить заявления на отпуск, отчеты по расходам и т. д. <br/><br/>С соединителем Office 365 Users также предоставляется доступ к пользователям Office 365.| [![API Icon][HTTP-Requesticon]<br/>**Запрос и ответ**][HTTP-Requestdoc] | Этот соединитель предоставляет URL-адрес для протокола HTTPS. Приложение логики запускается при получении запроса к этому URL-адресу. |
 | [![API Icon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Получайте доступ к различным объектам, например к интересам, выполнив вход с помощью учетной записи Salesforce. |  [![API Icon][Service-Busicon]<br/>**Служебная шина**][Service-Busdoc] | Самый популярный соединитель для приложений логики. Он содержит триггеры и действия для выполнения асинхронной передачи сообщений, публикации и подписки с помощью очередей, подписок и разделов. |
 |  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Если вы знакомы с SharePoint и заинтересованы в преимуществах автоматизации, мы советуем выбрать именно этот соединитель. Вы можете использовать его с локальным SharePoint и SharePoint Online. | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Один из наиболее распространенных соединителей, который способен подключаться к локальному серверу SQL Server и базе данных SQL Azure. | 
 | [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Выполняйте быстрый вход с помощью учетной записи Twitter и запускайте рабочий процесс после публикации твита. Затем сохраняйте эти твиты в базу данных SQL или список SharePoint. | | | 
 
-## <a name="integration-account-connectors"></a>Соединители для учетной записи интеграции 
+<a id="integration-account-connectors" class="xliff"></a>
+
+## Соединители для учетной записи интеграции 
 
 Пакет интеграции Enterprise (EIP) содержит соединители, широко известные в сообществе BizTalk Server. При покупке [учетной записи интеграции](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) вы также получаете следующие соединители: 
 
@@ -62,18 +68,20 @@ ms.lasthandoff: 05/26/2017
 [![API Icon][flatfileicon]<br/>**Кодирование</br> неструктурированных файлов**][flatfiledoc] | [![API Icon][flatfiledecodeicon]<br/>**Декодирование</br> неструктурированных файлов**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Учетная запись<br/>интеграции**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**Преобразование<br/>XML**][xmltransformdoc] |
 | [![API Icon][x12icon]<br/>**Декодирование</br> X12**][x12decode] | [![API Icon][x12icon]<br/>**Кодирование</br> X12**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**Проверка <br/>XML**][xmlvalidatedoc] | |
 
-## <a name="enterprise-connectors"></a>Корпоративные соединители
+<a id="enterprise-connectors" class="xliff"></a>
+
+## Корпоративные соединители
 
 Подключайтесь к корпоративным приложениям в приложениях логики.
 
 |  |  |
 | --- | --- |
-|![Значок API][MQicon]<br/>**MQ**|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
+|[![API Icon][MQicon]<br/>**MQ**][mqdoc]|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
 
 
 ## <a name="az"></a>Полный список
 
-В [сведениях о соединителях](/connectors/) перечислены все триггеры и действия, определенные в Swagger, а также ограничения для каждого соединителя.
+[Сведения о соединителях](/connectors/) включают список триггеров и действий, определенных в Swagger, а также ограничений для каждого соединителя.
 
 | | | | | | | | | | | | | |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -82,12 +90,14 @@ ms.lasthandoff: 05/26/2017
 
 | | |
 |---|---|
-|<a name="1"></a>Планирование отправок-прибытий<br/><br/><a name="a"></a>Список<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory<br/>Cлужба управления Azure API <br/>Службы приложений Azure<br/>Служба автоматизации Azure<br/>[Хранилище BLOB-объектов Azure][azureblobstoragedoc]<br/>Озеро данных Azure<br/>Azure Cosmos DB<br/>[Функции Azure][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Очереди Azure<br/>Диспетчер ресурсов Azure<br/>[База данных SQL Azure][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Электронная почта теста производительности<br/>Поиск Bing<br/>Bitbucket;<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Буфер<br/><br/><a name="c"></a>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognito Forms<br/>API компьютерного зрения Cognitive Services<br/>API распознавания лиц Cognitive Services<br/>Cognitive Services LUIS<br/>Текстовая аналитика Cognitive Services<br/>Common Data Service<br/>Control-Terminate<br/>[Настраиваемые API-интерфейсы и веб-приложения][api/web-appdoc]<br/><br/><a name="d"></a>Операции с данными<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>DropBox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Концентраторы событий][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[Файловая система][filesystemdoc]<br/>[Неструктурированный файл][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Календарь Google<br/>Контакты Google<br/>Google Диск<br/>Google Таблицы<br/>Google Задачи<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP и Swagger][http-swaggerdoc]<br/>[HTTP Webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Учетная запись интеграции<br/>Intercom | <a name="j"></a>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Средний<br/>Microsoft Translator<br/>Microsoft Teams<br/>Магический квадрант<br/>MSN Погода<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Пользователи Office 365<br/>Office 365 Видео<br/>OneDrive<br/>OneDrive для бизнеса<br/>OneNote (Business)<br/>[База данных Oracle][oracle-db-doc]<br/>Клиент Outlook<br/>Задачи Outlook<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Запрос и ответ][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[Сервер приложений SAP][sapconnector]<br/>[Сервер сообщений SAP][sapconnector]<br/>[Расписание][recurrencedoc]<br/>Область<br/>SendGrid<br/>[Служебная шина][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointdoc]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Teradata<br/>Todoist<br/>Toodledo<br/>[Преобразование XML][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Переменные<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[Проверка XML][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
+|<a name="1"></a>Планирование отправок-прибытий<br/><br/><a name="a"></a>Список<br/>Adobe Creative Cloud<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory (AD)<br/>Cлужба управления Azure API <br/>Службы приложений Azure<br/>Приложение Azure<br/>Служба автоматизации Azure<br/>[Хранилище BLOB-объектов Azure][azureblobstoragedoc]<br/>Озеро данных Azure<br/>Azure DocumentDB (Cosmos DB)<br/>[Функции Azure][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Очереди Azure<br/>Диспетчер ресурсов Azure<br/>[База данных SQL Azure][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Пакетная служба<br/>Электронная почта теста производительности<br/>Поиск Bing<br/>Bitbucket;<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Буфер<br/><br/><a name="c"></a>Calendly<br/>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognito Forms<br/>API компьютерного зрения Cognitive Services<br/>API распознавания лиц Cognitive Services<br/>Cognitive Services LUIS<br/>Текстовая аналитика Cognitive Services<br/>Common Data Service<br/>Преобразование содержимого<br/>Control-Terminate<br/>[Настраиваемые API-интерфейсы и веб-приложения][api/web-appdoc]<br/><br/><a name="d"></a>Операции с данными<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>DropBox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Концентраторы событий][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[Файловая система][filesystemdoc]<br/>[Неструктурированный файл][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>FreshService<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Календарь Google<br/>Контакты Google<br/>Google Диск<br/>Google Таблицы<br/>Google Задачи<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP и Swagger][http-swaggerdoc]<br/>[HTTP Webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Учетная запись интеграции<br/>Intercom | <a name="j"></a>JotForm<br/>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Средний<br/>Microsoft Forms<br/>Microsoft Teams<br/>Microsoft Translator<br/>[MQ][mqdoc]<br/>MSN Погода<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Пользователи Office 365<br/>Office 365 Видео<br/>OneDrive<br/>OneDrive для бизнеса<br/>OneNote (Business)<br/>[База данных Oracle][oracle-db-doc]<br/>Outlook Customer Manager<br/>Задачи Outlook<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Запрос и ответ][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[Сервер приложений SAP][sapconnector]<br/>[Сервер сообщений SAP][sapconnector]<br/>[Расписание][recurrencedoc]<br/>Область<br/>SendGrid<br/>Отправка сообщений в пакетную службу<br/>[Служебная шина][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointdoc]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Teamwork Projects<br/>Teradata<br/>Todoist<br/>Toodledo<br/>[Преобразование XML][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Переменные<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[Проверка XML][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
 
 > [!TIP]
 > Чтобы начать работу с Azure Logic Apps, не создавая учетную запись Azure, перейдите на [эту страницу](https://tryappservice.azure.com/?appservice=logic). Там вы сможете быстро создать простое кратковременное приложение логики. Никаких кредитных карт и обязательств.
 
-## <a name="connectors-as-triggers-and-actions"></a>Соединители как триггеры и действия
+<a id="connectors-as-triggers-and-actions" class="xliff"></a>
+
+## Соединители как триггеры и действия
 
 **Триггер** запускает или выполняет экземпляр приложения логики. Некоторые соединители служат триггерами, которые могут уведомлять приложение о возникновении определенных событий. Например, у соединителя FTP есть триггер `OnUpdatedFile`, который запускает приложение логики при обновлении файла. 
 
@@ -107,7 +117,9 @@ ms.lasthandoff: 05/26/2017
 > Дополнительные сведения о триггерах и действиях см. в [обзоре соединителей](connectors-overview.md). 
 
 
-## <a name="message-manipulation-actions"></a>Действия управления сообщениями
+<a id="message-manipulation-actions" class="xliff"></a>
+
+## Действия управления сообщениями
 
 Приложения логики содержат встроенные действия, с помощью которых можно изменять полезные данные или же управлять ими. Встроенный соединитель **операций с данными** содержит следующие действия: 
 
@@ -118,21 +130,29 @@ ms.lasthandoff: 05/26/2017
 | **Фильтрация массива** (запрос) | Отфильтруйте результирующий набор по интересующим вас записям. Например, выполните поиск всех твитов с термином `#Azure`, а затем отфильтруйте возвращенные твиты для отображения только результатов, соответствующих `Tweeted_by_followers > 50`. |
 | **Join** | Объедините массив по определенному разделителю. Например, операция обнаружения ключевых фраз возвращает массив ключевых фраз. Вы можете объединить их с `,` или другим подобным разделителем. Таким образом, вместо `["Some", "Phrase"]` у вас будет `"Some, Phrase"`. |
 | **Анализ JSON** | Проанализируйте значения и получите к ним доступ из объекта JSON в конструкторе. Например, если функция Azure возвращает полезные данные JSON, тогда вы можете проанализировать их, чтобы позже получить доступ к свойствам JSON на другом шаге. Это действие также проверяет соответствие JSON определенной схеме во время выполнения. | 
-| **Выбор** | Выберите определенные свойства массива для дальнейшей обработки. Если вы выберете отображение списка записей из SQL и при этом вернется 15 столбцов, выберите всего несколько из них для дальнейшей обработки (выходные данные представляют собой массив, содержащий только те свойства, которые вы выбрали). |
+| **Выбор** | Выберите определенные свойства массива для дальнейшей обработки. Если вы выведете на экран список записей в SQL и получите 15 столбцов, выберите несколько столбцов для дальнейшей обработки. Выходные данные представляют массив, содержащий выбранные вами свойства. |
 
-## <a name="custom-connectors-and-azure-certification"></a>Пользовательские соединители и сертификация Azure 
+<a id="custom-connectors-and-azure-certification" class="xliff"></a>
+
+## Пользовательские соединители и сертификация Azure 
 
 Чтобы вызывать API-интерфейсы, которые запускают пользовательский код или недоступны в качестве соединителей, можно расширить платформу Logic Apps, [создавая приложения API на основе REST как настраиваемые соединители](../logic-apps/logic-apps-create-api-app.md). 
 
 Если вы хотите сделать пользовательские приложения API открытыми и доступными для использования в Azure, отправьте заявку на участие в [программе Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
-## <a name="get-help"></a>Получение справки
+<a id="get-help" class="xliff"></a>
+
+## Получение справки
 
 Чтобы задать вопросы, получить на них ответы и узнать, что делают другие пользователи, посетите [форум по Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 Чтобы улучшить Azure Logic Apps и соединители, голосуйте за идеи или предлагайте собственные на [сайте обратной связи Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Дальнейшие действия
+Мы не рассмотрели соединители или не указали какие-то другие сведения, которые вы считаете важными? Если это так, помогите нам, добавив эти сведения в уже существующие разделы или создав собственные. Наша документация включает открытый исходный код и размещается на сайте GitHub. Начало работы с нашим [репозиторием GitHub](https://github.com/Microsoft/azure-docs). 
+
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Создание настраиваемых API для приложений логики](../logic-apps/logic-apps-create-api-app.md)
 * [См. статью Мониторинг приложений логики.](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -154,6 +174,7 @@ ms.lasthandoff: 05/26/2017
 [nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Интеграция приложений логики с вложенным рабочим процессом."
 [office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Подключение к учетной записи Office 365. Отправка и получение сообщений, управление календарем и контактами, а также другие действия"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database to add, insert, delete rows, and more" (Подключение к базе данных Oracle для добавления, вставки, удаления строк и других действий)
+[mqdoc]: ./connectors-create-api-mq.md "Подключение к MQ в локальной среде или Azure для отправки и получения сообщений"
 [recurrencedoc]:  ./connectors-native-recurrence.md "Активация повторяющихся действий для приложений логики"
 [salesforcedoc]: ./connectors-create-api-salesforce.md "Подключение к учетной записи Salesforce. Управление учетными записями, потенциальными клиентами, возможностями и другие действия"
 [sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Подключение к локальному серверу SAP"

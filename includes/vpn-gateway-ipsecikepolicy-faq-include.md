@@ -1,13 +1,21 @@
-### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Поддерживается ли политика IPsec/IKE во всех номерах SKU VPN-шлюзов Azure?
-Политика IPsec/IKE поддерживается в VPN-шлюзах Azure класса **Standard** и **HighPerformance**. **Basic** не поддерживается.
+<a id="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus" class="xliff"></a>
 
-### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Сколько политик можно указать для подключения?
+### Поддерживается ли политика IPsec/IKE во всех номерах SKU VPN-шлюзов Azure?
+Политика IPsec/IKE поддерживается в VPN-шлюзах Azure класса **VpnGw1, VpnGw2, VpnGw3, Standard** и **HighPerformance**. **Basic** не поддерживается.
+
+<a id="how-many-policies-can-i-specify-on-a-connection" class="xliff"></a>
+
+### Сколько политик можно указать для подключения?
 Можно указать только ***одну*** комбинацию политик для каждого подключения.
 
-### <a name="can-i-specify-a-partial-policy-on-a-connection-eg-only-ike-algorithms-but-not-ipsec"></a>Можно ли указать частичную политику для подключения (например, только алгоритмы IKE без IPsec)?
+<a id="can-i-specify-a-partial-policy-on-a-connection-eg-only-ike-algorithms-but-not-ipsec" class="xliff"></a>
+
+### Можно ли указать частичную политику для подключения (например, только алгоритмы IKE без IPsec)?
 Нет, следует указать все алгоритмы и параметры для IKE (основной режим) и IPsec (быстрый режим). Указать частичную политику нельзя.
 
-### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Какие алгоритмы и уровни стойкости ключей поддерживает настраиваемая политика?
+<a id="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy" class="xliff"></a>
+
+### Какие алгоритмы и уровни стойкости ключей поддерживает настраиваемая политика?
 В следующей таблице перечислены поддерживаемые алгоритмы шифрования и уровни стойкости ключей, которые могут настроить клиенты. Необходимо выбрать один вариант для каждого поля.
 
 | **IPsec/IKEv2**  | **Варианты**                                                                 |
@@ -16,16 +24,18 @@
 | Проверка целостности IKEv2  | SHA384, SHA256, SHA1, MD5                                                   |
 | Группа DH         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, нет |
 | Шифрование IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, нет    |
-| Целостность IPsec  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
+| Целостность IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
 | Группа PFS        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, нет                     |
-| Время существования QM SA*  | Секунды (целое число) и килобайты (целое число)                                      |
-| Селектор трафика | UsePolicyBasedTrafficSelectors** ($True/$False)                             |
+| Время существования QM SA*  | Секунды (целое число, **минимум 300**) и килобайты (целое число, **минимум 1024**)                                      |
+| Селектор трафика | UsePolicyBasedTrafficSelectors** ($True/$False; default $False)                             |
 |                  |                                                                             |
 
 * (*) Время существования SA основного режима IKEv2 составляет 28 800 секунд на VPN-шлюзах Azure
 * (**) См. следующий вопрос и ответ, чтобы получить информацию о параметре UsePolicyBasedTrafficSelectors
 
-### <a name="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations"></a>Должны ли политика VPN-шлюза Azure и мои конфигурации локальных VPN-устройств полностью совпадать?
+<a id="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations" class="xliff"></a>
+
+### Должны ли политика VPN-шлюза Azure и мои конфигурации локальных VPN-устройств полностью совпадать?
 Ваша конфигурация локальных VPN-устройств должна совпадать со следующими алгоритмами и параметрами, указанными в политике Azure IPsec/IKE, или содержать их.
 
 * Алгоритм шифрования IKE
@@ -46,23 +56,37 @@
 
 Дополнительные сведения об использовании этого параметра см. в статье, посвященной [подключению нескольких локальных VPN-устройств на основе политики](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
-### <a name="does-the-custom-policy-replace-the-default-ipsecike-policy-sets-for-azure-vpn-gateways"></a>Заменяет ли настраиваемая политика стандартные наборы политик IPsec/IKE для VPN-шлюзов Azure?
+<a id="does-the-custom-policy-replace-the-default-ipsecike-policy-sets-for-azure-vpn-gateways" class="xliff"></a>
+
+### Заменяет ли настраиваемая политика стандартные наборы политик IPsec/IKE для VPN-шлюзов Azure?
 Да, когда настраиваемая политика будет указана для подключения, VPN-шлюз Azure будет использовать только политику для подключения как инициатор IKE и отвечающее устройство IKE.
 
-### <a name="if-i-remove-a-custom-ipsecike-policy-does-the-connection-become-unprotected"></a>Если удалить настраиваемую политику IPsec/IKE, подключение становится незащищенным?
+<a id="if-i-remove-a-custom-ipsecike-policy-does-the-connection-become-unprotected" class="xliff"></a>
+
+### Если удалить настраиваемую политику IPsec/IKE, подключение становится незащищенным?
 Нет, подключение будет по-прежнему защищено с помощью IPsec/IKE. После удаления настраиваемой политики из подключения VPN-шлюз Azure VPN вернется к [списку предложений IPsec/IKE по умолчанию](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) и возобновит подтверждение IKE для локального VPN-устройства.
 
-### <a name="would-adding-or-updating-an-ipsecike-policy-disrupt-my-vpn-connection"></a>Прерывается ли VPN-подключение при добавлении или обновлении политики IPsec/IKE?
+<a id="would-adding-or-updating-an-ipsecike-policy-disrupt-my-vpn-connection" class="xliff"></a>
+
+### Прерывается ли VPN-подключение при добавлении или обновлении политики IPsec/IKE?
 Да, это может привести к небольшому прерыванию (на несколько секунд), так как VPN-шлюз Azure VPN будет прерывать существующее подключение и повторно запускать подтверждение IKE, чтобы повторно настроить туннель IPsec с новыми алгоритмами и параметрами шифрования. Чтобы минимизировать время простоя, настройте для локального VPN-устройства совпадающие алгоритмы и уровни стойкости ключей.
 
-### <a name="can-i-use-different-policies-on-different-connections"></a>Можно ли использовать разные политики для разных подключений?
+<a id="can-i-use-different-policies-on-different-connections" class="xliff"></a>
+
+### Можно ли использовать разные политики для разных подключений?
 Да. Настраиваемая политика применяется на уровне подключения. Можно создавать и применять разные политики IPsec/IKE для разных подключений. Можно также применять настраиваемые политики к подмножеству подключений. Оставшиеся подключения будут использовать стандартные наборы политик IPsec/IKE Azure.
 
-### <a name="can-i-use-the-custom-policy-on-vnet-to-vnet-connection-as-well"></a>Можно ли также использовать настраиваемую политику для подключения между виртуальными сетями?
+<a id="can-i-use-the-custom-policy-on-vnet-to-vnet-connection-as-well" class="xliff"></a>
+
+### Можно ли также использовать настраиваемую политику для подключения между виртуальными сетями?
 Да, настраиваемую политику можно применять для подключений IPsec между локальными или виртуальными сетями.
 
-### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>Нужно ли указывать одну и ту же политику для обоих ресурсов при подключении между виртуальными сетями?
+<a id="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources" class="xliff"></a>
+
+### Нужно ли указывать одну и ту же политику для обоих ресурсов при подключении между виртуальными сетями?
 Да. Туннель подключения между виртуальными сетями состоит из двух ресурсов Azure: для каждого направления используется один ресурс. Обоим ресурсам подключения следует назначать одну и ту же политику, иначе подключение между виртуальными сетями не будет установлено.
 
-### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>Работает ли настраиваемая политика IPsec/IKE для подключения ExpressRoute?
+<a id="does-custom-ipsecike-policy-work-on-expressroute-connection" class="xliff"></a>
+
+### Работает ли настраиваемая политика IPsec/IKE для подключения ExpressRoute?
 Нет. Политика IPsec/IKE работает только для VPN-подключений типа "сеть — сеть" или "виртуальная сеть — виртуальная сеть" через VPN-шлюзы Azure.

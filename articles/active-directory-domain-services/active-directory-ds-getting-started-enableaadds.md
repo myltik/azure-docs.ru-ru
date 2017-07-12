@@ -1,6 +1,6 @@
 ---
 title: "Доменные службы Azure Active Directory: включение доменных служб Azure Active Directory | Документация Майкрософт"
-description: "Приступая к работе с доменными службами Azure Active Directory"
+description: "Включение доменных служб Azure Active Directory с помощью классического портала Azure"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,18 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/06/2017
+ms.date: 06/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e5f1fe51d8931985fa55b2d8c0a3fd25bb93f20f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="enable-azure-active-directory-domain-services"></a>Включение доменных служб Azure Active Directory
-## <a name="task-3-enable-azure-active-directory-domain-services"></a>Задача 3. Включение доменных служб Azure Active Directory
-Здесь мы включим доменные службы Azure Active Directory (Azure AD) для каталога. Для этого сделайте следующее:
+<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+
+# Включение доменных служб Azure Active Directory с помощью классического портала Azure
+
+<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
+
+## Задача 3. Включение доменных служб Azure Active Directory
+Здесь мы включим доменные службы Azure Active Directory (Azure AD) для каталога. Для этого выполните следующие действия.
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com).
 2. В области слева нажмите кнопку **Active Directory**.
@@ -70,20 +76,20 @@ ms.lasthandoff: 04/12/2017
    * Используйте выделенную подсеть в виртуальной сети для доменных служб Azure Active Directory. *Не* выбирайте подсеть шлюза. См. [рекомендации по работе с сетями](active-directory-ds-networking.md).
 
    * Точно так же виртуальные сети, созданные с помощью Azure Resource Manager, не отображаются в раскрывающемся списке. Виртуальные сети на базе Resource Manager в настоящее время не поддерживаются доменными службами Azure Active Directory.
-9. Чтобы включить доменные службы Azure Active Directory, щелкните **Сохранить** в области задач в нижней части страницы. 
+9. Чтобы включить доменные службы Azure Active Directory, щелкните **Сохранить** в области задач в нижней части страницы.
     * Пока доменные службы Azure Active Directory включаются для вашего каталога, на странице отображается состояние *Ожидание*.
 
         ![Окно с параметром включения доменных служб](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
         > [!NOTE]
-        > Доменные службы Azure Active Directory обеспечивают высокий уровень доступности для управляемого домена. После включения доменных служб Azure Active Directory вы заметите, что IP-адреса, по которым доменные службы доступны в виртуальной сети, отображаются один за другим. Второй IP-адрес появляется через некоторое время после первого, когда служба включает высокий уровень доступности для вашего домена. Когда высокий уровень доступности настроен и активен для вашего домена, в разделе **Доменные службы** на вкладке **Настройка** будут отображаться два IP-адреса.
+        > Доменные службы Azure Active Directory обеспечивают высокий уровень доступности для управляемого домена. Когда вы включите доменные службы Azure Active Directory, IP-адреса, по которым доменные службы доступны в виртуальной сети, будут отображаться последовательно. Второй IP-адрес появляется через некоторое время после первого, когда служба включает высокий уровень доступности для вашего домена. Когда высокий уровень доступности настроен и активен для вашего домена, в разделе **Доменные службы** на вкладке **Настройка** будут отображаться два IP-адреса.
         >
         >
     * Через 20–30 минут первый из этих IP-адресов доменных служб в виртуальной сети отобразится в поле **IP-адрес** на странице **Настройка**.
 
         ![Окно "Доменные службы", в котором отображается первый подготовленный IP-адрес](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
-    * Когда активируется высокий уровень доступности для вашего домена, вы увидите на этой странице два IP-адреса. Управляемый домен доступен в выбранной виртуальной сети по этим двум IP-адресам. 
-    
+    * Когда активируется высокий уровень доступности для вашего домена, вы увидите на этой странице два IP-адреса. Управляемый домен доступен в выбранной виртуальной сети по этим двум IP-адресам.
+
 10. Запишите эти два IP-адреса, чтобы обновить параметры DNS для виртуальной сети. Это позволяет виртуальным машинам в виртуальной сети подключиться к домену для таких операций, как присоединение к домену.
 
     ![Окно "Доменные службы", в котором отображаются оба подготовленных IP-адреса](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
@@ -93,6 +99,8 @@ ms.lasthandoff: 04/12/2017
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
-Задача 4. [Обновление настроек DNS для виртуальной сети Azure](active-directory-ds-getting-started-dns.md)
+<a id="next-step" class="xliff"></a>
+
+## Дальнейшие действия
+[Задача 4. Обновление настроек DNS для виртуальной сети Azure](active-directory-ds-getting-started-update-dns.md)
 

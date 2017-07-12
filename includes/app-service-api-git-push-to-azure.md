@@ -1,9 +1,13 @@
-С помощью Azure CLI получите URL-адрес удаленного развертывания для приложения API, а затем настройте локальное развертывание Git для отправки изменений в удаленный репозиторий.
+С помощью Azure CLI получите URL-адрес удаленного развертывания для своего приложения API. В следующей команде замените *\<имя_приложения>* именем своего веб-приложения.
+
+```azurecli-interactive
+az webapp deployment source config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
+```
+
+Настройте локальное развертывание Git, чтобы вы могли принудительно отправлять данные в удаленный репозиторий.
 
 ```bash
-giturl=$(az webapp deployment source config-local-git -n $app_name \ -g myResourceGroup --query [url] -o tsv)
-
-git remote add azure $giturl
+git remote add azure <URI from previous step>
 ```
 
 Отправьте код в удаленную службу приложений Azure, чтобы развернуть приложение. После этого введите пароль, указанный ранее при создании пользователя развертывания. Следует ввести пароль, созданный в рамках краткого руководства, а не тот, который использовался для входа на портал Azure.

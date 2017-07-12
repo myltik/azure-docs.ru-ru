@@ -14,17 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/10/2017
+ms.date: 07/03/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: b60a0d1668e7c1010663ee2b11bff26b0bb70cf0
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 993cff63037017e37ff5b0787f50ba002df28d03
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Использование Data Lake Store с кластерами Azure HDInsight
+<a id="use-data-lake-store-with-azure-hdinsight-clusters" class="xliff"></a>
+
+# Использование Data Lake Store с кластерами Azure HDInsight
 
 Для анализа данных в кластере HDInsight можно сохранить данные в [службе хранилища Azure](../storage/storage-introduction.md), в [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) или в обоих этих хранилищах. Оба варианта хранилища позволяют безопасно и без потери пользовательских данных удалять используемые для расчетов кластеры HDInsight.
 
@@ -35,7 +37,9 @@ ms.lasthandoff: 06/13/2017
 > 
 > 
 
-## <a name="availabilities-for-hdinsight-clusters"></a>Сведения о доступности для кластеров HDInsight
+<a id="availabilities-for-hdinsight-clusters" class="xliff"></a>
+
+## Сведения о доступности для кластеров HDInsight
 
 В Hadoop поддерживается концепция файловой системы по умолчанию. Файловая система по умолчанию подразумевает использование центра сертификации и схемы по умолчанию. Она также может использоваться для разрешения относительных путей. При создании кластера HDInsight в качестве используемой по умолчанию файловой системы можно указать контейнер больших двоичных объектов в службе хранилища Azure, а в случае использования HDInsight 3.5 и более поздних версий — выбрать службу хранилища Azure или Azure Data Lake Store с некоторыми исключениями. 
 
@@ -59,7 +63,9 @@ ms.lasthandoff: 06/13/2017
 Использование Data Lake Store в качестве дополнительной учетной записи хранения не влияет на производительность либо возможность выполнять чтение или запись в хранилище Azure из кластера.
 
 
-## <a name="use-data-lake-store-as-default-storage"></a>Использование Data Lake Store в качестве хранилища по умолчанию
+<a id="use-data-lake-store-as-default-storage" class="xliff"></a>
+
+## Использование Data Lake Store в качестве хранилища по умолчанию
 
 При развертывании HDInsight с Data Lake Store в качестве хранилища по умолчанию относящиеся к кластеру файлы сохраняются в хранилище Data Lake Store в следующем расположении:
 
@@ -81,7 +87,9 @@ ms.lasthandoff: 06/13/2017
 Дополнительные сведения о создании субъекта-службы и предоставлении доступа см. в разделе [Настройка доступа к Data Lake Store](#configure-data-lake-store-access).
 
 
-## <a name="use-data-lake-store-as-additional-storage"></a>Использование Data Lake Store в качестве дополнительного хранилища
+<a id="use-data-lake-store-as-additional-storage" class="xliff"></a>
+
+## Использование Data Lake Store в качестве дополнительного хранилища
 
 Data Lake Store также можно использовать в качестве дополнительного хранилища кластера. В таких случаях хранилищем кластера по умолчанию может быть Azure Storage Blob или учетная запись Data Lake Store. При выполнении заданий HDInsight с применением данных, хранящихся в Data Lake Store как дополнительном хранилище, необходимо использовать полный путь к файлам. Например:
 
@@ -96,15 +104,25 @@ Data Lake Store также можно использовать в качеств
 Дополнительные сведения о создании субъекта-службы и предоставлении доступа см. в разделе [Настройка доступа к Data Lake Store](#configure-data-lake-store-access).
 
 
-## <a name="use-more-than-one-data-lake-store-accounts"></a>Использование нескольких учетных записей Data Lake Store
+<a id="use-more-than-one-data-lake-store-accounts" class="xliff"></a>
+
+## Использование нескольких учетных записей Data Lake Store
 
 Можно добавить учетную запись Data Lake Store в качестве дополнительного хранилища и несколько учетных записей Data Lake Store, предоставив кластеру HDInsight разрешение на доступ к данным в одной или нескольких учетных записях Data Lake Store. См. раздел [Настройка доступа к Data Lake Store](#configure-data-lake-store-access).
 
-## <a name="configure-data-lake-store-access"></a>Настройка доступа к Data Lake Store
+<a id="configure-data-lake-store-access" class="xliff"></a>
+
+## Настройка доступа к Data Lake Store
 
 Чтобы настроить доступ к Data Lake Store из кластера HDInsight, требуется субъект-служба Azure Active Directory (AAD). Создать субъект-службу может только администратор Azure AD. Для создания субъекта-службы необходим сертификат. Дополнительные сведения см. в разделах [Настройка доступа к Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access) и [Создание субъекта-службы с самозаверяющим сертификатом](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
-## <a name="access-files-from-the-cluster"></a>Доступ к файлам из кластера
+> [!NOTE]
+> Если вы собираетесь добавить Azure Data Lake Store в качестве дополнительного хранилища для кластера HDInsight, настоятельно рекомендуется сделать это во время создания кластера, как описано в этой статье. Добавление Azure Data Lake Store в качестве дополнительного хранилища для существующего кластера HDInsight — очень сложный процесс, который может привести к ошибкам.
+>
+
+<a id="access-files-from-the-cluster" class="xliff"></a>
+
+## Доступ к файлам из кластера
 
 Существует несколько способов доступа к файлам в Data Lake Store из кластера HDInsight.
 
@@ -124,7 +142,9 @@ Data Lake Store также можно использовать в качеств
 
         /example/data/sample.log
 
-## <a name="create-hdinsight-clusters-with-access-to-data-lake-store"></a>Создание кластеров HDInsight с доступом к Data Lake Store
+<a id="create-hdinsight-clusters-with-access-to-data-lake-store" class="xliff"></a>
+
+## Создание кластеров HDInsight с доступом к Data Lake Store
 
 Перейдите по указанным ниже ссылкам, чтобы просмотреть подробные инструкции о создании кластеров HDInsight с доступом к Data Lake Store.
 
@@ -134,7 +154,9 @@ Data Lake Store также можно использовать в качеств
 * [Создание кластера HDInsight с Data Lake Store с помощью шаблона Azure Resource Manager](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 Из этой статьи вы узнали, как использовать HDFS-совместимую службу Azure Data Lake Store с HDInsight. Это позволяет создавать масштабируемые, долгосрочные решения для получения данных архивирования, а также использовать HDInsight для разблокирования информации внутри хранимых структурированных и неструктурированных данных.
 
 Дополнительные сведения можно найти в разделе 
