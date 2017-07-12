@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 9fc961ca143d4c9d0ab8bb0224fd350df890b55c
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-use-self-service-application-access"></a>Использование самостоятельного доступа к приложениям
+<a id="how-to-use-self-service-application-access" class="xliff"></a>
+
+# Использование самостоятельного доступа к приложениям
 
 Прежде чем пользователи смогут самостоятельно находить приложения на панели доступа, необходимо включить **самостоятельный доступ к приложениям**, чтобы пользователи либо искали их сами, либо запрашивали к ним доступ.
 
@@ -41,7 +43,9 @@ ms.lasthandoff: 04/11/2017
 
 -   При необходимости автоматически назначать пользователей, находящихся на самообслуживании, роли приложения напрямую.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Включите самостоятельный доступ к приложениям, позволяющий пользователям найти свои приложения
+<a id="enable-self-service-application-access-to-allow-users-to-find-their-own-applications" class="xliff"></a>
+
+## Включите самостоятельный доступ к приложениям, позволяющий пользователям найти свои приложения
 
 Самостоятельный доступ к приложениям — это отличный способ разрешить пользователям самим находить приложения и при необходимости позволять бизнес-группе утверждать доступ к этим приложениям. Вы можете разрешить бизнес-группе управлять учетными данными, присвоенными пользователям для приложений, использующих единый вход по паролю, прямо на панелях доступа.
 
@@ -83,6 +87,8 @@ ms.lasthandoff: 04/11/2017
 
 Эти утверждения поддерживают только отдельные рабочие процессы, то есть если вы зададите несколько утверждений, любое отдельное утверждение может подтвердить доступ к приложению.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Настройка Azure Active Directory для самостоятельного управления группами](active-directory-accessmanagement-self-service-group-management.md)
 

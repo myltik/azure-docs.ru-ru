@@ -17,8 +17,16 @@
       href: connect-python.md
     - name: Node.js
       href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: PHP
+      href: connect-php.md
     - name: .NET
       href: connect-csharp.md
+    - name: Go
+      href: connect-go.md
 - name: Учебники
   items:
   - name: "1.\_Проектирование базы данных"
@@ -97,6 +105,8 @@
     href: /cli/azure/postgres
 - name: Ресурсы
   items:
+  - name: Стратегия развития Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Цены
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: Форум MSDN

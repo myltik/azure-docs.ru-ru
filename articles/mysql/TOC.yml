@@ -103,6 +103,8 @@
     href: /cli/azure/mysql
 - name: Ресурсы
   items:
+  - name: Стратегия развития Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Цены
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: Форум MSDN

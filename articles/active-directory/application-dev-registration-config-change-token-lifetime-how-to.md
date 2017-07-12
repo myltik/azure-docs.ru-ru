@@ -11,18 +11,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
 ms.openlocfilehash: 54c30123bb582f515dfb0324cdfd897a6c4af5c0
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/14/2017
-
 
 ---
 
 
-# <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Как изменить стандартное время существования токена для специально разработанного приложения
+<a id="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application" class="xliff"></a>
+
+# Как изменить стандартное время существования токена для специально разработанного приложения
 
 Azure AD Premium позволяет разработчикам приложений и администраторам клиентов настраивать время существования токенов, выданных для неконфиденциальных клиентов. Политики времени существования токенов настраиваются на уровне клиента или ресурсов, к которым осуществляется доступ.
 
@@ -34,7 +36,9 @@ Azure AD Premium позволяет разработчикам приложен�
 
  * Дополнительные сведения о создании пользовательских параметров см. в документе [Настройка времени существования токенов](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes).
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Настройка времени существования токенов](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
 [Справочник по токенам в Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims)

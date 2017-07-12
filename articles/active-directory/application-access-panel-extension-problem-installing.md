@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
@@ -19,16 +19,19 @@ ms.openlocfilehash: 759631bca9b29134098dba55ef07513d0ee42549
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
 
-# <a name="problem-installing-the-application-access-panel-browser-extension"></a>Проблема при установке расширения браузера для панели доступа к приложениям
+<a id="problem-installing-the-application-access-panel-browser-extension" class="xliff"></a>
+
+# Проблема при установке расширения браузера для панели доступа к приложениям
 
 Панель доступа — это веб-портал, позволяющий пользователям с рабочей или учебной учетной записью Azure Active Directory (Azure AD) просматривать и запускать облачные приложения, к которым администратор Azure AD предоставил доступ. Пользователь, у которого есть выпуски Azure AD, также может использовать возможности самостоятельного управления группами и приложениями с помощью панели доступа. Панель доступа отделена от портала Azure, и для нее не требуется подписка Azure.
 
 Чтобы использовать единый вход на основе пароля на панели доступа, в браузере нужно установить расширение панели доступа. Это расширение автоматически загружается при выборе пользователем приложения, настроенного на работу с единым входом с помощью пароля.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Соответствие требованиям к браузеру для панели доступа
+<a id="meeting-browser-requirements-for-the-access-panel" class="xliff"></a>
+
+## Соответствие требованиям к браузеру для панели доступа
 
 Для работы с панелью доступа требуется браузер с включенной поддержкой JavaScript и CSS. Чтобы использовать единый вход на основе пароля на панели доступа, в браузере нужно установить расширение панели доступа. Это расширение автоматически загружается при выборе пользователем приложения, настроенного на работу с единым входом с помощью пароля.
 
@@ -42,7 +45,9 @@ ms.lasthandoff: 05/26/2017
 
 **Примечание**. Расширение для единого входа на основе пароля будет доступно для браузера Edge в Windows 10 после того, как он начнет поддерживать расширения.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Установка расширения "Панель доступа" для браузера
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Установка расширения "Панель доступа" для браузера
 
 Чтобы установить расширение "Панель доступа" для браузера, выполните указанные ниже действия.
 
@@ -66,7 +71,9 @@ ms.lasthandoff: 05/26/2017
 
 -   [Расширение "Панель доступа" для Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Настройка групповой политики для Internet Explorer
+<a id="setting-up-a-group-policy-for-internet-explorer" class="xliff"></a>
+
+## Настройка групповой политики для Internet Explorer
 
 Вы можете настроить групповую политику, которая позволяет удаленно устанавливать расширение панели доступа для Internet Explorer на компьютерах пользователей.
 
@@ -78,11 +85,15 @@ ms.lasthandoff: 05/26/2017
 
 Пошаговые инструкции по настройке групповой политики и ее развертыванию для пользователей см. в учебнике [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md).
 
-## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Устранение неполадок панели доступа в Internet Explorer
+<a id="troubleshoot-the-access-panel-in-internet-explorer" class="xliff"></a>
+
+## Устранение неполадок панели доступа в Internet Explorer
 
 Сведения о доступе к средству диагностики и пошаговые инструкции по настройке расширения для Internet Explorer см. в руководстве [Устранение неполадок расширения "Панель доступа" для Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Действия по устранению неполадок безрезультатны
+<a id="if-these-troubleshooting-steps-do-not-resolve-the-issue" class="xliff"></a>
+
+## Действия по устранению неполадок безрезультатны
 
 В таком случае создайте запрос в службу поддержки, указав следующие сведения (при наличии):
 
@@ -98,6 +109,8 @@ ms.lasthandoff: 05/26/2017
 
 -   трассировки Fiddler.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

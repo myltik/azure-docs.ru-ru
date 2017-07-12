@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: d4678afa4d7a9000761d3a60a54539fc1730f76a
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Настройка единого входа по паролю для приложения из коллекции Azure AD
+<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+# Настройка единого входа по паролю для приложения из коллекции Azure AD
 
 При добавлении приложения из [коллекции приложений Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery) вы можете выбрать для него способ входа пользователей. Этот способ можно настроить в любое время, выбрав элемент навигации **Единый вход** в корпоративном приложении на [портале Azure](https://portal.azure.com/).
 
@@ -43,7 +45,9 @@ ms.lasthandoff: 04/11/2017
 
 Ниже представлены сведения о том, как включить [единый вход по паролю](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) для приложения, которое уже находится в [коллекции приложений Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery).
 
-## <a name="overview-of-steps-required"></a>Обзор необходимых действий
+<a id="overview-of-steps-required" class="xliff"></a>
+
+## Обзор необходимых действий
 Чтобы настроить единый вход для приложения из коллекции Azure AD, сделайте следующее:
 
 -   [Добавьте приложение из коллекции Azure AD](#add-an-application-from-the-azure-ad-gallery).
@@ -56,7 +60,9 @@ ms.lasthandoff: 04/11/2017
 
     -   [Назначьте приложение группе напрямую](#assign-an-application-to-a-group-directly).
 
-## <a name="add-an-application-from-the-azure-ad-gallery"></a>Добавление приложения из коллекции Azure AD
+<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+## Добавление приложения из коллекции Azure AD
 
 Чтобы добавить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -80,7 +86,9 @@ ms.lasthandoff: 04/11/2017
 
 Через некоторое время появится колонка настройки приложения.
 
-## <a name="configure-the-application-for-password-single-sign-on"></a>Настройка приложения для единого входа на основе пароля
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+## Настройка приложения для единого входа на основе пароля
 
 Чтобы настроить единый вход для приложения, выполните указанные ниже действия.
 
@@ -106,7 +114,9 @@ ms.lasthandoff: 04/11/2017
 
 10. Кроме того, можно также предоставить учетные данные от имени пользователя, выбрав строки пользователей, щелкнув **Обновить учетные данные** и введя имя пользователя и пароль. Если этого не сделать, пользователям будет предложено самостоятельно ввести учетные данные при первом запуске.
 
-## <a name="assign-a-user-to-an-application-directly"></a>Назначение приложения пользователю напрямую
+<a id="assign-a-user-to-an-application-directly" class="xliff"></a>
+
+## Назначение приложения пользователю напрямую
 
 Чтобы напрямую назначить одного или нескольких пользователей для приложения, сделайте следующее:
 
@@ -142,7 +152,9 @@ ms.lasthandoff: 04/11/2017
 
 15. Нажмите кнопку **Назначить**, чтобы назначить приложение выбранным пользователям.
 
-## <a name="assign-an-application-to-a-group-directly"></a>Назначение приложения группе напрямую
+<a id="assign-an-application-to-a-group-directly" class="xliff"></a>
+
+## Назначение приложения группе напрямую
 
 Чтобы напрямую назначить одну или несколько групп для приложения, выполните следующие действия:
 
@@ -180,6 +192,8 @@ ms.lasthandoff: 04/11/2017
 
 Вскоре выбранные пользователи смогут запускать это приложение через панель доступа.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
 

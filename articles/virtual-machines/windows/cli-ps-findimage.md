@@ -3,7 +3,7 @@ title: "Поиск и выбор образов виртуальных маши�
 description: "Узнайте, как определить издателя, предложение и номер SKU для образов при создании виртуальной машины Windows с помощью развертывания посредством диспетчера ресурсов."
 services: virtual-machines-windows
 documentationcenter: 
-author: squillace
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,19 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
-ms.author: rasquill
+ms.author: danlep
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 28bb214570fcca94c5ceb6071c4851b81ec00c8d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
-# <a name="navigate-and-select-windows-virtual-machine-images-in-azure-with-powershell"></a>Просмотр и выбор образов виртуальных машин Windows в Azure с помощью PowerShell
+<a id="navigate-and-select-windows-virtual-machine-images-in-azure-with-powershell" class="xliff"></a>
+
+# Просмотр и выбор образов виртуальных машин Windows в Azure с помощью PowerShell
 В этой статье описывается, как найти сведения об издателях образов виртуальных машин, предложениях, номерах SKU и версиях для каждого расположения, в котором может выполняться развертывание. Для примера вот некоторые часто используемые образы виртуальных машин Windows:
 
-## <a name="table-of-commonly-used-windows-images"></a>Таблица часто используемых образов Windows
+<a id="table-of-commonly-used-windows-images" class="xliff"></a>
+
+## Таблица часто используемых образов Windows
 | PublisherName | ПРЕДЛОЖЕНИЕ | Sku |
 |:--- |:--- |:--- |:--- |
 | MicrosoftDynamicsNAV |DynamicsNAV |2015 |
@@ -40,7 +43,9 @@ ms.lasthandoff: 04/27/2017
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
 
-## <a name="find-azure-images-with-powershell"></a>Поиск образов Azure с помощью PowerShell
+<a id="find-azure-images-with-powershell" class="xliff"></a>
+
+## Поиск образов Azure с помощью PowerShell
 > [!NOTE]
 > Установите и настройте [последнюю версию Azure PowerShell](/powershell/azure/overview). Если вы используете модули Azure PowerShell версии ниже 1.0, то можете использовать приведенные ниже команды. Но сначала необходимо выполнить команду `Switch-AzureMode AzureResourceManager`. 
 > 
@@ -133,6 +138,8 @@ Windows-Server-Technical-Preview
 
 Скопируйте выбранное наименование SKU из этого списка. Теперь у вас есть все необходимые сведения, чтобы использовать командлет PowerShell `Set-AzureRMVMSourceImage` или шаблон группы ресурсов.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 Теперь мы можем выбрать именно тот образ, который нам нужен. Инструкции по быстрому созданию виртуальной машины на основе полученных данных образа или с помощью шаблона с этими данными см. в статье [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

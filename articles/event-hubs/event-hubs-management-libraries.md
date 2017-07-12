@@ -20,20 +20,25 @@ ms.openlocfilehash: a9023448c4ced1edf54c84bb103454cbd76fbfba
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/12/2017
 
-
 ---
 
-# <a name="event-hubs-management-libraries"></a>Библиотеки управления концентраторов событий
+<a id="event-hubs-management-libraries" class="xliff"></a>
+
+# Библиотеки управления концентраторов событий
 
 Библиотеки управления концентраторов событий могут динамически подготавливать пространства имен и сущности концентраторов событий. Это дает возможность реализовывать сложные развертывания и сценарии обмена сообщениями, позволяя программно определять, какие сущности следует подготовить. В настоящее время эти библиотеки доступны для .NET.
 
-## <a name="supported-functionality"></a>Поддерживаемые функции
+<a id="supported-functionality" class="xliff"></a>
+
+## Поддерживаемые функции
 
 * Создание, обновление, удаление пространства имен.
 * Создание, обновление, удаление концентраторов событий.
 * Создание, обновление, удаление группы потребителей.
 
-## <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+
+## Предварительные требования
 
 Чтобы приступить к работе с библиотеками управления концентраторов событий, нужно пройти аутентификацию в Azure Active Directory (AAD). AAD требует аутентификации в качестве субъекта-службы, предоставляющего доступ к вашим ресурсам Azure. Сведения о создании субъекта-службы см. в одной из приведенных ниже статей:  
 
@@ -43,13 +48,15 @@ ms.lasthandoff: 04/12/2017
 
 В этих руководствах вы получите `AppId` (идентификатор клиента), `TenantId` и `ClientSecret` (ключ аутентификации), которые используются библиотеками управления для аутентификации. Необходимо иметь разрешения роли "Владелец" для группы ресурсов, которую вы хотите использовать.
 
-## <a name="programming-pattern"></a>Шаблон программирования
+<a id="programming-pattern" class="xliff"></a>
+
+## Шаблон программирования
 
 Шаблон обработки любого ресурса концентраторов событий придерживается общего протокола.
 
 1. Получение маркера из Azure Active Directory с помощью библиотеки `Microsoft.IdentityModel.Clients.ActiveDirectory`.
     ```csharp
-    var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
         "https://management.core.windows.net/",
@@ -79,7 +86,9 @@ ms.lasthandoff: 04/12/2017
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * [Пример управления для .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Справочник по Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 
 

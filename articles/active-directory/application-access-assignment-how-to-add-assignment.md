@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 972ed736e63089a69726de5d26236b930b390a10
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-assign-users-and-groups-to-an-application"></a>Как назначить пользователей и группы для приложения
+<a id="how-to-assign-users-and-groups-to-an-application" class="xliff"></a>
+
+# Как назначить пользователей и группы для приложения
 
 Прежде чем пользователи смогут выполнять указанные ниже действия для конкретного приложения, сначала необходимо предоставить им доступ. Для этого необходимо **назначить их приложению**.
 
@@ -33,7 +35,9 @@ ms.lasthandoff: 04/11/2017
 
 -   Выбор приложения в [средстве запуска приложений Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="methods-to-assign-applications-with-azure-active-directory"></a>Методы назначения приложений с помощью Azure Active Directory 
+<a id="methods-to-assign-applications-with-azure-active-directory" class="xliff"></a>
+
+## Методы назначения приложений с помощью Azure Active Directory 
 
 Существует 3 способа назначения приложений с помощью Azure Active Directory:
 
@@ -43,7 +47,9 @@ ms.lasthandoff: 04/11/2017
 
 -   [самостоятельный доступ к приложениям, позволяющий пользователям находить свои приложения](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications).
 
-## <a name="assign-a-user-directly-as-an-administrator"></a>Назначение пользователей напрямую от имени администратора
+<a id="assign-a-user-directly-as-an-administrator" class="xliff"></a>
+
+## Назначение пользователей напрямую от имени администратора
 
 Чтобы напрямую назначить одного или несколько пользователей для приложения, сделайте следующее:
 
@@ -81,7 +87,9 @@ ms.lasthandoff: 04/11/2017
 
 Через некоторое время выбранные пользователи смогут запускать эти приложения с помощью методов, приведенных в описании решения.
 
-## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Назначение группы для приложения напрямую от имени администратора
+<a id="assign-a-group-directly-to-an-application-as-an-administrator" class="xliff"></a>
+
+## Назначение группы для приложения напрямую от имени администратора
 
 Чтобы напрямую назначить приложение одной или нескольким группам, выполните указанные ниже действия:
 
@@ -119,7 +127,9 @@ ms.lasthandoff: 04/11/2017
 
 Через некоторое время выбранные пользователи в группах смогут запускать эти приложения с помощью методов, приведенных в описании решения. Если используются динамические группы, назначения для пользователей в назначенных группах могут отображаться с некоторой задержкой.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Самостоятельный доступ к приложениям, позволяющий пользователям находить свои приложения
+<a id="enable-self-service-application-access-to-allow-users-to-find-their-own-applications" class="xliff"></a>
+
+## Самостоятельный доступ к приложениям, позволяющий пользователям находить свои приложения
 
 Самостоятельный доступ к приложению — это отличный способ разрешить пользователям самостоятельно находить приложения и при необходимости позволять бизнес-группе утверждать доступ к этим приложениям. Вы можете разрешить бизнес-группе управлять учетными данными пользователей для приложений, использующих единый вход по паролю, прямо на панелях доступа.
 
@@ -164,6 +174,8 @@ ms.lasthandoff: 04/11/2017
 
 Эти утверждения поддерживают только отдельные рабочие процессы, то есть если вы зададите несколько утверждающих лиц, отдельное утверждение может подтвердить доступ к приложению.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
 

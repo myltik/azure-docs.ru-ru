@@ -12,16 +12,18 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 07/10/2017
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/14/2017
 
-
 ---
-# <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Создание и развертывание групп ресурсов Azure с помощью Visual Studio
+<a id="creating-and-deploying-azure-resource-groups-through-visual-studio" class="xliff"></a>
+
+# Создание и развертывание групп ресурсов Azure с помощью Visual Studio
 С помощью Visual Studio и [пакета Azure SDK](https://azure.microsoft.com/downloads/) можно создать проект для развертывания инфраструктуры и кода в Azure. Например, можно определить веб-узел, веб-сайт и базу данных для приложения, а затем развернуть эту инфраструктуру вместе с кодом. Или можно определить виртуальную машину, виртуальную сеть и учетную запись хранилища, а затем развернуть эту инфраструктуру со сценарием, который выполняется на виртуальной машине. Проект развертывания **группа ресурсов Azure** позволяет развернуть все необходимые ресурсы в ходе одной воспроизводимой операции. Подробнее о развертывании ресурсов и управлении ими см. в разделе [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
 
 Проекты групп ресурсов Azure содержат шаблоны JSON Azure Resource Manager, определяющие ресурсы, которые развертываются в Azure. Сведения об элементах шаблона Resource Manager см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md). Visual Studio позволяет изменять эти шаблоны и предоставляет средства, которые упрощают работу с ними.
@@ -30,7 +32,9 @@ ms.lasthandoff: 03/14/2017
 
 В этой статье используется Visual Studio 2017. Использование Visual Studio 2015 с обновлением 2 и пакета Microsoft Azure SDK для .NET 2.9 или Visual Studio 2013 с Azure SDK 2.9 в основном ничем не отличается. Можно использовать версии пакета Azure SDK 2.6 и выше, но в таком случае описанная в статье работа в пользовательском интерфейсе может отличаться. Настоятельно рекомендуем установить последнюю версию пакета [Azure SDK](https://azure.microsoft.com/downloads/) перед началом работы. 
 
-## <a name="create-azure-resource-group-project"></a>Создание проекта группы ресурсов Azure
+<a id="create-azure-resource-group-project" class="xliff"></a>
+
+## Создание проекта группы ресурсов Azure
 В этой процедуре мы создадим проект группы ресурсов Azure с помощью шаблона **Веб-приложение + SQL** .
 
 1. В Visual Studio последовательно выберите **Файл**, **Создать проект**, а затем — **C#** или **Visual Basic**. Щелкните **Облако** и выберите проект **Группа ресурсов Azure**.
@@ -62,7 +66,9 @@ ms.lasthandoff: 03/14/2017
    
     Все проекты развертывания группы ресурсов содержат эти основные файлы. Другие проекты могут содержать дополнительные файлы для поддержки других функциональных возможностей.
 
-## <a name="customize-the-resource-manager-template"></a>Настройка шаблона в диспетчере ресурсов
+<a id="customize-the-resource-manager-template" class="xliff"></a>
+
+## Настройка шаблона в диспетчере ресурсов
 Вы можете настроить проект развертывания, изменив шаблоны JSON, описывающие ресурсы, которые требуется развернуть. JSON означает JavaScript Object Notation (нотация объектов JavaScript) и представляет собой удобный в использовании формат сериализованных данных. Файлы JSON используют схему, ссылка на которую располагается в верхней части каждого файла. Вы можете скачать эту схему и проанализировать ее для лучшего понимания. В схеме определены допустимые элементы, типы и форматы полей, возможные значения перечисляемых значений и т. д. Сведения об элементах шаблона Resource Manager см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 
 Для работы с шаблоном откройте файл **WebSiteSQLDatabase.json**.
@@ -89,16 +95,18 @@ ms.lasthandoff: 03/14/2017
 
 Для параметра **storageType** предварительно определяются допустимые типы и тип по умолчанию. Вы можете использовать эти значения или изменить их для своего сценария. Если требуется ограничить доступ к развертыванию учетной записи хранения **Premium_LRS** с помощью этого шаблона, то удалите его из списка допустимых типов. 
 
-    "storageType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS"
-      ]
-    }
+```json
+"storageType": {
+  "type": "string",
+  "defaultValue": "Standard_LRS",
+  "allowedValues": [
+    "Standard_LRS",
+    "Standard_ZRS",
+    "Standard_GRS",
+    "Standard_RAGRS"
+  ]
+}
+```
 
 Кроме того, Visual Studio предоставляет шаблон IntelliSense, который определяет свойства, доступные при редактировании шаблона. Например, чтобы изменить свойства плана службы приложений, перейдите к ресурсу **HostingPlan** и задайте значение для параметра **properties**. Обратите внимание, что в шаблоне IntelliSense отображаются доступные значения, а также приводится описание каждого значения.
 
@@ -106,12 +114,16 @@ ms.lasthandoff: 03/14/2017
 
 Можно задать для параметра **numberOfWorkers** значение 1.
 
-    "properties": {
-      "name": "[parameters('hostingPlanName')]",
-      "numberOfWorkers": 1
-    }
+```json
+"properties": {
+  "name": "[parameters('hostingPlanName')]",
+  "numberOfWorkers": 1
+}
+```
 
-## <a name="deploy-the-resource-group-project-to-azure"></a>Развертывание проекта группы ресурсов в Azure
+<a id="deploy-the-resource-group-project-to-azure" class="xliff"></a>
+
+## Развертывание проекта группы ресурсов в Azure
 Теперь все готово для развертывания проекта. Проект группы ресурсов Azure развертывается в группе ресурсов Azure. Группа ресурсов — это логическое объединение ресурсов с общим жизненным циклом.
 
 1. В контекстном меню узла проекта развертывания последовательно выберите пункты **Развернуть** > **Новое**.
@@ -162,7 +174,9 @@ ms.lasthandoff: 03/14/2017
    
     ![Развернутая группа ресурсов Azure](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
-## <a name="deploy-code-with-your-infrastructure"></a>Развертывание кода с определенной инфраструктурой
+<a id="deploy-code-with-your-infrastructure" class="xliff"></a>
+
+## Развертывание кода с определенной инфраструктурой
 На этом этапе инфраструктура для приложения уже развернута, а фактический код для проекта — еще нет. В этой статье показано, как развернуть веб-приложение и таблицы базы данных SQL во время развертывания. При развертывании виртуальной машины вместо веб-приложения на компьютере необходимо запустить определенный код. Процесс развертывания кода для веб-приложения практически не отличается от процесса настройки виртуальной машины.
 
 1. Добавьте проект в свое решение Visual Studio. Щелкните правой кнопкой мыши решение и выберите команду **Добавить** > **Новый проект**.
@@ -213,7 +227,9 @@ ms.lasthandoff: 03/14/2017
     
      ![Показать развернутое приложение](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * Дополнительные сведения об управлении ресурсами на портале см. в статье [Управление ресурсами Azure через портал](resource-group-portal.md).
 * Дополнительные сведения о шаблонах см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 

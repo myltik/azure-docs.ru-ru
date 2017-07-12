@@ -11,20 +11,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: b1f16079ad13c4e45f93a7e5e3d29568738e03cf
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Как определить, когда конкретный пользователь получит доступ к приложению
+<a id="find-out-when-a-specific-user-will-be-able-to-access-an-application" class="xliff"></a>
+
+# Как определить, когда конкретный пользователь получит доступ к приложению
 При использовании автоматической подготовки пользователей Azure AD будет автоматически подготавливать и обновлять учетные записи пользователей в приложении на основе [назначений пользователей и групп](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) с установленным интервалом времени, обычно каждые 10 минут.
 
-## <a name="how-long-does-it-take"></a>Сколько времени это занимает?
+<a id="how-long-does-it-take" class="xliff"></a>
+
+## Сколько времени это занимает?
 
 Время, необходимое для подготовки пользователя, главным образом зависит от того, была ли выполнена начальная "полная" синхронизация.
 
@@ -32,7 +36,9 @@ ms.lasthandoff: 04/17/2017
 
 Последующие операции синхронизации занимают меньше времени (например, 10 минут), так как служба подготовки сохраняет "водяные знаки", которые представляют состояние обеих систем после начальной синхронизации. Это позволяет повысить скорость последующих операций синхронизации.
 
-## <a name="how-to-check-the-status-of-a-user"></a>Как проверить состояние пользователя
+<a id="how-to-check-the-status-of-a-user" class="xliff"></a>
+
+## Как проверить состояние пользователя
 
 Чтобы просмотреть состояние подготовки для выбранного пользователя, обратитесь к журналам аудита в Azure AD.
 
@@ -47,6 +53,8 @@ ms.lasthandoff: 04/17/2017
 * Сравнение объектов пользователя в разных системах
 * Добавление, обновление или отключение учетной записи пользователя в целевой системе на основе сравнения
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Автоматическая подготовка пользователей и отмена подготовки для приложений SaaS в Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)
 

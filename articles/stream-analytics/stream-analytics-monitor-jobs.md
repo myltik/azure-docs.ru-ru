@@ -21,13 +21,16 @@ ms.openlocfilehash: bfcf1f8c1aeb30df13a82470bb4fa0161204d8ee
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/04/2017
 
-
 ---
-# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Создание монитора заданий Stream Analytics программным способом
+<a id="programmatically-create-a-stream-analytics-job-monitor" class="xliff"></a>
+
+# Создание монитора заданий Stream Analytics программным способом
 
 В этой статье рассказывается, как включить функцию отслеживания задания Stream Analytics. Отслеживание заданий Stream Analytics, созданных с помощью интерфейсов API REST, пакета SDK для Azure и оболочки PowerShell, по умолчанию отключено. Вы можете вручную включить отслеживание на портале Azure. Для этого перейдите на страницу "Отслеживание" задания и нажмите кнопку "Включить". Этот процесс также можно автоматизировать, выполнив описанные в этой статье действия. Данные отслеживания будут отображаться в области метрики на портале Azure для задания Stream Analytics.
 
-## <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+
+## Предварительные требования
 
 Перед началом работы необходимо иметь следующее:
 
@@ -35,7 +38,9 @@ ms.lasthandoff: 07/04/2017
 * Скачанный и установленный [пакет SDK Azure для .NET](https://azure.microsoft.com/downloads/).
 * Существующее задание Stream Analytics, отслеживание которого нужно включить.
 
-## <a name="create-a-project"></a>Создание проекта
+<a id="create-a-project" class="xliff"></a>
+
+## Создание проекта
 
 1. Создайте консольное приложение Visual Studio C# .NET.
 2. В консоли диспетчера пакетов выполните следующие команды, чтобы установить пакеты NuGet. Первый — пакет SDK для .NET для управления Azure Stream Analytics. Второй — пакет SDK для Azure Monitor, который будет использоваться для включения отслеживания. Последний — клиент Azure Active Directory, который будет использоваться для проверки подлинности.
@@ -53,7 +58,7 @@ ms.lasthandoff: 07/04/2017
      <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
      <add key="JobName" value="YOUR JOB NAME" />
      <add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
-     <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+     <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
      <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
      <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
      <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
@@ -119,7 +124,9 @@ ms.lasthandoff: 07/04/2017
              throw new InvalidOperationException("Failed to acquire token");
      }
 
-## <a name="create-management-clients"></a>Создание клиентов управления
+<a id="create-management-clients" class="xliff"></a>
+
+## Создание клиентов управления
 
 С помощью следующего кода можно настроить необходимые переменные и клиенты управления.
 
@@ -141,7 +148,9 @@ ms.lasthandoff: 07/04/2017
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
 
-## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Включение отслеживания существующего задания Stream Analytics
+<a id="enable-monitoring-for-an-existing-stream-analytics-job" class="xliff"></a>
+
+## Включение отслеживания существующего задания Stream Analytics
 
 С помощью следующего кода можно включить отслеживание **имеющегося** задания Stream Analytics. В первой части кода в службу Stream Analytics отправляется запрос GET, что позволяет получить сведения о конкретном задании Stream Analytics. Во второй части кода, где запрос PUT отправляется в службу Insights для включения отслеживания задания Stream Analytics, свойство *Id* (полученное в результате выполнения запроса GET) используется в качестве параметра метода Put.
 
@@ -175,11 +184,15 @@ ms.lasthandoff: 07/04/2017
 
 
 
-## <a name="get-support"></a>Получение поддержки
+<a id="get-support" class="xliff"></a>
+
+## Получение поддержки
 
 За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
 * [Приступая к работе с Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

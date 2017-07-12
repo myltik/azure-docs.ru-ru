@@ -19,7 +19,9 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 06/23/2017
 
 ---
-#<a name="service-fabric-documentation"></a>Документация по Service Fabric
+<a id="service-fabric-documentation" class="xliff"></a>
+
+#Документация по Service Fabric
 
 Узнайте, как использовать Service Fabric для упаковки, развертывания и администрирования надежных масштабируемых микрослужб. В руководствах, справочниках по API и примерах кода показано, как использовать эту платформу ПО промежуточного слоя для создания облачных приложений и управления ими.
 

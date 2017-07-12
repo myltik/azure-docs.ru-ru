@@ -11,27 +11,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 2429ebef69aaddf28d10cd77bf4ce9072ea71476
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-applications-appear-on-the-access-panel"></a>Отображение приложений на панели доступа
+<a id="how-applications-appear-on-the-access-panel" class="xliff"></a>
+
+# Отображение приложений на панели доступа
 
 Панель доступа — это веб-портал, который позволяет пользователям, имеющим рабочую или учебную учетную запись Azure Active Directory (Azure AD), просматривать и запускать облачные приложения, к которым администратор Azure AD предоставил доступ. Эти приложения настраиваются от имени пользователя на портале Azure AD. Администратор может подготовить приложение непосредственно для пользователя или для группы, в которую он входит, после чего приложение появится на панели доступа пользователя.
 
-## <a name="general-issues-to-check-first"></a>Общие проблемы для первоначальной проверки
+<a id="general-issues-to-check-first" class="xliff"></a>
+
+## Общие проблемы для первоначальной проверки
 
 -   Если приложение было просто удалено у пользователя или в группе, в которую он входит, попробуйте выйти с панели доступа пользователя и войти на нее через несколько минут, чтобы узнать, удалено ли приложение.
 
 -   Если лицензия была только что удалена для пользователя или группы, в которую он входит, внесение изменений может занять много времени в зависимости от размера и сложности группы. Подождите некоторое время, прежде чем входить на панель доступа.
 
-## <a name="problems-related-to-assigning-applications-to-users"></a>Проблемы, связанные с назначением приложений пользователям
+<a id="problems-related-to-assigning-applications-to-users" class="xliff"></a>
+
+## Проблемы, связанные с назначением приложений пользователям
 
 Пользователь может видеть приложение на панели доступа, так как это приложение было назначено ему ранее. Ниже приведены некоторые способы проверки.
 
@@ -40,7 +46,9 @@ ms.lasthandoff: 04/11/2017
 -   [Проверка того, назначена ли пользователю лицензия, связанная с приложением](#check-if-a-user-is-under-a-license-related-to-the-application)
 
 
-### <a name="check-if-a-user-is-assigned-to-the-application"></a>Проверка того, назначено ли приложение пользователю
+<a id="check-if-a-user-is-assigned-to-the-application" class="xliff"></a>
+
+### Проверка того, назначено ли приложение пользователю
 
 Чтобы проверить, назначено ли приложение пользователю, сделайте следующее.
 
@@ -62,7 +70,9 @@ ms.lasthandoff: 04/11/2017
 
   * Чтобы удалить пользователя из приложения, **щелкните строку** пользователя и выберите команду **удаления**.
 
-### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Проверка того, назначена ли пользователю лицензия, связанная с приложением
+<a id="check-if-a-user-is-under-a-license-related-to-the-application" class="xliff"></a>
+
+### Проверка того, назначена ли пользователю лицензия, связанная с приложением
 
 Чтобы проверить назначенные пользователю лицензии, выполните указанные ниже действия.
 
@@ -82,7 +92,9 @@ ms.lasthandoff: 04/11/2017
 
    * Если пользователю назначена лицензия Office, на его панели доступа будут отображаться основные приложения Office.
 
-## <a name="problems-related-to-assigning-applications-to-groups"></a>Проблемы, связанные с назначением приложений группам
+<a id="problems-related-to-assigning-applications-to-groups" class="xliff"></a>
+
+## Проблемы, связанные с назначением приложений группам
 
 Пользователь может видеть приложение на панели доступа, если он входит в группу, которой назначено это приложение. Ниже приведены некоторые способы проверки.
 
@@ -90,7 +102,9 @@ ms.lasthandoff: 04/11/2017
 
 -   [Проверка членства пользователя в группе, назначенной лицензии](#check-if-a-user-is-a-member-of-a-group-assigned-to-a-license)
 
-### <a name="check-a-users-group-memberships"></a>Проверка членства пользователя в группах
+<a id="check-a-users-group-memberships" class="xliff"></a>
+
+### Проверка членства пользователя в группах
 
 Чтобы проверить членство в группе, сделайте следующее.
 
@@ -112,7 +126,9 @@ ms.lasthandoff: 04/11/2017
 
    * Чтобы удалить пользователя из группы, **щелкните строку** группы и выберите команду удаления.
 
-### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Проверка членства пользователя в группе, назначенной лицензии
+<a id="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license" class="xliff"></a>
+
+### Проверка членства пользователя в группе, назначенной лицензии
 
 1.  Откройте [**портал Azure**](https://portal.azure.com/) и войдите в систему как **глобальный администратор**.
 
@@ -135,7 +151,9 @@ ms.lasthandoff: 04/11/2017
   * Если группе назначена лицензия Office, на панели доступа пользователя могут отображаться некоторые основные приложения Office.
 
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Если действия по устранению неполадок безрезультатны,
+<a id="if-these-troubleshooting-steps-do-not-the-resolve-the-issue" class="xliff"></a>
+
+## Если действия по устранению неполадок безрезультатны,
 
 откройте запрос в службу поддержки со следующими сведениями (при наличии):
 
@@ -151,6 +169,8 @@ ms.lasthandoff: 04/11/2017
 
 -   трассировки Fiddler.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)
 

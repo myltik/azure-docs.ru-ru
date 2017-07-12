@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: b89569b818b0e2c79934a842fdc428011674c000
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Проблемы при входе в приложение из панели доступа
+<a id="problems-signing-in-to-an-application-from-the-access-panel" class="xliff"></a>
+
+# Проблемы при входе в приложение из панели доступа
 
 Панель доступа — это веб-портал, позволяющий пользователям с рабочей или учебной учетной записью Azure Active Directory (Azure AD) просматривать и запускать облачные приложения, к которым администратор Azure AD предоставил доступ 
 
@@ -37,7 +39,9 @@ ms.lasthandoff: 04/17/2017
 
 -   приложения с существующими решениями единого входа.
 
-## <a name="general-issues-to-check-first"></a>Общие проблемы, которые следует проверить в первую очередь
+<a id="general-issues-to-check-first" class="xliff"></a>
+
+## Общие проблемы, которые следует проверить в первую очередь
 
 -   Убедитесь, что используемый **браузер** соответствует минимальным требованиям для панели доступа.
 
@@ -59,7 +63,9 @@ ms.lasthandoff: 04/17/2017
 
 -   Не забудьте также очистить файлы cookie в браузере и повторите попытку входа.
 
-## <a name="meeting-browser-requirements-for-the-access-panel"></a>Соответствие требованиям к браузеру для панели доступа
+<a id="meeting-browser-requirements-for-the-access-panel" class="xliff"></a>
+
+## Соответствие требованиям к браузеру для панели доступа
 
 Для работы с панелью доступа требуется браузер с включенной поддержкой JavaScript и CSS. Чтобы использовать единый вход на основе пароля на панели доступа, в браузере нужно установить расширение панели доступа. Это расширение автоматически загружается при выборе пользователем приложения, настроенного на работу с единым входом с помощью пароля.
 
@@ -73,7 +79,9 @@ ms.lasthandoff: 04/17/2017
 
 **Примечание**. Расширение для единого входа на основе пароля будет доступно для браузера Edge в Windows 10 после того, как он начнет поддерживать расширения.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Установка расширения "Панель доступа" для браузера
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Установка расширения "Панель доступа" для браузера
 
 Чтобы установить расширение "Панель доступа" для браузера, выполните указанные ниже действия.
 
@@ -97,7 +105,9 @@ ms.lasthandoff: 04/17/2017
 
 -   [Расширение "Панель доступа" для Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Настройка федеративного единого входа для приложения из коллекции Azure AD
+<a id="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+## Настройка федеративного единого входа для приложения из коллекции Azure AD
 
 Для всех приложений в коллекции Azure AD, для которых включен корпоративный единый вход, доступны пошаговые руководства. Подробное пошаговое руководство можно найти в [списке учебников по интеграции приложений SaaS с Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).
 
@@ -115,7 +125,9 @@ ms.lasthandoff: 04/17/2017
 
 -   [Назначение пользователей для приложения](#assign-users-to-the-application)
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Добавление приложения из коллекции Azure AD
+<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+### Добавление приложения из коллекции Azure AD
 
 Чтобы добавить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -139,7 +151,9 @@ ms.lasthandoff: 04/17/2017
 
 Через некоторое время появится колонка настройки приложения.
 
-### <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Настройка единого входа для приложения из коллекции Azure AD
+<a id="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+### Настройка единого входа для приложения из коллекции Azure AD
 
 Чтобы настроить единый вход для приложения, выполните указанные ниже действия.
 
@@ -185,7 +199,9 @@ ms.lasthandoff: 04/17/2017
 
 15. Назначьте пользователей приложению.
 
-### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Выберите идентификатор пользователя и добавьте атрибуты пользователя, которые будут отправлены в приложение.
+<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
+
+### Выберите идентификатор пользователя и добавьте атрибуты пользователя, которые будут отправлены в приложение.
 
 Чтобы выбрать идентификатор пользователя или добавить атрибуты пользователя, выполните указанные ниже действия:
 
@@ -220,7 +236,9 @@ ms.lasthandoff: 04/17/2017
 
    2. Нажмите кнопку **Сохранить**. Новый атрибут появится в таблице.
 
-### <a name="download-the-azure-ad-metadata-or-certificate"></a>Скачивание метаданных Azure AD или сертификата
+<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+
+### Скачивание метаданных Azure AD или сертификата
 
 Чтобы скачать метаданные приложения или сертификат в Azure AD, выполните следующие действия:
 
@@ -244,7 +262,9 @@ ms.lasthandoff: 04/17/2017
 
     Azure AD не предоставляет URL-адреса для получения метаданных. Метаданные можно скачать только в виде XML-файла.
 
-## <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Настройка федеративного единого входа для приложения не из коллекции
+<a id="how-to-configure-federated-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+## Настройка федеративного единого входа для приложения не из коллекции
 
 Чтобы настроить приложение не из коллекции, вам потребуется Azure AD Premium, а приложение должно поддерживать SAML 2.0. Дополнительные сведения о версиях Azure AD см. в разделе [Цены на Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -256,7 +276,9 @@ ms.lasthandoff: 04/17/2017
 
 -   [Указание значений метаданных Azure AD в приложении (URL-адрес для входа, издатель, URL-адрес для выхода и сертификат)](#configuring-single-sign-on)
 
-### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Указание значений метаданных приложения в Azure AD (URL-адрес для входа, идентификатор, URL-адрес ответа)
+<a id="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url" class="xliff"></a>
+
+### Указание значений метаданных приложения в Azure AD (URL-адрес для входа, идентификатор, URL-адрес ответа)
 
 Чтобы настроить единый вход для приложения, которое не находится в коллекции Azure AD, выполните указанные ниже действия.
 
@@ -298,7 +320,9 @@ ms.lasthandoff: 04/17/2017
 
 14. Щелкните **Настроить &lt;имя приложения&gt;**, чтобы открыть документацию по настройке единого входа для приложения. Кроме того, у вас есть URL-адреса Azure AD и сертификат, необходимые для приложения.
 
-### <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Выберите идентификатор пользователя и добавьте атрибуты пользователя, которые будут отправлены в приложение.
+<a id="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application" class="xliff"></a>
+
+### Выберите идентификатор пользователя и добавьте атрибуты пользователя, которые будут отправлены в приложение.
 
 Чтобы выбрать идентификатор пользователя или добавить атрибуты пользователя, выполните указанные ниже действия:
 
@@ -333,7 +357,9 @@ ms.lasthandoff: 04/17/2017
 
    2. Щелкните **Сохранить**. Новый атрибут появится в таблице.
 
-### <a name="download-the-azure-ad-metadata-or-certificate"></a>Скачивание метаданных Azure AD или сертификата
+<a id="download-the-azure-ad-metadata-or-certificate" class="xliff"></a>
+
+### Скачивание метаданных Azure AD или сертификата
 
 Чтобы скачать метаданные приложения или сертификат в Azure AD, выполните следующие действия:
 
@@ -357,7 +383,9 @@ ms.lasthandoff: 04/17/2017
 
     Azure AD не предоставляет URL-адреса для получения метаданных. Метаданные можно скачать только в виде XML-файла.
 
-## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Настройка единого входа по паролю для приложения из коллекции Azure AD
+<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+## Настройка единого входа по паролю для приложения из коллекции Azure AD
 
 Чтобы настроить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -365,7 +393,9 @@ ms.lasthandoff: 04/17/2017
 
 -   [Настройка приложения для единого входа на основе пароля](#configure-the-application)
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Добавление приложения из коллекции Azure AD
+<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+### Добавление приложения из коллекции Azure AD
 
 Чтобы добавить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -389,7 +419,9 @@ ms.lasthandoff: 04/17/2017
 
 Через некоторое время появится колонка настройки приложения.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Настройка приложения для единого входа на основе пароля
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+### Настройка приложения для единого входа на основе пароля
 
 Чтобы настроить единый вход для приложения, выполните указанные ниже действия.
 
@@ -415,7 +447,9 @@ ms.lasthandoff: 04/17/2017
 
 10. Кроме того, можно также предоставить учетные данные от имени пользователя, выбрав строки пользователей, щелкнув **Обновить учетные данные** и введя имя пользователя и пароль. В противном случае пользователям будет предложено ввести учетные данные при запуске.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Настройка единого входа по паролю для приложения не из коллекции
+<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+## Настройка единого входа по паролю для приложения не из коллекции
 
 Чтобы настроить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -423,7 +457,9 @@ ms.lasthandoff: 04/17/2017
 
 -   [Настройка приложения для единого входа на основе пароля](#configure-the-application-for-password-single-sign-on)
 
-### <a name="add-a-non-gallery-application"></a>Добавление приложения не из коллекции
+<a id="add-a-non-gallery-application" class="xliff"></a>
+
+### Добавление приложения не из коллекции
 
 Чтобы добавить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -443,7 +479,9 @@ ms.lasthandoff: 04/17/2017
 
 Через некоторое время появится колонка настройки приложения.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Настройка приложения для единого входа на основе пароля
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+### Настройка приложения для единого входа на основе пароля
 
 Чтобы настроить единый вход для приложения, выполните указанные ниже действия.
 
@@ -471,7 +509,9 @@ ms.lasthandoff: 04/17/2017
 
 11. Кроме того, можно также предоставить учетные данные от имени пользователя, выбрав строки пользователей, щелкнув **Обновить учетные данные** и введя имя пользователя и пароль. В противном случае пользователям будет предложено ввести учетные данные при запуске.
 
-## <a name="how-to-assign-a-user-to-an-application-directly"></a>Назначение приложения пользователю напрямую
+<a id="how-to-assign-a-user-to-an-application-directly" class="xliff"></a>
+
+## Назначение приложения пользователю напрямую
 
 Чтобы напрямую назначить одного или нескольких пользователей для приложения, выполните указанные ниже действия.
 
@@ -509,7 +549,9 @@ ms.lasthandoff: 04/17/2017
 
 Вскоре выбранные пользователи смогут запускать это приложение на панели доступа.
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Действия по устранению неполадок безрезультатны
+<a id="if-these-troubleshooting-steps-do-not-the-resolve-the-issue" class="xliff"></a>
+
+## Действия по устранению неполадок безрезультатны
 
 В таком случае создайте запрос в службу поддержки, указав следующие сведения (при наличии):
 
@@ -525,7 +567,9 @@ ms.lasthandoff: 04/17/2017
 
 -   трассировки Fiddler.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
 
 
