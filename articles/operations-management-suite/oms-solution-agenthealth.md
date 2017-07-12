@@ -1,0 +1,144 @@
+---
+title: "Решение для мониторинга работоспособности агентов в OMS | Документация Майкрософт"
+description: "Эта статья поможет вам понять, как использовать это решение для отслеживания работоспособности агентов, которые отправляют отчеты непосредственно в OMS или System Center Operations Manager."
+services: operations-management-suite
+documentationcenter: 
+author: MGoedtel
+manager: carmonm
+editor: 
+ms.assetid: 
+ms.service: operations-management-suite
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 06/22/2017
+ms.author: magoedte
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: ca2316010f9508b6dc71ceff434988695063db0f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/23/2017
+
+
+---
+<a id="agent-health-solution-in-oms" class="xliff"></a>
+
+#  Решение для мониторинга работоспособности агентов в OMS
+Решение для мониторинга работоспособности агентов в OMS помогает выявлять среди всех агентов, отправляющих отчеты непосредственно в OMS или подключенную к OMS группу управления System Center Operations Manager, агенты, которые не отвечают на запросы и которые отправляют оперативные данные.  Вы также можете отслеживать число развернутых агентов и их географическое распределение, а также выполнять другие запросы, чтобы знать о распределении агентов, развернутых в Azure, других облачных средах или в локальной среде.    
+
+<a id="prerequisites" class="xliff"></a>
+
+## Предварительные требования
+Перед развертыванием этого решения убедитесь, что у вас есть поддерживаемые [агенты Windows](../log-analytics/log-analytics-windows-agents.md), которые отправляют отчеты в рабочую область OMS или [группу управления Operations Manager](../log-analytics/log-analytics-om-agents.md), интегрированную с вашей рабочей областью OMS.    
+
+<a id="solution-components" class="xliff"></a>
+
+## Компоненты решения
+Это решение состоит из следующих ресурсов, добавленных в вашу рабочую область, и подключенных напрямую агентов или подключенной группы управления Operations Manager. 
+
+<a id="management-packs" class="xliff"></a>
+
+### Пакеты управления
+Если группа управления System Center Operations Manager подключена к рабочей области OMS, в Operations Manager будут установлены следующие пакеты.  После добавления этого решения пакеты управления также будут установлены на компьютерах с Windows, подключенных напрямую. Управление и настройка здесь не требуются. 
+
+* Пакет аналитики канала Direct оценки работоспособности помощника Microsoft System Center (Microsoft.IntelligencePacks.HealthAssessmentDirect)
+* Пакет аналитики канала сервера оценки работоспособности помощника Microsoft System Center (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
+
+Дополнительные сведения об обновлении пакетов управления для решений см. в статье [Подключение Operations Manager к Log Analytics](../log-analytics/log-analytics-om-agents.md).
+
+<a id="configuration" class="xliff"></a>
+
+## Конфигурация
+Добавьте решение для мониторинга работоспособности агентов в рабочую область OMS, как описано в статье [Добавление решений для управления Azure Log Analytics в рабочую область](../log-analytics/log-analytics-add-solutions.md). Дополнительная настройка не требуется.
+
+
+<a id="data-collection" class="xliff"></a>
+
+## Сбор данных
+<a id="supported-agents" class="xliff"></a>
+
+### Поддерживаемые агенты
+В следующей таблице описаны подключенные источники, которые поддерживаются этим решением.
+
+| Подключенный источник | Поддерживаются | Описание |
+| --- | --- | --- |
+| Агенты Windows | Да | События пульса собираются от прямых агентов Windows.|
+| Группа управления System Center Operations Manager | Да | События пульса собираются с агентов, предоставляющих отчеты группам управления, каждые 60 секунд, а затем перенаправляются в Log Analytics. Прямое подключение агентов Operations Manager к Log Analytics не требуется. Данные событий пульса перенаправляются из группы управления в репозиторий Log Analytics.|
+
+<a id="using-the-solution" class="xliff"></a>
+
+## Использование решения
+При добавлении решения в рабочую область OMS на панель мониторинга OMS добавляется плитка **Работоспособность агентов**. На ней отображается общее число агентов и число агентов, не отвечающих на запросы за последние 24 часа.<br><br> ![Плитка решения "Работоспособность агентов" на панели мониторинга](./media/oms-solution-agenthealth/agenthealth-solution-tile-homepage.png)
+
+Щелкните плитку **Работоспособность агентов**, чтобы открыть панель мониторинга **Работоспособность агентов**.  Панель мониторинга содержит столбцы, перечисленные в приведенной ниже таблице. Каждый столбец содержит по десять основных событий, соответствующих таким указанным критериям, как диапазон времени. Можно выполнить поиск по журналам, чтобы отобразить весь список. Для этого щелкните элемент **Показать все** в правой нижней части каждого столбца или заголовок этого столбца.
+
+| столбец | Описание | 
+|--------|-------------|
+| Число агентов по времени | Тенденция изменения числа агентов в течение семи дней для агентов Linux и Windows.| 
+| Число агентов, не отвечающих на запросы | Список агентов, которые не отправили пакеты пульса за последние 24 часа.| 
+| Распределение по типам ОС | Число агентов Windows и Linux в вашей среде.| 
+| Распределение по версиям агентов | Другие версии агентов, установленные в вашей среде, и их число.| 
+| Распределение по категориям агентов | Различные категории агентов, отправляющих события пульса: прямые агенты, агенты OpsMgr и сервер управления OpsMgr.| 
+| Распределение по группам управления | Разные группы управления SCOM в вашей среде.| 
+| Географическое расположение агентов | Разные страны, в которых находятся ваши агенты, и общее число агентов, установленных в каждой стране.| 
+| Число установленных шлюзов | Число серверов, на которых установлен шлюз OMS, и список этих серверов.|
+
+![Пример панели мониторинга "Работоспособность агентов"](./media/oms-solution-agenthealth/agenthealth-solution-dashboard.png)  
+
+<a id="log-analytics-records" class="xliff"></a>
+
+## Записи Log Analytics
+Решение создает один тип записи в репозитории OMS.  
+
+<a id="heartbeat-records" class="xliff"></a>
+
+### Записи пульсов
+Создается запись с типом **Пульс**.  У этих записей есть свойства, приведенные в таблице ниже.  
+
+| Свойство | Описание |
+| --- | --- |
+| Тип | *Пульс*|
+| Категория | Значение — *Прямой агент*, *Агент SCOM*, или *Сервер управления SCOM*.| 
+| Компьютер | Имя компьютера.| 
+| OSType | Операционная система Windows или Linux.| 
+| OSMajorVersion | Основная версия операционной системы.| 
+| OSMinorVersion | Второстепенная версия операционной системы.| 
+| Версия | Версия агента OMS или агента Operations Manager.| 
+| SCAgentChannel | Значение — *Прямой* и (или) *SCManagementServer*.| 
+| IsGatewayInstalled | Если шлюз OMS установлен, этот параметр имеет значение *true*, в противном случае — значение *false*.| 
+| ComputerIP | IP-адрес компьютера.| 
+| RemoteIPCountry | Географическое расположение, в котором развернут компьютер.| 
+| ManagementGroupName | Имя группы управления Operations Manager.| 
+| SourceComputerId | Уникальный идентификатор компьютера.| 
+| RemoteIPLongitude | Долгота географического расположения компьютера.| 
+| RemoteIPLatitude | Широта географического расположения компьютера.| 
+
+Каждый агент, отправляющий отчеты на сервер управления Operations Manager, будет отправлять два пакета пульса, а значение свойства SCAgentChannel будет включать оба (**Прямой** и **SCManagementServer**) в зависимости от того, какие источники данных и решения Log Analytics включены в вашей подписке OMS. Если вы помните, данные из этих решений отправляются непосредственно с сервера управления Operations Manager в веб-службу OMS или непосредственно с агента в веб-службу OMS, что зависит от объема данных, собранных с агента. Для событий пульса со значением **SCManagementServer** значением ComputerIP является IP-адрес сервера управления, так как он фактически передает данные.  Для пульсов со значением **Прямой** для параметра SCAgentChannel ComputerIP — это общедоступный IP-адрес агента.  
+
+<a id="sample-log-searches" class="xliff"></a>
+
+## Пример поисков журналов
+Следующая таблица содержит примеры поисков по журналу для получения записей, собранных этим решением. 
+
+| Запрос | Описание |
+| --- | --- |
+| Type=Heartbeat &#124; distinct Computer |Общее число агентов | 
+| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Число агентов, не отвечающих на запросы за последние 24 часа | 
+| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Число агентов, не отвечающих на запросы за последние 15 минут | 
+| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Подключенные компьютеры (за последние 24 часа) | 
+| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Общее число автономных агентов за последние 30 минут (за последние 24 часа) | 
+| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Получение тенденции изменения числа агентов за промежуток времени по типу ОС| 
+| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Распределение по типам ОС | 
+| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Распределение по версиям агентов | 
+| Type=Heartbeat&#124;measure count() by Category |Распределение по категориям агентов | 
+| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Распределение по группам управления | 
+| Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Географическое расположение агентов |
+| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Число установленных шлюзов OMS | 
+
+  
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
+
+* Дополнительные сведения о генерации оповещений из Log Analytics см. в статье [Оповещения в Log Analytics](../log-analytics/log-analytics-alerts.md).

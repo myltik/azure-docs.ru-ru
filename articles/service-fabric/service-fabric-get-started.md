@@ -12,17 +12,19 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 06/20/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 25243603abd2f30adc11640f00b782c8d827796e
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 926dfe3de0715f855e6d5b57f10c2366cda8583b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/21/2017
 
 
 ---
-# <a name="prepare-your-development-environment"></a>Подготовка среды разработки
+<a id="prepare-your-development-environment" class="xliff"></a>
+
+# Подготовка среды разработки
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -32,8 +34,12 @@ ms.lasthandoff: 05/26/2017
 
  Чтобы создавать и запускать [приложения Service Fabric][1] на компьютере для разработки, установите среду выполнения, пакет SDK и инструменты. Вам также нужно включить выполнение сценариев Windows PowerShell, включенных в пакет SDK.
 
-## <a name="prerequisites"></a>Предварительные требования
-### <a name="supported-operating-system-versions"></a>Поддерживаемые версии операционных систем
+<a id="prerequisites" class="xliff"></a>
+
+## Предварительные требования
+<a id="supported-operating-system-versions" class="xliff"></a>
+
+### Поддерживаемые версии операционных систем
 Для разработки поддерживаются следующие операционные системы:
 
 * Windows 7
@@ -47,51 +53,56 @@ ms.lasthandoff: 05/26/2017
 > 
 > 
 
-## <a name="install-the-sdk-and-tools"></a>Установка пакета SDK и инструментов
-### <a name="to-use-visual-studio-2017"></a>Для использования Visual Studio 2017
+<a id="install-the-sdk-and-tools" class="xliff"></a>
+
+## Установка пакета SDK и инструментов
+<a id="to-use-visual-studio-2017" class="xliff"></a>
+
+### Для использования Visual Studio 2017
 Средства Service Fabric являются частью рабочей нагрузки по разработке и управлению в Azure в Visual Studio 2017. Эту рабочую нагрузку необходимо включить при установке Visual Studio.
 Кроме того, необходимо установить пакет SDK Microsoft Azure Service Fabric, используя установщик веб-платформы.
 
 * [Установка пакета SDK Microsoft Azure Service Fabric][core-sdk]
 
-### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Для использования Visual Studio 2015 (требуется Visual Studio 2015 с обновлением 2 или более поздней версии)
+<a id="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later" class="xliff"></a>
+
+### Для использования Visual Studio 2015 (требуется Visual Studio 2015 с обновлением 2 или более поздней версии)
 Для Visual Studio 2015 средства Service Fabric устанавливаются вместе с пакетом SDK с помощью установщика веб-платформы:
 
 * [Установка пакета SDK и средств Microsoft Azure Service Fabric][full-bundle-vs2015]
 
-### <a name="sdk-installation-only"></a>Только установка пакета SDK
+<a id="sdk-installation-only" class="xliff"></a>
+
+### Только установка пакета SDK
 Если вам требуется только пакет SDK, можно установить этот пакет:
 * [Установка пакета SDK Microsoft Azure Service Fabric][core-sdk]
 
-> [!WARNING]
-> Во время установки с использованием этих ссылок для запуска или при использовании этих ссылок в браузере Chrome у клиентов возникают ошибки. Это известные проблемы в установщике веб-платформы. Идет работа над их устранением.  Попробуйте следующие обходные пути.
->- Перейдите по приведенным выше ссылкам с помощью браузеров Internet Explorer или Edge.
->- Запустите установщик веб-платформы из меню "Пуск", найдите Service Fabric и установите пакет SDK.
-> 
-> Приносим извинения за неудобства. 
-
 Текущие версии:
-* пакет SDK для Service Fabric 2.6.210;
-* среда выполнения Service Fabric 5.6.210;
+* пакет SDK для Service Fabric 2.6.220;
+* среда выполнения Service Fabric 5.6.220;
 * средства Visual Studio 2015 1.6.50508.2;
 * Visual Studio 2017 с обновлением 2
 
 Текущие версии для предварительного просмотра:
-* пакет SDK для Service Fabric 255.255.2709.255;
-* среда выполнения Service Fabric 255.255.5709.255;
+* пакет SDK для Service Fabric 255.255.2718.255;
+* среда выполнения Service Fabric 255.255.5718.255;
 * средства Visual Studio 2015 1.6.50509.5;
 * предварительная версия 1 Visual Studio 2017 с обновлением 3.
 
 Список поддерживаемых версий см. в статье [Azure Service Fabric support options](service-fabric-support.md) (Варианты поддержки Azure Service Fabric).
 
-## <a name="enable-powershell-script-execution"></a>Включение сценариев PowerShell
+<a id="enable-powershell-script-execution" class="xliff"></a>
+
+## Включение сценариев PowerShell
 Для создания локального кластера разработки и развертывания приложений из Visual Studio в Service Fabric используются сценарии Windows PowerShell. По умолчанию ОС Windows блокирует выполнение этих сценариев. Чтобы включить их, необходимо изменить политику выполнения PowerShell. Для этого запустите PowerShell с правами администратора и введите следующую команду:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 Среда разработки настроена, и вы готовы к созданию и запуску собственных приложений.
 
 * [Создание первого приложения Service Fabric в Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

@@ -16,14 +16,16 @@ ms.date: 05/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 4b15801b2ddda0dfd61b025535e379d9a8eed287
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: 477f618c09c8cf572a16d142f63c9b3553050b20
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-net"></a>Подключение виртуального устройства к Центру Интернета вещей с помощью .NET
+<a id="connect-your-simulated-device-to-your-iot-hub-using-net" class="xliff"></a>
+
+# Подключение виртуального устройства к Центру Интернета вещей с помощью .NET
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 В конце этого руководства у вас будет три консольных приложения .NET:
@@ -56,7 +58,9 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 [!INCLUDE [iot-hub-get-started-create-device-identity-csharp](../../includes/iot-hub-get-started-create-device-identity-csharp.md)]
 
 <a id="D2C_csharp"></a>
-## <a name="receive-device-to-cloud-messages"></a>Получение сообщений с устройства в облако
+<a id="receive-device-to-cloud-messages" class="xliff"></a>
+
+## Получение сообщений с устройства в облако
 В этом разделе вы создадите консольное приложение .NET, которое считывает сообщения, передаваемые с устройства в облако из Центра Интернета вещей. Центр Интернета вещей предоставляет совместимую с [концентраторами событий Azure][lnk-event-hubs-overview] конечную точку для считывания сообщений, отправляемых с устройства в облако. Для простоты в этом руководстве создается базовый модуль чтения, который не подходит для развертывания с высокой пропускной способностью. В руководстве по [обработке сообщений, отправляемых с устройства в облако][lnk-process-d2c-tutorial], показано, как обрабатывать такие сообщения в больших количествах. Дополнительные сведения о способах обработки сообщений из концентраторов событий см. в руководстве [Приступая к работе с концентраторами событий][lnk-eventhubs-tutorial]. (Это руководство относится к конечным точкам, совместимым с концентраторами событий в Центре Интернета вещей.)
 
 > [!NOTE]
@@ -126,7 +130,9 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
     Task.WaitAll(tasks.ToArray());
    ```
 
-## <a name="create-a-simulated-device-app"></a>Создание приложения виртуального устройства
+<a id="create-a-simulated-device-app" class="xliff"></a>
+
+## Создание приложения виртуального устройства
 В этом разделе вы создаете консольное приложение .NET, которое имитирует устройство, отправляющее сообщения с устройства в облако в Центре Интернета вещей.
 
 1. В Visual Studio добавьте в текущее решение проект классического приложения Windows на языке Visual C# с помощью шаблона проекта **консольного приложения (.NET Framework)**. Убедитесь, что указана версия платформы .NET 4.5.1 или более поздняя версия. Назовите проект **SimulatedDevice**.
@@ -192,7 +198,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
    Console.ReadLine();
    ```
    
-   По умолчанию метод **Create** создает экземпляр **DeviceClient**, который использует протокол AMQP для связи с Центром Интернета вещей. Для использования протокола MQTT или HTTP используйте переопределение метода **Create**, чтобы указать протокол. Если вы используете протокол HTTPS, вам также следует добавить в свой проект пакет NuGet **Microsoft.AspNet.WebApi.Client**, чтобы включить пространство имен **System.Net.Http.Formatting**.
+   По умолчанию метод **Create** в приложении .NET Framework создает экземпляр **DeviceClient**, который использует протокол AMQP для связи с Центром Интернета вещей (клиенты UWP и PCL используют HTTP по умолчанию). Для использования протокола MQTT или HTTP используйте переопределение метода **Create**, чтобы указать протокол. Если вы используете протокол HTTPS, вам также следует добавить в свой проект пакет NuGet **Microsoft.AspNet.WebApi.Client**, чтобы включить пространство имен **System.Net.Http.Formatting**.
 
 В этом руководстве описываются шаги по созданию приложения имитации устройства Центра Интернета вещей. Вы также можете использовать расширение [подключенной службы для Центра Интернета вещей Azure][lnk-connected-service] (Visual Studio), чтобы добавить необходимый код в приложение устройства.
 
@@ -201,7 +207,9 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 > 
 > 
 
-## <a name="run-the-apps"></a>Запуск приложений
+<a id="run-the-apps" class="xliff"></a>
+
+## Запуск приложений
 Теперь все готово к запуску приложений.
 
 1. В обозревателе решений Visual Studio щелкните правой кнопкой мыши решение и выберите пункт **Назначить запускаемые проекты**. Выберите **Несколько запускаемых проектов**, а затем – **Запуск** в качестве действия для проектов **ReadDeviceToCloudMessages** и **SimulatedDevice**.
@@ -214,7 +222,9 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
    
     ![Плитка "Использование" на портале Azure][43]
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 С помощью этого руководства вы настроили Центр Интернета вещей на портале Azure и создали удостоверение устройства в реестре удостоверений этого Центра. Это удостоверение позволяет приложению виртуального устройства отправлять в Центр Интернета вещей сообщения, передаваемые из устройства в облако. Кроме того, мы создали приложение, которое отображает сообщения, полученные Центром Интернета вещей. 
 
 Чтобы продолжить знакомство с Центром Интернета вещей и изучить другие сценарии Интернета вещей, см. следующие ресурсы:

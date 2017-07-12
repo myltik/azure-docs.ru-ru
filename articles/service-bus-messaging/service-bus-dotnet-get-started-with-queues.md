@@ -1,6 +1,6 @@
 ---
-title: "Создание программы, использующего очереди служебной шины Azure | Документация Майкрософт"
-description: "Как написать консольное приложение C# для обмена сообщениями служебной шины."
+title: "Начало работы с очередями служебной шины Azure | Документация Майкрософт"
+description: "Написание консольного приложения C#, которое использует очереди обмена сообщениями служебной шины."
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,112 +12,150 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/26/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
-ms.openlocfilehash: 83649bdad1d369cdfe4edf3c2bdaa67180db8668
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="get-started-with-service-bus-queues"></a>Начало работы с очередями служебной шины
+<a id="get-started-with-service-bus-queues" class="xliff"></a>
+
+# Начало работы с очередями служебной шины
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-## <a name="what-will-be-accomplished"></a>Что будет выполнено
-В этом руководстве описывается следующее:
+<a id="what-will-be-accomplished" class="xliff"></a>
+
+## Что будет выполнено
+В этом руководстве рассматриваются следующие действия:
 
 1. Создание пространства имен служебной шины с помощью портала Azure.
-2. Создание очереди сообщений служебной шины с помощью портала Azure.
+2. Создание очереди служебной шины с помощью портала Azure.
 3. Создание консольного приложения для отправки сообщения.
-4. Создание консольного приложения для получения сообщения.
+4. Написание консольного приложения для получения сообщений, отправленных на предыдущем шаге.
 
-## <a name="prerequisites"></a>Предварительные требования
-1. [Visual Studio 2015 или более поздней версии.](http://www.visualstudio.com) В описанных в этом руководстве примерах используется Visual Studio 2015.
+<a id="prerequisites" class="xliff"></a>
+
+## Предварительные требования
+1. [Visual Studio 2015 или более поздней версии.](http://www.visualstudio.com) В описанных в этом руководстве примерах используется Visual Studio 2017.
 2. Подписка Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Создание пространства имен с помощью портала Azure
-Если пространство имен служебной шины уже создано, перейдите к разделу [Создание очереди с помощью портала Azure](#2-create-a-queue-using-the-azure-portal).
+<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
+
+## 1. Создание пространства имен с помощью портала Azure
+Если пространство имен для обмена сообщениями служебной шины уже создано, перейдите к разделу [Создание очереди с помощью портала Azure](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-the-azure-portal"></a>2) Создание очереди с помощью портала Azure
+<a id="2-create-a-queue-using-the-azure-portal" class="xliff"></a>
+
+## 2) Создание очереди с помощью портала Azure
 Если очередь служебной шины уже создана, перейдите к разделу [Отправка сообщений в очередь](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3-send-messages-to-the-queue"></a>3. Отправка сообщений в очередь
+<a id="3-send-messages-to-the-queue" class="xliff"></a>
+
+## 3. Отправка сообщений в очередь
 Для отправки сообщений в очередь мы создадим консольное приложение C# с помощью Visual Studio.
 
-### <a name="create-a-console-application"></a>Создание консольного приложение
+<a id="create-a-console-application" class="xliff"></a>
 
-- Откройте Visual Studio и создайте консольное приложение.
+### Создание консольного приложение
 
-### <a name="add-the-service-bus-nuget-package"></a>Получение пакета NuGet для служебной шины
+Откройте Visual Studio и создайте проект **Консольное приложение (.NET Framework)**.
+
+<a id="add-the-service-bus-nuget-package" class="xliff"></a>
+
+### Получение пакета NuGet для служебной шины
 1. Щелкните созданный проект правой кнопкой мыши и выберите **Управление пакетами NuGet**.
-2. Откройте вкладку **Обзор**, а затем выполните поиск по фразе "служебная шина Microsoft Azure" и выберите элемент **Служебная шина Microsoft Azure**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
+2. Откройте вкладку **Обзор**, выполните поиск по фразе **служебная шина Microsoft Azure** и выберите элемент **WindowsAzure.ServiceBus**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
    
     ![Установка пакета NuGet][nuget-pkg]
 
-### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Написание кода для отправки сообщения в очередь
-1. Добавьте следующую инструкцию using в начало файла Program.cs.
+<a id="write-some-code-to-send-a-message-to-the-queue" class="xliff"></a>
+
+### Написание кода для отправки сообщения в очередь
+1. Добавьте следующую инструкцию `using` в начало файла Program.cs.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-2. Добавьте в метод `Main` следующий код и укажите в качестве переменной **connectionString** строку подключения, полученную при создании пространства имен, а в качестве переменной **queueName** — имя очереди, использованное при создании очереди.
+2. Добавьте в метод `Main` следующий код. Укажите переменную `connectionString` для строки подключения, полученной при создании пространства имен, и переменную `queueName` для имени очереди, использованного при создании очереди.
    
     ```csharp
-    var connectionString = "<Your connection string>";
-    var queueName = "<Your queue name>";
+    var connectionString = "<your connection string>";
+    var queueName = "<your queue name>";
    
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
+
+    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+    Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
+
     client.Send(message);
+
+    Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+    Console.ReadLine();
     ```
    
     Вот как будет выглядеть файл Program.cs.
    
     ```csharp
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     using Microsoft.ServiceBus.Messaging;
-   
-    namespace GettingStartedWithQueues
+
+    namespace qsend
     {
         class Program
         {
             static void Main(string[] args)
             {
-                var connectionString = "<Your connection string>";
-                var queueName = "<Your queue name>";
-   
+                var connectionString = "Endpoint=sb://<your namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<your key>";
+                var queueName = "<your queue name>";
+
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
-   
+
+                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
+                Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
+
                 client.Send(message);
+
+                Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+                Console.ReadLine();
             }
         }
     }
     ```
-3. Запустите программу и проверьте портал Azure. Щелкните имя очереди в колонке **Обзор** пространства имен. Обратите внимание, что значение параметра **Active message count** (Число активных сообщений) должно равняться единице.
+3. Запустите программу и перейдите на портал Azure. В колонке **Обзор** пространства имен щелкните имя очереди. Отобразится колонка очереди **Основные компоненты**. Обратите внимание, что значение параметра **Количество активных сообщений** должно равняться единице. Каждый раз при запуске приложения отправителя без получения сообщений это значение увеличивается на 1. Также обратите внимание, что текущий размер очереди увеличивается каждый раз, когда приложение добавляет сообщение в очередь.
    
-      ![Количество сообщений][queue-message]
+      ![Размер сообщения][queue-message]
 
-## <a name="4-receive-messages-from-the-queue"></a>4. Получение сообщений из очереди
-1. Создайте консольное приложение и добавьте ссылку на пакет NuGet служебной шины в соответствии с инструкциями для предыдущего приложения-отправителя.
+<a id="4-receive-messages-from-the-queue" class="xliff"></a>
+
+## 4. Получение сообщений из очереди
+
+1. Чтобы получить только что отправленные сообщения, создайте консольное приложение и добавьте ссылку на пакет NuGet служебной шины в соответствии с инструкциями для предыдущего приложения отправителя.
 2. Добавьте следующую инструкцию `using` в начало файла Program.cs.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Добавьте в метод `Main` следующий код и укажите в качестве переменной **connectionString** строку подключения, полученную при создании пространства имен, а в качестве переменной **queueName** — имя очереди, использованное при создании очереди.
+3. Добавьте в метод `Main` следующий код. Укажите переменную `connectionString` для строки подключения, полученной при создании пространства имен, и переменную `queueName` для имени очереди, использованного при создании очереди.
    
     ```csharp
-    var connectionString = "";
-    var queueName = "samplequeue";
+    var connectionString = "<your connection string>";
+    var queueName = "<your queue name>";
    
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
    
@@ -127,6 +165,7 @@ ms.lasthandoff: 03/01/2017
       Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
     });
    
+    Console.WriteLine("Press ENTER to exit program");
     Console.ReadLine();
     ```
    
@@ -142,8 +181,8 @@ ms.lasthandoff: 03/01/2017
       {
         static void Main(string[] args)
         {
-          var connectionString = "";
-          var queueName = "samplequeue";
+          var connectionString = "Endpoint=sb://<your namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<your key>";;
+          var queueName = "<your queue name>";
    
           var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
    
@@ -152,20 +191,24 @@ ms.lasthandoff: 03/01/2017
             Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
             Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
           });
-   
+
+          Console.WriteLine("Press ENTER to exit program");   
           Console.ReadLine();
         }
       }
     }
     ```
-4. Запустите программу и проверьте портал. Обратите внимание, что параметр **Длина очереди** теперь должен иметь значение 0.
+4. Запустите программу и перейдите на портал еще раз. Обратите внимание, что значения параметра **Количество активных сообщений** и **Текущий** равны нулю.
    
     ![Длина очереди][queue-message-receive]
 
 Поздравляем! Вы создали очередь, а также отправили и получили сообщение.
 
-## <a name="next-steps"></a>Дальнейшие действия
-Ознакомьтесь с [примерами в репозитории GitHub](https://github.com/Azure-Samples/azure-servicebus-messaging-samples), демонстрирующими расширенные возможности обмена сообщениями служебной шины Azure.
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
+
+Ознакомьтесь с [примерами в репозитории GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples), демонстрирующими расширенные возможности обмена сообщениями служебной шины.
 
 <!--Image references-->
 

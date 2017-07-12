@@ -12,17 +12,19 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/04/2017
+ms.date: 6/28/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 8c0f3cc737b999d26359f33d3768dcc55893029c
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 5840932d79ef9fd99a94eb6ae4e587b0e616065e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="prepare-your-development-environment-on-linux"></a>Подготовка среды разработки в Linux
+<a id="prepare-your-development-environment-on-linux" class="xliff"></a>
+
+# Подготовка среды разработки в Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
@@ -32,14 +34,20 @@ ms.lasthandoff: 05/25/2017
 
  Чтобы развертывать и запускать [приложения Azure Service Fabric](service-fabric-application-model.md) на компьютере для разработки под управлением Linux, установите среду выполнения и стандартный пакет SDK. Вы также можете установить дополнительные пакеты SDK для Java и .NET Core.
 
-## <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
 
-### <a name="supported-operating-system-versions"></a>Поддерживаемые версии операционных систем
+## Предварительные требования
+
+<a id="supported-operating-system-versions" class="xliff"></a>
+
+### Поддерживаемые версии операционных систем
 Для разработки поддерживаются следующие операционные системы:
 
 * Ubuntu 16.04 (`Xenial Xerus`).
 
-## <a name="update-your-apt-sources"></a>Обновление списка источников APT
+<a id="update-your-apt-sources" class="xliff"></a>
+
+## Обновление списка источников APT
 Прежде чем перейти к установке пакета SDK и связанного пакета среды выполнения с помощью команды apt-get, необходимо обновить список источников APT.
 
 1. Откройте окно терминала.
@@ -62,13 +70,27 @@ ms.lasthandoff: 05/25/2017
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
-5. Обновите списки пакетов, добавив в них новые репозитории.
+5. Добавьте официальный ключ GPG Docker в набор ключей APT.
+
+    ```bash
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    ```
+
+6. Настройте репозиторий Docker.
+
+    ```bash
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    ```
+
+7. Обновите списки пакетов, добавив в них новые репозитории.
 
     ```bash
     sudo apt-get update
     ```
 
-## <a name="install-and-set-up-the-sdk-for-containers-and-guest-executables"></a>Установка и настройка пакета SDK для контейнеров и гостевых исполняемых файлов
+<a id="install-and-set-up-the-sdk-for-containers-and-guest-executables" class="xliff"></a>
+
+## Установка и настройка пакета SDK для контейнеров и гостевых исполняемых файлов
 
 После обновления источников пакетов можно установить пакет SDK.
 
@@ -78,37 +100,41 @@ ms.lasthandoff: 05/25/2017
     sudo apt-get install servicefabricsdkcommon
     ```
 
-   Следующие команды автоматизируют принятие лицензии для пакетов Service Fabric:
+    >   [!TIP]
+    >   Следующие команды автоматизируют принятие лицензии для пакетов Service Fabric:
+    >   ```bash
+    >   echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    >   ```
     
-    ```bash
-    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
-    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
-    ```
-
 2. Выполните сценарий установки пакета SDK.
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-После установки общего пакета SDK вы сможете создавать приложения с гостевыми исполняемыми файлами или службами контейнеров с помощью команды `yo azuresfguest`. Вам может потребоваться задать переменную среды **$NODE_PATH**, в которой находятся модули узла. 
+Установив общий пакет SDK, вы сможете создавать приложения с гостевыми исполняемыми файлами или службами контейнеров при помощи команды `yo azuresfguest` или `yo azuresfcontainer`. Вам может потребоваться задать переменную среды **$NODE_PATH**, в которой находятся модули узла. 
 
-    ```bash
+
+```bash
     export NODE_PATH=$NODE_PATH:$HOME/.node/lib/node_modules 
-    ```
+```
 
 Если вы используете среду в качестве корневого каталога, может потребоваться задать переменную с помощью следующей команды:
 
-    ```bash
+```bash
     export NODE_PATH=$NODE_PATH:/root/.node/lib/node_modules 
-    ```
+```
+
 
 > [!TIP]
 > Вы можете добавить эти команды в файл ~/.bashrc, чтобы не задавать переменную среды при каждом входе.
 >
 
-## <a name="set-up-the-azure-cli"></a>Настройка Azure CLI
-[Azure CLI][azure-xplat-cli-github] содержит команды для взаимодействия с сущностями Service Fabric, включая кластеры и приложения. Интерфейс работает на базе Node.js, поэтому [убедитесь, что у вас установлена платформа Node][install-node], прежде чем перейти к дальнейшим действиям.
+<a id="setup-the-xplat-service-fabric-cli" class="xliff"></a>
+
+## Настройка XPlat Service Fabric CLI
+[XPlat CLI][azure-xplat-cli-github] поддерживает команды для взаимодействия с сущностями Service Fabric, включая кластеры и приложения. Интерфейс работает на базе Node.js, поэтому [убедитесь, что у вас установлена платформа Node][install-node], прежде чем перейти к дальнейшим действиям.
 
 1. Клонируйте репозиторий с GitHub на компьютер для разработки.
 
@@ -137,11 +163,17 @@ ms.lasthandoff: 05/25/2017
     source ~/azure.completion.sh
     ```
 
-> [!NOTE]
-> Команды Service Fabric пока недоступны в Azure CLI 2.0.
+<a id="setup-azure-cli-20" class="xliff"></a>
 
+### Настройка Azure CLI 2.0
 
-## <a name="set-up-a-local-cluster"></a>Настройка локального кластера
+В качестве альтернативы XPlat CLI теперь доступен командный модуль Service Fabric, включенный в Azure CLI.
+
+Дополнительные сведения об установке Azure CLI 2.0 (в т. ч. с помощью команд Service Fabric) см. в [документации по началу работы](service-fabric-azure-cli-2-0.md).
+
+<a id="set-up-a-local-cluster" class="xliff"></a>
+
+## Настройка локального кластера
 Если установка выполнена успешно, можно запустить локальный кластер.
 
 1. Выполните сценарий настройки кластера.
@@ -161,7 +193,9 @@ ms.lasthandoff: 05/25/2017
 > Автономные кластеры не поддерживаются в системе Linux. В предварительной версии поддерживаются только универсальные кластеры, а также кластеры Azure из нескольких компьютеров под управлением Linux.
 >
 
-## <a name="install-the-java-sdk-optional-if-you-wish-to-use-the-java-programming-models"></a>Установка пакета SDK для Java (необязательно, если вы хотите использовать модели программирования Java)
+<a id="install-the-java-sdk-optional-if-you-wish-to-use-the-java-programming-models" class="xliff"></a>
+
+## Установка пакета SDK для Java (необязательно, если вы хотите использовать модели программирования Java)
 Пакеты SDK для Java предоставляют библиотеки и шаблоны для создания служб Service Fabric на языке Java.
 
 1. Установите пакет SDK для Java.
@@ -176,7 +210,9 @@ ms.lasthandoff: 05/25/2017
     sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
 
-## <a name="install-the-eclipse-neon-plugin-optional"></a>Установка подключаемого модуля Eclipse Neon (необязательно)
+<a id="install-the-eclipse-neon-plugin-optional" class="xliff"></a>
+
+## Установка подключаемого модуля Eclipse Neon (необязательно)
 
 Подключаемый модуль Eclipse для Service Fabric можно установить из **интегрированной среды разработки Eclipse для разработчиков Java**. Eclipse можно использовать для создания приложений с гостевыми исполняемыми файлами и контейнерами Service Fabric в дополнение к Java-приложениям Service Fabric.
 
@@ -194,12 +230,14 @@ ms.lasthandoff: 05/25/2017
 5. Выберите подключаемый модуль Service Fabric и нажмите кнопку **Далее**.
 6. Выполните необходимые шаги установки и примите условия лицензионного соглашения.
 
-Если подключаемый модуль Eclipse Service Fabric уже установлен, убедитесь, что вы используете последнюю версию. Это можно проверить, выбрав ``Help => Installation Details`` и выполнив поиск по запросу "Service Fabric" в списке установленных подключаемых модулей. Выберите обновление, если доступна более новая версия. 
+Если подключаемый модуль Eclipse Service Fabric уже установлен, убедитесь, что вы используете последнюю версию. Это можно проверить, выбрав ``Help => Installation Details`` и выполнив поиск по запросу "Service Fabric" в списке установленных подключаемых модулей. Выберите обновление, если доступна более новая версия.
 
 Дополнительные сведения см. в статье [Начало работы с подключаемым модулем Eclipse для разработки приложений Service Fabric на Java](service-fabric-get-started-eclipse.md).
 
 
-## <a name="install-the-net-core-sdk-optional-if-you-wish-to-use-the-net-core-programming-models"></a>Установка пакета SDK для .NET Core (необязательно, если вы хотите использовать модели программирования .NET Core)
+<a id="install-the-net-core-sdk-optional-if-you-wish-to-use-the-net-core-programming-models" class="xliff"></a>
+
+## Установка пакета SDK для .NET Core (необязательно, если вы хотите использовать модели программирования .NET Core)
 Пакет SDK для .NET Core предоставляет библиотеки и шаблоны для создания служб Service Fabric с помощью .NET Core.
 
 1. Установите пакет SDK для .NET Core.
@@ -214,30 +252,37 @@ ms.lasthandoff: 05/25/2017
    sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
    ```
 
-## <a name="updating-the-sdk-and-runtime"></a>Обновление пакета SDK и среды выполнения
+<a id="updating-the-sdk-and-runtime" class="xliff"></a>
+
+## Обновление пакета SDK и среды выполнения
 
 Для обновления до последней версии пакета SDK и среды выполнения выполните следующие команды (отмените выбор ненужных пакетов SDK):
 
-   ```bash
-   sudo apt-get update
-   sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
-   ```
-   
+```bash
+sudo apt-get update
+sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
+```
+
+
 > [!NOTE]
 > Обновление вышеуказанных пакетов может привести к остановке локального кластера разработки. Перезапустите локальный кластер после обновления, следуя инструкциям на этой странице.
->
->
 
-Для обновления интерфейса командной строки перейдите в каталог, в котором он клонирован, и выполните команду `git pull`.  Заметки о выпуске могут содержать дополнительные шаги. 
+<a id="next-steps" class="xliff"></a>
 
-
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
 * [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-java.md)
 * [Getting started with Eclipse Plugin for Service Fabric Java application development](service-fabric-get-started-eclipse.md) (Начало работы с подключаемым модулем Eclipse для разработки приложения Service Fabric на Java)
 * [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md)
-* [Использование интерфейса командной строки Azure для взаимодействия с кластером Service Fabric](service-fabric-azure-cli.md)
+* [Use the XPlat CLI to manage your Service Fabric applications](service-fabric-azure-cli.md) (Использование XPlat CLI для управления приложениями Service Fabric)
 * [Различия между Service Fabric для Linux (предварительная версия) и Windows (общедоступная версия)](service-fabric-linux-windows-differences.md)
+
+<a id="related-articles" class="xliff"></a>
+
+## Связанные статьи
+
+* [Начало работы с Service Fabric и Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Начало работы с Service Fabric и XPlat CLI](service-fabric-azure-cli.md)
 
 <!-- Links -->
 
