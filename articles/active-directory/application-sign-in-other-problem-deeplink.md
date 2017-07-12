@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 7e7c19173229586cc788dbb5a6a01a9b075d33e9
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Проблемы при входе в приложение с помощью прямой ссылки
+<a id="problems-signing-in-to-an-application-using-a-deeplink" class="xliff"></a>
+
+# Проблемы при входе в приложение с помощью прямой ссылки
 
 Панель доступа — это веб-портал, позволяющий пользователям с рабочей или учебной учетной записью Azure Active Directory (Azure AD) просматривать и запускать облачные приложения, к которым администратор Azure AD предоставил доступ 
 
@@ -29,7 +31,9 @@ ms.lasthandoff: 04/17/2017
 
 Прямые ссылки или URL-адреса пользовательского доступа представляют собой ссылки, с помощью которых пользователи могут осуществлять доступ к приложениям с единым входом по паролю прямо из строки URL-адреса в браузере. Перейдя по такой ссылке, пользователи автоматически входят в приложение без посещения панели доступа. С помощью той же самой ссылки пользователи могут получить доступ к приложениям из средства запуска приложений Office 365.
 
-## <a name="general-issues-to-check-first"></a>Общие проблемы, которые следует проверить в первую очередь
+<a id="general-issues-to-check-first" class="xliff"></a>
+
+## Общие проблемы, которые следует проверить в первую очередь
 
 -   Убедитесь, что используемый **браузер** соответствует минимальным требованиям для панели доступа.
 
@@ -51,7 +55,9 @@ ms.lasthandoff: 04/17/2017
 
 -   Не забудьте также очистить файлы cookie в браузере и повторите попытку входа.
 
-## <a name="checking-the-deeplink"></a>Проверка прямой ссылки
+<a id="checking-the-deeplink" class="xliff"></a>
+
+## Проверка прямой ссылки
 
 Чтобы проверить правильность прямой ссылки, выполните следующие действия:
 
@@ -83,7 +89,9 @@ ms.lasthandoff: 04/17/2017
 
 12. Найдите метку **URL-адрес пользовательского доступа**. Прямая ссылка должна соответствовать этому URL-адресу.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Установка расширения "Панель доступа" для браузера
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Установка расширения "Панель доступа" для браузера
 
 Чтобы установить расширение "Панель доступа" для браузера, выполните указанные ниже действия.
 
@@ -107,7 +115,9 @@ ms.lasthandoff: 04/17/2017
 
 -   [Расширение "Панель доступа" для Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Настройка единого входа по паролю для приложения из коллекции Azure AD
+<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+## Настройка единого входа по паролю для приложения из коллекции Azure AD
 
 Чтобы настроить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -115,7 +125,9 @@ ms.lasthandoff: 04/17/2017
 
 -   [Настройка приложения для единого входа на основе пароля](#configure-the-application-for-password-single-sign-on)
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Добавление приложения из коллекции Azure AD
+<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
+
+### Добавление приложения из коллекции Azure AD
 
 Чтобы добавить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -139,7 +151,9 @@ ms.lasthandoff: 04/17/2017
 
 Через некоторое время появится колонка настройки приложения.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Настройка приложения для единого входа на основе пароля
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+### Настройка приложения для единого входа на основе пароля
 
 Чтобы настроить единый вход для приложения, выполните указанные ниже действия.
 
@@ -165,7 +179,9 @@ ms.lasthandoff: 04/17/2017
 
 10. Кроме того, можно также предоставить учетные данные от имени пользователя, выбрав строки пользователей, щелкнув **Обновить учетные данные** и введя имя пользователя и пароль. В противном случае пользователям будет предложено ввести учетные данные при запуске.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Настройка единого входа по паролю для приложения не из коллекции
+<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+## Настройка единого входа по паролю для приложения не из коллекции
 
 Чтобы настроить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -173,7 +189,9 @@ ms.lasthandoff: 04/17/2017
 
 -   [Настройка приложения для единого входа на основе пароля](#configure-the-application-for-password-single-sign-on)
 
-### <a name="add-a-non-gallery-application"></a>Добавление приложения не из коллекции
+<a id="add-a-non-gallery-application" class="xliff"></a>
+
+### Добавление приложения не из коллекции
 
 Чтобы добавить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -193,7 +211,9 @@ ms.lasthandoff: 04/17/2017
 
 Через некоторое время появится колонка настройки приложения.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Настройка приложения для единого входа на основе пароля
+<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+
+### Настройка приложения для единого входа на основе пароля
 
 Чтобы настроить единый вход для приложения, выполните указанные ниже действия.
 
@@ -221,7 +241,9 @@ ms.lasthandoff: 04/17/2017
 
 11. Кроме того, можно также предоставить учетные данные от имени пользователя, выбрав строки пользователей, щелкнув **Обновить учетные данные** и введя имя пользователя и пароль. В противном случае пользователям будет предложено ввести учетные данные при запуске.
 
-## <a name="how-to-assign-a-user-to-an-application-directly"></a>Назначение приложения пользователю напрямую
+<a id="how-to-assign-a-user-to-an-application-directly" class="xliff"></a>
+
+## Назначение приложения пользователю напрямую
 
 Чтобы напрямую назначить одного или нескольких пользователей для приложения, выполните указанные ниже действия.
 
@@ -259,7 +281,9 @@ ms.lasthandoff: 04/17/2017
 
 Вскоре выбранные пользователи смогут запускать это приложение на панели доступа.
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Действия по устранению неполадок безрезультатны 
+<a id="if-these-troubleshooting-steps-do-not-the-resolve-the-issue" class="xliff"></a>
+
+## Действия по устранению неполадок безрезультатны 
 
 В таком случае создайте запрос в службу поддержки, указав следующие сведения (при наличии):
 
@@ -275,6 +299,8 @@ ms.lasthandoff: 04/17/2017
 
 -   трассировки Fiddler.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
 

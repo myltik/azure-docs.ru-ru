@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: c04cfea4c6c0a8211db2579eccc0c05a93cc0a35
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="error-on-an-applications-page-after-signing-in"></a>Ошибка на странице приложения после входа
+<a id="error-on-an-applications-page-after-signing-in" class="xliff"></a>
+
+# Ошибка на странице приложения после входа
 
 В этом сценарии пользователь вошел в Azure AD, однако приложение отображает ошибку, не позволяя завершить процедуру входа. В этом случае приложение не принимает ответ от Azure AD.
 
@@ -33,7 +35,9 @@ ms.lasthandoff: 04/17/2017
 
 -   Предоставьте ответ SAML поставщику приложения, чтобы узнать, чего именно не хватает.
 
-## <a name="missing-attributes-in-the-saml-response"></a>Недостающие атрибуты в ответе SAML
+<a id="missing-attributes-in-the-saml-response" class="xliff"></a>
+
+## Недостающие атрибуты в ответе SAML
 
 Чтобы добавить атрибут в конфигурацию Azure AD для отправки в ответе Azure AD, сделайте следующее:
 
@@ -65,11 +69,15 @@ ms.lasthandoff: 04/17/2017
 
 При следующем входе пользователя в приложение Azure AD отправляет новый атрибут в ответе SAML.
 
-## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>Приложение ожидает идентификатор пользователя с другим значением или в другом формате
+<a id="the-application-expects-a-different-user-identifier-value-or-format" class="xliff"></a>
+
+## Приложение ожидает идентификатор пользователя с другим значением или в другом формате
 
 Вход в приложение не удается выполнить, потому что в ответе SAML отсутствуют такие атрибуты, как роли, либо приложение ожидает другой формат для атрибута EntityID.
 
-## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Добавление атрибута в конфигурацию приложения Azure AD
+<a id="add-an-attribute-in-the-azure-ad-application-configuration" class="xliff"></a>
+
+## Добавление атрибута в конфигурацию приложения Azure AD
 
 Чтобы изменить значение идентификатора пользователя, сделайте следующее:
 
@@ -91,13 +99,17 @@ ms.lasthandoff: 04/17/2017
 
 8.  В разделе **Атрибуты пользователя** выберите уникальный идентификатор пользователя в раскрывающемся списке **Идентификатор пользователя**.
 
-## <a name="change-entityid-user-identifier-format"></a>Изменение формата идентификатора EntityID (идентификатора пользователя)
+<a id="change-entityid-user-identifier-format" class="xliff"></a>
+
+## Изменение формата идентификатора EntityID (идентификатора пользователя)
 
 В этом случае приложение ожидает другой формат для атрибута EntityID. Вы не можете изменить формат EntityID (идентификатора пользователя), который Azure AD отправляет приложению после проверки подлинности пользователя.
 
 Azure AD выбирает формат атрибута NameID (идентификатор пользователя) на основе выбранного значения или формата, который был запрошен приложением в запросе проверки подлинности SAML. Дополнительные сведения см. в разделе NameIDPolicy статьи [Протокол единого входа SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest).
 
-## <a name="the-application-expects-a-different-signature-method-for-the-saml-response"></a>Приложение ожидает другой метод подписи для ответа SAML
+<a id="the-application-expects-a-different-signature-method-for-the-saml-response" class="xliff"></a>
+
+## Приложение ожидает другой метод подписи для ответа SAML
 
 Нужно изменить, на какие именно части токена SAML Azure Active Directory ставит цифровую подпись. Для этого сделайте вот что.
 
@@ -129,7 +141,9 @@ Azure AD выбирает формат атрибута NameID (идентифи
 
 При следующем входе пользователя в приложение Azure AD подписывает выбранную часть ответа SAML.
 
-## <a name="the-application-expects-the-signing-algorithm-to-be-sha-1"></a>Приложение ожидает алгоритм подписи SHA-1
+<a id="the-application-expects-the-signing-algorithm-to-be-sha-1" class="xliff"></a>
+
+## Приложение ожидает алгоритм подписи SHA-1
 
 По умолчанию Azure AD подписывает токен SAML с помощью наиболее безопасного алгоритма. Рекомендуется изменять алгоритм подписи на SHA-1 только тогда, когда это необходимо приложению.
 
@@ -157,6 +171,8 @@ Azure AD выбирает формат атрибута NameID (идентифи
 
 При следующем входе пользователя в приложение Azure AD подписывает токен SAML с использованием алгоритма SHA-1.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Отладка единого входа на основе SAML в приложения в Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
 

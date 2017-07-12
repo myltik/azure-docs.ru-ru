@@ -20,9 +20,9 @@ ms.openlocfilehash: 59d8b23291adb1e680e70898f5bb82bb699be19d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/14/2017
 
-
 ---
 <a id="tutorial-create-a-pipeline-with-copy-activity-using-net-api" class="xliff"></a>
+
 # Руководство. Создание конвейера с действием копирования с помощью API .NET
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -46,6 +46,7 @@ ms.lasthandoff: 06/14/2017
 > В этом руководстве конвейер данных копирует данные из исходного хранилища данных в целевое. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [руководстве по созданию конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).
 
 <a id="prerequisites" class="xliff"></a>
+
 ## Предварительные требования
 * Ознакомьтесь с [обзором руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования** .
 * Visual Studio 2012, 2013 или 2015
@@ -53,6 +54,7 @@ ms.lasthandoff: 06/14/2017
 * Azure PowerShell. Далее, чтобы установить Azure PowerShell на локальном компьютере, следуйте указаниям в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md) . С помощью Azure PowerShell вы создадите приложение Azure Active Directory.
 
 <a id="create-an-application-in-azure-active-directory" class="xliff"></a>
+
 ### Создание приложения в Azure Active Directory
 Вы создадите приложение Azure Active Directory и субъект-службу для приложения, а затем назначите роль **Участник Data Factory** .
 
@@ -121,6 +123,7 @@ ms.lasthandoff: 06/14/2017
 * пароль (указан в первой команде).
 
 <a id="walkthrough" class="xliff"></a>
+
 ## Пошаговое руководство
 1. С помощью Visual Studio 2012, 2013 или 2015 создайте консольное приложение C# .NET.
    1. Запустите **Visual Studio** 2012, 2013 или 2015.
@@ -142,7 +145,7 @@ ms.lasthandoff: 06/14/2017
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
         <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+            <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
             <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
@@ -521,6 +524,7 @@ ms.lasthandoff: 06/14/2017
 20. Убедитесь, что в таблице **emp** в указанной базе данных Azure SQL созданы две записи сотрудников.
 
 <a id="next-steps" class="xliff"></a>
+
 ## Дальнейшие действия
 Полную документацию по .NET API для Data Factory см. в [Справочник по .NET API фабрики данных](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
 

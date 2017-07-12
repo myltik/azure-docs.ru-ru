@@ -15,18 +15,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 02/02/2017
-ms.author: rasquill
+ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 7a989ffd72dd3636419dfb91f696f0e38f9271c2
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="add-a-disk-to-a-linux-vm"></a>Добавление диска к виртуальной машине Linux
+<a id="add-a-disk-to-a-linux-vm" class="xliff"></a>
+
+# Добавление диска к виртуальной машине Linux
 Из этой статьи вы узнаете, как добавить в виртуальную машину постоянный диск, на котором можно хранить данные. Эти данные сохранятся даже после повторной подготовки виртуальной машины (например, в ходе обслуживания или изменения размера). 
 
-## <a name="quick-commands"></a>Быстрые команды
+<a id="quick-commands" class="xliff"></a>
+
+## Быстрые команды
 В следующем примере к виртуальной машине `myVM` в группе ресурсов `myResourceGroup` подключается диск на `50` ГБ:
 
 Использование управляемых дисков:
@@ -43,12 +48,16 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
   --new --size-gb 50
 ```
 
-## <a name="attach-a-managed-disk"></a>Подключение управляемого диска
+<a id="attach-a-managed-disk" class="xliff"></a>
+
+## Подключение управляемого диска
 
 Используя Управляемые диски, вы сможете сосредоточиться на виртуальных машинах и дисках, не беспокоясь об учетных записях хранения Azure. Вы можете быстро создать и подключить управляемый диск к виртуальной машине, используя одну и ту же группу ресурсов Azure, или создать диски в любом количестве, а затем подключить их.
 
 
-### <a name="attach-a-new-disk-to-a-vm"></a>Подключение нового диска к виртуальной машине
+<a id="attach-a-new-disk-to-a-vm" class="xliff"></a>
+
+### Подключение нового диска к виртуальной машине
 
 Если вам просто нужен новый диск в виртуальной машине, можно использовать команду `az vm disk attach`.
 
@@ -57,7 +66,9 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
   --new --size-gb 50
 ```
 
-### <a name="attach-an-existing-disk"></a>Подключение существующего диска 
+<a id="attach-an-existing-disk" class="xliff"></a>
+
+### Подключение существующего диска 
 
 Во многих случаях подключаются созданные диски. Сначала нужно найти идентификатор диска и передать его в команду `az vm disk attach`. В следующем примере используется диск, созданный с помощью команды `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
 
@@ -95,7 +106,9 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
 
-## <a name="attach-an-unmanaged-disk"></a>Подключение неуправляемого диска
+<a id="attach-an-unmanaged-disk" class="xliff"></a>
+
+## Подключение неуправляемого диска
 
 Вы можете очень быстро подключить новый диск, если у вас не вызывает проблем создание диска в той же учетной записи хранения, которая используется для виртуальной машины. Чтобы создать и присоединить новый диск (ГБ) для своей виртуальной машины, введите `azure vm disk attach-new`. Если учетная запись хранения не определяется явным образом, любой создаваемый диск помещается в ту же учетную запись хранения, что и диск операционной системы. В следующем примере к виртуальной машине `myVM` в группе ресурсов `myResourceGroup` подключается диск на `50` ГБ:
 
@@ -104,7 +117,9 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
   --new --size-gb 50
 ```
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Подключение к виртуальной машине Linux для подключения нового диска
+<a id="connect-to-the-linux-vm-to-mount-the-new-disk" class="xliff"></a>
+
+## Подключение к виртуальной машине Linux для подключения нового диска
 > [!NOTE]
 > В этом разделе для подключения к виртуальной машине используются имена пользователей и пароли. Чтобы использовать пары открытых и закрытых ключей для взаимодействия с виртуальной машиной, см. статью [об использовании ключей SSH для Linux в Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 > 
@@ -310,7 +325,9 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 > 
 > Параметр **nofail** обеспечивает запуск виртуальной машины даже в том случае, если файловая система повреждена или отсутствует диск во время загрузки. Без этого параметра может возникнуть ситуация, описанная в записи блога [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) (Не удается подключиться к виртуальной машине Linux по протоколу SSH из-за ошибок FSTAB).
 
-### <a name="trimunmap-support-for-linux-in-azure"></a>Поддержка операций TRIM и UNMAP для Linux в Azure
+<a id="trimunmap-support-for-linux-in-azure" class="xliff"></a>
+
+### Поддержка операций TRIM и UNMAP для Linux в Azure
 Некоторые ядра Linux поддерживают операции TRIM и UNMAP для отмены неиспользуемых блоков на диске. Это особенно удобно использовать в хранилище уровня "Стандартный", чтобы сообщать Azure о том, что удаленные страницы больше не действительны и могут быть удалены. Это позволит сократить затраты, если вы создаете большие файлы, а затем удаляете их.
 
 Существует два способа включить поддержку операций TRIM в виртуальной машине Linux. Как обычно, обратитесь к документации дистрибутива, чтобы выбрать рекомендуемый метод.
@@ -336,10 +353,14 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
     sudo fstrim /datadrive
     ```
 
-## <a name="troubleshooting"></a>Устранение неполадок
+<a id="troubleshooting" class="xliff"></a>
+
+## Устранение неполадок
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * Помните, для того чтобы после перезапуска виртуальная машина получила доступ к новому диску, информацию о нем необходимо прописать в файле [fstab](http://en.wikipedia.org/wiki/Fstab) .
 * Ознакомьтесь с рекомендациями по [оптимизации производительности виртуальной машины Linux](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) , чтобы правильно настроить виртуальную машину Linux.
 * Увеличьте емкость хранилища, добавив дополнительные диски, и [настройте RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) для повышения производительности.

@@ -11,28 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 96d05bd6bdbe0006aa1f8fff7b518f11cebc5d0a
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Как настроить единый вход для приложения прокси приложения
+<a id="how-to-configure-single-sign-on-to-an-application-proxy-application" class="xliff"></a>
+
+# Как настроить единый вход для приложения прокси приложения
 
 Единый вход (SSO) позволяет пользователям обращаться к приложению несколько раз без повторной проверки подлинности. Он позволяет выполнить одну проверку подлинности для Azure Active Directory в облаке, после чего соединитель или служба будут выполнять дополнительные проверки подлинности для приложения от лица пользователя.
 
-## <a name="how-to-configure-single-sign-on"></a>Как настроить единый вход
+<a id="how-to-configure-single-sign-on" class="xliff"></a>
+
+## Как настроить единый вход
 Чтобы настроить единый вход, убедитесь, что для приложения настроена предварительная проверка подлинности с использованием Azure Active Directory. Для этого выберите **Azure Active Directory** -&gt; **Корпоративные приложения** -&gt; **Все приложения** -&gt; Ваше приложение приложения **-&gt; Прокси приложения**. На этой странице найдите параметр "Предварительная проверка подлинности" и убедитесь, что для него установлено значение "Azure Active Directory". 
 
 Дополнительные сведения о методах предварительной проверки подлинности см. в шаге 4 в [документе, посвященном публикации приложения](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
 
    ![Метод предварительной проверки подлинности на портале Azure](./media/application-proxy-config-sso-how-to/app-proxy.png)
 
-## <a name="configuring-single-sign-on-modes-for-application-proxy-applications"></a>Настройка режимов единого входа для приложения прокси приложения
+<a id="configuring-single-sign-on-modes-for-application-proxy-applications" class="xliff"></a>
+
+## Настройка режимов единого входа для приложения прокси приложения
 Теперь мы настроим конкретный тип единого входа. Методы входа подразделяются в зависимости от того, какой тип проверки подлинности используется серверным приложением. Приложения прокси приложений поддерживают три типа входа:
 
 -   **Вход на основе пароля**: может использоваться для любого приложения, в котором для входа используются поля с именем пользователя и паролем. Действия по настройке описаны в [документации по настройке единого входа на основе пароля](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#bring-your-own-password-sso-applications).
@@ -47,6 +53,8 @@ ms.lasthandoff: 04/17/2017
 
 Этот вариант позволяет создать ссылку на приложение, которое будет открываться для пользователей первым при обращении к вашему приложению. Например, если есть приложение, которое выполняет проверку подлинности пользователей с помощью служб федерации Active Directory 2.0, администратор может создать ссылку на него на панели доступа, используя параметр "Связанный единый вход".
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
 

@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: c0413f9c83fd6dceb4a1d956c0f32712e29bdc58
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/31/2017
 
 ---
-# <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Реализация аварийного восстановления с помощью функций резервного копирования и восстановления службы в Azure API Management
+<a id="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management" class="xliff"></a>
+
+# Реализация аварийного восстановления с помощью функций резервного копирования и восстановления службы в Azure API Management
 Выбрав службу Azure API Management для публикации интерфейсов API и управления ими, вы получаете множество возможностей по обеспечению отказоустойчивости и организации инфраструктуры, которые в противном случае вам пришлось бы проектировать и внедрять самостоятельно. Платформа Azure устраняет большую часть потенциальных сбоев при относительно небольших затратах.
 
 Чтобы обеспечить восстановление в случае проблем с доступностью в регионе, в котором размещена ваша служба API Management, необходимо быть готовым к ее воссозданию в другом регионе в любой момент. В зависимости от целевых показателей доступности и времени восстановления вам, возможно, потребуется создать резервную службу в одном или нескольких регионах, а затем наладить постоянную синхронизацию ее конфигурации и содержимого с активной службой. Функция резервного копирования и восстановления службы служит необходимым фундаментом для реализации стратегии аварийного восстановления.
@@ -34,7 +37,9 @@ ms.lasthandoff: 03/31/2017
 >
 >
 
-## <a name="authenticating-azure-resource-manager-requests"></a>Проверка подлинности запросов к диспетчеру ресурсов Azure
+<a id="authenticating-azure-resource-manager-requests" class="xliff"></a>
+
+## Проверка подлинности запросов к диспетчеру ресурсов Azure
 > [!IMPORTANT]
 > Интерфейс REST API для резервного копирования и восстановления использует диспетчер ресурсов Azure и применяет механизм проверки подлинности, отличный от интерфейсов REST API, используемых для управления объектами службы управления API. В этом разделе описываются действия, необходимые для проверки подлинности запросов к диспетчеру ресурсов Azure. Дополнительные сведения см. в [справочнике REST API Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 >
@@ -81,7 +86,7 @@ namespace GetTokenResourceManagerRequests
     {
         static void Main(string[] args)
         {
-            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+            var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
             var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
             if (result == null) {
@@ -188,7 +193,9 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 Чтобы ознакомиться с двумя другими способами резервного копирования и восстановления, прочитайте следующие записи в блогах по решениям Майкрософт.
 
 * [Репликация учетных записей управления API Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)

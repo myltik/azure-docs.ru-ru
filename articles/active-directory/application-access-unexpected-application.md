@@ -1,6 +1,6 @@
 ---
 title: "Неожиданные приложения в списке приложений | Документация Майкрософт"
-description: "Сведения о том, как можно увидеть все приложения, представленные в клиенте, и как приложения попадают в список &quot;Все приложения&quot; в разделе корпоративных приложений"
+description: "Сведения о том, как можно увидеть все приложения, представленные в клиенте, и как приложения попадают в список \"Все приложения\" в разделе корпоративных приложений"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
@@ -19,14 +19,17 @@ ms.openlocfilehash: d244905089605bb8608085d3e0132590c927ef6f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 
-# <a name="unexpected-application-in-my-applications-list"></a>Неожиданные приложения в списке приложений
+<a id="unexpected-application-in-my-applications-list" class="xliff"></a>
+
+# Неожиданные приложения в списке приложений
 
 Эта статья поможет разобраться, как приложения попадают в список **Все приложения** в разделе **Корпоративные приложения**. 
 
-## <a name="how-to-see-all-applications-in-your-tenant"></a>Как просмотреть все приложения в клиенте
+<a id="how-to-see-all-applications-in-your-tenant" class="xliff"></a>
+
+## Как просмотреть все приложения в клиенте
 
 Чтобы просмотреть все приложения в клиенте, используйте элемент управления **Фильтр** и выберите режим отображения **Все приложения** для списка **Все приложения**. Для этого сделайте следующее.
 
@@ -44,7 +47,9 @@ ms.lasthandoff: 04/27/2017
 
 7.  В колонке **Фильтр** установите для параметра **Показать** значение **Все приложения**.
 
-## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>Почему приложение появляется в моем списке всех приложений?
+<a id="why-does-a-specific-application-appear-in-my-all-applications-list" class="xliff"></a>
+
+## Почему приложение появляется в моем списке всех приложений?
 
 Если выбран режим фильтрации **Все приложения**, то в **списке** **Все приложения** отображаются все объекты участников-служб, существующие в клиенте. Объекты участников-служб могут попадать в этот список разными способами.
 
@@ -78,15 +83,21 @@ ms.lasthandoff: 04/27/2017
 
 Чтобы получить дополнительные сведения о том, как приложения добавляются в каталог, изучите статью [Как и почему приложения добавляются в Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added).
 
-## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Я хочу отменить доступ к приложению для определенного пользователя или группы
+<a id="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application" class="xliff"></a>
+
+## Я хочу отменить доступ к приложению для определенного пользователя или группы
 
 Чтобы удалить доступ к приложению, назначенный пользователю или группе, выполните действия, описанные в статье [Удаление назначения доступа к корпоративному приложению для пользователя или группы в предварительной версии Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal).
 
-## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Я хочу отключить доступ к приложению для всех пользователей
+<a id="i-want-to-disable-all-access-to-an-application-for-every-user" class="xliff"></a>
+
+## Я хочу отключить доступ к приложению для всех пользователей
 
 Чтобы отключить вход в приложение для всех пользователей, выполните действия, описанные в статье [Отключение входа пользователя в корпоративное приложение в предварительной версии Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
 
-## <a name="i-want-to-delete-an-application-entirely"></a>Я хочу полностью удалить приложение
+<a id="i-want-to-delete-an-application-entirely" class="xliff"></a>
+
+## Я хочу полностью удалить приложение
 
 Чтобы **удалить приложение**, сделайте следующее.
 
@@ -106,7 +117,9 @@ ms.lasthandoff: 04/27/2017
 
 7.  После загрузки приложения щелкните значок **Удалить** в колонке **Обзор** для часто используемых приложений.
 
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Я хочу отключить все будущие операции пользователя по предоставлению согласия для всех приложений
+<a id="i-want-to-disable-all-future-user-consent-operations-to-any-application" class="xliff"></a>
+
+## Я хочу отключить все будущие операции пользователя по предоставлению согласия для всех приложений
 
 Если вы отключите для всего каталога возможность предоставлять согласие, пользователь не сможет согласиться с условиями использования приложения. Администратор сохранит возможность предоставлять согласие от имени пользователя. Дополнительные сведения о согласии в приложениях и возможных мотивах для его отключения или предоставления см. в разделе [Получение согласия пользователя и администратора](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
@@ -124,6 +137,8 @@ ms.lasthandoff: 04/27/2017
 
 6.  Отключите все будущие операции пользователей по предоставлению согласия, установив переключатель **Пользователи могут разрешать приложениям доступ к своим данным** в положение **Нет** и нажав кнопку **Сохранить**.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)
 

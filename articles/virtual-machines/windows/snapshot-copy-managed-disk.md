@@ -2,7 +2,7 @@
 title: "Создание копии управляемого диска Azure для архивации | Документация Майкрософт"
 description: "Узнайте, как создать копию управляемого диска Azure, используемого для архивации или устранения неполадок с дисками."
 documentationcenter: 
-author: cwatsonMSFT
+author: cwatson-cat
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,19 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/9/2017
 ms.author: cwatson
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: bb913050fd3388d4632e6f75b36415006f370cbd
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
-# <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Создание копии виртуального жесткого диска, хранящегося в виде управляемого диска Azure, с помощью управляемых моментальных снимков
+<a id="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots" class="xliff"></a>
+
+# Создание копии виртуального жесткого диска, хранящегося в виде управляемого диска Azure, с помощью управляемых моментальных снимков
 Создайте моментальный снимок управляемого диска для архивации или создайте управляемый диск на основе моментального снимка и подключите его к тестовой виртуальной машине для устранения неполадок. Управляемый моментальный снимок — это полная копия управляемого диска виртуальной машины на определенный момент времени. Он создает копию виртуального жесткого диска только для чтения и по умолчанию сохраняет ее в качестве управляемого диска уровня "Стандартный". Дополнительные сведения об Управляемых дисках Azure см. в [обзоре Управляемых дисков Azure](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Дополнительные сведения о ценах см. на странице [с ценами на службу хранилища Azure](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-## <a name="before-you-begin"></a>Перед началом работы
+<a id="before-you-begin" class="xliff"></a>
+
+## Перед началом работы
 Если вы используете PowerShell, убедитесь, что у вас установлена последняя версия модуля PowerShell AzureRM.Compute. Выполните следующую команду, чтобы установить ее.
 
 ```
@@ -34,10 +38,14 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](/powershell/azure/overview).
 
-## <a name="copy-the-vhd-with-a-snapshot"></a>Копирование VHD с использованием моментального снимка
+<a id="copy-the-vhd-with-a-snapshot" class="xliff"></a>
+
+## Копирование VHD с использованием моментального снимка
 Чтобы создать моментальный снимок управляемого диска, используйте портал Azure или PowerShell.
 
-### <a name="use-azure-portal-to-take-a-snapshot"></a>Использование портала Azure для создания моментальных снимков 
+<a id="use-azure-portal-to-take-a-snapshot" class="xliff"></a>
+
+### Использование портала Azure для создания моментальных снимков 
 
 1. Войдите на [портал Azure](https://portal.azure.com).
 2. В левом верхнем углу щелкните **Создать** и найдите **моментальный снимок**.
@@ -49,7 +57,9 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 8. Выберите **тип учетной записи**, которая будет использоваться для хранения моментального снимка. Мы рекомендуем тип **Standard_LRS**, если вам не требуется хранить моментальный снимок на высокопроизводительном диске.
 9. Щелкните **Создать**.
 
-### <a name="use-powershell-to-take-a-snapshot"></a>Использование PowerShell для создания моментальных снимков
+<a id="use-powershell-to-take-a-snapshot" class="xliff"></a>
+
+### Использование PowerShell для создания моментальных снимков
 Ниже показано, как скопировать диск VHD, создать конфигурации моментального снимка и создать моментальный снимок диска с помощью командлета New-AzureRmSnapshot<!--Add link to cmdlet when available-->. 
 
 1. Задайте некоторые параметры. 

@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 2a6831cbfb747dd134a9cc17ed0f1925d8cc62d4
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="how-to-configure-a-new-multi-tenant-application"></a>Настройка нового мультитенантного приложения
+<a id="how-to-configure-a-new-multi-tenant-application" class="xliff"></a>
+
+# Настройка нового мультитенантного приложения
 
 При настройке федерации с помощью Azure AD для OpenID Connect, SAML 2.0 или WS-Fed федеративный единый вход для вашего приложения включается автоматически. Если конечным пользователям приходится снова входить в систему несмотря на то, что сеанс Azure AD уже существует, возможно, приложение настроено неправильно.
 
@@ -33,7 +35,9 @@ ms.lasthandoff: 04/17/2017
 
 Для iOS см. раздел [Включение единого входа для нескольких приложений в iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios).
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 [Единый вход в Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)<br>
 

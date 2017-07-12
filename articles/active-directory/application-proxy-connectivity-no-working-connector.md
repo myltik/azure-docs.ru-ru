@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 5b133afd82afecbfab250c2760404a4173086fa5
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Не удается найти рабочую группу соединителей для приложения прокси приложения
+<a id="no-working-connector-group-found-for-an-application-proxy-application" class="xliff"></a>
+
+# Не удается найти рабочую группу соединителей для приложения прокси приложения
 
 Эта статья поможет решить распространенные проблемы при отсутствии соединителя для приложения прокси приложения, интегрированного с Azure Active Directory.
 
-## <a name="overview-of-steps"></a>Обзор действий
+<a id="overview-of-steps" class="xliff"></a>
+
+## Обзор действий
 Если для вашего приложения отсутствуют рабочий соединитель или группа соединителей, решить эту проблему можно несколькими способами:
 
 -   При отсутствии соединителей в группе можно выполнить следующие действия:
@@ -48,7 +52,9 @@ ms.lasthandoff: 04/17/2017
 
    ![Управление группой соединителей на портале Azure](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
 
-## <a name="download-a-new-connector"></a>Скачайте новый соединитель
+<a id="download-a-new-connector" class="xliff"></a>
+
+## Скачайте новый соединитель
 
 Чтобы скачать новый соединитель, нажмите кнопку "Скачать соединитель" в верхней части страницы.
 
@@ -56,17 +62,23 @@ ms.lasthandoff: 04/17/2017
 
    ![Скачайте соединитель на портале Azure](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
    
-## <a name="move-an-active-connector"></a>Переместите активный соединитель
+<a id="move-an-active-connector" class="xliff"></a>
+
+## Переместите активный соединитель
 
 Если у вас есть активный соединитель, который должен принадлежать к группе и находится в прямой видимости для серверного приложения, можно перенести соединитель в назначенную группу. Для этого щелкните соединитель. В раскрывающемся списке "Группа соединителя" выберите соответствующую группу и нажмите кнопку "Сохранить".
 
-## <a name="resolve-an-inactive-connector"></a>Решите проблему с неактивным соединителем
+<a id="resolve-an-inactive-connector" class="xliff"></a>
+
+## Решите проблему с неактивным соединителем
 
 Если только соединители группы неактивны, скорее всего на компьютере, на котором они находятся, открыты не все необходимые порты.
 
 Дополнительные сведения о решении этой проблемы см. в документе "Решение проблем с портами".
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Сведения о соединителях прокси приложения Azure AD](application-proxy-understand-connectors.md)
 
 

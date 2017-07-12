@@ -11,39 +11,49 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: b429f5fc1be24e63b0e9e065f879f0b0e389403c
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="problem-adding-an-azure-ad-gallery-application"></a>Проблема при добавлении приложения из коллекции Azure AD
+<a id="problem-adding-an-azure-ad-gallery-application" class="xliff"></a>
+
+# Проблема при добавлении приложения из коллекции Azure AD
 
 Эта статья поможет вам понять, какие проблемы чаще всего возникают при добавлении приложений из коллекции Azure AD, и как их можно устранить.
 
-## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>После нажатия кнопки "Добавить" приложение долго не отображается
+<a id="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear" class="xliff"></a>
+
+## После нажатия кнопки "Добавить" приложение долго не отображается
 
 В некоторых случаях может потребоваться 1–2 минуты (или даже больше), чтобы отобразилось приложение, добавленное в каталог. Такое происходит довольно редко. Чтобы узнать, на каком этапе находится процесс добавления приложения, щелкните значок **Уведомления** (в форме колокольчика) в правом верхнем углу [портала Azure](https://portal.azure.com/). Найдите в списке уведомление с меткой **Создание приложения**, которое будет иметь состояние **Выполняется** или **Завершено**.
 
 Если приложение так и не будет добавлено или при нажатии кнопки **Добавить** возникнет ошибка, для этого **уведомления** отобразится состояние **Ошибка**. Если вам нужны дополнительные сведения об этой ошибке или вы хотите передать информацию инженеру службы поддержки, выполните действия, описанные в разделе [Как просмотреть сведения об уведомлении на портале](#how-to-see-the-details-of-a-portal-notification).
 
-## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>После нажатия кнопки "Добавить" приложение так и не появилось
+<a id="i-clicked-the-add-button-and-my-application-didnt-appear" class="xliff"></a>
+
+## После нажатия кнопки "Добавить" приложение так и не появилось
 
 В некоторых случаях из-за временных проблем, неполадок сети или сбоев в программе добавление приложения может завершиться ошибкой. Чтобы проверить это, щелкните значок **Уведомления** (в форме колокольчика) в правом верхнем углу портала Azure. Если вы увидите значок с восклицательным знаком (!) красного цвета рядом с уведомлением **Создание приложения**, значит при создании приложения произошла ошибка.
 
 Если при нажатии кнопки **Добавить** возникнет ошибка, для этого **уведомления** отобразится состояние **Ошибка**. Если вам нужны дополнительные сведения об этой ошибке или вы хотите передать информацию инженеру службы поддержки, выполните действия, описанные в разделе [Как просмотреть сведения об уведомлении на портале](#how-to-see-the-details-of-a-portal-notification).
 
- ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Приложение добавлено, но я не знаю, как его настроить
+<a id="i-dont-know-how-to-set-up-my-application-once-ive-added-it" class="xliff"></a>
+
+ ## Приложение добавлено, но я не знаю, как его настроить
 
 Если вам нужна помощь в изучении приложений, рекомендуем начать со статьи [Список учебников по интеграции приложений SaaS с Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
 Кроме того, [библиотека документов приложений Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) поможет вам узнать о том, что такое единый вход Azure AD и как он работает.
 
-## <a name="how-to-see-the-details-of-a-portal-notification"></a>Как просмотреть сведения об уведомлении на портале
+<a id="how-to-see-the-details-of-a-portal-notification" class="xliff"></a>
+
+## Как просмотреть сведения об уведомлении на портале
 
 Сведения о любом уведомлении на портале вы можете получить, выполнив следующие действия.
 
@@ -64,15 +74,21 @@ ms.lasthandoff: 04/11/2017
 
 6.  Щелкните **значок** **копирования** справа от текстового поля **Скопировать ошибку**, чтобы скопировать в буфер обмена все сведения об уведомлении, которые можно будет передать инженеру службы поддержки или группы продукта.
 
-## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Как получить помощь, отправив сведения об уведомлении инженеру службы поддержки
+<a id="how-to-get-help-by-sending-notification-details-to-a-support-engineer" class="xliff"></a>
+
+## Как получить помощь, отправив сведения об уведомлении инженеру службы поддержки
 
 Если вам нужна помощь, вы можете ускорить этот процесс, предоставив инженеру службы поддержки **все перечисленные ниже сведения**. Для этого можно **сделать снимок экрана** или щелкнуть **значок копирования ошибки**, который находится справа от текстового поля **Скопировать ошибку**.
 
-## <a name="notification-details-explained"></a>Объяснение сведений об уведомлении
+<a id="notification-details-explained" class="xliff"></a>
+
+## Объяснение сведений об уведомлении
 
 Ниже объясняется, что означает каждый из элементов сведений об уведомлениях, и приведено несколько примеров.
 
-### <a name="essential-notification-items"></a>Важные элементы сведений об уведомлении
+<a id="essential-notification-items" class="xliff"></a>
+
+### Важные элементы сведений об уведомлении
 
 -   **Заголовок** — описательное название уведомления.
 
@@ -110,7 +126,9 @@ ms.lasthandoff: 04/11/2017
 
     -   Пример: **17f84be4-51f8-483a-b533-383791227a99**.
 
-### <a name="detailed-notification-items"></a>Подробные элементы сведений об уведомлении
+<a id="detailed-notification-items" class="xliff"></a>
+
+### Подробные элементы сведений об уведомлении
 
 -   **Отображаемое имя****(может быть пустым)** — отображаемое имя с более подробным описанием ошибки.
 
@@ -132,6 +150,8 @@ ms.lasthandoff: 04/11/2017
 
     -   Пример: ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)
 

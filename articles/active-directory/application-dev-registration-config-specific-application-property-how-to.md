@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 9a57185938ebe9af0ca1395e75545473f45b9889
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Заполнение определенных полей для специально разработанного приложения
+<a id="how-to-fill-out-specific-fields-for-a-custom-developed-application" class="xliff"></a>
+
+# Заполнение определенных полей для специально разработанного приложения
 
 В этой статье дается краткое описание доступных полей в форме регистрации приложения на [портале Azure](https://portal.azure.com).
 
-## <a name="register-a-new-application"></a>Регистрация нового приложения
+<a id="register-a-new-application" class="xliff"></a>
+
+## Регистрация нового приложения
 
 -   Чтобы зарегистрировать новое приложение, перейдите на [портал Azure](https://portal.azure.com).
 
@@ -35,7 +39,9 @@ ms.lasthandoff: 04/17/2017
 
 -   Откроется форма регистрации приложения.
 
-## <a name="fields-in-the-application-registration-form"></a>Поля в форме регистрации приложения
+<a id="fields-in-the-application-registration-form" class="xliff"></a>
+
+## Поля в форме регистрации приложения
 
 
 | Поле            | Описание                                                                              |
@@ -59,6 +65,8 @@ ms.lasthandoff: 04/17/2017
 | URI перенаправления   | Для собственных приложений сюда перенаправляют пользователя после успешной авторизации. Azure AD проверяет, чтобы предоставленный приложением URI перенаправления в запросе OAuth 2.0 совпадал с одним из зарегистрированных значений на портале.                                                            |
 | ключей            | Вы можете создать ключи для программного доступа к веб-API, защищаемым Azure AD без вмешательства пользователя. На странице \*\*Ключи\*\* введите описание ключа и дату истечения срока действия, а затем выполните сохранение для создания ключа. Сохраните ключ в надежном месте, так как вы не сможете обратиться к нему позже.             |
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)
 

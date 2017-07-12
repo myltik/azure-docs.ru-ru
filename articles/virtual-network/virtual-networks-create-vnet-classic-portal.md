@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d365f7137527d60eb509b4f431295de2218ea706
 ms.openlocfilehash: 5ff91cccb711d61ed120e4a4e820d6a5dfc5e4a6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/31/2017
 
 
 ---
 
-# <a name="create-a-virtual-network-classic-with-a-netcfg-file-using-the-azure-classic-portal"></a>Создание виртуальной сети (классической) с помощью файла netcfg на портале Azure
+<a id="create-a-virtual-network-classic-with-a-netcfg-file-using-the-azure-classic-portal" class="xliff"></a>
+
+# Создание виртуальной сети (классической) с помощью файла netcfg на портале Azure
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -33,7 +37,9 @@ ms.openlocfilehash: 5ff91cccb711d61ed120e4a4e820d6a5dfc5e4a6
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-## <a name="how-to-create-a-vnet-with-a-network-config-file-in-the-microsoft-azure-classic-portal"></a>Как создать виртуальную сеть с помощью файла конфигурации сети на классическом портале Microsoft Azure
+<a id="how-to-create-a-vnet-with-a-network-config-file-in-the-microsoft-azure-classic-portal" class="xliff"></a>
+
+## Как создать виртуальную сеть с помощью файла конфигурации сети на классическом портале Microsoft Azure
 В Azure для определения всех виртуальных сетей, доступных для подписки, используется файл XML. Вы можете скачать этот файл и изменить его, чтобы создать виртуальные сети с помощью классической модели развертывания, а также чтобы изменить или удалить существующие виртуальные сети. В этой статье объясняется, как скачать этот файл, который называется файлом конфигурации сети (или netcfg), добавить в него виртуальную сеть и передать его для создания виртуальной сети. Ознакомьтесь со [схемой конфигурации виртуальной сети Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) , чтобы получить дополнительные сведения о файле конфигурации сети.
 
 Чтобы создать виртуальную сеть с помощью файла netcgf на классическом портале Azure, выполните описанные ниже действия.
@@ -84,9 +90,4 @@ ms.openlocfilehash: 5ff91cccb711d61ed120e4a4e820d6a5dfc5e4a6
 10. Чтобы создать виртуальную сеть, нажмите кнопку с флажком в нижнем правом углу окна, показанную на предыдущем рисунке. Через несколько секунд виртуальная сеть появится в списке доступных виртуальных сетей, как показано ниже.
 
     ![Новая виртуальная сеть](./media/virtual-networks-create-vnet-classic-portal/vnet-create-portal-netcfg-figure6.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

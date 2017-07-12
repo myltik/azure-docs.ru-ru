@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 8d4f2cec35a8edfec9b8830a077b8aa65ca0c229
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-remove-a-users-access-to-an-application"></a>Удаление доступа пользователя к приложению
+<a id="how-to-remove-a-users-access-to-an-application" class="xliff"></a>
+
+# Удаление доступа пользователя к приложению
 
 В этой статье представлены сведения об удалении доступа пользователя к приложению.
 
-## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Я хочу удалить назначение определенного пользователя или группы приложению
+<a id="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application" class="xliff"></a>
+
+## Я хочу удалить назначение определенного пользователя или группы приложению
 
 Чтобы удалить назначение пользователя или группы приложению, выполните действия, описанные в статье [Удаление назначения доступа к корпоративному приложению для пользователя или группы в предварительной версии Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal).
 
@@ -33,7 +37,9 @@ ms.lasthandoff: 04/11/2017
 
 Чтобы отключить вход в приложение для всех пользователей, выполните действия, описанные в статье [Отключение входа пользователя в корпоративное приложение в предварительной версии Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
 
-## <a name="i-want-to-delete-an-application-entirely"></a>Я хочу полностью удалить приложение
+<a id="i-want-to-delete-an-application-entirely" class="xliff"></a>
+
+## Я хочу полностью удалить приложение
 
 Чтобы **удалить приложение**, сделайте следующее:
 
@@ -53,7 +59,9 @@ ms.lasthandoff: 04/11/2017
 
 7.  После загрузки приложения щелкните значок **Удалить** в колонке **Обзор** часто используемых приложений.
 
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Я хочу отключить все будущие операции пользователя по предоставлению согласия для всех приложений
+<a id="i-want-to-disable-all-future-user-consent-operations-to-any-application" class="xliff"></a>
+
+## Я хочу отключить все будущие операции пользователя по предоставлению согласия для всех приложений
 
 Если отключить возможность предоставления согласия пользователя для всего каталога, пользователь не сможет согласиться с условиями использования приложения. Однако администратор по-прежнему может дать согласие от имени пользователя. Дополнительные сведения о согласии в приложениях и причинах его предоставления см. в разделе [Получение согласия пользователя и администратора](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
@@ -72,6 +80,8 @@ ms.lasthandoff: 04/11/2017
 6.  Отключите все будущие операции пользователя по предоставлению согласия, установив переключатель **Пользователи могут разрешать приложениям доступ к своим данным** в положение **Нет** и нажав кнопку **Сохранить**.
 
 
-# <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+# Дальнейшие действия
 [Управление доступом к приложениям](active-directory-managing-access-to-apps.md)
 

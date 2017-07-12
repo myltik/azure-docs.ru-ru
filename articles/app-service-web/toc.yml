@@ -53,8 +53,8 @@
     href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Планы службы приложений
     href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: среда службы приложений.
-    href: app-service-app-service-environment-intro.md
+  - name: Среда службы приложений
+    href: ../app-service/app-service-environment/intro.md
   - name: Аутентификация и авторизация
     href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
   - name: Проверка подлинности с помощью локальной службы AD
@@ -248,6 +248,24 @@
       href: app-service-web-app-azure-resource-manager-powershell.md
     - name: Управление приложениями с помощью службы автоматизации Azure
       href: automation-manage-web-app.md
+  - name: Среда службы приложений
+    items:
+    - name: Использование среды службы приложений
+      href: ../app-service/app-service-environment/using-an-ase.md
+    - name: Создание внешней среды службы приложений
+      href: ../app-service/app-service-environment/create-external-ase.md
+    - name: Создание с помощью Azure Resource Manager
+      href: ../app-service/app-service-environment/create-from-template.md
+    - name: Создание с помощью внутренней подсистемы балансировки нагрузки
+      href: ../app-service/app-service-environment/create-ilb-ase.md
+    - name: Рекомендации по работе с сетями
+      href: ../app-service/app-service-environment/network-info.md
+    - name: Настройка пользовательских параметров
+      href: ./app-service-app-service-environment-custom-settings.md
+    - name: Интеграция с брандмауэром веб-приложения
+      href: ./app-service-app-service-environment-web-application-firewall.md
+    - name: Географически распределенное масштабирование
+      href: ./app-service-app-service-environment-geo-distributed-scale.md
 - name: Справочные материалы
   items:
   - name: "CLI\_2.0"
@@ -256,8 +274,12 @@
     href: /powershell
   - name: Интерфейс REST API
     href: /rest/api/appservice/
+  - name: Среда службы приложений
+    href: ../app-service/app-service-environment/readme.md
 - name: Ресурсы
   items:
+  - name: Стратегия развития Azure
+    href: https://azure.microsoft.com/roadmap/
   - name: Устранение неполадок
     items:
     - name: Устранение неполадок с помощью Visual Studio
@@ -278,6 +300,32 @@
         href: app-service-web-open-source-technologies-faq.md
       - name: Часто задаваемые вопросы о настройке и управлении
         href: app-service-web-configuration-and-management-faq.md
+  - name: "Среда службы приложений версии\_1"
+    items:
+    - name: Обзор
+      href: app-service-app-service-environment-intro.md
+    - name: Создание среды службы приложения
+      href: app-service-web-how-to-create-an-app-service-environment.md
+    - name: Создание веб-приложения в среде служб приложений
+      href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+    - name: Использование внутренней подсистемы балансировки нагрузки
+      href: app-service-environment-with-internal-load-balancer.md
+    - name: Настройка среды службы приложений
+      href: app-service-web-configure-an-app-service-environment.md
+    - name: Масштабирование приложений в среде службы приложений
+      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+    - name: Общие сведения о сетевой архитектуре
+      href: app-service-app-service-environment-network-architecture-overview.md
+    - name: Реализация многоуровневой архитектуры безопасности со средами службы приложений
+      href: app-service-app-service-environment-layered-security.md
+    - name: Как управлять входящим трафиком
+      href: app-service-app-service-environment-control-inbound-traffic.md
+    - name: Безопасное подключение к серверным ресурсам
+      href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
+    - name: Сведения о настройке сети для работы с ExpressRoute
+      href: app-service-app-service-environment-network-configuration-expressroute.md
+    - name: Автомасштабирование в среде службы приложений
+      href: ../app-service/app-service-environment-auto-scale.md
   - name: Цены
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Сведения о квотах

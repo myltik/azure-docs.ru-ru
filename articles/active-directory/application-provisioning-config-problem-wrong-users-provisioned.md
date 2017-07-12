@@ -11,23 +11,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 5ccb9e920ce8e1c95b9ce0ffc8626f2dcf3783d8
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Подготовка неправильного набора пользователей для приложения в коллекции Azure AD
+<a id="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application" class="xliff"></a>
+
+# Подготовка неправильного набора пользователей для приложения в коллекции Azure AD
 
 Пользователи, подготавливаемые в приложении, в основном определяются пользователями и группами, **назначенными** для него.
 
 Воспользуйтесь приведенными ниже ссылками, чтобы узнать, как определить пользователей и группы, назначенные приложению в Azure Active Directory.
 
-## <a name="assign-a-user-directly-as-an-administrator"></a>Назначение пользователей напрямую от имени администратора
+<a id="assign-a-user-directly-as-an-administrator" class="xliff"></a>
+
+## Назначение пользователей напрямую от имени администратора
 
 Чтобы напрямую назначить одного или нескольких пользователей для приложения, сделайте следующее:
 
@@ -65,7 +69,9 @@ ms.lasthandoff: 04/11/2017
 
 Если подготовка настраивается и уже выполняется для приложения, новые пользователи будут подготовлены для приложения в течение 10 минут. Проверьте **журналы аудита**, чтобы получить подробные сведения.
 
-## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Назначение группы для приложений напрямую от имени администратора
+<a id="assign-a-group-directly-to-an-application-as-an-administrator" class="xliff"></a>
+
+## Назначение группы для приложений напрямую от имени администратора
 
 Чтобы напрямую назначить одну или несколько групп для приложения, выполните следующие действия:
 
@@ -110,6 +116,8 @@ ms.lasthandoff: 04/11/2017
 
 Если подготовка групп включена, обязательно ознакомьтесь с атрибутами сопоставления, чтобы убедиться, что для соответствующего идентификатора используется соответствующее поле. Это может быть отображающееся имя или псевдоним электронной почты, так как группа и ее участники не будут подготовлены, если соответствующее свойство пустое или не заполнено для группы в Azure AD.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory](active-directory-saas-app-provisioning.md)
 

@@ -11,27 +11,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 6aba9206ab0634e9379d63520ad9e2d0256b7e94
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/11/2017
-
 
 ---
 
-# <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Определение используемого метода единого входа
+<a id="how-to-determine-what-single-sign-on-method-to-use" class="xliff"></a>
+
+# Определение используемого метода единого входа
 
 В этой статье представлены общие сведения о режимах единого входа, поддерживаемых в Azure AD, и о выборе подходящего режима для интересующего приложения.
 
-## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>Режимы единого входа и подготовки, поддерживаемые конкретными типами приложений
+<a id="single-sign-on-and-provisioning-modes-supported-by-specific-application-types" class="xliff"></a>
+
+## Режимы единого входа и подготовки, поддерживаемые конкретными типами приложений
 
 В следующей таблице описываются различные режимы единого входа и подготовки, поддерживаемые каждым из приведенных выше типов приложений. С помощью этой таблицы вы узнаете, какое приложение необходимо добавить для достижения конкретной цели.
 
   ![Таблица типов приложений](./media/application-tables/table1.png)
 
-## <a name="how-to-choose-a-single-sign-on-mode"></a>Выбор режима единого входа
+<a id="how-to-choose-a-single-sign-on-mode" class="xliff"></a>
+
+## Выбор режима единого входа
 
 Ниже приведены поддерживаемые режимы **единого входа** для приложений Azure AD.
 
@@ -47,7 +53,9 @@ ms.lasthandoff: 04/11/2017
 
 -   **Интегрированная проверка подлинности Windows.** Выберите режим единого входа [Интегрированная проверка подлинности Windows](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) при использовании локального приложения WIA, для которого необходимо выполнить единый вход. *(**Примечание.** Этот параметр доступен только при настройке прокси приложения для приложения.)*
 
-## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Режимы единого входа для специально разработанных приложений
+<a id="single-sign-on-modes-for-custom-developed-applications" class="xliff"></a>
+
+## Режимы единого входа для специально разработанных приложений
 
 Приложения, настроенные с помощью возможности [специально разработанного приложения](#_Custom-Developed_Applications), также поддерживают дополнительные режимы единого входа, не указанные в списке выше. В частности, описаны такие возможности:
 
@@ -61,7 +69,9 @@ ms.lasthandoff: 04/11/2017
 
 Ознакомьтесь с [руководством разработчика по Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide), чтобы узнать больше о создании специально разработанного приложения, поддерживающего данные режимы единого входа.
 
-## <a name="how-to-set-an-applications-single-sign-on-mode"></a>Настройка режима единого входа для приложения
+<a id="how-to-set-an-applications-single-sign-on-mode" class="xliff"></a>
+
+## Настройка режима единого входа для приложения
 
 Для **этого** выполните приведенные далее инструкции.
 
@@ -81,7 +91,9 @@ ms.lasthandoff: 04/11/2017
 
 7.  После загрузки приложения выберите для этого приложения пункт **Единый вход** в меню навигации слева.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
 
 

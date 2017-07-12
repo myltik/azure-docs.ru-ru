@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 2fc922cb591bcd9ef333fbe3d77ee3dd03005915
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/17/2017
-
 
 ---
 
-# <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Проблема при настройке единого входа по паролю для приложения не из коллекции
+<a id="problem-configuring-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
+
+# Проблема при настройке единого входа по паролю для приложения не из коллекции
 
 Эта статья поможет понять распространенные проблемы, которые возникают при настройке **единого входа по паролю** для приложения не из коллекции.
 
-## <a name="how-to-capture-sign-in-fields-for-an-application"></a>Определение полей входа в систему для приложения
+<a id="how-to-capture-sign-in-fields-for-an-application" class="xliff"></a>
+
+## Определение полей входа в систему для приложения
 
 Определение полей входа в систему поддерживается только для страниц входа на основе HTML и **не поддерживается для нестандартных страниц входа**, например для тех, которые используют Flash и другие технологии не на основе HTML.
 
@@ -41,7 +45,9 @@ ms.lasthandoff: 04/17/2017
 
 В общем случае, **если автоматическое определение полей входа в систему не работает, мы всегда рекомендуем попробовать определение полей вручную.**
 
-### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>Автоматическое определение полей входа в систему для приложения
+<a id="how-to-automatically-capture-sign-in-fields-for-an-application" class="xliff"></a>
+
+### Автоматическое определение полей входа в систему для приложения
 
 Для настройки **единого входа в систему по паролю** для приложения с **автоматическим определением полей входа в систему** выполните следующие действия:
 
@@ -69,7 +75,9 @@ ms.lasthandoff: 04/17/2017
 
 11. Теперь этот URL-адрес будет автоматически использоваться для ввода имени пользователя и пароля и позволит использовать Azure AD для безопасной передачи паролей в приложение с помощью панели доступа в расширении обозревателя.
 
-## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>Определение полей входа в систему для приложения вручную
+<a id="how-to-manually-capture-sign-in-fields-for-an-application" class="xliff"></a>
+
+## Определение полей входа в систему для приложения вручную
 
 Для определения полей входа в систему вручную вам потребуется установить расширение "Панель доступа" для браузера. **Не работайте в приватном режиме, режиме inPrivate или в режиме инкогнито**. Чтобы установить расширение браузера, выполните действия, описанные в разделе [Как установить расширение "Панель доступа" для браузера](#i-cannot-manually-detect-sign-in-fields-for-my-application).
 
@@ -109,17 +117,23 @@ ms.lasthandoff: 04/17/2017
 
 16. Следуйте указаниям на экране по использованию панели доступа.
 
-## <a name="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Появляется сообщение об ошибке "Не удалось найти ни одного поля входа в систему на этой странице"
+<a id="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error" class="xliff"></a>
+
+## Появляется сообщение об ошибке "Не удалось найти ни одного поля входа в систему на этой странице"
 
 Эта ошибка возникает, если не удается определить поля входа в систему автоматически. Чтобы устранить эту проблему, попробуйте определить поля входа в систему вручную, выполнив действия, описанные в статье [Определение полей входа в систему для приложения вручную](#how-to-manually-capture-sign-in-fields-for-an-application).
 
-## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>Появляется сообщение об ошибке "Невозможно сохранить конфигурацию единого входа"
+<a id="i-see-an-unable-to-save-single-sign-on-configuration-error" class="xliff"></a>
+
+## Появляется сообщение об ошибке "Невозможно сохранить конфигурацию единого входа"
 
 В редких случаях обновление конфигурации единого входа может завершиться сбоем. Чтобы решить эту проблему, попробуйте еще раз сохранить конфигурацию единого входа.
 
 Если проблема возникает постоянно, создайте обращение в службу поддержки и укажите в нем сведения, полученные при выполнении инструкций в разделах [Как просмотреть сведения об уведомлении портала](#i-cannot-manually-detect-sign-in-fields-for-my-application) и [Как получить помощь, отправив сведения об уведомлении инженеру службы поддержки](#how-to-get-help-by-sending-notification-details-to-a-support-engineer).
 
-## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>Не удается определить поля входа в систему вручную для моего приложения
+<a id="i-cannot-manually-detect-sign-in-fields-for-my-application" class="xliff"></a>
+
+## Не удается определить поля входа в систему вручную для моего приложения
 
 Ниже перечислены некоторые сценарии, в которых определить поля входа в систему вручную не удается:
 
@@ -145,7 +159,9 @@ ms.lasthandoff: 04/17/2017
 
 Если ни один из этих подходов не помогает, обратитесь к нам. Создайте обращение в службу поддержки и подробно опишите свои действия, а также укажите сведения, полученные при выполнении инструкций в разделах [Как просмотреть сведения об уведомлении портала](#i-cannot-manually-detect-sign-in-fields-for-my-application) и [Как получить помощь, отправив сведения об уведомлении инженеру службы поддержки](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (при необходимости).
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Установка расширения "Панель доступа" для браузера
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Установка расширения "Панель доступа" для браузера
 
 Чтобы установить расширение "Панель доступа" для браузера, выполните указанные ниже действия.
 
@@ -169,7 +185,9 @@ ms.lasthandoff: 04/17/2017
 
 -   [Расширение "Панель доступа" для Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-to-see-the-details-of-a-portal-notification"></a>Как просмотреть сведения об уведомлении портала
+<a id="how-to-see-the-details-of-a-portal-notification" class="xliff"></a>
+
+## Как просмотреть сведения об уведомлении портала
 
 Чтобы просмотреть сведения об уведомлении на портале, выполните следующие действия:
 
@@ -189,15 +207,21 @@ ms.lasthandoff: 04/17/2017
 
 6.  Щелкните **значок** **копирования** справа от текстового поля **Копировать ошибку**, чтобы скопировать в буфер обмена все сведения об уведомлении, которые затем можно будет передать инженеру службы поддержки или сотруднику группы продуктов.
 
-## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Как получить помощь, отправив сведения об уведомлении инженеру службы поддержки
+<a id="how-to-get-help-by-sending-notification-details-to-a-support-engineer" class="xliff"></a>
+
+## Как получить помощь, отправив сведения об уведомлении инженеру службы поддержки
 
 Очень важно отправить инженеру службы поддержки **все перечисленные ниже сведения**, чтобы он мог быстро решить вашу проблему. Для этого можно **сделать снимок экрана** или щелкнуть **значок "Копировать ошибку"**, который находится справа от текстового поля **Копировать ошибку**.
 
-## <a name="notification-details-explained"></a>Описание сведений об уведомлении
+<a id="notification-details-explained" class="xliff"></a>
+
+## Описание сведений об уведомлении
 
 Ниже представлены сведения о каждом элементе уведомления и приведены примеры для каждого элемента.
 
-### <a name="essential-notification-items"></a>Основные элементы уведомления
+<a id="essential-notification-items" class="xliff"></a>
+
+### Основные элементы уведомления
 
 -   **Заголовок** — описательное название уведомления
 
@@ -235,7 +259,9 @@ ms.lasthandoff: 04/17/2017
 
     -   Пример: **17f84be4-51f8-483a-b533-383791227a99**
 
-### <a name="detailed-notification-items"></a>Дополнительные элементы уведомления с подробными сведениями
+<a id="detailed-notification-items" class="xliff"></a>
+
+### Дополнительные элементы уведомления с подробными сведениями
 
 -   **Отображаемое имя** — отображаемое имя с более подробным описанием ошибки **(может быть пустым)**
 
@@ -257,7 +283,9 @@ ms.lasthandoff: 04/17/2017
 
     -   Пример: ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
 
 

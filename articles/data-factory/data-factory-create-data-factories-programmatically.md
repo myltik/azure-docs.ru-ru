@@ -20,11 +20,12 @@ ms.openlocfilehash: 2f33c266c14b62f51745ff67069358c007bc00a2
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/12/2017
 
-
 ---
 <a id="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk" class="xliff"></a>
+
 # Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных Azure для .NET
 <a id="overview" class="xliff"></a>
+
 ## Обзор
 Создание, отслеживание фабрик данных и управление ими программным способом с помощью пакета .NET SDK фабрики данных. Эта статья содержит пошаговое руководство по созданию образца консольного приложения .NET, которое будет создавать и отслеживать фабрику данных. 
 
@@ -32,12 +33,14 @@ ms.lasthandoff: 05/12/2017
 > В этой статье рассматриваются не все API-интерфейсы .NET фабрики данных. Полную документацию по API .NET для фабрики данных см. в [справочнике по API .NET фабрики данных](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1). 
 
 <a id="prerequisites" class="xliff"></a>
+
 ## Предварительные требования
 * Visual Studio 2012, 2013 или 2015
 * Скачанный и установленный [пакет SDK для Azure .NET](http://azure.microsoft.com/downloads/).
 * Azure PowerShell. Далее, чтобы установить Azure PowerShell на локальном компьютере, следуйте указаниям в разделе [Установка и настройка Azure PowerShell](/powershell/azure/overview) . С помощью Azure PowerShell вы создадите приложение Azure Active Directory.
 
 <a id="create-an-application-in-azure-active-directory" class="xliff"></a>
+
 ### Создание приложения в Azure Active Directory
 Вы создадите приложение Azure Active Directory и субъект-службу для приложения, а затем назначите роль **Участник Data Factory** .
 
@@ -106,6 +109,7 @@ ms.lasthandoff: 05/12/2017
 * пароль (указан в первой команде).
 
 <a id="walkthrough" class="xliff"></a>
+
 ## Пошаговое руководство
 В этом пошаговом руководстве вы создадите фабрику данных с конвейером, который содержит действие копирования. Действие копирования копирует данные из папки в хранилище BLOB-объектов Azure в другую папку в том же хранилище. 
 
@@ -129,7 +133,7 @@ ms.lasthandoff: 05/12/2017
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
         <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+            <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
             <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
@@ -464,6 +468,7 @@ ms.lasthandoff: 05/12/2017
 19. Убедитесь, что выходной файл создан в папке **apifactoryoutput** в контейнере **adftutorial**.
 
 <a id="get-a-list-of-failed-data-slices" class="xliff"></a>
+
 ## Получение списка невыполненных срезов данных 
 
 ```csharp
@@ -504,6 +509,7 @@ while (response != null);
 ```
 
 <a id="next-steps" class="xliff"></a>
+
 ## Дальнейшие действия
 Ниже приведен пример создания конвейера с использованием пакета SDK для .NET, который копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure. 
 

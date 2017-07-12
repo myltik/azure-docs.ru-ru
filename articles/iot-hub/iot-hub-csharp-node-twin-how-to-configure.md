@@ -20,9 +20,10 @@ ms.openlocfilehash: ca5ee2733df51faa5025c4d8eb687c81df4a3b4f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/09/2017
 
-
 ---
-# <a name="use-desired-properties-to-configure-devices"></a>Настройка устройств с помощью требуемых свойств
+<a id="use-desired-properties-to-configure-devices" class="xliff"></a>
+
+# Настройка устройств с помощью требуемых свойств
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 По завершении работы с этим руководством у вас будет два консольных приложения:
@@ -47,7 +48,10 @@ ms.lasthandoff: 05/09/2017
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-the-simulated-device-app"></a>Создание приложения имитации устройства
+<a id="#create-the-simulated-device-app"></a>
+<a id="create-the-simulated-device-app" class="xliff"></a>
+
+## Создание приложения имитации устройства
 В этом разделе вы создаете консольное приложение Node.js, которое подключается к центру как **myDeviceId**, ожидает обновления требуемой конфигурации и сообщает об обновлениях в ходе обновления имитации конфигурации.
 
 1. Создайте пустую папку с именем **simulatedeviceconfiguration**. В папке **simulatedeviceconfiguration** создайте файл package.json, используя следующую команду в командной строке. Примите все значения по умолчанию.
@@ -158,7 +162,9 @@ ms.lasthandoff: 05/09/2017
    
     Отобразится сообщение `retrieved device twin`. Не отключайте приложение.
 
-## <a name="create-the-service-app"></a>Создание приложения службы
+<a id="create-the-service-app" class="xliff"></a>
+
+## Создание приложения службы
 В этом разделе вы создадите консольное приложение .NET, которое обновляет *требуемые свойства* двойника устройства, связанного с **myDeviceId**, с использованием нового объекта конфигурации телеметрии. Затем оно выполняет запрос к двойникам устройств, которые хранятся в Центре Интернета вещей, и показывает разницу между требуемой и сообщаемой конфигурацией устройства.
 
 1. В Visual Studio добавьте в текущее решение проект классического приложения Windows на языке Visual C# с помощью шаблона проекта **консольного приложения** . Назовите проект **SetDesiredConfigurationAndQuery**.
@@ -241,7 +247,9 @@ ms.lasthandoff: 05/09/2017
    > 
    > 
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 В этом руководстве вы установили требуемую конфигурацию в качестве *требуемых свойств* из серверной части решения и написали код приложения для устройства, которое обнаруживает изменения и имитирует многоэтапный процесс обновления, о состоянии которого сообщается в качестве сообщаемых свойств.
 
 Ознакомьтесь со следующими материалами, чтобы узнать как:
@@ -275,5 +283,5 @@ ms.lasthandoff: 05/09/2017
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-[lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+[lnk-how-to-configure-createapp]: iot-hub-csharp-node-twin-how-to-configure.md#create-the-simulated-device-app
 

@@ -20,16 +20,19 @@ ms.openlocfilehash: fcf9cc661da0d8e65b385bfddeded0a3e5d0d3e2
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/10/2017
 
-
 ---
-# <a name="azure-monitoring-rest-api-walkthrough"></a>Пошаговое руководство по REST API Azure Monitor
+<a id="azure-monitoring-rest-api-walkthrough" class="xliff"></a>
+
+# Пошаговое руководство по REST API Azure Monitor
 В этой статье показано, как выполнять аутентификацию таким образом, чтобы в коде можно было использовать [справочник по REST API Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
 
 API Azure Monitor позволяет программно получить определения доступных метрик по умолчанию (тип метрики, например "Время ЦП", "Запросы" и т. д.), детализацию и значения метрик. После получения эти данные можно сохранить в отдельном хранилище данных, в том числе в базе данных SQL Azure, Azure Cosmos DB или Azure Data Lake. Там при необходимости можно выполнить дополнительный анализ.
 
 Помимо работы с различными точками данных метрик, как показано в этой статье, API Monitor позволяет получить список правил генерации оповещений, просмотреть журналы действий и многое другое. Полный список доступных операций см. в [справочнике по REST API для Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
-## <a name="authenticating-azure-monitor-requests"></a>Аутентификация запросов Azure Monitor
+<a id="authenticating-azure-monitor-requests" class="xliff"></a>
+
+## Аутентификация запросов Azure Monitor
 В первую очередь нужно аутентифицировать запрос.
 
 Все задачи, выполняемые с использованием API Azure Monitor, используют модель аутентификации Azure Resource Manager. Поэтому все запросы должны быть аутентифицированы в Azure Active Directory (Azure AD). Один из способов аутентификации клиентского приложения — создание субъекта-службы Azure AD и получение маркера аутентификации (JWT). Приведенный ниже пример сценария демонстрирует создание субъекта-службы Azure AD посредством PowerShell. Более подробные пошаговые инструкции приведены в документации по [использованию Azure PowerShell для создания субъекта-службы для доступа к ресурсам](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). Существует также возможность [создать субъект-службу на портале Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
@@ -70,7 +73,7 @@ $subscription = Get-AzureRmSubscription -SubscriptionId $subscriptionId
 
 $clientId = $azureAdApplication.ApplicationId.Guid
 $tenantId = $subscription.TenantId
-$authUrl = "https://login.windows.net/${tenantId}"
+$authUrl = "https://login.microsoftonline.com/${tenantId}"
 
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
 $cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($clientId, $pwd)
@@ -90,7 +93,9 @@ $authHeader = @{
 1. вывод списка определений метрик для ресурса;
 2. получение значений метрик.
 
-## <a name="retrieve-metric-definitions"></a>Получение определений метрик
+<a id="retrieve-metric-definitions" class="xliff"></a>
+
+## Получение определений метрик
 > [!NOTE]
 > Чтобы получить определения метрик с помощью REST API Azure Monitor, используйте API версии 2016-03-01.
 >
@@ -111,7 +116,9 @@ Invoke-RestMethod -Uri $request `
 
 Дополнительные сведения см. в статье [List metric definitions for a resource in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/mt743621.aspx) (Вывод списка определений метрик для ресурса в REST API Azure Monitor).
 
-## <a name="retrieve-metric-values"></a>Получение значений метрик
+<a id="retrieve-metric-values" class="xliff"></a>
+
+## Получение значений метрик
 Когда определения доступных метрик известны, можно получить соответствующие значения метрик. Используйте значение value имени метрики (а не localizedValue) для фильтрации запросов (например, получите точки данных метрик CpuTime и Requests). Если не указано ни одного фильтра, возвращается метрика по умолчанию.
 
 > [!NOTE]
@@ -151,7 +158,9 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
                    -Verbose).Value | ConvertTo-Json
 ```
 
-### <a name="use-armclient"></a>Использование ARMClient
+<a id="use-armclient" class="xliff"></a>
+
+### Использование ARMClient
 Вместо PowerShell (описано выше) на компьютере Windows можно использовать [ARMClient](https://github.com/projectkudu/ARMClient) . ARMClient автоматически обрабатывает аутентификацию в Azure AD (и полученный маркер JWT). Ниже описано использование ARMClient для получения данных метрик.
 
 1. Установите [Chocolatey](https://chocolatey.org/) и [ARMClient](https://github.com/projectkudu/ARMClient).
@@ -161,7 +170,9 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
 
 ![Использование ARMClient для работы с REST API Azure Monitor](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)
 
-## <a name="retrieve-the-resource-id"></a>Получение идентификатора ресурса
+<a id="retrieve-the-resource-id" class="xliff"></a>
+
+## Получение идентификатора ресурса
 Применение REST API действительно помогает понять доступные определения метрик, детализацию и связанные значения. Эта информация полезна при использовании [библиотеки управления Azure](https://msdn.microsoft.com/library/azure/mt417623.aspx).
 
 Для приведенного выше кода используемый идентификатор ресурса — это полный путь к нужному ресурсу Azure. Например, для запроса к веб-приложению Azure идентификатор ресурса будет следующим.
@@ -180,27 +191,37 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
 
 Существуют альтернативные подходы к извлечению идентификатора ресурса, включая использование Azure Resource Explorer, PowerShell, интерфейса командной строки Azure и просмотр требуемого ресурса на портале Azure.
 
-### <a name="azure-resource-explorer"></a>Обозреватель ресурсов Azure
+<a id="azure-resource-explorer" class="xliff"></a>
+
+### Обозреватель ресурсов Azure
 Чтобы найти идентификатор требуемого ресурса, удобно использовать инструмент [Azure Resource Explorer](https://resources.azure.com) . Перейдите к нужному ресурсу и просмотрите отображенный идентификатор, как показано на следующем снимке экрана.
 
 ![Azure Resource Explorer](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)
 
-### <a name="azure-portal"></a>Портал Azure
+<a id="azure-portal" class="xliff"></a>
+
+### Портал Azure
 Идентификатор ресурса можно также получить на портале Azure. Для этого перейдите к нужному ресурсу и выберите "Свойства". Идентификатор ресурса отображается в колонке "Свойства", как показано на следующем снимке экрана.
 
 ![Идентификатор ресурса в колонке "Свойства" на портале Azure](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)
 
-### <a name="azure-powershell"></a>Azure PowerShell
+<a id="azure-powershell" class="xliff"></a>
+
+### Azure PowerShell
 Идентификатор ресурса можно получить и с помощью командлетов Azure PowerShell. Например, чтобы получить идентификатор ресурса для веб-приложения Azure, выполните командлет Get-AzureRmWebApp, как показано на следующем снимке экрана.
 
 ![Идентификатор ресурса, полученный с помощью PowerShell](./media/monitoring-rest-api-walkthrough/resourceid_powershell.png)
 
-### <a name="azure-cli"></a>Инфраструктура CLI Azure
+<a id="azure-cli" class="xliff"></a>
+
+### Инфраструктура CLI Azure
 Чтобы получить идентификатор ресурса с помощью интерфейса командной строки Azure, выполните команду azure webapp show, указав параметр --json, как показано на следующем снимке экрана.
 
 ![Идентификатор ресурса, полученный с помощью PowerShell](./media/monitoring-rest-api-walkthrough/resourceid_azurecli.png)
 
-## <a name="retrieve-activity-log-data"></a>Получение данных журнала действий
+<a id="retrieve-activity-log-data" class="xliff"></a>
+
+## Получение данных журнала действий
 Помимо работы с определениями метрик и связанными значениями, можно также получать дополнительные интересные сведения, связанные с ресурсами Azure. Например, можно запросить данные [журнала действий](https://msdn.microsoft.com/library/azure/dn931934.aspx) . В приведенном ниже примере показано использование REST API Azure Monitor для запроса данных журнала действий для подписки Azure в определенном диапазоне дат.
 
 ```PowerShell
@@ -213,7 +234,9 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
                    -Verbose).Value | ConvertTo-Json
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * Прочитайте [общие сведения о мониторинге](monitoring-overview.md).
 * Ознакомьтесь с разделом [Метрики, поддерживаемые Azure Monitor](monitoring-supported-metrics.md).
 * Ознакомьтесь со [справочником по REST API Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
