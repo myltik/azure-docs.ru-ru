@@ -12,25 +12,36 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2017
+ms.date: 06/14/2017
 ms.author: nkolli;trinadhk;anuragm;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: 127484103706be5acd0f988aee3d13217d4d87f2
-ms.openlocfilehash: f73bdcf056dc745f9f40e96d3dc51e5e4b88f77d
-ms.lasthandoff: 01/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 5f86d2722b6ba94598c6c671b1154ee4e58e1c79
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Развертывание резервного копирования в Azure для серверов Data Protection Manager (DPM) и управление им с помощью PowerShell
+<a id="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell" class="xliff"></a>
+
+# Развертывание резервного копирования в Azure для серверов Data Protection Manager (DPM) и управление им с помощью PowerShell
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Классический](backup-dpm-automation-classic.md)
 >
 >
 
-В этой статье описано, как использовать PowerShell для настройки службы архивации Azure на сервере DPM и для управления резервным копированием и восстановлением данных.
+В этой статье объясняется, как создавать резервные копии и восстанавливать данные DPM из хранилища резервных копий с помощью PowerShell. Мы рекомендуем использовать хранилища служб восстановления для всех новых развертываний. Если вы только приступили к работе со службой Azure Backup, ознакомьтесь со статьей [Развертывание резервного копирования в Azure для серверов Data Protection Manager (DPM) и управление им с помощью PowerShell](backup-dpm-automation.md), чтобы узнать, как хранить данные в хранилище служб восстановления.
 
-## <a name="setting-up-the-powershell-environment"></a>Настройка среды PowerShell
+> [!IMPORTANT]
+> Теперь вы можете обновить свои резервные хранилища до хранилищ служб восстановления. См. дополнительные сведения об [обновлении резервного хранилища до хранилища служб восстановления](backup-azure-upgrade-backup-to-recovery-services.md). Корпорация Майкрософт рекомендует обновить резервные хранилища до хранилищ служб восстановления. **Начиная с 1 ноября 2017 г.**:
+>- Все остальные резервные хранилища будут автоматически обновлены до хранилищ служб восстановления.
+>- Вы не сможете получить доступ к данным резервных копий на классическом портале. Вместо этого для доступа к данным резервных копий в хранилищах служб восстановления используйте портал Azure.
+>
+
+<a id="setting-up-the-powershell-environment" class="xliff"></a>
+
+## Настройка среды PowerShell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Прежде чем использовать PowerShell для управления резервными копиями Data Protection Manager в Azure, необходимо создать подходящую среду в PowerShell. В начале сеанса PowerShell обязательно выполните следующую команду для импорта необходимых модулей, которая также позволяет правильно ссылаться на командлеты DPM:
@@ -48,7 +59,9 @@ Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax
 Sample DPM scripts: Get-DPMSampleScript
 ```
 
-## <a name="setup-and-registration"></a>Настройка и регистрация
+<a id="setup-and-registration" class="xliff"></a>
+
+## Настройка и регистрация
 Чтобы начать работу, сделайте следующее:
 
 1. [Скачайте последнюю версию PowerShell](https://github.com/Azure/azure-powershell/releases) (минимальная требуемая версия — 1.0.0)
@@ -66,7 +79,9 @@ PS C:\> Switch-AzureMode AzureResourceManager
 * Параметры сети
 * Параметры шифрования
 
-### <a name="create-a-backup-vault"></a>создать хранилище архивации;
+<a id="create-a-backup-vault" class="xliff"></a>
+
+### создать хранилище архивации;
 > [!WARNING]
 > Для клиентов, использующих службу архивации Azure впервые, необходимо зарегистрировать поставщика службы архивации для использования с вашей подпиской. Для этого выполните следующую команду: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 >
@@ -81,7 +96,9 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 
 Чтобы получить список всех хранилищ архивации в данной подписке, используйте командлет **Get-AzureRMBackupVault** .
 
-### <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Установка агента службы архивации Azure на сервер DPM
+<a id="installing-the-azure-backup-agent-on-a-dpm-server" class="xliff"></a>
+
+### Установка агента службы архивации Azure на сервер DPM
 Прежде чем устанавливать агент службы архивации Azure, необходимо загрузить установщик и разместить его в системе Windows Server. Последнюю версию установщика можно загрузить в [центре загрузки Майкрософт](http://aka.ms/azurebackup_agent) или на странице панели мониторинга хранилища архивов. Сохраните установщик в удобном для вас месте, например в папке *C:\Downloads\*.
 
 Чтобы установить агент, в консоли PowerShell с повышенными привилегиями **на сервере DPM**выполните следующую команду:
@@ -96,7 +113,9 @@ PS C:\> MARSAgentInstaller.exe /q
 
 ![Агент установлен](./media/backup-dpm-automation/installed-agent-listing.png)
 
-#### <a name="installation-options"></a>Параметры установки
+<a id="installation-options" class="xliff"></a>
+
+#### Параметры установки
 Чтобы просмотреть все доступные в командной строке параметры, используйте следующую команду:
 
 ```
@@ -118,7 +137,9 @@ PS C:\> MARSAgentInstaller.exe /?
 | /pu |Имя пользователя узла прокси-сервера. |- |
 | /pw |Пароль прокси-сервера. |- |
 
-### <a name="registering-with-the-azure-backup-service"></a>Регистрация в службе архивации Azure
+<a id="registering-with-the-azure-backup-service" class="xliff"></a>
+
+### Регистрация в службе архивации Azure
 Перед регистрацией в службе резервного копирования Azure убедитесь, что соблюдены [необходимые условия](backup-azure-dpm-introduction.md) . Необходимо следующее:
 
 * Действующая подписка Azure
@@ -147,7 +168,9 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 >
 >
 
-### <a name="initial-configuration-settings"></a>Исходные параметры конфигурации
+<a id="initial-configuration-settings" class="xliff"></a>
+
+### Исходные параметры конфигурации
 После регистрации сервера DPM в хранилище службы архивации Azure он будет запущен с параметрами подписки, используемыми по умолчанию. Эти параметры подписки включают настройки сети, шифрования и промежуточной области. Чтобы приступить к изменению параметров подписки, сначала получите дескриптор существующих параметров (по умолчанию) с помощью командлета [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) .
 
 ```
@@ -160,7 +183,9 @@ $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-### <a name="networking"></a>Сеть
+<a id="networking" class="xliff"></a>
+
+### Сеть
 Если компьютер DPM подключен к службе архивации Azure в Интернете через прокси-сервер, то для успешного резервного копирования следует указать параметры прокси-сервера. Для этого используются параметры ```-ProxyServer```, ```-ProxyPort```, ```-ProxyUsername``` и ```ProxyPassword``` для командлета [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). В нашем случае прокси-сервер не используется, поэтому мы явным образом удаляем все данные прокси-сервера.
 
 ```
@@ -173,7 +198,9 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoThrottle
 ```
 
-### <a name="configuring-the-staging-area"></a>Настройка промежуточной области
+<a id="configuring-the-staging-area" class="xliff"></a>
+
+### Настройка промежуточной области
 Для агента службы архивации Azure, работающего на сервере DPM, необходимо предоставить временное хранилище для восстановленных из облака данных (локальная промежуточная область). Настройте промежуточную область с помощью командлета [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) с параметром ```-StagingAreaPath```.
 
 ```
@@ -182,7 +209,9 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 В примере выше задается промежуточная область *C:\StagingArea* в объекте PowerShell ```$setting```. Убедитесь, что указанная папка уже существует, иначе финальная фиксация параметров подписки завершится ошибкой.
 
-### <a name="encryption-settings"></a>Параметры шифрования
+<a id="encryption-settings" class="xliff"></a>
+
+### Параметры шифрования
 Для защиты конфиденциальности данных резервные копии данных, отправляемые в службу архивации Azure, зашифровываются. Используемая для шифрования парольная фраза является "паролем" для расшифровки данных во время их восстановления. После создания фразы надежно сохраните ее и никому не сообщайте о ней.
 
 В следующем примере первая команда преобразует строку ```passphrase123456789``` в защищенную строку и присваивает ее переменной ```$Passphrase```. Вторая команда задает защищенную строку в ```$Passphrase``` в качестве пароля для шифрования резервных копий.
@@ -204,7 +233,9 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="protect-data-to-azure-backup"></a>Защита данных в службе архивации Azure
+<a id="protect-data-to-azure-backup" class="xliff"></a>
+
+## Защита данных в службе архивации Azure
 В этом разделе мы добавим рабочий сервер в DPM, а затем включим защиту данных в локальном хранилище DPM и службе архивации Azure. С помощью примеров мы покажем, как создавать резервные копии файлов и папок. Таким же способом можно создавать резервные копии любых поддерживаемых DPM источников данных. Все резервные копии DPM находятся под управлением группы защиты (ГЗ), которая состоит из четырех частей.
 
 1. **Члены группы защиты** — это список всех защищаемых объектов (также называемых *источниками данных* в DPM), которые вы хотите защитить в рамках одной группы защиты. Например, вы можете защитить рабочие виртуальные машины в одной группе защиты, а базы данных SQL Server — в другой группе защиты, так как у них могут быть разные требования к резервному копированию. Перед созданием резервных копий данных на рабочем сервере убедитесь, что на рабочем сервере установлен агент DPM, который управляется с помощью DPM. Выполните шаги по [установке агента DPM](https://technet.microsoft.com/library/bb870935.aspx) и связыванию его с соответствующим сервером DPM.
@@ -212,7 +243,9 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 3. **Расписание резервного копирования** — указывает, когда необходимо выполнять резервное копирование и как часто следует синхронизировать данные между сервером DPM и рабочим сервером.
 4. **Расписание хранения** — определяет период хранения точек восстановления в Azure.
 
-### <a name="creating-a-protection-group"></a>Создание группы защиты
+<a id="creating-a-protection-group" class="xliff"></a>
+
+### Создание группы защиты
 Начните с создания новой группы защиты с помощью командлета [New-DPMProtectionGroup](https://technet.microsoft.com/library/hh881722) .
 
 ```
@@ -225,7 +258,9 @@ PS C:\> $PG = New-DPMProtectionGroup -DPMServerName " TestingServer " -Name "Pro
 PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 ```
 
-### <a name="adding-group-members-to-the-protection-group"></a>Добавление членов группы в группу защиты
+<a id="adding-group-members-to-the-protection-group" class="xliff"></a>
+
+### Добавление членов группы в группу защиты
 Каждому агенту DPM известен список источников данных на сервере, на котором он установлен. Чтобы добавить источник данных в группу защиты, агент DPM должен сначала отправить список источников данных обратно на сервер DPM. Затем выбирается один или несколько источников данных, которые добавляются в группу защиты. Ниже представлены действия, которые необходимо выполнить в PowerShell, чтобы добавить членов группы в группу защиты.
 
 1. Получите список всех серверов, управляемых DPM через агент DPM.
@@ -239,7 +274,7 @@ PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
 ```
 
-Теперь получим список источников данных на ```$server``` с помощью командлета [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). В этом примере мы применяем фильтрацию для тома *D:\*, который нужно настроить для архивации. Затем этот источник данных добавляется в группу защиты с помощью командлета [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Не забывайте использовать *изменяемый* объект группы защиты ```$MPG```, чтобы вносить дополнения.
+Теперь получим список источников данных на ```$server``` с помощью командлета [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). В этом примере мы применяем фильтрацию для тома *D:\*, который нужно настроить для резервного копирования. Затем этот источник данных добавляется в группу защиты с помощью командлета [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Не забывайте использовать *изменяемый* объект группы защиты ```$MPG```, чтобы вносить дополнения.
 
 ```
 PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }
@@ -249,7 +284,9 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 
 При необходимости повторите этот шаг несколько раз, пока все выбранные источники данных не будут добавлены в группу защиты. Для начала можно выполнить рабочий процесс создания группы защиты только для одного источника данных, а затем позже добавить в эту группу дополнительные источники данных.
 
-### <a name="selecting-the-data-protection-method"></a>Выбор способа защиты данных
+<a id="selecting-the-data-protection-method" class="xliff"></a>
+
+### Выбор способа защиты данных
 После добавления в группу защиты источников данных необходимо указать метод защиты, воспользовавшись для этого командлетом [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) . В этом примере группа защиты будет настроена для резервного копирования на локальный диск и в облако. Необходимо также с помощью командлета [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732.aspx) с флагом -Online указать источник данных, который нужно защитить в облаке.
 
 ```
@@ -257,7 +294,9 @@ PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm 
 PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS –Online
 ```
 
-### <a name="setting-the-retention-range"></a>Настройка диапазона хранения
+<a id="setting-the-retention-range" class="xliff"></a>
+
+### Настройка диапазона хранения
 Задайте период хранения для точек резервного копирования с помощью командлета [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) . Несмотря на то что задание периода хранения до определения расписания резервного копирования может показаться странным, командлет ```Set-DPMPolicyObjective``` автоматически задает расписание резервного копирования по умолчанию, которое в последствии можно изменить. Вы всегда можете сначала определить расписание резервного копирования, а затем задать политику хранения.
 
 В примере ниже командлет задает параметры хранения для резервного копирования на диск. Резервные копии будут храниться 10 дней, а данные будут синхронизироваться между рабочим сервером и сервером DPM каждые 6 часов. ```SynchronizationFrequencyMinutes``` определяет не частоту создания точек резервного копирования, а то, как часто данные копируются на сервер DPM; это предотвращает создание резервных копий слишком большого размера.
@@ -277,7 +316,9 @@ PS C:\> $RRList += (New-Object -TypeName Microsoft.Internal.EnterpriseStorage.Dl
 PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -OnlineRetentionRangeList $RRlist
 ```
 
-### <a name="set-the-backup-schedule"></a>Настройка расписания резервного копирования
+<a id="set-the-backup-schedule" class="xliff"></a>
+
+### Настройка расписания резервного копирования
 При указании цели защиты с помощью командлета ```Set-DPMPolicyObjective``` DPM автоматически задаст расписание резервного копирования по умолчанию. Для изменения расписания по умолчанию используйте командлет [Get DPMPolicySchedule](https://technet.microsoft.com/library/hh881749), а затем командлет [Set-DPMPolicySchedule](https://technet.microsoft.com/library/hh881723).
 
 ```
@@ -298,22 +339,30 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 Поэтому если необходимо изменить еженедельное расписание, необходимо ссылаться на ```$onlineSch[1]```.
 
-### <a name="initial-backup"></a>Начальное резервное копирование
+<a id="initial-backup" class="xliff"></a>
+
+### Начальное резервное копирование
 Если вы создаете резервные копии источника данных впервые, DPM создаст исходную реплику, которая создаст в томе реплики DPM копию защищаемого источника данных. Это действие можно запланировать на определенное время или выполнить вручную с помощью командлета [Set-DPMReplicaCreationMethod](https://technet.microsoft.com/library/hh881715) с параметром ```-NOW```.
 
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
-### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Изменение размера реплики DPM и тома точек восстановления
+<a id="changing-the-size-of-dpm-replica--recovery-point-volume" class="xliff"></a>
+
+### Изменение размера реплики DPM и тома точек восстановления
 Также можно изменить размер тома реплики DPM и тома теневых копий с помощью командлета [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) , как показано в следующем примере: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
-### <a name="committing-the-changes-to-the-protection-group"></a>Фиксация изменений в группу защиты
+<a id="committing-the-changes-to-the-protection-group" class="xliff"></a>
+
+### Фиксация изменений в группу защиты
 Наконец, необходимо зафиксировать изменения до того, как DPM выполнит резервное копирование в соответствии с новой конфигурацией группы защиты. Для этого воспользуйтесь командлетом [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) .
 
 ```
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
-## <a name="view-the-backup-points"></a>Просмотр точек резервного копирования
+<a id="view-the-backup-points" class="xliff"></a>
+
+## Просмотр точек резервного копирования
 Чтобы получить список всех точек восстановления для источника данных, можно использовать командлет [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) . В этом примере мы:
 
 * отправим данные из всех групп защиты на сервер DPM; данные будут храниться в массиве ```$PG```
@@ -326,7 +375,9 @@ PS C:\> $DS = Get-DPMDatasource -ProtectionGroup $PG[0]
 PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 ```
 
-## <a name="restore-data-protected-on-azure"></a>Восстановление данных, защищенных в Azure
+<a id="restore-data-protected-on-azure" class="xliff"></a>
+
+## Восстановление данных, защищенных в Azure
 Восстановление данных представляет собой сочетание объектов ```RecoverableItem``` и ```RecoveryOption```. В предыдущем разделе мы получили список точек резервного копирования для источника данных.
 
 В примере ниже демонстрируется восстановление виртуальной машины Hyper-V из службы архивации Azure путем объединения резервных точек с целевым объектом для восстановления. А именно:
@@ -347,6 +398,8 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 
 Команды можно с легкостью расширить для любого типа источника данных.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * Дополнительные сведения о службе архивации Azure для DPM см. в разделе [Введение в службу архивации DPM](backup-azure-dpm-introduction.md).
 

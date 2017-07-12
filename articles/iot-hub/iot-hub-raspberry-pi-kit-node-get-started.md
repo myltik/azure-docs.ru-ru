@@ -13,28 +13,32 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/14/2017
+ms.date: 5/27/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: acd5221b5cef9f64d681af9cbe7ea431334948b5
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d82480c013f3d5f13fdbf49ff89f19cf71c1a50f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 
-# <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Подключение Raspberry Pi к Центру Интернета вещей Azure (Node.js)
+<a id="connect-raspberry-pi-to-azure-iot-hub-nodejs" class="xliff"></a>
+
+# Подключение Raspberry Pi к Центру Интернета вещей Azure (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 В этом учебнике описано, как начать работу с устройством Raspberry Pi под управлением Raspbian. Также вы узнаете, как можно легко подключать устройства к облаку с помощью [Центра Интернета вещей Azure](iot-hub-what-is-iot-hub.md). Примеры для Windows 10 IoT Базовая представлены в [Центре разработки для Windows](http://www.windowsondevices.com/).
 
-Нет начального набора? Купите новый комплект [здесь](https://azure.microsoft.com/develop/iot/starter-kits).
+Нет начального набора? Используйте [онлайн-симулятор Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md). Или купите новый комплект [здесь](https://azure.microsoft.com/develop/iot/starter-kits).
 
 
-## <a name="what-you-do"></a>В рамках этого руководства мы:
+<a id="what-you-do" class="xliff"></a>
+
+## В рамках этого руководства мы:
 
 * Настроим Raspberry Pi.
 * Создайте центр IoT.
@@ -43,14 +47,18 @@ ms.lasthandoff: 05/08/2017
 
 Подключим Raspberry Pi к созданному Центру Интернета вещей. Затем запустим пример приложения на Pi, чтобы собрать данные о температуре и влажности, полученные с датчика BME280. После этого отправим данные с датчика в Центр Интернета вещей.
 
-## <a name="what-you-learn"></a>Что вы узнаете
+<a id="what-you-learn" class="xliff"></a>
+
+## Что вы узнаете
 
 * Как создать Центр Интернета вещей Azure и получить строку подключения нового устройства.
 * Как подключать Pi к датчику BME280.
 * Как собирать данные датчика, запустив пример приложения на Pi.
 * Как отправить данные датчика в Центр Интернета вещей.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 
 ![Необходимые элементы](media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
@@ -76,9 +84,13 @@ ms.lasthandoff: 05/08/2017
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="setup-raspberry-pi"></a>Настройка Raspberry Pi
+<a id="setup-raspberry-pi" class="xliff"></a>
 
-### <a name="install-the-raspbian-operating-system-for-pi"></a>Установка операционной системы Raspbian на Pi
+## Настройка Raspberry Pi
+
+<a id="install-the-raspbian-operating-system-for-pi" class="xliff"></a>
+
+### Установка операционной системы Raspbian на Pi
 
 Подготовьте карту microSD для установки образа ОС Raspbian.
 
@@ -93,26 +105,31 @@ ms.lasthandoff: 05/08/2017
    1. По завершении установки удалите карту microSD из компьютера. Удалять карту microSD напрямую безопасно, так как программа Etcher автоматически извлекает или отключает карту microSD после завершения.
    1. Вставьте карту microSD в устройство Pi.
 
-### <a name="enable-ssh-and-i2c"></a>Включение SSH и I2C
+<a id="enable-ssh-and-i2c" class="xliff"></a>
+
+### Включение SSH и I2C
 
 1. Подключите Pi к монитору, клавиатуре и мыши, запустите Pi, а затем войдите в Raspbian, используя `pi` в качестве имени пользователя и `raspberry` в качестве пароля.
 1. Щелкните значок Raspberry и выберите **Preferences** (Параметры) > **Raspberry Pi Configuration** (Конфигурация Raspberry Pi).
 
    ![Меню параметров Raspbian](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
 
-1. На вкладке **Interfaces** (Интерфейсы) установите для параметров **I2C** и **SSH** значение **Enable** (Включить), а затем нажмите кнопку **ОК**.
+1. На вкладке **Interfaces** (Интерфейсы) установите для параметров **I2C** и **SSH** значение **Enable** (Включить), а затем нажмите кнопку **ОК**. Этот шаг является необязательным, если у вас нет физических датчиков и вы будете использовать симулированные данные датчика.
 
    ![Включение I2C и SSH на Raspberry Pi](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
 Сведения о том, как включить SSH и I2C, можно найти в дополнительных справочных документах на [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) и [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
-### <a name="connect-the-sensor-to-pi"></a>Подключение датчика к Pi
+<a id="connect-the-sensor-to-pi" class="xliff"></a>
+
+### Подключение датчика к Pi
 
 Подключите светодиодный индикатор и датчик BME280 к Pi с помощью монтажной платы и оптоволоконных кабелей, как показано ниже. Если у вас нет датчика, пропустите этот раздел.
 
 ![Подключение Raspberry Pi и датчика](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
+Датчик BME280 может собирать данные о температуре и влажности. Светодиодный индикатор мигает при обмене данными между устройством и облаком. 
 
 Чтобы подключить выводы датчика, используйте следующие кабели:
 
@@ -131,7 +148,9 @@ ms.lasthandoff: 05/08/2017
 
 ![Подключенный компьютер Pi и датчик BME280](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
-### <a name="connect-pi-to-the-network"></a>Подключение устройства Pi к сети
+<a id="connect-pi-to-the-network" class="xliff"></a>
+
+### Подключение устройства Pi к сети
 
 Включите устройство Pi, используя кабель Micro USB и источник питания. Подключите Pi к проводной сети с помощью кабеля Ethernet или выполните [инструкции](https://www.raspberrypi.org/learning/software-guide/wifi/) от Raspberry Pi Foundation для подключения устройства Pi к беспроводной сети. После успешного подключения Pi к сети необходимо запомнить [IP-адрес устройства Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
@@ -140,9 +159,13 @@ ms.lasthandoff: 05/08/2017
 > [!NOTE]
 > Убедитесь, что плата Pi подключена к той же сети, что и компьютер. Например, если компьютер подключен к беспроводной сети, а плата Pi подключена к проводной сети, то IP-адрес может не отобразиться в выходных данных devdisco.
 
-## <a name="run-a-sample-application-on-pi"></a>Запуск примера приложения на Pi
+<a id="run-a-sample-application-on-pi" class="xliff"></a>
 
-### <a name="clone-sample-application-and-install-the-prerequisite-packages"></a>Клонирование примера приложения и установка пакетов необходимых компонентов
+## Запуск примера приложения на Pi
+
+<a id="clone-sample-application-and-install-the-prerequisite-packages" class="xliff"></a>
+
+### Клонирование примера приложения и установка пакетов необходимых компонентов
 
 1. Используйте один из следующих SSH-клиентов для подключения к Raspberry Pi с главного компьютера.
     - [PuTTY](http://www.putty.org/) для Windows. IP-адрес устройства Pi требуется для подключения по протоколу SSH.
@@ -181,7 +204,9 @@ ms.lasthandoff: 05/08/2017
    > [!NOTE] 
    В зависимости от сетевого подключения процесс установки может занять несколько минут.
 
-### <a name="configure-the-sample-application"></a>Настройка примера приложения
+<a id="configure-the-sample-application" class="xliff"></a>
+
+### Настройка примера приложения
 
 1. Откройте файл конфигурации, выполнив следующую команду:
 
@@ -197,7 +222,9 @@ ms.lasthandoff: 05/08/2017
 
 1. Сохраните изменения и закройте окно, нажав клавиши Control-O > ВВОД > Control-X.
 
-### <a name="run-the-sample-application"></a>Запуск примера приложения
+<a id="run-the-sample-application" class="xliff"></a>
+
+### Запуск примера приложения
 
 1. Запустите пример приложения, выполнив следующую команду:
 
@@ -213,7 +240,9 @@ ms.lasthandoff: 05/08/2017
 
 ![Выходные данные — данные датчика, отправленные с Raspberry Pi в Центр Интернета вещей](media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 Вы запустили пример приложения, чтобы собрать данные датчика и отправить их в Центр Интернета вещей.
 
