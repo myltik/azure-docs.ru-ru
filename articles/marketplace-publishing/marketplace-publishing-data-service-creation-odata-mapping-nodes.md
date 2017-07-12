@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
-ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Общее представление о схеме узлов для сопоставления существующей веб-службы с OData с помощью языка CSDL
+<a id="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl" class="xliff"></a>
+
+# Общее представление о схеме узлов для сопоставления существующей веб-службы с OData с помощью языка CSDL
 > [!IMPORTANT]
 > **В настоящее время мы больше не подключаем новые издатели служб данных. Новые службы данных не будут утверждены для добавления в список.** Дополнительные сведения о публикации бизнес-приложения SaaS на AppSource см. [здесь](https://appsource.microsoft.com/partners). Дополнительные сведения о публикации приложений IaaS или службы разработчика в Azure Marketplace см. [здесь](https://azure.microsoft.com/marketplace/programs/certified/).
 >
@@ -28,7 +32,9 @@ ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
 
 В этом документе поясняется структура узла для сопоставления протокола OData и CSDL. Следует отметить, что структура узла представляет собой XML-документ правильного формата. Поэтому при разработке сопоставления OData применяются корневая, родительская и дочерняя схемы.
 
-## <a name="ignored-elements"></a>Пропускаемые элементы
+<a id="ignored-elements" class="xliff"></a>
+
+## Пропускаемые элементы
 Ниже приведены элементы CSDL высокого уровня (узлы XML), которые не будут использоваться серверной службой Azure Marketplace во время импорта метаданных веб-служб. Они могут присутствовать, но будут пропущены.
 
 | Элемент | Область |
@@ -45,15 +51,16 @@ ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
 
 Ниже подробно описаны изменения (добавляемые и пропускаемые элементы) различных узлов XML на языке CSDL.
 
-## <a name="functionimport-node"></a>Узел FunctionImport
+<a id="functionimport-node" class="xliff"></a>
+
+## Узел FunctionImport
 Узел FunctionImport представляет один URL-адрес (точку входа), который предоставляет службу пользователю. Он позволяет описать способ обращения к URL-адресу, доступные пользователю параметры и способ предоставления этих параметров.
 
 Подробные сведения об этом узле см. на странице [MSDNFunctionImportLink](https://msdn.microsoft.com/library/cc716710.aspx).
 
 Ниже приведены дополнительные атрибуты (или дополнения к атрибутам), предоставляемые узлом FunctionImport.
 
-**d:BaseUri**  -
-— шаблон URI для ресурса REST, предоставляемый Marketplace. Marketplace использует этот шаблон для создания запросов к веб-службе REST. Шаблон URI содержит заполнители параметров в форме {parameterName}, где parameterName — имя параметра. Например, apiVersion={версия_API}.
+**d:BaseUri** — шаблон URI для ресурса REST, предоставляемый Marketplace. Marketplace использует этот шаблон для создания запросов к веб-службе REST. Шаблон URI содержит заполнители параметров в форме {parameterName}, где parameterName — имя параметра. Например, apiVersion={версия_API}.
 Параметры могут отображаться в качестве параметров URI или в качестве части пути URI. Если они отображаются в пути, они всегда являются обязательными (не могут быть помечены, как допускающие значение NULL). *Пример:* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
 
 **Name** — имя импортируемой функции.  Не может совпадать с другими определенными именами в CSDL.  Например, Name="GetModelUsageFile".
@@ -102,7 +109,7 @@ ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
         ]]>
         </d:RequestBody>`
 
-**d:Namespaces** и **d:Namespace** — этот узел описывает пространства имен, которые определяются в данных XML, возвращаемых при импорте функции (конечная точка URI). Данные XML, возвращаемые серверной службой, могут содержать любое количество пространств имен, необходимых, чтобы различать возвращаемое содержимое. **При использовании в запросах d:Map или d:Map XPath все эти пространства имен должны быть перечислены.**  Узел d:Namespaces содержит набор или список узлов d:Namespace. В каждом из них отображается одно пространство имен, используемое в ответе серверной службы. Ниже перечислены атрибуты узла d:Namespace.
+**d:Namespaces** и **d:Namespace** — этот узел описывает пространства имен, которые определяются в данных XML, возвращаемых при импорте функции (конечная точка URI). Данные XML, возвращаемые серверной службой, могут содержать любое количество пространств имен, необходимых, чтобы различать возвращаемое содержимое. **При использовании в запросах d:Map или d:Map XPath все эти пространства имен должны быть перечислены.** Узел d:Namespaces содержит набор или список узлов d:Namespace. В каждом из них отображается одно пространство имен, используемое в ответе серверной службы. Ниже перечислены атрибуты узла d:Namespace.
 
 * **d:Prefix** — префикс пространства имен в том виде, в котором он отображается в результатах XML, возвращенных службой, например, f:FirstName, f:LastName, где f — это префикс.
 * **d:Uri** — полный URI пространства имен, используемого в документе результата. Он представляет значение, в которое разрешается префикс во время выполнения.
@@ -148,7 +155,9 @@ ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
 
 **d:ErrorMessage** — дополнительное расширение OData.
 
-## <a name="parameter-node"></a>Узел параметра
+<a id="parameter-node" class="xliff"></a>
+
+## Узел параметра
 Этот узел представляет один параметр, который предоставляется как часть шаблона URI или текста запроса, который был указан в узле FunctionImport.
 
 Полезные сведения об узле Parameter Element см. [здесь](http://msdn.microsoft.com/library/ee473431.aspx). (Используйте раскрывающийся список **Другие версии**, чтобы просмотреть документацию по другой версии.) *Пример:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
@@ -171,7 +180,9 @@ ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
 | **d: Nullable** *(необязательно)* |Позволяет определить, может ли параметр иметь значение NULL. Значение по умолчанию — true. Однако параметры, предоставляемые как часть пути в шаблоне URI, не могут принимать значение NULL. Если для этих параметров в атрибуте задано значение false, входные данные пользователя переопределяются. **Пример:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
 | **d:SampleValue** *(необязательно)* |Пример значения, который отображается в виде сообщения клиенту в пользовательском интерфейсе.  Чтобы добавить несколько значений, воспользуйтесь списком значений, разделенных вертикальной чертой, т. е. `a |
 
-## <a name="entitytype-node"></a>Узел EntityType
+<a id="entitytype-node" class="xliff"></a>
+
+## Узел EntityType
 Этот узел представляет один из типов, возвращаемых пользователю из Marketplace. Он также содержит сопоставление выходных данных, возвращенных службой поставщика содержимого, со значениями, которые возвращаются пользователю.
 
 Сведения об этом узле см. [здесь](http://msdn.microsoft.com/library/bb399206.aspx). (Используйте раскрывающийся список **Другие версии**, чтобы просмотреть документацию по другой версии.)
@@ -195,11 +206,12 @@ ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
 
 **Key** — Marketplace пропускает этот атрибут. Веб-службы на основе REST обычно не предоставляют первичный ключ.
 
-## <a name="property-node"></a>Узел Property
+<a id="property-node" class="xliff"></a>
+
+## Узел Property
 Этот узел содержит одно свойство записи.
 
-Сведения об этом узле см. по адресу [http://msdn.microsoft.com/library/bb399546.aspx.](http://msdn.microsoft.com/library/bb399546.aspx) (Используйте раскрывающийся список **Другие версии**, чтобы просмотреть документацию по другой версии.) *Пример:*
-        `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
+Сведения об этом узле см. по адресу [http://msdn.microsoft.com/library/bb399546.aspx.](http://msdn.microsoft.com/library/bb399546.aspx) (Используйте раскрывающийся список **Другие версии**, чтобы просмотреть документацию по другой версии.) *Пример:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
         <Property Name="Name"     Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
         ...
         </EntityType>`
@@ -252,7 +264,9 @@ ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
 
 **d:DatabaseDataType** — тип данных столбца в базе данных, то есть тип данных SQL. См. пример DataService CSDL.
 
-## <a name="supported-parametersproperty-types"></a>Поддерживаемые типы параметров и свойств
+<a id="supported-parametersproperty-types" class="xliff"></a>
+
+## Поддерживаемые типы параметров и свойств
 Ниже приведены поддерживаемые типы параметров и свойств. (Учитывается регистр.)
 
 | Примитивные типы | Описание |
@@ -270,13 +284,10 @@ ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
 | Int64 |Представляет 64-разрядное целое значение со знаком |
 | Строка |Представляет символьные данные фиксированной или переменной длины |
 
-## <a name="see-also"></a>См. также
+<a id="see-also" class="xliff"></a>
+
+## См. также
 * Если вы хотите понять процесс и смысл сопоставления OData, см. статью [Сопоставление существующей веб-службы и OData с помощью CSDL](marketplace-publishing-data-service-creation-odata-mapping.md), где приводятся определения, структуры и инструкции.
 * Если вы хотите поработать с примерами, см. статью [Примеры сопоставления существующей веб-службы OData через CSDL](marketplace-publishing-data-service-creation-odata-mapping-examples.md), где приводятся примеры кода вместе с объяснением синтаксиса и контекста.
 * Чтобы вернуться к указанному пути для публикации службы данных в Azure Marketplace, см. [руководство по публикации службы данных](marketplace-publishing-data-service-creation.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

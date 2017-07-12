@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 858ed6ca4355c36c728ae88bf9488f362d487646
-ms.openlocfilehash: 7ffef4a8dcd10fa6608d200b4ca34fb3517c0cc6
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d686d411b0877d2e4aef992e6b28da2a6f03b66e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -431,8 +431,8 @@ ms.lasthandoff: 02/22/2017
    4. Извлеките файлы из GZIP-пакета установщика, выполнив следующую команду: **tar –xvzf Microsoft-ASR_UA_8.4.0.0_RHEL6-64***
       ![Linux master target server](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png).
    5. Перейдите в каталог, в который вы извлекли содержимое TAR-файла.
-   6. Скопируйте парольную фразу сервера конфигурации в локальный файл с помощью команды **echo* `<passphrase>`* >passphrase.txt**.
-   7. Выполните команду **sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i* `<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**.
+   6. Скопируйте парольную фразу сервера конфигурации в локальный файл с помощью команды **echo *`<passphrase>`* >passphrase.txt**.
+   7. Выполните команду **sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**.
 
       ![Регистрация целевого сервера](./media/site-recovery-vmware-to-azure-classic-legacy/linux-mt-install.png)
 7. Подождите 10–15 минут, а затем на странице **Серверы** > **Серверы конфигурации** на вкладке **Сведения о сервере** проверьте, указан ли целевой сервер как зарегистрированный. Если не удалось зарегистрировать сервер под управлением Linux, снова запустите средство настройки узла из каталога /usr/local/ASR/Vx/bin/hostconfigcli. Вам потребуется настроить разрешения доступа, запустив chmod с правами привилегированного пользователя.
