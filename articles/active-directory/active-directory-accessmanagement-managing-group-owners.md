@@ -14,17 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: 8c4920107b5d05716021bcef80d3c52c25f6eade
+ms.contentlocale: ru-ru
 ms.lasthandoff: 12/28/2016
 
 
 ---
-# <a name="managing-owners-for-a-group"></a>Управление владельцами группы
+<a id="managing-owners-for-a-group" class="xliff"></a>
+
+# Управление владельцами группы
 После того как владелец ресурса предоставил доступ к ресурсу группе Azure Active Directory, управление членством в группе осуществляется владельцем группы. Владелец ресурса фактически делегирует владельцу группы разрешение предоставлять пользователям доступ к ресурсу.
 
-## <a name="assigning-group-ownership"></a>Назначение владельца группы
+<a id="assigning-group-ownership" class="xliff"></a>
+
+## Назначение владельца группы
 **Добавление владельца в группу**
 
 1. На [классическом портале Azure](https://manage.windowsazure.com)щелкните **Active Directory**, а затем откройте каталог своей организации.
@@ -39,7 +44,9 @@ ms.lasthandoff: 12/28/2016
 3. Откройте вкладку **Владельцы** .
 4. Выберите владельца, которого нужно удалить из группы, а затем щелкните **Удалить**.
 
-## <a name="additional-information"></a>Дополнительная информация
+<a id="additional-information" class="xliff"></a>
+
+## Дополнительная информация
 В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
