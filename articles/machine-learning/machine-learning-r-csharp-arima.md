@@ -10,7 +10,9 @@ ms.lasthandoff: 05/03/2017
 
 
 ---
-# <a name="deprecated-forecasting---autoregressive-integrated-moving-average-arima"></a>(Не рекомендуется.) Прогнозирование. Интегрированное скользящее среднее с авторегрессией (ARIMA)
+<a id="deprecated-forecasting---autoregressive-integrated-moving-average-arima" class="xliff"></a>
+
+# (Не рекомендуется.) Прогнозирование. Интегрированное скользящее среднее с авторегрессией (ARIMA)
 
 > [!NOTE]
 > Работа Microsoft DataMarket прекращается, и этот API больше не поддерживается. 
@@ -26,7 +28,9 @@ ms.lasthandoff: 05/03/2017
 > 
 > 
 
-## <a name="consumption-of-web-service"></a>Использование веб-службы
+<a id="consumption-of-web-service" class="xliff"></a>
+
+## Использование веб-службы
 Эта служба принимает 4 аргумента и рассчитывает прогнозы ARIMA.
 Входные аргументы:
 
@@ -50,7 +54,9 @@ ms.lasthandoff: 05/03/2017
 
 Есть несколько способов использования службы в автоматическом режиме (см. пример приложения [здесь](http://microsoftazuremachinelearning.azurewebsites.net/ArimaForecasting.aspx)).
 
-### <a name="starting-c-code-for-web-service-consumption"></a>Начало кода C# для использования веб-службы:
+<a id="starting-c-code-for-web-service-consumption" class="xliff"></a>
+
+### Начало кода C# для использования веб-службы:
     public class Input
     {
         public string frequency;
@@ -80,21 +86,29 @@ ms.lasthandoff: 05/03/2017
           var scoreResult = result.ReadAsStringAsync().Result;
       }
 
-## <a name="creation-of-web-service"></a>Создание веб-службы
+<a id="creation-of-web-service" class="xliff"></a>
+
+## Создание веб-службы
 > Эта веб-служба была создана с помощью системы машинного обучения Azure. Чтобы получить бесплатную пробную версию и вводные видеоматериалы по созданию экспериментов и [публикации веб-служб](machine-learning-publish-a-machine-learning-web-service.md), посетите веб-страницу [azure.com/ml](http://azure.com/ml). Ниже приведен снимок экрана эксперимента, в результате которого была создана веб-служба, и пример кода для каждого модуля в эксперименте.
 > 
 > 
 
 В службах машинного обучения Azure создан пустой эксперимент. Загружен образец входных данных с заранее заданной схемой данных. Со схемой данных связан модуль [Выполнить сценарий R][execute-r-script], который создает модель прогнозирования ARIMA с использованием функций auto.arima и forecast языка R. 
 
-### <a name="experiment-flow"></a>Ход эксперимента:
+<a id="experiment-flow" class="xliff"></a>
+
+### Ход эксперимента:
 ![Создание рабочей области][2]
 
-#### <a name="module-1"></a>Модуль 1:
+<a id="module-1" class="xliff"></a>
+
+#### Модуль 1:
     # Add in the CSV file with the data in the format shown below 
 ![Создание рабочей области][3]    
 
-#### <a name="module-2"></a>Модуль 2:
+<a id="module-2" class="xliff"></a>
+
+#### Модуль 2:
     # data input
     data <- maml.mapInputPort(1) # class: data.frame
     library(forecast)
@@ -122,10 +136,14 @@ ms.lasthandoff: 05/03/2017
     maml.mapOutputPort("data.forecast");
 
 
-## <a name="limitations"></a>Ограничения
+<a id="limitations" class="xliff"></a>
+
+## Ограничения
 Это очень простой пример использования модели прогнозирования ARIMA. Как видно из приведенного выше образца кода, в нем не отслеживаются ошибки, служба предполагает, что все переменные являются непрерывными или положительными значениями, а частота должна быть целым числом больше 1. Длина даты и векторов значений должна быть одинаковой. Переменная даты должна быть в формате "мм/дд/гггг".
 
-## <a name="faq"></a>Часто задаваемые вопросы
+<a id="faq" class="xliff"></a>
+
+## Часто задаваемые вопросы
 Ознакомиться с часто задаваемыми вопросами по использованию веб-службы и публикации в магазине Marketplace можно [здесь](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-arima/arima-img1.png
