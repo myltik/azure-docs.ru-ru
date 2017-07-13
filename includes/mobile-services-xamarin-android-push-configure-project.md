@@ -28,14 +28,15 @@
     Это позволяет получать доступ к экземпляру мобильного клиента, используя процесс службы обработчика push-действий.
 4. После создания **MobileServiceClient** добавьте в метод **OnCreate** следующий код:
    
-     // Задание текущего экземпляра TodoActivity.
-     instance = this;
+       // Set the current instance of TodoActivity.
+       instance = this;
    
-     // Проверка правильности настройки клиента GCM.
-     GcmClient.CheckDevice(this); GcmClient.CheckManifest(this);
+       // Make sure the GCM client is set up correctly.
+       GcmClient.CheckDevice(this);
+       GcmClient.CheckManifest(this);
    
-     // Регистрация приложения для работы с push-уведомлениями.
-     GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
+       // Register the app for push notifications.
+       GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
 Ваш класс **ToDoActivity** теперь готов для добавления push-уведомлений.
 
