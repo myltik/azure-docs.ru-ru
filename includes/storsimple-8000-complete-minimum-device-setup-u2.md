@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
-
 #### Минимальная настройка устройства StorSimple
+<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
 
 1. В колонке **Устройства** в таблице со списком устройств выберите нужное устройство. Устройство находится в состоянии **Готово к настройке**. Откроется колонка **Настройка устройства**.
 

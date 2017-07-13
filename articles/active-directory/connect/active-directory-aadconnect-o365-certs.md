@@ -12,17 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
 ms.openlocfilehash: 51eafa16bd918a065f896ba89dec54d2340b5c69
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/27/2017
 
-
 ---
-# <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Обновление сертификатов федерации для Office 365 и Azure AD
-## <a name="overview"></a>Обзор
+# Обновление сертификатов федерации для Office 365 и Azure AD
+<a id="renew-federation-certificates-for-office-365-and-azure-active-directory" class="xliff"></a>
+## Обзор
+<a id="overview" class="xliff"></a>
 Для успешной федерации между Azure Active Directory (Azure AD) и службами федерации Active Directory (AD FS) сертификаты, используемые службами AD FS для подписывания маркеров безопасности в Azure AD, должны соответствовать параметрам, настроенным в Azure AD. Расхождение может привести к нарушению отношений доверия. Azure AD гарантирует, что эта информация синхронизируется при развертывании AD FS и прокси веб-приложения (для доступа к экстрасети).
 
 В этой статье представлены дополнительные сведения об управлении сертификатами для подписи маркеров и их синхронизации с Azure AD в следующих случаях:
@@ -31,10 +33,12 @@ ms.lasthandoff: 01/27/2017
 * Вы не применяете стандартную конфигурацию AD FS к сертификатам для подписи маркеров.
 * Вы используете сторонний поставщик удостоверений.
 
-## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Стандартная конфигурация AD FS для сертификатов для подписи маркеров
+## Стандартная конфигурация AD FS для сертификатов для подписи маркеров
+<a id="default-configuration-of-ad-fs-for-token-signing-certificates" class="xliff"></a>
 Сертификаты для подписи маркеров и их расшифровки обычно представляют собой самозаверяющие сертификаты со сроком годности в один год. По умолчанию AD FS предусматривает процесс автоматического возобновления действия, который называется **AutoCertificateRollover**. Если вы используете AD FS 2.0 или более поздней версии, службы Office 365 и Azure AD автоматически обновят ваш сертификат до окончания срока его действия.
 
-### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>Уведомление о возобновлении действия на портале Office 365 или по электронной почте
+### Уведомление о возобновлении действия на портале Office 365 или по электронной почте
+<a id="renewal-notification-from-the-office-365-portal-or-an-email" class="xliff"></a>
 > [!NOTE]
 > Если вы получите через портал или по электронной почте уведомление о том, что необходимо возобновить действие сертификата для Office, см. раздел об [управлении изменениями в сертификатах для подписи маркеров](#managecerts). Так вы сможете узнать, нужно ли предпринимать какие-либо действия. Корпорации Майкрософт известно о потенциальной проблеме, в результате которой могут отправляться уведомления о возобновлении действия сертификата, даже если никаких действий не требуется.
 >
@@ -57,7 +61,8 @@ Azure AD пытается отслеживать метаданные федер
 >
 
 ## Проверка необходимости в обновлении сертификатов <a name="managecerts"></a>
-### <a name="step-1-check-the-autocertificaterollover-state"></a>Шаг 1. Проверка состояния свойства AutoCertificateRollover
+### Шаг 1. Проверка состояния свойства AutoCertificateRollover
+<a id="step-1-check-the-autocertificaterollover-state" class="xliff"></a>
 На сервере AD FS откройте PowerShell. Удостоверьтесь, что для AutoCertificateRollover задано значение True.
 
     Get-Adfsproperties
@@ -67,7 +72,8 @@ Azure AD пытается отслеживать метаданные федер
 >[!NOTE] 
 >При использовании AD FS 2.0 необходимо сначала выполнить команду Add-Pssnapin Microsoft.Adfs.Powershell.
 
-### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Шаг 2. Убедитесь, что службы AD FS и Azure AD синхронизированы
+### Шаг 2. Убедитесь, что службы AD FS и Azure AD синхронизированы
+<a id="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync" class="xliff"></a>
 На сервере AD FS откройте командную строку Azure AD PowerShell и подключитесь к Azure AD.
 
 > [!NOTE]
@@ -85,7 +91,8 @@ Azure AD пытается отслеживать метаданные федер
 
 Если отпечатки в обоих наборах выходных данных совпадают, значит, сертификаты синхронизируются с Azure AD.
 
-### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Шаг 3. Проверьте, не истекает ли срок действия сертификата
+### Шаг 3. Проверьте, не истекает ли срок действия сертификата
+<a id="step-3-check-if-your-certificate-is-about-to-expire" class="xliff"></a>
 В выходных данных Get-MsolFederationProperty или Get-AdfsCertificate проверьте дату, указанную после строки Not After. Если эта дата наступает менее чем через 30 дней, следует принять меры.
 
 | AutoCertificateRollover | Сертификаты синхронизированы с Azure AD | Метаданные федерации общедоступны | Срок действия | Действие |
@@ -122,7 +129,8 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
 
 В этих ситуациях при каждом обновлении сертификатов для подписи маркеров также необходимо обновить домен Office 365 с помощью команды PowerShell Update-MsolFederatedDomain.
 
-### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Шаг 1. Убедитесь, что в службах AD FS используются новые сертификаты для подписи маркеров
+### Шаг 1. Убедитесь, что в службах AD FS используются новые сертификаты для подписи маркеров
+<a id="step-1-ensure-that-ad-fs-has-new-token-signing-certificates" class="xliff"></a>
 **Нестандартная конфигурация**
 
 Если применяется нестандартная конфигурация AD FS (где значение свойства **AutoCertificateRollover** равно **False**), вероятно, вы используете настраиваемые (не самозаверяющие) сертификаты. Дополнительные сведения об обновлении сертификатов для подписи маркеров AD FS см. в разделе [Рекомендации для клиентов, не использующих самозаверяющие сертификаты AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
@@ -147,7 +155,8 @@ https://(ваше_имя_FS)/federationmetadata/2007-06/federationmetadata.xml
 
 Теперь должны появиться два сертификата, один из которых имеет дату **NotAfter**, равную приблизительно году, и у которого значение параметра **IsPrimary** равно **False**.
 
-### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Шаг 2. Обновление новых сертификатов для подписи маркеров для использования в отношениях доверия Office 365
+### Шаг 2. Обновление новых сертификатов для подписи маркеров для использования в отношениях доверия Office 365
+<a id="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust" class="xliff"></a>
 Выполните описанные ниже действия, чтобы добавить в Office 365 новые сертификаты для подписи маркеров, которые будут использоваться в отношениях доверия.
 
 1. Откройте модуль Microsoft Azure Active Directory для Windows PowerShell.

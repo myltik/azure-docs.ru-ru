@@ -1,6 +1,6 @@
 ---
 title: "Соединители в пользовательском интерфейсе Synchronization Service Manager Azure AD Connect | Документация Майкрософт"
-description: "Получите общие сведения о вкладке &quot;Соединители&quot; в диспетчере службы синхронизации для Azure AD Connect."
+description: "Получите общие сведения о вкладке \"Соединители\" в диспетчере службы синхронизации для Azure AD Connect."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -12,22 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 6d893efd775ff6b55524ba3a621d8248adbdd432
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Использование соединителей с Synchronization Service Manager Azure AD Connect
+# Использование соединителей с Synchronization Service Manager Azure AD Connect
+<a id="using-connectors-with-the-azure-ad-connect-sync-service-manager" class="xliff"></a>
 
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
 Вкладка "Соединители" используется для управления всеми системами, к которым подключен модуль синхронизации.
 
-## <a name="connector-actions"></a>Действия соединителя
+## Действия соединителя
+<a id="connector-actions" class="xliff"></a>
 | Действие | Комментарий |
 | --- | --- |
 | Создание |Не используйте. Для подключения к дополнительным лесам AD используйте мастер установки. |
@@ -42,7 +45,8 @@ ms.lasthandoff: 04/03/2017
 | Обновить схему |Обновляет кэшированную схему. Этот параметр рекомендуется использовать в мастере установки, так как он также обновляет правила синхронизации. |
 | [Пространство поиска соединителя](#search-connector-space) |Применяется для поиска объектов и [отслеживания объекта и его данных в системе](#follow-an-object-and-its-data-through-the-system). |
 
-### <a name="delete"></a>Удалить
+### Удалить
+<a id="delete" class="xliff"></a>
 Действие удаления используется в двух разных целях.  
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
@@ -52,12 +56,14 @@ ms.lasthandoff: 04/03/2017
 
 Оба параметра синхронизируют все объекты и обновляют объекты метавселенной. Это действие является длительной операцией.
 
-### <a name="configure-run-profiles"></a>Настройка профилей выполнения
+### Настройка профилей выполнения
+<a id="configure-run-profiles" class="xliff"></a>
 Этот параметр позволяет просматривать профили выполнения, настроенные для соединителя.
 
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/configurerunprofiles.png)
 
-### <a name="search-connector-space"></a>Пространство поиска соединителя
+### Пространство поиска соединителя
+<a id="search-connector-space" class="xliff"></a>
 Действие поиска пространства соединителя полезно для поиска объектов и устранения проблем с данными.
 
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/cssearch.png)
@@ -68,7 +74,8 @@ ms.lasthandoff: 04/03/2017
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)  
 Здесь можно выбрать объект и **свойства**, а также [отслеживать объект](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) из исходного пространства соединителя через метавселенную до целевого пространства соединителя.
 
-### <a name="changing-the-ad-ds-account-password"></a>Изменение пароля учетной записи AD DS
+### Изменение пароля учетной записи AD DS
+<a id="changing-the-ad-ds-account-password" class="xliff"></a>
 В случае изменения пароля учетной записи служба синхронизации больше не сможет импортировать или экспортировать изменения в локальную среду AD.   Может отображаться следующее:
 
 - Шаг импорта или экспорта для соединителя AD завершается ошибкой "no-start-credentials".
@@ -90,7 +97,8 @@ ms.lasthandoff: 04/03/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

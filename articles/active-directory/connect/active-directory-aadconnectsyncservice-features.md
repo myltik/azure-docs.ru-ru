@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
 ms.openlocfilehash: a439f421d726f58b2d21fb4a0e883e16db719364
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/10/2017
 
-
 ---
-# <a name="azure-ad-connect-sync-service-features"></a>Функции службы синхронизации Azure AD Connect
+# Функции службы синхронизации Azure AD Connect
+<a id="azure-ad-connect-sync-service-features" class="xliff"></a>
 Средство синхронизации Azure AD Connect состоит из двух компонентов.
 
 * Локальный компонент под названием **Синхронизация Azure AD Connect**, который также называется **модулем синхронизации**.
@@ -61,10 +62,12 @@ ms.lasthandoff: 03/10/2017
 | UnifiedGroupWriteback |[Предварительная версия. Обратная запись групп](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Сейчас не поддерживается. |
 
-## <a name="duplicate-attribute-resiliency"></a>Устойчивость повторяющихся атрибутов
+## Устойчивость повторяющихся атрибутов
+<a id="duplicate-attribute-resiliency" class="xliff"></a>
 При подготовке объектов с повторяющимися именами участников-пользователей (UPN) или адресами прокси-сервера (proxyAddress) процесс не прерывается ошибкой, а повторяющийся атрибут помещается на карантин, и ему присваивается временное значение. После разрешения конфликта временное имя участника-пользователя (UPN) будет автоматически исправлено на соответствующее значение. Дополнительные сведения см. в статье [Синхронизация удостоверений и устойчивость повторяющихся атрибутов](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
-## <a name="userprincipalname-soft-match"></a>Мягкое сопоставление атрибута userPrincipalName
+## Мягкое сопоставление атрибута userPrincipalName
+<a id="userprincipalname-soft-match" class="xliff"></a>
 При включении этой функции к имени участника-пользователя, а также к [основному адресу SMTP](https://support.microsoft.com/kb/2641663), который всегда активен, может применяться мягкое сопоставление. Оно используется для сопоставления существующих облачных пользователей в Azure AD с локальными пользователями.
 
 Эта функция удобна для сопоставления локальных учетных записей AD с существующими учетными записями, созданными в облаке, если вы не используете Exchange Online. В такой ситуации устанавливать атрибут SMTP для облака обычно не нужно.
@@ -81,7 +84,8 @@ Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 ```
 
-## <a name="synchronize-userprincipalname-updates"></a>Синхронизация обновлений атрибута userPrincipalName
+## Синхронизация обновлений атрибута userPrincipalName
+<a id="synchronize-userprincipalname-updates" class="xliff"></a>
 Обновления атрибута userPrincipalName с помощью службы синхронизации из локальной среды блокируются за исключением тех случаев, когда выполняются два следующих условия:
 
 * пользователь является управляемым (нефедеративным);
@@ -105,7 +109,8 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 После включения этой функции существующие значения атрибут userPrincipalName останутся неизменными. Если в дальнейшем атрибут userPrincipalName изменится в локальной среде, то имя участника-пользователя будет обновлено при обычной синхронизации изменений для пользователей.  
 
-## <a name="see-also"></a>Дополнительные материалы
+## Дополнительные материалы
+<a id="see-also" class="xliff"></a>
 * [Службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 

@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: ccompy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: e8763f1ab7e51e10ae59cf2b6b2c609f0f45dcd3
+ms.contentlocale: ru-ru
 ms.lasthandoff: 12/08/2016
 
-
 ---
-# <a name="connect-your-app-to-your-virtual-network-by-using-powershell"></a>Подключение приложения к виртуальной сети с помощью PowerShell
-## <a name="overview"></a>Обзор
+# Подключение приложения к виртуальной сети с помощью PowerShell
+<a id="connect-your-app-to-your-virtual-network-by-using-powershell" class="xliff"></a>
+## Обзор
+<a id="overview" class="xliff"></a>
 В службе приложений Azure приложение (веб-приложение, мобильное приложение или приложение API) можно подключить к виртуальной сети Azure в подписке. Эта функция называется интеграцией с виртуальной сетью. Функцию интеграции с виртуальной сетью не следует путать с функцией среды службы приложений, которая позволяет запустить экземпляр службы приложений Azure в виртуальной сети.
 
 Для функции интеграции с виртуальной сетью предусмотрен пользовательский интерфейс на новом портале, который можно использовать для выполнения интеграции с виртуальными сетями, развертываемыми с помощью классической модели развертывания или модели развертывания Azure Resource Manager. Дополнительные сведения об этой функции см. в статье [Интеграция приложения с виртуальной сетью Azure](web-sites-integrate-with-vnet.md).
@@ -34,14 +36,16 @@ ms.lasthandoff: 12/08/2016
 * установлена последняя версия пакета SDK для Azure PowerShell. Ее можно установить с помощью установщика веб-платформы.
 * У вас есть приложение в службе приложений Azure, работающее в системе SKU класса "Стандартный" или "Премиум".
 
-## <a name="classic-virtual-networks"></a>Классические виртуальные сети
+## Классические виртуальные сети
+<a id="classic-virtual-networks" class="xliff"></a>
 В этом разделе описываются три задачи для виртуальных сетей, в которых используется классическая модель развертывания:
 
 1. подключение приложения к ранее созданной виртуальной сети, в которой есть шлюз и которая настроена для подключения типа "точка — сеть";
 2. обновление сведений об интеграции с виртуальной сетью для приложения;
 3. отключение приложения от виртуальной сети.
 
-### <a name="connect-an-app-to-a-classic-vnet"></a>Подключение приложения к классической виртуальной сети
+### Подключение приложения к классической виртуальной сети
+<a id="connect-an-app-to-a-classic-vnet" class="xliff"></a>
 Чтобы подключить приложение к виртуальной сети, выполните три шага:
 
 1. Объявите веб-приложению о том, что оно будет присоединено к конкретной виртуальной сети. Приложение создаст сертификат, который будет передан виртуальной сети для подключения типа "точка — сеть".
@@ -52,7 +56,8 @@ ms.lasthandoff: 12/08/2016
 
 Классическая виртуальная сеть должна находиться в той же подписке, что и план службы приложений, содержащий приложение, с которым выполняется интеграция.
 
-##### <a name="set-up-azure-powershell-sdk"></a>Настройка пакета SDK для Azure PowerShell
+##### Настройка пакета SDK для Azure PowerShell
+<a id="set-up-azure-powershell-sdk" class="xliff"></a>
 Откройте окно PowerShell и настройте учетную запись и подписку Azure, используя следующую команду:
 
     Login-AzureRmAccount
@@ -65,7 +70,8 @@ ms.lasthandoff: 12/08/2016
 
     Select-AzureRmSubscription –SubscriptionId [WebAppSubscriptionId]
 
-##### <a name="variables-used-in-this-article"></a>Переменные, используемые в этой статье
+##### Переменные, используемые в этой статье
+<a id="variables-used-in-this-article" class="xliff"></a>
 Чтобы упростить команды, мы запишем необходимую конфигурацию в переменную PowerShell **$Configuration** .
 
 Установите эту переменную в PowerShell со следующими параметрами:
@@ -101,14 +107,16 @@ ms.lasthandoff: 12/08/2016
 
 В остальной части раздела предполагается, что вы создали переменную описанным способом.
 
-##### <a name="declare-the-virtual-network-to-the-app"></a>Объявление виртуальной сети для приложения
+##### Объявление виртуальной сети для приложения
+<a id="declare-the-virtual-network-to-the-app" class="xliff"></a>
 При помощи команды ниже сообщите приложению, что оно будет использовать указанную виртуальную сеть. При выполнении этой команды приложение создаст необходимые сертификаты:
 
     $vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -PropertyObject @{"VnetResourceId" = "/subscriptions/$($Configuration.VnetSubscriptionId)/resourceGroups/$($Configuration.VnetResourceGroup)/providers/Microsoft.ClassicNetwork/virtualNetworks/$($Configuration.VnetName)"} -Location $Configuration.WebAppLocation -ApiVersion 2015-07-01
 
 Если команда выполнится успешно, **$vnet** будет содержать переменную **Properties**. Переменная **Properties** должна содержать отпечаток и данные сертификата.
 
-##### <a name="upload-the-web-app-certificate-to-the-virtual-network"></a>Отправка сертификата веб-приложения в виртуальную сеть
+##### Отправка сертификата веб-приложения в виртуальную сеть
+<a id="upload-the-web-app-certificate-to-the-virtual-network" class="xliff"></a>
 Для каждого сочетания виртуальной сети и подписки необходимо выполнить однократное действие вручную. То есть при подключении приложений в подписке A к виртуальной сети A это действие нужно выполнить только один раз независимо от того, сколько приложений вы настраиваете. При добавлении нового приложения в другую виртуальную сеть вам понадобится сделать это снова. Это связано с тем, что набор сертификатов создается на уровне подписки в службе приложений Azure и один раз для каждой виртуальной сети, к которой будут подключаться приложения.
 
 Если вы выполнили эти действия или выполнили интеграцию с той же виртуальной сетью с помощью портала, сертификаты уже будут настроены.
@@ -122,7 +130,8 @@ ms.lasthandoff: 12/08/2016
 
 Чтобы отправить сертификат вручную, на [портале Azure][azureportal] выберите **Browse Virtual Network (classic)** (Обзор виртуальных сетей (классических)) > **VPN-подключения** > **Точка-сеть** > **Управление сертификатами**. Здесь можно отправить сертификат.
 
-##### <a name="get-the-point-to-site-package"></a>Получение пакета "точка — сеть"
+##### Получение пакета "точка — сеть"
+<a id="get-the-point-to-site-package" class="xliff"></a>
 Следующий шаг при настройке подключения веб-приложения к виртуальной сети — получение пакета "точка — сеть" и его указание в веб-приложении.
 
 Сохраните следующий шаблон в файл с именем GetNetworkPackageUri.json в произвольном каталоге на вашем компьютере, например C:\Azure\Templates\GetNetworkPackageUri.json.
@@ -168,7 +177,8 @@ ms.lasthandoff: 12/08/2016
 
 Переменная **$output.Outputs.packageUri** будет содержать URI пакета, который передастся веб-приложению.
 
-##### <a name="upload-the-point-to-site-package-to-your-app"></a>Отправка пакета "точка-сеть" в приложение
+##### Отправка пакета "точка-сеть" в приложение
+<a id="upload-the-point-to-site-package-to-your-app" class="xliff"></a>
 Последним шагом является отправка пакета в приложение. Для этого просто выполните следующую команду:
 
     $vnet = New-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)/primary" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections/gateways" -ApiVersion 2015-07-01 -PropertyObject @{"VnetName" = $Configuration.VnetName ; "VpnPackageUri" = $($output.Outputs.packageUri).Value } -Location $Configuration.WebAppLocation
@@ -181,7 +191,8 @@ ms.lasthandoff: 12/08/2016
 
 Если вы видите переменную среды WEBSITE_VNETNAME со значением, соответствующим имени целевой виртуальной сети, это означает, что все конфигурации успешно установлены.
 
-### <a name="update-classic-vnet-integration-information"></a>Обновление сведений об интеграции с классической виртуальной сетью
+### Обновление сведений об интеграции с классической виртуальной сетью
+<a id="update-classic-vnet-integration-information" class="xliff"></a>
 Чтобы обновить или повторно синхронизировать данные, просто повторите действия, выполненные при первоначальной настройке интеграции. К этим действиям относятся:
 
 1. Определение данных конфигурации.
@@ -189,12 +200,14 @@ ms.lasthandoff: 12/08/2016
 3. Получение пакета "точка — сеть".
 4. Отправка пакета "точка — сеть" в приложение.
 
-### <a name="disconnect-your-app-from-a-classic-vnet"></a>Отключение приложения от классической виртуальной сети
+### Отключение приложения от классической виртуальной сети
+<a id="disconnect-your-app-from-a-classic-vnet" class="xliff"></a>
 Для отключения приложения вам понадобятся данные конфигурации, которые использовались при интеграции с виртуальной сетью. После получения этих данных достаточно выполнить команду ниже, чтобы отключить приложение от виртуальной сети.
 
     $vnet = Remove-AzureRmResource -Name "$($Configuration.WebAppName)/$($Configuration.VnetName)" -ResourceGroupName $Configuration.WebAppResourceGroup -ResourceType "Microsoft.Web/sites/virtualNetworkConnections" -ApiVersion 2015-07-01
 
-## <a name="resource-manager-virtual-networks"></a>Виртуальные сети Resource Manager
+## Виртуальные сети Resource Manager
+<a id="resource-manager-virtual-networks" class="xliff"></a>
 У виртуальных сетей Resource Manager есть интерфейсы API Azure Resource Manager, которые упрощают некоторые процессы по сравнению с классическими виртуальными сетями. У нас есть скрипт, который поможет вам выполнить следующие задачи:
 
 * создать виртуальную сеть Resource Manager и интегрировать свое приложение с ней;
@@ -202,7 +215,8 @@ ms.lasthandoff: 12/08/2016
 * интегрировать свое приложение с созданной ранее виртуальной сетью Resource Manager, у которой есть шлюз и включенное подключение "точка — сеть";
 * отключение приложения от виртуальной сети.
 
-### <a name="resource-manager-vnet-app-service-integration-script"></a>Скрипт для интеграции службы приложений для виртуальной сети Resource Manager
+### Скрипт для интеграции службы приложений для виртуальной сети Resource Manager
+<a id="resource-manager-vnet-app-service-integration-script" class="xliff"></a>
 Скопируйте приведенный ниже скрипт и сохраните его в файл. Если вы не хотите использовать скрипт, изучите его, чтобы узнать, как выполнить настройку для виртуальной сети Resource Manager.
 
     function ReadHostWithDefault($message, $default)
@@ -339,6 +353,12 @@ ms.lasthandoff: 12/08/2016
 
         Write-Host "Retrieving VPN Package and supplying to App"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $resourceGroupName -VirtualNetworkGatewayName $vnetGatewayName -ProcessorArchitecture Amd64
+        
+        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
+        {
+            $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
+        }
 
         # Put the VPN client configuration package onto the App
         $PropertiesObject = @{
@@ -518,6 +538,12 @@ ms.lasthandoff: 12/08/2016
         # Now finish joining by getting the VPN package and giving it to the App
         Write-Host "Retrieving VPN Package and supplying to App"
         $packageUri = Get-AzureRmVpnClientPackage -ResourceGroupName $vnet.ResourceGroupName -VirtualNetworkGatewayName $gateway.Name -ProcessorArchitecture Amd64
+        
+        # $packageUri may contain literal double-quotes at the start and the end of the URL
+        if($packageUri.Length -gt 0 -and $packageUri.Substring(0, 1) -eq '"' -and $packageUri.Substring($packageUri.Length - 1, 1) -eq '"')
+        {
+            $packageUri = $packageUri.Substring(1, $packageUri.Length - 2)
+        }
 
         # Put the VPN client configuration package onto the App
         $PropertiesObject = @{
@@ -628,7 +654,8 @@ ms.lasthandoff: 12/08/2016
 
 В остальной части раздела описываются все три варианта.
 
-### <a name="create-a-resource-manager-vnet-and-integrate-with-it"></a>Создание виртуальной сети Resource Manager и интеграция с ней
+### Создание виртуальной сети Resource Manager и интеграция с ней
+<a id="create-a-resource-manager-vnet-and-integrate-with-it" class="xliff"></a>
 Чтобы создать новую виртуальную сеть, которая использует модель развертывания Resource Manager, и интегрировать ее с вашим приложением, выберите вариант **1) Добавить к приложению НОВУЮ виртуальную сеть**. После этого вам будет предложено указать имя виртуальной сети. В этом случае, как видно в следующих параметрах, используется имя v2pshell.
 
 Скрипт сообщает сведения о создаваемой виртуальной сети. При желании можно изменить любой из параметров. При выполнении этого примера созданная виртуальная сеть имеет следующие параметры:
@@ -649,7 +676,8 @@ ms.lasthandoff: 12/08/2016
 
 После выполнения скрипта на экране появится сообщение **Завершено**. На этом этапе у вас есть виртуальная сеть Resource Manager с выбранными вами именем и параметрами. Эта новая виртуальная сеть также будет интегрирована с приложением.
 
-### <a name="integrate-your-app-with-a-preexisting-resource-manager-vnet"></a>Интеграция приложения с созданной ранее виртуальной сетью Resource Manager
+### Интеграция приложения с созданной ранее виртуальной сетью Resource Manager
+<a id="integrate-your-app-with-a-preexisting-resource-manager-vnet" class="xliff"></a>
 Если при интеграции с созданной ранее виртуальной сетью указать виртуальную сеть Resource Manager, у которой нет шлюза или для которой не настроено подключение "точка — сеть", то скрипт настроит их. Если они уже настроены, скрипт сразу перейдет к интеграции приложения. Чтобы запустить этот процесс, просто выберите вариант **2) Добавить к приложению СУЩЕСТВУЮЩУЮ виртуальную сеть**.
 
 Этот вариант можно использовать только в том случае, если у вас есть созданная ранее виртуальная сеть Resource Manager, которая находится в той же подписке, что приложение. После выбора варианта появится список виртуальных сетей Resource Manager.   
@@ -688,7 +716,8 @@ ms.lasthandoff: 12/08/2016
 
 При необходимости эти параметры можно изменить. Если такой необходимости нет, нажмите клавишу ВВОД, чтобы скрипт создал шлюз и подключил приложение к виртуальной сети. При этом на создание шлюза все равно требуется около часа. После выполнения всех действий скрипт выдаст сообщение **Завершено**.
 
-### <a name="disconnect-your-app-from-a-resource-manager-vnet"></a>Отключение приложения от виртуальной сети Resource Manager
+### Отключение приложения от виртуальной сети Resource Manager
+<a id="disconnect-your-app-from-a-resource-manager-vnet" class="xliff"></a>
 При отключении приложения от виртуальной сети не происходит отключение шлюза или подключения "точка — сеть". В конце концов, их можно использовать и для других целей. Они также не отключаются от других приложений, кроме указанных вами. Чтобы выполнить это действие, выберите вариант **3) Удалить виртуальную сеть из приложения**. При выборе этого варианта вы увидите следующее:
 
     Currently connected to VNET v2pshell
