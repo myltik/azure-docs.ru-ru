@@ -17,26 +17,32 @@ ms.workload: database
 ms.date: 06/06/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: bad18882dd362ded4dac53beecbd65ff6df4c725
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 28f99d56404e47adcd375d9f3106cc234469cbfd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
-# <a name="azure-cosmos-db-create-an-documentdb-api-account-using-cli"></a>Azure Cosmos DB: создание учетной записи API DocumentDB с помощью интерфейса командной строки
+<a id="azure-cosmos-db-create-an-documentdb-api-account-using-cli" class="xliff"></a>
+
+# Azure Cosmos DB: создание учетной записи API DocumentDB с помощью интерфейса командной строки
 
 Этот пример сценария интерфейса командной строки (CLI) создает учетную запись, базу данных и коллекцию API DocumentDB в Azure Cosmos DB.  
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="sample-script"></a>Пример скрипта
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+<a id="sample-script" class="xliff"></a>
+
+## Пример скрипта
 
 [!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Создание учетной записи, базы данных и коллекции API DocumentDB в Azure Cosmos DB")]
 
-## <a name="clean-up-deployment"></a>Очистка развертывания
+<a id="clean-up-deployment" class="xliff"></a>
+
+## Очистка развертывания
 
 После выполнения примера сценария можно удалить группу ресурсов и все связанные с ней ресурсы, выполнив следующую команду.
 
@@ -44,7 +50,9 @@ ms.lasthandoff: 05/15/2017
 az group delete --name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Описание скрипта
+<a id="script-explanation" class="xliff"></a>
+
+## Описание скрипта
 
 Этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
@@ -54,7 +62,9 @@ az group delete --name myResourceGroup
 | [az cosmosdb create](/cli/azure/cosmosdb#create) | Создает учетную запись Azure Cosmos DB. |
 | [az group delete](/cli/azure/resource#delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

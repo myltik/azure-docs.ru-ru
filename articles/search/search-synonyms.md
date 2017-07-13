@@ -1,33 +1,42 @@
-<properties
-   pageTitle="Synonyms в Поиске Azure (предварительная версия) | Документация Майкрософт"
-   description="Предварительная документация по компоненту Synonyms (предварительная версия), доступному в REST API Поиска Azure."
-   services="search"
-   documentationCenter=""
-   authors="mhko"
-   manager="pablocas"
-   editor=""/>
+---
+pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
+description: "Предварительная документация по компоненту Synonyms (предварительная версия), доступному в REST API Поиска Azure."
+services: search
+documentationCenter: 
+authors: mhko
+manager: pablocas
+editor: 
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 07/07/2016
+ms.author: nateko
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/09/2017
 
-<tags
-   ms.service="search"
-   ms.devlang="rest-api"
-   ms.workload="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="07/07/2016"
-   ms.author="nateko"/>
+---
+<a id="synonyms-in-azure-search-preview" class="xliff"></a>
 
-
-# <a name="synonyms-in-azure-search-preview"></a>Synonyms в Поиске Azure (предварительная версия)
+# Synonyms в Поиске Azure (предварительная версия)
 
 Synonyms представляет собой поисковые системы, связывающие эквивалентные термины, которые неявно расширяют область запроса, даже если пользователь не указал их. Например, если имеется термин "пес" с синонимами "собака" и "щенок", то документы, содержащие термины "пес", "собака" и "щенок", попадут в область запроса.
 
 В Поиске Azure добавление синонимов выполняется во время обработки запроса. Можно добавить карту синонимов в службу, не прерывая текущие операции. Можно добавить свойство **synonymMaps** в определение поля, не перестраивая индекс. Дополнительные сведения см. в статье [Update Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index) (Обновление индекса (REST API службы Поиска Azure)).
 
-## <a name="feature-availability"></a>Доступность функций
+<a id="feature-availability" class="xliff"></a>
+
+## Доступность функций
 
 Сейчас возможности синонимов доступны в предварительной версии и поддерживаются только последней предварительной версией API (api-version=2016-09-01-Preview). Портал Azure такую поддержку пока не предоставляет. Так как версия API указывается в запросе, можно совмещать общедоступную и предварительную версии API в одном приложении. Тем не менее предварительные версии API не регулируются соглашением об уровне обслуживания, и их возможности могут измениться, поэтому мы не рекомендуем использовать их в рабочих приложениях.
 
-## <a name="how-to-use-synonyms-in-azure-search"></a>Как использовать синонимы в Поиске Azure
+<a id="how-to-use-synonyms-in-azure-search" class="xliff"></a>
+
+## Как использовать синонимы в Поиске Azure
 
 В Поиске Azure функция синонимов основана на картах синонимов, определяемых и передаваемых в службу пользователем. Эти карты представляют собой независимый ресурс (как индексы или источники данных) и могут использоваться любым полем, поддерживающим поиск, в любом индекс в службе поиска.
 
@@ -35,13 +44,17 @@ Synonyms представляет собой поисковые системы, 
 
 Внедрение синонимов в приложение поиска состоит из двух этапов:
 
-1.    Добавление карты синонимов в службу поиска с помощью интерфейсов API, приведенных ниже.  
+1.  Добавление карты синонимов в службу поиска с помощью интерфейсов API, приведенных ниже.  
 
-2.    Настройка поля, поддерживающего поиск, для использования карты синонимов в определении индекса.
+2.  Настройка поля, поддерживающего поиск, для использования карты синонимов в определении индекса.
 
-### <a name="synonymmaps-resource-apis"></a>Интерфейсы API ресурсов SynonymMaps
+<a id="synonymmaps-resource-apis" class="xliff"></a>
 
-#### <a name="add-or-update-a-synonym-map-under-your-service-using-post-or-put"></a>Добавить или обновить кату синонимов в службе можно с помощью запроса POST или PUT.
+### Интерфейсы API ресурсов SynonymMaps
+
+<a id="add-or-update-a-synonym-map-under-your-service-using-post-or-put" class="xliff"></a>
+
+#### Добавить или обновить кату синонимов в службе можно с помощью запроса POST или PUT.
 
 Для передачи карты синонимов в службу используется запрос POST или PUT. Правила должны быть разделены символами новой строки (\n). Можно определить до 5000 правил на карту синонимов в службе уровня "Бесплатный" и до 10 000 правил для всех прочих номеров SKU. Каждое правило может содержать до 20 расширений.
 
@@ -72,7 +85,9 @@ Synonyms представляет собой поисковые системы, 
           Washington, Wash., WA => WA\n"
     }
 
-##### <a name="apache-solr-synonym-format"></a>Формат синонимов Apache Solr
+<a id="apache-solr-synonym-format" class="xliff"></a>
+
+##### Формат синонимов Apache Solr
 
 Формат Solr поддерживает эквивалентные и явные сопоставления синонимов. Правила сопоставления соответствуют спецификации фильтра синонимов с открытым кодом Apache Solr, описанной в этом документе: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Ниже приведен пример правила для эквивалентных синонимов.
 ```
@@ -86,22 +101,30 @@ Synonyms представляет собой поисковые системы, 
               Washington, Wash., WA => WA
 ```
 
-#### <a name="list-synonym-maps-under-your-service"></a>Вывод карт синонимов в службе.
+<a id="list-synonym-maps-under-your-service" class="xliff"></a>
+
+#### Вывод карт синонимов в службе.
 
     GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
     api-key: [admin key]
 
-#### <a name="get-a-synonym-map-under-your-service"></a>Получение карты синонимов в службе.
+<a id="get-a-synonym-map-under-your-service" class="xliff"></a>
+
+#### Получение карты синонимов в службе.
 
     GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
     api-key: [admin key]
 
-#### <a name="delete-a-synonyms-map-under-your-service"></a>Удаление карты синонимов в службе.
+<a id="delete-a-synonyms-map-under-your-service" class="xliff"></a>
+
+#### Удаление карты синонимов в службе.
 
     DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
     api-key: [admin key]
 
-### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Настройка поля, поддерживающего поиск, для использования карты синонимов в определении индекса.
+<a id="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition" class="xliff"></a>
+
+### Настройка поля, поддерживающего поиск, для использования карты синонимов в определении индекса.
 
 Новое свойство поля **synonymMaps** можно использовать для указания карты синонимов для поля, поддерживающего поиск. Карты синонимов — это ресурсы уровня службы, и на них может ссылаться любое поле индекса в службе.
 
@@ -142,7 +165,9 @@ Synonyms представляет собой поисковые системы, 
 > [!NOTE]
 > В этой предварительной версии можно использовать только одну карту синонимов на поле. Если вы хотите использовать несколько карт синонимов, сообщите нам об этом с помощью [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
-## <a name="impact-of-synonyms-on-other-search-features"></a>Влияние синонимов на другие функции поиска
+<a id="impact-of-synonyms-on-other-search-features" class="xliff"></a>
+
+## Влияние синонимов на другие функции поиска
 
 Функция синонимов перезаписывает исходный запрос, добавляя синонимы с оператором ИЛИ. По этой причине функция выделения совпадений и профиль повышения считают исходный термин и его синонимы эквивалентными.
 
@@ -150,7 +175,9 @@ Synonyms представляет собой поисковые системы, 
 
 Расширения синонимов не применяются к поисковым терминам с подстановочными знаками. Это также относится к терминам, содержащим префикс, нечеткое условие и регулярное выражение.
 
-## <a name="tips-for-building-a-synonym-map"></a>Советы по созданию карты синонимов
+<a id="tips-for-building-a-synonym-map" class="xliff"></a>
+
+## Советы по созданию карты синонимов
 
 - Краткая и хорошо спроектированная карта синонимов намного эффективнее, чем всеобъемлющий список возможных совпадений. Слишком большие или сложные словари увеличивают длительность анализа и задерживают обработку запросов, если в запрос добавляется несколько синонимов. Вместо того, чтобы гадать, какие термины могут использоваться, можно получить фактические термины, воспользовавшись [отчетом об анализе трафика поиска](search-traffic-analytics.md).
 
@@ -158,7 +185,9 @@ Synonyms представляет собой поисковые системы, 
 
 - Можно создать несколько карт синонимов для приложения поиска (например, для разных языков, если приложение поддерживает многоязычную базу клиентов). В настоящее время поле может использовать только одну карту. Свойство synonymMaps поля можно обновить в любое время.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 - Если у вас есть индекс в среде разработки (не в рабочей среде), поэкспериментируйте с небольшим словарем, чтобы узнать, как добавление синонимов изменяет результаты поиска, включая влияние на профили повышения, выделение совпадений и предложения.
 

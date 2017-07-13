@@ -4,7 +4,7 @@ description: "Клонируйте пример приложения C из Gith
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "мигание светодиодного индикатора raspberry pi, включение индикатора с помощью raspberry pi"
 ROBOTS: NOINDEX
@@ -17,31 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 5b16230178fa82c7f227e3e3f8742fa16b00c719
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Создание и развертывание приложения для включения индикатора
-## <a name="what-you-will-do"></a>Выполняемая задача
+<a id="create-and-deploy-the-blink-application" class="xliff"></a>
+
+# Создание и развертывание приложения для включения индикатора
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 Клонирование примера приложения C из GitHub и его развертывание с помощью инструмента Gulp на устройстве Raspberry Pi 3. Этот пример приложения будет каждые две секунды включать светодиодный индикатор, подключенный к плате. Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 В этой статье вы узнаете следующее:
 
 * Как использовать средство `device-discover-cli` для получения сетевых сведений о плате Pi.
 * Как развертывать и запускать пример приложения на плате Pi.
 * Как развертывать и отлаживать приложения, работающие удаленно на плате Pi.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 Необходимо успешно выполнить следующие операции:
 
 * [Настройка устройства](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
 * [Получение инструментов](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
 
-## <a name="obtain-the-ip-address-and-host-name-of-pi"></a>Получение IP-адреса и имени узла для платы Pi
+<a id="obtain-the-ip-address-and-host-name-of-pi" class="xliff"></a>
+
+## Получение IP-адреса и имени узла для платы Pi
 В командной строке Windows или в окне терминала на устройстве под управлением macOS или Ubuntu выполните следующую команду.
 
 ```bash
@@ -57,7 +67,9 @@ devdisco list --eth
 > [!NOTE]
 > Убедитесь, что плата Pi подключена к той же сети, что и компьютер. Например, если компьютер подключен к беспроводной сети, а плата Pi подключена к проводной сети, то IP-адрес может не отобразиться в выходных данных devdisco.
 
-## <a name="open-the-sample-application"></a>Открытие примера приложения
+<a id="open-the-sample-application" class="xliff"></a>
+
+## Открытие примера приложения
 Чтобы открыть пример приложения, сделайте следующее:
 
 1. Клонируйте пример репозитория из GitHub, выполнив следующую команду.
@@ -77,14 +89,18 @@ devdisco list --eth
 
 Файл `main.c` в подпапке `app` — это ключевой исходный файл, содержащий код для управления светодиодным индикатором.
 
-### <a name="install-application-dependencies"></a>Установка зависимостей приложения
+<a id="install-application-dependencies" class="xliff"></a>
+
+### Установка зависимостей приложения
 Установите библиотеки и другие модули, необходимые для примера приложения, выполнив следующую команду:
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Настройка подключения устройства
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Настройка подключения устройства
 Чтобы настроить подключение устройства, выполните следующие действия.
 
 1. Создайте файл конфигурации устройства, выполнив приведенную ниже команду.
@@ -126,8 +142,12 @@ npm install
 
 Поздравляем! Вы успешно создали первый пример приложения для платы Pi.
 
-## <a name="deploy-and-run-the-sample-application"></a>Развертывание и запуск примера приложения
-### <a name="install-the-azure-iot-hub-sdk-on-pi"></a>Установка пакета SDK для Центра Интернета вещей на устройстве Pi
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Развертывание и запуск примера приложения
+<a id="install-the-azure-iot-hub-sdk-on-pi" class="xliff"></a>
+
+### Установка пакета SDK для Центра Интернета вещей на устройстве Pi
 Установите пакет SDK для Центра Интернета вещей на устройстве Pi, выполнив следующую команду:
 
 ```bash
@@ -136,21 +156,29 @@ gulp install-tools
 
 При первом выполнении этой задачи на ее завершение может уйти несколько минут.
 
-### <a name="deploy-and-run-the-sample-app"></a>Развертывание и запуск примера приложения
+<a id="deploy-and-run-the-sample-app" class="xliff"></a>
+
+### Развертывание и запуск примера приложения
 Разверните и запустите пример приложения, выполнив следующую команду.
 
 ```bash
 gulp deploy && gulp run
 ```
 
-### <a name="verify-the-app-works"></a>Проверка работы приложения
+<a id="verify-the-app-works" class="xliff"></a>
+
+### Проверка работы приложения
 После того, как светодиодный индикатор мигнет 20 раз, пример приложения завершит работу автоматически. Если индикатор не мигает, см. способы решения распространенных проблем в [руководстве по устранению неполадок](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 ![Индикатор мигает](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 Вы установили необходимые средства для работы с платой Pi и развернули пример приложения, заставляющего светодиодный индикатор мигать. Теперь можно приступать к созданию, развертыванию и запуску другого примера приложения, которое подключает плату Pi к Центру Интернета вещей Azure для отправки и получения сообщений.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Get Azure tools](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md) (Получение инструментов Azure)
 
 

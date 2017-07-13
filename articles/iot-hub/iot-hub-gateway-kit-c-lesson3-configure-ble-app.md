@@ -4,7 +4,7 @@ description: "Запустите пример приложения BLE для п
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "приложение BLE, приложение мониторинга датчиков, сбор данных датчиков, данные датчиков, передача данных датчиков в облако"
 ROBOTS: NOINDEX
@@ -17,16 +17,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: a9f689c0b231af3cdf9257e2179bf86ff7bc9a31
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="configure-and-run-a-ble-sample-application"></a>Настройка и запуск примера приложения BLE
+<a id="configure-and-run-a-ble-sample-application" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>Выполняемая задача
+# Настройка и запуск примера приложения BLE
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 
 - Клонируйте репозиторий. 
 - Настройте подключение между SensorTag и Intel NUC. 
@@ -34,19 +38,25 @@ ms.lasthandoff: 01/25/2017
 
 Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-gateway-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 
 В этой статье вы узнаете следующее:
 
 - Как настроить и запустить пример приложения BLE.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 
 Необходимо успешно выполнить инструкции, изложенные в следующих статьях:
 
 - [Создание Центра Интернета вещей и регистрация SensorTag](iot-hub-gateway-kit-c-lesson2-register-device.md)
 
-## <a name="clone-the-sample-repository-to-the-host-computer"></a>Клонирование примера репозитория на главном компьютере
+<a id="clone-the-sample-repository-to-the-host-computer" class="xliff"></a>
+
+## Клонирование примера репозитория на главном компьютере
 
 Чтобы клонировать пример репозитория на главном компьютере, сделайте следующее:
 
@@ -58,7 +68,9 @@ ms.lasthandoff: 01/25/2017
    cd iot-hub-c-intel-nuc-gateway-getting-started
    ```
 
-## <a name="set-up-the-connectivity-between-sensortag-and-intel-nuc"></a>Настройте подключение между SensorTag и Intel NUC.
+<a id="set-up-the-connectivity-between-sensortag-and-intel-nuc" class="xliff"></a>
+
+## Настройте подключение между SensorTag и Intel NUC.
 
 Для этого сделайте следующее на главном компьютере:
 
@@ -106,7 +118,9 @@ ms.lasthandoff: 01/25/2017
 
    Замените `{mac address}` MAC-адресом, полученным на предыдущем шаге.
 
-## <a name="get-the-connection-string-of-sensortag"></a>Получение строки подключения SensorTag
+<a id="get-the-connection-string-of-sensortag" class="xliff"></a>
+
+## Получение строки подключения SensorTag
 
 Чтобы получить строку подключения Центра Интернета вещей Azure для SensorTag, выполните следующую команду на главном компьютере:
 
@@ -116,7 +130,9 @@ az iot device show-connection-string --hub-name {IoT hub name} --device-id mydev
 
 `{IoT hub name}` — это имя использованного Центра Интернета вещей. Используйте iot-gateway в качестве значения `{resource group name}`, а mydevice в качестве значения `{device id}`, если в уроке 2 значение не изменялось.
 
-## <a name="configure-the-ble-sample-application"></a>Настройка примера приложения BLE
+<a id="configure-the-ble-sample-application" class="xliff"></a>
+
+## Настройка примера приложения BLE
 
 Чтобы настроить и запустить пример приложения BLE, сделайте следующее на главном компьютере:
 
@@ -148,7 +164,9 @@ az iot device show-connection-string --hub-name {IoT hub name} --device-id mydev
       gulp run
       ```
 
-## <a name="verify-that-the-ble-sample-application-works"></a>Проверка работы примера приложения BLE
+<a id="verify-that-the-ble-sample-application-works" class="xliff"></a>
+
+## Проверка работы примера приложения BLE
 
 Должны отобразиться подобные выходные данные:
 
@@ -156,9 +174,13 @@ az iot device show-connection-string --hub-name {IoT hub name} --device-id mydev
 
 Пример приложения выполняет сбор данных температуры и отправляет их в ваш Центр Интернета вещей. Пример приложения автоматически завершает работу через 40 секунд после отправки.
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 
 Вы успешно настроили подключение между SensorTag и Intel NUC, а также запустили пример приложения BLE, который собирает и отправляет данные из SensorTag в Центр Интернета вещей. Теперь можно перейти к проверке получения данных в Центре Интернета вещей.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Чтение сообщений из Центра Интернета вещей](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)

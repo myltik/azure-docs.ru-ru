@@ -4,7 +4,7 @@ description: "Настройка Intel Edison для первого исполь
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "Arduino, настройка, подключение Arduino к компьютеру, настройка Arduino, плата Arduino"
 ROBOTS: NOINDEX
@@ -17,24 +17,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
 ms.openlocfilehash: 800f1aed6d30d2bb871a6a9b55b6b95308932211
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="configure-your-intel-edison"></a>Настройка Intel Edison
-## <a name="what-you-will-do"></a>Выполняемая задача
+<a id="configure-your-intel-edison" class="xliff"></a>
+
+# Настройка Intel Edison
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 Настройте Intel Edison для первого использования: соберите плату, подключите ее и установите на компьютере инструмент для настройки, с помощью которого установите встроенное ПО Intel Edison, настроите пароль и подключите устройство к Wi-Fi. Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок][troubleshooting].
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 В этой статье вы узнаете следующее:
 
 * как собрать и включить плату Edison;
 * как прошить встроенное ПО Edison, установить пароль и подключиться к Wi-Fi.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 Чтобы выполнить эту операцию, вам понадобятся следующие элементы из начального набора Intel Edison:
 
 * модуль Intel® Edison;
@@ -54,7 +62,9 @@ ms.lasthandoff: 01/25/2017
 * Беспроводное подключение, к которому будет подключаться Edison.
 * Подключение к Интернету для скачивания инструмента настройки.
 
-## <a name="assemble-your-board"></a>Сборка платы
+<a id="assemble-your-board" class="xliff"></a>
+
+## Сборка платы
 
 Этот раздел описывает процедуру подключения модуля Intel® Edison к плате расширения.
 
@@ -80,7 +90,9 @@ ms.lasthandoff: 01/25/2017
 
    ![Собранная плата](media/iot-hub-intel-edison-lessons/lesson1/assembled_board.jpg)
 
-## <a name="power-up-edison"></a>Подключение питания Edison
+<a id="power-up-edison" class="xliff"></a>
+
+## Подключение питания Edison
 
 1. Подключите источник питания.
 
@@ -93,7 +105,9 @@ ms.lasthandoff: 01/25/2017
    > [!NOTE]
    > Если у вас нет источника питания постоянного тока, вы можете подать на плату питание через порт USB. Дополнительные сведения см. в разделе `Connect Edison to your computer`. Такой способ подачи питания может привести к непредсказуемому поведению системной платы, особенно при использовании Wi-Fi или двигателей.
 
-## <a name="connect-edison-to-your-computer"></a>Подключение Edison к компьютеру
+<a id="connect-edison-to-your-computer" class="xliff"></a>
+
+## Подключение Edison к компьютеру
 
 1. Переведите микропереключатель вниз, в сторону двух портов micro-USB, чтобы перевести Edison в режим устройства. Различия между режимами устройства и узла описаны [здесь](https://software.intel.com/en-us/node/628233#usb-device-mode-vs-usb-host-mode).
 
@@ -109,23 +123,31 @@ ms.lasthandoff: 01/25/2017
 
 4. Вы можете быть уверены, что инициализация платы завершилась, когда компьютер присоединит новый диск (примерно так же, как при подключении SD-карты).
 
-## <a name="download-and-run-the-configuration-tool"></a>Скачивание и запуск инструмента настройки
+<a id="download-and-run-the-configuration-tool" class="xliff"></a>
+
+## Скачивание и запуск инструмента настройки
 Скачайте последнюю версию инструмента настройки, выбрав нужный вариант в разделе `Installers` на [этой странице](https://software.intel.com/en-us/iot/hardware/edison/downloads). Запустите инструмент и выполните инструкции, которые будут отображаться на экране. Нажимайте кнопку "Далее" по мере необходимости.
 
-### <a name="flash-firmware"></a>Встроенное ПО
+<a id="flash-firmware" class="xliff"></a>
+
+### Встроенное ПО
 1. На странице `Set up options` нажмите кнопку `Flash Firmware`.
 2. Выберите образ, который нужно установить на плату:
    - чтобы скачать и установить последнюю версию встроенного ПО, предлагаемого Intel для вашей платы, выберите `Download the latest image version xxxx`;
    - чтобы установить образ, который вы ранее сохранили на своем компьютере, выберите `Select the local image`. Найдите и выберите образ для установки на плату.
 3. Инструмент настройки попытается установить ПО на плату. Этот процесс может занять до 10 минут.
 
-### <a name="set-password"></a>Установка пароля
+<a id="set-password" class="xliff"></a>
+
+### Установка пароля
 1. На странице `Set up options` нажмите кнопку `Enable Security`.
 2. Для платы Intel® Edison вы можете задать пользовательское имя. Это необязательно.
 3. Введите пароль для вашей платы, а затем щелкните `Set password`.
 4. Запишите пароль, он вам пригодится позднее.
 
-### <a name="connect-wi-fi"></a>Подключение Wi-Fi
+<a id="connect-wi-fi" class="xliff"></a>
+
+### Подключение Wi-Fi
 1. На странице `Set up options` нажмите кнопку `Connect Wi-Fi`. Подождите примерно одну минуту, пока компьютер найдет доступные сети Wi-Fi.
 2. В раскрывающемся списке `Detected Networks` выберите нужную сеть.
 3. В раскрывающемся списке `Security` выберите режим безопасности для этой сети.
@@ -137,10 +159,14 @@ ms.lasthandoff: 01/25/2017
 
 Поздравляем! Вы успешно настроили устройство Edison.
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 Из этой статьи вы узнали, как собрать плату Edison, как установить встроенное ПО, задать пароль и подключить устройство к Wi-Fi с помощью инструмента настройки. Обратите внимание, что светодиодный индикатор еще не светится. Следующая задача — установить необходимые инструменты и программное обеспечение, которые потребуются для запуска примера приложения на устройстве Edison.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Get the tools][get-the-tools] (Получение инструментов)
 <!-- Images and links -->
 

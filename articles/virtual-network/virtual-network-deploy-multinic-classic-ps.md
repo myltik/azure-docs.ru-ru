@@ -16,14 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: 6e2bb0e228aa28c79969cba07352061abbb47951
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/22/2017
 
-
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Создание виртуальных машин (классическая модель) с несколькими сетевыми интерфейсами с помощью PowerShell
+<a id="create-a-vm-classic-with-multiple-nics-using-powershell" class="xliff"></a>
+
+# Создание виртуальных машин (классическая модель) с несколькими сетевыми интерфейсами с помощью PowerShell
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
@@ -36,20 +38,26 @@ ms.lasthandoff: 03/22/2017
 
 В приведенных ниже действиях используются следующие группы ресурсов: *IaaSStory* для веб-серверов и *IaaSStory-BackEnd* для серверов базы данных.
 
-## <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+
+## Предварительные требования
 
 Перед созданием серверов базы данных необходимо создать группу ресурсов *IaaSStory* со всеми ресурсами, необходимыми для этого сценария. Чтобы создать эти ресурсы, выполните приведенные ниже действия. Создайте виртуальную сеть, следуя инструкциям в [этой статье](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-the-back-end-vms"></a>Создание внутренних виртуальных машин
+<a id="create-the-back-end-vms" class="xliff"></a>
+
+## Создание внутренних виртуальных машин
 Внутренние виртуальные машины зависят от создания следующих ресурсов:
 
 * **Внутренняя подсеть**. Чтобы разделить трафик, серверы базы данных будут входить в отдельную подсеть. Приведенный ниже сценарий предполагает наличие этой подсети в виртуальной сети с именем *WTestVnet*.
 * **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя (SSD), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
 * **Группа доступности**. Все серверы баз данных будут добавлены в одну группу доступности, чтобы гарантировать, что как минимум одна из виртуальных машин будет запущена и доступна во время обслуживания.
 
-### <a name="step-1---start-your-script"></a>Шаг 1. Запуск сценария
+<a id="step-1---start-your-script" class="xliff"></a>
+
+### Шаг 1. Запуск сценария
 Полный сценарий PowerShell можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
 
 1. Измените значения следующих переменных в зависимости от существующей группы ресурсов, развернутой в соответствии с инструкциями в разделе [Предварительные требования](#Prerequisites)выше.
@@ -74,7 +82,9 @@ ms.lasthandoff: 03/22/2017
     $numberOfVMs           = 2
     ```
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>Шаг 2. Создание необходимых ресурсов для виртуальных машин
+<a id="step-2---create-necessary-resources-for-your-vms" class="xliff"></a>
+
+### Шаг 2. Создание необходимых ресурсов для виртуальных машин
 Необходимо создать облачную службу и учетную запись хранения для дисков данных для всех виртуальных машин. Кроме того, для виртуальных машин необходимо указать образ и учетную запись локального администратора. Чтобы создать эти ресурсы, выполните следующие действия:
 
 1. Создайте облачную службу.
@@ -112,7 +122,9 @@ ms.lasthandoff: 03/22/2017
     $cred = Get-Credential -Message "Enter username and password for local admin account"
     ```
 
-### <a name="step-3---create-vms"></a>Шаг 3. Создание виртуальных машин
+<a id="step-3---create-vms" class="xliff"></a>
+
+### Шаг 3. Создание виртуальных машин
 Необходимо использовать цикл, чтобы создать необходимое количество виртуальных машин, и создать в нем необходимые сетевые карты и виртуальные машины. Чтобы создать сетевые карты и виртуальные машины, сделайте следующее:
 
 1. Запустите цикл `for` для повтора команды, которая позволяет создать виртуальную машину и две сетевые карты необходимое количество раз на основе значения переменной `$numberOfVMs`.
@@ -136,14 +148,14 @@ ms.lasthandoff: 03/22/2017
     ```powershell
     Add-AzureProvisioningConfig -VM $vmConfig -Windows `
         -AdminUsername $cred.UserName `
-        -Password $cred.Password
+        -Password $cred.GetNetworkCredential().Password
     ```
 
 4. Задайте сетевую карту по умолчанию и назначьте ей статический IP-адрес.
 
     ```powershell
-    Set-AzureSubnet            -SubnetNames $backendSubnetName -VM $vmConfig
-    Set-AzureStaticVNetIP     -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+    Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
+    Set-AzureStaticVNetIP   -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
 5. Добавьте вторую сетевую карту для каждой виртуальной машины.
@@ -181,7 +193,9 @@ ms.lasthandoff: 03/22/2017
     }
     ```
 
-### <a name="step-4---run-the-script"></a>Шаг 4. Запуск сценария
+<a id="step-4---run-the-script" class="xliff"></a>
+
+### Шаг 4. Запуск сценария
 Теперь, когда вы скачали и изменили сценарий в соответствии со своими потребностями, запустите сценарий для создания виртуальных машин внутренней базы данных с несколькими сетевыми картами.
 
 1. Сохраните сценарий и запустите его из командной строки **PowerShell** или **интегрированной среды сценариев PowerShell**. Вы увидите начальный вывод сценария, как показано ниже.

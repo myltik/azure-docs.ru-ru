@@ -16,21 +16,24 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 7bed1e96cec49e8b62d671952976025453da6787
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: daff6ab4c0eaf17d1cb488f1c16aa111b6ed9a88
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 06/23/2017
 
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager
+<a id="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template" class="xliff"></a>
+
+# Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager
 В этой статье описывается развертывание шаблона Azure Resource Manager с помощью C#. Этот [шаблон](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) позволяет выполнить развертывание одной виртуальной машины под управлением Windows Server в новой виртуальной сети с одной подсетью.
 
 Подробное описание ресурса виртуальной машины см. в статье [Виртуальные машины в шаблоне Azure Resource Manager](template-description.md). Дополнительные сведения обо всех ресурсах в шаблоне см. в статье [Пошаговое руководство по созданию шаблона Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 На выполнение этих действий требуется примерно 10 минут.
 
-## <a name="step-1-create-a-visual-studio-project"></a>Шаг 1. Создание проекта Visual Studio
+<a id="step-1-create-a-visual-studio-project" class="xliff"></a>
+
+## Шаг 1. Создание проекта Visual Studio
 
 На этом шаге нужно убедиться, что экземпляр Visual Studio установлен, и создать консольное приложение, используемое для развертывания шаблона.
 
@@ -38,7 +41,9 @@ ms.lasthandoff: 05/11/2017
 2. В Visual Studio выберите **Файл** > **Создать** > **Проект**.
 3. В разделе **Шаблоны** > **Visual C#** выберите пункт **Консольное приложение (.NET Framework)**, укажите имя и расположение проекта, а затем нажмите кнопку **OK**.
 
-## <a name="step-2-install-libraries"></a>Шаг 2. Установка библиотек
+<a id="step-2-install-libraries" class="xliff"></a>
+
+## Шаг 2. Установка библиотек
 
 Самый простой способ установить библиотеки, необходимые для выполнения этих инструкций, — это использовать пакеты NuGet. Требуется установить библиотеку управления ресурсами Azure и библиотеку аутентификации Azure Active Directory для создания ресурсов. Чтобы добавить эти библиотеки в Visual Studio, выполните следующие действия.
 
@@ -48,7 +53,9 @@ ms.lasthandoff: 05/11/2017
 
 Теперь вы готовы использовать библиотеки для создания приложения.
 
-## <a name="step-3-create-credentials-used-to-authenticate-requests"></a>Шаг 3. Создание учетных данных, используемых для аутентификации запросов
+<a id="step-3-create-credentials-used-to-authenticate-requests" class="xliff"></a>
+
+## Шаг 3. Создание учетных данных, используемых для аутентификации запросов
 
 Прежде чем выполнить этот шаг, убедитесь в наличии доступа к [субъекту-службе Active Directory](../../resource-group-authenticate-service-principal.md). Субъект-служба предоставляет маркер для аутентификации запросов к Azure Resource Manager.
 
@@ -69,7 +76,7 @@ ms.lasthandoff: 05/11/2017
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
       var cc = new ClientCredential("client-id", "client-secret");
-      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
+      var context = new AuthenticationContext("https://login.microsoftonline.com/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -94,7 +101,9 @@ ms.lasthandoff: 05/11/2017
 
 4. Сохраните файл Program.cs.
 
-## <a name="step-4-create-a-resource-group"></a>Шаг 4. Создание группы ресурсов
+<a id="step-4-create-a-resource-group" class="xliff"></a>
+
+## Шаг 4. Создание группы ресурсов
 
 Хотя группу ресурсов можно создать на основе шаблона, используемый шаблон из коллекции ее не создает. На этом шаге вы добавите код для создания группы ресурсов.
 
@@ -146,7 +155,9 @@ ms.lasthandoff: 05/11/2017
     Console.ReadLine();
     ```
 
-## <a name="step-5-create-a-parameters-file"></a>Шаг 5. Создание файла параметров
+<a id="step-5-create-a-parameters-file" class="xliff"></a>
+
+## Шаг 5. Создание файла параметров
 
 Чтобы задать значения для параметров ресурсов, определенных в шаблоне, создайте файл параметров, содержащий эти значения. Файл параметров используется при развертывании шаблона. Используемый шаблон из коллекции ожидает значения параметров *adminUserName*, *adminPassword* и *dnsLabelPrefix*.
 
@@ -172,7 +183,9 @@ ms.lasthandoff: 05/11/2017
 
 4. Сохраните файл Parameters.json.
 
-## <a name="step-6-deploy-a-template"></a>Шаг 6. Развертывание шаблона
+<a id="step-6-deploy-a-template" class="xliff"></a>
+
+## Шаг 6. Развертывание шаблона
 
 В этом примере вы развертываете шаблон из коллекции шаблонов Azure и передаете в него значения параметров из созданного вами локального файла. 
 
@@ -220,7 +233,9 @@ ms.lasthandoff: 05/11/2017
     Console.ReadLine();
     ```
 
-## <a name="step-7-delete-the-resources"></a>Шаг 7. Удаление ресурсов
+<a id="step-7-delete-the-resources" class="xliff"></a>
+
+## Шаг 7. Удаление ресурсов
 
 Так как за использование ресурсов Azure взимается плата, рекомендуется всегда удалять ресурсы, которые больше не нужны. Не нужно отдельно удалять каждый ресурс из группы ресурсов. Удалите группу ресурсов, и все ее ресурсы будут автоматически удалены.
 
@@ -249,7 +264,9 @@ ms.lasthandoff: 05/11/2017
    Console.ReadLine();
    ```
 
-## <a name="step-8-run-the-console-application"></a>Шаг 8. Запуск консольного приложения
+<a id="step-8-run-the-console-application" class="xliff"></a>
+
+## Шаг 8. Запуск консольного приложения
 
 На полное выполнение этого консольного приложения потребуется примерно 5 минут. 
 
@@ -261,8 +278,9 @@ ms.lasthandoff: 05/11/2017
 
 3. Прежде чем нажать клавишу **ВВОД** и начать удаление ресурсов, потратьте несколько минут и проверьте на портале Azure, созданы ли эти ресурсы. Щелкните состояние развертывания, чтобы просмотреть сведения о развертывании.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении распространенных ошибок при развертывании Azure с помощью Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Узнайте, как развернуть виртуальную машину и ее вспомогательные ресурсы, ознакомившись с разделом [Развертывание ресурсов Azure с помощью языка C#](csharp.md).
-* Узнайте, как управлять созданной виртуальной машиной, ознакомившись с разделом [Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

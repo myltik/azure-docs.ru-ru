@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/12/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
@@ -22,13 +22,16 @@ ms.openlocfilehash: 538b0064fef8d54c5cac9d4dd43f70ebf1772819
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/02/2017
 
-
 ---
-# <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Перенос решений .NET из HDInsight под управлением Windows в HDInsight под управлением Linux
+<a id="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight" class="xliff"></a>
+
+# Перенос решений .NET из HDInsight под управлением Windows в HDInsight под управлением Linux
 
 В кластерах HDInsight под управлением Linux для запуска приложений .NET используется [Mono (https://mono-project.com)](https://mono-project.com). Mono позволяет использовать компоненты .NET, такие как приложения MapReduce, с HDInsight под управлением Linux. В этом документе вы узнаете, как перенести решения .NET, созданные для кластеров HDInsight под управлением Windows, на кластеры HDInsight под управлением Linux для работы с Mono.
 
-## <a name="mono-compatibility-with-net"></a>Совместимость Mono с .NET
+<a id="mono-compatibility-with-net" class="xliff"></a>
+
+## Совместимость Mono с .NET
 
 Mono версии 4.2.1 входит в состав HDInsight версии 3.5. Дополнительные сведения о версии Mono, которая входит в состав HDInsight, см. в разделе [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md) Чтобы установить определенную версию Mono, см. статью об [установке или обновлении Mono](hdinsight-hadoop-install-mono.md).
 
@@ -37,7 +40,9 @@ Mono версии 4.2.1 входит в состав HDInsight версии 3.5.
 > [!IMPORTANT]
 > Платформа SCP.NET совместима с Mono. Дополнительные сведения об использовании SCP.NET с Mono см. в статье [Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-## <a name="automated-portability-analysis"></a>Автоматический анализ переносимости
+<a id="automated-portability-analysis" class="xliff"></a>
+
+## Автоматический анализ переносимости
 
 С помощью анализатора [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer) можно создать отчет о несовместимости приложения и Mono. Следуйте приведенным ниже инструкциям по настройке анализатора для проверки приложения на совместимость с Mono.
 
@@ -58,15 +63,21 @@ Mono версии 4.2.1 входит в состав HDInsight версии 3.5.
 > [!IMPORTANT]
 > Анализатор не может выявить все проблемы с решением. Например, путь к файлу `c:\temp\file.txt` считается корректным, так как Mono работает в среде Windows и в этом контексте путь является допустимым. Однако такой путь не является допустимым на платформе Linux.
 
-## <a name="manual-portability-analysis"></a>Ручной анализ переносимости
+<a id="manual-portability-analysis" class="xliff"></a>
+
+## Ручной анализ переносимости
 
 Выполните аудит кода вручную, воспользовавшись информацией в документе [Application Portability (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) (Совместимость приложений).
 
-## <a name="modify-and-build"></a>Изменение и выполнение сборки
+<a id="modify-and-build" class="xliff"></a>
+
+## Изменение и выполнение сборки
 
 Можно продолжать использовать Visual Studio для создания решений .NET для HDInsight. Однако необходимо обеспечить настройку проекта для использования .NET Framework 4.5.
 
-## <a name="deploy-and-test"></a>Развертывание и тестирование
+<a id="deploy-and-test" class="xliff"></a>
+
+## Развертывание и тестирование
 
 После изменения решения с помощью рекомендаций из результатов .NET Portability Analyzer или ручного анализа необходимо протестировать его работу с HDInsight. Тестирование решения в кластере HDInsight под управлением Linux может выявить малозаметные проблемы, которые необходимо устранить. Мы рекомендуем включить дополнительное ведение журнала в приложении во время тестирования.
 
@@ -75,7 +86,9 @@ Mono версии 4.2.1 входит в состав HDInsight версии 3.5.
 * [Анализ журналов HDInsight](hdinsight-debug-jobs.md)
 * [Доступ к журналам приложений YARN в HDInsight под управлением Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 * [Использование языка C# для потоковой передачи MapReduce в Hadoop в HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 

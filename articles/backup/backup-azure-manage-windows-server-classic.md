@@ -12,15 +12,19 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 06/14/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 7218366ec8455bc2d8747446319bac79e7b8abea
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Управление хранилищами и серверами службы архивации Azure с помощью классической модели развертывания
+<a id="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model" class="xliff"></a>
+
+# Управление хранилищами и серверами службы архивации Azure с помощью классической модели развертывания
 > [!div class="op_single_selector"]
 > * [Диспетчер ресурсов](backup-azure-manage-windows-server.md)
 > * [Классический](backup-azure-manage-windows-server-classic.md)
@@ -32,7 +36,15 @@ ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 > [!IMPORTANT]
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
-## <a name="management-portal-tasks"></a>Задачи на портале управления
+> [!IMPORTANT]
+> Теперь вы можете обновить свои резервные хранилища до хранилищ служб восстановления. См. дополнительные сведения об [обновлении резервного хранилища до хранилища служб восстановления](backup-azure-upgrade-backup-to-recovery-services.md). Корпорация Майкрософт рекомендует обновить резервные хранилища до хранилищ служб восстановления.<br/> **Начиная с 1 ноября 2017 г.**:
+>- Все остальные резервные хранилища будут автоматически обновлены до хранилищ служб восстановления.
+>- Вы не сможете получить доступ к данным резервных копий на классическом портале. Вместо этого для доступа к данным резервных копий в хранилищах служб восстановления используйте портал Azure.
+>
+
+<a id="management-portal-tasks" class="xliff"></a>
+
+## Задачи на портале управления
 1. Выполните вход на [Портал управления](https://manage.windowsazure.com).
 2. Щелкните **Службы восстановления**и выберите имя хранилища архивации, чтобы просмотреть соответствующую страницу «Быстрый запуск».
 
@@ -42,7 +54,9 @@ ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 
 ![Управление вкладками](./media/backup-azure-manage-windows-server-classic/qs-page.png)
 
-### <a name="dashboard"></a>Панель мониторинга
+<a id="dashboard" class="xliff"></a>
+
+### Панель мониторинга
 Щелкните **Панель мониторинга** , чтобы посмотреть обзор использования сервера. В разделе **Обзор использования** представлены следующие сведения:
 
 * Количество серверов Windows Server, зарегистрированных в облаке
@@ -57,7 +71,9 @@ ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 
 ![Задачи панели мониторинга архивации](./media/backup-azure-manage-windows-server-classic/dashboard-tasks.png)
 
-## <a name="registered-items"></a>Зарегистрированные элементы
+<a id="registered-items" class="xliff"></a>
+
+## Зарегистрированные элементы
 Щелкните **Зарегистрированные элементы** для просмотра имен серверов, зарегистрированных в этом хранилище.
 
 ![Зарегистрированные элементы](./media/backup-azure-manage-windows-server-classic/registered-items.png)
@@ -71,12 +87,16 @@ ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 
     ![Задачи зарегистрированных элементов](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
 
-## <a name="protected-items"></a>Защищенные элементы
+<a id="protected-items" class="xliff"></a>
+
+## Защищенные элементы
 Щелкните **Защищенные элементы** для просмотра элементов, заархивированных с серверов.
 
 ![Защищенные элементы](./media/backup-azure-manage-windows-server-classic/protected-items.png)
 
-## <a name="configure"></a>Настройка
+<a id="configure" class="xliff"></a>
+
+## Настройка
 На вкладке **Настройка** можно задать соответствующие параметры избыточности хранилища. Лучше выбирать параметры избыточности хранилища сразу после его создания и до регистрации в нем компьютеров.
 
 > [!WARNING]
@@ -88,8 +108,12 @@ ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 
 Дополнительные сведения см. в статье об [избыточности хранилища](../storage/storage-redundancy.md).
 
-## <a name="microsoft-azure-backup-agent-tasks"></a>Задачи агента службы архивации Microsoft Azure
-### <a name="console"></a>Консоль
+<a id="microsoft-azure-backup-agent-tasks" class="xliff"></a>
+
+## Задачи агента службы архивации Microsoft Azure
+<a id="console" class="xliff"></a>
+
+### Консоль
 Откройте **агент службы архивации Microsoft Azure** (чтобы найти его, введите *Служба архивации Microsoft Azure*в строке поиска на своем компьютере).
 
 ![Агент службы архивации](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
@@ -108,7 +132,9 @@ ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 >
 >
 
-### <a name="modify-an-existing-backup"></a>Изменение существующего архива
+<a id="modify-an-existing-backup" class="xliff"></a>
+
+### Изменение существующего архива
 1. В агенте службы архивации Microsoft Azure щелкните **Создать расписание архивации**.
 
     ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
@@ -139,7 +165,9 @@ ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 
     После изменения защиты можно проверить, своевременно ли запускается архивация. Для этого перейдите на вкладку **Задания** и убедитесь, что изменения отражаются в заданиях архивации.
 
-### <a name="enable-network-throttling"></a>Включение регулирования сети
+<a id="enable-network-throttling" class="xliff"></a>
+
+### Включение регулирования сети
 В агенте службы архивации Azure есть вкладка "Регулирование", которая позволяет управлять использованием пропускной способности сети при передаче данных. Это полезно, если вам нужно выполнить архивацию в рабочее время так, чтобы операция копирования не мешала другим процессам, связанным с обработкой интернет-трафика. Регулирование передачи данных применяется при резервном копировании и восстановлении.  
 
 Чтобы включить регулирование:
@@ -153,7 +181,9 @@ ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
     Значения пропускной способности начинаются с 512 килобит в секунду (Кбит/с) и могут перейти до 1023 мегабит в секунду (Мбит/с). Можно также назначить время начала и окончания для **рабочих часов**и выбрать, какие дни недели считаются рабочими. Время вне назначенных рабочих часов считается нерабочим.
 4. Нажмите кнопку **ОК**.
 
-## <a name="exclusion-settings"></a>параметры исключений
+<a id="exclusion-settings" class="xliff"></a>
+
+## параметры исключений
 1. Откройте **агент службы архивации Microsoft Azure** (чтобы найти его, введите *Служба архивации Microsoft Azure*в строке поиска на своем компьютере).
 
     ![Открытие агента службы архивации](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
@@ -188,13 +218,10 @@ ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 
     ![Подтверждение исключения](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * [Восстановление Windows Server или клиента Windows из Azure](backup-azure-restore-windows-server.md)
 * Дополнительную информацию о службе архивации Azure см. в статье [Обзор службы архивации Azure](backup-introduction-to-azure-backup.md).
 * Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

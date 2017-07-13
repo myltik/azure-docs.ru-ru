@@ -4,7 +4,7 @@ description: "Сохраняйте сообщения из Intel NUC в Цент
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "получить данные из облака, облачная служба Интернета вещей"
 ROBOTS: NOINDEX
@@ -17,28 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 293343e5db58bebc8c2e27d54d6396212fe6d3a1
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/25/2017
-
 
 ---
 
-# <a name="read-messages-persisted-in-azure-table-storage"></a>Чтение сообщений, сохраненных в Хранилище таблиц Azure
+<a id="read-messages-persisted-in-azure-table-storage" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>Выполняемая задача
+# Чтение сообщений, сохраненных в Хранилище таблиц Azure
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 
 - Запуск примера приложения шлюза для шлюза, который отправляет сообщения в Центр Интернета вещей.
 - Запустите пример кода на главном компьютере для чтения сообщений в Хранилище таблиц Azure. 
 
 Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-gateway-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 
 Использование инструмента Gulp для чтения сообщений в Хранилище таблиц Azure.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 
 Вы успешно выполнили следующие задачи:
 
@@ -46,7 +54,9 @@ ms.lasthandoff: 01/25/2017
 - [Запуск примера приложения шлюза](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
 - [Чтение сообщений из Центра Интернета вещей](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
 
-## <a name="get-your-azure-storage-connection-strings"></a>Получение строк подключения службы хранилища Azure
+<a id="get-your-azure-storage-connection-strings" class="xliff"></a>
+
+## Получение строк подключения службы хранилища Azure
 
 Раньше в ходе этого урока вы успешно создали учетную запись хранения Azure. Чтобы получить строку подключения учетной записи хранения Azure, выполните следующие команды:
 
@@ -64,7 +74,9 @@ az storage account show-connection-string -g iot-gateway -n {storage name}
 
 Используйте iot-gateway в качестве значения `{resource group name}`, если в уроке 2 значение не изменялось.
 
-## <a name="configure-the-device-connection"></a>Настройка подключения устройства
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Настройка подключения устройства
 
 Обновите файл `config-azure.json`, чтобы пример кода, который выполняется на главном компьютере, смог читать сообщения в Хранилище таблиц Azure. Чтобы настроить подключение устройства, выполните следующие действия.
 
@@ -83,7 +95,9 @@ az storage account show-connection-string -g iot-gateway -n {storage name}
 
    `[IoT hub connection string]` уже должна быть заменена в разделе [Чтение сообщений из Центра Интернета вещей Azure](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) в уроке&3;.
 
-## <a name="read-messages-in-your-azure-table-storage"></a>Чтение сообщений в Хранилище таблиц Azure
+<a id="read-messages-in-your-azure-table-storage" class="xliff"></a>
+
+## Чтение сообщений в Хранилище таблиц Azure
 
 Запустите пример приложения шлюза и прочтите сообщения Хранилища таблиц Azure, выполнив следующую команду:
 
@@ -99,6 +113,8 @@ gulp run --table-storage
    ![чтение Gulp](media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table.png)
 
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 
 Вы запустили пример кода для чтения сообщений в Хранилище таблиц Azure, сохраненных приложением-функцией Azure.

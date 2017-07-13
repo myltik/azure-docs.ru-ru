@@ -17,18 +17,23 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: ae6af47c82a5c0425f6cd53b8ba1134797505e6c
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 2372d9d4dc190e7583bcc513042a85e970325e14
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/21/2017
 
 ---
-# <a name="authenticate-with-a-private-docker-container-registry"></a>Аутентификация с помощью частного реестра контейнеров Docker
+<a id="authenticate-with-a-private-docker-container-registry" class="xliff"></a>
+
+# Аутентификация с помощью частного реестра контейнеров Docker
 Чтобы приступить к работе с образами контейнеров в реестре контейнеров Azure, нужно войти в систему, выполнив команду `docker login`. Вы можете войти, используя **[субъект-службу Azure Active Directory](../active-directory/active-directory-application-objects.md)** или специальную **учетную запись администратора**. В этой статье содержатся подробные сведения об этих удостоверениях.
 
 
 
-## <a name="service-principal"></a>Субъект-служба
+<a id="service-principal" class="xliff"></a>
+
+## Субъект-служба
 
 Вы можете [назначить своему реестру субъект-службу](container-registry-get-started-azure-cli.md#assign-a-service-principal) и использовать ее для базовой проверки подлинности Docker. Мы рекомендуем использовать субъект-службу в большинстве сценариев. Укажите идентификатор и пароль приложения для субъекта-службы в команде `docker login`, как показано в следующем примере.
 
@@ -52,7 +57,7 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 Для реестра можно назначить несколько субъектов-служб. Это позволяет определять доступ для разных пользователей и приложений. Субъекты-службы также позволяют выполнять автономное подключение к реестру в сценариях DevOps и разработки, как в приведенных ниже примерах.
 
-  * Развертывания контейнеров из реестра в системы управления, в том числе DC/OS, Docker Swarm и Kubernetes. Реестры контейнеров также можно отправлять в связанные службы Azure, например в [службу контейнеров](../container-service/index.md), [службу приложений](../app-service/index.md), [пакетную службу](../batch/index.md), [Service Fabric](../service-fabric/index.md) и другие.
+  * Развертывания контейнеров из реестра в системы управления, в том числе DC/OS, Docker Swarm и Kubernetes. Реестры контейнеров также можно отправлять в связанные службы Azure, например в [службу контейнеров](../container-service/index.yml), [службу приложений](../app-service/index.md), [пакетную службу](../batch/index.md), [Service Fabric](../service-fabric/index.md) и другие.
 
   * Решения непрерывной интеграции и развертывания (например, Visual Studio Team Services или Jenkins), создающие образы контейнеров и отправляющие их в реестр.
 
@@ -60,7 +65,9 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 
 
-## <a name="admin-account"></a>Учетная запись администратора
+<a id="admin-account" class="xliff"></a>
+
+## Учетная запись администратора
 При создании реестра вместе с ним автоматически создается учетная запись администратора. По умолчанию эта учетная запись отключена, но ее можно включить, а также можно настроить учетные данные, например на [портале](container-registry-get-started-portal.md#manage-registry-settings) или с помощью [команд Azure CLI 2.0](container-registry-get-started-azure-cli.md#manage-admin-credentials). Каждой учетной записи администратора предоставляются два пароля, каждый из которых можно создать повторно. Благодаря этому вы можете подключаться к реестру, используя один пароль, пока второй создается повторно. Если учетная запись включена, вы можете указать в команде `docker login` имя пользователя и пароль для обычной проверки подлинности в реестре. Например:
 
 ```
@@ -72,7 +79,9 @@ docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 >
 
 
-### <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+### Дальнейшие действия
 * [Отправьте свой первый образ с помощью интерфейса командной строки Docker.](container-registry-get-started-docker-cli.md)
 * Дополнительные сведения о проверке подлинности в предварительной версии реестра контейнеров см. в [этой записи блога](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/).
 

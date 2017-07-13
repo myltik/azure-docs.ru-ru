@@ -7,21 +7,23 @@ documentationcenter: na
 author: luywang
 manager: kavithag
 ms.assetid: 
-ms.service: <service per approved list>
+ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 ms.author: luywang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
 ms.openlocfilehash: 522fd46e8c0ccc64eb97ee6622e9886bb51f1e24
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/15/2017
 
-
 ---
-# <a name="migrating-to-premium-storage-using-azure-site-recovery"></a>Переход на хранилище Azure класса Premium с помощью Azure Site Recovery
+<a id="migrating-to-premium-storage-using-azure-site-recovery" class="xliff"></a>
+
+# Переход на хранилище Azure класса Premium с помощью Azure Site Recovery
 
 [Хранилище Azure класса Premium](storage-premium-storage.md) обеспечивает поддержку дисков с высокой производительностью и малой задержкой для виртуальных машин с интенсивной рабочей нагрузкой ввода-вывода. Это руководство предназначено упростить перенос дисков виртуальной машины из учетной записи хранения класса Standard в учетную запись хранения класса Premium с помощью [Azure Site Recovery](../site-recovery/site-recovery-overview.md).
 
@@ -31,7 +33,9 @@ ms.lasthandoff: 04/15/2017
 
 ![][1]
 
-## <a name="azure-site-recovery-components"></a>Компоненты Azure Site Recovery
+<a id="azure-site-recovery-components" class="xliff"></a>
+
+## Компоненты Azure Site Recovery
 
 Это компоненты Site Recovery, которые относятся к этому сценарию миграции.
 
@@ -50,7 +54,9 @@ ms.lasthandoff: 04/15/2017
 
 Сведения о дополнительных компонентах для других сценариев см. в разделе [Архитектура сценария](../site-recovery/site-recovery-vmware-to-azure.md).
 
-## <a name="azure-essentials"></a>Основные компоненты Azure
+<a id="azure-essentials" class="xliff"></a>
+
+## Основные компоненты Azure
 
 Ниже приведены требования Azure для этого сценария миграции.
 
@@ -59,12 +65,16 @@ ms.lasthandoff: 04/15/2017
 * Виртуальная сеть Azure, к которой будут подключаться виртуальные машины, созданные при отработке отказа. Виртуальная сеть Azure должна располагаться в том же регионе, где выполняется Site Recovery.
 * Учетная запись хранения Azure класса Standard для хранения журналов репликации. Это может быть та же учетная запись хранения, в которую переносятся диски виртуальных машин.
 
-## <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+
+## Предварительные требования
 
 * Настроить компоненты сценария переноса данных, описанные в предыдущем разделе.
 * Спланируйте время простоя, ознакомившись с [отработкой отказа в Site Recovery](../site-recovery/site-recovery-failover.md).
 
-## <a name="setup-and-migration-steps"></a>Этапы настройки и переноса данных
+<a id="setup-and-migration-steps" class="xliff"></a>
+
+## Этапы настройки и переноса данных
 
 Site Recovery можно использовать для переноса виртуальных машин Azure IaaS между регионами или в одном регионе. Инструкции для этого сценария переноса данных основаны на шагах, описанных в статье [Репликация виртуальных машин VMware и физических компьютеров в Azure с помощью службы Azure Site Recovery и портала Azure](../site-recovery/site-recovery-vmware-to-azure.md). Воспользуйтесь ссылками, чтобы получить подробные указания в дополнение к инструкциям, приведенным в этой статье.
 
@@ -148,7 +158,9 @@ Site Recovery можно использовать для переноса вир
 
 9. **Запустите отработку отказа**. После завершения тестовой отработки отказа запустите отработку отказа для переноса дисков в хранилище уровня "Премиум" и репликации экземпляров виртуальной машины. Выполните подробные инструкции в разделе [Запуск незапланированной отработки отказа](../site-recovery/site-recovery-failover.md#run-a-failover). Установите флажок **Shut down VMs and synchronize the latest data** (Завершать работу виртуальных машин и синхронизировать последние данные). Этот флажок указывает, что Site Recovery следует завершать работу защищенных виртуальных машин и синхронизировать данные, чтобы можно было выполнять отработку отказа на основе последней версии данных. Если вы не установите этот флажок или попытка выполнить указанные выше действия окажется неудачной, то отработка отказа будет выполнена на основе последней доступной точки восстановления для виртуальной машины. Site Recovery создаст экземпляр виртуальной машины с типом виртуальной машины с поддержкой хранилища класса Premium или аналогичного типа. Сведения о производительности и стоимости различных экземпляров виртуальных машин см. на странице [Цены на виртуальные машины Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) или [Цены на виртуальные машины Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="post-migration-steps"></a>Действия после переноса данных
+<a id="post-migration-steps" class="xliff"></a>
+
+## Действия после переноса данных
 
 1. **Настройка и добавление реплицированных виртуальных машин в группу доступности (если применимо)**. Site Recovery не поддерживает перенос виртуальных машин вместе с группой доступности. В зависимости от типа развертывания реплицированной виртуальной машины выполните одно из следующих действий.
   * Для виртуальных машин, созданных с помощью классической модели развертывания, — добавьте виртуальную машину в группу доступности на портале Azure. Подробные инструкции см. в разделе [Добавление существующей виртуальной машины к группе доступности](../virtual-machines/windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
@@ -158,12 +170,16 @@ Site Recovery можно использовать для переноса вир
 
 3. **Очистка инфраструктуры Azure Site Recovery**. Если служба Site Recovery больше не нужна, можно удалить ее инфраструктуру. Для этого удалите реплицированные элементы, сервер конфигурации, политику восстановления и, наконец, хранилище Azure Site Recovery.
 
-## <a name="troubleshooting"></a>Устранение неполадок
+<a id="troubleshooting" class="xliff"></a>
+
+## Устранение неполадок
 
 * [Мониторинг и устранение неполадок защиты виртуальных машин и физических серверов](../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Форум Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 Ознакомьтесь со следующими ресурсами для конкретных сценариев переноса виртуальных машин.
 

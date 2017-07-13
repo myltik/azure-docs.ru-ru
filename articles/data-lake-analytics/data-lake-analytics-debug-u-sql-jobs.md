@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: a5bb452582f05981a17c2514e0e40db0571bf61d
-ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: aac455520ab62d69b406a254a54b0f000ea2e5bc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/26/2017
 
 
 ---
-# <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Отладка определяемого пользователем кода C# для заданий U-SQL, завершившихся сбоем
+<a id="debug-user-defined-c-code-for-failed-u-sql-jobs" class="xliff"></a>
 
-Сведения об отладке заданий U-SQL, завершившихся сбоем в определяемом пользователем коде, с помощью средств Azure Data Lake для Visual Studio.
-
-## <a name="background"></a>Фоновый
+# Отладка определяемого пользователем кода C# для заданий U-SQL, завершившихся сбоем
 
 В U-SQL реализована возможность расширения кода с использованием C#. Пользователь может создать собственный код на языке C#, например определяемые модули извлечения или уменьшения, чтобы расширить доступные возможности (см. дополнительные сведения о [пользовательском коде в U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#user-defined-functions---udf)). Но разработка без ошибок невозможна, а отладка в системах больших данных затруднена, так как многие системы предоставляют достаточно ограниченный набор отладочных сведений о среде, таких как журналы и т. д. 
 
@@ -34,17 +34,14 @@ ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
 
 > [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
 >
->
 
 > [!NOTE]
 > Visual Studio может зависнуть или аварийно завершить работу, если у вас не установлены следующие два обновления для Windows: [Распространяемый компонент Microsoft Visual C++ 2015, обновление 2](https://www.microsoft.com/download/details.aspx?id=51682) и [Универсальная среда выполнения C для Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0).
 > 
-> 
 
-## <a name="prerequisites"></a>Предварительные требования
-* Предполагается, что вы ознакомились со статьей [о начале работы](data-lake-analytics-data-lake-tools-get-started.md) .
+<a id="download-failed-vertex-to-local" class="xliff"></a>
 
-## <a name="download-failed-vertex-to-local"></a>Загрузка в локальную среду вершины, в которой произошел сбой
+## Загрузка в локальную среду вершины, в которой произошел сбой
 
 Открывая невыполненное задание в средствах ADL для Visual Studio, вы получите оповещение. Подробные сведения об ошибке отобразятся на вкладке "Ошибка" и в желтой области оповещений в верхней части окна.
 
@@ -59,7 +56,9 @@ ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
 
 ![Azure Data Lake Analytics U-SQL отладка visual studio скачивание вершины](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
-## <a name="debug-job-failed-with-code-behind"></a>Отладка невыполненного задания с кодом программной части
+<a id="debug-job-failed-with-code-behind" class="xliff"></a>
+
+## Отладка невыполненного задания с кодом программной части
 
 Если вы сохранили пользовательский код в файле кода программной части (в проектах U-SQL этот файл обычно имеет имя "Script.usql.cs") и после этого задание U-SQL завершается ошибкой, исходный код будет автоматически импортирован в решение для отладки. Для устранения неполадок вы можете просто использовать все возможности Visual Studio для отладки (контрольные значения, переменные, и т. д.). 
 
@@ -73,11 +72,15 @@ ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
 
     ![Исключение при отладке U-SQL в Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
 
-## <a name="debug-job-failed-with-assemblies"></a>Отладка невыполненного задания со сборками
+<a id="debug-job-failed-with-assemblies" class="xliff"></a>
+
+## Отладка невыполненного задания со сборками
 
 Если в скрипте U-SQL вы зарегистрировали сборки, система не сможет автоматически получить исходный код. В этом случае перед отладкой пользовательского кода необходимо изменить некоторые настройки, а именно — добавить исходный код сборок в автоматически созданное решение.
 
-### <a name="configure-the-solution"></a>Настройка решения
+<a id="configure-the-solution" class="xliff"></a>
+
+### Настройка решения
 
 1. Щелкните правой кнопкой мыши **Решение "VertexDebug"** > **Добавить** > **Существующий проект**, чтобы увидеть исходный код сборок и добавить проект в решение для отладки.
 
@@ -91,7 +94,9 @@ ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
 
 4. Нажмите клавиши **Ctrl+Alt+E** и проверьте **Исключения среды CLR** в окне параметров исключений.
 
-### <a name="start-debug"></a>Запуск отладки
+<a id="start-debug" class="xliff"></a>
+
+### Запуск отладки
 
 1. Щелкните правой кнопкой мыши **Проект исходного кода сборок** > **Перестроить**, чтобы сохранить PDB-файлы в рабочий каталог LocalVertexHost.
 
@@ -111,7 +116,9 @@ ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
 
 ![Успешное завершение отладки U-SQL в Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
-## <a name="resubmit-the-job"></a>Повторная отправка задания
+<a id="resubmit-the-job" class="xliff"></a>
+
+## Повторная отправка задания
 После завершения отладки можно повторно отправить невыполненное задание.
 
 1. Зарегистрируйте новые DLL-сборки в базе данных ADLA.
@@ -123,17 +130,13 @@ ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
 2. Или скопируйте код C# обратно в файл кода программной части C# (Script.usql.cs).
 3. Повторно отправьте задание.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 * [Руководство по программированию U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 * [Разработка определяемых пользователем операторов U-SQL для заданий аналитики озера данных Azure](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-* [Учебник. Приступая к работе с языком U-SQL для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md)
 * [Учебник. Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

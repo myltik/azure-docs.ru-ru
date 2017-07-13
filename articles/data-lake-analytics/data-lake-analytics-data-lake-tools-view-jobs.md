@@ -14,24 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/17/2016
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: ac5a64b759376c06e058ae015b73f1b73b7d1e7b
-ms.openlocfilehash: 8f3c0f7a1b16afdbada39017d28bed49620cc34c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 2e5dbaf595e3d3cd7dee09431fbb1cb6f2403ef4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Использование браузера и представления для заданий Azure Data Lake Analytics
+<a id="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs" class="xliff"></a>
+
+# Использование браузера и представления для заданий Azure Data Lake Analytics
 Служба Azure Data Lake Analytics архивирует отправленные задания в [хранилище запросов](#query-store). В этой статье вы узнаете, как использовать браузер и представление заданий в средствах Azure Data Lake для Visual Studio, чтобы находить исторические сведения о заданиях. 
 
 По умолчанию служба Data Lake Analytics архивирует задания на 30 дней. Срок хранения можно настроить на портале Azure в настраиваемой политике окончания срока действия. Доступ к данным задания по истечении этого срока невозможен. 
 
-## <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+
+## Предварительные требования
 См. раздел о [предварительных требованиях в отношении средств Data Lake для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
-## <a name="open-the-job-browser"></a>Доступ к браузеру заданий
+<a id="open-the-job-browser" class="xliff"></a>
+
+## Доступ к браузеру заданий
 Браузер заданий можно открыть, выбрав **Обозреватель серверов > Azure > Data Lake Analytics > Задания** в Visual Studio.  С помощью этого браузера можно получить доступ к хранилищу запросов учетной записи Data Lake Analytics. Слева в браузере заданий отображается хранилище запросов, где указываются основные сведения о заданиях. Справа отображается представление задания, где указываются подробные сведения о задании.
 
-## <a name="job-view"></a>Представление задания
+<a id="job-view" class="xliff"></a>
+
+## Представление задания
 В представлении задания отображаются подробные сведения о задании. Чтобы открыть задание, дважды щелкните его в браузере или откройте его из меню Data Lake, щелкнув пункт Job View ("Представление задания"). Вы увидите диалоговое окно с URL-адресом задания.
 
 ![Браузер заданий средств Data Lake для Visual Studio](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view.png)
@@ -156,7 +166,9 @@ ms.openlocfilehash: 8f3c0f7a1b16afdbada39017d28bed49620cc34c
   * Resource usage ("Использование ресурсов"). Если для параметра "Параллелизм" установлено значение меньше или больше, чем необходимое, эта проблема будет указана здесь. Вы также можете щелкнуть ссылку Resource usage ("Использование ресурсов"), чтобы получить дополнительные сведения и выполнить гипотетические сценарии для определения более эффективного выделения ресурсов (дополнительные сведения см. в этом руководстве).
   * Memory check ("Проверка памяти"). Если какая-либо вершина использует более 5 ГБ памяти, эта проблема будет отображаться здесь. Система может завершить выполнение задания, если используется больше памяти, чем предусмотрено в системном ограничении.
 
-## <a name="job-detail"></a>Job Detail ("Сведения о задании").
+<a id="job-detail" class="xliff"></a>
+
+## Job Detail ("Сведения о задании").
 В разделе сведений о задании отображаются подробные данные о задании, в том числе скрипт, ресурсы и представление выполнения вершин.
 
 ![Сведения о задании в Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-details.png)
@@ -171,19 +183,11 @@ ms.openlocfilehash: 8f3c0f7a1b16afdbada39017d28bed49620cc34c
   
     Здесь показываются сведения о выполнении вершин. Профиль заданий архивирует каждую запись журнала выполнения вершин, такую как общее количество записанных или прочитанных данных, данные о среде выполнения, состоянии и т. п. В этом представлении можно получить дополнительные сведения о том, как запущено задание. Дополнительные сведения см. в статье[Использование представления выполнения вершин в инструментах Data Lake для Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
-* Общие сведения об Azure Data Lake Analytics см. в [этой статье](data-lake-analytics-overview.md).
-* Чтобы приступить к разработке приложений U-SQL, ознакомьтесь со статьей [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* Для знакомства с U-SQL см. статью о [начале работы с языком U-SQL для Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-* Задачи управления описываются в руководстве по [управлению Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * Сведения о том, как записывать диагностические данные в журнал, см. в статье [Доступ к журналам диагностики для Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 * Более сложный запрос можно посмотреть в статье [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md).
 * Дополнительные сведения см. в статье [Использование представления выполнения вершин в инструментах Data Lake для Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
-* Подробные сведения об инструментах Data Lake Tools для Visual Studio Code см. в статье [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md) (Использование Azure Data Lake Tools для Visual Studio Code).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

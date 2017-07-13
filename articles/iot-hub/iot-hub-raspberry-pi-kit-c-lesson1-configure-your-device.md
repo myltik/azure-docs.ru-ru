@@ -4,7 +4,7 @@ description: "Настройте устройство Raspberry Pi 3 для пе
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "установить raspbian, скачать raspbian, как установить raspbian, настройка raspbian, установка raspbian на raspberry pi, установка ОС на raspberry pi, установка sd-карты raspberry pi, подключение raspberry pi, подключиться к raspberry pi, подключения raspberry pi"
 ROBOTS: NOINDEX
@@ -17,18 +17,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5b80d471c78973f8c2f6b1ad4e1240c66f0505ef
 ms.openlocfilehash: 3e34b8202794bc969bf41765ce519d083037ab46
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/21/2017
 
-
 ---
-# <a name="configure-your-device"></a>Настройка устройства
-## <a name="what-you-will-do"></a>Выполняемая задача
+<a id="configure-your-device" class="xliff"></a>
+
+# Настройка устройства
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 Настройка устройства Pi для первого использования и установка операционной системы Raspbian. Raspbian — это бесплатная операционная система, которая оптимизирована для оборудования Raspberry Pi. Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 В этой статье вы узнаете следующее:
 
 * Как установить ОС Raspbian на устройство Pi.
@@ -36,7 +42,9 @@ ms.lasthandoff: 02/21/2017
 * Как подключить устройство Pi к сети с помощью кабеля Ethernet или беспроводной сети.
 * Как добавить на монтажную плату светодиодный индикатор и подключить его к устройству Pi.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 Чтобы выполнить эту операцию, вам понадобятся следующие элементы из начального набора Raspberry Pi 3:
 
 * плата Raspberry Pi 3;
@@ -57,7 +65,9 @@ ms.lasthandoff: 02/21/2017
 * Компьютер под управлением Windows, Mac или Linux. С помощью компьютера ОС Raspbian устанавливается на карту microSD.
 * Подключение к Интернету для скачивания необходимых инструментов и программного обеспечения.
 
-## <a name="install-raspbian-on-the-microsd-card"></a>Установка ОС Raspbian на карту microSD
+<a id="install-raspbian-on-the-microsd-card" class="xliff"></a>
+
+## Установка ОС Raspbian на карту microSD
 Подготовьте карту microSD для установки образа ОС Raspbian.
 
 1. Скачайте ОС Raspbian.
@@ -75,7 +85,9 @@ ms.lasthandoff: 02/21/2017
 
 ![Вставка карты SD](media/iot-hub-raspberry-pi-lessons/lesson1/insert_sdcard.jpg)
 
-## <a name="turn-on-pi"></a>Включение устройства Pi
+<a id="turn-on-pi" class="xliff"></a>
+
+## Включение устройства Pi
 Включите устройство Pi, используя кабель Micro USB и источник питания.
 
 ![Включение](media/iot-hub-raspberry-pi-lessons/lesson1/micro_usb_power_on.jpg)
@@ -83,21 +95,31 @@ ms.lasthandoff: 02/21/2017
 > [!NOTE]
 > Важно использовать источник питания из набора с силой тока не менее 2 А, чтобы на устройство Raspberry подавалась энергия, которой достаточно для правильной работы.
 
-## <a name="enable-ssh"></a>Включение SSH
+<a id="enable-ssh" class="xliff"></a>
+
+## Включение SSH
 В выпуске за ноябрь 2016 г. в настройках ОС Raspbian сервер SSH по умолчанию отключен. Его необходимо включить вручную. Вы можете ознакомиться с [официальными инструкциями](https://www.raspberrypi.org/documentation/remote-access/ssh/) или подключить монитор и перейти в меню **Preferences -> Raspberry Pi Configuration** (Настройки -> Конфигурация Raspberry Pi), чтобы включить SSH.
 
-## <a name="connect-raspberry-pi-3-to-the-network"></a>Подключение устройства Raspberry Pi 3 к сети
+<a id="connect-raspberry-pi-3-to-the-network" class="xliff"></a>
+
+## Подключение устройства Raspberry Pi 3 к сети
 Устройство Pi можно подключить к проводной или беспроводной сети. Убедитесь, что плата Pi подключена к той же сети, что и компьютер. Например, можно подключить плату Pi к тому же коммутатору, к которому подключен компьютер.
 
-### <a name="connect-to-a-wired-network"></a>Подключение к проводной сети
+<a id="connect-to-a-wired-network" class="xliff"></a>
+
+### Подключение к проводной сети
 Подключите устройство Pi к проводной сети с помощью кабеля Ethernet. Если соединение установлено, то на устройстве Pi загорятся два светодиодных индикатора.
 
 ![Подключение с помощью кабеля Ethernet](media/iot-hub-raspberry-pi-lessons/lesson1/connect_ethernet.jpg)
 
-### <a name="connect-to-a-wireless-network"></a>Подключение к беспроводной сети
+<a id="connect-to-a-wireless-network" class="xliff"></a>
+
+### Подключение к беспроводной сети
 Следуйте [инструкциям](https://www.raspberrypi.org/learning/software-guide/wifi/) от Raspberry Pi Foundation для подключения устройства Pi к беспроводной сети. Для выполнения этих инструкций необходимо сначала подключить к устройству Pi монитор и клавиатуру.
 
-## <a name="connect-the-led-to-pi"></a>Подключение светодиодного индикатора к устройству Pi
+<a id="connect-the-led-to-pi" class="xliff"></a>
+
+## Подключение светодиодного индикатора к устройству Pi
 Для этого используйте [монтажную плату](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard), соединительные провода, светодиодный индикатор и резистор. Их необходимо подключить к портам [ввода-вывода общего назначения](https://www.raspberrypi.org/documentation/usage/gpio/) (GPIO) устройства Pi.
 
 ![Монтажная плата, светодиодный индикатор и резистор](media/iot-hub-raspberry-pi-lessons/lesson1/breadboard_led_resistor.jpg)
@@ -112,12 +134,16 @@ ms.lasthandoff: 02/21/2017
 
 Поздравляем! Вы успешно настроили устройство Pi.
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 В этой статье вы узнали, как настроить устройство Pi, установив ОС Raspbian, подключив устройство к сети, а также подключив светодиодный индикатор к устройству. Обратите внимание, что светодиодный индикатор еще не светится. Следующая задача — установить необходимые инструменты и программное обеспечение в рамках подготовки к запуску примера приложения на устройстве Pi.
 
 ![Оборудование готово](media/iot-hub-raspberry-pi-lessons/lesson1/hardware_ready.jpg)
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Получение инструментов](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
 
 

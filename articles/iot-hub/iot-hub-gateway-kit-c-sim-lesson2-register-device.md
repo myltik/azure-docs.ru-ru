@@ -4,7 +4,7 @@ description:
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "Центр Интернета вещей, облако Интернета вещей, создание устройства в Центре Интернета вещей Azure, TI SensorTag, TI BLE"
 ROBOTS: NOINDEX
@@ -17,17 +17,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 759085dcb4993d38f79cb19efe58e1a968ddb682
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/25/2017
-
 
 ---
 
-# <a name="create-your-azure-iot-hub-and-register-your-device"></a>Создание Центра Интернета вещей Azure и регистрация устройства
+<a id="create-your-azure-iot-hub-and-register-your-device" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>Выполняемая задача
+# Создание Центра Интернета вещей Azure и регистрация устройства
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 
 - Создание группы ресурсов
 - Создание первого Центра Интернета вещей.
@@ -37,19 +41,25 @@ ms.lasthandoff: 01/25/2017
 
 Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 
 Из этого урока вы узнаете:
 
 - Как создать Центр Интернета вещей с помощью Azure CLI.
 - Как зарегистрировать устройство в Центре Интернета вещей.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 
 - Активная подписка Azure. Если у вас нет учетной записи Azure, можно создать [бесплатную учетную запись Azure](http://azure.microsoft.com/pricing/free-trial/) всего за несколько минут.
 - У вас должен быть установлен Azure CLI.
 
-## <a name="create-an-iot-hub"></a>Создание центра IoT
+<a id="create-an-iot-hub" class="xliff"></a>
+
+## Создание центра IoT
 
 Чтобы создать Центр Интернета вещей, сделайте следующее:
 
@@ -94,7 +104,9 @@ ms.lasthandoff: 01/25/2017
 > [!NOTE]
 > Имя Центра Интернета вещей должно быть глобально уникальным. В подписке Azure можно создать только один выпуск Центра Интернета вещей категории F1.
 
-## <a name="register-your-device-in-your-iot-hub"></a>Регистрация устройства в Центре Интернета вещей
+<a id="register-your-device-in-your-iot-hub" class="xliff"></a>
+
+## Регистрация устройства в Центре Интернета вещей
 
 Каждое устройство, которое отправляет сообщения в ваш Центр Интернета вещей и получает сообщения из него, должно быть зарегистрировано с использованием уникального идентификатора.
 Зарегистрируйте устройство в Центре Интернета вещей, используя следующую команду:
@@ -103,9 +115,13 @@ ms.lasthandoff: 01/25/2017
 az iot device create --device-id mydevice --hub-name {my hub name} --resource-group iot-gateway
 ```
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 
 Вы создали Центр Интернета вещей и зарегистрировали в нем логическое устройство с идентификатором устройства. Теперь можно перейти к настройке и запуску примера приложения шлюза, используемого для отправки данных с физического устройства в Центр Интернета вещей, находящийся в облаке.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Configure and run a simulated device cloud upload sample application](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md) (Настройка и запуск примера приложения отправки в облако для имитации устройства)

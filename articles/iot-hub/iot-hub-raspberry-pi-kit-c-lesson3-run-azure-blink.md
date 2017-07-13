@@ -4,7 +4,7 @@ description: "Развертывание и запуск на устройств
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "мигающий светодиодный индикатор облако pi, мигающий индикатор из облака"
 ROBOTS: NOINDEX
@@ -17,24 +17,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 985ba895bfcad1611bebe80a6c2fc8ffed780da5
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="run-a-sample-application-to-send-device-to-cloud-messages"></a>Запуск примера приложения для отправки сообщений с устройства в облако
-## <a name="what-you-will-do"></a>Выполняемая задача
+<a id="run-a-sample-application-to-send-device-to-cloud-messages" class="xliff"></a>
+
+# Запуск примера приложения для отправки сообщений с устройства в облако
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 В этой статье показано, как развернуть и запустить на устройстве Raspberry Pi 3 пример приложения, которое отправляет сообщения в Центр Интернета вещей. Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 Вы узнаете, как с помощью средства Gulp развернуть и запустить пример приложения Node.js на устройстве Pi.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 * К выполнению этой задачи следует приступать только после выполнения действий, описанных в статье [Create an Azure function app and an Azure Storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md) (Создание приложения-функции Azure и учетной записи хранения Azure для обработки и хранения сообщений Центра Интернета вещей).
 
-## <a name="get-your-iot-hub-and-device-connection-strings"></a>Получение строк подключения Центра Интернета вещей и устройства
+<a id="get-your-iot-hub-and-device-connection-strings" class="xliff"></a>
+
+## Получение строк подключения Центра Интернета вещей и устройства
 Строка подключения устройства используется устройством Pi для подключения к Центру Интернета вещей. Строка подключения Центра Интернета вещей используется для подключения к реестру удостоверений в Центре Интернета вещей, чтобы управлять устройствами, которым разрешено подключаться к этому центру. 
 
 * Для вывода списка всех Центров Интернета вещей в группе ресурсов выполните следующую команду Azure CLI:
@@ -61,7 +71,9 @@ az iot device show-connection-string --hub-name {my hub name} --device-id myrasp
 
 Используйте `myraspberrypi` в качестве значения `{device id}`, если вы не меняли это значение.
 
-## <a name="configure-the-device-connection"></a>Настройка подключения устройства
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Настройка подключения устройства
 1. Запустите файл конфигурации, выполнив приведенную ниже команду.
    
    ```bash
@@ -94,22 +106,30 @@ az iot device show-connection-string --hub-name {my hub name} --device-id myrasp
 
 Обновите файл `config-raspberrypi.json`, чтобы можно было развернуть пример приложения с компьютера.
 
-## <a name="deploy-and-run-the-sample-application"></a>Развертывание и запуск примера приложения
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Развертывание и запуск примера приложения
 Разверните и запустите пример приложения на устройстве Pi, выполнив следующую команду.
 
 ```bash
 gulp deploy && gulp run
 ```
 
-## <a name="verify-that-the-sample-application-works"></a>Проверка работы примера приложения
+<a id="verify-that-the-sample-application-works" class="xliff"></a>
+
+## Проверка работы примера приложения
 Светодиодный индикатор, подключенный к устройству Pi, должен мигать с частотой в две секунды. Каждый раз, когда индикатор мигает, пример приложения отправляет сообщение в Центр Интернета вещей и проверяет, что сообщение успешно отправлено. Кроме того, каждое сообщение, полученное Центром Интернета вещей, выводится в окне консоли. Пример приложения автоматически завершает работу после отправки 20 сообщений.
 
 ![Пример приложения с отправленными и полученными сообщениями](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_run_c.png)
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 Вы развернули и запустили новый пример приложения для включения индикатора на устройстве Pi для отправки сообщений с устройства в облако, то есть в Центр Интернета вещей. Теперь можно отслеживать сообщения по мере их записывания в учетную запись хранения.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Чтение сообщений, сохраненных в службе хранилища Azure](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
 
 

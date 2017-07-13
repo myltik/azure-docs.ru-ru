@@ -12,20 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 5ccb5c0b3c2ffaf8aba855a9dbe3da9691ab149b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="overview-of-metrics-in-microsoft-azure"></a>Обзор метрик в Microsoft Azure
-Все службы Azure отслеживают ключевые метрики, которые позволяют контролировать работоспособность, производительность, доступность и использование служб. Эти метрики можно просмотреть на портале Azure. Кроме того, можно использовать [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) или [пакет SDK для .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) для программного доступа ко всем метрикам.
+<a id="overview-of-metrics-in-microsoft-azure" class="xliff"></a>
+
+# Обзор метрик в Microsoft Azure
+Все службы Azure отслеживают ключевые метрики, которые позволяют контролировать работоспособность, производительность, доступность и использование служб. Эти метрики можно просмотреть на портале Azure. Кроме того, можно использовать [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) или [пакет SDK для .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) для программного доступа ко всем метрикам.
 
 Для некоторых служб может потребоваться включить диагностику, чтобы увидеть все метрики. Для других служб, таких как виртуальные машины, вы получите базовый набор метрик, но необходимо включить полный набор метрик с высокой частотой. Подробнее: [Включение мониторинга и диагностики](insights-how-to-use-diagnostics.md) .
 
-## <a name="using-monitoring-charts"></a>Использование диаграмм мониторинга
+<a id="using-monitoring-charts" class="xliff"></a>
+
+## Использование диаграмм мониторинга
 Вы можете создать диаграмму для любой метрики за любой период.
 
 1. На [портале Azure](https://portal.azure.com/)нажмите кнопку **Обзор**, а затем выберите ресурс для отслеживания.
@@ -43,7 +49,9 @@ ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
 7. Ниже диапазона времени можно выбрать любое количество метрик, отображаемых на диаграмме.
 8. При нажатии кнопки "Сохранить" будут сохранены изменения для данного ресурса. Например, если у вас две виртуальные машины и вы изменили диаграмму на одной из них, это не повлияет на другую виртуальную машину.
 
-## <a name="creating-side-by-side-charts"></a>Создание диаграмм, расположенных рядом друг с другом
+<a id="creating-side-by-side-charts" class="xliff"></a>
+
+## Создание диаграмм, расположенных рядом друг с другом
 С помощью мощных возможностей настройки на портале можно добавить столько диаграмм, сколько требуется.
 
 1. В меню **...** в верхней части колонки нажмите **Добавить плитки**:  
@@ -51,26 +59,25 @@ ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
 2. Затем можно выбрать диаграмму в **коллекции** в правой части экрана:  ![Коллекция](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. Если вы не видите нужные метрики, вы всегда можете добавить одну из предустановленных метрик и **изменить** диаграмму, чтобы отобразить их.
 
-## <a name="monitoring-usage-quotas"></a>Мониторинг квот использования
+<a id="monitoring-usage-quotas" class="xliff"></a>
+
+## Мониторинг квот использования
 Большинство метрик показывают тенденции во времени, но некоторые данные, например квоты на использование, представляют собой сведения на определенный момент времени с пороговым значением.
 
 Квоты на использование также можно просмотреть в колонке для ресурсов с квотами:
 
 ![Использование](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
-Как и для метрик, [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) и [пакет SDK для .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) можно использовать для программного доступа к полному набору квот на использование.
+Как и для метрик, [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) и [пакет SDK для .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) можно использовать для программного доступа к полному набору квот на использование.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * [Получайте уведомления](insights-receive-alert-notifications.md) , когда метрика достигает порогового значения.
 * [Включите отслеживание и диагностику](insights-how-to-use-diagnostics.md) , чтобы собирать подробные метрики о службе с высокой частотой.
 * [Автоматически масштабируйте число экземпляров](insights-how-to-scale.md) , чтобы служба всегда была доступна.
 * [Отслеживайте производительность приложения](../application-insights/app-insights-azure-web-apps.md) , чтобы точно понять, как ваш код работает в облаке.
 * Используйте [приложения Application Insights для JavaScript и веб-страниц](../application-insights/app-insights-web-track-usage.md) для анализа браузеров, которые посещают веб-страницу.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

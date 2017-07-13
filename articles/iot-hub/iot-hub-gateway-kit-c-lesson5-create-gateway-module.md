@@ -4,7 +4,7 @@ description: "Создайте модуль и добавьте его в при
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: 
 ROBOTS: NOINDEX
@@ -23,28 +23,37 @@ ms.openlocfilehash: 5e28422158684c3aaf0ac3fdf5b19c80fbccfb02
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
-# <a name="lesson-5-create-your-first-azure-iot-gateway-module"></a>Урок 5. Создание первого модуля шлюза Azure IoT
+<a id="lesson-5-create-your-first-azure-iot-gateway-module" class="xliff"></a>
+
+# Урок 5. Создание первого модуля шлюза Azure IoT
 Edge Интернета вещей Azure позволяет создавать модули, написанные на Java, .NET или Node.js, но в этом руководстве описаны шаги по созданию модуля на C.
 
-## <a name="what-you-will-do"></a>Выполняемая задача
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 
 - Компиляция и запуск примера приложения hello_world на устройстве Intel NUC.
 - Создание модуля и его компиляция на Intel NUC.
 - Добавление нового модуля в пример приложения hello_world и запуск примера на Intel NUC. Новый модуль выводит на экран сообщение "hello_world" с меткой времени.
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 
 - Как скомпилировать и запустить пример приложения на Intel NUC.
 - Как создать модуль.
 - Как добавить модуль в пример приложения.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 
 Edge Интернета вещей Azure, установленный на главном компьютере.
 
-## <a name="folder-structure"></a>Структура папок
+<a id="folder-structure" class="xliff"></a>
+
+## Структура папок
 
 В уроке 5 вложенная папка с примером кода, который вы клонировали в уроке 1, содержит папку `module` и папку `sample`.
 
@@ -53,7 +62,9 @@ Edge Интернета вещей Azure, установленный на гла
 - Папка `module/my_module` содержит исходный код и скрипт для создания модуля.
 - Папка `sample` содержит исходный код и скрипт для создания примера приложения.
 
-## <a name="compile-and-run-the-helloworld-sample-app-on-intel-nuc"></a>Компиляция и запуск примера приложения hello_world на Intel NUC
+<a id="compile-and-run-the-helloworld-sample-app-on-intel-nuc" class="xliff"></a>
+
+## Компиляция и запуск примера приложения hello_world на Intel NUC
 
 Пример `hello_world` создает шлюз на основе файла `hello_world.json`, который задает два предопределенных модуля, связанных с приложением. Шлюз записывает сообщение "hello world" в файл каждые 5 секунд. В этом разделе вы скомпилируете и запустите приложение `hello_world` с его модулем по умолчанию.
 
@@ -100,7 +111,9 @@ Edge Интернета вещей Azure, установленный на гла
 
    ![run_sample](media/iot-hub-gateway-kit-lessons/lesson5/run_sample.png)
 
-## <a name="create-a-new-module-and-compile-it-on-intel-nuc"></a>Создание нового модуля и его компиляция на Intel NUC
+<a id="create-a-new-module-and-compile-it-on-intel-nuc" class="xliff"></a>
+
+## Создание нового модуля и его компиляция на Intel NUC
 
 С помощью приведенных ниже действий вы сможете создать новый модуль и скомпилировать его на устройстве Intel NUC. При получении сообщений модуль выводит их на экран с меткой времени. В этом разделе вы создадите первый настроенный модуль шлюза.
 
@@ -208,7 +221,9 @@ Edge Интернета вещей Azure, установленный на гла
 
    Команда передает исходный код на устройство Intel NUC и выполняет `build.sh` для компиляции модуля.
 
-## <a name="add-the-module-to-the-helloworld-sample-app-and-run-the-app-on-intel-nuc"></a>Добавление модуля в пример приложения hello_world и запуск приложения на Intel NUC
+<a id="add-the-module-to-the-helloworld-sample-app-and-run-the-app-on-intel-nuc" class="xliff"></a>
+
+## Добавление модуля в пример приложения hello_world и запуск приложения на Intel NUC
 
 Для этого выполните следующие действия.
 
@@ -275,7 +290,9 @@ Edge Интернета вещей Azure, установленный на гла
 
 Поздравляем! Теперь вы можете увидеть поведение этого нового модуля: он просто выводит на экран сообщения "hello world" с меткой времени, чем отличается от исходного модуля "hello_world".
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 Вы создали новый модуль, добавили его в пример приложения hello_world и запустили пример приложения с новым модулем в шлюзе. Дополнительные сведения о модулях шлюза Azure IoT и другие примеры модулей см. здесь: [https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules).
 

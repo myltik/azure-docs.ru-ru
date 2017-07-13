@@ -14,15 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/18/2017
 ms.author: karolz
-translationtype: Human Translation
-ms.sourcegitcommit: d7f7b157d8d6fb54259c8f23d5005509f4eb7872
-ms.openlocfilehash: 22acb6afbfbfff753e71b5e821385798cc76ffdd
-ms.lasthandoff: 01/19/2017
+redirect_url: /azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 08f7b57985382f2abbb90ba1e13a30f40b38917f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/15/2017
 
 
 ---
-# <a name="collect-logs-directly-from-an-azure-service-fabric-service-process"></a>Сбор журналов непосредственно из процесса службы Azure Service Fabric
-## <a name="in-process-log-collection"></a>Внутрипроцессный сбор журналов
+<a id="collect-logs-directly-from-an-azure-service-fabric-service-process" class="xliff"></a>
+
+# Сбор журналов непосредственно из процесса службы Azure Service Fabric
+<a id="in-process-log-collection" class="xliff"></a>
+
+## Внутрипроцессный сбор журналов
 Сбор журналов приложений с помощью [расширения системы диагностики Azure](service-fabric-diagnostics-how-to-setup-wad.md) — хороший вариант для служб **Azure Service Fabric**, если набор источников и мест назначения журналов невелик и редко меняется, а источники и места назначения легко сопоставимы. В противном случае можно настроить службы для отправки своих журналов в центральное расположение. Этот процесс называется **внутрипроцессным сбором журналов** и имеет несколько потенциальных преимуществ.
 
 * *Простая настройка и развертывание.*
@@ -46,26 +52,30 @@ ms.lasthandoff: 01/19/2017
 
 В этой статье показано, как настроить внутрипроцессный сбор журналов с помощью [**библиотеки с открытым кодом EventFlow**](https://github.com/Azure/diagnostics-eventflow). Для этой цели можно использовать и другие библиотеки, но EventFlow имеет преимущество, так как она была разработана специально для внутрипроцессного сбора журналов и поддержки служб Service Fabric. Мы используем [**Azure Application Insights**](https://azure.microsoft.com/services/application-insights/) в качестве места назначения журналов. Можно также использовать [**концентраторы событий**](https://azure.microsoft.com/services/event-hubs/) или [**Elasticsearch**](https://www.elastic.co/products/elasticsearch). Это лишь вопрос установки соответствующего пакета NuGet и настройки назначения в файле конфигурации EventFlow. Дополнительные сведения о местах назначения журналов, отличных от Application Insights, см. в [документации по EventFlow](https://github.com/Azure/diagnostics-eventflow).
 
-## <a name="adding-eventflow-library-to-a-service-fabric-service-project"></a>Добавление библиотеки EventFlow в проект службы Service Fabric
+<a id="adding-eventflow-library-to-a-service-fabric-service-project" class="xliff"></a>
+
+## Добавление библиотеки EventFlow в проект службы Service Fabric
 Двоичные файлы EventFlow предоставляются как набор пакетов NuGet. Чтобы добавить библиотеку EventFlow в проект службы Service Fabric, щелкните его правой кнопкой мыши в обозревателе решений и выберите "Управление пакетами NuGet". Перейдите на вкладку "Обзор" и найдите `Diagnostics.EventFlow`.
 
 ![Пакеты NuGet EventFlow в диспетчере пакетов NuGet Visual Studio][1]
 
 Служба, в которой размещается EventFlow, должна содержать соответствующие пакеты в зависимости от источника и назначения журналов приложений. Добавьте приведенные ниже пакеты. 
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource` 
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` 
     * (Для сбора данных из класса EventSource службы и стандартных классов EventSource, например *Microsoft-ServiceFabric-Services* и *Microsoft-ServiceFabric-Actors*.)
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` 
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` 
     * (Мы собираемся отправлять журналы в ресурс Azure Application Insights.)  
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric` 
     * (Позволяет инициализировать конвейер EventFlow из конфигурации службы Service Fabric и сообщать о всех проблемах отправки диагностических данных в виде отчетов о работоспособности Service Fabric.)
 
 > [!NOTE]
-> Для пакета `Microsoft.Diagnostics.EventFlow.Input.EventSource` требуется, чтобы в проекте службы использовалась платформа .NET Framework 4.6 или более поздняя версия. Обязательно задайте соответствующую целевую платформу в свойствах проекта, прежде чем устанавливать этот пакет. 
+> Для пакета `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` требуется, чтобы в проекте службы использовалась платформа .NET Framework 4.6 или более поздняя версия. Обязательно задайте соответствующую целевую платформу в свойствах проекта, прежде чем устанавливать этот пакет. 
 
 После установки всех пакетов следующим шагом является настройка и включение EventFlow в службе.
 
-## <a name="configuring-and-enabling-log-collection"></a>Настройка и включение сбора журналов
+<a id="configuring-and-enabling-log-collection" class="xliff"></a>
+
+## Настройка и включение сбора журналов
 Конвейер EventFlow, отвечающий за отправку журналов, создается на основе спецификации, хранящейся в файле конфигурации. Пакет `Microsoft.Diagnostics.EventFlow.ServiceFabric` устанавливает начальный файл конфигурации EventFlow в паку решения `PackageRoot\Config`. Это файл `eventFlowConfig.json`. Данный файл конфигурации нужно изменить, чтобы собирать данные из класса службы по умолчанию `EventSource` и отправлять их в службу Application Insights.
 
 > [!NOTE]
@@ -163,12 +173,16 @@ namespace Stateless1
 
 Имя, переданное в качестве параметра в метод `CreatePipeline` класса `ServiceFabricDiagnosticsPipelineFactory`, — это имя *сущности работоспособности*, представляющей конвейер EventFlow для сбора журналов. Это имя используется в том случае, если EventFlow обнаруживает ошибку и сообщает о ней через подсистему работоспособности Service Fabric.
 
-## <a name="verification"></a>Проверка
+<a id="verification" class="xliff"></a>
+
+## Проверка
 Запустите службу и просмотрите окно выходных данных отладки в Visual Studio. После запуска службы вы должны увидеть подтверждения того, что она отправляет записи телеметрии Application Insights. Откройте веб-браузер и перейдите к своему ресурсу Application Insights. Откройте вкладку "Поиск" (в верхней части колонки "Обзор", используемой по умолчанию). После небольшой задержки ваши трассировки должны начать появляться на портале Application Insights.
 
 ![Журналы из Service Fabric на портале Application Insights][2]
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * [Дополнительные сведения о диагностике и мониторинге службы Service Fabric](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 * [Документация по EventFlow](https://github.com/Azure/diagnostics-eventflow)
 
@@ -176,3 +190,4 @@ namespace Stateless1
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-collect-logs-without-an-agent/eventflow-nugets.png
 [2]: ./media/service-fabric-diagnostics-collect-logs-without-an-agent/ai-traces.png
+

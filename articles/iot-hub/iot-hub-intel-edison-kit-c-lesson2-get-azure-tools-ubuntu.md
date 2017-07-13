@@ -4,7 +4,7 @@ description: "Установка Python и интерфейса командно
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "Azure CLI, облачная служба Интернета вещей, облако Arduino"
 ROBOTS: NOINDEX
@@ -17,32 +17,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
 ms.openlocfilehash: e3b1c4dd3ff9a361c6c32cabd04fec523f8d6578
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="get-azure-tools-ubuntu-1604"></a>Получение инструментов Azure (Ubuntu 16.04)
+<a id="get-azure-tools-ubuntu-1604" class="xliff"></a>
+
+# Получение инструментов Azure (Ubuntu 16.04)
 > [!div class="op_single_selector"]
 > * [Windows 7 и более поздние версии][windows]
 > * [Ubuntu 16.04][ubuntu]
 > * [macOS 10.10][macos]
 
-## <a name="what-you-will-do"></a>Выполняемая задача
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 Установите интерфейс командной строки Azure (Azure CLI). Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок][troubleshooting].
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 В этой статье вы узнаете следующее:
 * Как установить интерфейс командной строки Azure.
 * Как добавить подгруппу команд интерфейса командной строки Azure для Интернета вещей.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 * Компьютер под управлением Ubuntu с подключением к Интернету.
 * Активная подписка Azure. Если у вас нет учетной записи, можно создать [бесплатную учетную запись](http://azure.microsoft.com/pricing/free-trial/) всего за несколько минут.
 
-## <a name="install-the-azure-cli"></a>Установка Azure CLI
+<a id="install-the-azure-cli" class="xliff"></a>
+
+## Установка Azure CLI
 Azure CLI — это кроссплатформенное средство для подготовки ресурсов и управлении ими непосредственно в командной строке Azure.
 
 Чтобы установить последнюю версию Azure CLI, выполните следующие действия:
@@ -68,10 +78,14 @@ Azure CLI — это кроссплатформенное средство дл
 
 ![Выходные данные, указывающие на успешное выполнение](media/iot-hub-intel-edison-lessons/lesson2/az_iot_help_ubuntu.png)
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 Вы установили интерфейс командной строки Azure. Перейдите к следующей задаче: создайте Центр Интернета вещей Azure и удостоверение устройства с помощью интерфейса командной строки Azure.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Создание Центра Интернета вещей и регистрация Intel Edison][create-your-iot-hub-and-register-intel-edison]
 
 

@@ -17,36 +17,44 @@ ms.date: 04/20/2017
 ms.author: rachelap
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 3925c1a3d2c5a9fc3a82e8823dbdeffabeb38a3a
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 36dbc2c181c9991a27163e3194800f63c6c0e01e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
-# <a name="integrate-function-app-into-azure-storage-account"></a>Интеграция приложения-функции в учетную запись хранения Azure
+<a id="integrate-function-app-into-azure-storage-account" class="xliff"></a>
+
+# Интеграция приложения-функции в учетную запись хранения Azure
 
 Этот пример скрипта создает приложение-функцию и учетную запись хранения.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Пример скрипта
+<a id="sample-script" class="xliff"></a>
+
+## Пример скрипта
 
 Этот пример создает приложение-функцию Azure и добавляет строку подключения хранилища в параметры приложения.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Интеграция приложения-функции в учетную запись хранения Azure")]
 
 
-## <a name="clean-up-deployment"></a>Очистка развертывания
+<a id="clean-up-deployment" class="xliff"></a>
+
+## Очистка развертывания
 
 Выполнив пример сценария, вы можете удалить группу ресурсов, приложение службы приложений и все связанные ресурсы с помощью следующей команды:
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Описание скрипта
+<a id="script-explanation" class="xliff"></a>
+
+## Описание скрипта
 
 Этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
@@ -58,7 +66,9 @@ ms.lasthandoff: 05/15/2017
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Создайте приложение-функцию. |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Очистка |
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

@@ -4,7 +4,7 @@ description: "Страница со сведениями об устранени
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "устранение неполадок Arduino"
 ROBOTS: NOINDEX
@@ -17,26 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
 ms.openlocfilehash: c35afd54fb20c3ecd1a70796094093ad748385d0
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="troubleshooting"></a>Устранение неполадок
-## <a name="hardware-issues"></a>Проблемы с оборудованием
+<a id="troubleshooting" class="xliff"></a>
+
+# Устранение неполадок
+<a id="hardware-issues" class="xliff"></a>
+
+## Проблемы с оборудованием
 Сведения об устранении распространенных проблем на устройстве Intel Edison см. на [этой официальной странице](https://software.intel.com/en-us/node/637974).
 
-## <a name="nodejs-package-issues"></a>Проблемы с пакетами Node.js
-### <a name="no-response-during-gulp-tasks"></a>Нет ответа при выполнении задач Gulp
+<a id="nodejs-package-issues" class="xliff"></a>
+
+## Проблемы с пакетами Node.js
+<a id="no-response-during-gulp-tasks" class="xliff"></a>
+
+### Нет ответа при выполнении задач Gulp
 Если при выполнении задач Gulp возникли проблемы, можно добавить параметр `--verbose` для отладки. Попробуйте завершить текущие задачи Gulp, используя клавиши `Ctrl + C`, а затем выполните следующую команду в окне консоли, чтобы просмотреть сообщения отладки. В выходных данных консоли должны отобразиться подробные сообщения об ошибках. 
 
 ```bash
 gulp --verbose
 ```
 
-### <a name="npm-issues"></a>проблемы с NPM
+<a id="npm-issues" class="xliff"></a>
+
+### проблемы с NPM
 Попробуйте обновить пакет NPM, выполнив следующую команду:
 
 ```bash
@@ -45,7 +55,9 @@ npm install -g npm
 
 Если проблема не исчезла, оставьте комментарии в конце этой статьи или задайте вопрос о проблеме в GitHub в нашем [примере репозитория][sample-repository].
 
-## <a name="azure-cli-issues"></a>Проблемы с Azure CLI
+<a id="azure-cli-issues" class="xliff"></a>
+
+## Проблемы с Azure CLI
 Интерфейс командной строки Azure (Azure CLI) — это сборка предварительной версии. Решения можно найти в [руководстве по установке предварительной версии](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md). Попытайтесь обновить Azure CLI до последней версии, если команда не работает должным образом.
 
 При появлении ошибок в средстве сообщите о [проблеме](https://github.com/Azure/azure-cli/issues) в разделе **Проблемы** репозитория GitHub.
@@ -58,8 +70,12 @@ npm install -g npm
 python -m pip install --upgrade pip
 ```
 
-## <a name="python-installation-issues"></a>Проблемы с установкой Python
-### <a name="legacy-installation-issues-macos"></a>Проблемы с устаревшими установками (macOS)
+<a id="python-installation-issues" class="xliff"></a>
+
+## Проблемы с установкой Python
+<a id="legacy-installation-issues-macos" class="xliff"></a>
+
+### Проблемы с устаревшими установками (macOS)
 При установке **pip** возникает ошибка разрешения, если есть устаревшие пакеты, которые устанавливаются с использованием разрешений **su**. Такая ситуация возникает из-за того, что предыдущая установка Python с использованием brew (macOS) удалена не полностью. Некоторые пакеты **pip** из предыдущей установки созданы с помощью разрешений корневой папки, что приводит к ошибке разрешения. Чтобы решить эту проблему, необходимо удалить эти пакеты, установленные с помощью разрешений корневой папки. Для этого необходимо сделать следующее:
 
 1. Перейдите к папке /usr/local/lib/python2.7/site-packages.
@@ -67,10 +83,14 @@ python -m pip install --upgrade pip
 3. Удалите пакеты из шага 2: `sudo rm -rf {package name}`.
 4. Переустановите Python.
 
-## <a name="azure-iot-hub-issues"></a>Проблемы с Центром Интернета вещей Azure
+<a id="azure-iot-hub-issues" class="xliff"></a>
+
+## Проблемы с Центром Интернета вещей Azure
 Если Центр Интернета вещей Azure успешно подготовлен с помощью `azure-cli` и требуется инструмент для управления устройствами, подключенными к вашему Центру Интернета вещей, воспользуйтесь следующими инструментами:
 
-### <a name="device-explorer"></a>Обозреватель устройств
+<a id="device-explorer" class="xliff"></a>
+
+### Обозреватель устройств
 [Обозреватель устройств](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) работает на локальном компьютере Windows и подключается к Центру Интернета вещей в Azure. Он взаимодействует со следующими [конечными точками Центра Интернета вещей](iot-hub-devguide.md):
 
 - _управление удостоверениями устройств_ для подготовки устройств, зарегистрированных в Центре Интернета вещей, и управления ими;
@@ -79,7 +99,9 @@ python -m pip install --upgrade pip
 
 Настройте свою `IoT hub connection string` в этом инструменте, чтобы использовать его возможности.
 
-### <a name="iot-hub-explorer"></a>Обозреватель Центра Интернета вещей
+<a id="iot-hub-explorer" class="xliff"></a>
+
+### Обозреватель Центра Интернета вещей
 [Обозреватель Центра Интернета вещей](https://github.com/Azure/iothub-explorer) — это пример мультиплатформенного инструмента интерфейса командной строки для управления клиентами устройств. Инструмент можно использовать для управления устройствами в реестре удостоверений, мониторинга сообщений, отправляемых с устройства в облако, и отправки команд, передаваемых из облака на устройство.
 
 Чтобы установить последнюю версию (предварительную версию) инструмента iothub-explorer, выполните следующую команду в среде командной строки:
@@ -94,13 +116,19 @@ npm install -g iothub-explorer@latest
 iothub-explorer help
 ```
 
-### <a name="azure-portal"></a>Портал Azure
+<a id="azure-portal" class="xliff"></a>
+
+### Портал Azure
 Все возможности интерфейса командной строки помогают создавать все ресурсы Azure и управлять ими. Для подготовки, отладки ресурсов Azure и управления ими можно также воспользоваться [порталом Azure](../azure-portal-overview.md).
 
-## <a name="azure-storage-issues"></a>Проблемы со службой хранилища Azure
+<a id="azure-storage-issues" class="xliff"></a>
+
+## Проблемы со службой хранилища Azure
 [Обозреватель служб хранилища Microsoft Azure (предварительная версия)](http://storageexplorer.com) — это автономное приложение от корпорации Майкрософт, которое можно использовать для работы с данными из [службы хранилища Azure](https://azure.microsoft.com/en-us/services/storage/) на платформе Windows, macOS и Linux. Используя этот инструмент, можно подключаться к таблице и просматривать данные в ней. Его можно использовать для устранения неполадок в вашей службе хранилища Azure.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 На этой странице приведены только наиболее распространенные проблемы с набором Intel Edison. Вы также можете оставить комментарии внизу страницы, чтобы сообщить о проблемах для дальнейшего устранения неполадок.
 
 Вернитесь к изучению статьи [Начало работы с Intel Edison (Node.js)](iot-hub-intel-edison-kit-c-get-started.md)

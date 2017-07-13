@@ -13,30 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2017
+ms.date: 06/22/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8564f75f4e90aa7c3b4f93823b5202354c8bba3a
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: 9cecbfd1fd5db8fffc9fbdfb2d6ca949b6ff385a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
-# <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Рекомендации по работе с условным доступом в Azure Active Directory
+<a id="best-practices-for-conditional-access-in-azure-active-directory" class="xliff"></a>
+
+# Рекомендации по работе с условным доступом в Azure Active Directory
 
 В этом разделе приводятся необходимые сведения о том, что нужно и не нужно делать при настройке политики условного доступа. Перед прочтением этого раздела следует ознакомиться с основными понятиями и терминологией, связанной с [условным доступом в Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-## <a name="what-you-should-know"></a>Необходимая информация
+<a id="what-you-should-know" class="xliff"></a>
 
-### <a name="do-i-need-to-assign-a-user-to-my-policy"></a>Нужно ли назначать пользователя политике?
+## Необходимая информация
+
+<a id="do-i-need-to-assign-a-user-to-my-policy" class="xliff"></a>
+
+### Нужно ли назначать пользователя политике?
 
 При настройке политики условного доступа вы должны назначить ей как минимум одну группу. Политика условного доступа, которой не назначены пользователи и группы, не активируется.
 
 Если вы хотите назначить политике несколько пользователей и групп, следует сначала назначить одного пользователя или группу, а затем проверить конфигурацию. Если политика работает правильно, можно добавить к ней дополнительные назначения.  
 
 
-### <a name="how-are-assignments-evaluated"></a>Проверка назначений
+<a id="how-are-assignments-evaluated" class="xliff"></a>
+
+### Проверка назначений
 
 Все назначения выполняются с помощью логического оператора **AND**. Если вы настроили несколько назначений, для активации политики все назначения должны быть выполнены.  
 
@@ -45,27 +53,32 @@ ms.lasthandoff: 05/11/2017
 - включить **все расположения**;
 - исключить **все надежные IP-адреса**.
 
-### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Что произойдет, если настроить политики на классическом портале Azure и на портале Azure?  
+<a id="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured" class="xliff"></a>
+
+### Что произойдет, если настроить политики на классическом портале Azure и на портале Azure?  
 Azure Active Directory применяет обе политики, и пользователь получает доступ только в том случае, если все требования соблюдены.
 
-### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Что произойдет, если настроить политики на портале Intune Silverlight и на портале Azure?
+<a id="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal" class="xliff"></a>
+
+### Что произойдет, если настроить политики на портале Intune Silverlight и на портале Azure?
 Azure Active Directory применяет обе политики, и пользователь получает доступ только в том случае, если все требования соблюдены.
 
-### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Что произойдет, если настроить несколько политик для одного пользователя?  
+<a id="what-happens-if-i-have-multiple-policies-for-the-same-user-configured" class="xliff"></a>
+
+### Что произойдет, если настроить несколько политик для одного пользователя?  
 Во время каждого входа в систему Azure Active Directory оценивает все политики и проверяет соблюдение всех требований, прежде чем предоставить пользователю доступ.
 
 
-### <a name="does-conditional-access-work-with-exchange-activesync"></a>Работает ли условный доступ с Exchange Active Sync?
+<a id="does-conditional-access-work-with-exchange-activesync" class="xliff"></a>
+
+### Работает ли условный доступ с Exchange Active Sync?
 
 Да. Exchange ActiveSync можно использовать в политике условного доступа.
 
 
-### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>Что если мне требуется Многофакторная идентификация или совместимое устройство?
+<a id="what-you-should-avoid-doing" class="xliff"></a>
 
-В настоящее время пользователю будет предложено пройти Многофакторную идентификацию вне зависимости от используемого устройства.
-
-
-## <a name="what-you-should-avoid-doing"></a>Чего следует избегать
+## Чего следует избегать
 
 Платформа условного доступа обеспечивает исключительную гибкость конфигурации. Тем не менее, исключительная гибкость также означает, что во избежание нежелательных результатов необходимо внимательно просмотреть каждую политику конфигурации, прежде чем выпускать ее. В этом контексте следует уделить особое внимание назначениям, которые влияют на полные наборы, такие как **все пользователи / группы / облачные приложения**.
 
@@ -86,16 +99,22 @@ Azure Active Directory применяет обе политики, и польз
 - **Блокировка доступа** — эта конфигурация блокирует всю организацию, что явно не является хорошей идеей.
 
 
-## <a name="common-scenarios"></a>Распространенные сценарии
+<a id="common-scenarios" class="xliff"></a>
 
-### <a name="requiring-multi-factor-authentication-for-apps"></a>Требование многофакторной идентификации для приложений
+## Распространенные сценарии
+
+<a id="requiring-multi-factor-authentication-for-apps" class="xliff"></a>
+
+### Требование многофакторной идентификации для приложений
 
 Во многих средах для одних приложений требуется более высокий уровень защиты, чем для других.
 Например, это касается приложений с доступом к конфиденциальным данным.
 Если нужно добавить еще один уровень защиты для этих приложений, можно настроить политику условного доступа, которая требует многофакторной идентификации при обращении пользователей к этим приложениям.
 
 
-### <a name="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted"></a>Требование многофакторной идентификации для доступа из сетей, которые не являются доверенными
+<a id="requiring-multi-factor-authentication-for-access-from-networks-that-are-not-trusted" class="xliff"></a>
+
+### Требование многофакторной идентификации для доступа из сетей, которые не являются доверенными
 
 Этот сценарий похож на предыдущий, так как он добавляет требование многофакторной идентификации.
 Но главное различие — условие для этого требования.  
@@ -103,13 +122,17 @@ Azure Active Directory применяет обе политики, и польз
 Иными словами, вы можете настроить требование многофакторной идентификации, если пользователь обращается к приложению из сети, которой вы не доверяете.
 
 
-### <a name="only-trusted-devices-can-access-office-365-services"></a>Только доверенные устройства могут получать доступ к службам Office 365
+<a id="only-trusted-devices-can-access-office-365-services" class="xliff"></a>
+
+### Только доверенные устройства могут получать доступ к службам Office 365
 
 Если вы используете Intune в своей среде, вы можете немедленно начать использовать интерфейс политики условного доступа в консоли Azure.
 
 Многие клиенты Intune используют условный доступ, чтобы только доверенные устройства могли обращаться к службам Office 365. К ним относятся мобильные устройства, зарегистрированные с помощью Intune и отвечающие требованиям политики соответствия, а также компьютеры под управлением Windows, присоединенные к локальному домену. Основное преимущество заключается в том, что вам не нужно настраивать одну и ту же политику для всех служб Office 365.  При создании новой политики настройте облачные приложения, чтобы они включали каждое приложение Office 365, которое необходимо защитить с помощью условного доступа.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 Если вы хотите узнать, как настроить политику условного доступа, см. статью о том, как [начать работу с условным доступом в Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
