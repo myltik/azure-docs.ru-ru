@@ -12,17 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: e420d192b6c60aad7523948762ff2762970583ed
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 7303b51a4a107e63e4c6514f7bf8f33a3ba00e39
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
-# <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Руководство. Создание фабрики данных Azure с помощью шаблона диспетчера ресурсов Azure
+# Руководство. Создание фабрики данных Azure с помощью шаблона диспетчера ресурсов Azure
+<a id="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-build-your-first-pipeline.md)
 > * [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
@@ -42,12 +43,14 @@ ms.lasthandoff: 06/14/2017
 > 
 > В этом руководстве конвейеру доступно только одно действие типа — HDInsightHive. Конвейер может содержать сразу несколько действий. Два действия можно объединить в цепочку (выполнить одно действие вслед за другим), настроив выходной набор данных одного действия как входной набор данных другого действия. Дополнительные сведения см. в разделе [Несколько действий в конвейере](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
-## <a name="prerequisites"></a>Предварительные требования
+## Предварительные требования
+<a id="prerequisites" class="xliff"></a>
 * Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования** .
 * Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview) .
 * Сведения о шаблонах Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). 
 
-## <a name="in-this-tutorial"></a>В этом учебнике рассматриваются следующие темы:
+## В этом учебнике рассматриваются следующие темы:
+<a id="in-this-tutorial" class="xliff"></a>
 | Сущность | Описание |
 | --- | --- |
 | Связанная служба хранения Azure |Связывает учетную запись хранения Azure с фабрикой данных. В этом примере учетная запись хранения Azure содержит входные и выходные данные для конвейера. |
@@ -60,7 +63,8 @@ ms.lasthandoff: 06/14/2017
 
 В следующем разделе содержится полный шаблон Resource Manager для определения сущностей фабрики данных. Таким образом, вы сможете быстро изучить это руководство и протестировать шаблон. Дополнительные сведения о том, как определяется каждая сущность фабрики данных, см. в разделе [Сущности фабрики данных в шаблоне](#data-factory-entities-in-the-template).
 
-## <a name="data-factory-json-template"></a>Шаблон JSON фабрики данных
+## Шаблон JSON фабрики данных
+<a id="data-factory-json-template" class="xliff"></a>
 Шаблон Resource Manager верхнего уровня для определения фабрики данных выглядит следующим образом: 
 
 ```json
@@ -263,7 +267,8 @@ ms.lasthandoff: 06/14/2017
 > 
 > 
 
-## <a name="parameters-json"></a>JSON-файл параметров
+## JSON-файл параметров
+<a id="parameters-json" class="xliff"></a>
 Создайте JSON-файл с именем **ADFTutorialARM Parameters.json**, содержащий параметры для шаблона Azure Resource Manager.  
 
 > [!IMPORTANT]
@@ -309,7 +314,8 @@ ms.lasthandoff: 06/14/2017
 > 
 > 
 
-## <a name="create-data-factory"></a>Создание фабрики данных
+## Создание фабрики данных
+<a id="create-data-factory" class="xliff"></a>
 1. Запустите **Azure PowerShell** и выполните следующие команды: 
    * Выполните следующую команду и введите имя пользователя и пароль, которые используются для входа на портал Azure.
     ```PowerShell
@@ -329,7 +335,8 @@ ms.lasthandoff: 06/14/2017
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
     ```
 
-## <a name="monitor-pipeline"></a>Отслеживание конвейера
+## Отслеживание конвейера
+<a id="monitor-pipeline" class="xliff"></a>
 1. Войдя на [портал Azure](https://portal.azure.com/), щелкните **Обзор** и выберите **Фабрики данных**.
      ![Обзор -> Фабрики данных](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2. В колонке **Фабрики данных** выберите созданную фабрику данных (**TutorialFactoryARM**).    
@@ -356,8 +363,10 @@ ms.lasthandoff: 06/14/2017
 > 
 > 
 
-## <a name="data-factory-entities-in-the-template"></a>Сущности фабрики данных в шаблоне
-### <a name="define-data-factory"></a>Определение фабрики данных
+## Сущности фабрики данных в шаблоне
+<a id="data-factory-entities-in-the-template" class="xliff"></a>
+### Определение фабрики данных
+<a id="define-data-factory" class="xliff"></a>
 Фабрику данных следует определить в шаблоне Resource Manager, как показано в следующем примере:  
 
 ```json
@@ -376,7 +385,8 @@ ms.lasthandoff: 06/14/2017
 ```
 Это уникальная строка благодаря идентификатору группы ресурсов.  
 
-### <a name="defining-data-factory-entities"></a>Определение сущностей фабрики данных
+### Определение сущностей фабрики данных
+<a id="defining-data-factory-entities" class="xliff"></a>
 В шаблоне JSON определены следующие сущности фабрики данных: 
 
 * [Связанная служба хранения Azure](#azure-storage-linked-service)
@@ -385,7 +395,8 @@ ms.lasthandoff: 06/14/2017
 * [Выходной набор данных большого двоичного объекта Azure](#azure-blob-output-dataset)
 * [Конвейер данных с действием копирования](#data-pipeline)
 
-#### <a name="azure-storage-linked-service"></a>Связанная служба хранения Azure
+#### Связанная служба хранения Azure
+<a id="azure-storage-linked-service" class="xliff"></a>
 В этом разделе вы укажете имя и ключ вашей учетной записи хранения Azure. Дополнительные сведения о свойствах JSON для определения связанной службы хранилища Azure см. в разделе [Связанная служба хранилища Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service). 
 
 ```json
@@ -407,7 +418,8 @@ ms.lasthandoff: 06/14/2017
 ```
 Для **connectionString** используются параметры storageAccountName и storageAccountKey. Значения для этих параметров передаются с помощью файла конфигурации. В этом определении также используются переменные azureStroageLinkedService и dataFactoryName, заданные в шаблоне. 
 
-#### <a name="hdinsight-on-demand-linked-service"></a>Связанная служба кластера HDInsight по запросу
+#### Связанная служба кластера HDInsight по запросу
+<a id="hdinsight-on-demand-linked-service" class="xliff"></a>
 Дополнительные сведения о свойствах JSON, используемых для определения связанной службы кластера HDInsight по запросу, см. в статье [Связанные службы вычислений](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).  
 
 ```json
@@ -439,7 +451,8 @@ ms.lasthandoff: 06/14/2017
 
 Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-#### <a name="azure-blob-input-dataset"></a>Входной набор данных большого двоичного объекта Azure
+#### Входной набор данных большого двоичного объекта Azure
+<a id="azure-blob-input-dataset" class="xliff"></a>
 Укажите имя контейнера больших двоичных объектов, папку и файл, который содержит входные данные. Подробные сведения о свойствах JSON, которые используются для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](data-factory-azure-blob-connector.md#dataset-properties). 
 
 ```json
@@ -472,7 +485,8 @@ ms.lasthandoff: 06/14/2017
 ```
 В этом определении используются следующие параметры, заданные в шаблоне параметров: blobContainer, outputBlobFolder и inputBlobName. 
 
-#### <a name="azure-blob-output-dataset"></a>Выходной набор данных BLOB-объекта Azure
+#### Выходной набор данных BLOB-объекта Azure
+<a id="azure-blob-output-dataset" class="xliff"></a>
 Укажите имя контейнера больших двоичных объектов и папку, которая содержит выходные данные. Подробные сведения о свойствах JSON, которые используются для определения набора данных большого двоичного объекта Azure, см. в разделе [Свойства типа "Набор данных большого двоичного объекта Azure"](data-factory-azure-blob-connector.md#dataset-properties).  
 
 ```json
@@ -504,7 +518,8 @@ ms.lasthandoff: 06/14/2017
 
 В этом определении используются следующие параметры, заданные в шаблоне параметров: blobContainer и outputBlobFolder. 
 
-#### <a name="data-pipeline"></a>Конвейер данных
+#### Конвейер данных
+<a id="data-pipeline" class="xliff"></a>
 Здесь вы определите конвейер для преобразования данных. Для этого нужно запустить скрипт Hive в кластере Azure HDInsight по требованию. В разделе [Конвейер JSON](data-factory-create-pipelines.md#pipeline-json) описаны элементы JSON, используемые для определения конвейера в этом примере. 
 
 ```json
@@ -561,7 +576,8 @@ ms.lasthandoff: 06/14/2017
 }
 ```
 
-## <a name="reuse-the-template"></a>Повторное использование шаблона
+## Повторное использование шаблона
+<a id="reuse-the-template" class="xliff"></a>
 В этом руководстве описывается создание шаблона для определения сущностей фабрики данных, а также шаблона, передающего значения для параметров. Чтобы использовать один шаблон для развертывания сущностей фабрики данных в разных средах, нужно создать файл параметров для каждой среды и использовать его при развертывании в определенной среде.     
 
 Пример:  
@@ -577,7 +593,8 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 Шаблон можно снова использовать для выполнения повторяющихся задач. Например, вам нужно создать несколько фабрик данных с одним или с несколькими конвейерами, которые реализуют одинаковую логику, но при этом каждая фабрика данных использует различные учетные записи хранения Azure и базы данных SQL Azure. В этом сценарии для создания фабрик данных используется один шаблон в той же среде (разработки, тестирования или рабочей) с различными файлами параметров. 
 
-## <a name="resource-manager-template-for-creating-a-gateway"></a>Шаблон Resource Manager для создания шлюза
+## Шаблон Resource Manager для создания шлюза
+<a id="resource-manager-template-for-creating-a-gateway" class="xliff"></a>
 Ниже приведен пример шаблона Resource Manager для создания логического шлюза в серверной части. Установите шлюз на локальном компьютере или виртуальной машине IaaS Azure и зарегистрируйте его в службе фабрики данных с помощью ключа. Дополнительные сведения см. в статье [Перемещение данных между локальными источниками и облаком при помощи шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
 
 ```json
@@ -614,7 +631,8 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 ```
 Этот шаблон создает фабрику данных с именем GatewayUsingArmDF и шлюз с именем GatewayUsingARM. 
 
-## <a name="see-also"></a>См. также
+## См. также
+<a id="see-also" class="xliff"></a>
 | Раздел | Описание |
 |:--- |:--- |
 | [Конвейеры](data-factory-create-pipelines.md) |Эта статья поможет вам понять сущность конвейеров и действий в фабрике данных Azure, а также научиться с их помощью создавать комплексные рабочие процессы, управляемые данными, для конкретных бизнес-сценариев. |

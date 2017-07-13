@@ -16,14 +16,15 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: bdb36e6397951d2d3298dbfe9e80a0b678ecfdaf
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 8de3df11a59178b782d50b7662aa5d8cab11a260
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="get-started-with-the-batch-sdk-for-python"></a>Приступая к работе с пакетом SDK пакетной службы для Python
+# Приступая к работе с пакетом SDK пакетной службы для Python
+<a id="get-started-with-the-batch-sdk-for-python" class="xliff"></a>
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
@@ -36,24 +37,29 @@ ms.lasthandoff: 05/02/2017
 
 ![Рабочий процесс решения пакетной службы (основной)][11]<br/>
 
-## <a name="prerequisites"></a>Предварительные требования
+## Предварительные требования
+<a id="prerequisites" class="xliff"></a>
 В этой статье предполагается, что вы уже работали с Python и знаете, как работать в Linux. Также предполагается, что вы можете выполнить требования к созданию учетной записи для службы хранилища и пакетной службы Azure. Эти требования перечислены ниже.
 
-### <a name="accounts"></a>Учетные записи
+### Учетные записи
+<a id="accounts" class="xliff"></a>
 * **Учетная запись Azure.** Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure][azure_free_account].
 * **Учетная запись пакетной службы**. Если у вас есть подписка Azure, [создайте учетную запись пакетной службы Azure](batch-account-create-portal.md).
 * **Учетная запись хранения**. См. раздел [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account) в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
-### <a name="code-sample"></a>Пример кода
+### Пример кода
+<a id="code-sample" class="xliff"></a>
 [Пример кода][github_article_samples] Python для руководства — это один из многих примеров кода пакетной службы в репозитории [azure-batch-samples][github_samples] на сайте GitHub. Чтобы скачать все примеры, на домашней странице репозитория щелкните **Clone or download > Download ZIP** (Клонировать или скачать > Скачать ZIP-файл) или щелкните ссылку [azure-batch-samples-master.zip][github_samples_zip] и скачайте их напрямую. После извлечения содержимого ZIP-файла оба сценария для этого руководства будут находиться в каталоге `article_samples` :
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
-### <a name="python-environment"></a>Среда Python
+### Среда Python
+<a id="python-environment" class="xliff"></a>
 Чтобы запустить пример скрипта *python_tutorial_client.py* на локальной рабочей станции, необходим **интерпретатор Python**, совместимый с версией **2.7** или **3.3+**. Сценарий прошел испытания в Linux и Windows.
 
-### <a name="cryptography-dependencies"></a>Зависимости шифрования
+### Зависимости шифрования
+<a id="cryptography-dependencies" class="xliff"></a>
 Для библиотеки [шифрования][crypto], которая требуется пакетам Python `azure-batch` и `azure-storage`, необходимо установить зависимости. Выполните одну из следующих операций, подходящих для вашей платформы, или ознакомьтесь с дополнительными сведениями об [установке шифрования][crypto_install]:
 
 * Ubuntu
@@ -61,7 +67,7 @@ ms.lasthandoff: 05/02/2017
     `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
 * CentOS
 
-    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+    `yum update && yum install -y gcc openssl-devel libffi-devel python-devel`
 * SLES/OpenSUSE
 
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
@@ -74,7 +80,8 @@ ms.lasthandoff: 05/02/2017
 >
 >
 
-### <a name="azure-packages"></a>Пакеты Azure
+### Пакеты Azure
+<a id="azure-packages" class="xliff"></a>
 Далее установите пакеты Python **пакетной службы Azure** и **службы хранилища Azure**. Оба пакета можно установить, используя **pip** и *requirements.txt*, доступные здесь:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
@@ -93,7 +100,8 @@ ms.lasthandoff: 05/02/2017
 >
 >
 
-## <a name="batch-python-tutorial-code-sample"></a>Пример кода Python для руководства по пакетной службе
+## Пример кода Python для руководства по пакетной службе
+<a id="batch-python-tutorial-code-sample" class="xliff"></a>
 Пример кода Python для руководства по пакетной службе состоит из двух сценариев Python и нескольких файлов данных:
 
 * **python_tutorial_client.py** взаимодействует с пакетной службой и службой хранилища, чтобы выполнять параллельную рабочую нагрузку на вычислительных узлах (виртуальных машинах). Скрипт *python_tutorial_client.py* выполняется на локальной рабочей станции.
@@ -110,15 +118,16 @@ ms.lasthandoff: 05/02/2017
   &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Задача **StartTask** пула скачивает скрипт задач (python_tutorial_task.py) на узлы во время их присоединения к пулу.<br/>
 [**Шаг 4.**](#step-4-create-batch-job) Создайте **задание** пакетной службы.<br/>
 [**Шаг 5.**](#step-5-add-tasks-to-job) Добавьте **задачи** в задание.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**5а.** Планируется выполнение задач на узлах.<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;**5б.** Каждая задача скачивает свои входные данные из службы хранилища Azure, а затем начинает выполнение.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Планируется выполнение задач на узлах.<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Каждая задача скачивает свои входные данные из службы хранилища Azure, а затем начинает выполнение.<br/>
 [**Шаг 6.**](#step-6-monitor-tasks) Мониторинг задач.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Когда задачи выполнены, их выходные данные отправляются в службу хранилища Azure.<br/>
 [**Шаг 7.**](#step-7-download-task-output) Скачайте выходные данные задачи из службы хранилища.
 
 Как уже упоминалось, не каждое решение пакетной службы будет выполнять именно эти шаги. Некоторые решения могут выполнять больше действий, но этот пример демонстрирует общие процессы в решении пакетной службы.
 
-## <a name="prepare-client-script"></a>Подготовка сценария клиента
+## Подготовка сценария клиента
+<a id="prepare-client-script" class="xliff"></a>
 Прежде чем запустить пример, добавьте учетные данные учетных записей пакетной службы и службы хранилища в скрипт *python_tutorial_client.py*. Откройте файл в своем редакторе и обновите следующие строки, используя учетные данные, если еще не сделали этого.
 
 ```python
@@ -149,7 +158,8 @@ STORAGE_ACCOUNT_KEY = ""
 if __name__ == '__main__':
 ```
 
-## <a name="step-1-create-storage-containers"></a>Шаг 1. Создание контейнеров службы хранилища
+## Шаг 1. Создание контейнеров службы хранилища
+<a id="step-1-create-storage-containers" class="xliff"></a>
 ![Создание контейнеров в службе хранилища Azure][1]
 <br/>
 
@@ -187,7 +197,8 @@ blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 >
 >
 
-## <a name="step-2-upload-task-script-and-data-files"></a>Шаг 2. Отправка сценария задач и файлов данных
+## Шаг 2. Отправка сценария задач и файлов данных
+<a id="step-2-upload-task-script-and-data-files" class="xliff"></a>
 ![Отправка файлов приложения и входных данных в контейнеры][2]
 <br/>
 
@@ -260,7 +271,8 @@ def upload_file_to_container(block_blob_client, container_name, path):
                                     blob_source=sas_url)
 ```
 
-### <a name="resourcefiles"></a>ResourceFiles
+### ResourceFiles
+<a id="resourcefiles" class="xliff"></a>
 Объект [ResourceFile][py_resource_file] передает задачи в пакетную службу с URL-адресом файла в службе хранилища Azure, который будет скачан на вычислительный узел перед выполнением этой задачи. Свойство [ResourceFile][py_resource_file].**blob_source** указывает полный URL-адрес файла, по которому его можно найти в службе хранилища Azure. URL-адрес может также включать подписанный URL-адрес (SAS), который обеспечивает безопасный доступ к файлу. Большинство типов задач в пакетной службе, в том числе перечисленные ниже, содержат свойство *ResourceFiles* .
 
 * [CloudTask][py_task]
@@ -270,7 +282,8 @@ def upload_file_to_container(block_blob_client, container_name, path):
 
 В этом примере не используются типы задач JobPreparationTask или JobReleaseTask, но о них можно узнать больше из статьи [Выполнение задач подготовки и завершения заданий на вычислительных узлах пакетной службы Azure](batch-job-prep-release.md).
 
-### <a name="shared-access-signature-sas"></a>Подписанный URL-адрес (SAS)
+### Подписанный URL-адрес (SAS)
+<a id="shared-access-signature-sas" class="xliff"></a>
 Подписанные URL-адреса — это строки, которые предоставляют безопасный доступ к контейнерам и большим двоичным объектам в службе хранилища Azure. Скрипт *python_tutorial_client.py* использует подписанные URL-адреса как контейнеров, так и больших двоичных объектов. Он демонстрирует, как получить эти строки подписанных URL-адресов из службы хранилища.
 
 * **Подписанные URL-адреса больших двоичных объектов**. Задача StartTask пула использует подписанные URL-адреса больших двоичных объектов во время скачивания скрипта заданий и файлов входных данных из службы хранилища (см. [шаг 3](#step-3-create-batch-pool) ниже). Функция `upload_file_to_container` в *python_tutorial_client.py* содержит код, который получает подписанный URL-адрес каждого большого двоичного объекта. Для этого в модуле службы хранилища вызывается [BlockBlobService.make_blob_url][py_make_blob_url].
@@ -281,7 +294,8 @@ def upload_file_to_container(block_blob_client, container_name, path):
 >
 >
 
-## <a name="step-3-create-batch-pool"></a>Шаг 3. Создание пула пакетной службы
+## Шаг 3. Создание пула пакетной службы
+<a id="step-3-create-batch-pool" class="xliff"></a>
 ![Создание пула пакетной службы][3]
 <br/>
 
@@ -386,7 +400,8 @@ def create_pool(batch_service_client, pool_id,
 >
 >
 
-## <a name="step-4-create-batch-job"></a>Шаг 4. Создание задания пакетной службы
+## Шаг 4. Создание задания пакетной службы
+<a id="step-4-create-batch-job" class="xliff"></a>
 ![Создание задания пакетной службы][4]<br/>
 
 **Задание** пакетной службы — это коллекция задач, связанных с пулом вычислительных узлов. Задачи задания выполняются на вычислительных узлах связанного пула.
@@ -420,7 +435,8 @@ def create_job(batch_service_client, job_id, pool_id):
 
 В созданное задание добавляются задачи для выполнения работы.
 
-## <a name="step-5-add-tasks-to-job"></a>Шаг 5. Добавление задач в задание
+## Шаг 5. Добавление задач в задание
+<a id="step-5-add-tasks-to-job" class="xliff"></a>
 ![Добавление задач в задание][5]<br/>
 *(1) Задачи добавляются в задание, (2) планируется запуск задач на узлах, (3) задачи скачивают файлы данных для обработки*
 
@@ -493,7 +509,8 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
                                          sas_token=args.sastoken)
 ```
 
-## <a name="step-6-monitor-tasks"></a>Шаг 6. Мониторинг задач
+## Шаг 6. Мониторинг задач
+<a id="step-6-monitor-tasks" class="xliff"></a>
 ![Мониторинг задач][6]<br/>
 *Скрипт (1) выполняет мониторинг задач и состояния их выполнения, а задачи (2) отправляют данные результатов в службу хранилища Azure*
 
@@ -536,7 +553,8 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
                        "timeout period of " + str(timeout))
 ```
 
-## <a name="step-7-download-task-output"></a>Шаг 7. Загрузка выходных данных задачи
+## Шаг 7. Загрузка выходных данных задачи
+<a id="step-7-download-task-output" class="xliff"></a>
 ![Загрузка выходных данных задачи из службы хранилища][7]<br/>
 
 Теперь, когда задание выполнено, можно загрузить выходные данные задач из службы хранилища Azure. Для этого нужно вызвать `download_blobs_from_container` в *python_tutorial_client.py*:
@@ -578,7 +596,8 @@ def download_blobs_from_container(block_blob_client,
 >
 >
 
-## <a name="step-8-delete-containers"></a>Шаг 8. Удаление контейнеров
+## Шаг 8. Удаление контейнеров
+<a id="step-8-delete-containers" class="xliff"></a>
 Так как вы платите за данные, которые находятся в службе хранилища Azure, рекомендуется всегда удалять все большие двоичные объекты, которые больше не нужны для выполнения заданий пакетной службы. В *python_tutorial_client.py* это можно сделать, вызвав [BlockBlobService.delete_container][py_delete_container] трижды:
 
 ```python
@@ -589,7 +608,8 @@ blob_client.delete_container(input_container_name)
 blob_client.delete_container(output_container_name)
 ```
 
-## <a name="step-9-delete-the-job-and-the-pool"></a>Шаг 9. Удаление задания и пула
+## Шаг 9. Удаление задания и пула
+<a id="step-9-delete-the-job-and-the-pool" class="xliff"></a>
 На последнем шаге появляется запрос на удаление пула и задания, созданных скриптом *python_tutorial_client.py*. Хотя вы и не платите за задания и задачи, *взимается* плата за используемые вычислительные узлы. Поэтому рекомендуется выделять узлы только при необходимости. Удаление неиспользуемых пулов может быть частью процесса обслуживания.
 
 Свойства [JobOperations][py_job] и [PoolOperations BatchServiceClient][py_pool] предусматривают соответствующие методы удаления, которые вызываются, если подтвердить удаление.
@@ -608,7 +628,8 @@ if query_yes_no('Delete pool?') == 'yes':
 >
 >
 
-## <a name="run-the-sample-script"></a>Запуск примера сценария
+## Запуск примера сценария
+<a id="run-the-sample-script" class="xliff"></a>
 При запуске скрипта *python_tutorial_client.py* из [примера кода][github_article_samples] в руководстве консоль будет выглядеть следующим образом. Во время создания и запуска вычислительных узлов пула, а также выполнения команд в рамках его задачи запуска выполнение приостанавливается на `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` . Используйте [портал Azure][azure_portal] для мониторинга пула, вычислительных узлов, заданий и задач во время и после выполнения. Используйте [портал Azure][azure_portal] или [обозреватель службы хранилища Microsoft Azure][storage_explorer], чтобы просматривать ресурсы службы хранилища (контейнеры и большие двоичные объекты), созданные приложением.
 
 > [!TIP]
@@ -646,7 +667,8 @@ Delete pool? [Y/n]
 Press ENTER to exit...
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 Вы можете внести изменения в *python_tutorial_client.py* и *python_tutorial_task.py*, чтобы поэкспериментировать с различными вычислительными сценариями. Например, попробуйте добавить задержку выполнения в *python_tutorial_task.py*, чтобы сымитировать длительно выполняемые задачи и следить за ними на портале. Попробуйте добавить дополнительные задачи или изменить количество вычислительных узлов. Добавьте логику для проверки и разрешите использование существующего пула, чтобы сократить время выполнения.
 
 Теперь, когда вы знакомы с основным рабочим процессом решения пакетной службы, пришло время подробно изучить дополнительные возможности пакетной службы.

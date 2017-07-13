@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/14/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 84c7048bbd608b0b99215d74f71960dc9d1158ef
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 1b3e0d06c8b25158e421f02b587b4ae4836d80ad
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 
-# <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Настройка объема хранилища и уровня масштабируемости для Apache Kafka в HDInsight
+# Настройка объема хранилища и уровня масштабируемости для Apache Kafka в HDInsight
+<a id="configure-storage-and-scalability-for-apache-kafka-on-hdinsight" class="xliff"></a>
 
 Узнайте, как настроить количество управляемых дисков, используемых Apache Kafka в HDInsight.
 
@@ -32,7 +33,8 @@ Kafka в HDInsight использует локальный диск для ви�
 
 ![Схема: Kafka в HDInsight с одним виртуальным жестким диском для каждой виртуальной машины и с несколькими управляемыми дисками для каждой виртуальной машины](./media/hdinsight-apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-## <a name="configure-managed-disks-azure-portal"></a>Настройка управляемых дисков на портале Azure
+## Настройка управляемых дисков на портале Azure
+<a id="configure-managed-disks-azure-portal" class="xliff"></a>
 
 1. Следуйте указаниям в статье о [создании кластеров HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md), чтобы ознакомиться с основными действиями для создания кластера с помощью портала. Не завершайте создание кластера на портале.
 
@@ -43,7 +45,8 @@ Kafka в HDInsight использует локальный диск для ви�
 
     ![Изображение колонки "Размер кластера" с выделенным полем Disks per worker node (Число дисков на рабочий узел)](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
-## <a name="configure-managed-disks-resource-manager-template"></a>Настройка управляемых дисков с использованием шаблона Resource Manager
+## Настройка управляемых дисков с использованием шаблона Resource Manager
+<a id="configure-managed-disks-resource-manager-template" class="xliff"></a>
 
 Чтобы управлять количеством дисков, которое используется рабочими узлами в кластере Kafka, используйте следующий раздел шаблона:
 
@@ -57,7 +60,8 @@ Kafka в HDInsight использует локальный диск для ви�
 
 Весь шаблон, в котором показано, как настроить управляемые диски, см. на странице [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 
 Дополнительные сведения о работе с Kafka HDInsight см. в следующих документах:
 
@@ -66,4 +70,4 @@ Kafka в HDInsight использует локальный диск для ви�
 * [Совместное использование Apache Spark и Kafka (предварительная версия) в HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Подключение к Kafka через виртуальную сеть Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
 
-* [Блог HDInsight об управляемых дисках в Kafka](https://azure.microsoft.com/blog/announcing-hdinsight-kafka-public-preview-with-azure-managed-disks)
+* [Блог HDInsight об управляемых дисках в Kafka](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)

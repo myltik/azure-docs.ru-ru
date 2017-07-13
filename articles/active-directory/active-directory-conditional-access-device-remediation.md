@@ -15,14 +15,15 @@ ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 42dcc653b50698cf8ce8145dfb51f27be7ece440
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4d7704c03bece51957efa2a56577b8808cc62c79
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Неполадки с доступом на устройстве Windows
+# Неполадки с доступом на устройстве Windows
+<a id="you-cant-get-there-from-here-on-a-windows-device" class="xliff"></a>
 
 Например, при попытке получить доступ к интрасети SharePoint Online вашей организации может отобразиться страница с сообщением *об отказе в доступе*. Так происходит, потому что ваш администратор настроил политику условного доступа, которая запрещает доступ к ресурсам организации при определенных условиях. Зачастую для устранения проблемы необходимо обратиться в службу технической поддержки или к администратору, однако существует несколько способов, которые могут помочь справиться с проблемой самостоятельно.
 
@@ -39,7 +40,8 @@ ms.lasthandoff: 04/12/2017
 
 
 
-## <a name="supported-browser"></a>Поддерживаемый браузер
+## Поддерживаемый браузер
+<a id="supported-browser" class="xliff"></a>
 
 Если администратор настроил политику условного доступа, вы можете получить доступ к ресурсам организации с помощью поддерживаемого браузера. Устройства с Windows поддерживают только **Internet Explorer** и **Edge**.
 
@@ -47,10 +49,11 @@ ms.lasthandoff: 04/12/2017
 
 ![Сообщения об отказе в доступе для неподдерживаемых браузеров](./media/active-directory-conditional-access-device-remediation/02.png "Сценарий")
 
-В этом случае для получения доступа к приложению нужно использовать браузер, поддерживаемый платформой устройства. Полный список поддерживаемых браузеров см. [здесь](active-directory-conditional-access-supported-apps.md#supported-browsers).  
+В этом случае для получения доступа к приложению нужно использовать браузер, поддерживаемый платформой устройства. Полный список поддерживаемых браузеров см. [здесь](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies).  
 
 
-## <a name="supported-versions-of-windows"></a>Поддерживаемые версии Windows
+## Поддерживаемые версии Windows
+<a id="supported-versions-of-windows" class="xliff"></a>
 
 Для устройств под управлением операционной системы Windows должны выполняться следующие условия: 
 
@@ -58,7 +61,8 @@ ms.lasthandoff: 04/12/2017
 - Используйте Windows 2008 R2 или более позднюю версию для устройств под управлением операционной системы Windows. 
 
 
-## <a name="compliant-device"></a>Устройства, соответствующие требованиям
+## Устройства, соответствующие требованиям
+<a id="compliant-device" class="xliff"></a>
 
 Ваш администратор может настроить политику условного доступа, которая разрешает доступ к ресурсам организации только при использовании устройств, соответствующих требованиям. В соответствии с требованиями устройство нужно присоединить к локальной службе Active Directory или к Azure Active Directory.
 
@@ -67,7 +71,8 @@ ms.lasthandoff: 04/12/2017
 ![Сообщения об отказе в доступе для незарегистрированных устройств](./media/active-directory-conditional-access-device-remediation/01.png "Сценарий")
 
 
-### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>Присоединено ли устройство к локальной службе Active Directory?
+### Присоединено ли устройство к локальной службе Active Directory?
+<a id="is-your-device-joined-to-an-on-premises-active-directory" class="xliff"></a>
 
 **Если устройство присоединено к локальной службе Active Directory организации, сделайте следующее:**
 
@@ -79,7 +84,8 @@ ms.lasthandoff: 04/12/2017
 6. Если отобразится та же страница, щелкните ссылку **Дополнительные сведения**, а затем свяжитесь с администратором и предоставьте ему соответствующие сведения.
 
 
-### <a name="is-your-device-not-joined-to-an-on-premises-active-directory"></a>Устройство не присоединено к локальной службе Active Directory?
+### Устройство не присоединено к локальной службе Active Directory?
+<a id="is-your-device-not-joined-to-an-on-premises-active-directory" class="xliff"></a>
 
 Если устройство не присоединено к локальной службе Active Directory и работает под управлением Windows 10, у вас есть два варианта доступа:
 
@@ -94,7 +100,8 @@ ms.lasthandoff: 04/12/2017
 
 
 
-#### <a name="azure-ad-join-on-windows-10"></a>Присоединение к Azure AD в Windows 10
+#### Присоединение к Azure AD в Windows 10
+<a id="azure-ad-join-on-windows-10" class="xliff"></a>
 
 Процедура подключения устройства к Azure AD зависит от запущенной версии Windows 10. Чтобы определить версию операционной системы Windows 10, выполните команду **winver**: 
 
@@ -121,7 +128,8 @@ ms.lasthandoff: 04/12/2017
 6. Попробуйте получить доступ к приложению еще раз.
 
 
-#### <a name="workplace-join-on-windows-81"></a>Присоединение к рабочей области в Windows 8.1
+#### Присоединение к рабочей области в Windows 8.1
+<a id="workplace-join-on-windows-81" class="xliff"></a>
 
 Если устройство не присоединено к домену и работает под управлением Windows 8.1, чтобы подключиться к рабочему месту и зарегистрироваться в Microsoft Intune, сделайте следующее:
 
@@ -134,7 +142,8 @@ ms.lasthandoff: 04/12/2017
 
 
 
-#### <a name="add-your-work-or-school-account-to-windows"></a>Добавить свою рабочую или учебную учетную запись в Windows. 
+#### Добавить свою рабочую или учебную учетную запись в Windows.
+<a id="add-your-work-or-school-account-to-windows" class="xliff"></a> 
 
 
 **Юбилейное обновление Windows 10 (версия 1607):**
@@ -158,7 +167,8 @@ ms.lasthandoff: 04/12/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 [Условный доступ в Azure Active Directory](active-directory-conditional-access.md)
 
 
