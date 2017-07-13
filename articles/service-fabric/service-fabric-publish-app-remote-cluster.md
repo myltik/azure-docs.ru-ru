@@ -21,9 +21,8 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 07/12/2017
 
 ---
-<a id="deploy-and-remove-applications-using-visual-studio" class="xliff"></a>
-
 # Развертывание и удаление приложений с помощью Visual Studio
+<a id="deploy-and-remove-applications-using-visual-studio" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -35,17 +34,14 @@ ms.lasthandoff: 07/12/2017
 
 Расширение Azure Service Fabric для Visual Studio предоставляет простой, воспроизводимый и реализуемый с помощью сценария способ публикации приложения в кластер Service Fabric.
 
-<a id="the-artifacts-required-for-publishing" class="xliff"></a>
-
 ## Артефакты, необходимые для публикации
-<a id="deploy-fabricapplicationps1" class="xliff"></a>
-
+<a id="the-artifacts-required-for-publishing" class="xliff"></a>
 ### Deploy-FabricApplication.ps1
+<a id="deploy-fabricapplicationps1" class="xliff"></a>
 Это скрипт PowerShell, который использует путь к профилю публикации в качестве параметра для публикации приложений Service Fabric. Так как этот сценарий является частью приложения, в него можно вносить изменения, необходимые для приложения.
 
-<a id="publish-profiles" class="xliff"></a>
-
 ### Профили публикации
+<a id="publish-profiles" class="xliff"></a>
 В папке **PublishProfiles** проекта приложения Service Fabric находятся файлы XML, содержащие важную информацию для публикации приложения, такую как:
 
 * параметры подключения к кластеру Service Fabric;
@@ -54,17 +50,15 @@ ms.lasthandoff: 07/12/2017
 
 По умолчанию приложение содержит три профиля публикации: Local.1Node.xml, Local.5Node.xml и Cloud.xml. Можно добавить дополнительные профили, скопировав и вставив один из файлов по умолчанию.
 
-<a id="application-parameter-files" class="xliff"></a>
-
 ### Файлы параметров приложений
+<a id="application-parameter-files" class="xliff"></a>
 Папка **ApplicationParameters** проекта приложения Service Fabric содержит XML-файлы с определяемыми пользователем значениями параметров манифеста приложения. Файлы манифеста приложения могут быть параметризованы, так что можно использовать различные значения для параметров развертывания. Дополнительные сведения о параметризации приложения см. в статье [Управление несколькими средами в Service Fabric](service-fabric-manage-multiple-environment-app-configuration.md).
 
 > [!NOTE]
 > Для служб субъектов перед внесением изменений в файл в редакторе или с помощью диалогового окна публикации проекта необходимо сначала выполнить сборку проекта. Это вызвано тем, что во время сборки будет создана часть файлов манифеста.
 
-<a id="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box" class="xliff"></a>
-
 ## Публикация приложения с помощью диалогового окна "Публикация приложения Service Fabric"
+<a id="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box" class="xliff"></a>
 Следующие шаги демонстрируют, как опубликовать приложение с помощью диалогового окна **Публикация приложения Service Fabric**, предоставляемого инструментами Service Fabric Visual Studio.
 
 1. В контекстном меню проекта приложения Service Fabric выберите пункт **Опубликовать**, чтобы открыть диалоговое окно **Публикация приложения Service Fabric**.
@@ -100,9 +94,8 @@ ms.lasthandoff: 07/12/2017
    > 
 6. Указав все необходимые параметры, нажмите кнопку **Опубликовать** , чтобы опубликовать приложение в выбранный кластер Service Fabric. Указанные параметры применяются к процессу публикации.
 
-<a id="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters" class="xliff"></a>
-
 ## Публикация в конечную точку произвольного кластера (включая общие кластеры)
+<a id="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters" class="xliff"></a>
 Возможности публикации Visual Studio оптимизированы для публикации в удаленные кластеры, связанные с одной из подписок Azure. Тем не менее можно выполнить публикацию в произвольную конечную точку (например, в общие кластеры Service Fabric). Для этого нужно напрямую внести изменения в файл XML профиля публикации. Как было сказано ранее, по умолчанию предоставляются три профиля публикации (**Local.1Node.xml**, **Local.5Node.xml** и **Cloud.xml**), но можно также создать дополнительные профили для различных сред. Например, может понадобиться создать профиль для публикации в общие кластеры, которые условно называются **Party.xml**.
 
 При подключении к незащищенному кластеру все, что требуется, — это конечная точка подключения к кластеру, например `partycluster1.eastus.cloudapp.azure.com:19000`. В данном случае конечная точка подключения в профиле публикации будет выглядеть приблизительно так:
@@ -119,9 +112,8 @@ ms.lasthandoff: 07/12/2017
 
   Обратите внимание, что в этом случае новый профиль публикации указывает на один из файлов параметров приложения по умолчанию. Это целесообразно, если требуется опубликовать одно и то же приложение в нескольких средах. В то же время в случаях, когда нужны различные конфигурации для каждой среды публикации, имеет смысл создать соответствующий файл параметров приложения.
 
-<a id="next-steps" class="xliff"></a>
-
 ## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 Чтобы узнать, как автоматизировать процесс публикации в среде непрерывной интеграции, см. статью [Настройка непрерывной интеграции для приложения Service Fabric с использованием Visual Studio Team Services](service-fabric-set-up-continuous-integration.md).
 
 [0]: ./media/service-fabric-publish-app-remote-cluster/PublishDialog.png

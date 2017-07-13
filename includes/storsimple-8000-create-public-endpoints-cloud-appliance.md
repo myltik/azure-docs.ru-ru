@@ -1,6 +1,5 @@
-<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
-
 #### Создание общедоступных конечных точек на облачном устройстве
+<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
 
 1. Войдите на портал Azure.
 2. Перейдите к разделу **Виртуальные машины**, а затем выберите виртуальную машину, которая используется как облачное устройство.

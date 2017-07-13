@@ -11,18 +11,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 27cc51d3f9220756fc1188f978dc158f17037bc3
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/30/2017
 
-
 ---
-# <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Часто задаваемые вопросы по Azure Active Directory Connect
+# Часто задаваемые вопросы по Azure Active Directory Connect
+<a id="frequently-asked-questions-for-azure-active-directory-connect" class="xliff"></a>
 
-## <a name="general-installation"></a>Общая установка
+## Общая установка
+<a id="general-installation" class="xliff"></a>
 **Вопрос. Будет ли установка выполнена корректно, если глобальный администратор Azure AD включил 2FA?**  
 Это поддерживается в сборках от февраля 2016 года.
 
@@ -37,7 +39,8 @@ ms.lasthandoff: 03/30/2017
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-## <a name="network"></a>Сеть
+## Сеть
+<a id="network" class="xliff"></a>
 **Вопрос. У меня есть брандмауэр, сетевое устройство или иное средство, ограничивающее максимальное время, в течение которого подключения могут оставаться открытыми в моей сети. Каким должно быть пороговое значение времени ожидания на стороне клиента при использовании Azure AD Connect?**  
 Всему сетевому программному обеспечению, физическим устройствам или прочим средствам, ограничивающим максимальное время, в течение которого подключение может оставаться открытым, следует использовать пороговое значение в 5 минут (300 секунд) для подключений между сервером, на который установлен клиент Azure AD Connect, и Azure Active Directory. Это также относится ко всем ранее выпущенным инструментам синхронизации Microsoft Identity.
 
@@ -47,18 +50,21 @@ ms.lasthandoff: 03/30/2017
 **Вопрос. Поддерживаются ли имена NetBIOS "с точками"?**  
 Нет. Azure AD Connect не поддерживает локальные леса и домены, имя NetBIOS которых содержит точку (".").
 
-## <a name="federation"></a>Федерация
+## Федерация
+<a id="federation" class="xliff"></a>
 **Вопрос. Что делать, если мне на электронную почту пришло сообщение с требованием продлить срок действия сертификата Office 365?**  
 Используйте инструкции, описанные в статье [Обновление сертификатов федерации для Office 365 и Azure AD](active-directory-aadconnect-o365-certs.md) .
 
 **Вопрос. У меня задан параметр "Automatically update relying party" (Автоматически обновлять проверяющую сторону) для проверяющей стороны Office 365. Потребуется выполнить ли какое-либо действие при автоматической смене сертификата для подписи маркера?**  
 Используйте инструкции, приведенные в статье [Обновление сертификатов федерации для Office 365 и Azure AD](active-directory-aadconnect-o365-certs.md).
 
-## <a name="environment"></a>Среда
+## Среда
+<a id="environment" class="xliff"></a>
 **Вопрос. Поддерживается ли переименование сервера после установки Azure AD Connect?**  
 Нет. Изменение имени сервера приведет к тому, что обработчик синхронизации не сможет подключиться к базе данных SQL и служба не запустится.
 
-## <a name="identity-data"></a>Данные удостоверений
+## Данные удостоверений
+<a id="identity-data" class="xliff"></a>
 **Вопрос. Атрибут имени участника-пользователя (userPrincipalName) в Azure AD не совпадает с локальным именем участника. Почему?**  
 См. следующие статьи:
 
@@ -75,7 +81,8 @@ ms.lasthandoff: 03/30/2017
 
 
 
-## <a name="custom-configuration"></a>Настраиваемая конфигурация
+## Настраиваемая конфигурация
+<a id="custom-configuration" class="xliff"></a>
 **Вопрос. Где можно найти документацию по командлетам PowerShell для Azure AD Connect?**  
 За исключением командлетов, описанных на этом сайте, другие командлеты PowerShell, используемые в Azure AD Connect, не предназначены для использования клиентами.
 
@@ -93,7 +100,8 @@ ms.lasthandoff: 03/30/2017
 
 
 
-## <a name="troubleshooting"></a>Устранение неполадок
+## Устранение неполадок
+<a id="troubleshooting" class="xliff"></a>
 **Вопрос. Как получить справку по Azure AD Connect?**
 
 [Поиск в базе знаний Майкрософт](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)

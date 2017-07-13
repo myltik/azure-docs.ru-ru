@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
-
 #### Добавление политики резервного копирования StorSimple
+<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
 
 1. Перейдите к устройству StorSimple и щелкните **Политика архивации**.
 

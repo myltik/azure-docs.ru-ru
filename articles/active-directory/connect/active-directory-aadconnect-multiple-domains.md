@@ -12,18 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fa1c3d9cb07d417f5dbde41d6269fb1d157c3104
 ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/12/2017
 
 ---
-# <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Поддержка нескольких доменов для федерации с Azure AD
+# Поддержка нескольких доменов для федерации с Azure AD
+<a id="multiple-domain-support-for-federating-with-azure-ad" class="xliff"></a>
 В следующей документации представлено руководство по использованию нескольких доменов верхнего уровня и поддоменов в федерации с Office 365 или доменами Azure AD.
 
-## <a name="multiple-top-level-domain-support"></a>Поддержка нескольких доменов верхнего уровня
+## Поддержка нескольких доменов верхнего уровня
+<a id="multiple-top-level-domain-support" class="xliff"></a>
 Для создания федерации нескольких доменов верхнего уровня с Azure AD необходимо выполнить некоторые дополнительные настройки, которые не требуются при создании федерации с одним доменом верхнего уровня.
 
 При добавлении домена в федерацию с Azure AD необходимо установить несколько свойств для этого домена в Azure.  Важным свойством является IssuerUri.  Это URI, который используется Azure AD для идентификации домена, с которым связан маркер.  URI не должен разрешаться, но обязан быть действительным.  По умолчанию Azure AD устанавливает для этого свойства значение идентификатора службы федерации в локальной конфигурации службы AD FS.
@@ -45,7 +48,8 @@ ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
 
 ![Ошибка федерации](./media/active-directory-multiple-domains/error.png)
 
-### <a name="supportmultipledomain-parameter"></a>Параметр SupportMultipleDomain
+### Параметр SupportMultipleDomain
+<a id="supportmultipledomain-parameter" class="xliff"></a>
 Чтобы обойти это, необходимо добавить другой IssuerUri. Это можно сделать с помощью параметра `-SupportMultipleDomain`.  Этот параметр используется со следующими командлетами:
 
 * `New-MsolFederatedDomain`
@@ -78,7 +82,8 @@ ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
 > 
 > 
 
-## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>Обновление отношения доверия между службами федерации Active Directory и Azure AD
+## Обновление отношения доверия между службами федерации Active Directory и Azure AD
+<a id="how-to-update-the-trust-between-ad-fs-and-azure-ad" class="xliff"></a>
 Если вы не настроили федеративного отношения доверия между AD FS и своим экземпляром Azure AD, может потребоваться создать это отношение доверия снова.  Это вызвано тем, что при изначальной настройке без параметра `-SupportMultipleDomain` в IssuerUri записывается значение по умолчанию.  На приведенном ниже снимке экрана видно, что IssuerUri имеет значение https://adfs.bmcontoso.com/adfs/services/trust.
 
 Поэтому если мы добавим новый домен на портале Azure AD, а затем попытаемся преобразовать его с помощью `Convert-MsolDomaintoFederated -DomainName <your domain>`, то получим следующую ошибку.
@@ -122,7 +127,8 @@ ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
    ![Добавить дополнительный домен Azure AD](./media/active-directory-multiple-domains/add2.png)
 5. Нажмите "Установить".
 
-### <a name="verify-the-new-top-level-domain"></a>Проверка нового домена верхнего уровня
+### Проверка нового домена верхнего уровня
+<a id="verify-the-new-top-level-domain" class="xliff"></a>
 С помощью команды PowerShell `Get-MsolDomainFederationSettings -DomainName <your domain>`можно просмотреть обновленный IssuerUri.  На приведенном ниже снимке экрана показано, что настройки федерации для исходного домена http://bmcontoso.com/adfs/services/trust были обновлены.
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
@@ -131,12 +137,14 @@ ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/settings2.png)
 
-## <a name="support-for-sub-domains"></a>Поддержка поддоменов
+## Поддержка поддоменов
+<a id="support-for-sub-domains" class="xliff"></a>
 При добавлении поддомена он унаследует параметры родительского домена из-за особенностей обработки доменов Azure AD.  Это означает, что IssuerUri будет совпадать со значением аналогичного параметра у родительского элемента.
 
 Давайте предположим, что у меня был домен bmcontoso.com, а затем я добавил поддомен corp.bmcontoso.com.  Это значит, что значение IssuerUri для пользователя из corp.bmcontoso.com должно быть **http://bmcontoso.com/adfs/services/trust**.  Однако реализованное выше стандартное правило для Azure AD создает маркер с издателем **http://corp.bmcontoso.com/adfs/services/trust**. , который не будет соответствовать необходимому значению для домена, и аутентификация завершится неудачно.
 
-### <a name="how-to-enable-support-for-sub-domains"></a>Включение поддержки для поддоменов
+### Включение поддержки для поддоменов
+<a id="how-to-enable-support-for-sub-domains" class="xliff"></a>
 Чтобы обойти эту проблему, необходимо обновить отношение доверия проверяющей стороны AD FS для Microsoft Online.  Для этого необходимо настроить пользовательское правило утверждения так, чтобы оно удаляло поддомены из суффикса UPN пользователя при создании настраиваемого значения элемента Issuer. 
 
 Это можно сделать с помощью следующего утверждения:
@@ -162,10 +170,5 @@ ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
     ![Заменить утверждение](./media/active-directory-multiple-domains/sub2.png)
 
 5. Нажмите кнопку "ОК".  Нажмите кнопку "Применить".  Нажмите кнопку "ОК".  Откройте оснастку управления AD FS.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

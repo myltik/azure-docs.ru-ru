@@ -12,19 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b110b2e3041cf7839d1bf1c4d384b28b243efbd8
 ms.openlocfilehash: c1653c769a6b42d18ffb0da71220ce06c6556587
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/07/2017
 
-
 ---
-# <a name="more-details-about-features-in-preview"></a>Дополнительная информация о функциях в предварительной версии
+# Дополнительная информация о функциях в предварительной версии
+<a id="more-details-about-features-in-preview" class="xliff"></a>
 В этой статье описывается, как использовать функции, которые сейчас доступны в предварительной версии.
 
-## <a name="group-writeback"></a>Обратная запись групп
+## Обратная запись групп
+<a id="group-writeback" class="xliff"></a>
 Обратная запись группы в дополнительных функциях позволит вам выполнять обратную запись **групп Office 365** в лес с установленным Exchange. Это группа, управление которой всегда происходит в облаке. При наличии локальной службы Exchange вы можете записать эти группы обратно в локальную среду, чтобы пользователи с локальными почтовыми ящиками Exchange могли отправлять и получать электронные сообщения из этих групп.
 
 Дополнительные сведения о группах Office 365 и работе с ними см. [здесь](http://aka.ms/O365g).
@@ -43,13 +45,15 @@ ms.lasthandoff: 02/07/2017
 > 
 >
 
-## <a name="user-writeback"></a>Обратная запись пользователей
+## Обратная запись пользователей
+<a id="user-writeback" class="xliff"></a>
 > [!IMPORTANT]
 > Предварительная версия функции обратной записи пользователей была удалена в августовском обновлении (2015 г.) для Azure AD Connect. Если вы включили ее, следует отключить эту функцию.
 >
 >
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 Продолжите [выборочную установку Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

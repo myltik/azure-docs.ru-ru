@@ -1,9 +1,8 @@
 <!--author=alkohli last changed: 01/20/17-->
 
 
-<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
-
 #### Добавление учетных данных учетной записи хранения, которая связана с той же подпиской Azure, что и служба диспетчера устройств StorSimple
+<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
 
 1. Откройте службу диспетчера устройств StorSimple. В разделе **Конфигурация** выберите **Учетные данные для учетной записи хранения**.
 

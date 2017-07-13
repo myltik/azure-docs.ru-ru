@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9541cd195e8afa6e692a5a0214b0d614e429c33b
 ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/20/2016
 
 ---
-# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: автоматическое обновление
+# Azure AD Connect: автоматическое обновление
+<a id="azure-ad-connect-automatic-upgrade" class="xliff"></a>
 Эта функция появилась в сборке 1.1.105.0 (выпущенной в феврале 2016 года).
 
-## <a name="overview"></a>Обзор
+## Обзор
+<a id="overview" class="xliff"></a>
 С функцией **автоматического обновления** контроль за обновлением установки Azure AD Connect максимально упростился. Эта функция по умолчанию включена для быстрой установки и обновления DirSync. При выпуске новой версии установка обновляется автоматически.
 
 Автоматическое обновление по умолчанию включено в следующих случаях:
@@ -47,7 +50,8 @@ ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
 
 Если на сервере запущен пользовательский интерфейс **диспетчера службы синхронизации** , обновление будет отложено до тех пор, пока он не будет закрыт.
 
-## <a name="troubleshooting"></a>Устранение неполадок
+## Устранение неполадок
+<a id="troubleshooting" class="xliff"></a>
 Если установка Connect не обновляется автоматически, выполните следующие действия, чтобы узнать, в чем может быть проблема.
 
 Во-первых, не следует ожидать попыток автоматического обновления в первый день выпуска новой версии. Попытки обновления выполняются в случайном порядке намеренно, поэтому не стоит беспокоиться, если обновление установки не начинается немедленно.
@@ -97,11 +101,7 @@ ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
 | UpgradeNotSupportedStagingModeEnabled |Сервер настроен для работы в [промежуточном режиме](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Включена функция [обратной записи пользователей](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

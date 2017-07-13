@@ -1,6 +1,6 @@
 ---
 title: "Поиск в метавселенной Synchronization Service Manager Azure AD Connect | Документация Майкрософт"
-description: "Общие сведения о вкладке &quot;Metaverse Search&quot; (Поиск в метавселенной) в Synchronization Service Manager для Azure AD Connect."
+description: "Общие сведения о вкладке \"Metaverse Search\" (Поиск в метавселенной) в Synchronization Service Manager для Azure AD Connect."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
 ms.openlocfilehash: dcb58fb00cfaa891825930cf5c34c9dab1c15dec
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/04/2017
 
-
 ---
-# <a name="sync-service-manager-metaverse-search"></a>Поиск в метавселенной Synchronization Service Manager
+# Поиск в метавселенной Synchronization Service Manager
+<a id="sync-service-manager-metaverse-search" class="xliff"></a>
 
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
@@ -29,7 +30,8 @@ ms.lasthandoff: 03/04/2017
 
 В результатах поиска выберите объект и щелкните **Properties** (Свойства), чтобы просмотреть [свойства объекта метавселенной](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
