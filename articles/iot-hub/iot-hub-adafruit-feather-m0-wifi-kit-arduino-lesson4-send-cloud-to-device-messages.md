@@ -4,7 +4,7 @@ description: "Пример приложения выполняется на ус
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "управление светодиодным индикатором с помощью Arduino с веб-интерфейса, управление светодиодным индикатором с помощью Arduino через веб-интерфейс"
 ROBOTS: NOINDEX
@@ -17,33 +17,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
 ms.openlocfilehash: 63113841ca836681232e0aa43b15b444f8bb92e2
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/28/2017
 
-
 ---
-# <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>Запуск примера приложения для получения сообщений из облака на устройство
+<a id="run-a-sample-application-to-receive-cloud-to-device-messages" class="xliff"></a>
+
+# Запуск примера приложения для получения сообщений из облака на устройство
 В этой статье на плате Adafruit Feather M0 WiFi Arduino развертывается пример приложения.
 
 Пример приложения отслеживает входящие сообщения от Центра Интернета вещей. Также вы можете запустить на компьютере задачу Gulp для отправки сообщений из Центра Интернета вещей на плату Arduino. При получении сообщений пример приложения включает и отключает светодиодный индикатор. Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок][troubleshooting].
 
-## <a name="what-you-will-do"></a>Выполняемая задача
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 * Подключите пример приложения к Центру Интернета вещей.
 * Развернете и запустите пример приложения.
 * Отправка сообщения из Центра Интернета вещей на плату Arduino для включения и отключения светодиодного индикатора.
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 В этой статье вы узнаете следующее:
 * Как отслеживать входящие сообщения от Центра Интернета вещей.
 * Как отправлять сообщения, передаваемые из облака на устройство, из Центра Интернета вещей на плату Arduino.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 * Плата Arduino, настроенная для работы. Чтобы узнать, как настроить плату Arduino, ознакомьтесь с разделом [Настройка устройства][configure-your-device].
 * Центр Интернета вещей, созданный в вашей подписке Azure. Создание Центра Интернета вещей описано в статье [Создание Центра Интернета вещей и регистрация Intel Edison][create-your-azure-iot-hub].
 
-## <a name="connect-the-sample-application-to-your-iot-hub"></a>Подключение примера приложения к Центру Интернета вещей
+<a id="connect-the-sample-application-to-your-iot-hub" class="xliff"></a>
+
+## Подключение примера приложения к Центру Интернета вещей
 
 1. Перейдите в папку репозитория `iot-hub-c-feather-m0-getting-started`.
 
@@ -101,7 +111,9 @@ ms.lasthandoff: 01/28/2017
    * Замените **[IoT device connection string]** строкой подключения к устройству, которую можно получить с помощью команды `az iot device show-connection-string --hub-name {my hub name} --device-id {device id}`.
    * Замените **[IoT hub connection string]** строкой подключения к Центру Интернета вещей, которую можно получить с помощью команды `az iot hub show-connection-string --name {my hub name}`.
 
-## <a name="deploy-and-run-the-sample-application"></a>Развертывание и запуск примера приложения
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Развертывание и запуск примера приложения
 Разверните и запустите пример приложения на плате Arduino, выполнив следующую команду.
 
 ```bash
@@ -121,10 +133,14 @@ gulp run --listen
 
 ![Пример приложения с командой Gulp и сообщениями для включения и отключения светодиодного индикатора][sample-application]
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 Итак, вы успешно отправили из Центра Интернета вещей на плату Arduino сообщения для включения и отключения светодиодного индикатора. Следующая задача является необязательной: изменение режима включения и отключения светодиодного индикатора.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Изменение режима включения и отключения светодиодного индикатора][change-the-on-and-off-led-behavior]
 
 

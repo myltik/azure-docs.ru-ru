@@ -15,15 +15,17 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: fb0217b1c51a4189dfeac8291bb932cbc571f385
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: b57a157bc47b09af34684b0d85ce4538782a5ff2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="securing-access-to-azure-cosmos-db-data"></a>Защита доступа к данным Azure Cosmos DB
-В этой статье приведены общие сведения о защите доступа к данным, хранящимся в [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/).
+<a id="securing-access-to-azure-cosmos-db-data" class="xliff"></a>
+
+# Защита доступа к данным Azure Cosmos DB
+В этой статье приведены общие сведения о защите доступа к данным, хранящимся в [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Для проверки подлинности пользователей и предоставления доступа к своим данным и ресурсам Azure Cosmos DB использует два типа ключей. 
 
@@ -34,7 +36,9 @@ ms.lasthandoff: 05/31/2017
 
 <a id="master-keys"></a>
 
-## <a name="master-keys"></a>Главные ключи 
+<a id="master-keys" class="xliff"></a>
+
+## Главные ключи 
 
 Главные ключи предоставляют доступ ко всем административным ресурсам для учетной записи базы данных. Главные ключи.  
 - предоставляют доступ к учетным записям, базам данных, пользователям и разрешениям; 
@@ -54,7 +58,9 @@ ms.lasthandoff: 05/31/2017
 
 ![Ротация главного ключа на портале Azure: демонстрация безопасности базы данных NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
-### <a name="code-sample-to-use-a-master-key"></a>Пример кода для использования главного ключа
+<a id="code-sample-to-use-a-master-key" class="xliff"></a>
+
+### Пример кода для использования главного ключа
 
 В следующем примере кода показано, как использовать конечную точку учетной записи Cosmos DB и главный ключ для создания экземпляра DocumentClient и построения базы данных. 
 
@@ -78,7 +84,9 @@ Database database = await client.CreateDatabaseAsync(
 
 <a id="resource-tokens"></a>
 
-## <a name="resource-tokens"></a>Маркеры ресурсов
+<a id="resource-tokens" class="xliff"></a>
+
+## Маркеры ресурсов
 
 Маркеры ресурсов предоставляют доступ к ресурсам приложения в базе данных. Маркеры ресурсов.
 - предоставляют доступ к определенным коллекциям, ключам секции, документам, вложениям, хранимым процедурам, триггерам и определяемым пользователем функциям (UDF);
@@ -112,7 +120,9 @@ Database database = await client.CreateDatabaseAsync(
 
 <a id="users"></a>
 
-## <a name="users"></a>Пользователи
+<a id="users" class="xliff"></a>
+
+## Пользователи
 Пользователи Cosmos DB связаны с базой данных Cosmos DB.  Каждая база данных может содержать несколько пользователей Cosmos DB или не содержать ни одного.  В следующем примере кода показано, как создать ресурс пользователя Cosmos DB.
 
 ```csharp
@@ -132,7 +142,9 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 
 <a id="permissions"></a>
 
-## <a name="permissions"></a>Разрешения
+<a id="permissions" class="xliff"></a>
+
+## Разрешения
 Ресурс разрешения Cosmos DB связан с пользователем Cosmos DB.  Каждый пользователь может иметь несколько разрешений Cosmos DB или не иметь ни одного.  Ресурс разрешения предоставляет доступ к маркеру безопасности, необходимому пользователю при попытке доступа к конкретному ресурсу приложения.
 Существует два уровня доступа, предоставляемых ресурсом разрешения:
 
@@ -144,7 +156,9 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 > 
 > 
 
-### <a name="code-sample-to-create-permission"></a>Пример кода для создания разрешения
+<a id="code-sample-to-create-permission" class="xliff"></a>
+
+### Пример кода для создания разрешения
 
 В следующем примере кода показано, как создать ресурс разрешения, прочесть его маркер и связать разрешения с созданным выше [пользователем](#users).
 
@@ -163,7 +177,9 @@ Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 
 Если вы указали ключ секции для коллекции, то разрешение для ресурсов коллекции, документа и вложения также должно включать ResourcePartitionKey наряду с ResourceLink.
 
-### <a name="code-sample-to-read-permissions-for-user"></a>Пример кода для чтения разрешений пользователя
+<a id="code-sample-to-read-permissions-for-user" class="xliff"></a>
+
+### Пример кода для чтения разрешений пользователя
 
 Чтобы получить все ресурсы разрешений, связанные с конкретным пользователем, Cosmos DB предоставляет каждому объекту пользователя доступ к каналу разрешений.  В следующем фрагменте кода показано, как получить разрешение, связанное с созданным выше пользователем, сформировать список разрешений и создать новый DocumentClient от имени пользователя.
 
@@ -181,7 +197,9 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * Дополнительные сведения о безопасности базы данных Cosmos DB см. в статье [Безопасность базы данных в Azure Cosmos DB](database-security.md).
 * Сведения об управлении главными ключами и ключами только для чтения см. в разделе [Просмотр, копирование и повторное создание ключей доступа](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
 * Сведения о создании маркеров проверки подлинности Azure Cosmos DB см. в статье [Access control in the DocumentDB API](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) (Управление доступом в API DocumentDB).

@@ -15,26 +15,32 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 6659e1ccbe2b2d918039bf45fbecf199606cd201
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Сбор оповещений Nagios и Zabbix из агента OMS для Linux в Log Analytics 
+<a id="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux" class="xliff"></a>
+
+# Сбор оповещений Nagios и Zabbix из агента OMS для Linux в Log Analytics 
 [Nagios](https://www.nagios.org/) и [Zabbix](http://www.zabbix.com/) — средства мониторинга с открытым исходным кодом.  Оповещения от этих средств мониторинга можно собирать в Log Analytics для анализа вместе с [оповещениями из других источников](log-analytics-alerts.md).  В этой статье описано, как настроить сбор оповещений из этих средств в агенте OMS для Linux.
  
-## <a name="configure-alert-collection"></a>Настройка сбора оповещений
+<a id="configure-alert-collection" class="xliff"></a>
 
-### <a name="configuring-nagios-alert-collection"></a>Настройка сбора оповещений Nagios
+## Настройка сбора оповещений
+
+<a id="configuring-nagios-alert-collection" class="xliff"></a>
+
+### Настройка сбора оповещений Nagios
 Для настройки сбора оповещений на сервере Nagios выполните следующие действия.
 
 1. Предоставьте пользователю **omsagent** разрешение на чтение для файла журнала Nagios (`/var/log/nagios/nagios.log`). Если файл nagios.log принадлежит группе `nagios`, можно добавить пользователя **omsagent** в группу **nagios**. 
 
     sudo usermod -a -G nagios omsagent
 
-2.    Измените файл конфигурации (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Для этого введите следующие записи в незакомментированном виде:  
+2.  Измените файл конфигурации (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Для этого введите следующие записи в незакомментированном виде:  
 
         <source>  
           type tail  
@@ -54,25 +60,37 @@ ms.lasthandoff: 05/09/2017
     sudo sh /opt/microsoft/omsagent/bin/service_control restart
     ```
 
-### <a name="configuring-zabbix-alert-collection"></a>Настройка сбора оповещений Zabbix
+<a id="configuring-zabbix-alert-collection" class="xliff"></a>
+
+### Настройка сбора оповещений Zabbix
 Для сбора оповещений сервера Zabbix необходимо указать имя пользователя и пароль в формате *открытого текста*. Это не идеальное решение, но мы рекомендуем создать отдельного пользователя и предоставить ему разрешения только для мониторинга.
 
 Для настройки сбора оповещений на сервере Nagios выполните следующие действия.
 
-2.    Измените файл конфигурации (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Убедитесь, что в файле есть следующие параметры и что они не закомментированы.  Измените имя пользователя и пароль на соответствующие значения для вашей среды Zabbix.
+1. Измените файл конфигурации (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Убедитесь, что в файле есть следующие параметры и что они не закомментированы.  Измените имя пользователя и пароль на соответствующие значения для вашей среды Zabbix.
 
         <source>
-         type zabbix_alerts    run_interval 1m    tag oms.zabbix    zabbix_url http://localhost/zabbix/api_jsonrpc.php    zabbix_username Admin    zabbix_password zabbix   </source>
+         type zabbix_alerts
+         run_interval 1m
+         tag oms.zabbix
+         zabbix_url http://localhost/zabbix/api_jsonrpc.php
+         zabbix_username Admin
+         zabbix_password zabbix
+        </source>
 
 2. Перезапустите управляющую программу omsagent
 
     sudo sh /opt/microsoft/omsagent/bin/service_control restart
 
 
-## <a name="alert-records"></a>Записи оповещений
+<a id="alert-records" class="xliff"></a>
+
+## Записи оповещений
 Записи оповещений из Nagios и Zabbix можно получить с помощью [поиска по журналам](log-analytics-log-searches.md) в Log Analytics.
 
-### <a name="nagios-alert-records"></a>Записи оповещений Nagios
+<a id="nagios-alert-records" class="xliff"></a>
+
+### Записи оповещений Nagios
 
 Для записей оповещений Nagios параметр **Type** (тип) имеет значение **Alert** (оповещение), а параметр **SourceSystem** (источник) — значение **Nagios**.  У них есть свойства, приведенные в таблице ниже.
 
@@ -89,7 +107,9 @@ ms.lasthandoff: 05/09/2017
 | TimeGenerated |Дата и время создания оповещения. |
 
 
-### <a name="zabbix-alert-records"></a>Записи оповещений Zabbix
+<a id="zabbix-alert-records" class="xliff"></a>
+
+### Записи оповещений Zabbix
 Для записей оповещений Nagios параметр **Type** (тип) имеет значение **Alert** (оповещение), а параметр **SourceSystem** (источник) — значение **Zabbix**.  У них есть свойства, приведенные в таблице ниже.
 
 | Свойство | Описание |
@@ -107,7 +127,9 @@ ms.lasthandoff: 05/09/2017
 | TimeLastModified |Дата и время последнего изменения состояния оповещения. |
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 * Ознакомьтесь с дополнительными сведениями об [оповещениях](log-analytics-alerts.md) в Log Analytics.
 * Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений. 
 

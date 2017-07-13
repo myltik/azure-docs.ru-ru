@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: da4bb7fcbb45afed5d45f4d48c0b90e44503daf8
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: f4f5f231536bc381d17898ff2c592be821168a65
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="continuous-delivery-to-azure-using-visual-studio-team-services-and-git"></a>Непрерывная доставка в Azure с использованием Visual Studio Team Services и Git
+<a id="continuous-delivery-to-azure-using-visual-studio-team-services-and-git" class="xliff"></a>
+
+# Непрерывная доставка в Azure с использованием Visual Studio Team Services и Git
 С помощью командных проектов Visual Studio Team Services можно размещать репозиторий Git для исходного кода и выполнять автоматическое построение и развертывание в веб-приложениях Azure или в облачных службах при каждой операции фиксации в репозитории.
 
 В данном учебнике требуются установленные Visual Studio 2013 и пакет SDK Azure. Чтобы загрузить Visual Studio 2013, щелкните ссылку **Начните работу бесплатно** на сайте [www.visualstudio.com](http://www.visualstudio.com). Пакет SDK Azure можно установить по [этой ссылке](http://go.microsoft.com/fwlink/?LinkId=239540).
@@ -33,14 +36,18 @@ ms.lasthandoff: 04/06/2017
 
 Чтобы настроить автоматическое выполнение сборки и развертывания облачной службы в Azure с использованием Visual Studio Team Services, выполните следующие действия.
 
-## <a name="1-create-a-git-repository"></a>1. Создание репозитория Git
+<a id="1-create-a-git-repository" class="xliff"></a>
+
+## 1. Создание репозитория Git
 1. Если у вас еще нет учетной записи Visual Studio Team Services, [создайте ее](http://go.microsoft.com/fwlink/?LinkId=397665). При создании командного проекта выберите Git в качестве системы управления версиями. Выполните следующие инструкции для подключения Visual Studio к командному проекту.
 2. В обозревателе **Team Explorer** выберите ссылку **Клонировать этот репозиторий**.
    
     ![][3]
 3. Укажите расположение локальной копии и нажмите кнопку **Клонировать** .
 
-## <a name="2-create-a-project-and-commit-it-to-the-repository"></a>2. Создание проекта и сохранение его в репозитории
+<a id="2-create-a-project-and-commit-it-to-the-repository" class="xliff"></a>
+
+## 2. Создание проекта и сохранение его в репозитории
 1. В **Team Explorer** в разделе **Решения** щелкните ссылку **Создать**, чтобы создать новый проект в локальном репозитории.
    
     ![][4]
@@ -55,7 +62,9 @@ ms.lasthandoff: 04/06/2017
 5. Обратите внимание на варианты для включения или исключения определенных изменений при настройке. Если нужные изменения исключены, выберите **Включить все**.
 6. Теперь изменения зафиксированы в локальной копии репозитория. Далее следует синхронизировать эти изменения с сервером. Для этого выберите ссылку **Синхронизировать**.
 
-## <a name="3-connect-the-project-to-azure"></a>3. Подключение проекта к Azure
+<a id="3-connect-the-project-to-azure" class="xliff"></a>
+
+## 3. Подключение проекта к Azure
 1. Теперь, когда имеется репозиторий Git в Visual Studio Team Services, содержащий некоторый исходный код, можно подключить этот репозиторий к Azure.  Войдите на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885) и выберите существующую облачную службу или веб-приложение. Вы также можете создать новые объекты, щелкнув в нижнем левом углу значок "+", а затем выбрав **Облачная служба** или **Веб-приложение** и **Быстрое создание**.
    
     ![][9]
@@ -74,7 +83,9 @@ ms.lasthandoff: 04/06/2017
    
     При следующей фиксации в репозитории Visual Studio Team Services будет выполнять построение и развертывание проекта в Azure.
 
-## <a name="4-trigger-a-rebuild-and-redeploy-your-project"></a>4. Запуск процессов повторного построения и развертывания проекта
+<a id="4-trigger-a-rebuild-and-redeploy-your-project" class="xliff"></a>
+
+## 4. Запуск процессов повторного построения и развертывания проекта
 1. Откройте файл в Visual Studio и измените его. Например, вы можете изменить файл `_Layout.cshtml` в папке Views\\Shared веб-роли MVC.
    
     ![][17]
@@ -145,17 +156,23 @@ ms.lasthandoff: 04/06/2017
     
     ![][33]
 
-## <a name="5-redeploy-an-earlier-build"></a>5. Повторное развертывание предыдущей сборки
+<a id="5-redeploy-an-earlier-build" class="xliff"></a>
+
+## 5. Повторное развертывание предыдущей сборки
 Этот шаг не является обязательным. Чтобы восстановить состояние сайта на момент более раннего возврата, выберите предыдущее развертывание на классическом портале Azure и нажмите кнопку **Повторное развертывание** . Обратите внимание, что при этом в TFS будет запущен новый процесс сборки, а в историю развертывания будет добавлена новая запись.
 
 ![][34]
 
-## <a name="6-change-the-production-deployment"></a>6. Изменение развертывания в рабочей среде
+<a id="6-change-the-production-deployment" class="xliff"></a>
+
+## 6. Изменение развертывания в рабочей среде
 Выполнив все необходимые действия, вы можете повысить промежуточную среду до рабочей с помощью кнопки **Переключить** на классическом портале Azure. Вновь развернутая промежуточная среда повышается до уровня рабочей, а ранее установленная рабочая среда становится промежуточной. Рабочая и промежуточная среды могут использовать разные активные развертывания, однако история развертывания последних сборок будет содержать одинаковые записи независимо от выбранной среды.
 
 ![][35]
 
-## <a name="7-deploy-from-a-working-branch"></a>7. Развертывание из рабочей ветви
+<a id="7-deploy-from-a-working-branch" class="xliff"></a>
+
+## 7. Развертывание из рабочей ветви
 При использовании Git изменения обычно вносятся в рабочей ветви и интегрируются в главную ветвь, когда развертывание достигает завершенного состояния. На этапе развертывания проекта можно выполнить построение и развертывание рабочей ветви в Azure.
 
 1. В обозревателе **Team Explorer** нажмите кнопку **Домашняя страница**, а затем — **Ветви**.
@@ -185,8 +202,10 @@ ms.lasthandoff: 04/06/2017
    ![][45]
 10. Перейдите в представление **построений** и найдите построение, которое только что было вызвано для рабочей ветви.
 
-## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные советы по использованию Git в Visual Studio Team Services см. в статье с описанием [совместного использования кода в Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx), а сведения об использовании для публикации в Azure репозитория Git, не управляемого с помощью Visual Studio Team Services, — в статье [Непрерывное развертывание в службе приложений Azure](../app-service-web/app-service-continuous-deployment.md). Дополнительные сведения о Visual Studio Team Services см. [здесь](http://go.microsoft.com/fwlink/?LinkId=253861).
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
+Дополнительные советы по использованию Git в Visual Studio Team Services см. в статье с описанием [совместного использования кода в Git](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs-2017), а сведения об использовании для публикации в Azure репозитория Git, не управляемого с помощью Visual Studio Team Services, — в статье [Непрерывное развертывание в службе приложений Azure](../app-service-web/app-service-continuous-deployment.md). Дополнительные сведения о Visual Studio Team Services см. [здесь](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG

@@ -13,27 +13,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 06/27/2017
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 2450eada5a49763542c95799a381f2029fec7575
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 13f968b5eeaeb74c6364b9b7c29651657f73e052
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Подписка Azure, границы, квоты и ограничения службы
+<a id="azure-subscription-and-service-limits-quotas-and-constraints" class="xliff"></a>
+
+# Подписка Azure, границы, квоты и ограничения службы
 В этом документе указаны некоторые из наиболее распространенных ограничений Microsoft Azure, которые иногда называются квотами. Этот документ на текущий момент охватывает не все службы Azure. Со временем список будет расширен и обновлен, чтобы охватить больше платформ.
 
 Дополнительную информацию о ценах Azure см. на странице [Цены Azure](https://azure.microsoft.com/pricing/). Там вы сможете оценить затраты с помощью [калькулятора цен](https://azure.microsoft.com/pricing/calculator/) или просмотрев страницу сведений о ценах для службы (например, для [виртуальных машин Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Советы по управлению затратами приведены в статье [Предотвращение непредвиденных расходов с помощью функции выставления счетов и управления затратами в Azure](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Если ограничение или квоту требуется сделать выше значения **Ограничение по умолчанию**, [бесплатно отправьте запрос в службу поддержки клиентов](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение**, как показано в таблицах ниже. Если столбца **Максимальное ограничение** нет, то ресурс не имеет настраиваемого ограничения. 
+> Если ограничение или квоту требуется сделать выше значения **Ограничение по умолчанию**, [бесплатно отправьте запрос в службу поддержки клиентов](azure-supportability/resource-manager-core-quotas-request.md). Ограничения не могут быть увеличены выше значения **Максимальное ограничение**, как показано в таблицах ниже. Если столбца **Максимальное ограничение** нет, то ресурс не имеет настраиваемого ограничения. 
 > 
-> Бесплатная пробная версия подписки не предусматривает возможность увеличения ограничения и квоты. При наличии бесплатной пробной подписки ее можно обновить до подписки [с оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/). Дополнительные сведения см. в статье [Upgrade your free Azure subscription to Pay-As-You-Go](billing-upgrade-azure-subscription.md) (Обновление бесплатной пробной версии Azure до версии с оплатой по мере использования).
+> Бесплатная пробная версия подписки не предусматривает возможность увеличения ограничения и квоты. При наличии бесплатной пробной подписки ее можно обновить до подписки [с оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/). Дополнительные сведения см. в статье [Upgrade your free Azure subscription to Pay-As-You-Go](billing/billing-upgrade-azure-subscription.md) (Обновление бесплатной пробной версии Azure до версии с оплатой по мере использования).
 > 
 
-## <a name="limits-and-the-azure-resource-manager"></a>Ограничения и диспетчер ресурсов Azure
+<a id="limits-and-the-azure-resource-manager" class="xliff"></a>
+
+## Ограничения и диспетчер ресурсов Azure
 Теперь несколько ресурсов можно объединить в одной группе ресурсов Azure. При использовании групп ресурсов ограничения, которые были глобальными, становятся управляемыми на региональном уровне благодаря диспетчеру ресурсов Azure. Дополнительные сведения о группах ресурсов Azure см. в статье [Общие сведения о диспетчере ресурсов Azure](azure-resource-manager/resource-group-overview.md).
 
 В следующие ограничения добавлена новая таблица, в которой отражены все различия ограничений при использовании диспетчера ресурсов Azure. Например, имеется таблица **Ограничения подписки** и таблица **Ограничения подписки — Azure Resource Manager**. Если ограничение применяется в обоих случаях, оно показано только в первой таблице. Если не указано иное, ограничения глобальны во всех областях.
@@ -45,7 +50,9 @@ ms.lasthandoff: 04/21/2017
 > 
 > 
 
-## <a name="service-specific-limits"></a>Ограничения определенных служб
+<a id="service-specific-limits" class="xliff"></a>
+
+## Ограничения определенных служб
 * [Active Directory](#active-directory-limits)
 * [Управление API](#api-management-limits)
 * [Служба приложений](#app-service-limits)
@@ -90,101 +97,157 @@ ms.lasthandoff: 04/21/2017
 * [Виртуальные машины](#virtual-machines-limits)
 * [Наборы для масштабирования виртуальных машин](#virtual-machine-scale-sets-limits)
 
-### <a name="subscription-limits"></a>Ограничения подписки
-#### <a name="subscription-limits"></a>Ограничения подписки
+<a id="subscription-limits" class="xliff"></a>
+
+### Ограничения подписки
+<a id="subscription-limits" class="xliff"></a>
+
+#### Ограничения подписки
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-#### <a name="subscription-limits---azure-resource-manager"></a>Ограничения подписки — Azure Resource Manager
+<a id="subscription-limits---azure-resource-manager" class="xliff"></a>
+
+#### Ограничения подписки — Azure Resource Manager
 При использовании диспетчера ресурсов Azure и групп ресурсов Azure применяются следующие ограничения. Ограничения, которые не были изменены после выпуска диспетчера ресурсов Azure, ниже не перечислены. Их можно просмотреть в предыдущей таблице.
 
 Сведения о работе с ограничениями на запросы Resource Manager см. в разделе [Throttling Resource Manager requests](resource-manager-request-limits.md) (Регулирование запросов Resource Manager).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-### <a name="resource-group-limits"></a>Ограничения группы ресурсов
+<a id="resource-group-limits" class="xliff"></a>
+
+### Ограничения группы ресурсов
 [!INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
-### <a name="virtual-machines-limits"></a>Ограничения виртуальных машин
-#### <a name="virtual-machine-limits"></a>Ограничения виртуальной машины
+<a id="virtual-machines-limits" class="xliff"></a>
+
+### Ограничения виртуальных машин
+<a id="virtual-machine-limits" class="xliff"></a>
+
+#### Ограничения виртуальной машины
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
-#### <a name="virtual-machines-limits---azure-resource-manager"></a>Ограничения виртуальных машин — диспетчер ресурсов Azure
+<a id="virtual-machines-limits---azure-resource-manager" class="xliff"></a>
+
+#### Ограничения виртуальных машин — диспетчер ресурсов Azure
 При использовании диспетчера ресурсов Azure и групп ресурсов Azure применяются следующие ограничения. Ограничения, которые не были изменены после выпуска диспетчера ресурсов Azure, ниже не перечислены. Их можно просмотреть в предыдущей таблице.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
-### <a name="virtual-machine-scale-sets-limits"></a>Ограничения для масштабируемых наборов виртуальных машин
+<a id="virtual-machine-scale-sets-limits" class="xliff"></a>
+
+### Ограничения для масштабируемых наборов виртуальных машин
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-### <a name="networking-limits"></a>Ограничения сети
+<a id="networking-limits" class="xliff"></a>
+
+### Ограничения сети
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
-#### <a name="networking-limits"></a>Ограничения сети
+<a id="networking-limits" class="xliff"></a>
+
+#### Ограничения сети
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
-#### <a name="application-gateway-limits"></a>Ограничения шлюза приложений
+<a id="application-gateway-limits" class="xliff"></a>
+
+#### Ограничения шлюза приложений
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
-#### <a name="network-watcher-limits"></a>Пределы наблюдателя за сетями
+<a id="network-watcher-limits" class="xliff"></a>
+
+#### Пределы наблюдателя за сетями
 [!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
 
-#### <a name="traffic-manager-limits"></a>Ограничения диспетчера трафика
+<a id="traffic-manager-limits" class="xliff"></a>
+
+#### Ограничения диспетчера трафика
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
-#### <a name="dns-limits"></a>Ограничения DNS
+<a id="dns-limits" class="xliff"></a>
+
+#### Ограничения DNS
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
-### <a name="storage-limits"></a>Ограничения хранилища
+<a id="storage-limits" class="xliff"></a>
+
+### Ограничения хранилища
 Дополнительные сведения об ограничениях учетных записей хранения см. в статье [Целевые показатели по производительности и масштабируемости для хранилища Azure](storage/storage-scalability-targets.md).
 <!--like # storage accts --> 
-#### <a name="storage-service-limits"></a>Ограничения службы хранения
+<a id="storage-service-limits" class="xliff"></a>
+
+#### Ограничения службы хранения
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-#### <a name="virtual-machine-disk-limits"></a>Ограничения для дисков виртуальной машины 
+<a id="virtual-machine-disk-limits" class="xliff"></a>
+
+#### Ограничения для дисков виртуальной машины 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 Дополнительные сведения см. в статье [Размеры виртуальных машин](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-#### <a name="managed-virtual-machine-disks"></a>Управляемые диски виртуальной машины
+<a id="managed-virtual-machine-disks" class="xliff"></a>
+
+#### Управляемые диски виртуальной машины
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
 
-#### <a name="unmanaged-virtual-machine-disks"></a>Неуправляемые диски виртуальной машины
+<a id="unmanaged-virtual-machine-disks" class="xliff"></a>
+
+#### Неуправляемые диски виртуальной машины
 
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
-#### <a name="storage-resource-provider-limits"></a>Ограничения поставщика ресурсов хранилища
+<a id="storage-resource-provider-limits" class="xliff"></a>
+
+#### Ограничения поставщика ресурсов хранилища
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
-### <a name="cloud-services-limits"></a>Ограничения облачных служб
+<a id="cloud-services-limits" class="xliff"></a>
+
+### Ограничения облачных служб
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
-### <a name="app-service-limits"></a>Ограничения службы приложений
+<a id="app-service-limits" class="xliff"></a>
+
+### Ограничения службы приложений
 Следующие ограничения службы приложения включают ограничения для веб-приложений, мобильных приложений, приложений API и приложений логики.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-### <a name="scheduler-limits"></a>Ограничения планировщика
+<a id="scheduler-limits" class="xliff"></a>
+
+### Ограничения планировщика
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
-### <a name="batch-limits"></a>Ограничения пакета
+<a id="batch-limits" class="xliff"></a>
+
+### Ограничения пакета
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-### <a name="biztalk-services-limits"></a>Ограничения служб BizTalk
+<a id="biztalk-services-limits" class="xliff"></a>
+
+### Ограничения служб BizTalk
 В следующей таблице показаны ограничения для служб BizTalk Azure.
 
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
-### <a name="documentdb-limits"></a>Ограничения DocumentDB
+<a id="documentdb-limits" class="xliff"></a>
+
+### Ограничения DocumentDB
 DocumentDB — это масштабная база данных, пропускную способность и хранилище которой можно масштабировать в соответствии с требованиями приложения. Если у вас возникнут вопросы по масштабированию DocumentDB, отправьте электронное сообщение по адресу askdocdb@microsoft.com.
 
-### <a name="mobile-engagement-limits"></a>Пределы для Служб мобильного взаимодействия
+<a id="mobile-engagement-limits" class="xliff"></a>
+
+### Пределы для Служб мобильного взаимодействия
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
-### <a name="search-limits"></a>Ограничения поиска
+<a id="search-limits" class="xliff"></a>
+
+### Ограничения поиска
 Ценовые категории определяют емкость и ограничения службы поиска. Существуют следующие категории:
 
 * *Бесплатный* : мультитенантная служба, используемая совместно с другими подписчиками Azure и предназначенная для оценки и разработки небольших проектов.
@@ -201,82 +264,134 @@ DocumentDB — это масштабная база данных, пропуск
 
 Дополнительные сведения об ограничениях, включая размер документов, количество запросов в секунду, ключи, запросы и ответы, см. в статье [Ограничения поиска Azure](search/search-limits-quotas-capacity.md).
 
-### <a name="media-services-limits"></a>Ограничения служб мультимедиа
+<a id="media-services-limits" class="xliff"></a>
+
+### Ограничения служб мультимедиа
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-### <a name="cdn-limits"></a>Ограничения CDN
+<a id="cdn-limits" class="xliff"></a>
+
+### Ограничения CDN
 [!INCLUDE [cdn-limits](../includes/cdn-limits.md)]
 
-### <a name="mobile-services-limits"></a>Ограничения мобильных служб
+<a id="mobile-services-limits" class="xliff"></a>
+
+### Ограничения мобильных служб
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### <a name="monitor-limits"></a>Пределы монитора
+<a id="monitor-limits" class="xliff"></a>
+
+### Пределы монитора
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
-### <a name="notification-hub-service-limits"></a>Ограничения служб концентратора уведомлений
+<a id="notification-hub-service-limits" class="xliff"></a>
+
+### Ограничения служб концентратора уведомлений
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
-### <a name="event-hubs-limits"></a>Ограничения концентраторов событий
+<a id="event-hubs-limits" class="xliff"></a>
+
+### Ограничения концентраторов событий
 [!INCLUDE [azure-servicebus-limits](../includes/event-hubs-limits.md)]
 
-### <a name="service-bus-limits"></a>Ограничения служебной шины
+<a id="service-bus-limits" class="xliff"></a>
+
+### Ограничения служебной шины
 [!INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
-### <a name="iot-hub-limits"></a>Пределы для Центра Интернета вещей
+<a id="iot-hub-limits" class="xliff"></a>
+
+### Пределы для Центра Интернета вещей
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
-### <a name="data-factory-limits"></a>Ограничения фабрики данных
+<a id="data-factory-limits" class="xliff"></a>
+
+### Ограничения фабрики данных
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
-### <a name="data-lake-analytics-limits"></a>Ограничения Data Lake Analytics
+<a id="data-lake-analytics-limits" class="xliff"></a>
+
+### Ограничения Data Lake Analytics
 [!INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
-### <a name="data-lake-store-limits"></a>Ограничения Data Lake Store
+<a id="data-lake-store-limits" class="xliff"></a>
+
+### Ограничения Data Lake Store
 [!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
 
-### <a name="stream-analytics-limits"></a>Ограничения Stream Analytics
+<a id="stream-analytics-limits" class="xliff"></a>
+
+### Ограничения Stream Analytics
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
-### <a name="active-directory-limits"></a>Ограничения Active Directory
+<a id="active-directory-limits" class="xliff"></a>
+
+### Ограничения Active Directory
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
-### <a name="azure-remoteapp-limits"></a>Ограничения Azure RemoteApp
+<a id="azure-remoteapp-limits" class="xliff"></a>
+
+### Ограничения Azure RemoteApp
 [!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
-### <a name="storsimple-system-limits"></a>Ограничения системы StorSimple
+<a id="storsimple-system-limits" class="xliff"></a>
+
+### Ограничения системы StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### <a name="log-analytics-limits"></a>Ограничения Log Analytics
+<a id="log-analytics-limits" class="xliff"></a>
+
+### Ограничения Log Analytics
 [!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
-### <a name="backup-limits"></a>Ограничения резервного копирования
+<a id="backup-limits" class="xliff"></a>
+
+### Ограничения резервного копирования
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
-### <a name="site-recovery-limits"></a>Ограничения Site Recovery
+<a id="site-recovery-limits" class="xliff"></a>
+
+### Ограничения Site Recovery
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
-### <a name="application-insights-limits"></a>Ограничения Application Insights
+<a id="application-insights-limits" class="xliff"></a>
+
+### Ограничения Application Insights
 [!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
-### <a name="api-management-limits"></a>Ограничения управления API
+<a id="api-management-limits" class="xliff"></a>
+
+### Ограничения управления API
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-### <a name="azure-redis-cache-limits"></a>Ограничения кэша Redis для Azure
+<a id="azure-redis-cache-limits" class="xliff"></a>
+
+### Ограничения кэша Redis для Azure
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
-### <a name="key-vault-limits"></a>Ограничения хранилища ключей
+<a id="key-vault-limits" class="xliff"></a>
+
+### Ограничения хранилища ключей
 [!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-### <a name="multi-factor-authentication"></a>Многофакторная идентификация
+<a id="multi-factor-authentication" class="xliff"></a>
+
+### Многофакторная идентификация
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
-### <a name="automation-limits"></a>Ограничения автоматизации
+<a id="automation-limits" class="xliff"></a>
+
+### Ограничения автоматизации
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
-### <a name="sql-database-limits"></a>Ограничения базы данных SQL
+<a id="sql-database-limits" class="xliff"></a>
+
+### Ограничения базы данных SQL
 Ограничения базы данных SQL описаны в разделе [Ограничения ресурсов базы данных SQL](sql-database/sql-database-resource-limits.md).
 
-## <a name="see-also"></a>Дополнительные материалы
+<a id="see-also" class="xliff"></a>
+
+## Дополнительные материалы
 [Основные сведения о лимитах Azure и их увеличении](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Размеры виртуальных машин и облачных служб для Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -16,14 +16,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: chrande; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 1afc4d0c04929fdf55cc9f336e50d90ff7c66172
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: a930e02313aa0a2238ecfaa31af68d59b2c8e961
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/15/2017
 
 
 ---
-# <a name="azure-functions-service-bus-bindings"></a>Привязки служебной шины в Функциях Azure
+<a id="azure-functions-service-bus-bindings" class="xliff"></a>
+
+# Привязки служебной шины в Функциях Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 В этой статье рассматривается настройка привязок служебной шины Azure в Функциях Azure, а также работа с ними. 
@@ -34,7 +37,9 @@ ms.lasthandoff: 04/25/2017
 
 <a name="trigger"></a>
 
-## <a name="service-bus-trigger"></a>Триггер служебной шины
+<a id="service-bus-trigger" class="xliff"></a>
+
+## Триггер служебной шины
 Используйте триггер служебной шины для ответа на сообщения из очереди или раздела служебной шины. 
 
 Триггеры очередей и разделов служебной шины определяются с помощью следующих объектов JSON в массиве `bindings` function.json:
@@ -73,7 +78,9 @@ ms.lasthandoff: 04/25/2017
   Если оставить свойство `connection` пустым, триггер предполагает, что в параметре приложения `AzureWebJobsServiceBus` указывается строка подключения служебной шины по умолчанию.
 * Для свойства `accessRights` возможны такие значения, как `manage` и `listen`. Значение по умолчанию — `manage`. Это означает, что у свойства `connection` есть разрешение на **управление**. При использовании строки подключения без разрешения на **управление**, задайте для свойства `accessRights` значение `listen`. В противном случае выполнение операций, для которых требуются права на управление, в среде выполнения Функций Azure может завершиться ошибкой.
 
-## <a name="trigger-behavior"></a>Поведение триггера
+<a id="trigger-behavior" class="xliff"></a>
+
+## Поведение триггера
 * **Однопоточная обработка**. По умолчанию в среде выполнения Функций одновременно обрабатываются несколько сообщений очереди. Чтобы среда выполнения обрабатывала в любой момент времени только одно сообщение очереди или раздела, для свойства `serviceBus.maxConcurrentCalls` в файле *host.json* нужно задать значение 1. 
   Сведения о файле *host.json* см. в разделе [Структура папок](functions-reference.md#folder-structure) и статье [host.json](https://git .com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Обработка подозрительных сообщений.** В служебной шине выполняется собственная обработка подозрительных сообщений, которую нельзя контролировать или настраивать с помощью конфигурации или кода Функций Azure. 
@@ -82,7 +89,9 @@ ms.lasthandoff: 04/25/2017
 
 <a name="triggerusage"></a>
 
-## <a name="trigger-usage"></a>Использование триггера
+<a id="trigger-usage" class="xliff"></a>
+
+## Использование триггера
 В этом разделе показано, как использовать триггер служебной шины в коде функции. 
 
 В языке C# и F# сообщение триггера служебной шины можно десериализировать в один из следующих входных типов:
@@ -97,7 +106,9 @@ ms.lasthandoff: 04/25/2017
 
 <a name="triggersample"></a>
 
-## <a name="trigger-sample"></a>Пример триггера
+<a id="trigger-sample" class="xliff"></a>
+
+## Пример триггера
 Предположим, что у вас есть следующий файл function.json:
 
 ```json
@@ -123,7 +134,9 @@ ms.lasthandoff: 04/25/2017
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-sample-in-c"></a>Пример триггера на языке C# #
+<a id="trigger-sample-in-c" class="xliff"></a>
+
+### Пример триггера на языке C# #
 
 ```cs
 public static void Run(string myQueueItem, TraceWriter log)
@@ -134,7 +147,9 @@ public static void Run(string myQueueItem, TraceWriter log)
 
 <a name="triggerfsharp"></a>
 
-### <a name="trigger-sample-in-f"></a>Пример триггера на языке F# #
+<a id="trigger-sample-in-f" class="xliff"></a>
+
+### Пример триггера на языке F# #
 
 ```fsharp
 let Run(myQueueItem: string, log: TraceWriter) =
@@ -143,7 +158,9 @@ let Run(myQueueItem: string, log: TraceWriter) =
 
 <a name="triggernodejs"></a>
 
-### <a name="trigger-sample-in-nodejs"></a>Пример триггера для Node.js
+<a id="trigger-sample-in-nodejs" class="xliff"></a>
+
+### Пример триггера для Node.js
 
 ```javascript
 module.exports = function(context, myQueueItem) {
@@ -154,7 +171,9 @@ module.exports = function(context, myQueueItem) {
 
 <a name="output"></a>
 
-## <a name="service-bus-output-binding"></a>Выходная привязка служебной шины
+<a id="service-bus-output-binding" class="xliff"></a>
+
+## Выходная привязка служебной шины
 Выходные данные очереди и раздела служебной шины для функции используют следующие объекты JSON в массиве `bindings` файла function.json:
 
 * Выходные данные *очереди*:
@@ -177,7 +196,7 @@ module.exports = function(context, myQueueItem) {
         "topicName" : "<Name of the topic>",
         "subscriptionName" : "<Name of the subscription>",
         "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBus",
         "direction" : "out"
     }
@@ -192,7 +211,9 @@ module.exports = function(context, myQueueItem) {
 
 <a name="outputusage"></a>
 
-## <a name="output-usage"></a>Использование выходной привязки
+<a id="output-usage" class="xliff"></a>
+
+## Использование выходной привязки
 В языке C# и F# Функции Azure могут создать сообщение очереди служебной шины из следующих типов:
 
 * Любой [объект](https://msdn.microsoft.com/library/system.object.aspx). Определение параметра выглядит так: `out T paramName` (C#).
@@ -207,7 +228,9 @@ module.exports = function(context, myQueueItem) {
 
 <a name="outputsample"></a>
 
-## <a name="output-sample"></a>Пример выходной привязки
+<a id="output-sample" class="xliff"></a>
+
+## Пример выходной привязки
 Предположим, что у вас есть следующий файл function.json, определяющий выходные данные очереди служебной шины:
 
 ```json
@@ -240,7 +263,9 @@ module.exports = function(context, myQueueItem) {
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>Пример выходной привязки для языка C# #
+<a id="output-sample-in-c" class="xliff"></a>
+
+### Пример выходной привязки для языка C# #
 
 ```cs
 public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
@@ -265,7 +290,9 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
 
 <a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>Пример выходной привязки для языка F# #
+<a id="output-sample-in-f" class="xliff"></a>
+
+### Пример выходной привязки для языка F# #
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
@@ -276,7 +303,9 @@ let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
 
 <a name="outnodejs"></a>
 
-### <a name="output-sample-in-nodejs"></a>Пример выходной привязки для Node.js
+<a id="output-sample-in-nodejs" class="xliff"></a>
+
+### Пример выходной привязки для Node.js
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -300,7 +329,9 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
 

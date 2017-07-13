@@ -4,7 +4,7 @@ description: "Клонируйте пример приложения C c GitHub 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "проекты светодиодного индикатора Arduino, включение светодиодного индикатора Arduino, код включения индикатора Arduino, программа включения индикатора Arduino, пример включения индикатора Arduino"
 ROBOTS: NOINDEX
@@ -17,27 +17,37 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
 ms.openlocfilehash: c0589d488be5ec62686551b97d8949e5fed2f0a3
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="create-and-deploy-the-blink-application"></a>Создание и развертывание приложения для включения индикатора
-## <a name="what-you-will-do"></a>Выполняемая задача
+<a id="create-and-deploy-the-blink-application" class="xliff"></a>
+
+# Создание и развертывание приложения для включения индикатора
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 Клонирование примера приложения C из GitHub и его развертывание с помощью инструмента Gulp на устройстве Intel Edison. Этот пример приложения будет каждые две секунды включать светодиодный индикатор, подключенный к плате. Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок][troubleshooting].
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 * Как развертывать и запускать пример приложения в Edison.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 Необходимо успешно выполнить следующие операции:
 
 * [Настройка устройства][configure-your-device]
 * [Get the tools][get-the-tools] (Получение инструментов)
 
-## <a name="open-the-sample-application"></a>Открытие примера приложения
+<a id="open-the-sample-application" class="xliff"></a>
+
+## Открытие примера приложения
 Чтобы открыть пример приложения, сделайте следующее:
 
 1. Клонируйте пример репозитория из GitHub, выполнив следующую команду.
@@ -57,14 +67,18 @@ ms.lasthandoff: 01/25/2017
 
 Файл в подпапке `app` — это ключевой исходный файл, содержащий код для управления светодиодным индикатором.
 
-### <a name="install-application-dependencies"></a>Установка зависимостей приложения
+<a id="install-application-dependencies" class="xliff"></a>
+
+### Установка зависимостей приложения
 Установите библиотеки и другие модули, необходимые для примера приложения, выполнив следующую команду:
 
 ```bash
 npm install
 ```
 
-## <a name="configure-the-device-connection"></a>Настройка подключения устройства
+<a id="configure-the-device-connection" class="xliff"></a>
+
+## Настройка подключения устройства
 Чтобы настроить подключение устройства, выполните следующие действия.
 
 1. Создайте файл конфигурации устройства, выполнив приведенную ниже команду.
@@ -91,8 +105,12 @@ npm install
 
 Поздравляем! Вы успешно создали пример приложения для платы Edison.
 
-## <a name="deploy-and-run-the-sample-application"></a>Развертывание и запуск примера приложения
-### <a name="install-the-azure-iot-hub-sdk-on-edison"></a>Установка пакета SDK для Центра Интернета вещей Azure на устройстве Edison
+<a id="deploy-and-run-the-sample-application" class="xliff"></a>
+
+## Развертывание и запуск примера приложения
+<a id="install-the-azure-iot-hub-sdk-on-edison" class="xliff"></a>
+
+### Установка пакета SDK для Центра Интернета вещей Azure на устройстве Edison
 Установите пакет SDK для Центра Интернета вещей Azure на устройстве Edison, выполнив следующую команду:
 
 ```bash
@@ -101,22 +119,30 @@ gulp install-tools
 
 В зависимости от сетевого подключения для выполнения этой команды может потребоваться много времени. Для устройства Edison эту команду нужно запустить только один раз.
 
-### <a name="deploy-and-run-the-sample-app"></a>Развертывание и запуск примера приложения
+<a id="deploy-and-run-the-sample-app" class="xliff"></a>
+
+### Развертывание и запуск примера приложения
 Разверните и запустите пример приложения, выполнив следующую команду.
 
 ```bash
 gulp deploy && gulp run
 ```
 
-### <a name="verify-the-app-works"></a>Проверка работы приложения
+<a id="verify-the-app-works" class="xliff"></a>
+
+### Проверка работы приложения
 После того, как светодиодный индикатор мигнет 20 раз, пример приложения завершит работу автоматически. Если светодиодный индикатор не мигает, см. способы решения распространенных проблем в [руководстве по устранению неполадок][troubleshooting].
 
 ![Светодиодный индикатор мигает][led-blinking]
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 Вы установили необходимые инструменты для работы с устройством Edison и развернули пример приложения, заставляющего светодиодный индикатор мигать. Теперь можно приступать к созданию, развертыванию и запуску другого примера приложения, которое подключает устройство Edison к Центру Интернета вещей Azure для отправки и получения сообщений.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Get the Azure tools][get-the-azure-tools] (Получение инструментов Azure)
 
 <!-- Images and links -->

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
@@ -20,14 +20,17 @@ ms.openlocfilehash: fe7f508ed1c4eb57663f7e252d286719af03dbb1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/16/2017
 
-
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Синхронизация Azure AD Connect: планировщик
+<a id="azure-ad-connect-sync-scheduler" class="xliff"></a>
+
+# Синхронизация Azure AD Connect: планировщик
 В этом разделе описывается встроенный планировщик синхронизации Azure AD Connect (модуль синхронизации).
 
 Эта функция появилась в сборке 1.1.105.0 (выпущенной в феврале 2016 года).
 
-## <a name="overview"></a>Обзор
+<a id="overview" class="xliff"></a>
+
+## Обзор
 Служба синхронизации Azure AD Connect синхронизирует изменения в вашем локальном каталоге, используя планировщик. Планировщики выполняют два процесса — один для синхронизации паролей, другой для синхронизации объектов или атрибутов и задач технического обслуживания. В этом разделе рассматривается второй процесс.
 
 В более ранних версиях планировщик для объектов и атрибутов не входил в модуль синхронизации. Для запуска процесса синхронизации использовался планировщик заданий Windows или отдельная служба Windows. Сейчас в модуль синхронизации встроен планировщик версии 1.1, позволяющий настраивать определенные параметры. Новая частота синхронизации по умолчанию — 30 минут.
@@ -39,7 +42,9 @@ ms.lasthandoff: 05/16/2017
 
 Сам планировщик работает всегда, но может быть настроен на выполнение только одной или ни одной из этих задач. Например, чтобы настроить собственный цикл синхронизации, вы можете отключить эту задачу в планировщике — при этом задача обслуживания будет выполняться по-прежнему.
 
-## <a name="scheduler-configuration"></a>Конфигурация планировщика
+<a id="scheduler-configuration" class="xliff"></a>
+
+## Конфигурация планировщика
 Чтобы увидеть текущие параметры конфигурации, откройте PowerShell и выполните командлет `Get-ADSyncScheduler`. Отобразятся данные примерно следующего вида:
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
@@ -69,7 +74,9 @@ ms.lasthandoff: 05/16/2017
 
 Конфигурация планировщика хранится в Azure AD. Если используется промежуточный сервер, то любые изменения на сервере-источнике также отражаются на промежуточном сервере (кроме IsStagingModeEnabled).
 
-### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
+<a id="customizedsynccycleinterval" class="xliff"></a>
+
+### CustomizedSyncCycleInterval
 Синтаксис: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d — дни, HH — часы, mm — минуты, ss — секунды.
 
@@ -79,7 +86,9 @@ d — дни, HH — часы, mm — минуты, ss — секунды.
 Пример: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
 Планировщик будет запускаться один раз в день.
 
-### <a name="disable-the-scheduler"></a>Отключение планировщика  
+<a id="disable-the-scheduler" class="xliff"></a>
+
+### Отключение планировщика  
 Если в конфигурацию необходимо внести изменения, то следует отключить планировщик. Например, чтобы [настроить фильтрацию](active-directory-aadconnectsync-configure-filtering.md) или [внести изменения в правила синхронизации](active-directory-aadconnectsync-change-the-configuration.md).
 
 Чтобы отключить планировщик, запустите `Set-ADSyncScheduler -SyncCycleEnabled $false`.
@@ -88,7 +97,9 @@ d — дни, HH — часы, mm — минуты, ss — секунды.
 
 После внесения изменений не забудьте снова включить планировщик с помощью `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
-## <a name="start-the-scheduler"></a>Запуск планировщика
+<a id="start-the-scheduler" class="xliff"></a>
+
+## Запуск планировщика
 По умолчанию планировщик запускается каждые 30 минут. В некоторых случаях может потребоваться внеплановое выполнение цикла синхронизации или синхронизация другого типа.
 
 **Цикл синхронизации изменений**  
@@ -115,7 +126,9 @@ d — дни, HH — часы, mm — минуты, ss — секунды.
 
 Чтобы запустить цикл полной синхронизации, в командной строке PowerShell выполните командлет `Start-ADSyncSyncCycle -PolicyType Initial` . Эта команда запускает цикл полной синхронизации.
 
-## <a name="stop-the-scheduler"></a>Остановка планировщика
+<a id="stop-the-scheduler" class="xliff"></a>
+
+## Остановка планировщика
 Бывает, что планировщик необходимо остановить в процессе выполнения цикла синхронизации. Это может потребоваться, например, если вы запустили мастер установки и получили следующую ошибку:
 
 ![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
@@ -128,12 +141,16 @@ d — дни, HH — часы, mm — минуты, ss — секунды.
 
 Планировщик останется активным и при первой возможности запустится снова.
 
-## <a name="custom-scheduler"></a>Настраиваемый планировщик
+<a id="custom-scheduler" class="xliff"></a>
+
+## Настраиваемый планировщик
 Командлеты, описанные в этом разделе, доступны только в сборке [1.1.130.0](active-directory-aadconnect-version-history.md#111300) и более поздних версий.
 
 Если встроенный планировщик не соответствует вашим требованиям, составить расписание для соединителей можно с помощью PowerShell.
 
-### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
+<a id="invoke-adsyncrunprofile" class="xliff"></a>
+
+### Invoke-ADSyncRunProfile
 Запустить профиль для соединителя можно таким образом:
 
 ```
@@ -157,7 +174,9 @@ Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name
 
 Этот порядок определяет, в какой последовательности встроенный планировщик запускает соединители.
 
-### <a name="get-adsyncconnectorrunstatus"></a>Get-ADSyncConnectorRunStatus
+<a id="get-adsyncconnectorrunstatus" class="xliff"></a>
+
+### Get-ADSyncConnectorRunStatus
 Вы также можете отслеживать работу модуля синхронизации (занят или бездействует). Этот командлет возвращает пустой результат, если модуль синхронизации бездействует и не запускает соединитель. Если соединитель выполняется, то он возвращает имя соединителя.
 
 ```
@@ -167,10 +186,14 @@ Get-ADSyncConnectorRunStatus
 ![Состояние выполнения соединителя](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
 На рисунке выше первая строка — из состояния, в котором модуль синхронизации бездействует. Вторая строка — из состояния, в котором соединитель Azure AD выполняется.
 
-## <a name="scheduler-and-installation-wizard"></a>Планировщик и мастер установки
+<a id="scheduler-and-installation-wizard" class="xliff"></a>
+
+## Планировщик и мастер установки
 При запуске мастера установки планировщик приостанавливается. Это связано с тем, что вы можете внести изменения в конфигурацию, а во время активной работы модуля синхронизации их нельзя будет применить. Пока мастер установки открыт, модуль синхронизации не выполняет никаких действий по синхронизации.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

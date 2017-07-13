@@ -4,7 +4,7 @@ description: "Страница со сведениями об устранени
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "неполадки Интернета вещей, проблемы Интернета вещей"
 ROBOTS: NOINDEX
@@ -16,22 +16,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: a70de978d4636a31644702c6f3a8ca0d0b80f5c2
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/25/2017
 
-
 ---
-# <a name="troubleshooting"></a>Устранение неполадок
+<a id="troubleshooting" class="xliff"></a>
 
-## <a name="hardware-issues"></a>Проблемы с оборудованием
+# Устранение неполадок
 
-### <a name="ti-sensortag-cannot-be-connected"></a>Не удается подключить TI SensorTag
+<a id="hardware-issues" class="xliff"></a>
+
+## Проблемы с оборудованием
+
+<a id="ti-sensortag-cannot-be-connected" class="xliff"></a>
+
+### Не удается подключить TI SensorTag
 
 Чтобы устранить проблемы с подключением SensorTag, воспользуйтесь [приложением SensorTag](http://processors.wiki.ti.com/index.php/SensorTag_User_Guide#SensorTag_App_user_guide).
 
-### <a name="have-an-issue-with-intel-nuc"></a>Проблема с Intel NUC
+<a id="have-an-issue-with-intel-nuc" class="xliff"></a>
+
+### Проблема с Intel NUC
 
 Сведения об устранении проблем при загрузке в Intel NUC см. [на этой странице](http://www.intel.com/content/www/us/en/support/boards-and-kits/000005845.html).
 
@@ -39,9 +47,13 @@ ms.lasthandoff: 01/25/2017
 
 Сведения об устранении других проблем см. в статье [Blink Codes and Beep Codes for Intel NUC](http://www.intel.com/content/www/us/en/support/boards-and-kits/intel-nuc-boards/000005854.html) (Коды включения индикатора и звуковые сигналы для Intel NUC).
 
-## <a name="nodejs-package-issues"></a>Проблемы с пакетами Node.js
+<a id="nodejs-package-issues" class="xliff"></a>
 
-### <a name="no-response-during-gulp-tasks"></a>Нет ответа при выполнении задач Gulp
+## Проблемы с пакетами Node.js
+
+<a id="no-response-during-gulp-tasks" class="xliff"></a>
+
+### Нет ответа при выполнении задач Gulp
 
 Если при выполнении задач Gulp возникли проблемы, можно добавить параметр `--verbose` для отладки. Попробуйте завершить текущие задачи Gulp, используя клавиши `Ctrl + C`, а затем выполните следующую команду в окне консоли, чтобы просмотреть сообщения отладки. В выходных данных консоли должны отобразиться подробные сообщения об ошибках.
 
@@ -49,11 +61,15 @@ ms.lasthandoff: 01/25/2017
 gulp --verbose
 ```
 
-### <a name="device-discovery-issues"></a>Проблемы с обнаружением устройств
+<a id="device-discovery-issues" class="xliff"></a>
+
+### Проблемы с обнаружением устройств
 
 Справку по устранению распространенных проблем с помощью команды `discover-sensortag` см. на [вики-странице](https://wiki.archlinux.org/index.php/bluetooth#Bluetoothctl).
 
-### <a name="npm-issues"></a>проблемы с NPM
+<a id="npm-issues" class="xliff"></a>
+
+### проблемы с NPM
 
 Попробуйте обновить пакет NPM, выполнив следующую команду:
 
@@ -63,9 +79,13 @@ npm install -g npm
 
 Если проблема не исчезла, оставьте комментарии в конце этой статьи или задайте вопрос о проблеме в GitHub в нашем [примере репозитория](https://github.com/azure-samples/iot-hub-c-intel-nuc-gateway-getting-started).
 
-## <a name="remote-debugging"></a>Удаленная отладка
+<a id="remote-debugging" class="xliff"></a>
+
+## Удаленная отладка
 > Приведенные ниже инструкции предназначены для отладки сценариев Node.js, используемых в этом руководстве.
-### <a name="run-the-sample-application-in-debug-mode"></a>Запуск примера приложения в режиме отладки
+<a id="run-the-sample-application-in-debug-mode" class="xliff"></a>
+
+### Запуск примера приложения в режиме отладки
 
 Запустите пример приложения в режиме отладки, выполнив следующую команду:
 
@@ -75,7 +95,9 @@ gulp run --debug
 
 Когда модуль отладки будет готов, вы должны увидеть `Debugger listening on port 5858` в выходных данных консоли.
 
-### <a name="configure-visual-studio-code-to-connect-to-the-remote-device"></a>Настройка Visual Studio Code для подключения к удаленному устройству
+<a id="configure-visual-studio-code-to-connect-to-the-remote-device" class="xliff"></a>
+
+### Настройка Visual Studio Code для подключения к удаленному устройству
 
 1. Откройте панель **Отладка** слева.
 2. Нажмите зеленую кнопку **Начать отладку** (клавиша F5). В Visual Studio Code откроется файл `launch.json`.
@@ -103,7 +125,9 @@ gulp run --debug
 
 ![Конфигурация удаленной отладки](./media/iot-hub-gateway-kit-lessons/troubleshooting/remote_debugging_configuration.png)
 
-### <a name="attach-to-the-remote-application"></a>Присоединение к удаленному приложению
+<a id="attach-to-the-remote-application" class="xliff"></a>
+
+### Присоединение к удаленному приложению
 
 Нажмите зеленую кнопку **Начать отладку** (клавиша F5), чтобы начать отладку.
 
@@ -111,7 +135,9 @@ gulp run --debug
 
 ![Отладка примера BLE](./media/iot-hub-gateway-kit-lessons/troubleshooting/debugging_ble_sample.png)
 
-## <a name="azure-cli-issues"></a>Проблемы с интерфейсом командной строки Azure
+<a id="azure-cli-issues" class="xliff"></a>
+
+## Проблемы с интерфейсом командной строки Azure
 
 Интерфейс командной строки Azure (Azure CLI) — это сборка предварительной версии. Найти решения можно в [руководстве по установке предварительной версии](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md).
 
@@ -125,9 +151,13 @@ gulp run --debug
 python -m pip install --upgrade pip
 ```
 
-## <a name="python-installation-issues"></a>Проблемы с установкой Python
+<a id="python-installation-issues" class="xliff"></a>
 
-### <a name="legacy-installation-issues-macos"></a>Проблемы с устаревшими установками (macOS)
+## Проблемы с установкой Python
+
+<a id="legacy-installation-issues-macos" class="xliff"></a>
+
+### Проблемы с устаревшими установками (macOS)
 
 При установке pip возникает ошибка разрешения, если есть устаревшие пакеты, которые устанавливаются с использованием разрешений **su**. Такая ситуация возникает из-за того, что предыдущая установка Python с использованием brew (macOS) удалена не полностью. Некоторые пакеты pip из предыдущей установки созданы с помощью разрешений корневой папки, что приводит к ошибке разрешения. Чтобы решить эту проблему, необходимо удалить эти пакеты, установленные с помощью разрешений корневой папки. Для этого необходимо сделать следующее:
 
@@ -136,11 +166,15 @@ python -m pip install --upgrade pip
 3. Удалите пакеты из шага 2: `sudo rm -rf {package name}`.
 4. Переустановите Python.
 
-## <a name="azure-iot-hub-issues"></a>Проблемы с Центром Интернета вещей Azure
+<a id="azure-iot-hub-issues" class="xliff"></a>
+
+## Проблемы с Центром Интернета вещей Azure
 
 Если Центр Интернета вещей Azure успешно подготовлен с помощью Azure CLI и требуется инструмент для управления устройствами, подключенными к вашему Центру Интернета вещей, воспользуйтесь указанными ниже инструментами.
 
-### <a name="device-explorer"></a>Обозреватель устройств
+<a id="device-explorer" class="xliff"></a>
+
+### Обозреватель устройств
 
 [Обозреватель устройств](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) работает на локальном компьютере Windows и подключается к Центру Интернета вещей в Azure. Он взаимодействует со следующими [конечными точками Центра Интернета вещей](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
 
@@ -150,7 +184,9 @@ python -m pip install --upgrade pip
 
 Настройте свою строку подключения Центра Интернета вещей в этом инструменте, чтобы использовать все его возможности.
 
-### <a name="iothub-explorer"></a>iothub-explorer
+<a id="iothub-explorer" class="xliff"></a>
+
+### iothub-explorer
 
 [iothub-explorer](https://github.com/Azure/iothub-explorer) — это пример мультиплатформенного инструмента интерфейса командной строки для управления клиентами устройств. Инструмент можно использовать для управления устройствами в реестре удостоверений, мониторинга сообщений, отправляемых с устройства в облако, и отправки команд, передаваемых из облака на устройство.
 
@@ -166,11 +202,15 @@ npm install -g iothub-explorer@latest
 iothub-explorer help
 ```
 
-### <a name="the-azure-portal"></a>Портал Azure
+<a id="the-azure-portal" class="xliff"></a>
+
+### Портал Azure
 
 Все возможности интерфейса командной строки помогают создавать все ресурсы Azure и управлять ими. Для подготовки, отладки ресурсов Azure и управления ими можно также воспользоваться [порталом Azure](https://azure.microsoft.com/en-us/documentation/articles/azure-portal-overview/).
 
-## <a name="azure-storage-issues"></a>Проблемы с хранилищем Azure
+<a id="azure-storage-issues" class="xliff"></a>
+
+## Проблемы с хранилищем Azure
 
 [Обозреватель служб хранилища Microsoft Azure (предварительная версия)](http://storageexplorer.com/) — это автономное приложение от корпорации Майкрософт, которое можно использовать для работы с данными из службы хранилища Azure на платформе Windows, macOS и Linux. Используя этот инструмент, можно подключаться к таблице и просматривать данные в ней. Его можно использовать для устранения неполадок в вашей службе хранилища Azure.
 

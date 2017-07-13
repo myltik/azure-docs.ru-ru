@@ -15,18 +15,22 @@ ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6e476e1dc550f246027c015dee75850236baa9a9
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: da848aec495a8248fd4791f350d439e937831d01
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="local-git-deployment-to-azure-app-service"></a>Развертывание локального репозитория Git в службе приложений Azure
+<a id="local-git-deployment-to-azure-app-service" class="xliff"></a>
+
+# Развертывание локального репозитория Git в службе приложений Azure
 В этом учебнике содержатся сведения о развертывании приложения в [службе приложений Azure] из репозитория Git на локальном компьютере. Служба приложений поддерживает такой подход, если на **портале Azure** выбран вариант развертывания [Локальный репозиторий Git].  
 Многие команды Git, описанные в этой статье, автоматически выполняются при создании приложения службы приложений с помощью [интерфейса командной строки Azure], как описано [здесь](app-service-web-get-started.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+
+## Предварительные требования
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
 * Git. Двоичный файл установки можно скачать [отсюда](http://www.git-scm.com/downloads).  
@@ -44,8 +48,10 @@ ms.lasthandoff: 04/27/2017
 1. Запустите программу командной строки, например **GitBash** (Windows) или **Bash** (оболочка Unix). На компьютерах с OS X доступ к командной строке можно получить через приложение **Terminal** .
 2. Перейдите в каталог, в котором будет находиться содержимое для развертывания.
 3. Используйте следующую команду, чтобы инициализировать новый репозиторий Git:
-   
-        git init
+
+```bash  
+git init
+```
 
 ## <a name="Step2"></a>Шаг 2. Фиксация содержимого
 Служба приложений поддерживает приложения, созданные с использованием различных языков программирования. 
@@ -55,11 +61,15 @@ ms.lasthandoff: 04/27/2017
    * С помощью текстового редактора создайте файл с именем **index.html** в корневой папке репозитория Git.
    * Добавьте следующий текст в качестве содержимого файла index.html и сохраните его: *Hello Git!*
 2. Из командной строки проверьте свое нахождение в корневой папке репозитория Git. Затем используйте следующие команды для добавления файлов в репозиторий:
-   
-        git add -A 
+
+```bash  
+git add -A
+```
 3. Затем примените эти изменения к репозиторию с помощью следующей команды:
-   
-        git commit -m "Hello Azure App Service"
+
+```bash  
+git commit -m "Hello Azure App Service"
+```  
 
 ## <a name="Step3"></a>Шаг 3. Включение репозитория приложения службы приложений
 Чтобы включить репозиторий Git для приложения службы приложений, выполните приведенные далее действия.
@@ -89,10 +99,11 @@ ms.lasthandoff: 04/27/2017
    > 
    > 
 4. Опубликуйте содержимое в службу приложений с помощью созданной команды remote **azure** .
-   
-        git push azure master
-   
-    Вам предложат ввести пароль, созданный ранее при сбросе учетных данных развертывания на портале Azure. Введите пароль (обратите внимание, что при вводе пароля Gitbash не выводит звездочки на консоль). 
+
+```bash  
+git push azure master
+```
+    You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 5. Перейдите к приложению на портале Azure. В колонке **Развертывание** должна отображаться запись журнала с последним push-уведомлением. 
    
     ![](./media/app-service-deploy-local-git/deployment_history.png)
@@ -122,8 +133,9 @@ ms.lasthandoff: 04/27/2017
 
 **Устранение**: снова выполните операцию принудительной отправки, указав главную ветвь. Например:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Симптом**: src refspec [имя_ветви] не соответствует никакой ветви.
 
@@ -131,8 +143,9 @@ ms.lasthandoff: 04/27/2017
 
 **Устранение**: снова выполните операцию принудительной отправки, указав главную ветвь. Например:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Симптом**. Сбой RPC, результат — 22, код HTTP — 502.
 
@@ -140,8 +153,9 @@ ms.lasthandoff: 04/27/2017
 
 **Решение**. Измените конфигурацию Git на локальном компьютере, чтобы увеличить значение postBuffer.
 
-    git config --global http.postBuffer 524288000
-
+```bash  
+git config --global http.postBuffer 524288000
+```
 - - -
 **Симптом**: ошибка — изменения в удаленный репозиторий внесены, но веб-приложение не обновилось.
 
@@ -157,7 +171,9 @@ ms.lasthandoff: 04/27/2017
       ИЛИ
   * npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
-## <a name="additional-resources"></a>дополнительные ресурсы.
+<a id="additional-resources" class="xliff"></a>
+
+## дополнительные ресурсы.
 * [Документация по Git](http://git-scm.com/documentation)
 * [Документация по проекту Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Непрерывное развертывание в службе приложений Azure](app-service-continuous-deployment.md)

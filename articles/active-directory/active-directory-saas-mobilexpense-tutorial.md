@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 34cc5f5b2947f775c00548e5d8699976caabfd47
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 030a1fc9f36d6fcfa607552d85ce232e36eaa64b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mobilexpense"></a>Руководство. Интеграция Azure Active Directory с MobileXpense
+<a id="tutorial-azure-active-directory-integration-with-mobilexpense" class="xliff"></a>
+
+# Руководство. Интеграция Azure Active Directory с MobileXpense
 
 В этом руководстве описано, как интегрировать MobileXpense с Azure Active Directory (Azure AD).
 
@@ -33,7 +35,9 @@ ms.lasthandoff: 05/04/2017
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+
+## Предварительные требования
 
 Чтобы настроить интеграцию Azure AD с MobileXpense, вам потребуется:
 
@@ -48,13 +52,17 @@ ms.lasthandoff: 05/04/2017
 - Не используйте рабочую среду без необходимости.
 - Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="scenario-description"></a>Описание сценария
+<a id="scenario-description" class="xliff"></a>
+
+## Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
 1. Добавление MobileXpense из коллекции
 2. Настройка и проверка единого входа в Azure AD
 
-## <a name="adding-mobilexpense-from-the-gallery"></a>Добавление MobileXpense из коллекции
+<a id="adding-mobilexpense-from-the-gallery" class="xliff"></a>
+
+## Добавление MobileXpense из коллекции
 Чтобы настроить интеграцию MobileXpense с Azure AD, необходимо добавить MobileXpense из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить MobileXpense из коллекции, выполните следующие действия:**
@@ -79,7 +87,9 @@ ms.lasthandoff: 05/04/2017
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+<a id="configuring-and-testing-azure-ad-single-sign-on" class="xliff"></a>
+
+##  Настройка и проверка единого входа в Azure AD
 В этом разделе описано, как настроить и проверить единый вход Azure AD в MobileXpense с использованием тестового пользователя Britta Simon.
 
 Для настройки единого входа в Azure AD необходимо знать, какой пользователь в MobileXpense соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в MobileXpense.
@@ -94,7 +104,9 @@ ms.lasthandoff: 05/04/2017
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+<a id="configuring-azure-ad-single-sign-on" class="xliff"></a>
+
+### Настройка единого входа в Azure AD
 
 В этом разделе описано, как включить единый вход Azure AD на портале Azure и как настроить его в приложении MobileXpense.
 
@@ -112,16 +124,16 @@ ms.lasthandoff: 05/04/2017
 
     ![Настройка единого входа](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url11.png)
 
-       In the **Reply URL** textbox, type a URL using the following pattern: `https://<sub domain>.mobilexpense.com/SSO/SAML20/SAML/AssertionConsumerService.aspx`
+    В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<sub domain>.mobilexpense.com/SSO/SAML20/SAML/AssertionConsumerService.aspx`.
 
 4. Установите флажок **Показать дополнительные параметры URL-адресов**, если хотите настроить приложение для работы в режиме, инициируемом **поставщиком услуг**:
 
     ![Настройка единого входа](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url22.png)
 
-    В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<sub domain>.mobilexpense.com/<customername>`
-     
-    > [!NOTE] 
-    > Эти значения приведены в качестве примера. Измените их на фактические значения URL-адреса ответа и URL-адреса входа. Чтобы получить их, обратитесь в [службу поддержки клиентов MobileXpense](http://www.mobilexpense.net/contact). 
+В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<sub domain>.mobilexpense.com/<customername>`
+
+> [!NOTE] 
+> Эти значения приведены в качестве примера. Измените их на фактические значения URL-адреса ответа и URL-адреса входа. Чтобы получить их, обратитесь в [службу поддержки клиентов MobileXpense](http://www.mobilexpense.net/contact). 
 
 5. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
@@ -137,7 +149,9 @@ ms.lasthandoff: 05/04/2017
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+<a id="creating-an-azure-ad-test-user" class="xliff"></a>
+
+### Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][100]
@@ -168,11 +182,15 @@ ms.lasthandoff: 05/04/2017
 
     d. Щелкните **Создать**.
  
-### <a name="creating-a-mobilexpense-test-user"></a>Создание тестового пользователя MobileXpense
+<a id="creating-a-mobilexpense-test-user" class="xliff"></a>
+
+### Создание тестового пользователя MobileXpense
 
 В этом разделе описано, как создать пользователя Britta Simon в MobileXpense. Чтобы добавить пользователей в MobileXpense, обратитесь в [службу поддержки клиентов MobileXpense](http://www.mobilexpense.net/contact). Перед использованием единого входа необходимо создать и активировать пользователей. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+<a id="assigning-the-azure-ad-test-user" class="xliff"></a>
+
+### Назначение тестового пользователя Azure AD
 
 В этом разделе описано, как настроить единый вход Azure для пользователя Britta Simon, предоставив этому пользователю доступ к MobileXpense.
 
@@ -202,14 +220,18 @@ ms.lasthandoff: 05/04/2017
 
 7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
     
-### <a name="testing-single-sign-on"></a>Проверка единого входа
+<a id="testing-single-sign-on" class="xliff"></a>
+
+### Проверка единого входа
 
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент MobileXpense на панели доступа, вы автоматически войдете в приложение MobileXpense.
 Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586). 
 
-## <a name="additional-resources"></a>Дополнительные ресурсы
+<a id="additional-resources" class="xliff"></a>
+
+## Дополнительные ресурсы
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)

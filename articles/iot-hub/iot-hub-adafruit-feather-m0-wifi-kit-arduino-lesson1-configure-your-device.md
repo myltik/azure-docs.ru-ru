@@ -4,7 +4,7 @@ description: "Настройте Adafruit Feather M0 WiFi для первого 
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "Arduino, настройка, подключение Arduino к компьютеру, настройка Arduino, плата Arduino"
 ROBOTS: NOINDEX
@@ -17,18 +17,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 3789c07cd6142ba5b6a58a67813c0ead6b87bd76
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/24/2017
 
-
 ---
-# <a name="configure-your-device"></a>Настройка устройства
-## <a name="what-you-will-do"></a>Выполняемая задача
+<a id="configure-your-device" class="xliff"></a>
+
+# Настройка устройства
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 Настройте плату Adafruit Feather M0 WiFi Arduino для первого использования, собрав и подключив ее. Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md).
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 Для этого вам понадобятся следующие компоненты из начального набора Adafruit Feather M0 WiFi:
 
 * плата Adafruit Feather M0 WiFi;
@@ -42,13 +48,17 @@ ms.lasthandoff: 01/24/2017
 * Беспроводное подключение, чтобы подключиться к плате Arduino.
 * Подключение к Интернету для скачивания инструмента настройки.
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 В этой статье вы узнаете следующее:
 
 * Как собрать плату Arduino и подключить ее для использования в следующем уроке.
 * Как добавить разрешения для последовательного порта в Ubuntu.
 
-## <a name="connect-your-arduino-board-to-your-computer"></a>Подключение платы Arduino к компьютеру
+<a id="connect-your-arduino-board-to-your-computer" class="xliff"></a>
+
+## Подключение платы Arduino к компьютеру
 
 1. Подключите кабель micro-USB к верхнему порту micro-USB.
 
@@ -58,7 +68,9 @@ ms.lasthandoff: 01/24/2017
 
    ![Подключение USB к компьютеру][computer-usb]
 
-## <a name="add-serial-port-permissions-on-ubuntu"></a>Добавление разрешений для последовательного порта в Ubuntu
+<a id="add-serial-port-permissions-on-ubuntu" class="xliff"></a>
+
+## Добавление разрешений для последовательного порта в Ubuntu
 
 Этот раздел можно пропустить, если вы используете Windows или macOS. Для Ubuntu выполните следующие действия, чтобы убедиться, что у обычного пользователя Linux есть разрешения для работы с USB-портом платы Arduino.
 
@@ -90,12 +102,16 @@ ms.lasthandoff: 01/24/2017
 
 3. Необходимо выйти из системы и снова войти в нее, чтобы изменения вступили в силу и настройка была завершена.
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 Из этой статьи вы узнали, как настроить плату Arduino. Следующая задача — установить необходимые инструменты и программное обеспечение в рамках подготовки к запуску примера приложения на плате Arduino.
 
 ![Оборудование готово][hardware-is-ready]
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Get the tools][get-the-tools] (Получение инструментов)
 <!-- Images and links -->
 

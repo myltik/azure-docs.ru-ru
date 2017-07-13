@@ -17,25 +17,31 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: df647b77f5f826b7f852bea981bc92089852b35a
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: bf419e8a57285b8fc004f5280e6d60bc5ecdd5ab
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Отладка заданий Apache Spark в Azure HDInsight
+<a id="debug-apache-spark-jobs-running-on-azure-hdinsight" class="xliff"></a>
+
+# Отладка заданий Apache Spark в Azure HDInsight
 
 Из этой статьи вы узнаете, как выполнять отслеживание и отладку заданий Spark, запущенных в кластерах HDInsight, с помощью пользовательского интерфейса YARN, пользовательского интерфейса Spark и сервера журнала Spark. Для статьи мы создадим задание Spark с помощью записной книжки, прилагающейся к кластеру Spark: **Машинное обучение. Прогнозный анализ на основе данных контроля качества пищевых продуктов**. С помощью описанных ниже действий вы сможете отслеживать приложение, отправленное любым другим методом, например с помощью **spark-submit**.
 
-## <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+
+## Предварительные требования
 Необходимо следующее:
 
 * Подписка Azure. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Для начала вам следует запустить записную книжку **[Машинное обучение. Прогнозный анализ на основе данных контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**. Перейдите по ссылке, чтобы получить инструкции по запуску этой записной книжки.  
 
-## <a name="track-an-application-in-the-yarn-ui"></a>Отслеживание приложения в пользовательском интерфейсе YARN
+<a id="track-an-application-in-the-yarn-ui" class="xliff"></a>
+
+## Отслеживание приложения в пользовательском интерфейсе YARN
 1. Запустите пользовательский интерфейс YARN. В колонке кластера щелкните **Панель мониторинга кластера**, а затем выберите пункт **YARN**.
    
     ![Запуск пользовательского интерфейса YARN](./media/hdinsight-apache-spark-job-debugging/launch-yarn-ui.png)
@@ -53,7 +59,9 @@ ms.lasthandoff: 05/17/2017
    
     ![Скачивание журналов контейнера](./media/hdinsight-apache-spark-job-debugging/download-container-logs.png)
 
-## <a name="track-an-application-in-the-spark-ui"></a>Отслеживание приложения в пользовательском интерфейсе Spark
+<a id="track-an-application-in-the-spark-ui" class="xliff"></a>
+
+## Отслеживание приложения в пользовательском интерфейсе Spark
 В пользовательском интерфейсе Spark вы можете подробно изучить задания Spark, которые создаются запущенным вами приложением.
 
 1. Чтобы запустить пользовательский интерфейс Spark, щелкните ссылку **URL-адрес отслеживания**в представлении приложения, как показано на снимке экрана выше. Здесь вы увидите все задания Spark, созданные приложением, которое запущено в записной книжке Jupyter.
@@ -93,7 +101,9 @@ ms.lasthandoff: 05/17/2017
      * число ядер исполнителя для приложения;
      * и т. д.
 
-## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>Поиск сведений о выполненных заданиях с помощью сервера журнала Spark
+<a id="find-information-about-completed-jobs-using-the-spark-history-server" class="xliff"></a>
+
+## Поиск сведений о выполненных заданиях с помощью сервера журнала Spark
 Когда задание завершается, сведения о нем сохраняются на сервере журнала Spark.
 
 1. Чтобы открыть сервер журнала Spark, щелкните в колонке кластера **Панель мониторинга кластера**, а затем нажмите кнопку **Сервер журнала Spark**.
@@ -111,26 +121,34 @@ ms.lasthandoff: 05/17/2017
 ## <a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-### <a name="scenarios"></a>Сценарии
+<a id="scenarios" class="xliff"></a>
+
+### Сценарии
 * [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для анализа температуры в здании на основе данных системы кондиционирования](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
 * [Анализ журнала веб-сайта с использованием Spark в HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="create-and-run-applications"></a>Создание и запуск приложений
+<a id="create-and-run-applications" class="xliff"></a>
+
+### Создание и запуск приложений
 * [Создание автономного приложения с использованием Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Удаленный запуск заданий с помощью Livy в кластере Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
-### <a name="tools-and-extensions"></a>Средства и расширения
+<a id="tools-and-extensions" class="xliff"></a>
+
+### Средства и расширения
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Управление ресурсами
+<a id="manage-resources" class="xliff"></a>
+
+### Управление ресурсами
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 

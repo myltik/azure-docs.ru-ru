@@ -4,7 +4,7 @@ description: "Настройка Intel NUC в качестве шлюза Инт
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: yjianfeng
+manager: timlt
 tags: 
 keywords: "шлюз Интернета вещей, intel nuc, компьютер nuc, DE3815TYKE"
 ROBOTS: NOINDEX
@@ -23,18 +23,23 @@ ms.openlocfilehash: b87974be9570f7d03fe84ae0a1d1fa7e346ff189
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
-# <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Настройка Intel NUC в качестве шлюза Интернета вещей
+<a id="set-up-intel-nuc-as-an-iot-gateway" class="xliff"></a>
 
-## <a name="what-you-will-do"></a>Выполняемая задача
+# Настройка Intel NUC в качестве шлюза Интернета вещей
+
+<a id="what-you-will-do" class="xliff"></a>
+
+## Выполняемая задача
 
 - Настройте Intel NUC в качестве шлюза Интернета вещей.
 - Установите пакет Edge Интернета вещей Azure на Intel NUC.
 - Запустите пример приложения hello_world на Intel NUC для проверки работоспособности шлюза.
 Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
-## <a name="what-you-will-learn"></a>Новые знания
+<a id="what-you-will-learn" class="xliff"></a>
+
+## Новые знания
 
 Из этого урока вы узнаете:
 
@@ -42,7 +47,9 @@ ms.lasthandoff: 07/06/2017
 - как установить и обновить требуемые пакеты на Intel NUC с помощью Smart Package Manager;
 - как запустить пример приложения hello_world на Intel NUC для проверки работоспособности шлюза.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 
 - Предварительно установленный пакет DE3815TYKE для Intel NUC с набором программного обеспечения Intel для шлюза Интернета вещей (Wind River Linux *7.0.0.13).
 - Кабель Ethernet.
@@ -52,7 +59,9 @@ ms.lasthandoff: 07/06/2017
 
 ![Комплект для шлюза](media/iot-hub-gateway-kit-lessons/lesson1/kit_without_sensortag.png)
 
-## <a name="connect-intel-nuc-with-the-peripherals"></a>Подключение периферийных устройств к Intel NUC
+<a id="connect-intel-nuc-with-the-peripherals" class="xliff"></a>
+
+## Подключение периферийных устройств к Intel NUC
 
 На следующем рисунке показана конфигурация Intel NUC с подключением к разным периферийным устройствам.
 
@@ -63,7 +72,9 @@ ms.lasthandoff: 07/06/2017
 
 ![Intel NUC с подключением к периферийным устройствам](media/iot-hub-gateway-kit-lessons/lesson1/nuc.png)
 
-## <a name="connect-to-the-intel-nuc-system-from-host-computer-via-secure-shell-ssh"></a>Подключение к системе Intel NUC с главного компьютера через Secure Shell (SSH)
+<a id="connect-to-the-intel-nuc-system-from-host-computer-via-secure-shell-ssh" class="xliff"></a>
+
+## Подключение к системе Intel NUC с главного компьютера через Secure Shell (SSH)
 
 На этом этапе вам потребуются клавиатура и монитор, чтобы узнать IP-адрес устройства NUC. Если вы уже знаете IP-адрес, можете сразу перейти к шагу 3 в этом разделе.
 
@@ -87,7 +98,9 @@ ms.lasthandoff: 07/06/2017
    Работа с Intel NUC выполняется более эффективно, если подключиться к нему через SSH-клиент с главного компьютера. Для этого вам нужны IP-адрес, имя пользователя и пароль. Вот пример использования SSH-клиента на macOS.
    ![SSH-клиент, запущенный на macOS](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## <a name="install-the-azure-iot-edge-package"></a>Установка пакета Edge Интернета вещей Azure
+<a id="install-the-azure-iot-edge-package" class="xliff"></a>
+
+## Установка пакета Edge Интернета вещей Azure
 
 Пакет Edge Интернета вещей Azure содержит предварительно скомпилированные двоичные файлы самого пакета SDK и его зависимостей. В список этих файлов входят Edge Интернета вещей Azure, пакет SDK для Интернета вещей Azure и соответствующие средства. Пакет также содержит пример приложения hello_world, который используется для проверки работоспособности шлюза. Edge Интернета вещей является основой шлюза. Для установки пакета выполните следующие действия.
 
@@ -116,7 +129,9 @@ ms.lasthandoff: 07/06/2017
 
    Когда установка пакета завершится, Intel NUC должен выполнять функции шлюза.
 
-## <a name="run-the-azure-iot-edge-helloworld-sample-application"></a>Запуск примера приложения hello_world из Edge Интернета вещей Azure
+<a id="run-the-azure-iot-edge-helloworld-sample-application" class="xliff"></a>
+
+## Запуск примера приложения hello_world из Edge Интернета вещей Azure
 
 Перейдите в каталог `azureiotgatewaysdk/samples` и запустите пример приложения hello_world. Этот пример приложения создает шлюз из файла `hello_world.json` и использует базовые компоненты архитектуры Edge Интернета вещей Azure, чтобы каждые 5 секунд записывать в журнал сообщение Hello World.
 
@@ -133,10 +148,14 @@ cd /usr/share/azureiotgatewaysdk/samples/hello_world/
 
 Если возникнут какие-либо проблемы, то решения можно найти на [странице со сведениями об устранении неполадок](iot-hub-gateway-kit-c-troubleshooting.md).
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 
 Поздравляем! Итак, вы завершили настройку Intel NUC в качестве шлюза. Теперь можно переходить к следующему уроку, в котором вы настроите главный компьютер, настроите Центр Интернета вещей Azure и зарегистрируете логическое устройство Центра Интернета вещей Azure.
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Подготовка главного компьютера и Центра Интернета вещей Azure](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
 

@@ -15,15 +15,18 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: b08d5543fd3b680b7d49be6e8d2c95ee71aff10c
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 094ae187ec8ba5ff38f174ee4cf139d30db7e057
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/14/2017
 
 
 ---
 
-# <a name="customize-web-application-firewall-rules-through-the-portal"></a>Настройка правил брандмауэра веб-приложения на портале
+<a id="customize-web-application-firewall-rules-through-the-portal" class="xliff"></a>
+
+# Настройка правил брандмауэра веб-приложения на портале
 
 Брандмауэр веб-приложения шлюза приложений обеспечивает защиту веб-приложений с помощью наборов правил OWASP CRS. Некоторые правила могут приводить к ложным срабатываниям и блокировке реального трафика.  Поэтому в шлюзе приложений можно настраивать правила и группы правил в шлюзе приложений с включенным брандмауэром веб-приложений. Дополнительные сведения о конкретных правилах и группах правил см. в статье [List of web application firewall CRS rule groups and rules offered](application-gateway-crs-rulegroups-rules.md) (Список правил и групп правил CRS для брандмауэра веб-приложения).
 
@@ -32,29 +35,38 @@ ms.lasthandoff: 03/30/2017
 
 ![Включение WAF][fig1]
 
-## <a name="view-rule-groups-and-rules"></a>Просмотр правил и групп правил
+<a id="view-rule-groups-and-rules" class="xliff"></a>
+
+## Просмотр правил и групп правил
 
 Перейдите в шлюз приложений и выберите **Брандмауэр веб-приложения**.  Щелкните **Advanced rule configuration** (Расширенная настройка правил).  На странице со всеми группами правил отобразится таблица с выбранным набором правил.
 
 ![Настройка с отключением правил][1]
 
-## <a name="search-for-rules-to-disable"></a>Поиск правил для отключения
+<a id="search-for-rules-to-disable" class="xliff"></a>
+
+## Поиск правил для отключения
 
 В колонке параметров брандмауэра веб-приложения есть функция фильтрации правил по текстовому поиску. В результате отобразятся только правила и группы правил, которые содержат искомый текст.
 
 ![Поиск правил][2]
 
-## <a name="disable-rule-groups-and-rules"></a>Отключение правил и групп правил
+<a id="disable-rule-groups-and-rules" class="xliff"></a>
+
+## Отключение правил и групп правил
 
 При отключении правил можно отключить всю группу правил или определенные правила в одной или нескольких группах.  Сняв флажки напротив правил, которые нужно отключить, нажмите кнопку **Сохранить**.  Изменения в шлюзе приложений будут сохранены.
 
 ![Сохранение изменений][3]
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 
-После настройки с отключением правил узнайте, как просматривать журналы WAF, ознакомившись с разделом [Ведение журнала диагностики](application-gateway-diagnostics.md#diagnostic-logging).
+## Дальнейшие действия
+
+После настройки с отключением правил узнайте, как просматривать журналы WAF, ознакомившись с разделом [Ведение журнала диагностики](application-gateway-diagnostics.md#diagnostic-logs).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
+

@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4394a5ddd17e635661cd89b42f76b0558ffa17ab
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 32c6d4ed5470077856d4ab175a5df5188b3690a6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/13/2017
 
 ---
 
-# <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Проблема при настройке единого входа по паролю для приложения из коллекции Azure AD
+<a id="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
+
+# Проблема при настройке единого входа по паролю для приложения из коллекции Azure AD
 
 Эта статья поможет понять распространенные проблемы, которые возникают при настройке **единого входа по паролю** для приложения из коллекции Azure AD.
 
-## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Учетные данные заполняются, но расширение не отправляет их
+<a id="credentials-are-filled-in-but-the-extension-does-not-submit-them" class="xliff"></a>
+
+## Учетные данные заполняются, но расширение не отправляет их
 
 Обычно это происходит, если разработчик приложения недавно изменил страницу входа, добавив на нее новое поле, изменил базовые идентификаторы, с помощью которых мы определяли поля имени пользователя и пароля, или изменил процедуру входа для своего приложения. К счастью, во многих случаях корпорация Майкрософт может быстро решить эти проблемы совместно с разработчиками приложений.
 
@@ -33,7 +37,9 @@ ms.lasthandoff: 04/17/2017
 
 Кроме того, **если вы работаете с поставщиком приложения**, **отправьте ему наши рекомендации**, чтобы мы смогли интегрировать его приложение в Azure Active Directory. Для начала можете отправить разработчику приложения ссылку на статью [Добавление приложения в коллекцию приложений Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Учетные данные заполняются и отправляются, но на странице указано, что учетные данные неверны
+<a id="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect" class="xliff"></a>
+
+## Учетные данные заполняются и отправляются, но на странице указано, что учетные данные неверны
 
 Чтобы устранить эту проблему, сначала проверьте следующее:
 
@@ -61,13 +67,15 @@ ms.lasthandoff: 04/17/2017
 
 Кроме того, **если вы работаете с поставщиком приложения**, **отправьте ему наши рекомендации**, чтобы мы смогли интегрировать его приложение в Azure Active Directory. Для начала можете отправить разработчику приложения ссылку на статью [Добавление приложения в коллекцию приложений Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>Расширение работает в браузерах Chrome и Firefox, но не работает в Internet Explorer
+<a id="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer" class="xliff"></a>
+
+## Расширение работает в браузерах Chrome и Firefox, но не работает в Internet Explorer
 
 Существуют две основные причины этой проблемы:
 
 -   В зависимости от параметров безопасности Internet Explorer, если веб-сайт не входит в **Надежную зону**, это может привести к блокировке нашего скрипта в приложении.
 
-  *  Чтобы устранить эту проблему, пользователю следует **добавить веб-сайт приложения** в список **Надежные узлы** в **параметрах безопасности Internet Explorer**. Для этого пользователи могут воспользоваться инструкциями в статье [Как добавить сайт в список надежных узлов](https://answers.microsoft.com/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5).
+  *  Чтобы устранить эту проблему, пользователю следует **добавить веб-сайт приложения** в список **Надежные узлы** в **параметрах безопасности Internet Explorer**. Для этого пользователи могут воспользоваться инструкциями в статье [Как добавить сайт в список надежных узлов](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5).
 
 -   В редких случаях проверка безопасности Internet Explorer может привести к тому, что страница загружается медленнее, чем выполняется скрипт.
 
@@ -75,7 +83,9 @@ ms.lasthandoff: 04/17/2017
 
 Кроме того, **если вы работаете с поставщиком приложения**, **отправьте ему наши рекомендации**, чтобы мы смогли интегрировать его приложение в Azure Active Directory. Для начала можете отправить разработчику приложения ссылку на статью [Добавление приложения в коллекцию приложений Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Проверьте, не была ли страница входа приложения недавно изменена и не появились ли на ней дополнительные поля.
+<a id="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field" class="xliff"></a>
+
+## Проверьте, не была ли страница входа приложения недавно изменена и не появились ли на ней дополнительные поля.
 
 Если страница входа приложения сильно изменилась, это может привести к нарушению нашей интеграции. К таким ситуациям относится добавление на страницу поля входа в систему, поля captcha или многофакторной проверки подлинности. К счастью, во многих случаях корпорация Майкрософт может быстро решить эти проблемы совместно с разработчиками приложений.
 
@@ -83,7 +93,9 @@ ms.lasthandoff: 04/17/2017
 
 Кроме того, **если вы работаете с поставщиком приложения**, **отправьте ему наши рекомендации**, чтобы мы смогли интегрировать его приложение в Azure Active Directory. Для начала можете отправить разработчику приложения ссылку на статью [Добавление приложения в коллекцию приложений Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Установка расширения "Панель доступа" для браузера
+<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
+
+## Установка расширения "Панель доступа" для браузера
 
 Чтобы установить расширение "Панель доступа" для браузера, выполните указанные ниже действия.
 
@@ -95,7 +107,7 @@ ms.lasthandoff: 04/17/2017
 
 4.  Откроется страница для скачивания расширения в зависимости от вашего браузера. **Добавьте** расширение в свой браузер.
 
-5.  При необходимости **Включите** или **Разрешите** расширение.
+5.  При необходимости **включите** или **разрешите** расширение.
 
 6.  После установки **перезапустите** сеанс браузера.
 
@@ -107,7 +119,9 @@ ms.lasthandoff: 04/17/2017
 
 -   [Расширение "Панель доступа" для Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
 
 

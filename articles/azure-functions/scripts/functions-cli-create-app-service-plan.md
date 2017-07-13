@@ -17,23 +17,27 @@ ms.date: 04/11/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 8c98e392c1c735458184bb782ed9c42f468f33de
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 40c3fa6fa6c07d59e4bf55531e116ba50aa92b91
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
-# <a name="create-a-function-app-in-an-app-service-plan"></a>Создание приложения-функции в плане службы приложений
+<a id="create-a-function-app-in-an-app-service-plan" class="xliff"></a>
+
+# Создание приложения-функции в плане службы приложений
 
 Этот пример сценария создает приложение-функцию Azure, которое является контейнером для ваших функций. Приложение-функция создается с помощью выделенного плана службы приложений. Это означает, что ресурсы сервера всегда включены.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="sample-script"></a>Пример скрипта
+<a id="sample-script" class="xliff"></a>
+
+## Пример скрипта
 
 Этот скрипт создает приложение-функцию Azure с помощью выделенного [плана службы приложений](../functions-scale.md#app-service-plan).
 
@@ -41,7 +45,9 @@ ms.lasthandoff: 05/15/2017
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Описание скрипта
+<a id="script-explanation" class="xliff"></a>
+
+## Описание скрипта
 
 Для каждой команды в таблице приведены ссылки на соответствующую документацию. Этот сценарий использует следующие команды:
 
@@ -52,7 +58,9 @@ ms.lasthandoff: 05/15/2017
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#create) | Создает план службы приложений. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#delete) | Создает приложение-функцию Azure. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

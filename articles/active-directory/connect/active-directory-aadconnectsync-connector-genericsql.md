@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/2/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
@@ -20,9 +20,10 @@ ms.openlocfilehash: b7e99f8a4d7bc1cd30c71ce08ad38c13203f8b69
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/12/2017
 
-
 ---
-# <a name="generic-sql-connector-technical-reference"></a>Технический справочник по универсальному соединителю SQL
+<a id="generic-sql-connector-technical-reference" class="xliff"></a>
+
+# Технический справочник по универсальному соединителю SQL
 В этой статье описывается универсальный соединитель SQL. Статья относится к следующим продуктам:
 
 * Microsoft Identity Manager 2016 (MIM2016);
@@ -33,7 +34,9 @@ ms.lasthandoff: 05/12/2017
 
 Чтобы увидеть, как работает этот соединитель, см. раздел [Универсальный соединитель SQL: пошаговое руководство](active-directory-aadconnectsync-connector-genericsql-step-by-step.md).
 
-## <a name="overview-of-the-generic-sql-connector"></a>Общие сведения об универсальном соединителе SQL
+<a id="overview-of-the-generic-sql-connector" class="xliff"></a>
+
+## Общие сведения об универсальном соединителе SQL
 Универсальный соединитель SQL позволяет интегрировать службу синхронизации с системой базы данных, предоставляющей подключение ODBC.  
 
 На системном уровне текущий выпуск соединителя поддерживает следующие функции.
@@ -45,27 +48,37 @@ ms.lasthandoff: 05/12/2017
 | Операции |<li>Полный импорт и импорт изменений, экспорт</li><li>Для экспорта: добавление, удаление, обновление и замена</li><li>Установка пароля, изменение пароля</li> |
 | Схема |<li>Динамическое обнаружение объектов и атрибутов</li> |
 
-### <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+
+### Предварительные требования
 Прежде чем использовать соединитель, установите на сервере синхронизации такие компоненты:
 
 * Microsoft .NET Framework, начиная с версии 4.5.2.
 * 64-разрядные клиентские драйверы ODBC.
 
-### <a name="permissions-in-connected-data-source"></a>Разрешения в подключенном источнике данных
+<a id="permissions-in-connected-data-source" class="xliff"></a>
+
+### Разрешения в подключенном источнике данных
 Для создания или выполнения всех задач, поддерживаемых универсальным соединителем SQL, необходимо следующее:
 
 * db_datareader;
 * db_datawriter.
 
-### <a name="ports-and-protocols"></a>Порты и протоколы
+<a id="ports-and-protocols" class="xliff"></a>
+
+### Порты и протоколы
 Сведения о портах, необходимых для работы драйвера ODBC, см. в документации поставщика базы данных.
 
-## <a name="create-a-new-connector"></a>Создание нового соединителя
+<a id="create-a-new-connector" class="xliff"></a>
+
+## Создание нового соединителя
 Чтобы создать универсальный соединитель SQL, в **службе синхронизации** последовательно выберите элементы **Агент управления** и **Создать**. Выберите **Универсальный соединитель SQL (Microsoft)** .
 
 ![Создание соединителя](./media/active-directory-aadconnectsync-connector-genericsql/createconnector.png)
 
-### <a name="connectivity"></a>Соединение
+<a id="connectivity" class="xliff"></a>
+
+### Соединение
 Для подключения соединитель использует DSN-файл ODBC. Создайте DSN-файл, последовательно выбрав в меню «Пуск» пункты **Администрирование** и **Источники данных ODBC**. С помощью средства администрирования создайте **DSN-файл** , который будет использован соединителем.
 
 ![Создание соединителя](./media/active-directory-aadconnectsync-connector-genericsql/connectivity.png)
@@ -89,7 +102,9 @@ ms.lasthandoff: 05/12/2017
 
 **Тип экспорта: замена объектов**. Экспорт объекта выполняется целиком, с заменой имеющегося объекта, даже если были изменены только некоторые атрибуты.
 
-### <a name="schema-1-detect-object-types"></a>Схема 1 (определение типов объектов)
+<a id="schema-1-detect-object-types" class="xliff"></a>
+
+### Схема 1 (определение типов объектов)
 На этой странице настраивается способ определения соединителем различных типов объектов в базе данных.
 
 Каждый тип объектов представляется в виде раздела и может быть настроен впоследствии на странице **Configure Partitions and Hierarchies**(Настройка разделов и иерархий).
@@ -104,7 +119,9 @@ ms.lasthandoff: 05/12/2017
   ![schema1c](./media/active-directory-aadconnectsync-connector-genericsql/schema1c.png)
 * **SQL-запрос**. Этот параметр позволяет указать SQL-запрос, который возвращает один столбец с типами объектов. Например, `SELECT [Column Name] FROM TABLENAME`. Возвращаемый столбец должен иметь строковый тип (varchar).
 
-### <a name="schema-2-detect-attribute-types"></a>Схема 2 (определение типов атрибутов)
+<a id="schema-2-detect-attribute-types" class="xliff"></a>
+
+### Схема 2 (определение типов атрибутов)
 На этой странице настраивается способ определения имен и типов атрибутов. Для всех типов объектов, указанных на предыдущей странице, указываются параметры конфигурации.
 
 ![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)
@@ -114,7 +131,9 @@ ms.lasthandoff: 05/12/2017
 * **Таблица, представление или хранимая процедура**. Укажите имя таблицы, представления или хранимой процедуры, используемой для поиска имен атрибутов. Если вы используете хранимую процедуру, нужно будет указать ее параметры в следующем формате: **[имя]:[направление]:[значение]**. Все параметры указываются в отдельных строках (чтобы создать новую строку, нажмите CTRL+ВВОД). Чтобы определить имена атрибутов в многозначном атрибуте, укажите список таблиц или представлений, разделенных запятой. Многозначные атрибуты не поддерживаются, если имена столбцов в родительской и дочерней таблицах совпадают.
 * **SQL-запрос**. Этот параметр позволяет указать SQL-запрос, который возвращает один столбец с именами атрибутов. Например, `SELECT [Column Name] FROM TABLENAME`. Возвращаемый столбец должен иметь строковый тип (varchar).
 
-### <a name="schema-3-define-anchor-and-dn"></a>Схема 3 (определение привязки и различаемого имени)
+<a id="schema-3-define-anchor-and-dn" class="xliff"></a>
+
+### Схема 3 (определение привязки и различаемого имени)
 На этой странице для каждого определенного типа объекта можно настроить привязку и атрибут различаемого имени. Можно выбрать несколько атрибутов, чтобы сделать привязку уникальной.
 
 ![schema3a](./media/active-directory-aadconnectsync-connector-genericsql/schema3a.png)
@@ -125,7 +144,9 @@ ms.lasthandoff: 05/12/2017
 
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
-### <a name="schema-4-define-attribute-type-reference-and-direction"></a>Схема 4 (определение типа атрибута, ссылки и направления)
+<a id="schema-4-define-attribute-type-reference-and-direction" class="xliff"></a>
+
+### Схема 4 (определение типа атрибута, ссылки и направления)
 На этой странице можно настроить тип (целое число, двоичное значение или логическое значение) и направление для каждого атрибута. Здесь приводятся все атрибуты со страницы **Схема 2** , включая многозначные атрибуты.
 
 ![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)
@@ -141,7 +162,9 @@ ms.lasthandoff: 05/12/2017
 * **Вложенные таблицы** можно считать таблицами с одним столбцом. В Oracle строки вложенной таблицы хранятся в произвольном порядке. Тем не менее при извлечении вложенной таблицы в переменную PL/SQL строкам последовательно присваиваются подстрочные знаки (начиная с 1). В результате строками можно оперировать как массивом.
 * **VARRYS** не поддерживаются в этом соединителе.
 
-### <a name="schema-5-define-partition-for-reference-attributes"></a>Схема 5 (определение разделов для ссылочных атрибутов)
+<a id="schema-5-define-partition-for-reference-attributes" class="xliff"></a>
+
+### Схема 5 (определение разделов для ссылочных атрибутов)
 На этой странице для всех ссылочных атрибутов указываются разделы (типы объектов), на которые ссылается атрибут.
 
 ![schema5](./media/active-directory-aadconnectsync-connector-genericsql/schema5.png)
@@ -166,7 +189,9 @@ ms.lasthandoff: 05/12/2017
 
 
 
-### <a name="global-parameters"></a>Глобальные параметры
+<a id="global-parameters" class="xliff"></a>
+
+### Глобальные параметры
 Страница «Глобальные параметры» используется для настройки импорта изменений, формата даты и времени и метода проверки пароля.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
@@ -205,7 +230,9 @@ ms.lasthandoff: 05/12/2017
 Также на странице **Настройка расширений** потребуется включить управление паролями.
 ![globalparameters5](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters5.png)
 
-### <a name="configure-partitions-and-hierarchies"></a>Configure Partitions and Hierarchies
+<a id="configure-partitions-and-hierarchies" class="xliff"></a>
+
+### Configure Partitions and Hierarchies
 На странице разделов и иерархий выберите все типы объектов. Каждый тип помещается в отдельный раздел.
 
 ![partitions1](./media/active-directory-aadconnectsync-connector-genericsql/partitions1.png)
@@ -214,15 +241,21 @@ ms.lasthandoff: 05/12/2017
 
 ![partitions2](./media/active-directory-aadconnectsync-connector-genericsql/partitions2.png)
 
-### <a name="configure-anchors"></a>Настройка привязок
+<a id="configure-anchors" class="xliff"></a>
+
+### Настройка привязок
 Эта страница доступна только для чтения, так как привязки к этому моменту уже определены. К выбранному атрибуту привязки всегда добавляется тип объекта, что обеспечивает его уникальность для различных типов объектов.
 
 ![Привязки](./media/active-directory-aadconnectsync-connector-genericsql/anchors.png)
 
-## <a name="configure-run-step-parameter"></a>Настройка параметров шагов выполнения
+<a id="configure-run-step-parameter" class="xliff"></a>
+
+## Настройка параметров шагов выполнения
 Шаги настраиваются в профилях выполнения соединителя. Эти настройки относятся к фактическим операциям импорта и экспорта данных.
 
-### <a name="full-and-delta-import"></a>Полный импорт и импорт изменений
+<a id="full-and-delta-import" class="xliff"></a>
+
+### Полный импорт и импорт изменений
 Универсальный соединитель SQL поддерживает следующие методы полного импорта и импорта изменений.
 
 * Таблица
@@ -261,7 +294,9 @@ ms.lasthandoff: 05/12/2017
 * Запросы с несколькими результирующими наборами не поддерживаются.
 * Запрос SQL поддерживает разбиение на страницы и имеет переменные для определения начального и конечного индексов.
 
-### <a name="delta-import"></a>импорт изменений;
+<a id="delta-import" class="xliff"></a>
+
+### импорт изменений;
 ![runstep6](./media/active-directory-aadconnectsync-connector-genericsql/runstep6.png)
 
 Для конфигурации импорта изменений требуются некоторые дополнительные настройки по сравнению с полным импортом.
@@ -272,7 +307,9 @@ ms.lasthandoff: 05/12/2017
 * Если для отслеживания изменений выбран метод "Водяной знак", в поле **Water Mark Column Name**(Имя столбца водяного знака) необходимо указать имя столбца со сведениями об операциях.
 * Столбец **Изменить атрибут типа** нужен для изменения типа. Этот столбец позволяет сопоставить изменение в основной или многозначной таблице с типом изменения в представлении изменений. В этом столбце может быть указан тип изменений Modify_Attribute для изменений на уровне атрибута, либо Add, Modify или Delete для изменений на уровне объекта. Если значение отличается от значения по умолчанию (добавление, изменение или удаление), то новые значения можно определить с помощью этого параметра.
 
-### <a name="export"></a>экспорт.
+<a id="export" class="xliff"></a>
+
+### экспорт.
 ![runstep7](./media/active-directory-aadconnectsync-connector-genericsql/runstep7.png)
 
 Универсальный соединитель SQL поддерживает четыре метода экспорта.
@@ -306,6 +343,8 @@ ms.lasthandoff: 05/12/2017
 * **Delete Query** (Запрос на удаление). Этот запрос выполняется при поступлении объекта в соединитель для удаления из соответствующей таблицы.
 * В качестве значения параметра для запроса используется атрибут, выбранный из схемы. Например, `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`.
 
-## <a name="troubleshooting"></a>Устранение неполадок
+<a id="troubleshooting" class="xliff"></a>
+
+## Устранение неполадок
 * Сведения о том, как включить ведение журнала для устранения неполадок соединителя, см. в статье [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731) (Включение трассировки событий Windows для соединителей).
 

@@ -10,22 +10,30 @@ ms.topic: sample
 ms.service: functions
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 8e5d8bdf61746d3bda5acc7bed97b164c311a3c3
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 2ef177b55ad7ffd351156821f429e6ff8fbeccc7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
-# <a name="create-an-app-service"></a>Создание службы приложений
+<a id="create-an-app-service" class="xliff"></a>
+
+# Создание службы приложений
 
 Из этой статьи вы узнаете, как создать приложение-функцию с помощью [плана потребления](../functions-scale.md#consumption-plan) и связанных с ним ресурсов, а также как выполнить непрерывное развертывание кода функции из репозитория Visual Studio Team Services (VSTS). Для этого примера потребуется:
 
 * Репозиторий VSTS с кодом функции, для которого у вас есть права администратора.
 * [Личный маркер доступа](https://help.github.com/articles/creating-an-access-token-for-command-line-use) для учетной записи GitHub.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Пример скрипта
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
+<a id="sample-script" class="xliff"></a>
+
+## Пример скрипта
 
 Этот пример создает приложение-функцию Azure и развертывает код функции из Visual Studio Team Services.
 
@@ -33,7 +41,9 @@ ms.lasthandoff: 05/15/2017
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a>Описание скрипта
+<a id="script-explanation" class="xliff"></a>
+
+## Описание скрипта
 
 Для создания группы ресурсов, веб-приложений, DocumentDB и всех связанных ресурсов этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
@@ -44,7 +54,9 @@ ms.lasthandoff: 05/15/2017
 | [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#delete) |
 | [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Связывает приложение-функцию с репозиторием Git или Mercurial. |
 
-## <a name="next-steps"></a>Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
+
+## Дальнейшие действия
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

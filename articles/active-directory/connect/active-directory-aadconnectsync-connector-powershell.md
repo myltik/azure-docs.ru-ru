@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
 ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/06/2017
 
 ---
-# <a name="windows-powershell-connector-technical-reference"></a>Технический справочник по соединителю Windows PowerShell
+<a id="windows-powershell-connector-technical-reference" class="xliff"></a>
+
+# Технический справочник по соединителю Windows PowerShell
 В этой статье описан соединитель Windows PowerShell. Статья относится к следующим продуктам:
 
 * Microsoft Identity Manager 2016 (MIM2016);
@@ -29,10 +32,14 @@ ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
 
 Для MIM2016 и FIM2010R2 соединитель можно скачать из [Центра загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=717495).
 
-## <a name="overview-of-the-powershell-connector"></a>Общие сведения о соединителе PowerShell
+<a id="overview-of-the-powershell-connector" class="xliff"></a>
+
+## Общие сведения о соединителе PowerShell
 Соединитель PowerShell позволяет интегрировать службу синхронизации с внешними системами, которые предоставляют API-интерфейсы на основе Windows PowerShell. Соединитель обеспечивает связь между возможностями платформы расширяемого агента управления подключением 2 (ECMA2) на основе вызова и Windows PowerShell. Дополнительные сведения о платформе ECMA см. в разделе [Справочник по расширяемому агенту управления подключением 2.2](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx).
 
-### <a name="prerequisites"></a>Предварительные требования
+<a id="prerequisites" class="xliff"></a>
+
+### Предварительные требования
 Прежде чем использовать соединитель, установите на сервере синхронизации такие компоненты:
 
 * Microsoft .NET Framework, начиная с версии 4.5.2.
@@ -41,7 +48,9 @@ ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
 Политику выполнения на сервере службы синхронизации необходимо настроить для выполнения сценариев Windows PowerShell. Если скрипты, выполняющиеся соединителем, не снабжены цифровой подписью, настройте политику выполнения с помощью следующей команды:   
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
-## <a name="create-a-new-connector"></a>Создание нового соединителя
+<a id="create-a-new-connector" class="xliff"></a>
+
+## Создание нового соединителя
 Чтобы создать в службе синхронизации соединитель Windows PowerShell, необходимо задать ряд сценариев Windows PowerShell, выполняющих шаги по запросу службы синхронизации. Выбор скриптов для реализации зависит от источника данных, к которому будет подключаться система, и требуемых функций. В этом разделе описаны все скрипты, которые могут быть реализованы по мере необходимости.
 
 Соединитель Windows PowerShell предназначен для хранения всех скриптов в базе данных службы синхронизации. Хотя можно выполнять скрипты, которые хранятся в файловой системе, гораздо проще вставить текст каждого скрипта непосредственно в конфигурацию соединителя.
@@ -50,7 +59,9 @@ ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
 
 ![Создание соединителя](./media/active-directory-aadconnectsync-connector-powershell/createconnector.png)
 
-### <a name="connectivity"></a>Соединение
+<a id="connectivity" class="xliff"></a>
+
+### Соединение
 Задайте параметры конфигурации для подключения к удаленной системе. Эти значения будут безопасно храниться в службе синхронизации и станут доступны для скриптов Windows PowerShell при запуске соединителя.
 
 ![Соединение](./media/active-directory-aadconnectsync-connector-powershell/connectivity.png)
@@ -115,7 +126,9 @@ ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
 
 Чтобы получить доступ к настраиваемым параметрам конфигурации из сценария, необходимо добавить к имени суффикс, содержащий символ подчеркивания (\_) и область параметра (Global, Partition или RunStep). Например, чтобы получить доступ к параметру Global FileName, используйте следующий фрагмент кода: `$ConfigurationParameters["FileName_Global"].Value`
 
-### <a name="capabilities"></a>Возможности
+<a id="capabilities" class="xliff"></a>
+
+### Возможности
 На вкладке возможностей конструктора агента управления определяются поведение и функции соединителя. Выбранные на этой вкладке параметры после создания соединителя изменить нельзя. В таблице ниже перечислены параметры функций.
 
 ![Возможности](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
@@ -140,7 +153,9 @@ ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
 | Включить операции паролей |Если этот флажок установлен, поддерживаются сценарии синхронизации паролей. |
 | Включить пароль для экспорта на первом этапе |Если этот флажок установлен, пароли, заданные во время подготовки, экспортируются при создании объекта. |
 
-### <a name="global-parameters"></a>Глобальные параметры
+<a id="global-parameters" class="xliff"></a>
+
+### Глобальные параметры
 Скрипты Windows PowerShell, которые запускаются с помощью соединителя, можно настроить на вкладке "Глобальные параметры" в конструкторе агента управления. Можно также настроить глобальные значения настраиваемых параметров конфигурации на вкладке "Подключение".
 
 **Обнаружение секции**  
@@ -168,7 +183,9 @@ ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
 
 Сценарий должен возвращать в конвейер один дочерний объект HierarchyNode или список дочерних объектов HierarchyNode.
 
-#### <a name="import"></a>Импорт
+<a id="import" class="xliff"></a>
+
+#### Импорт
 Соединители, которые поддерживают операции импорта, должны реализовать три сценария.
 
 **Начало импорта**  
@@ -214,7 +231,9 @@ ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
 
 Сценарий должен возвращать в конвейер отдельный объект [CloseImportConnectionResults][cicres], например: `Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`.
 
-#### <a name="export"></a>экспорт.
+<a id="export" class="xliff"></a>
+
+#### экспорт.
 Идентичен архитектуре импорта соединителя. Соединители, поддерживающие экспорт, должны реализовать три сценария.
 
 **Начало экспорта**  
@@ -260,7 +279,9 @@ ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
 
 Сценарий не должен возвращать выходные данные в конвейер.
 
-#### <a name="password-synchronization"></a>Синхронизация паролей
+<a id="password-synchronization" class="xliff"></a>
+
+#### Синхронизация паролей
 Соединители Windows PowerShell могут использоваться в качестве целевого объекта для изменения или сброса пароля.
 
 Сценарий пароля принимает от соединителя указанные ниже параметры.
@@ -282,11 +303,17 @@ ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
 * [PasswordIllFormedException][pwdex2] порождается, если пароль неприемлем для подключенной системы.
 * [PasswordExtension][pwdex3] порождается при возникновении любых других ошибок в сценарии пароля.
 
-## <a name="sample-connectors"></a>Образцы соединителей
+<a id="sample-connectors" class="xliff"></a>
+
+## Образцы соединителей
 Полный обзор доступных примеров соединителей представлен в статье [Windows PowerShell Connector for FIM&2010; R2 Sample Connector Collection][samp] (Коллекция примеров соединителей Windows PowerShell для FIM&2010; R2).
 
-## <a name="other-notes"></a>Другие примечания
-### <a name="additional-configuration-for-impersonation"></a>Дополнительные настройки для олицетворения
+<a id="other-notes" class="xliff"></a>
+
+## Другие примечания
+<a id="additional-configuration-for-impersonation" class="xliff"></a>
+
+### Дополнительные настройки для олицетворения
 Предоставляются олицетворяемому пользователю с указанными ниже разрешениями на сервере службы синхронизации.
 
 Доступ для чтения к следующим разделам реестра:
@@ -309,7 +336,9 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 
 Подставьте имя соединителя Windows PowerShell вместо заполнителя {ConnectorName}.
 
-## <a name="troubleshooting"></a>Устранение неполадок
+<a id="troubleshooting" class="xliff"></a>
+
+## Устранение неполадок
 * Сведения о том, как включить ведение журнала для устранения неполадок соединителя, см. в статье [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731) (Включение трассировки событий Windows для соединителей).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
@@ -342,9 +371,4 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 [pwdex2]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

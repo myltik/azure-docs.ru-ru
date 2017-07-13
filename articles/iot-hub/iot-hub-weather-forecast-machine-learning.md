@@ -4,7 +4,7 @@ description: "Используйте машинное обучение Azure, ч
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "Прогнозирование погоды с помощью машинного обучения"
 ms.assetid: 8ba7d9e7-699c-4448-b353-0f3e1429d198
@@ -15,14 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 872930fd127729e0f444942ad1ee6fa11465ceb9
+ms.contentlocale: ru-ru
 ms.lasthandoff: 04/25/2017
 
-
 ---
-# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Прогнозирование погоды в машинном обучении Azure с помощью данных от датчиков Центра Интернета вещей
+<a id="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning" class="xliff"></a>
+
+# Прогнозирование погоды в машинном обучении Azure с помощью данных от датчиков Центра Интернета вещей
 
 ![Сквозная схема](media/iot-hub-get-started-e2e-diagram/6.png)
 
@@ -30,11 +32,15 @@ ms.lasthandoff: 04/25/2017
 
 Машинное обучение — это метод обработки и анализа данных, который позволяет компьютеру на основе исторических данных прогнозировать ожидаемые поведения, результаты и тенденции. Служба машинного обучения Azure — это облачная служба прогнозной аналитики, которая позволяет быстро создавать и развертывать прогнозные модели в качестве решений аналитики.
 
-## <a name="what-you-learn"></a>Что вы узнаете
+<a id="what-you-learn" class="xliff"></a>
+
+## Что вы узнаете
 
 Вы узнаете, как применить машинное обучение Azure для прогнозирования погоды (вероятности дождя) на основе данных о температуре и влажности, собранных в Центре Интернета вещей. Вероятность дождя вычисляется по заранее подготовленной модели прогнозирования погоды. Эта модель создается на основе исторических данных и применяется для оценки вероятности дождя, исходя из данных о температуре и влажности.
 
-## <a name="what-you-do"></a>В рамках этого руководства мы:
+<a id="what-you-do" class="xliff"></a>
+
+## В рамках этого руководства мы:
 
 - Развернем модель прогнозирования погоды как веб-службу.
 - Добавить группу потребителей, чтобы обеспечить доступ к данным в Центре Интернета вещей.
@@ -44,7 +50,9 @@ ms.lasthandoff: 04/25/2017
   - сохранение результатов в хранилище BLOB-объектов Azure;
 - Откроем обозреватель хранилища Microsoft Azure для просмотра прогноза погоды.
 
-## <a name="what-you-need"></a>Необходимые элементы
+<a id="what-you-need" class="xliff"></a>
+
+## Необходимые элементы
 
 - Изучите руководство [Настройка вашего устройства](iot-hub-raspberry-pi-kit-node-get-started.md), где описаны следующие требования:
   - Активная подписка Azure.
@@ -52,7 +60,9 @@ ms.lasthandoff: 04/25/2017
   - клиентское приложение, которое отправляет сообщения в Центр Интернета вещей Azure.
 - учетную запись Студии машинного обучения Azure. ([Бесплатно ознакомьтесь с работой студии машинного обучения](https://studio.azureml.net/).)
 
-## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Развертывание модели прогнозирования погоды как веб-службы
+<a id="deploy-the-weather-prediction-model-as-a-web-service" class="xliff"></a>
+
+## Развертывание модели прогнозирования погоды как веб-службы
 
 1. Откройте [страницу модели прогнозирования погоды](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
 1. Щелкните **Открыть в Studio** в Студии машинного обучения Microsoft Azure.
@@ -77,9 +87,13 @@ ms.lasthandoff: 04/25/2017
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
-## <a name="create-configure-and-run-a-stream-analytics-job"></a>Создание, настройка и выполнение заданий Stream Analytics
+<a id="create-configure-and-run-a-stream-analytics-job" class="xliff"></a>
 
-### <a name="create-a-stream-analytics-job"></a>Создание задания Stream Analytics
+## Создание, настройка и выполнение заданий Stream Analytics
+
+<a id="create-a-stream-analytics-job" class="xliff"></a>
+
+### Создание задания Stream Analytics
 
 1. На [портале Azure](https://ms.portal.azure.com/) щелкните **Создание** > **Интернет вещей** > **Задание Stream Analytics**.
 1. Введите представленные ниже сведения для задания.
@@ -96,7 +110,9 @@ ms.lasthandoff: 04/25/2017
 
 1. Щелкните **Создать**.
 
-### <a name="add-an-input-to-the-stream-analytics-job"></a>Добавление входных данных в задание Stream Analytics
+<a id="add-an-input-to-the-stream-analytics-job" class="xliff"></a>
+
+### Добавление входных данных в задание Stream Analytics
 
 1. Откройте задание Stream Analytics.
 1. В разделе **Топология задания** щелкните **Входные данные**.
@@ -112,7 +128,9 @@ ms.lasthandoff: 04/25/2017
 
 1. Щелкните **Создать**.
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>Добавление выходных данных в задание Stream Analytics
+<a id="add-an-output-to-the-stream-analytics-job" class="xliff"></a>
+
+### Добавление выходных данных в задание Stream Analytics
 
 1. В разделе **Топология задания** щелкните **Выходные данные**.
 1. В области **Выходные данные** щелкните **Добавить**, а затем введите сведения, приведенные ниже.
@@ -131,7 +149,9 @@ ms.lasthandoff: 04/25/2017
 
 1. Щелкните **Создать**.
 
-### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Добавление в задание Stream Analytics функции для вызова развернутой веб-службы
+<a id="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed" class="xliff"></a>
+
+### Добавление в задание Stream Analytics функции для вызова развернутой веб-службы
 
 1. В разделе **Топология задания** щелкните **Функции** > **Добавить**.
 1. Введите следующие сведения:
@@ -150,7 +170,9 @@ ms.lasthandoff: 04/25/2017
 
 1. Щелкните **Создать**.
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>Настройка запроса задания Stream Analytics
+<a id="configure-the-query-of-the-stream-analytics-job" class="xliff"></a>
+
+### Настройка запроса задания Stream Analytics
 
 1. В разделе **Топология задания** щелкните **Запрос**.
 1. Замените текст запроса следующим кодом.
@@ -170,13 +192,17 @@ ms.lasthandoff: 04/25/2017
 
 1. Щелкните **Сохранить**.
 
-### <a name="run-the-stream-analytics-job"></a>Выполнение задания Stream Analytics
+<a id="run-the-stream-analytics-job" class="xliff"></a>
+
+### Выполнение задания Stream Analytics
 
 В задании Stream Analytics щелкните **Запуск** > **Сейчас** > **Запустить**. После успешного запуска состояние задания **Остановлено** изменится на **Выполняется**.
 
 ![Выполнение задания Stream Analytics](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 
-## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Использование обозревателя службы хранилища Microsoft Azure для просмотра прогноза погоды
+<a id="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast" class="xliff"></a>
+
+## Использование обозревателя службы хранилища Microsoft Azure для просмотра прогноза погоды
 
 Запустите клиентское приложение, чтобы начать сбор и отправку данных о температуре и влажности в Центр Интернета вещей. Для каждого сообщения, полученного Центром Интернета вещей, задание Stream Analytics вызывает веб-службу прогнозирования погоды, чтобы оценить вероятности дождя. Полученный результат сохраняется в хранилище BLOB-объектов Azure. Сохраненные результаты можно просмотреть с помощью обозревателя службы хранилища Azure.
 
@@ -189,7 +215,9 @@ ms.lasthandoff: 04/25/2017
 
    ![Получение прогноза погоды с помощью машинного обучения Azure](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
 
-## <a name="summary"></a>Сводка
+<a id="summary" class="xliff"></a>
+
+## Сводка
 
 Итак, вы успешно применили машинное обучение Azure, чтобы прогнозировать вероятность дождя на основе данных о температуре и влажности, которые получает Центр Интернета вещей.
 
