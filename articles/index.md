@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: true
 title: "Документация по Microsoft Azure"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 235bc72f9e72ba44c872bc3a3f8dc2abef7454c5
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 39252624b3ae254721ad514f666ea8498d5f37bc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 <div id="main" class="v2">
@@ -61,7 +61,7 @@ ms.lasthandoff: 06/28/2017
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Бесплатные видеоуроки PluralSight. Работа с Azure</span>
+                                    <span class="likeAnH3">Бесплатные видеоуроки Pluralsight. Работа с Azure</span>
                                 </div>
                             </div>
                         </div>

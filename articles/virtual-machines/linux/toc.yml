@@ -2,447 +2,482 @@
   href: index.yml
 - name: Обзор
   items:
-  - name: Сведения о виртуальных машинах Azure
-    href: overview.md
+    - name: Сведения о виртуальных машинах Azure
+      href: overview.md
 - name: Быстрое начало работы
   expanded: true
   items:
-  - name: "Создание виртуальной машины с помощью Azure\_CLI"
-    href: quick-create-cli.md
-  - name: Создание виртуальной машины с помощью портала
-    href: quick-create-portal.md
-  - name: Создание виртуальной машины с помощью PowerShell
-    href: quick-create-powershell.md
+    - name: "Создание виртуальной машины с помощью Azure\_CLI"
+      href: quick-create-cli.md
+    - name: Создание виртуальной машины с помощью портала
+      href: quick-create-portal.md
+    - name: Создание виртуальной машины с помощью PowerShell
+      href: quick-create-powershell.md
 - name: Учебники
   items:
-  - name: 1. Создание виртуальных машин и управление ими
-    href: tutorial-manage-vm.md
-  - name: 2. Создание дисков и управление ими
-    href: tutorial-manage-disks.md
-  - name: 3. Автоматизация настройки
-    href: tutorial-automate-vm-deployment.md
-  - name: 4. Создание образов виртуальных машин
-    href: tutorial-custom-images.md
-  - name: 5. Высокодоступные виртуальные машины
-    href: tutorial-availability-sets.md
-  - name: 6. Создание масштабируемого набора виртуальных машин
-    href: tutorial-create-vmss.md
-  - name: 7. Балансировка нагрузки виртуальных машин
-    href: tutorial-load-balancer.md
-  - name: 8. Управление сетями
-    href: tutorial-virtual-network.md
-  - name: 9. Резервное копирование виртуальных машин
-    href: tutorial-backup-vms.md
-  - name: 10. Мониторинг виртуальных машин
-    href: tutorial-monitoring.md
-  - name: "11\_— управление безопасностью виртуальных машин"
-    href: tutorial-azure-security.md
-  - name: "12.\_Развертывание Jenkins"
-    href: tutorial-jenkins-github-docker-cicd.md
+    - name: 1. Создание виртуальных машин и управление ими
+      href: tutorial-manage-vm.md
+    - name: 2. Создание дисков и управление ими
+      href: tutorial-manage-disks.md
+    - name: 3. Автоматизация настройки
+      href: tutorial-automate-vm-deployment.md
+    - name: 4. Создание образов виртуальных машин
+      href: tutorial-custom-images.md
+    - name: 5. Высокодоступные виртуальные машины
+      href: tutorial-availability-sets.md
+    - name: 6. Создание масштабируемого набора виртуальных машин
+      href: tutorial-create-vmss.md
+    - name: 7. Балансировка нагрузки виртуальных машин
+      href: tutorial-load-balancer.md
+    - name: 8. Управление сетями
+      href: tutorial-virtual-network.md
+    - name: 9. Резервное копирование виртуальных машин
+      href: tutorial-backup-vms.md
+    - name: 10. Мониторинг виртуальных машин
+      href: tutorial-monitoring.md
+    - name: "11\_— управление безопасностью виртуальных машин"
+      href: tutorial-azure-security.md
+    - name: "12.\_Развертывание Jenkins"
+      href: tutorial-jenkins-github-docker-cicd.md
 - name: Примеры
   items:
-  - name: Инфраструктура CLI Azure
-    href: cli-samples.md
-  - name: PowerShell
-    href: powershell-samples.md
+    - name: Инфраструктура CLI Azure
+      href: cli-samples.md
+    - name: PowerShell
+      href: powershell-samples.md
 - name: Основные понятия
   items:
-  - name: 'Дистрибутивы, рекомендованные для Azure'
-    href: endorsed-distros.md
-  - name: Регионы и доступность
-    href: regions-and-availability.md
-  - name: Хранилище
-    href: azure-vm-storage-overview.md
-  - name: Сеть
-    href: azure-vm-network-overview.md
-  - name: наборы масштабирования виртуальных машин;
-    href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-  - name: Служба метаданных экземпляров
- 
-    href: ../virtual-machines-instancemetadataservice-overview.md
-  - name: Контейнеры
-    href: containers.md
-  - name: Диспетчер ресурсов
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    items:
-    - name: Модели развертывания
-      href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Шаблоны для виртуальных машин
-      href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Агент Linux для Azure
-    href: agent-user-guide.md
-  - name: Центр безопасности Azure
-    href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Аварийное восстановление
-    href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Плановое техническое обслуживание
-    href: planned-maintenance.md
-    items:
-    - name: Обслуживание с сохранением
-      href: maintenance-in-place.md
-    - name: Обслуживание с перезапуском
-      href: impactful-maintenance.md
-  - name: Размеры виртуальной машины
-    items:
-    - name: Общие сведения о размерах виртуальных машин
-      href: sizes.md
-      items:
-      - name: Универсальные
-        href: sizes-general.md
-      - name: Оптимизированные для вычислений
-        href: sizes-compute.md
-      - name: Оптимизированные для памяти
-        href: sizes-memory.md
-      - name: Оптимизированные для хранилища
-        href: sizes-storage.md
-      - name: Графический процессор
-        href: sizes-gpu.md
-      - name: Для высокопроизводительных вычислений
-        href: sizes-hpc.md
-        items:
-        - name: Размеры для ресурсоемких вычислений
-          href: a8-a9-a10-a11-specs.md
-    - name: Единицы вычислений Azure (ACU)
-      href: acu.md
-    - name: Вычисление результатов теста производительности
-      href: compute-benchmark-scores.md
-  - name: Рекомендации по развертыванию
-    items:
-    - name: Рекомендации по инфраструктуре
-      href: infrastructure-virtual-machine-guidelines.md
-    - name: Подписки и учетные записи
-      href: infrastructure-subscription-accounts-guidelines.md
-    - name: Именование
-      href: infrastructure-naming-guidelines.md
-    - name: Группы ресурсов
-      href: infrastructure-resource-groups-guidelines.md
+    - name: 'Дистрибутивы, рекомендованные для Azure'
+      href: endorsed-distros.md
+    - name: Регионы и доступность
+      href: regions-and-availability.md
     - name: Хранилище
-      href: infrastructure-storage-solutions-guidelines.md
+      href: azure-vm-storage-overview.md
     - name: Сеть
-      href: infrastructure-networking-guidelines.md
-    - name: Группы доступности
-      href: infrastructure-availability-sets-guidelines.md
-    - name: Пример инфраструктуры
-      href: infrastructure-example.md
+      href: azure-vm-network-overview.md
+    - name: наборы масштабирования виртуальных машин;
+      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
+    - name: Служба метаданных экземпляров
+      href: ../virtual-machines-instancemetadataservice-overview.md
+    - name: Контейнеры
+      href: containers.md
+    - name: Диспетчер ресурсов
+      href: >-
+        ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+        - name: Модели развертывания
+          href: >-
+            ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Шаблоны для виртуальных машин
+          href: >-
+            ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Агент Linux для Azure
+      href: agent-user-guide.md
+    - name: Центр безопасности Azure
+      href: >-
+        ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Аварийное восстановление
+      href: >-
+        ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Плановое техническое обслуживание
+      href: planned-maintenance.md
+      items:
+        - name: Обслуживание с сохранением
+          href: maintenance-in-place.md
+        - name: Обслуживание с перезапуском
+          href: impactful-maintenance.md
+    - name: Размеры виртуальной машины
+      items:
+        - name: Общие сведения о размерах виртуальных машин
+          href: sizes.md
+          items:
+            - name: Универсальные
+              href: sizes-general.md
+            - name: Оптимизированные для вычислений
+              href: sizes-compute.md
+            - name: Оптимизированные для памяти
+              href: sizes-memory.md
+            - name: Оптимизированные для хранилища
+              href: sizes-storage.md
+            - name: Графический процессор
+              href: sizes-gpu.md
+              items:
+                - name: Драйверы для GPU
+                  href: n-series-driver-setup.md
+            - name: Для высокопроизводительных вычислений
+              href: sizes-hpc.md
+        - name: Единицы вычислений Azure (ACU)
+          href: acu.md
+        - name: Вычисление результатов теста производительности
+          href: compute-benchmark-scores.md
+    - name: Рекомендации по развертыванию
+      items:
+        - name: Рекомендации по инфраструктуре
+          href: infrastructure-virtual-machine-guidelines.md
+        - name: Подписки и учетные записи
+          href: infrastructure-subscription-accounts-guidelines.md
+        - name: Именование
+          href: infrastructure-naming-guidelines.md
+        - name: Группы ресурсов
+          href: infrastructure-resource-groups-guidelines.md
+        - name: Хранилище
+          href: infrastructure-storage-solutions-guidelines.md
+        - name: Сеть
+          href: infrastructure-networking-guidelines.md
+        - name: Группы доступности
+          href: infrastructure-availability-sets-guidelines.md
+        - name: Пример инфраструктуры
+          href: infrastructure-example.md
 - name: Практические руководства
   items:
-  - name: Создание виртуальных машин
-    items:
-    - name: Общие сведения о создании виртуальных машин
-      href: creation-choices.md
-    - name: "Создание виртуальной машины с помощью\_CLI"
-      href: quick-create-cli-nodejs.md
-    - name: Создание виртуальной машины с помощью шаблона
-      href: create-ssh-secured-vm-from-template.md
-    - name: Копирование виртуальной машины
-      href: copy-vm.md
-    - name: Перемещение виртуальных машин между подписками
-      href: move-vm.md
-    - name: Создание высокодоступных виртуальных машин
-      href: create-cli-complete.md
-    - name: Terraform
+    - name: Создание виртуальных машин
       items:
-      - name: Установка и настройка
-        href: ../terraform-install-configure.md
-      - name: Создание базовой инфраструктуры
-        href: ../terraform-create-complete-vm.md
-    - name: Ansible
+        - name: Общие сведения о создании виртуальных машин
+          href: creation-choices.md
+        - name: Создание полной виртуальной машины
+          href: create-cli-complete.md
+        - name: Создание виртуальной машины с помощью шаблона
+          href: create-ssh-secured-vm-from-template.md
+        - name: Копирование виртуальной машины
+          href: copy-vm.md
+        - name: Перемещение виртуальных машин между подписками
+          href: move-vm.md
+        - name: Terraform
+          items:
+            - name: Установка и настройка
+              href: ../terraform-install-configure.md
+            - name: Создание базовой инфраструктуры
+              href: ../terraform-create-complete-vm.md
+        - name: Ansible
+          items:
+            - name: Установка и настройка
+              href: ansible-install-configure.md
+            - name: Создание простой виртуальной машины
+              href: ansible-create-vm.md
+            - name: Создание полной виртуальной машины
+              href: ansible-create-complete-vm.md
+        - name: Развертывание приложения с помощью шаблона виртуальной машины
+          items:
+            - name: Обзор учебника
+              href: dotnet-core-1-landing.md
+            - name: Архитектура приложения
+              href: dotnet-core-2-architecture.md
+            - name: Доступ и безопасность
+              href: dotnet-core-3-access-security.md
+            - name: Высокая доступность и масштабирование
+              href: dotnet-core-4-availability-scale.md
+            - name: 'развертывание приложений:'
+              href: dotnet-core-5-app-deployment.md
+    - name: Настройка виртуальных машин
       items:
-      - name: Установка и настройка
-        href: ansible-install-configure.md
-      - name: Создание простой виртуальной машины
-        href: ansible-create-vm.md
-      - name: Создание полной виртуальной машины
-        href: ansible-create-complete-vm.md
-    - name: Развертывание приложения с помощью шаблона виртуальной машины
+        - name: Использование cloud-init
+          href: using-cloud-init.md
+        - name: Добавление пользователя к виртуальной машине
+          href: add-user.md
+        - name: Изменение размера виртуальной машины
+          href: change-vm-size.md
+        - name: Использование тегов
+          href: >-
+            ../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          items:
+            - name: Добавление тега для виртуальной машины
+              href: tag.md
+        - name: Оптимизация виртуальной машины Linux
+          href: optimization.md
+        - name: Обновление агента Linux для Azure
+          href: update-agent.md
+        - name: Архивация с помощью служб восстановления
+          href: >-
+            ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: >-
+            Присоединение виртуальной машины RedHat к доменной службе Azure
+            Active Directory
+          href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+    - name: Подключение по SSH
       items:
-      - name: Обзор учебника
-        href: dotnet-core-1-landing.md
-      - name: Архитектура приложения
-        href: dotnet-core-2-architecture.md
-      - name: Доступ и безопасность
-        href: dotnet-core-3-access-security.md
-      - name: Высокая доступность и масштабирование
-        href: dotnet-core-4-availability-scale.md
-      - name: 'развертывание приложений:'
-        href: dotnet-core-5-app-deployment.md
-  - name: Настройка виртуальных машин
-    items:
-    - name: Использование cloud-init
-      href: using-cloud-init.md
-    - name: Добавление пользователя к виртуальной машине
-      href: add-user.md
-    - name: Изменение размера виртуальной машины
-      href: change-vm-size.md
-    - name: Использование тегов
-      href: ../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Создание ключей SSH в Linux и Mac
+          href: mac-create-ssh-keys.md
+          items:
+            - name: Подробные инструкции
+              href: create-ssh-keys-detailed.md
+        - name: >-
+            Использование ключей SSH для Windows для подключения к виртуальным
+            машинам Linux
+          href: ssh-from-windows.md
+        - name: >-
+            Подключение к виртуальной машине Linux с помощью удаленного рабочего
+            стола
+          href: use-remote-desktop.md
+    - name: Управление образами виртуальных машин
       items:
-      - name: Добавление тега для виртуальной машины
-        href: tag.md
-    - name: Оптимизация виртуальной машины Linux
-      href: optimization.md
-    - name: Обновление агента Linux для Azure
-      href: update-agent.md
-    - name: Архивация с помощью служб восстановления
-      href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Присоединение виртуальной машины RedHat к доменной службе Azure Active Directory
-      href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
-  - name: Подключение по SSH
-    items:
-    - name: Создание ключей SSH в Linux и Mac
-      href: mac-create-ssh-keys.md
+        - name: Поиск образов виртуальных машин в Мarketplace
+          href: cli-ps-findimage.md
+        - name: Создание настраиваемых образов виртуальных машин
+          href: create-upload-generic.md
+        - name: Загрузка VHD
+          href: download-vhd.md
+        - name: Передача настраиваемых образов виртуальных машин
+          href: upload-vhd.md
+        - name: Запись существующей виртуальной машины в образ
+          href: capture-image.md
+        - name: Создание образов с помощью Packer
+          href: build-image-with-packer.md
+        - name: Создание образов Azure
+          items:
+            - name: Ubuntu
+              href: create-upload-ubuntu.md
+            - name: Debian
+              href: debian-create-upload-vhd.md
+            - name: Red Hat
+              href: redhat-create-upload-vhd.md
+            - name: CentOS
+              href: create-upload-centos.md
+            - name: Oracle Linux
+              href: oracle-create-upload-vhd.md
+            - name: OpenBSD
+              href: create-upload-openbsd.md
+    - name: Управление хранилищем виртуальной машины
       items:
-      - name: Подробные инструкции
-        href: create-ssh-keys-detailed.md
-    - name: Использование ключей SSH для Windows для подключения к виртуальным машинам Linux
-      href: ssh-from-windows.md
-    - name: Подключение к виртуальной машине Linux с помощью удаленного рабочего стола
-      href: use-remote-desktop.md
-  - name: Управление образами виртуальных машин
-    items:
-    - name: Поиск образов виртуальных машин в Мarketplace
-      href: cli-ps-findimage.md
-    - name: Создание настраиваемых образов виртуальных машин
-      href: create-upload-generic.md
-    - name: Загрузка VHD
-      href: download-vhd.md
-    - name: Передача настраиваемых образов виртуальных машин
-      href: upload-vhd.md
-    - name: Запись существующей виртуальной машины в образ
-      href: capture-image.md
-    - name: Создание образов с помощью Packer
-      href: build-image-with-packer.md
-    - name: Создание образов Azure
+        - name: Управляемые диски Azure
+          href: >-
+            ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          items:
+            - name: Часто задаваемые вопросы
+              href: >-
+                ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Копирование файлов на виртуальную машину Linux
+          href: copy-files-to-linux-vm-using-scp.md
+        - name: >-
+            Преобразование виртуальной машины для использования управляемых
+            дисков
+          href: convert-unmanaged-to-managed-disks.md
+        - name: Создание моментального снимка управляемого диска
+          href: snapshot-copy-managed-disk.md
+        - name: Добавление диска
+          items:
+            - name: Инфраструктура CLI Azure
+              href: add-disk.md
+            - name: Портал Azure
+              href: attach-disk-portal.md
+        - name: Отсоединение диска
+          href: detach-disk.md
+        - name: Расширение диска ОС
+          href: expand-disks.md
+        - name: Настройка программного RAID
+          href: configure-raid.md
+        - name: Настройка диспетчера логических томов
+          href: configure-lvm.md
+        - name: Подключение хранилища файлов Azure с помощью SMB
+          href: mount-azure-file-storage-on-linux-using-smb.md
+    - name: Сеть виртуальной машины
       items:
-      - name: Ubuntu
-        href: create-upload-ubuntu.md
-      - name: Debian
-        href: debian-create-upload-vhd.md
-      - name: Red Hat
-        href: redhat-create-upload-vhd.md
-      - name: CentOS
-        href: create-upload-centos.md
-      - name: Oracle Linux
-        href: oracle-create-upload-vhd.md
-      - name: OpenBSD
-        href: create-upload-openbsd.md
-  - name: Управление хранилищем виртуальной машины
-    items:
-    - name: Управляемые диски Azure
-      href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Создание виртуальных сетей
+          href: >-
+            ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Развертывание виртуальной машины в существующую виртуальную сеть
+          items:
+            - name: Инфраструктура CLI Azure
+              href: deploy-linux-vm-into-existing-vnet-using-cli.md
+            - name: Портал Azure
+              href: deploy-linux-vm-into-existing-vnet-using-portal.md
+        - name: Создание виртуальной машины с несколькими сетевыми адаптерами
+          href: multiple-nics.md
+        - name: Создание статического общедоступного IP-адреса
+          href: >-
+            ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: 'Настройка портов и конечных точек, а также обеспечение безопасности'
+          href: endpoints-in-resource-manager.md
+        - name: Разрешение доступа к виртуальной машине
+          href: nsg-quickstart.md
+        - name: Использование фильтра пакетов в FreeBSD
+          href: freebsd-pf-nat.md
+        - name: Варианты разрешения DNS-имен
+          href: azure-dns.md
+        - name: >-
+            Использование внутренней службы DNS для разрешения имен виртуальных
+            машин
+          href: static-dns-name-resolution-for-linux-on-azure.md
+        - name: Создание полного доменного имени
+          href: portal-create-fqdn.md
+        - name: Создание определяемых пользователем маршрутов
+          href: >-
+            ../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Масштабируемость и доступность
       items:
-      - name: Часто задаваемые вопросы
-        href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Копирование файлов на виртуальную машину Linux
-      href: copy-files-to-linux-vm-using-scp.md
-    - name: Преобразование виртуальной машины для использования управляемых дисков
-      href: convert-unmanaged-to-managed-disks.md
-    - name: Создание моментального снимка управляемого диска
-      href: snapshot-copy-managed-disk.md
-    - name: Добавление диска
+        - name: Доступность виртуальной машины
+          href: manage-availability.md
+        - name: Создание балансировщика нагрузки
+          href: >-
+            ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: >-
+            Масштабирование нескольких виртуальных машин с помощью
+            масштабируемых наборов
+          href: >-
+            ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: >-
+            Вертикальное масштабирование виртуальных машин с помощью службы
+            автоматизации Azure
+          href: vertical-scaling-automation.md
+        - name: Мониторинг виртуальных машин
+          href: vm-monitoring.md
+    - name: Управление безопасностью виртуальной машины
       items:
-      - name: Инфраструктура CLI Azure
-        href: add-disk.md
-      - name: Портал Azure
-        href: attach-disk-portal.md
-    - name: Отсоединение диска
-      href: detach-disk.md
-    - name: Расширение диска ОС
-      href: expand-disks.md
-    - name: Настройка программного RAID
-      href: configure-raid.md
-    - name: Настройка диспетчера логических томов
-      href: configure-lvm.md
-    - name: Подключение хранилища файлов Azure с помощью SMB
-      href: mount-azure-file-storage-on-linux-using-smb.md
-  - name: Сеть виртуальной машины
-    items:
-    - name: Создание виртуальных сетей
-      href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Развертывание виртуальной машины в существующую виртуальную сеть
+        - name: Отключение паролей SSH в настройках SSHD
+          href: mac-disable-ssh-password-usage.md
+        - name: >-
+            Сброс доступа по протоколу SSH, управление пользователями и проверка
+            дисков
+          href: using-vmaccess-extension.md
+        - name: Использование привилегий корня
+          href: use-root-privileges.md
+        - name: Шифрование диска виртуальной машины
+          href: encrypt-disks.md
+        - name: Применение политик к виртуальным машинам
+          href: policy.md
+        - name: Настройка хранилища ключей
+          href: key-vault-setup.md
+    - name: Использование расширений виртуальной машины
       items:
-      - name: Инфраструктура CLI Azure
-        href: deploy-linux-vm-into-existing-vnet-using-cli.md
-      - name: Портал Azure
-        href: deploy-linux-vm-into-existing-vnet-using-portal.md
-    - name: Создание виртуальной машины с несколькими сетевыми адаптерами
-      href: multiple-nics.md
-    - name: Создание статического общедоступного IP-адреса
-      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: 'Настройка портов и конечных точек, а также обеспечение безопасности'
-      href: endpoints-in-resource-manager.md
-    - name: Разрешение доступа к виртуальной машине
-      href: nsg-quickstart.md
-    - name: Использование фильтра пакетов в FreeBSD
-      href: freebsd-pf-nat.md
-    - name: Варианты разрешения DNS-имен
-      href: azure-dns.md
-    - name: Использование внутренней службы DNS для разрешения имен виртуальных машин
-      href: static-dns-name-resolution-for-linux-on-azure.md
-    - name: Создание полного доменного имени
-      href: portal-create-fqdn.md
-    - name: Создание определяемых пользователем маршрутов
-      href: ../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Масштабируемость и доступность
-    items:
-    - name: Доступность виртуальной машины
-      href: manage-availability.md
-    - name: Создание балансировщика нагрузки
-      href: ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Масштабирование нескольких виртуальных машин с помощью масштабируемых наборов
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Вертикальное масштабирование виртуальных машин с помощью службы автоматизации Azure
-      href: vertical-scaling-automation.md
-    - name: Мониторинг виртуальных машин
-      href: vm-monitoring.md
-  - name: Управление безопасностью виртуальной машины
-    items:
-    - name: Отключение паролей SSH в настройках SSHD
-      href: mac-disable-ssh-password-usage.md
-    - name: 'Сброс доступа по протоколу SSH, управление пользователями и проверка дисков'
-      href: using-vmaccess-extension.md
-    - name: Использование привилегий корня
-      href: use-root-privileges.md
-    - name: Шифрование диска виртуальной машины
-      href: encrypt-disks.md
-    - name: Применение политик к виртуальным машинам
-      href: policy.md
-    - name: Настройка хранилища ключей
-      href: key-vault-setup.md
-  - name: Использование расширений виртуальной машины
-    items:
-    - name: Общие сведения о расширениях виртуальной машины
-      href: extensions-features.md
-    - name: Расширение пользовательских сценариев
-      href: extensions-customscript.md
-    - name: Расширение агента OMS
-      href: extensions-oms.md
-    - name: Диагностическое расширение для Linux
-      href: diagnostic-extension.md
-  - name: Запуск приложений
-    items:
-    - name: Cloud Foundry
+        - name: Общие сведения о расширениях виртуальной машины
+          href: extensions-features.md
+        - name: Расширение пользовательских сценариев
+          href: extensions-customscript.md
+        - name: Расширение агента OMS
+          href: extensions-oms.md
+        - name: Диагностическое расширение для Linux
+          href: diagnostic-extension.md
+    - name: Запуск приложений
       items:
-      - name: Обзор
-        href: cloudfoundry-get-started.md
-      - name: Развертывание первого приложения
-        href: cloudfoundry-deploy-your-first-app.md
-    - name: Обзор виртуальной машины для обработки и анализа данных
-      href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: MongoDB
-      href: install-mongodb.md
-    - name: MySQL
-      href: mysql-install.md
-    - name: OpenShift
-      href: openshift-get-started.md
-    - name: PostgreSQL
-      href: postgresql-install.md
-    - name: Развертывание стека LAMP
-      href: create-lamp-stack.md
-    - name: Развертывание 3-узлового кластера Deis
-      href: deis-cluster.md
-    - name: Развертывание приложения Node.js
-      href: ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Веб-приложение Django
-      href: python-django-web-app.md
-    - name: Портативный компьютер Jupyter
-      href: jupyter-notebook.md
-    - name: Развертывание исполняющих сред на основе шаблона
-      href: app-frameworks.md
-    - name: Высокопроизводительные вычисления (HPC)
-      href: hpcpack-cluster-options.md
+        - name: Cloud Foundry
+          items:
+            - name: Обзор
+              href: cloudfoundry-get-started.md
+            - name: Развертывание первого приложения
+              href: cloudfoundry-deploy-your-first-app.md
+        - name: Обзор виртуальной машины для обработки и анализа данных
+          href: >-
+            ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: MongoDB
+          href: install-mongodb.md
+        - name: MySQL
+          href: mysql-install.md
+        - name: OpenShift
+          href: openshift-get-started.md
+        - name: PostgreSQL
+          href: postgresql-install.md
+        - name: Развертывание стека LAMP
+          href: create-lamp-stack.md
+        - name: Развертывание 3-узлового кластера Deis
+          href: deis-cluster.md
+        - name: Развертывание приложения Node.js
+          href: >-
+            ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Веб-приложение Django
+          href: python-django-web-app.md
+        - name: Портативный компьютер Jupyter
+          href: jupyter-notebook.md
+        - name: Развертывание исполняющих сред на основе шаблона
+          href: app-frameworks.md
+        - name: Высокопроизводительные вычисления (HPC)
+          href: hpcpack-cluster-options.md
+          items:
+            - name: Запуск NAMD с помощью пакета Microsoft HPC
+              href: classic/hpcpack-cluster-namd.md
+        - name: SAP в Azure
+          href: ../workloads/sap/get-started.md
+    - name: Использование Docker на виртуальных машинах
       items:
-      - name: Запуск NAMD с помощью пакета Microsoft HPC
-        href: classic/hpcpack-cluster-namd.md
-    - name: SAP в Azure
-      href: ../workloads/sap/get-started.md
-  - name: Использование Docker на виртуальных машинах
-    items:
-    - name: Создание узлов Docker с расширением виртуальной машины Docker для Azure
-      href: dockerextension.md
-    - name: Использование виртуальной машины Docker с Azure
-      href: docker-machine.md
-    - name: Использование Docker Compose с Azure
-      href: docker-compose-quickstart.md
-  - name: Перенос виртуальных машин
-    items:
-    - name: Обзор миграции
-      href: migration-classic-resource-manager-overview.md
-    - name: Подробный обзор миграции
-      href: migration-classic-resource-manager-deep-dive.md
-    - name: Планирование миграции
-      href: migration-classic-resource-manager-plan.md
-    - name: Миграция с помощью интерфейса командной строки
-      href: migration-classic-resource-manager-cli.md
-    - name: Распространенные ошибки миграции
-      href: migration-classic-resource-manager-errors.md
-    - name: 'Средства миграции, созданные сообществом'
-      href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Часто задаваемые вопросы
-      href: migration-classic-resource-manager-faq.md
-  - name: Устранение неполадок
-    items:
-    - name: Сброс пароля для виртуальной машины Linux
-      href: virtual-machines-linux-reset-password.md
-    - name: Общие сведения о перезагрузке системы
-      href: understand-vm-reboot.md
-    - name: SSH-подключения
-      href: troubleshoot-ssh-connection.md
+        - name: >-
+            Создание узлов Docker с расширением виртуальной машины Docker для
+            Azure
+          href: dockerextension.md
+        - name: Использование виртуальной машины Docker с Azure
+          href: docker-machine.md
+        - name: Использование Docker Compose с Azure
+          href: docker-compose-quickstart.md
+    - name: Перенос виртуальных машин
       items:
-      - name: Подробное описание устранения неполадок
-        href: detailed-troubleshoot-ssh-connection.md
-    - name: Диагностика загрузки
- 
-      href: boot-diagnostics.md
-    - name: Доступ к приложениям
-      href: troubleshoot-app-connection.md
-    - name: Ошибки выделения ресурсов
-      href: allocation-failure.md
-    - name: Проблемы с развертыванием
-      href: troubleshoot-deploy-vm.md
-    - name: Создание виртуальной машины
-      href: troubleshoot-deployment-new-vm.md
-    - name: Повторное развертывание виртуальной машины на новом узле Azure
-      href: redeploy-to-new-node.md
-    - name: Распространенные сообщения об ошибках
-      href: error-messages.md
-    - name: Подключение виртуального жесткого диска для устранения неполадок
+        - name: Обзор миграции
+          href: migration-classic-resource-manager-overview.md
+        - name: Подробный обзор миграции
+          href: migration-classic-resource-manager-deep-dive.md
+        - name: Планирование миграции
+          href: migration-classic-resource-manager-plan.md
+        - name: Миграция с помощью интерфейса командной строки
+          href: migration-classic-resource-manager-cli.md
+        - name: Распространенные ошибки миграции
+          href: migration-classic-resource-manager-errors.md
+        - name: 'Средства миграции, созданные сообществом'
+          href: >-
+            ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Часто задаваемые вопросы
+          href: migration-classic-resource-manager-faq.md
+    - name: Устранение неполадок
       items:
-      - name: Инфраструктура CLI Azure
-        href: troubleshoot-recovery-disks.md
-      - name: Портал Azure
-        href: troubleshoot-recovery-disks-portal.md
+        - name: Сброс пароля для виртуальной машины Linux
+          href: virtual-machines-linux-reset-password.md
+        - name: Общие сведения о перезагрузке системы
+          href: understand-vm-reboot.md
+        - name: SSH-подключения
+          href: troubleshoot-ssh-connection.md
+          items:
+            - name: Подробное описание устранения неполадок
+              href: detailed-troubleshoot-ssh-connection.md
+        - name: Диагностика загрузки
+          href: boot-diagnostics.md
+        - name: Доступ к приложениям
+          href: troubleshoot-app-connection.md
+        - name: Ошибки выделения ресурсов
+          href: allocation-failure.md
+        - name: Проблемы с развертыванием
+          href: troubleshoot-deploy-vm.md
+        - name: Создание виртуальной машины
+          href: troubleshoot-deployment-new-vm.md
+        - name: Изменение имен устройств
+          href: troubleshoot-device-names-problems.md
+        - name: Повторное развертывание виртуальной машины на новом узле Azure
+          href: redeploy-to-new-node.md
+        - name: Распространенные сообщения об ошибках
+          href: error-messages.md
+        - name: Подключение виртуального жесткого диска для устранения неполадок
+          items:
+            - name: Инфраструктура CLI Azure
+              href: troubleshoot-recovery-disks.md
+            - name: Портал Azure
+              href: troubleshoot-recovery-disks-portal.md
 - name: Справочные материалы
   items:
-  - name: Инфраструктура CLI Azure
-    href: /cli/azure/vm
-  - name: PowerShell
-    href: /powershell/azureps-cmdlets-docs
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.compute
-  - name: Java
-    href: /java/api
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: REST
-    href: /rest/api/compute
+    - name: Инфраструктура CLI Azure
+      href: /cli/azure/vm
+    - name: PowerShell
+      href: /powershell/azureps-cmdlets-docs
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.compute
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/compute
 - name: Ресурсы
   items:
-  - name: Создание шаблонов
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Стратегия развития Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Шаблоны сообщества
-    href: https://azure.microsoft.com/documentation/templates
-  - name: Цены
-    href: https://azure.microsoft.com/pricing/details/#Linux
-  - name: Доступ по регионам
-    href: https://azure.microsoft.com/regions/services/
-  - name: Переполнение стека
-    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
-  - name: Видеоролики
-    href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
-  - name: Часто задаваемые вопросы
-    href: faq.md
+    - name: Создание шаблонов
+      href: >-
+        ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Шаблоны сообщества
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Доступ по регионам
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Переполнение стека
+      href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
+    - name: Видеоролики
+      href: >-
+        https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+    - name: Часто задаваемые вопросы
+      href: faq.md
