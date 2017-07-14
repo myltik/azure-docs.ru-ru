@@ -12,20 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: curtand;jeffsta
+ms.date: 07/13/2017
+ms.author: curtand
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
 ms.openlocfilehash: b1ea25a3ec4c10d1821ea876055b15e38d269432
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/05/2017
 
-
 ---
-# <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Управление личными доменными именами в Azure Active Directory
+# Управление личными доменными именами в Azure Active Directory
+<a id="managing-custom-domain-names-in-your-azure-active-directory" class="xliff"></a>
 Доменное имя является важной частью идентификатора для различных ресурсов каталога: имени пользователя, адреса электронной почты пользователя и адреса группы. Оно также может входить в URI идентификатора приложения. Для использования в ресурсе Azure Active Directory (Azure AD) доменное имя должно принадлежать каталогу, содержащему ресурс. Задачи управления доменами в Azure AD может выполнять только глобальный администратор.
 
-## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Установка основного доменного имени для каталога Azure AD
+## Установка основного доменного имени для каталога Azure AD
+<a id="set-the-primary-domain-name-for-your-azure-ad-directory" class="xliff"></a>
 При создании каталога исходное доменное имя, например "contoso.onmicrosoft.com", также становится основным именем домена для каталога. При создании нового пользователя на [классическом портале Azure](https://manage.windowsazure.com/)или на других порталах, таких как портал администрирования Office 365, основной домен становится доменным именем по умолчанию для пользователя. Это упрощает процесс создания новых пользователей на портале для администратора.
 
 Чтобы изменить основное доменное имя для каталога, выполните следующие действия:
@@ -39,16 +40,20 @@ ms.lasthandoff: 05/05/2017
 
 В качестве основного домена для каталога можно указать любой проверенный личный домен, который не является федеративным. При изменении основного домена для каталога имена существующих пользователей не изменятся.
 
-## <a name="add-custom-domain-names-to-your-azure-ad"></a>Добавление личных доменых имен в Azure AD
+## Добавление личных доменых имен в Azure AD
+<a id="add-custom-domain-names-to-your-azure-ad" class="xliff"></a>
 В каждый каталог Azure AD можно добавить до 900 личных доменых имен. Процесс [добавления дополнительного личного домена](active-directory-add-domain.md) аналогичен добавлению первого личного домена.
 
-## <a name="add-subdomains-of-a-custom-domain"></a>Добавление поддоменов для личного домена
+## Добавление поддоменов для личного домена
+<a id="add-subdomains-of-a-custom-domain" class="xliff"></a>
 Если вы хотите добавить в ваш каталог доменное имя третьего уровня, например "europe.contoso.com", необходимо сначала добавить и проверить домен второго уровня, например "contoso.com". Поддомен будет проверен Azure AD автоматически. Чтобы увидеть, проверен ли добавленный поддомен, обновите страницу со списком доменов в каталоге.
 
-## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Что делать, если вы изменили регистратор DNS для пользовательского доменного имени
+## Что делать, если вы изменили регистратор DNS для пользовательского доменного имени
+<a id="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name" class="xliff"></a>
 При изменении регистратора DNS для личного доменного имени это имя можно продолжать использовать в Azure AD без перерывов в обслуживании и без дополнительных настроек. Если личное доменное имя используется в Office 365, Intune или других службах, которым необходимы личные домены в Azure AD, обратитесь к документации для этих служб.
 
-## <a name="delete-a-custom-domain-name"></a>Удаление имени личного домена
+## Удаление имени личного домена
+<a id="delete-a-custom-domain-name" class="xliff"></a>
 Имя личного домена можно удалить из Azure AD, если ваша организация не использует его или если это доменное имя необходимо использовать с другой службой Azure AD.
 
 Перед удалением личного доменного имени необходимо убедиться, что от этого имени не зависят никакие ресурсы в каталоге. Доменное имя невозможно удалить из каталога в следующих случаях:
@@ -59,13 +64,15 @@ ms.lasthandoff: 05/05/2017
 
 Перед удалением личного доменного имени необходимо изменить или удалить каждый такой ресурс в каталоге Azure AD.
 
-## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Использование PowerShell или API Graph для управления доменными именами
+## Использование PowerShell или API Graph для управления доменными именами
+<a id="use-powershell-or-graph-api-to-manage-domain-names" class="xliff"></a>
 Большинство задач по управлению доменными именами в Azure Active Directory также можно выполнить с помощью Microsoft PowerShell или программными средствами с помощью API Graph Azure AD.
 
 * [Управление доменными именами в Azure AD с помощью PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Управление именами доменов в Azure AD с помощью API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 * [Дополнительные сведения об именах доменов в Azure AD](active-directory-add-domain-concepts.md)
 * [Управление именами пользовательских доменов](active-directory-add-manage-domain-names.md)
 
