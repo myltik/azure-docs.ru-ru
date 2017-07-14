@@ -20,14 +20,15 @@ ms.openlocfilehash: 8571011cac1182a5bfdfe722c194fcd681712a02
 ms.contentlocale: ru-ru
 ms.lasthandoff: 11/17/2016
 
-
 ---
-# <a name="how-to-use-blob-storage-from-c"></a>Использование хранилища BLOB-объектов из C++
+# Использование хранилища BLOB-объектов из C++
+<a id="how-to-use-blob-storage-from-c" class="xliff"></a>
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>Обзор
+## Обзор
+<a id="overview" class="xliff"></a>
 Хранилище BLOB-объектов Azure — это служба, которая хранит неструктурированные данные в облаке в качестве объектов или больших двоичных объектов. В хранилище BLOB-объектов могут храниться текстовые или двоичные данные любого типа, например документы, файлы мультимедиа или установщики приложений. Хранилище BLOB-объектов иногда также называют хранилищем объектов.
 
 В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища больших двоичных объектов Azure. Примеры написаны на C++ и используют [клиентскую библиотеку хранилища Azure для C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Здесь описаны такие сценарии, как **отправка**, **перечисление**, **скачивание** и **удаление** BLOB-объектов.  
@@ -41,7 +42,8 @@ ms.lasthandoff: 11/17/2016
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-c-application"></a>Создание приложения на C++
+## Создание приложения на C++
+<a id="create-a-c-application" class="xliff"></a>
 В этом руководстве будут использоваться компоненты хранилища, которые могут выполняться в приложениях C++.  
 
 Для этого необходимо установить клиентскую библиотеку хранилища Azure для C++ и создать учетную запись хранения Azure в подписке Azure.   
@@ -53,15 +55,17 @@ ms.lasthandoff: 11/17/2016
   
      Install-Package wastorage
 
-## <a name="configure-your-application-to-access-blob-storage"></a>Настройка приложения для доступа к хранилищу BLOB-объектов
+## Настройка приложения для доступа к хранилищу BLOB-объектов
+<a id="configure-your-application-to-access-blob-storage" class="xliff"></a>
 Добавьте следующие инструкции в начало файла C++, где требуется использовать API-интерфейсы Azure для доступа к BLOB-объектам.  
 
 ```cpp
-include <was/storage_account.h>
-include <was/blob.h>
+#include <was/storage_account.h>
+#include <was/blob.h>
 ```
 
-## <a name="setup-an-azure-storage-connection-string"></a>Настройка строки подключения к службе хранилища Azure
+## Настройка строки подключения к службе хранилища Azure
+<a id="setup-an-azure-storage-connection-string" class="xliff"></a>
 Клиент хранилища Azure использует строку подключения с целью хранения конечных точек и учетных данных для доступа к службам управления данными. При запуске в клиентском приложении необходимо указать строку подключения для хранилища в следующем формате (в качестве параметров *AccountName* и *AccountKey* укажите имя и ключ доступа своей учетной записи хранения, их можно получить на [портале Azure](https://portal.azure.com)). Сведения об учетных записях хранения и ключах доступа см. в статье[Об учетных записях хранения Azure](storage-create-storage-account.md). В этом примере показано, как объявить статическое поле для размещения строки подключения:  
 
 ```cpp
@@ -80,7 +84,8 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 
 В приведенных ниже примерах предполагается, что вы использовали одно из этих двух определений для получения строки подключения к хранилищу.  
 
-## <a name="retrieve-your-connection-string"></a>Получить строку подключения
+## Получить строку подключения
+<a id="retrieve-your-connection-string" class="xliff"></a>
 Информацию о своей учетной записи хранения можно представить с помощью класса **cloud_storage_account**. Чтобы получить данные учетной записи хранения из строки подключения хранилища, можно использовать метод **синтаксического анализа** .  
 
 ```cpp
@@ -95,7 +100,8 @@ azure::storage::cloud_storage_account storage_account = azure::storage::cloud_st
 azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 ```
 
-## <a name="how-to-create-a-container"></a>Практическое руководство. Создание контейнера
+## Практическое руководство. Создание контейнера
+<a id="how-to-create-a-container" class="xliff"></a>
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 В этом примере показано, как создать контейнер:  
@@ -132,7 +138,8 @@ container.upload_permissions(permissions);
 
 Любой пользователь в Интернете может видеть большие двоичные объекты в открытом контейнере, но изменить или удалить их можно только при наличии ключа доступа.  
 
-## <a name="how-to-upload-a-blob-into-a-container"></a>Практическое руководство. Отправка BLOB-объекта в контейнер
+## Практическое руководство. Отправка BLOB-объекта в контейнер
+<a id="how-to-upload-a-blob-into-a-container" class="xliff"></a>
 Хранилище BLOB-объектов Azure поддерживает блочные и страничные BLOB-объекты. В большинстве случаев рекомендуется использовать блочные BLOB-объекты.  
 
 Для передачи файла в блочный BLOB-объект получите ссылку на контейнер и используйте ее для получения ссылки на блочный BLOB-объект. Получив ссылку на BLOB-объект, можно отправить любой поток данных в этот объект с помощью метода **upload_from_stream**. Эта операция создает большой двоичный объект, если он не существует, или заменяет его, если он существует. В следующем примере показано, как отправить BLOB-объект в контейнер. Предполагается, что контейнер уже был создан.  
@@ -167,7 +174,8 @@ blob3.upload_text(U("other text"));
 
 Кроме того, можно использовать метод **upload_from_file** для отправки файла в блочный BLOB-объект.
 
-## <a name="how-to-list-the-blobs-in-a-container"></a>Практическое руководство. Перечисление BLOB-объектов в контейнере
+## Практическое руководство. Перечисление BLOB-объектов в контейнере
+<a id="how-to-list-the-blobs-in-a-container" class="xliff"></a>
 Для перечисления BLOB-объектов в контейнере сначала необходимо получить ссылку на контейнер. Затем вы можете использовать метод контейнера **list_blobs** для получения BLOB-объектов или их каталогов. Для доступа к широкому набору свойств и методов возвращаемого объекта **list_blob_item** необходимо вызвать метод **list_blob_item.as_blob**, чтобы получить объект **cloud_blob**, или метод **list_blob.as_directory**, чтобы получить объект cloud_blob_directory. В следующем коде показано, как получить и вывести URI каждого элемента в контейнере **my-sample-container** .
 
 ```cpp
@@ -197,7 +205,8 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 
 Дополнительные сведения об операциях перечисления см. в разделе [Перечисление ресурсов хранилища Azure в C++](storage-c-plus-plus-enumeration.md).
 
-## <a name="how-to-download-blobs"></a>Практическое руководство. Загрузка BLOB-объектов
+## Практическое руководство. Загрузка BLOB-объектов
+<a id="how-to-download-blobs" class="xliff"></a>
 Для загрузки BLOB-объектов сначала нужно получить ссылку на BLOB-объект и затем вызвать метод **download_to_stream**. В следующем примере используется метод **download_to_stream** для переноса содержимого BLOB-объекта в объект потока, который затем можно сохранить в локальном файле.  
 
 ```cpp
@@ -245,7 +254,8 @@ azure::storage::cloud_block_blob text_blob = container.get_block_blob_reference(
 utility::string_t text = text_blob.download_text();
 ```
 
-## <a name="how-to-delete-blobs"></a>Практическое руководство. Удаление BLOB-объектов
+## Практическое руководство. Удаление BLOB-объектов
+<a id="how-to-delete-blobs" class="xliff"></a>
 Чтобы удалить BLOB-объект, сначала нужно получить ссылку на него, а затем вызвать для него метод **delete_blob**.  
 
 ```cpp
@@ -265,7 +275,8 @@ azure::storage::cloud_block_blob blockBlob = container.get_block_blob_reference(
 blockBlob.delete_blob();
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 Теперь, когда вы ознакомились с основными сведениями о хранилище BLOB-объектов, используйте следующие ссылки для получения дополнительных сведений о хранилище Azure.  
 
 * [Использование хранилища очередей из C++](storage-c-plus-plus-how-to-use-queues.md)
