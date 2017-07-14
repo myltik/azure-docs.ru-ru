@@ -22,9 +22,8 @@ ms.lasthandoff: 11/17/2016
 
 
 ---
-<a id="reliable-services-notifications" class="xliff"></a>
-
 # Уведомления Reliable Services
+<a id="reliable-services-notifications" class="xliff"></a>
 Уведомления позволяют клиентам отслеживать изменения, которые вносятся в интересующий их объект. Существует два типа объектов, поддерживающих уведомления: *диспетчер надежных состояний* и *надежный словарь*.
 
 Распространенные причины для использования уведомлений:
@@ -34,9 +33,8 @@ ms.lasthandoff: 11/17/2016
 
 Уведомления активируются в ходе применения операций. В связи с этим обработка уведомлений должна быть максимально быстрой и в синхронных событиях не должно быть ресурсоемких операций.
 
-<a id="reliable-state-manager-notifications" class="xliff"></a>
-
 ## Уведомления диспетчера надежных состояний
+<a id="reliable-state-manager-notifications" class="xliff"></a>
 Диспетчер надежных состояний предоставляет уведомления для следующих событий:
 
 * транзакция:
@@ -111,9 +109,8 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-<a id="reliable-dictionary-notifications" class="xliff"></a>
-
 ## Уведомления надежного словаря
+<a id="reliable-dictionary-notifications" class="xliff"></a>
 Надежный словарь предоставляет уведомления для следующих событий:
 
 * Перестроение. Вызывается при восстановлении состояния **ReliableDictionary** из восстановленного или скопированного локального состояния либо из резервной копии.
@@ -210,9 +207,8 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-<a id="recommendations" class="xliff"></a>
-
 ## Рекомендации
+<a id="recommendations" class="xliff"></a>
 * *Завершайте* события уведомлений максимально быстро.
 * *Не* выполняйте какие-либо ресурсоемкие операции (например, операции ввода-вывода) в составе синхронных событий.
 * *Проверяйте* тип действия перед обработкой события. Новые типы действий могут быть добавлены в будущем.
@@ -225,9 +221,8 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 * Для транзакций, которые содержат несколько операций, эти операции будут применены в порядке, в котором они были получены от пользователя в первичной реплике.
 * При обработке хода выполнения с результатом false некоторые операции могут быть отменены. Для таких операций отмены будут создаваться уведомления и выполнен откат состояния реплики до стабильный точки. Одно важное отличие уведомлений об отмене — события с повторяющимися ключами агрегируются. Например, если упомянутая выше транзакция T1 отменяется, то пользователь увидит одно уведомление для операции Delete(X).
 
-<a id="next-steps" class="xliff"></a>
-
 ## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
 * [Архивация и восстановление (аварийное восстановление) надежных служб](service-fabric-reliable-services-backup-restore.md)
