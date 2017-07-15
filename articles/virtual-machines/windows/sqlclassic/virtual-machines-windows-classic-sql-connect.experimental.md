@@ -22,26 +22,23 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 07/12/2017
 
 ---
-<a id="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment" class="xliff"></a>
-
 # Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)
+<a id="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment" class="xliff"></a>
 > [!div class="op_single_selector"]
 > * [Диспетчер ресурсов](../sql/virtual-machines-windows-sql-connect.md)
 > * [Классический](../classic/sql-connect.md)
 > 
 > 
 
-<a id="overview" class="xliff"></a>
-
 ## Обзор
+<a id="overview" class="xliff"></a>
 В этом разделе показано, как подключиться к экземпляру SQL Server, выполняемому на виртуальной машине Azure. Сначала рассматриваются некоторые [общие сценарии подключения](#connection-scenarios), а затем предоставляются [подробные инструкции по настройке подключений SQL Server на виртуальной машине Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
 > В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../azure-resource-manager/resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Если вы используете виртуальные машины Resource Manager, то ознакомьтесь со статьей [Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)](../sql/virtual-machines-windows-sql-connect.md).
 
-<a id="connection-scenarios" class="xliff"></a>
-
 ## Сценарии подключения
+<a id="connection-scenarios" class="xliff"></a>
 Способ подключения клиента к системе SQL Server, выполняемой на виртуальной машине, зависит от расположения клиента, а также конфигурации компьютера и сети. Ниже приведены соответствующие сценарии.
 
 * [Подключение к SQL Server в пределах одной облачной службы](#connect-to-sql-server-in-the-same-cloud-service)
@@ -53,18 +50,16 @@ ms.lasthandoff: 07/12/2017
 > 
 > 
 
-<a id="connect-to-sql-server-in-the-same-cloud-service" class="xliff"></a>
-
 ### Подключение к SQL Server в пределах одной облачной службы
+<a id="connect-to-sql-server-in-the-same-cloud-service" class="xliff"></a>
 В одной облачной службе можно создать несколько виртуальных машин. Этот сценарий использования виртуальных машин описан в статье [Как подключить виртуальные машины с помощью виртуальной сети или облачной службы](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). В этом сценарии клиент на одной виртуальной машине пытается подключиться к SQL Server на другой виртуальной машине, расположенной в той же облачной службе.
 
 В этом случае для подключения можно использовать **имя** виртуальной машины (которое также отображается как **имя компьютера** или **имя узла** на портале). Это имя, заданное при создании виртуальной машины. Например, если имя виртуальной машины SQL — **mysqlvm**, то клиентская виртуальная машины в той же облачной службе может использовать следующую строку подключения.
 
     "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-<a id="connect-to-sql-server-over-the-internet" class="xliff"></a>
-
 ### Подключение к SQL Server через Интернет
+<a id="connect-to-sql-server-over-the-internet" class="xliff"></a>
 Если вы хотите подключиться к ядру СУБД SQL Server из Интернета, необходимо создать конечную точку виртуальной машины для входящих подключений TCP. На данном этапе настройки Azure направляет входящий трафик TCP-порта на TCP-порт, доступный для виртуальной машины.
 
 Для подключения через Интернет необходимо использовать DNS-имя и номер порта конечной точки виртуальной машины (их настройка описывается далее в этой статье). Чтобы найти DNS-имя, перейдите на портал Azure и щелкните **Виртуальные машины (классика)**. Затем выберите свою виртуальную машину. **DNS-имя** показано в разделе **Обзор**.
@@ -80,9 +75,8 @@ ms.lasthandoff: 07/12/2017
 > 
 > 
 
-<a id="connect-to-sql-server-in-the-same-virtual-network" class="xliff"></a>
-
 ### Подключение к SQL Server в пределах одной виртуальной сети
+<a id="connect-to-sql-server-in-the-same-virtual-network" class="xliff"></a>
 [Виртуальная сеть](../../../virtual-network/virtual-networks-overview.md) поддерживает дополнительные сценарии. Вы можете подключить виртуальные машины в одной виртуальной сети, даже если они расположены в разных облачных службах. Если используется [VPN типа «сеть-сеть»](../../../vpn-gateway/vpn-gateway-site-to-site-create.md), можно создать гибридную архитектуру, обеспечивающую подключение виртуальных машин к локальным сетям и компьютерам.
 
 Виртуальные сети также позволяют присоединять виртуальные машины Azure к домену. Присоединение к домену — единственный способ использовать проверку подлинности Windows в SQL Server. Другие сценарии подключения требуют проверки подлинности SQL с использованием имен пользователей и паролей.
@@ -91,9 +85,8 @@ ms.lasthandoff: 07/12/2017
 
     "Server=mysqlvm;Integrated Security=true"
 
-<a id="steps-for-configuring-sql-server-connectivity-in-an-azure-vm" class="xliff"></a>
-
 ## Действия по настройке подключения к SQL Server на виртуальной машине Azure
+<a id="steps-for-configuring-sql-server-connectivity-in-an-azure-vm" class="xliff"></a>
 Ниже показано, как подключиться к экземпляру SQL Server через Интернет с помощью SQL Server Management Studio (SSMS). Однако, чтобы сделать виртуальную машину SQL Server доступной для приложений, выполняющихся как локально, так и в среде Azure, необходимо выполнить те же действия.
 
 Чтобы подключиться к экземпляру SQL Server с другой виртуальной машины или через Интернет, необходимо выполнить следующие задачи.
@@ -116,9 +109,8 @@ ms.lasthandoff: 07/12/2017
 
 [!INCLUDE [Connect to SQL Server in a VM Classic Steps](../../../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
-<a id="next-steps" class="xliff"></a>
-
 ## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 Если вы также планируете использовать группы доступности AlwaysOn для обеспечения высокого уровня доступности и аварийного восстановления, следует реализовать прослушиватель. Клиенты баз данных подключаются к прослушивателю, а не непосредственно к одному из экземпляров SQL Server. Прослушиватель направляет клиентов к первичной реплике в группе доступности. Дополнительные сведения см. в статье [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](../classic/ps-sql-int-listener.md).
 
 Важно ознакомиться со всеми рекомендациями по обеспечению безопасности для системы SQL Server, работающей на виртуальной машине Azure. Дополнительные сведения см. в статье [Вопросы безопасности SQL Server на виртуальных машинах Azure](../sql/virtual-machines-windows-sql-security.md).

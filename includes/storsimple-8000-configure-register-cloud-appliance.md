@@ -1,6 +1,5 @@
-<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
-
 #### Настройка и регистрация облачного устройства
+<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
 
 1. В колонке **Устройства** выберите созданное облачное устройство StorSimple.
 
