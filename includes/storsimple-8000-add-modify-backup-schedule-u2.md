@@ -1,9 +1,8 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-<a id="to-add-or-modify-a-storsimple-backup-schedule" class="xliff"></a>
-
 #### Добавление или изменение расписания резервного копирования StorSimple
+<a id="to-add-or-modify-a-storsimple-backup-schedule" class="xliff"></a>
 
 1. Перейдите к устройству StorSimple и щелкните **Политика архивации**.
 

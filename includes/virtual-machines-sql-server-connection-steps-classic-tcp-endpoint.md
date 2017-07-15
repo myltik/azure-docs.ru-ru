@@ -1,6 +1,5 @@
-<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
-
 ### Создайте конечную точку TCP для виртуальной машины
+<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
 Для доступа к SQL Server из Интернета на виртуальной машине должна быть настроена конечная точка для прослушивания входящих TCP-подключений. На данном этапе настройки Azure направляет входящий трафик TCP-порта на TCP-порт, доступный для виртуальной машины.
 
 > [!NOTE]

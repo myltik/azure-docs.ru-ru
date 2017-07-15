@@ -1,6 +1,5 @@
-<a id="determine-the-dns-name-of-the-virtual-machine" class="xliff"></a>
-
 ### Определение DNS-имени виртуальной машины
+<a id="determine-the-dns-name-of-the-virtual-machine" class="xliff"></a>
 Для подключения к компоненту SQL Server Database Engine с другого компьютера необходимо знать имя виртуальной машины в системе доменных имен (DNS). (Это имя используется для идентификации виртуальной машины в сети Интернет. Можно использовать IP-адрес, но IP-адрес может измениться при перемещении ресурсов Azure для обеспечения избыточности или при выполнении обслуживания. DNS-имя будет оставаться неизменным, так как оно может быть перенаправлено на новый IP-адрес).  
 
 1. На портале Azure (или на предыдущем этапе) выберите **Виртуальные машины (классика)**.
@@ -9,9 +8,8 @@
    
     ![DNS-имя](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-<a id="connect-to-the-database-engine-from-another-computer" class="xliff"></a>
-
 ### Подключение к ядру СУБД с другого компьютера
+<a id="connect-to-the-database-engine-from-another-computer" class="xliff"></a>
 1. На компьютере, подключенном к сети Интернет, откройте SQL Server Management Studio.
 2. В диалоговом окне **Подключиться к серверу** или **Подключиться к ядру СУБД** в поле **Имя сервера** введите DNS-имя виртуальной машины (определяется на предыдущем этапе) и номер порта общедоступной конечной точки в формате *DNSName,portnumber*, например **tutorialtestVM.cloudapp.net,57500**.
    

@@ -21,9 +21,8 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 07/12/2017
 
 ---
-<a id="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services" class="xliff"></a>
-
 # Приступая к работе со службой Azure Multi-Factor Authentication и службами федерации Active Directory
+<a id="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services" class="xliff"></a>
 <center>![Облако](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Если в организации создана федерация локальной службы Active Directory со службой Azure Active Directory с помощью служб федерации Active Directory, доступны два варианта использования Многофакторной идентификации Azure.
@@ -45,9 +44,8 @@ ms.lasthandoff: 07/12/2017
 * У вас нет возможности вести журнал локальной проверки подлинности для паролей приложений.
 * Отключение или удаление учетной записи может занять до 3 часов с учетом синхронизации каталогов, которая задерживает процесс отключения или удаления паролей приложений в облачном удостоверении.
 
-<a id="next-steps" class="xliff"></a>
-
 ## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 Дополнительные сведения о настройке службы или сервера Многофакторной идентификации Azure с помощью служб федерации Active Directory см. в таких статьях:
 
 * [Защита облачных ресурсов с помощью службы Azure Multi-Factor Authentication и служб AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
