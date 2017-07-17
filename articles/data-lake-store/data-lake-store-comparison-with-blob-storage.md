@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
 ms.openlocfilehash: 10926263ee2657dc96fb1873733d349cf0956e92
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/05/2017
 
 
 ---
-# <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure
+# Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure
+<a id="comparing-azure-data-lake-store-and-azure-blob-storage" class="xliff"></a>
 В таблице ниже приведены различия между Azure Data Lake Store и хранилищем BLOB-объектов Azure, а также некоторые ключевые аспекты обработки больших данных. Хранилище BLOB-объектов Azure является универсальным масштабируемым хранилищем объектов, предназначенным для разнообразных сценариев хранения. Azure Data Lake Store — это гипермасштабируемый репозиторий, оптимизированный для рабочих нагрузок, относящихся к аналитике больших данных.
 
 |  | Хранилище озера данных Azure | Хранилище больших двоичных объектов Azure |
@@ -47,7 +49,8 @@ ms.lasthandoff: 01/05/2017
 | Доступ по регионам |Дополнительные сведения см. [здесь](https://azure.microsoft.com/regions/#services). |Дополнительные сведения см. [здесь](https://azure.microsoft.com/regions/#services). |
 | Цена |Дополнительные сведения см. на [этой странице](https://azure.microsoft.com/pricing/details/data-lake-store/). |Дополнительные сведения см. на [этой странице](https://azure.microsoft.com/pricing/details/storage/). |
 
-### <a name="next-steps"></a>Дальнейшие действия
+### Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 * [Начало работы с хранилищем озера данных](data-lake-store-get-started-portal.md)
 
