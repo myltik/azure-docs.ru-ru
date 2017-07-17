@@ -3,8 +3,8 @@ title: "Операции входа из нескольких географич
 description: "В этом отчете содержится информация о пользователях, от имени которых были совершены две попытки входа из разных регионов, причем времени между этими попытками было недостаточно, чтобы пользователь мог добраться из одного региона в другой."
 services: active-directory
 documentationcenter: 
-author: SSalahAhmed
-manager: gchander
+author: MarkusVi
+manager: femila
 editor: 
 ms.assetid: 79259c8a-2388-4747-b41e-c07434ea9a02
 ms.service: active-directory
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 1de57f64692ade442f9ef8d1e3b587ffee35d7cf
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
-# <a name="sign-ins-from-multiple-geographies"></a>"Операции входа из нескольких географических регионов".
+# "Операции входа из нескольких географических регионов".
+<a id="sign-ins-from-multiple-geographies" class="xliff"></a>
 В этом отчете содержится информация об успешных попытках входа пользователя, от имени которого были совершены две попытки входа из разных регионов, причем времени между этими попытками было недостаточно, чтобы пользователь мог добраться из одного региона в другой. Возможные причины:
 
 * пользователь использует пароль совместно с другими пользователями;
@@ -32,10 +34,5 @@ ms.openlocfilehash: 1de57f64692ade442f9ef8d1e3b587ffee35d7cf
 В результатах этого отчета отображаются события успешного входа, время между входами, регионы, из которых предположительно они были выполнены, и примерное время перемещения между этими регионами. Показанное время представляет собой только оценочное значение и может отличаться от фактического времени перемещения между расположениями.
 
 ![Операции входа из нескольких географических регионов](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

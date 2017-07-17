@@ -11,17 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e6dcd3f6f9c7c8765409c3b0d50e4b3843bab5c6
 ms.openlocfilehash: e39ee63d190308b87ebeb43adeb8b3e5db86df57
 ms.contentlocale: ru-ru
 ms.lasthandoff: 02/22/2017
 
-
 ---
-# <a name="azure-active-directory-reporting-faq"></a>Часто задаваемые вопросы об отчетах Azure Active Directory
+# Часто задаваемые вопросы об отчетах Azure Active Directory
+<a id="azure-active-directory-reporting-faq" class="xliff"></a>
 
 Эта статья содержит ответы на часто задаваемые вопросы об отчетах Azure Active Directory.  
 Дополнительные сведения см. в разделе [Отчеты в Azure Active Directory — предварительная версия](active-directory-reporting-azure-portal.md). 

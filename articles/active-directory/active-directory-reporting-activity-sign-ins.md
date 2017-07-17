@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/26/2017
 
-
 ---
-# <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Отчеты о действиях входа на портале Azure Active Directory
+# Отчеты о действиях входа на портале Azure Active Directory
+<a id="sign-in-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a>
 
 Функция отчетов в Azure Active Directory (Azure AD) [на портале Azure](https://portal.azure.com) позволяет получать всю необходимую информацию, чтобы определить, как работает среда.
 
@@ -37,18 +38,22 @@ ms.lasthandoff: 05/26/2017
 
 В этом разделе содержатся общие сведения о действиях входа.
 
-## <a name="pre-requisite"></a>Предварительные требования
+## Предварительные требования
+<a id="pre-requisite" class="xliff"></a>
 
-### <a name="who-can-access-the-data"></a>Кто может получить доступ к данным?
+### Кто может получить доступ к данным?
+<a id="who-can-access-the-data" class="xliff"></a>
 * Пользователи с ролью администратора безопасности или читателя безопасности
 * Глобальные администраторы
 * Любой пользователь (не администратор) может получить доступ к своим данным о действиях входа. 
 
-### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Какие лицензии Azure AD требуются для доступа к действию входа?
+### Какие лицензии Azure AD требуются для доступа к действию входа?
+<a id="what-azure-ad-license-do-you-need-to-access-sign-in-activity" class="xliff"></a>
 * Для просмотра отчета о всех действиях входа с клиентом должна быть связана лицензия Azure AD Premium.
 
 
-## <a name="signs-in-activities"></a>Действия входа
+## Действия входа
+<a id="signs-in-activities" class="xliff"></a>
 
 Информация, доступная в отчете о входе пользователя, поможет вам ответить на такие вопросы:
 
@@ -84,7 +89,8 @@ ms.lasthandoff: 05/26/2017
 ![Действие входа](./media/active-directory-reporting-activity-sign-ins/43.png "Действие входа")
 
 
-## <a name="filtering-sign-in-activities"></a>Фильтрация действий входа
+## Фильтрация действий входа
+<a id="filtering-sign-in-activities" class="xliff"></a>
 
 Для сужения результатов до нужного уровня вы можете отфильтровать данные о входах, используя следующие поля:
 
@@ -120,7 +126,8 @@ ms.lasthandoff: 05/26/2017
 - Сбой
 
 
-## <a name="sign-in-activities-shortcuts"></a>Ярлыки для действий входа
+## Ярлыки для действий входа
+<a id="sign-in-activities-shortcuts" class="xliff"></a>
 
 Помимо Azure Active Directory, портал Azure предоставляет две дополнительные точки входа для данных о действиях входа:
 
@@ -128,7 +135,8 @@ ms.lasthandoff: 05/26/2017
 - корпоративные приложения.
 
 
-### <a name="users-and-groups-sign-ins-activities"></a>Действия входа для пользователей и групп
+### Действия входа для пользователей и групп
+<a id="users-and-groups-sign-ins-activities" class="xliff"></a>
 
 Информация, доступная в отчете о входе пользователя, поможет вам ответить на такие вопросы:
 
@@ -164,7 +172,8 @@ ms.lasthandoff: 05/26/2017
 
 
 
-## <a name="usage-of-managed-applications"></a>Использование управляемых приложений
+## Использование управляемых приложений
+<a id="usage-of-managed-applications" class="xliff"></a>
 
 Представление данных входа, ориентированное на приложения, позволяет ответить на такие вопросы:
 
@@ -197,7 +206,8 @@ ms.lasthandoff: 05/26/2017
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 См. статью [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).
 
 

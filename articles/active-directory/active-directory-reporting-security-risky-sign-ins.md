@@ -1,5 +1,4 @@
 ---
-
 title: "Отчет о событиях входа, представляющих риск, на портале Azure Active Directory | Документация Майкрософт"
 description: "Описание отчета о событиях входа, представляющих риск, на портале Azure Active Directory."
 services: active-directory
@@ -11,17 +10,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/09/2017
 
-
 ---
-# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Отчет о событиях входа, представляющих риск, на портале Azure Active Directory
+# Отчет о событиях входа, представляющих риск, на портале Azure Active Directory
+<a id="risky-sign-ins-report-in-the-azure-active-directory-portal" class="xliff"></a>
 
 С помощью отчетов о безопасности в Azure Active Directory (Azure AD) можно получить ценную информацию о наличии скомпрометированных учетных записей пользователей в вашей среде. 
 
@@ -38,7 +38,8 @@ Azure AD обнаруживает подозрительные действия
 ![события входа, представляющие риск.](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Выпуски "Бесплатный" и "Базовый" Azure Active Directory
+## Выпуски "Бесплатный" и "Базовый" Azure Active Directory
+<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
 
 В выпусках "Бесплатный" и "Базовый" Azure Active Directory вы можете просмотреть информацию об обнаруженных входах, представляющих риск, которые связаны с вашими пользователями. Отчет о событиях риска содержит следующие сведения.
 
@@ -63,7 +64,8 @@ Azure AD обнаруживает подозрительные действия
 
 Дополнительные сведения см. в разделе [Закрытие событий риска вручную](active-directory-identityprotection.md#closing-risk-events-manually).
 
-## <a name="azure-active-directory-premium-editions"></a>Выпуски Azure Active Directory Premium
+## Выпуски Azure Active Directory Premium
+<a id="azure-active-directory-premium-editions" class="xliff"></a>
 
 Отчет о событиях входа, представляющих риск, в выпусках Azure Active Directory Premium предоставляет следующее.
 
@@ -112,7 +114,8 @@ Azure AD обнаруживает подозрительные действия
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 
 - Дополнительные сведения о защите идентификации Azure см. в статье [Защита идентификации Azure Active Directory](active-directory-identityprotection.md).
 
