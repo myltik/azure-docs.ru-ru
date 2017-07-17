@@ -199,10 +199,6 @@
 
 ### [События риска](active-directory-reporting-risk-events.md)
 
-### [Сохранение](active-directory-reporting-retention.md)
-
-### [Задержки](active-directory-reporting-latencies-azure-portal.md)
-
 ### [Часто задаваемые вопросы](active-directory-reporting-faq.md)
 
 ### Задачи
@@ -212,7 +208,15 @@
 #### [Поиск отчетов об активности](active-directory-reporting-migration.md)
 
 #### [Использование пакета содержимого Azure Active Directory Power BI](active-directory-reporting-power-bi-content-pack-how-to.md)
-  
+
+### Справочные материалы
+
+#### [Сохранение](active-directory-reporting-retention.md)
+
+#### [Задержки](active-directory-reporting-latencies-azure-portal.md)
+
+#### [Коды ошибок входа в систему](active-directory-reporting-activity-sign-ins-errors.md)
+
 ### Устранение неполадок
 
 #### [Отсутствующие данные аудита](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -416,6 +420,8 @@
 ##### [Удаленный рабочий стол](application-proxy-publish-remote-desktop.md)
 
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
+##### [Microsoft Teams](application-proxy-teams.md)
 
 #### [Устранение неполадок](active-directory-application-proxy-troubleshoot.md)
 
