@@ -1,5 +1,4 @@
 ---
-
 title: "Отчет системы безопасности о пользователях под угрозой на портале Azure Active Directory | Документация Майкрософт"
 description: "Описание отчета системы безопасности о пользователях под угрозой на портале Azure Active Directory."
 services: active-directory
@@ -11,17 +10,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/09/2017
 
-
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Отчет системы безопасности о пользователях под угрозой на портале Azure Active Directory
+# Отчет системы безопасности о пользователях под угрозой на портале Azure Active Directory
+<a id="users-at-risk-security-report-in-the-azure-active-directory-portal" class="xliff"></a>
 
 С помощью отчетов о безопасности в Azure Active Directory (Azure AD) можно получить ценную информацию о наличии скомпрометированных учетных записей пользователей в вашей среде. 
 
@@ -37,7 +37,8 @@ Azure Active Directory обнаруживает подозрительные д�
 
 ![События входа, представляющие риск](./media/active-directory-reporting-security-user-at-risk/10.png)
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Выпуски "Бесплатный" и "Базовый" Azure Active Directory
+## Выпуски "Бесплатный" и "Базовый" Azure Active Directory
+<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
 
 В выпусках "Бесплатный" и "Базовый" Azure Active Directory доступен список учетных записей пользователей, конфиденциальность которых могла быть нарушена. 
 
@@ -49,7 +50,8 @@ Azure Active Directory обнаруживает подозрительные д�
 
 ![События входа, представляющие риск](./media/active-directory-reporting-security-user-at-risk/46.png)
 
-## <a name="azure-active-directory-premium-editions"></a>Выпуски Azure Active Directory Premium
+## Выпуски Azure Active Directory Premium
+<a id="azure-active-directory-premium-editions" class="xliff"></a>
 
 Отчет о пользователях под угрозой в выпусках Azure Active Directory Premium предоставляет следующее.
 
@@ -86,7 +88,8 @@ Azure Active Directory обнаруживает подозрительные д�
 
 
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 
 - Дополнительные сведения о защите идентификации Azure см. в статье [Защита идентификации Azure Active Directory](active-directory-identityprotection.md).
 

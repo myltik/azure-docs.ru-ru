@@ -3,7 +3,7 @@ title: "Операции входа после нескольких сбоев"
 description: "Отчет, содержащий пользователей, которые успешно выполнили вход после нескольких последовательных неудачных попыток входа."
 services: active-directory
 documentationcenter: 
-author: SSalahAhmed
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: e4ec1a39-9c20-418f-8a75-6497d0117176
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2016
-ms.author: saah;kenhoff
-translationtype: Human Translation
+ms.date: 07/15/2017
+ms.author: markvi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: e55e0145adbdb1f41a8b8753d5555f20e96bf161
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
-# <a name="sign-ins-after-multiple-failures"></a>"Операции входа после нескольких неудачных попыток";
+# "Операции входа после нескольких неудачных попыток";
+<a id="sign-ins-after-multiple-failures" class="xliff"></a>
 В этом отчете указываются пользователи, которые успешно выполнили вход после нескольких последовательных неудачных попыток входа. Возможные причины:
 
 * пользователь забыл свой пароль;</li><li>пользователь стал жертвой успешной атаки методом подбора пароля.
@@ -30,10 +32,5 @@ ms.openlocfilehash: e55e0145adbdb1f41a8b8753d5555f20e96bf161
 **Параметры отчетов**: можно настроить минимальное количество последовательных неудачных попыток входа, которые должны произойти, прежде чем это можно будет отобразить в отчете. При изменении этого параметра следует помнить, что эти изменения не будут применяться к неудачным попыткам входа, которые уже отображаются в текущем отчете. Тем не менее, они будут применяться ко всем будущим попыткам входа. Вносить изменения в этот отчет могут только лицензированные администраторы.
 
 ![Операции входа после нескольких сбоев](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

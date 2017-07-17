@@ -1,5 +1,4 @@
 ---
-
 title: "Как использовать пакет содержимого Azure Active Directory Power BI | Документация Майкрософт"
 description: "Узнайте, как использовать пакет содержимого Azure Active Directory Power BI"
 services: active-directory
@@ -11,27 +10,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: ab95f61e2d88f82bf2b24aea786c7dbadfb9c0fe
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/23/2017
 
-
 ---
-<a id="how-to-use-the-azure-active-directory-power-bi-content-pack" class="xliff"></a>
-
 # Как использовать пакет содержимого Azure Active Directory Power BI
+<a id="how-to-use-the-azure-active-directory-power-bi-content-pack" class="xliff"></a>
 
 Вам, как ИТ-администратору, важно знать, как ваши пользователи внедряют и используют возможности Azure Active Directory. Это позволит вам планировать ИТ-инфраструктуру и обмен данными, чтобы возможности AAD использовались чаще и более эффективно. Пакет содержимого Power BI для Azure Active Directory поможет вам понять, как использовать ваши данные для анализа происходящего в Azure Active Directory, включая сведения о работе разных важных компонентов.  Благодаря интеграции API Azure Active Directory в Power BI, вы можете легко скачивать готовые пакеты содержимого и анализировать все действия в Azure Active Directory с помощью разных средств визуализации Power BI. Вы можете создавать собственные панели мониторинга и легко предоставлять к ним доступ любому пользователю в организации. 
 
 Эта статья содержит пошаговые инструкции по установке и использованию пакета содержимого в вашей среде.
 
-<a id="installation" class="xliff"></a>
-
-## Установка  
+## Установка
+<a id="installation" class="xliff"></a>  
 
 **Установка пакета содержимого Power BI**
 
@@ -72,15 +69,13 @@ ms.lasthandoff: 06/23/2017
  
     ![Пакет содержимого Azure Active Directory Power BI](./media/active-directory-reporting-power-bi-content-pack-how-to/08.png) 
 
-<a id="what-can-i-do-with-this-content-pack" class="xliff"></a>
-
 ## Что можно сделать с помощью этого пакета содержимого?
+<a id="what-can-i-do-with-this-content-pack" class="xliff"></a>
 
 Прежде чем рассмотреть возможности этого пакета содержимого, ознакомьтесь с предварительной версией различных отчетов в пакете содержимого. Данные отчета содержат сведения за **последние 30 дней**.
 
-<a id="reports-included-in-this-version-of-azure-active-directory-logs-content-pack" class="xliff"></a>
-
 ### Отчеты, включенные в эту версию пакета содержимого журналов Azure Active Directory
+<a id="reports-included-in-this-version-of-azure-active-directory-logs-content-pack" class="xliff"></a>
 
 **Отчет об использовании и отчет о тенденциях.** Получите подробные сведения о приложениях, используемых в вашей организации, например, какие используются чаще и когда они используются. С помощью этого отчета можно собрать сведения об использовании приложения, которое вы недавно развернули в организации, или узнать, какие приложения используются часто. Таким образом, вы можете улучшить использование, если видите, что приложение не используется.
 
@@ -105,9 +100,8 @@ ms.lasthandoff: 06/23/2017
 
 **Воронка SSPR.** Узнайте, как в вашей организации используется функция сброса пароля. Узнайте, сколько попыток сброса пароля предпринято с помощью средства SSPR и сколько из них были успешными. Получите подробную информацию о сбоях во время сброса пароля с помощью воронки SSPR, чтобы проанализировать причины конкретных сбоев. Этот отчет содержит подробные сведения о том, как средство SSPR используется в вашей организации. Эти сведения помогут вам принимать правильные решения.
 
-<a id="customizing-azure-ad-activity-content-pack" class="xliff"></a>
-
 ## Настройка пакета содержимого действий Azure AD
+<a id="customizing-azure-ad-activity-content-pack" class="xliff"></a>
 
 **Изменение визуализации.** Чтобы изменить визуализацию отчетов, нажмите кнопку **Изменить отчет** и выберите нужную визуализацию.
  
@@ -135,17 +129,15 @@ ms.lasthandoff: 06/23/2017
 
 
 
-<a id="scheduling-a-daily-refresh-of-your-power-bi-report" class="xliff"></a>
-
 ## Планирование ежедневного обновления отчета Power BI
+<a id="scheduling-a-daily-refresh-of-your-power-bi-report" class="xliff"></a>
 
 Чтобы запланировать ежедневное обновление отчета Power BI, откройте последовательно элементы **Наборы данных > Параметры > Запланировать обновление** и настройте обновление, как показано ниже.
  
 ![Пакет содержимого Azure Active Directory Power BI](./media/active-directory-reporting-power-bi-content-pack-how-to/15.png) 
 
-<a id="updating-to-newer-version-of-content-pack" class="xliff"></a>
-
 ## Обновление до новой версии пакета содержимого
+<a id="updating-to-newer-version-of-content-pack" class="xliff"></a>
 
 Если вы хотите обновить пакет содержимого, выполните следующие действия.
 
@@ -157,9 +149,8 @@ ms.lasthandoff: 06/23/2017
 
 Как только новая версия пакета содержимого заработает, можно при необходимости удалить старую версию. Для этого нужно удалить базовые отчеты и наборы данных, связанные со старым пакетом содержимого.
 
-<a id="still-having-issues" class="xliff"></a>
-
-## Возникли проблемы? 
+## Возникли проблемы?
+<a id="still-having-issues" class="xliff"></a> 
 
 См. [руководство по устранению неполадок](active-directory-reporting-troubleshoot-content-pack.md). Общие сведения о Power BI см. в [справочных статьях](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/).
  
