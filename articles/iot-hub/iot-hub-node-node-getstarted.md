@@ -1,6 +1,6 @@
 ---
 title: "Приступая к работе с Центром Интернета вещей Azure (Node) | Документация Майкрософт"
-description: "Как отправлять сообщения, отправляемые с устройства в облако, с устройства в Центр Интернета вещей Azure, используя пакеты SDK для Центра Интернета вещей Azure для Node.js. Вы создадите приложение имитации устройства для отправки сообщений, а также приложение службы для регистрации устройства в реестре удостоверений и чтения сообщений, отправляемых с устройства в облако, из Центра Интернета вещей."
+description: "Узнайте, как отправлять сообщения из устройства на облако в Центр Интернета вещей Azure с помощью пакетов SDK Интернета вещей для Node.js. Создайте виртуальное устройство и приложения службы для регистрации устройства, отправки сообщений и чтения сообщений из Центра Интернета вещей."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: b04fe441cf83ed616b0464eec83a6caf3a449532
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 3df643a517250d85200a887f5c4e62ed6c66c9c4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Подключение виртуального устройства к Центру Интернета вещей с помощью Node

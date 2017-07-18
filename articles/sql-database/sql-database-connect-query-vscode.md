@@ -18,10 +18,10 @@ ms.topic: hero-article
 ms.date: 06/20/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: ca0b1dc8fdf13112510574741a319f0fbebadf93
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4076b1e7ab3a70009217a1deff72da4bff0dc871
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -61,7 +61,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 Специальная настройка не требуется.
 
-## <a name="get-connection-information"></a>Получение сведений о подключении
+## <a name="sql-server-connection-information"></a>Сведения о подключении SQL Server
 
 Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
 
@@ -69,7 +69,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
 3. На странице **Обзор** базы данных просмотрите полное имя сервера, как показано на следующем рисунке. Вы можете навести указатель мыши на имя сервера, чтобы отобразился пункт **Щелкните, чтобы скопировать**.
 
-   ![Сведения о подключении](./media/sql-database-get-started-portal/server-name.png) 
+   ![Сведения о подключении](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Если вы забыли данные для входа на сервер базы данных SQL Azure, перейдите к соответствующей странице, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль. 
 

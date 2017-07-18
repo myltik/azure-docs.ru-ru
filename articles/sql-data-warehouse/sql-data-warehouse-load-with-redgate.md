@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
 ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 07/11/2017
 
 
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 01/24/2017
 ![][1]
 
 ## <a name="step-3-install-the-data-platform-studio-gateway"></a>Шаг 3. Установка шлюза Data Platform Studio
-Чтобы подключиться к локальной базе данных SQL Server, необходимо установить шлюз DPS. Шлюз — это агент клиента, который обеспечивает доступ к локальной среде, извлекает данные и отправляет их в учетную запись хранения. Данные никогда не проходят через серверы Redgate. Чтобы установить шлюз, выполните следующее:
+Чтобы подключиться к локальной базе данных SQL Server, необходимо установить шлюз DPS. Шлюз — это агент клиента, который обеспечивает доступ к локальной среде, извлекает данные и отправляет их в учетную запись хранения. Данные никогда не проходят через серверы Redgate. Чтобы установить шлюз, выполните следующее:
 
 1. Щелкните ссылку **Create Gateway** (Создать шлюз).
 2. Скачайте и установите шлюз с помощью предоставленного установщика.

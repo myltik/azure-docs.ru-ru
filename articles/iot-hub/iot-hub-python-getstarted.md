@@ -1,6 +1,6 @@
 ---
 title: "Приступая к работе с Центром Интернета вещей Azure (Python) | Документация Майкрософт"
-description: "В этой статье описывается, как отправлять сообщения из виртуального устройства в Центр Интернета вещей Azure с помощью пакетов SDK для Python."
+description: "Узнайте, как отправлять сообщения из устройства на облако в Центр Интернета вещей Azure с помощью пакетов SDK Интернета вещей для Python. Создайте виртуальное устройство и приложения службы для регистрации устройства, отправки сообщений и чтения сообщений из Центра Интернета вещей."
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -13,12 +13,11 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 572dfc8965957c4667d4124b045ffbb835786a94
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 05268924a182575b3df66fb6dad6bcac2700ec0c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Подключение виртуального устройства к Центру Интернета вещей с помощью Python

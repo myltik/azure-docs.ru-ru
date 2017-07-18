@@ -17,19 +17,18 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e74c5428f0e31d9d3cf06b85aa8cefde868e9d67
-ms.lasthandoff: 03/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 2cd5a08cc74473be594fc3c7a4fb934d65ffe0ab
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/12/2017
 
 ---
 
 # <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Создание частного реестра контейнеров Docker с помощью портала Azure
-На портале Azure можно создать реестр контейнеров и управлять его параметрами. Кроме того, эти действия можно выполнять с помощью [команд Azure CLI 2.0](container-registry-get-started-azure-cli.md) или программным образом с помощью [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) реестра контейнеров.
+На портале Azure можно создать реестр контейнеров и управлять его параметрами. Кроме того, эти действия можно выполнять с помощью [команд Azure CLI 2.0](container-registry-get-started-azure-cli.md), [Azure PowerShell](container-registry-get-started-powershell.md) или программным образом с помощью [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) реестра контейнеров.
 
 См. дополнительные сведения в [этом обзоре](container-registry-intro.md).
-
-
 
 ## <a name="create-a-container-registry"></a>Создание реестра контейнеров
 1. На [портале Azure](https://portal.azure.com) нажмите кнопку **+ Создать**.

@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: b28488ac9037b0f0ff7df892b9c3a61167b1eceb
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/11/2017
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Потоковая трансляция с помощью локальных кодировщиков c использованием портала Azure
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Потоковая трансляция с помощью локальных кодировщиков c использованием портала Azure
 > [!div class="op_single_selector"]
 > * [Портал](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -43,7 +45,7 @@ ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
 * [Общие сведения о динамической потоковой передаче с использованием служб мультимедиа Azure](media-services-manage-channels-overview.md)
 * [Потоковая трансляция с помощью локальных кодировщиков, создающих потоки с разными скоростями](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Стандартный сценарий потоковой передачи в режиме реального времени
+## <a id="scenario"></a>Стандартный сценарий потоковой передачи в режиме реального времени
 Далее описаны задачи, связанные с созданием стандартных приложений для потоковой трансляции, которые используют каналы, настроенные для сквозной доставки. В этом руководстве показано, как создавать сквозные каналы и интерактивные события, а также управлять ими.
 
 >[!NOTE]
@@ -102,7 +104,7 @@ ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
 
 Дополнительные сведения об этих каналах см. в статье [Потоковая трансляция с помощью локальных кодировщиков, создающих потоки с разными скоростями](media-services-live-streaming-with-onprem-encoders.md).
 
-1. Создание учетной записи служб мультимедиа Azure с помощью [портала Azure](https://portal.azure.com/).
+1. Создание учетной записи служб мультимедиа Azure с помощью [портале Azure](https://portal.azure.com/).
 2. В окне **Параметры** щелкните элемент **Потоковая трансляция**. 
    
     ![Приступая к работе](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
@@ -153,10 +155,5 @@ ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

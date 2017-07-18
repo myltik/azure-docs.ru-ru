@@ -1,6 +1,6 @@
 ---
-title: "Обзор возможностей ExpressRoute. Расширение локальной сети в Azure с использованием выделенного частного подключения | Документация Майкрософт"
-description: "В этом техническом обзоре возможностей ExpressRoute показано, как работает подключение ExpressRoute при расширении локальной сети в Azure через выделенное частное подключение."
+title: "Обзор возможностей ExpressRoute. Расширение локальной сети в Azure с использованием частного подключения | Документация Майкрософт"
+description: "В этом техническом обзоре возможностей ExpressRoute показано, как работает подключение ExpressRoute при расширении локальной сети в Azure через частное подключение."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/05/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: a36fce44efb3c32f83f33b19d2bca5ad73782a1b
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: d1e513933ea647a1afe9a4eb214bb9216d3bb20a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="expressroute-overview"></a>Обзор ExpressRoute
-Microsoft Azure ExpressRoute позволяет переносить локальные сети в облако Microsoft по выделенному закрытому соединению, которое обеспечивается поставщиком услуг подключения. ExpressRoute позволяет устанавливать подключения к облачным службам Майкрософт, таким как Microsoft Azure, Office 365 и Dynamics 365.
+Microsoft Azure ExpressRoute позволяет переносить локальные сети в облако Microsoft по частному подключению, которое обеспечивается поставщиком услуг подключения. ExpressRoute позволяет устанавливать подключения к облачным службам Майкрософт, таким как Microsoft Azure, Office 365 и Dynamics 365.
 
 Это может быть подключение типа "любой к любому" (IP VPN), подключение Ethernet типа "точка-точка" или виртуальное кросс-подключение через поставщика услуг подключения на совместно используемом сервере. Подключения ExpressRoute не проходят через общедоступный Интернет. Это обеспечивает повышенный уровень безопасности, надежности и быстродействия подключений ExpressRoute и более низкий уровень задержки по сравнению с типовыми подключениями через Интернет. Сведения о том, как подключить сеть к облаку Майкрософт с помощью ExpressRoute, см. в статье [Модели подключения ExpressRoute](expressroute-connectivity-models.md).
 

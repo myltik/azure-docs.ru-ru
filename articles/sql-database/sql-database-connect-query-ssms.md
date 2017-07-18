@@ -18,22 +18,18 @@ ms.topic: hero-article
 ms.date: 05/26/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 29883e37f1f506f33f44cf02dbf08221274e109d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2835a72fc90d1fd39af73c6907648908e5d9fdeb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-<a id="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data" class="xliff"></a>
-
-# Подключайтесь к базе данных Azure SQL и создавайте запросы к ней с помощью SQL Server Management Studio
+# <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Подключайтесь к базе данных Azure SQL и создавайте запросы к ней с помощью SQL Server Management Studio
 
 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) — это интегрированная среда для управления любой инфраструктурой SQL, от SQL Server до базы данных SQL для Microsoft Windows. В этом кратком руководстве показано, как использовать SSMS для подключения к базе данных Azure SQL, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных. 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 
 Начальной точкой в руководстве являются ресурсы, созданные в одном из этих кратких руководств:
 
@@ -43,9 +39,7 @@ ms.lasthandoff: 06/28/2017
 
 Перед началом работы установите последнюю версию [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Получение сведений о подключении
+## <a name="sql-server-connection-information"></a>Сведения о подключении SQL Server
 
 Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
 
@@ -53,13 +47,11 @@ ms.lasthandoff: 06/28/2017
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
 3. На странице **Обзор** базы данных просмотрите полное имя сервера, как показано на рисунке ниже. Вы можете навести указатель мыши на имя сервера, чтобы отобразился пункт **Щелкните, чтобы скопировать**.
 
-   ![Сведения о подключении](./media/sql-database-get-started-portal/server-name.png) 
+   ![Сведения о подключении](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Если вы забыли данные для входа на сервер базы данных SQL Azure, перейдите к соответствующей странице, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль. 
 
-<a id="connect-to-your-database" class="xliff"></a>
-
-## Подключение к базе данных
+## <a name="connect-to-your-database"></a>Подключение к базе данных
 
 Используйте SQL Server Management Studio для подключения к серверу базы данных SQL Azure. 
 
@@ -91,9 +83,7 @@ ms.lasthandoff: 06/28/2017
 
 5. В обозревателе объектов разверните **базы данных**, затем выберите **mySampleDatabase**, чтобы просмотреть объекты в образце базы данных.
 
-<a id="query-data" class="xliff"></a>
-
-## Запрос данных
+## <a name="query-data"></a>Запрос данных
 
 Используйте следующий код, чтобы запросить 20 основных продуктов из категории с помощью инструкции [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL.
 
@@ -111,9 +101,7 @@ ms.lasthandoff: 06/28/2017
 
     ![query](./media/sql-database-connect-query-ssms/query.png)
 
-<a id="insert-data" class="xliff"></a>
-
-## Добавление данных
+## <a name="insert-data"></a>Добавление данных
 
 Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product с помощью инструкции [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL.
 
@@ -143,9 +131,7 @@ ms.lasthandoff: 06/28/2017
 
     <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
 
-<a id="update-data" class="xliff"></a>
-
-## Обновление данных
+## <a name="update-data"></a>Обновление данных
 
 Используйте следующий код, чтобы обновить новый продукт, добавленный ранее, с помощью инструкции [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL.
 
@@ -161,9 +147,7 @@ ms.lasthandoff: 06/28/2017
 
     <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
 
-<a id="delete-data" class="xliff"></a>
-
-## Удаление данных
+## <a name="delete-data"></a>Удаление данных
 
 Используйте следующий код, чтобы удалить новый продукт, добавленный ранее, с помощью инструкции [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL.
 
@@ -178,9 +162,7 @@ ms.lasthandoff: 06/28/2017
 
     <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 - См. дополнительные сведения о [создании и администрировании серверов и баз данных с помощью Transact-SQL](sql-database-servers-databases.md).
 - Дополнительные сведения о решении SSMS см. в статье об [использовании SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).

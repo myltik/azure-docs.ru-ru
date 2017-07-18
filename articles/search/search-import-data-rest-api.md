@@ -1,5 +1,5 @@
 ---
-title: "Отправка данных в службу поиска Azure с помощью REST API | Документация Майкрософт"
+title: "Отправка данных в службу поиска Azure c помощью REST API | Документация Майкрософт"
 description: "Узнайте, как отправлять данные в индекс службы поиска Azure с помощью REST API."
 services: search
 documentationcenter: 
@@ -15,9 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -179,9 +181,4 @@ ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Заполнив индекс службы поиска Azure, вы можете приступать к отправке запросов на поиск документов. Дополнительные сведения см. в статье [Запросы в службе поиска Azure](search-query-overview.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
