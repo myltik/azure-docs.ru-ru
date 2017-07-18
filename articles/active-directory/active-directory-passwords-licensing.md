@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -22,16 +22,17 @@ ms.openlocfilehash: 3ed13c819f8e32cab44013cdcbf1b3a921ba98b8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
 
-
 ---
-# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Требования к лицензированию самостоятельного сброса пароля в Azure AD
+# Требования к лицензированию самостоятельного сброса пароля в Azure AD
+<a id="licensing-requirements-for-azure-ad-self-service-password-reset" class="xliff"></a>
 
 Для работы функции сброса пароля Azure AD **в вашей организации должна быть назначена по крайней мере одна лицензия**. Лицензирование каждого пользователя при сбросе пароля необязательно. Для соблюдения лицензионного соглашения Майкрософт вам необходимо назначить лицензии для всех пользователей, которые используют функции уровня "Премиум".
 
 * **Полностью облачные пользователи.** Любой платный номер SKU Office 365 (O365) или Azure AD Basic.
 * **Облачные пользователи** или **локальные пользователи.** Azure AD Premium P1 или P2, Enterprise Mobility + Security (EMS) или Secure Productive Enterprise (SPE).
 
-## <a name="licenses-required-for-password-writeback"></a>Лицензии, необходимые для компонента обратной записи паролей
+## Лицензии, необходимые для компонента обратной записи паролей
+<a id="licenses-required-for-password-writeback" class="xliff"></a>
 
 Чтобы использовать компонент обратной записи паролей, в клиенте должна быть назначена одна из приведенных ниже лицензий.
 
@@ -51,13 +52,15 @@ ms.lasthandoff: 05/03/2017
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security).
 * [Secure Productive Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx).
 
-## <a name="enable-group-or-user-based-licensing"></a>Включение группового и пользовательского лицензирования
+## Включение группового и пользовательского лицензирования
+<a id="enable-group-or-user-based-licensing" class="xliff"></a>
 
 Теперь Azure AD поддерживает групповое лицензирование, позволяющее администратору назначать лицензии группе пользователей в пакетном режиме, вместо назначения их по одной. [Назначение лицензий группе пользователей в Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)
 
 Некоторые службы Майкрософт недоступны во всех расположениях. Прежде чем назначать лицензию, администратор должен указать для пользователя свойство "Место использования". Назначить лицензию можно на портале Azure в разделе "Пользователь > Профиль > Параметры". **Если лицензии назначаются группам, все пользователи, для которых не указано расположение, наследуют расположение каталога.**
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
+<a id="next-steps" class="xliff"></a>
 
 Дополнительные сведения о сбросе пароля с помощью Azure AD см. в следующих источниках:
 

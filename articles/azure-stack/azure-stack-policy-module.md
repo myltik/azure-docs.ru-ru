@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/9/2017
 ms.author: helaw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 7a3949a2036b12f4bd09b63a2ce10613f887e920
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/28/2017
 
-
 ---
-# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Manage Azure policy using the Azure Stack Policy Module
+# Manage Azure policy using the Azure Stack Policy Module
+<a id="manage-azure-policy-using-the-azure-stack-policy-module" class="xliff"></a>
 The Azure Stack Policy module allows you to configure an Azure subscription with the same versioning and service availability as Azure Stack.  The module uses the **New-AzureRMPolicyAssignment** cmdlet to create an Azure policy, which limits the resource types and services available in a subscription.  Once complete, you can use your Azure subscription to develop apps for Azure Stack.  
 
-## <a name="install-the-module"></a>Install the module
+## Install the module
+<a id="install-the-module" class="xliff"></a>
 1. Install the required version of the AzureRM PowerShell module, as described in Step1 of [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).   
 2. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md)  
 3. [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure.md)
@@ -32,10 +34,11 @@ The Azure Stack Policy module allows you to configure an Azure subscription with
 4. Import the AzureStack.Policy.psm1 module:
 
    ```PowerShell
-   import-module .\Policy\AzureStack.Policy.psm1
+   Import-Module .\Policy\AzureStack.Policy.psm1
    ```
 
-## <a name="apply-policy-to-subscription"></a>Apply policy to subscription
+## Apply policy to subscription
+<a id="apply-policy-to-subscription" class="xliff"></a>
 The following command can be used to apply a default Azure Stack policy against your Azure subscription. Before running, replace *Azure Subscription Name* with your Azure subscription.
 
 ```PowerShell
@@ -47,7 +50,8 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ```
 
-## <a name="apply-policy-to-a-resource-group"></a>Apply policy to a resource group
+## Apply policy to a resource group
+<a id="apply-policy-to-a-resource-group" class="xliff"></a>
 You may want to apply policies in a more granular method.  As an example, you may have other resources running in the same subscription.  You can scope the policy application to a specific resource group, which lets you test your apps for Azure Stack using Azure resources. Before running, replace *Azure Subscription Name* with your Azure subscription name.
 
 ```PowerShell
@@ -58,12 +62,14 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ```
 
-## <a name="policy-in-action"></a>Policy in action
+## Policy in action
+<a id="policy-in-action" class="xliff"></a>
 Once you've deployed the Azure policy, you receive an error when you try to deploy a resource that prohibited by policy.  
 
 ![Result of resource deployment failure because of policy constraint](./media/azure-stack-policy-module/image1.png)
 
-## <a name="next-steps"></a>Next steps
+## Next steps
+<a id="next-steps" class="xliff"></a>
 [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
 
 [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
