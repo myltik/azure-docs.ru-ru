@@ -20,18 +20,13 @@ ms.openlocfilehash: 8a5d0c60e101f4038dff6f76c8f23dbb2b44661c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
-<a id="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure" class="xliff"></a>
-
-# Создание API RESTful Node.js и его развертывание в приложении API в Azure
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Создание API RESTful Node.js и его развертывание в приложении API в Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 В этом кратком руководстве описано, как создать интерфейс API REST Node.js на платформе [Экспресс](http://expressjs.com/), используя определение [Swagger](http://swagger.io/), а затем развернуть его в Azure как [приложение API](app-service-api-apps-why-best-platform.md). Вы научитесь создавать приложения, используя программы командной строки, настраивать ресурсы в [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) и развертывать приложения с помощью Git.  Завершив работу, вы получите рабочий образец REST API в Azure.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 
 * [Git.](https://git-scm.com/)
 * [Node.js и NPM](https://nodejs.org/)
@@ -42,9 +37,7 @@ ms.lasthandoff: 06/28/2017
 
 Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="prepare-your-environment" class="xliff"></a>
-
-## Подготовка среды
+## <a name="prepare-your-environment"></a>Подготовка среды
 
 1. В окне терминала выполните следующую команду для клонирования образца на локальный компьютер.
 
@@ -65,9 +58,7 @@ ms.lasthandoff: 06/28/2017
     npm install -g generator-swaggerize
     ```
 
-<a id="generate-nodejs-code" class="xliff"></a>
-
-## Создание кода Node.js 
+## <a name="generate-nodejs-code"></a>Создание кода Node.js 
 
 В этом разделе руководства моделируется рабочий процесс разработки API, в котором сначала создаются метаданные Swagger, а затем они используются при формировании (автоматическом создании) серверного кода для API. 
 
@@ -89,9 +80,7 @@ ms.lasthandoff: 06/28/2017
    ? Your email: frank@fabrikam.net
    ```
    
-<a id="customize-the-project-code" class="xliff"></a>
-
-## Настройка кода проекта
+## <a name="customize-the-project-code"></a>Настройка кода проекта
 
 1. Скопируйте папку *lib* в папку *ContactList*, созданную с помощью `yo swaggerize`, затем перейдите в каталог *ContactList*.
 
@@ -149,6 +138,9 @@ ms.lasthandoff: 06/28/2017
     var swaggerize = require('swaggerize-express');
     var swaggerUi = require('swaggerize-ui'); 
     var path = require('path');
+    var fs = require("fs");
+    
+    fs.existsSync = fs.existsSync || require('path').existsSync;
 
     var app = express();
 
@@ -173,9 +165,7 @@ ms.lasthandoff: 06/28/2017
 
     Этот код вносит небольшие изменения, обеспечивая поддержку службы приложений Azure и предоставляя интерактивный веб-интерфейс для API.
 
-<a id="test-the-api-locally" class="xliff"></a>
-
-### Локальное тестирование API
+### <a name="test-the-api-locally"></a>Локальное тестирование API
 
 1. Настройка приложения Node.js
     ```bash
@@ -239,9 +229,7 @@ ms.lasthandoff: 06/28/2017
 5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 
-<a id="deploy-the-api-with-git" class="xliff"></a>
-
-## Развертывание API с помощью Git
+## <a name="deploy-the-api-with-git"></a>Развертывание API с помощью Git
 
 Разверните код в приложении API, отправив фиксации из локального репозитория Git в службу приложений Azure.
 
@@ -268,9 +256,7 @@ ms.lasthandoff: 06/28/2017
 
 5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
-<a id="test-the-api--in-azure" class="xliff"></a>
-
-## Тестирование API в Azure
+## <a name="test-the-api--in-azure"></a>Тестирование API в Azure
 
 1. Откройте в браузере страницу http://app_name.azurewebsites.net/contacts. Как видите, мы получаем тот же JSON-файл, что и ранее при создании локального запроса в рамках этого руководства.
 
@@ -298,9 +284,7 @@ ms.lasthandoff: 06/28/2017
 
     Теперь можно развернуть обновления примера API в Azure. Для этого достаточно отправить фиксации в репозиторий Azure Git.
 
-<a id="clean-up" class="xliff"></a>
-
-## Очистка
+## <a name="clean-up"></a>Очистка
 
 Чтобы удалить ресурсы, созданные в ходе работы с этим руководством, выполните следующую команду Azure CLI:
 
@@ -308,9 +292,7 @@ ms.lasthandoff: 06/28/2017
 az group delete --name myResourceGroup
 ```
 
-<a id="next-step" class="xliff"></a>
-
-## Дальнейшие действия 
+## <a name="next-step"></a>Дальнейшие действия 
 > [!div class="nextstepaction"]
 > [Использование приложения API из JavaScript с помощью CORS](app-service-api-cors-consume-javascript.md)
 

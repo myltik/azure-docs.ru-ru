@@ -1,5 +1,4 @@
 ---
-
 title: "Приступая к интеграции Azure AD с приложениями | Документация Майкрософт"
 description: "Эта статья представляет собой вводное руководство по интеграции Azure Active Directory (AD) с локальными приложениями и облачными приложениями."
 services: active-directory
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
+ms.reviewer: asteen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 54e6bf0953135855d4dda2bc83c8dc06212c6eb5
 ms.openlocfilehash: 6b3f6889c747e72ee1c592b1b0dfb1d03d700ad3
 ms.contentlocale: ru-ru
 ms.lasthandoff: 02/03/2017
-
 
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Руководство по интеграции Azure Active Directory с приложениями
