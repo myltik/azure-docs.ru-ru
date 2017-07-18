@@ -20,7 +20,6 @@ ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Приступая к работе с Azure Multi-Factor Authentication в облаке
 В этой статье вы узнаете, как приступить к работе с многофакторной идентификацией Azure в облаке.
@@ -78,24 +77,28 @@ ms.lasthandoff: 04/27/2017
 
 Для массового включения пользователей можно использовать PowerShell. В настоящее время на портале Azure невозможно массово включать пользователей и необходимо выбирать каждого пользователя отдельно. Это может быть сложной задачей, если у вас много пользователей. Создав скрипт PowerShell с помощью кода ниже, можно перебрать список пользователей и включить их.
 
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = “Enabled”
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+```PowerShell
+
+$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+$st.RelyingParty = "*"
+$st.State = "Enabled"
+$sta = @($st)
+Set-MsolUser -UserPrincipalName "bsimon@contoso.com" -StrongAuthenticationRequirements $sta
+```
 
 Пример:
 
-    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-    foreach ($user in $users)
-    {
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = “Enabled”
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-    }
-
+```Powershell
+$users = @("bsimon@contoso.com", "jsmith@contoso.com", "ljacobson@contoso.com")
+foreach ($user in $users)
+{
+   $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+   $st.RelyingParty = "*"
+   $st.State = "Enabled"
+   $sta = @($st)
+   Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+}
+```
 
 Дополнительные сведения см. в статье [Состояния пользователей в многофакторной идентификации Azure](multi-factor-authentication-get-started-user-states.md).
 

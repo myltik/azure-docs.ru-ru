@@ -1,8 +1,8 @@
 ---
 title: "Расширенное автомасштабирование с помощью виртуальных машин Azure | Документация Майкрософт"
 description: "Использование Resource Manager и Масштабируемых наборов ВМ с несколькими правилами и профилями, которые отправляют сообщения электронной почты и вызывают URL-адреса объектов webhook с действиями масштабирования."
-author: kamathashwin
-manager: carmonm
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
-ms.author: ashwink
+ms.author: ancav
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 6f1234381a6aad9632d88825aab1a5bf304a20fb
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/10/2017
-
 
 ---
 

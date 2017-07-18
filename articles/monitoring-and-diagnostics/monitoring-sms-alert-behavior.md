@@ -2,7 +2,7 @@
 title: "Поведение SMS-оповещений в группе действий | Документация Майкрософт"
 description: "Описывается формат SMS-сообщений и то, как отвечать на SMS-сообщения, чтобы отменить подписку, повторно подписаться или запросить справку."
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 10f33898fb86bd2449994a153d99cb59dc6078d6
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Поведение SMS-оповещений в группе действий

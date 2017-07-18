@@ -1,8 +1,8 @@
 ---
 title: "Обзор метрик в Microsoft Azure | Документация Майкрософт"
 description: "Обзор метрик и их использования в Microsoft Azure"
-author: kamathashwin
-manager: carmonm
+author: johnkemnetz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
-ms.author: ashwink
-translationtype: Human Translation
+ms.author: johnkem
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
 ms.openlocfilehash: 86e025f9211a1d7ed07e831b7ce4c21be351513b
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/09/2017
 
 ---

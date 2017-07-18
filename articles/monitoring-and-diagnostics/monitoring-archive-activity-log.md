@@ -2,7 +2,7 @@
 title: "Архивация журнала действий Azure | Документация Майкрософт"
 description: "Узнайте, как настроить архивацию журнала действий Azure для долгосрочного хранения в учетной записи хранения."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaa162df8a6cd60cb174242e6a353439f2da58b4
 ms.openlocfilehash: eb3a0ad811a4286df1bac963904bd9154c0ccfa3
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/10/2016
 
 ---
 # <a name="archive-the-azure-activity-log"></a>Архивация журнала действий Azure
@@ -167,10 +168,5 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 * [Скачивание больших двоичных объектов для анализа](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [Потоковая передача журнала действий в концентраторы событий](monitoring-stream-activity-logs-event-hubs.md)
 * [Дополнительные сведения о журнале действий](monitoring-overview-activity-logs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

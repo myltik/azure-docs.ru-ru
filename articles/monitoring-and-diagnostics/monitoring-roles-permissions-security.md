@@ -2,7 +2,7 @@
 title: "Приступая к работе с ролями, разрешениями и системой безопасности с помощью Azure Monitor | Документация Майкрософт"
 description: "Узнайте, как использовать встроенные роли и разрешения Azure Monitor для ограничения доступа к ресурсам мониторинга."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Приступая к работе с ролями, разрешениями и системой безопасности с помощью Azure Monitor
@@ -169,10 +170,5 @@ New-AzureRmRoleDefinition -Role $role
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Прочитайте о RBAC и разрешениях в Resource Manager](../active-directory/role-based-access-control-what-is.md)
 * [Прочитайте общие сведения о мониторинге в Azure](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

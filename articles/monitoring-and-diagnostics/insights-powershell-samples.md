@@ -2,7 +2,7 @@
 title: "Примеры для быстрого запуска Azure Monitor с помощью PowerShell. | Документация Майкрософт"
 description: "Используйте PowerShell для доступа к функциям Azure Monitor, например автоматическому масштабированию, оповещениям, объектам webhook и поиску в журналах действий."
 author: kamathashwin
-manager: carolz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 8165147d9ff811b26f7fe2626c892f2aba5bb4f8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Примеры для быстрого запуска Azure Monitor с помощью PowerShell
