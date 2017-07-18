@@ -14,19 +14,17 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/25/2017
+ms.date: 07/05/2017
 ms.author: rachelap, glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 64769458ad90f14c2f7a87b9a405b80616a478be
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d539dd51834e935f9c5f7a6be42011ffe9e0870
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-<a id="create-your-first-function-using-visual-studio" class="xliff"></a>
-
-# Создание первой функции с помощью Visual Studio 
+# <a name="create-your-first-function-using-visual-studio"></a>Создание первой функции с помощью Visual Studio 
 
 Функции Azure позволяют вам выполнять свой код в бессерверной среде без необходимости создавать виртуальную машину или публиковать веб-приложение. 
 
@@ -34,9 +32,7 @@ ms.lasthandoff: 06/28/2017
 
 ![Код функций Azure в проекте Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 
 Для работы с этим руководством установите следующие компоненты.
 
@@ -46,25 +42,19 @@ ms.lasthandoff: 06/28/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-<a id="install-azure-functions-tools-for-visual-studio-2017" class="xliff"></a>
-
-## Установка инструментов функций Azure для Visual Studio 2017
+## <a name="install-azure-functions-tools-for-visual-studio-2017"></a>Установка инструментов функций Azure для Visual Studio 2017
 
 Перед началом работы скачайте и установите инструменты функций Azure для Visual Studio 2017. Эти инструменты могут использоваться только с Visual Studio 2017 (предварительная версия 15.3) или более поздней версией. Если вы уже установили инструменты функций Azure, этот раздел можно пропустить.
 
 [!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)]   
 
-<a id="create-an-azure-functions-project-in-visual-studio" class="xliff"></a>
-
-## Создание проекта функций Azure в Visual Studio
+## <a name="create-an-azure-functions-project-in-visual-studio"></a>Создание проекта функций Azure в Visual Studio
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 После создания проекта можно приступать к созданию первой функции.
 
-<a id="create-the-function" class="xliff"></a>
-
-## Создание функции
+## <a name="create-the-function"></a>Создание функции
 
 Щелкните правой кнопкой мыши узел проекта в **обозревателе решений** и выберите **Добавить** > **Новый элемент**. Выберите **Функция Azure** и нажмите кнопку **Добавить**.
 
@@ -74,9 +64,7 @@ ms.lasthandoff: 06/28/2017
 
 Созданную функцию, активируемую HTTP, можно протестировать на локальном компьютере.
 
-<a id="test-the-function-locally" class="xliff"></a>
-
-## Локальное тестирование функции
+## <a name="test-the-function-locally"></a>Локальное тестирование функции
 
 [!INCLUDE [Test the function locally](../../includes/functions-vstools-test.md)]
 
@@ -92,17 +80,13 @@ ms.lasthandoff: 06/28/2017
 
 Убедитесь, что функция правильно работает на локальном компьютере. Затем опубликуйте проект в Azure.
 
-<a id="publish-the-project-to-azure" class="xliff"></a>
-
-## Публикация проекта в Azure
+## <a name="publish-the-project-to-azure"></a>Публикация проекта в Azure
 
 Перед публикацией проекта убедитесь, что в вашей подписке Azure есть приложения-функция. Можно создать приложение-функцию непосредственно в Visual Studio.
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-<a id="test-your-function-in-azure" class="xliff"></a>
-
-## Тестирование функции в Azure
+## <a name="test-your-function-in-azure"></a>Тестирование функции в Azure
 
 Скопируйте базовый URL-адрес приложения-функции на странице профиля публикации. Замените часть `localhost:port` URL-адреса, который использовался при локальной проверке функции новым базовым URL-адресом. Как и ранее, добавьте строку запроса `&name=<yourname>` в этот URL-адрес и выполните запрос.
 
@@ -114,14 +98,12 @@ URL-адрес, который вызывает функцию, активиру
 
 ![Ответ функции в браузере](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
  
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 С помощью Visual Studio вы создали приложение-функцию C# с простой функцией, активируемой HTTP. 
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
-Дополнительные сведения о локальном тестировании и отладке с помощью основных инструментов функций Azure см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md). 
+Дополнительные сведения о локальном тестировании и отладке с помощью основных инструментов функций Azure см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md). Дополнительные сведения о разработке функций, таких как библиотек классов .NET, см. в статье [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md) (Использование библиотек классов .NET с помощью Функций Azure). 
 
 

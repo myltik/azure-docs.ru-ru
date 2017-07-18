@@ -1,5 +1,5 @@
 ---
-title: "Отправка данных в службу поиска Azure с помощью REST API | Документация Майкрософт"
+title: "Отправка данных в службу поиска Azure c помощью .NET | Документация Майкрософт"
 description: "Сведения о том, как отправлять данные в индекс службы поиска Azure с помощью пакета SDK .NET."
 services: search
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
-ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 7676262b7bca47444aee7b10a131c01e6b697e7b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Отправка данных в службу поиска Azure с помощью пакета SDK для .NET
@@ -236,10 +237,5 @@ public partial class Hotel
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Заполнив индекс службы поиска Azure, вы можете приступать к отправке запросов на поиск документов. Дополнительные сведения см. в статье [Запросы в службе поиска Azure](search-query-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

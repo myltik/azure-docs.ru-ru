@@ -1,6 +1,6 @@
 ---
 title: "Знакомство с API таблицы базы данных Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте, как можно использовать Azure Cosmos DB для хранения больших объемов данных типа &quot;ключ — значение&quot; и выполнения запросов к ним с минимальной задержкой с помощью популярных API-интерфейсов MongoDB OSS."
+description: "Узнайте, как можно использовать Azure Cosmos DB для хранения больших объемов данных типа \"ключ — значение\" и выполнения запросов к ним с минимальной задержкой с помощью популярных API-интерфейсов MongoDB OSS."
 services: cosmos-db
 author: bhanupr
 manager: jhubbard
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/09/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 07dc5e1520cf60e19a1961ad85d2aea0cc7bd15f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef57753aeeace0086c815d83600f92422996032a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---

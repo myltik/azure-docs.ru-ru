@@ -1,204 +1,104 @@
 ---
-title: "Подключение к базе данных SQL Azure с помощью PHP | Документация Майкрософт"
-description: "В этой статье представлен пример кода PHP, который можно использовать для подключения и выполнения запросов к базе данных SQL Azure."
+title: "Использование PHP для создания запросов к базе данных SQL Azure | Документация Майкрософт"
+description: "В этой статье показано, как использовать PHP для создания программы, которая подключается к базе данных SQL Azure, и создавать к ней запросы с помощью инструкций Transact-SQL."
 services: sql-database
 documentationcenter: 
-author: meet-bhagdev
+author: CarlRabeler
 manager: jhubbard
 editor: 
-ms.assetid: 4e71db4a-a22f-4f1c-83e5-4a34a036ecf3
+ms.assetid: 4e71db4a-a 22f-4f1c-83e5-4a34a036ecf3
 ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: hero-article
-ms.date: 05/24/2017
-ms.author: meetb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 693bfdf7bb3d9d72fbd6ac42734ca261af7b492d
+ms.date: 07/10/2017
+ms.author: carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 01418c00f94edcb810b23e828273a7e749925177
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# <a name="azure-sql-database-use-php-to-connect-and-query-data"></a>База данных SQL Azure: подключение и запрос данных с помощью PHP
+# <a name="use-php-to-query-an-azure-sql-database"></a>Использование PHP для создания запросов к базе данных SQL Azure
 
-В этом кратком руководстве показано, как, используя [PHP](http://php.net/manual/en/intro-whatis.php), подключиться к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос, вставку, обновление и удаление данных в базе данных на платформах Mac OS, Ubuntu Linux и Windows.
+В этом кратком руководстве показано, как использовать [PHP](http://php.net/manual/en/intro-whatis.php) для создания программы, которая подключается к базе данных SQL Azure, а затем с помощью инструкций Transact-SQL выполнить запрос к данным.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Начальной точкой в руководстве являются ресурсы, созданные в одном из этих кратких руководств:
+Ниже указаны требования для работы с этим кратким руководством.
 
-- [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
-- [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
-- [Создание базы данных с помощью PowerShell](sql-database-get-started-powershell.md)
+- База данных SQL Azure. В этом кратком руководстве используются ресурсы, созданные в одном из этих кратких руководств: 
 
-## <a name="install-php-and-database-communications-software"></a>Установка программного обеспечения связи PHP и базы данных
+   - [Создание базы данных с помощью портала](sql-database-get-started-portal.md)
+   - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](sql-database-get-started-cli.md)
+   - [Создание базы данных с помощью PowerShell](sql-database-get-started-powershell.md)
 
-В этом разделе предполагается, что у вас уже есть опыт разработки на PHP и вы только начали работу с Базой данных SQL Azure. Если вы новичок в разработке на PHP, перейдите на страницу [создания приложения с помощью SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/), выберите язык **PHP** и операционную систему.
+- [Правило брандмауэра на уровне сервера](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) для общедоступного IP-адреса компьютера, на котором выполняются действия из этого краткого руководства.
 
-### <a name="mac-os"></a>**Mac OS**
-Чтобы установить **brew**, **драйвер Microsoft ODBC для Mac** и **драйверы Microsoft PHP для SQL Server**, откройте терминал и введите следующие команды: 
+- Убедитесь, что установлен PHP и связанное программное обеспечение для вашей операционной системы.
 
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql-preview
-brew update
-brew install msodbcsql 
-#for silent install ACCEPT_EULA=y brew install msodbcsql 
-pecl install sqlsrv-4.1.7preview
-pecl install pdo_sqlsrv-4.1.7preview
-```
+    - **Mac OS.** Установите Homebrew, PHP, драйвер ODBC и SQLCMD, а затем драйвер PHP для SQL Server. Ознакомьтесь с шагами 1.2, 1.3 и 2.1 в [этом руководстве](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
+    - **Ubuntu.** Установите PHP и другие необходимые пакеты, а затем установите драйвер PHP для SQL Server. Ознакомьтесь с шагами 1.2 и 2.1 в [этом руководстве](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
+    - **Windows.** Установите последнюю версию PHP для IIS Express, последнюю версию драйверов Майкрософт для SQL Server в IIS Express, Chocolatey, драйвер ODBC и SQLCMD. Ознакомьтесь с шагами 1.2 и 1.3 в [этом руководстве](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).    
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Чтобы установить **драйвер Microsoft ODBC для Linux** и **драйверы Microsoft PHP для SQL Server**, введите следующие команды:
-
-```bash
-sudo su
-curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql.list
-exit
-sudo apt-get update
-sudo apt-get install msodbcsql mssql-tools unixodbc-dev gcc g++ php-dev
-sudo pecl install sqlsrv pdo_sqlsrv
-sudo echo "extension= pdo_sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-sudo echo "extension= sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-```
-
-### <a name="windows"></a>**Windows**
-- Установка PHP 7.1.1 (x64) [с помощью установщика веб-платформы](https://www.microsoft.com/web/downloads/platform.aspx?lang=) 
-- Установите [драйвер Microsoft ODBC 13.1](https://www.microsoft.com/download/details.aspx?id=53339). 
-- Скачайте непотокобезопасные библиотеки DLL для [драйвера Microsoft PHP для SQL Server](https://pecl.php.net/package/sqlsrv/4.1.6.1/windows) и поместите двоичные файлы в папку PHP\v7.x\ext.
-- Затем измените файл php.ini (C:\Program Files\PHP\v7.1\php.ini), добавив в него ссылку на библиотеку DLL. Например:
-      
-      extension=php_sqlsrv.dll
-      extension=php_pdo_sqlsrv.dll
-
-На этом этапе библиотеки DLL должны быть зарегистрированы с помощью PHP.
-
-## <a name="get-connection-information"></a>Получение сведений о подключении
+## <a name="sql-server-connection-information"></a>Сведения о подключении SQL Server
 
 Получите сведения о подключении, необходимые для подключения к базе данных SQL Azure. Вам понадобится следующее: полное имя сервера, имя базы данных и сведения для входа.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
-3. На странице **Обзор** базы данных просмотрите полное имя сервера, как показано на рисунке ниже. Вы можете навести указатель мыши на имя сервера, чтобы отобразился пункт **Щелкните, чтобы скопировать**.  
+3. На странице **Обзор** базы данных просмотрите полное имя сервера, как показано на следующем рисунке. Вы можете навести указатель мыши на имя сервера, чтобы отобразился пункт **Щелкните, чтобы скопировать**.  
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Если вы забыли данные для входа на сервер, перейдите на соответствующую страницу, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль.     
     
-## <a name="select-data"></a>Выбор данных
-Используйте следующий код, чтобы запросить 20 наиболее популярных продуктов по категории, используя функцию [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) в инструкции Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Функция sqlsrv_query используется для извлечения результирующего набора из запроса к базе данных SQL. Эта функция принимает запрос и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
+## <a name="insert-code-to-query-sql-database"></a>Вставка кода для отправки запроса к базе данных SQL
 
-```PHP
-<?php
-$serverName = "your_server.database.windows.net";
-$connectionOptions = array(
-    "Database" => "your_database",
-    "Uid" => "your_username",
-    "PWD" => "your_password"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-     FROM [SalesLT].[ProductCategory] pc
-     JOIN [SalesLT].[Product] p
-     ON pc.productcategoryid = p.productcategoryid";
-$getResults= sqlsrv_query($conn, $tsql);
-echo ("Reading data from table" . PHP_EOL);
-if ($getResults == FALSE)
-    echo (sqlsrv_errors());
-while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+1. Создайте файл **sqltest.php** в предпочитаемом текстовом редакторе.  
+
+2. Замените содержимое следующим кодом и добавьте соответствующие значения для сервера, базы данных, пользователя и пароля.
+
+   ```PHP
+   <?php
+   $serverName = "your_server.database.windows.net";
+   $connectionOptions = array(
+       "Database" => "your_database",
+       "Uid" => "your_username",
+       "PWD" => "your_password"
+   );
+   //Establishes the connection
+   $conn = sqlsrv_connect($serverName, $connectionOptions);
+   $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+           FROM [SalesLT].[ProductCategory] pc
+           JOIN [SalesLT].[Product] p
+        ON pc.productcategoryid = p.productcategoryid";
+   $getResults= sqlsrv_query($conn, $tsql);
+   echo ("Reading data from table" . PHP_EOL);
+   if ($getResults == FALSE)
+       echo (sqlsrv_errors());
+   while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
     echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
-}
-sqlsrv_free_stmt($getResults);
-?>
-```
+   }
+   sqlsrv_free_stmt($getResults);
+   ?>
+   ```
 
+## <a name="run-the-code"></a>Выполнение кода
 
-## <a name="insert-data"></a>Добавление данных
-Используйте указанный ниже код, чтобы вставить новый продукт в таблицу SalesLT.Product с помощью функции [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) и инструкции Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT. 
+1. В командной строке выполните следующие команды:
 
-```PHP
-<?php
-$serverName = "your_server.database.windows.net";
-$connectionOptions = array(
-    "Database" => "your_database",
-    "Uid" => "your_username",
-    "PWD" => "your_password"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
-$params = array("BrandNewProduct", "200989", "Blue", 75, 80, "7/1/2016");
-$getResults= sqlsrv_query($conn, $tsql, $params);
-if ($getResults == FALSE)
-    echo print_r(sqlsrv_errors(), true);
-else{
-    $rowsAffected = sqlsrv_rows_affected($getResults);
-    echo ($rowsAffected. " row(s) inserted" . PHP_EOL);
-    sqlsrv_free_stmt($getResults);
-}
-?>
-```
+   ```php
+   php sqltest.php
+   ```
 
-## <a name="update-data"></a>Обновление данных
-Используйте указанный ниже код, чтобы обновить данные в базе данных SQL Azure, используя функцию [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) и инструкцию Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
-
-```PHP
-<?php
-$serverName = "your_server.database.windows.net";
-$connectionOptions = array(
-    "Database" => "your_database",
-    "Uid" => "your_username",
-    "PWD" => "your_password"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "UPDATE SalesLT.Product SET ListPrice =? WHERE Name = ?";
-$params = array(50,"BrandNewProduct");
-$getResults= sqlsrv_query($conn, $tsql, $params);
-if ($getResults == FALSE)
-    echo print_r(sqlsrv_errors(), true);
-else{
-    $rowsAffected = sqlsrv_rows_affected($getResults);
-    echo ($rowsAffected. " row(s) updated" . PHP_EOL);
-    sqlsrv_free_stmt($getResults);
-}
-?>
-```
-
-## <a name="delete-data"></a>Удаление данных
-Используйте следующий код, чтобы удалить новый продукт, добавленный ранее, с помощью функции [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) и инструкции Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Замените параметры server, database, username и password значениями, указанными при создании базы данных с использованием образца данных AdventureWorksLT.
-
-```PHP
-<?php
-$serverName = "your_server.database.windows.net";
-$connectionOptions = array(
-    "Database" => "your_database",
-    "Uid" => "your_username",
-    "PWD" => "your_password"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "DELETE FROM SalesLT.Product WHERE Name = ?";
-$params = array("BrandNewProduct");
-$getResults= sqlsrv_query($conn, $tsql, $params);
-if ($getResults == FALSE)
-    echo print_r(sqlsrv_errors(), true);
-else{
-    $rowsAffected = sqlsrv_rows_affected($getResults);
-    echo ($rowsAffected. " row(s) deleted" . PHP_EOL);
-    sqlsrv_free_stmt($getResults);
-}
-```
+2. Убедитесь, что возвращены первые 20 строк, а затем закройте окно приложения.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - [Проектирование первой базы данных SQL Azure](sql-database-design-first-database.md)
 - [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/) (Драйверы Microsoft PHP для SQL Server)
-- [Сообщите о проблеме или задайте вопросы](https://github.com/Microsoft/msphpsql/issues)
-
+- [Сообщите о проблемах или задайте вопросы](https://github.com/Microsoft/msphpsql/issues)
 

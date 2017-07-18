@@ -1,6 +1,6 @@
 ---
 title: "Приступая к работе с гибридными подключениями к ретранслятору Azure в Node | Документация Майкрософт"
-description: "Как написать консольное приложение Node для гибридных подключений"
+description: "Написание консольного приложения Node.js для гибридных подключений ретранслятора Azure."
 services: service-bus-relay
 documentationcenter: node
 author: sethmanheim
@@ -12,19 +12,21 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 05/22/2017
+ms.date: 07/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: a97082b38d146964d77cd9029ce74baa781c6c27
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: c3bfc45969f250059988129f532edd12dfe3dcfe
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Приступая к работе с гибридными подключениями к ретранслятору
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
+
+В этом руководстве содержатся обзорные сведения о [гибридных подключениях ретранслятора Azure](relay-what-is-it.md#hybrid-connections) и показано, как с помощью Node.js создать клиентское приложение, которое отправляет сообщения соответствующему приложению прослушивателя. 
 
 ## <a name="what-will-be-accomplished"></a>Что будет выполнено
 
@@ -37,7 +39,7 @@ ms.lasthandoff: 05/23/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-1. [Node.js](https://nodejs.org/en/) (в нашем примере используется сервер Node 7.0.).
+1. [Node.js](https://nodejs.org/en/).
 2. Подписка Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -48,7 +50,7 @@ ms.lasthandoff: 05/23/2017
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2) Создание гибридного подключения с помощью портала Azure
+## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Создание гибридного подключения с помощью портала Azure
 
 Если гибридное подключение уже создано, перейдите к разделу [Создание серверного приложения](#3-create-a-server-application-listener).
 
@@ -58,23 +60,23 @@ ms.lasthandoff: 05/23/2017
 
 Для прослушивания и получения сообщений, отправленных ретранслятором, мы создадим консольное приложение Node.js.
 
-[!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
+[!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Создание клиентского приложения (отправителя)
 
 Для отправки сообщений в ретранслятор мы создадим консольное приложение Node.js.
 
-[!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
+[!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
 ## <a name="5-run-the-applications"></a>5. Запуск приложений
 
-1. Запустите серверное приложение.
-2. Запустите клиентское приложение и введите любой текст.
+1. Запустите серверное приложение. Для этого в командной строке Node.js введите `node listener.js`.
+2. Запустите клиентское приложение. Для этого в командной строке Node.js введите `node sender.js`, а затем любой текст.
 3. Убедитесь, что серверное консольное приложение выводит текст, введенный в клиентском приложении.
 
 ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
-Поздравляем, вы создали приложение для гибридных подключений.
+Поздравляем, вы создали приложение для гибридных подключений с помощью Node.js!
 
 ## <a name="next-steps"></a>Дальнейшие действия:
 
