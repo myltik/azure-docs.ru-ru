@@ -1,28 +1,35 @@
 ---
-title: "Аудит, перенаправление TDS и IP-адреса конечных точек для базы данных SQL Azure | Документация Майкрософт"
+title: "Аудит таблиц, перенаправление TDS и IP-адреса конечных точек для базы данных SQL Azure | Документы Майкрософт"
 description: "Сведения об изменениях аудита, перенаправления TDS и IP-адресов конечных точек при реализации аудита таблиц в базе данных SQL Azure."
 services: sql-database
 documentationcenter: 
-author: ronitr
+author: giladm
 manager: jhubbard
 editor: 
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: security-protect
+ms.custom: security
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
-ms.author: ronitr
-translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: bcc02abb62b21aadb10e62320b02b33c3c244c17
-ms.lasthandoff: 02/17/2017
+ms.date: 05/31/2017
+ms.author: giladm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 1447a75758475dd6536ef1bcd0e8432e5618dab8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>База данных SQL: поддержка клиентов прежних версий и изменения конечных точек с IP-адресами для аудита
+
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>База данных SQL: поддержка клиентов прежних версий и изменения конечных точек с IP-адресами для аудита таблиц
+
+> [!IMPORTANT]
+> Этот документ относится только к аудиту таблиц, который является **нерекомендуемым** методом.<br>
+> Используйте новый метод [аудита BLOB-объектов](sql-database-auditing.md), который **не** требует внесения изменений в строку подключения клиента нижнего уровня. Дополнительные сведения об аудите больших двоичных объектов можно найти в статье [Начало работы с аудитом базы данных SQL](sql-database-auditing.md).
+
 [Аудит базы данных](sql-database-auditing.md) автоматически выполняется в клиентах SQL, которые поддерживают перенаправление TDS. Обратите внимание, что перенаправление не применяется при использовании метода аудита больших двоичных объектов.
 
 ## <a id="subheading-1"></a>Поддержка клиентов нижнего уровня

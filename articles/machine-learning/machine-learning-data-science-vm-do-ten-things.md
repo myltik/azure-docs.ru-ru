@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: gokuma;weig;bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c35d1548262f25e65c391c927919b8acf1411e10
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 467626354cff5643f5f6e602b9d7b72c6c1281ec
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -805,16 +805,16 @@ Azure Cosmos DB — это база данных NoSQL в облаке. Она 
 Чтобы получить доступ к Azure Cosmos DB из DSVM, необходимо выполнить приведенные ниже предварительные действия.
 
 1. Установите пакет SDK Python для DocumentDB (выполните команду ```pip install pydocumentdb``` из командной строки).
-2. Создайте учетную запись Azure Cosmos DB и базу данных DocumentDB на [портале Azure](https://portal.azure.com).
+2. Создайте учетную запись и базу данных Azure Cosmos DB на [портале Azure](https://portal.azure.com).
 3. Скачайте средство миграции Azure Cosmos DB [отсюда](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) и извлеките нужный вам каталог.
 4. Импортируйте данные JSON (данные о вулканах), хранящиеся в [общедоступном большом двоичном объекте](https://cahandson.blob.core.windows.net/samples/volcano.json), в Cosmos DB с помощью следующих параметров команды средства миграции (файл dtui.exe из каталога, в который вы установили средство миграции Cosmos DB). Ввести указанные ниже параметры исходного и целевого расположений.
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
-После импорта данных перейдите в Jupyter и откройте записную книжку *DocumentDBSample*, содержащую код Python для доступа к DocumentDB и выполнения базовых запросов. Дополнительные сведения о DocumentDB см. на [странице документации](https://azure.microsoft.com/documentation/learning-paths/documentdb/) по службе.
+После импорта данных перейдите в Jupyter и откройте записную книжку *DocumentDBSample*, содержащую код Python для доступа к DocumentDB и выполнения базовых запросов. Дополнительные сведения о Cosmos DB см. на [странице документации](https://docs.microsoft.com/azure/cosmos-db/) службы.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Создание отчетов и панели мониторинга с помощью Power BI Desktop
-Давайте визуализируем в службе Power BI JSON-файл с данными о вулканах, который мы видели в приведенном выше примере о Cosmos DB, чтобы провести визуальный анализ данных. Подробные указания см. в статье о [Power BI](../documentdb/documentdb-powerbi-visualize.md). Далее приведены основные шаги.
+Давайте визуализируем в службе Power BI JSON-файл с данными о вулканах, который мы видели в приведенном выше примере о Cosmos DB, чтобы провести визуальный анализ данных. Подробные указания см. в статье о [Power BI](../cosmos-db/powerbi-visualize.md). Далее приведены основные шаги.
 
 1. Откройте Power BI Desktop и щелкните "Получение данных". Укажите URL-адрес, например https://cahandson.blob.core.windows.net/samples/volcano.json.
 2. Вы увидите, что записи JSON будут импортированы в виде списка.
@@ -842,7 +842,7 @@ Azure Cosmos DB — это база данных NoSQL в облаке. Она 
 
 ![Power BI Desktop;](./media/machine-learning-data-science-vm-do-ten-things/PowerBIVolcanoData.png)
 
-Вы можете приступить к созданию отчетов и визуализации с помощью модели данных. Указания по созданию отчетов см. в этой [статье о Power BI](../documentdb/documentdb-powerbi-visualize.md#build-the-reports). Конечным результатом будет отчет, который выглядит следующим образом:
+Вы можете приступить к созданию отчетов и визуализации с помощью модели данных. Указания по созданию отчетов см. в этой [статье о Power BI](../cosmos-db/powerbi-visualize.md#build-the-reports). Конечным результатом будет отчет, который выглядит следующим образом:
 
 ![Представление отчета в Power BI Desktop — соединитель Power BI](./media/machine-learning-data-science-vm-do-ten-things/power_bi_connector_pbireportview2.png)
 

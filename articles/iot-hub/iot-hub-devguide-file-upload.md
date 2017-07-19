@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
-ms.openlocfilehash: c56a568fa003ec45e92279e070e6309763071827
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3acefebb9d1007a0c035fa561191ca43a3f66896
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -140,7 +141,7 @@ ms.lasthandoff: 02/17/2017
 * Статья [IoT Hub endpoints][lnk-endpoints] (Конечные точки Центра Интернета вещей) содержит сведения о конечных точках, которые каждый Центр Интернета вещей предоставляет для операций управления и среды выполнения.
 * Статья [Throttling and quotas][lnk-quotas] (Регулирование и квоты) содержит сведения о квотах, применимых к службе Центра Интернета вещей, и ожидаемом поведении регулирования при использовании службы.
 * В статье [Пакеты SDK для устройств и служб Интернета вещей Azure][lnk-sdks] указаны различные языковые пакеты SDK, которые можно использовать при разработке приложений для устройств и служб, взаимодействующих с Центром Интернета вещей.
-* В статье [Справочник по языку запросов для двойников и заданий][lnk-query] описывается язык запросов, который можно использовать для получения сведений о двойниках устройств и заданиях из Центра Интернета вещей.
+* [Справочник по языку запросов Центра Интернета вещей для двойников устройств, заданий и маршрутизации сообщений][lnk-query] содержит сведения о языке запросов, который можно использовать для получения сведений о двойниках устройств и заданиях из Центра Интернета вещей.
 * Статья [Поддержка MQTT в центре IoT][lnk-devguide-mqtt] содержит дополнительные сведения о поддержке протокола MQTT в Центре Интернета вещей.
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -169,7 +170,7 @@ ms.lasthandoff: 02/17/2017
 [lnk-initialize]: iot-hub-devguide-file-upload.md#initialize-a-file-upload
 [lnk-notify]: iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload
 [lnk-service-notification]: iot-hub-devguide-file-upload.md#file-upload-notifications
-[lnk-lifecycle]: iot-hub-devguide-messaging.md#message-lifecycle
+[lnk-lifecycle]: iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [lnk-devguide-identities]: iot-hub-devguide-identity-registry.md

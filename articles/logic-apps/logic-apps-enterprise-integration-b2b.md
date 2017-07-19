@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
-ms.sourcegitcommit: 03cd3f4edd7bb7895efa02475411d813ef44b8b3
-ms.openlocfilehash: 6006df4b4ecd6dede94c1013881ddf699e741e51
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 0625787ddcbc0091e70b111f687e25929720ad15
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -78,7 +80,7 @@ ms.openlocfilehash: 6006df4b4ecd6dede94c1013881ddf699e741e51
     Теперь добавьте шаги для декодирования данных X12, полученных от торгового партнера, и вывода элементов в формате объекта JSON. 
     Чтобы известить партнера о получении данных, можно отправлять ему ответ, содержащий уведомление о состоянии сообщения AS2 (MDN), в действии ответа HTTP.
 
-12. Чтобы добавить действие **Ответ**, щелкните **Добавить действие**.
+12.    Чтобы добавить действие **Ответ**, щелкните **Добавить действие**.
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-14.png)
 
@@ -111,9 +113,4 @@ ms.openlocfilehash: 6006df4b4ecd6dede94c1013881ddf699e741e51
 
 ## <a name="learn-more"></a>Подробнее
 [Обзор Пакета интеграции Enterprise](logic-apps-enterprise-integration-overview.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

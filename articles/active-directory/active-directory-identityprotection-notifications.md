@@ -15,27 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
 ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
 ms.contentlocale: ru-ru
 ms.lasthandoff: 12/22/2016
 
-
 ---
-<a id="azure-active-directory-identity-protection-notifications" class="xliff"></a>
-# Уведомления защиты идентификации Azure Active Directory
+# <a name="azure-active-directory-identity-protection-notifications"></a>Уведомления защиты идентификации Azure Active Directory
 Служба защиты идентификации Azure AD отправляет по электронной почте два типа автоматических уведомлений, что упрощает управление рисками для пользователей и событиями риска:
 
 * оповещение электронной почты о том, что пользователь скомпрометирован;
 * сообщение электронной почты еженедельного дайджеста.
 
-<a id="user-compromised-alert-email" class="xliff"></a>
-## оповещение электронной почты о том, что пользователь скомпрометирован;
+## <a name="user-compromised-alert-email"></a>оповещение электронной почты о том, что пользователь скомпрометирован;
 Электронное оповещение о том, что пользователь скомпрометирован, создается, если служба защиты идентификации Azure AD определяет, что учетная запись скомпрометирована. В таком электронном сообщении содержится ссылка на отчет о пользователях, помеченных для события риска, на панели мониторинга защиты идентификации. Мы рекомендуем безотлагательно проверить уведомления о скомпрометированных учетных записях.
 
-<a id="weekly-digest-email" class="xliff"></a>
-## сообщение электронной почты еженедельного дайджеста.
+## <a name="weekly-digest-email"></a>сообщение электронной почты еженедельного дайджеста.
 В электронном сообщении еженедельного дайджеста содержится сводка новых событий риска.<br>
 Сюда входят:
 
@@ -64,7 +61,6 @@ ms.lasthandoff: 12/22/2016
    ![Политика риска пользователя](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
    <br>
 
-<a id="see-also" class="xliff"></a>
-## Дополнительные материалы
+## <a name="see-also"></a>Дополнительные материалы
 * [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 

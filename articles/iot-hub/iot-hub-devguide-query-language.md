@@ -12,18 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 05/25/17
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1eacd13562adcff96fdd0dd3fd91c78ef6a26dbf
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 32d5baf404efddd2e3ce122b14ea8c256bf56299
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="reference---iot-hub-query-language-for-device-twins-and-jobs"></a>Справочник по языку запросов Центр Интернета вещей для двойников устройств и заданий
-## <a name="overview"></a>Обзор
-Центр Интернета вещей предоставляет мощный язык запросов, похожий на SQL, для получения сведений о [двойниках устройств][lnk-twins] и [заданиях][lnk-jobs]. В этой статье представлены:
+# <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Справочник — язык запросов Центра Интернета вещей для двойников устройств, заданий и маршрутизации сообщений
+
+Центр Интернета вещей предоставляет эффективный язык запросов, похожий на SQL, для получения сведений о [двойниках устройств][lnk-twins], [заданиях][lnk-jobs] и [маршрутизации сообщений][lnk-devguide-messaging-routes]. В этой статье представлены:
 
 * общие сведения об основных возможностях языка запросов Центра Интернета вещей;
 * подробное описание языка.
@@ -32,100 +33,114 @@ ms.lasthandoff: 04/12/2017
 [Двойники устройств][lnk-twins] могут содержать произвольные объекты JSON в качестве тегов и свойств. Центр Интернета вещей позволяет выполнять запросы к двойникам устройств как к одному документу JSON, содержащему все сведения о двойниках устройств.
 Например, предположим, что двойники устройств Центра Интернета вещей имеют следующую структуру:
 
-        {                                                                      
-            "deviceId": "myDeviceId",                                            
-            "etag": "AAAAAAAAAAc=",                                              
-            "tags": {                                                            
-                "location": {                                                      
-                    "region": "US",                                                  
-                    "plant": "Redmond43"                                             
-                }                                                                  
-            },                                                                   
-            "properties": {                                                      
-                "desired": {                                                       
-                    "telemetryConfig": {                                             
-                        "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
-                        "sendFrequencyInSecs": 300                                          
-                    },                                                               
-                    "$metadata": {                                                   
-                    ...                                                     
-                    },                                                               
-                    "$version": 4                                                    
-                },                                                                 
-                "reported": {                                                      
-                    "connectivity": {                                                
-                        "type": "cellular"                            
-                    },                                                               
-                    "telemetryConfig": {                                             
-                        "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
-                        "sendFrequencyInSecs": 300,                                         
-                        "status": "Success"                                            
-                    },                                                               
-                    "$metadata": {                                                   
-                    ...                                                
-                    },                                                               
-                    "$version": 7                                                    
-                }                                                                  
-            }                                                                    
+```json
+{
+    "deviceId": "myDeviceId",
+    "etag": "AAAAAAAAAAc=",
+    "tags": {
+        "location": {
+            "region": "US",
+            "plant": "Redmond43"
         }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",
+                "sendFrequencyInSecs": 300
+            },
+            "$metadata": {
+            ...
+            },
+            "$version": 4
+        },
+        "reported": {
+            "connectivity": {
+                "type": "cellular"
+            },
+            "telemetryConfig": {
+                "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",
+                "sendFrequencyInSecs": 300,
+                "status": "Success"
+            },
+            "$metadata": {
+            ...
+            },
+            "$version": 7
+        }
+    }
+}
+```
 
 Центр Интернета вещей предоставляет двойники устройства как коллекцию документов с именем **devices**.
 Следующий запрос получает весь набор двойников устройства:
 
-        SELECT * FROM devices
+```sql
+SELECT * FROM devices
+```
 
 > [!NOTE]
 > [Пакеты SDK для Azure IoT][lnk-hub-sdks] поддерживают разбивку на страницы объемных результатов.
->
->
 
 Центр Интернета вещей позволяет получить двойники устройств, отфильтрованные по произвольным условиям. Например,
 
-        SELECT * FROM devices
-        WHERE tags.location.region = 'US'
+```sql
+SELECT * FROM devices
+WHERE tags.location.region = 'US'
+```
 
 извлекает двойники устройств, для тега **location.region** которых задано значение **US**.
 Кроме того, поддерживаются логические операторы и арифметические сравнения. Например,
 
-        SELECT * FROM devices
-        WHERE tags.location.region = 'US'
-            AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
+```sql
+SELECT * FROM devices
+WHERE tags.location.region = 'US'
+    AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
+```
 
 извлекает все двойники устройств, расположенные в США, для которых настроена отправка телеметрии реже, чем раз в минуту. Для удобства можно также использовать константы массива с операторами **IN** ("входит") и **NIN** ("не входит"). Например,
 
-        SELECT * FROM devices
-        WHERE property.reported.connectivity IN ['wired', 'wifi']
+```sql
+SELECT * FROM devices
+WHERE properties.reported.connectivity IN ['wired', 'wifi']
+```
 
 извлекает все двойники устройств, сообщившие о подключении по Wi-Fi или проводной сети. Часто требуется определить все двойники устройств, содержащие определенное свойство. Для этой цели Центр Интернета вещей поддерживает функцию `is_defined()`. Например,
 
-        SELECT * FROM devices
-        WHERE is_defined(property.reported.connectivity)
+```SQL
+SELECT * FROM devices
+WHERE is_defined(properties.reported.connectivity)
+```
 
 извлекает все двойники устройств, которые определяют сообщаемое свойство `connectivity`. Полное описание возможностей фильтрации см. в разделе [Предложение WHERE][lnk-query-where].
 
 Кроме того, поддерживаются группирование и агрегаты. Например,
 
-        SELECT properties.reported.telemetryConfig.status AS status,
-            COUNT() AS numberOfDevices
-        FROM devices
-        GROUP BY properties.reported.telemetryConfig.status
+```sql
+SELECT properties.reported.telemetryConfig.status AS status,
+    COUNT() AS numberOfDevices
+FROM devices
+GROUP BY properties.reported.telemetryConfig.status
+```
 
 возвращает количество устройств в каждом состоянии конфигурации телеметрии.
 
-        [
-            {
-                "numberOfDevices": 3,
-                "status": "Success"
-            },
-            {
-                "numberOfDevices": 2,
-                "status": "Pending"
-            },
-            {
-                "numberOfDevices": 1,
-                "status": "Error"
-            }
-        ]
+```json
+[
+    {
+        "numberOfDevices": 3,
+        "status": "Success"
+    },
+    {
+        "numberOfDevices": 2,
+        "status": "Pending"
+    },
+    {
+        "numberOfDevices": 1,
+        "status": "Error"
+    }
+]
+```
 
 В предыдущем примере показана ситуация, когда три устройства сообщили об успешной конфигурации, два все еще применяют конфигурацию, а одно сообщило об ошибке.
 
@@ -133,15 +148,17 @@ ms.lasthandoff: 04/12/2017
 Функция обработки запросов предоставляется в [пакете SDK для служб C#][lnk-hub-sdks] в классе **RegistryManager**.
 Ниже приведен пример простого запроса:
 
-        var query = registryManager.CreateQuery("SELECT * FROM devices", 100);
-        while (query.HasMoreResults)
-        {
-            var page = await query.GetNextAsTwinAsync();
-            foreach (var twin in page)
-            {
-                // do work on twin object
-            }
-        }
+```csharp
+var query = registryManager.CreateQuery("SELECT * FROM devices", 100);
+while (query.HasMoreResults)
+{
+    var page = await query.GetNextAsTwinAsync();
+    foreach (var twin in page)
+    {
+        // do work on twin object
+    }
+}
+```
 
 Обратите внимание, как создается экземпляр объекта **query** с размером страницы (до 1000), а затем можно получить несколько страниц, вызвав метод **GetNextAsTwinAsync** несколько раз.
 Обратите внимание, что объект query предоставляет несколько вариантов **next\*** в зависимости от параметра десериализации, требуемого для запроса. Это могут быть объекты двойников устройств, объекты заданий или простой JSON, который применяется при использовании проекций.
@@ -150,22 +167,24 @@ ms.lasthandoff: 04/12/2017
 Функция обработки запросов предоставляется в [пакете SDK службы Azure IoT для Node.js][lnk-hub-sdks] в объекте **Registry**.
 Ниже приведен пример простого запроса:
 
-        var query = registry.createQuery('SELECT * FROM devices', 100);
-        var onResults = function(err, results) {
-            if (err) {
-                console.error('Failed to fetch the results: ' + err.message);
-            } else {
-                // Do something with the results
-                results.forEach(function(twin) {
-                    console.log(twin.deviceId);
-                });
+```nodejs
+var query = registry.createQuery('SELECT * FROM devices', 100);
+var onResults = function(err, results) {
+    if (err) {
+        console.error('Failed to fetch the results: ' + err.message);
+    } else {
+        // Do something with the results
+        results.forEach(function(twin) {
+            console.log(twin.deviceId);
+        });
 
-                if (query.hasMoreResults) {
-                    query.nextAsTwin(onResults);
-                }
-            }
-        };
-        query.nextAsTwin(onResults);
+        if (query.hasMoreResults) {
+            query.nextAsTwin(onResults);
+        }
+    }
+};
+query.nextAsTwin(onResults);
+```
 
 Обратите внимание, как создается экземпляр объекта **query** с размером страницы (до 1000), а затем можно получить несколько страниц, вызвав метод **nextAsTwin** несколько раз.
 Обратите внимание, что объект query предоставляет несколько вариантов **next\*** в зависимости от параметра десериализации, требуемого для запроса. Это могут быть объекты двойников устройств, объекты заданий или простой JSON, который применяется при использовании проекций.
@@ -173,8 +192,6 @@ ms.lasthandoff: 04/12/2017
 ### <a name="limitations"></a>Ограничения
 > [!IMPORTANT]
 > Результаты запросов могут поступать с задержкой в несколько минут и не учитывать последние значения в двойниках устройств. При запросе данных отдельных двойников устройств по идентификатору всегда предпочтительнее использовать интерфейс API, который применяется для извлечения таких двойников. Он всегда содержит последние значения и обладает более высокими пределами регулирования.
->
->
 
 В настоящее время сравнения поддерживаются только между типами-примитивами (не объектами), например, `... WHERE properties.desired.config = properties.reported.config` поддерживается только в том случае, если эти свойства имеют примитивные значения.
 
@@ -182,32 +199,34 @@ ms.lasthandoff: 04/12/2017
 [Задания][lnk-jobs] позволяют выполнять операции с наборами устройств. Каждый двойник устройства содержит сведения о заданиях, в которых он участвует, в коллекции с именем **jobs**.
 Логически получается следующее:
 
-        {                                                                      
-            "deviceId": "myDeviceId",                                            
-            "etag": "AAAAAAAAAAc=",                                              
-            "tags": {                                                            
-                ...                                                              
-            },                                                                   
-            "properties": {                                                      
-                ...                                                                 
-            },
-            "jobs": [
-                {
-                    "deviceId": "myDeviceId",
-                    "jobId": "myJobId",    
-                    "jobType": "scheduleTwinUpdate",            
-                    "status": "completed",                    
-                    "startTimeUtc": "2016-09-29T18:18:52.7418462",
-                    "endTimeUtc": "2016-09-29T18:20:52.7418462",
-                    "createdDateTimeUtc": "2016-09-29T18:18:56.7787107Z",
-                    "lastUpdatedDateTimeUtc": "2016-09-29T18:18:56.8894408Z",
-                    "outcome": {
-                        "deviceMethodResponse": null   
-                    }                                         
-                },
-                ...
-            ]                                                             
-        }
+```json
+{
+    "deviceId": "myDeviceId",
+    "etag": "AAAAAAAAAAc=",
+    "tags": {
+        ...
+    },
+    "properties": {
+        ...
+    },
+    "jobs": [
+        {
+            "deviceId": "myDeviceId",
+            "jobId": "myJobId",
+            "jobType": "scheduleTwinUpdate",
+            "status": "completed",
+            "startTimeUtc": "2016-09-29T18:18:52.7418462",
+            "endTimeUtc": "2016-09-29T18:20:52.7418462",
+            "createdDateTimeUtc": "2016-09-29T18:18:56.7787107Z",
+            "lastUpdatedDateTimeUtc": "2016-09-29T18:18:56.8894408Z",
+            "outcome": {
+                "deviceMethodResponse": null
+            }
+        },
+        ...
+    ]
+}
+```
 
 В настоящее время к этой коллекции можно выполнить запрос как к **devices.jobs** на языке запросов Центра Интернета вещей.
 
@@ -218,25 +237,31 @@ ms.lasthandoff: 04/12/2017
 
 Например, чтобы получить все задания (выполненные и запланированные), влияющие на одно устройство, можно использовать следующий запрос:
 
-        SELECT * FROM devices.jobs
-        WHERE devices.jobs.deviceId = 'myDeviceId'
+```sql
+SELECT * FROM devices.jobs
+WHERE devices.jobs.deviceId = 'myDeviceId'
+```
 
 Обратите внимание, как этот запрос предоставляет сведения о состоянии конкретного устройства (и, возможно, ответ на прямой метод) в каждом возвращенном задании.
 Все свойства объектов в коллекции **devices.jobs** можно также отфильтровать с помощью произвольных логических условий.
 Например, следующий запрос:
 
-        SELECT * FROM devices.jobs
-        WHERE devices.jobs.deviceId = 'myDeviceId'
-            AND devices.jobs.jobType = 'scheduleTwinUpdate'
-            AND devices.jobs.status = 'completed'
-            AND devices.jobs.createdTimeUtc > '2016-09-01'
+```sql
+SELECT * FROM devices.jobs
+WHERE devices.jobs.deviceId = 'myDeviceId'
+    AND devices.jobs.jobType = 'scheduleTwinUpdate'
+    AND devices.jobs.status = 'completed'
+    AND devices.jobs.createdTimeUtc > '2016-09-01'
+```
 
 получает список всех завершенных заданий обновления двойников устройств для устройства **myDeviceId**, созданных после сентября 2016 года.
 
 Кроме того, можно получить результаты выполнения одного задания для каждого устройства.
 
-        SELECT * FROM devices.jobs
-        WHERE devices.jobs.jobId = 'myJobId'
+```sql
+SELECT * FROM devices.jobs
+WHERE devices.jobs.jobId = 'myJobId'
+```
 
 ### <a name="limitations"></a>Ограничения
 В настоящее время запросы к **devices.jobs** не поддерживают следующие элементы:
@@ -249,25 +274,31 @@ ms.lasthandoff: 04/12/2017
 
 С помощью [маршрутов от устройства в облако][lnk-devguide-messaging-routes] можно сделать так, чтобы Центр Интернета вещей передавал сообщения, отправляемые с устройства в облако, в разные конечные точки на основе условий, вычисляемых для отдельных сообщений.
 
-Используемое в маршруте [условие][lnk-query-expressions] создается на том же языка запросов Центра Интернета вещей, что и условия в запросах двойников и заданий. Условия маршрута оцениваются по свойствам сообщения, включенным в следующее представление JSON:
+Используемое в маршруте [условие][lnk-query-expressions] создается на том же языка запросов Центра Интернета вещей, что и условия в запросах двойников и заданий. Условия маршрута вычисляются по заголовкам и тексту сообщения. Выражение запроса маршрутизации может включать только заголовки сообщений, только текст сообщения или заголовки и текст сообщения. Центр Интернета вещей предполагает наличие определенной схемы для заголовков и текста сообщения для маршрутизации сообщений. В следующих разделах описываются необходимые условия правильной маршрутизации Центра Интернета вещей:
 
-        {
-            "$messageId": "",
-            "$enqueuedTime": "",
-            "$to": "",
-            "$expiryTimeUtc": "",
-            "$correlationId": "",
-            "$userId": "",
-            "$ack": "",
-            "$connectionDeviceId": "",
-            "$connectionDeviceGenerationId": "",
-            "$connectionAuthMethod": "",
-            "$content-type": "",
-            "$content-encoding": ""
+### <a name="routing-on-message-headers"></a>Маршрутизация по заголовкам сообщений
 
-            "userProperty1": "",
-            "userProperty2": ""
-        }
+Центр Интернета вещей предполагает следующее представление JSON заголовков сообщений для маршрутизации:
+
+```json
+{
+    "$messageId": "",
+    "$enqueuedTime": "",
+    "$to": "",
+    "$expiryTimeUtc": "",
+    "$correlationId": "",
+    "$userId": "",
+    "$ack": "",
+    "$connectionDeviceId": "",
+    "$connectionDeviceGenerationId": "",
+    "$connectionAuthMethod": "",
+    "$content-type": "",
+    "$content-encoding": "",
+
+    "userProperty1": "",
+    "userProperty2": ""
+}
+```
 
 Системные свойства сообщений начинаются с символов `'$'`.
 Доступ к пользовательским свойствам всегда осуществляется с использованием их имен. Если имя пользовательского свойства совпадает с системным свойством (например, `$to`), такое пользовательское свойство будут извлечено с помощью выражения `$to`.
@@ -281,25 +312,47 @@ ms.lasthandoff: 04/12/2017
 
 Например, если вы используете свойство `messageType`, вы можете направлять все данные телеметрии в одну конечную точку, а все оповещения — в другую. Следующее выражение позволяет перенаправить данные телеметрии:
 
-        messageType = 'telemetry'
+```sql
+messageType = 'telemetry'
+```
 
 А это выражение будет перенаправлять текст оповещения:
 
-        messageType = 'alert'
+```sql
+messageType = 'alert'
+```
 
 Также поддерживаются логические выражения и функции. Например, это позволяет различать сообщения по уровню серьезности:
 
-        messageType = 'alerts' AND as_number(severity) <= 2
+```sql
+messageType = 'alerts' AND as_number(severity) <= 2
+```
 
 Полный список поддерживаемых операторов и функций вы найдете в разделе [Выражения и условия][lnk-query-expressions].
+
+### <a name="routing-on-message-bodies"></a>Маршрутизация по тексту сообщений
+
+Центр Интернета вещей поддерживает маршрутизацию на основе содержимого текста сообщения, только если текст сообщения соответствует формату JSON в кодировке UTF-8, UTF-16 или UTF-32. В качестве типа содержимого сообщения необходимо задать `application/json`, а в качестве кодировки содержимого — одну из поддерживаемых кодировок UTF в заголовках сообщения, чтобы Центр Интернета вещей мог осуществлять маршрутизацию сообщений на основе содержимого текста. Если один из заголовков не указан, Центр Интернета вещей не будет пытаться вычислить любое выражение запроса, включающее текст, по сообщению. Если формат сообщения отличается от JSON или сообщение не указывает тип и кодировку содержимого, маршрутизацию сообщений, тем не менее, можно выполнить на основе заголовков сообщения.
+
+Для маршрутизации сообщения можно использовать `$body` в выражении запроса. В выражении запроса можно использовать простую ссылку на текст, ссылку на массив текста или несколько ссылок на текст. В выражении запроса можно также указывать сочетание ссылки на текст со ссылкой на заголовок сообщения. Например, все выражения, приведенные ниже, допустимы:
+
+```sql
+$body.message.Weather.Location.State = 'WA'
+$body.Weather.HistoricalData[0].Month = 'Feb'
+$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+length($body.Weather.Location.State) = 2
+$body.Weather.Temperature = 50 AND Status = 'Active'
+```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Основные сведения о запросе Центра Интернета вещей
 Каждый запрос Центра Интернета вещей состоит из предложений SELECT и FROM, а также необязательных предложений WHERE и GROUP BY. Каждый запрос выполняется для коллекции документов JSON, например двойников устройств. Предложение FROM указывает коллекцию документов, по которой будет выполняться итерация (**devices** или **devices.jobs**). Затем применяется фильтр в предложении WHERE. При использовании агрегатов результаты этого шага группируются, как указано в предложении GROUP BY. Для каждой группы создается строка, как указано в предложении SELECT.
 
-        SELECT <select_list>
-        FROM <from_specification>
-        [WHERE <filter_condition>]
-        [GROUP BY <group_specification>]
+```sql
+SELECT <select_list>
+FROM <from_specification>
+[WHERE <filter_condition>]
+[GROUP BY <group_specification>]
+```
 
 ## <a name="from-clause"></a>Предложение FROM
 Предложение **FROM <из_спецификации>** может предоставить только два значения: **FROM devices** для запроса двойников устройства или **FROM devices.jobs** для запроса сведений о задании для каждого устройства.
@@ -315,23 +368,25 @@ ms.lasthandoff: 04/12/2017
 
 Далее приводится грамматика предложения SELECT:
 
-        SELECT [TOP <max number>] <projection list>
+```
+SELECT [TOP <max number>] <projection list>
 
-        <projection_list> ::=
-            '*'
-            | <projection_element> AS alias [, <projection_element> AS alias]+
+<projection_list> ::=
+    '*'
+    | <projection_element> AS alias [, <projection_element> AS alias]+
 
-        <projection_element> :==
-            attribute_name
-            | <projection_element> '.' attribute_name
-            | <aggregate>
+<projection_element> :==
+    attribute_name
+    | <projection_element> '.' attribute_name
+    | <aggregate>
 
-        <aggregate> :==
-            count()
-            | avg(<projection_element>)
-            | sum(<projection_element>)
-            | min(<projection_element>)
-            | max(<projection_element>)
+<aggregate> :==
+    count()
+    | avg(<projection_element>)
+    | sum(<projection_element>)
+    | min(<projection_element>)
+    | max(<projection_element>)
+```
 
 где **attribute_name** относится к любому свойству документа JSON в коллекции FROM. Некоторые примеры предложений SELECT можно найти в разделе [Начало работы с запросами двойника устройства][lnk-query-getstarted].
 
@@ -342,17 +397,21 @@ ms.lasthandoff: 04/12/2017
 
 Ниже представлен пример запроса с использованием предложения GROUP BY:
 
-        SELECT properties.reported.telemetryConfig.status AS status,
-            COUNT() AS numberOfDevices
-        FROM devices
-        GROUP BY properties.reported.telemetryConfig.status
+```sql
+SELECT properties.reported.telemetryConfig.status AS status,
+    COUNT() AS numberOfDevices
+FROM devices
+GROUP BY properties.reported.telemetryConfig.status
+```
 
 Далее указан формальный синтаксис предложения GROUP BY:
 
-        GROUP BY <group_by_element>
-        <group_by_element> :==
-            attribute_name
-            | < group_by_element > '.' attribute_name
+```
+GROUP BY <group_by_element>
+<group_by_element> :==
+    attribute_name
+    | < group_by_element > '.' attribute_name
+```
 
 где **attribute_name** относится к любому свойству документа JSON в коллекции FROM.
 
@@ -368,29 +427,31 @@ ms.lasthandoff: 04/12/2017
 
 Выражения имеют следующий синтаксис:
 
-        <expression> ::=
-            <constant> |
-            attribute_name |
-            <function_call> |
-            <expression> binary_operator <expression> |
-            <create_array_expression> |
-            '(' <expression> ')'
+```
+<expression> ::=
+    <constant> |
+    attribute_name |
+    <function_call> |
+    <expression> binary_operator <expression> |
+    <create_array_expression> |
+    '(' <expression> ')'
 
-        <function_call> ::=
-            <function_name> '(' expression ')'
+<function_call> ::=
+    <function_name> '(' expression ')'
 
-        <constant> ::=
-            <undefined_constant>
-            | <null_constant>
-            | <number_constant>
-            | <string_constant>
-            | <array_constant>
+<constant> ::=
+    <undefined_constant>
+    | <null_constant>
+    | <number_constant>
+    | <string_constant>
+    | <array_constant>
 
-        <undefined_constant> ::= undefined
-        <null_constant> ::= null
-        <number_constant> ::= decimal_literal | hexadecimal_literal
-        <string_constant> ::= string_literal
-        <array_constant> ::= '[' <constant> [, <constant>]+ ']'
+<undefined_constant> ::= undefined
+<null_constant> ::= null
+<number_constant> ::= decimal_literal | hexadecimal_literal
+<string_constant> ::= string_literal
+<array_constant> ::= '[' <constant> [, <constant>]+ ']'
+```
 
 Описание:
 
@@ -426,7 +487,7 @@ ms.lasthandoff: 04/12/2017
 | ABS(x) | Возвращает модуль (положительное значение) указанного числового выражения. |
 | EXP(x) | Возвращает значение экспоненты для указанного числового выражения (e^x). |
 | POWER(x,y) | Возвращает результат возведения указанного числового выражения в заданную степень (x^y).|
-| SQUARE(x)    | Возвращает квадратный корень из указанного числового значения. |
+| SQUARE(x) | Возвращает квадратный корень из указанного числового значения. |
 | CEILING(x) | Возвращает наименьшее целочисленное значение, которое больше или равно указанному числовому выражению. |
 | FLOOR(x) | Возвращает наибольшее целочисленное значение, которое меньше или равно указанному числовому выражению. |
 | SIGN(x) | Возвращает знак указанного числового выражения (+1 для положительных чисел, 0 для нуля или -1 для отрицательных).|
@@ -472,9 +533,9 @@ ms.lasthandoff: 04/12/2017
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messaging.md#routing-rules
-[lnk-devguide-messaging-format]: iot-hub-devguide-messaging.md#message-format
-
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
+[lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
+[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 

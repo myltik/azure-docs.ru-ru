@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2e229cab7b8a498d3015183d438e2bc2465822aa
 ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
@@ -21,9 +22,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 12/28/2016
 
 ---
-<a id="vulnerabilities-detected-by-azure-active-directory-identity-protection" class="xliff"></a>
-
-# Уязвимости, обнаруживаемые защитой идентификации Azure Active Directory
+# <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Уязвимости, обнаруживаемые защитой идентификации Azure Active Directory
 Уязвимости — это слабые стороны среды, которыми могут воспользоваться злоумышленники. Мы рекомендуем устранить эти уязвимости, чтобы улучшить систему безопасности своей организации и предотвратить использование уязвимостей злоумышленниками.
 
 
@@ -33,9 +32,7 @@ ms.lasthandoff: 12/28/2016
 
 В следующих разделах представлен обзор уязвимостей, о которых сообщает защита идентификации.
 
-<a id="multi-factor-authentication-registration-not-configured" class="xliff"></a>
-
-## Регистрация с многофакторной проверкой подлинности не настроена
+## <a name="multi-factor-authentication-registration-not-configured"></a>Регистрация с многофакторной проверкой подлинности не настроена
 Эта уязвимость позволяет контролировать развертывание Azure Multi-Factor Authentication в организации. 
 
 Azure Multi-Factor Authentication обеспечивает второй уровень безопасности для проверки подлинности пользователей. Она помогает защитить доступ к данным и приложениям, при этом не усложняя процесс входа пользователя в систему. Служба обеспечивает строгую проверку подлинности с помощью простых способов проверки — телефонного звонка, текстового сообщения, уведомления в мобильном приложении, кода подтверждения или OATH-токенов третьей стороны.
@@ -44,9 +41,7 @@ Azure Multi-Factor Authentication обеспечивает второй уров
 
 Дополнительные сведения см. в статье [Что такое Azure Multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
 
-<a id="unmanaged-cloud-apps" class="xliff"></a>
-
-## Неуправляемые облачные приложения
+## <a name="unmanaged-cloud-apps"></a>Неуправляемые облачные приложения
 Благодаря этой уязвимости можно выявить неуправляемые облачные приложения в организации.
 
 На современных предприятиях ИТ-специалисты часто не знают обо всех облачных приложениях, при помощи которых пользователи выполняют свои задачи. Легко понять, почему администраторов беспокоят несанкционированный доступ к корпоративным данным, возможная утечка данных и другие угрозы безопасности. 
@@ -55,9 +50,7 @@ Azure Multi-Factor Authentication обеспечивает второй уров
 
 Дополнительные сведения см. в статье [Поиск неуправляемых облачных приложений с помощью Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 
-<a id="security-alerts-from-privileged-identity-management" class="xliff"></a>
-
-## Оповещения системы безопасности в рамках управления привилегированными пользователями
+## <a name="security-alerts-from-privileged-identity-management"></a>Оповещения системы безопасности в рамках управления привилегированными пользователями
 Эта уязвимость способствует обнаружению и устранению оповещений о привилегированных удостоверениях в организации.  
 
 Чтобы пользователи могли выполнять привилегированные операции, организациям необходимо предоставлять им временный или постоянный привилегированный доступ к Azure AD, ресурсам Azure или Office 365, а также другим приложениям SaaS. С каждым из привилегированных пользователей повышается вероятность атаки организации. Эта уязвимость позволяет выявить пользователей, которым не нужен привилегированный доступ, и предпринять соответствующие действия по уменьшению или исключению представляемого ими риска. 
@@ -66,9 +59,7 @@ Azure Multi-Factor Authentication обеспечивает второй уров
 
 Дополнительные сведения см. в статье [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
-<a id="see-also" class="xliff"></a>
-
-## Дополнительные материалы
+## <a name="see-also"></a>Дополнительные материалы
 * [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 
 

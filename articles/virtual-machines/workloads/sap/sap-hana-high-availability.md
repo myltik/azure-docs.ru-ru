@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 258ccee349e07448ebebaebe64cd6fb6888d7ed4
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 7fa853983119ef4e570b768ca177d169c6e17153
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -46,8 +46,8 @@ ms.lasthandoff: 05/20/2017
 
 * Примечание SAP [2205917]: рекомендуемые параметры ОС для SUSE Linux Enterprise Server for SAP Applications.
 * Примечание SAP [1944799]: рекомендации для SAP HANA в SUSE Linux Enterprise Server for SAP Applications.
-* [Сценарий оптимизации производительности системной репликации SAP HANA][suse-hana-ha-guide]:  
-  это руководство содержит все сведения, необходимые для настройки системной репликации SAP HANA в локальной среде. Используйте это руководство как основу.
+* [Сценарий оптимизации производительности системной репликации SAP HANA][suse-hana-ha-guide]: это руководство содержит все сведения, необходимые для настройки системной репликации SAP HANA в локальной среде. Используйте это руководство как основу.
+  
 ## <a name="deploying-linux"></a>Развертывание Linux
 
 Агент ресурсов для SAP HANA включен в состав SUSE Linux Enterprise Server for SAP Applications.

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
-translationtype: Human Translation
-ms.sourcegitcommit: 76864bfc1b59cfc4e6f39094c08394fe32482d17
-ms.openlocfilehash: b7957c52877b262506013a422cd1511dd0ee79a4
-ms.lasthandoff: 01/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---

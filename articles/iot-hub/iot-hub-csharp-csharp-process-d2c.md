@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: ff0b234f27e2d5068cc0dcdc73e32e60f8622633
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: f8917ca67aa5f15ccc11030fd0292ac803d9e994
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -43,7 +44,7 @@ ms.lasthandoff: 03/06/2017
 
 Для работы с этим учебником требуется:
 
-* Visual Studio 2015 или Visual Studio 2017.
+* Visual Studio 2015 или Visual Studio 2017.
 * Активная учетная запись Azure. <br/>Если ее нет, можно создать [бесплатную учетную запись](https://azure.microsoft.com/free/) всего за несколько минут.
 
 Кроме того, у вас должны быть базовые знания о [службе хранилища Azure] и [служебной шине Azure].
@@ -113,6 +114,9 @@ private static async void SendDeviceToCloudMessagesAsync()
 Дополнительные сведения о способах обработки сообщений в очередях служебной шины см. в руководстве [Начало работы с очередями служебной шины][Service Bus queue].
 
 1. Создайте очередь служебной шины, как описано в статье [Начало работы с очередями служебной шины][Service Bus queue]. Эта очередь должна относиться к той же подписке и тому же региону, что и Центр Интернета вещей. Запишите пространство имен и имя очереди.
+
+    > [!NOTE]
+    > Для очередей и разделов служебной шины, которые используются как конечные точки Центра Интернета вещей, не должны быть включены **сеансы** или **поиск повторяющихся данных**. Если один из этих параметров включен, конечная точка отображается как **недоступная** на портале Azure.
 
 2. На портале Azure откройте Центр Интернета вещей и щелкните **Конечные точки**.
     

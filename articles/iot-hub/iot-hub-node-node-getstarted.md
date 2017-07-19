@@ -94,6 +94,8 @@ ms.lasthandoff: 07/13/2017
       }
     }
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 7. Сохраните и закройте файл **CreateDeviceIdentity.js** .
 8. Чтобы запустить приложение **createdeviceidentity**, выполните в командной строке в папке createdeviceidentity следующую команду:
    

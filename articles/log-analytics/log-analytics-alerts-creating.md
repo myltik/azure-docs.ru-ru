@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec118430c6262626728c3156634361c977ccb4b
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -32,6 +33,9 @@ ms.lasthandoff: 03/29/2017
 ## <a name="create-an-alert-rule"></a>Создание правила оповещения
 
 Чтобы создать правило генерации оповещений на портале OMS, начните с поиска записей, которые должны вызывать оповещение, в журналах.  После этого станет доступна кнопка **Оповещение** , позволяющая создать и настроить правило генерации оповещений.
+
+>[!NOTE]
+> В рабочей области OMS сейчас можно создать максимум 250 правил оповещения. 
 
 1. На странице обзора OMS щелкните **Log Search**(Поиск журналов).
 2. Создайте новый запрос поиска журналов или выберите сохраненный поиск. 

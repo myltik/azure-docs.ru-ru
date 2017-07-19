@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 4e145740f8485e4a02c70f2c9d3a9fa6057da635
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: ef14dbaecf5675fa92c91cb5df58b65f59764fa7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -64,9 +64,9 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Настройка подключения к Service Bus
 Модуль Azure считывает переменные среды AZURE\_SERVICEBUS\_NAMESPACE и AZURE\_SERVICEBUS\_ACCESS\_KEY для получения сведений, необходимых для подключения к служебной шине. Если эти переменные среды не заданы, при вызове **createServiceBusService** необходимо указать сведения об учетной записи.
 
-Пример настройки переменных среды в файле конфигурации для облачной службы Azure см. в статье [Веб-приложение Node.js, использующее хранилище][Node.js Cloud Service with Storage].
+Пример настройки переменных среды для облачной службы Azure см. в статье [Облачная служба Node.js с хранилищем][Node.js Cloud Service with Storage].
 
-Пример настройки переменных среды на [классическом портале Azure][Azure classic portal] для веб-сайта Azure см. в статье [Использование табличного хранилища Azure из Node.js][Node.js Web Application with Storage].
+Пример настройки переменных среды для веб-сайта Azure см. в статье [Веб-приложение Node.js с хранилищем][Node.js Web Application with Storage].
 
 ## <a name="create-a-topic"></a>Создание раздела
 Объект **ServiceBusService** позволяет работать с разделами. Следующий код создает объект **ServiceBusService**. Добавьте его в начало файла **server.js** после оператора импорта модуля Аzure.

@@ -16,10 +16,10 @@ ms.date: 03/09/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 5bda9ce182c93d23bf29fd211ccdeb6facacbb7e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9c1d1ba1ad70fee3db6dc6c2170b171e06f804d9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -337,7 +337,7 @@ ms.lasthandoff: 05/09/2017
 * В статье [Руководство. Конечные точки Центра Интернета вещей][lnk-endpoints] содержатся сведения о конечных точках, которые каждый Центр Интернета вещей предоставляет для операций управления и среды выполнения.
 * Статья [Руководство. Квоты и регулирование в Центре Интернета вещей][lnk-quotas] содержит сведения о квотах, применимых к службе Центра Интернета вещей, и ожидаемом поведении регулирования при использовании службы.
 * В статье [Общие сведения о пакетах SDK для Azure IoT и их использование][lnk-sdks] указаны различные языковые пакеты SDK, которые можно использовать при разработке приложений для устройств и служб, взаимодействующих с Центром Интернета вещей.
-* Статья [Справочник по языку запросов Центра Интернета вещей для двойников устройств и заданий][lnk-query] содержит сведения о языке запросов, который можно использовать для получения сведений о двойниках устройств и заданиях из Центра Интернета вещей.
+* [Справочник по языку запросов Центра Интернета вещей для двойников устройств, заданий и маршрутизации сообщений][lnk-query] содержит сведения о языке запросов, который можно использовать для получения сведений о двойниках устройств и заданиях из Центра Интернета вещей.
 * В статье [Взаимодействие с Центром Интернета вещей с помощью протокола MQTT][lnk-devguide-mqtt] приведены дополнительные сведения о поддержке протокола MQTT в Центре Интернета вещей.
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -359,7 +359,7 @@ ms.lasthandoff: 05/09/2017
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-security]: iot-hub-devguide-security.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md

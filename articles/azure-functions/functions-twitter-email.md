@@ -1,6 +1,6 @@
 ---
 title: "Создание функции, интегрируемой с Azure Logic Apps | Документация Майкрософт"
-description: "Создайте функцию, классифицирующую мнения, выраженные в твитах, с помощью служб Azure."
+description: "Создайте функцию, которая интегрируется с Azure Logic Apps и Azure Cognitive Services для классификации мнений в твитах и отправки уведомлений, если мнение недопустимо."
 services: functions, logic-apps, cognitive-services
 keywords: "рабочий процесс, облачные приложения, облачные службы, бизнес-процессы, системная интеграция, интеграция приложений, EAI"
 documentationcenter: 
@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 05/15/2017
 ms.author: glenga, riande
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: b8bf047be9796935ce815f4d803e229c7208ade5
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c1c7e291e30cc519f089dec259fdf8c5a75d2677
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -52,7 +53,7 @@ ms.lasthandoff: 05/17/2017
 
 Учетная запись Cognitive Services необходима, чтобы определить мнения, выраженные в твитах, которые мы отслеживаем.
 
-1. Войдите на [портал Azure](https://portal.azure.com/).
+1. Выполните вход на [портал Azure](https://portal.azure.com/).
 
 2. Щелкните **Создать** в верхнем левом углу портала Azure.
 

@@ -77,6 +77,8 @@ ms.lasthandoff: 07/13/2017
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Добавьте следующую функцию для вывода некоторых сведений об устройстве.
 
     ```python

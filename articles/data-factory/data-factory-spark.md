@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 124f04eb39296899af501d506476ad966442fc3d
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: dbee3f1d0aae885325ef9efe9c2f48961495e8b9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -299,7 +299,7 @@ ms.lasthandoff: 05/12/2017
 | className | Основной класс Java или Spark приложения. | Нет |
 | arguments | Список аргументов командной строки для программы Spark. | Нет |
 | proxyUser | Учетная запись пользователя для олицетворения, используемая для выполнения программы Spark. | Нет |
-| sparkConfig | Свойства конфигурации Spark. | Нет |
+| sparkConfig | Укажите значения для свойств конфигурации Spark, перечисленных в разделе [Конфигурация Spark — свойства приложения](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Нет |
 | getDebugInfo | Указывает, когда файлы журнала Spark копируются в службу хранилища Azure, используемое кластером HDInsight или определенное sparkJobLinkedService. Допустимые значения: None, Always или Failure. Значение по умолчанию: None. | Нет |
 | sparkJobLinkedService | Связанная служба службы хранилища Azure, в которой хранятся файл задания Spark, зависимости и журналы.  Если значение этого свойства не указано, используется хранилище, связанное с кластером HDInsight. | Нет |
 
@@ -310,7 +310,7 @@ ms.lasthandoff: 05/12/2017
 
 | Путь | Описание | Обязательно | Тип |
 | ---- | ----------- | -------- | ---- |
-| .    | Путь к корневому каталогу задания Spark в хранилище связанной службы.    | Да | Папка |
+| . | Путь к корневому каталогу задания Spark в хранилище связанной службы.  | Да | Папка |
 | &lt;Определяется пользователем&gt; | Путь к файлу записи задания Spark. | Да | Файл |
 | ./jars | Все файлы в этой папке передаются и помещаются в папку CLASSPATH Java для кластера. | Нет | Папка |
 | ./pyFiles | Все файлы в этой папке передаются и помещаются в папку PYTHONPATH для кластера. | Нет | Папка |

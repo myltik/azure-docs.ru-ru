@@ -3,7 +3,7 @@ title: "Установка Visual Studio и SSDT для хранилища да�
 description: "Установка Visual Studio и SQL Server Data Tools (SSDT) для хранилища данных SQL Azure."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: antvgski
 manager: jhubbard
 editor: 
 ms.assetid: 0ed9b406-9b42-4fe6-b963-fe0a5b48aac1
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 ms.date: 03/30/2017
-ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ae025ee2e6865b225efc5e225e261ac579a339aa
-ms.lasthandoff: 04/03/2017
+ms.author: anvang;barbkess
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: f7023b78c241a7bc8014276cd0bfa455165b42cc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.lasthandoff: 04/03/2017
 ## <a name="step-2-install-ssdt"></a>Шаг 2. Установка SSDT
 Чтобы установить SSDT для Visual Studio, проверьте наличие обновления SSDT в Visual Studio, выполнив следующие действия.
 
-1. В Visual Studio щелкните **Сервис** / **Расширения и обновления…** / **Обновления**.
+1. В Visual Studio щелкните **Сервис** / **Расширения и обновления…** / **Обновления**
 2. Выберите **Обновления продукта** и найдите элемент **Обновление Microsoft SQL Server для средств работы с базами данных**.
 
 Если обновление не найдено, у вас установлена последняя версия.  Чтобы убедиться, что компонент SSDT установлен, выберите **Справка** / **О Microsoft Visual Studio** и найдите в списке SQL Server Data Tools.  Последняя версия SSDT: 14.0.60525.0.  Если команда установки недоступна в Visual Studio, также можно посетить страницу [Скачать SQL Server Data Tools (SSDT)][SSDT Download], чтобы скачать и установить SSDT вручную.

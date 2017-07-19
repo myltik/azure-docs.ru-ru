@@ -15,7 +15,9 @@
 
      **Закрепить на панели мониторинга.** Установите этот флажок, чтобы быстро открывать Центр Интернета вещей с помощью панели мониторинга.
 
-    ![Ввод информации для создания Центра Интернета вещей](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
+   ![Ввод информации для создания Центра Интернета вещей](../articles/iot-hub/media/iot-hub-create-hub-and-device/2_fill-in-fields-for-azure-iot-hub-portal.png)
+
+   [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
 3. Щелкните **Создать**. Создание Центра Интернета вещей может занять несколько минут. Ход создания отображается на панели **уведомлений**.
 
@@ -45,6 +47,8 @@
    **Connect device to IoT Hub** (Подключить устройство к Центру Интернета вещей). Щелкните **Включить**.
 
    ![Добавление устройства в Device Explorer Центра Интернета вещей](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+
+   [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Щелкните **Сохранить**.
 5. Создав устройство, откройте его в области **Обозреватель устройств**.

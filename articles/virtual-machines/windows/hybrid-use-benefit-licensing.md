@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 5/1/2017
-ms.author: kmouss
+ms.date: 5/26/2017
+ms.author: xujing
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0854ceddc473a362221140f32b24138221a6f175
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 46b0895dc33fc13a1296301ed096fd3871b38952
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/27/2017
 Благодаря преимуществам гибридного использования Azure, клиенты, участвующие в программе Software Assurance, могут использовать локальные лицензии Windows Server и лицензии клиента Windows для запуска виртуальных машин Windows в Azure с меньшими затратами. Преимущество гибридного использования Azure для Windows Server распространяется на Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 и Windows Server 2016. Преимущество гибридного использования Azure для клиента Windows распространяется на Windows 10. Дополнительные сведения см. на странице [Льгота гибридного использования Microsoft Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 >[!IMPORTANT]
->В настоящее время преимущества гибридного использования Azure для клиента Windows находятся на этапе предварительной версии. Они доступны только клиентам уровня "Корпоративный", использующим Windows 10 Корпоративная E3 или Windows 10 Корпоративная E5 для каждого пользователя либо Windows VDA для каждого пользователя (лицензии на подписку пользователя или дополнительные лицензии на подписку пользователя) ("соответствующие лицензии").
+>Преимущества гибридного использования Azure для клиентов Windows представлены в предварительной версии в рамках образа Windows 10 в Azure Marketplace. Они доступны только клиентам уровня "Корпоративный", использующим Windows 10 Корпоративная E3 или Windows 10 Корпоративная E5 для каждого пользователя либо Windows VDA для каждого пользователя (лицензии на подписку пользователя или дополнительные лицензии на подписку пользователя) ("соответствующие лицензии").
 >
 >
 
@@ -59,8 +59,8 @@ Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
     -Offer "Windows-HUB"
 ```
 
-## <a name="upload-a-windows-vhd"></a>Передача VHD Windows
-Чтобы развернуть виртуальную машину Windows в Azure, сначала необходимо создать виртуальный жесткий диск, содержащий базовую сборку Windows. Перед отправкой виртуального жесткого диска в Azure его необходимо соответствующим образом подготовить с помощью программы Sysprep. Вы можете [узнать больше о требованиях к VHD и использованию Sysprep](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) и ознакомиться с разделом [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep). Перед выполнением программы Sysprep выполните архивацию виртуальной машины. 
+## <a name="upload-a-windows-server-vhd"></a>Отправка виртуального жесткого диска Windows Server
+Чтобы развернуть виртуальную машину Windows Server в Azure, сначала необходимо создать виртуальный жесткий диск, в котором содержится базовая сборка Windows. Перед отправкой виртуального жесткого диска в Azure его необходимо соответствующим образом подготовить с помощью программы Sysprep. Вы можете [узнать больше о требованиях к VHD и использованию Sysprep](upload-generalized-managed.md) и ознакомиться с разделом [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep). Перед выполнением программы Sysprep выполните архивацию виртуальной машины. 
 
 Убедитесь, что у вас [установлена и настроена последняя версия Azure PowerShell](/powershell/azure/overview). Чтобы передать подготовленный виртуальный жесткий диск в учетную запись хранения Azure, выполните командлет `Add-AzureRmVhd` со следующими параметрами:
 
@@ -74,10 +74,10 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 >
 >
 
-Кроме того, вы можете ознакомиться с дополнительной информацией о [передаче VHD в Azure](upload-image.md#upload-the-vhd-to-your-storage-account).
+Кроме того, вы можете ознакомиться с дополнительной информацией о [передаче VHD в Azure](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account).
 
 
-## <a name="deploy-an-uploaded-vm-via-resource-manager"></a>Развертывание переданной виртуальной машины с помощью Resource Manager
+## <a name="deploy-a-vm-via-resource-manager-template"></a>Развертывание виртуальной машины с помощью шаблона Resource Manager
 В шаблонах Resource Manager можно указывать дополнительный параметр для `licenseType`. Дополнительные сведения см. в статье [Создание шаблонов диспетчера ресурсов Azure](../../resource-group-authoring-templates.md). После загрузки виртуального жесткого диска в Azure необходимо изменить шаблон Resource Manager, чтобы включить в него тип лицензирования как часть поставщика вычислительных ресурсов и развернуть шаблон в обычном режиме.
 
 Для Windows Server:
@@ -89,7 +89,7 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
    }
 ```
 
-Для клиента Windows:
+Для клиента Windows для использования только с помощью образа Azure Marketplace:
 ```json
 "properties": {  
    "licenseType": "Windows_Client",
@@ -98,7 +98,7 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
    }
 ```
 
-## <a name="deploy-an-uploaded-vm-via-powershell-quickstart"></a>Развертывание переданной виртуальной машины с помощью PowerShell
+## <a name="deploy-a-vm-via-powershell-quickstart"></a>Краткое руководство по развертыванию виртуальной машины с помощью PowerShell
 При развертывании виртуальной машины Windows Server с помощью PowerShell доступен дополнительный параметр для `-LicenseType`. После передачи виртуального жесткого диска в Azure необходимо создать новую виртуальную машину с помощью командлета `New-AzureRmVM` и указать тип лицензирования следующим образом.
 
 Для Windows Server:
@@ -106,7 +106,7 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Server"
 ```
 
-Для клиента Windows:
+Для клиента Windows для использования только с помощью образа Azure Marketplace:
 ```powershell
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
@@ -211,11 +211,6 @@ $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOp
 Для Windows Server:
 ```powershell
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Server"
-```
-
-Для клиента Windows:
-```powershell
-New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Client"
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-via-resource-manager-template"></a>Развертывание масштабируемого набора виртуальных машин с помощью шаблона Resource Manager

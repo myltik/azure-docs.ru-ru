@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: a28be325d17bfbe2c5e22bf43e6143e520d6e39f
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: b6fdf3932ca1b8b84e0ac1667f1eb286abb51671
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -64,7 +64,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Настройка подключения к служебной шине Azure
-Модуль Azure считывает переменные среды AZURE\_SERVICEBUS\_NAMESPACE и AZURE\_SERVICEBUS\_ACCESS\_KEY для получения сведений, необходимых для подключения к служебной шине. Если эти переменные среды не заданы, при вызове **createServiceBusService** необходимо указать сведения об учетной записи.
+Модуль Azure считывает переменную среды AZURE\_SERVICEBUS\_CONNECTION\_STRING для получения сведений, необходимых для подключения к служебной шине. Если эта переменная среды не задана, при вызове **createServiceBusService** необходимо указать сведения об учетной записи.
 
 Пример настройки переменных среды в файле конфигурации для облачной службы Azure см. в статье [Веб-приложение Node.js, использующее хранилище][Node.js Cloud Service with Storage].
 

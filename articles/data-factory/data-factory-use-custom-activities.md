@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 44e0d7c920bc32bf3293ca5ab197b6d2332a43f8
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 662db10a30d4581a77c75204f49e7f5c731342ac
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -138,26 +138,26 @@ public IDictionary<string, string> Execute(
 
     ```csharp
 
-// Comment these lines if using VS 2017
-using System.IO;
-using System.Globalization;
-using System.Diagnostics;
-using System.Linq;
-// --------------------
+    // Comment these lines if using VS 2017
+    using System.IO;
+    using System.Globalization;
+    using System.Diagnostics;
+    using System.Linq;
+    // --------------------
 
-// Comment these lines if using <= VS 2015
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-// ---------------------
+    // Comment these lines if using <= VS 2015
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    // ---------------------
 
-using Microsoft.Azure.Management.DataFactories.Models;
-using Microsoft.Azure.Management.DataFactories.Runtime;
+    using Microsoft.Azure.Management.DataFactories.Models;
+    using Microsoft.Azure.Management.DataFactories.Runtime;
 
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
     ```
 6. Измените имя **пространства имен** на **MyDotNetActivityNS**.
 
@@ -267,7 +267,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path    
+        // log the output folder path   
         logger.Write("Writing blob to the folder: {0}", folderPath);
     
         // create a storage object for the output blob.
@@ -303,7 +303,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
             return null;
         }
 
-        // get type properties of the dataset    
+        // get type properties of the dataset   
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
@@ -389,8 +389,8 @@ using Microsoft.WindowsAzure.Storage.Blob;
     > Все файлы в ZIP-файле для настраиваемого действия должны размещаться на **верхнем уровне** без вложенных папок.
 
     ![Двоичные выходные файлы](./media/data-factory-use-custom-activities/Binaries.png)
-14. Создайте контейнер больших двоичных объектов **customactivitycontainer**, если он еще не создан.    
-15. Отправьте файл MyDotNetActivity.zip в виде большого двоичного объекта в контейнер customactivitycontainer в хранилище BLOB-объектов Azure **общего назначения** (не в "горячее" или "холодное" хранилище BLOB-объектов), на которое ссылается служба AzureStorageLinkedService.  
+14. Создайте контейнер больших двоичных объектов **customactivitycontainer**, если он еще не создан. 
+15. Отправьте файл MyDotNetActivity.zip в виде BLOB-объекта в контейнер customactivitycontainer в хранилище BLOB-объектов Azure **общего назначения** (не в "горячее" или "холодное" хранилище BLOB-объектов), на которое ссылается служба AzureStorageLinkedService.  
 
 > [!IMPORTANT]
 > Если добавить этот проект действия .NET в решение в Visual Studio, содержащее проект фабрики данных, и добавить ссылку в проект действия .NET из проекта приложения фабрики данных, то не обязательно выполнять два последних шага по созданию ZIP-файла и его добавлению в хранилище BLOB-объектов Azure общего назначения. При публикации сущностей фабрики данных с помощью Visual Studio эти шаги выполняются автоматически в процессе публикации. Дополнительные сведения см. в разделе [Проект фабрики данных в Visual Studio](#data-factory-project-in-visual-studio).

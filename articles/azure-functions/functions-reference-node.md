@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: chrande, glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: ff8a92c66303c81075c8a42baaa841301d65daf1
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: fb0925f2d6eb8edede67cf208c735b7b2a0221ac
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -136,6 +136,21 @@ context.log(message)
 context.log.warn("Something has happened."); 
 ```
 Вы можете задать пороговое значение уровня трассировки для ведения журнала в файле host.json или отключить эту функцию.  Дополнительные сведения о том, как делать записи в журнал, см. в следующем разделе.
+
+## <a name="binding-data-type"></a>Тип данных привязки
+
+Чтобы определить тип данных для входной привязки, используйте свойство `dataType` в определении привязки. Например, чтобы прочитать содержимое HTTP-запроса в двоичном формате, используйте тип `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Другие варианты для `dataType` — `stream` и `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>Вывод выходных данных трассировки на консоль 
 
