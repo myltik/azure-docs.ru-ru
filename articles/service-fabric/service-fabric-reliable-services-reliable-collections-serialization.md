@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 12af426a7392ca96f4a98df5da0cf8d16e58f897
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -54,7 +54,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="custom-serialization"></a>Настраиваемая сериализация
 
-Настраиваемые сериализаторы обычно используются для повышения производительности или шифрования данных при передаче по сети и хранении на диске. Помимо прочего настраиваемые сериализаторы часто являются более эффективными, чем универсальные сериализаторы, так как им необходимо сериализовать информацию о типе. 
+Настраиваемые сериализаторы обычно используются для повышения производительности или шифрования данных при передаче по сети и хранении на диске. Помимо прочего, настраиваемые сериализаторы часто являются более эффективными, чем универсальные сериализаторы, так как вам не нужно сериализовать информацию о типе. 
 
 [IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) используется для регистрации настраиваемого сериализатора для данного типа T. Эта регистрация должна произойти при построении StatefulServiceBase, чтобы гарантировать, что до начала восстановления все надежные коллекции будут иметь доступ к соответствующим сериализаторам для чтения сохраненных данных.
 

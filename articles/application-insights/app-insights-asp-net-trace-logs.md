@@ -3,7 +3,7 @@ title: "Просмотр журналов трассировки .NET в Applica
 description: "Поиск журналов, созданных с помощью Trace, Log4Net или NLog."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/3/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1b0c902adff1d60a04fb3cddef5862256d54f813
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: e562e6a1a6c2b8203f3d5a9a2ee5680372499693
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -96,6 +96,19 @@ ms.lasthandoff: 05/10/2017
  * `Name` задает имя собираемого события EventSource.
  * `Level` задает уровень ведения журнала для сбора. Возможные значения: `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
  * `Keywords` (необязательный) задает целочисленное значение используемых комбинаций ключевых слов.
+
+## <a name="using-diagnosticsource-events"></a>Использование событий DiagnosticSource
+Можно настроить отправку событий [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) в Application Insights в виде трассировок. Сначала установите пакет NuGet [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener). Затем измените раздел `TelemetryModules` файла [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+      <Sources>
+        <Add Name="MyDiagnosticSourceName" />
+      </Sources>
+    </Add>
+```
+
+Для каждого объекта DiagnosticSource, трассировку которого необходимо выполнять, добавьте запись с атрибутом `Name`, которому присвоено имя DiagnosticSource.
 
 ## <a name="using-etw-events"></a>Использование событий трассировки событий Windows
 Можно настроить отправку событий трассировки событий Windows в Application Insights в качестве трассировок. Сначала установите пакет NuGet `Microsoft.ApplicationInsights.EtwCollector`. Затем измените раздел `TelemetryModules` файла [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).

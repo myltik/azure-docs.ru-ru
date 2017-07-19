@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: d02f92a8809efd6f58312af8cb40739299ea28f6
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c0886302c82641f8cc1a00d3972870d58ba8afb4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -95,12 +95,15 @@ fsutil behavior query DisableDeleteNotify
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
-                
+
 После удаления данных с диска можно обеспечить правильную очистку после операций TRIM, запустив дефрагментацию с помощью TRIM.
 
 ```
 defrag.exe <volume:> -l
 ```
+
+Полную очистку тома также можно произвести, отформатировав его.
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Если вашему приложению нужно использовать диск D для хранения данных, вы можете [изменить букву временного диска Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

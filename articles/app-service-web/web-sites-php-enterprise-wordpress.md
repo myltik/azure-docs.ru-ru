@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
-translationtype: Human Translation
-ms.sourcegitcommit: 541dd7bed5a4a9e306642b2c36dd7c9d45aec690
-ms.openlocfilehash: fcaff51b2897b1b0bce8b1c503adfd9425c9fbb4
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: b562e8cbc84fc3a1e7e6dab1845022dfcce692a3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -112,7 +113,7 @@ ms.lasthandoff: 01/24/2017
 Как уже упоминалось в разделе [Архитектура и планирование](#planning), существует два способа миграции веб-сайта WordPress:
 
 * **Экспорт и импорт** — для сайтов, не требующих многих настроек, или если нужно перенести только содержимое.
-* **Резервное копирование и восстановление** — для сайтов со множеством настроек, где требуется переместить все.
+* **Резервное копирование и восстановление**  — для сайтов со множеством настроек, где требуется переместить все.
 
 Воспользуйтесь одним из следующих разделов для миграции сайта.
 
@@ -162,7 +163,7 @@ ms.lasthandoff: 01/24/2017
 | --- | --- |
 | **Установка режима плана службы приложений, размера и включение масштабирования** |[Увеличение масштаба приложения в Azure][websitescale] |
 | **Включение постоянных подключений базы данных** |По умолчанию WordPress не использует постоянные подключения базы данных, что может привести к регулированию подключения к базе данных после нескольких подключений. Чтобы включить постоянные подключения, установите [подключаемый модуль адаптера постоянных подключений](https://wordpress.org/plugins/persistent-database-connection-updater/installation/). |
-| **Повышение производительности** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Отключение ARR-файла cookie</a> может повысить производительность при запуске WordPress на нескольких экземплярах веб-приложений.</p></li><li><p>Включите кэширование. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Кэш Redis</a> (предварительная версия) можно использовать с <a href="https://wordpress.org/plugins/redis-object-cache/">подключаемым модулем WordPress кэша объектов Redis</a> или можно выбрать другое предложение кэширования в <a href="/gallery/store/">Магазине Azure</a>.</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Ускорение работы WordPress с помощью Wincache.</a> Wincache по умолчанию включен для веб-приложений.</p></li><li><p>[Масштабируйте веб-приложение в службе приложений Azure][websitescale] и используйте <a href="http://www.cleardb.com/developers/cdbr/introduction">маршрутизацию высокой доступности ClearDB</a> или <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a>.</p></li></ul> |
+| **Повышение производительности** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Отключение ARR-файла cookie</a> может повысить производительность при запуске WordPress на нескольких экземплярах веб-приложений.</p></li><li><p>Включите кэширование. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Кэш Redis</a> (предварительная версия) можно использовать с <a href="https://wordpress.org/plugins/redis-object-cache/">подключаемым модулем WordPress кэша объектов Redis</a> или можно выбрать другое предложение кэширования в <a href="/gallery/store/">Магазине Azure</a>.</p></li><li><p>[Ускорение работы WordPress с помощью Wincache.](https://wordpress.org/plugins/w3-total-cache/) Wincache по умолчанию включен для веб-приложений. При совместном использовании WinCache и динамического кэша отключите кэш файлов WinCache, оставив включенным кэш пользователей и сеансов. Чтобы отключить кэш файлов в INI-файле на уровне системы, задайте следующее значение:<br/><code>wincache.fcenabled = 0</code></p></li><li><p>[Масштабируйте веб-приложение в службе приложений Azure][websitescale] и используйте <a href="http://www.cleardb.com/developers/cdbr/introduction">маршрутизацию высокой доступности ClearDB</a> или <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a>.</p></li></ul> |
 | **Использование больших двоичных объектов для хранения данных** |<ol><li><p>[Создайте учетную запись хранения Azure](../storage/storage-create-storage-account.md).</p></li><li><p>Узнайте, как [использовать CDN](../cdn/cdn-create-new-endpoint.md) для геораспределения данных, хранящихся в больших двоичных объектах.</p></li><li><p>Установите и настройте <a href="https://wordpress.org/plugins/windows-azure-storage/">хранилище Azure для подключаемого модуля WordPress</a>.</p><p>Подробные сведения о настройке и конфигурации для подключаемого модуля см. в <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">руководстве пользователя</a>.</p> </li></ol> |
 | **Включение электронной почты** |Включите <a href="https://azure.microsoft.com/en-us/marketplace/partners/sendgrid/sendgrid-azure/">SendGrid</a> с помощью Магазина Azure. Установите <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">подключаемый модуль SendGrid</a> для WordPress. |
 | **Настройка пользовательского имени домена** |[Сопоставление имени личного домена с приложением Azure][customdomain]. |
@@ -211,7 +212,7 @@ ms.lasthandoff: 01/24/2017
 [storageplugin]: https://wordpress.org/plugins/windows-azure-storage/
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
 [phpwebsite]: web-sites-php-configure.md
-[customdomain]: web-sites-custom-domain-name.md
+[customdomain]: app-service-web-tutorial-custom-domain.md
 [trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
@@ -223,7 +224,7 @@ ms.lasthandoff: 01/24/2017
 [staging]: web-sites-staged-publishing.md
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
-[httpscustomdomain]: web-sites-configure-ssl-certificate.md
+[httpscustomdomain]: app-service-web-tutorial-custom-ssl.md
 [mysqlwindows]:../virtual-machines/windows/classic/mysql-2008r2.md
 [mysqllinux]:../virtual-machines/linux/classic/mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: d47447007c3bac51dc9ee0a17948ef9a42377a22
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 981b87540070dff18a01d6bf3dce24a675b451aa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure и Linux
@@ -52,7 +52,6 @@ Microsoft Azure поддерживает различные дистрибути
 Размер развертываемой виртуальной машины в Azure необходимо выбрать из списка доступных размеров в соответствии с рабочей нагрузкой. От размера также зависит вычислительная мощность, объем памяти и емкость хранилища виртуальной машины. Счета за виртуальную машину выставляются на основе времени ее работы и потребляемых ресурсов, которые для нее выделены. Вы можете ознакомиться с полным списком [размеров виртуальных машин](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Ниже приведены основные рекомендации по выбору подходящего размера виртуальной машины (A, D, DS, G и GS).
-
 * Виртуальные машины серии A — это недорогие виртуальные машины начального уровня для небольших рабочих нагрузок и несложных сценариев разработки и тестирования. Они широко доступны во всех регионах и поддерживают все стандартные ресурсы для виртуальных машин (как подключение к ним, так и их использование).
 * Размеры виртуальных машин A8–A11 предназначены для кластерных приложений с высокопроизводительными вычислениями.
 * Виртуальные машины серии D предназначены для приложений, которым необходимы большие вычислительные мощности и высокопроизводительные временные диски. Виртуальные машины серии D отличаются более быстрыми процессорами, более высоким соотношением "память — ядро" и твердотельным накопителем (SSD) в качестве временного диска.
@@ -94,7 +93,7 @@ Microsoft Azure поддерживает различные дистрибути
 * Docker — [Azure Marketplace — служба контейнеров Azure с Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins — [Azure Marketplace — платформа CloudBees Jenkins](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
-## <a name="getting-setup-on-azure"></a>Начало установки в Azure
+## <a name="getting-started-with-linux-on-azure"></a>Приступая к работе с Linux в Azure
 Чтобы начать работу с Azure, требуется учетная запись Azure, установленный интерфейс командной строки Azure и пара ключей SSH — открытый и закрытый.
 
 ### <a name="sign-up-for-an-account"></a>Регистрация учетной записи

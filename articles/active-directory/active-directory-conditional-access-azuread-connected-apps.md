@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: markvi
+ms.reviewer: calebb
 ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 4720d168f5ecd3a5e39cdcad812efb52755fb59a
 ms.contentlocale: ru-ru
 ms.lasthandoff: 12/28/2016
-
 
 ---
 # <a name="getting-started-with-azure-active-directory-conditional-access"></a>Приступая к работе с условным доступом Azure Active Directory

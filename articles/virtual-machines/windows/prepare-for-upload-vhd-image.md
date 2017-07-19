@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2017
+ms.date: 5/26/2017
 ms.author: glimoli;genli
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 104063500a33dfe55c56467517a5002c562772df
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4d8972e5a18cbe471ec4c5baa53992cc23fad129
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -260,20 +261,31 @@ sc config RemoteRegistry start= auto
    * [KB3115224](https://support.microsoft.com/kb/3115224) : улучшения надежности виртуальных машин, работающих на узле Windows Server 2012 R2 или Windows Server 2012.
    * [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: обновление безопасности для Microsoft Windows, устраняющее проблему с повышением привилегий (8 марта 2016 г.).
    * [KB3063075](https://support.microsoft.com/kb/3063075) : при запуске виртуальной машины Windows Server 2012 R2 в Microsoft Azure регистрируется множество событий с идентификатором 129.
-   * [KB3137061](https://support.microsoft.com/kb/3137061) : виртуальные машины Microsoft Azure не восстанавливаются после сбоя сети и возникают проблемы из-за повреждения данных.
    * [KB3114025](https://support.microsoft.com/kb/3114025) : низкая производительность при доступе к хранилищу файлов Azure из Windows 8.1 или Server 2012 R2.
    * [KB3033930](https://support.microsoft.com/kb/3033930) : исправление увеличивает предельное количество буферов RIO на процесс (64 000) для службы Azure в Windows.
    * [KB3004545](https://support.microsoft.com/kb/3004545) : невозможно получить доступ к виртуальным машинам, размещенным в службах размещения Azure, через VPN-подключение в Windows.
    * [KB3082343](https://support.microsoft.com/kb/3082343) : распределенные VPN-подключения утрачиваются, когда туннели VPN типа "сеть — сеть" Azure используют RRAS в Windows Server 2012 R2.
-   * [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: обновление безопасности для Microsoft Windows, устраняющее проблему с повышением привилегий (8 марта 2016 г.).
    * [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: описание обновления для системы безопасности CSRSS от 12 апреля 2016 г.
    * [KB2904100](https://support.microsoft.com/kb/2904100): система перестает отвечать на запросы при дисковых операциях ввода-вывода в Windows.
      
 ## Запуск Sysprep <a id="step23"></a>    
-Если вы хотите создать образ для развертывания нескольких виртуальных машин, то перед отправкой VHD в Azure образ необходимо [подготовить к использованию, выполнив команду Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Для подготовки специализированного виртуального жесткого диска запускать Sysprep не требуется. Дополнительные сведения см. в следующих статьях:
+Если вы хотите создать образ для развертывания нескольких виртуальных машин, то перед отправкой VHD в Azure образ необходимо подготовить к использованию, выполнив команду Sysprep. Для подготовки специализированного виртуального жесткого диска запускать Sysprep не требуется. 
+
+Помимо прочих действий Sysprep удаляет все сведения о вашей учетной записи и подготавливает машину к использованию в качестве образа. Сведения о Sysprep см. в статье [Использование программы Sysprep: введение](http://technet.microsoft.com/library/bb457073.aspx).
+
+Убедитесь, что Sysprep поддерживает роли сервера, запущенные на компьютере. Дополнительные сведения см. в статье [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка серверных ролей в Sysprep).
+
+1. Выполните вход на виртуальную машину Windows.
+2. Откройте окно командной строки с правами администратора. Измените каталог на **%windir%\system32\sysprep** и запустите файл `sysprep.exe`.
+3. В диалоговом окне **Программа подготовки системы** выберите **Переход в окно приветствия системы (OOBE)** и убедитесь, что установлен флажок **Подготовка к использованию**.
+4. В разделе **Параметры завершения работы** выберите **Завершение работы**.
+5. Нажмите кнопку **ОК**.
    
-   * [Generalize a Windows virtual machine using Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Подготовка виртуальной машины Windows к использованию с помощью Sysprep)
-   * [Sysprep Support for Server Roles (Поддержка ролей сервера в Sysprep)](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+    ![Запуск Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. После выполнения всех необходимых действий Sysprep завершает работу виртуальной машины. Не перезапускайте виртуальную машину.
+
+
+
 
 ## <a name="complete-recommended-configurations"></a>Рекомендуемые настройки
 Приведенные ниже параметры не влияют на передачу VHD. Тем не менее настоятельно рекомендуется их настроить.
@@ -299,6 +311,6 @@ sc config RemoteRegistry start= auto
     ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Отправка образа виртуальной машины Windows в Azure для развертываний Resource Manager](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Отправка образа виртуальной машины Windows в Azure для развертываний Resource Manager](upload-generalized-managed.md)
 
 

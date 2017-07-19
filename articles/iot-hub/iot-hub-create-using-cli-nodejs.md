@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
 ms.openlocfilehash: 8ac82da36b2edb71fcd0599dac12a3ed18e33b6f
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/24/2017
-
 
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Создание Центра Интернета вещей с помощью Azure CLI
@@ -93,6 +93,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **location**. Расположение (регион или центр обработки данных Azure) для подготовки Центра Интернета вещей.
 * **sku-name**. Имя SKU. Возможные значения: [F1, S1, S2, S3]. Наиболее актуальный и полный список доступен на странице цен а Центр Интернета вещей.
 * **units**. Количество подготовленных единиц. Диапазон: F1 [1]; S1, S2 [1–200]; S3 [1–10]. Единицы Центра Интернета вещей зависят от общего количества сообщений и количества устройств, к которым требуется подключаться.
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 Чтобы просмотреть все параметры для создания, можно воспользоваться командой справки в командной строке:
 

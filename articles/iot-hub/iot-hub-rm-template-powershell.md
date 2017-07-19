@@ -20,7 +20,6 @@ ms.openlocfilehash: d55de6c3f49abf3ac117dcb265dd7f1bcaa05f24
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Создание Центра Интернета вещей с помощью шаблона Azure Resource Manager (PowerShell)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -136,6 +135,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
+  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 4. В выходных данных отображаются ключи для созданного центра IoT.
 5. Убедитесь, что в приложение добавлен новый Центр Интернета вещей, посетив [портал Azure][lnk-azure-portal] и просмотрев список ресурсов, или с помощью командлета PowerShell **Get-AzureRmResource**.
 

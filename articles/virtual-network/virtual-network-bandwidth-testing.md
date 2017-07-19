@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: steveesp
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: d05bed3b92836bf496804c9d40b5a62a96ffbc3d
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: a2cbb6ca9197c7af0d1d30e87d58b0314507a531
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -128,6 +129,38 @@ ntttcp -s10.0.0.4 -t 300
 ```
  
 Если для теста не указан параметр времени, по умолчанию он длится 60 секунд.
+
+## <a name="testing-between-vms-running-windows-and-linux"></a>Тестирование подключения между виртуальными машинами под управлением Windows и Linux
+
+В этом сценарии нам потребуется включить режим без синхронизации, чтобы можно было запустить тест. Это делается с помощью **флага -N** для Linux и **флага -ns** для Windows.
+
+#### <a name="from-linux-to-windows"></a>Из Linux в Windows:
+
+Получатель <Windows>:
+
+``` bash
+ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
+```
+
+Отправитель <Linux>:
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
+```
+
+#### <a name="from-windows-to-linux"></a>Из Windows в Linux:
+
+Получатель <Linux>:
+
+``` bash 
+ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
+```
+
+Отправитель <Windows>:
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * В зависимости от полученных результатов в вашем сценарии вполне может быть возможность [оптимизировать пропускную способность сети виртуальных машин](virtual-network-optimize-network-bandwidth.md).

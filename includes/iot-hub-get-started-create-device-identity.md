@@ -14,6 +14,8 @@
 
     `iothub-explorer create myDeviceId --connection-string`
 
+   [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
+
 Запишите строку подключения устройства из результата. Строка подключения этого устройства используется приложением устройства для подключения к Центру Интернета вещей в качестве устройства.
 
 ![][img-identity]

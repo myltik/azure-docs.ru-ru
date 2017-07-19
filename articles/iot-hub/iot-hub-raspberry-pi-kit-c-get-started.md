@@ -13,13 +13,14 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/13/2017
+ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 387dcace5be29de52b465bc53fa81a3dbf876390
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: b7c328ac622190d64ea1b07ee459c7f8f5d1e0f4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -29,6 +30,8 @@ ms.lasthandoff: 04/18/2017
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 В этом учебнике описано, как начать работу с устройством Raspberry Pi под управлением Raspbian. Также вы узнаете, как можно легко подключать устройства к облаку с помощью [Центра Интернета вещей Azure](iot-hub-what-is-iot-hub.md). Примеры для Windows 10 IoT Базовая представлены в [Центре разработки для Windows](http://www.windowsondevices.com/).
+
+Нет начального набора? Используйте [онлайн-симулятор Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md). Или купите новый комплект [здесь](https://azure.microsoft.com/develop/iot/starter-kits).
 
 ## <a name="what-you-do"></a>В рамках этого руководства мы:
 
@@ -97,7 +100,7 @@ ms.lasthandoff: 04/18/2017
 
    ![Меню параметров Raspbian](media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
 
-1. На вкладке **Interfaces** (Интерфейсы) установите для параметров **SPI** и **SSH** значение **Enable** (Включить), а затем нажмите кнопку **ОК**.
+1. На вкладке **Interfaces** (Интерфейсы) установите для параметров **SPI** и **SSH** значение **Enable** (Включить), а затем нажмите кнопку **ОК**. Этот шаг является необязательным, если у вас нет физических датчиков и вы будете использовать симулированные данные датчика.
 
    ![Включение SPI и SSH на Raspberry Pi](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
@@ -109,6 +112,8 @@ ms.lasthandoff: 04/18/2017
 Подключите светодиодный индикатор и датчик BME280 к Pi с помощью монтажной платы и оптоволоконных кабелей, как показано ниже. Если у вас нет датчика, пропустите этот раздел.
 
 ![Подключение Raspberry Pi и датчика](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+
+Датчик BME280 может собирать данные о температуре и влажности. Светодиодный индикатор мигает при обмене данными между устройством и облаком. 
 
 Чтобы подключить выводы датчика, используйте следующие кабели:
 
@@ -163,8 +168,8 @@ ms.lasthandoff: 04/18/2017
 1. Откройте файл конфигурации, выполнив следующую команду:
 
    ```bash
-   cd iot-hub-c-raspberry-pi-clientapp
-   nano config.json
+   cd iot-hub-c-raspberry-pi-client-app
+   nano config.h
    ```
 
    ![Файл конфигурации](media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)

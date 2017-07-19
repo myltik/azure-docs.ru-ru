@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2daa6c07191da7bd732cadf62b414f8027682071
 ms.openlocfilehash: 35d7ac416c35c74d38f4370ee7e34a96eb18d000
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 02/07/2017
 
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: история выпусков версий
@@ -96,10 +97,5 @@ ms.openlocfilehash: 35d7ac416c35c74d38f4370ee7e34a96eb18d000
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о [мониторинге локальной инфраструктуры идентификации и служб синхронизации в облаке](active-directory-aadconnect-health.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

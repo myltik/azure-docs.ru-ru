@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 2faf328e6622b9a1e3b529d62b61061659041fbd
 ms.contentlocale: ru-ru
 ms.lasthandoff: 03/10/2017
-
 
 ---
 # <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad--windows-10-and-windows-server-2016"></a>Устранение неполадок автоматической регистрации присоединенных к домену Azure AD компьютеров для Windows 10 и Windows Server 2016

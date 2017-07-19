@@ -20,7 +20,6 @@ ms.openlocfilehash: 5281f6af0e93da7aa1c72891c179afea99c6a26c
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Создание Центра Интернета вещей с помощью шаблона Azure Resource Manager (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -121,6 +120,7 @@ ms.lasthandoff: 05/16/2017
       }
     }
     ```
+  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 5. В **обозревателе сервера** подключитесь к подписке Azure и в учетной записи хранения Azure создайте контейнер с именем **templates**. На панели **Свойства** задайте разрешениям **Общий доступ на чтение** для контейнера **templates** значение **Большой двоичный объект**.
 6. В **обозревателе сервера** щелкните правой кнопкой мыши контейнер **templates**, а затем выберите **Просмотреть контейнер больших двоичных объектов**. Нажмите кнопку **Передать BLOB-объект**, выберите файлы **parameters.json** и **templates.json**, а затем нажмите кнопку **Открыть**, чтобы передать файлы JSON в контейнер **templates**. URL-адреса больших двоичных объектов, содержащих данные JSON, таковы:
    

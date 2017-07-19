@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: cec0ceb0da57150e4bdd9f9a0f6d3e751c108523
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -44,10 +46,13 @@ ms.openlocfilehash: cec0ceb0da57150e4bdd9f9a0f6d3e751c108523
 
 ![Настройка событий Windows](./media/log-analytics-data-sources/configure-events.png)
 
-1. В консоли OMS выберите плитку **Параметры** .
+1. В консоли OMS щелкните плитку **Параметры** или нажмите кнопку **Параметры** в верхней части экрана.
 2. Выберите **Данные**.
 3. Щелкните источник данных для настройки.
 4. Перейдите по ссылке на документацию для каждого источника данных в приведенной выше таблице и найдите сведения об их настройке.
+
+> [!NOTE]
+> Пока нет возможности настроить источники данных Log Analytics на портале Azure.
 
 ## <a name="data-collection"></a>Сбор данных
 Конфигурации источников данных передаются в агенты, подключенные к Log Analytics напрямую, в течение нескольких минут.  Указанные данные собираются из агента и передаются непосредственно в службу Log Analytics с периодичностью, указанной для каждого источника данных.  Особенности каждого источника данных см. в соответствующей документации.
@@ -63,9 +68,4 @@ ms.openlocfilehash: cec0ceb0da57150e4bdd9f9a0f6d3e751c108523
 * Узнайте больше о [решениях](log-analytics-add-solutions.md) , которые расширяют функции службы Log Analytics и собирают данные в репозиторий OMS.
 * Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений.  
 * Настройте [оповещения](log-analytics-alerts.md) для получения заблаговременных уведомлений о получении критически важных данных из источников данных и решений.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

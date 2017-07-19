@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2017
+ms.date: 05/12/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: bb58d485a7ae805489b468cfffd72654914f63f1
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: fe804cc01925cee58a1d694bdb94b85a8f994cef
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -62,7 +62,7 @@ ms.lasthandoff: 05/02/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.24</version>
+      <version>1.3.30</version>
     </dependency>
     ```
 
@@ -209,7 +209,7 @@ ms.lasthandoff: 05/02/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.5.22</version>
       <type>jar</type>
     </dependency>
     ```
@@ -250,10 +250,10 @@ ms.lasthandoff: 05/02/2017
     import java.util.concurrent.TimeUnit;
     ```
 
-1. Добавьте в класс **App** . Замените значение **{youriothubname}** именем Центра Интернета вещей, а **{yourhubkey}** — значением ключа устройства, сформированным при работе с разделом *Создание удостоверения устройства*:
+1. Добавьте в класс **App** . Замените **{youriothubconnectionstring}** строкой подключения к вашему Центру Интернета вещей, которую вы записали, выполняя инструкции в разделе *Создание Центра Интернета вещей*:
 
     ```java
-    public static final String iotHubConnectionString = "HostName={youriothubname}.azure-devices.net;SharedAccessKeyName=owner;SharedAccessKey={yourhubkey}";
+    public static final String iotHubConnectionString = "{youriothubconnectionstring}";
     public static final String deviceId = "myDeviceId";
 
     public static final String methodName = "writeLine";
@@ -288,11 +288,15 @@ ms.lasthandoff: 05/02/2017
     System.out.println("Shutting down sample...");
     ```
 
+1. Сохраните и закройте файл invoke-direct-method\src\main\java\com\mycompany\app\App.java.
+
+1. Выполните сборку приложения **invoke-direct-method** и исправьте ошибки (при наличии). В командной строке перейдите к папке invoke-direct-method и выполните следующую команду:
+
+    `mvn clean package -DskipTests`
+
 ## <a name="run-the-apps"></a>Запуск приложений
 
 Теперь все готово к запуску консоли приложений.
-
-Теперь все готово к запуску приложений.
 
 1. В командной строке в папке simulated-device выполните следующую команду, чтобы начать прослушивать вызовы метода из Центра Интернета вещей:
 
@@ -325,7 +329,7 @@ ms.lasthandoff: 05/02/2017
 
 <!-- Links -->
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md
-
+[lnk-maven]: https://maven.apache.org/what-is-maven.html
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md

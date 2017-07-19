@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/17/2017
 ms.author: gauravbh; tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 2763da60fe25f2ca55603ecfcbbcefe3e368c25d
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 041254b07584a52ae92e603f60a439050b747af1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -49,8 +49,7 @@ az group create --name managedResourceGroup --location westcentralus
 Затем используйте следующую команду, чтобы развернуть файл applianceMainTemplate.json в mainResourceGroup.
 
 ```azurecli
-az group deployment --name managedAppDeployment --resourceGroup mainResourceGroup 
-      --templateUri  
+az group deployment create --name managedAppDeployment --resourceGroup mainResourceGroup --templateUri  
 ```
 
 При выполнении предыдущего шаблона появится запрос на ввод значений параметров, определенных в шаблоне. Помимо параметров, необходимых для подготовки ресурсов в шаблоне, понадобятся два значения ключевых параметров:
@@ -94,9 +93,9 @@ az appliance definition show -n ravtestAppDef1 -g ravApplianceRG2
 
 На портале также можно использовать управляемые приложения, опубликованные независимыми поставщиками программного обеспечения. Для этого выполните следующие действия.
 
-На портале Azure в колонке "Создать" выберите "Управляемое приложение".
+На портале Azure в колонке "Создать" выберите "Управляемое приложение каталога услуг".
 
-![](./media/managed-application-consumption/create-blade.png)
+![](./media/managed-application-consumption/create-service-catalog-managed-application.png)
 
 После этого появится список предложений от различных независимых поставщиков программного обеспечения и партнеров. Выберите то, которое вы хотите создать, и щелкните "Создать".
 
