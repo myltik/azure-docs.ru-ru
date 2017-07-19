@@ -23,9 +23,7 @@ ms.lasthandoff: 07/06/2017
 
 ---
 
-<a id="create-an-oracle-database-12c-database-in-an-azure-virtual-machine" class="xliff"></a>
-
-# Создание базы данных Oracle 12c на виртуальной машине Azure
+# <a name="create-an-oracle-database-12c-database-in-an-azure-virtual-machine"></a>Создание базы данных Oracle 12c на виртуальной машине Azure
 
 В этом руководстве объясняется, как с помощью Azure CLI развернуть виртуальную машину Azure, используя [образ из коллекции Oracle Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview), чтобы создать базу данных Oracle 12c. После развертывания сервера создается SSH-подключение для последующей настройки базы данных Oracle. 
 
@@ -35,9 +33,7 @@ ms.lasthandoff: 07/06/2017
 
 Если вы решили установить и использовать CLI локально, для выполнения инструкций в этом руководстве вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Создание группы ресурсов
+## <a name="create-a-resource-group"></a>Создание группы ресурсов
 
 Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. 
 
@@ -46,9 +42,7 @@ ms.lasthandoff: 07/06/2017
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-<a id="create-virtual-machine" class="xliff"></a>
-
-## Создание виртуальной машины
+## <a name="create-virtual-machine"></a>Создание виртуальной машины
 
 Чтобы создать виртуальную машину, выполните команду [az vm create](/cli/azure/vm#create). 
 
@@ -79,9 +73,7 @@ az vm create \
 }
 ```
 
-<a id="connect-to-the-vm" class="xliff"></a>
-
-## Подключение к виртуальной машине
+## <a name="connect-to-the-vm"></a>Подключение к виртуальной машине
 
 Используйте следующую команду для создания сеанса SSH с виртуальной машиной. Замените IP-адрес общедоступным IP-адресом виртуальной машины (значение `publicIpAddress`).
 
@@ -89,9 +81,7 @@ az vm create \
 ssh azureuser@<publicIpAddress>
 ```
 
-<a id="create-the-database" class="xliff"></a>
-
-## Создание базы данных
+## <a name="create-the-database"></a>Создание базы данных
 
 Программное обеспечение Oracle уже установлено в образе Marketplace. Создайте пример базы данных, как описано ниже. 
 
@@ -171,13 +161,11 @@ export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 export ORACLE_SID=cdb1 
 ```
 
-<a id="oracle-em-express-connectivity" class="xliff"></a>
-
-## Подключение к Oracle EM Express
+## <a name="oracle-em-express-connectivity"></a>Подключение к Oracle EM Express
 
 Мы включим в Oracle EM Express инструмент управления графическим интерфейсом пользователя, чтобы была возможность просматривать базу данных. Для подключения к Oracle EM Express сначала необходимо настроить порт в Oracle. 
 
-1. Подключитесь к базе данных с помощью SQL*Plus.
+1. Подключитесь к базе данных с помощью SQL Plus.
 
     ```bash
     $ sqlplus / as sysdba
@@ -207,9 +195,7 @@ export ORACLE_SID=cdb1
     SQL> alter database open;
    ```
 
-<a id="automate-database-startup-and-shutdown" class="xliff"></a>
-
-## Автоматизация запуска и завершения работы базы данных
+## <a name="automate-database-startup-and-shutdown"></a>Автоматизация запуска и завершения работы базы данных
 
 По умолчанию база данных Oracle не запускается автоматически при перезапуске виртуальной машины. Чтобы база данных Oracle запускалась автоматически, войдите с правами привилегированного пользователя. Затем создайте и обновите некоторые системные файлы.
 
@@ -276,9 +262,7 @@ export ORACLE_SID=cdb1
     # reboot
     ```
 
-<a id="open-ports-for-connectivity" class="xliff"></a>
-
-## Открытие портов для подключения
+## <a name="open-ports-for-connectivity"></a>Открытие портов для подключения
 
 Последнее, что следует сделать, — настроить несколько внешних конечных точек. Чтобы настроить группу безопасности сети Azure, которая защищает виртуальную машину, сначала следует завершить сеанс SSH на виртуальной машине. (Завершение сеанса SSH должно был произойти при перезапуске на предыдущем шаге.) 
 
@@ -326,9 +310,7 @@ export ORACLE_SID=cdb1
 
 ![Снимок экрана со страницей входа Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Очистка ресурсов
+## <a name="clean-up-resources"></a>Очистка ресурсов
 
 Вы можете удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, выполнив команду [az group delete](/cli/azure/group#delete).
 
@@ -336,9 +318,7 @@ export ORACLE_SID=cdb1
 az group delete --name myResourceGroup
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Узнайте о других [решениях Oracle в Azure](oracle-considerations.md). 
 
