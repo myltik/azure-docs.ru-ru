@@ -4,7 +4,7 @@ description: "Узнайте, как использовать службу пр�
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: adrianha
+manager: syntaxc4
 editor: 
 ms.assetid: 6f7e8517-e532-4559-9b07-874115f4c65b
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
 ms.openlocfilehash: 5c9dd6bd1f9e6338c297af07bfcd1c22f8d6405d
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/09/2017
-
 
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Добавление push-уведомлений в приложение Xamarin.Android

@@ -2,8 +2,8 @@
 title: "Включение автономной синхронизации для мобильного приложения Azure (Xamarin iOS)"
 description: "Использование мобильного приложения службы приложений для кэширования и синхронизации автономных данных в приложении Xamarin iOS"
 documentationcenter: xamarin
-author: dhei
-manager: adrianha
+author: ggailey777
+manager: cfowler
 editor: 
 services: app-service\mobile
 ms.assetid: 828a287c-5d58-4540-9527-1309ebb0f32b
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
+ms.author: glenga
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: d609231d6d9913b0f40b6e311aeedeb9a2391c7c

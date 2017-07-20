@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 07/19/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c3c5a3ee123fe021444370583c7f37737a03edce
 ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="output-metadata"></a>Выходные метаданные
@@ -33,7 +34,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 >
 >
 
-## <a name="a-nameassetfiles-a-assetfiles-root-element"></a><a name="AssetFiles "></a> Корневой элемент AssetFiles
+## <a name="AssetFiles "></a> Корневой элемент AssetFiles
 Коллекция записей AssetFile для задания кодирования.  
 
 ### <a name="child-elements"></a>Дочерние элементы
@@ -41,7 +42,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |[Элемент AssetFile](media-services-output-metadata-schema.md), который является частью коллекции AssetFiles. |
 
-## <a name="a-nameassetfile-a-assetfile-element"></a><a name="AssetFile "></a> Элемент AssetFile
+## <a name="AssetFile "></a> Элемент AssetFile
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Атрибуты
@@ -58,7 +59,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Каждый физический файл ресурса-контейнера может содержать ноль или более видеодорожек, чередуемых в соответствующем формате ресурса-контейнера. Это коллекция всех видеодорожек. Дополнительные сведения см. в разделе [Элемент VideoTracks](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Каждый физический файл ресурса-контейнера может содержать ноль или более звуковых дорожек, чередуемых в соответствующем формате ресурса-контейнера. Это коллекция всех звуковых дорожек. Дополнительные сведения см. в разделе [Элемент AudioTracks](media-services-output-metadata-schema.md). |
 
-## <a name="a-namesources-a-sources-element"></a><a name="Sources "></a> Элемент Sources
+## <a name="Sources "></a> Элемент Sources
 Коллекция входных и исходных файлов мультимедиа, которая обрабатывалась для создания AssetFile.  
 
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
@@ -68,7 +69,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- |
 | **Источник**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Входной или исходный файл, используемый при создании этого ресурса. Дополнительные сведения см. в разделе [Элемент Source](media-services-output-metadata-schema.md). |
 
-## <a name="a-namesource-a-source-element"></a><a name="Source "></a> Элемент Source
+## <a name="Source "></a> Элемент Source
 Входной или исходный файл, используемый при создании этого ресурса.  
 
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
@@ -78,7 +79,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- | --- |
 | **Имя**<br/><br/> Обязательно |**xs:string** |Имя входного исходного файла. |
 
-## <a name="a-namevideotracks-a-videotracks-element"></a><a name="VideoTracks "></a> Элемент VideoTracks
+## <a name="VideoTracks "></a> Элемент VideoTracks
 Каждый физический файл ресурса-контейнера может содержать ноль или более видеодорожек, чередуемых в соответствующем формате ресурса-контейнера. Это коллекция всех видеодорожек.  
 
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
@@ -88,7 +89,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Конкретная видеодорожка в родительском элементе AssetFile. Дополнительные сведения см. в разделе [Элемент VideoTrack](media-services-output-metadata-schema.md#VideoTrack). |
 
-## <a name="a-namevideotracka-videotrack-element"></a><a name="VideoTrack"></a> Элемент VideoTrack
+## <a name="VideoTrack"></a> Элемент VideoTrack
 Конкретная видеодорожка в родительском элементе AssetFile.  
 
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
@@ -110,7 +111,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Обязательно |**xs:int** |Целевая средняя скорость для данной видеодорожки в килобитах в секунду, запрошенная на основе предустановки кодирования. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Максимальная средняя скорость группы изображений (GOP) для данной видеодорожки в килобитах в секунду. |
 
-## <a name="a-nameaudiotracks-a-audiotracks-element"></a><a name="AudioTracks "></a> Элемент AudioTracks
+## <a name="AudioTracks "></a> Элемент AudioTracks
 Каждый физический файл ресурса-контейнера может содержать ноль или более звуковых дорожек, чередуемых в соответствующем формате ресурса-контейнера. Это коллекция всех звуковых дорожек.  
 
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
@@ -120,7 +121,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Конкретная звуковая дорожка в родительском элементе AssetFile. Дополнительные сведения см. в разделе [Элемент AudioTrack](media-services-output-metadata-schema.md). |
 
-## <a name="a-nameaudiotrack-a-audiotrack-element"></a><a name="AudioTrack "></a> Элемент AudioTrack
+## <a name="AudioTrack "></a> Элемент AudioTrack
 Конкретная звуковая дорожка в родительском элементе AssetFile.  
 
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
@@ -141,7 +142,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Параметры результата измерения громкости. Дополнительные сведения см. в разделе [Элемент LoudnessMeteringResultParameter](media-services-output-metadata-schema.md). |
 
-## <a name="a-nameloudnessmeteringresultparameters-a-loudnessmeteringresultparameters-element"></a><a name="LoudnessMeteringResultParameters "></a> Элемент LoudnessMeteringResultParameters
+## <a name="LoudnessMeteringResultParameters "></a> Элемент LoudnessMeteringResultParameters
 Параметры результата измерения громкости.  
 
 Пример XML-файла см. в [соответствующем разделе](media-services-output-metadata-schema.md#xml).  
@@ -509,7 +510,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 
 
 
-## <a name="a-namexmla-xml-example"></a><a name="xml"></a> Пример XML-файла
+## <a name="xml"></a> Пример XML-файла
  Ниже приведен пример файла выходных метаданных.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
@@ -603,9 +604,4 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
