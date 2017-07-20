@@ -10,10 +10,10 @@ ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e14712b8fd68d6364f44c116448a9a8f33622a91
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5197a3f44a085d25d964f355154d92b08e65560b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Серверы базы данных Azure для PostgreSQL
@@ -42,7 +42,7 @@ ms.lasthandoff: 05/10/2017
 
 |||
 | :-- | :-- |
-| **Аутентификация и авторизация** | Сервер базы данных Azure для PostgreSQL поддерживает собственную аутентификацию PostgreSQL. Подключиться к серверу и выполнить аутентификацию можно с помощью учетных данных администратора сервера.<br />Дополнительные сведения см. в статье [Предоставление доступа к базе данных и управление им](/azure/sql-database/sql-database-manage-logins). |
+| **Аутентификация и авторизация** | Сервер базы данных Azure для PostgreSQL поддерживает собственную аутентификацию PostgreSQL. Подключиться к серверу и выполнить аутентификацию можно с помощью учетных данных администратора сервера. |
 | **Протокол** | Служба поддерживает протокол на основе сообщений, используемый PostgreSQL. |
 | **TCP/IP** | Протокол работает через TCP/IP, а также через сокеты домена Unix. |
 | **Брандмауэр** | Для защиты данных правило брандмауэра запрещает любой доступ к серверу базы данных или базам данных, пока не будут указаны компьютеры, которые имеют разрешение. Ознакомьтесь со статьей [Правила брандмауэра сервера базы данных Azure для PostgreSQL](concepts-firewall-rules.md). |
@@ -50,7 +50,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="how-do-i-manage-a-server"></a>Как управлять сервером?
 
-Управлять серверами базы данных Azure для PostgreSQL можно с помощью портала Azure или Azure CLI.
+Управлять серверами базы данных Azure для PostgreSQL можно с помощью портала Azure или [Azure CLI](/cli/azure/postgres).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

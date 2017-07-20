@@ -13,12 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
+ms.date: 6/17/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: e2d44f821635ce9d91b67ecdc0653e2ba9c99b01
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 2f770a8f088754e63aec40d3f670f6ae0543d6e0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -54,10 +55,11 @@ ms.lasthandoff: 04/13/2017
 
 Кроме того, вам понадобятся следующие элементы среды разработки:
 
+* Активная подписка Azure. Если ее нет, можно создать [бесплатную пробную учетную запись Azure](https://azure.microsoft.com/free/) всего за несколько минут.
 * ПК или компьютер Mac под управлением Windows или Ubuntu;
 * беспроводная сеть, к которой подключается Feather M0 WiFi;
 * подключение к Интернету для скачивания средства настройки;
-* [Arduino IDE](https://www.arduino.cc/en/main/software) версии 1.6.8 или более новой (более ранние версии несовместимы с библиотекой Azure IoT).
+* [Arduino IDE](https://www.arduino.cc/en/main/software) версии 1.6.8 или более новой. Более ранние версии несовместимы с библиотекой Центра Интернета вещей Azure.
 
 
 Ниже приведены необязательные элементы, используемые в случае отсутствия датчика. Вы также можете использовать симулированные данные датчика.
@@ -153,11 +155,11 @@ ms.lasthandoff: 04/13/2017
 1. Откройте папку, где хранится пример приложения.
 1. Откройте файл app.ino в папке приложения в Arduino IDE.
 
-   ![Открытие примера приложения в интегрированной среде разработки Arduino](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
+   ![Открытие примера приложения в Arduino IDE](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
-1. Щелкните **Инструменты** > **Платы** > **Менеджер плат**, а затем установите `Arduino SAMD Boards` версии `1.6.2` или более новой. 
+1. Щелкните **Инструменты** > **Платы** > **Менеджер плат**, а затем установите `Arduino SAMD Boards` версии `1.6.2` или более новой. Затем установите пакет `Adafruit SAMD`, чтобы добавить определения файлов платы.
 
-   Диспетчер плат показывает, что установлена версия `Arduino SAMD Boards` `1.6.2` или более новая.
+   Диспетчер плат показывает, что установлена версия `Arduino SAMD Boards` `1.6.2` или более новая. 
 
    ![Завершение установки пакета ESP8266](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
 
@@ -169,8 +171,7 @@ ms.lasthandoff: 04/13/2017
 ### <a name="install-necessary-libraries"></a>Установка необходимых библиотек
 
 1. В Arduino IDE щелкните **Скетч** > **Подключить библиотеку** > **Управлять библиотеками**.
-1. Выполните поиск приведенных ниже имен библиотек по очереди. Для каждой найденной библиотеки нажмите кнопку **Установить**.
-   * `Adafruit_WINC1500`
+1. Выполните поиск приведенных ниже имен библиотек по очереди. Для каждой найденной библиотеки щелкните **Установить**.
    * `RTCZero`
    * `NTPClient`
    * `AzureIoTHub`
@@ -179,6 +180,7 @@ ms.lasthandoff: 04/13/2017
    * `ArduinoJson`
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
+1. Вручную установите `Adafruit_WINC1500`. Перейдите по [этой ссылке](https://github.com/adafruit/Adafruit_WINC1500) и нажмите кнопку **Clone or download** (Клонировать и скачать), а затем щелкните **Download ZIP** (Скачать ZIP-файл). Затем в интерфейсе IDE Arduino перейдите в меню **Sketch** (Эскиз)  -> **Include Library** (Включить библиотеку)  -> **Add .zip Library** (Добавить библиотеку ZIP) и добавьте только что скачанный ZIP-файл.
 
 ### <a name="dont-have-a-real-bme280-sensor"></a>Отсутствие датчика BME280
 
@@ -189,7 +191,7 @@ ms.lasthandoff: 04/13/2017
    ```c
    define SIMULATED_DATA true
    ```
-   ![Настройка использования смоделированных данных в примере приложения](media/iot-hub-adafruit-feather-m0-wifi-get-started/8_arduino-ide-configure-app-use-simulated-data.png)
+   ![Настройка примера приложения для использования имитации данных](media/iot-hub-adafruit-feather-m0-wifi-get-started/8_arduino-ide-configure-app-use-simulated-data.png)
 
 1. Сохраните файл с помощью клавиш `Control-s`.
 
@@ -200,7 +202,7 @@ ms.lasthandoff: 04/13/2017
 
 ### <a name="enter-your-credentials"></a>Ввод учетных данных
 
-После завершения загрузки введите учетные данные следующим образом:
+После успешного завершения загрузки введите учетные данные следующим образом:
 
 1. В Arduino IDE щелкните **Инструменты** > **Монитор последовательного порта**.
 1. В окне монитора последовательного порта обратите внимание на два раскрывающихся списка в нижнем правом углу.

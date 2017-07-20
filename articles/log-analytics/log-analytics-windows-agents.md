@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: d95ab33460d5d86b1d2f6d7f0d4e7a9040568c29
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 48a0eaeb10d406d551c9e5870edde06809bd7544
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -65,7 +65,7 @@ ms.lasthandoff: 05/12/2017
 В следующей таблице показаны ресурсы, необходимые для обмена данными.
 
 >[!NOTE]
->В некоторых из ресурсов упоминается Operational Insights — предыдущая версия OMS. Тем не менее, в будущем перечисленные ресурсы будут изменены.
+>В некоторых из ресурсов упоминается Operational Insights — предыдущее название Log Analytics.
 
 | Ресурс агента | порты; | Обход проверки HTTPS |
 |---|---|---|
@@ -114,10 +114,10 @@ ms.lasthandoff: 05/12/2017
 
 Можно легко проверить, могут ли агенты обмениваться данными с OMS, воспользовавшись следующей процедурой.
 
-1.    На компьютере, на котором установлен агент Windows, откройте панель управления.
-2.    Откройте "Microsoft Monitoring Agent".
-3.    Перейдите на вкладку "Azure Log Analytics (OMS)".
-4.    В столбце "Состояние" вы увидите, что агент успешно подключен к службе Operations Management Suite.
+1.  На компьютере, на котором установлен агент Windows, откройте панель управления.
+2.  Откройте "Microsoft Monitoring Agent".
+3.  Перейдите на вкладку "Azure Log Analytics (OMS)".
+4.  В столбце "Состояние" вы увидите, что агент успешно подключен к службе Operations Management Suite.
 
 ![Агент подключен](./media/log-analytics-windows-agents/mma-connected.png)
 
@@ -167,6 +167,12 @@ ms.lasthandoff: 05/12/2017
 |OPINSIGHTS_WORKSPACE_ID                | Идентификатор добавляемой рабочей области (GUID).                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Ключ рабочей области, используемый для первоначальной аутентификации в рабочей области. |
 |OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Укажите облачную среду, в которой находится рабочая область. <br> 0 — коммерческое облако Azure (по умолчанию). <br> 1 — Azure для государственных организаций. |
+|OPINSIGHTS_PROXY_URL               | Универсальный код ресурса (URI) для прокси-сервера. |
+|OPINSIGHTS_PROXY_USERNAME               | Имя пользователя для доступа к прокси-серверу после аутентификации. |
+|OPINSIGHTS_PROXY_PASSWORD               | Пароль для доступа к прокси-серверу после аутентификации. |
+
+>[!NOTE]
+Чтобы избежать достижения ограничения длины командной строки IExpress, установите агента, не настраивая рабочую область, и затем с помощью сценария настройте конфигурацию рабочей области.
 
 >[!NOTE]
 Если при использовании параметра `OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE` появляется сообщение `Command line option syntax error.`, можно выполнить приведенный ниже способ обхода.
@@ -174,9 +180,10 @@ ms.lasthandoff: 05/12/2017
 MMASetup-AMD64.exe /C /T:.\MMAExtract
 cd .\MMAExtract
 setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+```
 
-## Add a workspace using a script
-Add a workspace using the Log Analytics agent scripting API with the following example:
+## <a name="add-a-workspace-using-a-script"></a>Добавление рабочей области с помощью сценария
+Добавьте рабочую область с помощью API сценариев службы Log Analytics, как показано в следующем примере.
 
 ```PowerShell
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -206,10 +213,10 @@ $mma.ReloadConfiguration()
 В этом примере процедура и сценарий не выполняют обновление существующего агента.
 
 1. Импортируйте модуль DSC xPSDesiredStateConfiguration со страницы [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) в службу автоматизации Azure.  
-2.    Создайте в службе автоматизации Azure ресурсы-контейнеры для переменных *OPSINSIGHTS_WS_ID* и *OPSINSIGHTS_WS_KEY*. В качестве значения параметра *OPSINSIGHTS_WS_ID* укажите идентификатор рабочей области Log Analytics в OMS, а для параметра *OPSINSIGHTS_WS_KEY* — первичный ключ рабочей области.
-3.    Скопируйте приведенный ниже сценарий и сохраните его как файл MMAgent.ps1.
-4.    Измените, а затем используйте следующий пример для установки агента с помощью DSC в службе автоматизации Azure. Импортируйте MMAgent.ps1 в службу автоматизации Azure с помощью интерфейса службы или командлета.
-5.    Назначьте узел конфигурации. В течение 15 минут узел проверит свою конфигурацию, а MMA будет помещен в узел.
+2.  Создайте в службе автоматизации Azure ресурсы-контейнеры для переменных *OPSINSIGHTS_WS_ID* и *OPSINSIGHTS_WS_KEY*. В качестве значения параметра *OPSINSIGHTS_WS_ID* укажите идентификатор рабочей области Log Analytics в OMS, а для параметра *OPSINSIGHTS_WS_KEY* — первичный ключ рабочей области.
+3.  Скопируйте приведенный ниже сценарий и сохраните его как файл MMAgent.ps1.
+4.  Измените, а затем используйте следующий пример для установки агента с помощью DSC в службе автоматизации Azure. Импортируйте MMAgent.ps1 в службу автоматизации Azure с помощью интерфейса службы или командлета.
+5.  Назначьте узел конфигурации. В течение 15 минут узел проверит свою конфигурацию, а MMA будет помещен в узел.
 
 ```PowerShell
 Configuration MMAgent
@@ -298,17 +305,17 @@ foreach ($Application in $InstalledApplications)
 Если в ИТ-инфраструктуре используется Operations Manager, в качестве агента Operations Manager можно также использовать агент MMA.
 
 ### <a name="to-configure-mma-agents-to-report-to-an-operations-manager-management-group"></a>Настройка агентов MMA для отчетности перед группой управления Operations Manager
-1.    На компьютере, где установлен агент, откройте **панель управления**.  
-2.    Откройте **Microsoft Monitoring Agent** и перейдите на вкладку **Operations Manager**.  
+1.  На компьютере, где установлен агент, откройте **панель управления**.  
+2.  Откройте **Microsoft Monitoring Agent** и перейдите на вкладку **Operations Manager**.  
     ![Вкладка "Operations Manager в Microsoft Monitoring Agent"](./media/log-analytics-windows-agents/om-mg01.png)
-3.    Если серверы Operations Manager интегрированы с Active Directory, установите флажок **Автоматически обновлять назначения групп управления из AD DS**.
-4.    Нажмите кнопку **Добавить**, чтобы открыть диалоговое окно **Добавление группы управления**.  
+3.  Если серверы Operations Manager интегрированы с Active Directory, установите флажок **Автоматически обновлять назначения групп управления из AD DS**.
+4.  Нажмите кнопку **Добавить**, чтобы открыть диалоговое окно **Добавление группы управления**.  
     ![Добавление группы управления в Microsoft Monitoring Agent](./media/log-analytics-windows-agents/oms-mma-om02.png)
-5.    В поле **Имя группы управления** введите имя группы управления.
-6.    В поле **Основной сервер управления** введите имя компьютера основного сервера управления.
-7.    В поле **Порт сервера управления** введите номер порта TCP.
-8.    На странице **Учетная запись действия агента**выберите учетную запись Local System или учетную запись локального домена.
-9.    Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Добавление группы управления**, и еще раз нажмите **ОК**, чтобы закрыть диалоговое окно **Свойства Microsoft Monitoring Agent**.
+5.  В поле **Имя группы управления** введите имя группы управления.
+6.  В поле **Основной сервер управления** введите имя компьютера основного сервера управления.
+7.  В поле **Порт сервера управления** введите номер порта TCP.
+8.  На странице **Учетная запись действия агента**выберите учетную запись Local System или учетную запись локального домена.
+9.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Добавление группы управления**, и еще раз нажмите **ОК**, чтобы закрыть диалоговое окно **Свойства Microsoft Monitoring Agent**.
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

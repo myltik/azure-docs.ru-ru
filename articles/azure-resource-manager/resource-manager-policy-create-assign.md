@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/29/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3a2166fefc8d0b1602562b753e0413be458fae98
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: e9a858addb768ce051fccce0eaf83e49a83da21b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -25,11 +26,10 @@ ms.lasthandoff: 04/21/2017
 
 Чтобы реализовать политику, необходимо выполнить три шага:
 
-1. Определить правила политики в формате JSON.
-2. Создать определение политики в подписке на основе правил в формате JSON, созданных на предыдущем шаге. После этого политика станет доступной для назначения, но ее правила еще не будут применены к подписке.
-3. Назначить политику какой-либо области (например, подписке или группе ресурсов). После этого правила политики будут применены.
-
-В Azure доступно несколько предопределенных политик, что может сократить число определяемых вами политик. Если предопределенные политики подходят для вашего случая, пропустите первые два шага и назначьте предопределенные политики области.
+1. Просмотрите определения политик (включая встроенных политики, предоставленные Azure) и определите, не существует ли уже в вашей подписке политика, отвечающая вашим требованиям.
+2. Если такая политика существует, получите ее имя.
+3. Если она не существует, определите правило политики в формате JSON и добавьте его в качестве определения политики в свою подписку. После этого политика станет доступной для назначения, но ее правила еще не будут применены к подписке.
+4. В любом случае назначьте политику какой-либо области (например, подписке или группе ресурсов). После этого правила политики будут применены.
 
 В этой статье рассматриваются действия, необходимые для создания определения политики и назначения его области с помощью REST API, PowerShell или Azure CLI. Если вы предпочитаете назначать политики с помощью портала, то см. статью [Назначение политик ресурсов и управление ими с помощью портала Azure](resource-manager-policy-portal.md). В этой статье не рассматривается синтаксис, используемый для создания определения политики. Сведения о синтаксисе политики см. в разделе [Общие сведения о политике ресурсов](resource-manager-policy.md).
 
@@ -144,30 +144,55 @@ GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015
 
 Прежде чем продолжить работу с примерами PowerShell, [установите последнюю версию](/powershell/azure/install-azurerm-ps) Azure PowerShell. Параметры политики были добавлены в версии 3.6.0. Если установлена более ранняя версия, примеры возвращают ошибку из-за того, что параметр не найден.
 
-### <a name="create-policy-definition"></a>Создание определения политики
-Определение политики можно создать с помощью командлета `New-AzureRmPolicyDefinition`. В следующем примере создается определение политики, разрешающей использовать только ресурсы в Северной и Западной Европе.
+### <a name="view-policy-definitions"></a>Просмотр определений политик
+Чтобы просмотреть все определения политик в подписке, используйте приведенную ниже команду.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{
-   "if": {
-     "not": {
-       "field": "location",
-       "in": "[parameters(''allowedLocations'')]"
-     }
-   },
-   "then": {
-     "effect": "deny"
-   }
- }' -Parameter '{
-     "allowedLocations": {
-       "type": "array",
-       "metadata": {
-         "description": "An array of permitted locations for resources.",
-         "strongType": "location",
-         "displayName": "List of locations"
-       }
-     }
- }'
+Get-AzureRmPolicyDefinition
+```
+
+Она возвращает все доступные определения политик, включая встроенные политики. Каждая политика возвращается в приведенном ниже формате.
+
+```powershell
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+Прежде чем продолжить создание определения политики, рассмотрите встроенные политики. Если вы обнаружите встроенную политику, которая применяет необходимые ограничения, то можете пропустить создание определения политики. Вместо этого назначьте встроенную политику требуемой области.
+
+### <a name="create-policy-definition"></a>Создание определения политики
+Определение политики можно создать с помощью командлета `New-AzureRmPolicyDefinition`.
+
+```powershell
+$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
 ```            
 
 Выходные данные сохраняются в объекте `$policy`, который используется при назначении политики. 
@@ -175,39 +200,41 @@ $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description 
 Вместо ввода JSON в качестве параметра можно указать путь к JSON-файлу, содержащему правило политики.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy "c:\policies\storageskupolicy.json"
+$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
 ```
 
 ### <a name="assign-policy"></a>Назначение политики
 
-Применить политику к требуемой области можно с помощью командлета `New-AzureRmPolicyAssignment`.
+Применить политику к требуемой области можно с помощью командлета `New-AzureRmPolicyAssignment`. В следующем примере политика назначается группе ресурсов.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $policy
+```
+
+Чтобы назначить политику, которой требуются параметры, создайте объект с этими значениями. В следующем примере извлекается встроенная политика и передаются значения параметров.
+
+```powershell
+$rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+$policy = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
 $array = @("West US", "West US 2")
-$param = @{"allowedLocations"=$array}
-New-AzureRMPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
+$param = @{"listOfAllowedLocations"=$array}
+New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
 ```
 
-### <a name="view-policies"></a>Просмотр политик
+### <a name="view-policy-assignment"></a>Просмотр назначения политики
 
-Чтобы получить все назначения политики, используйте следующую команду:
-
-```powershell
-Get-AzureRmPolicyAssignment
-```
-
-Чтобы получить конкретную политику, используйте следующую команду:
+Чтобы получить назначение конкретной политики, используйте следующую команду.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
-(Get-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId
+(Get-AzureRmPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId
 ```
 
 Чтобы просмотреть правило политики для определения политики, используйте следующую команду:
 
 ```powershell
-(Get-AzureRmPolicyDefinition -Name regionPolicyDefinition).Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Name coolAccessTier).Properties.policyRule | ConvertTo-Json
 ```
 
 ### <a name="remove-policy-assignment"></a>Удаление назначения политики 
@@ -218,39 +245,70 @@ $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## <a name="azure-cli-20"></a>Azure CLI 2.0
+## <a name="azure-cli"></a>Интерфейс командной строки Azure
+
+### <a name="view-policy-definitions"></a>Просмотр определений политик
+Чтобы просмотреть все определения политик в подписке, используйте приведенную ниже команду.
+
+```azurecli
+az policy definition list
+```
+
+Она возвращает все доступные определения политик, включая встроенные политики. Каждая политика возвращается в приведенном ниже формате.
+
+```azurecli
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",                                                                                                                "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                 "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                                                                    "policyRule": {                                                                                                                                      "if": {                                                                                                                                              "not": {                                                                                                                                             "field": "location",                                                                                                                               "in": "[parameters('listOfAllowedLocations')]"                                                                                                   }                                                                                                                                                },                                                                                                                                                 "then": {                                                                                                                                            "effect": "Deny"                                                                                                                                 }                                                                                                                                                },                                                                                                                                                 "policyType": "BuiltIn"
+}
+```
+
+Прежде чем продолжить создание определения политики, рассмотрите встроенные политики. Если вы обнаружите встроенную политику, которая применяет необходимые ограничения, то можете пропустить создание определения политики. Вместо этого назначьте встроенную политику требуемой области.
 
 ### <a name="create-policy-definition"></a>Создание определения политики
 
-Определение политики можно создать с помощью Azure CLI 2.0, выполнив в нем команду определения политики. В следующем примере создается политика, разрешающая использовать только ресурсы в Северной и Западной Европе.
+Определение политики можно создать с помощью Azure CLI, выполнив в нем команду определения политики.
 
 ```azurecli
-az policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --rules '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
+az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
   },
-  "then" : {
-    "effect" : "deny"
+  "then": {
+    "effect": "deny"
   }
 }'    
 ```
 
 ### <a name="assign-policy"></a>Назначение политики
 
-Политику можно применить к требуемой области с помощью команды назначения политики.
+Политику можно применить к требуемой области с помощью команды policy assignment. В следующем примере политика назначается группе ресурсов.
 
 ```azurecli
-az policy assignment create --name regionPolicyAssignment --policy regionPolicyDefinition --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+az policy assignment create --name coolAccessTierAssignment --policy coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-### <a name="view-policy-definition"></a>Просмотр определения политики
-Чтобы получить определение политики, используйте следующую команду.
+### <a name="view-policy-assignment"></a>Просмотр назначения политики
+
+Чтобы просмотреть назначение политики, укажите имя назначения политики и область.
 
 ```azurecli
-az policy definition show --name regionPolicyAssignment
+az policy assignment show --name coolAccessTierAssignment --scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}"
 ```
 
 ### <a name="remove-policy-assignment"></a>Удаление назначения политики 
@@ -258,62 +316,7 @@ az policy definition show --name regionPolicyAssignment
 Чтобы удалить назначение политики, воспользуйтесь приведенной ниже командой.
 
 ```azurecli
-az policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-## <a name="azure-cli-10"></a>Azure CLI 1.0
-
-### <a name="create-policy-definition"></a>Создание определения политики
-
-Определение политики можно создать с помощью интерфейса командной строки Azure, выполнив в нем команду определения политики. В следующем примере создается политика, разрешающая использовать только ресурсы в Северной и Западной Европе.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}'    
-```
-
-Вместо указания политики в командной строке можно указать путь к JSON-файлу, содержащему политику.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
-```
-
-### <a name="assign-policy"></a>Назначение политики
-
-Политику можно применить к требуемой области с помощью команды назначения политики.
-
-```azurecli
-azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/{subscription-id}/providers/Microsoft.Authorization/policyDefinitions/{policy-name} --scope    /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-Область — это указанное имя группы ресурсов. Если значение параметра policy-definition-id неизвестно, то его можно получить с помощью интерфейса командной строки Azure. 
-
-```azurecli
-azure policy definition show {policy-name}
-```
-
-### <a name="view-policy"></a>Просмотр политики
-Чтобы получить политику, используйте следующую команду.
-
-```azurecli
-azure policy definition show {definition-name} --json
-```
-
-### <a name="remove-policy-assignment"></a>Удаление назначения политики 
-
-Чтобы удалить назначение политики, воспользуйтесь приведенной ниже командой.
-
-```azurecli
-azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия

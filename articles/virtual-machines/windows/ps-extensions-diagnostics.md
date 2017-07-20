@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0a4c7df2ef385b8bdec467859af64fc243241d77
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 9d3b4abdd395806b1a53d4f23d45ba8b449978a9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -53,7 +53,7 @@ ms.lasthandoff: 04/27/2017
 
     Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
-Командлет возвращает значение *PublicSettings*, которое содержит XML-файл конфигурации в кодировке Base64. Чтобы прочитать XML-файл, его необходимо декодировать.
+Командлет возвращает значение *PublicSettings*, содержащее конфигурацию диагностики. Поддерживаются два типа конфигурации: WadCfg и xmlCfg. WadCfg — это конфигурации JSON, а xmlCfg — это конфигурация XML в кодировке Base64. Чтобы прочитать XML-файл, его необходимо декодировать.
 
     $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg

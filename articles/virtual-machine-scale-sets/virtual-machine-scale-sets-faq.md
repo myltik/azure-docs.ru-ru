@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/09/2017
+ms.date: 7/03/2017
 ms.author: negat
 ms.custom: na
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: de67dba5e615db8138957420a1db89d444a37d67
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 718732df4455831454245ea1a80d49e042c20f09
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -188,7 +188,7 @@ ms.lasthandoff: 05/10/2017
 }
 ```
  
-Этот блок JSON используется в  [шаблоне быстрого запуска 101-vm-sshkey на сайте GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Этот блок JSON используется в [шаблоне быстрого запуска 101-vm-sshkey на сайте GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
 Раздел osProfile также используется в [шаблоне быстрого запуска grelayhost.json](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
@@ -495,7 +495,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
                             "loadBalancerBackendAddressPools": [
                                 {
                                     "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
-                                }
+                                 }
                             ]
                         }
                     }
@@ -511,7 +511,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Как переключить виртуальный IP-адрес для масштабируемого набора виртуальных машин в той же подписке и в том же регионе?
 
-Дополнительные сведения о переключении виртуального IP-адреса для масштабируемых наборов виртуальных машин, расположенных в той же подписке и в том же регионе, см. в статье [VIP Swap – blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Переключение виртуального IP-адреса. "Сине-зеленое" развертывание в Azure Resource Manager).
+Если у вас есть два масштабируемых набора виртуальных машин с внешними интерфейсами Azure Load Balancer и они находятся в одной подписке и регионе, можно освободить общедоступные IP-адреса в одном из них и назначить их другому. Пример приведен в статье [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Переключение виртуальных IP-адресов: развертывание по схеме "blue-green" в Azure Resource Manager). Это подразумевает задержку, так как ресурсы освобождаются и выделяются на уровне сети. Другой вариант — разместить приложение в [службе приложений Azure](https://azure.microsoft.com/en-us/services/app-service/), которая обеспечивает быстрое переключение между промежуточными и рабочими слотами.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Как указать диапазон частных IP-адресов для выделения статических частных IP-адресов?
 
@@ -527,7 +527,49 @@ IP-адреса выбираются из указанной подсети.
 
 Дополнительные сведения о добавлении IP-адреса первой виртуальной машины в масштабируемом наборе к выходным данным шаблона см. в ответе на вопрос о [получении частных IP-адресов VMSS](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
+### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Можно ли использовать масштабируемые наборы с ускоренной сетью?
 
+Да. Чтобы использовать ускоренную сеть, в настройках networkInterfaceConfigurations масштабируемого набора задайте для параметра enableAcceleratedNetworking значение true. Например: 
+```json
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+    {
+        "name": "niconfig1",
+        "properties": {
+        "primary": true,
+        "enableAcceleratedNetworking" : true,
+        "ipConfigurations": [
+                ]
+            }
+            }
+        ]
+        }
+    }
+    ]
+}
+```
+
+### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>Как настроить DNS-серверы, используемые масштабируемым набором?
+
+Чтобы создать масштабируемый набор виртуальных машин с пользовательской конфигурацией DNS, добавьте пакет JSON dnsSettings в раздел networkInterfaceConfigurations конфигурации масштабируемого набора. Пример:
+```json
+    "dnsSettings":{
+        "dnsServers":["10.0.0.6", "10.0.0.5"]
+    }
+```
+
+### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Как настроить масштабируемый набор, чтобы назначать общедоступный IP-адрес каждой виртуальной машине?
+
+Чтобы создать масштабируемый набор виртуальных машин, назначающий общедоступный IP-адрес каждой виртуальной машине, убедитесь, что версия API ресурса Microsoft.Compute/virtualMAchineScaleSets — 2017-03-30, и добавьте пакет JSON _publicipaddressconfiguration_ в раздел ipConfigurations конфигурации масштабируемого набора. Пример:
+
+```json
+    "publicipaddressconfiguration": {
+        "name": "pub1",
+        "properties": {
+        "idleTimeoutInMinutes": 15
+        }
+    }
+```
 
 ## <a name="scale"></a>Масштаб
 

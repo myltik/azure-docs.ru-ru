@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: jdial
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 430a68ff6a01a53774c1b7843ed774b2ec0d0d36
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 47237fe499cd9244266487cd97f6be0d2cb2e977
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -38,8 +38,8 @@ ms.lasthandoff: 05/09/2017
 
 - Просмотрите статью об [ограничениях Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits), чтобы узнать об ограничениях для общедоступных IP-адресов.
 - Войдите на портал Azure, в интерфейс командной строки Azure (CLI) или Azure PowerShell с помощью учетной записи Azure. Если у вас нет учетной записи Azure, зарегистрируйтесь для получения [бесплатной пробной учетной записи](https://azure.microsoft.com/free).
-- Если для выполнения задач в этой статье вы используете команды PowerShell, установите и настройте Azure PowerShell, выполнив действия, описанные в статье [Установка и настройка служб Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Убедитесь, что у вас установлена самая последняя версия командлетов Azure PowerShell. Для получения справки по командам PowerShell с примерами введите `get-help <command> -full`.
-- Если для выполнения задач в этой статье вы используете команды интерфейса командной строки Azure, установите и настройте Azure CLI, выполнив действия, описанные в статье [Установка и настройка интерфейса командной строки Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Убедитесь, что у вас установлена самая последняя версия Azure CLI. Для получения справки по командам интерфейса командной строки введите `az <command> --help`.
+- Если для выполнения задач в этой статье вы используете команды PowerShell, установите и настройте Azure PowerShell, выполнив инструкции в статье [Установка и настройка служб Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Убедитесь, что у вас установлена самая последняя версия командлетов Azure PowerShell. Для получения справки по командам PowerShell с примерами введите `get-help <command> -full`.
+- Если для выполнения задач в этой статье вы используете команды интерфейса командной строки Azure, установите и настройте Azure CLI, выполнив инструкции в статье [Установка и настройка интерфейса командной строки Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Убедитесь, что у вас установлена самая последняя версия Azure CLI. Для получения справки по командам интерфейса командной строки введите `az <command> --help`.
 
 За использование общедоступных IP-адресов взимается номинальная плата. Сведения о расценках см. на странице с [ценами на IP-адреса](https://azure.microsoft.com/pricing/details/ip-addresses). 
 
@@ -67,14 +67,15 @@ ms.lasthandoff: 05/09/2017
 |Интерфейс командной строки|[az network public-ip-create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
-## <a name="change"></a>Изменение параметров или удаление общедоступного IP-адреса
+## <a name="change"></a>Просмотр, изменение параметров или удаление общедоступного IP-адреса
 
 1. Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи, которой назначены как минимум разрешения на роль "Участник сети" для подписки. Сведения о назначении ролей и разрешений учетным записям см. в статье [Встроенные роли для управления доступом на основе ролей в Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. В верхней части портала Azure в поле с текстом *Поиск ресурсов* введите *общедоступный IP-адрес*. Когда в результатах поиска появится пункт **Общедоступные IP-адреса**, щелкните его.
-3. В открывшейся колонке **Общедоступный IP-адрес** щелкните имя общедоступного IP-адреса для изменения параметров или удаления.
+3. В открывшейся колонке **Общедоступный IP-адрес** щелкните имя общедоступного IP-адреса для просмотра, изменения параметров или удаления.
 4. В открывшейся колонке "Общедоступный IP-адрес" выполните одно из следующих действий (в зависимости от того, нужно ли удалить этот общедоступный IP-адрес или изменить его).
-    - **Удаление** — чтобы удалить общедоступный IP-адрес, в колонке в разделе **Обзор** щелкните **Удалить**. Если адрес связан с IP-конфигурацией, удалить его не получится. В таком случае щелкните **Отменить связь**, чтобы разорвать связь с IP-конфигурацией.
-    - **Изменение** — щелкните **Конфигурация**. Измените параметры, используя сведения, описанные в шаге 4 в разделе [Создание общедоступного IP-адреса](#create) этой статьи. Чтобы изменить назначение со статического на динамическое, необходимо сначала разорвать связь между общедоступным IP-адресом и IP-конфигурацией. Затем можно изменить способ назначения на динамическое и щелкнуть **Связать**, чтобы связать IP-адрес с той же или другой IP-конфигурацией либо оставить его несвязанным. Чтобы удалить связь с общедоступным IP-адресом, в разделе **Обзор** щелкните **Отменить связь**.
+    - **Просмотр**. В разделе "Обзор" колонки отображаются основные параметры общедоступного IP-адреса, например сетевой интерфейс, с которым он связан (если адрес связан с сетевым интерфейсом).
+    - **Удаление**. Чтобы удалить общедоступный IP-адрес, в колонке в разделе **Обзор** щелкните **Удалить**. Если адрес связан с IP-конфигурацией, удалить его не получится. В таком случае щелкните **Отменить связь**, чтобы разорвать связь с IP-конфигурацией.
+    - **Изменение**. Щелкните **Конфигурация**. Измените параметры, используя сведения, описанные в шаге 4 в разделе [Создание общедоступного IP-адреса](#create) этой статьи. Чтобы изменить назначение со статического на динамическое, необходимо сначала разорвать связь между общедоступным IP-адресом и IP-конфигурацией. Затем можно изменить способ назначения на динамическое и щелкнуть **Связать**, чтобы связать IP-адрес с той же или другой IP-конфигурацией либо оставить его несвязанным. Чтобы удалить связь с общедоступным IP-адресом, в разделе **Обзор** щелкните **Отменить связь**.
 
 >[!WARNING]
 >Изменив способ назначения со статического на динамический, вы потеряете IP-адрес, который был назначен общедоступному IP-адресу. В Azure общедоступные DNS-серверы поддерживают сопоставление между статическими или динамическими адресами и метками (определенными) имени DNS. При этом динамический IP-адрес можно изменить при запуске виртуальной машины, которая была остановлена (освобождена). Чтобы предотвратить изменение адреса, назначьте статический IP-адрес.
@@ -83,8 +84,8 @@ ms.lasthandoff: 05/09/2017
 
 |Средство|Команда|
 |---|---|
-|Интерфейс командной строки|[az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) для обновления; [az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) для удаления|
-|PowerShell|[Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) для обновления; [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) для удаления|
+|Интерфейс командной строки|Команда [az network public-ip-list](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#list) выводит список общедоступных IP-адресов, [az network public-ip-show](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#show) — отображает параметры, [az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update) — обновляет IP-адрес, а [az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete) — удаляет IP-адрес.|
+|PowerShell|Командлет [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) позволяет извлечь объект общедоступного IP-адреса и просмотреть его параметры, [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) позволяет обновить параметры IP-адреса, а [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) — удалить IP-адрес.|
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Назначение общедоступных IP-адресов при создании следующих ресурсов Azure:

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 06/27/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 951a7849beb9653083ed0112dbbb6cf57175469d
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: f27bc3689f228809e9db8f61485ea0c8b4b302d1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -31,8 +31,6 @@ ms.lasthandoff: 05/11/2017
 * назначение политики привязывает эту политику к определенной области (к подписке или группе ресурсов).
 
 В этой статье рассматривается только определение политики. Сведения о назначении политик см. в статьях [Назначение политик ресурсов и управление ими с помощью портала Azure](resource-manager-policy-portal.md) и [Назначение политик ресурсов и управление ими](resource-manager-policy-create-assign.md).
-
-В Azure доступно несколько встроенных определений политик, которые сокращают число соответствующих политик. Если одно из встроенных определений политик подходит для вашего сценария, назначьте его соответствующей области.
 
 Политики оцениваются при создании и обновлении ресурсов (операции PUT и PATCH).
 
@@ -50,6 +48,22 @@ ms.lasthandoff: 05/11/2017
 * `Microsoft.Authorization/policyassignments/write` разрешение на назначение политики. 
 
 Эти разрешения не включаются в роль **Участник**.
+
+## <a name="built-in-policies"></a>Встроенные политики
+
+В Azure доступно несколько встроенных определений политик, которые сокращают число соответствующих политик. Прежде чем приступить к работе с определениями политик, следует проверить, не обеспечивает ли какая-либо встроенная политика нужные вам ограничения. Определения встроенных политик приведены ниже:
+
+* Allowed locations;
+* Допустимые типы ресурсов
+* Allowed storage account SKUs;
+* Allowed virtual machine SKUs;
+* Apply tag and default value;
+* Enforce tag and value;
+* Not allowed resource types;
+* Require SQL Server version 12.0;
+* Require storage account encryption.
+
+Любую из этих политик можно назначить с помощью [портала](resource-manager-policy-portal.md), [PowerShell](resource-manager-policy-create-assign.md#powershell) или [Azure CLI](resource-manager-policy-create-assign.md#azure-cli).
 
 ## <a name="policy-definition-structure"></a>Структура определения политики
 Для создания определения политики используется JSON. Определение политики содержит следующие элементы:
@@ -149,7 +163,7 @@ ms.lasthandoff: 05/11/2017
 
 Оператор **not** инвертирует результат условия. Оператор **allOf** действует как логическая операция **And**, то есть требует соблюдения всех входящих в него условий. Оператор **anyOf** действует как логическая операция **Or**, то есть проверяет соблюдение хотя бы одного из входящих в него условий.
 
-Допускается вложение логических операторов. В следующем примере представлены вложенные операторы **Not** и **And**. 
+Допускается вложение логических операторов. В следующем примере представлена операция **not**, вложенная в операцию **allOf**. 
 
 ```json
 "if": {
@@ -194,27 +208,7 @@ ms.lasthandoff: 05/11/2017
 * `location`
 * `tags`
 * `tags.*` 
-* Псевдонимы свойств
-
-Псевдонимы свойств позволяют обращаться к определенным свойствам для типа ресурса. Поддерживается следующие псевдонимы.
-
-* Microsoft.CDN/profiles/sku.name
-* Microsoft.Compute/virtualMachines/imageOffer
-* Microsoft.Compute/virtualMachines/imagePublisher
-* Microsoft.Compute/virtualMachines/sku.name
-* Microsoft.Compute/virtualMachines/imageSku 
-* Microsoft.Compute/virtualMachines/imageVersion
-* Microsoft.SQL/servers/databases/edition
-* Microsoft.SQL/servers/databases/elasticPoolName
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveId
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveName
-* Microsoft.SQL/servers/elasticPools/dtu
-* Microsoft.SQL/servers/elasticPools/edition
-* Microsoft.SQL/servers/version
-* Microsoft.Storage/storageAccounts/accessTier
-* Microsoft.Storage/storageAccounts/enableBlobEncryption
-* Microsoft.Storage/storageAccounts/sku.name
-* Microsoft.Web/serverFarms/sku.name
+* Список псевдонимов свойств указан в разделе [Псевдонимы](#aliases).
 
 ### <a name="effect"></a>Результат
 Политика поддерживает три типа результатов — `deny`, `audit` и `append`. 
@@ -237,127 +231,131 @@ ms.lasthandoff: 05/11/2017
 
 Значением может быть строка или объект формата JSON. 
 
+## <a name="aliases"></a>Псевдонимы
+
+Псевдонимы свойств позволяют обращаться к определенным свойствам для типа ресурса. 
+
+**Microsoft.Cache/Redis**
+
+| Alias | Описание |
+| ----- | ----------- |
+| Microsoft.Cache/Redis/enableNonSslPort | Указывает, включен ли на сервере Redis порт без поддержки SSL (6379). |
+| Microsoft.Cache/Redis/shardCount | Задает число сегментов, создаваемых в кэше кластера уровня "Премиум".  |
+| Microsoft.Cache/Redis/sku.capacity | Задает размер развертываемого кэша Redis.  |
+| Microsoft.Cache/Redis/sku.family | Задает используемое семейство SKU. |
+| Microsoft.Cache/Redis/sku.name | Задает тип развертываемого кэша Redis. |
+
+**Microsoft.Cdn/profiles**
+
+| Alias | Описание |
+| ----- | ----------- |
+| Microsoft.CDN/profiles/sku.name | Задает имя ценовой категории. |
+
+**Microsoft.Compute/disks**
+
+| Alias | Описание |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Задает предложение образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/imagePublisher | Задает издатель образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/imageSku | Задает номер SKU образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/imageVersion | Задает версию образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+
+
+**Microsoft.Compute/virtualMachines**
+
+| Alias | Описание |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Задает предложение образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/imagePublisher | Задает издатель образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/imageSku | Задает номер SKU образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/imageVersion | Задает версию образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/licenseType | Указывает, используется ли для образа или диска локальная лицензия. Это значение используется только для образов, содержащих операционную систему Windows Server.  |
+| Microsoft.Compute/virtualMachines/imageOffer | Задает предложение образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/virtualMachines/imagePublisher | Задает издатель образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/virtualMachines/imageSku | Задает номер SKU образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/virtualMachines/imageVersion | Задает версию образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/virtualMachines/osDisk.Uri | Задает универсальный код ресурса (URI) виртуального жесткого диска. |
+| Microsoft.Compute/virtualMachines/sku.name | Задайте размер виртуальной машины. |
+
+**Microsoft.Compute/virtualMachines/extensions**
+
+| Alias | Описание |
+| ----- | ----------- |
+| Microsoft.Compute/virtualMachines/extensions/publisher | Задает имя издателя расширения. |
+| Microsoft.Compute/virtualMachines/extensions/type | Задает тип расширения. |
+| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Задает версию расширения. |
+
+**Microsoft.Compute/virtualMachineScaleSets**
+
+| Alias | Описание |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Задает предложение образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/imagePublisher | Задает издатель образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/imageSku | Задает номер SKU образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/imageVersion | Задает версию образа платформы или образа Marketplace, используемого для создания виртуальной машины. |
+| Microsoft.Compute/licenseType | Указывает, используется ли для образа или диска локальная лицензия. Это значение используется только для образов, содержащих операционную систему Windows Server. |
+| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Задает префикс имени компьютера для всех виртуальных машин в масштабируемом наборе. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Задает универсальный код ресурса (URI) большого двоичного объекта для пользовательского образа. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Задает URL-адреса контейнеров, которые используются для хранения ОС для масштабируемого набора. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Задает размер виртуальных машин в масштабируемом наборе. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Задает уровень виртуальных машин в масштабируемом наборе. |
+  
+**Microsoft.Network/applicationGateways**
+
+| Alias | Описание |
+| ----- | ----------- |
+| Microsoft.Network/applicationGateways/sku.name | Задает размер шлюза. |
+
+**Microsoft.Network/virtualNetworkGateways**
+
+| Alias | Описание |
+| ----- | ----------- |
+| Microsoft.Network/virtualNetworkGateways/gatewayType | Задает тип шлюза виртуальной сети. |
+| Microsoft.Network/virtualNetworkGateways/sku.name | Задает номера SKU шлюза. |
+
+**Microsoft.Sql/servers**
+
+| Alias | Описание |
+| ----- | ----------- |
+| Microsoft.Sql/servers/version | Задает версию сервера. |
+
+**Microsoft.Sql/databases**
+
+| Alias | Описание |
+| ----- | ----------- |
+| Microsoft.Sql/servers/databases/edition | Задает выпуск базы данных. |
+| Microsoft.Sql/servers/databases/elasticPoolName | Задает имя эластичного пула, в котором размещена база данных. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Задает идентификатор настроенного целевого уровня обслуживания для базы данных. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Задает имя настроенного целевого уровня обслуживания для базы данных.  |
+
+**Microsoft.Sql/elasticpools**
+
+| Alias | Описание |
+| ----- | ----------- |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Задает совокупное число общих единиц DTU для эластичного пула базы данных. |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Задает выпуск эластичного пула. |
+
+**Microsoft.Storage/storageAccounts**
+
+| Alias | Описание |
+| ----- | ----------- |
+| Microsoft.Storage/storageAccounts/accessTier | Задает уровень доступа, используемый для выставления счетов. |
+| Microsoft.Storage/storageAccounts/accountType | Задает имя SKU. |
+| Microsoft.Storage/storageAccounts/enableBlobEncryption | Указывает, шифрует ли служба данные, хранящиеся в службе хранилища BLOB-объектов. |
+| Microsoft.Storage/storageAccounts/enableFileEncryption | Указывает, шифрует ли служба данные, хранящиеся в службе хранилища файлов. |
+| Microsoft.Storage/storageAccounts/sku.name | Задает имя SKU. |
+| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Позволяет разрешить только передачу трафика HTTPS в службу хранилища. |
+
+
 ## <a name="policy-examples"></a>Примеры политик
 
 Следующие статьи содержат примеры политик.
 
 * Примеры политик для тегов см. в статье [Apply resource policies for tags](resource-manager-policy-tags.md) (Применение политик ресурсов для тегов).
+* Примеры именования и шаблоны текста приведены в разделе [Применение политик ресурсов для имен и текста](resource-manager-policy-naming-convention.md).
 * Примеры политик для хранения см. в статье [Применение политик ресурсов Azure для учетных записей хранения](resource-manager-policy-storage.md).
 * Примеры политик для виртуальных машин есть в статьях о применении политик к виртуальным машинам Azure Resource Manager [для Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) и [для Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
 
-### <a name="allowed-resource-locations"></a>Набор допустимых расположений ресурсов
-Чтобы указать, какие расположения можно использовать, см. пример из раздела [Структура определения политики](#policy-definition-structure). Чтобы назначить это определение политики, используйте встроенную политику с идентификатором ресурса `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
-
-### <a name="not-allowed-resource-locations"></a>Набор недопустимых расположений ресурсов
-Чтобы указать, какие расположения нельзя использовать, используйте следующее определение политики:
-
-```json
-{
-  "properties": {
-    "parameters": {
-      "notAllowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that are not allowed when deploying resources",
-          "strongType": "location",
-          "displayName": "Not allowed locations"
-        }
-      }
-    },
-    "displayName": "Not allowed locations",
-    "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "field": "location",
-        "in": "[parameters('notAllowedLocations')]"
-      },
-      "then": {
-        "effect": "deny"
-      }
-    }
-  }
-}
-```
-
-### <a name="allowed-resource-types"></a>Допустимые типы ресурсов
-В следующем примере показана политика, допускающая развертывание только для типов ресурсов Microsoft.Resources, Microsoft.Compute, Microsoft.Storage и Microsoft.Network. Все остальные развертывания будут отклонены:
-
-```json
-{
-  "if": {
-    "not": {
-      "anyOf": [
-        {
-          "field": "type",
-          "like": "Microsoft.Resources/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Compute/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Storage/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Network/*"
-        }
-      ]
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-### <a name="set-naming-convention"></a>Соглашение об именовании
-В следующем примере показано, как использовать подстановочный знак в условии **like**. Это условие означает следующее: если имя не соответствует заданному шаблону (namePrefix\*nameSuffix), запрос будет отклонен.
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "like": "namePrefix*nameSuffix"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-Чтобы указать, что имена ресурсов должны соответствовать шаблону, используйте условие match. В следующем примере задано, что имена должны начинаться с `contoso` и содержать 6 дополнительных букв:
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "match": "contoso??????"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-Чтобы задать дату в формате "две цифры — три буквы — четыре цифры", используйте следующий код:
-
-```json
-{
-  "if": {
-    "field": "tags.date",
-    "match": "##-???-####"
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Определив правило политики, назначьте эту политику для области. Сведения о назначении политик с помощью портала см. в статье [Назначение политик ресурсов и управление ими с помощью портала Azure](resource-manager-policy-portal.md). Сведения о назначении политик с помощью REST API, PowerShell или Azure CLI см. в статье [Назначение политик ресурсов и управление ими](resource-manager-policy-create-assign.md).

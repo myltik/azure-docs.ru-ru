@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: dad35a2b3beb2b07d5b12afb8a04ba48f8b8ef7e
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: e5011c1c67e051616d53621b72e46ba894ca3c02
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -103,7 +103,7 @@ ms.lasthandoff: 05/18/2017
 2. Откройте папку "Базы данных", разверните папку **Системные базы данных**, щелкните правой кнопкой мыши базу данных **master** и щелкните **Создать запрос**.
 3. Чтобы отобразить все базы данных с соединениями георепликации, воспользуйтесь приведенной ниже инструкцией.
    
-        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM [sys].dm_geo_replication_links;
+        SELECT database_id, start_date, modify_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM sys.geo_replication_links;
 4. Нажмите кнопку **Выполнить** для выполнения запроса.
 5. Откройте папку "Базы данных", разверните папку **Системные базы данных**, щелкните правой кнопкой мыши базу данных **MyDB** и щелкните **Создать запрос**.
 6. Чтобы отобразить задержки репликации и время последней репликации ваших баз данных-получателей MyDB, воспользуйтесь приведенной ниже инструкцией.
@@ -117,7 +117,7 @@ ms.lasthandoff: 05/18/2017
 9. Нажмите кнопку **Выполнить** для выполнения запроса.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Дополнительные сведения об активной георепликации см. в статье [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md).
+* Чтобы узнать больше о группах отработки отказа и активной георепликации, прочитайте раздел [Обзор. Группы отработки отказа и активная георепликация](sql-database-geo-replication-overview.md).
 * Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md)
 
 

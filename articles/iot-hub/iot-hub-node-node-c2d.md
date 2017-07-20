@@ -12,12 +12,13 @@ ms.devlang: javascript
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 06/16/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
-ms.openlocfilehash: 312e9081c8597f59c32e99d594f2e729410986d8
-ms.lasthandoff: 12/16/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 4580bda5633f84a7c7af0dc85f3cea4951024836
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -56,7 +57,7 @@ ms.lasthandoff: 12/16/2016
 1. В текстовом редакторе откройте файл SimulatedDevice.js.
 2. Измените функцию **connectCallback** для обработки сообщений, отправленных из центра IoT. В этом примере устройство всегда вызывает функцию **complete** для уведомления центра IoT о том, что сообщение обработано. Новая версия функции **connectCallback** выглядит как следующий фрагмент кода.
    
-    ```
+    ```javascript
     var connectCallback = function (err) {
       if (err) {
         console.log('Could not connect: ' + err);
@@ -90,26 +91,26 @@ ms.lasthandoff: 12/16/2016
 
 1. Создайте пустую папку **sendcloudtodevicemessage**. В папке **sendcloudtodevicemessage** создайте файл package.json, введя в командной строке следующую команду. Примите значения по умолчанию:
    
-    ```
+    ```shell
     npm init
     ```
 2. В командной строке в папке **sendcloudtodevicemessage** выполните следующую команду, чтобы установить пакет **azure-iothub**.
    
-    ```
+    ```shell
     npm install azure-iothub --save
     ```
 3. В текстовом редакторе создайте файл **SendCloudToDeviceMessage.js** в папке **sendcloudtodevicemessage**.
 4. Добавьте следующие операторы `require` в начало файла **SendCloudToDeviceMessage.js** .
    
-    ```
+    ```javascript
     'use strict';
    
     var Client = require('azure-iothub').Client;
     var Message = require('azure-iot-common').Message;
     ```
-5. Добавьте в файл **SendCloudToDeviceMessage.js** следующий код. Замените заполнитель строки подключения Центра Интернета вещей значением строки для Центра Интернета вещей, созданного при изучении руководства [Приступая к работе с Центром Интернета вещей Azure (Node)]. Замените заполнитель целевого устройства значением идентификатора устройства, добавленного при изучении руководства [Приступая к работе с Центром Интернета вещей Azure (Node)]:
+5. Добавьте в файл **SendCloudToDeviceMessage.js** следующий код. Замените заполнитель строки {iot hub connection string} значением строки для Центра Интернета вещей, созданного при изучении руководства [Приступая к работе с Центром Интернета вещей Azure (Node)]. Замените заполнитель {device id} значением идентификатора устройства, добавленного при изучении руководства [Приступая к работе с Центром Интернета вещей Azure (Node)]:
    
-    ```
+    ```javascript
     var connectionString = '{iot hub connection string}';
     var targetDevice = '{device id}';
    
@@ -117,7 +118,7 @@ ms.lasthandoff: 12/16/2016
     ```
 6. Добавьте следующую функцию для вывода результатов операции в консоль.
    
-    ```
+    ```javascript
     function printResultFor(op) {
       return function printResult(err, res) {
         if (err) console.log(op + ' error: ' + err.toString());
@@ -127,7 +128,7 @@ ms.lasthandoff: 12/16/2016
     ```
 7. Добавьте следующую функцию для вывода сообщений о доставке в консоль.
    
-    ```
+    ```javascript
     function receiveFeedback(err, receiver){
       receiver.on('message', function (msg) {
         console.log('Feedback message:')
@@ -137,7 +138,7 @@ ms.lasthandoff: 12/16/2016
     ```
 8. Добавьте приведенный ниже код для отправки сообщения на устройство и обработки сообщения о доставке, получаемого после подтверждения устройством получения сообщения из облака на устройство.
    
-    ```
+    ```javascript
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);
@@ -159,14 +160,14 @@ ms.lasthandoff: 12/16/2016
 
 1. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы начать отправку данных телеметрии в Центр Интернета вещей и прослушивание сообщений из облака на устройства:
    
-    ```
+    ```shell
     node SimulatedDevice.js 
     ```
    
     ![Запуск приложения виртуального устройства][img-simulated-device]
 2. В командной строке в папке **sendcloudtodevicemessage** выполните следующую команду, чтобы отправить сообщение из облака на устройство и ожидать подтверждения доставки:
    
-    ```
+    ```shell
     node SendCloudToDeviceMessage.js 
     ```
    

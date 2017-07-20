@@ -1,5 +1,5 @@
 ---
-title: "Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью Transact-SQL | Документация Майкрософт"
+title: "TSQL. Выполнение отработки отказа для базы данных SQL Azure | Документация Майкрософт"
 description: "Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью Transact-SQL"
 services: sql-database
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 6ea2cfcf41900ecbf4d254cc4a195848144a0fa0
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 459941d2c82e5d4ef62beab4ccf775ab8f5efce4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/18/2017
 Чтобы инициировать отработку отказа, необходимо следующее:
 
 * имя для входа с ролью DBManager в базе данных-источнике;
-* привилегии db_ownership локальной базы данных, которую вы собираетесь геореплицировать;
+* Привилегии db_ownership локальной базы данных, которую вы собираетесь геореплицировать.
 * роль DBManager на серверах-партнерах, для которых вы настроите георепликацию;
 * последняя версия SQL Server Management Studio (SSMS).
 

@@ -18,10 +18,10 @@ ms.workload: data-management
 ms.date: 04/10/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 744ad6cfc15453e1db7a012eebe09ceba226fde9
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: 583c91376418d20d34db17d57d3fa14a1e71cd3b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -69,11 +69,16 @@ ms.lasthandoff: 04/15/2017
 
 ## <a name="creating-and-managing-firewall-rules"></a>Создание правил брандмауэра и управление ими
 Первый параметр брандмауэра уровня сервера можно создать на [портале Azure](https://portal.azure.com/) или программным путем с помощью [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx), [Azure CLI](/cli/azure/sql/server/firewall-rule#create) или [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Последующие правила брандмауэра уровня сервера можно создавать и контролировать с помощью этих методов и Transact-SQL. 
+
 > [!IMPORTANT]
 > Правила брандмауэра уровня базы данных можно создавать только с помощью Transact-SQL. То же самое касается и управления ими. 
 >
 
 Для повышения производительности правила брандмауэра на уровне сервера временно кэшируются на уровне базы данных. Сведения об обновлении кэша см. в статье [DBCC FLUSHAUTHCACHE (Transact-SQL)](https://msdn.microsoft.com/library/mt627793.aspx). 
+
+> [!TIP]
+> Чтобы провести аудит изменений брандмауэра уровня сервера и уровня базы данных, можно использовать [аудит базы данных SQL](sql-database-auditing.md).
+>
 
 ### <a name="azure-portal"></a>Портал Azure
 
@@ -149,7 +154,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
-    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.1"
+    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
 ```
 
 > [!TIP]
@@ -169,7 +174,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
-    -n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.1
+    -n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP]

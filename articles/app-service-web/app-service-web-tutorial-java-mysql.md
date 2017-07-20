@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e3a8bc6b11cccf7f6b277e800dbcedcd90e87006
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 5a6e4431ef25c66e1863a679f0db1363a83f4769
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -44,11 +44,12 @@ ms.lasthandoff: 06/03/2017
 1. [Скачайте и установите Git](https://git-scm.com/)
 1. [Скачайте и установите Java 7 JDK или более поздней версии](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) (этот компонент потребуется запустить) 
-1. [Установите Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-local-mysql"></a>Подготовка локальной базы данных MySQL 
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 06/03/2017
 
 ### <a name="connect-to-mysql-server"></a>Подключение к серверу MySQL
 
-Подключитесь к локальному серверу MySQL с помощью командной строки.
+В окне терминала подключитесь к локальному серверу MySQL. Используйте это окно терминала для выполнения всех команд в рамках этого руководства.
 
 ```bash
 mysql -u root -p
@@ -86,7 +87,7 @@ quit
 
 ### <a name="clone-the-sample"></a>Клонирования репозитория
 
-В командной строке перейдите в рабочий каталог и клонируйте пример репозитория. 
+В окне терминала перейдите в рабочую папку и клонируйте репозиторий. 
 
 ```bash
 git clone https://github.com/azure-samples/mysql-spring-boot-todo
@@ -94,7 +95,7 @@ git clone https://github.com/azure-samples/mysql-spring-boot-todo
 
 ### <a name="configure-the-app-to-use-the-mysql-database"></a>Настройка приложения для использования базы данных MySQL
 
-Замените `spring.datasource.password` и значение в каталоге *spring-boot-mysql-todo/src/main/resources/application.properties* корневым паролем, который вы использовали для открытия командной строки MySQL:
+Замените `spring.datasource.password` и значение в каталоге *spring-boot-mysql-todo/src/main/resources/application.properties* корневым паролем, который вы использовали для открытия строки MySQL:
 
 ```
 spring.datasource.password=mysqlpass
@@ -109,14 +110,14 @@ cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-Откройте в браузере адрес http://localhost:8080, чтобы увидеть пример в действии. По мере добавления задач в список используйте следующие команды SQL в командной строке MySQL, чтобы просмотреть данные, хранящиеся в базе данных MySQL.
+Откройте в браузере адрес http://localhost:8080, чтобы увидеть пример в действии. По мере добавления задач в список используйте следующие команды SQL в строке MySQL, чтобы просмотреть данные, хранящиеся в базе данных MySQL.
 
 ```SQL
 use testdb;
 select * from todo_item;
 ```
 
-Остановите приложение, нажав клавиши `Ctrl`+`C` в командной строке. 
+Остановите приложение, нажав `Ctrl`+`C` в окне терминала. 
 
 ## <a name="create-an-azure-mysql-database"></a>Создание базы данных MySQL в Azure
 

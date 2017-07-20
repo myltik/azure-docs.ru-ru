@@ -1,6 +1,6 @@
 ---
-title: "Копирование или перемещение данных в хранилище с помощью AzCopy | Документация Майкрософт"
-description: "Утилита AzCopy позволяет копировать и перемещать данные в содержимое BLOB-объектов, таблиц и файлов и из него. Копируйте данные в хранилище Azure из локальных файлов, а также внутри учетной записи хранения и из одной такой учетной записи в другую. Легко переносите данные в хранилище Azure."
+title: "Копирование или перемещение данных в службу хранилища Azure с помощью AzCopy для Windows | Документация Майкрософт"
+description: "Утилита AzCopy для Windows позволяет копировать и перемещать данные в содержимое BLOB-объектов, таблиц и файлов и из него. Копируйте данные в хранилище Azure из локальных файлов, а также внутри учетной записи хранения и из одной такой учетной записи в другую. Легко переносите данные в хранилище Azure."
 services: storage
 documentationcenter: 
 author: seguler
@@ -12,30 +12,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/14/2017
 ms.author: seguler
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: f703da63c4243c73cf68d3df9953f73d2462ac1c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 045778822022752295bb634bdf734daaf36ab938
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/03/2017
 
 
 ---
-# <a name="transfer-data-with-the-azcopy-command-line-utility"></a>Приступая к работе со служебной программой командной строки AzCopy
-## <a name="overview"></a>Обзор
-AzCopy — это служебная программа командной строки для Windows. Она разработана для копирования данных из хранилища больших двоичных объектов, файлов и табличного хранилища Microsoft Azure (и обратно) с помощью простых команд, обеспечивающих максимальную производительность. Кроме того, она позволяет копировать данные из одного объекта в другой в пределах одной учетной записи хранения или из одной такой записи в другую.
+# <a name="transfer-data-with-the-azcopy-on-windows"></a>Перенос данных с помощью AzCopy для Windows
+AzCopy — это служебная программа командной строки. Она предназначена для копирования данных из хранилища BLOB-объектов, хранилища файлов и хранилища таблиц Microsoft Azure (и обратно) с помощью простых команд, обеспечивающих оптимальную производительность. Кроме того, она позволяет копировать данные из одного объекта в другой в пределах одной учетной записи хранения или из одной такой записи в другую.
 
-> [!NOTE]
-> Для работы с этим руководством предполагается, что у вас есть общее представление о [службе хранилища Azure](https://azure.microsoft.com/services/storage/). Если вы еще не работали с этим продуктом, см. статью [Знакомство со службой хранилища Microsoft Azure](storage-introduction.md). Кроме того, для использования AzCopy потребуется [создать учетную запись хранения](storage-create-storage-account.md#create-a-storage-account).
-> 
-> 
+Существуют две версии AzCopy, которые можно скачать. Служебная программа AzCopy для Windows основана на платформе .NET Framework и использует параметры командной строки в формате Windows. Служебная программа [AzCopy для Linux](storage-use-azcopy-linux.md) основана на платформе .NET Core, которая нацелена на платформы Linux, использующие параметры командной строки в формате POSIX. В этой статье рассматривается AzCopy для Windows.
 
 ## <a name="download-and-install-azcopy"></a>Скачивание и установка AzCopy
-### <a name="windows"></a>Windows
-Загрузите [последнюю версию AzCopy](http://aka.ms/downloadazcopy).
+### <a name="azcopy-on-windows"></a>AzCopy для Windows
+Скачайте [последнюю версию AzCopy для Windows](http://aka.ms/downloadazcopy).
 
-### <a name="maclinux"></a>Mac/Linux
-Хотя программа AzCopy недоступна в ОС Mac и Linux, Дополнительные сведения см. в статье [Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure](storage-azure-cli.md) .
+#### <a name="installation-on-windows"></a>Установка в Windows
+После установки AzCopy для Windows с помощью установщика откройте командное окно и перейдите к каталогу установки AzCopy на компьютере, где располагается исполняемый файл `AzCopy.exe`. При необходимости можно добавить место установки AzCopy к системному пути. По умолчанию инструмент AzCopy установлен в `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` или `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 ## <a name="writing-your-first-azcopy-command"></a>Написание первой команды AzCopy
 В командах AzCopy используется следующий базовый синтаксис:
@@ -43,8 +40,6 @@ AzCopy — это служебная программа командной ст
 ```azcopy
 AzCopy /Source:<source> /Dest:<destination> [Options]
 ```
-
-Откройте окно командной строки и перейдите к каталогу установки AzCopy на компьютере, где расположен исполняемый файл `AzCopy.exe`. При необходимости можно добавить место установки AzCopy к системному пути. По умолчанию инструмент AzCopy установлен в `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` или `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 В приведенных ниже примерах описаны разные сценарии копирования данных из хранилища больших двоичных объектов, файлов и таблиц Microsoft Azure (и обратно). Подробное объяснение параметров, используемых в каждом примере, см. в разделе [Общие сведения о параметрах](#azcopy-parameters).
 
@@ -897,6 +892,7 @@ AzCopy предназначен для максимального использ
 * [Использование хранилища файлов из .NET](storage-dotnet-how-to-use-files.md)
 * [Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md)
 * [Создание и удаление учетной записи хранения, а также управление ею](storage-create-storage-account.md)
+* [Перенос данных с помощью AzCopy для Linux](storage-use-azcopy-linux.md)
 
 ### <a name="azure-storage-blog-posts"></a>Записи блога по хранилищу Azure:
 * [Введение в предварительную версию библиотеки движения данных в хранилище Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)

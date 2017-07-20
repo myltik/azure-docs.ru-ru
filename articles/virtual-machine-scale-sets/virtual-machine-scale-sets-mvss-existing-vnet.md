@@ -1,5 +1,5 @@
 ---
-title: "Указание виртуальной сети в шаблоне масштабируемого набора Azure | Документация Майкрософт"
+title: "Указание существующей виртуальной сети в шаблоне масштабируемого набора Azure | Документация Майкрософт"
 description: "Узнайте, как добавить виртуальную сеть в существующий шаблон масштабируемого набора виртуальных машин Azure."
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/06/2017
+ms.date: 06/27/2017
 ms.author: negat
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8e9caf7eebc17682b3204004e3a74331efbd04fb
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 28117d467b491704aed8d45e5eba42530579dfa2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="add-reference-to-a-virtual-network-to-an-azure-scale-set-template"></a>Добавление ссылки на виртуальную сеть в шаблон масштабируемого набора Azure
+# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Добавление ссылки на существующую виртуальную сеть в шаблон масштабируемого набора Azure
 
 В этой статье показано, как изменить [шаблон минимального приемлемого масштабируемого набора](./virtual-machine-scale-sets-mvss-start.md) для развертывания в существующей виртуальной сети вместо создания новой.
 

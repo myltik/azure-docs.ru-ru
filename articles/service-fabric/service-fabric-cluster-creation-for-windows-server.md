@@ -3,7 +3,7 @@ title: "Создание изолированного кластера Azure Ser
 description: "Создание кластера Azure Service Fabric на любом компьютере (физическом сервере или виртуальной машине) под управлением Windows Server, расположенном в локальной системе или любом облаке."
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/24/2017
-ms.author: chackdan;maburlik
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 3389684dca62a1b3c8297600c7c09ffef642c854
-ms.lasthandoff: 03/29/2017
-
+ms.date: 06/24/2017
+ms.author: chackdan;maburlik;dekapur
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 7543d98030ea143d537e0028801fd3efe3e4ff32
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Создание изолированного кластера под управлением Windows Server
@@ -33,17 +33,17 @@ Azure Service Fabric позволяет создавать кластеры Serv
 
 <a id="getsupport"></a>
 
-## <a name="get-support-for-the-service-fabric-standalone-package"></a>Получение поддержки для изолированного пакета Service Fabric
+## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Получение поддержки для Service Fabric для пакета Windows Server
 * Спросите у сообщества об изолированном пакете Service Fabric для Windows Server на [форуме Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Откройте запрос на [техническую поддержку для Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Узнайте больше о [профессиональной технической поддержке Майкрософт](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Поддержка для этого пакета также доступна в рамках [поддержки Microsoft Premier](https://support.microsoft.com/en-us/premier).
 * Дополнительные сведения см. в разделе [Варианты поддержки Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
-* Чтобы собирать журналы в целях поддержки, запустите [изолированный сборщик журналируемых данных Service Fabric](https://go.microsoft.com/fwlink/?linkid=842487).
+* Чтобы собирать журналы в целях поддержки, запустите [изолированный сборщик журналируемых данных Service Fabric](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
 
-## <a name="download-the-service-fabric-standalone-package"></a>Загрузка изолированного пакета Service Fabric
-Чтобы создать кластер, используйте изолированный пакет Service Fabric для Windows Server (2012 R2 и более поздней версии), доступный здесь: <br>
+## <a name="download-the-service-fabric-for-windows-server-package"></a>Скачивание Service Fabric для пакета Windows Server
+Чтобы создать кластер, используйте Service Fabric для пакета Windows Server (2012 R2 и более поздней версии), доступный здесь: <br>
 [Ссылка для скачивания изолированного пакета Service Fabric для Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
 
 Подробные сведения о содержимом пакета можно получить [здесь](service-fabric-cluster-standalone-package-contents.md).
@@ -65,7 +65,7 @@ Service Fabric можно развернуть на кластере с одни
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
 ```
 
-Дополнительные сведения об устранении неполадок указаны в подразделе "Настройка среды" раздела [Планирование и подготовка развертывания кластера](service-fabric-cluster-standalone-deployment-preparation.md).
+Дополнительные сведения об устранении неполадок указаны в подразделе "Настройка среды" статьи [Планирование и подготовка развертывания изолированного кластера Service Fabric](service-fabric-cluster-standalone-deployment-preparation.md).
 
 После завершения выполнения сценариев разработки кластер Service Fabric можно будет удалить с компьютера с помощью действий, описанных в разделе [Удаление кластера](#removecluster_anchor). 
 
@@ -75,39 +75,48 @@ Service Fabric можно развернуть на кластере с одни
 
 1. Проверьте созданный файл конфигурации, запустив сценарий *TestConfiguration.ps1* в папке изолированного пакета.  
 
-```powershell
-.\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
-```
+    ```powershell
+    .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
+    ```
 
-Вы должны увидеть результат следующего вида. Если для нижнего поля "Passed" (Выполнено) возвращено значение True, значит, проверка работоспособности пройдена и кластер готов к развертыванию на основе входной конфигурации.
+    Вы должны увидеть результат следующего вида. Если для нижнего поля "Passed" (Выполнено) возвращено значение True, значит, проверка работоспособности пройдена и кластер готов к развертыванию на основе входной конфигурации.
 
-```
-Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
-Running Best Practices Analyzer...
-Best Practices Analyzer completed successfully.
-
-
-LocalAdminPrivilege        : True
-IsJsonValid                : True
-IsCabValid                 : True
-RequiredPortsOpen          : True
-RemoteRegistryAvailable    : True
-FirewallAvailable          : True
-RpcCheckPassed             : True
-NoConflictingInstallations : True
-FabricInstallable          : True
-Passed                     : True
-```
+    ```
+    Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
+    Running Best Practices Analyzer...
+    Best Practices Analyzer completed successfully.
+    
+    LocalAdminPrivilege        : True
+    IsJsonValid                : True
+    IsCabValid                 : True
+    RequiredPortsOpen          : True
+    RemoteRegistryAvailable    : True
+    FirewallAvailable          : True
+    RpcCheckPassed             : True
+    NoConflictingInstallations : True
+    FabricInstallable          : True
+    Passed                     : True
+    ```
 
 2. Создайте кластер: запустите сценарий *CreateServiceFabricCluster.ps1* для развертывания кластера Service Fabric на каждом компьютере в конфигурации. 
-```powershell
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
-```
+    ```powershell
+    .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
+    ```
 
 > [!NOTE]
 > Трассировки развертывания записываются на компьютер или виртуальную машину, на которой запущен сценарий PowerShell CreateServiceFabricCluster.ps1. Их можно найти во вложенной папке DeploymentTraces в каталоге, в котором был запущен сценарий. Чтобы узнать, правильно ли развернут кластер Service Fabric на компьютере, найдите установленные файлы в каталоге FabricDataRoot, как описано в разделе FabricSettings файла конфигурации кластера (по умолчанию он находится в C:\ProgramData\SF). Кроме того, процессы FabricHost.exe и Fabric.exe должны отображаться в диспетчере задач.
 > 
 > 
+
+### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Шаг 1в. Создание кластера в автономном состоянии (не подключенного к Интернету)
+Пакет среды выполнения Service Fabric автоматически скачивается во время создания кластера. При развертывании кластера на компьютерах, не подключенных к Интернету, необходимо скачать пакет среды выполнения Service Fabric отдельно и указать путь к нему во время создания кластера.
+Пакет среды выполнения можно скачать отдельно, с другого компьютера, подключенного к Интернету, по [ссылке для скачивания среды выполнения Service Fabric для Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Скопируйте пакет среды выполнения туда, откуда вы развертываете не подключенный к Интернету кластер, и создайте кластер, выполнив `CreateServiceFabricCluster.ps1` с включенным параметром `-FabricRuntimePackagePath`, как показано ниже: 
+
+```powershell
+CreateServiceFabricCluster.ps1 -ClusterConfigurationFilePath <path to ClusterConfig.json> -FabricRuntimePackagePath <path to MicrosoftAzureServiceFabric.cab>
+```
+`<path to ClusterConfig.json>` и `<path to MicrosoftAzureServiceFabric.cab>` — это пути к файлу конфигурации кластера и CAB-файлу среды выполнения соответственно.
+
 
 ### <a name="step-2-connect-to-the-cluster"></a>Шаг 2. Подключение к кластеру
 Сведения о подключении к защищенному кластеру см. в статье [Подключение Service Fabric к защищенному кластеру](service-fabric-connect-to-secure-cluster.md).

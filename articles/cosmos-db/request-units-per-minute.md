@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: acomet
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ea63b988a72801ae4c288048021a915b20a34794
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 0c597fa4afa816f9731edb744ae494b6ef928b9e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -176,7 +176,7 @@ var query = client.CreateDocumentQuery<Book>(
 В этой статье мы рассмотрели, как действует секционирование в базе данных Azure Cosmos DB, а также узнали, как создать секционированные коллекции и как выбрать подходящий ключ секции для приложения.
 
 * Выполняйте проверку масштабирования и производительности с помощью базы данных Azure Cosmos DB. Пример см. в статье [Проверка производительности и масштабирования с помощью Azure DocumentDB](performance-testing.md).
-* Приступите к созданию кода с помощью [пакетов SDK](documentdb-sdk-dotnet.md) или [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+* Приступите к созданию кода с помощью [пакетов SDK](documentdb-sdk-dotnet.md) или [REST API](/rest/api/documentdb/).
 * Дополнительные сведения о подготовленной пропускной способности в базе данных Azure Cosmos DB см. в [этой статье](request-units.md). 
 
 

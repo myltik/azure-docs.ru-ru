@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 97ae17912eaa7508e3ae1315800408664a340837
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 6754505e7f58a8e7305987db9204271ca9b93870
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Оптимизация среды с помощью решения для оценки System Center Operations Manager (предварительная версия)
+
+![Символ System Center Operations Manager Assessment](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
 
 Решение для оценки System Center Operations Manager можно использовать для оценки риска и работоспособности серверных сред SCOM на регулярной основе. Эта статья поможет вам установить, настроить и использовать данное решение таким образом, чтобы в случае проблем вы могли принять корректирующие меры.
 
@@ -57,7 +60,7 @@ ms.lasthandoff: 03/11/2017
 1. [Установите учетную запись запуска от имени для оценки System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms).  
 2. [Настройте правило оценки System Center Operations Manager](#configure-the-assessment-rule).
 
-# <a name="system-center-operations-manager-assessment-data-collection-details"></a>Сведения о сборе данных оценки System Center Operations Manager
+## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Сведения о сборе данных оценки System Center Operations Manager
 
 Решение для оценки System Center Operations Manager собирает данные WMI, реестра, журнала событий и данные Operations Manager посредством Windows PowerShell, SQL-запросов или сборщика сведений о файлах с использованием включенного вами сервера.
 
@@ -155,8 +158,8 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 1. В рабочей области **Разработка** консоли Operations Manager в области **Правила** найдите правило *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule*.
 2. В результатах поиска выберите тот, который содержит текст *Тип: сервер управления*.
 3. Щелкните правой кнопкой мыши правило, а затем выберите **Переопределения** > **Для конкретного объекта данного класса: сервер управления**.
-4.    Из списка выберите сервер управления, на котором должно выполняться правило.
-5.    Обязательно измените значение переопределения для параметра **Включено** на **True**.  
+4.  Из списка выберите сервер управления, на котором должно выполняться правило.
+5.  Обязательно измените значение переопределения для параметра **Включено** на **True**.  
     ![Параметр переопределения](./media/log-analytics-scom-assessment/rule.png)
 
 Оставаясь в этом окне, настройте частоту выполнения, следуя приведенной ниже процедуре.

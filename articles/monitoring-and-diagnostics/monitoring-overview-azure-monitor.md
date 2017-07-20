@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 726a33b5cad8b44c520d6c59d418fec1bbfc6fa5
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 72b0c11f8bea24fc8777e3e0d7712577fab8ef97
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/10/2017
 
 
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure Monitor и другие решения для мониторинга Майкрософт
-Azure Monitor предоставляет метрики инфраструктуры базового уровня, а также журналы для большинства служб Microsoft Azure. Службы Azure, которые еще не добавляют данные в Azure Monitor, будут поддерживать эту службу в будущем. 
+Azure Monitor предоставляет метрики инфраструктуры базового уровня, а также журналы для большинства служб Microsoft Azure. Службы Azure, которые еще не добавляют данные в Azure Monitor, будут делать это в будущем.
 
 Майкрософт поставляет дополнительные продукты и службы, которые обеспечивают расширенные возможности мониторинга для разработчиков, команды DevOps или ИТ-операций, которые также имеют локальные системы. Общие сведения о совместной работе этих разных продуктов и служб см. в статье [Обзор Azure Monitor](monitoring-overview.md).
 
@@ -138,7 +138,7 @@ Azure Monitor предоставляет метрики инфраструкту
 * [PowerShell](insights-powershell-samples.md)  
 * [Кроссплатформенный интерфейс командной строки](insights-cli-samples.md)
 * [ИНТЕРФЕЙС REST API](https://docs.microsoft.com/rest/api/monitor/)
-* [Пакет SDK для .NET](https://msdn.microsoft.com/library/dn802153.aspx)
+* [Пакет SDK для .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Кроме того, вы можете узнать больше о:

@@ -9,7 +9,7 @@ editor: monicar
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-develop, mvc
+ms.custom: mvc,scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 05/08/2017
 ms.author: AyoOlubek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 80df7b504d13fe1b3be9806eb95e3980d7790970
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0aea69d86a51c38c99a72f46737de1eea27bef83
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -42,18 +42,21 @@ ms.lasthandoff: 05/10/2017
 
 Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
 
+## <a name="prerequisites"></a>Предварительные требования
+
 В рамках этого руководства вам потребуются:
-* Установите PowerShell на свой компьютер, а также [последнюю версию пакета SDK для Azure PowerShell](http://azure.microsoft.com/downloads/).
 
-* Установите последнюю версию [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). При установке SQL Server Management Studio также устанавливается последняя версия SqlPackage, служебной программы командной строки, которую можно использовать для автоматизации ряда задач по разработке базы данных.
+* Последняя версия PowerShell и [последний выпуск пакета SDK для Azure PowerShell](http://azure.microsoft.com/downloads/).
 
-* Установите [среду выполнения Java (JRE) версии 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) и [последний комплект разработчика Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 
+* Последняя версия [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). При установке SQL Server Management Studio также устанавливается последняя версия SqlPackage, служебной программы командной строки, которую можно использовать для автоматизации ряда задач по разработке базы данных.
 
-* Установите [Apache Maven](https://maven.apache.org/download.cgi). Maven можно использовать для управления зависимостями, сборки, тестирования и запуска примера проекта Java.
+* [Среда выполнения Java (JRE) версии 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) и [последний пакет JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 
+
+* [Apache Maven](https://maven.apache.org/download.cgi). Maven можно использовать для управления зависимостями, сборки, тестирования и запуска примера проекта Java.
 
 ## <a name="set-up-data-environment"></a>Настройка среды данных
 
-Вам необходимо подготовить базу данных для каждого клиента. Модель "база данных на клиент" обеспечивает максимальный уровень изоляции между клиентами и небольшую стоимость разработки и выполнения операций. Чтобы оптимизировать стоимость облачных ресурсов, вам также необходимо подготовить клиентские базы данных для размещения в эластичном пуле, что позволит оптимизировать соотношение цены и производительности для группы баз данных. Дополнительные сведения о других моделях подготовки базы данных см. в разделе [Модели данных мультитенантного приложения](sql-database-design-patterns-multi-tenancy-saas-applications.md#multitenant-data-models). 
+Вам необходимо подготовить базу данных для каждого клиента. Модель "база данных на клиент" обеспечивает максимальный уровень изоляции между клиентами и небольшую стоимость разработки и выполнения операций. Чтобы оптимизировать стоимость облачных ресурсов, вам также необходимо подготовить клиентские базы данных для размещения в эластичном пуле, что позволит оптимизировать соотношение цены и производительности для группы баз данных. Дополнительные сведения о других моделях подготовки базы данных см. в разделе [Модели данных мультитенантного приложения](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
 
 Следуйте инструкциям ниже, чтобы создать SQL Server и эластичный пул для размещения всех клиентских баз данных. 
 
@@ -71,7 +74,7 @@ ms.lasthandoff: 05/10/2017
    
    # Store current client IP address (modify to include your IP address)
    $startIpAddress = 0.0.0.0 
-   $endIpAddress = 0.0.0.1
+   $endIpAddress = 0.0.0.0
    ```
    
 2. Войдите в Azure и создайте SQL Server и эластичный пул. 
@@ -505,6 +508,7 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 Попробуйте подключиться к клиенту tenant1 с помощью приложения Java. Вы получите ошибку с сообщением о том, что клиент не существует.
 
 ## <a name="next-steps"></a>Дальнейшие действия 
+
 Из этого руководства вы узнали следующее:
 > [!div class="checklist"]
 > * Как настроить среду базы данных для поддержки мультитенантного приложения SaaS с помощью шаблона базы данных на клиент.

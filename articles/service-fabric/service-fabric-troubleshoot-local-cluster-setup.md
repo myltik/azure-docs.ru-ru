@@ -3,7 +3,7 @@ title: "Устранение неполадок в настройке локал
 description: "В этой статье описываются рекомендации по устранению неполадок с кластером локальной разработки."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: 
 ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202
@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f0db912ac3cee02f4268996bf2409440afade86
-ms.lasthandoff: 11/17/2016
+ms.date: 06/07/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -57,7 +58,7 @@ ms.lasthandoff: 11/17/2016
 При подключении к кластеру в PowerShell отображается ошибка TypeInitializationException для System.Fabric.Common.AppTrace.
 
 #### <a name="solution"></a>Решение
-При установке была неправильно настроена переменная пути. Выйдите из Windows и снова выполните вход. Путь будет полностью обновлен.
+При установке была неправильно настроена переменная пути. Выйдите из Windows и снова выполните вход. Путь обновится.
 
 ### <a name="cluster-connection-fails-with-object-is-closed"></a>Сбой подключения к кластеру с сообщением об ошибке "Объект закрыт"
 #### <a name="problem"></a>Проблема

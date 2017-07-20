@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 06/29/2017
 ms.author: abhisram
-translationtype: Human Translation
-ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
-ms.openlocfilehash: 1a8a36d3b6f14c75965afca970be808015059dbb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 1c53a6bbe0152f6f2b9666e6059af7c6d02e481f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -116,7 +118,7 @@ ms.openlocfilehash: 1a8a36d3b6f14c75965afca970be808015059dbb
 
 | Имя категории | Имя счетчика | Описание |
 | --- | --- | --- |
-| Субъект Service Fabric |# Количество вызовов, ожидающих блокировку субъекта |Количество вызовов субъекта, ожидающих блокировку субъекта, обеспечивающую поочередный параллелизм. |
+| Субъект Service Fabric |Количество вызовов, ожидающих блокировку субъекта |Количество вызовов субъекта, ожидающих блокировку субъекта, обеспечивающую поочередный параллелизм. |
 | Субъект Service Fabric |Среднее время блокировки (мс) |Время (в миллисекундах) до блокировки субъекта, обеспечивающей пошаговый параллелизм |
 | Субъект Service Fabric |Среднее время (в миллисекундах) удержания блокировки субъекта |Время (в миллисекундах) удержания блокировки субъекта |
 
@@ -162,7 +164,7 @@ ms.openlocfilehash: 1a8a36d3b6f14c75965afca970be808015059dbb
 
 | Имя категории | Имя счетчика | Описание |
 | --- | --- | --- |
-| Субъект Service Fabric |# ожидающих запросов |Число запросов, обрабатываемых в службе |
+| Субъект Service Fabric |Число невыполненных запросов |Число запросов, обрабатываемых в службе |
 | Субъект Service Fabric |Среднее время запроса (мс) |Время обработки запроса службой (мс) |
 | Субъект Service Fabric |Среднее время десериализации запроса (мс) |Время десериализации сообщения запроса субъекта при получении его службой (мс) |
 | Субъект Service Fabric |Среднее время сериализации ответа (мс) |Время сериализации ответного сообщения субъекта в службе до отправки ответа клиенту (мс) |
@@ -172,9 +174,4 @@ ms.openlocfilehash: 1a8a36d3b6f14c75965afca970be808015059dbb
 * [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Пример кода](https://github.com/Azure/servicefabric-samples)
 * [Поставщики EventSource в PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

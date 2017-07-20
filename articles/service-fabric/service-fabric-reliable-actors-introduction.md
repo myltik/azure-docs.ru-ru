@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 9b6668bf4b3f826a1d41527ce4a7ae8d05936731
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -144,15 +145,9 @@ myActor.DoWorkAsync().get();
 Среда выполнения субъектов предоставляет гарантии повторного входа в ситуациях, когда она управляет вызовом методов, например методов, которые вызываются в ответ на запрос клиента, а также обратных вызовов по таймеру и напоминанию. Тем не менее если код субъекта напрямую вызывает эти методы вне механизмов, предоставляемых средой выполнения субъектов, то среда выполнения не предоставляет никаких гарантий параллелизма. Например, среда выполнения не предоставляет таких гарантий, если метод вызывается в контексте некоторой задачи, которая не связана с задачей, возвращаемой методами субъекта. Если метод вызывается из потока, который субъект создает самостоятельно, среда выполнения также не предоставляет таких гарантий. Таким образом, для выполнения фоновых операций субъектам следует использовать [таймеры или напоминания](service-fabric-reliable-actors-timers-reminders.md), в которых соблюдаются принципы пошагового параллелизма.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Начало работы с субъектами Reliable Actors](service-fabric-reliable-actors-get-started.md)
-* [Использование платформы Service Fabric надежными субъектами](service-fabric-reliable-actors-platform.md)
-* [Управление состоянием субъекта](service-fabric-reliable-actors-state-management.md)
-* [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
-* [Таймеры и напоминания субъекта](service-fabric-reliable-actors-timers-reminders.md)
-* [События субъекта](service-fabric-reliable-actors-events.md)
-* [Повторный вход субъекта](service-fabric-reliable-actors-reentrancy.md)
-* [Полиморфизм субъекта и объектно-ориентированные шаблоны проектирования](service-fabric-reliable-actors-polymorphism.md)
-* [Диагностика и мониторинг производительности в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+* Приступите к работе, создав свою первую службу Reliable Actors:
+   * [Приступая к работе с Reliable Actors с помощью .NET](service-fabric-reliable-actors-get-started.md)
+   * [Приступая к работе с Reliable Actors с помощью Java](service-fabric-reliable-actors-get-started-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/23/2017
+ms.date: 06/27/2017
 ms.author: babanisa;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: b8ed786fe0c049d9be7ba1ca1cb6adef1950b8e9
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 775900fcae1b2832a5d0951e2a4053562c21455e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -29,27 +30,28 @@ ms.lasthandoff: 03/24/2017
 * **[Журналы диагностики](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Вы можете настроить журналы диагностики, чтобы получать более подробные сведения обо всем, что происходит с заданием. Журналы диагностики охватывают действия с момента создания задания до его удаления, включая обновления и действия, которые происходят во время выполнения задания.
 
 ## <a name="turn-on-diagnostic-logs"></a>Включение журналов диагностики
-По умолчанию журналы диагностики отключены. Чтобы включить журналы диагностики, выполните следующее.
 
-1.    На [портале Azure](https://portal.azure.com) перейдите в колонку задания потоковой передачи.
+По умолчанию журналы диагностики отключены. Чтобы включить ведение журналов диагностики, выполните следующее.
 
-2.    В разделе **Мониторинг** перейдите в колонку **Журналы диагностики**.
+1.  На [портале Azure](https://portal.azure.com) перейдите в колонку задания потоковой передачи.
+
+2.  В разделе **Мониторинг** перейдите в колонку **Журналы диагностики**.
 
     ![Перемещение к колонке журналов диагностики](./media/service-bus-diagnostic-logs/image1.png)  
 
-3.    Щелкните **Включить диагностику**.
+3.  Щелкните **Включить диагностику**.
 
     ![Включение журналов диагностики](./media/service-bus-diagnostic-logs/image2.png)
 
-4.    Для параметра **Состояние** щелкните **Вкл**.
+4.  Для параметра **Состояние** щелкните **Вкл**.
 
     ![Изменение состояния журналов диагностики](./media/service-bus-diagnostic-logs/image3.png)
 
-5.    Настройте нужную цель для архивирования, например учетную запись хранения, концентратор событий или Azure Log Analytics.
+5.  Настройте нужную цель для архивирования, например учетную запись хранения, концентратор событий или Azure Log Analytics.
 
-6.    Выберите категории журналов, которые необходимо собирать, например **Выполнение** или **Разработка**.
+6.  Выберите категории журналов, которые необходимо собирать, например **Выполнение** или **Разработка**.
 
-7.    Сохраните новые параметры диагностики.
+7.  Сохраните новые параметры диагностики.
 
 Новые параметры вступят в силу в течение 10 минут. После этого журналы появятся в настроенной цели для архивирования на вкладке **Журналы диагностики**.
 
@@ -57,7 +59,7 @@ ms.lasthandoff: 03/24/2017
 
 ## <a name="diagnostic-logs-schema"></a>Схема журналов диагностики
 
-Все журналы хранятся в формате JSON (нотация объектов JavaScript). Каждая запись содержит строковые поля, использующие формат, описанный в следующих примерах.
+Все журналы хранятся в формате JSON (нотация объектов JavaScript). Каждая запись содержит строковые поля, использующие формат, описанный в следующем разделе.
 
 ## <a name="operation-logs-example"></a>Пример журналов операций
 
@@ -68,7 +70,7 @@ ms.lasthandoff: 03/24/2017
 Имя | Описание
 ------- | -------
 ActivityId | Внутренний идентификатор, используемый для отслеживания
-EventName | Имя операции             
+EventName | Имя операции           
 resourceId | Идентификатор ресурса Azure Resource Manager
 SubscriptionId | Идентификатор подписки
 EventTimeString | Время операции
@@ -80,21 +82,23 @@ category | OperationalLogs
 Ниже приведен пример строки JSON журнала операций.
 
 ```json
-Example:
 {
-     "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
-     "EventName": "Create Queue",
-     "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/SHOEBOXEHNS-CY4001",
-     "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
-     "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
-     "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
-     "Status": "Succeeded",
-     "Caller": "ServiceBus Client",
-     "category": "OperationalLogs"
+  "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
+  "EventName": "Create Queue",
+  "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/SHOEBOXEHNS-CY4001",
+  "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
+  "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
+  "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
+  "Status": "Succeeded",
+  "Caller": "ServiceBus Client",
+  "category": "OperationalLogs"
 }
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
+Чтобы узнать больше о служебной шине, перейдите по следующим ссылкам:
+
 * [Основные сведения о служебной шине](service-bus-messaging-overview.md)
 * [Приступая к работе со служебной шиной](service-bus-dotnet-get-started-with-queues.md)
 

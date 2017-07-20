@@ -17,10 +17,10 @@ ms.date: 09/08/2016
 ms.author: chrande; glenga
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0f35d79870301bcba9f009f7dbc00696ce426458
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 31661e5840a6b65f54f9df027a7e3ecab8768055
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Сравнение Microsoft Flow, Logic Apps, функций и веб-заданий Azure
@@ -50,7 +50,7 @@ ms.lasthandoff: 05/10/2017
 | --- | --- | --- |
 | Аудитория |Офисные сотрудники, бизнес-пользователи |ИТ-специалисты, разработчики |
 | Сценарии |Самообслуживание |Критически важные интеграции |
-| Средство разработки |В браузере, только пользовательский интерфейс |В браузере и [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md) доступно [представление кода](../logic-apps/logic-apps-author-definitions.md). |
+| Средство разработки |В браузере и мобильном приложении, только пользовательский интерфейс |В браузере и [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md) доступно [представление кода](../logic-apps/logic-apps-author-definitions.md). |
 | Разработка и операции |Ad-hoc, разработка в рабочей среде |Система управления версиями, тестирование, поддержка, автоматизация и управление в [Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md) |
 | Административные функции |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
 | Безопасность |Стандартные методы безопасности: [независимость данных](https://wikipedia.org/wiki/Technological_Sovereignty), [шифрование при хранении](https://wikipedia.org/wiki/Data_at_rest#Encryption) для конфиденциальных данных и т. д. |Обеспечение безопасности Azure: [безопасность Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [центр безопасности](https://azure.microsoft.com/services/security-center/), [журналы аудита](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) и многое другое. |

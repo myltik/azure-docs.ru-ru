@@ -3,8 +3,8 @@ title: "Настройка обновления приложения Service Fab
 description: "Узнайте, как настроить параметры обновления приложения Service Fabric с помощью Microsoft Visual Studio."
 services: service-fabric
 documentationcenter: na
-author: cawaMS
-manager: paulyuk
+author: mikkelhegn
+manager: mfussell
 editor: tglee
 ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
 ms.service: service-fabric
@@ -12,21 +12,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
-ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 121f1d485e34ba30d3e6c2e5d91da633771e80ab
+ms.date: 06/29/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/01/2017
 
 
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Настройка обновления приложения Service Fabric в Visual Studio
-Средства Visual Studio для Azure Service Fabric обеспечивают поддержку обновления для публикации на локальных и удаленных кластерах. У обновления приложения до более новой версии есть два преимущества по сравнению с заменой приложения во время тестирования и отладки:
+Средства Visual Studio для Azure Service Fabric обеспечивают поддержку обновления для публикации на локальных и удаленных кластерах. Существуют три сценария, в которых следует обновить приложение до более новой версии, а не заменить его, во время тестирования и отладки:
 
 * данные приложения не будут потеряны во время обновления;
 * достигается высокий уровень доступности, так как не будет перерывов в доступности службы по время обновления, если по доменам обновления распределено достаточное количество экземпляров службы.
-
-Тесты для приложения могут запускаться во время его обновления.
+* Тесты для приложения могут запускаться во время его обновления.
 
 ## <a name="parameters-needed-to-upgrade"></a>Параметры, необходимые для обновления
 Существует два типа развертывания: обычное или обновление. При обычном развертывании стираются все предыдущие сведения о развертывании и данные в кластере, а при обновлении они сохраняются. При обновлении приложения Service Fabric в Visual Studio необходимо указать параметры обновления приложения и политики проверки работоспособности. Параметры обновления приложения помогают управлять обновлением, а политики проверки работоспособности определяют, было обновление успешным или нет. Дополнительные сведения см. в статье [Параметры обновления приложений](service-fabric-application-upgrade-parameters.md).
@@ -88,9 +89,3 @@ ms.openlocfilehash: 121f1d485e34ba30d3e6c2e5d91da633771e80ab
 ```
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о развертывании приложений см. в статье [Развертывание гостевого исполняемого файла в Service Fabric](service-fabric-deploy-existing-app.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

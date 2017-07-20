@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 6/5/2016
 ms.custom: loading
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 1a82f9f1de27c9197bf61d63dd27c5191fec1544
-ms.openlocfilehash: 3e1bf2372762de474310c78d512a6a073c7a01b6
-ms.lasthandoff: 01/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 
 
@@ -119,60 +120,19 @@ WHERE
     AND DateRequested > '12/31/2013'
     AND DateRequested < '01/01/2015';
 ```
+## <a name="isolate-loading-users"></a>Ограничение возможности загрузки для пользователей
+Зачастую необходимо иметь несколько пользователей, которые могут загрузить данные в хранилище данных SQL. Так как для использования инструкции [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] требуются разрешения на управление базой данных, в результате у вас будет несколько пользователей с контролем доступа во всех схемах. Чтобы ограничить это, можно использовать инструкцию DENY CONTROL.
 
+Пример. Рассмотрим схемы базы данных schema_A для отдела A и schema_B для отдела B. Задайте пользователей базы данных user_A и user_B в качестве пользователей для загрузки PolyBase в отделе A и B соответственно. Им обоим предоставлены разрешения CONTROL для базы данных.
+Теперь создатели схем A и B блокируют свои схемы, используя инструкцию DENY:
 
-## <a name="working-around-the-polybase-utf-8-requirement"></a>Обход требования PolyBase UTF-8
-В настоящее время PolyBase поддерживает загрузку файлов данных с кодировкой UTF-8. Поскольку UTF-8 использует ту же кодировку символов, что и ASCII, PolyBase будет также поддерживать загрузку данных с кодировкой ASCII. Однако PolyBase не поддерживает кодировку символов, подобную UTF-16 или Юникод или символы расширенной кодировки ASCII. Символы в расширенной кодировке ASCII включают символы с диакритическими знаками, например с умляутом, который часто используется в немецком языке.
+```sql
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+```   
+ Таким образом для user_A и user_B теперь должен быть заблокирован доступ к схеме другого отдела.
+ 
 
-Чтобы обойти это требование, лучше перевести набор символов в кодировку UTF-8.
-
-Для этого существует несколько способов. Ниже приведены два подхода, реализуемые при помощи Powershell.
-
-### <a name="simple-example-for-small-files"></a>Простой пример для небольших файлов
-Ниже приведен простой одностроковый скрипт Powershell, создающий файл.
-
-```PowerShell
-Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
-```
-
-Однако, хотя этот способ является самым простым способом изменения кодировки данных, он ни в коем случае не является самым эффективным. Следующий пример с потоковым вводом-выводом позволяет получить тот же результат намного быстрее.
-
-### <a name="io-streaming-example-for-larger-files"></a>Пример с потоковым вводом-выводом для более крупных файлов
-Следующий пример кода более сложен, однако поскольку он передает из источника в целевой объект строки данных в потоке, то обладает гораздо большей эффективностью. Используйте этот подход для более крупных файлов.
-
-```PowerShell
-#Static variables
-$ascii = [System.Text.Encoding]::ASCII
-$utf16le = [System.Text.Encoding]::Unicode
-$utf8 = [System.Text.Encoding]::UTF8
-$ansi = [System.Text.Encoding]::Default
-$append = $False
-
-#Set source file path and file name
-$src = [System.IO.Path]::Combine("C:\input_file_path\","input_file_name.txt")
-
-#Set source file encoding (using list above)
-$src_enc = $ansi
-
-#Set target file path and file name
-$tgt = [System.IO.Path]::Combine("C:\output_file_path\","output_file_name.txt")
-
-#Set target file encoding (using list above)
-$tgt_enc = $utf8
-
-$read = New-Object System.IO.StreamReader($src,$src_enc)
-$write = New-Object System.IO.StreamWriter($tgt,$append,$tgt_enc)
-
-while ($read.Peek() -ne -1)
-{
-    $line = $read.ReadLine();
-    $write.WriteLine($line);
-}
-$read.Close()
-$read.Dispose()
-$write.Close()
-$write.Dispose()
-```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о перемещении данных в хранилище данных SQL см. в статье [Перенос решения в хранилище данных SQL][data migration overview].

@@ -1,6 +1,6 @@
 ---
-title: "Сборка приложения Django на виртуальной машине Azure | Документация Майкрософт"
-description: "В этом учебнике изучается размещение веб-сайта, созданного на основе Django, в Azure с помощью виртуальной машины Windows Server 2012 R2 Datacenter и классической модели развертывания."
+title: "Веб-приложение Django на виртуальной машине Azure для Windows Server | Документация Майкрософт"
+description: "Узнайте, как разместить веб-сайт на основе Django в Azure с помощью виртуальной машины Центра обработки данных Windows Server 2012 R2 и классической модели развертывания."
 services: virtual-machines-windows
 documentationcenter: python
 author: huguesv
@@ -13,16 +13,17 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: python
 ms.topic: article
-ms.date: 08/04/2015
+ms.date: 05/31/2017
 ms.author: huvalo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d777d2a7944d17a452732c0e820dc781357bc8d2
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: a9ccbb3da29670da9a377be2212905c67b3ec7d0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="django-hello-world-web-application-on-a-windows-server-vm"></a>Веб-приложение Hello World на Django на виртуальной машине Windows Server
+# <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Веб-приложение Hello World на Django на виртуальной машине Windows Server
 > [!div class="op_single_selector"]
 > * [Windows](python-django-web-app.md)
 > * [Mac/Linux](../../linux/python-django-web-app.md)
@@ -32,103 +33,112 @@ ms.lasthandoff: 04/03/2017
 <br>
 
 > [!IMPORTANT] 
-> В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../../../resource-manager-deployment-model.md). В этой статье рассматривается использование классической модели развертывания. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов. Шаблон Resource Manager для развертывания Django см. [здесь](https://azure.microsoft.com/documentation/templates/django-app/).
+> В Azure предлагаются две разные модели развертывания для создания ресурсов и работы с ними: [Azure Resource Manager и классическая модель развертывания](../../../resource-manager-deployment-model.md). В этой статье рассматривается классическая модель развертывания. Для большинства новых развертываний рекомендуется использовать модель Resource Manager. Сведения о шаблоне Resource Manager, который можно использовать для развертывания Django, см. на странице о [развертывании приложения Django](https://azure.microsoft.com/documentation/templates/django-app/).
 
-В этом учебнике описывается, как разместить веб-сайт на основе Django в Microsoft Azure с помощью виртуальной машины Windows Server. В данном учебнике предполагается, что у вас нет опыта использования платформы Azure. По завершении работы с данным учебником у вас будет приложение на базе Django, выполняемое в облаке.
+В этом руководстве описывается размещение веб-сайта на основе Django в Windows Server на виртуальных машинах Azure. Для работы с этим руководством опыт работы с Azure не требуется. По завершении работы с этим руководством у вас будет готовое приложение на базе Django, выполняющееся в облаке.
 
-Вы научитесь:
+Ниже перечислено, что вы можете узнать.
 
-* Настраивать виртуальную машину Azure для размещения Django. Хотя в учебном курсе объясняется, как выполнить эту задачу в Windows Server, эти сведения актуальны для виртуальных машин под управлением Linux, размещенных в Azure.
+* Настраивать виртуальную машину Azure для размещения Django. Хотя в этом руководстве описываются действия для **Windows Server**, эти же шаги вы можете выполнить для виртуальных машин Linux, размещенных в Azure.
 * Создайте новое приложение Django в Windows.
 
-Руководствуясь этим учебником, вы создадите простое веб-приложение Hello World. Приложение будет размещаться в виртуальной машине Azure.
+В этом руководстве рассматривается создание базового веб-приложения Hello World. Приложение будет размещаться на виртуальной машине Azure.
 
-Ниже приведен снимок экрана готового приложения.
+На снимке экрана ниже показано готовое приложение:
 
-![В окне браузера в Azure отображается страница hello world.][1]
+![Окно браузера, отображающее страницу Hello World в Azure][1]
 
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
-## <a name="creating-and-configuring-an-azure-virtual-machine-to-host-django"></a>Создание и настройка виртуальной машины Azure для размещения Django
-1. Чтобы создать виртуальную машину Azure с дистрибутивом Windows Server 2012 R2 Datacenter, следуйте [этим](tutorial.md) указаниям.
+## <a name="create-and-set-up-an-azure-virtual-machine-to-host-django"></a>Создание и настройка виртуальной машины Azure для размещения приложения Django
+
+1. Чтобы создать виртуальную машину Azure с дистрибутивом Windows Server 2012 R2 Datacenter, ознакомьтесь со статьей [Создание виртуальной машины под управлением Windows на портале Azure](tutorial.md).
 2. Дайте Azure команду для перенаправления трафика порта 80 из Интернета в порт 80 на виртуальной машине:
    
-   * Перейдите к только что созданной виртуальной машине на классическом портале Azure и откройте вкладку **КОНЕЧНЫЕ ТОЧКИ** .
-   * В нижней части страницы нажмите кнопку **ДОБАВИТЬ** .
-     ![добавление конечной точки](./media/python-django-web-app/django-helloworld-addendpoint.png)
-   * Откройте **PUBLIC PORT 80** (Общий порт 80) протокола **TCP** как **PRIVATE PORT 80** (Частный порт 80).
-     ![][port80]
-3. На вкладке **Панель мониторинга** щелкните **Подключить**, чтобы использовать **Удаленный рабочий стол** для удаленного входа в созданную виртуальную машину Azure.  
+   1. На портале Azure перейдите на панель мониторинга и выберите только что созданную виртуальную машину.
+   2. Щелкните **Конечные точки**, а затем нажмите кнопку **Добавить**.
 
-**Важное примечание.** Во всех инструкциях ниже подразумевается, что вы правильно выполнили вход на виртуальную машину и выполняете команды на ней, а не на локальном компьютере.
+     ![Добавление конечной точки](./media/python-django-web-app/django-helloworld-add-endpoint-new-portal.png)
 
-## <a id="setup"> </a>Установка Python, Django, WFastCGI
-**Примечание.** Для скачивания с помощью Internet Explorer может потребоваться настроить параметры конфигурации усиленной безопасности Internet Explorer (выберите "Пуск > Администрирование > Диспетчер серверов > Локальный сервер", щелкните **Конфигурация усиленной безопасности Internet Explorer** и установите значение "Выкл.").
+   3. На странице **Добавить конечную точку** для **имени** введите **HTTP**. Укажите для общедоступного и частного портов TCP значение **80**.
 
-1. Установите последнюю версию Python 2.7 или 3.4 c сайта [python.org][python.org].
+     ![Введите имя и задайте общедоступные и частные порты.](./media/python-django-web-app/django-helloworld-add-endpoint-set-ports-new-portal.png)
+
+   4. Нажмите кнопку **ОК**.
+     
+3. На панели мониторинга выберите свою виртуальную машину. Чтобы использовать протокол удаленного рабочего стола (RDP) для удаленного входа на только что созданную виртуальную машину, щелкните **Подключить**.  
+
+> [!IMPORTANT] 
+> В следующих инструкциях предполагается, что вход на виртуальную машину выполнен правильно. Также предполагается, что команды выполняются через виртуальную машину, а не локальный компьютер.
+
+## <a id="setup"> </a>Установка Python, Django и WFastCGI
+> [!NOTE]
+> Для скачивания с помощью Internet Explorer вы должны настроить параметры **конфигурации усиленной безопасности** Internet Explorer. Для этого щелкните **Пуск** > **Администрирование** > **Диспетчер сервера** > **Локальный сервер**. Щелкните **Конфигурация усиленной безопасности Internet Explorer**, а затем выберите **Выкл.**
+
+1. Установите последнюю версию Python 2.7 или Python 3.4 с помощью [python.org][python.org].
 2. Установите пакеты wfastcgi и django с помощью pip.
    
-    Для Python 2.7 используйте указанную ниже команду.
+    Для Python 2.7 используйте команду ниже:
    
         c:\python27\scripts\pip install wfastcgi
         c:\python27\scripts\pip install django
    
-    Для Python 3.4 используйте указанную ниже команду.
+    Для Python 3.4 используйте команду ниже:
    
         c:\python34\scripts\pip install wfastcgi
         c:\python34\scripts\pip install django
 
-## <a name="installing-iis-with-fastcgi"></a>Установка IIS с помощью FastCGI
-1. Установите службы IIS с поддержкой FastCGI.  Это может занять несколько минут.
+## <a name="install-iis-with-fastcgi"></a>Установка IIS с поддержкой FastCGI
+* Установите службы IIS с поддержкой FastCGI. Это может занять несколько минут.
    
         start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
-## <a name="creating-a-new-django-application"></a>Создание нового приложения Django
-1. В папке *C:\inetpub\wwwroot* введите следующую команду для создания проекта Django:
+## <a name="create-a-new-django-application"></a>Создание нового приложения Django
+1. В папке C:\inetpub\wwwroot введите следующую команду для создания проекта Django:
    
-   Для Python 2.7 используйте указанную ниже команду.
+   Для Python 2.7 используйте команду ниже:
    
        C:\Python27\Scripts\django-admin.exe startproject helloworld
    
-   Для Python 3.4 используйте указанную ниже команду.
+   Для Python 3.4 используйте команду ниже:
    
        C:\Python34\Scripts\django-admin.exe startproject helloworld
    
    ![Результат выполнения команды New-AzureService](./media/python-django-web-app/django-helloworld-cmd-new-azure-service.png)
-2. Команда **django-admin** создает базовую структуру для веб-сайтов на основе Django:
+2. Команда `django-admin` создает базовую структуру для веб-сайтов на основе Django:
    
-   * **helloworld/manage.py** поможет вам начать и остановить размещение веб-сайта Django.
-   * **helloworld/helloworld/settings.py** содержит параметры Django для приложения.
-   * **helloworld/helloworld/urls.py** содержит код сопоставления между каждым URL-адресом и его представлением.
-3. Создайте файл с именем **views.py** в каталоге *C:\inetpub\wwwroot\helloworld\helloworld*. Он будет содержать представление, которое осуществляет отрисовку страницы "hello world". Запустите редактор и введите следующую команду:
+   * `helloworld\manage.py` поможет вам начать и остановить размещение веб-сайта на основе Django.
+   * `helloworld\helloworld\settings.py` содержит настройки Django для приложения.
+   * `helloworld\helloworld\urls.py` содержит код сопоставления между каждым URL-адресом и его представлением.
+3. Создайте файл с именем views.py в каталоге C:\inetpub\wwwroot\helloworld\helloworld. Он содержит представление, которое осуществляет отрисовку страницы "hello world". В редакторе кода введите следующие команды:
    
        from django.http import HttpResponse
        def home(request):
            html = "<html><body>Hello World!</body></html>"
            return HttpResponse(html)
-4. Замените содержимое файла urls.py на приведенный ниже код.
+4. Замените содержимое файла urls.py на команды ниже:
    
        from django.conf.urls import patterns, url
        urlpatterns = patterns('',
            url(r'^$', 'helloworld.views.home', name='home'),
        )
 
-## <a name="configuring-iis"></a>Настройка IIS
-1. Разблокируйте раздел обработчиков в глобальном файле applicationhost.config.  В результате вы сможете использовать обработчик python в файле web.config.
+## <a name="set-up-iis"></a>Настройка IIS
+1. Разблокируйте раздел обработчиков в глобальном файле applicationhost.config.  Это позволит файлу web.config использовать обработчик Python. Добавьте команду ниже:
    
         %windir%\system32\inetsrv\appcmd unlock config -section:system.webServer/handlers
-2. Включите WFastCGI.  В результате приложение будет добавлено в глобальный файл applicationhost.config, в котором имеются ссылки на исполняемый файл интерпретатора Python и сценарий wfastcgi.py.
+2. Активируйте WFastCGI. В результате приложение будет добавлено в глобальный файл applicationhost.config, в котором имеются ссылки на исполняемый файл интерпретатора Python и сценарий wfastcgi.py.
    
-    Python 2.7:
+    Для Python 2.7:
    
-        c:\python27\scripts\wfastcgi-enable
+        C:\python27\scripts\wfastcgi-enable
    
-    Python 3.4:
+    Для Python 3.4:
    
-        c:\python34\scripts\wfastcgi-enable
-3. Создайте файл web.config в каталоге *C:\inetpub\wwwroot\helloworld*.  Значение атрибута `scriptProcessor` должно соответствовать выходным данным предыдущего шага.  Дополнительные сведения о настройках wfastcgi приведены на странице [wfastcgi][wfastcgi] в pypi.
+        C:\python34\scripts\wfastcgi-enable
+3. Создайте файл web.config в каталоге C:\inetpub\wwwroot\helloworld. Значение атрибута `scriptProcessor` должно соответствовать выходным данным предыдущего шага. Дополнительные сведения о параметре wfastcgi см. на странице [wfastcgi 3.0.0][wfastcgi].
    
-    Python 2.7:
+   Для Python 2.7:
    
         <configuration>
           <appSettings>
@@ -143,7 +153,7 @@ ms.lasthandoff: 04/03/2017
           </system.webServer>
         </configuration>
    
-    Python 3.4:
+   Для Python 3.4:
    
         <configuration>
           <appSettings>
@@ -157,15 +167,15 @@ ms.lasthandoff: 04/03/2017
             </handlers>
           </system.webServer>
         </configuration>
-4. Измените расположение веб-сайта IIS по умолчанию, указав папку проекта django.
+4. Обновите расположение веб-сайта IIS по умолчанию, чтобы указать папку проекта Django.
    
         %windir%\system32\inetsrv\appcmd set vdir "Default Web Site/" -physicalPath:"C:\inetpub\wwwroot\helloworld"
-5. Наконец, загрузите веб-страницу в браузере.
+5. Загрузите веб-страницу в браузере.
 
-![В окне браузера в Azure отображается страница hello world.][1]
+![Окно браузера, отображающее страницу Hello World в Azure][1]
 
-## <a name="shutting-down-your-azure-virtual-machine"></a>Завершение работы виртуальной машины Azure
-По завершении работы с данным учебником завершите работу созданной вами виртуальной машины Azure или удалите ее, чтобы освободить ресурсы для других учебников и избежать платы за использование Azure.
+## <a name="shut-down-your-azure-virtual-machine"></a>Завершение работы виртуальной машины Azure
+По завершении работы с этим руководством мы рекомендуем завершить работу виртуальной машины Azure (созданной для работы с этим руководством) или же удалить ее. Это позволит освободить ресурсы для работы с другими руководствами, а также избежать расходов на использование Azure.
 
 [1]: ./media/python-django-web-app/django-helloworld-browser-azure.png
 

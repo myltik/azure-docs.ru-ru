@@ -11,12 +11,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/09/2017
+ms.date: 06/30/2017
 ms.author: pakunapa
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 11e300b3b1d0433bd4790332593ada2d3eede883
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: dc4a362b5737bb424ca2c196c85f4c51b6ee5e30
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -86,6 +87,23 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 ```
 
 Платформа удаленного взаимодействия распространяет исключения, созданные в службе, на клиент. Поэтому логика обработки исключений на стороне клиента с использованием `ServiceProxyBase` может напрямую обрабатывать порождаемые службой исключения.
+
+## <a name="service-proxy-lifetime"></a>Время существования ServiceProxy
+Создание ServiceProxy — упрощенная операция, поэтому пользователь может создать столько прокси-серверов, сколько нужно. Прокси-сервер службы можно использовать повторно, если он нужен пользователю. Пользователь может повторно использовать один и тот же прокси-сервер при возникновении исключения. Каждый ServiceProxy содержит клиент обмена данными, используемый для отправки сообщений по сети. При вызове API выполняется внутренняя проверка допустимости клиента обмена данными. В зависимости от ее результата можно будет повторно создать клиент обмена данными. Поэтому пользователю не требуется заново создавать ServiceProxy при возникновении исключения.
+
+### <a name="serviceproxyfactory-lifetime"></a>Время существования ServiceProxyFactory
+[FabricServiceProxyFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) — это фабрика, которая создает прокси-сервер для различных интерфейсов удаленного взаимодействия. Если вы используете API `ServiceProxyBase.create` для создания прокси-сервера, то платформа создает `FabricServiceProxyFactory`.
+При необходимости переопределить свойства [ServiceRemotingClientFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) имеет смысл создать фабрику вручную.
+Создание фабрики — ресурсоемкая операция. `FabricServiceProxyFactory` хранит кэш клиента обмена данными.
+Рекомендуется кэшировать `FabricServiceProxyFactory` на как можно больший период времени.
+
+## <a name="remoting-exception-handling"></a>Обработка исключений удаленного взаимодействия
+Все исключения удаленного взаимодействия, порождаемые API службы, отправляются обратно в клиент как RuntimeException или FabricException.
+
+ServiceProxy обрабатывает все исключения отработки отказа для секции службы, для которого он создан. Он повторно разрешает конечные точки в случае исключений отработки отказа (повторяющихся исключений) и повторяет вызов к правильной конечной точке. Число повторных попыток для исключения отработки отказа не ограничено.
+В случае исключений TransientException только повторяется попытка вызова.
+
+Параметры повтора по умолчанию определяются [OperationRetrySettings] (https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings). Пользователь может настроить эти значения, передав объект OperationRetrySettings в конструктор ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Защита обмена данными для Reliable Services](service-fabric-reliable-services-secure-communication.md)

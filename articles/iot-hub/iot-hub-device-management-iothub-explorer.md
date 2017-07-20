@@ -4,7 +4,7 @@ description: "С помощью средства командной строки
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "управление устройствами Интернета вещей Azure, управление устройствами в Центре Интернета вещей Azure, управление устройствами, Интернет вещей, управление устройствами в Центре Интернета вещей"
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 06/15/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 480f0544f155365d94b325bbf799bb999268dc31
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 2234924251447bb32d7cca0623a4e8d4f8d4e7ff
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Использование обозревателя Центра Интернета вещей для управления устройствами в Центре Интернета вещей Azure
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="what-you-learn"></a>Что вы узнаете
 
-Вы узнаете, как использовать обозреватель Центра Интернета вещей для работы с различными средствами управления.
+Вы узнаете, как использовать обозреватель Центра Интернета вещей для работы с различными средствами на компьютере разработки.
 
 ## <a name="what-you-do"></a>В рамках этого руководства мы:
 
@@ -54,11 +54,11 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="what-you-need"></a>Необходимые элементы
 
-- Изучите руководство [Настройка вашего устройства](iot-hub-raspberry-pi-kit-node-get-started.md), где описаны следующие требования:
+- Изучите руководство [Настройка вашего устройства](iot-hub-raspberry-pi-kit-node-get-started.md), где описаны следующие требования.
   - Активная подписка Azure.
   - Центр Интернета вещей Azure в подписке;
   - клиентское приложение, которое отправляет сообщения в Центр Интернета вещей Azure.
-- Обозреватель Центра Интернета вещей. ([Установить обозреватель Центра Интернета вещей](https://github.com/azure/iothub-explorer).)
+- Обозреватель Центра Интернета вещей. ([Установите обозреватель Центра Интернета вещей](https://github.com/azure/iothub-explorer) на компьютер разработки.)
 
 ## <a name="connect-to-your-iot-hub"></a>Подключение к Центру Интернета вещей
 
@@ -87,7 +87,7 @@ iothub-explorer device-method <your device Id> stop
 Установите для требуемого свойства интервал 3000, выполнив следующую команду:
 
 ```bash
-iothub-explorer update-twin mydevice {\"properties\":{\"desired\":{\"interval\":3000}}}
+iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"interval\":3000}}}
 ```
 
 Устройство может прочитать это свойство.
@@ -145,3 +145,4 @@ iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperatur
 Вы узнали, как использовать обозреватель Центра Интернета вещей для работы с различными средствами управления.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

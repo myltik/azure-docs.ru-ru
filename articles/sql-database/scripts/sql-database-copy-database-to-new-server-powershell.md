@@ -1,6 +1,6 @@
 ---
-title: "Сценарий Azure PowerShell. Копирование базы данных SQL на новый сервер | Документация Майкрософт"
-description: "Пример сценария Azure PowerShell для копирования базы данных SQL на новый сервер."
+title: "Пример для PowerShell. Копирование базы данных SQL Azure на новый сервер | Документация Майкрософт"
+description: "Пример сценария Azure PowerShell для копирования базы данных SQL на новый сервер"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: cb3412398e566cc16dadc8348241a603e78a098c
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 7b57e37a1bc9391c88c8170f59a39654bf895d47
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="copy-a-sql-database-to-a-new-server-using-powershell"></a>Копирование базы данных SQL на новый сервер с помощью PowerShell
+# <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>Копирование базы данных SQL на новый сервер с помощью PowerShell
 
-Этот сценарий PowerShell создает копию существующей базы данных на новом сервере. 
+Этот пример сценария PowerShell создает копию существующей базы данных на новом сервере. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

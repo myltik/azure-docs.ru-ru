@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/05/2017
 ms.author: johnkem; magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: c3e766b2e4c7bd372dc9c7b9d675a76c2d14a4cc
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: d144dd60192a4b62db393db08b82efeaa8d45447
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -188,6 +188,7 @@ ServiceBusRuleID — это строка в таком формате: `{service
 | Пакетная служба Azure |[Ведение журналов диагностики пакетной службы Azure](../batch/batch-diagnostics.md) |
 | Customer Insights | Схема недоступна. |
 | Сеть доставки содержимого | Схема недоступна. |
+| Cosmos DB | Схема недоступна. |
 | Аналитика озера данных |[Доступ к журналам диагностики для Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Хранилище озера данных |[Доступ к журналам диагностики Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Концентраторы событий |[Журналы диагностики концентраторов событий Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
@@ -215,6 +216,7 @@ ServiceBusRuleID — это строка в таком формате: `{service
 |Microsoft.DataLakeAnalytics/accounts|Запросы|Журналы запросов|
 |Microsoft.DataLakeStore/accounts|Аудит|Журналы аудита|
 |Microsoft.DataLakeStore/accounts|Запросы|Журналы запросов|
+|Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Журналы архивации|
 |Microsoft.EventHub/namespaces|OperationalLogs|Журналы операций|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Журналы автомасштабирования.|
@@ -233,7 +235,6 @@ ServiceBusRuleID — это строка в таком формате: `{service
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|События Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Реплицированные элементы Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Журналы операций|
-|Microsoft.ServerManagement/nodes|RequestLogs|Журналы запросов|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Журналы операций|
 |Microsoft.StreamAnalytics/streamingjobs|Выполнение|Выполнение|
 |Microsoft.StreamAnalytics/streamingjobs|Разработка|Разработка|

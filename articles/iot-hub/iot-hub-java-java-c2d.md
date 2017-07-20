@@ -12,20 +12,19 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 06/28/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 624f5947e31f08f689ceb6c48bc572447acd64ac
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: a6cfd7d3f1dd41968004ae93b1d6aa9977e6f55a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/15/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Отправка сообщений из облака на устройство с помощью Центра Интернета вещей (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-## <a name="introduction"></a>Введение
 Центр Интернета вещей Azure — это полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств и серверной частью решения. В руководстве [Приступая к работе с Центром Интернета вещей Azure (Node)] показано, как создать Центр Интернета вещей, подготовить в нем удостоверение устройства и написать код приложения для имитации устройства, которое отправляет сообщения из устройства в облако.
 
 Это руководство является логическим продолжением статьи [Приступая к работе с Центром Интернета вещей Azure (Node)]. В нем показано следующее:
@@ -43,22 +42,23 @@ ms.lasthandoff: 03/15/2017
 
 > [!NOTE]
 > Для центра IoT существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и Javascript). Эти пакеты работают на основе пакетов SDK для устройств Azure IoT. Пошаговые указания по связыванию устройства с кодом из этого руководства, а также по подключению к Центру Интернета вещей Azure см. в [центре разработчиков для Интернета вещей Azure].
-> 
-> 
 
 Для работы с этим учебником требуется:
 
-* Java SE 8. <br/> В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить Java для работы с этим руководством в ОС Windows или Linux.
-* Maven 3.  <br/> В статье [Prepare your development environment][lnk-dev-setup] (Подготовка среды разработки) описывается, как установить Maven для работы с этим руководством в ОС Windows или Linux.
+* Полная рабочая версия руководства [Подключение виртуального устройства к Центру Интернета вещей с помощью Java](iot-hub-java-java-getstarted.md) или [Обработка сообщений Центра Интернета вещей, отправляемых с устройства в облако (Java)](iot-hub-java-java-process-d2c.md).
+* Последняя версия [пакета SDK для Java SE 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Maven 3](https://maven.apache.org/install.html)
 * Активная учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись][lnk-free-trial] всего за несколько минут.
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Получение сообщений в приложении для имитации устройства
+
 В этом разделе вы измените приложение для имитации устройства, созданное в разделе [Приступая к работе с Центром Интернета вещей Azure (Node)], для получения от Центра Интернета вещей сообщений из облака на устройство.
 
 1. Откройте в текстовом редакторе файл simulated-device\src\main\java\com\mycompany\app\App.java.
+
 2. Добавьте следующий класс **MessageCallback** как вложенный класс внутри класса **App**. Метод **execute** вызывается, когда устройство получает сообщение из центра IoT. В этом примере устройство всегда уведомляет Центр Интернета вещей о завершении отправки сообщения:
-   
-    ```
+
+    ```java
     private static class AppMessageCallback implements MessageCallback {
       public IotHubMessageResult execute(Message msg, Object context) {
         System.out.println("Received message from hub: "
@@ -69,36 +69,43 @@ ms.lasthandoff: 03/15/2017
     }
     ```
 3. Измените метод **main**, чтобы создать экземпляр **AppMessageCallback** и вызвать метод **setMessageCallback** перед открытием клиента.
-   
-    ```
+
+    ```java
     client = new DeviceClient(connString, protocol);
    
     MessageCallback callback = new AppMessageCallback();
     client.setMessageCallback(callback, null);
     client.open();
     ```
-   
-   > [!NOTE]
-   > Если в качестве транспорта вместо MQTT или AMQP используется HTTP, то экземпляр **DeviceClient** редко проверяет наличие сообщений от Центра Интернета вещей (реже чем каждые 25 минут). Дополнительные сведения о различиях между поддержкой MQTT, AMQP и HTTP, а также регулировании Центра Интернета вещей см. в [руководстве разработчика для Центра Интернета вещей][IoT Hub developer guide - C2D].
-   > 
-   > 
+
+    > [!NOTE]
+    > Если в качестве транспорта вместо MQTT или AMQP используется HTTP, то экземпляр **DeviceClient** редко проверяет наличие сообщений от Центра Интернета вещей (реже чем каждые 25 минут). Дополнительные сведения о различиях между поддержкой MQTT, AMQP и HTTP, а также регулировании Центра Интернета вещей см. в [руководстве разработчика для Центра Интернета вещей][IoT Hub developer guide - C2D].
+
+4. Чтобы создать приложение **simulated-device** с помощью Maven, выполните в командной строке в папке simulated-device следующую команду:
+
+    ```cmd/sh
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="send-a-cloud-to-device-message"></a>Отправка сообщения из облака на устройство
+
 В этом разделе вам предстоит создать консольное приложение Java, которое отправляет сообщения, передаваемые из облака на устройство, в приложение имитации устройства. Необходим идентификатор устройства, добавленного при изучении руководства [Приступая к работе с Центром Интернета вещей Azure (Node)]. Кроме того, нужна строка подключения для вашего экземпляра Центра Интернета вещей, которую можно найти на [портале Azure].
 
 1. Создайте проект Maven **send-c2d-messages**, выполнив следующую команду в командной строке. Обратите внимание, что это одна длинная команда.
-   
-    ```
+
+    ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
+
 2. В командной строке перейдите к новой папке send-c2d-messages.
+
 3. Откройте в текстовом редакторе файл pom.xml из папки send-c2d-messages и добавьте зависимость, приведенную ниже, в узел **dependencies** . Добавление зависимости позволяет использовать в приложении пакет **iothub-java-service-client** для обмена данными со службой центра IoT.
-   
-    ```
+
+    ```xml
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.3.19</version>
+      <version>1.5.22</version>
     </dependency>
     ```
 
@@ -106,24 +113,28 @@ ms.lasthandoff: 03/15/2017
     > Наличие последней версии пакета **iot-service-client** можно проверить с помощью [поиска Maven][lnk-maven-service-search].
 
 4. Сохраните и закройте файл pom.xml.
+
 5. Откройте в текстовом редакторе файл send-c2d-messages\src\main\java\com\mycompany\app\App.java.
+
 6. Добавьте в файл следующие инструкции **import** .
-   
-    ```
+
+    ```java
     import com.microsoft.azure.sdk.iot.service.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
+
 7. Добавьте следующие переменные уровня класса в класс **App**, заменив **{yourhubconnectionstring}** и **{yourdeviceid}** значениями, записанными ранее.
-   
-    ```
+
+    ```java
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "{yourdeviceid}";
     private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
     ```
+
 8. Замените метод **main** следующим кодом, который подключается к Центру Интернета вещей, отправляет сообщение на устройство, а затем ждет подтверждения о том, что устройство получило и обработало это сообщение.
    
-    ```
+    ```java
     public static void main(String[] args) throws IOException,
         URISyntaxException, Exception {
       ServiceClient serviceClient = ServiceClient.createFromConnectionString(
@@ -132,7 +143,7 @@ ms.lasthandoff: 03/15/2017
       if (serviceClient != null) {
         serviceClient.open();
         FeedbackReceiver feedbackReceiver = serviceClient
-          .getFeedbackReceiver(deviceId);
+          .getFeedbackReceiver();
         if (feedbackReceiver != null) feedbackReceiver.open();
    
         Message messageToSend = new Message("Cloud to device message.");
@@ -152,31 +163,39 @@ ms.lasthandoff: 03/15/2017
       }
     }
     ```
-   
-   > [!NOTE]
-   > Для упрощения в этом руководстве не реализуются какие-либо политики повтора. В рабочем коде следует реализовать политики повтора (например, экспоненциальную задержку), как указано в статье MSDN [Обработка временного сбоя].
-   > 
-   > 
+
+    > [!NOTE]
+    > Для упрощения в этом руководстве не реализуются какие-либо политики повтора. В рабочем коде следует реализовать политики повтора (например, экспоненциальную задержку), как указано в статье MSDN [Transient Fault Handling](Обработка временного сбоя).
+
+
+9. Чтобы создать приложение **simulated-device** с помощью Maven, выполните в командной строке в папке simulated-device следующую команду:
+
+    ```cmd/sh
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="run-the-applications"></a>Запуск приложений
+
 Теперь все готово к запуску приложений.
 
 1. В командной строке в папке simulated-device выполните приведенную ниже команду, чтобы начать отправку данных телеметрии в Центр Интернета вещей и прослушивание сообщений из облака на устройство, отправляемых из центра:
-   
-    ```
+
+    ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
-   
+
     ![Запуск приложения виртуального устройства][img-simulated-device]
+
 2. В командной строке в папке send-c2d-messages выполните следующую команду, чтобы отправить сообщение из облака на устройство и ожидать подтверждения доставки:
-   
-    ```
+
+    ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
-   
+
     ![Выполнение команды для отправки сообщения из облака на устройство][img-send-command]
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 В этом учебнике вы научились отправлять и получать сообщения с облака на устройство. 
 
 Примеры комплексных решений, в которых используется Центр Интернета вещей, см. в [документации по Azure IoT Suite].
@@ -194,7 +213,7 @@ ms.lasthandoff: 03/15/2017
 [центре разработчиков для Интернета вещей Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
-[Обработка временного сбоя]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [портале Azure]: https://portal.azure.com
 [документации по Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

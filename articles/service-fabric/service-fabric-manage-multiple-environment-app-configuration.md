@@ -3,7 +3,7 @@ title: "Управление несколькими средами в Service Fa
 description: "Приложения Service Fabric могут выполняться в кластерах размером от одного до нескольких тысяч компьютеров. Иногда для этих различных сред необходимо по-разному настроить приложение. В этой статье объясняется, как определить различные параметры приложения в каждой среде."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: 
 ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
@@ -12,19 +12,20 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/06/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: b57655c8041fa366d0aeb13e744e30e834ec85fa
-ms.openlocfilehash: 7432e45ef33bd4d51fca8e8db8ec880e8beaf3ab
-ms.lasthandoff: 02/08/2017
+ms.date: 06/07/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: eaf1daf8d9f973fe82ba9e82c60a2a82f2681786
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>Управление параметрами приложения для нескольких сред
 Вы можете создавать кластеры Service Fabric Azure, включая в них от одного до нескольких тысяч компьютеров. Хотя двоичные файлы приложения могут выполняться без изменений в различных средах, часто требуется по-разному настроить приложение в зависимости от количества компьютеров, на которых выполняется развертывание.
 
-В качестве простого примера рассмотрим параметр `InstanceCount` для службы без отслеживания состояния. При запуске приложения в Azure для этого параметра, как правило, указывается особое значение: -1. Это гарантирует, что служба запущена в каждом узле кластера (или в каждом узле определенного типа при установке ограничения для размещения). Тем не менее такая конфигурация не подходит для кластера с одним компьютером, так как нельзя запускать несколько процессов, которые прослушиваются в одной и той же конечной точке на одном компьютере. Вместо этого установите для параметра `InstanceCount` значение&1;.
+В качестве простого примера рассмотрим параметр `InstanceCount` для службы без отслеживания состояния. При запуске приложения в Azure для этого параметра, как правило, указывается особое значение: -1. Эта конфигурация гарантирует, что служба запущена в каждом узле кластера (или в каждом узле определенного типа при установке ограничения для размещения). Тем не менее такая конфигурация не подходит для кластера с одним компьютером, так как нельзя запускать несколько процессов, которые прослушиваются в одной и той же конечной точке на одном компьютере. Вместо этого для `InstanceCount` обычно устанавливается значение: 1.
 
 ## <a name="specifying-environment-specific-parameters"></a>Выбор параметров среды
 Решить эту проблему с конфигурацией можно с помощью набора параметризованных служб по умолчанию и файлов параметров приложения, которые заполнят значения этих параметров для данной среды. Параметры служб и приложений по умолчанию настраиваются в манифестах приложений и служб. Определение схемы для файла ServiceManifest.xml и ApplicationManifest.xml устанавливается с пакетом SDK и средствами для Service Fabric по адресу *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
@@ -33,18 +34,18 @@ ms.lasthandoff: 02/08/2017
 Приложения Service Fabric состоят из коллекции экземпляров службы. Хотя вы можете создать пустое приложение, а затем динамически создать все экземпляры службы, в большинстве приложений есть набор основных служб, которые всегда необходимо создавать во время создания экземпляра приложения. Такие службы называются службами по умолчанию. Они указываются в манифесте приложения с заполнителями (в квадратных скобках) для конфигурации каждой среды:
 
 ```xml
-    <DefaultServices>
-        <Service Name="Stateful1">
-            <StatefulService
-                ServiceTypeName="Stateful1Type"
-                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
-                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+  <DefaultServices>
+      <Service Name="Stateful1">
+          <StatefulService
+              ServiceTypeName="Stateful1Type"
+              TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+              MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
-                <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]"
-                    LowKey="-9223372036854775808"
-                    HighKey="9223372036854775807"
-                />
+              <UniformInt64Partition
+                  PartitionCount="[Stateful1_PartitionCount]"
+                  LowKey="-9223372036854775808"
+                  HighKey="9223372036854775807"
+              />
         </StatefulService>
     </Service>
   </DefaultServices>
@@ -73,14 +74,14 @@ ms.lasthandoff: 02/08/2017
 Предположим, что в файле Config\Settings.xml для службы `Stateful1` указан следующий параметр:
 
 ```xml
-    <Section Name="MyConfigSection">
-      <Parameter Name="MaxQueueSize" Value="25" />
-    </Section>
+  <Section Name="MyConfigSection">
+     <Parameter Name="MaxQueueSize" Value="25" />
+  </Section>
 ```
 Чтобы переопределить это значение для конкретной пары «приложение — среда», создайте `ConfigOverride` при импорте манифеста служб в манифест приложения.
 
 ```xml
-    <ConfigOverrides>
+  <ConfigOverrides>
      <ConfigOverride Name="Config">
         <Settings>
            <Section Name="MyConfigSection">
@@ -99,7 +100,7 @@ ms.lasthandoff: 02/08/2017
 
 ### <a name="setting-and-using-environment-variables"></a>Настройка и использование переменных среды 
 Вы можете указать и задать переменные среды в файле ServiceManifest.xml, а затем в файле ApplicationManifest.xml переопределить их для каждого экземпляра.
-В приведенном ниже примере показаны две переменные среды: одна с установленным значением, а другая будет переопределена. Параметры приложения можно использовать для задания значений переменных среды так же, как и при переопределении конфигурации.
+В приведенном ниже примере показаны две переменные среды: одна с установленным значением, а другая переопределена. Параметры приложения можно использовать для задания значений переменных среды так же, как и при переопределении конфигурации.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -177,7 +178,7 @@ ms.lasthandoff: 02/08/2017
         }
     }
 ```
-Ниже приведен пример переменных среды для типа приложения `GuestExe.Application` с типом службы `FrontEndService` при запуске на локальном компьютере разработки.
+Ниже приведены примеры переменных сред для типа приложения `GuestExe.Application` с типом службы `FrontEndService` при запуске на локальном компьютере разработки.
 
 * **Fabric_ApplicationName = fabric:/GuestExe.Application**
 * **Fabric_CodePackageName = Code**
@@ -203,7 +204,7 @@ ms.lasthandoff: 02/08/2017
 
 ![Файлы параметров приложения в обозревателе решений][app-parameters-solution-explorer]
 
-Чтобы создать файл параметров, скопируйте и вставьте существующий файл, а затем присвойте ему имя.
+Чтобы создать файл параметров, скопируйте и вставьте имеющийся файл, а затем присвойте ему имя.
 
 ## <a name="identifying-environment-specific-parameters-during-deployment"></a>Определение параметров среды во время развертывания
 Во время развертывания необходимо выбрать соответствующий файл параметров для использования с приложением. Это можно сделать в диалоговом окне «Публикация» в Visual Studio или с помощью PowerShell.

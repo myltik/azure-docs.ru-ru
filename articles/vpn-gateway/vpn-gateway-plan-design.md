@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2017
+ms.date: 06/06/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 06fe033be4df07d8c691733016bc7c44dd49f51c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: e0c44f6aabb56dfc97188bafa5e54ce2a0183e11
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -37,20 +38,16 @@ ms.lasthandoff: 04/06/2017
 * Какой тип VPN-шлюза необходим для решения, которое вы хотите создать?
 * Какой номер SKU шлюза следует использовать?
 
+
+### <a name="planning-table"></a>Таблица планирования
 Приведенная ниже таблица поможет вам подобрать наилучший вариант подключения для решения.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gwrequire"></a>Требования к шлюзу в зависимости от типа VPN и SKU
-[!INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-Дополнительные сведения о номерах SKU шлюзов см. в разделе [Параметры VPN-шлюзов](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-
-#### <a name="aggregate-throughput-by-sku-and-vpn-type"></a>Суммарная пропускная способность в зависимости от SKU и типа VPN
+### <a name="gateway-skus"></a>Артикулы шлюзов
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-#### <a name="supported-configurations-by-sku-and-vpn-type"></a>Поддерживаемые конфигурации в зависимости от SKU и типа VPN
-[!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ### <a name="wf"></a>Рабочий процесс
 Ниже приведен стандартный рабочий процесс для настройки облачных подключений.

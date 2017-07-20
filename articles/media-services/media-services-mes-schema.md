@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 06/12/2017
 ms.author: juliako
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: b35390c6eb912db966648bff4efb59cece2837b3
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: f8e6e1da776d680d48737ecb5ac7b9319901f121
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -56,13 +56,21 @@ ms.lasthandoff: 05/16/2017
 | Имя | Тип | Описание |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Сейчас поддерживается только однопроходное кодирование. |
-| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Определяет расстояние между кадрами IDR (по умолчанию). |
+| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Определяет фиксированный интервал между кадрами IDR в секундах. Этот параметр также называют длительностью GOP. В разделе **SceneChangeDetection** (см. ниже) описывается, как указать, может ли кодировщик отклоняться от этого значения. |
 | **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default=”false” |**xs:boolean** |Если задано значение true, кодировщик пытается обнаружить изменение сцены в видео и вставить кадр IDR. |
 | **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Регулирует баланс между скоростью кодирования и качеством видео. Может принимать одно из следующих значений: **Speed**, **Balanced** и **Quality**.<br/><br/> Значение по умолчанию: **Balanced**. |
 | **SyncMode**<br/><br/> minOccurs="0" | |Функция будет доступна в будущих выпусках. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Коллекция уровней выходных видео. |
 
+### <a name="attributes"></a>Атрибуты
+| Имя | Тип | Описание |
+| --- | --- | --- |
+| **Condition** |**xs:string** | Если входные данные не содержат видео, может потребоваться указать кодировщику принудительно вставлять монохромную видеодорожку. Чтобы сделать это, добавьте Condition="InsertBlackIfNoVideoBottomLayerOnly" (для вставки видео только с наименьшей скоростью) или Condition="InsertBlackIfNoVideo" (для вставки видео с каждой из выходных скоростей). Чтобы узнать больше, ознакомьтесь с [этим](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) разделом.|
+
 ## <a name="H264Layers"></a> H264Layers
+
+По умолчанию в случае отправки кодировщику входных данных, которые содержат только звук и не содержат видео, выходной ресурс-контейнер будет содержать файлы только с аудиоданными. Некоторые проигрыватели не смогут обработать такие выходные потоки. Можно указать атрибут **InsertBlackIfNoVideo** H264Video, чтобы кодировщик принудительного добавлял видеодорожку в выходные данные в этом сценарии. Чтобы узнать больше, ознакомьтесь с [этим](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) разделом.
+              
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |
 | --- | --- | --- |

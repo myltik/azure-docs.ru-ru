@@ -1,5 +1,5 @@
 ---
-title: "Сценарий Azure PowerShell. Импорт BACPAC-файла в базу данных SQL | Документация Майкрософт"
+title: "Пример для PowerShell. Импорт BACPAC-файла в базу данных SQL Azure | Документация Майкрософт"
 description: "Пример сценария Azure PowerShell для импорта BACPAC-файла в базу данных SQL."
 services: sql-database
 documentationcenter: sql-database
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: cd6c53b7e4cc13920f1ed99934e10a38a9b3e4ed
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ba477c19a7c7bd6809aa3b78c0ef23e9cc7d5497
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="import-from-a-bacpac-into-a-sql-database-using-powershell"></a>Импорт данных из BACPAC-файла в базу данных SQL с помощью PowerShell
+# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Импорт BACPAC-файла в базу данных SQL Azure с помощью PowerShell
 
-Этот пример сценария PowerShell импортирует базу данных из **BACPAC**-файла.  
+Этот пример сценария PowerShell импортирует базу данных из **BACPAC**-файла на в базу данных SQL Azure.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

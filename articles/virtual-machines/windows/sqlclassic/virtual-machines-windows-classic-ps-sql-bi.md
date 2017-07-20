@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/11/2017
+ms.date: 05/30/2017
 ms.author: asaxton
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: ee480f4382a93a2420f7c73f7259ce1f0a03d595
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 1d35dc01aba57dcf8a37db757138abbd7b22c8c5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -39,11 +40,12 @@ ms.lasthandoff: 03/31/2017
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>Образы SQL Server, доступные в коллекции виртуальных машин Azure
 Коллекция виртуальных машин Microsoft Azure включает в себя несколько образов, содержащих Microsoft SQL Server. Программное обеспечение, установленное в образах виртуальной машины, зависит от версии операционной системы и версии SQL Server. Список образов в коллекции виртуальных машин Azure часто изменяется.
 
-![Образ SQL в коллекции виртуальных машин Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)
+<!--![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)-->
+![Образ SQL в коллекции виртуальных машин Azure](./media/virtual-machines-windows-classic-ps-sql-bi/vm-sql-images.png)
 
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Следующий сценарий PowerShell возвращает список образов Azure, содержащих значение «SQL-Server» в элементе ImageName:
 
-    # assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
+    # assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "Subscriptions" menu in Azure portal.
 
     $subscriptionID = ""    # REQUIRED: Provide your subscription ID.
     $subscriptionName = "" # REQUIRED: Provide your subscription name.
@@ -66,7 +68,7 @@ ms.lasthandoff: 03/31/2017
 * [Features Supported by the Editions of SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>Компоненты бизнес-аналитики, установленные в образах коллекции виртуальных машин SQL Server
-В следующей таблице перечислены компоненты бизнес-аналитики, установленные в общих образах коллекции виртуальных машин Microsoft Azure, для SQL Server.
+В следующей таблице перечислены компоненты бизнес-аналитики, установленные в общих образах коллекции виртуальных машин Microsoft Azure для SQL Server.
 
 * SQL Server 2016 SP1 Enterprise
 * SQL Server 2016 SP1 Standard
@@ -156,18 +158,22 @@ ms.lasthandoff: 03/31/2017
      
       Дополнительные сведения см. в статье с информацией об [облачной службе](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
-**Запустите диспетчер конфигурации служб Reporting Services.**
 
-1. В **Windows Server 2012 или Windows Server 2016** выполните следующие действия.
-2. На **начальном** экране введите **Reporting Services**, чтобы просмотреть список приложений.
-3. Щелкните правой кнопкой мыши элемент **Диспетчер конфигурации служб Reporting Services** и выберите пункт **Запуск от имени администратора**.
-4. В **Windows Server 2008 R2**выполните следующие действия.
-5. Нажмите кнопку **Пуск** и выберите **Все программы**.
-6. Выберите пункт **Microsoft SQL Server 2016**.
-7. Выберите **Средства настройки**.
-8. Щелкните правой кнопкой мыши элемент **Диспетчер конфигурации служб Reporting Services** и выберите пункт **Запуск от имени администратора**.
+**Запуск диспетчера конфигурации служб Reporting Services**
 
-или
+В **Windows Server 2012 или Windows Server 2016** выполните следующие действия.
+
+1. На **начальном** экране введите **Reporting Services**, чтобы просмотреть список приложений.
+2. Щелкните правой кнопкой мыши элемент **Диспетчер конфигурации служб Reporting Services** и выберите пункт **Запуск от имени администратора**.
+
+В **Windows Server 2008 R2**выполните следующие действия.
+
+1. Нажмите кнопку **Пуск** и выберите **Все программы**.
+2. Выберите пункт **Microsoft SQL Server 2016**.
+3. Выберите **Средства настройки**.
+4. Щелкните правой кнопкой мыши элемент **Диспетчер конфигурации служб Reporting Services** и выберите пункт **Запуск от имени администратора**.
+
+Или сделайте так:
 
 1. Нажмите **Запуск**.
 2. В диалоговом окне **Найти программы и файлы** введите **reporting services**. Если виртуальная машина запущена в Windows Server 2012, введите **reporting services** на начальном экране Windows Server 2012.

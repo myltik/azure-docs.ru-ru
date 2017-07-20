@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2f0b7a04f4b732277abc65dd5fe0844d6e906496
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 78025789fd03d3c3a6cfb170329d9d51ac282034
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -118,6 +119,10 @@ ms.lasthandoff: 03/30/2017
 Вы можете назначить несколько общедоступных IP-адресов с балансировкой нагрузки набору виртуальных машин. Благодаря этому можно разместить несколько веб-сайтов SSL и/или несколько прослушивателей групп доступности AlwaysОn SQL Server в одном и том же наборе виртуальных машин. Дополнительные сведения см. в статье [Несколько виртуальных IP-адресов для облачной службы](load-balancer-multivip.md).
 
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
+
+## <a name="limitations"></a>Ограничения
+
+Внутренние пулы Load Balancer могут содержать виртуальные машины с любым номером SKU, за исключением уровня "Базовый".
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

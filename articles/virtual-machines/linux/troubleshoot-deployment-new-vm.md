@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7e8e54aad26ddec8be9f6e13931e42f4cc07843f
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: aea5db05843b0175b8ef8b713944e12262e33010
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -27,6 +28,10 @@ ms.lasthandoff: 04/03/2017
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
+## <a name="top-issues"></a>Наиболее важные проблемы
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
+
+Описание других ситуаций и вопросов, связанных с развертыванием виртуальных машин, см. в статье [Устранение неполадок при развертывании виртуальных машин Linux в Azure](troubleshoot-deploy-vm.md).
 ## <a name="collect-activity-logs"></a>Сбор журналов действий
 Для устранения неполадок прежде всего соберите журналы действий, чтобы определить ошибку, связанную с этой проблемой. Ниже представлены ссылки на подробные инструкции.
 

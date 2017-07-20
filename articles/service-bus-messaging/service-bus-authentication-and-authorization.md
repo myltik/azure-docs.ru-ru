@@ -1,6 +1,6 @@
 ---
 title: "Аутентификация и авторизация в служебной шине Azure | Документация Майкрософт"
-description: "Общие сведения о проверке подлинности подписанного URL-адреса (SAS)."
+description: "Аутентификация приложений в служебной шине с помощью аутентификации на основе подписанного URL-адреса (SAS)."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 06/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4eaae725c62f66de1b50fd2c7094f3e6e89281be
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 5ed7558cfff9991734e909e06e8bac9181131381
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Аутентификация и авторизация в служебной шине
+
 Приложения могут проходить проверку подлинности в служебной шине Azure, используя либо проверку подлинности подписанного URL-адреса (SAS), либо службу контроля доступа Azure Active Directory (ACS). Проверка подлинности подписанного URL-адреса позволяет проверить подлинность приложений в служебной шине с помощью ключа доступа, настроенного в пространстве имен, или сущности, с которой связаны определенные права. Этот ключ можно использовать для создания маркера подписанного URL-адреса, который клиенты могут использовать при проверке подлинности в служебной шине.
 
 > [!IMPORTANT]
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/27/2017
 
 Ключи для SAS можно настроить в пространстве имен служебной шины. Ключ применяется ко всем сущностям обмена сообщениями в этом пространстве имен. Также можно настроить ключи для очередей и разделов служебной шины. Кроме того, SAS поддерживается в [ретрансляторе Azure](../service-bus-relay/relay-authentication-and-authorization.md).
 
-Чтобы использовать SAS, в пространстве имен, очереди или разделе можно настроить объект [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), который состоит из следующих элементов:
+Чтобы использовать SAS, в пространстве имен, очереди или разделе можно настроить объект [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Это правило состоит из трех элементов:
 
 * *KeyName* — определяет правило.
 * *PrimaryKey* — криптографический ключ, используемый для подписи и проверки маркеров SAS.
@@ -68,6 +69,7 @@ New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 Поддержка проверки подлинности ACS для служебной шины включена в пакет Azure SDK для .NET 2.0 и более поздних версий. Эта проверка подлинности включает поддержку [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). Все интерфейсы API, которые принимают строку подключения в качестве параметра, поддерживают строки подключения ACS.
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Дополнительные сведения о SAS см. в статье [Аутентификация служебной шины с помощью подписанных URL-адресов](service-bus-sas.md).
 
 Соответствующую информацию об аутентификации и авторизации с помощью ретранслятора Azure см. в разделе [Проверка подлинности и авторизация в ретрансляторе Azure](../service-bus-relay/relay-authentication-and-authorization.md). 

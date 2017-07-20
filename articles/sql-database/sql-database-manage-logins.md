@@ -18,10 +18,10 @@ ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: f29b2c1da0d9b761634370f5f08ea942b66d9f1f
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/15/2017
 >
 
 > [!TIP]
-> Сведения об использовании аутентификации SQL Server см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md). Сведения об использовании аутентификации Azure Active Directory см. в статье [Руководство по базам данных SQL: доступ с аутентификацией Azure AD и правила брандмауэра уровня базы данных](sql-database-control-access-aad-authentication-get-started.md).
+> Ознакомьтесь с руководством [Защита базы данных SQL Azure](sql-database-security-tutorial.md).
 >
 
 
@@ -191,9 +191,7 @@ GRANT ALTER ANY USER TO Mary;
 
 - Общие сведения о правилах брандмауэра см. в статье [Обзор правил брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md).
 - Обзор всех функций защиты в базе данных SQL см. в [этой статье](sql-database-security-overview.md).
-- Руководство см. в статье [Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure](sql-database-control-access-sql-authentication-get-started.md).
+- Ознакомьтесь с руководством [Защита базы данных SQL Azure](sql-database-security-tutorial.md).
 - Сведения о представлениях и хранимых процедурах см. в статье [Создание представлений и хранимых процедур](https://msdn.microsoft.com/library/ms365311.aspx).
 - Сведения о предоставлении доступа к объекту базы данных см. в [этой статье](https://msdn.microsoft.com/library/ms365327.aspx).
-- Сведения об использовании аутентификации SQL Server см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md).
-- Сведения об использовании аутентификации Azure Active Directory см. в статье [Руководство по базам данных SQL: доступ с аутентификацией Azure AD и правила брандмауэра уровня базы данных](sql-database-control-access-aad-authentication-get-started.md).
 

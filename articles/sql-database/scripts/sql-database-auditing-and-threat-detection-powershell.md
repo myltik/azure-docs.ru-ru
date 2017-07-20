@@ -1,6 +1,6 @@
 ---
-title: "Сценарий Azure PowerShell. Настройка аудита и обнаружения угроз для базы данных | Документация Майкрософт"
-description: "Сценарий Azure PowerShell для настройки аудита и обнаружения угроз для базы данных SQL."
+title: "Пример для PowerShell. Аудит и обнаружение угроз для базы данных SQL Azure | Документация Майкрософт"
+description: "Пример сценария Azure PowerShell для настройки аудита и обнаружения угроз в базе данных SQL Azure."
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,17 +14,17 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 5bb1f0b4b6e548cf4164dae55d13cbebb660232f
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 228772ff6710596c916165a132db31f449d0a327
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="configure-sql-database-auditing-and-threat-detection-using-powershell"></a>Настройка аудита и обнаружения угроз для базы данных SQL с помощью PowerShell
+# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Настройка аудита и обнаружения угроз для базы данных SQL с помощью PowerShell
 
 Этот пример сценария Azure PowerShell позволяет настроить аудит и обнаружение угроз для базы данных SQL. 
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: bd6f81ee12a7bb655166cf059236175bfb9994e5
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 3ad4e68b90979fd7f9d3ddf5278e65e19cb07152
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -45,18 +46,18 @@ ms.lasthandoff: 03/21/2017
 
 
 ### <a name="resources"></a>Ресурсы
- Чтобы получить список всех ресурсов в группе, например в группе *testRG*, выполните следующую команду.
+ Чтобы получить список всех ресурсов в группе, например в группе *testRG*, выполните следующую команду:
 
     azure resource list testRG
 
-Чтобы просмотреть отдельный ресурс в группе, например виртуальную машину *MyUbuntuVM*, выполните следующую команду.
+Чтобы просмотреть отдельный ресурс в группе, например виртуальную машину *MyUbuntuVM*, выполните следующую команду:
 
     azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
 Обратите внимание на параметр **Microsoft.Compute/virtualMachines**. Он указывает тип ресурса, для которого запрашивается информация.
 
 > [!NOTE]
-> При использовании команд **azure resource**, отличных от команды **list**, необходимо указать версию API ресурса с помощью параметра **-o**. Если вы не уверены, какая именно версия API используется, обратитесь к файлу шаблона и найдите поле apiVersion для этого ресурса. Дополнительные сведения о версиях API в Resource Manager см. в статье [Поставщики Resource Manager, регионы, версии API и схемы](resource-manager-supported-services.md).
+> При использовании команд **azure resource**, отличных от команды **list**, необходимо указать версию API ресурса с помощью параметра **-o**. Если вы не уверены, какая именно версия API используется, обратитесь к файлу шаблона и найдите поле apiVersion для этого ресурса. Дополнительные сведения о версиях API в Resource Manager см. в статье о [поставщиках и типах ресурсов](resource-manager-supported-services.md).
 > 
 > 
 
@@ -81,7 +82,7 @@ ms.lasthandoff: 03/21/2017
 
 Наряду с параметром **-o**, с помощью которого можно указать версию API, также можно использовать параметр **-p**, чтобы передать строку с любыми обязательными или дополнительными свойствами в формате JSON.
 
-Чтобы удалить имеющийся ресурс, например ресурс виртуальной машины, используйте следующую команду.
+Чтобы удалить имеющийся ресурс, например ресурс виртуальной машины, выполните следующую команду:
 
     azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 

@@ -9,17 +9,18 @@ editor:
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: security-access
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/23/2017
+ms.date: 06/08/2017
 ms.author: rickbyh
-translationtype: Human Translation
-ms.sourcegitcommit: b134999d407195aaf44babb3e4862b96cc1dc1ed
-ms.openlocfilehash: b36f0cf8cbf0dfb310d6dd534906ee5391ce4cd5
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 1815ea909e35a02b82b4c836d7baaf6390d20bdd
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -27,12 +28,12 @@ ms.lasthandoff: 03/02/2017
 
 В этом разделе показано, как настроить Многофакторную идентификацию Базы данных SQL Azure для SQL Server Management Studio. 
 
-Обзор Многофакторной идентификации Базы данных SQL Azure см. в разделе [Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL](sql-database-ssms-mfa-authentication.md).
+Обзор Многофакторной идентификации базы данных SQL Azure приведен в разделе [Универсальная проверка подлинности для Базы данных SQL и хранилища данных SQL (поддержка SSMS для MFA)](sql-database-ssms-mfa-authentication.md).
 
 ## <a name="configuration-steps"></a>Этапы настройки
 
 1. **Настройка Azure Active Directory.** Дополнительные сведения см. в статьях [Интеграция локальных удостоверений с Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Управление каталогом Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) и [AzureADHelp](https://msdn.microsoft.com/library/azure/jj151815.aspx) и записях блога [Add your own domain name to Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Добавление собственного имени домена в Azure AD) и [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory).
-2. **Настройка MFA.** Пошаговые инструкции см. в статье [Настройка Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-whats-next.md). 
+2. **Настройка MFA.** Пошаговые инструкции см. в разделе [Условный доступ (MFA) и база данных SQL Azure и хранилище данных](sql-database-conditional-access.md). 
 3. **Настройка базы данных SQL или хранилища данных SQL для аутентификации Azure AD.** Пошаговые инструкции см. в статье [Подключение к базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md).
 4. **Скачивание SSMS.** Скачайте последнюю SSMS (по крайней мере за август 2016 г.) на клиентский компьютер, воспользовавшись страницей [Скачивание SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 03/02/2017
    ![2mfa-sign-in][2]
    
    > [!NOTE]
-   > Если для этой учетной записи не требуется MFA, то на этом этапе универсальной аутентификации устанавливается подключение. Пользователи, которым требуется MFA, следует выполнить приведенные ниже действия.
+   > Если для этой учетной записи не требуется MFA, то на этом этапе универсальной аутентификации устанавливается подключение. Пользователям, которым требуется MFA, следует выполнить приведенные ниже действия.
    > 
    > 
 4. Могут отобразиться два диалоговых окна настройки MFA. Эта одноразовая операция зависит от параметра администратора MFA, то есть может быть необязательной. Для домена с поддержкой MFA этот шаг иногда бывает предварительно определен (например, домен требует от пользователя использовать смарт-карту и ПИН-код).  
@@ -66,7 +67,7 @@ ms.lasthandoff: 03/02/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-* Обзор Многофакторной идентификации Базы данных SQL Azure см. в разделе [Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL](sql-database-ssms-mfa-authentication.md).
+* Обзор Многофакторной идентификации базы данных SQL Azure приведен в разделе "Универсальная проверка подлинности для Базы данных SQL и хранилища данных SQL (поддержка SSMS для MFA)" (sql-database-ssms-mfa-authentication.md).
 * Предоставьте другим пользователям доступ к своей базе данных: [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа](sql-database-manage-logins.md).  
 Предоставьте другим пользователям возможность подключаться через брандмауэр: [Настройка правила брандмауэра уровня сервера базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md).
 

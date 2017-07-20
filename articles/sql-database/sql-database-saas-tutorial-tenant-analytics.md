@@ -1,6 +1,6 @@
 ---
 title: "Выполнение запросов аналитики к нескольким базам данных SQL Azure | Документация Майкрософт"
-description: "Выполнение распределенных запросов в нескольких базах данных SQL Azure"
+description: "Извлечение данных из баз данных клиента в базу данных аналитики для автономного анализа."
 keywords: "руководство по базе данных sql"
 services: sql-database
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/16/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5331f9a7b46f1dd31d4aa246ad9d188b5a5afc19
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Выполнение распределенных запросов в нескольких базах данных SQL Azure
+# <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Извлечение данных из баз данных клиента в базу данных аналитики для автономного анализа.
 
-В этом руководстве вы выполните запросы аналитики ко всем клиентам в каталоге. Создается задание обработки эластичных баз данных, выполняющее запросы. Задание извлекает данные и загружает их в отдельную базу данных аналитики, созданную на сервере каталога. Эту базу данных можно запрашивать для получения сведений, которые скрыты в текущих операционных данных всех клиентов. В качестве выходных данных задания в базе данных аналитики клиента создается таблица из запросов, возвращающих результат.
+В этом руководстве описывается, как использовать эластичное задание для выполнения запросов к каждой базе данных клиента. Это задание извлекает данные о продаже билетов и загружает их в базу данных аналитики (или хранилище данных) для анализа. Затем к этой базе данных выполняются запросы для получения сведений, которые содержатся в данных ежедневных операций всех клиентов.
 
 
-Из этого руководства вы узнаете, как выполнять такие задачи:
+Из этого руководства вы узнаете, как выполнить следующие задачи:
 
 > [!div class="checklist"]
 > * Создание базы данных аналитики клиента.
@@ -47,7 +47,7 @@ ms.lasthandoff: 05/25/2017
 
 ## <a name="get-the-wingtip-application-scripts"></a>Получение сценариев приложения Wingtip
 
-Скрипты и исходный код приложения SaaS Wingtip доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Указания по скачиванию скриптов SaaS Wingtip см. [здесь](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+Скрипты и исходный код приложения SaaS Wingtip доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Указания по скачиванию скриптов SaaS Wingtip см. [здесь](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Развертывание базы данных для результатов аналитики клиента
 
@@ -121,3 +121,4 @@ ms.lasthandoff: 05/25/2017
 
 * [Руководства по SaaS WTP базы данных SQL](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Управление масштабируемыми облачными базами данных](sql-database-elastic-jobs-overview.md)
+

@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 07/17/2017
 ms.author: juliako
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 1c3118bc66afe7ef4f04d86d9b598128d1aadf82
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 32cbfbc78fbb808ed59142b80602a751f607706d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 06/29/2017
 
 ---
 
@@ -27,13 +26,30 @@ ms.lasthandoff: 05/05/2017
 
 В этом разделе сравниваются возможности кодирования **Media Encoder Standard** и **рабочего процесса Media Encoder Premium**.
 
-### <a id="billing"></a>Тарифные единицы, используемые кодировщиками
+## <a name="video-and-audio-processing-capabilities"></a>Возможности обработки видео и звука
+
+В следующей таблице сравниваются функциональные возможности Media Encoder Standard (MES) и Media Encoder Premium Workflow (MEPW). 
+
+|Функция|Стандартный кодировщик служб мультимедиа|Расширенный рабочий процесс кодировщика мультимедиа|
+|---|---|---|
+|Применение условной логики при кодировании<br/>(например, если входные данные в формате HD, то следует кодировать звук в формат 5.1)|Нет|Да|
+|Субтитры стандарта|Нет|[Да](media-services-premium-workflow-encoder-formats.md#a-idclosedcaptioningasupport-for-closed-captioning)|
+|[Dolby® Professional Loudness Correction](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> с Dialogue Intelligence™|Нет|Да|
+|Устранение чересстрочности, обратное преобразование видео|базовая;|Качество трансляции|
+|Обнаружение и удаление черных границ <br/>(вертикальные и горизонтальные рамки)|Нет|Да|
+|Создание эскизов|[Да](media-services-dotnet-generate-thumbnail-with-mes.md)|[Да](media-services-media-encoder-premium-workflow-tutorials.md#a-idthumbnailstomultibitratemp4aadding-thumbnails-to-multibitrate-mp4-output)|
+|Обрезание и совмещение видео|[Да](media-services-advanced-encoding-with-mes.md#a-idtrimvideoatrim-a-video-clipping)|Да|
+|Наложение звука или видео|[Да](media-services-advanced-encoding-with-mes.md#a-idoverlayacreate-an-overlay)|[Да](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
+|Наложение изображений|Из источников изображений|Из источников изображений и текста|
+|Несколько аудиодорожек на разных языках|Ограничено|[Да](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
+
+## <a id="billing"></a>Тарифные единицы, используемые кодировщиками
 | Имя обработчика мультимедиа | Применимые цены | Примечания |
 | --- | --- | --- |
 | **Стандартный кодировщик служб мультимедиа** |КОДИРОВЩИК |Плата за выполнение задач кодирования взимается на основе общей продолжительности (в минутах) всех файлов мультимедиа, созданных в качестве выходных файлов, по тарифу, указанному [здесь][1] в столбце "КОДИРОВЩИК". |
 | **Рабочий процесс Media Encoder Premium** |РАСШИРЕННЫЙ КОДИРОВЩИК |Плата за выполнение задач кодирования взимается на основе общей продолжительности (в минутах) всех файлов мультимедиа, созданных в качестве выходных файлов, по тарифу, указанному [здесь][1] в столбце PREMIUM ENCODER (Кодировщик ценовой категории "Премиум"). |
 
-### <a name="input-containerfile-formats"></a>Контейнер ввода/ форматы файлов
+## <a name="input-containerfile-formats"></a>Контейнер ввода и форматы файлов
 | Контейнер ввода/ форматы файлов | Стандартный кодировщик служб мультимедиа | Расширенный рабочий процесс кодировщика мультимедиа |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Да |Да |
@@ -50,7 +66,7 @@ ms.lasthandoff: 05/05/2017
 | Matroska/WebM |Да |Нет |
 | QuickTime (.mov) |Да |Нет |
 
-### <a name="input-video-codecs"></a>Входные видеокодеки
+## <a name="input-video-codecs"></a>Входные видеокодеки
 | Входные видеокодеки | Стандартный кодировщик служб мультимедиа | Расширенный рабочий процесс кодировщика мультимедиа |
 | --- | --- | --- |
 | AVC 8-разрядный/10-разрядный, до 4:2:2, включая AVCIntra |8 бит 4:2:0 и 4:2:2 |Да |
@@ -70,7 +86,7 @@ ms.lasthandoff: 05/05/2017
 | Apple ProRes 4444 |Да |Нет |
 | Apple ProRes 4444 XQ |Да |Нет |
 
-### <a name="input-audio-codecs"></a>Входные аудиокодеки
+## <a name="input-audio-codecs"></a>Входные аудиокодеки
 | Входные аудиокодеки | Стандартный кодировщик служб мультимедиа | Расширенный рабочий процесс кодировщика мультимедиа |
 | --- | --- | --- |
 | AES (SMPTE 331M и 302M, AES3-2003) |Нет |Да |
@@ -86,7 +102,7 @@ ms.lasthandoff: 05/05/2017
 | [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Да |Нет |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Да |Нет |
 
-### <a name="output-containerfile-formats"></a>Контейнер вывода/ форматы файлов
+## <a name="output-containerfile-formats"></a>Контейнер вывода и форматы файлов
 | Контейнер вывода/ форматы файлов | Стандартный кодировщик служб мультимедиа | Расширенный рабочий процесс кодировщика мультимедиа |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Нет |Да |
@@ -99,7 +115,7 @@ ms.lasthandoff: 05/05/2017
 | AVI (без сжатия 8 бит/10 бит) |Нет |Да |
 | Формат файлов Smooth Streaming (PIFF 1.3) |Нет |Да |
 
-### <a name="output-video-codecs"></a>Выходные видеокодеки
+## <a name="output-video-codecs"></a>Выходные видеокодеки
 | Выходные видеокодеки | Стандартный кодировщик служб мультимедиа | Расширенный рабочий процесс кодировщика мультимедиа |
 | --- | --- | --- |
 | AVC (H.264; 8-разрядный; до High Profile, Level 5.2; 4K Ultra HD; AVC Intra) |Только 8 бит 4:2:0 |Да |
@@ -111,7 +127,7 @@ ms.lasthandoff: 05/05/2017
 | Создание эскизов PNG |Да |Да |
 | Создание эскизов BMP |Да |Нет |
 
-### <a name="output-audio-codecs"></a>Выходные аудиокодеки
+## <a name="output-audio-codecs"></a>Выходные аудиокодеки
 | Выходные аудиокодеки | Стандартный кодировщик служб мультимедиа | Расширенный рабочий процесс кодировщика мультимедиа |
 | --- | --- | --- |
 | AES (SMPTE 331M и 302M, AES3-2003) |Нет |Да |

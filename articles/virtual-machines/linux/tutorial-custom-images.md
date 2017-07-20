@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/21/2017
 ms.author: cynthn
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: de8ffb5ef81ac9ef4a9217f275f2c96973948eb1
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: d32980f05ad17a76793021d0a5355d597974a4e4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -29,12 +30,15 @@ ms.lasthandoff: 05/17/2017
 
 > [!div class="checklist"]
 > * отменить подготовку виртуальных машин и подготовить их к использованию;
-> * создать пользовательский образ;
-> * создать виртуальную машину из пользовательского образа;
-> * получить список всех образов в подписке;
-> * удалить образ.
+> * создавать пользовательский образ;
+> * Создание виртуальной машины из пользовательского образа
+> * Получение списка всех образов в подписке
+> * Удаление образа
 
-Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). Вы также можете использовать [Cloud Shell](/azure/cloud-shell/quickstart) из своего браузера.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
@@ -73,13 +77,13 @@ exit
 
 Чтобы создать образ, нужно отменить выделение виртуальной машины. Отмените выделение виртуальной машины с помощью команды [az vm deallocate](/cli//azure/vm#deallocate). 
    
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 Наконец, сообщите платформе Azure, что виртуальная машина подготовлена к использованию, выполнив команду [az vm generalize](/cli//azure/vm#generalize). Создать образ можно только из подготовленной виртуальной машины.
    
-```azurecli
+```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
@@ -87,7 +91,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 Теперь можно создать образ виртуальной машины с помощью команды [az image create](/cli//azure/image#create). В следующем примере создается образ *myImage* из виртуальной машины *myVM*.
    
-```azurecli
+```azurecli-interactive 
 az image create \
     --resource-group myResourceGroup \
     --name myImage \
@@ -98,7 +102,7 @@ az image create \
 
 Теперь, когда образ готов, из него можно создать одну или несколько виртуальных машин с помощью команды [az vm create](/cli/azure/vm#create). В следующем примере создается виртуальная машина *myVMfromImage* из образа *myImage*.
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroup \
     --name myVMfromImage \
@@ -113,14 +117,14 @@ az vm create \
 
 Получение списка всех образов по имени в формате таблицы.
 
-```azurecli
+```azurecli-interactive 
 az image list \
   --resource-group myResourceGroup
 ```
 
 Удаление образа. В этом примере из *myResourceGroup* удаляется образ с именем *myOldImage*.
 
-```azurecli
+```azurecli-interactive 
 az image delete \
     --name myOldImage \
     --resource-group myResourceGroup
@@ -133,8 +137,8 @@ az image delete \
 > [!div class="checklist"]
 > * отменять подготовку виртуальных машин и подготавливать их к использованию;
 > * создавать пользовательский образ;
-> * создавать виртуальную машину из пользовательского образа;
-> * получать список всех образов в подписке;
+> * Создание виртуальной машины из пользовательского образа
+> * Получение списка всех образов в подписке
 > * удалять образ.
 
 Перейдите к следующему руководству, чтобы узнать о высокодоступных виртуальных машинах.

@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/05/2017
+ms.date: 02/13/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 60102ebb43efc8710f102450df5b98edcb1d4b39
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c7c50c539149a929b15f50e4b52dc48d92534640
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="how-to-install-a-linux-master-target-server"></a>Как установить главный целевой сервер Linux
 После отработки отказа виртуальных машин для них можно восстановить размещение на локальном сайте. Для восстановления размещения из Azure на локальном сайте необходимо повторно включить защиту виртуальной машины. Для этого понадобится локальный главный целевой сервер, который будет получать трафик. Если защита включается для виртуальной машины Windows, вам потребуется главный целевой сервер Windows. Для виртуальной машины Linux необходим главный целевой сервер Linux. В следующих разделах этой статьи описано, как создать и установить главный целевой сервер Linux.
+
+> [!IMPORTANT]
+> Начиная с выпуска 9.10.0, главный целевой сервер может устанавливаться только на сервер Ubuntu 16.04. Новые установки на серверах CentOS6.6 будут невозможны. Однако можно будет обновлять устаревшие главные целевые серверы версии 9.10.0.
 
 ## <a name="overview"></a>Обзор
 Эта статья содержит сведения и инструкции по установке главного целевого сервера Linux.
@@ -50,99 +53,115 @@ ms.lasthandoff: 05/08/2017
 
 ## <a name="steps-to-deploy-the-master-target-server"></a>Инструкции по развертыванию главного целевого сервера
 
-### <a name="install-centos-66-minimal"></a>Установка CentOS 6.6 с минимальным набором возможностей
+**Минимальная установка Ubuntu 16.04.2**
 
-Для установки 64-разрядной операционной системы CentOS 6.6 сделайте следующее:
+Выполните действия, приведенные ниже, чтобы установить 64-разрядную версию операционной системы Ubuntu 16.04.2.
 
-1. Среди приведенных ниже ссылок выберите ближайшее зеркало для скачивания ISO-файла 64-разрядной версии CentOS 6.6 с минимальным набором возможностей.
+**Шаг 1.** Среди приведенных ниже ссылок выберите ближайшее зеркало для скачивания ISO-файла 64-разрядной версии Ubuntu 16.04.2 с минимальным набором возможностей.
 
-    <http://archive.kernel.org/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+<https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64>
 
-    <http://mirror.symnds.com/distributions/CentOS-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+Оставьте диск с ISO-файлом 64-разрядной версии Ubuntu 16.04.2 с минимальным набором возможностей в DVD-дисководе и перезапустите систему.
 
-    <http://bay.uchicago.edu/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+**Шаг 2.** Выберите **Русский** в качестве предпочтительного языка и нажмите клавишу ВВОД.
 
-    <http://mirror.nsc.liu.se/centos-store/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
 
-    Оставьте диск с ISO-файлом 64-разрядной версии CentOS 6.6 с минимальным набором возможностей в DVD-дисководе и перезапустите систему.
+**Шаг 3.** выберите **Install Ubuntu Server** (Установить сервер Ubuntu) и нажмите клавишу ВВОД.
 
-    ![Диалоговое окно CentoOS 6.6 с приветствием](./media/site-recovery-how-to-install-linux-master-target/media/image1.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png)
 
-2. Щелкните **Skip** (Пропустить), чтобы пропустить тестирование носителя.
+**Шаг 4.** Выберите **Русский** в качестве предпочтительного языка и нажмите клавишу ВВОД.
 
-    ![Выбор Skip (Пропустить) для пропуска тестирования носителя](./media/site-recovery-how-to-install-linux-master-target/media/image2.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png)
 
-3. На экране приветствия программы установки нажмите кнопку **Next** (Далее).
+**Шаг 5.** Выберите соответствующий **часовой пояс** из списка и нажмите клавишу ВВОД.
 
-    ![Кнопка Next (Далее) на экране приветствия программы установки](./media/site-recovery-how-to-install-linux-master-target/media/image3.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png)
 
-4. Выберите **Русский** в качестве предпочтительного языка и нажмите кнопку **Next** (Далее).
+**Шаг 6.** Выберите параметр по умолчанию **NO** (Нет) и нажмите клавишу ВВОД.
 
-    ![Выбор языка](./media/site-recovery-how-to-install-linux-master-target/media/image4.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
 
-5. Выберите раскладку клавиатуры **Russian (Русский)**, а затем нажмите кнопку **Next** (Далее).
+**Шаг 7.** Выберите **Русская** в качестве страны происхождения клавиатуры и нажмите клавишу ВВОД.
 
-    ![Выбор раскладки клавиатуры "Русский"](./media/site-recovery-how-to-install-linux-master-target/media/image5.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image6.png)
 
-6. Установите переключатель **Стандартный накопители**, а затем нажмите кнопку **Далее**.
+**Шаг 8.** Выберите **Русский (Россия)** в качестве раскладки клавиатуры и нажмите клавишу ВВОД.
 
-    ![Выбор устройства хранения](./media/site-recovery-how-to-install-linux-master-target/media/image6.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image7.png)
 
-7. Появится предупреждение о том, что будут удалены имеющиеся данные на жестком диске. Убедитесь, что жесткий диск не содержит важных данных, и щелкните **Да, удалить все данные**.
+**Шаг 9.** Введите имя узла для сервера в текстовом поле **Hostname** (Имя узла). Нажмите кнопку **Continue** (Продолжить).
 
-    ![Предупреждение об удалении данных в случае продолжения](./media/site-recovery-how-to-install-linux-master-target/media/image7.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image8.png)
 
-8. Введите имя узла для сервера в **соответствующем поле**, а затем щелкните **Настроить сеть**. В диалоговом окне **Сетевые соединения** выберите сетевой интерфейс и нажмите кнопку **Изменить**, чтобы настроить параметры IPV4.
+**Шаг 10.** Введите **имя пользователя** для создания учетной записи пользователя в **текстовом поле**. Нажмите кнопку **Continue** (Продолжить).
 
-    ![Выбор имени узла и настройка IPV4](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
 
-9. В диалоговом окне **Изменение System eth0** установите флажок **Подключаться автоматически**. На вкладке **Параметры IPv4** выберите **метод** **Вручную** и нажмите кнопку **Добавить**. Укажите **статический IP-адрес**, **маску подсети**, **шлюз** и **DNS-сервер**. Нажмите кнопку **Apply** (Применить), чтобы сохранить настройки.
+**Шаг 11.** Введите **пароль** для новой учетной записи пользователя в **текстовом поле**. Нажмите кнопку **Continue** (Продолжить).
 
-    ![Параметры конфигурации сети](./media/site-recovery-how-to-install-linux-master-target/media/image9.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image10.png)
 
-10. Выберите часовой пояс и нажмите кнопку **Далее**.
+**Шаг 12.** Подтвердите **пароль** для нового пользователя в **текстовом поле**. Нажмите кнопку **Continue** (Продолжить).
 
-    ![Выбор часового пояса](./media/site-recovery-how-to-install-linux-master-target/media/image10.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png)
 
-11. Введите значение **Пароль root** и подтвердите его. Нажмите кнопку **Далее**.
+**Шаг 13.** Выберите параметр по умолчанию **NO** (Нет) и нажмите клавишу **ВВОД**.
 
-    ![Добавление пароля](./media/site-recovery-how-to-install-linux-master-target/media/image11.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image12.png)
 
-12. Выберите **Создать собственное разбиение**, а затем нажмите кнопку **Далее**.
+**Шаг 14.** Выберите параметр по умолчанию **YES** (Да), если отображается правильный часовой пояс, и нажмите клавишу **ВВОД**.
 
-    ![Выбор типа установки](./media/site-recovery-how-to-install-linux-master-target/media/image12.png)
+Можно выбрать параметр **No** (Нет), чтобы повторно настроить часовой пояс.
 
-13. Выберите раздел **Свободный** и нажмите кнопку **Создать**, чтобы создать разделы **/**, **/var/crash** и **/home** с типом файловой системы **ext4**. Создайте **раздел подкачки** с файловой системой типа **swap**. При выделении размера раздела следуйте формуле выделяемого размера, как указано в следующей таблице.
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image13.png)
 
-    > [!NOTE]
-    > На главном целевом сервере Linux не следует использовать диспетчер логических томов (LVM) для корня файловой системы или дисковых пространств хранения. По умолчанию главный целевой сервер Linux настроен так, чтобы не обнаруживать разделы и диски LVM.
+**Шаг 15.** Выберите параметр **Guided -** **Use entire disk** (Управляемое, использовать весь диск) из списка методов разбиения на разделы и нажмите клавишу **ВВОД**.
 
-    ![Таблица с именами и размерами разделов, а также типами файловых систем](./media/site-recovery-how-to-install-linux-master-target/media/image13.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
 
-14. После создания раздела нажмите кнопку **Далее**.
+**Шаг 16.** Выберите соответствующий диск из списка **Select disk to partition** (Выберите диск для разбиения на разделы) и нажмите клавишу **ВВОД**.
 
-    ![Диалоговое окно со сведениями о выбранных значениях для разделов](./media/site-recovery-how-to-install-linux-master-target/media/image14.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png)
 
-15. Если будут обнаружены уже установленные устройства, появится предложение отформатировать их. Нажмите кнопку **Форматировать**, чтобы отформатировать диск с использованием последней таблицы разделов.
+**Этап 17.** Выберите **YES** (Да) для записи изменений дисков и нажмите клавишу **ВВОД**.
 
-    ![Кнопка "Форматировать" для форматирования диска](./media/site-recovery-how-to-install-linux-master-target/media/image15.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image16.png)
 
-16. Щелкните **Сохранить изменения на диск**, чтобы применить изменения разделов к диску.
+**Шаг 18.** Выберите параметр по умолчанию, нажмите кнопку "Continue" (Продолжить) и нажмите клавишу ВВОД.
 
-    ![Выбор "Сохранить изменения на диск"](./media/site-recovery-how-to-install-linux-master-target/media/image16.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png)
 
-17. Установите флажок **Установить загрузчик** и нажмите кнопку **Далее**, чтобы установить загрузчик в корневой раздел.
+**Шаг 19.** Выберите соответствующий параметр для управления обновлениями системы и нажмите клавишу **ВВОД**.
 
-    ![Установка загрузчика в корневом разделе](./media/site-recovery-how-to-install-linux-master-target/media/image17.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
+
+> [!WARNING]
+> Так как для главного целевого сервера Azure Site Recovery требуется специальная версия Ubuntu, необходимо убедиться, что на виртуальной машине отключено обновление ядра. Если оно включено, то какое-либо регулярное обновление приведет к неисправности главного целевого сервера. Убедитесь, что выбран параметр "No automatic updates" (Без автоматического обновления).
 
 
-18. Начнется процесс установки. Ход выполнения можно отслеживать.
+**Шаг 20.** Можно оставить параметры по умолчанию. Если требуется openSSH для SSH-подключения, выберите параметр "OpenSSH server" (Сервер OpenSSH) и нажмите кнопку "Continue" (Продолжить).
 
-    ![Диалоговое окно со сведениями о ходе установки](./media/site-recovery-how-to-install-linux-master-target/media/image18.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png)
 
-19. После успешного завершения установки вы увидите приведенный ниже экран. Нажмите кнопку **Перезагрузка**.
+**Шаг 21.** Выберите параметр **YES** (Да) и нажмите клавишу **ВВОД**.
 
-    ![Экран успешной установки](./media/site-recovery-how-to-install-linux-master-target/media/image19.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image20.png)
+
+**Шаг 22.** Выберите подходящее устройство (предпочтительно /dev/sda) для установки загрузчика и нажмите клавишу **ВВОД**.
+
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image21.png)
+
+**Шаг 23.** Нажмите кнопку **Continue** (Продолжить) и нажмите клавишу **ВВОД**, чтобы **завершить установку**.
+
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png)
+
+Установка будет завершена. После этого войдите на виртуальную машину с новыми учетными данными пользователя (см. **шаг 10**).
+
+Выполните действия, описанные на следующем снимке экрана, чтобы задать пароль привилегированного пользователя и войти в систему как привилегированный пользователь для дальнейшей работы.
+
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
 
 
 ### <a name="post-installation-steps"></a>Действия после установки
@@ -176,83 +195,20 @@ ms.lasthandoff: 05/08/2017
 
     ![Проверка наличия параметра disk.EnableUUID](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
 
+#### <a name="disable-kernel-upgrades"></a>**Отключение обновления ядра**
+
+Так как для главного целевого сервера Azure Site Recovery требуется специальная версия Ubuntu, необходимо убедиться, что на виртуальной машине отключено обновление ядра. Если оно включено, то какое-либо регулярное обновление приведет к неисправности главного целевого сервера. Выполните следующие действия для отключения обновления ядра.
+> [!IMPORTANT]
+> Здесь нужно поместить этапы сценария
+
 #### <a name="download-and-install-additional-packages"></a>Скачивание и установка дополнительных пакетов
 
 > [!NOTE]
 > Убедитесь, что система подключена к Интернету, чтобы скачать и установить дополнительные пакеты. Без подключения к Интернету вам придется вручную искать и устанавливать пакеты RPM.
 
 ```
-yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx
 ```
-
-Предыдущая команда скачает 15 перечисленных ниже пакетов из репозитория CentOS 6.6 и установит их. Если нет доступа к Интернету, скачайте следующие пакеты RPM:
-
-
-bc-1.06.95-1.el6.x86\_64.rpm
-
-busybox-1.15.1-20.el6.x86\_64.rpm
-
-elfutils-libs-0.158-3.2.el6.x86\_64.rpm
-
-kexec-tools-2.0.0-280.el6.x86\_64.rpm
-
-lsscsi-0.23-2.el6.x86\_64.rpm
-
-lzo-2.03-3.1.el6\_5.1.x86\_64.rpm
-
-perl-5.10.1-136.el6\_6.1.x86\_64.rpm
-
-perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
-
-perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
-
-perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
-
-perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
-
-perl-version-0.77-136.el6\_6.1.x86\_64.rpm
-
-rsync-3.0.6-12.el6.x86\_64.rpm
-
-snappy-1.1.0-1.el6.x86\_64.rpm
-
-wget-1.12-5.el6\_6.1.x86\_64.rpm
-
-
-#### <a name="install-additional-packages-for-specific-operating-systems"></a>Установка дополнительных пакетов для определенных операционных систем
-
-> [!NOTE]
-> Если в исходной защищенной виртуальной машине для корневого или загрузочного устройства используется файловая система ReiserFS или XFS, вам необходимо скачать указанные ниже дополнительные пакеты и установить их на главный целевой сервер Linux, прежде чем настраивать защиту.
-
-
-***ReiserFS (если используется Suse11SP3, ReiserFS не является файловой системой по умолчанию в Suse 11 SP3)***
-
-```
-cd /usr/local
-
-wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
-
-wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
-
-rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
-reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
-```
-
-***XFS (RHEL, начиная с CentOS 7)***
-
-```
-cd /usr/local
-
-wget
-<http://archive.kernel.org/centos-vault/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
-
-rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
-
-yum install device-mapper-multipath
-```
-Требуется для добавления пакетов Multipath на главный целевой сервер.
 
 ### <a name="get-the-installer-for-setup"></a>Получение установщика для установки
 
@@ -361,12 +317,14 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 3. Выполните следующую команду, чтобы установить главный целевой сервер и зарегистрировать его на сервере конфигурации.
 
     ```
-    ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i <Configuration Server IP Address> -p 443 -s y -c https -P passphrase.txt
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 
-    Пример команды: ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
+    Пример: /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
 
     Дождитесь завершения скрипта. Если регистрация главного целевого сервера пройдет успешно, вы увидите его на портале, в списке на странице инфраструктуры Site Recovery.
+
 
 #### <a name="install-the-master-target-by-using-interactive-install"></a>Установка главного целевого сервера с помощью интерактивного процесса
 
@@ -380,22 +338,31 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 
     ![Выбор расположения по умолчанию для установки главного целевого сервера](./media/site-recovery-how-to-install-linux-master-target/image17.png)
 
+После завершения установки необходимо зарегистрировать сервер конфигурации с помощью командной строки.
 
-3. Выберите **глобальные** параметры для настройки.
+1. Запишите IP-адрес сервера конфигурации. Он понадобится нам на следующем шаге.
 
-    ![Настройка глобальных параметров](./media/site-recovery-how-to-install-linux-master-target/image18.png)
+2. Выполните следующую команду, чтобы установить главный целевой сервер и зарегистрировать его на сервере конфигурации.
 
-4. Укажите IP-адреса сервера конфигурации.
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
+    ```
 
-5. Укажите порт 443 для сервера конфигурации.
+    Пример: /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
 
-    ![Указание IP-адреса и порта для сервера конфигурации](./media/site-recovery-how-to-install-linux-master-target/image19.png)
+    Дождитесь завершения скрипта. Если регистрация главного целевого сервера пройдет успешно, вы увидите его на портале, в списке на странице инфраструктуры Site Recovery.
 
-6. Скопируйте парольную фразу из файла C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase на сервере конфигурации, затем вставьте ее в **соответствующее** поле. Поле будет пустым, даже после вставки текста.
 
-7. Выберите пункт меню **Quit** (Выход).
+### <a name="upgrade-the-master-target"></a>Обновление главного целевого сервера
 
-8. Дождитесь завершения установки и регистрации.
+Запустите установщик. Он автоматически обнаружит, что на главном целевом сервере установлен агент. Выберите "Y" (Да), чтобы выполнить обновление. После завершения установки можно проверить установленную версию главного целевого сервера, выполнив приведенную ниже команду.
+
+    ```
+        cat /usr/local/.vx_version
+    ```
+
+Вы увидите, что поле "VERSION" (Версия) сдержит номер версии главного целевого сервера.
 
 ### <a name="install-vmware-tools-on-the-master-target-server"></a>Установка инструментов VMware на главном целевом сервере
 

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 07/03/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 9ea3896f73e0e97b89743d8b17c8fd1e723153c3
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 8df8cdfd0b265b11e6a11f0a5eb7ad8f0e669ca2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Управление удостоверениями устройств Центра Интернета вещей в пакетном режиме
 
-В каждом Центре Интернета вещей есть реестр удостоверений, который можно использовать для создания в службе уникальных ресурсов устройства (например, очередь с сообщениями, отправленными из облака в устройство). Реестр удостоверений обеспечивает доступ к конечным точкам, обращенным к устройствам. В этой статье описывается массовый импорт удостоверений устройств в реестр удостоверений и массовый экспорт удостоверений из реестра.
+В каждом Центре Интернета вещей есть реестр удостоверений, который можно использовать для создания в службе уникальных ресурсов устройства. Реестр удостоверений обеспечивает доступ к конечным точкам, обращенным к устройствам. В этой статье описывается массовый импорт удостоверений устройств в реестр удостоверений и массовый экспорт удостоверений из реестра.
 
 Операции импорта и экспорта выполняются в контексте *заданий*, позволяющих выполнять операции массового обслуживания в Центре Интернета вещей.
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/16/2017
 * характеризуется длительным временем выполнения по сравнению со стандартными операциями среды выполнения или же
 * возвращает пользователю большой объем данных.
 
-В этих случаях вместо одного вызова API-интерфейса, ожидающего или блокирующего результат операции, операция асинхронно создает **задание** для этого Центра Интернета вещей и сразу же возвращает объект **JobProperties**.
+Вместо одного вызова API, ожидающего или блокирующего результат операции, операция асинхронно создает **задание** для этого Центра Интернета вещей. и сразу же возвращает объект **JobProperties**.
 
 В следующем фрагменте кода C# показано, как создать задание экспорта.
 
@@ -48,7 +48,6 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 
 > [!NOTE]
 > Чтобы использовать класс **RegistryManager** в коде C#, добавьте в проект пакет NuGet **Microsoft.Azure.Devices**. Класс **RegistryManager** находится в пространстве имен **Microsoft.Azure.Devices**.
-
 
 Вы можете использовать класс **RegistryManager** для запросов состояния **задания** с помощью возвращенных метаданных **JobProperties**.
 
@@ -122,7 +121,8 @@ while(true)
 ```
 
 При наличии данных двойника устройства они также будут экспортированы вместе с данными устройства. Этот формат приведен в примере ниже. Все данные, начиная со строки twinETag и до конца, являются данными двойника устройства.
-```
+
+```json
 {
    "id":"export-6d84f075-0",
    "eTag":"MQ==",
@@ -172,7 +172,7 @@ while(true)
 ```csharp
 var exportedDevices = new List<ExportImportDevice>();
 
-using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), RequestOptions, null), Encoding.UTF8))
+using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), null, null), Encoding.UTF8))
 {
   while (streamReader.Peek() != -1)
   {
@@ -217,7 +217,7 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-Вы можете использовать этот метод, чтобы импортировать данные для двойника устройства. Для входных данных используется тот же формат, который был показан в разделе для **ExportDevicesAsync**. Таким образом, экспортированные данные можно также импортировать повторно. Параметр $metadata является необязательным.
+Вы можете использовать этот метод, чтобы импортировать данные для двойника устройства. Для входных данных используется тот же формат, который был показан в разделе **ExportDevicesAsync**. Таким образом, экспортированные данные можно импортировать повторно. Параметр **$metadata** является необязательным.
 
 ## <a name="import-behavior"></a>Поведение при импорте
 
@@ -232,7 +232,7 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 
 Один вызов метода **ImportDevicesAsync** позволяет выполнять любое сочетание приведенных выше операций. Например, можно регистрировать новые устройства и одновременно удалять или обновлять существующие. Если этот метод использовать вместе с методом **ExportDevicesAsync** , можно полностью перенести все устройства из одного центра IoT в другой.
 
-Если в файле импорта указываются метаданные двойника устройства, то эти метаданные заменяют метаданные двойника. В противном случае по текущему времени будут обновляться только метаданные `lastUpdateTime`. 
+Если файл импорта содержит метаданные двойника устройства, то эти метаданные заменяют метаданные двойника. Если файл импорта не содержит метаданных двойника устройства, то по текущему времени будут обновляться только метаданные `lastUpdateTime`.
 
 Управление процессом импорта на уровне каждого устройства осуществляется с помощью необязательного свойства **importMode** в сериализованных данных импорта для каждого устройства. Свойство **importMode** имеет следующие параметры:
 
@@ -263,7 +263,8 @@ var serializedDevices = new List<string>();
 
 for (var i = 0; i < 1000; i++)
 {
-// Create a new ExportImportDevice
+  // Create a new ExportImportDevice
+  // CryptoKeyGenerator is in the Microsoft.Azure.Devices.Common namespace
   var deviceToAdd = new ExportImportDevice()
   {
     Id = Guid.NewGuid().ToString(),
@@ -279,11 +280,11 @@ for (var i = 0; i < 1000; i++)
     ImportMode = ImportMode.Create
   };
 
-  // Add device to existing list
+  // Add device to the list
   serializedDevices.Add(JsonConvert.SerializeObject(deviceToAdd));
 }
 
-// Write this list to the blob
+// Write the list to the blob
 var sb = new StringBuilder();
 serializedDevices.ForEach(serializedDevice => sb.AppendLine(serializedDevice));
 await blob.DeleteIfExistsAsync();
@@ -298,8 +299,9 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
   }
 }
 
-// Call import using the same blob to add new devices!
-// This normally takes 1 minute per 100 devices the normal way
+// Call import using the blob to add new devices
+// Log information related to the job is written to the same container
+// This normally takes 1 minute per 100 devices
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
@@ -349,7 +351,7 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
   }
 }
 
-// Step 3: Call import using the same blob to delete all devices!
+// Step 3: Call import using the same blob to delete all devices
 importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
@@ -366,7 +368,6 @@ while(true)
 
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
-
 ```
 
 ## <a name="get-the-container-sas-uri"></a>Получение URI SAS контейнера
@@ -394,7 +395,6 @@ static string GetContainerSasUri(CloudBlobContainer container)
   // including the SAS token.
   return container.Uri + sasContainerToken;
 }
-
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
