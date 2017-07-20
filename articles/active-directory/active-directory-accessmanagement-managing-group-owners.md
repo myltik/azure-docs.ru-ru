@@ -12,24 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 04/26/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 8c4920107b5d05716021bcef80d3c52c25f6eade
+ms.translationtype: HT
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 6b448b4fac56d4b5debcf4fb3a545dd538929aff
 ms.contentlocale: ru-ru
-ms.lasthandoff: 12/28/2016
-
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="managing-owners-for-a-group" class="xliff"></a>
-
-# Управление владельцами группы
+# <a name="managing-owners-for-a-group"></a>Управление владельцами группы
 После того как владелец ресурса предоставил доступ к ресурсу группе Azure Active Directory, управление членством в группе осуществляется владельцем группы. Владелец ресурса фактически делегирует владельцу группы разрешение предоставлять пользователям доступ к ресурсу.
 
-<a id="assigning-group-ownership" class="xliff"></a>
-
-## Назначение владельца группы
+## <a name="assigning-group-ownership"></a>Назначение владельца группы
 **Добавление владельца в группу**
 
 1. На [классическом портале Azure](https://manage.windowsazure.com)щелкните **Active Directory**, а затем откройте каталог своей организации.
@@ -44,9 +39,7 @@ ms.lasthandoff: 12/28/2016
 3. Откройте вкладку **Владельцы** .
 4. Выберите владельца, которого нужно удалить из группы, а затем щелкните **Удалить**.
 
-<a id="additional-information" class="xliff"></a>
-
-## Дополнительная информация
+## <a name="additional-information"></a>Дополнительная информация
 В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
@@ -54,5 +47,4 @@ ms.lasthandoff: 12/28/2016
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 * [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-
 
