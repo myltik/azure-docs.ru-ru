@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/7/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: a226bdfeb1e1e70f31b2728db594042578e5f21f
-ms.openlocfilehash: 7ccb76695a6ca0d9f1ff79f05de6a5c071510a43
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Работа с крупными масштабируемыми наборами виртуальных машин
@@ -85,14 +86,5 @@ az vmss create --help
 >[!NOTE] 
 Масштабируемый набор с поддержкой одной группы размещения (по умолчанию) можно преобразовать в масштабируемый набор с поддержкой нескольких групп размещения, но не наоборот. Поэтому прежде чем выполнять преобразование, разберитесь со свойствами крупных масштабируемых наборов. В частности, убедитесь, что вам не нужна балансировка нагрузки уровня 4 с помощью Azure Load Balancer.
 
-## <a name="additional-notes"></a>Дополнительные замечания
-Поддержка крупных масштабируемых наборов, масштабируемых наборов с подключенными дисками данных и управляемыми дисками Azure добавлена в Microsoft.Compute API версии [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json). Вы можете использовать любой пакет SDK или средство командной строки, встроенные в данной версии или более поздней версии API.
-
-
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,9 +1,12 @@
 1. Войдите на [портал Azure].
 2. Щелкните **+Создать** и в поле **Поиск по Marketplace** введите *Мобильные приложения*. Выберите **Mobile Apps Quickstart** (Быстрый запуск мобильных приложений) и щелкните **Создать**.
-   
-    ![Портал Azure с выделенным пунктом "Mobile Apps Quickstart" (Быстрый запуск мобильных приложений)](./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png)
-3. В поле **Группа ресурсов**выберите существующую группу ресурсов или создайте новую (с тем же именем, что и у приложения). 
+
+    ![Портал Azure с выделенным пунктом "Mobile Apps Quickstart" (Быстрый запуск мобильных приложений)][quickstart]
+3. В поле **Группа ресурсов**выберите существующую группу ресурсов или создайте новую (с тем же именем, что и у приложения).
 4. Щелкните **Создать**. Прежде чем продолжать, подождите несколько минут, пока будет выполнено развертывание службы.
+
+<!-- Images. -->
+[quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png
 
 <!-- URLs. -->
 [портал Azure]: https://portal.azure.com/
