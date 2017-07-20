@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: 240475240be76265c2a2f150a4a6d8f4aa0d3664
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Приступая к работе с Azure AD Connect с использованием стандартных параметров
@@ -35,9 +36,9 @@ ms.openlocfilehash: 240475240be76265c2a2f150a4a6d8f4aa0d3664
 3. На экране приветствия установите флажок, подтверждающий ваше согласие с условиями лицензионного соглашения, и нажмите кнопку **Продолжить**.  
 4. На экране «Стандартные параметры» щелкните **Использовать стандартные параметры**.  
    ![Приветствие мастера установки Azure AD Connect.](./media/active-directory-aadconnect-get-started-express/express.png)
-5. На экране "Подключение к Azure AD" введите имя пользователя и пароль глобального администратора Azure AD. Нажмите кнопку **Далее**.  
+5. На экране "Подключение к Azure AD" введите имя пользователя и пароль глобального администратора Azure AD. Щелкните **Далее**.  
    ![Подключение к Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Если вы получаете сообщение об ошибке и испытываете проблемы с подключением, см. статью [Устранение неполадок подключения в Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md).
-6. На экране "Подключение к AD DS" введите имя пользователя и пароль учетной записи администратора предприятия. Вы можете указать имя домена в формате NetBios, либо ввести полное доменное имя, т. е. FABRIKAM\administrator или fabrikam.com\administrator. Нажмите кнопку **Далее**.  
+6. На экране "Подключение к AD DS" введите имя пользователя и пароль учетной записи администратора предприятия. Вы можете указать имя домена в формате NetBios, либо ввести полное доменное имя, т. е. FABRIKAM\administrator или fabrikam.com\administrator. Щелкните **Далее**.  
    ![Подключение к AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. Страница [**Настройка входа в Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) будет отображаться, только если вы не завершили [проверку доменов](../active-directory-add-domain.md) при выполнении [предварительных требований](active-directory-aadconnect-prerequisites.md).
    ![Непроверенные домены](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
@@ -72,10 +73,5 @@ ms.openlocfilehash: 240475240be76265c2a2f150a4a6d8f4aa0d3664
 | Установка с помощью настроенных параметров |
 | Обновление из DirSync |
 | Учетные записи, используемые для установки |
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
