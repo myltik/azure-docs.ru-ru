@@ -1,6 +1,6 @@
 ---
-title: "Создание виртуальной машины на основе специализированного диска в Azure | Документация Майкрософт"
-description: "Создание новой виртуальной машины на основе подключенного специализированного управляемого или неуправляемого диска в модели развертывания с помощью Resource Manager."
+title: "Создание виртуальной машины Windows с помощью специализированного VHD в Azure | Документация Майкрософт"
+description: "Создание новой виртуальной машины Windows на основе подключенного специализированного управляемого диска операционной системы в модели развертывания с помощью Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,22 +13,30 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 06/29/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 78f993ce9bab6266479cdd121eeea4965724d9bd
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: b315a37f72f34d45bb55c2bbe6be20cca8c42424
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="create-a-vm-from-a-specialized-disk"></a>Создание виртуальной машины из специализированного диска
+# <a name="create-a-windows-vm-from-a-specialized-disk"></a>Создание виртуальной машины Windows из специализированного диска
 
-Создайте виртуальную машину, подключив специализированный диск в качестве диска ОС с помощью PowerShell. Специализированный диск — это копия виртуального жесткого диска виртуальной машины, в которой сохраняются учетные записи пользователей, приложения и другие данные о состоянии исходной виртуальной машины. Для создания виртуальной машины можно использовать специализированный [управляемый диск](../../storage/storage-managed-disks-overview.md) или специализированный неуправляемый диск.
+Создайте виртуальную машину, подключив специализированный управляемый диск в качестве диска ОС с помощью PowerShell. Специализированный диск — это копия VHD виртуальной машины, в которой сохраняются учетные записи пользователей, приложения и другие данные о состоянии исходной виртуальной машины. 
+
+При использовании специализированного VHD для создания новой виртуальной машины новая виртуальная машина сохраняет имя исходной виртуальной машины. Другие сведения о компьютере также сохраняются и в некоторых случаях эти повторяющиеся данные могут вызвать проблемы. Следует учитывать, какие типы сведений о компьютере используют приложения при копировании виртуальной машины.
+
+Существует два варианта.
+* [Передача VHD](#option-1-upload-a-specialized-vhd)
+* [Копирование имеющейся виртуальной машины Azure](#option-2-copy-an-existing-azure-vm)
+
+В этом разделе показано, как использовать управляемые диски. При наличии развертывания устаревших версий, для которой требуется использовать учетную запись хранения, см. статью [Создание виртуальной машины на основе специализированного VHD в учетной записи хранения](sa-create-vm-specialized.md).
 
 ## <a name="before-you-begin"></a>Перед началом работы
-Если вы используете PowerShell, убедитесь, что у вас установлена последняя версия модуля PowerShell AzureRM.Compute. Выполните следующую команду, чтобы установить ее.
+Если вы используете PowerShell, убедитесь, что у вас установлена последняя версия модуля PowerShell AzureRM.Compute. 
 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -36,46 +44,197 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 Дополнительные сведения см. в разделе [об управлении версиями Azure PowerShell](/powershell/azure/overview).
 
 
-## <a name="create-the-subnet-and-vnet"></a>Создание виртуальной сети и подсети
+## <a name="option-1-upload-a-specialized-vhd"></a>Вариант 1. Передача специализированного VHD
+
+Вы можете передать VHD из специализированной виртуальной машины, созданной с помощью локального средства виртуализации, например, Hyper-V или виртуальная машина, экспортированная из другого облака.
+
+### <a name="prepare-the-vm"></a>Подготовка виртуальной машины
+Если вы планируете использовать виртуальный жесткий диск "как есть" для создания виртуальной машины, то необходимо выполнить следующие действия: 
+  
+  * [Подготовьте виртуальный жесткий диск Windows к передаче в Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Не выполняйте** подготовку виртуальной машины к использованию с помощью Sysprep.
+  * Удалите все гостевые инструменты и агенты виртуализации, которые установлены на виртуальной машине (т. е. инструменты VMware).
+  * Убедитесь, что виртуальная машина настроена на получение IP-адреса и параметров DNS через DHCP. Таким образом, сервер будет получать IP-адрес в виртуальной сети при запуске. 
+
+
+### <a name="get-the-storage-account"></a>Получение учетной записи хранения
+Вам необходима учетная запись хранения Azure для хранения переданного VHD. Можно использовать существующую учетную запись хранения или создать новую. 
+
+Чтобы отобразить список доступных учетных записей хранения, введите:
+
+```powershell
+Get-AzureRmStorageAccount
+```
+
+Если вы хотите использовать существующую учетную запись хранения, то перейдите к разделу [Передача виртуального жесткого диска в учетную запись хранения](#upload-the-vhd-to-your-storage-account).
+
+Если требуется создать учетную запись хранения, то выполните описанные ниже действия.
+
+1. Необходимо указать имя группы ресурсов, в которой будет создана учетная запись хранения. Чтобы найти все группы ресурсов, существующие в вашей подписке, введите:
+   
+    ```powershell
+    Get-AzureRmResourceGroup
+    ```
+
+    Чтобы создать группу ресурсов с именем *myResourceGroup* в регионе *Западная часть США*, введите:
+
+    ```powershell
+    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    ```
+
+2. С помощью командлета [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) создайте в этой группе ресурсов учетную запись хранения с именем *mystorageaccount*:
+   
+    ```powershell
+    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+        -SkuName "Standard_LRS" -Kind "Storage"
+    ```
+
+### <a name="upload-the-vhd-to-your-storage-account"></a>Передача виртуального жесткого диска в учетную запись хранения 
+Используйте командлет [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd), чтобы передать VHD в контейнер в учетной записи хранения. В этом примере файл *myVHD.vhd* передается из расположения `"C:\Users\Public\Documents\Virtual hard disks\"` в учетную запись хранения *mystorageaccount*, входящую в группу ресурсов *myResourceGroup*. Файл будет помещен в контейнер с именем *mycontainer*; новое имя файла — *myUploadedVHD.vhd*.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
+Add-AzureRmVhd -ResourceGroupName $resourceGroupName -Destination $urlOfUploadedVhd `
+    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
+```
+
+
+В случае успешного выполнения отобразится ответ, который выглядит следующим образом.
+
+```powershell
+MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
+MD5 hash calculation is completed.
+Elapsed time for the operation: 00:03:35
+Creating new page blob of size 53687091712...
+Elapsed time for upload: 01:12:49
+
+LocalFilePath           DestinationUri
+-------------           --------------
+C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
+```
+
+В зависимости от сетевого подключения и размера VHD-файла выполнение этой команды может занять некоторое время.
+
+### <a name="create-a-managed-disk-from-the-vhd"></a>Создание управляемого диска из VHD
+
+Создайте управляемый диск на основе специализированного виртуального жесткого диска в своей учетной записи хранения с помощью командлета [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). В этом примере в качестве имени диска используется **myOSDisk1**, диск переносится в хранилище *StandardLRS*, а в качестве универсального кода ресурса (URI) для исходного виртуального жесткого диска используется *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd*.
+
+Создайте группу ресурсов для новой виртуальной машины.
+
+```powershell
+$destinationResourceGroup = 'myDestinationResourceGroup'
+New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
+```
+
+Создайте новый диск ОС из загруженного VHD. 
+
+```powershell
+$sourceUri = https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
+$osDiskName = 'myOsDisk'
+$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
+    (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `
+    -SourceUri $sourceUri) `
+    -ResourceGroupName $destinationResourceGroup
+```
+
+## <a name="option-2-copy-an-existing-azure-vm"></a>Вариант 2. Копирование существующей виртуальной машины Azure
+
+Вы можете создать копию виртуальной машины, использующую Управляемые диски. Для этого создайте моментальный снимок виртуальной машины, а затем с его помощью создайте управляемый диск и виртуальную машину.
+
+
+### <a name="take-a-snapshot-of-the-os-disk"></a>Создание моментального снимка диска операционной системы
+
+Вы можете сделать моментальный снимок всей виртуальной машины (включая все диски) или одного диска. Ниже показано, как создать моментальный снимок только диска операционной системы виртуальной машины с помощью командлета [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot). 
+
+Задайте некоторые параметры. 
+
+ ```powershell
+$resourceGroupName = 'myResourceGroup' 
+$vmName = 'myVM'
+$location = 'westus' 
+$snapshotName = 'mySnapshot'  
+```
+
+Получите объект виртуальной машины.
+
+```powershell
+$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName
+```
+Получите имя диска ОС.
+
+ ```powershell
+$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $vm.StorageProfile.OsDisk.Name
+```
+
+Создайте конфигурацию моментального снимка. 
+
+ ```powershell
+$snapshotConfig =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -OsType Windows -CreateOption Copy -Location $location 
+```
+
+Создайте моментальный снимок.
+
+```powershell
+$snapShot = New-AzureRmSnapshot -Snapshot $snapshotConfig -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName
+```
+
+
+Если вы планируете использовать моментальный снимок, чтобы создать виртуальную машину, которая должна быть высокопроизводительной, используйте параметр `-AccountType Premium_LRS` в команде New-AzureRmSnapshot. Параметр создает моментальный снимок таким образом, чтобы он хранился в качестве управляемого диска уровня "Премиум". Управляемые диски уровня "Премиум" дороже, чем управляемые диски уровня "Стандартный". Поэтому, прежде чем использовать этот параметр, убедитесь, что вам действительно необходим управляемый диск класса Premium.
+
+### <a name="create-a-new-disk-from-the-snapshot"></a>Создайте новый диск из моментального снимка.
+
+Создайте управляемый диск из моментального снимка, используя [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). В этом примере используется *myOSDisk* для имени диска.
+
+Создайте группу ресурсов для новой виртуальной машины.
+
+```powershell
+$destinationResourceGroup = 'myDestinationResourceGroup'
+New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
+```
+
+Задайте имя диска ОС. 
+
+```powershell
+$osDiskName = 'myOsDisk'
+```
+
+Создайте управляемый диск.
+
+```powershell
+$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
+    (New-AzureRmDiskConfig  -Location $location -CreateOption Copy `
+    -SourceResourceId $snapshot.Id) `
+    -ResourceGroupName $destinationResourceGroup
+```
+
+
+## <a name="create-the-new-vm"></a>Создание виртуальной машины 
+
+Создайте сетевые ресурсы и другие ресурсы виртуальной машины, которые будет использовать новая виртуальная машина.
+
+### <a name="create-the-subnet-and-vnet"></a>Создание виртуальной сети и подсети
 
 Создайте виртуальную сеть и подсеть [виртуальной сети](../../virtual-network/virtual-networks-overview.md).
 
-1. Создайте подсеть. В этом примере создается подсеть с именем **mySubnet** в группе ресурсов **myResourceGroup** и задается префикс адреса подсети **10.0.0.0/24**.
+Создайте подсеть. В этом примере создается подсеть с именем **mySubnet** в группе ресурсов **myDestinationResourceGroup** и задается префикс адреса подсети **10.0.0.0/24**.
    
-    ```powershell
-    $rgName = "myResourceGroup"
-    $subnetName = "mySubNet"
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-    ```
-2. Создайте виртуальную сеть. В этом примере задается имя виртуальной сети **myVnetName**, расположение **западная часть США** и префикс адреса виртуальной сети **10.0.0.0/16**. 
-   
-    ```powershell
-    $location = "West US"
-    $vnetName = "myVnetName"
-    $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
-        -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-    ```    
+```powershell
+$subnetName = 'mySubNet'
+$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+```
 
-## <a name="create-a-public-ip-address-and-nic"></a>Создание общедоступного IP-адреса и сетевой карты
-Чтобы обеспечить обмен данными с виртуальной машиной в виртуальной сети, требуются [общедоступный IP-адрес](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) и сетевой интерфейс.
-
-1. Создайте общедоступный IP-адрес. В этом примере открытому IP-адресу присвоено имя **myIP**.
+Создайте виртуальную сеть. В этом примере задается имя виртуальной сети **myVnetName**, расположение **западная часть США** и префикс адреса виртуальной сети **10.0.0.0/16**. 
    
-    ```powershell
-    $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
-        -AllocationMethod Dynamic
-    ```       
-2. Создание сетевой карты. В этом примере сетевой карте присвоено имя **myNicName**.
-   
-    ```powershell
-    $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-    ```
+```powershell
+$vnetName = "myVnetName"
+$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $destinationResourceGroup -Location $location `
+    -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+```    
 
-## <a name="create-the-network-security-group-and-an-rdp-rule"></a>Создание группы безопасности сети и правила RDP
-Чтобы войти на виртуальную машину по протоколу удаленного рабочего стола, необходимо настроить правило безопасности, которое разрешает доступ по этому протоколу через порт 3389. Так как VHD для новой виртуальной машины создан на основе имеющейся специализированной виртуальной машины, то и существующую учетную запись (у которой есть разрешение на вход по протоколу удаленного рабочего стола) можно использовать для обеих этих виртуальных машин.
+
+### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Создание группы безопасности сети и правила RDP
+Чтобы войти на виртуальную машину с помощью RDP, необходимо настроить правило безопасности, которое разрешает доступ RDP через порт 3389. Так как VHD для новой виртуальной машины создан на основе имеющейся специализированной виртуальной машины, можно использовать учетную запись исходной виртуальной машины для входа по протоколу удаленного рабочего стола.
+
 В этом примере для NSG задается имя **myNsg**, а для правила протокола удаленного рабочего стола — имя **myRdpRule**.
 
 ```powershell
@@ -85,95 +244,65 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $destinationResourceGroup -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
     
 ```
 
 Дополнительные сведения о конечных точках и правилах NSG см. в статье [Открытие портов для виртуальной машины в Azure с помощью PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="set-the-vm-name-and-size"></a>Задание имени и размера виртуальной машины
+### <a name="create-a-public-ip-address-and-nic"></a>Создание общедоступного IP-адреса и сетевой карты
+Чтобы обеспечить обмен данными с виртуальной машиной в виртуальной сети, требуются [общедоступный IP-адрес](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) и сетевой интерфейс.
 
-В этом примере для имени виртуальной машины задается значение myVM, а для ее размера — Standard_A2.
+Создайте общедоступный IP-адрес. В этом примере открытому IP-адресу присвоено имя **myIP**.
+   
+```powershell
+$ipName = "myIP"
+$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $destinationResourceGroup -Location $location `
+   -AllocationMethod Dynamic
+```       
+
+Создание сетевой карты. В этом примере сетевой карте присвоено имя **myNicName**.
+   
+```powershell
+$nicName = "myNicName"
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $destinationResourceGroup `
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+```
+
+
+
+### <a name="set-the-vm-name-and-size"></a>Задание имени и размера виртуальной машины
+
+В этом примере для имени виртуальной машины задается значение *myVM*, а для ее размера — *Standard_A2*.
+
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
-## <a name="add-the-nic"></a>Добавление сетевой карты
+### <a name="add-the-nic"></a>Добавление сетевой карты
     
 ```powershell
 $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
-    
-## <a name="configure-the-os-disk"></a>Настройка диска операционной системы
 
-Специализированным диском ОС может быть виртуальный жесткий диск, [переданный в Azure](upload-image.md), или [копия виртуального жесткого диска из имеющейся виртуальной машины Azure](vhd-copy.md). 
+### <a name="add-the-os-disk"></a>Добавление диска операционной системы 
 
-Вы можете выбрать один из вариантов:
-- **Вариант 1.** Создайте специализированный управляемый диск на основе специализированного виртуального жесткого диска в имеющейся учетной записи хранения, чтобы использовать его в качестве диска ОС.
-
-или 
-
-- **Вариант 2.** Используйте специализированный виртуальный жесткий диск, размещенный в вашей учетной записи хранения (неуправляемый диск). 
-
-### <a name="option-1-create-a-managed-disk-from-an-unmanaged-specialized-disk"></a>Вариант 1. Создание управляемого диска на основе специализированного неуправляемого диска
-
-1. Создайте управляемый диск на основе имеющегося специализированного виртуального жесткого диска в своей учетной записи хранения. В этом примере в качестве имени диска используется **myOSDisk1**, диск переносится в хранилище **StandardLRS**, а в качестве универсального кода ресурса (URI) для исходного виртуального жесткого диска используется **https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd**.
-
-    ```powershell
-    $osDisk = New-AzureRmDisk -DiskName "myOSDisk1" -Disk (New-AzureRmDiskConfig `
-    -AccountType StandardLRS  -Location $location -CreateOption Import `
-    -SourceUri https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vh.vhd) `
-    -ResourceGroupName $rgName
-    ```
-
-2. Добавьте в конфигурацию диск ОС. В этом примере для диска устанавливается размер **128 ГБ**, а управляемый диск подключается в качестве диска ОС **Windows**.
-    
-    ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
+Добавьте диск операционной системы в конфигурацию с помощью [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). В этом примере для диска устанавливается размер *128 ГБ*, а управляемый диск подключается в качестве диска ОС *Windows*.
+ 
+```powershell
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
-    ```
-
-(Необязательно.) Подключите дополнительные управляемые диски в качестве дисков данных. В этом случае предполагается, что управляемые диски данных созданы в соответствии с инструкциями, приведенными в статье [Создание управляемых дисков из неуправляемых дисков в учетной записи хранения](create-managed-disk-ps.md). 
-
-```powershell
-$vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
 ```
 
+### <a name="complete-the-vm"></a>Завершение процесса подготовки виртуальной машины 
 
-### <a name="option-2-attach-a-vhd-that-is-in-an-existing-storage-account"></a>Вариант 2. Подключение виртуального жесткого диска, находящегося в имеющейся учетной записи хранения
-
-1. Задайте универсальный код ресурса (URI) виртуального жесткого диска, который необходимо использовать. В этом примере VHD-файл **myOsDisk.vhd** хранится в учетной записи **myStorageAccount** в контейнере **myContainer**.
-
-    ```powershell
-    $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
-    ```
-2. Добавьте диск ОС с помощью URL-адреса скопированного виртуального жесткого диска ОС. В этом примере при создании диска ОС к имени виртуальной машины добавляется термин osDisk, формируя таким образом имя диска ОС. В этом примере также указывается, что этот виртуальный жесткий диск на платформе Windows должен быть подключен к виртуальной машине в качестве диска ОС.
-    
-    ```powershell
-    $osDiskName = $vmName + "osDisk"
-    $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
-    ```
-
-(Необязательно.) При наличии дисков данных, которые необходимо подключить к виртуальной машине, добавьте их, используя URL-адреса виртуальных жестких дисков данных и соответствующий логический номер устройства (LUN).
+Создайте виртуальную машину, используя созданную конфигурацию [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```powershell
-$dataDiskName = $vmName + "dataDisk"
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 1 -CreateOption attach
-```
-
-При использовании учетной записи хранения URL-адреса дисков данных и дисков ОС выглядят так: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. Их можно узнать на портале. Для этого найдите целевой контейнер хранилища, щелкните скопированный виртуальный жесткий диск операционной системы или данных, а затем скопируйте содержимое URL-адреса.
-
-
-## <a name="create-the-vm"></a>Создание виртуальной машины
-
-Создайте виртуальную машину, используя созданную конфигурацию.
-
-```powershell
-#Create the new VM
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+New-AzureRmVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
 ```
 
 Если команда будет выполнена успешно, вы увидите примерно такой результат.
@@ -185,11 +314,11 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ```
 
-## <a name="verify-that-the-vm-was-created"></a>Проверка создания виртуальной машины
+### <a name="verify-that-the-vm-was-created"></a>Проверка создания виртуальной машины
 Созданная виртуальная машина должна отображаться на [портале Azure](https://portal.azure.com) (выберите **Обзор** > **Виртуальные машины**). Ее можно также увидеть, выполнив следующие команды PowerShell:
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $rgName
+$vmList = Get-AzureRmVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 

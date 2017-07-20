@@ -9,24 +9,24 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 8567061a98ec5a0619a8e10cb44501dd88d8166c
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 547851972f13ec69a8f65d01290874ad7d07f192
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
-# <a name="restore-a-single-tenant-database"></a>Восстановление базы данных отдельного клиента
+# <a name="restore-a-wingtip-saas-tenants-sql-database"></a>Восстановление базы данных SQL клиентов SaaS Wingtip
 
-Приложение SaaS Wingtip Tickets создано на основе модели, предусматривающей использование одной базы данных для каждого клиента. Одно из преимуществ этой модели заключается в простоте восстановления данных отдельного изолированного клиента, не влияя на другие клиенты.
+Приложение SaaS Wingtip создано на основе модели, предусматривающей использование одной базы данных для каждого клиента. Одно из преимуществ этой модели заключается в простоте восстановления данных отдельного изолированного клиента, не влияя на другие клиенты.
 
 В этом руководстве рассматривается два шаблона восстановления данных:
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 05/18/2017
 
 Для работы с этим руководством выполните следующие предварительные требования:
 
-* Разверните приложение WTP. Чтобы развернуть его менее чем за пять минут, см. сведения в статье [Развертывание и изучение мультитенантного приложения SaaS, использующего базу данных Azure SQL](sql-database-saas-tutorial.md).
+* Разверните приложение SaaS Wingtip. Чтобы развернуть его менее чем за пять минут, см. сведения в статье [Развертывание и изучение мультитенантного приложения SaaS, использующего базу данных SQL Azure](sql-database-saas-tutorial.md).
 * Установите Azure PowerShell. Дополнительные сведения см. в статье [Начало работы с Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-saas-tenant-restore-pattern"></a>Общие сведения о шаблоне восстановления клиента SaaS
@@ -57,11 +57,11 @@ ms.lasthandoff: 05/18/2017
 
 ## <a name="get-the-wingtip-application-scripts"></a>Получение сценариев приложения Wingtip
 
-Скрипты Wingtip Tickets и исходный код приложения доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Файлы скриптов находятся в папке [Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Скачайте папку **Learning Modules** на локальный компьютер, сохраняя ее структуру.
+Скрипты и исходный код приложения SaaS Wingtip доступны в репозитории GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Указания по скачиванию скриптов SaaS Wingtip см. [здесь](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Моделирование случайного удаления данных клиента
 
-Чтобы продемонстрировать эти сценарии восстановления, нам нужно *случайно* удалить некоторые данные в одной из баз данных клиента. Хотя вы можете удалять любые записи, но мы советуем выполнить приведенную ниже процедуру, которая устраняет возможность блокировки демонстрационного сценария из-за нарушений целостности данных. Кроме того, выполнив ее, вы также добавите некоторые данные о приобретении билетов, которые можно использовать позже при работе с *руководствами по аналитике WTP*.
+Чтобы продемонстрировать эти сценарии восстановления, нам нужно *случайно* удалить некоторые данные в одной из баз данных клиента. Хотя вы можете удалять любые записи, но мы советуем выполнить приведенную ниже процедуру, которая устраняет возможность блокировки демонстрационного сценария из-за нарушений целостности данных. Кроме того, выполнив ее, вы также добавите некоторые данные о приобретении билетов, которые можно использовать позже при работе с *руководствами по аналитике SaaS Wingtip*.
 
 Выполните сценарий генератора билетов и создайте дополнительные данные. Генератор билетов намеренно не покупал билеты для каждого последнего события клиентов.
 
@@ -148,6 +148,7 @@ ms.lasthandoff: 05/18/2017
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-* [Руководства по работе с SaaS-приложением WTP, использующим базу данных SQL Azure](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Руководства по SaaS WTP базы данных SQL](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Обзор обеспечения непрерывности бизнес-процессов с помощью базы данных SQL Azure](sql-database-business-continuity.md)
 * [Подробнее о резервном копировании базы данных SQL](sql-database-automated-backups.md)
+

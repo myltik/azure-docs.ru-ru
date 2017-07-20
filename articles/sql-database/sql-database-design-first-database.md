@@ -9,34 +9,38 @@ editor:
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-develop
+ms.custom: mvc,develop databases
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/07/2017
+ms.date: 06/20/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: a78284276b600172ad9fd6de2f30702a6f05e79b
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 8af9ea0a76b9a0606284505195ee3f52b1964604
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
 
 # <a name="design-your-first-azure-sql-database"></a>Проектирование первой базы данных SQL Azure
 
-База данных SQL Azure — это реляционная база данных как услуга на базе ядра Microsoft SQL Server. В этом руководстве рассматриваются основные задачи базы данных, такие как создание базы данных и таблицы, загрузка и запрос данных, а также восстановление базы данных на более ранний момент времени. Вы узнаете, как выполнять такие задачи. 
+База данных SQL Azure — это реляционная база данных как служба (DBaaS) в Microsoft Cloud (Azure). В рамках этого руководства вы узнаете, как с помощью портала Azure и [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) выполнять такие действия: 
 
 > [!div class="checklist"]
-> * Создание базы данных
-> * Настройка правила брандмауэра.
-> * Подключение к базе данных с помощью [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
-> * создание таблиц.
-> * Массовая загрузка данных.
-> * Запрос данных.
-> * Восстановление базы данных на более ранний момент времени с использованием возможности [восстановления до точки во времени](sql-database-recovery-using-backups.md#point-in-time-restore) базы данных SQL.
+> * создать базу данных на портале Azure;
+> * настроить правило брандмауэра на уровне сервера на портале Azure;
+> * Подключение к базе данных с помощью SQL Server Management Studio.
+> * создать таблицы с помощью SSMS;
+> * выполнить массовую загрузку данных с помощью BCP;
+> * запросить эти данные с помощью SSMS;
+> * восстановить базу данных до предыдущего [восстановления до точки во времени](sql-database-recovery-using-backups.md#point-in-time-restore) на портале Azure.
+
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
+
+## <a name="prerequisites"></a>Предварительные требования
 
 Для работы с этим руководством у вас должна быть установлена последняя версия [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). 
 
@@ -44,7 +48,7 @@ ms.lasthandoff: 05/09/2017
 
 Войдите на [портал Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database-in-azure"></a>Создание пустой базы данных SQL в Azure
+## <a name="create-a-blank-sql-database-in-the-azure-portal"></a>Создание пустой базы данных SQL на портале Azure
 
 База данных Azure SQL создается с определенным набором [вычислительных ресурсов и ресурсов хранения](sql-database-service-tiers.md). База данных создается в пределах [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) и [логического сервера базы данных SQL Azure](sql-database-features.md). 
 
@@ -54,55 +58,79 @@ ms.lasthandoff: 05/09/2017
 
 2. Выберите **Базы данных** на странице **создания** и щелкните **База данных SQL** на странице **Базы данных**. 
 
-    ![Создание пустой базы данных](./media/sql-database-design-first-database/create-empty-database.png)
+   ![Создание пустой базы данных](./media/sql-database-design-first-database/create-empty-database.png)
 
-3. Заполните форму базы данных SQL, указав следующую информацию, как показано на предыдущем рисунке.     
+3. Заполните форму базы данных SQL, указав следующую информацию, как показано на предыдущем рисунке.   
 
-   - имя базы данных — **mySampleDatabase**;
-   - группа ресурсов — **myResourceGroup**;
-   - Источник: **пустая база данных**.
+   | Настройка       | Рекомендуемое значение | Описание | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Database name** (Имя базы данных) | mySampleDatabase | Допустимые имена баз данных см. в статье об [идентификаторах базы данных](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
+   | **Подписка** | Ваша подписка  | Дополнительные сведения о подписках см. [здесь](https://account.windowsazure.com/Subscriptions). |
+   | **Группа ресурсов** | myResourceGroup | Допустимые имена групп ресурсов см. в статье о [правилах и ограничениях именования](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Выбрать источник** | Пустая база данных | Указывает, что должна быть создана пустая база данных. |
 
-4. Щелкните **Сервер**, чтобы создать и настроить новый сервер для новой базы данных. Заполните **форму для создания сервера**, указав глобально уникальное имя сервера, имя для входа администратора сервера и выбранный вами пароль. 
+4. Щелкните **Сервер**, чтобы создать и настроить новый сервер для новой базы данных. Заполните форму для **создания сервера**, указав следующую информацию. 
 
-    ![Создание базы данных — сервер](./media//sql-database-design-first-database/create-database-server.png)
+   | Настройка       | Рекомендуемое значение | Описание | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Server name** (Имя сервера) | Любое глобально уникальное имя | Допустимые имена серверов см. в статье о [правилах и ограничениях именования](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+   | **Имя для входа администратора сервера** | Любое допустимое имя | Допустимые имена входа см. в статье об [идентификаторах базы данных](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
+   | **Пароль** | Любой допустимый пароль | Длина пароля должна составлять минимум 8 символов. Пароль должен содержать символы трех категорий из перечисленных: прописные буквы, строчные буквы, цифры и специальные символы. |
+   | **Расположение** | Любое допустимое расположение | Дополнительные сведения о регионах Azure см. [здесь](https://azure.microsoft.com/regions/). |
+
+   ![Создание базы данных — сервер](./media//sql-database-design-first-database/create-database-server.png)
+
 5. Нажмите кнопку **Выбрать**.
 
 6. Щелкните **Ценовая категория**, чтобы указать уровень производительности и уровень служб для новой базы данных. Для этого руководства выберите значения **20 DTU** и **250** ГБ хранилища.
 
-    ![Создание базы данных — s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+   ![Создание базы данных — s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
 7. Нажмите кнопку **Применить**.  
 
-8. Нажмите кнопку **Создать**, чтобы подготовить базу данных. Подготовка занимает около полутора минут. 
+8. Укажите **параметры сортировки** для пустой базы данных. В этом руководстве используйте значение по умолчанию. Дополнительные сведения о параметрах сортировки см. в [этой статье](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
-9. На панели инструментов щелкните **Уведомления**, чтобы отслеживать процесс развертывания.
+9. Нажмите кнопку **Создать**, чтобы подготовить базу данных. Подготовка занимает около полутора минут. 
 
-    ![уведомление](./media/sql-database-get-started-portal/notification.png)
+10. На панели инструментов щелкните **Уведомления**, чтобы отслеживать процесс развертывания.
 
+   ![уведомление](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule"></a>создадим правило брандмауэра на уровне сервера;
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Создание правила брандмауэра на уровне сервера с помощью портала Azure
 
-Базы данных SQL Azure защищены брандмауэром. По умолчанию все подключения к серверу и базам данных на сервере отклоняются. Выполните приведенные ниже действия, чтобы создать для сервера [правило брандмауэра уровня сервера базы данных SQL](sql-database-firewall-configure.md), разрешающее подключения с IP-адреса клиента. 
+Служба базы данных SQL создает брандмауэр уровня сервера, который не позволяет внешним приложениям и средствам подключаться к серверу или любой базе данных на сервере, если не создано правило брандмауэра, открывающее брандмауэр для определенных IP-адресов. Выполните следующие действия, чтобы создать [правило брандмауэра уровня сервера базы данных SQL](sql-database-firewall-configure.md) для IP-адреса вашего клиента и разрешить внешнее подключение через брандмауэр базы данных SQL только с вашего IP-адреса. 
 
-1. По завершении развертывания щелкните раздел **Базы данных SQL** в меню слева и выберите новую базу данных **mySampleDatabase** на странице **баз данных SQL**. После этого откроется страница обзора базы данных, где будет указано полное имя сервера (например, **mynewserver-20170313.database.windows.net**) и предоставлены параметры для дальнейшей настройки.
+> [!NOTE]
+> База данных SQL обменивается данными через порт 1433. Если вы пытаетесь подключиться из корпоративной сети, исходящий трафик через порт 1433 может быть запрещен сетевым брандмауэром. В таком случае вы не сможете подключиться к серверу базы данных SQL Azure, пока ваш ИТ-отдел не откроет порт 1433.
+>
 
-      ![правило брандмауэра для сервера](./media/sql-database-design-first-database/server-firewall-rule.png) 
+1. По завершении развертывания щелкните раздел **Базы данных SQL** в меню слева и выберите **mySampleDatabase** на странице **баз данных SQL**. Откроется страница с общими сведениями о базе данных, где будет указано полное имя сервера (например, **mynewserver20170313.database.windows.net**) и предоставлены параметры для дальнейшей настройки. Скопируйте полное имя сервера для использования в дальнейшем.
+
+   > [!IMPORTANT]
+   > Полное имя сервера понадобится вам при работе с последующими руководствами для подключения к серверу и к базам данных.
+   > 
+
+   ![Имя сервера](./media/sql-database-get-started-portal/server-name.png) 
 
 2. Щелкните **Настройка брандмауэра для сервера** на панели инструментов, как показано на предыдущем рисунке. Откроется страница **параметров брандмауэра** для сервера базы данных SQL. 
 
-3. Нажмите кнопку **Добавить IP-адрес клиента** на панели инструментов, а затем щелкните **Сохранить**. Для текущего IP-адреса будет создано правило брандмауэра уровня сервера.
+   ![правило брандмауэра для сервера](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-      ![Настройка правила брандмауэра для сервера](./media/sql-database-design-first-database/server-firewall-rule-set.png) 
 
-4. Нажмите кнопку **ОК**, а затем щелкните **X**, чтобы закрыть страницу **Параметры брандмауэра**.
+3. На панели инструментов щелкните **Добавить IP-адрес клиента**, чтобы добавить текущий IP-адрес в новое правило брандмауэра. С использованием правила брандмауэра можно открыть порт 1433 для одного IP-адреса или диапазона IP-адресов.
 
-Теперь можно подключиться к базе данных и ее серверу с помощью SQL Server Management Studio или другого средства по своему усмотрению.
+4. Щелкните **Сохранить**. Для текущего IP-адреса будет создано правило брандмауэра уровня сервера, с помощью которого можно открыть порт 1433 логического сервера.
 
-> [!NOTE]
-> База данных SQL обменивается данными через порт 1433. Если вы пытаетесь подключиться из корпоративной сети, исходящий трафик через порт 1433 может быть запрещен сетевым брандмауэром. В таком случае вы не сможете подключиться к серверу базы данных SQL Azure. Для этого ваш ИТ-отдел должен открыть порт 1433.
->
+   ![Настройка правила брандмауэра для сервера](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
-## <a name="get-connection-information"></a>Получение сведений о подключении
+4. Нажмите кнопку **ОК**, а затем закройте страницу **Параметры брандмауэра**.
+
+Теперь можно подключиться с этого IP-адреса к серверу базы данных SQL и его базам данных с помощью SQL Server Management Studio или другого средства по своему усмотрению, используя учетную запись администратора сервера, созданную ранее.
+
+> [!IMPORTANT]
+> По умолчанию доступ через брандмауэр базы данных SQL включен для всех служб Azure. На этой странице щелкните **Откл.**, чтобы отключить доступ для всех служб Azure.
+
+## <a name="get-connection-information-in-the-azure-portal"></a>Получение сведений о подключении на портале Azure
 
 Получите полное имя сервера для сервера базы данных SQL Azure на портале Azure. Используйте полное имя сервера, чтобы подключиться к серверу с помощью SQL Server Management Studio.
 
@@ -110,25 +138,27 @@ ms.lasthandoff: 05/09/2017
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
 3. На странице портала Azure вашей базы данных в области **Основные компоненты** найдите и скопируйте **имя сервера**.
 
-    ![Сведения о подключении](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![Сведения о подключении](./media/sql-database-get-started-portal/server-name.png)
 
-## <a name="connect-to-your-database-using-sql-server-management-studio"></a>Подключение к базе данных с помощью SQL Server Management Studio
+## <a name="connect-to-the-database-with-ssms"></a>Подключение к базе данных с помощью SQL Server Management Studio.
 
 Используйте [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) для подключения к серверу базы данных SQL Azure.
 
 1. Откройте среду SQL Server Management Studio.
 
 2. В диалоговом окне **Подключение к серверу** введите следующие значения.
-   - **Тип сервера** — укажите ядро СУБД.
-   - **Имя сервера** — введите полное имя сервера, например **mynewserver20170313.database.windows.net**.
-   - **Проверка подлинности** — укажите проверку подлинности SQL Server.
-   - **Имя входа** — введите учетную запись администратора сервера.
-   - **Пароль** — введите пароль учетной записи администратора сервера.
 
+   | Настройка       | Рекомендуемое значение | Описание | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Тип сервера | Ядро СУБД | Это обязательное значение |
+   | имя сервера; | Полное имя сервера | Имя должно быть примерно таким: **mynewserver20170313.database.windows.net**. |
+   | Аутентификация | проверка подлинности SQL Server | В рамках работы с этим руководством мы настроили только один тип проверки подлинности — проверку подлинности SQL. |
+   | Вход | Учетная запись администратора сервера | Это учетная запись, указанная при создании сервера. |
+   | Пароль | Пароль учетной записи администратора сервера | Это пароль, указанный при создании сервера. |
 
-   <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
+   ![Подключение к серверу](./media/sql-database-connect-query-ssms/connect.png)
 
-3. В диалоговом окне **Подключение к серверу** щелкните **Параметры**. В разделе **Подключение к базе данных** введите **mySampleDatabase**, чтобы подключиться к этой базе данных.
+3. Щелкните **Параметры** в диалоговом окне **Подключение к серверу**. В разделе **Подключение к базе данных** введите **mySampleDatabase**, чтобы подключиться к этой базе данных.
 
    ![Подключение к базе данных на сервере](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -138,7 +168,7 @@ ms.lasthandoff: 05/09/2017
 
    ![Объекты базы данных](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="create-tables-in-the-database"></a>Создание таблиц в базе данных 
+## <a name="create-tables-in-the-database-with-ssms"></a>Создание таблиц в базе данных с помощью SSMS 
 
 Создайте схему базы данных с четырьмя таблицами, моделирующими систему управления студентами для университетов, с помощью [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
@@ -161,55 +191,55 @@ ms.lasthandoff: 05/09/2017
    ```sql 
    -- Create Person table
 
-    CREATE TABLE Person
-    (
-      PersonId      INT IDENTITY PRIMARY KEY,
-      FirstName     NVARCHAR(128) NOT NULL,
-      MiddelInitial NVARCHAR(10),
-      LastName      NVARCHAR(128) NOT NULL,
-      DateOfBirth   DATE NOT NULL
-    )
+   CREATE TABLE Person
+   (
+   PersonId   INT IDENTITY PRIMARY KEY,
+   FirstName   NVARCHAR(128) NOT NULL,
+   MiddelInitial NVARCHAR(10),
+   LastName   NVARCHAR(128) NOT NULL,
+   DateOfBirth   DATE NOT NULL
+   )
    
    -- Create Student table
  
-    CREATE TABLE Student
-    (
-      StudentId INT IDENTITY PRIMARY KEY,
-      PersonId  INT REFERENCES Person (PersonId),
-      Email     NVARCHAR(256)
-    )
-    
+   CREATE TABLE Student
+   (
+   StudentId INT IDENTITY PRIMARY KEY,
+   PersonId  INT REFERENCES Person (PersonId),
+   Email   NVARCHAR(256)
+   )
+   
    -- Create Course table
  
-    CREATE TABLE Course
-    (
-      CourseId  INT IDENTITY PRIMARY KEY,
-      Name      NVARCHAR(50) NOT NULL,
-      Teacher   NVARCHAR(256) NOT NULL
-    ) 
+   CREATE TABLE Course
+   (
+   CourseId  INT IDENTITY PRIMARY KEY,
+   Name   NVARCHAR(50) NOT NULL,
+   Teacher   NVARCHAR(256) NOT NULL
+   ) 
 
    -- Create Credit table
  
-    CREATE TABLE Credit
-    (
-      StudentId   INT REFERENCES Student (StudentId),
-      CourseId    INT REFERENCES Course (CourseId),
-      Grade       DECIMAL(5,2) CHECK (Grade <= 100.00),
-      Attempt     TINYINT,
-      CONSTRAINT  [UQ_studentgrades] UNIQUE CLUSTERED
-      (
-        StudentId, CourseId, Grade, Attempt
-      )
-    )
+   CREATE TABLE Credit
+   (
+   StudentId   INT REFERENCES Student (StudentId),
+   CourseId   INT REFERENCES Course (CourseId),
+   Grade   DECIMAL(5,2) CHECK (Grade <= 100.00),
+   Attempt   TINYINT,
+   CONSTRAINT  [UQ_studentgrades] UNIQUE CLUSTERED
+   (
+   StudentId, CourseId, Grade, Attempt
+   )
+   )
    ```
 
-![создание таблиц.](./media/sql-database-design-first-database/create-tables.png)
+   ![создание таблиц.](./media/sql-database-design-first-database/create-tables.png)
 
 3. В обозревателе объектов SQL Server Management Studio разверните узел tables, чтобы просмотреть созданные таблицы.
 
    ![Создание таблиц в SSMS](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="load-data-into-the-tables"></a>Загрузка данных в таблицу
+## <a name="load-data-into-the-tables-with-ssms"></a>Загрузка данных в таблицы с помощью SSMS
 
 1. В папке скачиваний создайте папку с именем **SampleTableData** для хранения примеров данных базы данных. 
 
@@ -233,7 +263,7 @@ ms.lasthandoff: 05/09/2017
 
 Итак, вы загрузили пример данных в созданные ранее таблицы.
 
-## <a name="query-the-tables"></a>Выполнение запросов к таблицам
+## <a name="query-the-tables-with-ssms"></a>Запрос таблиц с помощью SSMS
 
 Чтобы извлечь сведения из таблиц базы данных, выполните приведенные ниже запросы. Дополнительные сведения о создании запросов SQL см. в [этой статье](https://technet.microsoft.com/library/bb264565.aspx). Первый запрос объединяет четыре таблицы для поиска всех студентов, посещающих занятия у преподавателя Dominick Pope и оценки которых выше, чем у 75 % учащихся в этом классе. Второй запрос объединяет четыре таблицы и находит все курсы, на которые когда-либо записывался Noe Coleman.
 
@@ -242,16 +272,16 @@ ms.lasthandoff: 05/09/2017
    ```sql 
    -- Find the students taught by Dominick Pope who have a grade higher than 75%
 
-    SELECT  person.FirstName,
-        person.LastName,
-        course.Name,
-        credit.Grade
-    FROM  Person AS person
-        INNER JOIN Student AS student ON person.PersonId = student.PersonId
-        INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
-        INNER JOIN Course AS course ON credit.CourseId = course.courseId
-    WHERE course.Teacher = 'Dominick Pope' 
-        AND Grade > 75
+   SELECT  person.FirstName,
+   person.LastName,
+   course.Name,
+   credit.Grade
+   FROM  Person AS person
+   INNER JOIN Student AS student ON person.PersonId = student.PersonId
+   INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
+   INNER JOIN Course AS course ON credit.CourseId = course.courseId
+   WHERE course.Teacher = 'Dominick Pope' 
+   AND Grade > 75
    ```
 
 2. В окне запроса SQL Server Management Studio выполните следующий запрос:
@@ -259,18 +289,18 @@ ms.lasthandoff: 05/09/2017
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
 
-    SELECT  course.Name,
-        course.Teacher,
-        credit.Grade
-    FROM  Course AS course
-        INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
-        INNER JOIN Student AS student ON student.StudentId = credit.StudentId
-        INNER JOIN Person AS person ON person.PersonId = student.PersonId
-    WHERE person.FirstName = 'Noe'
-        AND person.LastName = 'Coleman'
+   SELECT  course.Name,
+   course.Teacher,
+   credit.Grade
+   FROM  Course AS course
+   INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
+   INNER JOIN Student AS student ON student.StudentId = credit.StudentId
+   INNER JOIN Person AS person ON person.PersonId = student.PersonId
+   WHERE person.FirstName = 'Noe'
+   AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>Восстановление базы данных до предыдущей точки во времени 
+## <a name="restore-a-database-to-a-previous-point-in-time-using-the-azure-portal"></a>Восстановление базы данных до предшествующей точки во времени с помощью портала Azure
 
 Представьте, что вы случайно удалили таблицу. Восстановить ее будет не просто. База данных SQL Azure позволяет вернуться в любой момент времени в течение последних 35 дней и восстановить данные на определенный момент времени в новой базе данных. С помощью этой базы данных можно восстановить удаленные данные. Ниже приведены действия по восстановлению базы данных до точки во времени, когда были созданы таблицы.
 
@@ -288,12 +318,10 @@ ms.lasthandoff: 05/09/2017
 
    ![Точка восстановления](./media/sql-database-design-first-database/restore-point.png)
 
-3. Чтобы [восстановить базу данных до точки во времени](sql-database-recovery-using-backups.md#point-in-time-restore) перед добавлением таблиц, нажмите кнопку **OК**. Восстановление базы данных до точки во времени создает копию базы данных на том же сервере, где расположена исходная база данных, с состоянием на момент указанной точки во времени (в пределах срока хранения, установленного для вашего [уровня обслуживания](sql-database-service-tiers.md)).
-
-
+3. Чтобы [восстановить базу данных до точки во времени](sql-database-recovery-using-backups.md#point-in-time-restore) перед добавлением таблиц, нажмите кнопку **OК**. Восстановление базы данных до другой точки во времени создает копию базы данных на том же сервере, где расположена исходная база данных, с состоянием на момент указанной точки во времени (в пределах срока хранения, установленного для вашего [уровня обслуживания](sql-database-service-tiers.md)).
 
 ## <a name="next-steps"></a>Дальнейшие действия 
-В этом руководстве вы узнали об основных задачах базы данных, таких как создание базы данных и таблицы, загрузка и запрос данных, а также восстановление базы данных на более ранний момент времени. Вы научились выполнять следующие задачи:
+Из этого руководства вы узнали об основных задачах базы данных, таких как создание базы данных и таблиц, загрузка и запрос данных, а также восстановление базы данных до предшествующей точки во времени. Вы научились выполнять следующие задачи:
 > [!div class="checklist"]
 > * Создание базы данных
 > * Настройка правила брандмауэра.

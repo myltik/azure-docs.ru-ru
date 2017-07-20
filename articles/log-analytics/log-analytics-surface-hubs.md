@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d568c52a7cbbe593658fb95203bfa98af13a1554
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: b6ecd0d09589fec85c1633f528afc1165c346b7f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Мониторинг работоспособности устройств Surface Hub с помощью Log Analytics
+
+![Символ решения Surface Hub](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
 
 В этой статье описывается использование решения Surface Hub в службе Log Analytics для мониторинга устройств Microsoft Surface Hub с помощью пакета Microsoft Operations Management Suite (OMS). Log Analytics позволяет отслеживать работоспособность устройств Surface Hub и понимать, как они используются.
 
@@ -40,28 +43,28 @@ ms.lasthandoff: 02/28/2017
 * вручную в приложении **Settings** на устройстве Surface Hub.
 
 ## <a name="set-up-monitoring"></a>Настройка мониторинга
-Работоспособность и активность устройств Surface Hub можно отслеживать с помощью Log Analytics в OMS. Surface Hub в OMS можно зарегистрировать с помощью InTune или локально с помощью приложения **Settings** на устройстве Surface Hub.
+Работоспособность и активность устройств Surface Hub можно отслеживать с помощью Log Analytics в OMS. Surface Hub в OMS можно зарегистрировать с помощью Intune или локально в **параметрах** устройства Surface Hub.
 
-## <a name="connect-surface-hubs-to-oms-through-intune"></a>Подключение устройств Surface Hub к OMS через InTune
+## <a name="connect-surface-hubs-to-oms-through-intune"></a>Подключение устройств Surface Hub к OMS через Intune
 Вам потребуется идентификатор и ключ для рабочей области OMS, которая будет управлять устройствами Surface Hub. Их можно получить на портале OMS.
 
-InTune — это продукт Microsoft, который позволяет централизованно управлять параметрами конфигурации OMS, применяемыми к одному или нескольким устройствам. Для настройки устройств через InTune выполните следующие действия.
+Intune — это продукт Microsoft, который позволяет централизованно управлять параметрами конфигурации OMS, применяемыми к одному или нескольким устройствам. Чтобы настроить устройства через Intune, выполните следующие действия:
 
-1. Войдите в InTune.
+1. Войдите в Intune.
 2. Перейдите в раздел **Settings (Параметры)** > **Connected Sources (Подключенные источники)**.
 3. Создайте или отредактируйте политику на основе шаблона Surface Hub.
 4. Перейдите к разделу OMS (оперативной аналитики Azure) политики и добавьте *идентификатор рабочей области* и *ключ рабочей области* в политику.
 5. Сохраните политику.
 6. Свяжите политику с соответствующей группой устройств.
 
-   ![Политика InTune](./media/log-analytics-surface-hubs/intune.png)
+   ![Политика Intune](./media/log-analytics-surface-hubs/intune.png)
 
-Затем InTune синхронизирует настройки OMS с устройствами в целевой группе, регистрируя их в рабочей области OMS.
+Затем Intune синхронизирует настройки OMS с устройствами в целевой группе, регистрируя их в рабочей области OMS.
 
 ## <a name="connect-surface-hubs-to-oms-using-the-settings-app"></a>Подключение устройств Surface Hub к OMS с помощью приложения Settings
 Вам потребуется идентификатор и ключ для рабочей области OMS, которая будет управлять устройствами Surface Hub. Их можно получить на портале OMS.
 
-Если для управления средой не используется InTune, вы можете зарегистрировать устройства вручную с помощью приложения **Settings** на каждом устройстве Surface Hub.
+Если для управления средой не используется Intune, вы можете зарегистрировать устройства вручную в **параметрах** каждого устройства Surface Hub:
 
 1. На устройстве Surface Hub откройте приложение **Settings**.
 2. Введите учетные данные администратора устройства при появлении запроса.

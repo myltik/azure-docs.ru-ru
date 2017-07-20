@@ -13,12 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 590d8e7c90381c455e0145a9016bd888ab0dda2c
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: b01a03fa362f8a9677e625945a2864c77d49f1bb
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 02/03/2017
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 Из этого учебника вы узнаете, как создать свою первую фабрику данных Azure, используя конвейер данных. Конвейер преобразует входные данные, запуская сценарий Hive в кластере Azure HDInsight (Hadoop) для создания выходных данных.  
 
@@ -94,7 +95,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 Портал Azure и Visual Studio позволяют создавать фабрики данных с помощью графического пользовательского интерфейса. PowerShell, шаблон Resource Manager и интерфейс REST API, в свою очередь, дают возможность сделать это с помощью средств создания сценариев и программирования.
 
@@ -108,3 +109,4 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 
   
+

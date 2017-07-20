@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 06/04/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 2cb8c9b50f3067561c63be194151d6128cd45299
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 624b6c8f317477d83539392c6c2f15c2dc69d401
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/05/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.lasthandoff: 03/29/2017
 
 Также для создания конвейера можно использовать следующие инструменты: **портал Azure**, **Visual Studio**, **Azure PowerShell**, **шаблон Azure Resource Manager**, **API .NET** и **REST API**. Пошаговые инструкции по созданию конвейера с действием копирования см. в [руководстве по действию копирования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
-Независимо от того, используются инструменты или интерфейсы API, для создания конвейера, который перемещает данные из источника данных в приемник, выполняются следующие шаги. 
+Независимо от используемого средства или API-интерфейса, для создания конвейера, который перемещает данные из источника данных в приемник, выполняются следующие шаги: 
 
 1. Создайте **связанные службы**, чтобы связать входные и выходные данные с фабрикой данных.
 2. Создайте **наборы данных**, которые представляют входные и выходные данные для операции копирования. 
@@ -153,6 +154,35 @@ ms.lasthandoff: 03/29/2017
 | Свойство | Описание | Пример | Обязательно |
 | --- | --- | --- | --- |
 | query |Используйте пользовательский запрос для чтения данных. |"?$select=Name, Description&$top=5" |Нет |
+
+## <a name="type-mapping-for-odata"></a>Сопоставление типов для OData
+Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа:
+
+1. Преобразование собственных типов источников в тип .NET.
+2. Преобразование типа .NET в собственный тип приемника.
+
+При перемещении данных из OData Business Warehouse для преобразования типов OData Business Warehouse в типы .NET используются следующие сопоставления.
+
+| Тип данных OData | Тип .NET |
+| --- | --- |
+| Edm.Binary |Byte[] |
+| Edm.Boolean |Bool |
+| Edm.Byte |Byte[] |
+| Edm.DateTime |DateTime |
+| Edm.Decimal |Decimal |
+| Edm.Double |Double |
+| Edm.Single |Single |
+| Edm.Guid |Guid |
+| Edm.Int16 |Int16 |
+| Edm.Int32 |Int32 |
+| Edm.Int64 |Int64 |
+| Edm.SByte |Int16 |
+| Edm.String |Строка |
+| Edm.Time |Интервал времени |
+| Edm.DateTimeOffset |Datetimeoffset |
+
+> [!Note]
+> Сложные типы данных OData, например объекты, не поддерживаются.
 
 ## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>Пример JSON. Копирование данных из источника OData в большой двоичный объект Azure
 Ниже приведен пример с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Вы узнаете, как копировать данные из источника OData в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемников. Это делается с помощью действия копирования в фабрике данных Azure. Пример содержит следующие сущности фабрики данных.
@@ -351,7 +381,7 @@ ms.lasthandoff: 03/29/2017
 При перемещении данных из хранилищ данных OData типы данных OData сопоставляются с типами .NET.
 
 ## <a name="map-source-to-sink-columns"></a>Сопоставление столбцов источника и приемника
-Дополнительные сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в разделе [Сопоставление столбцов исходного набора данных со столбцами целевого набора данных](data-factory-map-columns.md).
+Дополнительные сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в [этой статье](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Повторяющиеся операции чтения из реляционных источников
 При копировании данных из реляционных хранилищ важно помнить о повторяемости, чтобы избежать непредвиденных результатов. В фабрике данных Azure можно вручную повторно выполнить срез. Вы можете также настроить для набора данных политику повтора, чтобы при сбое срез выполнялся повторно. При повторном выполнении среза в любом случае необходимо убедиться в том, что считываются те же данные, независимо от того, сколько раз выполняется срез. Ознакомьтесь с разделом [Повторяющиеся операции чтения из реляционных источников](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).

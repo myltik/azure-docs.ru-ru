@@ -12,11 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 4ab1f83e88b262b1752300b2786340d9abca8154
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -26,7 +28,7 @@ ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
 ## <a name="cloud-service-project-to-service-fabric-application-project"></a>Перенос из проекта облачной службы в проект приложения Service Fabric
  Проект облачной службы и проект приложения Service Fabric имеют сходную структуру и оба являются единицами развертывания приложения. Иными словами, каждый из этих проектов задает полноценный пакет компонентов, которые развертываются для запуска приложения. Проект облачной службы содержит веб-роли или рабочие роли (одну или несколько). Подобным образом содержит несколько служб и проект приложения Service Fabric. 
 
-Различие между ними в том, что проект облачной службы совмещает развертывание приложения с развертыванием виртуальных машин, тогда как проект приложения Service Fabric только задает приложение, которое предстоит развернуть на нескольких существующих виртуальных машинах в кластере Service Fabric. Сам же кластер Service Fabric развертывается только один раз — на основании шаблона ARM или с помощью портала Azure, — и в нем можно развернуть несколько приложений Service Fabric.
+Различие между ними в том, что проект облачной службы совмещает развертывание приложения с развертыванием виртуальных машин, тогда как проект приложения Service Fabric только задает приложение, которое предстоит развернуть на нескольких существующих виртуальных машинах в кластере Service Fabric. Сам же кластер Service Fabric развертывается только один раз — на основании шаблона Resource Manager или с помощью портала Azure, — и в нем можно развернуть несколько приложений Service Fabric.
 
 ![Сравнение проекта облачных служб и проекта Service Fabric][3]
 
@@ -260,9 +262,4 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

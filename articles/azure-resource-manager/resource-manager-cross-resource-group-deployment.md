@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2017
+ms.date: 06/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 1436b39fdb9a66a00903442496cc5203b47c1bcb
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -90,7 +90,7 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="deploy-the-template"></a>Развертывание шаблона
 
-Пример шаблона можно развернуть с помощью Azure PowerShell или Azure CLI. Используйте выпуски этих средств, начиная с мая 2017 года. Для работы с этими примерами шаблон необходимо сохранить локально как файл **crossrgdeployment.json**.
+Пример шаблона можно развернуть с помощью портала, Azure PowerShell или Azure CLI. Используйте выпуски этих средств начиная с мая 2017 года. Для работы с этими примерами шаблон необходимо сохранить локально как файл **crossrgdeployment.json**.
 
 При использовании PowerShell выполните следующее:
 
@@ -117,6 +117,42 @@ az group deployment create \
 ```
 
 После завершения развертывания вы увидите две группы ресурсов, в каждой из которых содержится учетная запись хранения.
+
+## <a name="use-resourcegroup-function"></a>Использование функции resourceGroup()
+
+Для развертывания в нескольких группах ресурсов результат выполнения [функции resouceGroup()](resource-group-template-functions-resource.md#resourcegroup) зависит от способа указания вложенного шаблона. 
+
+При внедрении одного шаблона в другой функция resouceGroup() во вложенном шаблоне разрешается в родительской группе ресурсов. Внедренный шаблон использует следующий формат:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "embeddedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "template": {
+        ...
+        resourceGroup() refers to parent resource group
+    }
+}
+```
+
+При связывании отдельного шаблона функция resouceGroup() связывает разрешения шаблона с вложенной группой ресурсов. Связанный шаблон использует следующий формат:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "linkedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "templateLink": {
+        ...
+        resourceGroup() in linked template refers to linked resource group
+    }
+}
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

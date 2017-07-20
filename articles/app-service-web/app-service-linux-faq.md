@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dcce8d855f8c37d40fe8f09ef0a97e46b342e3cf
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 3fb0f6b26f36ef4044c9733ace05c4f59909ddda
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -62,6 +62,10 @@ ms.lasthandoff: 05/10/2017
 
 **Ответ.** Да.
 
+**Вопрос.** Можно ли развернуть веб-приложение с помощью **веб-развертывания**?
+
+**Ответ.** Да. Для параметра `UseWebDeployScm` приложения необходимо задать значение `false`.
+
 ## <a name="language-support"></a>Поддержка языков
 
 **В.** Поддерживаются ли некомпилированные приложения .NET Core?
@@ -70,7 +74,7 @@ ms.lasthandoff: 05/10/2017
 
 **Вопрос.** Поддерживает ли Composer диспетчер зависимостей для приложений PHP?
 
-**Ответ.** Нет. Потребуется развертывать приложения PHP со всеми зависимостями. Мы планируем реализовать возможность полного развертывания в будущем выпуске.
+**Ответ.** Да. Во время развертывания Git Kudu определяет развертывание приложения PHP (благодаря файлу composer.json) и активирует установку Composer.
 
 ## <a name="custom-containers"></a>Пользовательские контейнеры
 

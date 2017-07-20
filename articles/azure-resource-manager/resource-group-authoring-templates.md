@@ -12,20 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/14/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: c0c4ea4eba742e4abe3da9e92508665ec1d91490
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: dc9b64062d7f68c83aa090eec96744819a5ca423
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Описание структуры и синтаксиса шаблонов Azure Resource Manager
 В этой статье описана структура шаблона Azure Resource Manager. Статья содержит информацию о разных разделах шаблона и свойствах, которые доступны в этих разделах. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания. Пошаговое руководство по созданию шаблона приведено в разделе [Создание первого шаблона Azure Resource Manager](resource-manager-create-first-template.md).
-
-Задайте максимальный размер шаблона, равный 1 МБ, а максимальный размер каждого файла параметров — 64 КБ. Ограничение в 1 МБ применяется к конечному состоянию шаблона после расширения с использованием итеративных определений ресурсов, а также значений переменных и параметров. 
 
 ## <a name="template-format"></a>Формат шаблона
 Шаблон с самой простой структурой содержит следующие элементы:
@@ -78,19 +76,34 @@ ms.lasthandoff: 05/11/2017
     },
     "resources": [
       {
+          "condition": "<boolean-value-whether-to-deploy>",
           "apiVersion": "<api-version-of-resource>",
           "type": "<resource-provider-namespace/resource-type-name>",
           "name": "<name-of-the-resource>",
           "location": "<location-of-resource>",
-          "tags": "<name-value-pairs-for-resource-tagging>",
+          "tags": {
+              "<tag-name1>": "<tag-value1>",
+              "<tag-name2>": "<tag-value2>"
+          },
           "comments": "<your-reference-notes>",
+          "copy": {
+              "name": "<name-of-copy-loop>",
+              "count": "<number-of-iterations>",
+              "mode": "<serial-or-parallel>",
+              "batchSize": "<number-to-deploy-serially>"
+          },
           "dependsOn": [
               "<array-of-related-resource-names>"
           ],
-          "properties": "<settings-for-the-resource>",
-          "copy": {
-              "name": "<name-of-copy-loop>",
-              "count": "<number-of-iterations>"
+          "properties": {
+              "<settings-for-the-resource>",
+              "copy": [
+                  {
+                      "name": ,
+                      "count": ,
+                      "input": {}
+                  }
+              ]
           },
           "resources": [
               "<array-of-child-resources>"
@@ -171,7 +184,7 @@ ms.lasthandoff: 05/11/2017
 
 Чтобы указать параметр как необязательный, задайте defaultValue (это может быть пустая строка). 
 
-Если указать в шаблоне имя параметра, которое совпадает с параметром в команде развертывания шаблона, то возникнет потенциальная неоднозначность заданных значений. Resource Manager устраняет эту путаницу, добавляя постфикс **FromTemplate** к параметру шаблона. Предположим, вы добавили в шаблон параметр **ResourceGroupName**, и он конфликтует с параметром **ResourceGroupName** в командлете [New-AzureRmResourceGroupDeployment][deployment2cmdlet]. При развертывании вам будет предложено указать значение для параметра **ResourceGroupNameFromTemplate**. В общем случае следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
+Если указать в шаблоне имя параметра, которое совпадает с параметром в команде развертывания шаблона, то возникнет потенциальная неоднозначность заданных значений. Resource Manager устраняет эту путаницу, добавляя постфикс **FromTemplate** к параметру шаблона. Предположим, вы добавили в шаблон параметр **ResourceGroupName**, и он конфликтует с параметром **ResourceGroupName** в командлете [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). При развертывании вам будет предложено указать значение для параметра **ResourceGroupNameFromTemplate**. В общем случае следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
 
 > [!NOTE]
 > Все пароли, ключи и другие секреты данные должны использовать тип **secureString** . При передаче конфиденциальных данных в объекте JSON используйте тип **secureObject**. Параметры шаблона с типами secureString и secureObject невозможно прочитать после развертывания ресурса. 
@@ -280,6 +293,7 @@ ms.lasthandoff: 05/11/2017
 ```json
 "resources": [
   {
+      "condition": "<boolean-value-whether-to-deploy>",
       "apiVersion": "<api-version-of-resource>",
       "type": "<resource-provider-namespace/resource-type-name>",
       "name": "<name-of-the-resource>",
@@ -289,13 +303,24 @@ ms.lasthandoff: 05/11/2017
           "<tag-name2>": "<tag-value2>"
       },
       "comments": "<your-reference-notes>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": "<number-of-iterations>",
+          "mode": "<serial-or-parallel>",
+          "batchSize": "<number-to-deploy-serially>"
+      },
       "dependsOn": [
           "<array-of-related-resource-names>"
       ],
-      "properties": "<settings-for-the-resource>",
-      "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>"
+      "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+              {
+                  "name": ,
+                  "count": ,
+                  "input": {}
+              }
+          ]
       },
       "resources": [
           "<array-of-child-resources>"
@@ -306,15 +331,16 @@ ms.lasthandoff: 05/11/2017
 
 | Имя элемента | Обязательно | Описание |
 |:--- |:--- |:--- |
+| condition | Нет | Логическое значение, указывающее, развернут ли ресурс. |
 | версия_API |Да |Версия REST API, которая будет использована для создания ресурса. |
 | type |Да |Тип ресурса. Это значение представляет собой сочетание пространства имен поставщика ресурсов и типа ресурса (например, **Microsoft.Storage/storageAccounts**). |
 | name |Да |Имя ресурса. Имя должно соответствовать ограничениям компонентов URI, определенным в RFC3986. Кроме того, службы Azure, которые предоставляют имя ресурса внешним пользователям, проверяют это имя, чтобы убедиться, что это не попытка подделки другого удостоверения. |
 | location |Varies |Поддерживаемые географические расположения указанного ресурса. Вы можете выбрать любое из доступных расположений. Но обычно имеет смысл выбрать расположение, которое находится недалеко от пользователей. Кроме того, целесообразно разместить взаимодействующие ресурсы в одном регионе. Большинству типов ресурсов нужно расположение, но некоторым типам (например, назначению роли) оно не требуется. Ознакомьтесь с разделом [Определение расположения ресурса в шаблонах Azure Resource Manager](resource-manager-template-location.md). |
 | tags |Нет |Теги, связанные с ресурсом. Ознакомьтесь с разделом [Присвоение тегов ресурсам в шаблоне Azure Resource Manager](resource-manager-template-tags.md). |
 | комментарии |Нет |Заметки по ресурсам в шаблоне |
+| копирование |Нет |Количество создаваемых ресурсов (если нужно несколько экземпляров). Параллельный режим используется по умолчанию. Используйте последовательный режим, если вы не хотите развертывать все ресурсы одновременно. Дополнительные сведения см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md). |
 | Свойство dependsOn |Нет |Ресурсы, которые должны быть развернуты перед развертыванием этого ресурса. Resource Manager оценивает зависимости между ресурсами и развертывает эти ресурсы в правильном порядке. Если ресурсы не зависят друг от друга, они развертываются параллельно. Значение может представлять собой разделенный запятыми список имен ресурсов или уникальных идентификаторов ресурсов. Выводится только список ресурсов, развертываемых в этом шаблоне. Ресурсы, которые не определены в этом шаблоне, уже должны существовать. Избегайте добавления ненужных зависимостей, так как это может замедлить развертывание и привести к созданию циклических зависимостей. Рекомендации по настройке зависимостей см. в статье [Определение зависимостей в шаблонах диспетчера ресурсов Azure](resource-group-define-dependencies.md). |
-| properties |Нет |Параметры конфигурации ресурса. Значения свойств совпадают со значениями, указываемыми в тексте запроса для операции REST API (метод PUT) для создания ресурса. |
-| копирование |Нет |Количество создаваемых ресурсов (если нужно несколько экземпляров). Дополнительные сведения см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md). |
+| properties |Нет |Параметры конфигурации ресурса. Значения свойств совпадают со значениями, указываемыми в тексте запроса для операции REST API (метод PUT) для создания ресурса. Кроме того, можно указать массив copy для создания нескольких экземпляров свойства. Дополнительные сведения см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md). |
 | ресурсов |Нет |Дочерние ресурсы, которые зависят от определяемого ресурса. Следует указать только те типы ресурсов, которые разрешены в схеме родительского ресурса. Полное имя типа дочернего ресурса содержит тип родительского ресурса, например **Microsoft.Web/sites/extensions**. Зависимость от родительского ресурса не подразумевается. Ее необходимо определить явным образом. |
 
 Раздел ресурсов содержит набор ресурсов для развертывания. Внутри каждого ресурса можно также определить набор дочерних ресурсов. Таким образом раздел ресурсов может иметь примерно следующую структуру:
@@ -343,7 +369,71 @@ ms.lasthandoff: 05/11/2017
 
 Дополнительные сведения об определении дочерних ресурсов см. в разделе [Указание имени и типа дочернего ресурса в шаблоне Resource Manager](resource-manager-template-child-resource.md).
 
-## <a name="outputs"></a>outputs
+Элемент **condition** определяет, развернут ли ресурс. Этот элемент возвращает значение True или False. Используйте следующую команду, чтобы указать, развернута ли новая учетная запись хранения :
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+Пример использования нового или имеющегося шаблона условий см. [здесь](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+
+Чтобы указать, что использовалось для развертывания виртуальной машины (пароль или ключ SSH), определите две версии виртуальной машины в шаблоне и используйте свойство **condition** для разделения случаев использования. Передайте параметр, указывающий сценарий для развертывания.
+
+```json
+{
+    "condition": "[equals(parameters('passwordOrSshKey'),'password')]",
+    "apiVersion": "2016-03-30",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[concat(variables('vmName'),'password')]",
+    "properties": {
+        "osProfile": {
+            "computerName": "[variables('vmName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+        },
+        ...
+    },
+    ...
+},
+{
+    "condition": "[equals(parameters('passwordOrSshKey'),'sshKey')]",
+    "apiVersion": "2016-03-30",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[concat(variables('vmName'),'ssh')]",
+    "properties": {
+        "osProfile": {
+            "linuxConfiguration": {
+                "disablePasswordAuthentication": "true",
+                "ssh": {
+                    "publicKeys": [
+                        {
+                            "path": "[variables('sshKeyPath')]",
+                            "keyData": "[parameters('adminSshKey')]"
+                        }
+                    ]
+                }
+            }
+        },
+        ...
+    },
+    ...
+}
+``` 
+
+Пример использования пароля или ключа SSH для развертывания виртуальной машины см. в [шаблоне имени пользователя или условия SSH](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+
+## <a name="outputs"></a>Выходные данные
 В разделе выходных данных следует указать значения, которые возвращаются после развертывания. Например, можно возвращать URI для доступа к развернутому ресурсу.
 
 В следующем примере показана структура определения выходных данных:
@@ -376,11 +466,23 @@ ms.lasthandoff: 05/11/2017
 
 Дополнительные сведения о работе с выходными данными см. в статье [Совместное использование состояния в шаблонах Resource Manager](best-practices-resource-manager-state.md).
 
+## <a name="template-limits"></a>Ограничения шаблонов
+
+Задайте максимальный размер шаблона, равный 1 МБ, а максимальный размер каждого файла параметров — 64 КБ. Ограничение в 1 МБ применяется к конечному состоянию шаблона после расширения с использованием итеративных определений ресурсов, а также значений переменных и параметров. 
+
+Кроме того, ограничение распространяется на:
+
+* 256 параметров;
+* 256 переменных;
+* 800 ресурсов (включая число копий);
+* 64 выходных значения;
+* 24 576 знаков в выражении шаблона.
+
+Некоторые ограничения можно превысить, используя вложенные шаблоны. Дополнительные сведения см. разделе [Использование связанных шаблонов в при развертывании ресурсов Azure](resource-group-linked-templates.md). Чтобы уменьшить число параметров, переменных или выходных данных, можно объединить несколько значений в объект. См. дополнительные сведения об [использовании объектов как параметров](resource-manager-objects-as-parameters.md).
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * Полные шаблоны для различных типов решений доступны на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/).
 * Дополнительные сведения о функциях, которые можно использовать в шаблонах, см. в статье [Функции шаблонов Azure Resource Manager](resource-group-template-functions.md).
 * Инструкции по объединению нескольких шаблонов при развертывании см. в статье [Использование связанных шаблонов в Azure Resource Manager](resource-group-linked-templates.md).
 * Может потребоваться использовать ресурсы, которые существуют в другой группе ресурсов. Это распространенная ситуация при работе с учетными записями хранения или виртуальными сетями, которые совместно используются в нескольких группах ресурсов. Дополнительные сведения см. в описании [функции resourceId](resource-group-template-functions-resource.md#resourceid).
-
-[deployment2cmdlet]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/new-azurermresourcegroupdeployment
 

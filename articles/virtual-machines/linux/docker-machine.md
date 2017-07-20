@@ -3,7 +3,7 @@ title: "Создание узлов Linux в Azure с помощью Docker Mach
 description: "Описывается использование машины Docker для создания узлов Docker в Azure."
 services: virtual-machines-linux
 documentationcenter: 
-author: squillace
+author: iainfoulds
 manager: timlt
 editor: tysonn
 ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
@@ -12,52 +12,57 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/22/2016
-ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: b303510970aca957a4da5f2ed51a9125302d419a
-ms.lasthandoff: 04/03/2017
+ms.date: 06/19/2017
+ms.author: iainfou
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: a69951ed60edab8ae20374ab3869b468979c4907
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="use-docker-machine-with-the-azure-driver"></a>Использование машины Docker с драйвером Azure
-[Docker](https://www.docker.com/) позволяет использовать виртуализацию на основе контейнеров Linux, а не виртуальных машин. Это дает возможность изолировать данные и вычисления приложений, использующие общий ресурс. В этом разделе описывается, как и когда использовать [Docker Machine](https://docs.docker.com/machine/) . Команда `docker-machine` создает виртуальную машину Linux в Azure, используемую в качестве узла Docker для контейнеров Linux.
+# <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Создание узлов в Azure с помощью компьютера Docker | Документация Майкрософт
+В этой статье представлены сведения о том, как создать узел в Azure с использованием [компьютера Docker](https://docs.docker.com/machine/). Команда `docker-machine` создает виртуальную машину Linux в Azure, после чего устанавливает Docker. Затем можно управлять узлами Docker в Azure с помощью аналогичных локальных средств и рабочих процессов.
 
 ## <a name="create-vms-with-docker-machine"></a>Создание виртуальных машин с помощью машины Docker
-Создайте виртуальные машины в Azure в качестве узла Docker с помощью команды `docker-machine create`, используя аргумент драйвера `azure` для параметра драйвера (`-d`), а также другие аргументы. 
+Сначала получите идентификатор подписки Azure с помощью команды [az account show](/cli/azure/account#show) следующим образом:
 
-В приведенном ниже примере используются значения по умолчанию, но в нем не открывается порт 80 на виртуальной машине для доступа к Интернету с целью проведения проверки с помощью контейнера nginx, `ops` устанавливается пользователем входа для SSH и вызывается `machine` новой виртуальной машины. 
+```azurecli
+sub=$(az account show --query "id" -o tsv)
+```
 
-Чтобы просмотреть параметры и их значения по умолчанию, введите `docker-machine create --driver azure`. Также можно ознакомиться с [документацией по драйверу Docker Azure](https://docs.docker.com/machine/drivers/azure/). (Имейте в виду, что если включена двухфакторная аутентификация, вам будет необходимо пройти аутентификацию с использованием второго фактора.)
+Создайте виртуальные машины узла Docker в Azure с помощью команды `docker-machine create`, используя драйвер *azure*. Кроме того, можно ознакомиться с [документацией по драйверу Docker Azure](https://docs.docker.com/machine/drivers/azure/).
+
+В следующем примере создается виртуальная машина с именем *myVM*, учетная запись пользователя с именем *azureuser* и открывается порт *80* на узле виртуальной машины. Выполните вход в учетную запись Azure и предоставьте компьютеру Docker разрешения на создание и управление ресурсами.
 
 ```bash
 docker-machine create -d azure \
-  --azure-ssh-user ops \
-  --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> \
-  --azure-open-port 80 \
-  machine
+    --azure-subscription-id $sub \
+    --azure-ssh-user azureuser \
+    --azure-open-port 80 \
+    myvm
 ```
 
-Результаты должны выглядеть примерно так, как показано ниже, в зависимости от того, настроена ли в вашей учетной записи двухфакторная аутентификация.
+Результат должен быть аналогичным приведенному ниже:
 
 ```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
 Creating client certificate: /Users/user/.docker/machine/certs/cert.pem
 Running pre-create checks...
-(machine) Microsoft Azure: To sign in, use a web browser to open the page https://aka.ms/devicelogin. Enter the code <code> to authenticate.
-(machine) Completed machine pre-create checks.
+(myvmdocker) Completed machine pre-create checks.
 Creating machine...
-(machine) Querying existing resource group.  name="machine"
-(machine) Creating resource group.  name="machine" location="eastus"
-(machine) Configuring availability set.  name="docker-machine"
-(machine) Configuring network security group.  name="machine-firewall" location="eastus"
-(machine) Querying if virtual network already exists.  name="docker-machine-vnet" location="eastus"
-(machine) Configuring subnet.  name="docker-machine" vnet="docker-machine-vnet" cidr="192.168.0.0/16"
-(machine) Creating public IP address.  name="machine-ip" static=false
-(machine) Creating network interface.  name="machine-nic"
-(machine) Creating storage account.  name="vhdsolksdjalkjlmgyg6" location="eastus"
-(machine) Creating virtual machine.  name="machine" location="eastus" size="Standard_A2" username="ops" osImage="canonical:UbuntuServer:15.10:latest"
+(myvmdocker) Querying existing resource group.  name="docker-machine"
+(myvmdocker) Creating resource group.  name="docker-machine" location="westus"
+(myvmdocker) Configuring availability set.  name="docker-machine"
+(myvmdocker) Configuring network security group.  name="myvmdocker-firewall" location="westus"
+(myvmdocker) Querying if virtual network already exists.  rg="docker-machine" location="westus" name="docker-machine-vnet"
+(myvmdocker) Creating virtual network.  name="docker-machine-vnet" rg="docker-machine" location="westus"
+(myvmdocker) Configuring subnet.  name="docker-machine" vnet="docker-machine-vnet" cidr="192.168.0.0/16"
+(myvmdocker) Creating public IP address.  name="myvmdocker-ip" static=false
+(myvmdocker) Creating network interface.  name="myvmdocker-nic"
+(myvmdocker) Creating storage account.  sku=Standard_LRS name="vhdski0hvfazyd8mn991cg50" location="westus"
+(myvmdocker) Creating virtual machine.  location="westus" size="Standard_A2" username="azureuser" osImage="canonical:UbuntuServer:16.04.0-LTS:latest" name="myvmdocker"
 Waiting for machine to be running, this may take a few minutes...
 Detecting operating system of created instance...
 Waiting for SSH to be available...
@@ -69,65 +74,68 @@ Copying certs to the remote machine...
 Setting Docker configuration on the remote daemon...
 Checking connection to Docker...
 Docker is up and running!
-To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env machine
+To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvmdocker
 ```
 
 ## <a name="configure-your-docker-shell"></a>Настройка оболочки Docker
-Теперь введите `docker-machine env <VM name>` , чтобы узнать, что нужно сделать для настройки оболочки. 
+Чтобы подключиться к узлу Docker в Azure, задайте соответствующие параметры подключения. Как указано в конце выходных данных, просмотрите сведения о соединении узла Docker следующим образом: 
 
 ```bash
-docker-machine env machine
+docker-machine env myvmdocker
 ```
 
-Будет выведена информация о среде наподобие приведенной ниже. Обратите внимание на то, что был назначен IP-адрес, который понадобится для тестирования виртуальной машины.
+Вы должны увидеть результат, аналогичный приведенному ниже.
 
 ```bash
 export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://191.237.46.90:2376"
-export DOCKER_CERT_PATH="/Users/rasquill/.docker/machine/machines/machine"
+export DOCKER_HOST="tcp://40.68.254.142:2376"
+export DOCKER_CERT_PATH="/Users/user/.docker/machine/machines/machine"
 export DOCKER_MACHINE_NAME="machine"
 # Run this command to configure your shell:
-# eval $(docker-machine env machine)
+# eval $(docker-machine env myvmdocker)
 ```
 
-Вы можете либо выполнить предлагаемую команду настройки, либо задать переменные среды самостоятельно. 
+Для задания параметров вы можете либо выполнить предлагаемую команду настройки (`eval $(docker-machine env myvmdocker)`), либо задать переменные среды самостоятельно. 
 
 ## <a name="run-a-container"></a>Запуск контейнера
-Теперь вы можете запустить простой веб-сервер, чтобы протестировать правильную работу всех компонентов. В этом примере мы используем стандартный образ nginx, указываем, что он должен прослушивать порт 80 и что при перезапуске виртуальной машины контейнер также должен перезапускаться (`--restart=always`). 
+Чтобы увидеть контейнер в действии, запустите основной веб-сервер NGINX. Создайте контейнер с `docker run` и настройте порт 80 для веб-трафика следующим образом:
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
 ```
 
-Результаты должны быть примерно следующими:
+Вы должны увидеть результат, аналогичный приведенному ниже.
 
 ```bash
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
-efd26ecc9548: Pull complete
-a3ed95caeb02: Pull complete
-83f52fbfa5f8: Pull complete
-fa664caa1402: Pull complete
-Digest: sha256:12127e07a75bda1022fbd4ea231f5527a1899aad4679e3940482db3b57383b1d
+ff3d52d8f55f: Pull complete
+226f4ec56ba3: Pull complete
+53d7dd52b97d: Pull complete
+Digest: sha256:41ad9967ea448d7c2b203c699b429abe1ed5af331cd92533900c6d77490e0268
 Status: Downloaded newer image for nginx:latest
-25942c35d86fe43c688d0c03ad478f14cc9c16913b0e1c2971cb32eb4d0ab721
+675e6056cb81167fe38ab98bf397164b01b998346d24e567f9eb7a7e94fba14a
+```
+
+Проверьте запущенные контейнеры с помощью `docker ps`: В следующем примере в выходных данных отображается контейнер NGINX с настроенным портом 80:
+
+```bash
+CONTAINER ID    IMAGE    COMMAND                   CREATED          STATUS          PORTS                          NAMES
+d5b78f27b335    nginx    "nginx -g 'daemon off"    5 minutes ago    Up 5 minutes    0.0.0.0:80->80/tcp, 443/tcp    festive_mirzakhani
 ```
 
 ## <a name="test-the-container"></a>Проверка контейнера
-Проверьте запущенные контейнеры с помощью `docker ps`:
+Получите общедоступный IP-адрес узла Docker следующим образом:
+
 
 ```bash
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                         NAMES
-d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
+docker-machine ip myvmdocker
 ```
 
-Чтобы узнать IP-адрес запущенного контейнера (если вы забыли адрес из команды `env`), введите `docker-machine ip <VM name>`:
+Чтобы увидеть контейнер в действии, откройте веб-браузер и введите общедоступный IP-адрес, указанный в выходных данных предыдущей команды:
 
-![Запущенный контейнер nginx](./media/docker-machine/nginxsuccess.png)
+![Запущенный контейнер nginx](./media/docker-machine/nginx.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-При желании вы можете попробовать воспользоваться [расширением виртуальных машин Docker](dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) в Azure для выполнения этой же операции с помощью интерфейса командной строки Azure или шаблонов Azure Resource Manager. 
-
-Дополнительные примеры работы с Docker см. в статье [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) (Работа с Docker), описывающей [демонстрационный проект](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные инструкции по быстрому началу работы с помощью средств разработчика Azure из демонстрационного проекта HealthClinic.biz см. [здесь](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
-
+Кроме того, можно создавать узлы с помощью [расширения виртуальной машины Docker](dockerextension.md). Примеры использования Docker Compose см. в статье [Приступая к работе с Docker и Compose для определения и запуска многоконтейнерного приложения в Azure](docker-compose-quickstart.md).
 

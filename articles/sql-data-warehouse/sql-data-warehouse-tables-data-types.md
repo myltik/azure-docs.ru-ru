@@ -1,6 +1,6 @@
 ---
-title: "Типы данных таблиц в хранилище данных SQL | Документация Майкрософт"
-description: "Начало работы с типами данных таблиц хранилища данных SQL Azure."
+title: "Руководство по типам данных. Хранилище данных SQL Azure | Документация Майкрософт"
+description: "Рекомендации для определения типов данных, совместимых с хранилищем данных SQL."
 services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
@@ -13,51 +13,49 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+ms.date: 06/02/2017
 ms.author: shigu;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7757de96601c426ff07e94cfa0c12d4dec8f06f5
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/22/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
-# <a name="data-types-for-tables-in-sql-data-warehouse"></a>Типы данных таблиц в хранилище данных SQL
-> [!div class="op_single_selector"]
-> * [Обзор][Overview]
-> * [Типы данных][Data Types]
-> * [Распределение][Distribute]
-> * [Индекс][Index]
-> * [Секция][Partition]
-> * [Статистика][Statistics]
-> * [Временные таблицы][Temporary]
-> 
-> 
+# <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Руководство по определению типов данных для таблиц в хранилище данных SQL
+Используйте эти рекомендации для определения типов данных таблиц, совместимых с хранилищем данных SQL. Кроме обеспечения совместимости, уменьшение размера типов данных повышает производительность запросов.
 
-Хранилище данных SQL поддерживает самые распространенные типы данных.  Ниже приведен список типов данных, поддерживаемых хранилищем данных SQL.  Дополнительные сведения о поддержке типов данных см. в статье об [инструкции CREATE TABLE][create table].
+Хранилище данных SQL поддерживает самые распространенные типы данных. Список поддерживаемых типов данных см. в [типах данных](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) в инструкции CREATE TABLE. 
 
-| **Поддерживаемые типы данных** |  |  |
-| --- | --- | --- |
-| [bigint][bigint] |[decimal][decimal] |[smallint][smallint] |
-| [binary][binary] |[float][float] |[smallmoney][smallmoney] |
-| [bit][bit] |[int][int] |[sysname][sysname] |
-| [char][char] |[money][money] |[time][time] |
-| [date][date] |[nchar][nchar] |[tinyint][tinyint] |
-| [datetime][datetime] |[nvarchar][nvarchar] |[uniqueidentifier][uniqueidentifier] |
-| [datetime2][datetime2] |[real][real] |[varbinary][varbinary] |
-| [datetimeoffset][datetimeoffset] |[smalldatetime][smalldatetime] |[varchar][varchar] |
 
-## <a name="data-type-best-practices"></a>Рекомендации относительно типов данных
- При определении типов столбцов рекомендуется использовать поддерживаемый тип данных с наименьшим размером. Это позволит повысить производительность запросов. Это особенно важно для столбцов CHAR и VARCHAR. Если самое длинное значение в столбце состоит из 25 знаков, столбец необходимо определить как VARCHAR(25). Не рекомендуется использовать по умолчанию длинные значения столбцов. Кроме того, по возможности определяйте столбцы как VARCHAR, а не [NVARCHAR][NVARCHAR].  По возможности используйте NVARCHAR(4000) или VARCHAR(8000) вместо NVARCHAR(MAX) или VARCHAR(MAX).
+## <a name="minimize-row-length"></a>Уменьшение длины строки
+Уменьшение размера типов данных сокращает длину строки, что улучшает производительность запросов. Используйте наименьший тип данных для данных. 
 
-## <a name="polybase-limitation"></a>Ограничение Polybase
-Если для загрузки таблиц используется Polybase, убедитесь, что длина данных не превышает 1 МБ.  Вы можете задать строку с данными переменной длины, размер которой превышает это значение, и загрузить строки с помощью BCP, но вы не сможете использовать Polybase, чтобы загрузить эти данные.  
+- Не рекомендуется использовать по умолчанию длинные значения столбцов. Например, если самое длинное значение состоит из 25 знаков, столбец необходимо определить как VARCHAR(25). 
+- Не нужно использовать [NVARCHAR][NVARCHAR], если вам требуется только VARCHAR.
+- По возможности используйте NVARCHAR(4000) или VARCHAR(8000) вместо NVARCHAR(MAX) или VARCHAR(MAX).
 
-## <a name="unsupported-data-types"></a>Неподдерживаемые типы данных
-Перенося базу данных из другой платформы SQL, например Базы данных SQL Azure, вы можете обнаружить некоторые типы данных, которые не поддерживаются в хранилище данных SQL.  Ниже приведены неподдерживаемые типы данных, а также альтернативные решения.
+Если для загрузки таблиц используется Polybase, определенная длина таблицы не должна превышать 1 МБ. Если строка с данными переменной длины превышает 1 МБ, можно загрузить строку с помощью BCP, а не PolyBase.
 
-| Тип данных | Возможное решение |
+## <a name="identify-unsupported-data-types"></a>Определение неподдерживаемых типов данных
+Если вы переносите базу данных из другой базы данных SQL, вы можете обнаружить некоторые типы данных, неподдерживаемые в хранилище данных SQL. Используйте этот запрос для определения неподдерживаемых типов данных в существующей схеме SQL.
+
+```sql
+SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
+FROM sys.tables  t
+JOIN sys.columns c on t.[object_id]    = c.[object_id]
+JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
+WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
+ AND  y.[is_user_defined] = 1;
+```
+
+
+## <a name="unsupported-data-types"></a>Использование обходных решений для неподдерживаемых типов данных
+
+Ниже перечислены типы данных, неподдерживаемые хранилищем данных SQL, а также варианты, доступные для использования вместо неподдерживаемых типов данных.
+
+| Неподдерживаемые типы данных | Возможное решение |
 | --- | --- |
 | [geometry][geometry] |[varbinary][varbinary] |
 | [geography][geography] |[varbinary][varbinary] |
@@ -69,22 +67,20 @@ ms.lasthandoff: 03/22/2017
 | [table][table] |Преобразуйте во временные таблицы. |
 | [timestamp][timestamp] |Переработайте код, чтобы использовать [datetime2][datetime2] и функцию `CURRENT_TIMESTAMP`.  По умолчанию поддерживаются только константы, поэтому нельзя использовать current_timestamp как ограничение по умолчанию. Если нужно перенести значения версии строки из типизированного столбца timestamp, используйте [BINARY][BINARY](8) или [VARBINARY][BINARY](8) для значений версии строки NOT NULL или NULL. |
 | [xml][xml] |[varchar][varchar] |
-| [Пользовательские типы][user defined types] |Преобразуйте обратно в их исходный тип, если это возможно. |
-| Значения по умолчанию |Значения по умолчанию поддерживают только литералы и константы.  Недетерминированные выражения или функции, такие как `GETDATE()` или `CURRENT_TIMESTAMP`, не поддерживаются. |
+| [тип, определенный пользователем][user defined types] |По возможности выполните преобразование в исходный тип данных. |
+| Значения по умолчанию | Значения по умолчанию поддерживают только литералы и константы.  Недетерминированные выражения или функции, такие как `GETDATE()` или `CURRENT_TIMESTAMP`, не поддерживаются. |
 
-Приведенный ниже алгоритм SQL может выполняться в текущей базе данных SQL, чтобы определить столбцы, которые не должны поддерживаться в хранилище данных SQL Azure.
-
-```sql
-SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
-FROM sys.tables  t
-JOIN sys.columns c on t.[object_id]    = c.[object_id]
-JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
-WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','timestamp','xml')
- AND  y.[is_user_defined] = 1;
-```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Дополнительные сведения см. в статьях, посвященных [общим сведениям о таблицах][Overview], [распределению][Distribute], [индексированию][Index] и [секционированию таблиц][Partition], а также [управлению статистикой таблиц][Statistics] и [временным таблицам][Temporary].  Дополнительные рекомендации см. в статье [Рекомендации по использованию хранилища данных SQL Azure][SQL Data Warehouse Best Practices].
+Дополнительные сведения см. на следующих ресурсах:
+
+- [Рекомендации по использованию хранилища данных SQL Azure][SQL Data Warehouse Best Practices]
+- [Общие сведения о таблицах в хранилище данных SQL][Overview]
+- [Распределение таблиц в хранилище данных SQL][Distribute]
+- [Индексирование таблиц в хранилище данных SQL][Index]
+- [Секционирование таблиц в хранилище данных SQL][Partition]
+- [Управление статистикой таблиц в хранилище данных SQL][Statistics]
+- [Временные таблицы в хранилище данных SQL][Temporary]
 
 <!--Image references-->
 

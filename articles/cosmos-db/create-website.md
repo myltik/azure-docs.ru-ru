@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 424889a00a20c8daf770098a43576783b813340c
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Развертывание Azure Cosmos DB и веб-приложений службы приложений Azure с помощью шаблона Azure Resource Manager
-В этом руководстве показано, как использовать шаблон Azure Resource Manager для развертывания и интеграции [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), веб-приложения [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714), а также примера веб-приложения.
+В этом руководстве показано, как использовать шаблон Azure Resource Manager для развертывания и интеграции [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), веб-приложения [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714), а также примера веб-приложения.
 
 С помощью шаблонов Azure Resource Manager можно легко автоматизировать развертывание и настройку ресурсов Azure.  В этом руководстве показано, как развернуть веб-приложение и автоматически задать сведения о подключении учетной записи Azure Cosmos DB.
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 05/31/2017
    
    ![Пример приложения Todo](./media/create-website/image2.png)
 9. Теперь создайте несколько задач в веб-приложении и вернитесь в колонку группы ресурсов на портале Azure. Выберите ресурс учетной записи Azure Cosmos DB в списке ресурсов и нажмите кнопку **Обозреватель запросов**.
-    ![Снимок экрана для колонки "Сводка" с выделенным веб-приложением myotherdocumentdbwebapp](./media/create-website/TemplateDeployment8.png)  
+    ![Снимок экрана для колонки "Сводка" с выделенным веб-приложением](./media/create-website/TemplateDeployment8.png)  
 10. Запустите запрос по умолчанию (SELECT * FROM c) и просмотрите результаты.  Обратите внимание, что запрос вернул JSON-представление элементов списка задач, которые были созданы на шаге 7 выше.  Поэкспериментируйте с запросами. Например, попробуйте выполнить запрос SELECT * FROM c WHERE c.isComplete = true, чтобы вернуть все элементы списка задач, которые были помечены как завершенные.
     
     ![Снимок экрана для колонок «Обозреватель запросов» и «Результаты», где отображаются результаты запросов](./media/create-website/image5.png)

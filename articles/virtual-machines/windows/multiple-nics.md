@@ -1,6 +1,6 @@
 ---
-title: "Создание виртуальной машины Windows с несколькими сетевыми картами | Документация Майкрософт"
-description: "Узнайте, как создать виртуальную машину Windows с несколькими сетевыми картами с помощью Azure PowerShell или шаблонов Resource Manager."
+title: "Создание виртуальных машин Windows, использующих несколько сетевых адаптеров, и управление ими в Azure | Документация Майкрософт"
+description: "Узнайте, как создать виртуальную машину Windows с несколькими сетевыми адаптерами с помощью Azure PowerShell или шаблонов Resource Manager, а также, как управлять ими."
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -12,205 +12,233 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/14/2017
+ms.date: 07/05/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 6918b206c637e1e0ad99b472c6a45a4fc343dc6d
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 92f5181dbf36ef0f7e2568d557faa7c5f2144ad9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="create-a-windows-vm-with-multiple-nics"></a>Создание виртуальной машины Windows с несколькими сетевыми картами
-Можно создать виртуальную машину (ВМ) в Azure, к которой подключено несколько виртуальных сетевых интерфейсов (сетевых карт). Распространен сценарий, когда разные подсети используются для интерфейсных и внутренних подключений, или когда для решения мониторинга или архивации используется выделенная сеть. Этой статье описываются быстрые команды для создания виртуальной машины с несколькими сетевыми картами. Чтобы получить дополнительные сведения, в том числе узнать, как создать нескольких сетевых карт в собственных сценариях PowerShell, узнайте больше о [развертывании виртуальных машин с несколькими сетевыми картами](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Различные [размеры виртуальных машин](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) поддерживают разное число сетевых карт, так что выбирайте соответствующий размер виртуальной машины.
+# <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Создание виртуальной машины Windows, использующей несколько сетевых адаптеров, и управление ею
+Виртуальные машины (VM) в Azure могут иметь несколько виртуальных сетевых адаптеров (NIC). Распространен сценарий, когда разные подсети используются для интерфейсных и внутренних подключений или когда для решения мониторинга либо архивации используется выделенная сеть. В этой статье подробно описывается, как создать виртуальную машину с несколькими сетевыми адаптерами. Вы также узнаете, как добавить или удалить сетевые адаптеры на существующей виртуальной машине. Различные [размеры виртуальных машин](sizes.md) поддерживают разное число сетевых карт, так что выбирайте соответствующий размер виртуальной машины.
 
-## <a name="create-core-resources"></a>Создание основных ресурсов
-Убедитесь, что у вас установлена и настроена [последняя версия Azure PowerShell](/powershell/azure/overview). Войдите в свою учетную запись Azure.
+Различные дополнительные сведения, а также сведения о том, как создать несколько сетевых адаптеров в собственных сценариях PowerShell, см. в статье [Создание виртуальной машины с несколькими сетевыми интерфейсами с помощью PowerShell](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
 
-```powershell
-Login-AzureRmAccount
-```
+## <a name="prerequisites"></a>Предварительные требования
+Убедитесь, что у вас установлена и настроена [последняя версия Azure PowerShell](/powershell/azure/overview).
 
-В следующих примерах замените имена параметров собственными значениями. Используемые имена параметров — `myResourceGroup`, `mystorageaccount`, и `myVM`.
+В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *myVnet* и *myVM*.
 
-Сначала создайте группу ресурсов. В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `WestUs`:
 
-```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "WestUS"
-```
-
-Создайте учетную запись хранения для размещения виртуальных машин. В следующем примере создается учетная запись хранения с именем `mystorageaccount`:
+## <a name="create-a-vm-with-multiple-nics"></a>Создание виртуальной машины с несколькими сетевыми адаптерами
+Сначала создайте группу ресурсов. В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *EastUs*:
 
 ```powershell
-$storageAcc = New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" `
-    -Location "WestUS" -Name "mystorageaccount" `
-    -Kind "Storage" -SkuName "Premium_LRS" 
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
-## <a name="create-virtual-network-and-subnets"></a>Создание виртуальных сетей и подсетей
-Определите две подсети виртуальной сети — для интерфейсного трафика и для внутреннего трафика. В следующем примере определяются две подсети — `mySubnetFrontEnd` и `mySubnetBackEnd`:
+### <a name="create-virtual-network-and-subnets"></a>Создание виртуальных сетей и подсетей
+Общий сценарий для виртуальной сети с двумя или большим количеством подсетей. Одна подсеть может предназначаться для интерфейсного трафика, а другая — для внутреннего. Чтобы подключиться к двум подсетям, вам необходимо будет использовать несколько сетевых адаптеров на виртуальной машине.
 
-```powershell
-$mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
-    -AddressPrefix "192.168.1.0/24"
-$mySubnetBackEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
-    -AddressPrefix "192.168.2.0/24"
-```
+1. Определите две подсети виртуальной сети с помощью [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). В следующем примере определяются подсети для *mySubnetFrontEnd* и *mySubnetBackEnd*:
 
-Создайте виртуальную сеть и подсети. В следующем примере создается виртуальная сеть `myVnet`:
+    ```powershell
+    $mySubnetFrontEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
+        -AddressPrefix "192.168.1.0/24"
+    $mySubnetBackEnd = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnetBackEnd" `
+        -AddressPrefix "192.168.2.0/24"
+    ```
 
-```powershell
-$myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
-    -Location "WestUS" -Name "myVnet" -AddressPrefix "192.168.0.0/16" `
-    -Subnet $mySubnetFrontEnd,$mySubnetBackEnd
-```
+2. Создайте виртуальную сеть и подсети с помощью командлета [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). В следующем примере создается виртуальная сеть с именем *myVnet*:
+
+    ```powershell
+    $myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
+        -Location "EastUs" `
+        -Name "myVnet" `
+        -AddressPrefix "192.168.0.0/16" `
+        -Subnet $mySubnetFrontEnd,$mySubnetBackEnd
+    ```
 
 
-## <a name="create-multiple-nics"></a>Создание нескольких сетевых карт
-Создайте две сетевые карты и подключите одну из них к интерфейсной подсети, а другую — к внутренней подсети. В следующем примере создаются две сетевые карты — `myNic1` и `myNic2`:
+### <a name="create-multiple-nics"></a>Создание нескольких сетевых карт
+Создайте два сетевых адаптера с помощью командлета [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Подключите один сетевой адаптер к интерфейсной подсети, а другой — к внутренней. В следующем примере создаются два сетевых адаптера с именами *myNic1* и *myNic2*:
 
 ```powershell
 $frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
 $myNic1 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
-    -Location "WestUS" -Name "myNic1" -SubnetId $frontEnd.Id
+    -Name "myNic1" `
+    -Location "EastUs" `
+    -SubnetId $frontEnd.Id
 
 $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
 $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
-    -Location "WestUS" -Name "myNic2" -SubnetId $backEnd.Id
+    -Name "myNic2" `
+    -Location "EastUs" `
+    -SubnetId $backEnd.Id
 ```
 
-Обычно также создается [группа безопасности сети](../../virtual-network/virtual-networks-nsg.md) или [балансировщик нагрузки](../../load-balancer/load-balancer-overview.md) для управления трафиком и его распределения между виртуальными машинами. В более [подробной статье о виртуальной машине с несколькими сетевыми картами](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) приводятся инструкции по созданию группы безопасности сети и назначению сетевых карт.
+Обычно также создается [группа безопасности сети](../../virtual-network/virtual-networks-nsg.md) или [балансировщик нагрузки](../../load-balancer/load-balancer-overview.md) для управления трафиком и его распределения между виртуальными машинами. Дополнительные сведения о создании группы безопасности сети и назначении сетевых адаптеров см. в статье [Создание виртуальной машины с несколькими сетевыми интерфейсами с помощью PowerShell](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
 
-## <a name="create-the-virtual-machine"></a>Создание виртуальной машины
-Теперь начните создание конфигурации виртуальной машины. Для каждого размера виртуальной машины существует ограничение на общее количество сетевых карт, которые можно в нее добавить. Прочитайте дополнительные сведения о [размерах виртуальных машин Windows](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+### <a name="create-the-virtual-machine"></a>Создание виртуальной машины
+Теперь начните создание конфигурации виртуальной машины. Для каждого размера виртуальной машины существует ограничение на общее количество сетевых карт, которые можно в нее добавить. Дополнительные сведения см. в статье [Размеры виртуальных машин Windows в Azure](sizes.md).
 
-Сначала задайте переменной `$cred` учетные данные виртуальной машины:
+1. Задайте переменной `$cred` учетные данные виртуальной машины, как показано ниже:
 
-```powershell
-$cred = Get-Credential
-```
+    ```powershell
+    $cred = Get-Credential
+    ```
 
-В следующем примере определяется виртуальная машина `myVM` и используется размер виртуальной машины, поддерживающий до двух сетевых карт (`Standard_DS2_v2`):
+2. Определите виртуальную машину с помощью [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). В следующем примере определяется виртуальная машина с именем *myVM* и используется размер виртуальной машины, поддерживающий более двух сетевых адаптеров (*Standard_DS3_v2*):
 
-```powershell
-$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2_v2"
-```
+    ```powershell
+    $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
+    ```
 
-Настройте остальные параметры виртуальной машины. В следующем примере создается виртуальная машина Windows Server 2012 R2:
+3. Создайте оставшуюся часть конфигурации виртуальной машины с помощью [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) и [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage). В следующем примере создается виртуальная машина Windows Server 2016:
 
-```powershell
-$vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName "myVM" `
-    -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "MicrosoftWindowsServer" `
-    -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
-```
+    ```powershell
+    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig `
+        -Windows `
+        -ComputerName "myVM" `
+        -Credential $cred `
+        -ProvisionVMAgent `
+        -EnableAutoUpdate
+    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig `
+        -PublisherName "MicrosoftWindowsServer" `
+        -Offer "WindowsServer" `
+        -Skus "2016-Datacenter" `
+        -Version "latest"
+   ```
 
-Подключите две сетевые карты, созданные ранее.
+4. Подключите два созданных ранее сетевых адаптера с помощью [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
 
-```powershell
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
-```
+    ```powershell
+    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
+    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
+    ```
 
-Настройте хранилище и виртуальный диск для новой виртуальной машины.
+5. Наконец, создайте виртуальную машину с помощью [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
-```powershell
-$blobPath = "vhds/WindowsVMosDisk.vhd"
-$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
-$diskName = "windowsvmosdisk"
-$vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $diskName -VhdUri $osDiskUri `
-    -CreateOption "fromImage"
-```
-
-Наконец, создайте виртуальную машину.
-
-```powershell
-New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "WestUS"
-```
+    ```powershell
+    New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
+    ```
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Добавление сетевой карты в существующую виртуальную машину
+Чтобы добавить виртуальный сетевой адаптер в имеющуюся виртуальную машину, освободите ее, добавьте виртуальный сетевой адаптер, а затем запустите виртуальную машину.
 
-В существующую виртуальную машину можно добавить сетевую карту. Чтобы использовать эту функцию, сначала необходимо отменить распределение виртуальной машины, выполнив приведенный ниже командлет Stop-AzureRmVM.
+1. Освободите виртуальную машину с помощью командлета [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). В следующем примере освобождается виртуальная машина с именем *myVM* в группе ресурсов *myResourceGroup*:
 
-```powershell
-Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-Затем нужно получить конфигурацию виртуальной машины с помощью командлета Get-AzureRmVM.
+2. Получите имеющуюся конфигурацию виртуальной машины с помощью командлета [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm). В следующем примере возвращаются сведения для виртуальной машины с именем *myVM* в *myResourceGroup*:
 
-```powershell
-$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-Можно создать сетевую карту в **виртуальной сети, в которой находится виртуальная машина**, как показано в начале этой статьи, или подключить существующую сетевую карту. Предположим, что вы подключаете имеющийся сетевой интерфейс `MyNic3` в виртуальной сети. 
+3. В следующем примере создается виртуальный сетевой адаптер с помощью [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) с именем *myNic3*, подключенный к *mySubnetBackEnd*. Затем с помощью [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) он подключается к виртуальной машине с именем *myVM* в *myResourceGroup*.
 
-```powershell
-$nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
-Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId -Primary | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    # Get info for the back end subnet
+    $myVnet = Get-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
+    $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
 
-> [!NOTE]
-> Если у виртуальной машины несколько сетевых карт, то одна из них должна быть основной. Поэтому мы настроим новую сетевую карту как основную. Если основной является предыдущая сетевая карта в виртуальной машине, то параметр Primary указывать не нужно. Если требуется переключить основную сетевую карту на виртуальной машине, выполните следующие действия.
+    # Create a virtual NIC
+    $myNic3 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+        -Name "myNic3" `
+        -Location "EastUs" `
+        -SubnetId $backEnd.Id
 
-```powershell
-$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    # Get the ID of the new virtual NIC and add to VM
+    $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
+    Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId | Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+    ```
 
-# Find out all the NICs on the VM and find which one is Primary
-$vm.NetworkProfile.NetworkInterfaces
+    ### <a name="primary-virtual-nics"></a>Главные виртуальные сетевые карты
+    Один из сетевых адаптеров на виртуальной машине с несколькими сетевыми картами должен быть главным. Если один из имеющихся виртуальных сетевых адаптеров на виртуальной машине уже используется в качестве главного, вы можете пропустить этот шаг. Чтобы перейти к следующему примеру, предполагается, что на виртуальной машине используются два виртуальных сетевых адаптера. Добавим первый сетевой адаптер (`[0]`) в качестве главного:
+        
+    ```powershell
+    # List existing NICs on the VM and find which one is primary
+    $vm.NetworkProfile.NetworkInterfaces
+    
+    # Set NIC 0 to be primary
+    $vm.NetworkProfile.NetworkInterfaces[0].Primary = $true
+    $vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
+    
+    # Update the VM state in Azure
+    Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
+    ```
 
-# Set the NIC 0 to be primary
-$vm.NetworkProfile.NetworkInterfaces[0].Primary = $true
-$vm.NetworkProfile.NetworkInterfaces[1].Primary = $false
+4. Запустите виртуальную машину с помощью [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm):
 
-# Update the VM state in Azure
-Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+    ```
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Удаление сетевой карты из существующей виртуальной машины
+Чтобы удалить виртуальный сетевой адаптер с имеющейся виртуальной машины, освободите ее, удалите виртуальный сетевой адаптер, а затем запустите виртуальную машину.
 
-Сетевую карту можно также удалить из виртуальной машины. Чтобы использовать эту функцию, сначала необходимо отменить распределение виртуальной машины, выполнив приведенный ниже командлет Stop-AzureRmVM.
+1. Освободите виртуальную машину с помощью командлета [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). В следующем примере освобождается виртуальная машина с именем *myVM* в группе ресурсов *myResourceGroup*:
 
-```powershell
-Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-Затем нужно получить конфигурацию виртуальной машины с помощью командлета Get-AzureRmVM.
+2. Получите имеющуюся конфигурацию виртуальной машины с помощью командлета [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm). В следующем примере возвращаются сведения для виртуальной машины с именем *myVM* в *myResourceGroup*:
 
-```powershell
-$vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```
 
-Теперь просмотрите все сетевые карты виртуальной машины и скопируйте имя той из них, которую нужно удалить.
+3. С помощью [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) получите сведения об удалении сетевого адаптера. В следующем примере возвращаются сведения о *myNic3*:
 
-```powershell
-$vm.NetworkProfile.NetworkInterfaces
-Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup" | `
-    Update-AzureRmVm -ResourceGroupName "myResourceGroup"
-```
+    ```powershell
+    # List existing NICs on the VM if you need to determine NIC name
+    $vm.NetworkProfile.NetworkInterfaces
 
-## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Создание нескольких сетевых карт с помощью шаблонов Resource Manager
-В шаблонах Azure Resource Manager используются декларативные JSON-файлы для определения среды. Дополнительные сведения см. в [обзоре Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Шаблоны Resource Manager дают возможность создать несколько экземпляров ресурса во время развертывания, в том числе создать несколько сетевых карт. Чтобы указать число создаваемых экземпляров, используется объект *copy* .
+    $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
+    ```
+
+4. Удалите сетевой адаптер с помощью [Remove-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface), а затем обновите виртуальную машину с помощью [Update-AzureRmVm](/powershell/module/azurerm.compute/update-azurermvm). В следующем примере удаляется сетевой адаптер *myNic3*, полученный `$nicId` на предыдущем шаге:
+
+    ```powershell
+    Remove-AzureRmVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
+        Update-AzureRmVm -ResourceGroupName "myResourceGroup"
+    ```   
+
+5. Запустите виртуальную машину с помощью [Start-AzureRmVm](/powershell/module/azurerm.compute/start-azurermvm):
+
+    ```powershell
+    Start-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
+    ```   
+
+## <a name="create-multiple-nics-with-templates"></a>Создание нескольких сетевых адаптеров с помощью шаблонов
+Шаблоны Azure Resource Manager дают возможность создать несколько экземпляров ресурса во время развертывания, в том числе создать несколько сетевых адаптеров. В шаблонах Azure Resource Manager используются декларативные JSON-файлы для определения среды. Дополнительные сведения см. в статье [Общие сведения о диспетчере ресурсов Azure](../../azure-resource-manager/resource-group-overview.md). Чтобы указать число создаваемых экземпляров, вы можете использовать объект *copy*:
 
 ```json
 "copy": {
-    "name": "multiplenics"
+    "name": "multiplenics",
     "count": "[parameters('count')]"
 }
 ```
 
-Вы можете прочитать дополнительные сведения о [создании нескольких экземпляров с помощью объекта *copy*](../../resource-group-create-multiple.md). 
+Дополнительные сведения см. в статье [Развертывание нескольких экземпляров ресурса или свойства в шаблонах Azure Resource Manager**](../../resource-group-create-multiple.md). 
 
-Можно также использовать `copyIndex()`, чтобы добавить номер к имени ресурса, что позволяет создать `myNic1`, `MyNic2` и т. д. Ниже показан пример добавления значения индекса.
+Вы также можете использовать `copyIndex()`, чтобы добавить номер к имени ресурса. Затем вы можете создать сетевые адаптеры с именами *myNic1*, *MyNic2* и т. д. Ниже показан пример добавления значения индекса.
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Вы можете ознакомиться с полным примером [создания нескольких сетевых карт с помощью шаблонов Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+Вы можете ознакомиться с полным примером [создания нескольких сетевых адаптеров с помощью шаблонов Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Обязательно ознакомьтесь с [размерами виртуальных машин Windows](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , когда будете создавать виртуальную машину с несколькими сетевыми картами. Обратите внимание на максимальное число сетевых карт, поддерживаемых каждым из размеров виртуальной машины. 
+При создании виртуальной машины с несколькими сетевыми адаптерами ознакомьтесь со статьей [Размеры виртуальных машин Windows в Azure](sizes.md). Обратите внимание на максимальное число сетевых адаптеров, поддерживаемых каждым из размеров виртуальной машины. 
 
 
 

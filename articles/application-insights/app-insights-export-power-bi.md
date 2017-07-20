@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 24ccafb4df95e0010416485199e19f81e1ae31aa
-ms.openlocfilehash: 11017c7c0a761569892aebcd085d5d3fb2d67a69
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 02c51e6a576b5a91044eae784c72d7529497b814
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/14/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/14/2017
 
 Существуют три рекомендуемых способа экспортировать данные Application Insights в Power BI. Их можно использовать отдельно или совместно.
 
-* [**Использование адаптера Power BI**](#power-pi-adapter). С его помощью можно настроить панель мониторинга телеметрии из своего приложения. Здесь есть предопределенный набор диаграмм, но можно добавлять свои запросы из других источников.
+* [**Использование адаптера Power BI** ](#power-pi-adapter). С его помощью можно настроить панель мониторинга телеметрии из своего приложения. Здесь есть предопределенный набор диаграмм, но можно добавлять свои запросы из других источников.
 * [**Экспорт аналитических запросов**](#export-analytics-queries). Напишите необходимый запрос с помощью средства аналитики и экспортируйте этот запрос в Power BI. Его можно разместить на панели мониторинга вместе с другими данными.
 * [**Непрерывный экспорт и Stream Analytics.**](app-insights-export-stream-analytics.md) Это самый трудоемкий метод. Он полезен, если необходимо хранить данные в течение долгого времени. В иных случаях рекомендуется использовать другие методы.
 
@@ -84,8 +84,38 @@ ms.lasthandoff: 02/14/2017
     ![Выбор визуализации](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Периодически обновляйте отчет вручную или настройте запланированное обновление на странице параметров.
 
+## <a name="troubleshooting"></a>Устранение неполадок
+
+### <a name="401-or-403-unauthorized"></a>401 или 403 — недостаточно прав 
+Это может произойти, если токен обновления не обновлен. Попробуйте выполнить следующие действия, чтобы убедиться, что у вас по-прежнему есть доступ. Если у вас есть доступ, но обновление учетных данных не работает, обратитесь в службу поддержки.
+
+1. Войдите на портал Azure и убедитесь, что можете получить доступ к ресурсу.
+2. Попробуйте обновить учетные данные для панели мониторинга.
+
+### <a name="502-bad-gateway"></a>502 — Недопустимый шлюз
+Обычно это вызвано запросом аналитики, который возвращает слишком много данных. Вначале следует попробовать использовать меньший диапазон времени или использовать функции [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) или [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) только для необходимых полей [проекта](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator).
+
+Если уменьшение набора данных, поступающих от запросов аналитики, не соответствует вашим требованиям, можно использовать [API](https://dev.applicationinsights.io/documentation/overview) для извлечения набора данных большего размера. Ниже приведены инструкции по преобразованию экспорта запросов на языке M для использования API.
+
+1. Создайте [ключ API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
+2. Обновите скрипт Power BI на языке M, экспортированный из аналитики, заменив URL-адрес ARM на API AI (см. пример ниже).
+   * Замените **https://management.azure.com/subscriptions/...**
+   * на **https://api.applicationinsights.io/beta/apps/...**
+3. Наконец, обновите учетные данные на базовые и используйте ваш ключ API.
+  
+
+**Существующий скрипт**
+ ```
+ Source = Json.Document(Web.Contents("https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups//providers/microsoft.insights/components//api/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+**Обновленный скрипт**
+ ```
+ Source = Json.Document(Web.Contents("https://api.applicationinsights.io/beta/apps/<APPLICATION_ID>/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+
 ## <a name="about-sampling"></a>Дополнительная информация о выборке
 Если ваше приложение отправляет большие объемы данных, может сработать функция адаптивной выборки и отправить только часть вашей телеметрии. То же произойдет, если выборка настроена вручную в пакете SDK или на приеме. [Дополнительная информация о выборке.](app-insights-sampling.md)
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Дополнительные сведения о Power BI](http://www.powerbi.com/learning/)

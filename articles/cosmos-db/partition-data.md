@@ -16,17 +16,17 @@ ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cd3b13b9988f51fd3755ced48714fdc18cf1ea3c
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 5f501bdb0a3c478a436d729dfe045ad8e39bd3bb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
 
 # <a name="how-to-partition-and-scale-in-azure-cosmos-db"></a>Секционирование и масштабирование в базе данных Azure Cosmos DB
 
-[База данных Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) — это глобально распределенная, многомодельная служба базы данных, созданная для обеспечения высокой производительности и прогнозируемости, а также легкой масштабируемости по мере расширения вашего приложения. В этой статье рассматривается, как работает секционирование для всех моделей данных в базе данных Azure Cosmos DB, и описывается, как настроить контейнеры базы данных Azure Cosmos DB для эффективного масштабирования ваших приложений.
+[База данных Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) — это глобально распределенная, многомодельная служба базы данных, созданная для обеспечения высокой производительности и прогнозируемости, а также легкой масштабируемости по мере расширения вашего приложения. В этой статье рассматривается, как работает секционирование для всех моделей данных в базе данных Azure Cosmos DB, и описывается, как настроить контейнеры базы данных Azure Cosmos DB для эффективного масштабирования ваших приложений.
 
 Секционирование и ключи секций также рассматриваются в этом видео из цикла "Azure, пятница" от Скотта Хансельмана (Scott Hanselman) и главного технического руководителя базы данных Azure Cosmos DB, Ширеша Тоты (Shireesh Thota).
 

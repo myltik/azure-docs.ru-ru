@@ -16,19 +16,16 @@ ms.custom: loading
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: cb2d789a53ee2fa16db8d2553086a18043d4976e
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 6f8d220a64e04b7dfa021aacf68dadf0d55393bf
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
-
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Загрузка данных из Azure Data Lake Store в хранилище данных SQL
 В этой статье описываются все шаги, которые необходимо выполнить для загрузки данных из Azure Data Lake Store (ADLS) в хранилище данных SQL с использованием PolyBase.
 Вы можете выполнять специализированные запросы к данным, которые хранятся в ADLS, с помощью внешних таблиц, но мы рекомендуем импортировать данные в хранилище данных SQL.
 Оценка времени: 10 минут, если уже выполнены все предварительные условия.
->
 Из этого учебного курса вы узнаете следующее:
 
 1. Создание объектов внешней базы данных для загрузки данных из Azure Data Lake Store.
@@ -42,12 +39,13 @@ ms.lasthandoff: 05/09/2017
 
 >[!NOTE] 
 > Вам нужно получить из приложения Active Directory идентификатор клиента, ключ и значение конечной точки маркера OAuth2.0, чтобы подключаться к Azure Data Lake из хранилища данных SQL. Чтобы узнать, как получить эти значения, см. статью по приведенной выше ссылке.
+>Примечание. Для регистрации приложения Azure Active Directory используйте идентификатор приложения как идентификатор клиента.
 
 * SQL Server Management Studio или SQL Server Data Tools. Загрузка и подключение SSMS описаны [здесь](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms).
 
 * Хранилище данных SQL Azure. Чтобы создать его, выполните инструкции из этой статьи: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* Хранилище Azure Data Lake Store, в котором не используется шифрование. Чтобы создать его, выполните инструкции из этой статьи: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+* Хранилище Azure Data Lake Store, в котором используется или не используется шифрование. Чтобы создать его, выполните инструкции из этой статьи: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 
@@ -81,6 +79,12 @@ WITH
     SECRET = '<key>'
 ;
 
+-- It should look something like this:
+CREATE DATABASE SCOPED CREDENTIAL ADLCredential
+WITH
+    IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
+    SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
+;
 ```
 
 

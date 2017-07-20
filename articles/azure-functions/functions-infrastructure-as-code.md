@@ -1,162 +1,112 @@
 ---
-title: "Автоматизация развертывания ресурсов для приложения Функций Azure | Документация Майкрософт"
-description: "Узнайте, как создать шаблон Azure Resource Manager, позволяющий развертывать приложения Функций Azure."
+title: "Автоматизация развертывания ресурсов приложения-функции для службы &quot;Функции Azure&quot; | Документация Майкрософт"
+description: "Узнайте, как создать шаблон Azure Resource Manager, позволяющий развертывать приложения-функции."
 services: Functions
 documtationcenter: na
-author: mattchenderson
+author: lindydonna
 manager: erikre
 editor: 
 tags: 
 keywords: "функции Azure, функции, независимая от сервера архитектура, инфраструктура как код, Azure Resource Manager"
-ms.assetid: 
+ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
 ms.topic: 
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/23/2017
-ms.author: cfowler;glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 360abaa575e473e18e55d0784730f4bd5635f3eb
-ms.openlocfilehash: 979537bfe6b0e14a9208871fc9862661d2fb2e6c
+ms.date: 05/25/2017
+ms.author: donnam;glenga
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 9458b3b619649d094ddab1638e146571d9268fb0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/05/2017
 
 
 ---
 
-# <a name="automate-resource-deployment-for-your-azure-functions-app"></a>Автоматизация развертывания ресурсов для приложения Функций Azure
+# <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Автоматизация развертывания ресурсов приложения-функции для службы "Функции Azure"
 
-Для развертывания приложения Функций Azure можно использовать шаблон Azure Resource Manager. Узнайте, как определить базовые ресурсы, необходимые для приложения Функций Azure, и параметры, которые задаются при развертывании. В зависимости от [триггеров и привязок](functions-triggers-bindings.md) в приложении Функций может потребоваться развернуть дополнительные ресурсы, чтобы создать успешную конфигурацию инфраструктуры как кода для приложения.
+Для развертывания приложения-функции можно использовать шаблон Azure Resource Manager. В этой статье рассматриваются необходимые для этого ресурсы и параметры. В зависимости от [триггеров и привязок](functions-triggers-bindings.md) в приложении-функции может потребоваться развернуть дополнительные ресурсы.
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Чтобы изучить примеры полных шаблонов, ознакомьтесь с [созданием приложения Функций Azure на основе плана потребления](https://github.com/Azure/azure-quickstart-templates/blob/052db5feeba11f85d57f170d8202123511f72044/101-function-app-create-dynamic/azuredeploy.json) и [созданием приложения Функций Azure на основе плана службы приложений](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json).
+Примеры шаблонов см. в следующих статьях:
+- [Function app on Consumption plan] (Приложение-функция в плане потребления);
+- [Function app on Azure App Service plan] (Приложение-функция в плане службы приложений Azure).
 
 ## <a name="required-resources"></a>Необходимые ресурсы
 
-Для создания базового приложения Функций Azure можно воспользоваться приведенными в этой статье примерами. Для приложения вам понадобятся следующие ресурсы:
+Для приложения-функции требуются следующие ресурсы:
 
-* [учетная запись хранения Azure](../storage/index.md);
-* план размещения (план потребления или план службы приложений Azure);
-* приложение Функций (`type`: **Microsoft.Web/Site**, `kind`: **functionapp**).
-
-## <a name="parameters"></a>Параметры
-
-С помощью Azure Resource Manager можно определить параметры значений, которые должны указываться на этапе развертывания шаблона. В разделе **Параметры** шаблона содержатся все значения параметров. Определите параметры для значений, которые зависят от развертываемого проекта или среды, в которой выполняется развертывание.
-
-[Переменные](../azure-resource-manager/resource-group-authoring-templates.md#variables) удобно использовать для значений, которые не изменяются для каждого развертывания, а также для параметров, которые требуется преобразовать, прежде чем использовать в шаблоне (например, для передачи правил проверки).
-
-При определении параметров с помощью поля **allowedValues** задайте значения, указываемые пользователем во время развертывания. С помощью поля **defaultValue** назначьте параметру значение, которое будет использоваться в случае, если во время развертывания значение не указано.
-
-В шаблоне Azure Resource Manager используются следующие параметры.
-
-### <a name="appname"></a>appName
-
-Имя приложения Функций Azure, которое необходимо создать.
-
-```json
-"appName": {
-    "type": "string"
-}
-```
-
-### <a name="location"></a>location
-
-Расположение для развертывания приложения Функций.
-
-> [!NOTE]
-> Используйте параметр **defaultValue** для наследования расположения группы ресурсов или в случае, если значение параметра не указано во время развертывания с помощью PowerShell или интерфейса командной строки Azure. При развертывании приложения с портала Azure выберите значение в окне раскрывающегося списка параметров **allowedValues**.
-
-> [!TIP]
-> Текущий список регионов, в которых можно использовать Функции Azure, доступен на странице [Доступность продуктов по регионам](https://azure.microsoft.com/regions/services/).
-
-```json
-"location": {
-    "type": "string",
-    "allowedValues": [
-        "Brazil South",
-        "East US",
-        "East US 2",
-        "Central US",
-        "North Central US",
-        "South Central US",
-        "West US",
-        "West US 2"
-    ],
-    "defaultValue": "[resourceGroup().location]"
-}
-```
-
-### <a name="sourcecoderepositoryurl-optional"></a>sourceCodeRepositoryURL (необязательно)
-
-```json
-"sourceCodeRepositoryURL": {
-    "type": "string",
-    "defaultValue": "",
-    "metadata": {
-    "description": "Source code repository URL"
-}
-```
-
-### <a name="sourcecodebranch-optional"></a>sourceCodeBranch (необязательно)
-
-```json
-    "sourceCodeBranch": {
-      "type": "string",
-      "defaultValue": "master",
-      "metadata": {
-        "description": "Source code repository branch"
-      }
-    }
-```
-
-### <a name="sourcecodemanualintegration-optional"></a>sourceCodeManualIntegration (необязательно)
-
-```json
-"sourceCodeManualIntegration": {
-    "type": "bool",
-    "defaultValue": false,
-    "metadata": {
-        "description": "Use 'true' if you are deploying from the base repo. Use 'false' if you are deploying from your own fork. If you use 'false', make sure that you have Administrator rights in the repo. If you get an error, manually add GitHub integration to another web app, to associate a GitHub access token with your Azure subscription."
-    }
-}
-```
-
-## <a name="variables"></a>Переменные
-
-Шаблоны Azure Resource Manager используют переменные для включения параметров, поэтому в шаблоне можно выполнить более точные настройки.
-
-В следующем примере в соответствии с [требованиями к именованию](../storage/storage-create-storage-account.md#create-a-storage-account) учетной записи хранения Azure используются переменные, чтобы применить [функции шаблонов Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md) для преобразования введенного значения **appName** в нижний регистр.
-
-```json
-"variables": {
-    "lowerSiteName": "[toLower(parameters('appName'))]",
-    "storageAccountName": "[concat(variables('lowerSiteName'))]"
-}
-```
-
-## <a name="resources-to-deploy"></a>Развертываемые ресурсы
+* [Учетная запись хранения Azure.](../storage/index.md)
+* План размещения (план потребления или план службы приложений).
+* Приложение-функция. 
 
 ### <a name="storage-account"></a>Учетная запись хранения
 
-Учетная запись хранения Azure — обязательный ресурс для приложения Функций Azure.
+Учетная запись хранения Azure — обязательный ресурс для приложения-функции. Необходима учетная запись общего назначения, поддерживающая большие двоичные объекты, таблицы, очереди и файлы. Дополнительные сведения см. в разделе [Требования к учетной записи хранения](functions-create-function-app-portal.md#storage-account-requirements).
 
 ```json
 {
     "type": "Microsoft.Storage/storageAccounts",
     "name": "[variables('storageAccountName')]",
-    "apiVersion": "2015-05-01-preview",
-    "location": "[variables('storageLocation')]",
+    "apiVersion": "2015-06-15",
+    "location": "[resourceGroup().location]",
     "properties": {
-        "accountType": "[variables('storageAccountType')]"
+        "accountType": "[parameters('storageAccountType')]"
     }
 }
 ```
 
-### <a name="hosting-plan-consumption-vs-app-service"></a>План размещения: потребление или Служба приложений
+Кроме того, свойства `AzureWebJobsStorage` и `AzureWebJobsDashboard` необходимо указать как параметры приложения в конфигурации сайта. Чтобы создать внутренние очереди, среда выполнения службы "Функции Azure" использует строку подключения `AzureWebJobsStorage`. Строка подключения `AzureWebJobsDashboard` используется для регистрации в Хранилище таблиц Azure и обеспечения работы вкладки **Мониторинг** на портале.
 
-В некоторых сценариях может потребоваться, чтобы функции масштабировались платформой по запросу. Этот подход также называют полностью управляемым масштабированием (размещение на основе плана потребления). Другой вариант — выбрать управляемое пользователем масштабирование функций. При этом подходе функции круглосуточно выполняются на выделенном оборудовании (размещение на основе плана службы приложений). Число экземпляров можно настроить вручную или автоматически. Выбор плана размещения может основываться на доступных возможностях плана или затратах на соответствующую архитектуру. Дополнительные сведения о планах размещения см. в статье [Масштабирование Функций Azure](functions-scale.md).
+Эти свойства задаются в коллекции `appSettings` в объекте `siteConfig`:
 
-#### <a name="consumption-plan"></a>План потребления
+```json
+"appSettings": [
+    {
+        "name": "AzureWebJobsStorage",
+        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+    },
+    {
+        "name": "AzureWebJobsDashboard",
+        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+    }
+```    
+
+### <a name="hosting-plan"></a>План размещения
+
+Определение плана размещения зависит от того, используется ли план потребления или план службы приложений. Дополнительные сведения см. в разделе [Развертывание приложения-функции в плане потребления](#consumption) и [Развертывание приложения-функции в плане службы приложений](#app-service-plan).
+
+### <a name="function-app"></a>Приложение-функция
+
+Ресурс приложения-функции определяется с помощью ресурса типа **Microsoft.Web/Site** и вида **functionapp**:
+
+```json
+{
+    "apiVersion": "2015-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",            
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ]
+```
+
+<a name="consumption"></a>
+
+## <a name="deploy-a-function-app-on-the-consumption-plan"></a>Развертывание приложения-функции в плане потребления
+
+Вы можете запускать приложение-функцию в двух разных режимах: план потребления и план службы приложений. План потребления автоматически выделяет вычислительные ресурсы в процессе выполнения кода, масштабируя их в соответствии с нагрузкой и уменьшая, когда код не выполняется. Таким образом, нет необходимости платить за бездействующие виртуальные машины и заранее резервировать ресурсы. Дополнительные сведения о планах размещения см. в статье [Потребление Функций Azure и планы службы приложений](functions-scale.md).
+
+Образец шаблона диспетчера ресурсов Azure см. на странице [Function app on Consumption plan] (План потребления приложения-функции)
+
+### <a name="create-a-consumption-plan"></a>Создание плана потребления
+
+План потребления — это специальный тип ресурса "ферма серверов". Его можно указать с помощью значения `Dynamic` для свойств `computeMode` и `sku`:
 
 ```json
 {
@@ -172,7 +122,60 @@ ms.openlocfilehash: 979537bfe6b0e14a9208871fc9862661d2fb2e6c
 }
 ```
 
-#### <a name="app-service-plan"></a>План службы приложений
+### <a name="create-a-function-app"></a>Создание приложения-функции
+
+Кроме того, для плана потребления следует выполнить две дополнительные настройки в конфигурации сайта: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` и `WEBSITE_CONTENTSHARE`. Эти свойства настраивают учетную запись хранения и путь к файлам кода приложения-функции и конфигурации.
+
+```json
+{
+    "apiVersion": "2015-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",            
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsDashboard",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "WEBSITE_CONTENTSHARE",
+                    "value": "[toLower(variables('functionAppName'))]"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~1"
+                }
+            ]
+        }
+    }
+}
+```                    
+
+<a name="app-service-plan"></a> 
+
+## <a name="deploy-a-function-app-on-the-app-service-plan"></a>Развертывание приложения-функции в плане службы приложений
+
+В плане службы приложений ваши приложения-функции запускаются на выделенных виртуальных машинах на Basic, Standard и Premium SKU аналогично веб-приложениям. Дополнительную информацию о том, как действует план службы приложений, см. в статье [Подробный обзор планов службы приложений Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+
+Образец шаблона Azure Resource Manager см. на странице [Function app on Azure App Service plan] (Приложение-функция в плане службы приложений Azure).
+
+### <a name="create-an-app-service-plan"></a>Создание плана службы приложений
 
 ```json
 {
@@ -190,14 +193,14 @@ ms.openlocfilehash: 979537bfe6b0e14a9208871fc9862661d2fb2e6c
 }
 ```
 
-### <a name="functions-app-a-site"></a>Приложение Функций (сайт)
+### <a name="create-a-function-app"></a>Создание приложения-функции 
 
-Выбрав вариант масштабирования, создайте приложение Функций. Приложение является контейнером, в котором содержатся все функции.
+Выбрав вариант масштабирования, создайте приложение-функцию. Приложение является контейнером, в котором содержатся все функции.
 
-Приложение Функций содержит много дочерних ресурсов, которые можно использовать при развертывании, в том числе параметры приложения и параметры системы управления версиями. Вы можете также удалить дочерний ресурс **sourcecontrols** и выбрать другой [вариант развертывания](functions-continuous-deployment.md).
+Приложение-функция содержит много дочерних ресурсов, которые можно использовать при развертывании, в том числе параметры приложения и параметры системы управления версиями. Вы можете также удалить дочерний ресурс **sourcecontrols** и выбрать другой [вариант развертывания](functions-continuous-deployment.md).
 
 > [!IMPORTANT]
-> Чтобы с помощью Azure Resource Manager создать успешную конфигурацию инфраструктуры как кода для приложения, важно понимать, каким образом ресурсы развертываются в Azure. В следующем примере конфигурации верхнего уровня применяются с помощью **siteConfig**. Их важно задать на верхнем уровне, так как эти конфигурации передают сведения в среду выполнения и механизм развертывания Функций Azure. Сведения верхнего уровня требуются перед применением дочернего ресурса **sourcecontrols/web**. Хотя эти параметры можно настроить в дочернем ресурсе **config/appSettings**, в некоторых сценариях приложение Функций и функции требуется развернуть *до* применения **config/appSettings**. В таких случаях, например в [Logic Apps](../logic-apps/index.md), функции зависят от другого ресурса.
+> Чтобы с помощью Azure Resource Manager успешно развернуть приложение, важно понимать, каким образом ресурсы развертываются в Azure. В следующем примере конфигурации верхнего уровня применяются с помощью **siteConfig**. Их важно задать на верхнем уровне, так как эти конфигурации передают сведения в среду выполнения функций и механизм развертывания. Сведения верхнего уровня требуются перед применением дочернего ресурса **sourcecontrols/web**. Хотя эти параметры можно настроить в дочернем ресурсе **config/appSettings**, в некоторых сценариях приложение-функцию требуется развернуть *до* применения **config/appSettings**. В таких случаях, например в [Logic Apps](../logic-apps/index.md), функции зависят от другого ресурса.
 
 ```json
 {
@@ -256,6 +259,8 @@ ms.openlocfilehash: 979537bfe6b0e14a9208871fc9862661d2fb2e6c
 
 ## <a name="deploy-your-template"></a>Развертывание шаблона
 
+Для развертывания шаблона можно использовать любой из следующих способов:
+
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Интерфейс командной строки Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
 * [Портал Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
@@ -265,13 +270,13 @@ ms.openlocfilehash: 979537bfe6b0e14a9208871fc9862661d2fb2e6c
 
 Замените ```<url-encoded-path-to-azuredeploy-json>``` версией необработанного пути к файлу `azuredeploy.json` на сайте GitHub, указав его в формате [URL-адреса](https://www.bing.com/search?q=url+encode).
 
-#### <a name="markdown"></a>Разметка Markdown
+Ниже приведен пример использования разметки:
 
 ```markdown
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
 ```
 
-#### <a name="html"></a>HTML
+Ниже приведен пример использования HTML:
 
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"></a>
@@ -282,11 +287,11 @@ ms.openlocfilehash: 979537bfe6b0e14a9208871fc9862661d2fb2e6c
 Дополнительные сведения о разработке и настройке Функций Azure:
 
 * [Справочник разработчика по функциям Azure](functions-reference.md)
-* [Настройка параметров приложения-функции Azure](functions-how-to-use-azure-function-app-settings.md)
+* [Управление приложением-функцией на портале Azure](functions-how-to-use-azure-function-app-settings.md)
 * [Создание первой функции Azure](functions-create-first-azure-function.md)
 
+<!-- LINKS -->
 
-
-<!--HONumber=Feb17_HO1-->
-
+[Function app on Consumption plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json (Приложение-функция в плане потребления)
+[Function app on Azure App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json (Приложение-функция в плане службы приложений Azure)
 

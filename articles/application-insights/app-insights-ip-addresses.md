@@ -3,7 +3,7 @@ title: "IP-адреса, используемые Application Insights | Док�
 description: "Исключения брандмауэра сервера, требуемые для Application Insights"
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 44d989f8-bae9-40ff-bfd5-8343d3e59358
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 135f95457eae073efc9ce08117fb082be2c47468
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: eec83ceb6edbc1aaa68d51a85d2a913063677530
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -36,6 +36,7 @@ ms.lasthandoff: 05/16/2017
 | --- | --- | --- | --- |
 | Телеметрия |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
 | Динамический поток метрик |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
+| Внутренняя телеметрия |breeze.aimon.applicationinsights.io |52.161.11.71 |443 |
 
 ## <a name="status-monitor"></a>Монитор состояния
 Настройка монитора состояния (требуется только для внесения изменений).
@@ -204,12 +205,37 @@ US : VA-Ashburn
 | --- | --- | --- | --- |
 | API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80, 443 |
 | Документация по API |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80, 443 |
+| Внутренний API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |Динамический|443 |
+
+## <a name="application-insights-analytics"></a>Аналитика Application Insights
+
+| Назначение | URI | IP-адрес | порты; |
+| --- | --- | --- | --- |
+| Портал аналитики | analytics.applicationinsights.io | Динамический | 80, 443 |
+| CDN | applicationanalytics.azureedge.net | Динамический | 80, 443 |
+| Мультимедиа CDN | applicationanalyticsmedia.azureedge.net | Динамический | 80, 443 |
+
+Примечание. Домен applicationinsights.io принадлежит команде Application Insights.
+
+## <a name="application-insights-azure-portal-extension"></a>Расширение портала Azure для Application Insights
+
+| Назначение | URI | IP-адрес | порты; |
+| --- | --- | --- | --- |
+| Расширение для Application Insights | stamp2.app.insightsportal.visualstudio.com | Динамический | 80, 443 |
+| Расширение CDN для Application Insights | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | Динамический | 80, 443 |
+
+## <a name="application-insights-sdks"></a>Пакеты средств разработки Application Insights
+
+| Назначение | URI | IP-адрес | порты; |
+| --- | --- | --- | --- |
+| Пакеты средств разработки CDN JS Application Insights | az416426.vo.msecnd.net | Динамический | 80, 443 |
+| Пакеты средств разработки Java Application Insights | aijavasdk.blob.core.windows.net | Динамический | 80, 443 |
 
 ## <a name="profiler"></a>Профилировщик
 
 | Назначение | URI | IP-адрес | порты; |
 | --- | --- | --- | --- |
-| Агент | agent.azureserviceprofiler.net | Динамический | 443
+| Агент | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | Динамический | 443
 | Microsoft Azure | gateway.azureserviceprofiler.net | Динамический | 443
 | Хранилище | *.core.windows.net | Динамический | 443
 
@@ -217,7 +243,7 @@ US : VA-Ashburn
 
 | Назначение | URI | IP-адрес | порты; |
 | --- | --- | --- | --- |
-| Агент | ppe.azureserviceprofiler.net | Динамический | 443
+| Агент | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | Динамический | 443
 | Microsoft Azure | ppe.gateway.azureserviceprofiler.net | Динамический | 443
 | Хранилище | *.core.windows.net | Динамический | 443
 

@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2015
+ms.date: 05/31/2017
 ms.author: ningk
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e910c47d88434fae76f9c2d3bcb8a258d7d3fde4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 8f2ec884fa98e989448ac11675e71f39aa21fa7f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -42,27 +43,22 @@ ms.lasthandoff: 04/03/2017
 В этой статье предполагается, что вы уже создали виртуальную машину Linux, а также установили и настроили MySQL. Дополнительную информацию о начале работы см. в статье "Как установить MySQL в Azure".  
 
 ### <a name="set-up-raid-on-azure"></a>Настройка RAID в Azure
-Ниже объясняется, как создать RAID в Azure с использованием классического портала Azure. RAID также можно настроить с помощью сценариев Windows PowerShell.
+Ниже объясняется, как создать RAID в Azure с использованием портала Azure. RAID также можно настроить с помощью сценариев Windows PowerShell.
 В этом примере мы настроим RAID 0 с 4 дисками.  
 
 #### <a name="add-a-data-disk-to-your-virtual-machine"></a>Добавление диска данных в виртуальную машину
-На странице "Виртуальные машины" классического портала Azure щелкните виртуальную машину, в которую вы хотите добавить диск данных. В этом примере виртуальная машина — mysqlnode1.  
+На портале Azure перейдите к панели мониторинга и выберите виртуальную машину, к которой нужно добавить диск данных. В этом примере виртуальная машина — mysqlnode1.  
 
-![Виртуальные машины][1]
+<!--![Virtual machines][1]-->
 
-На странице виртуальной машины щелкните **Панель мониторинга**.  
+Щелкните **Диски** и выберите **Подключить новый**.
 
-![Панель мониторинга виртуальной машины][2]
+![Добавление дисков в виртуальную машину](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-Disks-option.png)
 
-На панели задач щелкните **Подключить**.
+Создайте новый диск объемом 500 ГБ. Для параметра **Настройки кэша узла** необходимо задать значение **Нет**.  Закончив, нажмите кнопку **ОК**.
 
-![Панель задач виртуальной машины][3]
+![Присоединить пустой диск](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-attach-empty-disk.png)
 
-Затем щелкните **Присоединить пустой диск**.  
-
-![Присоединить пустой диск][4]
-
-Для дисков данных для параметра **Настройки кэша узла** необходимо задать значение **Нет**.  
 
 Теперь вы добавили один пустой диск в виртуальную машину. Повторите этот шаг еще три раза, чтобы настроить четыре диска данных для RAID.  
 
@@ -348,4 +344,5 @@ MySQL — база данных с высокой степенью паралл
 [12]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-12.png
 [13]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
+
 

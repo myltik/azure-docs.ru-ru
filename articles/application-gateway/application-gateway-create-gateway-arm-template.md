@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 0786e54c288f30b0039c1d0b88f5c5b5965eecef
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 46a036c5f1646197522874b1302b95947e90cdd8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -210,8 +210,15 @@ ms.lasthandoff: 05/02/2017
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>Добавление данных сертификата в шаблоны Resource Manager
 
-При использовании протокола SSL с шаблоном сертификат необходимо указать в виде строки в формате base64, а не передать его. Для преобразования PFX- или CER-файла в строку base64, выполните следующую команду PowerShell. Этот фрагмент кода преобразовывает сертификат в строку base64, которую можно указать для шаблона. Ожидаемым результатом является строка, которую можно сохранить в переменной и вставить в шаблон.
+При использовании протокола SSL с шаблоном сертификат необходимо указать в виде строки в формате base64, а не передать его. Для преобразования PFX- или CER-файла в строку base64, используйте одну из следующих команд. Следующие команды преобразуют сертификат в строку base64, которую можно указать для шаблона. Ожидаемым результатом является строка, которую можно сохранить в переменной и вставить в шаблон.
 
+### <a name="macos"></a>macOS
+```bash
+cert=$( base64 <certificate path and name>.pfx )
+echo $cert
+```
+
+### <a name="windows"></a>Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```

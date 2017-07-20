@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d8ae05316b424af7d87c3c5ebdac575bcc04998d
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: f5c33212da13b33be60488992d93305807c98d38
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Подготовка виртуальной машины Linux для обработки и анализа данных
 Виртуальная машина Linux для обработки и анализа данных — это виртуальная машина Azure на основе CentOS, содержащая набор предварительно установленных инструментов. Эти инструменты повсеместно используются для анализа данных и машинного обучения. К основным установленным приложениям относятся:
 
+* Операционная система: дистрибутив Linux CentOS.
 * Microsoft R Server Developer Edition
 * Дистрибутив Anaconda Python (версий 2.7 и 3.5), включая популярные библиотеки для анализа данных.
 * JuliaPro — проверенный дистрибутив на языке Julia с популярными библиотеками для обработки и анализа данных.

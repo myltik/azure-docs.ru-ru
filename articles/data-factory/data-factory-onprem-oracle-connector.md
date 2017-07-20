@@ -1,6 +1,6 @@
 ---
-title: "Перемещение данных в базу данных Oracle и обратно с помощью фабрики данных | Документация Майкрософт"
-description: "Узнайте, как переместить данные в локальную базу данных Oracle или из нее с помощью фабрики данных Azure."
+title: "Копирование данных в базу данных Oracle и из нее с помощью фабрики данных | Документация Майкрософт"
+description: "Узнайте, как копировать данные в локальную базу данных Oracle или из нее с помощью фабрики данных Azure."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 18fffb6cae9107b9301ff702d483b598836ac180
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: bb6af719fe6f1a30c5933ce4342a4c0c072f3ff4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Перемещение данных в локальную базу данных Oracle и обратно с помощью фабрики данных Azure
+# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Копирование данных в локальную базу данных Oracle и обратно с помощью фабрики данных Azure
 В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure перемещать данные в локальную базу данных Oracle и обратно. Это продолжение статьи о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования.
 
 ## <a name="supported-scenarios"></a>Поддерживаемые сценарии использования.
@@ -570,15 +570,15 @@ User Id=<username>;Password=<password>;",
 | CHAR |Строка |
 | CLOB |Строка |
 | DATE |DateTime |
-| FLOAT |Decimal |
-| INTEGER |Decimal |
+| FLOAT |десятичное число, строка (если точность больше 28) |
+| INTEGER |десятичное число, строка (если точность больше 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
 | INTERVAL DAY TO SECOND |Интервал времени |
 | LONG |Строка |
 | LONG RAW |Byte[] |
 | NCHAR |Строка |
 | NCLOB |Строка |
-| NUMBER |Decimal |
+| NUMBER |десятичное число, строка (если точность больше 28) |
 | NVARCHAR2 |Строка |
 | RAW |Byte[] |
 | ROWID |Строка |

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a8221c35a440ae859c82072ea170b438dc40d261
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -49,7 +50,7 @@ ms.lasthandoff: 04/03/2017
 2. Служба поддерживает Resource Manager, но предоставляет два типа операций: для Resource Manager и для классической модели. Этот сценарий относится только к виртуальным машинам, учетным записям хранения и виртуальным сетям.
 3. Служба не поддерживает Resource Manager.
 
-Список служб, поддерживающих Resource Manager, приведен в статье [Поставщики диспетчера ресурсов, регионы, версии API и схемы](resource-manager-supported-services.md).
+Список служб, поддерживающих диспетчер ресурсов, приведен в статье [Поставщики диспетчера ресурсов, регионы, версии API и схемы](resource-manager-supported-services.md).
 
 Если используемая служба не поддерживает Resource Manager, используйте для развертывания классическую модель.
 

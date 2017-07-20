@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 06/08/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: 69f1363c26d8b5a18ffd5629c6a49c34306dd7c0
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: b12505e21a97949c7df6ae1568f2244b5dbcd0fa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
-# <a name="set-up-gpu-drivers-for-n-series-vms-running-linux"></a>Установка драйверов GPU для виртуальных машин серии N под управлением Linux
+# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Установка драйверов GPU NVIDIA на виртуальные машины серии N под управлением Linux
 
 Чтобы воспользоваться преимуществами возможностей GPU виртуальных машин Azure серии N под управлением Linux, необходимо установить графические драйверы NVIDIA на каждую виртуальную машину. В этой статье приводятся действия по установке драйверов после развертывания виртуальных машин серии N. Сведения об установке драйверов также доступны для [виртуальных машин Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -36,18 +36,14 @@ ms.lasthandoff: 05/04/2017
 
 ## <a name="supported-distributions-and-drivers"></a>Поддерживаемые дистрибутивы и драйверы
 
-> [!IMPORTANT]
-> В настоящее время поддержка драйверов Linux GPU доступна только на виртуальных машинах Azure серии NC. 
 
-Ниже перечислены дистрибутивы из Azure Marketplace, которые поддерживают использование графических драйверов NVIDIA на виртуальных машинах Linux серии N.
+Виртуальные машины Linux серии N поддерживают следующие дистрибутивы из Azure Marketplace и перечисленные драйверы NVIDIA.
 
-### <a name="nc-vms-tesla-k80-card"></a>Виртуальные машины серии NC (карта Tesla K80)
-* Ubuntu 16.04 LTS 
-* Red Hat Enterprise Linux 7.3 
-* Версия 7.3 на основе CentOS 
 
-**Поддерживаемые драйверы**: NVIDIA CUDA 8.0, драйверы серии R375. [Действия по установке](#install-cuda-drivers-for-nc-vms)
-
+| Серия виртуальной машины | Поддерживаемые дистрибутивы | Поддерживаемые драйверы |
+| --- | --- | --- |
+| **NC** (карта Tesla K80) | Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> Версия 7.3 на основе CentOS | NVIDIA CUDA 8.0, драйвер серии R375<br/>[Действия по установке](#install-cuda-drivers-for-nc-vms) |
+| **NV** (карта Tesla K60)| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Версия 7.3 на основе CentOS | NVIDIA GRID 4.2, драйверы серии R367<br/>[Действия по установке](#install-grid-drivers-for-nv-vms) |
 
 
 
@@ -66,7 +62,7 @@ ms.lasthandoff: 05/04/2017
 
 
 > [!NOTE]
-> Предоставленные в статье ссылки для скачивания драйверов CUDA актуальны на момент ее публикации. Последние версии драйверов можно получить на веб-сайте [NVIDIA](http://www.nvidia.com/).
+> Предоставленные в статье ссылки для скачивания драйверов CUDA актуальны на момент ее публикации. Последние версии драйверов CUDA можно получить на веб-сайте [NVIDIA](http://www.nvidia.com/).
 >
 
 Чтобы установить набор средств CUDA, установите SSH-подключение к каждой виртуальной машине. Убедитесь, что в системе есть графический процессор с архитектурой CUDA, выполнив следующую команду:
@@ -82,71 +78,85 @@ lspci | grep -i NVIDIA
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
-```bash
-CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+1. Скачайте и установите драйверы CUDA.
+  ```bash
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 
-wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
-sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
 
-rm -f /tmp/${CUDA_REPO_PKG}
+  rm -f /tmp/${CUDA_REPO_PKG}
 
-sudo apt-get update
+  sudo apt-get update
 
-sudo apt-get install cuda-drivers
+  sudo apt-get install cuda-drivers
 
-```
-Установка может занять несколько минут.
+  ```
 
-Чтобы дополнительно установить полный набор средств CUDA, введите следующую команду.
+  Установка может занять несколько минут.
 
-```bash
-sudo apt-get install cuda
-```
+2. Чтобы дополнительно установить полный набор средств CUDA, введите следующую команду.
 
-Перезапустите виртуальную машину и приступите к проверке установки.
+  ```bash
+  sudo apt-get install cuda
+  ```
 
-### <a name="centos-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 или Red Hat Enterprise Linux 7.3
+3. Перезапустите виртуальную машину и приступите к проверке установки.
 
-> [!IMPORTANT] 
-> Из-за известной проблемы установка драйверов NVIDIA CUDA заканчивается сбоем на виртуальных машинах NC24r под управлением CentOS 7.3 или Red Hat Enterprise Linux 7.3.
->
+### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 или Red Hat Enterprise Linux 7.3
 
-Во-первых, установите обновления. 
 
-```bash
-sudo yum update
+1. Получите обновления. 
 
-sudo reboot
-```
+  ```bash
+  sudo yum update
 
-Повторно подключитесь к виртуальной машине и продолжите установку с помощью следующих команд:
+  sudo reboot
+  ```
+2. Подключитесь к виртуальной машине и установите последнюю версию Linux Integration Services для Hyper-V.
+ 
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
+ 
+  tar xvzf lis-rpms-4.2.1.tar.gz
+ 
+  cd LISISO
+ 
+  sudo ./install.sh
+ 
+  sudo reboot
+  ```
+ 
+3. Повторно подключитесь к виртуальной машине и продолжите установку с помощью следующих команд:
 
-```bash
-sudo yum install kernel-devel
+  ```bash
+  sudo yum install kernel-devel
 
-sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
-sudo yum install dkms
+  sudo yum install dkms
 
-CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
 
-wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
-sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
 
-rm -f /tmp/${CUDA_REPO_PKG}
+  rm -f /tmp/${CUDA_REPO_PKG}
 
-sudo yum install cuda-drivers
-```
+  sudo yum install cuda-drivers
+  ```
 
-Установка может занять несколько минут. Чтобы дополнительно установить полный набор средств CUDA, введите следующую команду.
+  Установка может занять несколько минут. 
 
-```bash
-sudo yum install cuda
-```
+4. Чтобы дополнительно установить полный набор средств CUDA, введите следующую команду.
 
-Перезапустите виртуальную машину и приступите к проверке установки.
+  ```bash
+  sudo yum install cuda
+  ```
+
+5. Перезапустите виртуальную машину и приступите к проверке установки.
 
 
 ### <a name="verify-driver-installation"></a>Проверка установки драйверов
@@ -173,18 +183,171 @@ sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
 
 sudo apt-get install cuda-drivers
+
+sudo reboot
 ```
 
-После завершения обновления перезапустите виртуальную машину.
 
-#### <a name="centos-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 или Red Hat Enterprise Linux 7.3
+#### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 или Red Hat Enterprise Linux 7.3
 
 ```bash
 sudo yum update
+
+sudo reboot
 ```
 
-После завершения обновления перезапустите виртуальную машину.
+## <a name="install-grid-drivers-for-nv-vms"></a>Установка драйверов GRID для виртуальных машин NV
 
+Чтобы установить драйверы NVIDIA GRID на виртуальных машинах NV, подключитесь по протоколу SSH к каждой виртуальной машине и выполните действия, необходимые для дистрибутива Linux. 
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+1. Выполните команду `lspci`. Убедитесь, что карта или карты NVIDIA M60 отображаются как устройства PCI.
+
+2. Установите обновления.
+
+  ```bash
+  sudo apt-get update
+
+  sudo apt-get upgrade -y
+
+  sudo apt-get dist-upgrade -y
+
+  sudo apt-get install build-essential ubuntu-desktop -y
+  ```
+3. Отключите драйвер ядра Nouveau, который несовместим с драйвером NVIDIA. (На виртуальных машинах NV используйте только драйвер NVIDIA.) Чтобы сделать это, создайте в `/etc/modprobe.d ` файл с именем `nouveau.conf` со следующим содержимым:
+
+  ```
+  blacklist nouveau
+
+  blacklist lbm-nouveau
+  ```
+
+
+4. Перезагрузите виртуальную машину и подключитесь повторно. Выйдите из X-сервера:
+
+  ```bash
+  sudo systemctl stop lightdm.service
+  ```
+
+5. Загрузите и установите драйвер GRID.
+
+  ```bash
+  wget -O NVIDIA-Linux-x86_64-367.92-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+
+  chmod +x NVIDIA-Linux-x86_64-367.92-grid.run
+
+  sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
+  ``` 
+
+6. Когда появится запрос на запуск служебной программы nvidia-xconfig для обновления файла конфигурации X, выберите **Да**.
+
+7. После завершения установки добавьте следующий код в `/etc/nvidia/gridd.conf.template`:
+ 
+  ```
+  IgnoreSP=TRUE
+  ```
+8. Перезапустите виртуальную машину и приступите к проверке установки.
+
+
+### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS 7.3 или Red Hat Enterprise Linux 7.3
+
+
+1. Обновите ядро и DKMS.
+ 
+  ```bash  
+  sudo yum update
+ 
+  sudo yum install kernel-devel
+ 
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+ 
+  sudo yum install dkms
+  ```
+
+2. Отключите драйвер ядра Nouveau, который несовместим с драйвером NVIDIA. (На виртуальных машинах NV используйте только драйвер NVIDIA.) Чтобы сделать это, создайте в `/etc/modprobe.d ` файл с именем `nouveau.conf` со следующим содержимым:
+
+  ```
+  blacklist nouveau
+
+  blacklist lbm-nouveau
+  ```
+ 
+3. Перезагрузите виртуальную машину, повторно подключитесь и установите последнюю версию служб интеграции Linux для Hyper-v.
+ 
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
+ 
+  tar xvzf lis-rpms-4.2.1.tar.gz
+ 
+  cd LISISO
+ 
+  sudo ./install.sh
+ 
+  sudo reboot
+  ```
+ 
+4. Повторно подключитесь к виртуальной машине и выполните команду `lspci`. Убедитесь, что карта или карты NVIDIA M60 отображаются как устройства PCI.
+ 
+5. Загрузите и установите драйвер GRID.
+
+  ```bash
+  wget -O NVIDIA-Linux-x86_64-367.92-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+
+  chmod +x NVIDIA-Linux-x86_64-367.92-grid.run
+
+  sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
+  ``` 
+6. Когда появится запрос на запуск служебной программы nvidia-xconfig для обновления файла конфигурации X, выберите **Да**.
+
+7. После завершения установки добавьте следующий код в `/etc/nvidia/gridd.conf.template`:
+ 
+  ```
+  IgnoreSP=TRUE
+  ```
+8. Перезапустите виртуальную машину и приступите к проверке установки.
+
+### <a name="verify-driver-installation"></a>Проверка установки драйверов
+
+
+Чтобы запросить состояние устройства GPU, установите SSH-подключение к виртуальной машине и запустите служебную программу командной строки [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface), установленную вместе с драйвером. 
+
+Отобразятся выходные данные, аналогичные приведенным ниже.
+
+![Состояние устройства NVIDIA](./media/n-series-driver-setup/smi-nv.png)
+ 
+
+### <a name="x11-server"></a>Сервер X11
+Если вам требуется сервер X11 для удаленных подключений к виртуальной машине NV, рекомендуется использовать [x11vnc](http://www.karlrunge.com/x11vnc/), так как он поддерживает аппаратное ускорение графики. BusID устройства M60 необходимо вручную добавить в файл xconfig (`etc/X11/xorg.conf` в Ubuntu 16.04 LTS, `/etc/X11/XF86config` в CentOS 7.3 или Red Hat Enterprise Server 7.3). Добавьте раздел `"Device"`, аналогичный приведенному ниже.
+ 
+```
+Section "Device"
+    Identifier     "Device0"
+    Driver         "nvidia"
+    VendorName     "NVIDIA Corporation"
+    BoardName      "Tesla M60"
+    BusID          "your-BusID:0:0:0"
+EndSection
+```
+ 
+Чтобы использовать это устройство, обновите раздел `"Screen"`.
+ 
+BusID можно найти, выполнив
+
+```bash
+/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
+```
+ 
+BusID может измениться, если виртуальная машина будет перераспределена или перезагружена. Для обновления BusID в конфигурации X11 при перезагрузке виртуальной машины можно использовать скрипт. Например:
+
+```bash 
+#!/bin/bash
+BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
+
+if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
+```
+
+Этот файл можно вызывать с правами привилегированного пользователя во время загрузки, создав для него запись в `/etc/rc.d/rc3.d`.
 
 
 ## <a name="troubleshooting"></a>Устранение неполадок

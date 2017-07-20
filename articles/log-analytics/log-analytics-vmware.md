@@ -12,16 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 813120692232096275f3a7500c3b54e16af26b77
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: a9fc8427e76ee8fa48fa8f1ad452c6fe9b544ce2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/09/2017
 
 ---
 
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Решение для мониторинга VMware (предварительная версия) в Log Analytics | Microsoft Azure
+
+![Символ VMware](./media/log-analytics-vmware/vmware-symbol.png)
+
 Решение для мониторинга VMware в Log Analytics помогает управлять централизованным ведением больших журналов VMware, а также отслеживать их. В статье описано, как с помощью этого решения централизованно устранять неполадки, связанные с узлами ESXi, а также регистрировать их и управлять ими. В решении можно увидеть подробные данные для всех узлов ESXi в одном расположении. В журналах узла ESXi вы можете просматривать счетчики основных событий, а также состояния и тенденции ВМ и узлов ESXi. Вы также можете устранять неполадки, просматривая централизованные журналы узлов ESXi и выполняя поиск в них. И наоборот, можно создавать оповещения на основе поисковых запросов по журналам.
 
 В решении для отправки данных на целевую виртуальную машину, где установлен агент OMS, используются встроенные функции системного журнала узла ESXi. Однако решение не предусматривает запись файлов в системный журнал целевой виртуальной машины. Агент OMS открывает порт 1514 и прослушивает его. При получении данных он отправляет данные в OMS.
@@ -77,7 +81,7 @@ vSphere ESXi Host версий 5.5 и 6.0.
 
 | платформа | Агент OMS для Linux | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Linux |![Да](./media/log-analytics-vmware/oms-bullet-green.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |Каждые 3 минуты |
+| Linux |![Да](./media/log-analytics-vmware/oms-bullet-green.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |![Нет](./media/log-analytics-containers/oms-bullet-red.png) |![Нет](./media/log-analytics-vmware/oms-bullet-red.png) |Каждые 3 минуты |
 
 В следующей таблице приведены примеры типов данных, собираемых решением для мониторинга VMware.
 
