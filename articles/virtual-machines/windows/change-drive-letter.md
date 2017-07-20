@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 05/31/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: abe380b8cb5988479197353282ef76442ee75930
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -31,10 +31,7 @@ ms.lasthandoff: 05/12/2017
 Дополнительные сведения об использовании временного диска в Azure см. в статье [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) (Основные сведения об использовании временного диска в виртуальных машинах Microsoft Azure).
 
 ## <a name="attach-the-data-disk"></a>Подключение диска данных
-Сначала необходимо подключить диск данных к виртуальной машине. 
-
-* См. дополнительные сведения о [подключении управляемого диска данных к виртуальной машине Windows на портале Azure](attach-managed-disk-portal.md).
-* Сведения об использовании классического портала см. в статье [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
+Сначала необходимо подключить диск данных к виртуальной машине. Дополнительные сведения о выполнении этого задания с помощью портала см. в статье [Как подключить управляемый диск данных к виртуальной машине Windows на портале Azure](attach-managed-disk-portal.md).
 
 ## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Временное перемещение файла pagefile.sys на диск C
 1. Подключитесь к виртуальной машине. 

@@ -13,11 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 06/14/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
-ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 0871f061da668360ff5749f5097353645ee26c82
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -28,7 +30,13 @@ ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
 >
 >
 
-В этой статье описано, как использовать PowerShell для настройки службы архивации Azure на сервере Windows Server или клиенте Windows, а также для управления резервным копированием и восстановлением данных.
+В этой статье объясняется, как архивировать данные Windows Server или рабочей станции Windows в резервное хранилище с использованием PowerShell. Мы рекомендуем использовать хранилища служб восстановления для всех новых развертываний. Если вы только приступили к работе со службой Azure Backup и еще не создали резервное хранилище в своей подписке, ознакомьтесь со статьей [Развертывание резервного копирования в Azure для Windows Server или клиента Windows и управление им с помощью PowerShell](backup-client-automation.md), чтобы узнать, как хранить данные в хранилище служб восстановления. 
+
+> [!IMPORTANT]
+> Теперь вы можете обновить свои резервные хранилища до хранилищ служб восстановления. См. дополнительные сведения об [обновлении резервного хранилища до хранилища служб восстановления](backup-azure-upgrade-backup-to-recovery-services.md). Корпорация Майкрософт рекомендует обновить резервные хранилища до хранилищ служб восстановления.<br/> **Начиная с 1 ноября 2017 г.**:
+>- Все остальные резервные хранилища будут автоматически обновлены до хранилищ служб восстановления.
+>- Вы не сможете получить доступ к данным резервных копий на классическом портале. Вместо этого для доступа к данным резервных копий в хранилищах служб восстановления используйте портал Azure.
+>
 
 ## <a name="install-azure-powershell"></a>Установка Azure PowerShell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
@@ -605,9 +613,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 
 * [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
 * [Резервное копирование серверов Windows](backup-configure-vault.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

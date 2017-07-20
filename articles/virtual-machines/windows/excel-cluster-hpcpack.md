@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/11/2017
+ms.date: 06/01/2017
 ms.author: danlep
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8c40a0d44463c75e92444b393336db1daf270ee1
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: acd2ee7fb94c43493ffd9ffee157f2c3e795b63e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/27/2017
    
    а. На странице **Параметры** введите или измените значения параметров шаблона. (щелкнув значок рядом с любым параметром, можно получить справочные сведения). Примеры значений показаны на следующем экране. Этот пример создает кластер *hpc01* в домене *hpc.local*, состоящий из головного узла и 2 вычислительных узлов. Вычислительные узлы создаются из образа виртуальной машины пакета HPC, включающего в себя Microsoft Excel.
    
-   ![Ввод параметров][parameters]
+   ![Ввод параметров][parameters-new-portal]
    
    > [!NOTE]
    > Виртуальная машина головного узла создается автоматически из [последней версии образа Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) на основе пакета HPC 2012 R2 и Windows Server 2012 R2. В настоящий момент образ основан на пакете HPC 2012 R2 с обновлением 3.
@@ -79,9 +79,9 @@ ms.lasthandoff: 04/27/2017
    д. Просмотрите условия на странице **Условия использования** . Если вы согласны с ними, щелкните **Приобрести**. Завершив настройку значений для шаблона, нажмите кнопку **Создать**.
 4. По завершении развертывания (как правило, это занимает около 30 минут) экспортируйте файл сертификата кластера с головного узла. На последующем шаге этот общедоступный сертификат будет импортирован на клиентский компьютер. Это обеспечит аутентификацию на стороне сервера для безопасной привязки HTTP.
    
-   а. Подключитесь к головному узлу с портала Azure с помощью удаленного рабочего стола.
+   а. Чтобы подключиться с помощью удаленного рабочего стола, на портале Azure перейдите к панели мониторинга, выберите головной узел и щелкните **Подключиться** в верхней части страницы.
    
-    ![Подключение к головному узлу][connect]
+    <!-- ![Connect to the head node][connect] -->
    
    b. Используйте стандартные процедуры для экспорта сертификата головного узла (расположенного в папке Cert:\LocalMachine\My) без закрытого ключа с помощью диспетчера сертификатов. В этом примере экспортируйте *CN = hpc01.eastus.cloudapp.azure.com*.
    
@@ -333,12 +333,12 @@ ms.lasthandoff: 04/27/2017
 ```
 
 ### <a name="use-nettcp-binding"></a>Использование привязки NetTcp
-Настройка привязки NetTcp аналогична подключению к локальному кластеру. На виртуальной машине головного узла требуется открыть несколько конечных точек. Если вы использовали сценарий развертывания IaaS пакета HPC, например для создания кластера, то задайте конечные точки в классическом портале Azure, как описано ниже.
+Настройка привязки NetTcp аналогична подключению к локальному кластеру. На виртуальной машине головного узла требуется открыть несколько конечных точек. Если вы использовали сценарий развертывания IaaS пакета HPC, например для создания кластера, то задайте конечные точки на портале Azure, как описано ниже.
 
 1. Остановите виртуальную машину.
 2. Добавьте TCP-порты 9090, 9087, 9091, 9094 для сеансов, брокера, рабочей роли брокера и служб данных, соответственно.
    
-    ![Настройка конечных точек][endpoint]
+    ![Настройка конечных точек][endpoint-new-portal]
 3. Запустите виртуальную машину.
 
 Клиентское приложение SOA не требует изменений, за исключением замены имени головного узла на полное имя кластера IaaS.
@@ -352,6 +352,7 @@ ms.lasthandoff: 04/27/2017
 [github]: ./media/excel-cluster-hpcpack/github.png
 [template]: ./media/excel-cluster-hpcpack/template.png
 [parameters]: ./media/excel-cluster-hpcpack/parameters.png
+[parameters-new-portal]: ./media/excel-cluster-hpcpack/parameters-new-portal.png
 [create]: ./media/excel-cluster-hpcpack/create.png
 [connect]: ./media/excel-cluster-hpcpack/connect.png
 [cert]: ./media/excel-cluster-hpcpack/cert.png
@@ -360,5 +361,6 @@ ms.lasthandoff: 04/27/2017
 [options]: ./media/excel-cluster-hpcpack/options.png
 [run]: ./media/excel-cluster-hpcpack/run.png
 [endpoint]: ./media/excel-cluster-hpcpack/endpoint.png
+[endpoint-new-portal]: ./media/excel-cluster-hpcpack/endpoint-new-portal.png
 [udf]: ./media/excel-cluster-hpcpack/udf.png
 

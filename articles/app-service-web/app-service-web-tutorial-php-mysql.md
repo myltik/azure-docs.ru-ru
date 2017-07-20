@@ -12,18 +12,18 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 06/19/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3ad716fab4f5084c38c83f4bc90a616856666b38
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 8a818a63409d914f82d2f0f8c894ba74ad8fa89d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/21/2017
 
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Создание веб-приложения PHP в Azure с подключением к базе данных MySQL
-В этом руководстве показано, как создать веб-приложение PHP в Azure и подключить его к базе данных MySQL. По завершении вы получите приложение [Laravel](https://laravel.com/), работающее в [веб-приложениях службы приложений Azure](app-service-web-overview.md).
+[Веб-приложения Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) — это служба веб-размещения с самостоятельной установкой исправлений и высоким уровнем масштабируемости. В этом руководстве показано, как создать веб-приложение PHP в Azure и подключить его к базе данных MySQL. По завершении вы получите приложение [Laravel](https://laravel.com/), работающее в веб-приложениях службы приложений Azure.
 
 ![Приложение PHP, работающее в службе приложений Azure](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -39,25 +39,26 @@ ms.lasthandoff: 05/31/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Перед запуском этого примера необходимо скачать и установить следующие компоненты в локальной среде:
+Для работы с этим руководством:
 
-1. [Git.](https://git-scm.com/)
-1. [PHP 5.6.4 или более поздней версии](http://php.net/downloads.php);
-1. [Composer](https://getcomposer.org/doc/00-intro.md);
-1. включите следующие расширения PHP, требуемые для Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML;
-1. [MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) (этот компонент потребуется запустить); 
-1. [Скачивание и установка Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [установите Git](https://git-scm.com/);
+* [PHP 5.6.4 или более поздней версии](http://php.net/downloads.php);
+* [Composer](https://getcomposer.org/doc/00-intro.md);
+* включите следующие расширения PHP, требуемые для Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML;
+* [MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) (этот компонент потребуется запустить). 
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-local-mysql"></a>Подготовка локальной базы данных MySQL
 
 На этом шаге вы создадите базу данных на локальном сервере MySQL для использования в этом руководстве.
 
 ### <a name="connect-to-mysql-server"></a>Подключение к серверу MySQL
-В окне терминала подключитесь к локальному серверу MySQL.
+В окне терминала подключитесь к локальному серверу MySQL. Используйте это окно терминала для выполнения всех команд в рамках этого руководства.
 
 ```bash
 mysql -u root -p
@@ -65,13 +66,13 @@ mysql -u root -p
 
 Если появится предложение ввести пароль, введите пароль для учетной записи `root`. Если вы не помните пароль учетной записи привилегированного пользователя, ознакомьтесь с разделом [MySQL: How to Reset the Root Password](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html) (MySQL: как сбросить пароль привилегированного пользователя).
 
-Если команда выполнена успешно, значит, сервер MySQL уже работает. В противном случае обеспечьте запуск локального сервера MySQL, выполнив соответствующие [действия после установки MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+Если команда выполнена успешно, значит, сервер MySQL работает. В противном случае обеспечьте запуск локального сервера MySQL, выполнив соответствующие [действия после установки MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
 ### <a name="create-a-database"></a>Создание базы данных
 
 В командной строке `mysql` создайте базу данных.
 
-```sql
+```sql 
 CREATE DATABASE sampledb;
 ```
 
@@ -88,15 +89,15 @@ quit
 
 ### <a name="clone-the-sample"></a>Клонирования репозитория
 
-Откройте окно терминала и `cd` в рабочий каталог.  
+Откройте окно терминала и c помощью команды `cd` перейдите в рабочий каталог.  
 
-Затем выполните следующие команды, чтобы клонировать репозиторий с примером. 
+Выполните команду ниже, чтобы клонировать репозиторий с примером. 
 
 ```bash
 git clone https://github.com/Azure-Samples/laravel-tasks
 ```
 
-С помощью команды `cd` перейдите в клонированный каталог и установите необходимые пакеты.
+С помощью команды `cd` перейдите в клонированный каталог. Установите необходимые пакеты.
 
 ```bash
 cd laravel-tasks
@@ -105,7 +106,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Настройка подключения к MySQL
 
-В корневой папке репозитория создайте файл _.env_ и скопируйте в него следующие переменные. Замените заполнитель _&lt;root_password >_ паролем привилегированного пользователя.
+В корне репозитория создайте файл *.env*. Скопируйте в файл *.env* приведенные ниже переменные. Замените заполнитель _&lt;root_password >_ паролем привилегированного пользователя MySQL.
 
 ```
 APP_ENV=local
@@ -119,10 +120,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-> [!NOTE]
-> Сведения о том, как Laravel использует этот файл _.env_, см. в разделе [Laravel Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Конфигурация Laravel).
->
->
+Сведения о том, как Laravel использует файл _.env_, см. в разделе [Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Конфигурация среды).
 
 ### <a name="run-the-sample"></a>Запуск примера
 
@@ -148,52 +146,43 @@ php artisan serve
 
 ![Приложение PHP успешно подключается к базе данных MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
-Чтобы остановить приложение PHP в любое время, введите `Ctrl`+`C` в окне терминала. 
+Чтобы остановить приложение PHP, введите `Ctrl + C` в окне терминала. 
 
-## <a name="create-production-mysql-in-azure"></a>Создание рабочей базы данных MySQL в Azure
+## <a name="create-mysql-in-azure"></a>Создание базы данных MySQL в Azure
 
 На этом шаге вы создадите базу данных MySQL в [базе данных Azure для MySQL (предварительная версия)](/azure/mysql). Позже вы настроите приложение PHP для подключения к этой базе данных.
 
 ### <a name="log-in-to-azure"></a>Вход в Azure
 
-Теперь воспользуемся Azure CLI 2.0 в окне терминала, чтобы создать ресурсы, необходимые для размещения приложения PHP в службе приложений Azure. Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране. 
+Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране. 
 
-```azurecli-interactive 
+```azurecli
 az login 
-``` 
-
+```
 ### <a name="create-a-resource-group"></a>Создание группы ресурсов
 
-Создайте [группу ресурсов](../azure-resource-manager/resource-group-overview.md) с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure — это логический контейнер, в котором происходит развертывание ресурсов Azure (веб-приложений, баз данных и учетных записей хранения) и управление ими. 
-
-В следующем примере создается группа ресурсов в регионе "Северная Европа".
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "North Europe"
-```
-
-Чтобы увидеть доступные значения для `--location`, выполните команду [az appservice list-locations](/cli/azure/appservice#list-locations).
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
 ### <a name="create-a-mysql-server"></a>Создание сервера MySQL
 
 Создайте сервер в базе данных Azure для MySQL (предварительная версия), выполнив команду [az mysql server create](/cli/azure/mysql/server#create).
 
-В следующей команде замените _&lt;mysql_server_name>_ уникальным именем своего сервера MySQL везде, где встречается этот заполнитель. Это имя является частью имени узла сервера MySQL (`<mysql_server_name>.database.windows.net`), поэтому оно должно быть глобально уникальным. Аналогичным образом замените _&lt;admin_user>_ и _&lt;admin_password>_ собственными значениями.
+В следующей команде замените _&lt;mysql_server_name>_ именем своего сервера MySQL везде, где встречается этот заполнитель. Допустимые символы: `a-z`, `0-9` и `-`. Это имя является частью имени узла сервера MySQL (`<mysql_server_name>.database.windows.net`). Оно должно быть глобально уникальным. 
 
 ```azurecli-interactive
 az mysql server create \
     --name <mysql_server_name> \
     --resource-group myResourceGroup \
     --location "North Europe" \
-    --user <admin_user> \
-    --password <admin_password>
+    --user adminuser \
+    --password MySQLAzure2017
 ```
 
 После создания сервера MySQL в Azure CLI отображаются следующие сведения.
 
 ```json
 {
-  "administratorLogin": "<admin_user>",
+  "administratorLogin": "adminuser",
   "administratorLoginPassword": null,
   "fullyQualifiedDomainName": "<mysql_server_name>.database.windows.net",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
@@ -218,17 +207,19 @@ az mysql server firewall-rule create \
 ```
 
 > [!NOTE]
-> База данных Azure для MySQL (предварительная версия) пока еще не позволяет использовать только подключения из служб Azure. Так как IP-адреса в Azure назначаются динамически, на данный момент рекомендуется включить все IP-адреса. Так как служба находится на этапе предварительной версии, в ближайшем будущем будут добавлены более надежные методы защиты базы данных.
+> База данных Azure для MySQL (предварительная версия) пока еще не ограничивает подключения только к службам Azure. Так как IP-адреса в Azure назначаются динамически, мы рекомендуем включить все IP-адреса. Служба находится на этапе предварительной версии. В ближайшем будущем будут добавлены более надежные методы защиты базы данных.
 >
 >
 
 ### <a name="connect-to-production-mysql-server"></a>Подключение к серверу рабочей базы данных MySQL
 
-В окне терминала подключитесь к серверу MySQL в Azure. Используйте значение, указанное ранее для _&lt;admin_user>_ и _&lt;mysql_server_name>_.
+В окне терминала подключитесь к серверу MySQL в Azure. Используйте значение, указанное ранее для заполнителя _&lt;mysql_server_name>_.
 
 ```bash
-mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
+mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
+
+При появлении запроса на ввод пароля используйте пароль _$tr0ngPa$ w0rd!_, указанный во время создания базы данных.
 
 ### <a name="create-a-production-database"></a>Создание рабочей базы данных
 
@@ -240,11 +231,11 @@ CREATE DATABASE sampledb;
 
 ### <a name="create-a-user-with-permissions"></a>Создание пользователя с разрешениями
 
-Создайте пользователя базы данных и предоставьте ему все привилегии в базе данных `sampledb`. Замените заполнители _&lt;phpapp_user>_ и _&lt;phpapp_password>_ уникальными значениями для своего приложения.
+Создайте пользователя базы данных с именем _phpappuser_ и предоставьте ему все привилегии в базе данных `sampledb`.
 
 ```sql
-CREATE USER '<phpapp_user>' IDENTIFIED BY '<phpapp_password>'; 
-GRANT ALL PRIVILEGES ON sampledb.* TO '<phpapp_user>';
+CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
+GRANT ALL PRIVILEGES ON sampledb.* TO 'phpappuser';
 ```
 
 Завершите подключение к серверу, введя команду `quit`.
@@ -253,14 +244,14 @@ GRANT ALL PRIVILEGES ON sampledb.* TO '<phpapp_user>';
 quit
 ```
 
-## <a name="connect-app-to-production-mysql"></a>Подключение приложения к рабочей базе данных MySQL
+## <a name="connect-app-to-azure-mysql"></a>Подключение приложения к базе данных Azure MySQL
 
-На этом шаге вы подключите приложение PHP к базе данных MySQL, только что созданной в базе данных Azure для MySQL (предварительная версия). 
+На этом шаге вы подключите приложение PHP к базе данных MySQL, созданной в базе данных Azure для MySQL (предварительная версия). 
 
 <a name="devconfig"></a>
 ### <a name="configure-the-connection"></a>Настройка подключения 
 
-В корневой папке репозитория создайте файл _.env.production_ и скопируйте в него следующие переменные. Замените заполнители _&lt;mysql_server_name>_, _&lt;phpapp_user>_ и _&lt;phpapp_password>_ собственными значениями.
+В корневой папке репозитория создайте файл _.env.production_ и скопируйте в него следующие переменные. Замените заполнитель _&lt;mysql_server_name>_.
 
 ```
 APP_ENV=production
@@ -270,15 +261,43 @@ APP_KEY=SomeRandomString
 DB_CONNECTION=mysql
 DB_HOST=<mysql_server_name>.database.windows.net
 DB_DATABASE=sampledb
-DB_USERNAME=<phpapp_user>@<mysql_server_name>
-DB_PASSWORD=<phpapp_password>
+DB_USERNAME=phpappuser@<mysql_server_name>
+DB_PASSWORD=MySQLAzure2017
+MYSQL_SSL=true
 ```
 
 Сохраните изменения.
 
+> [!TIP]
+> Чтобы защитить сведения о подключении к MySQL, этот файл извлекается из репозитория Git (см. файл _.gitignore_ в корне репозитория). Позже вы узнаете, как настроить переменные среды в службе приложений для подключения к базе данных в базе данных Azure для MySQL (предварительная версия). Благодаря этим переменным вам не нужен файл *.env* в службе приложений. 
+>
+
+### <a name="configure-ssl-certificate"></a>Настройка SSL-сертификата
+
+По умолчанию база данных Azure для MySQL ограничивает SSL-соединений из клиентов. Чтобы подключиться к базе данных MySQL в Azure, вам потребуется SSL-сертификат с расширением _PEM_.
+
+Откройте файл _config/database.php_ и добавьте в `connections.mysql` параметры _sslmode_ и _options_, как показано в следующем коде.
+
+```php
+'mysql' => [
+    ...
+    'sslmode' => env('DB_SSLMODE', 'prefer'),
+    'options' => (env('MYSQL_SSL')) ? [
+        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/certificate.pem', 
+    ] : []
+],
+```
+
+Дополнительные сведения о создании файла _certificate.pem_ см. в статье [Настройка SSL-подключений в приложении для безопасного подключения к базе данных Azure для MySQL](../mysql/howto-configure-ssl.md).
+
+> [!TIP]
+> Путь _/ssl/certificate.pem_ указывает на имеющийся файл _certificate.pem_ в репозитории Git. Этот файл предоставляется для удобства в рамках этого руководства. Сертификаты _PEM_ не следует фиксировать в системе управления версиями. 
+>
+>
+
 ### <a name="test-the-application"></a>Тестирование приложения
 
-Выполните перенос базы данных Laravel с помощью файла _.env.production_, указав его как файл среды, чтобы создать таблицы в базе данных MySQL, размещенной в базе данных Azure для MySQL (предварительная версия).
+Выполните перенос базы данных Laravel с помощью файла _.env.production_, указав его как файл среды, чтобы создать таблицы в базе данных MySQL, размещенной в базе данных Azure для MySQL (предварительная версия). Помните, что файл _.env.production_ содержит сведения о подключении к базе данных MySQL в Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -296,107 +315,44 @@ php artisan key:generate --env=production --force
 php artisan serve --env=production
 ```
 
-Откройте браузер и перейдите по адресу `http://localhost:8000`. Если страница загрузилась без ошибок, значит, приложение PHP подключается к базе данных MySQL в Azure. 
+Перейдите на страницу `http://localhost:8000`. Если страница загрузилась без ошибок, значит, приложение PHP подключается к базе данных MySQL в Azure. 
 
 Добавьте несколько задач на странице.
 
 ![Приложение PHP успешно подключается к базе данных Azure для MySQL (предварительная версия)](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
-Чтобы остановить приложение PHP в любое время, введите `Ctrl`+`C` в окне терминала. 
+Чтобы остановить приложение PHP, введите `Ctrl + C` в окне терминала. 
 
-### <a name="secure-sensitive-data"></a>Защита конфиденциальных данных
+### <a name="commit-your-changes"></a>Фиксация изменений
 
-Необходимо убедиться, что конфиденциальные данные в файле _.env.production_ не фиксируются в Git.
-
-Для этого откройте файл _.gitignore_ в корневой папке репозитория и добавьте имя файла в новой строке.
-
-```
-.env.production
-```
-
-Сохраните изменения, а затем зафиксируйте их в Git.
+Чтобы зафиксировать изменения, выполните следующие команды Git:
 
 ```bash
-git add .gitignore
-git commit -m "keep sensitive data out of git"
+git add .
+git commit -m "database.php updates"
 ```
 
-Позже вы узнаете, как настроить переменные среды в службе приложений для подключения к базе данных в базе данных Azure для MySQL (предварительная версия), поэтому вам не нужен файл `.env` в службе приложений. 
+Ваше приложение готово к развертыванию.
 
-## <a name="deploy-php-app-to-azure"></a>Развертывание приложения PHP в Azure
+## <a name="deploy-to-azure"></a>Развернуть в Azure
 На этом шаге вы развернете приложение PHP, подключенное к базе данных MySQL, в службе приложений Azure.
 
 ### <a name="create-an-app-service-plan"></a>Создание плана службы приложений
 
-Создайте план службы приложений, выполнив команду [az appservice plan create](/cli/azure/appservice/plan#create). 
-
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-В следующем примере создается план службы приложений _myAppServicePlan_ в ценовой категории **Бесплатный**.
-
-```azurecli-interactive
-az appservice plan create \
-    --name myAppServicePlan \
-    --resource-group myResourceGroup \
-    --sku FREE
-```
-
-После создания плана службы приложений в Azure CLI отображаются следующие сведения:
-
-```json 
-{ 
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "North Europe",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
-  "kind": "app",
-  "location": "North Europe",
-  "maximumNumberOfWorkers": 1,
-  "name": "myAppServicePlan",
-  ...
-  < Output has been truncated for readability >
-} 
-``` 
+[!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)] 
 
 ### <a name="create-a-web-app"></a>Создание веб-приложения
 
-После создания плана службы приложений _myAppServicePlan_ создайте в нем веб-приложение. Веб-приложение предоставляет место для размещения и развертывания кода, а также URL-адрес для просмотра развернутого приложения. Выполните команду [az appservice web create](/cli/azure/appservice/web#create), чтобы создать веб-приложение. 
-
-В следующей команде замените заполнитель _&lt;appname>_ уникальным именем своего приложения. Это уникальное имя используется в доменном имени по умолчанию для веб-приложения, поэтому оно должно быть уникальным для всех приложений в Azure. Позже можно сопоставить любые пользовательские записи DNS с веб-приложением, прежде чем предоставлять его пользователям. 
-
-```azurecli-interactive
-az appservice web create \
-    --name <app_name> \
-    --resource-group myResourceGroup \
-    --plan myAppServicePlan
-```
-
-После создания веб-приложения в Azure CLI отображаются следующие сведения: 
-
-```json 
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  ...
-  < Output has been truncated for readability >
-}
-```
+[!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)] 
 
 ### <a name="set-the-php-version"></a>Задание версии PHP
 
-Задайте версию PHP, которая необходима для приложения, с помощью команды [az appservice web config update](/cli/azure/appservice/web/config#update).
+Задайте версию PHP, которая необходима для приложения, с помощью команды [az webapp config set](/cli/azure/webapp/config#set).
 
 Следующая команда задает версию PHP _7.0_.
 
 ```azurecli-interactive
-az appservice web config update \
+az webapp config set \
     --name <app_name> \
     --resource-group myResourceGroup \
     --php-version 7.0
@@ -406,18 +362,18 @@ az appservice web config update \
 
 Как указывалось ранее, к базе данных MySQL в Azure можно подключиться с помощью переменных среды в службе приложений.
 
-В службе приложений переменные среды устанавливаются как _параметры приложения_ с помощью команды [az appservice web config appsettings update](/cli/azure/appservice/web/config/appsettings#update). 
+В службе приложений переменные среды устанавливаются как _параметры приложения_ с помощью команды [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set). 
 
-Следующая команда позволяет настроить параметры приложения `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` и `DB_PASSWORD`. Замените заполнители _&lt;appname>_, _&lt;mysql_server_name>_, _&lt;phpapp_user>_ и _&lt;phpapp_password>_ собственными значениями.
+Команда ниже позволяет настроить параметры приложения `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` и `DB_PASSWORD`. Замените заполнители _&lt;appname>_ и _&lt;mysql_server_name>_ собственными значениями.
 
 ```azurecli-interactive
-az appservice web config appsettings update \
+az webapp config appsettings set \
     --name <app_name> \
     --resource-group myResourceGroup \
-    --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="<phpapp_user>@<mysql_server_name>" DB_PASSWORD="<phpapp_password>"
+    --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-Для доступа к параметрам можно использовать метод PHP [getenv()](http://www.php.net/manual/function.getenv.php). В вашем коде Laravel используется программа-оболочка [env()](https://laravel.com/docs/5.4/helpers#method-env) для PHP `getenv()`. Например, конфигурация MySQL в _config/database.php_ выглядит следующим образом.
+Для доступа к параметрам можно использовать метод PHP [getenv](http://www.php.net/manual/function.getenv.php). В коде Laravel используется программа-оболочка [env](https://laravel.com/docs/5.4/helpers#method-env) для PHP `getenv`. Например, конфигурация MySQL в файле _config/database.php_ выглядит следующим образом:
 
 ```php
 'mysql' => [
@@ -432,7 +388,7 @@ az appservice web config appsettings update \
 
 ### <a name="configure-laravel-environment-variables"></a>Настройка переменных среды Laravel
 
-Как на локальном компьютере, в среде Laravel требуется ключ приложения из службы приложений. Его также можно настроить с помощью параметров приложения.
+В среде Laravel требуется ключ приложения из службы приложений. Его можно настроить с помощью параметров приложения.
 
 Используйте `php artisan` для создания ключа приложения без сохранения в файле _.env_.
 
@@ -440,27 +396,24 @@ az appservice web config appsettings update \
 php artisan key:generate --show
 ```
 
-Задайте ключ приложения в веб-приложении службы приложений с помощью команды [az appservice web config appsettings update](/cli/azure/appservice/web/config/appsettings#update). Замените заполнители _&lt;appname>_ и _&lt;outputofphpartisankey:generate>_ собственными значениями.
+Задайте ключ приложения в веб-приложении службы приложений с помощью команды [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set). Замените заполнители _&lt;appname>_ и _&lt;outputofphpartisankey:generate>_ собственными значениями.
 
 ```azurecli-interactive
-az appservice web config appsettings update \
+az webapp config appsettings set \
     --name <app_name> \
     --resource-group myResourceGroup \
     --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-> [!NOTE]
-> `APP_DEBUG="true"` указывает Laravel возвращать отладочную информацию в случае ошибок в работе развернутого веб-приложения. При выполнении рабочего приложения для него следует задать `false`, чтобы повысить безопасность.
->
->
+Значение `APP_DEBUG="true"` указывает Laravel возвращать отладочную информацию в случае ошибок в работе развернутого веб-приложения. При выполнении рабочего приложения задайте для него более безопасное значение `false`.
 
 ### <a name="set-the-virtual-application-path"></a>Задание пути виртуального приложения
 
-Задайте путь виртуального приложения для веб-приложения. Этот шаг требуется только из-за того, что [жизненный цикл приложения Laravel](https://laravel.com/docs/5.4/lifecycle) начинается в _общем_ каталоге, а не в корневом каталоге приложения. Другие платформы PHP, жизненный цикл которых начинается в корневом каталоге, могут работать без ручной настройки пути виртуального приложения.
+Задайте путь виртуального приложения для веб-приложения. Этот шаг требуется из-за того, что [жизненный цикл приложения Laravel](https://laravel.com/docs/5.4/lifecycle) начинается в _общем_ каталоге, а не в корневом каталоге приложения. Другие платформы PHP, жизненный цикл которых начинается в корневом каталоге, могут работать без ручной настройки пути виртуального приложения.
 
 Задайте путь виртуального приложения с помощью команды [az resource update](/cli/azure/resource#update). Замените заполнитель _&lt;appname>_ собственным значением.
 
-```bash
+```azurecli-interactive
 az resource update \
     --name web \
     --resource-group myResourceGroup \
@@ -471,57 +424,15 @@ az resource update \
     --api-version 2015-06-01
 ```
 
-> [!NOTE]
-> По умолчанию служба приложений Azure указывает корневой путь виртуального приложения (_/_) к корневому каталогу файлов развернутого приложения (_sites\wwwroot_). 
->
->
+По умолчанию служба приложений Azure указывает корневой путь виртуального приложения (_/_) к корневому каталогу файлов развернутого приложения (_sites\wwwroot_). 
 
 ### <a name="configure-a-deployment-user"></a>Настойка пользователя развертывания
 
-Для использования FTP и локального репозитория Git на сервере необходимо настроить пользователя развертывания, который потребуется, чтобы выполнить проверку подлинности развертывания. 
-
-> [!NOTE] 
-> Пользователь развертывания необходим для развертывания FTP и локального репозитория Git в веб-приложении. Имя пользователя и пароль являются учетными данными уровня учетной записи и отличаются от учетных данных подписки Azure.
-
-Если вы ранее создали имя пользователя и пароль для развертывания, то можете отобразить это имя пользователя, выполнив следующую команду.
-
-```azurecli-interactive
-az appservice web deployment user show
-```
-
-Если у вас еще нет пользователя развертывания, выполните команду [az appservice web deployment user set](/cli/azure/appservice/web/deployment/user#set), чтобы создать учетные данные развертывания. 
-
-```azurecli-interactive
-az appservice web deployment user set \
-    --user-name <username> \
-    --password <minimum-8-char-capital-lowercase-number>
-```
-
-Имя пользователя должно быть уникальным, а пароль — надежным. Если появляется сообщение об ошибке `'Conflict'. Details: 409`, измените имя пользователя. Если появляется сообщение об ошибке `'Bad Request'. Details: 400`, используйте более надежный пароль.
-
-Пользователь развертывания создается один раз. Его можно использовать для всех развертываний Azure.
-
-Запишите имя пользователя и пароль, так как они понадобятся позже, при развертывании приложения.
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)] 
 
 ### <a name="configure-local-git-deployment"></a>Настройка локального развертывания Git 
 
-Для развертывания веб-приложения в службе приложений Azure можно использовать FTP, локальный репозиторий Git, GitHub, Visual Studio Team Services и BitBucket. 
-
-Чтобы настроить доступ локального репозитория Git к веб-приложению Azure, выполните команду [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git). 
-
-```azurecli-interactive
-az appservice web source-control config-local-git \
-    --name <app_name> \
-    --resource-group myResourceGroup
-```
-
-После настройки пользователя развертывания в Azure CLI будет показан URL-адрес развертывания для веб-приложения Azure в следующем формате:
-
-```bash 
-https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git 
-``` 
-
-Скопируйте выходные данные из терминала, так как они понадобятся на следующем этапе. 
+[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git-no-h.md)] 
 
 ### <a name="push-to-azure-from-git"></a>Публикация в Azure из Git
 
@@ -565,31 +476,34 @@ remote: Running deployment command...
 >
 >
 
+
 ### <a name="browse-to-the-azure-web-app"></a>Переход к веб-приложению Azure
 
 Перейдите по адресу `http://<app_name>.azurewebsites.net` и добавьте несколько задач в список. 
 
 ![Приложение PHP, работающее в службе приложений Azure](./media/app-service-web-tutorial-php-mysql/php-mysql-in-azure.png)
 
-**Поздравляем!** Вы запустили управляемое данными приложение PHP в службе приложений Azure.
+Вы запустили управляемое данными приложение PHP в службе приложений Azure.
 
-## <a name="update-data-model-and-redeploy"></a>Обновление модели данных и повторное развертывание
+## <a name="update-model-and-redeploy"></a>Обновление модели данных и повторное развертывание
 
-На этом шаге вы внесете некоторые изменения в модель данных `task` и опубликуете свои изменения в Azure.
+На этом шаге вы внесете некоторые изменения в модель данных `task` и веб-приложение, а затем опубликуете обновления в Azure.
 
 Для сценария с задачами необходимо изменить приложение, чтобы можно было пометить задачу как выполненную. 
 
 ### <a name="add-a-column"></a>Добавление столбца
 
-В окне терминала убедитесь, что вы находитесь в корневой папке репозитория Git, а затем создайте перенос базы данных для таблицы `tasks`.
+В окне терминала перейдите к корневой папке репозитория Git.
+
+Создайте перенос базы данных для таблицы `tasks`:
 
 ```bash
 php artisan make:migration add_complete_column --table=tasks
 ```
 
-Эта команда отображает имя файла переноса, который создается. Найдите этот файл в каталоге _database/migrations_ и откройте в текстовом редакторе.
+Эта команда отображает имя файла переноса, который создается. Найдите этот файл в каталоге _database/migrations_ и откройте его.
 
-Замените метод up() приведенным ниже кодом.
+Замените метод `up` следующим кодом:
 
 ```php
 public function up()
@@ -600,9 +514,9 @@ public function up()
 }
 ```
 
-Этот код добавляет столбец логических значений `complete` в таблицу `tasks`.
+Предыдущий код добавляет столбец логических значений `complete` в таблицу `tasks`.
 
-Замените метод down() приведенным ниже кодом действия отката.
+Замените метод `down` следующим кодом действия отката:
 
 ```php
 public function down()
@@ -613,17 +527,17 @@ public function down()
 }
 ```
 
-В окне терминала выполните перенос базы данных Laravel в локальной среде, чтобы внести изменения в локальную базу данных.
+В окне терминала выполните перенос базы данных Laravel, чтобы внести изменения в локальную базу данных.
 
 ```bash
 php artisan migrate
 ```
 
-Согласно [соглашению об именовании Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), модель `Task` (см. _app/Task.php_) сопоставляется с таблицей `tasks` по умолчанию. Следовательно, вы завершили обновление модели данных.
+В соответствии с условиями [соглашения об именовании Laravel](https://laravel.com/docs/5.4/eloquent#defining-models) модель `Task` (см. _app/Task.php_) сопоставляется с таблицей `tasks` по умолчанию.
 
 ### <a name="update-application-logic"></a>Обновление логики приложения
 
-Откройте файл _routes/web.php_. В нем пример приложения определяет свои маршруты и бизнес-логику.
+Откройте файл *routes/web.php*. В нем приложение определяет свои маршруты и бизнес-логику.
 
 В конце файла добавьте маршрут с помощью следующего кода.
 
@@ -642,17 +556,17 @@ Route::post('/task/{id}', function ($id) {
 });
 ```
 
-Этот код выполняет простое обновление модели данных, переключая значение `complete`.
+Предыдущий код выполняет простое обновление модели данных, переключая значение `complete`.
 
 ### <a name="update-the-view"></a>Обновление представления
 
-Откройте файл _resources/views/tasks.blade.php_. Найдите открывающий тег `<tr>` и замените его приведенным ниже значением.
+Откройте файл *resources/views/tasks.blade.php*. Найдите открывающий тег `<tr>` и замените его приведенным ниже значением.
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
 ```
 
-Это позволит изменять цвет строк в зависимости от того, завершена ли задача.
+Предыдущий код изменяет цвет строк в зависимости от того, завершена ли задача.
 
 Следующая строка содержит приведенный ниже код.
 
@@ -675,23 +589,25 @@ Route::post('/task/{id}', function ($id) {
 </td>
 ```
 
-Данный код добавляет кнопку "Submit" (Отправить), которая ссылается на маршрут, определенный ранее.
+Предыдущий код добавляет кнопку "Submit" (Отправить), которая ссылается на маршрут, определенный ранее.
 
-### <a name="test-your-changes-locally"></a>Проверьте изменения локально.
+### <a name="test-the-changes-locally"></a>Локальная проверка изменений
 
-Из корневого каталога репозитория Git повторно запустите сервер разработки.
+Из корневого каталога репозитория Git запустите сервер разработки.
 
 ```bash
 php artisan serve
 ```
 
-Перейдите по адресу `http://localhost:8000` в браузере и установите флажок, чтобы увидеть, как соответствующим образом изменится состояние задачи.
+Чтобы увидеть, как изменится состояние задачи, перейдите по адресу `http://localhost:8000` и установите флажок.
 
 ![Добавлен флажок для задачи](./media/app-service-web-tutorial-php-mysql/complete-checkbox.png)
 
+Чтобы остановить приложение PHP, введите `Ctrl + C` в окне терминала. 
+
 ### <a name="publish-changes-to-azure"></a>Публикация изменений в Azure
 
-В окне терминала выполните перенос базы данных Laravel со строкой подключения рабочей базы данных, чтобы внести изменения в рабочую базу данных в Azure.
+В окне терминала выполните перенос базы данных Laravel со строкой подключения рабочей базы данных, чтобы внести изменения в базу данных в Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -705,28 +621,25 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-После окончания `git push` перейдите в веб-приложение Azure и еще раз проверьте новые функции.
+После выполнения команды `git push` перейдите в веб-приложение Azure и еще раз проверьте новые функции.
 
 ![Изменения модели и базы данных, опубликованные в Azure](media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
-> [!NOTE]
-> Если вы добавили задачи ранее, то вы увидите, что они по-прежнему отображаются. Изменения в схеме данных не влияют на существующие данные.
->
->
+Добавленные задачи сохраняются в базе данных. Изменения в схеме данных не влияют на имеющиеся данные.
 
 ## <a name="stream-diagnostic-logs"></a>Потоковая передача журналов диагностики 
 
-При запуске приложения PHP в службе приложений Azure можно передавать журналы консоли прямо в свой терминал. Таким образом, вы будете получать те же диагностические сообщения, которые помогут устранить ошибки приложения.
+При запуске приложения PHP в службе приложений Azure можно передавать журналы консоли в свой терминал. Таким образом, вы будете получать те же диагностические сообщения, которые помогут устранить ошибки приложения.
 
-Чтобы настроить потоки для журналов, выполните команду [az appservice web log tail](/cli/azure/appservice/web/log#tail).
+Чтобы настроить потоки для журналов, выполните команду [az webapp log tail](/cli/azure/webapp/log#tail).
 
 ```azurecli-interactive 
-az appservice web log tail \
+az webapp log tail \
     --name <app_name> \
-    --resource-group myResourceGroup 
+    --resource-group myResourceGroup
 ``` 
 
-После настройки потоков обновите веб-приложение Azure в браузере, чтобы получить немного трафика. Вы должны увидеть, что журналы консоли теперь направляются в терминал.
+После настройки потоков обновите веб-приложение Azure в браузере, чтобы получить немного трафика. Вы должны увидеть, что журналы консоли теперь направляются в терминал. Если журналы консоли не отображаются, проверьте еще раз через 30 секунд.
 
 Чтобы отменить потоки для журналов, выполните команду `Ctrl`+`C`. 
 
@@ -737,37 +650,21 @@ az appservice web log tail \
 >
 >
 
-## <a name="manage-your-azure-web-app"></a>Управление веб-приложением Azure
+## <a name="manage-the-azure-web-app"></a>Управление веб-приложением Azure
 
-Перейти на портал Azure, чтобы увидеть созданное веб-приложение.
+Перейдите на [портал Azure](https://portal.azure.com) для управления созданным веб-приложением.
 
-Для этого войдите на портал [https://portal.azure.com](https://portal.azure.com).
-
-В меню слева выберите **Служба приложений**, а затем щелкните имя своего веб-приложения Azure.
+В меню слева выберите **Службы приложений**, а затем щелкните имя своего веб-приложения Azure.
 
 ![Переход к веб-приложению Azure на портале](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 
-Вы попадете в _колонку_ веб-приложения (страница портала, открывшаяся горизонтально).
+Отобразится страница обзора вашего веб-приложения. Вы можете выполнять базовые задачи управления: обзор, завершение, запуск, перезагрузку и удаление. 
 
-По умолчанию колонка веб-приложения отображает страницу **обзора**. Здесь вы можете наблюдать за работой приложения. Вы также можете выполнять базовые задачи управления: обзор, завершение, запуск, перезагрузку и удаление. На вкладках в левой части колонки отображаются различные страницы конфигурации, которые можно открыть.
+В меню слева доступны страницы для настройки приложения. 
 
-![Колонка службы приложений на портале Azure](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
+![Страница службы приложений на портале Azure](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
 
-На вкладках в колонке содержится множество полезных функций, которые вы можете добавить в веб-приложение. Ниже представлены лишь некоторые из возможностей:
-
-* сопоставление настраиваемого DNS-имени;
-* привязка настраиваемого SSL-сертификата;
-* настройка непрерывного развертывания;
-* вертикальное и горизонтальное масштабирование;
-* добавление аутентификации пользователей.
-
-## <a name="clean-up-resources"></a>Очистка ресурсов
- 
-Если эти ресурсы не требуются для изучения другого руководства (см. раздел [Дальнейшие действия](#next)), их можно удалить, выполнив следующие команды: 
-  
-```azurecli-interactive
-az group delete --name myResourceGroup 
-``` 
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
 
@@ -783,7 +680,7 @@ az group delete --name myResourceGroup
 > * Потоковая передача журналов диагностики из Azure.
 > * Управление приложением на портале Azure.
 
-Перейдите к следующему руководству, чтобы научиться сопоставлять пользовательские DNS-имена.
+Перейдите к следующему руководству, чтобы научиться сопоставлять пользовательские DNS-имена с веб-приложением.
 
 > [!div class="nextstepaction"] 
 > [Сопоставление существующего настраиваемого DNS-имени с веб-приложениями Azure](app-service-web-tutorial-custom-domain.md)

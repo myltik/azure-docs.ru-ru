@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 859f9a1ca9dbe166fd514c8eba868b466dbc4d2c
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 41fcccae7b3d306c25f4429d47e81884d88cd83e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -101,6 +101,8 @@ ms.lasthandoff: 05/18/2017
 |Допустимая глубина вложенных действий|5|Это ограничение можно расширить, добавив вложенные рабочие процессы|
 |Число рабочих процессов в регионе на подписку|1000||
 |Триггеров для каждого рабочего процесса|10||
+|Ограничение вариантов области параметров|25||
+|Количество переменных на рабочий процесс|250||
 |Максимальное число символов в выражении|8192||
 |Максимальный размер `trackedProperties` в символах|16 000|
 |`action`/`trigger` |80||

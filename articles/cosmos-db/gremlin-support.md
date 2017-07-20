@@ -1,31 +1,31 @@
 ---
 title: "Поддержка языка Gremlin в базе данных Azure Cosmos DB | Документация Майкрософт"
-description: "Узнайте о языке Gremlin, доступных функциях и шагах в базе данных Azure Cosmos DB"
-services: cosmosdb
+description: "Дополнительные сведения о языке Gremlin из TinkerPop Apache, функции и этапы которого доступны в базе данных Azure Cosmos DB"
+services: cosmos-db
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: 
 tags: 
-ms.assetid: 
-ms.service: cosmosdb
+ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 06/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: db2287782df66ecee0795adb483e253021d0c2cf
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: acea54d202d1117cf2dfb1d35ad48346daa9053d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
 
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Поддержка графа Gremlin в базе данных Azure Cosmos DB
-База данных Azure Cosmos DB поддерживает API Graph [Gremlin]([Gremlin language](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)) для создания сущностей графа, а также операций запросов и обходов графа. Вы можете использовать язык Gremlin, чтобы создать сущности графа (вершины и ребра), изменить свойства в этих сущностях, выполнить запросы и обходы графа, а также удалить сущности. 
+Azure Cosmos DB поддерживает [Gremlin]([Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)) — язык обхода графов [Apache TinkerpPop](http://tinkerpop.apache.org), предназначенный для создания сущностей графа и выполнения операций запросов графов Graph API. Вы можете использовать язык Gremlin, чтобы создать сущности графа (вершины и ребра), изменить свойства в этих сущностях, выполнить запросы и обходы графа, а также удалить сущности. 
 
 База данных Azure Cosmos DB предоставляет возможности корпоративного уровня для баз данных графа. Эти возможности включают глобальное распределение, независимое масштабирование хранилища и пропускной способности, прогнозируемую задержку операций менее 10 миллисекунд, автоматическое индексирование и гарантированный уровень производительности в 99,99 % случаях согласно соглашениям об уровне обслуживания. Так как база данных Azure Cosmos DB поддерживает TinkerPop и Gremlin, вы можете легко перемещать приложения, написанные с помощью другой базы данных графа, без необходимости изменять код. Кроме того, благодаря поддержке языка Gremlin база данных Azure Cosmos DB быстро и эффективно интегрируется с платформами аналитики, совместимыми с TinkerPop, например с [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
@@ -94,7 +94,7 @@ TinkerPop — это стандартная платформа, которая 
 
 При возвращении результатов операций Gremlin в базе данных Azure Cosmos DB используется [формат GraphSON](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format). GraphSON представляет собой стандартный формат Gremlin для представления вершин, ребер и свойств (единичных и со множественными значениями) с помощью JSON. 
 
-Например, в примере кода ниже показано представление вершины в базе данных Azure Cosmos DB в формате GraphSON. 
+Например, в следующем фрагменте кода показано представление GraphSON вершины, *возвращенной клиенту* из базы данных Azure Cosmos DB. 
 
 ```json
   {
@@ -172,6 +172,7 @@ TinkerPop — это стандартная платформа, которая 
 | --- | --- | --- | --- |
 | `addE` | Добавляет ребро между двумя вершинами. | [Шаг addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Добавляет вершину в граф. | [Шаг addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
+| `and` | Обеспечивает возвращение значения для всех обходов | [Шаг and](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | Модулятор шага для назначения переменной выходным данным шага. | [Шаг as](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
 | `by` | Модулятор шага, используемый с `group` и `order`. | [Шаг by](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
 | `coalesce` | Возвращает первый обход, который возвращает результат. | [Шаг coalesce](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
@@ -209,4 +210,3 @@ TinkerPop — это стандартная платформа, которая 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Создайте приложение графа [с использованием пакетов SDK](create-graph-dotnet.md). 
 * Ознакомьтесь с [поддержкой графов в базе данных Azure Cosmos DB](graph-introduction.md).
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e22f76f912e568f1ef0ae636a4b5c0ef24e8854c
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: a3e9b2d0a8c851939acd228d8086ddfc9f38a4c1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/14/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -36,6 +36,9 @@ ms.lasthandoff: 03/14/2017
 > * [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
 
 Действие Hive HDInsight в [конвейере](data-factory-create-pipelines.md) фабрики данных выполняет запросы Hive к [вашему собственному](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) кластеру HDInsight или кластеру HDInsight [по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) под управлением Windows или Linux. Данная статья основана на материалах статьи о [действиях преобразования данных](data-factory-data-transformation-activities.md) , в которой приведен общий обзор преобразования данных и список поддерживаемых действий преобразования.
+
+> [!NOTE] 
+> Если вы не знакомы с фабрикой данных Azure, ознакомьтесь со статьей [Введение в фабрику данных Azure](data-factory-introduction.md) и [Руководство. Создание первого конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md) перед ознакомлением с этой статьей. 
 
 ## <a name="syntax"></a>Синтаксис
 
@@ -126,7 +129,7 @@ FROM HiveSampleIn Group by ProfileID
 1. Создайте связанную службу для регистрации [собственного вычислительного кластера HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) или настройте [вычислительный кластер HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Назовем эту связанную службу HDInsightLinkedService.
 2. Создайте [связанную службу](data-factory-azure-blob-connector.md) для настройки подключения к хранилищу BLOB-объектов Azure, в котором хранятся данные. Назовем эту связанную службу StorageLinkedService.
 3. Создайте [наборы данных](data-factory-create-datasets.md) , указывающие на входные и выходные данные. Назовем входной набор данных HiveSampleIn, а выходной — HiveSampleOut.
-4. Скопируйте запрос Hive в файл и сохраните его в хранилище BLOB-объектов Azure, настроенном на шаге 2. Если хранилище, в котором размещаются данные, отличается от хранилища, в котором размещаются этот файл запроса, создайте отдельную связанную службу хранилища Azure и добавьте ссылку на нее в действие. Используйте свойство **scriptPath**, чтобы указать путь к файлу запроса Hive, и **scriptLinkedService**, чтобы определить службу хранилища Azure, содержащую файл сценария. 
+4. Скопируйте запрос Hive в файл и сохраните его в хранилище BLOB-объектов Azure, настроенном на шаге 2. Если хранилище, в котором размещаются данные, отличается от хранилища, в котором размещаются этот файл запроса, создайте отдельную связанную службу хранилища Azure и добавьте ссылку на нее в действие. Используйте свойство **scriptPath **, чтобы указать путь к файлу запроса Hive, и **scriptLinkedService**, чтобы определить службу хранилища Azure, содержащую файл сценария. 
    
    > [!NOTE]
    > Также можно добавить сценарий Hive непосредственно в определение действия, используя свойство **script** . Мы не рекомендуем это делать, так как вам потребуется экранировать все специальные знаки в сценарии в документе JSON, что может вызвать проблемы при отладке. Мы рекомендуем следовать инструкциям, описанным в шаге 4.
@@ -135,9 +138,9 @@ FROM HiveSampleIn Group by ProfileID
 5. Создайте конвейер с действием HDInsightHive. Это действие обрабатывает и преобразует данные.
 
     ```JSON   
-    {    
+    {   
         "name": "HiveActivitySamplePipeline",
-           "properties": {
+        "properties": {
         "activities": [
             {
                 "name": "HiveActivitySample",
@@ -147,21 +150,21 @@ FROM HiveSampleIn Group by ProfileID
                     "name": "HiveSampleIn"
                 }
                 ],
-                 "outputs": [
-                   {
+                "outputs": [
+                {
                     "name": "HiveSampleOut"
-                   }
-                 ],
-                 "linkedServiceName": "HDInsightLinkedService",
-                 "typeproperties": {
-                       "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                       "scriptLinkedService": "StorageLinkedService"
-                 },
+                }
+                ],
+                "linkedServiceName": "HDInsightLinkedService",
+                "typeproperties": {
+                    "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                    "scriptLinkedService": "StorageLinkedService"
+                },
                 "scheduler": {
                     "frequency": "Hour",
-                       "interval": 1
-                 }
-               }
+                    "interval": 1
+                }
+            }
             ]
         }
     }

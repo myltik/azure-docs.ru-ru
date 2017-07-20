@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
+ms.date: 06/30/2017
 ms.author: steveesp
-translationtype: Human Translation
-ms.sourcegitcommit: 50be31e179bf52e009596fbc68339dfb5a1aa1e4
-ms.openlocfilehash: d53b1cae9845be32bd053ef196203ea83df06b10
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 1340048d5d518caff3397f671d0c75caaab4b5ac
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ ms.lasthandoff: 02/15/2017
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : False
+    Enabled              : False
     ```
 2. Выполните следующую команду, чтобы включить RSS:
 
@@ -48,7 +49,7 @@ ms.lasthandoff: 02/15/2017
     ```powershell
     Name                    :Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : True
+    Enabled              : True
     ```
 
 ## <a name="linux-vm"></a>Виртуальная машина Linux
@@ -80,7 +81,7 @@ apt-get -y upgrade
 
 ### <a name="centos"></a>CentOS
 
-Чтобы получить параметры оптимизации, сначала обновите систему до последней поддерживаемой версии состоянием на январь 2017 года:
+Чтобы получить параметры оптимизации, сначала обновите систему до последней поддерживаемой версии состоянием на май 2017 года:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
@@ -88,7 +89,7 @@ apt-get -y upgrade
 "Version": "latest"
 ```
 После завершения обновления установите последнюю версию служб интеграции Linux (LIS).
-Возможность оптимизации пропускной способности в службах LIS доступна начиная с версии 4.1.3. Введите следующие команды для установки LIS:
+Возможность оптимизации пропускной способности в службах LIS доступна, начиная с версии 4.2. Введите следующие команды для установки LIS:
 
 ```bash
 sudo yum update
@@ -99,20 +100,27 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 Чтобы получить параметры оптимизации, сначала обновите систему до последней поддерживаемой версии состоянием на январь 2017 года:
-
-"Publisher": "RedHat" "Offer": "RHEL" "Sku": "7.3" "Version": "7.3.20161104"
-
+```json
+"Publisher": "RedHat"
+"Offer": "RHEL"
+"Sku": "7.3"
+"Version": "7.3.2017062722"
+```
 После завершения обновления установите последнюю версию служб интеграции Linux (LIS).
-Возможность оптимизации пропускной способности в службах LIS доступна начиная с версии 4.1.3. Выполните следующие команды, чтобы загрузить и установить LIS:
+Возможность оптимизации пропускной способности в службах LIS доступна, начиная с версии 4.2. Выполните следующие команды, чтобы загрузить и установить LIS:
 
 ```bash
-mkdir lis4.1.3
-cd lis4.1.3
-wget https://download.microsoft.com/download/7/6/B/76BE7A6E-E39F-436C-9353-F4B44EF966E9/lis-rpms-4.1.3.tar.gz
-tar xvzf lis-rpms-4.1.3.tar.gz
+mkdir lis4.2.1
+cd lis4.2.1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
+tar xvzf lis-rpms-4.2.1-1.tar.gz
 cd LISISO
-install.sh #or upgrade.sh if previous LIS was previously installed
+install.sh #or upgrade.sh if prior LIS was previously installed
 ```
- 
-Дополнительные сведения о версии 4.1 служб интеграции Linux (LIS) для Hyper-V см. на [странице скачивания](https://www.microsoft.com/download/details.aspx?id=51612).
+
+Дополнительные сведения о версии 4.2 служб интеграции Linux (LIS) для Hyper-V см. на [странице скачивания](https://www.microsoft.com/download/details.aspx?id=55106).
+
+## <a name="next-steps"></a>Дальнейшие действия
+* Теперь, когда виртуальная машина оптимизирована, просмотрите результаты для своего сценария, используя сведения в статье [Проверка пропускной способности (NTTTCP)](virtual-network-bandwidth-testing.md).
+* Дополнительные сведения см. в статье [Виртуальная сеть Azure: часто задаваемые вопросы](virtual-networks-faq.md).
 

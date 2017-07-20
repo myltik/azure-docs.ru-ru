@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 06/06/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3b543b1c94122a037cdd3b16e25d60957add1cb7
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 93300ba995f2a556cb90fc657db5cf9ad56b9846
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -120,7 +121,8 @@ ConnectionsQuotaExceeded for namespace xxx.
    . Иногда служба служебной шины может испытывать задержки при обработке запросов, например, в периоды интенсивной загрузки сети. В таких случаях можно настроить повторную попытку выполнения операции через некоторое время до ее успешного завершения. Если же операцию по-прежнему не удается выполнить после нескольких попыток, посетите [сайт состояния служб Azure](https://azure.microsoft.com/status/), чтобы получить сведения об известных простоях служб.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Полные справочные материалы по API служебной шины и концентраторов событий для .NET доступны в [справочнике по API Azure для .NET](/dotnet/api/).
+
+Полные справочные материалы по API служебной шины для .NET доступны в [справочнике по API Azure для .NET](/dotnet/api/overview/azure/servicebus).
 
 Дополнительные сведения о [служебной шине](https://azure.microsoft.com/services/service-bus/) см. в следующих статьях.
 

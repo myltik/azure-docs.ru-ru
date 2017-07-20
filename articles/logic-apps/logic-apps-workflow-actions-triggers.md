@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/07/2017
 
 ---
 
@@ -731,7 +731,7 @@ API подключения — это действие, которое ссыл
 
 ## <a name="table-action"></a>Действие таблицы
 
-Позволяет `table` преобразовать массив элементов в таблицу **CVS** или **HTML**.
+Позволяет `table` преобразовать массив элементов в таблицу **CSV** или **HTML**.
 
 Предположим, что @triggerBody() выглядит следующим образом:
 
@@ -789,7 +789,7 @@ API подключения — это действие, которое ссыл
 |Имя|Обязательно|Тип|Описание|
 |--------|------------|--------|---------------|
 |from|Да|Массив,|Исходный массив.|
-|свойства|Да|Строка|Формат (**CVS** или **HTML**).|
+|свойства|Да|Строка|Формат (**CSV** или **HTML**).|
 |columns|Нет|Массив,|Столбцы. Позволяет переопределить стандартную форму таблицы.|
 |column header|Нет|string|Заголовок столбца.|
 |column value|Да|Строка|Значение столбца.|

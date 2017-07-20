@@ -1,5 +1,5 @@
 ---
-title: "Веб-приложение Python на Django в Linux | Документация Майкрософт"
+title: "Веб-приложение Python на Django на виртуальной машине Azure под управлением Linux | Документация Майкрософт"
 description: "Узнайте, как разместить веб-приложение на основе Django в Azure с помощью виртуальной машины Linux."
 services: virtual-machines-linux
 documentationcenter: python
@@ -13,16 +13,17 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: python
 ms.topic: article
-ms.date: 11/17/2015
+ms.date: 05/31/2017
 ms.author: huvalo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 93add0f19bef64b236933a3d1754f1ecb5826545
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 6e2ab8c7da7496d0e2b567a4bdc9341adcf01552
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="django-hello-world-web-application-on-a-linux-vm"></a>Веб-приложение Hello World на Django на виртуальной машине Linux
+# <a name="django-hello-world-web-app-on-a-linux-vm"></a>Веб-приложение Hello World на Django на виртуальной машине Linux
 > [!div class="op_single_selector"]
 > * [Windows](../windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > * [Mac/Linux](../windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -31,70 +32,72 @@ ms.lasthandoff: 04/03/2017
 
 <br>
 
-В этом учебнике описывается, как разместить веб-сайт на основе Django в Microsoft Azure с помощью виртуальной машины Linux. В данном учебнике предполагается, что у вас нет опыта использования платформы Azure. По завершении изучения этого учебника вы получите приложение на основе Django, выполняемое в облаке.
+В этом руководстве описывается размещение веб-сайта на основе Django в Linux на виртуальных машинах Azure. Для работы с этим руководством опыт работы с Azure не требуется. По завершении работы с этим руководством у вас будет готовое приложение на базе Django, выполняющееся в облаке.
 
-Вы научитесь:
+Ниже перечислено, что вы можете узнать.
 
-* Настройте виртуальную машину Azure для размещения Django. Хотя в учебном курсе объясняется, как выполнить эту задачу в **Linux**, эти сведения актуальны для виртуальных машин под управлением Windows Server, размещенных в Windows Azure. 
-* Создайте новое приложение Django в Linux.
+* Настраивать виртуальную машину Azure для размещения Django. Хотя в этом руководстве описываются действия для **Linux**, эти же шаги вы можете выполнить для виртуальных машин Windows Server, размещенных в Azure. 
+* Создайте приложение Django в Linux.
 
-Руководствуясь этим учебником, вы создадите простое веб-приложение Hello World. Приложение будет размещаться в виртуальной машине Azure.
+В этом руководстве рассматривается создание базового веб-приложения Hello World. Приложение будет размещаться на виртуальной машине Azure.
 
-Снимок экрана завершенного приложения приведен ниже:
+На снимке экрана ниже показано готовое приложение:
 
-![В окне браузера в Azure отображается страница hello world.](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)
+![Окно браузера, в котором отображается страница Hello World в Azure](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)
 
 [!INCLUDE [create-account-and-vms-note](../../../includes/create-account-and-vms-note.md)]
 
-## <a name="creating-and-configuring-an-azure-virtual-machine-to-host-django"></a>Создание и настройка виртуальной машины Azure для размещения Django
-1. Следуйте приведенным [здесь](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) указаниям, чтобы создать виртуальную машину с дистрибутивом *Ubuntu Server 14.04 LTS*.  При желании можно выбрать проверку пароля вместо открытого ключа SSH.
-2. Измените группу безопасности сети, чтобы разрешить входящий трафик HTTP для порта 80, выполнив [эти](../../virtual-network/virtual-networks-create-nsg-arm-pportal.md)инструкции.
-3. По умолчанию у новой виртуальной машины нет полного доменного имени (FQDN).  Его можно создать, следуя [этим](../windows/portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) инструкциям.  Этот шаг не обязателен для работы с данным учебником.
+## <a name="create-and-set-up-an-azure-virtual-machine-to-host-django"></a>Создание и настройка виртуальной машины Azure для размещения приложения Django
+
+1. Чтобы создать виртуальную машину Azure с дистрибутивом Ubuntu Server 14.04 LTS, ознакомьтесь со статьей [Создание виртуальной машины Linux с помощью портала Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Кроме того, можно выбрать проверку пароля вместо открытого ключа SSH.
+2. Дополнительные сведения об изменении группы безопасности сети, чтобы разрешить входящий трафик HTTP для порта 80, см. в статье [Создание групп безопасности сети с помощью портала Azure](../../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+3. (Необязательно.) По умолчанию у новой виртуальной машины нет полного доменного имени (FQDN).  Дополнительные сведения о создании виртуальной машины с полным доменным именем см. в статье [Создание полного доменного имени на портале Azure для виртуальной машины Windows](../windows/portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Этот шаг не требуется для изучения этого руководства.
 
 ## <a id="setup"> </a>Настройка среды разработки
-**Примечание.** Если нужно установить клиентские библиотеки или Python, см. [руководство по установке Python](../../python-how-to-install.md).
+> [!NOTE]
+> Если нужно использовать клиентские библиотеки или установить Python, см. статью [Установка Python и пакета SDK](../../python-how-to-install.md).
 
-Виртуальная машина Linux Ubuntu уже поставляется с предварительно установленной программой Python 2.7, но в ней отсутствует Apache или django.  Выполните следующие действия, чтобы подключиться к своей виртуальной машине и установить Apache и django.
+Виртуальная машина Linux Ubuntu уже поставляется с предварительно установленной программой Python 2.7, но в ней отсутствует Apache или Django. Чтобы подключиться к своей виртуальной машине и установить Apache и Django, сделайте следующее:
 
-1. Запустите новое окно **Терминал** .
-2. Введите следующую команду для подключения к виртуальной машине Azure.  Если полное доменное имя не было создано, можно подключиться с помощью общедоступного IP-адреса, который отображается в сводке по виртуальной машине на классическом портале Azure.
+1. Откройте новое окно терминала.
+2. Введите следующую команду для подключения к виртуальной машине Azure. Если полное доменное имя не было создано, можно подключиться с помощью общедоступного IP-адреса, который отображается в сводке по виртуальной машине на портале Azure.
    
        $ ssh yourusername@yourVmUrl
-3. Введите следующие команды для установки Django:
+3. Для установки Django введите следующие команды:
    
        $ sudo apt-get install python-setuptools python-pip
        $ sudo pip install django
-4. Введите следующую команду для установки Apache с mod-wsgi:
+4. Для установки Apache с mod-wsgi введите следующую команду:
    
        $ sudo apt-get install apache2 libapache2-mod-wsgi
 
-## <a name="creating-a-new-django-application"></a>Создание нового приложения Django
-1. Откройте окно **Терминал** , использовавшееся в предыдущем разделе для входа на виртуальную машину по протоколу SSH.
+## <a name="create-a-new-django-app"></a>Создание приложения Django
+1. Чтобы войти в виртуальною машину с помощью SSH, откройте окно терминала, использованное в предыдущем разделе.
 2. Введите следующие команды для создания нового проекта Django:
    
        $ cd /var/www
        $ sudo django-admin.py startproject helloworld
    
-   Сценарий **Django admin.py** создает базовую структуру для веб-сайтов на основе Django:
+   Скрипт `django-admin.py` создает базовую структуру для веб-сайтов на основе Django:
    
-   * **helloworld/manage.py** помогает вам начать и остановить размещение веб-сайта Django
-   * **helloworld/helloworld/settings.py** содержит параметры Django для приложения.
-   * **helloworld/helloworld/urls.py** содержит код сопоставления между каждым URL-адресом и его представлением.
-3. Создайте новый файл с именем **views.py** в каталоге **/var/www/helloworld/helloworld**. Он будет содержать представление, которое осуществляет отрисовку страницы "hello world". Запустите редактор и введите следующую команду:
+   * `helloworld/manage.py` поможет вам начать и остановить размещение веб-сайта на основе Django.
+   * `helloworld/helloworld/settings.py` содержит настройки Django для приложения.
+   * `helloworld/helloworld/urls.py` содержит код сопоставления между каждым URL-адресом и его представлением.
+3. В каталоге /var/www/helloworld/helloworld создайте файл с именем views.py. Он содержит представление, которое осуществляет отрисовку страницы hello world. В редакторе кода введите следующие команды:
    
        from django.http import HttpResponse
        def home(request):
            html = "<html><body>Hello World!</body></html>"
            return HttpResponse(html)
-4. Замените содержимое файла **urls.py** на код, приведенный ниже:
+4. Замените содержимое файла urls.py на команды ниже:
    
        from django.conf.urls import patterns, url
        urlpatterns = patterns('',
            url(r'^$', 'helloworld.views.home', name='home'),
        )
 
-## <a name="setting-up-apache"></a>Настройка Apache
-1. Создайте файл конфигурации виртуального узла Apache **/etc/apache2/sites-available/helloworld.conf**. Введите следующее содержимое и замените *yourVmName* фактическим именем компьютера, который вы используете (например, *pyubuntu*).
+## <a name="set-up-apache"></a>Настройка Apache
+1. Создайте файл конфигурации виртуального узла Apache в папке /etc/apache2/sites-available/helloworld.conf. Введите следующее содержимое для переменных. Замените *yourVmName* фактическим именем используемого компьютера (например, *pyubuntu*).
    
        <VirtualHost *:80>
        ServerName yourVmName
@@ -104,14 +107,14 @@ ms.lasthandoff: 04/03/2017
 2. Включите сайт, выполнив следующую команду:
    
        $ sudo a2ensite helloworld
-3. Перезапустите Apache с помощью следующей команды:
+3. Чтобы перезапустить Apache, используйте следующую команду:
    
        $ sudo service apache2 reload
-4. Наконец, загрузите веб-страницу в браузере.
+4. Загрузите веб-страницу в браузере:
    
-   ![В окне браузера в Azure отображается страница hello world.](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)
+   ![Окно браузера, в котором отображается страница Hello World в Azure](./media/python-django-web-app/mac-linux-django-helloworld-browser.png)
 
-## <a name="shutting-down-your-azure-virtual-machine"></a>Завершение работы виртуальной машины Azure
-После завершения этого учебного курса завершите работу созданной вами виртуальной машины Azure и/или удалите ее, чтобы освободить ресурсы для других учебных курсов и избежать платы за использование Azure.
+## <a name="shut-down-your-azure-virtual-machine"></a>Завершение работы виртуальной машины Azure
+По завершении работы с этим руководством мы рекомендуем завершить работу виртуальной машины Azure (созданной для работы с этим руководством) или же удалить ее. Это позволит освободить ресурсы для работы с другими руководствами, а также избежать расходов за использование Azure.
 
 

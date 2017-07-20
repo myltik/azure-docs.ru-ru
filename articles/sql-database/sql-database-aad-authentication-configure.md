@@ -9,18 +9,18 @@ editor:
 tags: 
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
-ms.custom: security-access
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 05/05/2017
+ms.date: 07/05/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f018e265d008cc06631034cea417109c71e7786f
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 65966f3adf8abee6d1476e9241b35247599ab1af
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -76,20 +76,20 @@ ms.lasthandoff: 05/08/2017
 Ниже описаны две процедуры по подготовке администратора Azure Active Directory для сервера Azure SQL Server на портале Azure или с помощью PowerShell.
 
 ### <a name="azure-portal"></a>Портал Azure
-1. В правом верхнем углу [портала Azure](https://portal.azure.com/)щелкните имя подключения, чтобы открыть список доступных каталогов Active Directory. Выберите нужный экземпляр Active Directory в качестве Azure AD по умолчанию. С помощью этого шага можно связать подписку Active Directory с Azure SQL Server, чтобы одна и та же подписка использовалась для Azure AD и SQL Server. (На сервере Azure SQL Server может размещаться база данных SQL Azure или хранилище данных SQL Azure.)
-   
-    ![choose-ad][8]
-2. В области слева выберите **Серверы SQL Server**, выберите нужное значение **SQL Server**, а затем в верхней части колонки **SQL Server** щелкните **Параметры**.
-   
-    ![параметры ad][9]
-3. В колонке **Параметры** щелкните **Администратор Active Directory**.
-4. В колонке **Администратор Active Directory** щелкните **Администратор Active Directory**, а затем щелкните **Задать администратора** вверху.
-5. В колонке **Добавление администратора** найдите пользователя, выберите пользователя (или группу), чтобы назначить его администратором, и щелкните **Выбрать**. (В колонке "Администратор Active Directory" отобразятся все участники и группы Active Directory. Пользователей или группы, которые выделены серым цветом, нельзя выбрать; они не поддерживаются ролью администратора Azure AD. список поддерживаемых администраторов в разделе **Функции и ограничения Azure AD** выше.) Управление доступом на основе ролей (RBAC) применяется только к порталу и не распространяется на SQL Server.
-6. В верхней части колонки **Администратор Active Directory** нажмите кнопку **Сохранить**.
+1. В правом верхнем углу [портала Azure](https://portal.azure.com/)щелкните имя подключения, чтобы открыть список доступных каталогов Active Directory. Выберите нужный экземпляр Active Directory в качестве Azure AD по умолчанию. С помощью этого шага можно связать подписку Active Directory с Azure SQL Server, чтобы одна и та же подписка использовалась для Azure AD и SQL Server. (На сервере Azure SQL Server может размещаться база данных SQL Azure или хранилище данных SQL Azure.)   
+    ![choose-ad][8]   
+    
+2. В области слева выберите **Серверы SQL Server**, выберите свой сервер **SQL Server**, а затем в колонке **SQL Server** щелкните **Администратор Active Directory**.   
+3. В колонке **Администратор Active Directory** щелкните **Задать администратора**.   
+    ![выбор Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+    
+4. В колонке **Добавление администратора** найдите пользователя, выберите пользователя (или группу), чтобы назначить его администратором, и щелкните **Выбрать**. (В колонке "Администратор Active Directory" отобразятся все участники и группы Active Directory. Пользователей или группы, которые выделены серым цветом, нельзя выбрать; они не поддерживаются ролью администратора Azure AD. (Список поддерживаемых администраторов см. в разделе о **функциях и ограничениях Azure AD** статьи [Использование аутентификации Azure Active Directory для аутентификации с помощью базы данных SQL или хранилища данных SQL](sql-database-aad-authentication.md).) Управление доступом на основе ролей (RBAC) применяется только к порталу и не распространяется на SQL Server.   
+    ![выбор администратора](./media/sql-database-aad-authentication/select-admin.png)  
+    
+5. В верхней части колонки **Администратор Active Directory** нажмите кнопку **Сохранить**.   
+    ![сохранение администратора](./media/sql-database-aad-authentication/save-admin.png)   
 
-    ![выбор администратора][10]
-   
-    Изменение администратора может занять несколько минут. После этого новый администратор появится в поле **Администратор Active Directory** .
+Изменение администратора может занять несколько минут. После этого новый администратор появится в поле **Администратор Active Directory** .
 
    > [!NOTE]
    > При настройке администратора Azure AD новое имя администратора (пользователя или группы) не может уже присутствовать в виртуальной базе данных master как пользователь аутентификации SQL Server. Если оно присутствует, настройка администратора Azure AD завершится ошибкой. Будет выполнен откат его создания и появится сообщение, что такой администратор (имя) уже существует. Такой пользователь аутентификации SQL Server не входит в Azure AD, поэтому любая попытка подключиться к серверу с помощью аутентификации Azure AD завершится сбоем.
@@ -219,14 +219,14 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 > Пользователи Azure AD помечаются в метаданных базы данных как тип E (EXTERNAL_USER), а группы — как тип X (EXTERNAL_GROUPS). Дополнительные сведения см. в статье [sys.database_principals (Transact-SQL)](https://msdn.microsoft.com/library/ms187328.aspx). 
 >
 
-## <a name="connect-to-the-user-database-or-data-warehouse-by-using-sql-server-management-studio-or-sql-server-data-tools"></a>Подключение к базе данных пользователя или хранилищу данных с помощью SQL Server Management Studio или SQL Server Data Tools
+## <a name="connect-to-the-user-database-or-data-warehouse-by-using-ssms-or-ssdt"></a>Подключение к пользовательской базе данных или хранилищу данных с помощью SSMS или SSDT  
 Чтобы убедиться, что администратор Azure AD настроен правильно, подключитесь к базе данных **master** с помощью учетной записи администратора Azure AD.
 Вы можете подготовить пользователя автономной базы данных, использующей Azure AD (кроме администратора сервера, который является владельцем базы данных). Для этого подключитесь к базе данных с помощью удостоверения Azure AD, у которого есть доступ к базе данных.
 
 > [!IMPORTANT]
 > Проверку подлинности Azure Active Directory поддерживают [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) и [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) для Visual Studio 2015. Выпуск SSMS за август 2016 года также включает в себя поддержку универсальной аутентификации Active Directory, что позволяет администраторам требовать прохождения Multi-Factor Authentication с помощью телефонного звонка, текстового сообщения, смарт-карты с ПИН-кодом или уведомления в мобильном приложении.
  
-## <a name="using-an-azure-ad-identity-to-connect-using-sql-server-management-studio-or-sql-server-database-tools"></a>Использование удостоверения Azure AD для подключения с помощью SQL Server Management Studio или инструментов баз данных SQL Server
+## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Использование удостоверения Azure AD для подключения с помощью SSMS или SSDT  
 
 Ниже описаны действия по подключению к базе данных SQL с помощью удостоверения Azure AD с использованием SQL Server Management Studio или инструментов баз данных SQL Server.
 
@@ -320,8 +320,6 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 - Дополнительные сведения о субъектах базы данных см. в [этой статье](https://msdn.microsoft.com/library/ms181127.aspx).
 - Дополнительные сведения о ролях баз данных см. в статье [Роли уровня базы данных](https://msdn.microsoft.com/library/ms189121.aspx).
 - Дополнительные сведения о правилах брандмауэра см. в статье [Обзор правил брандмауэра базы данных SQL Azure](sql-database-firewall-configure.md).
-- Сведения об использовании аутентификации SQL Server см. в статье [Руководство по базам данных SQL: аутентификация, доступ и правила брандмауэра уровня базы данных в SQL Server](sql-database-control-access-sql-authentication-get-started.md).
-- Сведения об использовании аутентификации Azure Active Directory см. в статье [Руководство по базам данных SQL: доступ с аутентификацией Azure AD и правила брандмауэра уровня базы данных](sql-database-control-access-aad-authentication-get-started.md).
 
 <!--Image references-->
 
@@ -333,7 +331,6 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [6]: ./media/sql-database-aad-authentication/6edit-directory-select.png
 [7]: ./media/sql-database-aad-authentication/7edit-directory-confirm.png
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
-[9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png

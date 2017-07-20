@@ -5,17 +5,16 @@ services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
+ms.custom: mvc
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/01/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2df8d6e3d3629ad0e383aa80ba7fee02f8862410
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: a4ddb9d4f672de6cf1ebe137bf06e5e2c8b7796f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Ограничения в базе данных Azure для PostgreSQL
@@ -46,22 +45,23 @@ ms.lasthandoff: 05/10/2017
 > FATAL: sorry, too many clients already (Неустранимая ошибка: уже подключено слишком много клиентов)
 
 ## <a name="preview-functional-limitations"></a>Ограничения функциональных возможностей предварительной версии
-### <a name="scale-operations"></a>Операции масштабирования:
-1.    В настоящее время динамическое масштабирование серверов между уровнями служб не поддерживается. Имеется в виду переключение между уровнями служб "Базовый" и "Стандартный".
-2.    В настоящее время динамическое увеличение объема хранилища по запросу на предварительно созданном сервере не поддерживается.
-3.    Уменьшение размера хранилища сервера не поддерживается.
+### <a name="scale-operations"></a>Операции масштабирования
+1.  В настоящее время динамическое масштабирование серверов между уровнями служб не поддерживается. Имеется в виду переключение между уровнями служб "Базовый" и "Стандартный".
+2.  В настоящее время динамическое увеличение объема хранилища по запросу на предварительно созданном сервере не поддерживается.
+3.  Уменьшение размера хранилища сервера не поддерживается.
 
-### <a name="server-version-upgrades"></a>Обновление версии сервера:
+### <a name="server-version-upgrades"></a>Обновления версии сервера
 - В настоящее время автоматический переход между основными версиями ядра СУБД не поддерживается.
 
-### <a name="subscription-management"></a>Управление подпиской:
+### <a name="subscription-management"></a>Управление подпиской
 - В настоящее время динамическое перемещение предварительно созданных серверов между подпиской и группой ресурсов не поддерживается.
 
-### <a name="point-in-time-restore"></a>Восстановление до точки во времени:
-1.    Восстановление в другой уровень служб и (или) до другого числа единиц вычислений и размера хранилища не допускается.
-2.    Восстановление удаленного сервера не поддерживается.
+### <a name="point-in-time-restore"></a>Восстановление до точки во времени
+1.  Восстановление в другой уровень служб и (или) до другого числа единиц вычислений и размера хранилища не допускается.
+2.  Восстановление удаленного сервера не поддерживается.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Ознакомьтесь со статьей [Уровни служб в базе данных Azure для MySQL](concepts-service-tiers.md).
+- Ознакомьтесь со статьей [Параметры и производительность базы данных Azure для MySQL: возможности разных уровней служб](concepts-service-tiers.md).
 - Ознакомьтесь со статьей [Поддерживаемые версии в базе данных Azure для PostgreSQL](concepts-supported-versions.md).
 - Просмотрите статью [How To Backup and Restore a server in Azure Database for PostgreSQL using the Azure portal](howto-restore-server-portal.md) (Архивация и восстановление сервера в базе данных Azure для PostgreSQL с помощью портала Azure).
+

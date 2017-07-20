@@ -5,66 +5,46 @@ services: postgresql
 author: salonisonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
-ms.devlang: azurecli
-ms.topic: article
-ms.date: 05/10/2017
+ms.custom: mvc
+ms.devlang: azure-cli
+ms.topic: sample
+ms.date: 05/31/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0f61358aa655a44ac7982c80eb1d796667c47bf4
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 18700246b496d037464d86945b24ac59c8d88756
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Создание сервера базы данных Azure для PostgreSQL и настройка правила брандмауэра с помощью Azure CLI
 Этот пример скрипта CLI создает сервер базы данных Azure для PostgreSQL и настраивает правило брандмауэра на уровне сервера. После успешного выполнения скрипта доступ к серверу PostgreSQL можно получить из всех служб Azure, а также по настроенному IP-адресу.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Пример скрипта
-```azurecli
-#!/bin/bash
-
-# Create a resource group
-az group create \
---name myresourcegroup \
---location westus
-
-# Create a PostgreSQL server in the resource group
-# Name of a server maps to DNS name and is thus required to be globally unique in Azure.
-# Substitute the <server_admin_password> with your own value.
-az postgres server create \
---name mypgserver-20170401 \
---resource-group myresourcegroup \
---location westus \
---admin-user mylogin \
---admin-password <server_admin_password> \
---performance-tier Basic \
---compute-units 50 \
-
-# Configure a firewall rule for the server
-# The ip address range that you want to allow to access your server
-az postgres server firewall-rule create \
---resource-group myresourcegroup \
---server mypgserver-20170401 \
---name AllowIps \
---start-ip-address 0.0.0.0 \
---end-ip-address 255.255.255.255
-
-# Default database ‘postgres’ gets created on the server.
-```
+В этом примере скрипта измените выделенные строки, чтобы настроить имя и пароль администратора.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh?highlight=15-16 "Создание базы данных Azure для PostgreSQL и правила брандмауэра на уровне сервера.")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
 После выполнения примера сценария можно удалить группу ресурсов и все связанные с ней ресурсы, выполнив следующую команду.
-```azurecli
-az group delete --name myresourcegroup
-```
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/delete-postgresql.sh "Удаление группы ресурсов.")]
+
+## <a name="script-explanation"></a>Описание скрипта
+Этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
+
+| **Команда** | **Примечания** |
+|---|---|
+| [az group create](/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
+| [az postgres server create](/cli/azure/postgres/server#create) | Создает сервер PostgreSQL, на котором размещены базы данных. |
+| [az postgres server firewall create](/cli/azure/postgres/server/firewall-rule#create) | Создает правило брандмауэра, чтобы разрешить доступ к серверу и размещенным на нем базам данных по введенному диапазону IP-адресов. |
+| [az group delete](/cli/azure/group#delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
-- Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
-- Дополнительные примеры скриптов CLI для базы данных Azure для PostgreSQL можно найти в [документации по базе данных Azure для PostgreSQL](../sample-scripts-azure-cli.md).
+- Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](/cli/azure/overview).
+- Попробуйте использовать другие скрипты на основе [примеров Azure CLI для базы данных Azure для PostgreSQL](../sample-scripts-azure-cli.md).
 

@@ -1,9 +1,9 @@
 ---
 title: "Сбор и анализ сообщений Syslog в OMS Log Analytics | Документация Майкрософт"
-description: "Системный журнал (Syslog) — это протокол ведения журнала событий, который обычно используется в Linux.   В этой статье описано, как настроить сбор сообщений системного журнала в службе Log Analytics, а также сведения о записях, создаваемых ими в репозитории OMS."
+description: "Системный журнал (Syslog) — это протокол ведения журнала событий, который обычно используется в Linux. В этой статье описано, как настроить сбор сообщений системного журнала в службе Log Analytics, а также сведения о записях, создаваемых ими в репозитории OMS."
 services: log-analytics
 documentationcenter: 
-author: bwren
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
-ms.author: bwren
+ms.date: 06/12/2017
+ms.author: magoedte;bwren
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: 6e92a79c0b7ea35f110c779922255d6ddc93ed7c
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 783b9b48251c5f092121288af8834e2caf31f5d7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/24/2017
 Системный журнал (Syslog) — это протокол ведения журнала событий, который обычно используется в Linux.  Приложения отправляют сообщения, которые могут храниться на локальном компьютере или передаваться в сборщик системного журнала.  При установке агента OMS для Linux он настраивает локальную управляющую программу системного журнала для пересылки сообщений в агент.  Затем агент отправляет сообщение в службу Log Analytics, где в репозитории OMS создается соответствующая запись.  
 
 > [!NOTE]
-> Log Analytics поддерживает сбор сообщений, отправленных rsyslog или syslog-ng. Управляющая программа syslog по умолчанию не поддерживается для сбора событий системного журнала в Red Hat Enterprise Linux версии 5, CentOS и Oracle Linux (sysklog). Чтобы собирать данные системного журнала из дистрибутивов этих версий, требуется установить и настроить [управляющую программу rsyslog](http://rsyslog.com) , которая заменит sysklog.
+> Log Analytics поддерживает сбор сообщений, отправленных rsyslog или syslog-ng, где rsyslog является управляющей программой по умолчанию. Управляющая программа syslog по умолчанию не поддерживается для сбора событий системного журнала в Red Hat Enterprise Linux версии 5, CentOS и Oracle Linux (sysklog). Чтобы собирать данные системного журнала из дистрибутивов этих версий, требуется установить и настроить [управляющую программу rsyslog](http://rsyslog.com) , которая заменит sysklog.
 > 
 > 
 
@@ -137,20 +137,50 @@ ms.lasthandoff: 01/24/2017
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
 
-### <a name="changing-the-syslog-port"></a>Изменение порта системного журнала
-Агент OMS прослушивает сообщения системного журнала на локальном клиенте через порт 25224.  Этот порт можно изменить, добавив следующий раздел в файл конфигурации агента OMS, который находится в расположении **/etc/opt/microsoft/omsagent/conf/omsagent.conf**.  В записи **порта** замените 25224 на номер порта, который хотите использовать.  Обратите внимание, что для отправки сообщений в этот порт необходимо также изменить файл конфигурации управляющей программы системного журнала.
+### <a name="collecting-data-from-additional-syslog-ports"></a>Сбор данных из дополнительных портов системного журнала
+Агент OMS прослушивает сообщения системного журнала на локальном клиенте через порт 25224.  При установке агента применяется конфигурация системного журнала по умолчанию. Файл конфигурации расположен в следующем расположении: 
 
-    <source>
-      type syslog
-      port 25224
-      bind 127.0.0.1
-      protocol_type udp
-      tag oms.syslog
-    </source>
+* rsyslog: `/etc/rsyslog.d/95-omsagent.conf`;
+* syslog-ng: `/etc/syslog-ng/syslog-ng.conf`.
 
+Номер порта можно изменить, создав два файла конфигурации: FluentD и rsyslog-or-syslog-ng (в зависимости от установленной управляющей программы системного журнала).  
 
-## <a name="data-collection"></a>Сбор данных
-Агент OMS прослушивает сообщения системного журнала на локальном клиенте через порт 25224. Файл конфигурации управляющей программы системного журнала пересылает сообщения системного журнала, отправленные из приложения, на этот порт, и там они собираются службой Log Analytics.
+* Файл конфигурации FluentD должен быть новым и располагаться в папке `/etc/opt/microsoft/omsagent/conf/omsagent.d`. Замените значение записи **port** собственным номером порта.
+
+        <source>
+          type syslog
+          port %SYSLOG_PORT%
+          bind 127.0.0.1
+          protocol_type udp
+          tag oms.syslog
+        </source>
+        <filter oms.syslog.**>
+          type filter_syslog
+        </filter>
+
+* Для rsyslog в папке `/etc/rsyslog.d/` необходимо создать файл конфигурации. Замените значение %SYSLOG_PORT% собственным номером порта.  
+
+    > [!NOTE]
+    > Если изменить это значение в файле конфигурации `95-omsagent.conf`, он перезаписывается, когда агент применяет конфигурацию по умолчанию.
+    > 
+
+        # OMS Syslog collection for workspace %WORKSPACE_ID%
+        kern.warning              @127.0.0.1:%SYSLOG_PORT%
+        user.warning              @127.0.0.1:%SYSLOG_PORT%
+        daemon.warning            @127.0.0.1:%SYSLOG_PORT%
+        auth.warning              @127.0.0.1:%SYSLOG_PORT%
+
+* Конфигурацию syslog-ng следует изменить. Для этого скопируйте пример конфигурации ниже и добавьте измененные параметры в конец файла конфигурации в папке `/etc/syslog-ng/`.  **Не** используйте метку **%WORKSPACE_ID%_oms** или **%WORKSPACE_ID_OMS** по умолчанию. Чтобы различить изменения, определите собственную метку.  
+
+    > [!NOTE]
+    > Если изменить эти значения по умолчанию в файле конфигурации, он перезаписывается, когда агент применяет конфигурацию по умолчанию.
+    > 
+
+        filter f_custom_filter { level(warning) and facility(auth; };
+        destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
+        log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
+
+После внесения изменений системный журнал и службу агента OMS следует перезапустить, чтобы изменения вступили в силу.   
 
 ## <a name="syslog-record-properties"></a>Свойства записей системного журнала
 Записи системного журнала имеют тип **Syslog** и свойства, описанные в приведенной ниже таблице.

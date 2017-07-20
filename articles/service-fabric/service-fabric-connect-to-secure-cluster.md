@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/01/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 52f9a3146852ef83c31bd93e1c538e12f0d953eb
-ms.openlocfilehash: e44ecf5860becffb39d199e36d36d96f50bf7cf3
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: a24b82243cb9758b0b256c40138222357bf6e72c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/16/2017
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -27,38 +27,81 @@ ms.lasthandoff: 02/16/2017
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-azure-cli"></a>Подключение к защищенному кластеру с помощью Azure CLI
-Следующие команды интерфейса командной строки Azure позволяют подключиться к безопасному кластеру. 
+## <a name="connect-to-a-secure-cluster-using-cli"></a>Подключение к защищенному кластеру с помощью инфраструктуры CLI
+
+Существует несколько способов для подключения к защищенному кластеру. Для этого можно использовать команды Service Fabric Azure CLI 2.0 или интерфейс командной строки XPlat.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Подключение к защищенному кластеру с использованием сертификата клиента
-Сведения о сертификате должны соответствовать сертификату на узлах кластера. 
 
-Если ваш сертификат выдан центром сертификации (ЦС), добавьте параметр `--ca-cert-path` , как показано в следующем примере. 
+При использовании сертификата клиента для проверки подлинности сведения о сертификате должны соответствовать сертификату, развернутому в узлах кластера. Если сертификат выдан центром сертификации (ЦС), необходимо дополнительно указать доверенные ЦС. Используйте приведенные ниже примеры для подключения с помощью интерфейса командной строки XPlat и Azure CLI 2.0.
 
-```
- azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
-```
-Если вы используете несколько центров сертификации, используйте в качестве разделителя запятые. 
+#### <a name="xplat-cli"></a>Интерфейс командной строки XPlat
 
-Если общее имя в сертификате не соответствует конечной точке подключения, для обхода проверки можно использовать параметр `--strict-ssl-false` . 
+При использовании интерфейса командной строки XPlat выполните следующую команду для подключения:
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2
 ```
 
-Если вы хотите пропустить проверку ЦС, добавьте параметр ``--reject-unauthorized-false`` , как показано в следующем примере.
+Чтобы указать несколько сертификатов ЦС, используйте `,` для разделения путей.
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
-```
+Если общее имя в сертификате не соответствует конечной точке подключения, для обхода проверки можно использовать параметр `--strict-ssl-false` . Например:
 
-Чтобы подключиться к кластеру, защищенному с помощью самозаверяющего сертификата, удалите проверку ЦС и проверку общего имени с помощью следующей команды:
-
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
 ```
 
-После подключения вы сможете взаимодействовать с кластером с помощью [дополнительных команд интерфейса командной строки](service-fabric-azure-cli.md). 
+Если вы хотите пропустить проверку ЦС, добавьте параметр ``--reject-unauthorized-false``. Например:
+
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
+```
+
+Чтобы подключиться к кластеру, защищенному с помощью самозаверяющего сертификата, удалите проверку ЦС и проверку общего имени, выполнив следующую команду:
+
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+```
+
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
+
+Если используется Azure CLI 2.0, выполните команду `az sf cluster select`, чтобы подключится к кластеру.
+
+Сертификаты клиента можно указать как сертификат и пару ключей или как отдельный PEM-файл. Вам автоматически будет предложено ввести пароль для защищенных файлов формата `pem`.
+
+Чтобы указать сертификат клиента как PEM-файл, укажите путь к файлу в аргументе `--pem`. Например:
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+```
+
+Прежде чем выполнять дополнительные команды, для защищенных паролем PEM-файлов необходимо будет ввести пароль.
+
+Чтобы указать сертификат, пара ключей использует аргументы `--cert` и `--key`, чтобы указать пути для каждого соответствующего файла.
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
+```
+Иногда сертификаты, используемые для защиты тестового кластера и кластера для разработки не проходят проверку сертификата. Чтобы не выполнять проверку сертификата, укажите параметр `--no-verify`. Например:
+
+> [!WARNING]
+> При подключении к производственным кластерам Service Fabric не используйте параметр `no-verify`.
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
+```
+
+Кроме того, вы можете указать пути к каталогам доверенных сертификатов ЦС или отдельных сертификатов. Чтобы указать эти пути, используйте аргумент `--ca`. Например:
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
+```
+
+После подключения вы сможете взаимодействовать с кластером с помощью [дополнительных команд интерфейса командной строки](service-fabric-azure-cli.md).
 
 <a id="connectsecurecluster"></a>
 
@@ -349,4 +392,8 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [Общие сведения о модели работоспособности в Service Fabric](service-fabric-health-introduction.md)
 * [Безопасность приложений и запуск от имени](service-fabric-application-runas-security.md)
 
+## <a name="related-articles"></a>Связанные статьи
+
+* [Service Fabric и Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Использование интерфейса командной строки Azure для взаимодействия с кластером Service Fabric](service-fabric-azure-cli.md)
 

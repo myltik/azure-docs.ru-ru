@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: cfdc507d5e45fc716940bd4607631ba500bf4c59
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="view-azure-activity-logs"></a>Просмотр журналов действий Azure
 
- ![Символ "Журналы действий Azure"](./media/log-analytics-activity/activity-log-analytics.png) Решение Activity Log Analytics помогает анализировать [журналы действий Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) во всех подписках Azure и искать в них необходимые данные. Журнал действий Azure — это журнал с информацией об операциях, которые выполнялись с ресурсами в подписке. Журнал действий раньше назывался *журналом аудита* или *операционным журналом*, так как он содержит связанные с подписками события.
+![Символ журналов действий Azure](./media/log-analytics-activity/activity-log-analytics.png)
+
+Решение "Аналитика журнала действий" помогает анализировать [журналы действий Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) во всех подписках Azure и искать в них необходимые данные. Журнал действий Azure — это журнал с информацией об операциях, которые выполнялись с ресурсами в подписке. Журнал действий раньше назывался *журналом аудита* или *операционным журналом*, так как он содержит связанные с подписками события.
 
 С помощью журнала действий можно ответить на вопросы *что?*, *кто?* и *когда?* о любой операции записи (PUT, POST, DELETE) с ресурсами в вашей подписке. Вы также можете отслеживать состояние операции и другие ее свойства. Журнал действий не содержит операции чтения (GET) или операции с ресурсами, которые используют классическую модель развертывания.
 

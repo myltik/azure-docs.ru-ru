@@ -4,7 +4,7 @@ description: "В этой статье перечислены операцион
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,28 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/08/2017
+ms.date: 05/24/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: d53d4cfdc7b673d2816fa9372dedbed540380cce
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: db7ee5251f2e2016081e55ca4b295e284c8b08cf
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/15/2017
 
 
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Таблица поддержки для репликации на дополнительный сайт с помощью Azure Site Recovery
 
-> [!div class="op_single_selector"]
-> * [Репликация в Azure](site-recovery-support-matrix-to-azure.md)
-> * [Репликация в локальное расположение](site-recovery-support-matrix-to-sec-site.md)
-
 В этой статье перечислены поддерживаемые конфигурации и компоненты при использовании Azure Site Recovery для репликации на дополнительный локальный сайт.
 
 ## <a name="deployment-options"></a>Варианты развертывания
 
-**Развертывание** | **VMware или физический сервер** | ** Hyper-V (с или без SCVMM)
+**Развертывание** | **VMware или физический сервер** | **Hyper-V (с или без SCVMM)**
 --- | --- | --- | ---
-**Портал Azure** | Из локальных виртуальных машин VMware на дополнительный сайт VMware.<br/><br/> Скачайте [руководство пользователя InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (недоступно на портале Azure). | Из локальных виртуальных машин Hyper-V (в облаках VMM) на дополнительный сайт VMM.<br></br> Не поддерживается без SCVMM.  <br/><br/> Только стандартная репликация Hyper-V. SAN не поддерживается.
+**Портал Azure** | Из локальных виртуальных машин VMware на дополнительный сайт VMware.<br/><br/> Скачайте [руководство пользователя InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (недоступно на портале Azure). | Из локальных виртуальных машин Hyper-V (в облаках VMM) на дополнительный сайт VMM.<br></br> Не поддерживается без VMM.  <br/><br/> Только стандартная репликация Hyper-V. SAN не поддерживается.
 **Классический портал.** | Доступен только режим обслуживания. Создать хранилища невозможно. | Доступен только режим обслуживания.<br></br> Не поддерживается без SCVMM.
 **PowerShell** | Не поддерживается | Поддерживаются<br></br> Не поддерживается без SCVMM.
 
@@ -140,5 +137,6 @@ RDM | Да | Недоступно
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Предварительные условия для репликации см. в [этой статье](site-recovery-prereq.md).
+- [Репликация виртуальных машин Hyper-V из облаков VMM на вторичный сайт VMM](site-recovery-vmm-to-vmm.md)
+- [Репликация виртуальных машин и физических серверов VMware на дополнительный сайт](site-recovery-vmware-to-vmware.md)
 

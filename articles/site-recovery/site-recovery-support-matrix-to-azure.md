@@ -12,20 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/25/2017
+ms.date: 06/05/2017
 ms.author: rajanaki
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 711fb0715b7f12e12a742136f75af8069cbc83d8
-ms.lasthandoff: 04/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 6664cb20393ec5f588c8eeb119d6f606a0072861
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/15/2017
 
 
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-to-azure"></a>Таблица поддержки Azure Site Recovery для репликации в Azure
-
-> [!div class="op_single_selector"]
-> * [Репликация в Azure](site-recovery-support-matrix-to-azure.md)
-> * [Репликация на принадлежащий клиенту вторичный сайт](site-recovery-support-matrix-to-sec-site.md)
+# <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Таблица поддержки Azure Site Recovery для репликации из локальной среды в Azure
 
 
 В этой статье кратко перечислены поддерживаемые конфигурации и компоненты Azure Site Recovery для репликации и восстановления в Azure. Дополнительные сведения о необходимых компонентах Azure Site Recovery см. [здесь](site-recovery-prereq.md).
@@ -68,29 +65,36 @@ ms.lasthandoff: 04/17/2017
 При репликации в Azure защищенные виртуальные машины должны соответствовать [требованиям Azure](#failed-over-azure-vm-requirements).
 В таблице ниже представлены сведения о поддержке реплицируемых операционных систем в различных сценариях развертывания при использовании Azure Site Recovery. Эта поддержка относится к любой рабочей нагрузке, выполняемой в указанной ОС.
 
- **VMware или физический сервер** | **Hyper-V (с и без Virtual Machine Manager)** |
+ **VMware или физический сервер** | **Hyper-V (с или без VMM)** |
 --- | --- |
-64-разрядная версия Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 как минимум с пакетом обновления 1 (SP1).<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2. <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2. <br/><br/> Oracle Enterprise Linux 6.4, 6.5 с ядром, совместимым с Red Hat, или с ядром Unbreakable Enterprise Kernel Release 3 (UEK3). <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(Обновление реплицируемых компьютеров с SLES 11 SP3 до SLES 11 SP4 не поддерживается. Если реплицируемый компьютер обновлен с SLES 11 SP3 до SLES 11 SP4, вам потребуется отключить репликацию и включить повторную защиту компьютера после обновления.) | Любая гостевая ОС, [поддерживаемая Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-разрядная версия Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 как минимум с пакетом обновления 1 (SP1).<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2. <br/><br/>CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2. <br/><br/>Сервер Ubuntu версии 14.04 LTS [(поддерживаемые версии ядра)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 с ядром, совместимым с Red Hat, или с ядром Unbreakable Enterprise Kernel Release 3 (UEK3). <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>(Обновление реплицируемых компьютеров с SLES 11 SP3 до SLES 11 SP4 не поддерживается. Если реплицируемый компьютер обновлен с SLES 11 SP3 до SLES 11 SP4, вам потребуется отключить репликацию и включить повторную защиту компьютера после обновления.) | Любая гостевая ОС, [поддерживаемая Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 
 >[!IMPORTANT]
 >(Применимо к репликации серверов VMware и физических серверов в Azure.)
 >
-> На серверах Red Hat Enterprise Linux Server 7+ и CentOS 7+ поддерживается версия ядра 3.10.0-514, начиная с Azure Site Recovery Mobility Service версии 9.8.<br/><br/>
-> Для клиентов, использующих ядро 3.10.0-514 с версией службы мобильности ниже версии 9.8, требуется отключить репликацию, обновить версию службы мобильности до 9.8, а затем повторно включить репликацию.  
+> На серверах Red Hat Enterprise Linux Server 7+ и CentOS 7+ поддерживается версия ядра 3.10.0-514, начиная с Azure Site Recovery Mobility Service версии 9.8.<br/><br/>
+> Для клиентов, использующих ядро 3.10.0-514 с версией службы Mobility Service ниже версии 9.8, требуется отключить репликацию, обновить версию службы мобильности до 9.8, а затем повторно включить репликацию.
+
+
+### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Поддерживаемые версии ядра Ubuntu для серверов VMware и физических серверов
+
+**Выпуск** | **Версия службы Mobility Service** | **Версия ядра** |
+--- | --- | --- |
+14.04 LTS | 9.9 | 3.13.0-24-generic to 3.13.0-117-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-75-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Поддерживаемые файловые системы и конфигурации гостевого хранилища в Linux (серверы VMware и физические серверы)
 
 Следующие файловые системы и программа настройки хранилища поддерживаются на серверах Linux в среде VMware либо на физических серверах:
 * файловые системы — ext3, ext4, ReiserFS (только Suse Linux Enterprise Server), XFS (только до версии 4);
-* диспетчер томов — LVM2;
+* Диспетчер томов: LVM2.
 * многопутевые программы — Device Mapper.
 
 Физические серверы с контроллером хранилища HP CCISS не поддерживаются.
 
 >[!Note]
 > На серверах Linux следующие каталоги (если они настроены в качестве отдельных разделов и файловых систем) должны находиться на одном диске (диск ОС) исходного сервера: /(root), /boot, /usr, /usr/local, /var, /etc.<br/><br/>
-> В настоящее время функции XFS v5 (например, контрольная сумма метаданных) не поддерживаются службой ASR в файловых системах XFS. Убедитесь, что в файловых системах XFS не используются функции v5. Вы можете использовать служебную программу xfs_info, чтобы проверить системный блок XFS для раздела. Если для параметра ftype задано значение 1, будут использоваться функции XFSv5. 
+> В настоящее время функции XFS v5 (например, контрольная сумма метаданных) не поддерживаются службой ASR в файловых системах XFS. Убедитесь, что в файловых системах XFS не используются функции v5. Вы можете использовать служебную программу xfs_info, чтобы проверить системный блок XFS для раздела. Если для параметра ftype задано значение 1, будут использоваться функции XFSv5.
 >
 
 

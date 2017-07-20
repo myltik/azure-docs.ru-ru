@@ -1,22 +1,20 @@
 ---
 title: "Проектирование первой базы данных Azure для MySQL с помощью Azure CLI | Документация Майкрософт"
-description: "Это руководство содержит сведения о создании базы данных и сервера базы данных Azure для MySQL и управлении ими с помощью Azure CLI 2.0."
+description: "Это руководство содержит сведения о создании базы данных и сервера базы данных Azure для MySQL и управлении ими с помощью Azure CLI 2.0 из командной строки."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
 ms.service: mysql-database
-ms.devlang: na
+ms.devlang: azure-cli
 ms.topic: article
-ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 06/13/2017
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 99238b9c0bcc7fa80e8c72cda25f7ed809cc5195
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 590cba6cb58d0c0eaedb9f122ac048c33988004d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -26,38 +24,39 @@ ms.lasthandoff: 05/10/2017
 
 > [!div class="checklist"]
 > * создание базы данных Azure для MySQL;
-> * настройка брандмауэра сервера с помощью [средства командной строки MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) для создания базы данных;
+> * настройка брандмауэра сервера;
+> * использование [средства командной строки MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) для создания базы данных;
 > * Загрузка примера данных
 > * Запрос данных
 > * Обновление данных
 > * восстановление данных.
 
-[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
+Вы можете использовать Azure Cloud Shell в браузере или [установить Azure CLI 2.0]( /cli/azure/install-azure-cli) на компьютере, чтобы запустить блоки кода в этом руководстве.
 
-## <a name="log-in-to-azure"></a>Вход в Azure
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране.
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-```azurecli
-az login
+Если вы используете несколько подписок, выберите соответствующую подписку, в которой находится ресурс либо в которой за него взимается плата. Выберите конкретный идентификатор подписки вашей учетной записи, выполнив команду [az account set](/cli/azure/account#set).
+```azurecli-interactive
+az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
-Следуйте указаниям командной строки, чтобы открыть URL-адрес https://aka.ms/devicelog в браузере, а затем введите код, созданный в **командной строке**.
 
 ## <a name="create-a-resource-group"></a>Создание группы ресурсов
 Создайте [группу ресурсов Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), выполнив команду [az group create](https://docs.microsoft.com/cli/azure/group#create). Группа ресурсов — это логический контейнер, в котором ресурсы Azure развертываются и администрируются как группа.
 
 В следующем примере создается группа ресурсов с именем `mycliresource` в расположении `westus`.
 
-```azurecli
+```azurecli-interactive
 az group create --name mycliresource --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Создание сервера базы данных Azure для MySQL
 Создайте сервер базы данных Azure для MySQL, выполнив команду az mysql server create. Сервер может управлять несколькими базами данных. Как правило, для каждого проекта и для каждого пользователя используется отдельная база данных.
 
-В следующем примере в группе ресурсов `mycliresource` создается сервер базы данных Azure для MySQL с именем `mycliserver`, который расположен в `westus`. Для сервера указано имя администратора для входа `myadmin` и пароль `Password01!`. Он создается с уровнем производительности **Базовый** и **50** единицами вычислений, которые совместно используются всеми базами данных на сервере. В зависимости от потребностей приложения можно увеличить или уменьшить масштаб вычислительных ресурсов и ресурсов хранилища.
+В следующем примере в группе ресурсов `mycliresource` создается сервер базы данных Azure для MySQL с именем `mycliserver`, который расположен в `westus`. Для сервера указано имя администратора для входа `myadmin` и пароль `Password01!`. Он создается с уровнем производительности **Базовый** и **50** единицами вычислений, которые совместно используются всеми базами данных на сервере. В зависимости от потребностей приложения можно увеличить или уменьшить масштаб вычислительных ресурсов и ресурсов хранилища.
 
-```azurecli
+```azurecli-interactive
 az mysql server create --resource-group mycliresource --name mycliserver
 --location westus --user myadmin --password Password01!
 --performance-tier Basic --compute-units 50
@@ -68,16 +67,14 @@ az mysql server create --resource-group mycliresource --name mycliserver
 
 В примере ниже показано создание правила брандмауэра для предопределенного диапазона адресов, который в этом примере представляет наиболее полный диапазон IP-адресов.
 
-```azurecli
-az mysql server firewall-rule create --resource-group mycliresource
---server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0
---end-ip-address 255.255.255.255
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 ## <a name="get-the-connection-information"></a>Получение сведений о подключении
 
 Чтобы подключиться к серверу, необходимо указать сведения об узле и учетные данные для доступа.
-```azurecli
+```azurecli-interactive
 az mysql server show --resource-group mycliresource --name mycliserver
 ```
 
@@ -169,9 +166,8 @@ SELECT * FROM inventory;
 - Целевой сервер. Укажите новое имя сервера, который нужно восстановить.
 - Исходный сервер. Укажите имя сервера, из которого требуется выполнить восстановление.
 - Расположение. Вы не сможете выбрать регион, по умолчанию он совпадает с исходным сервером.
-- Ценовая категория. Это значение нельзя изменить при восстановлении сервера. Она совпадает с ценовой категорией исходного сервера. 
 
-```azurecli
+```azurecli-interactive
 az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
 ```
 
@@ -181,11 +177,13 @@ az mysql server restore --resource-group mycliresource --name mycliserver-restor
 Из этого руководства вы узнали, как выполнять следующие операции:
 > [!div class="checklist"]
 > * создание базы данных Azure для MySQL;
-> * настройка брандмауэра сервера с помощью [средства командной строки MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) для создания базы данных;
+> * настройка брандмауэра сервера;
+> * использование [средства командной строки MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) для создания базы данных;
 > * Загрузка примера данных
 > * Запрос данных
 > * Обновление данных
 > * восстановление данных.
 
-[Примеры Azure CLI для базы данных Azure для MySQL](./sample-scripts-azure-cli.md)
+> [!div class="nextstepaction"]
+> [Примеры Azure CLI для базы данных Azure для MySQL](./sample-scripts-azure-cli.md)
 

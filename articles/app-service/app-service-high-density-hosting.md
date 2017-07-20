@@ -12,19 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 06/12/2017
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: 0c2677b388f7a88ff88715a05212633565393cc2
-ms.openlocfilehash: 2d5d1d5123ca718b2e7dcdf426b77f91969dc9dc
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 459a310a719695f6366470976d857ec2f9d6f4a1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/15/2017
 
 
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Высокая плотность размещения в службе приложений Azure
 При использовании службы приложений приложение отвязывается от выделяемой для него емкости двумя концепциями:
 
-* **Приложение**. Представляет приложение и конфигурацию его среды выполнения. Например, оно включает версию .NET, которую должна загружать среда выполнения, а также параметры приложения и т. д.
+* **Приложение**. Представляет приложение и конфигурацию его среды выполнения. Например, оно включает версию .NET, которую должна загружать среда выполнения, а также параметры приложения.
 * **План службы приложений**. Определяет характеристики емкости, доступный набор функций и расположение приложения. Это могут быть следующие характеристики: большие (четырехъядерные) компьютеры, четыре экземпляра или функции уровня "Премиум" в восточной части США.
 
 Приложение всегда связано с одним планом службы приложений, но план службы приложений может предоставлять емкость для одного или нескольких приложений.
@@ -36,7 +37,7 @@ ms.lasthandoff: 01/13/2017
 ## <a name="per-app-scaling"></a>Независимое масштабирование приложений
 *Независимое масштабирование приложений* — это функция, которую можно включить на уровне плана службы приложений и затем использовать для каждого приложения.
 
-Она позволяет масштабировать приложение независимо от плана службы приложений, в котором оно размещено. Таким образом, план службы приложений может быть настроен на предоставление 10 экземпляров, а приложение можно настроить, например, на масштабирование только до 5 из них.
+Она позволяет масштабировать приложение независимо от плана службы приложений, в котором оно размещено. Таким образом, план службы приложений можно увеличить до 10 экземпляров, но приложение максимально может использовать только пять.
 
    >[!NOTE]
    >Независимое масштабирование приложений доступно только для планов службы приложений с номером SKU уровня **Премиум**.
@@ -60,32 +61,35 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
 - опубликуйте изменения в Azure (```Set-AzureRmAppServicePlan```). 
 
 ```
-    # Get the new App Service Plan and modify the "PerSiteScaling" property.
-    $newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-    $newASP
+# Get the new App Service Plan and modify the "PerSiteScaling" property.
+$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
+$newASP
 
-    #Modify the local copy to use "PerSiteScaling" property.
-    $newASP.PerSiteScaling = $true
-    $newASP
+#Modify the local copy to use "PerSiteScaling" property.
+$newASP.PerSiteScaling = $true
+$newASP
     
-    #Post updated app service plan back to azure
-    Set-AzureRmAppServicePlan $newASP
+#Post updated app service plan back to azure
+Set-AzureRmAppServicePlan $newASP
 ```
 
-Создав и настроив план, вы можете задать максимальное количество экземпляров для каждого из приложений.
+На уровне приложения необходимо настроить несколько экземпляров, которые приложение сможет использовать в плане службы приложений.
 
 В следующем примере для приложения установлено ограничение на два экземпляра независимо от того, сколько экземпляров можно развернуть в пределах базового плана службы приложений.
 
 ```
-    # Get the app we want to configure to use "PerSiteScaling"
-    $newapp = Get-AzureRmWebApp -ResourceGroupName $ResourceGroup -Name $webapp
+# Get the app we want to configure to use "PerSiteScaling"
+$newapp = Get-AzureRmWebApp -ResourceGroupName $ResourceGroup -Name $webapp
     
-    # Modify the NumberOfWorkers setting to the desired value.
-    $newapp.SiteConfig.NumberOfWorkers = 2
+# Modify the NumberOfWorkers setting to the desired value.
+$newapp.SiteConfig.NumberOfWorkers = 2
     
-    # Post updated app back to azure
-    Set-AzureRmWebApp $newapp
+# Post updated app back to azure
+Set-AzureRmWebApp $newapp
 ```
+
+> [!IMPORTANT]
+> $newapp.SiteConfig.NumberOfWorkers — это другая форма свойства $newapp.MaxNumberOfWorkers. Функция "Независимое масштабирование приложений" определяет с помощью свойства $newapp.SiteConfig.NumberOfWorkers параметры масштабирования приложения.
 
 ### <a name="per-app-scaling-using-azure-resource-manager"></a>Независимое масштабирование приложений с помощью Azure Resource Manager
 
@@ -97,61 +101,66 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
 План службы приложений задает для свойства **PerSiteScaling** значение true (```"perSiteScaling": true```). Приложение задает **количество рабочих ролей**, равное 5 (```"properties": { "numberOfWorkers": "5" }```).
 
 ```
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters":{
-            "appServicePlanName": { "type": "string" },
-            "appName": { "type": "string" }
-         },
-        "resources": [
-        {
-            "comments": "App Service Plan with per site perSiteScaling = true",
-            "type": "Microsoft.Web/serverFarms",
-            "sku": {
-                "name": "P1",
-                "tier": "Premium",
-                "size": "P1",
-                "family": "P",
-                "capacity": 10
-                },
-            "name": "[parameters('appServicePlanName')]",
-            "apiVersion": "2015-08-01",
-            "location": "West US",
-            "properties": {
-                "name": "[parameters('appServicePlanName')]",
-                "perSiteScaling": true
-            }
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters":{
+        "appServicePlanName": { "type": "string" },
+        "appName": { "type": "string" }
         },
-        {
-            "type": "Microsoft.Web/sites",
-            "name": "[parameters('appName')]",
-            "apiVersion": "2015-08-01-preview",
-            "location": "West US",
-            "dependsOn": [ "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" ],
-            "properties": { "serverFarmId": "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" },
-            "resources": [ {
-                    "comments": "",
-                    "type": "config",
-                    "name": "web",
-                    "apiVersion": "2015-08-01",
-                    "location": "West US",
-                    "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
-                    "properties": { "numberOfWorkers": "5" }
-             } ]
-         }]
-    }
+    "resources": [
+    {
+        "comments": "App Service Plan with per site perSiteScaling = true",
+        "type": "Microsoft.Web/serverFarms",
+        "sku": {
+            "name": "P1",
+            "tier": "Premium",
+            "size": "P1",
+            "family": "P",
+            "capacity": 10
+            },
+        "name": "[parameters('appServicePlanName')]",
+        "apiVersion": "2015-08-01",
+        "location": "West US",
+        "properties": {
+            "name": "[parameters('appServicePlanName')]",
+            "perSiteScaling": true
+        }
+    },
+    {
+        "type": "Microsoft.Web/sites",
+        "name": "[parameters('appName')]",
+        "apiVersion": "2015-08-01-preview",
+        "location": "West US",
+        "dependsOn": [ "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" ],
+        "properties": { "serverFarmId": "[resourceId('Microsoft.Web/serverFarms', parameters('appServicePlanName'))]" },
+        "resources": [ {
+                "comments": "",
+                "type": "config",
+                "name": "web",
+                "apiVersion": "2015-08-01",
+                "location": "West US",
+                "dependsOn": [ "[resourceId('Microsoft.Web/Sites', parameters('appName'))]" ],
+                "properties": { "numberOfWorkers": "5" }
+            } ]
+        }]
+}
 ```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Рекомендуемая конфигурация для высокой плотности размещения
-Независимое масштабирование приложений — это функция, которая включается как в общедоступных регионах Azure, так и в средах службы приложений. Однако рекомендуется использовать среды службы приложений, так как они предоставляют дополнительные возможности и пулы большей емкости.  
+Независимое масштабирование приложений — это функция, которая включается как в глобальных регионах Azure, так и в средах службы приложений. Однако рекомендуется использовать среды службы приложений, так как они предоставляют дополнительные возможности и пулы большей емкости.  
 
 Чтобы настроить высокую плотность размещения приложений, выполните следующие действия:
 
 1. Настройте среду службы приложений и выберите рабочий пул, выделенный для сценария высокой плотности размещения.
-2. Создайте один план службы приложений и настройте его для использования всей доступной емкости в рабочем пуле.
-3. Задайте для флага PerSiteScaling плана службы приложений значение true.
-4. Новые приложения будут созданы и назначены этому плану службы приложений, при этом для свойства **numberOfWorkers** будет задано значение **1**. Такая конфигурация позволит достичь максимальной плотности в этом рабочем пуле.
-5. Число рабочих ролей можно настроить отдельно для каждого приложения, чтобы предоставить дополнительные ресурсы согласно требованиям. Например, для приложения с высоким уровнем использования свойству **numberOfWorkers** можно присвоить значение **3**, чтобы обеспечить большую вычислительную мощность для этого приложения, а для приложений с низким уровнем использования свойству **numberOfWorkers** можно присвоить значение **1**.
+1. Создайте один план службы приложений и настройте его для использования всей доступной емкости в рабочем пуле.
+1. Задайте для флага PerSiteScaling плана службы приложений значение true.
+1. Новые приложения будут созданы и назначены этому плану службы приложений, при этом для свойства **numberOfWorkers** будет задано значение **1**. Такая конфигурация позволит достичь максимальной плотности в этом рабочем пуле.
+1. Число рабочих ролей можно настроить отдельно для каждого приложения, чтобы предоставить дополнительные ресурсы согласно требованиям. Например:
+    - Для приложения с высоким уровнем использования свойству **numberOfWorkers** можно присвоить значение **3**, чтобы обеспечить большую вычислительную мощность для этого приложения. 
+    - Для приложений с низким уровнем использования свойству **numberOfWorkers** можно присвоить значение **1**.
 
+## <a name="next-steps"></a>Дальнейшие действия
 
+- [Подробный обзор планов службы приложений Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md)
+- [Введение в среду службы приложения](../app-service-web/app-service-app-service-environment-intro.md)

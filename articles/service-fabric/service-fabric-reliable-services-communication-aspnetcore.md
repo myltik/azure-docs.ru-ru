@@ -12,19 +12,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/22/2017
+ms.date: 05/02/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: cce66615ebe457ed7230401d154ddad07941f5bc
-ms.lasthandoff: 03/23/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 8ac4d409f7363e8b4ae98be659a627ac8db8d787
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/10/2017
 
 ---
 
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core в Service Fabric Reliable Services
 
-ASP.NET Core — это новая кроссплатформенная среда с открытым кодом для создания современных облачных приложений с подключением к Интернету, таких как веб-приложения, приложения для Интернета вещей и серверные части мобильных приложений. Хотя приложения ASP.NET Core можно запускать на .NET Core или полной версии платформы .NET Framework, службы Service Fabric в настоящее время могут работать только на полной версии .NET Framework. Это значит, что при создании службы ASP.NET Core Service Fabric по-прежнему необходимо ориентироваться на полную версию .NET Framework.
+ASP.NET Core — это новая кроссплатформенная среда с открытым кодом для создания современных облачных приложений с подключением к Интернету, таких как веб-приложения, приложения для Интернета вещей и серверные части мобильных приложений. 
+
+Эта статья представляет собой подробное руководство по размещению служб ASP.NET Core в Service Fabric Reliable Services с использованием набора пакетов NuGet **Microsoft.ServiceFabric.AspNetCore.***.
+
+Вводное руководство по ASP.NET Core в Service Fabric и инструкции по настройке среды разработки см. в статье [Создание внешнего интерфейса веб-службы для приложения с помощью ASP.NET Core](service-fabric-add-a-web-frontend.md).
+
+В оставшейся части этой статьи предполагается, что вы знакомы с размещением в ASP.NET Core. В противном случае мы рекомендуем ознакомиться с [базовыми понятиями ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/index).
+
+## <a name="aspnet-core-in-the-service-fabric-environment"></a>ASP.NET Core в среде Service Fabric
+
+Хотя приложения ASP.NET Core можно запускать на .NET Core или полной версии платформы .NET Framework, службы Service Fabric в настоящее время могут работать только на полной версии .NET Framework. Это значит, что при создании службы ASP.NET Core Service Fabric по-прежнему необходимо ориентироваться на полную версию .NET Framework.
 
 ASP.NET Core можно использовать двумя различными способами в Service Fabric:
  - **Разместить в виде гостевого исполняемого файла**. В основном это используется для запуска существующих приложений ASP.NET Core в Service Fabric без изменения кода.
@@ -32,13 +42,8 @@ ASP.NET Core можно использовать двумя различными
 
 Далее в этой статье объясняется, как использовать ASP.NET Core внутри Reliable Service с помощью компонентов интеграции ASP.NET, поставляемых с пакетом SDK для Service Fabric. 
 
-> [!NOTE]
->В оставшейся части этой статьи предполагается, что вы знакомы с размещением в ASP.NET Core. Дополнительные сведения о размещении в ASP.NET Core см. в статье [Introduction to hosting in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/hosting) (Общие сведения о размещении в ASP.NET Core).
-
-> [!NOTE]
-> Для разработки Reliable Services с ASP.NET Core в Visual Studio 2015 необходимо установить [средства .NET Core для VS 2015, предварительная версия 2](https://www.microsoft.com/net/download/core).
-
 ## <a name="service-fabric-service-hosting"></a>Размещение службы Service Fabric
+
 В Service Fabric один или несколько экземпляров и (или) реплик службы выполняются в *хост-процессе службы* — исполняемом файле, который выполняет код службы. Создателю службы принадлежит хост-процесс службы, который Service Fabric активирует и отслеживает.
 
 Обычно ASP.NET (до MVC 5) тесно связан с IIS через System.Web.dll. ASP.NET Core разделяет веб-сервер и веб-приложение. Это позволяет переносить веб-приложение между различными веб-серверами, а также позволяет веб-серверам быть *автономно размещаемыми*. Это означает, что веб-сервер можно запустить в собственном процессе, в отличие от процесса, который принадлежит выделенному ПО веб-сервера, такому как IIS. 

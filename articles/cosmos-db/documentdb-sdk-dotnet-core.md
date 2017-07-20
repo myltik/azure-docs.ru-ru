@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/12/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c851e01fb8884b2f601986207d730efb338422a8
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: c1f0bbfd1bea292eedaaf8904a2f60e9415dcbcf
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Скачивание пакета SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
 
-<tr><td>**Документация по API**</td><td>[Справочная документация по API .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Документация по API**</td><td>[Справочная документация по API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**Примеры**</td><td>[Примеры кода для .NET](documentdb-dotnet-samples.md)</td></tr>
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**Учебник по веб-приложениям**</td><td>[Разработка веб-приложений с использованием DocumentDB](documentdb-dotnet-application.md)</td></tr>
 
-<tr><td>**Текущая поддерживаемая платформа**</td><td>[.NET Standard 1.6](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
+<tr><td>**Текущая поддерживаемая платформа**</td><td>[.NET Standard 1.6 и .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
@@ -56,16 +56,24 @@ ms.lasthandoff: 05/31/2017
 Пакет SDK DocumentDB для .NET Core имеет те же функции, что и последняя версия [пакета SDK для DocumentsDB .NET](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> Пакет SDK для DocumentDB .NET Core несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+> Пакет SDK для DocumentDB .NET Core несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+
+*   Поддержка .NET Standard 1.5 в качестве одной из требуемых версий .NET Framework.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+
+*   Устранена проблема, возникающая на компьютерах x64, которые не поддерживают инструкции SSE4 и отправляют исключение SEHException при выполнении запросов DocumentDB.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-*    Добавлена поддержка использования единиц запроса в минуту.
-*    Добавлена поддержка нового уровня согласованности с именем ConsistentPrefix.
-*    Добавлена поддержка запроса метрик отдельных секций.
-*    Добавлена поддержка ограничения размера маркера продолжения запросов.
-*    Добавлена поддержка более подробной трассировки невыполненных запросов.
-*    Внесены некоторые улучшения производительности в пакет SDK.
+*   Добавлена поддержка использования единиц запроса в минуту.
+*   Добавлена поддержка нового уровня согласованности с именем ConsistentPrefix.
+*   Добавлена поддержка запроса метрик отдельных секций.
+*   Добавлена поддержка ограничения размера маркера продолжения запросов.
+*   Добавлена поддержка более подробной трассировки невыполненных запросов.
+*   Внесены некоторые улучшения производительности в пакет SDK.
 
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
@@ -117,6 +125,8 @@ ms.lasthandoff: 05/31/2017
 
 | Version (версия) | Дата выпуска | Дата вывода |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |12 июня 2017 г. |--- |
+| [1.3.1](#1.3.1) |23 мая 2017 г. |--- |
 | [1.3.0](#1.3.0) |10 мая 2017 г. |--- |
 | [1.2.2](#1.2.2) |19 апреля 2017 г. |--- |
 | [1.2.1](#1.2.1) |29 марта 2017 г. |--- |

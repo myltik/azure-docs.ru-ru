@@ -1,6 +1,6 @@
 ---
 title: "Руководство по разработке приложений Java с использованием Azure Cosmos DB | Документация Майкрософт"
-description: "В этом руководстве по разработке веб-приложения Java показано, как использовать службу Azure Cosmos DB для хранения данных и обеспечения доступа к ним из приложения Java, размещенного на веб-сайтах Azure."
+description: "В этом руководстве по разработке веб-приложения Java показано, как использовать службу Azure Cosmos DB и API DocumentDB для хранения данных и обеспечения доступа к ним из приложения Java, размещенного на веб-сайтах Azure."
 keywords: "Разработка приложений, учебник по базе данных, приложение java, учебник по веб-приложениям java, documentdb, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: java
@@ -10,20 +10,20 @@ editor: mimig
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 06/23/2017
 ms.author: denlee
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 3c22c33b27b793e19850c405df9b6b7bc3fe3362
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: 09df5cb8d83dd9366d268a4245aaf25abf3ab55a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/24/2017
 
 
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db"></a>Создание веб-приложения Java с использованием Azure Cosmos DB
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Создание веб-приложения Java с использованием Azure Cosmos DB и API DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)

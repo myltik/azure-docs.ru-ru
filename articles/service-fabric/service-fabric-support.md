@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 06/15/2017
 ms.author: pkc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: f87aec3698addae135d4c934bb7217d9fae0e571
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: de5795d4781d8c01bce7313ae53ad801a0e48149
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -78,13 +78,13 @@ ms.lasthandoff: 05/09/2017
  
 Ниже приведен список поддерживаемых версий Service Fabric и их даты окончания поддержки.
 
-| **Кластер среды выполнения Service Fabric** | **Дата окончания поддержки** |
-| --- | --- |
-| Все версии кластера до 5.3.121 |20 января 2017 г. |
-| 5.3.* |24 февраля 2017 г. |
-| 5.4.* |10 мая 2017 г.     |
-| 5.5.* |10 июля 2017 г.    |
-| 5.6.* |Текущая версия, дата окончания поддержки не определена.
+| **Кластер среды выполнения Service Fabric** | **Совместимые версии пакета SDK и NuGet** | **Дата окончания поддержки** |
+| --- | --- | --- |
+| Все версии кластера до 5.3.121 |Не выше версии 2.3 |20 января 2017 г. |
+| 5.3.* |Не выше версии 2.3 |24 февраля 2017 г. |
+| 5.4.* |Не выше версии 2.4 |10 мая 2017 г.     |
+| 5.5.* |Не выше версии 2.5 |10 августа 2017 г.    |
+| 5.6.* |Не выше версии 2.6 |Текущая версия, дата окончания поддержки не определена.
 
 <a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Предварительные версии Service Fabric не поддерживаются для использования в рабочей среде.

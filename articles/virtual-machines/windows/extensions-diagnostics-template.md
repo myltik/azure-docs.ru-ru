@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2017
+ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 52d83b21f2f2346bfeb8d469a9bfb1b64dd4ba23
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: e9bb11645a0f45449bfc102e1d0cefd6fbf3ffd9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -74,7 +74,7 @@ ms.lasthandoff: 05/17/2017
 
 Свойство *publisher* со значением **Microsoft.Azure.Diagnostics** и *type* со значением **IaaSDiagnostics** уникальным образом определяет расширение системы диагностики Azure.
 
-Значение свойства *name* можно использовать для обращения к расширению в группе ресурсов. Если задать значение **Microsoft.Insights.VMDiagnosticsSettings** , классический портал Azure сможет легко определить это расширение и диаграммы мониторинга будут отображаться правильно на классическом портале Azure.
+Значение свойства *name* можно использовать для обращения к расширению в группе ресурсов. Если задать значение **Microsoft.Insights.VMDiagnosticsSettings**, портал Azure сможет легко определить это расширение и диаграммы мониторинга будут отображаться правильно на портале Azure.
 
 Значение *typeHandlerVersion* указывает версию расширения, которую нужно использовать. Если задать для параметра дополнительного номера версии *autoUpgradeMinorVersion* значение **true** , вы будете получать последний доступный дополнительный номер версии расширения. Рекомендуется всегда указывать для параметра *autoUpgradeMinorVersion* значение **true** , чтобы иметь возможность использовать последнее доступное расширение системы диагностики со всеми новыми функциями и исправлениями ошибок. 
 

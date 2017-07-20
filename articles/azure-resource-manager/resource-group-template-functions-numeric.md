@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 66984bef9e82df80818eea31bd37de524b567b33
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: f14bc4e8091eb1f0dccb761d9df1c931b9b77732
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -51,7 +51,11 @@ ms.lasthandoff: 05/11/2017
 |операнд1 |Да |int |Первое слагаемое. |
 |операнд2 |Да |int |Второе слагаемое. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
+
+Целое число, содержащее сумму параметров.
+
+### <a name="example"></a>Пример
 
 В следующем примере суммируются два параметра.
 
@@ -62,12 +66,14 @@ ms.lasthandoff: 05/11/2017
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to add"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to add"
             }
@@ -84,9 +90,11 @@ ms.lasthandoff: 05/11/2017
 }
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
+Выходные данные из предыдущего примера со значениями по умолчанию:
 
-Целое число, содержащее сумму параметров.
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| addResult | int | 8 |
 
 <a id="copyindex" />
 
@@ -110,7 +118,7 @@ ms.lasthandoff: 05/11/2017
  
 Полное описание использования **copyIndex** см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md).
 
-### <a name="examples"></a>Примеры
+### <a name="example"></a>Пример
 
 В следующем примере представлен цикл копирования, в котором значение индекса включается в имя. 
 
@@ -146,7 +154,11 @@ ms.lasthandoff: 05/11/2017
 | операнд1 |Да |int |Делимое. |
 | операнд2 |Да |int |Делитель. Не может иметь значение 0. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
+
+Целое число, представляющее деление.
+
+### <a name="example"></a>Пример
 
 В следующем примере один параметр делится на другой.
 
@@ -157,12 +169,14 @@ ms.lasthandoff: 05/11/2017
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 8,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -179,9 +193,11 @@ ms.lasthandoff: 05/11/2017
 }
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
+Выходные данные из предыдущего примера со значениями по умолчанию:
 
-Целое число, представляющее деление.
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| divResult | int | 2 |
 
 <a id="float" />
 
@@ -196,7 +212,10 @@ ms.lasthandoff: 05/11/2017
 |:--- |:--- |:--- |:--- |
 | arg1 |Да |строка или целое число |Значение, которое необходимо преобразовать в число с плавающей запятой. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
+Число с плавающей запятой.
+
+### <a name="example"></a>Пример
 
 В следующем примере показано, как с помощью функции float передать параметры в приложение логики:
 
@@ -214,9 +233,6 @@ ms.lasthandoff: 05/11/2017
         },
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
-Число с плавающей запятой.
-
 <a id="int" />
 
 ## <a name="int"></a>int
@@ -230,7 +246,11 @@ ms.lasthandoff: 05/11/2017
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Да |строка или целое число |Значение, которое необходимо преобразовать в целое число. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
+
+Целое число преобразованного значения.
+
+### <a name="example"></a>Пример
 
 В следующем примере указанное пользователем значение параметра преобразуется в целое число.
 
@@ -239,25 +259,28 @@ ms.lasthandoff: 05/11/2017
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appId": { "type": "string" }
-    },
-    "variables": { 
-        "intValue": "[int(parameters('appId'))]"
+        "stringToConvert": { 
+            "type": "string",
+            "defaultValue": "4"
+        }
     },
     "resources": [
     ],
     "outputs": {
-        "divResult": {
+        "intResult": {
             "type": "int",
-            "value": "[variables('intValue')]"
+            "value": "[int(parameters('stringToConvert'))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
+Выходные данные из предыдущего примера со значениями по умолчанию:
 
-Целое число.
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| intResult | int | 4. |
+
 
 <a id="min" />
 
@@ -272,7 +295,11 @@ ms.lasthandoff: 05/11/2017
 |:--- |:--- |:--- |:--- |
 | arg1 |Да |массив целых чисел или разделенный запятыми список целых чисел |Коллекция, для которой необходимо получить минимальное значение. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
+
+Целое число, представляющее минимальное значение из коллекции.
+
+### <a name="example"></a>Пример
 
 В следующем примере показано, как использовать функцию min с массивом и списком целых чисел:
 
@@ -300,9 +327,12 @@ ms.lasthandoff: 05/11/2017
 }
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
+Выходные данные из предыдущего примера со значениями по умолчанию:
 
-Целое число, представляющее минимальное значение из коллекции.
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -317,7 +347,11 @@ ms.lasthandoff: 05/11/2017
 |:--- |:--- |:--- |:--- |
 | arg1 |Да |массив целых чисел или разделенный запятыми список целых чисел |Коллекция, для которой необходимо получить максимальное значение. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
+
+Целое число, представляющее максимальное значение из коллекции.
+
+### <a name="example"></a>Пример
 
 В следующем примере показано, как использовать функцию max с массивом и списком целых чисел:
 
@@ -345,9 +379,12 @@ ms.lasthandoff: 05/11/2017
 }
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
+Выходные данные из предыдущего примера со значениями по умолчанию:
 
-Целое число, представляющее максимальное значение из коллекции.
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 <a id="mod" />
 
@@ -363,7 +400,10 @@ ms.lasthandoff: 05/11/2017
 | операнд1 |Да |int |Делимое. |
 | операнд2 |Да |int |Делитель, не может быть равен 0. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
+Целое число, представляющее остаток.
+
+### <a name="example"></a>Пример
 
 В следующем примере возвращается остаток от деления одного параметра на другой.
 
@@ -374,12 +414,14 @@ ms.lasthandoff: 05/11/2017
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -396,8 +438,11 @@ ms.lasthandoff: 05/11/2017
 }
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
-Целое число, представляющее остаток.
+Выходные данные из предыдущего примера со значениями по умолчанию:
+
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| modResult | int | 1 |
 
 <a id="mul" />
 
@@ -413,7 +458,11 @@ ms.lasthandoff: 05/11/2017
 | операнд1 |Да |int |Первый множитель. |
 | операнд2 |Да |int |Второй множитель. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
+
+Целое число, представляющее произведение.
+
+### <a name="example"></a>Пример
 
 В следующем примере один параметр умножается на другой.
 
@@ -424,12 +473,14 @@ ms.lasthandoff: 05/11/2017
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to multiply"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to multiply"
             }
@@ -446,9 +497,11 @@ ms.lasthandoff: 05/11/2017
 }
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
+Выходные данные из предыдущего примера со значениями по умолчанию:
 
-Целое число, представляющее произведение.
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| mulResult | int | 15 |
 
 <a id="sub" />
 
@@ -464,7 +517,10 @@ ms.lasthandoff: 05/11/2017
 | операнд1 |Да |int |Уменьшаемое. |
 | операнд2 |Да |int |Вычитаемое. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
+Целое число, представляющее разность.
+
+### <a name="example"></a>Пример
 
 В следующем примере один параметр вычитается из другого.
 
@@ -475,12 +531,14 @@ ms.lasthandoff: 05/11/2017
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer subtracted from"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer to subtract"
             }
@@ -497,8 +555,11 @@ ms.lasthandoff: 05/11/2017
 }
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
-Целое число, представляющее разность.
+Выходные данные из предыдущего примера со значениями по умолчанию:
+
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| subResult | int | 4. |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Описание разделов в шаблоне Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).

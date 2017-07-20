@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2017
+ms.date: 06/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: a09aefd00a89c48acdc885f98e34d7faa9c5629a
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 756565b3da6e0a818d1ee3d5e17f942d96be14f0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -47,10 +48,10 @@ ms.lasthandoff: 03/24/2017
 Создание ссылки на узел управления для отправки запросов.  
   
 ```  
-requestLink = session.attach(       
+requestLink = session.attach(     
 role: SENDER,   
-       target: { address: "<entity address>/$management" },   
-       source: { address: ""<my request link unique address>" }   
+    target: { address: "<entity address>/$management" },   
+    source: { address: ""<my request link unique address>" }   
 )  
   
 ```  
@@ -60,10 +61,10 @@ role: SENDER,
 Создание ссылки для получения ответов от узла управления.  
   
 ```  
-responseLink = session.attach(      
+responseLink = session.attach(    
 role: RECEIVER,   
     source: { address: "<entity address>/$management" }   
-       target: { address: "<my response link unique address>" }   
+    target: { address: "<my response link unique address>" }   
 )  
   
 ```  
@@ -93,17 +94,17 @@ requestLink.sendTransfer(
 responseMessage = responseLink.receiveTransfer()  
 ```  
   
-Ответное сообщение имеет следующий формат.  
+Ответное сообщение имеет следующий формат:
   
 ```  
 Message(  
-properties: {      
+properties: {     
         correlation-id: <request id>  
     },  
     application-properties: {  
             "statusCode" -> <status code>,  
             "statusDescription" -> <status description>,  
-           },          
+           },         
 )  
   
 ```  
@@ -559,7 +560,7 @@ properties: {
 |Ключ|Тип значения|Обязательно|Содержимое значения|  
 |---------|----------------|--------------|--------------------|  
 |sequence-numbers|Массив длинных чисел|Да|Порядковые номера.|  
-|receiver-settle-mode|ubyte|Да|Режим сопоставления получателя, как указано в AMQP Core 1.0.|  
+|receiver-settle-mode|ubyte|Да|Режим **сопоставления получателя**, как указано в AMQP Core 1.0.|  
   
 #### <a name="response"></a>Ответ  
 
@@ -616,6 +617,7 @@ properties: {
 |statusDescription|string|Нет|Описание состояния.|
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
 Сведения о служебной шине и AMQP см. по следующим ссылкам.
 
 * [Протокол AMQP служебной шины — обзор]

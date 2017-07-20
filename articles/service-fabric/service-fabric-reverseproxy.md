@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/07/2017
 ms.author: bharatn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 121bf91a2476a079c0737187aef8791be0b4b250
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 80669943f5b9f9d55cc6395c4dab76b32fc72c8f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -60,12 +61,12 @@ ms.lasthandoff: 04/07/2017
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s).** Обратный прокси-сервер можно настроить для приема трафика HTTP или HTTPS. В случае трафика HTTPS функцию моста SSL выполняет обратный прокси-сервер. Обратный прокси-сервер использует протокол HTTP для перенаправления запросов к службам в кластере.
-
-    Обратите внимание, что в настоящее время службы HTTPS не поддерживаются.
+* **http(s).** Обратный прокси-сервер можно настроить для приема трафика HTTP или HTTPS. После настройки обратного прокси-сервера для прослушивания по протоколу HTTPS ознакомьтесь со сведениями о переадресации HTTPS в статье [Подключение к безопасной службе с помощью обратного прокси-сервера](service-fabric-reverseproxy-configure-secure-communication.md).
 * **Cluster FQDN | internal IP.** Для внешних клиентов обратный прокси-сервер можно настроить таким образом, чтобы он был доступен через домен кластера (например, mycluster.eastus.cloudapp.azure.com). По умолчанию обратный прокси-сервер выполняется на каждом узле. Для внутреннего трафика он может быть доступен на узле localhost или по IP-адресу любого внутреннего узла (например, 10.0.0.1).
-* **Port.** Порт, например 19008, указанный для обратного прокси-сервера.
+* **Port.** Порт, например 19081, указанный для обратного прокси-сервера.
 * **ServiceInstanceName.** Полное имя развернутого экземпляра службы, к которому вы пытаетесь получить доступ, без использования схемы fabric:/. Например, чтобы подключиться к службе *fabric:/myapp/myservice/*, используется имя *myapp/myservice*.
+
+    В имени экземпляра службы учитывается регистр. Использование символов разного регистра в имени экземпляра службы в URL-адресе приводит к сбою запросов с ошибкой "404 (не найдено)".
 * **Suffix path**. Фактический URL-адрес службы, к которой вы подключаетесь, например *myapi/values/add/3*.
 * **PartitionKey.** Для секционированной службы это вычисляемый ключ секции, к которой вы подключаетесь. Обратите внимание, что это *не* идентификатор GUID секции. Этот параметр не является обязательным для служб, использующих схему одноэлементного секционирования.
 * **PartitionKind.** Схема секционирования службы. Это может иметь значение "Int64Range" (Диапазон Int64) или "Named" (Именованная). Этот параметр не является обязательным для служб, использующих схему одноэлементного секционирования.
@@ -89,18 +90,18 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 Если служба использует схему одноэлементного секционирования, то параметры строки запроса *PartitionKey* и *PartitionKind* можно не указывать и к службе можно обратиться через шлюз следующим образом.
 
-* Извне: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService`
-* Изнутри: `http://localhost:19008/MyApp/MyService`
+* Извне: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
+* Изнутри: `http://localhost:19081/MyApp/MyService`
 
 Если служба использует схему секционирования Uniform Int64, для обращения к секции службы необходимо использовать параметры строки запроса *PartitionKey* и *PartitionKind*.
 
-* Извне: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* Изнутри: `http://localhost:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Извне: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Изнутри: `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
 Укажите путь к ресурсу после имени службы в URL-адресе, чтобы обратиться к предоставленным службой ресурсам.
 
-* Извне: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* Изнутри: `http://localhost:19008/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`.
+* Извне: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+* Изнутри: `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`.
 
 Затем шлюз перешлет эти запросы по URL-адресу службы.
 
@@ -146,7 +147,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
     ```json
     "SFReverseProxyPort": {
         "type": "int",
-        "defaultValue": 19008,
+        "defaultValue": 19081,
         "metadata": {
             "description": "Endpoint for Service Fabric Reverse proxy"
         }
@@ -298,6 +299,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Пример обмена данными по протоколу HTTP между службами представлен в [примере проекта на сайте GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
+* [Подключение к безопасной службе с помощью обратного прокси-сервера](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Удаленное взаимодействие службы с Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [Начало работы со службами веб-API Microsoft Azure Service Fabric с саморазмещением OWIN](service-fabric-reliable-services-communication-webapi.md)
 * [Коммуникационный стек WCF для надежных служб](service-fabric-reliable-services-communication-wcf.md)

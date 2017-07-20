@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 05/30/2017
 ms.author: donnam
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f7d0ed4f43c68c73c967a401509f1a5ccac7da0b
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: cc41debb2523df77be4db05817a4c7ac55604439
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -190,6 +190,23 @@ let Run(input: WorkItem, log: TraceWriter) =
     json
 ```
 
+## <a name="binding-datatype-property"></a>Свойство привязки dataType
+
+В .NET используйте типы для определения типа входных данных. Например, используйте `string` для привязки к тексту триггера очереди и массив байтов для чтения в двоичном формате.
+
+Для языков с динамическим вводом, таких как JavaScript, используйте свойство `dataType` в определении привязки. Например, чтобы считать содержимое HTTP-запроса в двоичном формате, используйте тип `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Другие параметры для `dataType`: `stream` и `string`.
+
 ## <a name="resolving-app-settings"></a>Разрешение параметров приложения
 Для управления секретами и строками подключения рекомендуется использовать параметры приложения, а не файлы конфигурации. Это ограничивает доступ к таким секретам и обеспечивает безопасное хранение файла *function.json* в общедоступном репозитории системы управления версиями.
 
@@ -307,6 +324,19 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
 }
 ```
 
+### <a name="current-time"></a>Текущее время
+
+Вы можете использовать выражение привязки `DateTime`, разрешающееся в `DateTime.UtcNow`.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
 ## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>Привязка к пользовательским входным свойствам в выражении привязки
 
 Выражения привязки могут также ссылаться на свойства, определенные в самих полезных данных. Например, можно установить динамическую привязку к файлу хранилища BLOB-объектов из файла, имя которого указанно в webhook.
@@ -377,6 +407,10 @@ module.exports = function (context, info) {
     context.done();
 }
 ```
+
+## <a name="configuring-binding-data-at-runtime"></a>Настройка данных привязки во время выполнения
+
+В C# и других языках .NET вы можете использовать императивный шаблон привязки в отличие от декларативных привязок в *function.json*. Императивную привязку удобно использовать, когда параметры привязки должны вычисляться не при проектировании, а во время выполнения. Дополнительные сведения см. в разделе справочника разработчика C# [Привязка в среде выполнения с помощью императивных привязок](functions-reference-csharp.md#imperative-bindings).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения о конкретной привязке см. в следующих статьях:

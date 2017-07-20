@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 07/05/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 867cc69e18e5b31f707c1942e7aa1b691403e3e0
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 7166c4428398015c0570b048dff0005b5061eadb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -125,11 +125,10 @@ ms.lasthandoff: 05/18/2017
 ## <a name="programmatically-managing-active-geo-replication"></a>Программное управление активной георепликацией
 Как уже говорилось ранее, группами автоматической отработки отказа (в предварительной версии) и активной георепликацией можно также управлять программно с помощью Azure PowerShell и REST API. В приведенных ниже таблицах описан доступный для этого набор команд.
 
-**API Azure Resource Manager и безопасность на основе ролей.** Активная георепликация включает в себя набор [интерфейсов API Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) для управления, в том числе [командлеты PowerShell для Azure Resource Manager](scripts/sql-database-setup-geodr-and-failover-database-powershell.md). Эти интерфейсы API требуют использования групп ресурсов и поддерживают безопасность на основе ролей (RBAC). Дополнительные сведения о том, как реализовать контроль доступа на основе ролей, см. в статье [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
+**API Azure Resource Manager и безопасность на основе ролей.** Активная георепликация включает в себя набор API-интерфейсов Azure Resource Manager для управления, в том числе [REST API базы данных SQL Azure](https://docs.microsoft.com/rest/api/sql/) и [командлеты Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Эти интерфейсы API требуют использования групп ресурсов и поддерживают безопасность на основе ролей (RBAC). Дополнительные сведения о том, как реализовать контроль доступа на основе ролей, см. в статье [Использование управления доступом на основе ролей для контроля доступа к ресурсам в подписке Azure](../active-directory/role-based-access-control-what-is.md).
 
 > [!NOTE]
 > Многие новые функции активной георепликации поддерживаются только в [REST API SQL Azure](../azure-resource-manager/resource-group-overview.md) и [командлетах PowerShell базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) на основе [Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt574084.aspx). [Классический REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) и [командлеты базы данных SQL Azure (классическая модель)](https://msdn.microsoft.com/library/azure/dn546723.aspx) поддерживаются для обратной совместимости, поэтому рекомендуется использовать интерфейсы API на основе Azure Resource Manager. 
-> 
 > 
 
 ### <a name="transact-sql"></a>Transact-SQL
@@ -147,39 +146,49 @@ ms.lasthandoff: 05/18/2017
 ### <a name="powershell"></a>PowerShell
 | Командлет | Описание |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase?view=azurermps-3.7.0) |Получает одну или несколько баз данных. |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Создает базу данных-получатель для существующей базы данных и начинает репликацию данных. |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Преобразует базу данных-получатель в базу данных-источник для запуска отработки отказа. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary?view=azurermps-3.7.0) |Завершает репликацию данных между базой данных SQL и указанной базой данных-получателем. |
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink?view=azurermps-3.7.0) |Получает связи георепликации между базой данных SQL Azure и группой ресурсов или SQL Server. |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) |    Создает группу отработки отказа и регистрирует ее на основном сервере и сервере-получателе.|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Удаляет группу отработки отказа с сервера, а также удаляет все входящие в нее базы данных-получатели. |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Возвращает конфигурацию группы отработки отказа. |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) |    Изменяет конфигурацию группы отработки отказа. |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup?view=azurermps-3.7.0) | Запускает отработку отказа группы отработки отказа на сервер-получатель. |
+| [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Получает одну или несколько баз данных. |
+| [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Создает базу данных-получатель для существующей базы данных и начинает репликацию данных. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Преобразует базу данных-получатель в базу данных-источник для запуска отработки отказа. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Завершает репликацию данных между базой данных SQL и указанной базой данных-получателем. |
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Получает связи георепликации между базой данных SQL Azure и группой ресурсов или SQL Server. |
+| [New-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Создает группу отработки отказа и регистрирует ее на основном сервере и сервере-получателе.|
+| [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Удаляет группу отработки отказа с сервера, а также удаляет все входящие в нее базы данных-получатели. |
+| [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Возвращает конфигурацию группы отработки отказа. |
+| [Set-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |   Изменяет конфигурацию группы отработки отказа. |
+| [Switch-AzureRMSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Запускает отработку отказа группы отработки отказа на сервер-получатель. |
 |  | |
+
+> [!IMPORTANT]
+> Дополнительные сведения о примерах сценариев см. в статьях [Настройка активной георепликации для отдельной базы данных SQL Azure с помощью PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Настройка активной георепликации для базы данных SQL Azure в составе пула с помощью PowerShell](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md), а также [Use PowerShell to configure an active geo-replication failover group for a single Azure SQL database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md) (Использование PowerShell для настройки группы отработки отказа активной георепликации для отдельной базы данных SQL Azure (предварительная версия)).
+>
 
 ### <a name="rest-api"></a>Интерфейс REST API
 | API | Описание |
 | --- | --- |
 | [Создание или обновление базы данных (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Создает, обновляет или восстанавливает базу данных-источник или базу данных-получатель. |
-| [Получение, создание или обновление состояния базы данных](https://docs.microsoft.com/rest/api/sql/databases#Databases) |Возвращает состояние во время операции создания. |
-| [Задание базы данных-получателя в качестве базы данных-источника (плановая отработка отказа)](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLink) |Повышение уровня базы данных-получателя в партнерстве георепликации до новой базы данных-источника. |
-| [Задание базы данных-получателя в качестве базы данных-источника (внеплановая отработка отказа)](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Принудительная отработка отказа на базу данных-получатель и задание ее в качестве базы данных-источника. |
-| [Получение связей репликации](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_ListReplicationLinks) |Получает все связи репликации для заданной базы данных SQL, участвующей в партнерстве георепликации. Извлекает сведения, отображаемые в представлении каталога sys.geo_replication_links. |
-| [Получение связи репликации](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_GetReplicationLink) |Получает определенную связь репликации для заданной базы данных SQL, участвующей в партнерстве георепликации. Извлекает сведения, отображаемые в представлении каталога sys.geo_replication_links. |
-| [Создание группы отработки отказа](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) | Создает группу отработки отказа и регистрирует ее на основном сервере и сервере-получателе. |
-| [Удаление группы отработки отказа](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) | Удаляет группу отработки отказа с сервера. |
-| [Получение группы отработки отказа](https://docs.microsoft.com/rest/api/sql/databases#Databases) | Возвращает конфигурацию группы отработки отказа. |
-| [Настройка группы отработки отказа](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) | Изменяет конфигурацию группы отработки отказа. |
-| [Тип отработки отказа](https://docs.microsoft.com/rest/api/sql/databasereplicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) | Запускает отработку отказа группы отработки отказа на сервер-получатель. |
+| [Получение, создание или обновление состояния базы данных](https://docs.microsoft.com/rest/api/sql/databases#Databases_CreateOrUpdate) |Возвращает состояние во время операции создания. |
+| [Задание базы данных-получателя в качестве базы данных-источника (плановая отработка отказа)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLink) |Задает базу данных-источник реплики. Для этого выполняется отработка отказа из текущей базы данных-источника реплики. |
+| [Задание базы данных-получателя в качестве базы данных-источника (внеплановая отработка отказа)](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Задает базу данных-источник реплики. Для этого выполняется отработка отказа из текущей базы данных-источника реплики. Эта операция может привести к потере данных. |
+| [Получение связи репликации](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_FailoverReplicationLinkAllowDataLoss) |Получает определенную связь репликации для заданной базы данных SQL, участвующей в партнерстве георепликации. Извлекает сведения, отображаемые в представлении каталога sys.geo_replication_links. |
+| [Список связей репликации](https://docs.microsoft.com/en-us/rest/api/sql/databases%20-%20replicationlinks#Databases_GetReplicationLink) | Получает все связи репликации для заданной базы данных SQL, участвующей в партнерстве георепликации. Извлекает сведения, отображаемые в представлении каталога sys.geo_replication_links. |
+| [Удаление связей репликации](https://docs.microsoft.com/rest/api/sql/databases%20-%20replicationlinks#Databases_DeleteReplicationLink) | Удаляет связь репликации базы данных. Невозможно выполнить во время отработки отказа. |
+| [Создание или обновление группы отработки отказа](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_CreateOrUpdate) | Создает или обновляет группу отработки отказа. |
+| [Удаление группы отработки отказа](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Delete) | Удаляет группу отработки отказа с сервера. |
+| [Плановая отработка отказа](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Failover) | Выполняет отработку отказа из текущего основного сервера на этот сервер. |
+| [Принудительная отработка отказа (возможна потеря данных)](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ForceFailoverAllowDataLoss) |Выполняет отработку отказа из текущего основного сервера на этот сервер. Эта операция может привести к потере данных. |
+| [Получение группы отработки отказа](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Get) | Получает группу отработки отказа. |
+| [Вывод списка групп отработки отказа с фильтрацией по серверу](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_ListByServer) | Перечисляет группы отработки отказа на сервере. |
+| [Обновление группы отработки отказа](https://docs.microsoft.com/rest/api/sql/failovergroups#FailoverGroups_Update) | Обновляет группу отработки отказа. |
 |  | |
 
 ## <a name="next-steps"></a>Дальнейшие действия
+* Ознакомьтесь с примерами скриптов в следующих статьях:
+   - [Настройка активной георепликации для отдельной базы данных SQL Azure с помощью PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+   - [Настройка активной георепликации для базы данных SQL Azure в составе пула с помощью PowerShell](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+   - [Use PowerShell to configure an active geo-replication failover group for a single Azure SQL database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md) (Использование PowerShell для настройки группы отработки отказа активной георепликации для отдельной базы данных SQL Azure (предварительная версия)).
 * Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md)
 * Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь со статьей [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md).
 * Чтобы узнать об использовании автоматически создаваемых резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md).
-* Чтобы узнать об использовании автоматически создаваемых резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md).
 * Дополнительные сведения о требованиях к проверке подлинности для новых сервера-источника и базы данных-источника см. в статье [Безопасность базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md).
 
 

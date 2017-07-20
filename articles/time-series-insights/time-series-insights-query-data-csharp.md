@@ -1,6 +1,6 @@
 ---
 title: "Запрос данных из среды Azure Time Series Insights с помощью C# | Документация Майкрософт"
-description: "Это руководство содержит сведения о запросе данных из среды Time Series Insights с помощью C##"
+description: "Это руководство содержит сведения о запросе данных из среды Time Series Insights с помощью C#"
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -10,25 +10,23 @@ editor: cgronlun
 ms.assetid: 
 ms.service: time-series-insights
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/25/2017
 ms.author: ankryach
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 25f7a186b4df73f3e8e6c035d58f2f1a401605cf
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 81d16b4093a4eef77e5a9c88cb39f2dd36bcba4e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/04/2017
 
 ---
-# <a name="query-data-from-azure-time-series-insights-environment-using-c"></a>Запрос данных из среды Azure Time Series Insights с помощью C##
-
-## <a name="introduction"></a>Введение
+# <a name="query-data-from-the-azure-time-series-insights-environment-by-using-c"></a>Запрос данных из среды Azure Time Series Insights с помощью C#
 
 В этом примере C# показано, как запросить данные из среды Azure Time Series Insights.
 В нем показано несколько простых способов использования API запроса:
-1. На этапе подготовки API Azure Active Directory получает токен доступа. Этот токен должен передаваться в заголовке `Authorization` каждого запроса API запроса.
+1. На этапе подготовки маркер доступа получается через API Azure Active Directory. Этот маркер должен передаваться в заголовке `Authorization` каждого запроса API запроса. Сведения о настройке приложений с неинтерактивной проверкой подлинности см. в статье об [аутентификации и авторизации](time-series-insights-authentication-and-authorization.md).
 2. Запрашивается список сред, к которым у пользователя есть доступ. Выбирается одна из этих сред, и последующие данные запрашиваются для этой среды.
 3. В качестве примера HTTPS-запроса для выбранной среды запрашиваются данные о доступности.
 4. В качестве примера запроса веб-сокета для выбранной среды запрашиваются объединенные данные событий. Данные запрашиваются для всего диапазона времени доступности.
@@ -52,23 +50,21 @@ namespace TimeSeriesInsightsQuerySample
 {
     class Program
     {
+        // For automated execution under application identity,
+        // use application created in Active Directory.
+        // To create the application in AAD, follow the steps provided here:
+        // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
+
+        // SET the application ID of application registered in your Azure Active Directory
+        private static string ApplicationClientId = "#DUMMY#";
+
+        // SET the application key of the application registered in your Azure Active Directory
+        private static string ApplicationClientSecret = "#DUMMY#";
+
         public static async Task SampleAsync()
         {
             // 1. Acquire an access token.
-            string accessToken;
-            {
-                var authenticationContext = new AuthenticationContext(
-                    "https://login.windows.net/common",
-                    TokenCache.DefaultShared);
-
-                AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
-                    "https://api.timeseries.azure.com/", // Set Resource URI to Azure Time Series Insights API
-                    "1950a258-227b-4e31-a9cf-717495945fc2", // Set well-known client ID for Azure PowerShell
-                    new Uri("urn:ietf:wg:oauth:2.0:oob"), // Set redirect URI for Azure PowerShell
-                    new PlatformParameters(PromptBehavior.Auto));
-
-                accessToken = token.AccessToken;
-            }
+            string accessToken = await AcquireAccessTokenAsync();
 
             // 2. Obtain list of environments and get environment FQDN for the environment of interest.
             string environmentFqdn;
@@ -261,6 +257,37 @@ namespace TimeSeriesInsightsQuerySample
                     Console.WriteLine("{0}\t\t{1}", currentDimensionValue, currentCount);
                 }
             }
+        }
+
+        private static async Task<string> AcquireAccessTokenAsync()
+        {
+            if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#")
+            {
+                throw new Exception(
+                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId' and 'ApplicationClientSecret'.");
+            }
+
+            var authenticationContext = new AuthenticationContext(
+                "https://login.microsoftonline.com/common",
+                TokenCache.DefaultShared);
+
+            AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
+                resource: "https://api.timeseries.azure.com/",
+                clientCredential: new ClientCredential(
+                    clientId: ApplicationClientId,
+                    clientSecret: ApplicationClientSecret));
+
+            // Show interactive logon dialog to acquire token on behalf of the user.
+            // Suitable for native apps, and not on server-side of a web application.
+            //AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
+            //    resource: "https://api.timeseries.azure.com/",
+            //    // Set well-known client ID for Azure PowerShell
+            //    clientId: "1950a258-227b-4e31-a9cf-717495945fc2",
+            //    // Set redirect URI for Azure PowerShell
+            //    redirectUri: new Uri("urn:ietf:wg:oauth:2.0:oob"),
+            //    parameters: new PlatformParameters(PromptBehavior.Auto));
+
+            return token.AccessToken;
         }
 
         static void Main(string[] args)
