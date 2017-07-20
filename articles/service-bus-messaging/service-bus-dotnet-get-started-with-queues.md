@@ -20,16 +20,11 @@ ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="get-started-with-service-bus-queues" class="xliff"></a>
-
-# Начало работы с очередями служебной шины
+# <a name="get-started-with-service-bus-queues"></a>Начало работы с очередями служебной шины
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## Что будет выполнено
+## <a name="what-will-be-accomplished"></a>Что будет выполнено
 В этом руководстве рассматриваются следующие действия:
 
 1. Создание пространства имен служебной шины с помощью портала Azure.
@@ -37,50 +32,36 @@ ms.lasthandoff: 07/01/2017
 3. Создание консольного приложения для отправки сообщения.
 4. Написание консольного приложения для получения сообщений, отправленных на предыдущем шаге.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 1. [Visual Studio 2015 или более поздней версии.](http://www.visualstudio.com) В описанных в этом руководстве примерах используется Visual Studio 2017.
 2. Подписка Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1. Создание пространства имен с помощью портала Azure
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Создание пространства имен с помощью портала Azure
 Если пространство имен для обмена сообщениями служебной шины уже создано, перейдите к разделу [Создание очереди с помощью портала Azure](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-queue-using-the-azure-portal" class="xliff"></a>
-
-## 2) Создание очереди с помощью портала Azure
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2) Создание очереди с помощью портала Azure
 Если очередь служебной шины уже создана, перейдите к разделу [Отправка сообщений в очередь](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-<a id="3-send-messages-to-the-queue" class="xliff"></a>
-
-## 3. Отправка сообщений в очередь
+## <a name="3-send-messages-to-the-queue"></a>3. Отправка сообщений в очередь
 Для отправки сообщений в очередь мы создадим консольное приложение C# с помощью Visual Studio.
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### Создание консольного приложение
+### <a name="create-a-console-application"></a>Создание консольного приложение
 
 Откройте Visual Studio и создайте проект **Консольное приложение (.NET Framework)**.
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### Получение пакета NuGet для служебной шины
+### <a name="add-the-service-bus-nuget-package"></a>Получение пакета NuGet для служебной шины
 1. Щелкните созданный проект правой кнопкой мыши и выберите **Управление пакетами NuGet**.
 2. Откройте вкладку **Обзор**, выполните поиск по фразе **служебная шина Microsoft Azure** и выберите элемент **WindowsAzure.ServiceBus**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
    
     ![Установка пакета NuGet][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-queue" class="xliff"></a>
-
-### Написание кода для отправки сообщения в очередь
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Написание кода для отправки сообщения в очередь
 1. Добавьте следующую инструкцию `using` в начало файла Program.cs.
    
     ```csharp
@@ -126,7 +107,6 @@ ms.lasthandoff: 07/01/2017
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
 
-                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
                 client.Send(message);
@@ -141,9 +121,7 @@ ms.lasthandoff: 07/01/2017
    
       ![Размер сообщения][queue-message]
 
-<a id="4-receive-messages-from-the-queue" class="xliff"></a>
-
-## 4. Получение сообщений из очереди
+## <a name="4-receive-messages-from-the-queue"></a>4. Получение сообщений из очереди
 
 1. Чтобы получить только что отправленные сообщения, создайте консольное приложение и добавьте ссылку на пакет NuGet служебной шины в соответствии с инструкциями для предыдущего приложения отправителя.
 2. Добавьте следующую инструкцию `using` в начало файла Program.cs.
@@ -204,9 +182,7 @@ ms.lasthandoff: 07/01/2017
 
 Поздравляем! Вы создали очередь, а также отправили и получили сообщение.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Ознакомьтесь с [примерами в репозитории GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples), демонстрирующими расширенные возможности обмена сообщениями служебной шины.
 
