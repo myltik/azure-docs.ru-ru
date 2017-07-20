@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 4ed26f1a30501d9ce67845795606f6d8e77ac53f
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Создание бессерверного приложения в Visual Studio с использованием приложений логики и функций
@@ -34,7 +34,7 @@ ms.lasthandoff: 05/09/2017
 * [Средства приложений логики для Visual Studio](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551)
 * [пакет Azure SDK последней версии](https://azure.microsoft.com/downloads/) (версия 2.9.1 или выше);
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
-* [Интерфейс командной строки функций Azure](https://www.npmjs.com/package/azure-functions-cli) для локальной отладки функций
+* [Основные инструменты службы "Функции Azure"](https://www.npmjs.com/package/azure-functions-core-tools) для локальной отладки функций
 * Доступ к Интернету при использовании конструктора приложений логики
 
 ## <a name="getting-started-with-a-deployment-template"></a>Приступая к работе с шаблоном развертывания
@@ -94,3 +94,4 @@ ms.lasthandoff: 05/09/2017
 <!-- Image references -->
 [1]: ./media/logic-apps-serverless-get-started-vs/select-template.png
 [2]: ./media/logic-apps-serverless-get-started-vs/deploy.png
+

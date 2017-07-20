@@ -15,28 +15,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 4453876c126289f922d6d08d321707e1d10004e3
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: d77dd2b44dca8cee6fa2e93e79cda76c80ccfe1a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Управление дисками Azure с помощью Azure CLI
 
-Виртуальные машины Azure хранят операционную систему, приложения и данные на дисках. При создании виртуальной машины важно выбрать размер диска и конфигурацию, соответствующую ожидаемой рабочей нагрузке. В этом руководстве рассматривается развертывание дисков виртуальных машин и управление ими. Вы узнаете о:
+Виртуальные машины Azure хранят операционную систему, приложения и данные на дисках. При создании виртуальной машины важно выбрать размер диска и конфигурацию в соответствии с ожидаемой рабочей нагрузкой. В этом руководстве рассматривается развертывание дисков виртуальных машин и управление ими. Здесь содержатся сведения о:
 
 > [!div class="checklist"]
 > * дисках ОС и временных дисках;
 > * Диски данных
-> * дисках класса "Стандартный" и "Премиум";
-> * производительности дисков;
-> * присоединении и подготовке дисков данных;
-> * изменении размеров дисков;
-> * моментальных снимках дисков.
+> * дисками уровня "Стандартный" и "Премиум";
+> * производительностью дисков;
+> * присоединением и подготовкой дисков данных;
+> * изменением размеров дисков;
+> * моментальными снимками дисков.
 
-Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). Вы также можете использовать [Cloud Shell](/azure/cloud-shell/quickstart) из своего браузера.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="default-azure-disks"></a>Диски Azure по умолчанию
 
@@ -102,13 +106,13 @@ ms.lasthandoff: 05/17/2017
 
 Создайте группу ресурсов с помощью команды [az group create](https://docs.microsoft.com/cli/azure/group#create). 
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupDisk --location eastus
 ```
 
 Создайте виртуальную машину с помощью команды [az vm create]( /cli/azure/vm#create). Аргумент `--datadisk-sizes-gb` указывает, что должен быть создан дополнительный диск, подключаемый к виртуальной машине. Чтобы создать и подключить несколько дисков, используйте список значений размеров дисков, разделенный пробелами. В следующем примере создается виртуальная машина с двумя дисками емкостью по 128 ГБ. Так как размеры дисков составляют 128 ГБ, они настроены как диски типа P10, которые обеспечивают до 500 операций ввода-вывода на диск.
 
-```azurecli
+```azurecli-interactive 
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
@@ -122,7 +126,7 @@ az vm create \
 
 Чтобы создать диск и подключить его к существующей виртуальной машине, выполните команду [az vm disk attach](/cli/azure/vm/disk#attach). Приведенный ниже пример создает диск уровня "Премиум" размера в 128 ГБ и подключает его к виртуальной машине, созданной на предыдущем шаге.
 
-```azurecli
+```azurecli-interactive 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
 ```
 
@@ -134,7 +138,7 @@ az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myD
 
 Создайте SSH-подключение к виртуальной машине. Замените IP-адреса в примере общедоступным IP-адресом виртуальной машины.
 
-```azurecli
+```azurecli-interactive 
 ssh 52.174.34.95
 ```
 
@@ -201,25 +205,25 @@ exit
 
 Прежде чем увеличить размер диска, требуется получить его идентификатор или имя. Введите команду [az disk list](/cli/azure/vm/disk#list), чтобы вывести список всех дисков в группе ресурсов. Запишите имя диска, размер которого вы хотите изменить.
 
-```azurecli
+```azurecli-interactive 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
 Обратите внимание, что виртуальная машина должна быть освобождена. Используйте команду [az vm deallocate]( /cli/azure/vm#deallocate), чтобы остановить и освободить виртуальную машину.
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
 Введите команду [az disk update](/cli/azure/vm/disk#update), чтобы изменить размер диска. Приведенный пример увеличивает размер диска *myDataDisk* до 1 ТБ.
 
-```azurecli
+```azurecli-interactive 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
 ```
 
 После завершения операции изменения размера запустите виртуальную машину.
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
@@ -233,7 +237,7 @@ az vm start --resource-group myResourceGroupDisk --name myVM
 
 Перед созданием моментального снимка диска виртуальной машины нужно получить идентификатор или имя этого диска. Для этого выполните команду [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show). В этом примере идентификатор диска сохраняется в переменной и может использоваться в дальнейшем.
 
-```azurecli
+```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 ```
 
@@ -247,7 +251,7 @@ az snapshot create -g myResourceGroupDisk --source "$osdiskid" --name osDisk-bac
 
 Этот моментальный снимок можно преобразовать в диск, с помощью которого можно повторно создать виртуальную машину.
 
-```azurecli
+```azurecli-interactive 
 az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
 ```
 
@@ -255,13 +259,13 @@ az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --sour
 
 Чтобы продемонстрировать восстановление виртуальной машины, удалите существующую виртуальную машину. 
 
-```azurecli
+```azurecli-interactive 
 az vm delete --resource-group myResourceGroupDisk --name myVM
 ```
 
 Создайте виртуальную машину на основе диска моментального снимка.
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk mySnapshotDisk --os-type linux
 ```
 
@@ -271,13 +275,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 Сначала найдите имя диска данных, выполнив команду [az disk list](https://docs.microsoft.com/cli/azure/disk#list). В этом примере имя диска помещается в переменную *datadisk*, которая будет использоваться на следующем шаге.
 
-```azurecli
+```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
 Подключите диск, выполнив команду [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach).
 
-```azurecli
+```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 
@@ -288,7 +292,7 @@ az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 > [!div class="checklist"]
 > * дисками ОС и временными дисками;
 > * Диски данных
-> * дисками класса "Стандартный" и "Премиум";
+> * дисками уровня "Стандартный" и "Премиум";
 > * производительностью дисков;
 > * присоединением и подготовкой дисков данных;
 > * изменением размеров дисков;

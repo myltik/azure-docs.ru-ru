@@ -1,6 +1,6 @@
 ---
-title: "Решение &quot;Контейнеры&quot; в Azure Log Analytics | Документация Майкрософт"
-description: "Решение &quot;Контейнеры&quot; в Log Analytics позволяет централизованно просматривать узлы контейнеров Docker и Windows, а также управлять ими."
+title: "Решение \"Контейнеры\" в Azure Log Analytics | Документация Майкрософт"
+description: "Решение \"Контейнеры\" в Log Analytics позволяет централизованно просматривать узлы контейнеров Docker и Windows, а также управлять ими."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 06/29/2017
 ms.author: banders
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 05dfdc3491e6c7f838f5e7e2c16951bc1328e32b
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 936064959ac9dd6422619076fabbbba887d17bb6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="containers-preview-solution-log-analytics"></a>Решение "Контейнеры" (предварительная версия) в Log Analytics
+# <a name="containers-preview-solution-in-log-analytics"></a>Решение "Контейнеры" (предварительная версия) в Log Analytics
+
+![Символ решения "Контейнеры"](./media/log-analytics-containers/containers-symbol.png)
+
 В этой статье описано, как настроить и использовать решение "Контейнеры" в Log Analytics для централизованного просмотра узлов контейнеров Docker и Windows, а также управление ими. Docker — это система виртуализации программного обеспечения, с помощью которой можно создавать контейнеры, автоматизирующие развертывание программного обеспечения в соответствующей ИТ-инфраструктуре.
 
 Благодаря этому решению можно видеть, какие контейнеры работают на узлах контейнеров и какие образы выполняются в контейнерах. Также можно просматривать подробные сведения аудита, в том числе команды, используемые в контейнерах. Кроме того, вы можете устранять неполадки контейнеров, просматривая централизованные журналы и выполняя в них поиск, без необходимости удаленного просмотра узлов Docker или Windows. Решение позволяет находить контейнеры, содержащие ошибки и использующие слишком много ресурсов на узле. Также у вас есть возможность централизованно просматривать сведения об использовании и производительности ЦП, памяти, хранилища и сети по контейнерам. На компьютерах под управлением Windows можно централизовать и сравнивать журналы из Windows Server, Hyper-V и контейнеров Docker.
@@ -45,8 +48,11 @@ Docker с OMS можно установить и использовать нес
 
 Вы можете ознакомиться с поддерживаемыми версиями Docker и операционными системами Linux для узла контейнера на портале [GitHub](https://github.com/Microsoft/OMS-docker).
 
+### <a name="container-services"></a>Служба контейнеров
+
 - При наличии кластера Kubernetes, использующего службу контейнеров Azure, дополнительные сведения см. в статье [Мониторинг кластера службы контейнеров Azure с помощью Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
 - При наличии кластера DC/OS в службе контейнеров Azure дополнительные сведения см. в статье [Мониторинг кластера DC/OS в службе контейнеров Azure с помощью Operations Management Suite](../container-service/container-service-monitoring-oms.md).
+- При наличии среды режима Docker Swarm ознакомьтесь с разделом [Настройка агента OMS для Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
 - При использовании контейнеров в Service Fabric см. дополнительные сведения в разделе [Общие сведения о Service Fabric](../service-fabric/service-fabric-overview.md).
 - Дополнительные сведения о том, как установить и настроить модули Docker на компьютерах под управлением Windows, см. в [этой статье](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
@@ -57,7 +63,7 @@ Docker с OMS можно установить и использовать нес
 
 Для мониторинга контейнеров необходимо настроить указанные ниже параметры на узлах контейнера.
 
-## <a name="configure-settings-for-a-linux-container-host"></a>Настройка параметров для узла контейнера Linux
+## <a name="linux-container-hosts"></a>Узлы контейнера Linux
 
 Поддерживаемые версии Linux:
 
@@ -92,10 +98,164 @@ Docker с OMS можно установить и использовать нес
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
+### <a name="for-all-azure-government-linux-container-hosts-including-coreos"></a>Для всех узлов контейнера Linux Azure для государственных организаций, включая CoreOS
+
+Запустите контейнер OMS, который вы хотите отслеживать. Используйте следующий пример, внеся в него необходимые изменения:
+
+```
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+```
+
+
 ### <a name="switching-from-using-an-installed-linux-agent-to-one-in-a-container"></a>Переход от использования установленного агента Linux к использованию агента в контейнере
 Если ранее вы использовали установленный напрямую агент и теперь вместо него хотите использовать агент, работающий в контейнере, необходимо сначала удалить агент OMS. См. раздел [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) (Шаги по установке агента OMS для Linux).
 
-## <a name="supported-windows-versions"></a>Поддерживаемые версии Windows
+### <a name="configure-an-oms-agent-for-docker-swarm"></a>Настройка агента OMS для Docker Swarm
+
+Агент OMS можно запускать в качестве глобальной службы в Docker Swarm. Используйте приведенные ниже сведения для создания службы агента OMS. Необходимо вставить свой идентификатор рабочей области и первичный ключ.
+
+- Выполните следующую команду на главном узле.
+
+    ```
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock  -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    ```
+
+### <a name="secure-your-secret-information-for-container-services"></a>Защита секретных сведений для служб контейнеров
+
+Вы можете защитить секретный идентификатор рабочей области OMS и первичные ключи для Docker Swarm и Kubernetes.
+
+#### <a name="secure-secrets-for-docker-swarm"></a>Защита секретов для Docker Swarm
+
+Для Docker Swarm после создания секрета для идентификатора рабочей области и первичного ключа вы можете выполнять процесс создания службы Docker для агента OMS. Используйте приведенные ниже сведения для создания секретных данных.
+
+1. Выполните следующую команду на главном узле.
+
+    ```
+    echo "WSID" | docker secret create WSID -
+    echo "KEY" | docker secret create KEY -
+    ```
+
+2. Убедитесь, что секретные данные созданы надлежащим образом.
+
+    ```
+    keiko@swarmm-master-13957614-0:/run# sudo docker secret ls
+    ```
+
+    ```
+    ID                          NAME                CREATED             UPDATED
+    j2fj153zxy91j8zbcitnjxjiv   WSID                43 minutes ago      43 minutes ago
+    l9rh3n987g9c45zffuxdxetd9   KEY                 38 minutes ago      38 minutes ago
+    ```
+
+3. Запустите следующую команду, чтобы подключить секреты к контейнерному агенту OMS.
+
+    ```
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    ```
+
+#### <a name="secure-secrets-for-kubernetes-with-yaml-files"></a>Защита секретов для Kubernetes с помощью файлов YAML
+
+Для Kubernetes используйте сценарий, чтобы создать файл YAML секретов для идентификатора рабочей области и первичного ключа. На странице [OMS Docker Kubernetes в GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) есть файлы, которые можно использовать с секретными данными или без них:
+
+- стандартный файл DaemonSet агента OMS, который не поддерживает секретные сведения (omsagent.yaml);
+- файл YAML DaemonSet агента OMS, использующий секретные сведения (omsagent-ds-secrets.yaml) со сценариями формирования секретов, который создает файл YAML (omsagentsecret.yaml).
+
+Вы можете создать DaemonSet агента OMS с секретными данными или без них.
+
+##### <a name="default-omsagent-daemonset-yaml-file-without-secrets"></a>Стандартный файл YAML DaemonSet агента OMS без секретов
+
+- Для стандартного файла YAML DaemonSet агента OMS замените `<WSID>` и `<KEY>` на ваши WSID и ключ. Скопируйте файл на главный узел и выполните следующую команду:
+
+    ```
+    sudo kubectl create -f omsagent.yaml
+    ```
+
+##### <a name="default-omsagent-daemonset-yaml-file-with-secrets"></a>Стандартный файл YAML DaemonSet агента OMS с секретами
+
+1. Чтобы использовать DaemonSet агента OMS с секретными сведениями, сначала создайте секреты.
+    1. Скопируйте сценарий и файл шаблона секретов в один и тот же каталог.
+        - Сценарий создания секретов — secret-gen.sh
+        - Шаблон секретов — secret-template.yaml
+    2. Выполните сценарий, как показано в следующем примере. Сценарий запрашивает идентификатор рабочей области OMS и первичный ключ, а после их ввода создает файл YAML секретов, который можно запустить.   
+
+        ```
+        #> sudo bash ./secret-gen.sh
+        ```
+
+    3. Создайте pod секретов, выполнив следующую команду:
+        ```
+        sudo kubectl create -f omsagentsecret.yaml
+        ```
+
+    4. Чтобы проверить, выполните следующую команду:
+
+        ```
+        keiko@ubuntu16-13db:~# sudo kubectl get secrets
+        ```
+
+        Выходные данные должны выглядеть примерно так:
+
+        ```
+        NAME                  TYPE                                  DATA      AGE
+        default-token-gvl91   kubernetes.io/service-account-token   3         50d
+        omsagent-secret       Opaque                                2         1d
+        ```
+
+        ```
+        keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
+        ```
+
+        Выходные данные должны выглядеть примерно так:
+
+        ```
+        Name:           omsagent-secret
+        Namespace:      default
+        Labels:         <none>
+        Annotations:    <none>
+
+        Type:   Opaque
+
+        Data
+        ====
+        WSID:   36 bytes
+        KEY:    88 bytes
+        ```
+
+    5. Создание свой набор daemon-set omsagent, выполнив команду ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
+
+2. Убедитесь, что DaemonSet агента OMS запущен, что будет выглядеть примерно так:
+
+    ```
+    keiko@ubuntu16-13db:~# sudo kubectl get ds omsagent
+    ```
+
+    ```
+    NAME       DESIRED   CURRENT   NODE-SELECTOR   AGE
+    omsagent   3         3         <none>          1h
+    ```
+
+
+Для Kubernetes используйте сценарий для создания файла YAML секретов для идентификатора рабочей области и первичного ключа. Используйте сведения из следующего примера с [файлом YAML omsagent](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml), чтобы защитить свои секретные сведения.
+
+```
+keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
+Name:           omsagent-secret
+Namespace:      default
+Labels:         <none>
+Annotations:    <none>
+
+Type:   Opaque
+
+Data
+====
+WSID:   36 bytes
+KEY:    88 bytes
+```
+
+
+## <a name="windows-container-hosts"></a>Узлы контейнеров Windows
+
+Поддерживаемые версии Windows:
 
 - Windows Server 2016
 - Юбилейный выпуск Windows 10 (профессиональный или корпоративный)
@@ -105,7 +265,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 - Docker 1.12–1.13
 - Docker 17.03.0 [стабильная]
 
-### <a name="preparation-before-installing-agents"></a>Подготовка к установке агентов
+### <a name="preparation-before-installing-windows-agents"></a>Подготовка к установке агентов Windows
 
 Настройте службу Docker, прежде чем устанавливать агенты на компьютерах под управлением Windows. Конфигурация позволяет агенту Windows или расширению виртуальной машины Log Analytics использовать TCP-сокет Docker, чтобы агенты могли получить удаленный доступ к управляющей программе Docker и возможность получать данные мониторинга.
 

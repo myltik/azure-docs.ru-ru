@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 06/29/2017
 ms.author: mikerou
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 8d7052fabeb348b4bba744b43d9af78f058175a8
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 46b0b62f92abbac57bc27bbcdd5821eafedf5519
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.lasthandoff: 03/17/2017
 
 Один из способов реализации этой "самодельной" функции автомасштабирования заключается в добавлении новой службы без отслеживания состояния в приложение Service Fabric для управления масштабированием. В рамках метода `RunAsync` службы набор триггеров может определить, требуется ли масштабирование (включая проверку таких параметров, как максимальный размер кластера и время ожидания следующей операции масштабирования).   
 
-API-интерфейс, использующийся для взаимодействий в масштабируемом наборе виртуальных машин (для проверки и изменения текущего количества экземпляров виртуальных машин), является свободной [библиотекой вычислений для управления Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/1.0.0-beta50). Свободная библиотека вычислений предоставляет простой в использовании API-интерфейс для взаимодействия с масштабируемыми наборами виртуальных машин.
+API-интерфейс, использующийся для взаимодействий в масштабируемом наборе виртуальных машин (для проверки и изменения текущего количества экземпляров виртуальных машин), является свободной [библиотекой вычислений для управления Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). Свободная библиотека вычислений предоставляет простой в использовании API-интерфейс для взаимодействия с масштабируемыми наборами виртуальных машин.
 
 Для взаимодействия с кластером Service Fabric используется класс [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
 
@@ -57,10 +58,13 @@ API-интерфейс, использующийся для взаимодейс
     1. Запишите идентификатор приложения (другое название — идентификатор клиента), имя, пароль и клиент для последующего использования.
     2. Также вам понадобится идентификатор подписки, который можно просмотреть с помощью `az account list`.
 
-Свободная библиотека вычислений может войти в систему, используя эти учетные данные, следующим образом:
+Свободная библиотека вычислений может войти в систему, используя эти учетные данные, следующим образом (обратите внимание, что основные типы свободных библиотек Azure, например `IAzure`, расположены в пакете [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)):
 
 ```C#
-var credentials = AzureCredentials.FromServicePrincipal(AzureClientId, AzureClientKey, AzureTenantId, AzureEnvironment.AzureGlobalCloud);
+var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
+                ClientId = AzureClientId,
+                ClientSecret = 
+                AzureClientKey }, AzureTenantId, AzureEnvironment.AzureGlobalCloud);
 IAzure AzureClient = Azure.Authenticate(credentials).WithSubscription(AzureSubscriptionId);
 
 if (AzureClient?.SubscriptionId == AzureSubscriptionId)
@@ -79,40 +83,12 @@ else
 Используя свободный пакет SDK вычислений для Azure, можно добавлять экземпляры в масштабируемый набор виртуальных машин с помощью всего нескольких вызовов:
 
 ```C#
-var scaleSet = AzureClient?.VirtualMachineScaleSets.GetById(ScaleSetId);
-var newCapacity = Math.Min(MaximumNodeCount, NodeCount.Value + 1);
+var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
+var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-**Сейчас в коде содержится [ошибка](https://github.com/Azure/azure-sdk-for-net/issues/2716), из-за которой он не работает**, но после исправления в опубликованных версиях Microsoft.Azure.Management.Compute.Fluent проблема вскоре будет решена. Ошибка заключается в том, что при изменении свойств масштабируемого набора виртуальных машин (например, емкости) с помощью свободного API-интерфейса для вычислений теряются защищенные параметры из шаблона Resource Manager масштабируемого набора. Отсутствие этих параметров, помимо прочего, приводит к тому, что службы Service Fabric не настраиваются должным образом на новых экземплярах виртуальных машин.
-
-В качестве временного решения проблемы можно вызвать командлеты PowerShell из службы масштабирования для внедрения этих изменений (хотя этот способ подразумевает наличие средств PowerShell):
-
-```C#
-using (var psInstance = PowerShell.Create())
-{
-    psInstance.AddScript($@"
-        $clientId = ""{AzureClientId}""
-        $clientKey = ConvertTo-SecureString -String ""{AzureClientKey}"" -AsPlainText -Force
-        $Credential = New-Object -TypeName ""System.Management.Automation.PSCredential"" -ArgumentList $clientId, $clientKey
-        Login-AzureRmAccount -Credential $Credential -ServicePrincipal -TenantId {AzureTenantId}
-        
-        $vmss = Get-AzureRmVmss -ResourceGroupName {ResourceGroup} -VMScaleSetName {NodeTypeToScale}
-        $vmss.sku.capacity = {newCapacity}
-        Update-AzureRmVmss -ResourceGroupName {ResourceGroup} -Name {NodeTypeToScale} -VirtualMachineScaleSet $vmss
-    ");
-
-    psInstance.Invoke();
-
-    if (psInstance.HadErrors)
-    {
-        foreach (var error in psInstance.Streams.Error)
-        {
-            ServiceEventSource.Current.ServiceMessage(Context, $"ERROR adding node: {error.ToString()}");
-        }
-    }                
-}
-```
+Кроме того, размер масштабируемого набора виртуальных машин можно изменить с помощью командлетов PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmss) может извлечь объект масштабируемого набора виртуальных машин. Текущая емкость будет храниться в свойстве `.sku.capacity`. После того как для емкости будет задано нужное значение, вы сможете обновить масштабируемый набор виртуальных машин в Azure, выполнив команду [`Update-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermvmss).
 
 Как и при добавлении узла вручную, добавления экземпляра масштабируемого набора должно быть достаточно для запуска нового узла Service Fabric, так как шаблон масштабируемого набора включает расширения для автоматического присоединения новых экземпляров к кластеру Service Fabric. 
 
@@ -137,7 +113,7 @@ using (var client = new FabricClient())
 После обнаружения узла, который следует удалить, его можно отключить и удалить с помощью того же экземпляра `FabricClient` и экземпляра `IAzure` более ранней версии.
 
 ```C#
-var scaleSet = AzureClient?.VirtualMachineScaleSets.GetById(ScaleSetId);
+var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
 ServiceEventSource.Current.ServiceMessage(Context, $"Disabling node {mostRecentLiveNode.NodeName}");
@@ -154,18 +130,16 @@ while ((mostRecentLiveNode.NodeStatus == System.Fabric.Query.NodeStatus.Up || mo
 }
 
 // Decrement VMSS capacity
-var newCapacity = Math.Max(MinimumNodeCount, NodeCount.Value - 1); // Check min count 
+var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Check min count 
 
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-После удаления экземпляра виртуальной машины можно удалить состояние узла Service Fabric.
+Как и при развертывании, можно использовать командлеты PowerShell для изменения емкости масштабируемого набора виртуальных машин, если подход с использованием скриптов предпочтительнее. После удаления экземпляра виртуальной машины можно удалить состояние узла Service Fabric.
 
 ```C#
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
-
-Как и раньше, вам придется обходить неработающий метод `IVirtualMachineScaleSet.Update()`, пока не будет решена проблема, описанная на странице [Azure/azure-sdk-for-net#2716](https://github.com/Azure/azure-sdk-for-net/issues/2716).
 
 ## <a name="potential-drawbacks"></a>Потенциальные недостатки
 
@@ -180,3 +154,4 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 - [Масштабирование кластера Service Fabric с помощью правил автомасштабирования](./service-fabric-cluster-scale-up-down.md)
 - [Свободные библиотеки управления Azure для .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (для взаимодействия с базовыми масштабируемыми наборами виртуальных машин для кластеров Service Fabric)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (для взаимодействия с кластером Service Fabric и его узлами)
+

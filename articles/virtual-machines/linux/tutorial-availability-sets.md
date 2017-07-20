@@ -17,10 +17,10 @@ ms.date: 05/22/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: bfa4135600cb94d3947323219969872c2da7912b
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 927eb9f4f40759c0a79daa6dd3e91e5ab0853520
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -34,12 +34,12 @@ ms.lasthandoff: 05/31/2017
 > [!div class="checklist"]
 > * "Создать группу доступности"
 > * Создание виртуальной машины в группе доступности
-> * Проверка доступных размеров виртуальных машин.
+> * Проверка доступных размеров виртуальных машин
 
-Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="availability-set-overview"></a>Обзор групп доступности
 

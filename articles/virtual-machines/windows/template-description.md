@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 07/18/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: 907e5b80aeeee4ab2eb0466490ba9ef9b0348144
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/17/2017
-
 
 ---
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 05/17/2017
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop",    
+      "name": "virtualMachineLoop", 
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -48,7 +47,7 @@ ms.lasthandoff: 05/17/2017
     ], 
     "properties": { 
       "hardwareProfile": { 
-        "vmSize": "Standard_DS1_v2" 
+        "vmSize": "Standard_DS1" 
       }, 
       "osProfile": { 
         "computername": "[concat('myVM', copyindex())]", 
@@ -63,10 +62,10 @@ ms.lasthandoff: 05/17/2017
           "version": "latest" 
         }, 
         "osDisk": { 
-          "name": "[concat('myOSDisk', copyindex())]" 
+          "name": "[concat('myOSDisk', copyindex())]",
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
-        }
+        },
         "dataDisks": [
           {
             "name": "[concat('myDataDisk', copyindex())]",
@@ -80,15 +79,14 @@ ms.lasthandoff: 05/17/2017
         "networkInterfaces": [ 
           { 
             "id": "[resourceId('Microsoft.Network/networkInterfaces',
-              concat('myNIC', copyindex())]" 
+              concat('myNIC', copyindex()))]" 
           } 
         ] 
-      }
+      },
       "diagnosticsProfile": {
         "bootDiagnostics": {
           "enabled": "true",
-          "storageUri": "[concat('https://', variables('storageName'), 
-            '.blob.core.windows.net"
+          "storageUri": "[concat('https://', variables('storageName'), '.blob.core.windows.net')]"
         }
       } 
     },
@@ -224,7 +222,7 @@ ms.lasthandoff: 05/17/2017
 
 ```
 "copy": {
-  "name": "virtualMachineLoop",    
+  "name": "virtualMachineLoop", 
   "count": "[parameters('numberOfInstances')]"
 },
 ```
@@ -233,7 +231,7 @@ ms.lasthandoff: 05/17/2017
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
@@ -273,7 +271,7 @@ Resource Manager параллельно развертывает все ресу
     "id": "[resourceId('Microsoft.Network/networkInterfaces',
       concat('myNIC', copyindex())]" 
   } ] 
-}
+},
 ```
 
 Чтобы задать это свойство, необходим сетевой интерфейс. Поэтому требуется зависимость. Зависимость также необходимо задать, если один ресурс (дочерний) определен внутри другого ресурса (родительского). Например, параметры диагностики и расширения пользовательского скрипта определены как дочерние ресурсы виртуальной машины. Их нельзя создать, пока существует виртуальная машина. Таким образом, оба ресурса помечаются как зависимые от виртуальной машины.
@@ -323,7 +321,7 @@ Resource Manager параллельно развертывает все ресу
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
-}
+},
 ```
 
 ### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Создание виртуальных машин из существующих управляемых дисков
@@ -338,7 +336,7 @@ Resource Manager параллельно развертывает все ресу
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
-}
+},
 ```
 
 ### <a name="create-new-virtual-machines-from-a-managed-image"></a>Создание виртуальных машин из управляемого образа
@@ -356,7 +354,7 @@ Resource Manager параллельно развертывает все ресу
     "caching": "ReadWrite", 
     "createOption": "FromImage" 
   }
-}
+},
 ```
 
 ### <a name="attach-data-disks"></a>Присоединение дисков данных
@@ -372,7 +370,7 @@ Resource Manager параллельно развертывает все ресу
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
-]
+],
 ```
 
 ## <a name="extensions"></a>расширения.

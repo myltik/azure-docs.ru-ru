@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 6cf48883d397a4b04e707111306d4596cd7af683
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 708bf39b69cf798ac44aca65cf7dee6fa9a24591
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Решение Azure Key Vault Analytics в Log Analytics
+
+![Символ Key Vault](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
 
 Решение хранилища ключей Azure в Log Analytics позволяет просматривать журналы AuditEvent хранилища ключей Azure.
 
@@ -35,8 +38,8 @@ ms.lasthandoff: 03/11/2017
 ## <a name="install-and-configure-the-solution"></a>Установка и настройка решения
 Установите и настройте решение хранилища ключей Azure, выполнив следующие указания:
 
-1. Включите решение Azure Key Vault из [Azure Мarketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) или в соответствии с инструкциями по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md). 
-2. Включите ведение журнала диагностики для мониторинга ресурсов Key Vault, используя [портал](#enable-key-vault-diagnostics-in-the-portal) или [PowerShell](#enable-key-vault-diagnostics-using-powershell). 
+1. Включите решение Azure Key Vault из [Azure Мarketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) или в соответствии с инструкциями по [добавлению решений Log Analytics из коллекции решений](log-analytics-add-solutions.md).
+2. Включите ведение журнала диагностики для мониторинга ресурсов Key Vault, используя [портал](#enable-key-vault-diagnostics-in-the-portal) или [PowerShell](#enable-key-vault-diagnostics-using-powershell).
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Включение диагностики Key Vault на портале
 
@@ -62,8 +65,8 @@ $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
- 
- 
+
+
 
 ## <a name="review-azure-key-vault-data-collection-details"></a>Просмотр сведений о сборе данных хранилища ключей Azure
 Решение хранилища ключей Azure собирает журналы диагностики напрямую из хранилища ключей.
@@ -94,7 +97,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspace
 ### <a name="to-view-details-for-any-operation"></a>Просмотр сведений об операциях
 1. На странице **Обзор** щелкните плитку **Хранилище ключей Azure**.
 2. На панели мониторинга **Хранилище ключей Azure** просмотрите сводные данные в одной из колонок, а затем щелкните одну из них, чтобы просмотреть подробные сведения на странице поиска журналов.
-   
+
     На любой из страниц поиска журналов можно просмотреть результаты по времени, подробные результаты и историю поиска журналов. Для сужения области результатов выполните фильтрацию по аспектам.
 
 ## <a name="log-analytics-records"></a>Записи Log Analytics
@@ -142,7 +145,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspace
   - Для любого поля, имя которого содержит суффикс \_o, данные разбиваются на отдельные поля на основе имен вложенных полей. Например, имя участника-пользователя вызывающего объекта сохраняется в поле `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`.
    - Поле CallerIpAddress меняется на CallerIPAddress.
    - Поле RemoteIPCountry больше не используется.
-4. Удалите устаревшее решение *Key Vault Analytics (не рекомендуется)*. Если используется PowerShell, то выполните следующую команду: `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false` 
+4. Удалите устаревшее решение *Key Vault Analytics (не рекомендуется)*. Если используется PowerShell, то выполните следующую команду: `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Данные, собранные до этого изменения, не отображаются в новом решении. Эти данные по-прежнему можно запрашивать с помощью старых имен типов и полей.
 
@@ -151,5 +154,4 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspace
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Используйте [поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных о хранилище ключей Azure.
-
 

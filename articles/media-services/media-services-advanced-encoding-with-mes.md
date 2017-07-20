@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 01448fcff64e99429e2ee7df916b110c869307fb
-ms.openlocfilehash: 7776ac35f1a8a30c959286a9e31beb666f5fc799
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 25a13ad3738286795f45bbdec681614356bd3db8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -27,6 +28,10 @@ ms.lasthandoff: 03/02/2017
 ## <a name="overview"></a>Обзор
 
 В этом разделе показано, как настроить предустановки Media Encoder Standard. В разделе [Дополнительное кодирование с помощью стандартного кодировщика мультимедиа](media-services-custom-mes-presets-with-dotnet.md) показано, как использовать .NET для создания задачи кодирования и задания, которое выполняет эту задачу. Настроив предустановку, укажите пользовательские предустановки для задачи кодирования. 
+
+>[!NOTE]
+>При использовании предустановки XML обязательно сохраните порядок элементов, как показано в примерах XML ниже (например, элемент KeyFrameInterval должен предшествовать элементу SceneChangeDetection).
+>
 
 В этом разделе демонстрируются пользовательские предустановки, которые выполняют следующие задачи кодирования.
 
@@ -909,15 +914,16 @@ ms.lasthandoff: 03/02/2017
 Ознакомьтесь с разделом [Обрезка видео с помощью стандартного кодировщика мультимедиа](media-services-crop-video.md) .
 
 ## <a id="no_video"></a>Вставка видеодорожки, если во входных данных нет видео
+
 По умолчанию при отправке кодировщику входных данных, которые содержат только звук и не содержат аудио, выходной ресурс-контейнер будет содержать файлы только с аудиоданными. Некоторые проигрыватели, в том числе Проигрыватель мультимедиа Azure ([подробнее здесь](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)), могут не поддерживать обработку таких потоков. Этот параметр можно использовать для принудительного добавления кодировщиком монохромной видеодорожки в выходные данные в этом сценарии.
 
 > [!NOTE]
 > Это увеличивает размер выходного ресурса-контейнера, а, следовательно, и затраты на такую задачу кодирования. Следует выполнить тесты, чтобы убедиться, что результирующее увеличение незначительно влияет на ежемесячные расходы.
 >
->
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Вставка видео только с минимальной скоростью
-Предположим, что вы используете предустановку кодирования с несколькими скоростями, например [H264 Multiple Bitrate 720p](media-services-mes-preset-h264-multiple-bitrate-720p.md) , чтобы закодировать для потоковой передачи весь входной каталог, содержащий смесь видео- и аудиофайлов. В этом случае, если входные данные не содержат видео, может потребоваться указать кодировщику принудительно вставлять монохромную видеодорожку только с самой низкой скоростью, а не с каждой выходной скоростью. Для этого необходимо указать флаг InsertBlackIfNoVideoBottomLayerOnly.
+
+Предположим, что вы используете предустановку кодирования с несколькими скоростями, например [H264 Multiple Bitrate 720p](media-services-mes-preset-h264-multiple-bitrate-720p.md) , чтобы закодировать для потоковой передачи весь входной каталог, содержащий смесь видео- и аудиофайлов. В этом случае, если входные данные не содержат видео, может потребоваться указать кодировщику принудительно вставлять монохромную видеодорожку только с самой низкой скоростью, а не с каждой выходной скоростью. Для этого необходимо указать флаг **InsertBlackIfNoVideoBottomLayerOnly**.
 
 Вы можете использовать любую из предустановок MES, которые определены в [этом](media-services-mes-presets-overview.md) разделе, и внести в нее следующие изменения.
 
@@ -932,9 +938,30 @@ ms.lasthandoff: 03/02/2017
     }
 
 #### <a name="xml-preset"></a>Предустановка XML
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+При использовании XML укажите Condition="InsertBlackIfNoVideoBottomLayerOnly" в качестве атрибута элемента **H264Video** и Condition="InsertSilenceIfNoAudio" — в качестве атрибута элемента **AACAudio**.
+    
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>Вставка видео со всеми выходными скоростями
 Предположим, что вы используете предустановку кодирования с несколькими скоростями, например [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) , чтобы закодировать для потоковой передачи весь входной каталог, содержащий смесь видео- и аудиофайлов. В этом случае, если входные данные не содержат видео, может потребоваться указать кодировщику принудительно вставлять монохромную видеодорожку с каждой из выходных скоростей. Это гарантирует, что выходные ресурсы-контейнеры будут однородны по количеству видео- и аудиодорожек. Чтобы получить такой результат, необходимо указать флаг InsertBlackIfNoVideo.
@@ -952,9 +979,30 @@ ms.lasthandoff: 03/02/2017
     }
 
 #### <a name="xml-preset"></a>Предустановка XML
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideo</Condition>
+
+При использовании XML укажите Condition="InsertBlackIfNoVideo" в качестве атрибута элемента **H264Video** и Condition="InsertSilenceIfNoAudio" — в качестве атрибута элемента **AACAudio**.
+
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideo">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .  
 
 ## <a id="rotate_video"></a>Поворот видео
 [Стандартный кодировщик служб мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md) поддерживает поворот на 0, 90, 180 и 270 градусов. По умолчанию задается значение Auto, при котором система пытается обнаружить метаданные поворота во входящем видеофайле и обеспечить соответствующую компенсацию. Включите приведенный ниже элемент **Sources** в одну из предустановок, определенных в [этом](media-services-mes-presets-overview.md) разделе.
@@ -983,7 +1031,7 @@ ms.lasthandoff: 03/02/2017
 
 Сведения о том, как кодировщик интерпретирует значения ширины и высоты в предустановке, когда запускается компенсация поворота, см. [здесь](media-services-mes-schema.md#PreserveResolutionAfterRotation).
 
-Если указать значение&0;, кодировщик будет игнорировать метаданные поворота (если они есть) во входящем видеофайле.
+Если указать значение 0, кодировщик будет игнорировать метаданные поворота (если они есть) во входящем видеофайле.
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

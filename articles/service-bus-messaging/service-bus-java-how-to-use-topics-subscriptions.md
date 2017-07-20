@@ -1,6 +1,6 @@
 ---
 title: "Как использовать разделы служебной шины Azure с помощью Java | Документация Майкрософт"
-description: "Узнайте, как использовать разделы и подписки служебной шины в Azure. Примеры кода написаны для приложений Java."
+description: "Использование разделов и подписок служебной шины в Azure."
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 06/28/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7132d1e42963d2e419d2bf1b7866ca5888f8719d
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 03cc66659c599b07623e4ba4757b8512a67577b1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/24/2017
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -152,7 +152,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-Сообщения, отправляемые в разделы служебной шины, — это экземпляры класса [BrokeredMessage][BrokeredMessage]. Объекты [BrokeredMessage][BrokeredMessage] *имеют набор стандартных методов (например,* *setLabel* *и* *TimeToLive** ), словарь, используемый для хранения настраиваемых свойств приложения, и текст из произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору [BrokeredMessage][BrokeredMessage] любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий **DataContractSerializer** . Кроме того, может быть предоставлен объект **java.io.InputStream** .
+Сообщения, отправляемые в разделы служебной шины, — это экземпляры класса [BrokeredMessage][BrokeredMessage]. Объекты [BrokeredMessage][BrokeredMessage]* имеют набор стандартных методов (например, **setLabel** и **TimeToLive**), словарь, используемый для хранения настраиваемых свойств приложения, и текст из произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору [BrokeredMessage][BrokeredMessage] любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий **DataContractSerializer**. Кроме того, может быть предоставлен объект **java.io.InputStream**.
 
 В следующем примере показано, как отправить пять тестовых сообщений в очередь `TestTopic` объекта **MessageSender**, полученного в предыдущем фрагменте кода.
 Обратите внимание, что значение свойства **MessageNumber** всех сообщений зависит от итерации цикла (определяет, какие подписки получают их).
@@ -168,7 +168,7 @@ service.sendTopicMessage("TestTopic", message);
 }
 ```
 
-Разделы служебной шины поддерживают максимальный размер сообщения 256 КБ для [уровня "Стандартный"](service-bus-premium-messaging.md) и 1 МБ для [уровня Premium](service-bus-premium-messaging.md). Максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ. Ограничения на количество сообщений в разделе нет, но есть максимальный общий размер сообщений, содержащихся в разделе. Этот размер раздела определяется при создании с верхним пределом 5 ГБ.
+Разделы служебной шины поддерживают максимальный размер сообщения 256 КБ для [уровня "Стандартный"](service-bus-premium-messaging.md) и 1 МБ для [уровня Premium](service-bus-premium-messaging.md). Максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ. Ограничения количества сообщений в разделе нет, но есть максимальный общий размер сообщений, содержащихся в разделе. Этот размер раздела определяется при создании с верхним пределом 5 ГБ.
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Как получать сообщения из подписки
 Чтобы получить сообщения из подписки, используйте объект **ServiceBusContract**. Полученные сообщения могут работать в двух различных режимах: **ReceiveAndDelete** и **PeekLock**.

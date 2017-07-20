@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 01/23/2017
+ms.date: 06/03/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: dd11ad70efd8f78805e74ad193fb9000abf6a3a8
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: aa2b53c514890aa980bc89626e8c7c7336b77a0b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 06/05/2017
 
 
 ---
 # <a name="azure-storage-samples"></a>Примеры для службы хранилища Azure
-## <a name="overview"></a>Обзор
-Используйте следующие ссылки для просмотра и загрузки действующих примеров службы хранилища Azure.
+
+Используйте приведенные ниже ссылки, чтобы просмотреть и скачать примеры кода и приложений для службы хранилища Azure.
 
 ## <a name="azure-code-samples-library"></a>Библиотека примеров кода Azure
 Библиотека [примеров кода Azure](https://azure.microsoft.com/documentation/samples/?service=storage) содержит примеры для службы хранилища Azure, которые можно скачать и запустить локально. Пример библиотеки кода содержит пример кода в формате ZIP. Кроме того, можно просмотреть и клонировать репозиторий GitHub для каждого примера.
@@ -64,22 +64,18 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 * [Начало работы с таблицами](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Начало работы с очередями](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
+## <a name="api-reference-and-source-code"></a>Справочник по API и исходный код
+
+| Язык | Справочник по API | Исходный код |
+|----------|---------------|-------------|
+| .NET | [Справочник по клиентской библиотеке .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Исходный код для клиентской библиотеки хранилища .NET](https://github.com/Azure/azure-storage-net) |
+| Java | [Справочник по клиентской библиотеке Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Исходный код для клиентской библиотеки хранилища Java](https://github.com/azure/azure-storage-java) |
+| Node.js | [Справочник по клиентской библиотеке Node.js](http://azure.github.io/azure-storage-node) | [Исходный код для клиентской библиотеки хранилища Node.js](https://github.com/Azure/azure-storage-node) |
+| C++ | [Справочник по клиентской библиотеке C++](http://azure.github.io/azure-storage-cpp/) | [Исходный код для клиентской библиотеки хранилища C++](https://github.com/Azure/azure-storage-cpp)|
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
-### <a name="net-resources"></a>Ресурсы для .NET
-* [Исходный код для клиентской библиотеки хранилища .NET](https://github.com/Azure/azure-storage-net)
-* [Справочник по клиентской библиотеке .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+Следующие статьи содержат указатель примеров, упорядоченный по службам (служба больших двоичных объектов, служба файлов, служба очередей, служба таблиц).
 
-### <a name="java-resources"></a>Ресурсы для Java
-* [Исходный код для клиентской библиотеки хранилища Java](https://github.com/azure/azure-storage-java)
-* [Справочник по клиентской библиотеке Java](http://dl.windowsazure.com/storage/javadoc/)
-
-### <a name="nodejs-resources"></a>Ресурсы для Node.js
-* [Исходный код для клиентской библиотеки хранилища Node.js](https://github.com/Azure/azure-storage-node)
-* [Справочник по клиентской библиотеке Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-
-### <a name="c-resources"></a>Ресурсы для C++
-* [Исходный код для клиентской библиотеки хранилища C++](https://github.com/Azure/azure-storage-cpp)
-* [Справочник по клиентской библиотеке C++](http://azure.github.io/azure-storage-cpp/)
-
-
+* [Примеры для службы хранилища Azure с использованием .NET](storage-samples-dotnet.md)
+* [Примеры для службы хранилища Azure с использованием Java](storage-samples-java.md)

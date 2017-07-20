@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: cephalin;dariac
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 99ec39d3f0f6e82409de571db1e7c7c9468eb068
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 7eff46740cdbc8467c711aada5e6022d82930e31
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -114,7 +115,7 @@ ms.lasthandoff: 04/06/2017
 * Развертывание зависит от ветви. Различные ветви можно развертывать в различных [слотах](web-sites-staged-publishing.md).
 * В механизме развертывания Kudu доступны все функции (например управление версиями развертывания, откат, восстановление пакетов, автоматизация).
 
-Минусы развертывания из локального репозитория Git:
+Недостатки развертывания из локального репозитория Git:
 
 * Требуется знание соответствующей системы SCM.
 * Нет готовых решений для постоянного развертывания. 
@@ -150,7 +151,6 @@ Visual Studio поддерживает все три способа развер
 ### <a name="vs"></a>Как выполнить развертывание напрямую из Visual Studio
 * [Начало работы с Azure и ASP.NET](app-service-web-get-started-dotnet.md). Создание и развертывание простого веб-проекта ASP.NET MVC с помощью Visual Studio и веб-развертывания.
 * [Развертывание веб-заданий Azure с помощью Visual Studio](websites-dotnet-deploy-webjobs.md). Как настроить проекты консольных приложений для их развертывания как заданий WebJob.  
-* [Развертывание безопасного приложения ASP.NET MVC 5 с членством, OAuth и базой данных SQL в веб-приложения](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Создание и развертывание веб-проекта ASP.NET MVC с базой данных SQL с помощью Visual Studio, веб-развертывания и Entity Framework Code First Migrations.
 * [Веб-развертывание ASP.NET с помощью Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Серия учебников из 12 частей, в которой рассматривается более полный список задач развертывания, чем в других ресурсах из этого списка. Некоторые функции развертывания Azure были добавлены уже после написания учебника, но отсутствующие данные приведены в примечаниях, добавленных позже.
 * [Развертывание веб-сайта ASP.NET в Azure с помощью Visual Studio 2012 непосредственно из репозитория Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Описание способов развертывания веб-проекта ASP.NET в Visual Studio с использованием подключаемого модуля Git для применения кода к Git и подключения Azure к репозиторию Git. При запуске Visual Studio 2013 поддержка Git доступна по умолчанию и не требует установки подключаемого модуля.
 

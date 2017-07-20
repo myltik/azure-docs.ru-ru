@@ -8,17 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
-ms.custom: move data
+ms.custom: load & move data
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 36748312506a08ed7932a6bb355a5dc7393bb002
-ms.openlocfilehash: 5e15f8a0ebb8cab5dce5b3c1cf6b62dee362a8d0
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: c017996235459766ca3c45ddac453fb11991b76e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 02/16/2017
 
 ## <a name="before-you-begin"></a>Перед началом работы
 ### <a name="prerequisites"></a>Предварительные требования
-Для выполнения этих действий необходимо иметь следующее:
+Для выполнения задач из этой статьи необходимо следующее:
 
 * Логический сервер и база данных SQL Azure
 * установленная служебная программа командной строки bcp;
@@ -76,20 +77,20 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 Чтобы экспортировать данные из базы данных SQL Server, откройте окно командной строки и выполните команду ниже (необязательно). Замените значения TableName, ServerName, DatabaseName, Username и Password на собственные.
 
-```sql
-bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```bcp
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
 ## <a name="3-load-the-data"></a>3. Загрузка данных
 Чтобы загрузить данные, откройте окно командной строки и выполните следующую команду, подставив собственные значения имени сервера, базы данных, пользователя и пароль.
 
-```sql
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```bcp
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
 Используйте команду ниже, чтобы убедиться, что данные загружены правильно.
 
-```sql
+```bcp
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 

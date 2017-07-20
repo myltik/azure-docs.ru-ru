@@ -1,6 +1,6 @@
 ---
-title: "Сценарий Azure PowerShell. Мониторинг и масштабирование эластичного пула SQL | Документация Майкрософт"
-description: "Пример сценария Azure PowerShell для мониторинга и масштабирования эластичного пула баз данных SQL."
+title: "Пример для PowerShell. Мониторинг и масштабирование эластичного пула SQL в Базе данных SQL Azure | Документация Майкрософт"
+description: "Пример сценария Azure PowerShell для отслеживания и масштабирования эластичного пула SQL в Базе данных SQL Azure."
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,17 +14,17 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 5231f5b13c3502a5a45ceea0b329f30a2e1c311c
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 6536158d4fc2e2c8fbb4e78305d28d063eb12696
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="monitor-and-scale-a-sql-database-elastic-pool-using-powershell"></a>Мониторинг и масштабирование эластичного пула баз данных SQL с помощью PowerShell
+# <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Отслеживание и масштабирование эластичного пула SQL в Базе данных SQL Azure с помощью PowerShell
 
 Этот пример сценария PowerShell отслеживает метрики производительности эластичного пула, масштабирует его до более высокого уровня производительности и создает правило генерации оповещений для одной из метрик производительности. 
 

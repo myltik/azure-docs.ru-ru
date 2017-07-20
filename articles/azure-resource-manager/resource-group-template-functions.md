@@ -12,18 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: d7eecb36d8cb786c7eec5080cf37574c2fc93173
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 7e903f7e20cd5ef9aa1f09b93753231fee00e556
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="azure-resource-manager-template-functions"></a>Функции шаблонов диспетчера ресурсов Azure
 В этом разделе описаны все функции, которые можно использовать в шаблоне Azure Resource Manager.
+
+Функции нужно добавлять в шаблоны, заключая их в скобки `[` и `]` соответственно. Выражение вычисляется во время развертывания. Хотя результат вычисления выражения и записывается как строковый литерал, он может иметь другой тип JSON, например массив, объект или целое число. Как и в языке JavaScript, вызовы функций форматируются так: `functionName(arg1,arg2,arg3)`. Обращение к свойствам производится с помощью точки и операторов [index].
+
+Выражение шаблона не может превышать 24 576 знаков.
 
 Функции шаблонов и их параметры зависят от регистра. Например, Resource Manager одинаково преобразует **variables('var1')** и **VARIABLES('VAR1')**. При вычислении функция сохранит регистр, если его изменение не является ее явным предназначением (например, функции toUpper и toLower). Для некоторых типов ресурсов требования к регистру могут не зависеть от того, как происходит вычисление функций.
 

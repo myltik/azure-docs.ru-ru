@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 06/02/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 90b67cf3d136882d59ed7fe4210f93fb694e96a6
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 6098216f7dd901ea48fb3ab969c7934cc288b247
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -257,7 +257,8 @@ az storage blob upload \
 
  Дополнительные сведения о различных больших двоичных объектах см. в статье [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) (Основные сведения о блочных, добавочных и страничных BLOB-объектах).
 
-### <a name="download-blobs-from-a-container"></a>Загрузка BLOB-объектов из контейнера
+
+### <a name="download-a-blob-from-a-container"></a>Скачивание большого двоичного объекта из контейнера
 Следующий пример демонстрирует скачивание больших двоичных объектов из контейнера:
 
 ```azurecli
@@ -267,35 +268,47 @@ az storage blob download \
     --file ~/mydownloadedblob.png
 ```
 
+### <a name="list-the-blobs-in-a-container"></a>Перечисление BLOB-объектов в контейнере
+
+Выведите список больших двоичных объектов в контейнере, выполнив команду [az storage blob list](/cli/azure/storage/blob#list).
+
+```azurecli
+az storage blob list \
+    --container-name mycontainer \
+    --output table
+```
+
 ### <a name="copy-blobs"></a>Копирование BLOB-объектов
 Можно асинхронно копировать BLOB-объекты между учетными записями хранения и областями или внутри них.
 
-Следующий пример демонстрирует копирование BLOB-объектов из одной учетной записи хранения в другую. Сначала создадим контейнер в другой учетной записи с общим анонимным доступом к большим двоичным объектам. Далее мы отправим файл в контейнер и, наконец, скопируем большой двоичный объект из этого контейнера в контейнер **mycontainer** текущей учетной записи.
+Следующий пример демонстрирует копирование BLOB-объектов из одной учетной записи хранения в другую. Сначала мы создадим контейнер в исходной учетной записи хранения, задав общий доступ для чтения к его большим двоичным объектам. Далее мы передадим файл в контейнер и, наконец, скопируем большой двоичный объект из этого контейнера в контейнер в целевой учетной записи хранения.
 
 ```azurecli
-# Create container in second account
+# Create container in source account
 az storage container create \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --name mycontainer2 \
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --name sourcecontainer \
     --public-access blob
 
-# Upload blob to container in second account
+# Upload blob to container in source account
 az storage blob upload \
-    --account-name <accountName2> \
-    --account-key <accountKey2> \
-    --file ~/Images/HelloWorld.png \
-    --container-name mycontainer2 \
-    --name myBlockBlob2
+    --account-name sourceaccountname \
+    --account-key sourceaccountkey \
+    --container-name sourcecontainer \
+    --file ~/Pictures/sourcefile.png \
+    --name sourcefile.png
 
-# Copy blob from second account to current account
+# Copy blob from source account to destination account (destcontainer must exist)
 az storage blob copy start \
-    --source-uri https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 \
-    --destination-blob myBlobBlob \
-    --destination-container mycontainer
+    --account-name destaccountname \
+    --account-key destaccountkey \
+    --destination-blob destfile.png \
+    --destination-container destcontainer \
+    --source-uri https://sourceaccountname.blob.core.windows.net/sourcecontainer/sourcefile.png
 ```
 
-URL-адрес исходного большого двоичного объекта (определенный с помощью `--source-uri`) должен быть общедоступным или содержать маркер подписанного URL-адреса (SAS).
+В приведенном выше примере для успешного выполнения операции копирования целевой контейнер уже должен существовать в целевой учетной записи хранения. Кроме того, исходный большой двоичный объект, указанный в аргументе `--source-uri`, либо должен включать в себя токен подписанного URL-адреса (SAS), либо быть общедоступным, как в данном примере.
 
 ### <a name="delete-a-blob"></a>Удаление большого двоичного объекта
 Чтобы удалить большой двоичный объект, используйте команду `blob delete`:

@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/17/2017
+ms.date: 06/30/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 0379cd02fe663fbe9f024bc2f786186b0ea1358b
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 3c1e80305cb65f41a6981b99f69e8b87f89599ac
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -130,8 +131,10 @@ Service Fabric упрощает процесс разработки масшта
 2. В диалоговом окне **Создание проекта** выберите приложение Service Fabric.
 3. Назовите проект AlphabetPartitions.
 4. В диалоговом окне **Создание службы** выберите службу **с отслеживанием состояния** и назовите ее Alphabet.Processing, как показано на рисунке ниже.
-   
-    ![Снимок экрана, на котором изображена служба с отслеживанием состояния](./media/service-fabric-concepts-partitioning/createstateful.png)
+       ![Диалоговое окно "Новая служба" в Visual Studio][1]
+
+  <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
+
 5. Укажите количество секций. Откройте файл Applicationmanifest.xml в папке ApplicationPackageRoot проекта AlphabetPartitions и задайте для параметра Processing_PartitionCount значение 26, как показано ниже.
    
     ```xml
@@ -371,3 +374,4 @@ Service Fabric упрощает процесс разработки масшта
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
+[1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog-2.png

@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/06/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 41f9742befcc034f46f166b1f3f3d81ef67f83e7
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 3f447e049ccd33c77f422e8aa703ad6646f9ffa2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -141,11 +142,7 @@ internal static class Program
 ![Окно вывода отладки Service Fabric][3]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* [Использование платформы Service Fabric надежными субъектами](service-fabric-reliable-actors-platform.md)
-* [Управление состоянием субъекта](service-fabric-reliable-actors-state-management.md)
-* [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
-* [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Пример кода](https://github.com/Azure/servicefabric-samples)
+Узнайте больше о том, [как Reliable Actors использует платформу Service Fabric](service-fabric-reliable-actors-platform.md).
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject.PNG

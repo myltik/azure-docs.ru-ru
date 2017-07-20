@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/23/2017
 ms.author: raprasa
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 11e60ab8dfada4b8b0e1cd73ca60dc428364dc68
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: a438b5079ae48c82fb2dbd5ce4547302364e0ef5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -51,8 +51,9 @@ Azure Cosmos DB автоматически выполняет архивацию
 ![Периодически выполняемая полная архивация всех сущностей Cosmos DB в геоизбыточное хранилище Azure](./media/online-backup-and-restore/automatic-backup.png)
 
 ## <a name="retention-period-for-a-given-snapshot"></a>Срок хранения моментального снимка
-Как описано выше, периодически мы делаем моментальные снимки ваших данных. В соответствии с нормативными правилами последний снимок хранится до 90 дней, а затем удаляется. Если удаляется контейнер или учетная запись, то Cosmos DB хранит последнюю архивную копию в течение 90 дней.
+Как описано выше, мы создаем моментальные снимки данных каждые 4 часа и последние два снимка храним в течение 30 дней. Согласно требованиям соответствия нормативам по истечении 90 дней моментальные снимки удаляются.
 
+Если вы хотите использовать собственные моментальные снимки, вы можете использовать параметр экспорта в JSON в [инструменте переноса данных](import-data.md#export-to-json-file) в Azure Cosmos DB, чтобы запланировать дополнительные резервные копии. 
 
 ## <a name="restore-database-from-the-online-backup"></a>Восстановление базы данных из оперативного архива
 Если вы случайно удалите данные, то можете [отправить запрос](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) или [позвонить в службу поддержки Azure](https://azure.microsoft.com/support/options/), чтобы восстановить данные из последней созданной автоматически резервной копии. Чтобы восстановить определенный моментальный снимок архива службе Cosmos DB требуется, чтобы данные были нам доступны хотя бы в течение цикла архивации для данного снимка.

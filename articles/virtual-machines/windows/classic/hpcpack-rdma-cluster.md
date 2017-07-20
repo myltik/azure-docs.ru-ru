@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 12/29/2016
+ms.date: 06/01/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e542ea6431933668d96f7028431826bceb9f337
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 2ec31c5444f72c7255d8925bdb3ea85854cfaf1a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/03/2017
     Настройте сертификат для обеспечения безопасного соединения между головным узлом и Azure. Параметры и процедуры см. в разделе [Сценарии настройки сертификата управления Azure для пакета HPC](http://technet.microsoft.com/library/gg481759.aspx). Для тестового развертывания пакет HPC устанавливает сертификат управления Microsoft HPC Azure по умолчанию, который вы можете быстро отправить в подписку Azure.
 3. **Создание новой облачной службы и учетной записи хранения.**
    
-    С помощью классического портала Azure создайте облачную службу и учетную запись хранения для развертывания в регионе, в котором доступны экземпляры с поддержкой RDMA.
+    С помощью портала Azure создайте облачную службу и учетную запись хранения для развертывания в регионе, в котором доступны экземпляры с поддержкой RDMA.
 4. **Создание шаблона узла Azure.**
    
     Используйте мастер создания шаблона узла в диспетчере кластеров HPC. Пошаговые инструкции см. в разделе [Создание шаблона узла Azure](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) статьи "Шаги по развертыванию узлов Azure с помощью пакета Microsoft HPC".

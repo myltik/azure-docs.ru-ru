@@ -1,6 +1,6 @@
 ---
-title: "Сценарий Azure CLI. Мониторинг и масштабирование отдельной базы данных SQL | Документация Майкрософт"
-description: "Пример сценария Azure CLI для мониторинга и масштабирования отдельной базы данных SQL."
+title: "Пример для CLI. Мониторинг и масштабирование отдельной базы данных SQL Azure | Документация Майкрософт"
+description: "Пример сценария Azure CLI для отслеживания и масштабирования отдельной базы данных SQL Azure."
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -9,40 +9,40 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: mvc
+ms.custom: monitor & tune
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: f29da889f90968a82dccaeb1fa7e3c20e6b44458
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 01911b85268244a8fddb32aa726f8a870abbaf77
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/30/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="monitor-and-scale-a-single-sql-database-using-the-azure-cli"></a>Мониторинг и масштабирование отдельной базы данных SQL с помощью Azure CLI
+# <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Мониторинг и масштабирование отдельной базы данных SQL с помощью интерфейса командной строки
 
-Этот пример сценария интерфейса командной строки масштабирует отдельную базу данных SQL Azure до другого уровня производительности после запроса на получение сведений о размере базы данных. 
-
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Этот пример сценария Azure CLI масштабирует отдельную базу данных SQL Azure до другого уровня производительности после запроса на получение сведений о размере базы данных. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+
 ## <a name="sample-script"></a>Пример скрипта
 
-[!code-azurecli[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Мониторинг и масштабирование отдельной базы данных SQL")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Мониторинг и масштабирование отдельной базы данных SQL")]
 
 ## <a name="clean-up-deployment"></a>Очистка развертывания
 
 После выполнения примера сценария можно удалить группу ресурсов и все связанные с ней ресурсы, выполнив следующую команду.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

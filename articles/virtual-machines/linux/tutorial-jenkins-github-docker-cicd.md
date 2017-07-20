@@ -1,6 +1,6 @@
 ---
-title: "Создание конвейера CI/CD в Azure с помощью Jenkins | Документы Майкрософт"
-description: "Сведения о создании экземпляра Jenkins в Azure, который получает данные из GitHub при каждой фиксации кода и создает новый контейнер Docker для выполнения приложения."
+title: "Создание конвейера разработки в Azure с помощью Jenkins | Документация Майкрософт"
+description: "Узнайте, как создать виртуальную машину Jenkins в Azure, которая получает данные из GitHub при каждой фиксации кода и создает новый контейнер Docker для выполнения приложения."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -17,14 +17,14 @@ ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: dbf9b9f997ce8b66f8672f75f49f568d45e57390
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: b606d2c3070f8020cdd9aad3f12f8f1e43125138
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/21/2017
 
 ---
 
-# <a name="create-a-cicd-infrastructure-on-a-linux-vm-in-azure-that-uses-jenkins-github-and-docker"></a>Создание инфраструктуры CI/CD на виртуальной машине Linux в Azure, которая использует Jenkins, GitHub и Docker
+# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Как создать инфраструктуру непрерывной интеграции и непрерывного развертывания на виртуальной машине Linux в Azure с помощью Jenkins, GitHub и Docker
 Чтобы автоматизировать этапы создания и тестирования приложения, вы можете использовать конвейер непрерывной интеграции и развертывания (CI/CD). В этом учебнике мы создадим конвейер CI/CD на виртуальной машине Azure, включая следующие задачи:
 
 > [!div class="checklist"]
@@ -35,9 +35,10 @@ ms.lasthandoff: 05/09/2017
 > * Создание образа Docker для приложения
 > * Проверка создания фиксацией GitHub образа Docker и изменения выполняющегося приложения
 
-Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Создание экземпляра Jenkins
 В предыдущем руководстве [Как настроить виртуальную машину Linux при первой загрузке](tutorial-automate-vm-deployment.md) вы узнали, как автоматизировать настройку виртуальной машины с помощью cloud-init. В этом учебнике используется файл cloud-init для установки Jenkins и Docker на виртуальной машине. 

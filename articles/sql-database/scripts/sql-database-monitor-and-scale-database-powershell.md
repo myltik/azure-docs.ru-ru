@@ -1,6 +1,6 @@
 ---
-title: "Сценарий Azure PowerShell. Мониторинг и масштабирование отдельной базы данных SQL | Документация Майкрософт"
-description: "Пример сценария Azure PowerShell для мониторинга и масштабирования отдельной базы данных SQL."
+title: "Пример для CLI. Мониторинг и масштабирование отдельной базы данных SQL Azure | Документация Майкрософт"
+description: "Пример сценария Azure PowerShell для отслеживания и масштабирования отдельной базы данных SQL Azure."
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,13 +14,13 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: fab0994ff9ec4471e0a6814e681b2d3e36433301
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: bfe2875b204d35abba12ee21c749e0a2919b2d1d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 

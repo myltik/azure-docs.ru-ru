@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/23/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
-ms.openlocfilehash: 3528294d944fd71fc98a30e2736e1245e50c3be6
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: aa6b75ef1786021b56a59ad1bea2d45eb74ad25f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -179,6 +180,15 @@ ms.lasthandoff: 02/24/2017
   >
 
 Теперь, когда агент установлен и компьютер зарегистрирован в хранилище, вы можете настроить параметры резервного копирования, в том числе расписание.
+
+## <a name="network-and-connectivity-requirements"></a>Требования к сети и подключению
+
+Если компьютер или прокси-сервер имеет ограниченный доступ к Интернету, убедитесь, что параметры брандмауэра на компьютере или прокси разрешают следующие URL-адреса: <br>
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.com
+    4. *.microsoftonline.com
+    5. *.windows.net
 
 
 ## <a name="create-the-backup-policy"></a>Создание политики архивации

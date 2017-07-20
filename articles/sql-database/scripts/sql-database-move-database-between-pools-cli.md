@@ -1,6 +1,6 @@
 ---
-title: "Скрипт Azure CLI. Перемещение базы данных SQL и эластичных пулов | Документация Майкрософт"
-description: "Пример сценария Azure CLI для перемещения базы данных SQL между эластичными пулами."
+title: "Пример для CLI. Перемещение базы данных SQL Azure в эластичный пул SQL | Документация Майкрософт"
+description: "Пример сценария Azure CLI для перемещения базы данных SQL в эластичном пуле SQL."
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,25 +14,25 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 04/24/2017
+ms.date: 07/05/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: df4a62783cf3f8f644de850cb80bdad8352cf372
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 1dc31a0b20f36e28a58896ed63a5e0395ae1d3af
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 
-# <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-the-azure-cli"></a>Создание эластичных пулов и перемещение баз данных между пулами и из пула с помощью Azure CLI
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Перемещение базы данных Azure SQL в эластичном пуле SQL с помощью интерфейса командной строки
 
-Данный пример сценария интерфейса командной строки создает два эластичных пула и перемещает базу данных из одного пула в другой, а затем перемещает базу данных из этого эластичного пула на уровень производительности отдельной базы данных. 
+Этот пример сценария Azure CLI создает два эластичных пула и перемещает базу данных SQL Azure из одного пула в другой, а затем перемещает базу данных из этого эластичного пула на уровень производительности отдельной базы данных Azure. 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Пример скрипта
 
@@ -54,7 +54,7 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | Создает логический сервер, на котором размещена база данных или эластичный пул. |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pools#create) | Создает эластичный пул на логическом сервере. |
+| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#create) | Создает эластичный пул на логическом сервере. |
 | [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | Создает на логическом сервере отдельную базу данных или базу данных в составе пула. |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update) | Обновляет свойства базы данных или перемещает базу данных в эластичный пул, из него или между эластичными пулами. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | Удаляет группу ресурсов со всеми вложенными ресурсами. |

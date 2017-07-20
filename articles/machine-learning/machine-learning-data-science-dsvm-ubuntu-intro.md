@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: aaf3e9daca2fb810aa32b1b58acdade6ddfc1744
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 548b4af7619521e4b61b99b94c1d40f835e6efdb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -153,7 +153,7 @@ ms.lasthandoff: 05/10/2017
 Caffe — это платформа глубокого обучения из Berkeley Vision и центра обучения. Она доступна в папке /opt/caffe. Примеры находятся в папке /opt/caffe/examples.
 
 #### <a name="h2o"></a>H2O
-H2O — это быстрая распределенная платформа, работающая в памяти, для машинного обучения и прогнозной аналитики. Пакет Python установлен в корневой среде и в средах Anaconda для Python 3.5 (py35). Также установлен пакет R. Веб-интерфейс Flow можно запустить с помощью команды java-jar /dsvm/tools/h2o/current/h2o.jar. Перейдите к http://localhost:54321, чтобы приступить к работе. Примеры объектов Notebook доступны в JupyterHub.
+H2O — это быстрая распределенная платформа, работающая в памяти, для машинного обучения и прогнозной аналитики. Пакет Python установлен в корневой среде и в средах Anaconda для Python 3.5 (py35). Также установлен пакет R. Для запуска H2O из командной строки запустите `java -jar /dsvm/tools/h2o/current/h2o.jar`. Имеется множество [параметров командой строки](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line), которые можно настроить. Доступ к веб-интерфейсу Flow можно получить, перейдя по адресу http://localhost:54321. Примеры объектов Notebook доступны в JupyterHub.
 
 #### <a name="keras"></a>Keras
 Keras — это интерфейс API нейронной сети высокого уровня на языке Python, который может выполняться на платформе TensorFlow или Theano. Он доступен в корневой среде и в средах Python 3.5 (py35). 

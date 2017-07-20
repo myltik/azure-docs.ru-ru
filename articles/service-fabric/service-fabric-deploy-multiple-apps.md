@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: d967d70c7fad45f7a10a5288623440491dcfffa3
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/07/2017
 
 Хотя в этом пошаговом руководстве показано, как развернуть приложение с клиентом Node.js и MongoDB в качестве хранилища данных, эти действия можно применить к любому приложению, которое зависит от другого приложения.   
 
-Visual Studio можно использовать для создания пакета приложения, содержащего несколько гостевых исполняемых файлов. Ознакомьтесь с разделом [Упаковка имеющегося приложения с использованием Visual Studio](service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). После добавления первого гостевого исполняемого файла щелкните правой кнопкой мыши проект приложения и выберите **Добавить > Новая служба Service Fabric**, чтобы добавить в решение проект второго гостевого исполняемого файла. Примечание. Если связать источник с проектом Visual Studio, то при выполнении сборки решения Visual Studio следует убедиться, что в пакете приложения отображаются последние изменения в источнике. 
+Visual Studio можно использовать для создания пакета приложения, содержащего несколько гостевых исполняемых файлов. Ознакомьтесь с разделом [Упаковка имеющегося приложения с использованием Visual Studio](service-fabric-deploy-existing-app.md). После добавления первого гостевого исполняемого файла щелкните правой кнопкой мыши проект приложения и выберите **Добавить > Новая служба Service Fabric**, чтобы добавить в решение проект второго гостевого исполняемого файла. Примечание. Если связать источник с проектом Visual Studio, то при выполнении сборки решения Visual Studio следует убедиться, что в пакете приложения отображаются последние изменения в источнике. 
 
 ## <a name="samples"></a>Примеры
 * [Пример для упаковки и развертывания гостевого исполняемого файла](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)

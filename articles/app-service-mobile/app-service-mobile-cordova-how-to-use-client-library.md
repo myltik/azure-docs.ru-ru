@@ -3,7 +3,7 @@ title: "Использование подключаемого модуля Apach
 description: "Использование подключаемого модуля Apache Cordova для мобильных приложений Azure"
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
 ms.openlocfilehash: 61aa9e5c004decff18337efe3b1baacfcf9279dc
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/07/2017
-
 
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Как использовать клиентскую библиотеку Apache Cordova для мобильных приложений Azure

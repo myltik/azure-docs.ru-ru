@@ -1,6 +1,6 @@
 ---
-title: "Настройка автономного кластера | Документация Майкрософт"
-description: "В этой статье описывается настройка автономного или частного кластера Service Fabric."
+title: "Настройка изолированного кластера Azure Service Fabric | Документация Майкрософт"
+description: "Узнайте, как настраивать автономный или частный кластер Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2017
+ms.date: 06/02/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 8192f9e36ebadd41d93ec3c2fa61b05e342d5bc1
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 3b65f9391a4ff5a641546f8d0048f36386a7efe8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.lasthandoff: 03/29/2017
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "01-2017",
 
 Для кластера Service Fabric можно задать любое понятное имя, присвоив его переменной **name**. **ClusterConfigurationVersion** — номер версии кластера. Его следует увеличивать при каждом обновлении кластера Service Fabric. Тем не менее следует оставить значение переменной **apiVersion** по умолчанию.
 
@@ -87,6 +88,10 @@ ms.lasthandoff: 03/29/2017
     "reliabilityLevel": "Bronze",
 
 Обратите внимание, что так как на первичном узле выполняется одна копия системных служб, вам потребуется как минимум 3 первичных узла для уровня надежности *Bronze*, 5 для уровня надежности *Silver*, 7 для уровня надежности *Gold* и 9 для уровня надежности *Platinum*.
+
+Если свойство reliabilityLevel в файле clusterConfig.json не указано, система рассчитает наиболее оптимизированный уровень reliabilityLevel в зависимости от числа узлов основного типа, которые у вас есть. Например, если имеется 4 основных узла, то reliabilityLevel будет задано значение Bronze. Если у вас есть 5 основных узлов, reliabilityLevel получит значение Silver. В ближайшем будущем мы удалим возможность настраивать уровень надежности, так как кластер будет автоматически обнаруживать и использовать оптимальный уровень надежности.
+
+Уровень надежности обновляемый. Вы можете создать clusterConfig.json версии 2 и увеличивать и уменьшать масштаб путем [обновления автономного кластера Azure Service Fabric в Windows Server](service-fabric-cluster-upgrade-windows-server.md). Также clusterConfig.json версии 2 можно обновить, не определяя значение reliabilityLevel, чтобы значение рассчитывалось автоматически. 
 
 ### <a name="diagnostics"></a>Диагностика
 В разделе **diagnosticsStore** можно настроить параметры, чтобы включить диагностику и устранение неполадок узлов и кластера, как показано в следующем фрагменте кода. 
@@ -183,6 +188,21 @@ ms.lasthandoff: 03/29/2017
             "value": "4096"
         }]
     }]
+
+### <a name="add-on-features"></a>Функции надстройки
+Для настройки функций надстройки параметр apiVersion должен иметь значение 04-2017 или выше, а для параметра addonFeatures необходимо задать следующее:
+
+    "apiVersion": "04-2017",
+    "properties": {
+      "addOnFeatures": [
+          "DnsService",
+          "RepairManager"
+      ]
+    }
+
+### <a name="container-support"></a>Поддержка контейнеров
+Чтобы включить в изолированных кластерах поддержку контейнеров для контейнеров Windows Server и Hyper-V, необходимо включить компонент надстройки DnsService.
+
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Завершив настройку файла ClusterConfig.JSON в соответствии с конфигурацией изолированного кластера, вы можете развернуть этот кластер, следуя указаниям в статье [Создание кластера под управлением Windows Server и управление им](service-fabric-cluster-creation-for-windows-server.md), а затем перейти к [визуализации кластера с помощью Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).

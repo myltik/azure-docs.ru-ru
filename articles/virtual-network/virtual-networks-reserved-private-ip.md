@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: d2e2effa9c215107cf0893a74df0b909fbf5d4c0
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: cf9ee59ca4e44ed01836c2efb1f4df5f073bf6e0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -41,7 +42,7 @@ ms.lasthandoff: 03/22/2017
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> Если требуется протестировать указанную выше команду в защищенной среде, следуйте указаниям из статьи [Создание (классической) виртуальной сети с помощью портала Azure](virtual-networks-create-vnet-classic-portal.md), чтобы создать виртуальную сеть *TestVnet* и убедиться в том, что она использует адресное пространство *10.0.0.0/8*.
+> Если требуется протестировать указанную выше команду в защищенной среде, следуйте указаниям из статьи [Создание (классической) виртуальной сети с помощью портала предварительной версии Azure](virtual-networks-create-vnet-classic-pportal.md), чтобы создать виртуальную сеть *TestVnet* и убедиться в том, что она использует адресное пространство *10.0.0.0/8*.
 > 
 > 
 

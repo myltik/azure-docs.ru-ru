@@ -1,6 +1,6 @@
 ---
-title: "Привязки концентратора событий Функций Azure | Документация Майкрософт"
-description: "Узнайте, как использовать привязки концентратора событий Azure в функциях Azure."
+title: "Привязки концентраторов событий Функций Azure | Документация Майкрософт"
+description: "Узнайте, как использовать привязки концентраторов событий Azure в функциях Azure."
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -14,30 +14,30 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 06/20/2017
 ms.author: wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 04a8563a0035992cfa4b7d25a4edc14e1db80e44
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: eaa97e31fbc2ffb8464b5ec2bd1f0eb5c59fdbd2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="azure-functions-event-hub-bindings"></a>Привязки концентратора событий функций Azure
+# <a name="azure-functions-event-hubs-bindings"></a>Привязки концентраторов событий функций Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Эта статья объясняет, как настроить и запрограммировать привязки [концентратора событий Azure](../event-hubs/event-hubs-what-is-event-hubs.md) для Функций Azure.
+Здесь объясняется, как настроить и использовать привязки [концентраторов событий Azure](../event-hubs/event-hubs-what-is-event-hubs.md) для Функций Azure.
 Функции Azure поддерживают привязки триггера и выходные привязки для концентраторов событий Azure.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Если вы еще не работали с концентраторами событий Azure, ознакомьтесь с [обзором концентраторов событий Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
+Если вы еще не работали с концентраторами событий Azure, ознакомьтесь с [их обзором](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
 ## <a name="event-hub-trigger"></a>Триггер концентратора событий
-Используйте триггер концентратора событий Azure для ответа на событие, отправленное в поток событий концентратора событий. Чтобы настроить триггер, необходимо иметь доступ для чтения к концентратору событий.
+Используйте триггер концентраторов событий Azure для ответа на событие, отправленное в поток событий концентратора событий. Чтобы настроить триггер, необходимо иметь доступ для чтения к концентратору событий.
 
 Триггер концентратора событий для функции использует следующий объект JSON в массиве `bindings` файла function.json:
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 05/16/2017
     "type": "eventHubTrigger",
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
-    "path": "<Name of the Event Hub>",
+    "path": "<Name of the event hub>",
     "consumerGroup": "Consumer group to use - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
@@ -66,7 +66,7 @@ ms.lasthandoff: 05/16/2017
 <a name="triggersample"></a>
 
 ## <a name="trigger-sample"></a>Пример триггера
-Предположим, что у вас есть следующий триггер концентратора событий в массиве `bindings` файла function.json:
+Предположим, что у вас есть следующий триггер концентраторов событий в массиве `bindings` файла function.json:
 
 ```json
 {
@@ -119,7 +119,7 @@ module.exports = function (context, myEventHubMessage) {
 
 <a name="output"></a>
 
-## <a name="event-hub-output-binding"></a>Выходная привязка концентратора событий
+## <a name="event-hubs-output-binding"></a>Выходная привязка концентраторов событий
 Используйте выходную привязку концентратора событий для записи событий в поток событий концентратора событий. Чтобы записывать события в концентратор событий, необходимо иметь разрешение на оправку в него событий.
 
 Выходная привязка использует следующий объект JSON в массиве `bindings` файла function.json:
@@ -138,7 +138,7 @@ module.exports = function (context, myEventHubMessage) {
 Скопируйте эту строку подключения, нажав кнопку **Сведения о подключении** для *пространства имен*, а не сам концентратор событий. Чтобы отправлять сообщения в поток событий, эта строка подключения должна иметь разрешения на отправку.
 
 ## <a name="output-usage"></a>Использование выходной привязки
-В этом разделе показано, как использовать привязку для вывода концентратора событий в коде функции.
+В этом разделе показано, как использовать выходную привязку концентраторов событий в коде функции.
 
 Можно выводить сообщения в настроенный концентратор событий со следующими типами параметров.
 
@@ -149,7 +149,7 @@ module.exports = function (context, myEventHubMessage) {
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Пример выходной привязки
-Предположим, что у вас есть следующая выходная привязка концентратора событий в массиве `bindings` файла function.json:
+Предположим, что у вас есть следующая выходная привязка концентраторов событий в массиве `bindings` файла function.json:
 
 ```json
 {

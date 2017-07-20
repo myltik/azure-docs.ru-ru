@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/11/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 6e91a8b21fe7bfe2c6944cfa1c10d835a75ddd13
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 848284f37ae2470a169d8f8a8c9c0bb5b926abe3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -64,8 +64,7 @@ ms.lasthandoff: 05/17/2017
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Установка службы Mobility Service вручную с помощью графического пользовательского интерфейса
 
 >[!IMPORTANT]
-> Установка на основе графического пользовательского интерфейса работает только с ОС Windows.
-> Если вы используете сервер конфигурации для репликации виртуальных машин IaaS Azure из одной подписки (региона) Azure в другую, воспользуйтесь методом установки с помощью командной строки.
+> Если вы используете **сервер конфигурации** для репликации **виртуальных машин Azure IaaS** из одной подписки (региона) Azure в другую, **воспользуйтесь методом установки с помощью командной строки**.
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 

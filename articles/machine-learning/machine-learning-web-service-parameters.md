@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: 4c9f2bb57e3669327d8704b93fa56e2ace1e8b35
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 482726c1dae5385964e08b720e529817d5907537
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -54,7 +55,7 @@ ms.lasthandoff: 03/02/2017
    * В разделе **Укажите тип проверки подлинности**выберите "Учетная запись".
    * Введите данные учетной записи для хранилища BLOB-объектов Azure. 
      <p />
-3. Щелкните значок справа от элемента **Путь к BLOB-объекту, начиная с параметра контейнера**. Это выглядит следующим образом.
+3. Щелкните значок справа от элемента **Path to blob beginning with container parameter** (Путь к большому двоичному объекту, начиная с параметра контейнера). Это выглядит следующим образом.
    
    ![Значок параметра веб-службы][icon]
    
@@ -76,7 +77,7 @@ ms.lasthandoff: 03/02/2017
 ## <a name="more-information"></a>Дополнительные сведения
 Более подробный пример см. в публикации [AzureML Web Service Parameters](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) (Параметры веб-службы AzureML) [блога, посвященного машинному обучению](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
-Дополнительные сведения о доступе к веб-службе машинного обучения см. в статье [Как использовать веб-службу машинного обучения Azure, развернутую из эксперимента машинного обучения](machine-learning-consume-web-services.md).
+Дополнительные сведения о доступе к веб-службе машинного обучения см. в статье [Как использовать веб-службу машинного обучения Azure](machine-learning-consume-web-services.md).
 
 <!-- Images -->
 [icon]: ./media/machine-learning-web-service-parameters/icon.png

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: ce888415b6a5f82fb3d49834b055f8afe97442a8
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: af2deef5a2e2c7cff8f485f7ea6846a0e087ecca
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -38,32 +38,6 @@ ms.lasthandoff: 04/28/2017
 `deployment()`
 
 Возвращает сведения о текущей операции развертывания.
-
-### <a name="examples"></a>Примеры
-
-В следующем примере возвращается объект развертывания:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "subscriptionOutput": {
-            "value": "[deployment()]",
-            "type" : "object"
-        }
-    }
-}
-```
-
-В следующем примере показано использование deployment() для ссылки на другой шаблон в зависимости от URI родительского шаблона.
-
-```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
-}
-```  
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -113,7 +87,57 @@ ms.lasthandoff: 04/28/2017
 }
 ```
 
+### <a name="remarks"></a>Примечания
 
+Вы можете использовать deployment() для ссылки на другой шаблон в зависимости от URI родительского шаблона.
+
+```json
+"variables": {  
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+}
+```  
+
+### <a name="example"></a>Пример
+
+В следующем примере возвращается объект развертывания:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "subscriptionOutput": {
+            "value": "[deployment()]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+В предыдущем примере возвращается следующий объект:
+
+```json
+{
+  "name": "deployment",
+  "properties": {
+    "template": {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [],
+      "outputs": {
+        "subscriptionOutput": {
+          "type": "Object",
+          "value": "[deployment()]"
+        }
+      }
+    },
+    "parameters": {},
+    "mode": "Incremental",
+    "provisioningState": "Accepted"
+  }
+}
+```
 
 <a id="parameters" />
 
@@ -128,9 +152,13 @@ ms.lasthandoff: 04/28/2017
 |:--- |:--- |:--- |:--- |
 | имя_параметра |Да |string |Имя параметра, который требуется вернуть. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
 
-В следующем примере показано упрощенное использование функции parameters.
+Значение указанного параметра.
+
+### <a name="remarks"></a>Примечания
+
+Как правило, параметры используются, чтобы задать значения ресурсов. В следующем примере значению параметра задается имя веб-сайта, переданное во время развертывания.
 
 ```json
 "parameters": { 
@@ -140,7 +168,7 @@ ms.lasthandoff: 04/28/2017
 },
 "resources": [
    {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2016-08-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/Sites",
       ...
@@ -148,9 +176,72 @@ ms.lasthandoff: 04/28/2017
 ]
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
+### <a name="example"></a>Пример
 
-Тип параметра.
+В следующем примере показано упрощенное использование функции parameters.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringParameter": {
+            "type" : "string",
+            "defaultValue": "option 1"
+        },
+        "intParameter": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "objectParameter": {
+            "type": "object",
+            "defaultValue": {"one": "a", "two": "b"}
+        },
+        "arrayParameter": {
+            "type": "array",
+            "defaultValue": [1, 2, 3]
+        },
+        "crossParameter": {
+            "type": "string",
+            "defaultValue": "[parameters('stringParameter')]"
+        }
+    },
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "stringOutput": {
+            "value": "[parameters('stringParameter')]",
+            "type" : "string"
+        },
+        "intOutput": {
+            "value": "[parameters('intParameter')]",
+            "type" : "int"
+        },
+        "objectOutput": {
+            "value": "[parameters('objectParameter')]",
+            "type" : "object"
+        },
+        "arrayOutput": {
+            "value": "[parameters('arrayParameter')]",
+            "type" : "array"
+        },
+        "crossOutput": {
+            "value": "[parameters('crossParameter')]",
+            "type" : "string"
+        }
+    }
+}
+```
+
+Выходные данные из предыдущего примера со значениями по умолчанию:
+
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| stringOutput | Строка | вариант 1 |
+| intOutput | int | 1 |
+| objectOutput | Объект | {"one": "a", "two": "b"} |
+| arrayOutput | Массив, | [1, 2, 3] |
+| crossOutput | Строка | вариант 1 |
 
 <a id="variables" />
 
@@ -165,26 +256,82 @@ ms.lasthandoff: 04/28/2017
 |:--- |:--- |:--- |:--- |
 | variableName |Да |Строка |Имя переменной, которую необходимо вернуть. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
 
-В следующем примере используется значение переменной.
+Значение указанной переменной.
+
+### <a name="remarks"></a>Примечания
+
+Как правило, переменные используются, чтобы упростить шаблон за счет создания сложных значений (единожды). В примере ниже создается уникальное имя для учетной записи хранения.
 
 ```json
 "variables": {
-  "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
 },
 "resources": [
-  {
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageName')]",
-    ...
-  }
+    {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[variables('storageName')]",
+        ...
+    },
+    {
+        "type": "Microsoft.Compute/virtualMachines",
+        "dependsOn": [
+            "[variables('storageName')]"
+        ],
+        ...
+    }
 ],
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
+### <a name="example"></a>Пример
 
-Тип переменной.
+Пример шаблона возвращает разные значения переменных.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {
+        "var1": "myVariable",
+        "var2": [ 1,2,3,4 ],
+        "var3": "[ variables('var1') ]",
+        "var4": {
+            "property1": "value1",
+            "property2": "value2"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "exampleOutput1": {
+            "value": "[variables('var1')]",
+            "type" : "string"
+        },
+        "exampleOutput2": {
+            "value": "[variables('var2')]",
+            "type" : "array"
+        },
+        "exampleOutput3": {
+            "value": "[variables('var3')]",
+            "type" : "string"
+        },
+        "exampleOutput4": {
+            "value": "[variables('var4')]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+Выходные данные из предыдущего примера со значениями по умолчанию:
+
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| exampleOutput1 | Строка | myVariable |
+| exampleOutput2 | Массив, | [1, 2, 3, 4] |
+| exampleOutput3 | Строка | myVariable |
+| exampleOutput4 |  Объект | {"property1": "value1", "property2": "value2"} |
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Описание разделов в шаблоне Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).

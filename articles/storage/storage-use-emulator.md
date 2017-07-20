@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 06/08/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: e9601830a2444772dd268160c9ad821a772bc1b4
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 9820cef564e291d1c8aee7c360198de1dc05379e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/25/2017
 ## <a name="get-the-storage-emulator"></a>Получение эмулятора хранения
 Эмулятор хранения входит в [пакет SDK для Microsoft Azure](https://azure.microsoft.com/downloads/). Его также можно установить с помощью [автономного установщика](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (скачиваемого напрямую). Чтобы установить эмулятор хранения, нужно обладать правами администратора на компьютере.
 
-В настоящее время эмулятор хранилища работает только в Windows.
+В настоящее время эмулятор хранилища работает только в Windows. Те, кто рассматривает возможность использовать эмулятор хранения для Linux, могут воспользоваться эмулятором хранения с открытым кодом [Azurite](https://github.com/arafato/azurite), поддерживаемым сообществом.
 
 > [!NOTE]
 > Данные, созданные в одной версии эмулятора хранения, могут быть недоступны при использовании другой версии. Если нужно сохранить данные на длительный срок, рекомендуется хранить их в учетной записи хранения Azure, а не в эмуляторе хранения.
@@ -259,6 +260,7 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
+* Оцените кроссплатформенный эмулятор хранения с открытым кодом [Azurite](https://github.com/arafato/azurite) от сообщества. 
 * Статья [Примеры для службы хранилища Azure с использованием .NET](storage-samples-dotnet.md) содержит ссылки на несколько примеров кода, которые можно использовать при разработке приложения.
 * Для работы с ресурсами в облачной учетной записи и эмуляторе хранения можно использовать [обозреватель хранилищ Microsoft Azure](http://storageexplorer.com).
 

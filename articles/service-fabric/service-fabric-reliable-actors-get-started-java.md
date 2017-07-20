@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 8ecc5208237d846d0e81914eee8874ea97744bc3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 450c60abeaaf96c7d82152d425265a6b6714f689
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -177,20 +179,29 @@ public class HelloWorldActorHost {
 Приложение упаковывает службу субъекта и другие службы в пакет для последующего развертывания. Оно содержит файл *ApplicationManifest.xml* и заполнители для пакета службы субъекта.
 
 ## <a name="run-the-application"></a>Выполнение приложения
-Формирование шаблонов Yeoman содержит скрипт Gradle, используемый для создания приложения, и bash-скрипты, используемые для развертывания и отмены развертывания приложения. Чтобы запустить приложение, сначала его нужно создать с помощью следующего скрипта Gradle:
+
+Формирование шаблонов Yeoman включает в себя сценарий Gradle, используемый для создания приложения, и сценарии bash, используемые для развертывания и удаления приложения. Чтобы развернуть приложение, сначала его нужно создать с помощью сценария Gradle.
 
 ```bash
 $ gradle
 ```
 
-Этот скрипт создаст пакет приложения Service Fabric, который можно развернуть с помощью интерфейса командной строки Azure Service Fabric. Скрипт install.sh содержит необходимые команды Azure CLI, используемые для развертывания пакета приложения. Чтобы развернуть пакет, просто выполните скрипт install.sh.
+Этот сценарий создаст пакет приложения Service Fabric, который можно развернуть с помощью инструментов интерфейса командной строки Service Fabric.
 
-```bask
+### <a name="deploy-with-xplat-cli"></a>Развертывание с помощью XPlat CLI
+
+При использовании XPlat сценарий install.sh содержит необходимые команды Azure CLI, используемые для развертывания пакета приложения. Чтобы развернуть приложение, выполните сценарий install.sh.
+
+```bash
 $ ./install.sh
 ```
 
+### <a name="deploy-with-azure-cli-20"></a>Развертывание с помощью Azure CLI 2.0
 
+В случае использования Azure CLI 2.0 ознакомьтесь со справочной документацией по управлению [жизненным циклом приложения с помощью Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
-<!--HONumber=Jan17_HO4-->
+## <a name="related-articles"></a>Связанные статьи
 
+* [Service Fabric и Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Приступая к работе с Service Fabric и XPlat CLI](service-fabric-azure-cli.md)
 

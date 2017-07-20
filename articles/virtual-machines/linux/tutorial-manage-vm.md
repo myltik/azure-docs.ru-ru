@@ -15,26 +15,30 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: e22fa4ed45ffaed1a05292e9b86d5cebc0079117
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 1063807ac83d2f63229f397da7ecc01f4072efd5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Создание виртуальных машин Linux и управление ими с помощью Azure CLI
 
-Виртуальные машины Azure предоставляют полностью настраиваемую и гибкую вычислительную среду. В этом руководстве рассматриваются основные элементы развертывания виртуальной машины Azure, например выбор ее размера, образа и ее развертывание. Вы узнаете, как выполнять такие задачи.
+Виртуальные машины Azure предоставляют полностью настраиваемую и гибкую вычислительную среду. В этом руководстве рассматриваются основные элементы развертывания виртуальной машины Azure, например выбор ее размера, образа и ее развертывание. Вы узнаете, как выполнять следующие задачи:
 
 > [!div class="checklist"]
-> * создать виртуальную машину и подключиться к ней;
-> * выбрать и использовать образы виртуальных машин;
-> * просмотреть и использовать определенные размеры виртуальных машин;
+> * Создание виртуальной машины и подключение к ней
+> * Выбор и использование образов виртуальных машин
+> * Просмотр и использование определенных размеров виртуальных машин
 > * Изменение размера виртуальной машины
-> * просмотреть виртуальную машину и оценить ее состояние.
+> * Просмотр виртуальной машины и оценка ее состояния
 
-Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). Вы также можете использовать [Cloud Shell](/azure/cloud-shell/quickstart) из своего браузера.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Если вы решили установить и использовать интерфейс командной строки локально, то для работы с этим руководством вам понадобится Azure CLI 2.0.4 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-resource-group"></a>Создать группу ресурсов
 
@@ -42,7 +46,7 @@ ms.lasthandoff: 05/17/2017
 
 Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. Группу ресурсов следует создавать до виртуальной машины. В этом примере создается группа ресурсов с именем *myResourceGroupVM* в регионе *eastus*. 
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus
 ```
 
@@ -54,13 +58,13 @@ az group create --name myResourceGroupVM --location eastus
 
 При создании виртуальной машины доступно несколько вариантов, таких как образ операционной системы, определение размера диска и учетные данные администратора. В этом примере создается виртуальная машина *myVM* под управлением Ubuntu Server. 
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
 После создания виртуальной машины Azure CLI выводит информацию о ней. Запишите `publicIpAddress`. Этот адрес может использоваться для доступа к виртуальной машине. 
 
-```azurecli
+```azurecli-interactive 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -93,7 +97,7 @@ Azure Marketplace содержит множество образов, котор
 
 Чтобы просмотреть список наиболее часто используемых образов, используйте команду [az vm image list](/cli/azure/vm/image#list).
 
-```azurecli
+```azurecli-interactive 
 az vm image list --output table
 ```
 
@@ -117,13 +121,13 @@ CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:
 
 Получить полный список можно, добавив аргумент `--all`. Кроме того, список образов можно отфильтровать по издателю или предложению с помощью аргумента `--publisher` или `–-offer` соответственно. В этом примере список образов отфильтрован по предложению *CentOS*. 
 
-```azurecli
+```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
 ```
 
 Частичные выходные данные приведены ниже.
 
-```azurecli
+```azurecli-interactive 
 Offer             Publisher         Sku   Urn                                     Version
 ----------------  ----------------  ----  --------------------------------------  -----------
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201501         6.5.201501
@@ -136,7 +140,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207     
 
 Чтобы развернуть виртуальную машину с помощью определенного образа, запишите значение в столбце *Urn*. При указании образа его номер версии можно заменить ключевым словом latest. В этом случае будет выбрана последняя версия дистрибутива. В данном примере добавлен аргумент `--image`, чтобы указать последнюю версию образа CentOS 6.5.  
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
 ```
 
@@ -162,13 +166,13 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 Чтобы просмотреть список доступных размеров виртуальных машин в определенном регионе, используйте команду [az vm list-sizes](/cli/azure/vm#list-sizes). 
 
-```azurecli
+```azurecli-interactive 
 az vm list-sizes --location eastus --output table
 ```
 
 Частичные выходные данные приведены ниже.
 
-```azurecli
+```azurecli-interactive 
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  2          3584  Standard_DS1                          1           1047552                    7168
@@ -193,7 +197,7 @@ az vm list-sizes --location eastus --output table
 
 В предыдущем примере создания виртуальной машины размер не был указан, что привело к использованию размера по умолчанию. Размер виртуальной машины можно выбрать во время ее создания с помощью команды [az vm create](/cli/azure/vm#create) и аргумента `--size`. 
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM3 \
@@ -208,30 +212,30 @@ az vm create \
 
 Перед изменением размера виртуальной машины проверьте, доступен ли желаемый размер в текущем кластере Azure. Команда [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) отображает список всех размеров. 
 
-```azurecli
+```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
 Если желаемый размер доступен, то размер виртуальной машины можно изменить во включенном состоянии, однако виртуальную машину нужно будет перезагрузить. Используйте команду [az vm resize]( /cli/azure/vm#resize) для изменения размера.
 
-```azurecli
+```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
 Если желаемый размер в текущем кластере недоступен, то перед изменением размера виртуальную машину нужно освободить. Используйте команду [az vm deallocate]( /cli/azure/vm#deallocate), чтобы остановить и освободить виртуальную машину. Обратите внимание на то, что после повторного включения виртуальной машины все данные на временном диске могут быть удалены. Кроме того, изменится общедоступный IP-адрес, если только не используется статический IP-адрес. 
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
 После освобождения виртуальной машины ее размер можно изменить. 
 
-```azurecli
+```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
 После изменения размера можно запустить будет виртуальную машину.
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
@@ -255,7 +259,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 Чтобы получить состояние конкретной виртуальной машины, используйте команду [az vm get instance-view](/cli/azure/vm#get-instance-view). Необходимо указать допустимое имя виртуальной машины и группы ресурсов. 
 
-```azurecli
+```azurecli-interactive 
 az vm get-instance-view \
     --name myVM \
     --resource-group myResourceGroupVM \
@@ -264,7 +268,7 @@ az vm get-instance-view \
 
 Выходные данные:
 
-```azurecli
+```azurecli-interactive 
 ode                DisplayStatus    Level
 ------------------  ---------------  -------
 PowerState/running  VM running       Info
@@ -278,19 +282,19 @@ PowerState/running  VM running       Info
 
 Эта команда возвращает частный и общедоступный IP-адрес виртуальной машины.  
 
-```azurecli
+```azurecli-interactive 
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
 ```
 
 ### <a name="stop-virtual-machine"></a>Прекращение работы виртуальной машины
 
-```azurecli
+```azurecli-interactive 
 az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
 ### <a name="start-virtual-machine"></a>Запуск виртуальной машины
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
@@ -298,20 +302,20 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 При удалении группы ресурсов будут также удалены все ресурсы, содержащиеся в ней.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В рамках этого руководства вы изучили основы создания виртуальной машины и управления ею. Вы узнали, как:
+В рамках этого руководства вы изучили основы создания виртуальной машины и управления ею. Вы узнали, как выполнять следующие задачи:
 
 > [!div class="checklist"]
-> * создать виртуальную машину и подключиться к ней;
-> * выбрать и использовать образы виртуальных машин;
-> * просмотреть и использовать определенные размеры виртуальных машин;
+> * Создание виртуальной машины и подключение к ней
+> * Выбор и использование образов виртуальных машин
+> * Просмотр и использование определенных размеров виртуальных машин
 > * Изменение размера виртуальной машины
-> * просмотреть виртуальную машину и оценить ее состояние.
+> * Просмотр виртуальной машины и оценка ее состояния
 
 Перейдите к следующему руководству, чтобы узнать о дисках виртуальных машин.  
 

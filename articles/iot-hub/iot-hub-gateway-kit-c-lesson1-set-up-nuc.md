@@ -4,7 +4,7 @@ description: "Настройка Intel NUC в качестве шлюза Инт
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: yjianfeng
+manager: timlt
 tags: 
 keywords: "шлюз Интернета вещей, intel nuc, компьютер nuc, DE3815TYKE"
 ms.assetid: 917090d6-35c2-495b-a620-ca6f9c02b317
@@ -16,11 +16,10 @@ ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 475664845a9922c5225ea1fd8e008bcb5582bd67
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: b9e842a93dfdb7699158a11978aa622c31382d28
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/26/2017
 
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Настройка Intel NUC в качестве шлюза Интернета вещей
@@ -105,6 +104,12 @@ ms.lasthandoff: 05/10/2017
    ```
 
    > Введите "y", получив запрос "Include this channel?" (Включить этот канал?).
+   
+   Если произошла ошибка `import read failed(-1)`, можно решить эту проблему, выполнив следующие команды:
+   ```bash
+   wget http://iotdk.intel.com/misc/iot_pub2.key 
+   rpm --import iot_pub2.key  
+   ```
 
    Команда `rpm` импортирует ключ RPM. Команда `smart channel` добавляет канал RPM в Smart Package Manager. Перед запуском команды `smart update` вы должны увидеть примерно такие результаты, как показано ниже.
 

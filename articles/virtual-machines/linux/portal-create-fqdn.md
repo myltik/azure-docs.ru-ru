@@ -13,23 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 07/05/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: afba4dbf4b70ad25cd2c8f33c9f6389bdfc74d68
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: a672b0afbc622890843e056883cb437749d3cff9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Создание полного доменного имени на портале Azure для виртуальной машины Linux
 
-При создании виртуальной машины на [портале Azure](https://portal.azure.com) с применением модели развертывания с помощью Resource Manager для нее автоматически создается ресурс общедоступного IP-адреса. Этот IP-адрес используется для удаленного доступа к данной виртуальной машине. Несмотря на то, что портал не создает [полное доменное имя](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)по умолчанию, его можно добавить после создания виртуальной машины. В этой статье показан процесс создания DNS-имени или полного доменного имени.
+При создании виртуальной машины на [портале Azure](https://portal.azure.com) для нее автоматически создается ресурс общедоступного IP-адреса. Этот IP-адрес используется для удаленного доступа к данной виртуальной машине. Несмотря на то что портал не создает [полное доменное имя](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), его можно добавить после создания виртуальной машины. В этой статье показан процесс создания DNS-имени или полного доменного имени.
+
+## <a name="create-fqdn"></a>Создание полного доменного имени
+Для работы с руководством требуется виртуальная машина. При необходимости ее можно создать [на портале](quick-create-portal.md) или с помощью [Azure CLI](quick-create-cli.md). Когда виртуальная машина будет готова, выполните следующие действия:
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-Теперь вы можете удаленно подключиться к виртуальной машине с помощью DNS-имени, например `ssh ops@mydns.westus.cloudapp.azure.com`.
+Теперь вы можете удаленно подключиться к виртуальной машине с помощью DNS-имени, например `ssh azureuser@mydns.westus.cloudapp.azure.com`.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь, когда у виртуальной машины имеется общедоступный IP-адрес и DNS-имя, можно развернуть общие программные платформы или службы, например nginx, MongoDB, Docker и т. д.

@@ -12,13 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: required
-ms.date: 01/10/2017
+ms.date: 06/13/2017
 ms.devlang: na
 ms.author: delhan
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 95b12674f3e7d3d63421be6098c72d87cab562b6
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 7fe0636366c60d4679cfc69bd96cd532695b080e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -83,6 +84,6 @@ ms.lasthandoff: 03/31/2017
 Если существующая облачная служба не связана с виртуальной сетью на основе региона, следует удалить виртуальные машины из существующей облачной службы и воссоздать их в новой облачной службе с помощью дисков. Не забывайте, что новая облачная служба будет иметь новое имя и новый виртуальный IP-адрес. Следовательно, эти данные потребуется обновить для всех зависимостей, которые используют эту информацию о существующей облачной службе.
 
 ## <a name="next-steps"></a>Дальнейшие действия
-При возникновении проблем во время создания виртуальной машины Windows в Azure ознакомьтесь со статьей, посвященной [устранению неполадок в развертывании](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+При возникновении проблем во время создания виртуальной машины Windows в Azure ознакомьтесь со статьей, посвященной [устранению неполадок при развертывании](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

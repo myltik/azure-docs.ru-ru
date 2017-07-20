@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 07/03/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: b958487c80207002e0642b8af8486f53266dd563
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 149dd84d7d8f4ff9cd30f9fc649ced3cb364cfb7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/16/2017
 
 ## <a name="file-upload"></a>Передача файла
 
-Чтобы использовать [функции отправки файлов в Центре Интернета вещей][lnk-upload], сначала необходимо связать учетную запись хранения Azure с центром. Выберите параметры **Отправка файла** , чтобы отобразить список свойств передачи файлов для центра IoT, который вы изменяете.
+Чтобы использовать [функции отправки файлов в Центре Интернета вещей][lnk-upload], сначала необходимо связать учетную запись хранения Azure с центром. Выберите **Отправка файла**, чтобы отобразить список свойств передачи файлов для Центра Интернета вещей, который вы изменяете.
 
 ![Просмотр параметров отправки файлов в Центре Интернета вещей на портале][13]
 

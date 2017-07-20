@@ -17,10 +17,10 @@ ms.date: 04/03/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 717f4969a91209576a504c94c31993b938770432
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 96921f4be8aabb6d960ee4f66acd6c07d7ba7f95
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -65,7 +65,11 @@ ms.lasthandoff: 04/27/2017
 
 ![Свойства драйвера GPU](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-Чтобы запросить состояние устройства GPU, выполните служебную программу командной строки [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface), установленную вместе с драйвером. 
+Чтобы запросить состояние устройства GPU, выполните служебную программу командной строки [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface), установленную вместе с драйвером.
+
+1. Откройте командную строку и измените каталога на **:\Program Files\NVIDIA Corporation\NVSMI**.
+
+2. Запустите **nvidia-smi**. Если драйвер установлен, то отобразятся выходные данные, аналогичные приведенным ниже. Обратите внимание, что **GPU-Util** отобразит **0 %**, если в данный момент графический процессор не выполняет рабочую нагрузку на виртуальной машине.
 
 ![Состояние устройства NVIDIA](./media/n-series-driver-setup/smi.png)  
 

@@ -1,5 +1,5 @@
 ---
-title: " Управление сервером VMware vCenter Server в Azure Site Recovery | Документация Майкрософтs"
+title: " Управление сервером VMware vCenter Server в Azure Site Recovery | Документация Майкрософт"
 description: "В этой статье описывается добавление и администрирование сервера VMware vCenter Server в Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: 5578dea457f3eeda72e3a1e4e61382cdf0de285d
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 091f0884417535427c52beee7bcdc5ed1dd83315
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -26,9 +27,9 @@ ms.lasthandoff: 02/22/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-**Поддержка сервера VMware vCenter Server и узла VMware vSphere ESX** | **Дополнительные сведения**
---- | ---
-**Локальные серверы VMware** | Один или несколько серверов VMware vSphere (версии 6.0, 5.5 или 5.1 с последними обновлениями). Серверы должны находиться в той же сети, где расположен сервер конфигурации (или отдельный сервер обработки).<br/><br/> Желательно использовать сервер vCenter для управления узлами (версии 6.0 или 5.5 с последними обновлениями). При развертывании версии 6.0 поддерживаются только функции, доступные в версии 5.5.
+**Поддержка сервера VMware vCenter Server и узла VMware vSphere ESX** | **Дополнительные сведения** |
+|--- | --- |
+|**Локальные серверы VMware** | Один или несколько серверов VMware vSphere (версии 6.0, 5.5 или 5.1 с последними обновлениями). Серверы должны находиться в той же сети, где расположен сервер конфигурации (или отдельный сервер обработки).<br/><br/> Желательно использовать сервер vCenter для управления узлами (версии 6.0 или 5.5 с последними обновлениями). При развертывании версии 6.0 поддерживаются только функции, доступные в версии 5.5.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Подготовка учетной записи для автоматического обнаружения
 Службе Site Recovery нужен доступ к учетным записям VMware для отработки отказа и восстановления размещения, а также для автоматического обнаружения виртуальных машин на сервере обработки.

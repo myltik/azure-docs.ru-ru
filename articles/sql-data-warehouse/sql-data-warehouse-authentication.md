@@ -17,10 +17,10 @@ ms.custom: security
 ms.date: 03/21/2017
 ms.author: rortloff;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9f38d57029e962d1bbe8adae68232baa8a4c575d
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/22/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -89,7 +89,7 @@ ms.lasthandoff: 03/22/2017
 Сейчас пользователи Azure Active Directory не отображаются в обозревателе объектов SSDT. Сведения о пользователях можно просмотреть в файле [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 ### <a name="find-the-details"></a>Поиск подробных сведений
-* Выполните подробные инструкции. Процедуры настройки и использования проверки подлинности Azure Active Directory практически идентичны для базы данных SQL Azure и хранилища данных SQL Azure. Выполните действия, описанные в разделе [Подключение к Базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
+* Процедуры настройки и использования аутентификации Azure Active Directory практически идентичны для базы данных SQL Azure и хранилища данных SQL Azure. Выполните действия, описанные в разделе [Подключение к Базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
 * Создайте пользовательские роли базы данных и назначьте их пользователям. Затем предоставьте ролям управляемые разрешения. Дополнительные сведения см. в разделе [Приступая к работе с разрешениями Database Engine](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## <a name="next-steps"></a>Дальнейшие действия

@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/30/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8b823c42743bc477dceaa3270836de8ebd92c28f
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: bd14d9902f4061965c008454a14f91d3927f5b99
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>Создание виртуальной машины Windows с использованием PowerShell и классической модели развертывания
 > [!div class="op_single_selector"]
-> * [Классический портал Azure — Windows](tutorial.md)
+> * [Портал Azure — Windows](tutorial.md)
 > * [PowerShell — Windows](create-powershell.md)
 > 
 > 
@@ -165,7 +165,7 @@ ms.lasthandoff: 04/27/2017
 
     New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-Короткое имя облачной службы — это то имя, которое отображается в списке облачных служб на классическом портале Azure или в списке групп ресурсов на портале Azure.
+Короткое имя облачной службы — это то имя, которое отображается в списке облачных служб или в списке групп ресурсов на портале Azure.
 
 Вариант 2. Создайте виртуальную машину в существующей облачной службе и виртуальной сети.
 
@@ -181,7 +181,7 @@ ms.lasthandoff: 04/27/2017
 Если вы собираетесь снова создать эту или подобную виртуальную машину, можно предпринять следующее:
 
 * Сохраните этот набор команд как файл сценария PowerShell (PS1-файл).
-* Сохраните этот набор команд как Runbook службы автоматизации Azure в разделе **Автоматизация** классического портала Azure.
+* Сохраните этот набор команд как Runbook службы автоматизации Azure в разделе **Учетные записи автоматизации** портала Azure.
 
 ## <a id="examples"></a>Примеры
 Ниже приведено два примера применения описанных выше способов для создания наборов команд Azure PowerShell, создающих виртуальные машины под управлением Windows в Azure.

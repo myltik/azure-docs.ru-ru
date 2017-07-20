@@ -16,9 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: a64af1a9f969c5ce5a7e2f18ca23451ac96f1a13
-ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: fa3d37b963c1bb6b58127b9180cd657d7b1dabcc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -43,7 +45,7 @@ ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
 * `connection` — строка подключения **параметра приложения** , для которой задано значение *DefaultFullSharedAccessSignature* для центра уведомлений.
 * `direction` — для этого свойства необходимо задать значение *out*. 
 * `platform` — свойство платформы, которое указывает целевую платформу уведомлений для ваших уведомлений. Необходимо установить одно из следующих значений.
-  * `template` — платформа, используемая по умолчанию, если свойство платформы пропущено в привязке для вывода. Шаблонные уведомления можно использовать для любой платформы, настроенной в центре уведомлений Azure. Дополнительные общие сведения об использовании шаблонов для отправки кроссплатформенных уведомлений с помощью центра уведомлений Azure см. в разделе [Шаблоны](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+  * По умолчанию, если свойство платформы отсутствует в выходной привязке, шаблонные уведомления могут использоваться для любой платформы, настроенной в концентраторе уведомлений Azure. Дополнительные общие сведения об использовании шаблонов для отправки кроссплатформенных уведомлений с помощью центра уведомлений Azure см. в разделе [Шаблоны](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
   * `apns` — служба push-уведомлений Apple. Дополнительные сведения о настройке центра уведомлений для APNs и получении уведомлений в клиентском приложении см. в разделе [Отправка push-уведомлений с помощью центров уведомлений Azure в iOS](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md). 
   * `adm` — [Amazon Device Messaging](https://developer.amazon.com/device-messaging). Дополнительные сведения о настройке центра уведомлений для ADM и получении уведомлений в приложении Kindle см. в разделе [Приступая к работе с Центрами уведомлений для приложений Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md). 
   * `gcm` — [Google Cloud Messaging](https://developers.google.com/cloud-messaging/). Также поддерживается новая версия GCM, Firebase Cloud Messaging. Дополнительные сведения о настройке центра уведомлений для GCM или FCM и получении уведомлений в клиентском приложении Android см. в разделе [Отправка push-уведомлений в приложения Android с помощью центров уведомлений Azure](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).
@@ -294,10 +296,5 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

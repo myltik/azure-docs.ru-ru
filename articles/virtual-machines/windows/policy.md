@@ -13,94 +13,135 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2016
+ms.date: 06/28/2017
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 4d63e904e5e844a68cd986e2be2bfb3e0d2fee5d
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 9874a825ea81ebb191710ebd46dceb70c1f20e60
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="apply-security-and-policies-to-windows-vms-with-azure-resource-manager"></a>Применение параметров безопасности и политик к виртуальным машинам Windows с помощью Azure Resource Manager
-С помощью политик организация может обеспечить выполнение различных норм и правил во всей организации. Обязательные для выполнения стандарты поведения помогают снизить риск, что способствует успешной деятельности организации. В этой статье мы расскажем, как определить требуемое поведение для виртуальных машин вашей организации с помощью политик Azure Resource Manager.
+# <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Применение политик к виртуальным машинам Windows с помощью Azure Resource Manager
+С помощью политик организация может обеспечить выполнение различных норм и правил во всей организации. Обязательные для выполнения стандарты поведения помогают снизить риск, что способствует успешной деятельности организации. В этой статье описано, как определить требуемое поведение для виртуальных машин вашей организации с помощью политик Azure Resource Manager.
 
-Ниже представлены шаги для реализации вертикального масштабирования.
+Общие сведения о политиках см. в статье [Применение политик для управления ресурсами и контроля доступа](../../azure-resource-manager/resource-manager-policy.md).
 
-1. Политика Azure Resource Manager 101
-2. Определение политики для виртуальной машины
-3. Создание политики
-4. Применение политики
+## <a name="define-policy-for-permitted-virtual-machines"></a>Определение политики для разрешенных виртуальных машин
+Чтобы обеспечить совместимость виртуальных машин вашей организации с приложением, вы можете ограничить допустимые операционные системы. В этом примере политики вы разрешите только создание виртуальных машин на основе Windows Server 2012 R2 Datacenter:
 
-## <a name="azure-resource-manager-policy-101"></a>Политика Azure Resource Manager 101
-Чтобы начать работу с политиками диспетчера ресурсов Azure, рекомендуется прочесть статью ниже, а затем выполнить действия, описанные в этой статье. В статье ниже описываются базовое определение, структура и оценка политики, а также приводятся различные примеры определений политики.
-
-* [Применение политик для управления ресурсами и контроля доступа](../../resource-manager-policy.md)
-
-## <a name="define-a-policy-for-your-virtual-machine"></a>Определение политики для виртуальной машины
-Один из самых распространенных сценариев для организации состоит в том, что пользователям разрешается создавать виртуальные машины только на основе заданного набора операционных систем, которые были протестированы на совместимость с бизнес-приложением. С помощью политики Azure Resource Manager эту задачу можно выполнить за несколько шагов.
-В данном примере политики мы собираемся разрешить только создание виртуальных машин на основе Windows Server 2012 R2 Datacenter. Определение политики приведено ниже.
-
-```
-"if": {
-  "allOf": [
-    {
-      "field": "type",
-      "equals": "Microsoft.Compute/virtualMachines"
-    },
-    {
-      "not": {
-        "allOf": [
-          {
-            "field": "Microsoft.Compute/virtualMachines/imagePublisher",
-            "equals": "MicrosoftWindowsServer"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/imageOffer",
-            "equals": "WindowsServer"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/imageSku",
-            "equals": "2012-R2-Datacenter"
-          }
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "in": [
+          "Microsoft.Compute/disks",
+          "Microsoft.Compute/virtualMachines",
+          "Microsoft.Compute/VirtualMachineScaleSets"
         ]
+      },
+      {
+        "not": {
+          "allOf": [
+            {
+              "field": "Microsoft.Compute/imagePublisher",
+              "in": [
+                "MicrosoftWindowsServer"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageOffer",
+              "in": [
+                "WindowsServer"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageSku",
+              "in": [
+                "2012-Datacenter"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageVersion",
+              "in": [
+                "latest"
+              ]
+            }
+          ]
+        }
       }
-    }
-  ]
-},
-"then": {
-  "effect": "deny"
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
 }
 ```
 
-Приведенную выше политику можно легко превратить в сценарий, в котором для виртуальной машины разрешается использовать любой образ Windows Server Datacenter. Для этого выполните следующее изменение:
+Чтобы разрешить любой образ Windows Server Datacenter, измените предыдущую политику, используя подстановочный знак:
 
-```
+```json
 {
-  "field": "Microsoft.Compute/virtualMachines/imageSku",
+  "field": "Microsoft.Compute/imageSku",
   "like": "*Datacenter"
 }
 ```
 
-#### <a name="virtual-machine-property-fields"></a>Поля свойств виртуальной машины
-В следующей таблице описываются свойства виртуальной машины, которые можно использовать в качестве полей в определении политики. Дополнительные сведения о полях политики см. в следующей статье:
+Сведения о полях политики см. в разделе [Псевдонимы](../../azure-resource-manager/resource-manager-policy.md#aliases).
 
-* [Поля и источники](../../azure-resource-manager/resource-manager-policy.md#conditions)
+## <a name="define-policy-for-using-managed-disks"></a>Определение политики для использования управляемых дисков
 
-| Имя поля | Description (Описание) |
-| --- | --- |
-| imagePublisher |Указывает издателя образа |
-| imageOffer |Указывает предложение для выбранного издателя образа |
-| imageSku |Указывает номер SKU для выбранного предложения |
-| imageVersion |Указывает версию образа для выбранного номера SKU |
+Чтобы задать использование управляемых дисков, используйте следующую политику:
 
-## <a name="create-the-policy"></a>Создание политики
-Политику можно легко создать напрямую в API REST или с помощью командлетов PowerShell. Для создания политики обратитесь к следующей статье:
+```json
+{
+  "if": {
+    "anyOf": [
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachines"
+          },
+          {
+            "field": "Microsoft.Compute/virtualMachines/osDisk.uri",
+            "exists": true
+          }
+        ]
+      },
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/VirtualMachineScaleSets"
+          },
+          {
+            "anyOf": [
+              {
+                "field": "Microsoft.Compute/VirtualMachineScaleSets/osDisk.vhdContainers",
+                "exists": true
+              },
+              {
+                "field": "Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl",
+                "exists": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
 
-* [Создание политики](../../resource-manager-policy.md)
-
-## <a name="apply-the-policy"></a>Применение политики
-После создания политики необходимо применить ее к заданной области. Областью может быть подписка, группа ресурсов или даже ресурс. Для применения политики обратитесь к следующей статье:
-
-* [Создание политики](../../resource-manager-policy.md)
+## <a name="next-steps"></a>Дальнейшие действия
+* После определения правила политики (как показано в приведенных выше примерах) необходимо создать определение политики и назначить ей область. Областью может быть подписка, группа ресурсов или ресурс. Сведения о назначении политик с помощью портала см. в статье [Назначение политик ресурсов и управление ими с помощью портала Azure](../../azure-resource-manager/resource-manager-policy-portal.md). Сведения о назначении политик с помощью REST API, PowerShell или Azure CLI см. в статье [Назначение политик ресурсов и управление ими](../../azure-resource-manager/resource-manager-policy-create-assign.md).
+* Введение в политики ресурсов представлено в разделе [Общие сведения о политике ресурсов](../../azure-resource-manager/resource-manager-policy.md).
+* Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
 

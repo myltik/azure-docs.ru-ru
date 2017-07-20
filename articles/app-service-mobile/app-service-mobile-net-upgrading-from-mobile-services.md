@@ -3,7 +3,7 @@ title: "Обновление приложения мобильных служб 
 description: "Узнайте, как без труда обновить приложение мобильных служб до мобильного приложения службы приложений."
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
+author: dhei
 manager: adrianha
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 596bcd2f38a39cc1404d422214ab49ae79df744c
+ms.contentlocale: ru-ru
 ms.lasthandoff: 02/16/2017
-
 
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Обновление существующего приложения мобильной службы Azure .NET до службы приложений

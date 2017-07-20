@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: cceda131fc9eaa74f6328c8dd68a8e3885877061
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 479bbd207bcf715138c340f9e4d2634120bab85c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 05/02/2017
 ## <a name="deploy-a-process-server-on-azure"></a>Развертывание сервера обработки в Azure
 
 1. В Azure Marketplace создайте виртуальную машину с помощью **Microsoft Azure Site Recovery Process Server V2**. </br>
-    ![Marketplace_image_1](./media/site-recovery-vmware-setup-azure-ps-classic/marketplace-ps-image.png)
+    ![](./media/site-recovery-vmware-setup-azure-ps-classic/marketplace-ps-image.png)Marketplace_image_1
 2. Выберите **классическую** модель развертывания. </br>
   ![Marketplace_image_2](./media/site-recovery-vmware-setup-azure-ps-classic/marketplace-ps-image-classic.png)
 3. В мастере создания виртуальной машины выберите "Основные параметры" и укажите подписку и расположение для отработки отказа виртуальных машин.</br>

@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/05/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: e714d3585b78d28aba069464a444162103739657
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 04810ffa33d90d31003d0919c3edb2710fed453c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Памятка по SQL-запросам Azure Cosmos DB в формате PDF
-**Памятка по SQL-запросам Azure Cosmos DB** помогает быстро создавать запросы для данных Azure Cosmos DB, так как в удобном для печати справочном листе в формате PDF отображаются общие запросы, ключевые слова, встроенные функции и операторы базы данных. 
+# <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB. Памятка по SQL-запросам API DocumentDB в формате PDF
+**Памятка по SQL-запросам API DocumentDB Azure Cosmos DB** помогает быстро создавать запросы для данных API DocumentDB, так как в удобном для печати справочном листе в формате PDF отображаются общие запросы, ключевые слова, встроенные функции и операторы базы данных. 
 
 Cosmos DB поддерживает реляционные, иерархические и пространственные запросы документов JSON с использованием [SQL](documentdb-sql-query.md) без указания схемы или вторичных индексов. Кроме стандартных ключевых слов и операторов ANSI-SQL, Cosmos DB поддерживает определяемые пользователем функции (UDF) JavaScript, операторы JavaScript и множество встроенных функций.
 

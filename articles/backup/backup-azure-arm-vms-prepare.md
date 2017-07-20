@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7937a4070907faa5848f125f83c23849320b9cf4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: c1185358cc10e450c0c67baab407c49de56ad767
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -56,6 +57,7 @@ ms.lasthandoff: 04/03/2017
 Перед подготовкой среды ознакомьтесь с ограничениями.
 
 * Архивация виртуальных машин, к которым подключено более 16 дисков данных, не поддерживается.
+* Резервное копирование виртуальных машин, к которым подключены диски емкостью 4 ТБ, не поддерживается. 
 * Архивация виртуальных машин с зарезервированным IP-адресом и без заданной конечной точки не поддерживается.
 * Архивация виртуальных машин, зашифрованных только с помощью BEK, не поддерживается. Архивация виртуальных машин Linux, зашифрованных с помощью шифрования LUKS, не поддерживается.
 * Резервное копирование виртуальных машин Linux с расширением Docker не поддерживается.

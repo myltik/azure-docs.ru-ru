@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 66c71906614e5d0c8e8531271444fc59a5cb779f
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 71588c6ea8ed8371a5ceca241290af65a0866345
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -52,47 +52,6 @@ ms.lasthandoff: 04/28/2017
 | имя_ресурса или идентификатор_ресурса |Да |string |Уникальный идентификатор ресурса. |
 | версия_API |Да |string |Версия API для состояния среды выполнения ресурса. Как правило, указывается в формате **гггг-мм-дд**. |
 
-### <a name="remarks"></a>Примечания
-
-Любая операция, которая начинается с **list**, может быть использована в шаблоне как функция. Это относится не только к listKeys, но и к таким операциям, как `list`, `listAdminKeys` и `listStatus`. Чтобы определить, какие типы ресурсов поддерживают операцию list, можно использовать следующие варианты:
-
-* Просмотрите [операции REST API](/rest/api/) для поставщика ресурсов и найдите операции list. Например, в учетных записях хранения есть [операция listKeys](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
-* Воспользуйтесь командлетом PowerShell [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation). В следующем примере извлекаются все операции list для учетных записей хранения:
-
-  ```powershell
-  Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
-  ```
-* Используйте следующую команду Azure CLI и служебную программу JSON [jq](http://stedolan.github.io/jq/download/), чтобы отфильтровать только операции list:
-
-  ```azurecli
-  azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
-  ```
-
-Укажите ресурс с помощью [функции resourceId](#resourceid) или формата `{providerNamespace}/{resourceType}/{resourceName}`.
-
-### <a name="examples"></a>Примеры
-
-В следующем примере показано, как получить в разделе выходных данных первичный и вторичный ключи из учетной записи хранения.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountId": {
-            "type": "string"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "storageKeysOutput": {
-            "value": "[listKeys(parameters('storageAccountId'), '2016-01-01')]",
-            "type" : "object"
-        }
-    }
-}
-``` 
-
 ### <a name="return-value"></a>Возвращаемое значение
 
 Возвращаемый функцией listKeys объект имеет следующий формат:
@@ -116,6 +75,48 @@ ms.lasthandoff: 04/28/2017
 
 Другие функции list возвращают данные в других форматах. Чтобы просмотреть формат функции, включите ее в раздел outputs, как показано в примере шаблона. 
 
+### <a name="remarks"></a>Примечания
+
+Любая операция, которая начинается с **list**, может быть использована в шаблоне как функция. Это относится не только к listKeys, но и к таким операциям, как `list`, `listAdminKeys` и `listStatus`. Чтобы определить, какие типы ресурсов поддерживают операцию list, можно использовать следующие варианты:
+
+* Просмотрите [операции REST API](/rest/api/) для поставщика ресурсов и найдите операции list. Например, в учетных записях хранения есть [операция listKeys](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* Воспользуйтесь командлетом PowerShell [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation). В следующем примере извлекаются все операции list для учетных записей хранения:
+
+  ```powershell
+  Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
+  ```
+* Используйте следующую команду Azure CLI, чтобы отфильтровать только операции list:
+
+  ```azurecli
+  az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
+  ```
+
+Укажите ресурс с помощью [функции resourceId](#resourceid) или формата `{providerNamespace}/{resourceType}/{resourceName}`.
+
+
+### <a name="example"></a>Пример
+
+В следующем примере показано, как получить в разделе выходных данных первичный и вторичный ключи из учетной записи хранения.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountId": {
+            "type": "string"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "storageKeysOutput": {
+            "value": "[listKeys(parameters('storageAccountId'), '2016-01-01')]",
+            "type" : "object"
+        }
+    }
+}
+``` 
+
 <a id="providers" />
 
 ## <a name="providers"></a>providers
@@ -129,24 +130,6 @@ ms.lasthandoff: 04/28/2017
 |:--- |:--- |:--- |:--- |
 | пространство_имен_поставщика |Да |string |Пространство имен поставщика. |
 | тип_ресурса |Нет |string |Тип ресурса в указанном пространстве имен. |
-
-### <a name="examples"></a>Примеры
-
-Следующий пример показывает, как использовать функцию provider:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "providerOutput": {
-            "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
-            "type" : "object"
-        }
-    }
-}
-```
 
 ### <a name="return-value"></a>Возвращаемое значение
 
@@ -162,6 +145,46 @@ ms.lasthandoff: 04/28/2017
 
 Упорядочение массива возвращаемых значений не гарантируется.
 
+### <a name="example"></a>Пример
+
+Следующий пример показывает, как использовать функцию provider:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "providerOutput": {
+            "value": "[providers('Microsoft.Web', 'sites')]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+В предыдущем примере возвращается объект в следующем формате:
+
+```json
+{
+  "resourceType": "sites",
+  "locations": [
+    "South Central US",
+    "North Europe",
+    "West Europe",
+    "Southeast Asia",
+    ...
+  ],
+  "apiVersions": [
+    "2016-08-01",
+    "2016-03-01",
+    "2015-08-01-preview",
+    "2015-08-01",
+    ...
+  ]
+}
+```
+
 <a id="reference" />
 
 ## <a name="reference"></a>reference
@@ -176,6 +199,10 @@ ms.lasthandoff: 04/28/2017
 | имя_ресурса или идентификатор_ресурса |Да |string |Имя или уникальный идентификатор ресурса. |
 | версия_API |Нет |string |Версия API для указанного ресурса. Если ресурс не предоставляется в рамках того же шаблона, необходимо включить этот параметр. Как правило, указывается в формате **гггг-мм-дд**. |
 
+### <a name="return-value"></a>Возвращаемое значение
+
+Каждый тип ресурса возвращает для функции reference разные свойства. Функция не возвращает данные в едином предварительно заданном формате. Чтобы просмотреть свойства для типа ресурса, возвратите объект в разделе outputs, как показано в примере.
+
 ### <a name="remarks"></a>Примечания
 
 Функция reference получает свое значение из состояния среды выполнения, и поэтому ее невозможно использовать в разделе переменных. Она может использоваться в разделе выходных данных шаблона. 
@@ -184,30 +211,24 @@ ms.lasthandoff: 04/28/2017
 
 Чтобы просмотреть имена и значения свойств для типа ресурса, создайте в разделе outputs шаблон, который возвращает объект. Если ресурс этого типа уже существует, то шаблон возвращает объект, не развертывая новых ресурсов. 
 
-### <a name="examples"></a>Примеры
-
-Следующий пример ссылается на учетную запись хранения, которая не развертывается в этом шаблоне, но существует в той же группе ресурсов.
+Обычно функция **reference** используется, чтобы получить определенное значение из объекта, например универсальный код ресурса (URI) конечной точки большого двоичного объекта или полное доменное имя.
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountName": {
-            "type": "string"
-        }
+"outputs": {
+    "BlobUri": {
+        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+        "type" : "string"
     },
-    "resources": [],
-    "outputs": {
-        "ExistingStorage": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
-            "type" : "object"
-        }
+    "FQDN": {
+        "value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')), '2016-03-30').dnsSettings.fqdn]",
+        "type" : "string"
     }
 }
 ```
 
-Также можно развернуть ресурс и сослаться на него в одном шаблоне.
+### <a name="example"></a>Пример
+
+Чтобы развернуть ресурс и сослаться на него в одном шаблоне, используйте следующую команду:
 
 ```json
 {
@@ -242,24 +263,44 @@ ms.lasthandoff: 04/28/2017
 }
 ``` 
 
-Обычно функция reference используется, чтобы получить определенное значение из объекта, например универсальный код ресурса (URI) конечной точки большого двоичного объекта или полное доменное имя.
+В предыдущем примере возвращается объект в следующем формате:
 
 ```json
-"outputs": {
-    "BlobUri": {
-        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
-        "type" : "string"
-    },
-    "FQDN": {
-        "value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')), '2016-03-30').dnsSettings.fqdn]",
-        "type" : "string"
-    }
+{
+   "creationTime": "2017-06-13T21:24:46.618364Z",
+   "primaryEndpoints": {
+     "blob": "https://examplestorage.blob.core.windows.net/",
+     "file": "https://examplestorage.file.core.windows.net/",
+     "queue": "https://examplestorage.queue.core.windows.net/",
+     "table": "https://examplestorage.table.core.windows.net/"
+   },
+   "primaryLocation": "southcentralus",
+   "provisioningState": "Succeeded",
+   "statusOfPrimary": "available",
+   "supportsHttpsTrafficOnly": false
 }
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
+Следующий пример ссылается на учетную запись хранения, которая не развертывается в этом шаблоне, но существует в той же группе ресурсов.
 
-Каждый тип ресурса возвращает для функции reference разные свойства. Функция не возвращает данные в едином предварительно заданном формате. Чтобы просмотреть свойства для типа ресурса, возвратите объект в разделе outputs, как показано в примере.
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountName": {
+            "type": "string"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "ExistingStorage": {
+            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
+            "type" : "object"
+        }
+    }
+}
+```
 
 <a id="resourcegroup" />
 
@@ -268,7 +309,40 @@ ms.lasthandoff: 04/28/2017
 
 Возвращает объект, который представляет текущую группу ресурсов. 
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
+
+Возвращаемый объект имеет следующий формат:
+
+```json
+{
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+  "name": "{resourceGroupName}",
+  "location": "{resourceGroupLocation}",
+  "tags": {
+  },
+  "properties": {
+    "provisioningState": "{status}"
+  }
+}
+```
+
+### <a name="remarks"></a>Примечания
+
+Как правило, функция resourceGroup используется для создания ресурсов в одном расположении с группой ресурсов. В следующем примере расположение группы ресурсов используется для назначения расположения веб-сайту.
+
+```json
+"resources": [
+   {
+      "apiVersion": "2016-08-01",
+      "type": "Microsoft.Web/sites",
+      "name": "[parameters('siteName')]",
+      "location": "[resourceGroup().location]",
+      ...
+   }
+]
+```
+
+### <a name="example"></a>Пример
 
 Следующий шаблон возвращает свойства группы ресурсов.
 
@@ -286,33 +360,15 @@ ms.lasthandoff: 04/28/2017
 }
 ```
 
-Как правило, функция resourceGroup используется для создания ресурсов в одном расположении с группой ресурсов. В следующем примере расположение группы ресурсов используется для назначения расположения веб-сайту.
-
-```json
-"resources": [
-   {
-      "apiVersion": "2014-06-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[parameters('siteName')]",
-      "location": "[resourceGroup().location]",
-      ...
-   }
-]
-```
-
-### <a name="return-value"></a>Возвращаемое значение
-
-Возвращаемый объект имеет следующий формат:
+В предыдущем примере возвращается объект в следующем формате:
 
 ```json
 {
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-  "name": "{resourceGroupName}",
-  "location": "{resourceGroupLocation}",
-  "tags": {
-  },
+  "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
+  "name": "examplegroup",
+  "location": "southcentralus",
   "properties": {
-    "provisioningState": "{status}"
+    "provisioningState": "Succeeded"
   }
 }
 ```
@@ -334,29 +390,40 @@ ms.lasthandoff: 04/28/2017
 | имя_ресурса1 |Да |string |Имя ресурса. |
 | имя_ресурса2 |Нет |string |Имя следующего ресурса, если ресурс является вложенным. |
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
 
-Следующий пример возвращает идентификатор ресурса для учетной записи хранения в группе ресурсов:
+Идентификатор возвращается в следующем формате:
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "resourceIdOutput": {
-            "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]",
-            "type" : "string"
-        }
-    }
-}
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-В следующем примере показано, как получить идентификаторы ресурсов для веб-сайта в другой группе ресурсов и базы данных в другой группе ресурсов:
+### <a name="remarks"></a>Примечания
+
+Указанные значения параметров зависят от того, находится ли ресурс в той же подписке и группе ресурсов, что и текущее развертывание.
+
+Чтобы получить идентификатор ресурса для учетной записи хранения в одной подписке и группе ресурсов, используйте команду ниже:
 
 ```json
-[resourceId('otherResourceGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
+"[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
+```
+
+Чтобы получить идентификатор ресурса для учетной записи хранения в той же подписке, но другой группе ресурсов, используйте команду ниже:
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+```
+
+Чтобы получить идентификатор ресурса для учетной записи хранения в других подписке и группе ресурсов, используйте команду ниже:
+
+```json
+"[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+```
+
+Чтобы получить идентификатор ресурса для базы данных в другой группе ресурсов, используйте команду ниже:
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
 Эта функция часто необходима при использовании учетной записи хранения или виртуальной сети в альтернативной группе ресурсов. Учетная запись хранения и виртуальная сеть могут использоваться несколькими группами ресурсов, поэтому их не следует удалять при удалении одной группы ресурсов. В следующем примере показано, как ресурс из внешней группы ресурсов можно легко использовать:
@@ -404,13 +471,44 @@ ms.lasthandoff: 04/28/2017
 }
 ```
 
-### <a name="return-value"></a>Возвращаемое значение
+### <a name="example"></a>Пример
 
-Идентификатор возвращается в следующем формате:
+Следующий пример возвращает идентификатор ресурса для учетной записи хранения в группе ресурсов:
 
 ```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "sameRGOutput": {
+            "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "differentRGOutput": {
+            "value": "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "differentSubOutput": {
+            "value": "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "nestedResourceOutput": {
+            "value": "[resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')]",
+            "type" : "string"
+        }
+    }
+}
 ```
+
+Выходные данные из предыдущего примера со значениями по умолчанию:
+
+| Имя | Тип | Значение |
+| ---- | ---- | ----- |
+| sameRGOutput | Строка | /subscriptions/{ИД_текущей_подписки}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Строка | /subscriptions/{ИД_текущей_подписки}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | Строка | /subscriptions/{ИД_другой_подписки}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | Строка | /subscriptions/{ИД_текущей_подписки}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 <a id="subscription" />
 
@@ -419,7 +517,20 @@ ms.lasthandoff: 04/28/2017
 
 Возвращает сведения о подписке для текущего развертывания. 
 
-### <a name="examples"></a>Примеры
+### <a name="return-value"></a>Возвращаемое значение
+
+Функция возвращает значение в следующем формате:
+
+```json
+{
+    "id": "/subscriptions/{subscription-id}",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}",
+    "displayName": "{name-of-subscription}"
+}
+```
+
+### <a name="example"></a>Пример
 
 В следующем примере показана функция subscription, вызываемая в разделе выходных данных. 
 
@@ -434,19 +545,6 @@ ms.lasthandoff: 04/28/2017
             "type" : "object"
         }
     }
-}
-```
-
-### <a name="return-value"></a>Возвращаемое значение
-
-Функция возвращает значение в следующем формате:
-
-```json
-{
-    "id": "/subscriptions/{subscription-id}",
-    "subscriptionId": "{subscription-id}",
-    "tenantId": "{tenant-id}",
-    "displayName": "{name-of-subscription}"
 }
 ```
 

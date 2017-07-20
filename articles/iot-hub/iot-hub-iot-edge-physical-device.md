@@ -12,17 +12,17 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 06/12/2017
 ms.author: andbuc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 63545f007a2696714d21ab7d778a6e78e6183806
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 02962a91c739a53dfcf947bcc736e5c293b9384f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
-# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-physical-device-linux"></a>Отправка сообщений с устройства в облако с помощью физического устройства (Linux) с использованием Edge Интернета вещей Azure
+# <a name="use-azure-iot-edge-on-a-raspberry-pi-to-forward-device-to-cloud-messages-to-iot-hub"></a>Использование Azure IoT Edge в Raspberry Pi для переадресации отправки сообщений с устройства в облако в Центр Интернета вещей
 
 В этом пошаговом руководстве по созданию [примера устройства Bluetooth с низким энергопотреблением][lnk-ble-samplecode] показано, как использовать [Edge Интернета вещей Azure][lnk-sdk], чтобы:
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/18/2017
 Шлюз содержит следующие модули Edge Интернета вещей:
 
 * *Модуль BLE* , который взаимодействует с устройством BLE для получения от него данных температуры и отправки на него команд.
-* *Модуль BLE "Из облака на устройство"*, который преобразовывает сообщения JSON, поступающие из облака, в инструкции BLE для *модуля BLE*.
+* *Модуль BLE "Из облака на устройство"*, который преобразовывает сообщения JSON, поступающие из Центра Интернета вещей, в инструкции BLE для *модуля BLE*.
 * *Модуль ведения журнала*, который регистрирует в локальном файле все сообщения шлюза.
 * *Модуль сопоставления удостоверений* , который преобразовывает MAC-адреса устройств BLE и удостоверения устройств центра Azure IoT.
 * *Модуль Центра Интернета вещей* , который передает в Центр Интернета вещей данные телеметрии и получает из него команды устройств.
@@ -64,7 +64,8 @@ ms.lasthandoff: 05/18/2017
 
 1. Устройство BLE создает пример данных температуры и отправляет его через Bluetooth на модуль BLE в шлюзе.
 1. Модуль BLE получает этот пример и публикует его в брокер вместе с MAC-адресом устройства.
-1. Модуль сопоставления удостоверений извлекает это сообщение и использует внутреннюю таблицу для преобразования MAC-адреса устройства в удостоверение устройства Центра Интернета вещей. Удостоверение устройства Центра Интернета вещей состоит из идентификатора и ключа устройства. Затем модуль публикует новое сообщение, содержащее пример данных температуры, MAC-адрес, идентификатор и ключ устройства.
+1. Модуль сопоставления удостоверений извлекает это сообщение и использует внутреннюю таблицу для преобразования MAC-адреса устройства в удостоверение устройства Центра Интернета вещей. Удостоверение устройства Центра Интернета вещей состоит из идентификатора и ключа устройства.
+1. Модуль сопоставления удостоверений публикует новое сообщение, содержащее пример данных температуры, MAC-адрес, идентификатор и ключ устройства.
 1. Модуль Центра Интернета вещей получает это новое сообщение (созданное модулем сопоставления удостоверений) и публикует его в Центре Интернета вещей.
 1. Модуль ведения журнала регистрирует в локальном файле все сообщения из брокера.
 
@@ -79,6 +80,18 @@ ms.lasthandoff: 05/18/2017
 1. Модуль BLE извлекает это сообщение и выполняет инструкцию ввода-вывода, взаимодействуя с устройством BLE.
 1. Модуль ведения журнала регистрирует в журнале все сообщения из брокера в файл на диске.
 
+## <a name="prerequisites"></a>Предварительные требования
+
+Для работы с этим руководством требуется активная подписка Azure.
+
+> [!NOTE]
+> Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в статье о [бесплатной пробной версии Azure][lnk-free-trial].
+
+На настольном компьютере необходимо установить клиент SSH, чтобы иметь удаленный доступ к командной строке Raspberry Pi.
+
+- Windows не предоставляет клиент SSH. Мы советуем использовать [PuTTY](http://www.putty.org/).
+- Большинство дистрибутивов Linux и Mac OS содержат служебную программу командной строки SSH. Дополнительные сведения см. в статье [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md) (Подключение по протоколу SSH с помощью Linux или Mac OS).
+
 ## <a name="prepare-your-hardware"></a>Подготовка оборудования
 
 В этом учебнике предполагается, что вы используете устройство [Texas Instruments SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html), подключенное к плате Raspberry Pi 3 под управлением ОС Raspbian.
@@ -90,85 +103,123 @@ ms.lasthandoff: 05/18/2017
 * Чтобы установить последнюю версию Raspbian, воспользуйтесь графическим пользовательским интерфейсом [NOOBS][lnk-noobs].
 * [Скачайте][lnk-raspbian] вручную и запишите новейший образ операционной системы Raspbian на SD-карту.
 
+### <a name="sign-in-and-access-the-terminal"></a>Вход и доступ к терминалу
+
+Существует два варианта получения доступа к среде терминала на Raspberry Pi.
+
+* Если клавиатура и монитор подключены к Raspberry Pi, вы можете использовать графический пользовательский интерфейс Raspbian, чтобы получить доступ к окну терминала.
+
+* Получите доступ к командной строке на устройстве Raspberry Pi с настольного компьютера, используя SSH.
+
+#### <a name="use-a-terminal-window-in-the-gui"></a>Использование окна терминала в графическом пользовательском интерфейсе
+
+По умолчанию в качестве учетных данных для Raspbian используется имя пользователя **pi** и пароль **raspberry**. На панели задач в графическом пользовательском интерфейсе можно запустить служебную программу **Terminal** с помощью значка в виде монитора.
+
+#### <a name="sign-in-with-ssh"></a>Вход с помощью SSH
+
+Используйте SSH, чтобы получить доступ к Raspberry Pi с помощью командной строки. Сведения о настройке SSH на устройстве Raspberry Pi и о подключении из [Windows][lnk-ssh-windows], [Linux и Mac OS][lnk-ssh-linux] см. в руководстве по [SSH (SECURE SHELL)][lnk-pi-ssh].
+
+Войдите, используя имя пользователя **pi** и пароль **raspberry**.
+
 ### <a name="install-bluez-537"></a>Установка BlueZ 5.37
 
 Модули BLE взаимодействуют с оборудованием Bluetooth через стек BlueZ. Чтобы модули работали корректно, необходимо установить BlueZ версии 5.37. Эти инструкции помогут вам установить правильную версию BlueZ.
 
 1. Остановите работу текущей управляющей программы Bluetooth:
 
-    `sudo systemctl stop bluetooth`
+    ```sh
+    sudo systemctl stop bluetooth
+    ```
 
 1. Установите зависимости BlueZ:
 
-    `sudo apt-get update`
-
-    `sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev`
+    ```sh
+    sudo apt-get update
+    sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
+    ```
 
 1. Скачайте исходный код BlueZ с сайта bluez.org:
 
-    `wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz`
+    ```sh
+    wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
+    ```
 
 1. Распакуйте исходный код:
 
-    `tar -xvf bluez-5.37.tar.xz`
+    ```sh
+    tar -xvf bluez-5.37.tar.xz
+    ```
 
 1. Смените каталоги на вновь созданную папку:
 
-    `cd bluez-5.37`
+    ```sh
+    cd bluez-5.37
+    ```
 
 1. Настройте код BlueZ для выполнения сборки:
 
-    `./configure --disable-udev --disable-systemd --enable-experimental`
+    ```sh
+    ./configure --disable-udev --disable-systemd --enable-experimental
+    ```
 
 1. Выполните сборку BlueZ:
 
-    `make`
+    ```sh
+    make
+    ```
 
 1. По завершении сборки установите BlueZ:
 
-    `sudo make install`
+    ```sh
+    sudo make install
+    ```
 
 1. В файле `/lib/systemd/system/bluetooth.service` измените конфигурацию службы systemd для Bluetooth, чтобы она указывала на новую управляющую программу Bluetooth. Замените строку ExecStart следующим текстом:
 
-    `ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E`
+    ```conf
+    ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
+    ```
 
 ### <a name="enable-connectivity-to-the-sensortag-device-from-your-raspberry-pi-3-device"></a>Подключение устройства Raspberry Pi 3 к устройству SensorTag
 
 Перед запуском примера необходимо убедиться, что плата Raspberry Pi 3 имеет возможность подключаться к устройству SensorTag.
 
-
 1. Убедитесь, что служебная программа `rfkill` установлена:
 
-    `sudo apt-get install rfkill`
+    ```sh
+    sudo apt-get install rfkill
+    ```
 
 1. Разблокируйте Bluetooth на устройстве Raspberry Pi 3 и убедитесь, что номер версии — **5.37**:
 
-    `sudo rfkill unblock bluetooth`
-
-    `bluetoothctl --version`
-
-1. Запустите службу Bluetooth и выполните команду **bluetoothctl**, чтобы войти в интерактивную оболочку Bluetooth:
-
-    `sudo systemctl start bluetooth`
-
-    `bluetoothctl`
-
-1. Введите команду **power on** , чтобы включить питание контроллера Bluetooth. Должен появиться результат, аналогичный приведенному ниже.
-
+    ```sh
+    sudo rfkill unblock bluetooth
+    bluetoothctl --version
     ```
+
+1. Чтобы войти в интерактивную оболочку Bluetooth, запустите службу Bluetooth и выполните команду **bluetoothctl**:
+
+    ```sh
+    sudo systemctl start bluetooth
+    bluetoothctl
+    ```
+
+1. Введите команду **power on** , чтобы включить питание контроллера Bluetooth. Команда вернет результат следующего вида:
+
+    ```sh
     [NEW] Controller 98:4F:EE:04:1F:DF C3 raspberrypi [default]
     ```
 
-1. В интерактивной оболочке Bluetooth введите команду **scan on** для поиска устройств Bluetooth. Должен появиться результат, аналогичный приведенному ниже.
+1. В интерактивной оболочке Bluetooth введите команду **scan on** для поиска устройств Bluetooth. Команда вернет результат следующего вида:
 
-    ```
+    ```sh
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
 1. Сделайте устройство SensorTag доступным для обнаружения, нажав маленькую кнопку (должен загореться зеленый светодиодный индикатор). Плата Raspberry Pi 3 должна обнаружить устройство SensorTag:
 
-    ```
+    ```sh
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
     [CHG] Device A0:E6:F8:B5:F6:00 TxPower: 0
     [CHG] Device A0:E6:F8:B5:F6:00 RSSI: -43
@@ -178,14 +229,14 @@ ms.lasthandoff: 05/18/2017
 
 1. Отключите поиск, введя команду **scan off**.
 
-    ```
+    ```sh
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
 
 1. Подключитесь к устройству SensorTag, используя его MAC-адрес. Для этого введите команду **connect \<MAC-адрес\>**. Для большей ясности следующий пример выходных данных приведен в сокращенном виде.
 
-    ```
+    ```sh
     Attempting to connect to A0:E6:F8:B5:F6:00
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: yes
     Connection successful
@@ -206,7 +257,7 @@ ms.lasthandoff: 05/18/2017
 
 1. Теперь можно отключиться от устройства с помощью команды **disconnect** и выйти из оболочки Bluetooth с помощью команды **quit**:
 
-    ```
+    ```sh
     Attempting to disconnect from A0:E6:F8:B5:F6:00
     Successful disconnected
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
@@ -222,7 +273,7 @@ ms.lasthandoff: 05/18/2017
 * Создать Edge Интернета вещей на устройстве Raspberry Pi 3.
 * Настроить и запустить пример BLE на устройстве Raspberry Pi 3.
 
-На момент написания данной статьи Edge Интернета вещей поддерживал только шлюзы, использующие модули BLE на ОС Linux.
+Во время записи IoT Edge поддерживает модули BLE только в шлюзах, запущенных на Linux.
 
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>Настройка двух примеров устройств в центре IoT
 
@@ -233,21 +284,23 @@ ms.lasthandoff: 05/18/2017
 
 Установите зависимые компоненты Edge Интернета вещей Azure:
 
-`sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev`
+```sh
+sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev
+```
 
 Выполните следующие команды, чтобы клонировать Edge Интернета вещей и все его подмодули в корневой каталог:
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure/iot-edge.git`
-
-`cd iot-edge`
-
-`git submodule update --init --recursive`
+```sh
+cd ~
+git clone https://github.com/Azure/iot-edge.git
+```
 
 Когда репозиторий Edge Интернета вещей полностью скопирован на устройство Raspberry Pi 3, можно выполнить его сборку, выполнив следующую команду из папки, в которой содержится пакет SDK:
 
-`./tools/build.sh`
+```sh
+cd ~/iot-edge
+./tools/build.sh  --disable-native-remote-modules
+```
 
 ### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Настройка и запуск примера BLE на устройстве Raspberry Pi 3
 
@@ -277,7 +330,7 @@ ms.lasthandoff: 05/18/2017
 
 #### <a name="ble-module-configuration"></a>Конфигурация модуля BLE
 
-В примере конфигурации для устройства BLE предполагается, что используется устройство Texas Instruments SensorTag. Любое стандартное устройство BLE, которое может функционировать как периферийное устройство GATT, должно работать, но для этого необходимо обновить идентификаторы характеристик и данные GATT (для инструкций записи). Добавьте MAC-адрес устройства SensorTag:
+В примере конфигурации для устройства BLE предполагается, что используется устройство Texas Instruments SensorTag. Любое стандартное устройство BLE, которое может функционировать как периферийное устройство GATT, должно работать, но для этого может потребоваться обновление идентификаторов характеристик и данных GATT. Добавьте MAC-адрес устройства SensorTag:
 
 ```json
 {
@@ -335,6 +388,8 @@ ms.lasthandoff: 05/18/2017
   }
 }
 ```
+
+Если устройство SensorTag не используется, просмотрите документацию устройства BLE, чтобы определить, следует ли обновить идентификаторы характеристик GATT и значения данных.
 
 #### <a name="iot-hub-module"></a>Модуль Центра Интернета вещей
 
@@ -435,13 +490,17 @@ ms.lasthandoff: 05/18/2017
 
 Для запуска примера передайте в двоичный файл **ble\_gateway** путь к файлу конфигурации JSON в качестве параметра. В следующей команде предполагается, что вы используете файл конфигурации **gateway_sample.json**. Выполните эту команду из папки **iot-edge** на устройстве Raspberry Pi:
 
-```
+```sh
 ./build/samples/ble_gateway/ble_gateway ./samples/ble_gateway/src/gateway_sample.json
 ```
 
 Перед запуском примера может потребоваться нажать маленькую кнопку на устройстве SensorTag, чтобы сделать его доступным для обнаружения.
 
-При запуске примера можно использовать такие инструменты, как [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) или [обозреватель Центра Интернета вещей](https://github.com/Azure/iothub-explorer), для мониторинга сообщений, которые шлюз Edge Интернета вещей перенаправляет с устройства SensorTag.
+При запуске примера можно использовать такие инструменты, как [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) или [обозреватель Центра Интернета вещей](https://github.com/Azure/iothub-explorer), для мониторинга сообщений, которые шлюз Edge Интернета вещей перенаправляет с устройства SensorTag. Например, с помощью средства iothub-explorer вы можете отслеживать сообщения, отправляемые с устройства в облако, с помощью следующей команды:
+
+```sh
+iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
+```
 
 ## <a name="send-cloud-to-device-messages"></a>Отправка сообщений из облака на устройство
 
@@ -518,8 +577,9 @@ ms.lasthandoff: 05/18/2017
 [lnk-sdk]: https://github.com/Azure/iot-edge/
 [lnk-noobs]: https://www.raspberrypi.org/documentation/installation/noobs.md
 [lnk-raspbian]: https://www.raspberrypi.org/downloads/raspbian/
-
-
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-create-hub]: iot-hub-create-through-portal.md 
+[lnk-pi-ssh]: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
+[lnk-ssh-windows]: https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md
+[lnk-ssh-linux]: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
 
