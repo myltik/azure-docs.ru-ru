@@ -1,14 +1,14 @@
 ---
 title: "Пример сценария Azure PowerShell. Экспорт или копирование моментального снимка в виде VHD в учетную запись хранения в другом регионе | Документация Майкрософт"
 description: "Пример сценария Azure PowerShell для экспорта или копирования моментального снимка в виде VHD в учетную запись хранения в другом регионе."
-services: managed-disks
+services: virtual-machines-windows
 documentationcenter: storage
-author: ramankum
+author: ramankumarlive
 manager: kavithag
-editor: ramankum
+editor: tysonn
 tags: azure-service-management
 ms.assetid: 
-ms.service: managed-disks-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
