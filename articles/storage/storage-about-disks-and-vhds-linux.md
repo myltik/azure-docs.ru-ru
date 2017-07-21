@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 2da32c8f796ff872494e0ed729324511440c943d
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 8305abeb8d943cdcc78383d678387c12cedfd1c3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 06/16/2017
 У каждой виртуальной машины есть один подключенный диск операционной системы. Он зарегистрирован как диск SATA и обозначается как /dev/sda по умолчанию. Максимальная емкость этого диска составляет 2048 ГБ. 
 
 ## <a name="temporary-disk"></a>Временный диск
-У каждой виртуальной машины есть временный диск. Он выступает в качестве временного хранилища для приложений и процессов и предназначен только для хранения данных, таких как страничные файлы или файлы подкачки. Данные на временном диске могут быть потеряны во время [обслуживания](../virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance) или при [повторном развертывании виртуальной машины](../virtual-machines/linux/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Во время обычной перезагрузки виртуальной машины данные на временном диске должны сохраниться.
+У каждой виртуальной машины есть временный диск. Он выступает в качестве временного хранилища для приложений и процессов и предназначен только для хранения данных, таких как страничные файлы или файлы подкачки. Данные на временном диске могут быть потеряны во время [обслуживания](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) или при [повторном развертывании виртуальной машины](../virtual-machines/linux/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Во время обычной перезагрузки виртуальной машины данные на временном диске должны сохраниться.
 
 На виртуальных машинах Linux в качестве временного диска обычно используется **/dev/sdb**. Агент Linux для Azure форматирует этот диск и монтирует его в каталог **/mnt**. Размер временного диска зависит от размера виртуальной машины. Чтобы узнать больше, ознакомьтесь с [размерами виртуальных машин Linux](../virtual-machines/linux/sizes.md).
 

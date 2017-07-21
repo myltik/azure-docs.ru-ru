@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 9b23f34300248ff87ed4a6abbeb6cfdda6570581
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 945b09ccdb7537987da33d32d94a3ccacd829ffd
 ms.contentlocale: ru-ru
 
 
@@ -35,7 +35,7 @@ ms.contentlocale: ru-ru
 1. Перейдите на [портал регистрации приложений Майкрософт](https://apps.dev.microsoft.com/portal/register-app) для регистрации приложения.
 2. Введите имя для приложения и адрес электронной почты. 
 3. Убедитесь, что параметр Guided Setup (Пошаговая настройка) не выбран.
-4. Щелкните `Add Platforms`, а затем — `Native Application` и нажмите кнопку "Сохранить".
+4. Щелкните `Add Platform`, а затем — `Native Application` и нажмите кнопку "Сохранить".
 5.  Откройте `MainActivity` (выберите `app` > `java` > *`{host}.{namespace}`*).
 6.  Замените заполнитель *[Enter the application Id here]* в строке, начинающейся с `final static String CLIENT_ID`, только что зарегистрированным идентификатором приложения:
 

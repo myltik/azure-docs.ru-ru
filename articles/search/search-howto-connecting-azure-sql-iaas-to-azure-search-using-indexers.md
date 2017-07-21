@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: be73e3d009cfcbdd585d81512afaed752ae07364
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: bb61330ba5511955e0da16dcd5b8b19529d0e44b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Настройка подключения из индексатора Поиска Azure к SQL Server на виртуальной машине Azure
-Как было отмечено в статье [Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#frequently-asked-questions), служба поиска Azure поддерживает создание индексаторов для **SQL Server на виртуальных машинах Azure** (или **виртуальных машинах SQL Azure** для краткости), но существует несколько требований безопасности, которые необходимо выполнить. 
+Как было отмечено в статье [Подключение базы данных SQL Azure к Поиску Azure с помощью индексаторов](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), служба поиска Azure поддерживает создание индексаторов для **SQL Server на виртуальных машинах Azure** (или **виртуальных машинах SQL Azure** для краткости), но существует несколько требований безопасности, которые необходимо выполнить. 
 
 **Длительность выполнения задачи:** около 30 минут, если на виртуальной машине уже установлен сертификат.
 

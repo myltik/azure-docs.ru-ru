@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/16/2017
+ms.date: 07/11/2017
 ms.author: juliako;
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2600c5cec36a8a44a85a62d6672d6ae57343f20c
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: f439a24c0bcca1742ca47770021bbe179a0b4b2f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Скрытие лиц с помощью аналитики мультимедиа Azure
@@ -60,37 +60,51 @@ ms.lasthandoff: 04/17/2017
 | Выходной ресурс-контейнер |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Обрезанный JPG-файл с изображением каждого обнаруженного лица, где номер соответствует идентификатору метки лица. |
 
 #### <a name="output-example"></a>Пример выходных данных
+
     {
       "version": 1,
-      "timescale": 50,
+      "timescale": 24000,
       "offset": 0,
-      "framerate": 25.0,
+      "framerate": 23.976,
       "width": 1280,
       "height": 720,
       "fragments": [
         {
           "start": 0,
-          "duration": 2,
-          "interval": 2,
+          "duration": 48048,
+          "interval": 1001,
           "events": [
-            [  
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
               {
-                "id": 1,
-                "x": 0.306415737,
-                "y": 0.03199235,
-                "width": 0.15357475,
-                "height": 0.322126418
+                "index": 13,
+                "id": 1138,
+                "x": 0.29537,
+                "y": -0.18987,
+                "width": 0.36239,
+                "height": 0.80335
               },
               {
-                "id": 2,
-                "x": 0.5625317,
-                "y": 0.0868245438,
-                "width": 0.149155334,
-                "height": 0.355517566
+                "index": 13,
+                "id": 2028,
+                "x": 0.60427,
+                "y": 0.16098,
+                "width": 0.26958,
+                "height": 0.57943
               }
-            ]
-          ]
-        },
+            ],
 
     … truncated
 
@@ -120,12 +134,11 @@ ms.lasthandoff: 04/17/2017
      2
      3
  
-## <a name="attribute-descriptions"></a>Описания атрибутов
+## <a name="elements-of-the-output-json-file"></a>Элементы выходного JSON-файла
+
 Обработчик мультимедиа с функцией скрытия лиц обеспечивает высокую точность обнаружения и отслеживания лиц с возможностью определения до 64 человеческих лиц в одном видеокадре. Скрытие лиц в анфас выполняется с лучшим результатом по сравнению с лицами в профиль или небольшим лицами (не более 24x24 пикселей), которые сложнее обработать.
 
-Функция регистрирует координаты обнаруженных и отслеживаемых лиц, обозначая их расположение, а также идентификационный номер каждого лица, позволяющий отслеживать этого человека. Если лицо в анфас теряется или перекрывается в кадре, его идентификационный номер может быть сброшен, в результате чего нескольким людям назначаются несколько идентификаторов.
-
-Подробные описания атрибутов см. в статье [Обнаружение лиц и определение эмоций с помощью медиа-аналитики Azure](media-services-face-and-emotion-detection.md).
+[!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
 ## <a name="sample-code"></a>Пример кода
 В следующей программе показано, как выполнить следующие задачи.

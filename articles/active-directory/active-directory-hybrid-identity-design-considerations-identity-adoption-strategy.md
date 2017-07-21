@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 47fb1724ac72df8b83012bcacdc435ea847547da
-
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Определение стратегии внедрения гибридной идентификации
@@ -176,7 +177,7 @@ ms.openlocfilehash: 47fb1724ac72df8b83012bcacdc435ea847547da
 
 Варианты многофакторной структуры:
 
-| Защищаемый ресурс | MFA в облаке | Локальная проверка подлинности MFA |
+| Защищаемый ресурс | MFA в облаке | Локальная Многофакторная идентификация (MFA) |
 | --- | --- | --- |
 | Приложения Майкрософт |Да |Да |
 | Приложения SaaS в коллекции приложений |Да |Да |
@@ -212,10 +213,5 @@ ms.openlocfilehash: 47fb1724ac72df8b83012bcacdc435ea847547da
 
 ## <a name="see-also"></a>Дополнительные материалы
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

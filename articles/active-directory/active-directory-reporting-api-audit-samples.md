@@ -3,7 +3,7 @@ title: "Примеры API аудита инструментов создани�
 description: "Как начать работу с API отчетов Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
@@ -14,41 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 665b613db31b15b6f6d2826a0795be6275c832ca
-ms.openlocfilehash: 8216fa7ab092b2d0225d075d933fa56fbab56f40
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: aab705688079601bbce93455f7dda80cdd733110
 ms.contentlocale: ru-ru
-ms.lasthandoff: 12/28/2016
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="azure-active-directory-reporting-audit-api-samples" class="xliff"></a>
-
-# Примеры API аудита инструментов создания отчетов Azure Active Directory
+# <a name="azure-active-directory-reporting-audit-api-samples"></a>Примеры API аудита инструментов создания отчетов Azure Active Directory
 Эта статья входит в серию статей об API отчетов Azure Active Directory.  
 Инструмент создания отчетов Azure AD предоставляет API, с помощью которого можно получить доступ к данным аудита, используя код или связанные инструменты.
 Цель этой статьи — предоставить пример кода для **API аудита**.
 
 См.:
 
-* Основные сведения см. в разделе [Журналы аудита](active-directory-reporting-azure-portal.md#audit-logs).
+* Основные сведения см. в разделе [Журналы аудита](active-directory-reporting-azure-portal.md#activity-reports).
 * Дополнительные сведения об API отчетов см. в статье [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
 Чтобы задать вопросы, обговорить проблемы или предоставить отзыв, обратитесь в [службу поддержки по инструментам создания отчетов AAD](mailto:aadreportinghelp@microsoft.com).
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Перед использованием примеров в этой статье выполните [предварительные требования для доступа к API отчетов Azure AD](active-directory-reporting-api-prerequisites.md).  
 
-<a id="known-issue" class="xliff"></a>
-
-## Известная проблема
+## <a name="known-issue"></a>Известная проблема
 Вы не сможете пройти аутентификацию приложения, если клиент находится в регионе Европы. Используйте аутентификацию пользователя для доступа к API аудита в качестве обходного решения, пока мы не решим эту проблему. 
 
-<a id="powershell-script" class="xliff"></a>
-
-## Сценарий PowerShell
+## <a name="powershell-script"></a>Сценарий PowerShell
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
 
     # Constants
@@ -93,16 +86,12 @@ ms.lasthandoff: 12/28/2016
     $x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 
-<a id="executing-the-powershell-script" class="xliff"></a>
-
-### Выполнение сценария PowerShell
+### <a name="executing-the-powershell-script"></a>Выполнение сценария PowerShell
 Завершив редактирование сценария, запустите его и убедитесь, что он вернул ожидаемые данные из отчета о журналах аудита.
 
 Сценарий возвращает выходные данные из отчета об аудите в формате JSON. Он также создает файл `audit.json` с такими же выходными данными. Вы можете поэкспериментировать, изменив сценарий так, чтобы он возвращал данные из других отчетов, и закомментировав ненужные форматы выходных данных.
 
-<a id="bash-script" class="xliff"></a>
-
-## Сценарий Bash
+## <a name="bash-script"></a>Сценарий Bash
     #!/bin/bash
 
     # Author: Ken Hoff (kenhoff@microsoft.com)
@@ -130,9 +119,7 @@ ms.lasthandoff: 12/28/2016
 
     echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
 
-<a id="python-script" class="xliff"></a>
-
-## Сценарий Python
+## <a name="python-script"></a>Сценарий Python
     # Author: Michael McLaughlin (michmcla@microsoft.com)
     # Date: January 20, 2016
     # This requires the Python Requests module: http://docs.python-requests.org
@@ -177,9 +164,7 @@ ms.lasthandoff: 12/28/2016
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * Хотите настроить примеры в этой статье? См. статью [Справочник по API аудита Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
 * Полный обзор использования API отчетов Azure Active Directory см. в статье [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Дополнительные сведения об отчетах Azure Active Directory см. в статье [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).  

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 590e2bc759567cf3d679e261592dff1e699ba295
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 746cad19093fd2a1ad23ddd9412394f8d9da331c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="integrate-azure-ad-into-an-android-app"></a>Интеграция Azure AD в приложение для Android
@@ -174,7 +173,7 @@ dependencies {
             ....
         <application/>
 
-4. Создайте экземпляр класса AuthenticationContext с вашим MainActivity. Описание этого вызова выходит за рамки данной статьи, но вы можете получить дополнительные сведения в разделе с [образцом собственного клиентского приложения для Android](https://github.com/AzureADSamples/NativeClient-Android). Ниже приведен пример, где SharedPreferences используется как кэш по умолчанию и права представлены в виде `https://login.windows.net/yourtenant.onmicrosoft.com`:
+4. Создайте экземпляр класса AuthenticationContext с вашим MainActivity. Описание этого вызова выходит за рамки данной статьи, но вы можете получить дополнительные сведения в разделе с [образцом собственного клиентского приложения для Android](https://github.com/AzureADSamples/NativeClient-Android). Ниже приведен пример, где SharedPreferences используется как кэш по умолчанию и права представлены в виде `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`:
 
     `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
 
@@ -264,7 +263,7 @@ dependencies {
 ### <a name="authority-url-and-ad-fs"></a>URL-адрес центра и службы федерации Active Directory
 Службы федерации Active Directory не считаются службой маркеров безопасности, поэтому необходимо включить обнаружение экземпляра службы и передать значение false в конструктор AuthenticationContext.
 
-URL-адресу центра необходим экземпляр службы маркеров безопасности и [имя клиента](https://login.windows.net/yourtenant.onmicrosoft.com).
+URL-адресу центра необходим экземпляр службы маркеров безопасности и [имя клиента](https://login.microsoftonline.com/yourtenant.onmicrosoft.com).
 
 ### <a name="querying-cache-items"></a>Запрос элементов кэша
 Библиотека ADAL предоставляет кэш по умолчанию в SharedPrefrecens и несколько простых функций для запроса данных из кэша. Вот как можно получить текущий кэш из AuthenticationContext.

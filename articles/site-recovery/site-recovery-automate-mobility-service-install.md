@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: krnese
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2b9a8b5d7b889926f1cdbb6787fea1579dd21190
-ms.openlocfilehash: 941bc07fa9be765403e8fe541caf660eef15585e
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 3e9321255b65d46af59d0ee478e214df795664ac
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/22/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Развертывание службы Mobility Service с помощью Azure Automation DSC для репликации виртуальной машины
@@ -512,5 +511,5 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-После развертывания агентов Mobility Service можно [включить репликацию](site-recovery-vmware-to-azure.md#enable-replication) для виртуальных машин.
+После развертывания агентов Mobility Service можно [включить репликацию](site-recovery-vmware-to-azure.md) для виртуальных машин.
 

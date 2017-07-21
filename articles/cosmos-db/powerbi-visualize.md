@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2016
+ms.date: 07/07/2016
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 68b4e317c51e18d61c8bde80d9fce2d63910847c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6221f5fa113bf58ed3f5e0767b79b2b647005c71
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -123,7 +123,7 @@ ms.lasthandoff: 05/31/2017
     ![Руководство по Power BI для соединителя Power BI Azure Cosmos DB — список координат](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 7. Чтобы преобразовать массив координат в плоскую структуру, мы создадим **настраиваемый столбец** , который называется LatLong.  Выберите ленту **Добавление столбца** и выберите команду **Добавить настраиваемый столбец**.  Откроется окно **Добавление настраиваемого столбца** .
 8. Укажите имя нового столбца, например LatLong.
-9. Затем укажите настраиваемую формулу для нового столбца.  В нашем примере мы соединим значения широты и долготы, разделяя их запятыми, как показано ниже, используя следующую формулу: `Text.From([Document.Location.coordinates]{1})&","&Text.From([Document.Location.coordinates]{0})`. Нажмите кнопку **ОК**.
+9. Затем укажите настраиваемую формулу для нового столбца.  В нашем примере мы соединим значения широты и долготы, разделяя их запятыми, как показано ниже, используя следующую формулу: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Нажмите кнопку **ОК**.
    
     Дополнительные сведения о выражениях анализа данных (DAX), включая функции DAX, см. в статье [Основные сведения о DAX в Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
    

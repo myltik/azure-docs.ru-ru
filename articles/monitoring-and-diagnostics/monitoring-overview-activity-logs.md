@@ -2,7 +2,7 @@
 title: "Общие сведения о журнале действий Azure | Документация Майкрософт"
 description: "Узнайте, что такое журнал действий Azure и как его использовать для просмотра событий, происходящих в рамках подписки Azure."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: c123b76b0e4c95cfebcc79063fb1c3a27efc8646
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: d0e436e2392a532cec813e0a8c5ab15c9ca35cf1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Общие сведения о журнале действий Azure

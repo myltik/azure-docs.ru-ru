@@ -1,7 +1,7 @@
 
 ---
 title: "Создание полной среды Linux с помощью Azure CLI 1.0 | Документация Майкрософт"
-description: "Узнайте, как с помощью Azure CLI 1.0 создать &quot;с нуля&quot; хранилище, виртуальную машину Linux, виртуальную сеть и подсеть, балансировщик нагрузки, сетевую карту, общедоступный IP-адрес и группу безопасности сети."
+description: "Узнайте, как с помощью Azure CLI 1.0 создать \"с нуля\" хранилище, виртуальную машину Linux, виртуальную сеть и подсеть, балансировщик нагрузки, сетевую карту, общедоступный IP-адрес и группу безопасности сети."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6fcdd64759cb12ae8804bd0cc8dc4edfeec949bd
-ms.lasthandoff: 04/03/2017
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -33,8 +34,6 @@ ms.lasthandoff: 04/03/2017
 * две виртуальные машины в группе доступности;
 * балансировщик нагрузки с правилом балансировки нагрузки для порта 80;
 * правила группы безопасности сети для защиты виртуальных машин от нежелательного трафика.
-
-![Обзор базовой среды](./media/create-cli-complete/environment_overview.png)
 
 Чтобы создать эту настраиваемую среду, потребуется последняя версия [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) в режиме Resource Manager (`azure config mode arm`). Кроме того, потребуется инструмент анализа JSON. В этом примере используются [jq](https://stedolan.github.io/jq/).
 

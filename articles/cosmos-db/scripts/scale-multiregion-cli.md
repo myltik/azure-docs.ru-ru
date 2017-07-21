@@ -16,17 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: e797fef1ca889460dccd609ae0c769dc2933c2ac
+ms.translationtype: HT
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: ab716c28b88412438d0cea80377f9f0f40dc8bd6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
-<a id="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli" class="xliff"></a>
-
-# Репликация учетной записи базы данных Azure Cosmos DB в нескольких регионах и настройка приоритетов отработки отказа с помощью Azure CLI
+# <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>Репликация учетной записи базы данных Azure Cosmos DB в нескольких регионах и настройка приоритетов отработки отказа с помощью Azure CLI
 
 Этот пример реплицирует любую учетную запись базы данных Azure Cosmos DB в нескольких регионах и настраивает приоритеты отработки отказа с помощью Azure CLI.
 
@@ -34,15 +32,11 @@ ms.lasthandoff: 06/20/2017
 
 Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="sample-script" class="xliff"></a>
-
-## Пример скрипта
+## <a name="sample-script"></a>Пример скрипта
 
 [!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/scale-cosmosdb-replicate-multiple-regions/scale-cosmosdb-replicate-multiple-regions.sh?highlight=21-31 "Масштабирование базы данных Azure Cosmos DB в нескольких регионах")]
 
-<a id="clean-up-deployment" class="xliff"></a>
-
-## Очистка развертывания
+## <a name="clean-up-deployment"></a>Очистка развертывания
 
 После выполнения примера сценария можно удалить группу ресурсов и все связанные с ней ресурсы, выполнив следующую команду.
 
@@ -50,21 +44,17 @@ ms.lasthandoff: 06/20/2017
 az group delete --name myResourceGroup
 ```
 
-<a id="script-explanation" class="xliff"></a>
-
-## Описание скрипта
+## <a name="script-explanation"></a>Описание скрипта
 
 Этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
 | Команда | Примечания |
 |---|---|
 | [az group create](/cli/azure/group#create) | Создает группу ресурсов, в которой хранятся все ресурсы. |
-| [az cosmosdb update](/cli/azure/cosmosdb/name#update) | Обновляет учетную запись базы данных Azure Cosmos DB. |
-| [az group delete](/cli/azure/resource#delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | Обновляет учетную запись базы данных Azure Cosmos DB. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Удаляет группу ресурсов со всеми вложенными ресурсами. |
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

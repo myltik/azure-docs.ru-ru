@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 08a84ace63465e7c058add69a25687fe46c7ea07
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 9e19618a1b24bbdf3163ddfc3423c5c932dcd7af
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="manage-a-web-app-in-azure-app-service"></a>Управление веб-приложением в службе приложений Azure
@@ -78,10 +77,6 @@ ms.lasthandoff: 05/26/2017
 
 Возможно, вас также заинтересует [промежуточное развертывание](web-sites-staged-publishing.md). С его помощью вы сможете публиковать обновления в промежуточной среде, функционирующей параллельно с рабочей. 
 
-Если вы используете Visual Studio Team Services, то можете настроить непрерывное развертывание из системы управления версиями:
-
-* [С помощью системы управления версиями Team Foundation](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
-* [С помощью Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
 
 <!-- Anchors. -->
 

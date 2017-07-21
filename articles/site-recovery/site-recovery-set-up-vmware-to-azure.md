@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: fd331d805c0c6ddcfb492db2902a8e53b23dcab3
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: a2fabc56463c8cbf0b8a76b7a84369ed8e535486
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/14/2017
 
 ---
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 06/30/2017
 
 Для работы с руководством требуются следующие компоненты.
 - Хранилище служб восстановления на [портале Azure](http://portal.azure.com "портал Azure").
-- Специальная учетная запись на сервере VMware vCenter, которую можно использовать для [автоматического обнаружения](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
+- Специальная учетная запись на сервере VMware vCenter, которую можно использовать для [автоматического обнаружения](./site-recovery-vmware-to-azure.md).
 - Виртуальная машина для установки сервера конфигурации.
 
 ## <a name="configuration-server-minimum-requirements"></a>Минимальные требования к серверу конфигурации

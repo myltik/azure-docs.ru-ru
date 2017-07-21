@@ -17,17 +17,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 93ea31b4469f21e92337a768668ae6d93bbc6ba6
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: db5dff01c0459db746eace0c9a4535aeccd4dcfa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-<a id="use-the-beeline-client-with-apache-hive" class="xliff"></a>
-
-# Использование клиента Beeline с Apache Hive
+# <a name="use-the-beeline-client-with-apache-hive"></a>Использование клиента Beeline с Apache Hive
 
 Узнайте, как использовать [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) для выполнения запросов Hive в HDInsight.
 
@@ -50,7 +47,7 @@ Beeline — это клиент Hive, установленный на голо�
 * Hadoop в кластере HDInsight на платформе Linux.
 
   > [!IMPORTANT]
-  > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * SSH-клиент или локальный клиент Beeline. Большинство действий, описанных в этом руководстве, выполняются в клиенте Beeline из сеанса SSH в кластере. Сведения о запуске Beeline вне кластера см. в разделе [Удаленное использование Beeline](#remote).
 
@@ -86,7 +83,7 @@ Beeline — это клиент Hive, установленный на голо�
 
 3. Используйте следующую команду, чтобы отобразить схему для таблицы hivesampletable.
 
-    ```bash
+    ```hiveql
     describe hivesampletable;
     ```
 

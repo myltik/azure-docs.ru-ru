@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: a2bc32193ad539053984794a411ae7307b8d8532
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 777bddea6b1cb325a6f8ede00196b18e1746d80c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-the-azure-portal"></a>Репликация виртуальных машин Hyper-V из облаков VMM на вторичный сайт VMM | Microsoft Azure
@@ -30,7 +29,7 @@ ms.lasthandoff: 03/15/2017
 >
 >
 
-В этой статье описывается, как с помощью [Azure Site Recovery](site-recovery-overview.md) на портале Azure выполнить репликацию локальных виртуальных машин Hyper-V, управление которыми осуществляется в облаках System Center Virtual Machine Manager (VMM), на дополнительный сайт. Дополнительные сведения об архитектуре этого сценария см. [здесь](site-recovery-components.md#hyper-v-to-a-secondary-site).
+В этой статье описывается, как с помощью [Azure Site Recovery](site-recovery-overview.md) на портале Azure выполнить репликацию локальных виртуальных машин Hyper-V, управление которыми осуществляется в облаках System Center Virtual Machine Manager (VMM), на дополнительный сайт. Дополнительные сведения об архитектуре этого сценария см. [здесь](site-recovery-components.md).
 
 Любые комментарии, которые возникнут после прочтения этой статьи, можно добавить в конце этой страницы или на [форуме по службам восстановления Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 

@@ -3,8 +3,8 @@ title: "Добавление проверки подлинности в Apache C
 description: "Узнайте, как использовать мобильные приложения в службе приложений Azure для аутентификации пользователей приложения Apache Cordova с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
-ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
-ms.lasthandoff: 02/16/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f2073819fe60aa51b88feeaf3b0ff0e8d052b4c7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Добавление проверки подлинности в приложение Apache Cordova
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/16/2017
 
    | Поставщик | Имя поставщика SDK | Узел OAuth |
    |:--- |:--- |:--- |
-   | Azure Active Directory | aad | https://login.windows.net |
+   | Azure Active Directory | aad | https://login.microsoftonline.com |
    | Facebook | Facebook | https://www.facebook.com |
    | Google | Google | https://accounts.google.com |
    | Microsoft | microsoftaccount | https://login.live.com |
@@ -58,9 +58,9 @@ ms.lasthandoff: 02/16/2017
     Пример политики безопасности содержимого (для Azure Active Directory):
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
-            data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+            data: gap: https://login.microsoftonline.com https://yourapp.azurewebsites.net; style-src 'self'">
 
-    Замените `https://login.windows.net` узлом OAuth из приведенной выше таблицы.  Дополнительные сведения о метатеге политики безопасности содержимого см. в [документации по политике безопасности содержимого].
+    Замените `https://login.microsoftonline.com` узлом OAuth из приведенной выше таблицы.  Дополнительные сведения о метатеге политики безопасности содержимого см. в [документации по политике безопасности содержимого].
 
     Некоторые поставщики аутентификации не требуют изменений в политике безопасности содержимого при использовании на соответствующих мобильных устройствах.  Например, изменения в политики безопасности содержимого не требуются, если на устройстве Android используется проверка подлинности Google.
 
