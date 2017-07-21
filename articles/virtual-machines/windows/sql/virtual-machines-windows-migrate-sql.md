@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/17/2017
 ms.author: carlasab
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 789e1eabcd284c17c5728156cf185d2ca168f0eb
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 8403b5454b387fa7062d188b18cdd595bf24aecd
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Миграция базы данных SQL Server в экземпляр SQL Server на виртуальной машине Azure
@@ -56,9 +56,9 @@ ms.lasthandoff: 03/25/2017
 
 | Метод | Версия исходной базы данных | Версия базы данных назначения | Ограничение на размер файла резервной копии исходной базы данных | Примечания |
 | --- | --- | --- | --- | --- |
-| [Локальная архивация с использованием сжатия и ручное копирование файла резервной копии на виртуальную машину Azure](#backup-to-file-and-copy-to-vm-and-restore) |SQL Server 2005 или более поздней версии |SQL Server 2005 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | Это очень простая и проверенная методика перемещения баз данных между компьютерами. |
+| [Локальная архивация с использованием сжатия и ручное копирование файла резервной копии на виртуальную машину Azure](#backup-and-restore) |SQL Server 2005 или более поздней версии |SQL Server 2005 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | Это очень простая и проверенная методика перемещения баз данных между компьютерами. |
 | [Архивация в URL-адрес и последующее восстановление на виртуальную машину Azure с этого URL-адреса.](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 или более поздней версии |SQL Server 2012 SP1 CU2 или более поздней версии |Менее 12,8 ТБ для SQL Server 2016, в противном случае менее 1 ТБ | Этот просто еще один способ перемещения файла резервной копии на виртуальную машину с помощью службы хранилища Azure. |
-| [Отключение и копирование файлов данных и журналов в хранилище больших двоичных объектов Azure с последующим подключением к SQL Server на виртуальной машине Azure с использованием URL-адреса.](#detach-and-copy-to-url-and-attach-from-url) |SQL Server 2005 или более поздней версии |SQL Server 2014 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Используйте этот метод, если необходимо [сохранить файлы с помощью службы хранилища больших двоичных объектов Azure](https://msdn.microsoft.com/library/dn385720.aspx) и подключить их к SQL Server на виртуальной машине Azure, особенно при работе с очень большими базами данных. |
+| [Отключение и копирование файлов данных и журналов в хранилище больших двоичных объектов Azure с последующим подключением к SQL Server на виртуальной машине Azure с использованием URL-адреса.](#detach-and-attach-from-url) |SQL Server 2005 или более поздней версии |SQL Server 2014 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Используйте этот метод, если необходимо [сохранить файлы с помощью службы хранилища больших двоичных объектов Azure](https://msdn.microsoft.com/library/dn385720.aspx) и подключить их к SQL Server на виртуальной машине Azure, особенно при работе с очень большими базами данных. |
 | [Преобразование локального компьютера в VHD Hyper-V, отправка VHD в хранилище больших двоичных объектов Azure и последующее развертывание новой виртуальной машины на базе отправленного VHD.](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 или более поздней версии |SQL Server 2005 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Используется в случае [использования вашей собственной лицензии SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md) при миграции базы данных, которую планируется запустить на более ранней версии SQL Server, или при совместной миграции системных и пользовательских баз данных в рамках миграции базы данных, которая зависит от других пользовательских и (или) системных баз данных. |
 | [Доставка жестких дисков в службу импорта и экспорта Windows.](#ship-hard-drive) |SQL Server 2005 или более поздней версии |SQL Server 2005 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Следует использовать [службу импорта и экспорта Windows](../../../storage/storage-import-export-service.md) , когда на ручное копирование требуется слишком много времени, особенно при работе с базами данных очень большого размера. |
 | [Работа с мастером добавления реплики Azure](../classic/sql-onprem-availability.md) |SQL Server 2012 или более поздней версии |SQL Server 2012 или более поздней версии |[Ограничение на размер хранилища виртуальной машины Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Сокращает время простоя, используется при наличии локального развертывания AlwaysOn. |
@@ -85,7 +85,7 @@ ms.lasthandoff: 03/25/2017
 ## <a name="convert-to-vm-and-upload-to-url-and-deploy-as-new-vm"></a>Преобразование в виртуальную машину, отправка на URL-адрес и развертывание в качестве новой виртуальной машины
 Этот метод используется для переноса всех системных и пользовательских баз данных из локального экземпляра SQL Server на виртуальную машину Azure. Для переноса всего экземпляра SQL Server с помощью этого ручного метода выполните указанные ниже действия.
 
-1. Преобразуйте физические или виртуальные машины в VHD Hyper-V с помощью средства [Microsoft Virtual Machine Converter](http://technet.microsoft.com/library/dn873998.aspx).
+1. Преобразуйте физические или виртуальные машины в VHD Hyper-V с помощью средства [Microsoft Virtual Machine Converter](https://technet.microsoft.com/library/dn874008(v=ws.11).aspx).
 2. Отправьте VHD-файлы в службу хранилища Azure с помощью [командлета Add-AzureVHD](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 3. Разверните новую виртуальную машину на базе отправленного VHD-файла.
 

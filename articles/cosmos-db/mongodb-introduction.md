@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/14/2017
 ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: fd94115e94dbab30b8e0fae6d07742e8ff92a444
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 4dbf91a3c1d6a287d7337647f9e059566c7ddbe5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Знакомство с API для MongoDB в Azure Cosmos DB
@@ -50,7 +49,7 @@ ms.lasthandoff: 05/31/2017
 
 Узнайте больше в этом видео из цикла "Пятница с Azure" от Скотта Хансельмана (Scott Hanselman) и главного технического руководителя Azure Cosmos DB, Кирилла Гаврилюка.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/DocumentDB-Database-as-a-Service-for-MongoDB-Developers/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Introducing-Azure-Cosmos-DB/player]
 > 
 
 ## <a name="how-to-get-started"></a>Как приступить к работе

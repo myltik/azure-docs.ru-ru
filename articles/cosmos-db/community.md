@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: b78d8d257ea31e7cb6b4e1abfb32c81fcea67b6d
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="community-portal"></a>Портал сообщества
@@ -105,7 +104,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluen
 |[South Florida Codecamp: как освоить NoSQL для разработчиков .NET с помощью Azure DocumentDB менее, чем 10 минут](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Сантош Хари (Santosh Hari)](https://twitter.com/_s_hari)|Дэйви, штат Флорида|11 марта 2017 г.|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[Orlando Codecamp: как освоить NoSQL для разработчиков .NET с помощью Azure DocumentDB менее, чем 10 минут](http://orlandocodecamp.com/Sessions/Details/20)| [Сантош Хари (Santosh Hari)](https://twitter.com/_s_hari)|Сэнфорд, штат Флорида|8 апреля 2017 г.|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
 |[Глобальный учебный курс по Azure: независимые от сервера вычисления в Azure с помощью Функций Azure и DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| [Josh Lane](https://twitter.com/jplane) (Джош Лэйн)|Атланта, штат Джорджия, США|22 апреля 2017 г.|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
-|[Конференция NDC, Осло, 2017 г.: Azure DocumentDB — лучшая база данных NoSQL, которую вы, возможно, пока не используете](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)|[Josh Lane](https://twitter.com/jplane) (Джош Лэйн)|Осло, Норвегия|14 июня 2017 г.|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
+|[Конференция NDC, Осло, 2017 г.: Azure DocumentDB — лучшая база данных NoSQL, которую вы, возможно, пока не используете](http://ndcoslo.com/talk/azure-cosmos-db-the-best-nosql-database-youre-probably-not-using-yet/)|[Josh Lane](https://twitter.com/jplane) (Джош Лэйн)|Осло, Норвегия|14 июня 2017 г.|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
 *Вы являетесь докладчиком или организуете мероприятие? [Сообщите нам,](mailto:askcosmosdb@microsoft.com) чем мы можем помочь.*
 

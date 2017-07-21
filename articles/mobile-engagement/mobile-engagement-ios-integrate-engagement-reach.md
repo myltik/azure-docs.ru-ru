@@ -14,10 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c8bb1161e874a3adda4a71ee889ca833db881e20
-ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>Как интегрировать рекламные кампании Engagement в iOS
@@ -33,8 +34,8 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
 > [!IMPORTANT]
 > **Данный способ не является рекомендуемым** , так как это поведение может измениться с любым последующим (даже незначительным) обновлением версии iOS из-за того, что этот интерфейс API для iOS устарел. Рекомендуется перейти на XCode 8 как можно скорее.
-> 
-> 
+>
+>
 
 ### <a name="enable-your-app-to-receive-silent-push-notifications"></a>Включение приложения для получения автоматических push-уведомлений
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
@@ -45,33 +46,33 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
 ### <a name="modify-your-application-delegate"></a>Изменение делегата приложения
 * Импортируйте модуль обработки рекламных кампаний службы Engagement в верхней части файла реализации:
-  
+
       [...]
       #import "AEReachModule.h"
 * Создайте внутри метода `applicationDidFinishLaunching:` или `application:didFinishLaunchingWithOptions:` модуль обработки рекламных кампаний и передайте его в существующую строку инициализации службы Engagement:
-  
+
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
         [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
         [...]
-  
+
         return YES;
       }
 * Измените строку **icon.png** на имя изображения, которое вы хотите использовать в качестве значка уведомления.
 * Если вы хотите использовать параметр *Обновить значение индикатора событий* в рекламных кампаниях или применять кампании системных push-уведомлений \</SaaS/Reach API/Campaign format/Native Push\>, следует разрешить модулю обработки рекламных кампаний управлять значком индикатора событий (он будет автоматически очищать индикатор событий приложения и сбрасывать значение, хранимое службой Engagement, при каждом запуске приложения или его переключении на передний план). Для этого после инициализации модуля обработки рекламных кампаний необходимо добавить следующую строку:
-  
+
       [reach setAutoBadgeEnabled:YES];
 * Чтобы обрабатывать отправку данных рекламных кампаний, делегат приложения должен соответствовать протоколу `AEReachDataPushDelegate` . После инициализации модуля обработки рекламных кампаний добавьте следующую строку:
-  
+
       [reach setDataPushDelegate:self];
 * Затем можно реализовать методы `onDataPushStringReceived:` и `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` в делегате приложения:
-  
+
       -(BOOL)didReceiveStringDataPushWithCategory:(NSString*)category body:(NSString*)body
       {
          NSLog(@"String data push message with category <%@> received: %@", category, body);
          return YES;
       }
-  
+
       -(BOOL)didReceiveBase64DataPushWithCategory:(NSString*)category decodedBody:(NSData *)decodedBody encodedBody:(NSString *)encodedBody
       {
          NSLog(@"Base64 data push message with category <%@> received: %@", category, encodedBody);
@@ -98,10 +99,10 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 Если он не зарегистрирован, необходимо зарегистрировать приложение для получения push-уведомлений.
 
 * Импортируйте платформу `User Notification` :
-  
+
         #import <UserNotifications/UserNotifications.h>
 * Добавьте следующую строку при запуске приложения (обычно в `application:didFinishLaunchingWithOptions:`):
-  
+
         if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
         {
             if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
@@ -132,21 +133,10 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
     }
 
-> [!NOTE]
-> Описанный выше метод впервые появился в iOS 7. Если вы ориентируетесь на более старую платформу по сравнению с iOS&7;, обязательно реализуйте метод `application:didReceiveRemoteNotification:` в делегате приложения и вызовите метод `applicationDidReceiveRemoteNotification` для EngagementAgent, передав nil вместо аргумента `handler`:
-> 
-> 
-
-    - (void)application:(UIApplication*)application
-    didReceiveRemoteNotification:(NSDictionary*)userInfo
-    {
-        [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
-    }
-
 > [!IMPORTANT]
 > По умолчанию completionHandler управляется Engagement Reach. Если вы хотите вручную отреагировать на блок `handler`в коде, можно передать nil для аргумента `handler` и управлять блоком завершения самостоятельно. Список возможных значений см. в описании типа `UIBackgroundFetchResult`.
-> 
-> 
+>
+>
 
 ### <a name="full-example"></a>Полный пример
 Ниже приведен полный пример интеграции:
@@ -251,7 +241,7 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code
-  
+
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
@@ -308,8 +298,8 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
 > [!TIP]
 > Просто скопируйте предоставленный NIB-файл с именем `AENotificationView.xib` и начните работу. Но будьте внимательны: представление в этом NIB-файле связано в классом `AENotificationView`. Этот класс переопределяет метод `layoutSubViews` , чтобы перемещать и изменять размер вложенных представлений в зависимости от контекста. Вы можете заменить его классом `UIView` или настраиваемым классом представления.
-> 
-> 
+>
+>
 
 Если вам требуется расширенная настройка уведомлений (например, если вам нужно загружать представление непосредственно из кода), советуем просмотреть предоставленную документацию по исходному коду и классу для `Protocol ReferencesDefaultNotifier` и `AENotifier`.
 
@@ -334,8 +324,8 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
 > [!WARNING]
 > Если `handleNotification:` вызывает исключение, содержимое удаляется и вызывается `drop`. Затем это поведение регистрируется в статистике, после чего можно обрабатывать следующие кампании.
-> 
-> 
+>
+>
 
 #### <a name="include-notification-as-part-of-an-existing-view"></a>Включение уведомления в состав существующего представления
 Наложения хорошо подходят для быстрой интеграции, но иногда могут быть неудобными или приводить к нежелательным побочным эффектам.
@@ -345,12 +335,12 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 Вы можете включить наш макет уведомлений в существующие представления. Это можно выполнить двумя способами:
 
 1. Добавьте представление уведомлений с помощью конструктора интерфейса:
-   
+
    * Откройте *конструктор интерфейса*
    * Разместите `UIView` размером 320 x 60 (или 768 x6 0 для iPad) там, где следует отображать уведомление.
    * Задайте для параметра «Тег» значение **36822491**
 2. Добавьте представление уведомлений программно. Просто добавьте следующий код после инициализации представления:
-   
+
        UIView* notificationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)]; //Replace x and y coordinate values to your needs.
        notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
        [self.view addSubview:notificationView];
@@ -359,8 +349,8 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
 > [!NOTE]
 > Средство уведомлений по умолчанию автоматически обнаруживает включение макета уведомлений в это представление и не будет добавлять наложение для него.
-> 
-> 
+>
+>
 
 ### <a name="announcements-and-polls"></a>Объявления и опросы
 #### <a name="layouts"></a>Макеты
@@ -377,8 +367,8 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
 > [!NOTE]
 > По каждому щелчку уведомления для объявления с категорией my\_category будет выполняться инициализация зарегистрированного контроллера представлений (в этом случае `MyCustomAnnouncementViewController`) путем вызова метода `initWithAnnouncement:`, а представление будет добавляться в текущее окно приложения.
-> 
-> 
+>
+>
 
 В своей реализации класса `AEAnnouncementViewController` для инициализации вложенных представлений вам потребуется считать свойство `announcement`. Рассмотрите следующий пример, в котором две метки инициализируются с помощью свойств `title` и `body` класса `AEReachAnnouncement`:
 
@@ -413,8 +403,8 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
 > [!IMPORTANT]
 > Прежде чем закрыть контролер представлений, обязательно вызовите метод `action` (`submitAnswers:` для пользовательских контроллеров представлений опросов) или `exit`. В противном случае статистика не будет отправлена (т. е. не будет получена аналитика по кампании) и, что важнее, следующие кампании не будут получать уведомления до перезапуска процесса приложения.
-> 
-> 
+>
+>
 
 ##### <a name="implementation-example"></a>Пример реализации
 В этой реализации пользовательское представление объявлений загружается из внешнего XIB-файла.
@@ -512,9 +502,4 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
     }
 
     @end
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

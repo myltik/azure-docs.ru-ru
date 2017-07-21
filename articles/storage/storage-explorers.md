@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: dineshmurthy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 85ef906d680df8f6848b323d79a09b8414ed0817
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 620efda06d8225b21b6bb9b104b79061ebb6515c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/06/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="azure-storage-client-tools"></a>Клиентские инструменты службы хранилища Azure
@@ -156,7 +155,7 @@ ms.lasthandoff: 04/06/2017
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure Storage Explorer;</a></td>
+    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure Storage Explorer;</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>

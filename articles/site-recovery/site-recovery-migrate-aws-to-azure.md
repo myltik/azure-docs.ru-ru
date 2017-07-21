@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: b2420da03b83a355215d7beeffd5b4cff10da75b
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: b3c0727a279649f4f7dae30d41027129ce5b04ee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="migrate-virtual-machines-in-amazon-web-services-aws-to-azure-with-azure-site-recovery"></a>Перенос виртуальных машин из Amazon Web Services (AWS) в Azure с помощью Azure Site Recovery
@@ -43,7 +42,7 @@ Site Recovery можно использовать для переноса экз
 
 Вот что нужно для этого развертывания:
 
-* **Сервер конфигурации.** Виртуальная машина Amazon EC2 под управлением Windows Server 2012 EC2, развернутая в качестве сервера конфигурации. По умолчанию при развертывании сервера конфигурации устанавливаются другие компоненты Azure Site Recovery (сервер обработки и главный целевой сервер). Эта статья содержит инструкции по миграции с помощью портала Azure, которые основаны на сведениях, приведенных в [этом разделе](site-recovery-components.md#vmware-to-azure).
+* **Сервер конфигурации.** Виртуальная машина Amazon EC2 под управлением Windows Server 2012 EC2, развернутая в качестве сервера конфигурации. По умолчанию при развертывании сервера конфигурации устанавливаются другие компоненты Azure Site Recovery (сервер обработки и главный целевой сервер). Эта статья содержит инструкции по миграции с помощью портала Azure, которые основаны на сведениях, приведенных в [этом разделе](site-recovery-components.md).
 
 * **Экземпляры EC2.** Экземпляры виртуальных машин Amazon EC2, которые требуется перенести.
 

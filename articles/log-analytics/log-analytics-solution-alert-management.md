@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/07/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 885de1e94e3ce520621dc8dc7a4a495501f6a429
-ms.openlocfilehash: 35b4c30de20c46312bd7e4524a4264450184138a
-ms.lasthandoff: 02/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 3714730dce9c856f602cf46e013b1ff6a89cfb07
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Решение управления оповещениями в Operations Management Suite (OMS)
 
 ![Значок "Управление оповещениями"](media/log-analytics-solution-alert-management/icon.png)
 
-Решение для управления оповещениями помогает анализировать все оповещения в репозитории Log Analytics.  Эти оповещения могут поступать из различных источников, включая [созданные Log Analytics](log-analytics-alerts.md) или [импортированные из Nagios или Zabbix](log-analytics-linux-agents.md#linux-alerts).  Решение также импортирует оповещения из всех [подключенных групп управления System Center Operations Manager (SCOM)](log-analytics-om-agents.md).
+Решение для управления оповещениями помогает анализировать все оповещения в репозитории Log Analytics.  Эти оповещения могут поступать из различных источников, включая [созданные Log Analytics](log-analytics-alerts.md) или [импортированные из Nagios или Zabbix](log-analytics-linux-agents.md).  Решение также импортирует оповещения из всех [подключенных групп управления System Center Operations Manager (SCOM)](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Решение может работать с любыми записями в репозитории Log Analytics с типом **Alert** (Оповещение), поэтому необходимо выполнить настройку, которая требуется для сбора этих записей.
 
 - Для оповещений Log Analytics [создайте правила генерации оповещений](log-analytics-alerts.md), чтобы записи оповещений создавались непосредственно в репозитории.
-- Для оповещений Nagios и Zabbix [настройте соответствующие серверы](log-analytics-linux-agents.md#linux-alerts) на отправку оповещений в Log Analytics.
+- Для оповещений Nagios и Zabbix [настройте соответствующие серверы](log-analytics-linux-agents.md) на отправку оповещений в Log Analytics.
 - Для оповещений SCOM [подключите группу управления Operations Manager к рабочей области Log Analytics](log-analytics-om-agents.md).  Все оповещения, созданные в SCOM, будут импортироваться в Log Analytics.  
 
 ## <a name="configuration"></a>Конфигурация
