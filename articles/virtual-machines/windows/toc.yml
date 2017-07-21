@@ -85,8 +85,6 @@
           href: preserving-maintenance.md
         - name: Обслуживание с перезапуском
           href: impactful-maintenance.md
-        - name: Расписание
-          href: planned-maintenance-schedule.md
     - name: Размеры виртуальной машины
       href: sizes.md
       items:
@@ -427,6 +425,8 @@
               href: troubleshoot-recovery-disks.md
             - name: Портал Azure
               href: troubleshoot-recovery-disks-portal.md
+        - name: Устранение проблем производительности с помощью PerfInsights
+          href: how-to-use-perfInsights.md
 - name: Справочные материалы
   items:
     - name: Инфраструктура CLI Azure

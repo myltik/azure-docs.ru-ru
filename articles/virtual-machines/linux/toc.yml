@@ -385,6 +385,8 @@
               href: classic/hpcpack-cluster-namd.md
         - name: SAP в Azure
           href: ../workloads/sap/get-started.md
+        - name: Oracle в Azure
+          href: ../workloads/oracle/oracle-considerations.md
     - name: Использование Docker на виртуальных машинах
       items:
         - name: >-

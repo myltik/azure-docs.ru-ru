@@ -2,345 +2,363 @@
   href: index.yml
 - name: Обзор
   items:
-  - name: Сведения о веб-приложениях
-    href: app-service-web-overview.md
-  - name: Сравнение вариантов размещения
-    href: choose-web-site-cloud-service-vm.md
+    - name: Сведения о веб-приложениях
+      href: app-service-web-overview.md
+    - name: Сравнение вариантов размещения
+      href: choose-web-site-cloud-service-vm.md
 - name: Быстрое начало работы
   expanded: true
   items:
-  - name: Создание приложения .NET
-    href: app-service-web-get-started-dotnet.md
-  - name: Создание приложения Node.js
-    href: app-service-web-get-started-nodejs.md
-  - name: Создание приложения PHP
-    href: app-service-web-get-started-php.md
-  - name: Создание приложения Java
-    href: app-service-web-get-started-java.md
-  - name: Создание приложения Python
-    href: app-service-web-get-started-python.md
-  - name: Создание статического HTML-сайта
-    href: app-service-web-get-started-html.md
+    - name: Создание приложения .NET
+      href: app-service-web-get-started-dotnet.md
+    - name: Создание приложения Node.js
+      href: app-service-web-get-started-nodejs.md
+    - name: Создание приложения PHP
+      href: app-service-web-get-started-php.md
+    - name: Создание приложения Java
+      href: app-service-web-get-started-java.md
+    - name: Создание приложения Python
+      href: app-service-web-get-started-python.md
+    - name: Создание статического HTML-сайта
+      href: app-service-web-get-started-html.md
 - name: Учебники
   items:
-  - name: 1. .NET с базой данных SQL
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: 1. Node.js с MongoDB
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: "1.\_Использование PHP и MySQL"
-    href: app-service-web-tutorial-php-mysql.md 
-  - name: "1.\_Использование WordPress и MySQL"
-    href: app-service-web-create-web-app-from-marketplace.md
-  - name: "1.\_Использование Python и PostgreSQL"
-    href: app-service-web-tutorial-docker-python-postgresql-app.md
-  - name: 2. Сопоставление пользовательского домена
-    href: app-service-web-tutorial-custom-domain.md
-  - name: 3. Привязка SSL-сертификата
-    href: app-service-web-tutorial-custom-ssl.md
-  - name: 4. Добавление CDN
-    href: app-service-web-tutorial-content-delivery-network.md
-#  - name: 5 - Monitor your app
-#    href: app-service-web-tutorial-monitoring.md
+    - name: 1. .NET с базой данных SQL
+      href: app-service-web-tutorial-dotnet-sqldatabase.md
+    - name: 1. Node.js с MongoDB
+      href: app-service-web-tutorial-nodejs-mongodb-app.md
+    - name: "1.\_Использование PHP и MySQL"
+      href: app-service-web-tutorial-php-mysql.md
+    - name: "1.\_Использование WordPress и MySQL"
+      href: app-service-web-create-web-app-from-marketplace.md
+    - name: "1.\_Использование Python и PostgreSQL"
+      href: app-service-web-tutorial-docker-python-postgresql-app.md
+    - name: 2. Сопоставление пользовательского домена
+      href: app-service-web-tutorial-custom-domain.md
+    - name: 3. Привязка SSL-сертификата
+      href: app-service-web-tutorial-custom-ssl.md
+    - name: 4. Добавление CDN
+      href: app-service-web-tutorial-content-delivery-network.md
 - name: Примеры
   items:
-  - name: Инфраструктура CLI Azure
-    href: app-service-cli-samples.md
-  - name: PowerShell
-    href: app-service-powershell-samples.md
+    - name: Инфраструктура CLI Azure
+      href: app-service-cli-samples.md
+    - name: PowerShell
+      href: app-service-powershell-samples.md
 - name: Основные понятия
   items:
-  - name: Принцип работы службы приложений
-    href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: Планы службы приложений
-    href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: Среда службы приложений
-    href: ../app-service/app-service-environment/intro.md
-  - name: Аутентификация и авторизация
-    href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-  - name: Проверка подлинности с помощью локальной службы AD
-    href: web-sites-authentication-authorization.md
+    - name: Принцип работы службы приложений
+      href: >-
+        ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: Планы службы приложений
+      href: >-
+        ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: Среда службы приложений
+      href: ../app-service/app-service-environment/intro.md
+    - name: Аутентификация и авторизация
+      href: >-
+        ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+    - name: Проверка подлинности с помощью локальной службы AD
+      href: web-sites-authentication-authorization.md
 - name: Практические руководства
   items:
-  - name: Разработка приложения
-    items:
-    - name: 'ASP.NET:'
+    - name: Разработка приложения
       items:
-      - name: Использование приложения ASP.NET с базой данных SQL
-        href: web-sites-dotnet-get-started.md
-      - name: Разработка приложения ASP.NET Core с помощью VS Code
-        href: web-sites-create-web-app-using-vscode.md
-    - name: PHP
+        - name: 'ASP.NET:'
+          items:
+            - name: Использование приложения ASP.NET с базой данных SQL
+              href: web-sites-dotnet-get-started.md
+            - name: Разработка приложения ASP.NET Core с помощью VS Code
+              href: web-sites-create-web-app-using-vscode.md
+        - name: PHP
+          items:
+            - name: Приложение Laravel с MySQL
+              href: app-service-web-php-get-started.md
+            - name: Настройка проекта PHP
+              href: web-sites-php-configure.md
+            - name: Настройка мультисайта WordPress
+              href: web-sites-php-convert-wordpress-multisite.md
+        - name: Node.js
+          items:
+            - name: Использование приложения Sails.js с базой данных NoSQL
+              href: app-service-web-nodejs-sails.md
+            - name: Использование io.js
+              href: web-sites-nodejs-iojs.md
+            - name: Отладка приложения Node.js
+              href: web-sites-nodejs-debug.md
+        - name: Java
+          items:
+            - name: Использование приложения Java с Eclipse
+              href: app-service-web-eclipse-create-hello-world-web-app.md
+            - name: Использование приложения Java с IntelliJ
+              href: app-service-web-intellij-create-hello-world-web-app.md
+            - name: Использование пакета Azure SDK для Java
+              href: java-create-azure-website-using-java-sdk.md
+            - name: Отправка существующего приложения
+              href: web-sites-java-add-app.md
+        - name: Python
+          items:
+            - name: Использование приложения Django с MySQL
+              href: web-sites-python-ptvs-django-mysql.md
+        - name: Отправка сообщений электронной почты с помощью SendGrid
+          href: sendgrid-dotnet-how-to-send-email.md
+        - name: Настройка среды выполнения
+          items:
+            - name: PHP в Windows
+              href: web-sites-php-configure.md
+            - name: Java
+              href: web-sites-java-add-app.md
+            - name: Python
+              href: web-sites-python-configure.md
+        - name: Настройка приложения
+          items:
+            - name: Использование параметров приложения
+              href: web-sites-configure.md
+        - name: Веб-приложения на платформе Linux
+          items:
+            - name: Обзор
+              href: app-service-linux-intro.md
+            - name: Создание веб-приложения на платформе Linux
+              href: app-service-linux-how-to-create-web-app.md
+            - name: Веб-приложения Ruby на платформе Linux
+              href: app-service-linux-ruby-get-started.md
+            - name: Веб-приложения Node.js на платформе Linux
+              href: app-service-linux-using-nodejs-pm2.md
+            - name: Веб-приложения .NET Core на платформе Linux
+              href: app-service-linux-using-dotnetcore.md
+            - name: Пользовательские веб-приложения Docker на платформе Linux
+              href: app-service-linux-using-custom-docker-image.md
+            - name: Подключение через SSH
+              href: app-service-linux-ssh-support.md
+            - name: Непрерывное развертывание
+              href: app-service-linux-ci-cd.md
+            - name: Вопросы и ответы о веб-приложениях на платформе Linux
+              href: app-service-linux-faq.md
+    - name: Развернуть в Azure
+      href: web-sites-deploy.md
       items:
-      - name: Приложение Laravel с MySQL
-        href: app-service-web-php-get-started.md
-      - name: Настройка проекта PHP
-        href: web-sites-php-configure.md
-      - name: Настройка мультисайта WordPress
-        href: web-sites-php-convert-wordpress-multisite.md
-    - name: Node.js
+        - name: Развертывание через FTP
+          href: app-service-deploy-ftp.md
+        - name: Развертывание через синхронизацию с облаком
+          href: app-service-deploy-content-sync.md
+        - name: Непрерывное развертывание
+          href: app-service-continuous-deployment.md
+        - name: Развертывание в промежуточное хранилище
+          href: web-sites-staged-publishing.md
+        - name: Развертывание из локального репозитория Git
+          href: app-service-deploy-local-git.md
+        - name: Развертывание с помощью шаблона
+          href: app-service-deploy-complex-application-predictably.md
+        - name: Гибкое развертывание
+          href: app-service-agile-software-development.md
+        - name: Бета-тестирование
+          href: app-service-web-test-in-production-controlled-test-flight.md
+        - name: Сброс учетных данных развертывания
+          href: app-service-deployment-credentials.md
+        - name: Сопоставление пользовательского домена
+          items:
+            - name: Приобретение домена
+              href: custom-dns-web-site-buydomains-web-app.md
+            - name: Сопоставление доменов с помощью диспетчера трафика
+              href: web-sites-traffic-manager-custom-domain-name.md
+            - name: Сопоставление доменов GoDaddy
+              href: web-sites-godaddy-custom-domain-name.md
+            - name: Перенос активного домена
+              href: app-service-custom-domain-name-migrate.md
+        - name: Перенос из IIS
+          href: web-sites-migration-from-iis-server.md
+        - name: Тестирование в рабочей среде
+          href: app-service-web-test-in-production-get-start.md
+        - name: Добавление функций в веб-приложение
+          href: app-service-web-get-started-2.md
+    - name: Подключение к БД и ресурсам
       items:
-      - name: Использование приложения Sails.js с базой данных NoSQL
-        href: app-service-web-nodejs-sails.md
-      - name: Использование io.js
-        href: web-sites-nodejs-iojs.md
-      - name: Отладка приложения Node.js
-        href: web-sites-nodejs-debug.md
-    - name: Java
+        - name: Подключение к локальным данным
+          href: web-sites-hybrid-connection-get-started.md
+        - name: Подключение к виртуальной сети Azure
+          href: web-sites-integrate-with-vnet.md
+        - name: Подключение к виртуальной сети Azure с помощью PowerShell
+          href: app-service-vnet-integration-powershell.md
+        - name: Подключение к MongoDB на виртуальной машине Azure
+          href: web-sites-dotnet-store-data-mongodb-vm.md
+    - name: Безопасность приложения
       items:
-      - name: Использование приложения Java с Eclipse
-        href: app-service-web-eclipse-create-hello-world-web-app.md
-      - name: Использование приложения Java с IntelliJ
-        href: app-service-web-intellij-create-hello-world-web-app.md
-      - name: Использование пакета Azure SDK для Java
-        href: java-create-azure-website-using-java-sdk.md
-      - name: Отправка существующего приложения
-        href: web-sites-java-add-app.md
-    - name: Python
+        - name: Проверка подлинности пользователей
+          items:
+            - name: "Проверка подлинности с помощью Azure\_AD"
+              href: >-
+                ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Проверка подлинности с помощью Facebook
+              href: >-
+                ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Проверка подлинности с помощью Google
+              href: >-
+                ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Проверка подлинности с помощью учетной записи Майкрософт
+              href: >-
+                ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Проверка подлинности с помощью Twitter
+              href: >-
+                ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+            - name: Проверка подлинности с помощью локальной службы AD
+              href: web-sites-authentication-authorization.md
+            - name: Приложения с мультитенантной базой данных
+              href: web-sites-dotnet-entity-framework-row-level-security.md
+        - name: Принудительное использование HTTPS
+          href: 'web-sites-configure-ssl-certificate.md#enforce-https-on-your-app'
+        - name: Настройка взаимной проверки подлинности TLS
+          href: app-service-web-configure-tls-mutual-auth.md
+    - name: Масштабирование приложения
       items:
-      - name: Использование приложения Django с MySQL
-        href: web-sites-python-ptvs-django-mysql.md
-    - name: Отправка сообщений электронной почты с помощью SendGrid
-      href: sendgrid-dotnet-how-to-send-email.md
-    - name: Настройка среды выполнения
+        - name: Увеличение масштаба
+          href: web-sites-scale.md
+        - name: Масштабирование
+          href: >-
+            ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        - name: Балансировка нагрузки с помощью диспетчера трафика
+          href: web-sites-traffic-manager.md
+        - name: Высокая степень масштабирования с помощью сред службы приложений
+          href: >-
+            ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        - name: Глобальный доступ с помощью Azure CDN
+          href: cdn-websites-with-cdn.md
+        - name: Подключение к кэшу Redis через Memcache
+          href: web-sites-connect-to-redis-using-memcache-protocol.md
+        - name: Создание кэша Redis
+          href: >-
+            ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        - name: Управление состоянием сеанса с кэшем Redis для Azure
+          href: web-sites-dotnet-session-state-caching.md
+    - name: Монитор
       items:
-      - name: PHP в Windows
-        href: web-sites-php-configure.md
-      - name: Java
-        href: web-sites-java-add-app.md
-      - name: Python
-        href: web-sites-python-configure.md
-    - name: Настройка приложения
+        - name: Мониторинг приложений
+          href: web-sites-monitor.md
+        - name: Включение журналов
+          href: web-sites-enable-diagnostic-log.md
+        - name: Журналы потоковой передачи
+          href: web-sites-streaming-logs-and-console.md
+    - name: Резервное копирование содержимого
       items:
-      - name: Использование параметров приложения
-        href: web-sites-configure.md
-    - name: Веб-приложения на платформе Linux
+        - name: Резервное копирование приложения
+          href: web-sites-backup.md
+        - name: Восстановление приложения из резервной копии
+          href: web-sites-restore.md
+        - name: Резервное копирование с помощью REST API
+          href: websites-csm-backup.md
+    - name: Управление ресурсами приложения
       items:
-      - name: Обзор
-        href: app-service-linux-intro.md
-      - name: Создание веб-приложения на платформе Linux
-        href: app-service-linux-how-to-create-web-app.md
-      - name: Веб-приложения Ruby на платформе Linux
-        href: app-service-linux-ruby-get-started.md
-      - name: Веб-приложения Node.js на платформе Linux
-        href: app-service-linux-using-nodejs-pm2.md
-      - name: Веб-приложения .NET Core на платформе Linux
-        href: app-service-linux-using-dotnetcore.md
-      - name: Пользовательские веб-приложения Docker на платформе Linux
-        href: app-service-linux-using-custom-docker-image.md
-      - name: Подключение через SSH
-        href: app-service-linux-ssh-support.md
-      - name: Непрерывное развертывание
-        href: app-service-linux-ci-cd.md
-      - name: Вопросы и ответы о веб-приложениях на платформе Linux
-        href: app-service-linux-faq.md
-  - name: Развернуть в Azure
-    href: web-sites-deploy.md
-    items:
-    - name: Развертывание через FTP
-      href: app-service-deploy-ftp.md
-    - name: Развертывание через синхронизацию с облаком
-      href: app-service-deploy-content-sync.md
-    - name: Непрерывное развертывание
-      href: app-service-continuous-deployment.md
-    - name: Развертывание в промежуточное хранилище
-      href: web-sites-staged-publishing.md
-    - name: Развертывание из локального репозитория Git
-      href: app-service-deploy-local-git.md
-    - name: Развертывание с помощью шаблона
-      href: app-service-deploy-complex-application-predictably.md
-    - name: Гибкое развертывание
-      href: app-service-agile-software-development.md
-    - name: Бета-тестирование
-      href: app-service-web-test-in-production-controlled-test-flight.md
-    - name: Сброс учетных данных развертывания
-      href: app-service-deployment-credentials.md
-    - name: Сопоставление пользовательского домена
+        - name: Клонирование приложения с помощью PowerShell
+          href: app-service-web-app-cloning.md
+        - name: Клонирование приложения с помощью портала
+          href: app-service-web-app-cloning-portal.md
+        - name: Перемещение ресурсов
+          href: app-service-move-resources.md
+        - name: Использование Azure Resource Manager с PowerShell
+          href: app-service-web-app-azure-resource-manager-powershell.md
+        - name: Управление приложениями с помощью службы автоматизации Azure
+          href: automation-manage-web-app.md
+    - name: Среда службы приложений
       items:
-      - name: Приобретение домена
-        href: custom-dns-web-site-buydomains-web-app.md
-      - name: Сопоставление доменов с помощью диспетчера трафика
-        href: web-sites-traffic-manager-custom-domain-name.md
-      - name: Сопоставление доменов GoDaddy
-        href: web-sites-godaddy-custom-domain-name.md
-      - name: Перенос активного домена
-        href: app-service-custom-domain-name-migrate.md
-    - name: Перенос из IIS
-      href: web-sites-migration-from-iis-server.md
-    - name: Тестирование в рабочей среде
-      href: app-service-web-test-in-production-get-start.md
-    - name: Добавление функций в веб-приложение
-      href: app-service-web-get-started-2.md
-  - name: Подключение к БД и ресурсам
-    items:
-    - name: Подключение к локальным данным
-      href: web-sites-hybrid-connection-get-started.md
-    - name: Подключение к виртуальной сети Azure
-      href: web-sites-integrate-with-vnet.md
-    - name: Подключение к виртуальной сети Azure с помощью PowerShell
-      href: app-service-vnet-integration-powershell.md
-    - name: Подключение к MongoDB на виртуальной машине Azure
-      href: web-sites-dotnet-store-data-mongodb-vm.md
-  - name: Безопасность приложения
-    items:
-    - name: Проверка подлинности пользователей
-      items:
-      - name: "Проверка подлинности с помощью Azure\_AD"
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Проверка подлинности с помощью Facebook
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Проверка подлинности с помощью Google
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Проверка подлинности с помощью учетной записи Майкрософт
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Проверка подлинности с помощью Twitter
-        href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-      - name: Проверка подлинности с помощью локальной службы AD
-        href: web-sites-authentication-authorization.md
-      - name: Приложения с мультитенантной базой данных
-        href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: Принудительное использование HTTPS
-      href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
-    - name: Настройка взаимной проверки подлинности TLS
-      href: app-service-web-configure-tls-mutual-auth.md
-  - name: Масштабирование приложения
-    items:
-    - name: Увеличение масштаба
-      href: web-sites-scale.md
-    - name: Масштабирование
-      href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: Балансировка нагрузки с помощью диспетчера трафика
-      href: web-sites-traffic-manager.md
-    - name: Высокая степень масштабирования с помощью сред службы приложений
-      href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: Глобальный доступ с помощью Azure CDN
-      href: cdn-websites-with-cdn.md
-    - name: Подключение к кэшу Redis через Memcache
-      href: web-sites-connect-to-redis-using-memcache-protocol.md
-    - name: Создание кэша Redis
-      href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-    - name: Управление состоянием сеанса с кэшем Redis для Azure
-      href: web-sites-dotnet-session-state-caching.md
-  - name: Монитор
-    items:
-    - name: Мониторинг приложений
-      href: web-sites-monitor.md
-    - name: Включение журналов
-      href: web-sites-enable-diagnostic-log.md
-    - name: Журналы потоковой передачи
-      href: web-sites-streaming-logs-and-console.md
-  - name: Резервное копирование содержимого
-    items:
-    - name: Резервное копирование приложения
-      href: web-sites-backup.md
-    - name: Восстановление приложения из резервной копии
-      href: web-sites-restore.md
-    - name: Резервное копирование с помощью REST API
-      href: websites-csm-backup.md
-  - name: Управление ресурсами приложения
-    items:
-    - name: Клонирование приложения с помощью PowerShell
-      href: app-service-web-app-cloning.md
-    - name: Клонирование приложения с помощью портала
-      href: app-service-web-app-cloning-portal.md
-    - name: Перемещение ресурсов
-      href: app-service-move-resources.md
-    - name: Использование Azure Resource Manager с PowerShell
-      href: app-service-web-app-azure-resource-manager-powershell.md
-    - name: Управление приложениями с помощью службы автоматизации Azure
-      href: automation-manage-web-app.md
-  - name: Среда службы приложений
-    items:
-    - name: Использование среды службы приложений
-      href: ../app-service/app-service-environment/using-an-ase.md
-    - name: Создание внешней среды службы приложений
-      href: ../app-service/app-service-environment/create-external-ase.md
-    - name: Создание с помощью Azure Resource Manager
-      href: ../app-service/app-service-environment/create-from-template.md
-    - name: Создание с помощью внутренней подсистемы балансировки нагрузки
-      href: ../app-service/app-service-environment/create-ilb-ase.md
-    - name: Рекомендации по работе с сетями
-      href: ../app-service/app-service-environment/network-info.md
-    - name: Настройка пользовательских параметров
-      href: ./app-service-app-service-environment-custom-settings.md
-    - name: Интеграция с брандмауэром веб-приложения
-      href: ./app-service-app-service-environment-web-application-firewall.md
-    - name: Географически распределенное масштабирование
-      href: ./app-service-app-service-environment-geo-distributed-scale.md
+        - name: Использование среды службы приложений
+          href: ../app-service/app-service-environment/using-an-ase.md
+        - name: Создание внешней среды службы приложений
+          href: ../app-service/app-service-environment/create-external-ase.md
+        - name: Создание с помощью Azure Resource Manager
+          href: ../app-service/app-service-environment/create-from-template.md
+        - name: Создание с помощью внутренней подсистемы балансировки нагрузки
+          href: ../app-service/app-service-environment/create-ilb-ase.md
+        - name: Рекомендации по работе с сетями
+          href: ../app-service/app-service-environment/network-info.md
+        - name: Настройка пользовательских параметров
+          href: ./app-service-app-service-environment-custom-settings.md
+        - name: Интеграция с брандмауэром веб-приложения
+          href: ./app-service-app-service-environment-web-application-firewall.md
+        - name: Географически распределенное масштабирование
+          href: ./app-service-app-service-environment-geo-distributed-scale.md
+        - name: Список адресов управления
+          href: ../app-service/app-service-environment/management-addresses.md
 - name: Справочные материалы
   items:
-  - name: "CLI\_2.0"
-    href: /cli/azure/appservice
-  - name: PowerShell
-    href: /powershell
-  - name: Интерфейс REST API
-    href: /rest/api/appservice/
-  - name: Среда службы приложений
-    href: ../app-service/app-service-environment/readme.md
+    - name: "CLI\_2.0"
+      href: /cli/azure/appservice
+    - name: PowerShell
+      href: /powershell
+    - name: Интерфейс REST API
+      href: /rest/api/appservice/
+    - name: Среда службы приложений
+      href: ../app-service/app-service-environment/readme.md
 - name: Ресурсы
   items:
-  - name: Стратегия развития Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Устранение неполадок
-    items:
-    - name: Устранение неполадок с помощью Visual Studio
-      href: web-sites-dotnet-troubleshoot-visual-studio.md
-    - name: Устранение неполадок с приложением Node.js
-      href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
-    - name: "Устранение неполадок в HTTP\_502 и\_503"
-      href: app-service-web-troubleshoot-http-502-http-503.md
-    - name: Устранение проблем с производительностью
-      href: app-service-web-troubleshoot-performance-degradation.md
-    - name: Часто задаваемые вопросы
+    - name: Стратегия развития Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Устранение неполадок
       items:
-      - name: 'Часто задаваемые вопросы о доступности, производительности и приложениях'
-        href: app-service-web-availability-performance-application-issues-faq.md
-      - name: Часто задаваемые вопросы о развертывании
-        href: app-service-web-deployment-faq.md
-      - name: Часто задаваемые вопросы о технологиях с открытым кодом
-        href: app-service-web-open-source-technologies-faq.md
-      - name: Часто задаваемые вопросы о настройке и управлении
-        href: app-service-web-configuration-and-management-faq.md
-  - name: "Среда службы приложений версии\_1"
-    items:
-    - name: Обзор
-      href: app-service-app-service-environment-intro.md
-    - name: Создание среды службы приложения
-      href: app-service-web-how-to-create-an-app-service-environment.md
-    - name: Создание веб-приложения в среде служб приложений
-      href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-    - name: Использование внутренней подсистемы балансировки нагрузки
-      href: app-service-environment-with-internal-load-balancer.md
-    - name: Настройка среды службы приложений
-      href: app-service-web-configure-an-app-service-environment.md
-    - name: Масштабирование приложений в среде службы приложений
-      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
-    - name: Общие сведения о сетевой архитектуре
-      href: app-service-app-service-environment-network-architecture-overview.md
-    - name: Реализация многоуровневой архитектуры безопасности со средами службы приложений
-      href: app-service-app-service-environment-layered-security.md
-    - name: Как управлять входящим трафиком
-      href: app-service-app-service-environment-control-inbound-traffic.md
-    - name: Безопасное подключение к серверным ресурсам
-      href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
-    - name: Сведения о настройке сети для работы с ExpressRoute
-      href: app-service-app-service-environment-network-configuration-expressroute.md
-    - name: Автомасштабирование в среде службы приложений
-      href: ../app-service/app-service-environment-auto-scale.md
-  - name: Цены
-    href: https://azure.microsoft.com/pricing/details/app-service/
-  - name: Сведения о квотах
-    href: ../azure-subscription-service-limits.md#app-service-limits
-  - name: Обновления службы и заметки о выпуске
-    href: https://azure.microsoft.com/updates/?product=app-service
-  - name: Рекомендации
-    href: app-service-best-practices.md
-  - name: Примеры
-    href: https://azure.microsoft.com/resources/samples/?service=app-service
-  - name: Видеоролики
-    href: https://azure.microsoft.com/resources/videos/index/?services=app-service
-  - name: Учебники
-    items:
-    - name: Эталонные образцы архитектуры
-      href: ../guidance/guidance-ra-app-service.md
-    - name: Скрипты развертывания
-      href: https://azure.microsoft.com/documentation/scripts/
+        - name: Устранение неполадок с помощью Visual Studio
+          href: web-sites-dotnet-troubleshoot-visual-studio.md
+        - name: Устранение неполадок с приложением Node.js
+          href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
+        - name: "Устранение неполадок в HTTP\_502 и\_503"
+          href: app-service-web-troubleshoot-http-502-http-503.md
+        - name: Устранение проблем с производительностью
+          href: app-service-web-troubleshoot-performance-degradation.md
+        - name: Часто задаваемые вопросы
+          items:
+            - name: >-
+                Часто задаваемые вопросы о доступности, производительности и
+                приложениях
+              href: >-
+                app-service-web-availability-performance-application-issues-faq.md
+            - name: Часто задаваемые вопросы о развертывании
+              href: app-service-web-deployment-faq.md
+            - name: Часто задаваемые вопросы о технологиях с открытым кодом
+              href: app-service-web-open-source-technologies-faq.md
+            - name: Часто задаваемые вопросы о настройке и управлении
+              href: app-service-web-configuration-and-management-faq.md
+    - name: "Среда службы приложений версии\_1"
+      items:
+        - name: Обзор
+          href: app-service-app-service-environment-intro.md
+        - name: Создание среды службы приложения
+          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: Создание веб-приложения в среде служб приложений
+          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+        - name: Использование внутренней подсистемы балансировки нагрузки
+          href: app-service-environment-with-internal-load-balancer.md
+        - name: Настройка среды службы приложений
+          href: app-service-web-configure-an-app-service-environment.md
+        - name: Масштабирование приложений в среде службы приложений
+          href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+        - name: Общие сведения о сетевой архитектуре
+          href: app-service-app-service-environment-network-architecture-overview.md
+        - name: >-
+            Реализация многоуровневой архитектуры безопасности со средами службы
+            приложений
+          href: app-service-app-service-environment-layered-security.md
+        - name: Как управлять входящим трафиком
+          href: app-service-app-service-environment-control-inbound-traffic.md
+        - name: Безопасное подключение к серверным ресурсам
+          href: >-
+            app-service-app-service-environment-securely-connecting-to-backend-resources.md
+        - name: Сведения о настройке сети для работы с ExpressRoute
+          href: >-
+            app-service-app-service-environment-network-configuration-expressroute.md
+        - name: Автомасштабирование в среде службы приложений
+          href: ../app-service/app-service-environment-auto-scale.md
+    - name: Цены
+      href: 'https://azure.microsoft.com/pricing/details/app-service/'
+    - name: Сведения о квотах
+      href: '../azure-subscription-service-limits.md#app-service-limits'
+    - name: Обновления службы и заметки о выпуске
+      href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Рекомендации
+      href: app-service-best-practices.md
+    - name: Примеры
+      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
+    - name: Видеоролики
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
+    - name: Учебники
+      items:
+        - name: Эталонные образцы архитектуры
+          href: ../guidance/guidance-ra-app-service.md
+        - name: Скрипты развертывания
+          href: 'https://azure.microsoft.com/documentation/scripts/'
