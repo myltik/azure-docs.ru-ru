@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: b4211cef3b4f3ffa2c0c97fd7650606f3eef7008
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="using-partners-to-deliver-widevine-licenses-to-azure-media-services"></a>Использование партнеров для доставки лицензий Widevine для служб мультимедиа Azure
@@ -42,10 +43,5 @@ ms.openlocfilehash: b4211cef3b4f3ffa2c0c97fd7650606f3eef7008
 [Дополнительные сведения см. в статье Использование общего динамического шифрования PlayReady и (или) Widevine DRM.](media-services-protect-with-drm.md)
 
 [Блог по Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

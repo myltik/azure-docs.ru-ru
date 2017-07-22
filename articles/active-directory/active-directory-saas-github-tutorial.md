@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/20/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.reviewer: jeedes
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 8b0417d131bc25225e777285b9e4bfbaa97aad8f
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Руководство. Интеграция Azure Active Directory с GitHub
@@ -126,10 +127,10 @@ ms.lasthandoff: 03/29/2017
 4. В разделе **Атрибуты пользователя** выберите значение user.mail в качестве параметра **Идентификатор пользователя**.
 
     ![Настройка единого входа](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
-     
+    
 5. В разделе **Сертификат подписи SAML** щелкните **Создание нового сертификата**.
 
-     ![Настройка единого входа](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
+    ![Настройка единого входа](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
 6. В диалоговом окне **Создание нового сертификата** щелкните значок календаря и выберите **дату окончания срока действия**. Затем нажмите кнопку **Сохранить**.
 
@@ -167,9 +168,9 @@ ms.lasthandoff: 03/29/2017
 
     а. **URL-адрес для входа.** Введите **URL-адрес службы единого входа в SAML** из раздела **Настройка GitHub** в Azure AD.
 
-      b. **Издатель.** Введите **идентификатор сущности SAML** из раздела **Настройка GitHub** в Azure AD.
+    b. **Издатель.** Введите **идентификатор сущности SAML** из раздела **Настройка GitHub** в Azure AD.
 
-       В. **Public Certificate** (Общий сертификат). Откройте скачанный сертификат из Azure AD в блокноте и скопируйте его содержимое, включая строки BEGIN CERTIFICATE и END CERTIFICATE.
+    В. **Public Certificate** (Общий сертификат). Откройте скачанный сертификат из Azure AD в блокноте и скопируйте его содержимое, включая строки BEGIN CERTIFICATE и END CERTIFICATE.
 
     ![Параметры](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
 

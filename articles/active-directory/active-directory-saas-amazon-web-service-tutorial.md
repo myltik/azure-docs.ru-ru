@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 07/20/2017
 ms.author: jeedes
+ms.reviewer: jeedes
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 61999ebea05371c53e5ff27644a68039db1aef96
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/18/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Руководство по интеграции Azure Active Directory с Amazon Web Services
@@ -133,7 +133,7 @@ To enable single sign-on with Amazon Web Services (AWS), it must be configured t
     | Имя атрибута  | Значение атрибута | Пространство имен |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.Amazon.com/SAML/Attributes |
-    | Роль               | user.assignedroles |  https://aws.Amazon.com/SAML/Attributes |
+    | Роль            | user.assignedroles |  https://aws.Amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Необходимо настроить подготовку пользователя в Azure AD для получения всех ролей из консоли AWS. Этапы подготовки см. ниже.
@@ -172,13 +172,13 @@ To enable single sign-on with Amazon Web Services (AWS), it must be configured t
    
     ![Настройка единого входа][14]
  
-      а. Выберите для параметра **Тип поставщика** значение **SAML**.
+    а. Выберите для параметра **Тип поставщика** значение **SAML**.
 
-      b. В текстовом поле **Имя поставщика** введите имя поставщика (например, *WAAD*).
+    b. В текстовом поле **Имя поставщика** введите имя поставщика (например, *WAAD*).
 
-      В. Чтобы отправить загруженный файл метаданных, нажмите кнопку **Выбрать файл**.
+    В. Чтобы отправить загруженный файл метаданных, нажмите кнопку **Выбрать файл**.
 
-      d. Щелкните **Следующий шаг**.
+    d. Щелкните **Следующий шаг**.
 
 13. На странице диалогового окна **Verify Provider Information** (Проверка сведений о поставщике) щелкните **Create** (Создать). 
     
@@ -192,25 +192,25 @@ To enable single sign-on with Amazon Web Services (AWS), it must be configured t
     
     ![Настройка единого входа][17] 
 
-      а. В текстовом поле **Имя роли** введите имя роли (например, *TestUser*). 
+    а. В текстовом поле **Имя роли** введите имя роли (например, *TestUser*). 
 
-      b. Щелкните **Следующий шаг**.
+    b. Щелкните **Следующий шаг**.
 
 16. В диалоговом окне **Select Role Type** (Выбор типа роли) выполните следующие действия. 
     
     ![Настройка единого входа][18] 
 
-      а. Выберите **Роль для доступа поставщика удостоверений**. 
+    а. Выберите **Роль для доступа поставщика удостоверений**. 
 
-      b. В разделе **Grant Web Single Sign-On (WebSSO) access to SAML providers** (Предоставление единого входа через Интернет (WebSSO) для доступа к поставщикам SAML) щелкните **Select** (Выбрать).
+    b. В разделе **Grant Web Single Sign-On (WebSSO) access to SAML providers** (Предоставление единого входа через Интернет (WebSSO) для доступа к поставщикам SAML) щелкните **Select** (Выбрать).
 
 17. В диалоговом окне **Establish Trust** (Установка доверия) выполните следующие действия.  
     
     ![Настройка единого входа][19] 
 
-      а. В качестве поставщика SAML выберите поставщик SAML, созданный ранее (например, *WAAD*).
+    а. В качестве поставщика SAML выберите поставщик SAML, созданный ранее (например, *WAAD*).
   
-      b. Щелкните **Следующий шаг**.
+    b. Щелкните **Следующий шаг**.
 
 18. В диалоговом окне **Verify Role Trust** (Проверка доверия роли) нажмите кнопку **Next Step** (Следующий шаг).
     
@@ -224,7 +224,7 @@ To enable single sign-on with Amazon Web Services (AWS), it must be configured t
     
     ![Настройка единого входа][34]
  
-      а. Щелкните **Создать роль**.
+    а. Щелкните **Создать роль**.
 
     b. Создайте необходимое количество ролей и сопоставьте их с поставщиком удостоверений.
 

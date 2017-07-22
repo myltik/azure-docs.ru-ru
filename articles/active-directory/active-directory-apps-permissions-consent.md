@@ -13,12 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.reviewer: jesakowi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
 ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 12/07/2016
 
 ---
 
@@ -215,10 +217,5 @@ ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
 **ClientId** — это созданный идентификатор объекта ServicePrincipal приложения FabrikamMail, **PrincipalId** — идентификатор объекта пользователя, давшего согласие, **ResourceId** — идентификатор объекта ServicePrincipal приложения Exchange, а Scope — это разрешение в Exchange, на использование которого предоставлено согласие.
 
 Если пользователям запрещено давать согласие, они увидят экран с сообщением о том, что требуется разрешение.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

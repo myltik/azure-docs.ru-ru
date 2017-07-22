@@ -19,6 +19,7 @@
 
 ## Предотвращение
 ### [Установка политик безопасности](security-center-policies.md)
+### [JIT-доступ](security-center-just-in-time.md)
 ### [Реализация рекомендаций по безопасности](security-center-recommendations.md)
 
 ### [Рекомендации по приложениям](security-center-application-recommendations.md)
