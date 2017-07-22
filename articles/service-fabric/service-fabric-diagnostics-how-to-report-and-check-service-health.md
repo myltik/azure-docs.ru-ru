@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2017
 ms.author: dekapur
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: e2b969151876fac34b2a5c05ce050ee6b51004d0
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ad779784a6a8092ad44f5b564db2d3b207989d86
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="report-and-check-service-health"></a>Проверка работоспособности службы и оповещение о проблемах
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/17/2017
 ## <a name="prerequisites"></a>Предварительные требования
 Должны быть установлены следующие компоненты:
 
-* Visual Studio 2015
+* Visual Studio 2015 или Visual Studio 2017
 * Пакет SDK для Service Fabric
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>Создание безопасного локального кластера для разработки

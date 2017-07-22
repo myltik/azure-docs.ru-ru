@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 07/19/2017
 ms.author: juliako;johndeu;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
-ms.lasthandoff: 01/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 74916c9da0c1d71395a087a729513110b663738b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Создание рабочих процессов расширенной кодировки с помощью конструктора рабочих процессов
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/30/2017
 
 После создания файла рабочего процесса его можно передать как ресурс, а затем использовать для кодирования файлов мультимедиа. Сведения о том, как выполнять кодирование, используя **рабочий процесс Media Encoder Premium** и **.NET** см. в разделе [Дополнительное кодирование с помощью рабочего процесса Premium кодировщика мультимедиа](media-services-encode-with-premium-workflow.md).
 
-## <a name="a-idexistingworkflowsamodify-existing-workflows"></a><a id="existing_workflows"></a>Изменение существующих рабочих процессов
+## <a id="existing_workflows"></a>Изменение существующих рабочих процессов
 [Опубликованные рабочие процессы](media-services-workflow-designer.md#existing_workflows) по умолчанию можно редактировать с помощью средств конструктора. Файлы используемого по умолчанию рабочего процесса можно получить [здесь](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Папка также содержит описание этих файлов.
 
 Указанные ниже видеоматериалы демонстрируют, как использовать конструктор.

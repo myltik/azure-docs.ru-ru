@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 91b138ee9590a66c63e2055eaeace82b4e719ae5
-ms.lasthandoff: 01/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 0aeb02c8a07728cd17aa937614c5c20dd0bf102b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Поддержка AMQP 1.0 в служебной шине
@@ -90,16 +90,12 @@ AMQP 1.0 разрабатывался с 2008 г. активной группо�
 
 * [Использование служебной шины на платформе .NET с протоколом AMQP]
 * [Использование служебной шины на платформе Java с протоколом AMQP]
-* [Использование служебной шины в Python с протоколом AMQP]
-* [Использование служебной шины в PHP с протоколом AMQP]
 * [Установка Apache Qpid Proton-C на виртуальной машине Azure с Linux]
 * [Протокол AMQP служебной шины для Windows Server]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Использование служебной шины на платформе .NET с протоколом AMQP]: service-bus-amqp-dotnet.md
 [Использование служебной шины на платформе Java с протоколом AMQP]: service-bus-amqp-java.md
-[Использование служебной шины в Python с протоколом AMQP]: service-bus-amqp-python.md
-[Использование служебной шины в PHP с протоколом AMQP]: service-bus-amqp-php.md
 [Установка Apache Qpid Proton-C на виртуальной машине Azure с Linux]: service-bus-amqp-apache.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 

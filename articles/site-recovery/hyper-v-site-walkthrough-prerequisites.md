@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 63ad1dcc5a069a9958e56c8260f9aa208fafc645
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: cbb5d3598ef91512991d7d1e9f854eb12980752b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 06/23/2017
 **Предварительные требования** | **Дополнительные сведения** 
 --- | --- 
 **Таблицы Azure** | Ознакомьтесь с [требованиями Azure](site-recovery-prereq.md#azure-requirements).
-**Локальные серверы** | [Ознакомьтесь](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager) с требованиями к локальным узлам Hyper-V.
+**Локальные серверы** | [Ознакомьтесь](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-to-azure-no-vmm) с требованиями к локальным узлам Hyper-V.
 **Локальные виртуальные машины Hyper-V** | Виртуальные машины, которые необходимо реплицировать, должны работать под управлением [поддерживаемой операционной системы](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) и соответствовать [предварительным требованиям Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 **URL-адреса Azure** | Узлы Hyper-V должны иметь доступ к следующим URL-адресам:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> При использовании правил брандмауэра на основе IP-адресов убедитесь, что эти правила разрешают обмен данными с Azure.<br/></br> Разрешите доступ для [диапазонов IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) и использование порта HTTPS (443).<br/></br> Необходимо разрешить доступ для диапазонов IP-адресов региона Azure, в котором располагается ваша подписка, и региона "Западная часть США" (используется для контроля доступа и управления удостоверениями).
 
