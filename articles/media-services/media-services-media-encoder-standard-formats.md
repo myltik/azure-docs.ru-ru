@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 07/20/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 382913f0501c692cc1ee460d2264118414ad20c3
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Форматы и кодеки стандартного кодировщика служб мультимедиа
@@ -111,10 +112,5 @@ ms.openlocfilehash: 382913f0501c692cc1ee460d2264118414ad20c3
 [Кодирование содержимого по запросу с помощью служб мультимедиа Azure](media-services-encode-asset.md)
 
 [Кодирование с помощью стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

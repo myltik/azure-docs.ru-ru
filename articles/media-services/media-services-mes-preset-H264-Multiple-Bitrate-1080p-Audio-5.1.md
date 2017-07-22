@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
 ms.openlocfilehash: f2a68bc2481aa1eb71bfe5a36e1321f75d973497
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/29/2016
 
 ---
-
 
 # <a name="h264-multiple-bitrate-1080p-audio-51"></a>H264 Multiple Bitrate 1080p Audio 5.1
 `Media Encoder Standard` определяет набор предустановок кодирования, которые можно использовать при создании заданий кодирования. Можно также использовать `preset name`, чтобы указать, в какой формат нужно закодировать файл мультимедиа. Или можно создать собственные предустановки в формате JSON или XML (с использованием кодировки UTF-8 или UTF-16). Затем следует передавать пользовательскую предустановку в кодировщик. Список предустановок, поддерживаемых данным кодировщиком `Media Encoder Standard`, приведен в разделе [Предустановки задач для Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -321,8 +321,4 @@ ms.openlocfilehash: f2a68bc2481aa1eb71bfe5a36e1321f75d973497
   ]  
 }  
 ```
-
-
-<!--HONumber=Nov16_HO5-->
-
 

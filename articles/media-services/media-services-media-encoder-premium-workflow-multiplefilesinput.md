@@ -1,6 +1,6 @@
 ---
-title: "Несколько входных файлов и свойства компонентов в кодировщике ценовой категории &quot;Премиум&quot; | Документация Майкрософт"
-description: "В этой статье описано, как с помощью свойства setRuntimeProperties можно использовать несколько входных файлов в обработчике мультимедиа &quot;Расширенный рабочий процесс обработчика мультимедиа&quot; и передавать в него пользовательские данные."
+title: "Несколько входных файлов и свойства компонентов в кодировщике ценовой категории \"Премиум\" | Документация Майкрософт"
+description: "В этой статье описано, как с помощью свойства setRuntimeProperties можно использовать несколько входных файлов в обработчике мультимедиа \"Расширенный рабочий процесс обработчика мультимедиа\" и передавать в него пользовательские данные."
 services: media-services
 documentationcenter: 
 author: xpouyat
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: c789a5518575706992c8719c1927a8566c504fbb
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/27/2017
-
 
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Использование нескольких входных файлов и свойств компонентов в кодировщике Premium
