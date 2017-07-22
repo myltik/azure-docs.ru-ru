@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/08/2017
+ms.date: 07/19/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 01b23996a9cd3a8368a78085dec905d020612b48
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: ed096cf202a85f44755c9eee110b1b7c5c4074ad
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Создание первой функции на портале Azure
@@ -69,11 +69,9 @@ ms.lasthandoff: 07/13/2017
 
     URL-адрес запроса включает ключ, который по умолчанию необходим для доступа к функции по протоколу HTTP.   
 
-## <a name="view-the-function-logs"></a>Просмотр журналов функции 
+3. При выполнении функции сведения о трассировке записываются в журналы. Для просмотра выходных данных трассировки из предыдущего выполнения вернитесь к своей функции на портале и щелкните стрелку вверх в нижней части экрана, чтобы развернуть **Журналы**. 
 
-При выполнении функции сведения о трассировке записываются в журналы. Для просмотра выходных данных трассировки из предыдущего выполнения вернитесь к своей функции на портале и щелкните стрелку вверх в нижней части экрана, чтобы развернуть **Журналы**. 
-
-![Средство просмотра журналов Функций на портале Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Средство просмотра журналов Функций на портале Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Очистка ресурсов
 

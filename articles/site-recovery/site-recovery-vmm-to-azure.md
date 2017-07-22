@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b53e7f5454cd97f013fdce052f0a990a44958dee
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью Site Recovery на портале Azure
@@ -59,7 +59,7 @@ ms.lasthandoff: 07/14/2017
 **Необходимая поддержка** | **Дополнительные сведения**
 --- | ---
 **Таблицы Azure** | Ознакомьтесь с [требованиями Azure](site-recovery-prereq.md#azure-requirements).
-**Локальные серверы** | [Ознакомьтесь](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-in-virtual-machine-manager-clouds-to-azure) с требованиями к локальным серверам VMM и узлам Hyper-V.
+**Локальные серверы** | [Ознакомьтесь](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-in-vmm-clouds-to-azure) с требованиями к локальным серверам VMM и узлам Hyper-V.
 **Локальные виртуальные машины Hyper-V** | Виртуальные машины, которые необходимо реплицировать, должны работать под управлением [поддерживаемой операционной системы](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) и соответствовать [предварительным требованиям Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 **URL-адреса Azure** | Сервер должен иметь доступ к этим URL-адресам:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> При использовании правил брандмауэра на основе IP-адресов убедитесь, что эти правила разрешают обмен данными с Azure.<br/></br> Разрешите доступ для [диапазонов IP-адресов центра обработки данных Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) и использование порта HTTPS (443).<br/></br> Необходимо разрешить доступ для диапазонов IP-адресов региона Azure, в котором располагается ваша подписка, и региона "Западная часть США" (используется для контроля доступа и управления удостоверениями).
 
