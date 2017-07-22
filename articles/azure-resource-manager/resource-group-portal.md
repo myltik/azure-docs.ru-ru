@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: e4851e872349fa6483e1f1a340d0968e845a3518
-ms.openlocfilehash: c286b748822d6667f5682c13b7d4c870a3caab65
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 7a94fd5065de93384460e851627a9813d439956b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-azure-resources-through-portal"></a>Управление ресурсами Azure через портал
@@ -138,10 +139,5 @@ ms.openlocfilehash: c286b748822d6667f5682c13b7d4c870a3caab65
 * Сведения о развертывании ресурсов через портал см. в статье [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md) (Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure).
 * Сведения об управлении доступом к ресурсам см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
 * Руководство по использованию Resource Manager для эффективного управления подписками в организациях см [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Шаблон Azure для организаций. Рекомендуемая система управления подпиской).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

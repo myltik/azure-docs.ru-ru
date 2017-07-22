@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff0c9f9c800b0e4764efb88e43087bd96fa820e9
-ms.openlocfilehash: 7b02809da6082886b4e2982a698cef09212b6862
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 43d38584270fbbbe6fa4e4ff8cef72ca44e14acc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-use-azure-storage-in-windows-store-apps"></a>Использование службы хранилища Azure в приложениях Магазина Windows
@@ -27,7 +26,7 @@ ms.lasthandoff: 07/06/2017
 В этом руководстве показано, как начать разработку приложения Магазина Windows, использующего хранилище Azure.
 
 ## <a name="download-required-tools"></a>Скачивание необходимых средств
-* [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) упрощает процесс сборки, отладки, локализации, упаковки и развертывания приложений Магазина Windows. Требуется Visual Studio 2012 или более поздней версии.
+* [Visual Studio](https://www.visualstudio.com/downloads/) упрощает процесс сборки, отладки, локализации, упаковки и развертывания приложений Магазина Windows. Требуется Visual Studio 2012 или более поздней версии.
 * [Клиентская библиотека хранилища Microsoft Azure](https://www.nuget.org/packages/WindowsAzure.Storage) предоставляет библиотеку классов среды выполнения Windows для работы со службой хранилища Azure.
 * [Инструменты служб данных WCF для приложений Магазина Windows](http://www.microsoft.com/download/details.aspx?id=30714) расширяют возможности добавления ссылки на службу за счет поддержки OData на стороне клиента для приложений Магазина Windows в Visual Studio.
 
