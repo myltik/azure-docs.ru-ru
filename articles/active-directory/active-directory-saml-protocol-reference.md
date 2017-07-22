@@ -12,15 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 07/19/2017
 ms.author: priyamo
-ms.custom: aaddev
-ms.reviewer: dastrock
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: dceaab3f89675ae8e046419aaa5173c2733b0660
+ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
+ms.openlocfilehash: 53e9fd58e72d83db32fa1fab937b4618cd4cd159
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Как Azure Active Directory использует протокол SAML
@@ -28,9 +26,7 @@ Azure Active Directory (Azure AD) использует протокол SAML 2.0
 
 Протокол SAML подразумевает, что поставщик удостоверений (Azure AD) и поставщик услуг (приложение) обмениваются информацией друг о друге.
 
-При регистрации приложения в Azure AD разработчик приложения регистрирует в Azure AD сведения, относящиеся к федерации. К ним, в частности, относятся **URI перенаправления** и **URI метаданных** для приложения.
-
-Azure AD использует **URI метаданных** облачной службы, чтобы получить ключ подписывания и URI выхода облачной службы. Если приложение не поддерживает URI метаданных, разработчику следует после регистрации приложения обратиться в службу поддержки Майкрософт, чтобы с ее помощью указать URI выхода и ключ подписывания.
+При регистрации приложения в Azure AD разработчик приложения регистрирует в Azure AD сведения, относящиеся к федерации. К ним, в частности, относится **URI перенаправления** для приложения.
 
 Azure Active Directory предоставляет клиентские и общие (единые для всех клиентов) конечные точки единого входа и единого выхода. Эти URL-адреса представляют собой адресуемые расположения, а не просто идентификаторы. Вы можете обратиться по ним к конечной точке для чтения метаданных.
 
