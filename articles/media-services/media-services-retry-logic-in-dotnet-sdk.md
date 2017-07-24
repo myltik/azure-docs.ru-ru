@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 07/21/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: e22a16c0929b28c475aa4caa0465651603713112
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Логика повторного выполнения операций в пакете SDK служб мультимедиа для .NET
@@ -47,7 +48,7 @@ ms.openlocfilehash: e22a16c0929b28c475aa4caa0465651603713112
 | StorageException |Нет |Да |Нет |Нет |
 | IOException |Нет |Да |Нет |Нет |
 
-### <a name="a-namewebexceptionstatusa-webexception-status-codes"></a><a name="WebExceptionStatus"></a> Коды состояний WebException
+### <a name="WebExceptionStatus"></a> Коды состояний WebException
 В таблице ниже показано, для каких кодов ошибок WebException реализована логика повторного выполнения операций. Перечисление [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) определяет коды состояний.  
 
 | Состояние | Веб-запрос | Операции с хранилищем | Выполнение запросов | Сохранение изменений |
@@ -65,7 +66,7 @@ ms.openlocfilehash: e22a16c0929b28c475aa4caa0465651603713112
 | Время ожидания |Да |Да |Да |Нет |
 | ProtocolError <br/>Повторное выполнение операции при состоянии ProtocolError определяется обработкой кодов состояния HTTP. Дополнительные сведения см. в разделе [Коды состояний ошибок HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Да |Да |Да |Да |
 
-### <a name="a-namehttpstatuscodea-http-error-status-codes"></a><a name="HTTPStatusCode"></a> Коды состояний ошибок HTTP
+### <a name="HTTPStatusCode"></a> Коды состояний ошибок HTTP
 Когда операции выполнения запросов и сохранения изменений выдают исключение DataServiceClientException, DataServiceQueryException или DataServiceQueryException, код состояния ошибки HTTP возвращается в свойстве StatusCode.  В таблице ниже показано, для каких кодов ошибок реализована логика повторного выполнения операций.  
 
 | Состояние | Веб-запрос | Операции с хранилищем | Выполнение запросов | Сохранение изменений |
@@ -86,10 +87,5 @@ ms.openlocfilehash: e22a16c0929b28c475aa4caa0465651603713112
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
