@@ -290,7 +290,8 @@
 ## Мониторинг и диагностика
 ### [Приложения мониторинга и диагностики](service-fabric-diagnostics-overview.md)
 ### Создание событий
-#### [Создание событий на уровне инфраструктуры](service-fabric-diagnostics-event-generation-infra.md)
+#### [Создание событий на уровне платформы](service-fabric-diagnostics-event-generation-infra.md)
+##### [Операционный канал](service-fabric-diagnostics-event-generation-operational.md)
 ##### [События Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ##### [События Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ##### [Метрики производительности](service-fabric-diagnostics-event-generation-perf.md)

@@ -386,6 +386,8 @@
               href: migration-classic-resource-manager-faq.md
     - name: Устранение неполадок
       items:
+        - name: Поддержка добавления ВМ Azure в существующую группу доступности
+          href: ../virtual-machines-availability-set-supportability.md
         - name: Общие сведения о перезагрузке системы
           href: understand-vm-reboot.md
         - name: Подключения к удаленному рабочему столу

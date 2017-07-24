@@ -257,6 +257,11 @@
           href: app-service-web-app-azure-resource-manager-powershell.md
         - name: Управление приложениями с помощью службы автоматизации Azure
           href: automation-manage-web-app.md
+    - name: Интеграция
+      items:
+        - name: Экспорт в PowerApps и Microsoft Flow
+          href: >-
+            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Среда службы приложений
       items:
         - name: Использование среды службы приложений

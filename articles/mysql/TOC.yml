@@ -25,6 +25,8 @@
           href: connect-nodejs.md
         - name: Ruby
           href: connect-ruby.md
+        - name: Go
+          href: connect-go.md
 - name: Учебники
   items:
     - name: "1.\_Проектирование базы данных"
