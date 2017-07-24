@@ -6,7 +6,6 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
-## [Руководство по программированию U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Практическое руководство
 
@@ -37,6 +36,7 @@
 ### [Использование обозревателя заданий и представления заданий](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Использования представления выполнения вершин](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 ### [Локальное выполнение и локальная отладка в VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
+### [Руководство по программированию U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)

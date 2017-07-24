@@ -31,16 +31,6 @@ abstract:
     сложных проблем с инфраструктурой. Узнайте, как использовать Azure Service
     Fabric, ознакомившись с нашими шаблонами быстрого запуска, примерами и
     руководствами.
-  aside:
-    image:
-      alt: null
-      height: 140
-      src: >-
-        https://sec.ch9.ms/ch9/cf61/aa41e58e-ec9f-4f7b-982d-40daaaeacf61/IntroAzureServiceFabric_960.jpg
-      width: 250
-    title: 'Общие сведения о Service Fabric (3:53)'
-    href: 'https://azure.microsoft.com/en-us/resources/videos/azure-service-fabric/'
-    width: 250
 sections:
   - title: 5-минутные руководства по началу работы
     items:

@@ -1,325 +1,114 @@
-
-
 # Обзор
-
-
 ## [Общие сведения о службе фабрики данных Azure, службе интеграции данных в облаке](data-factory-introduction.md)
-
-
 ## Основные понятия
-
-
 ### [Конвейеры и действия](data-factory-create-pipelines.md)
-
-
 ### [Наборы данных](data-factory-create-datasets.md)
-
-
 ### [Планирование и исполнение с использованием фабрики данных](data-factory-scheduling-and-execution.md)
 
-
-
 # Начало работы
-
-
 ## [Учебник. Создание конвейера для копирования данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-
-
 ### [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
-
-
 ### [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
-
-
 ### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-
-
 ### [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-
-
 ### [Шаблон Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-
-
 ### [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-
-
 ### [API для .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-
-
 ## [Учебник. Создание конвейера для преобразования данных](data-factory-build-your-first-pipeline.md)
-
-
 ### [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
-
-
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-
-
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-
-
 ### [Шаблон Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-
-
 ### [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
-
-
 ## [Руководство по перемещению данных между локальными источниками и облаком](data-factory-move-data-between-onprem-and-cloud.md)
-
-
 ## [Часто задаваемые вопросы](data-factory-faq.md)
 
-
-
 # Практическое руководство
-
-
 ## Перемещение данных
-
-
 ### [Общие сведения о действии копирования](data-factory-data-movement-activities.md)
-
-
 ### [Мастер копирования фабрики данных](data-factory-azure-copy-wizard.md)
-
-
 #### [Загрузка 1 ТБ в течение 15 минут](data-factory-load-sql-data-warehouse.md)
-
-
 ### [Руководство по производительности и настройке](data-factory-copy-activity-performance.md)
-
-
+### [Отказоустойчивость](data-factory-copy-activity-fault-tolerance.md)
 ### [Вопросы безопасности](data-factory-data-movement-security-considerations.md)
-
-
 ### Соединители
-
-
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
-
-
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
-
-
 #### [Хранилище BLOB-объектов Azure](data-factory-azure-blob-connector.md)
-
-
 #### [База данных Azure Cosmos](data-factory-azure-documentdb-connector.md)
-
-
 #### [Хранилище озера данных Azure](data-factory-azure-datalake-connector.md)
-
-
 #### [Поиск Azure;](data-factory-azure-search-connector.md)
-
-
 #### [База данных SQL Azure;](data-factory-azure-sql-connector.md)
-
-
 #### [Хранилище данных Azure SQL](data-factory-azure-sql-data-warehouse-connector.md)
-
-
 #### [Хранилище таблиц Azure](data-factory-azure-table-connector.md)
-
-
 #### [Cassandra](data-factory-onprem-cassandra-connector.md)
-
-
 #### [DB2](data-factory-onprem-db2-connector.md)
-
-
 #### [Файловая система](data-factory-onprem-file-system-connector.md)
-
-
 #### [FTP](data-factory-ftp-connector.md)
-
-
 #### [HDFS](data-factory-hdfs-connector.md)
-
-
 #### [HTTP](data-factory-http-connector.md)
-
-
 #### [MongoDB](data-factory-on-premises-mongodb-connector.md)
-
-
 #### [MySQL](data-factory-onprem-mysql-connector.md)
-
-
 #### [OData](data-factory-odata-connector.md)
-
-
 #### [ODBC](data-factory-odbc-connector.md)
-
-
 #### [Oracle](data-factory-onprem-oracle-connector.md)
-
-
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
-
-
 #### [Salesforce](data-factory-salesforce-connector.md)
-
-
 #### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
-
-
 #### [SAP HANA](data-factory-sap-hana-connector.md)
-
-
 #### [SFTP](data-factory-sftp-connector.md)
-
-
 #### [SQL Server](data-factory-sqlserver-connector.md)
-
-
 #### [Sybase](data-factory-onprem-sybase-connector.md)
-
-
 #### [Teradata](data-factory-onprem-teradata-connector.md)
-
-
 #### [Веб-таблица](data-factory-web-table-connector.md)
-
-
 ### [Шлюз управления данными](data-factory-data-management-gateway.md)
 
 
-
-
 ## [Преобразование данных](data-factory-data-transformation-activities.md)
-
-
 ### [Действие Hive HDInsight](data-factory-hive-activity.md)
-
-
 ### [Действие Pig HDInsight](data-factory-pig-activity.md)
-
-
 ### [Действие MapReduce HDInsight](data-factory-map-reduce.md)
-
-
 ### [Действие потоковой передачи HDInsight](data-factory-hadoop-streaming-activity.md)
-
-
 ### [Действие HDInsight Spark](data-factory-spark.md)
-
-
 ### [Действие выполнения пакета машинного обучения](data-factory-azure-ml-batch-execution-activity.md)
-
-
 ### [Действие "Обновить ресурс" в службе машинного обучения](data-factory-azure-ml-update-resource-activity.md)
-
-
 ### [Действие хранимой процедуры](data-factory-stored-proc-activity.md)
-
-
 ### [Действие U-SQL в Data Lake Analytics](data-factory-usql-activity.md)
-
-
 ### [Настраиваемое действие .NET](data-factory-use-custom-activities.md)
-
-
 ### [Вызов сценариев R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
-
 ### [Повторная обработка моделей в службах Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
-
-
 ### [Связанные службы вычислений](data-factory-compute-linked-services.md)
 
-
-
 ## Разработка
-
-
 ### [Шаблон Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)
-
-
 ### [Примеры](data-factory-samples.md)
-
-
 ### [Функции и системные переменные](data-factory-functions-variables.md)
-
-
 ### [Правила именования](data-factory-naming-rules.md)
-
-
 ### [Журнал изменений в API для .NET](data-factory-api-change-log.md)
-
-
 ## Отслеживание и управление
-
-
 ### [Приложение мониторинга и управления](data-factory-monitor-manage-app.md)
-
-
 ### [Конвейеры фабрики данных Azure](data-factory-monitor-manage-pipelines.md)
-
-
 ### [Использование пакета SDK для .NET](data-factory-create-data-factories-programmatically.md)
-
-
 ### [Устранение неполадок фабрики данных](data-factory-troubleshoot.md)
-
-
 ### [Устранение неполадок в работе шлюза управления данными](data-factory-troubleshoot-gateway-issues.md)
 
-
-
 # Справочные материалы
-
-
 ## [PowerShell](/powershell/module/azurerm.datafactories)
-
-
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-
-
 ## [REST](/rest/api/datafactory/)
-
-
 ## [JSON](data-factory-json-scripting-reference.md)
 
-
-
 # Ресурсы
-
-
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
-
-
 ## [Примеры использования](data-factory-customer-case-studies.md)
-
-
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/data-factory)
-
-
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
-
-
 ## [Цены](https://azure.microsoft.com/pricing/details/data-factory/)
-
-
 ## [Заметки о выпуске шлюза управления данными](data-factory-gateway-release-notes.md)
-
-
 ## [Запрос функции](https://feedback.azure.com/forums/270578-azure-data-factory)
-
-
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=data-factory)
-
-
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
-
-
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
-
-
 ### [Профилирование клиентов](data-factory-customer-profiling-usecase.md)
-
-
 ### [Обработка больших наборов данных с помощью фабрики данных и пакетной службы](data-factory-data-processing-using-batch.md)
-
-
 ### [Рекомендации по продуктам](data-factory-product-reco-usecase.md)
