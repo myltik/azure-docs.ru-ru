@@ -69,19 +69,21 @@
 
 Прежде чем запустить пример приложения, необходимо включить шину последовательного периферийного интерфейса (SPI) на Raspberry Pi. Raspberry Pi взаимодействует с датчиком BME280 через шину SPI. Выполните следующую команду, чтобы изменить файл конфигурации:
 
-`sudo nano /boot/config.txt`
+```sh
+sudo nano /boot/config.txt
+```
 
 Найдите следующую строку:
 
-```
-#dtparam=spi=on
-```
+`#dtparam=spi=on`
 
 - Чтобы раскомментировать строку, удалите `#` в начале.
 - Сохраните изменения (**CTRL+O**, **ВВОД**) и закройте редактор (**CTRL+X**).
 - Чтобы включить SPI, перезагрузите Raspberry Pi. При перезагрузке будет отключен терминал, поэтому после перезапуска Raspberry Pi необходимо будет выполнить повторный вход:
 
-  `sudo reboot`
+  ```sh
+  sudo reboot
+  ```
 
 
 [img-connection-diagram]: media/iot-suite-raspberry-pi-kit-prepare-pi/rpi2_remote_monitoring.png
