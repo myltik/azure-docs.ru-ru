@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2017
+ms.date: 07/05/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 56f101f4aecb6987d7ea6fb81bbf7f19a52baacd
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 4f91921142b9500252c53eee36cb872e324773c5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Настройка подключения VPN-шлюза между виртуальными сетями с помощью PowerShell
 
-В этой статье показано, как создать подключение VPN-шлюза между виртуальными сетями. Виртуальные сети могут относиться к одному или разным регионам и к одной или разным подпискам. Приведенные в этой статье инструкции относятся к модели развертывания с помощью Resource Manager и PowerShell. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:
+В этой статье показано, как создать подключение VPN-шлюза между виртуальными сетями. Виртуальные сети могут относиться к одному или разным регионам и к одной или разным подпискам. При подключении виртуальных сетей из разных подписок подписки не обязательно должны быть связаны с одним и тем же клиентом Active Directory. 
+
+Приведенные в этой статье инструкции относятся к модели развертывания с помощью Resource Manager и PowerShell. Эту конфигурацию также можно создать с помощью разных средств или моделей развертывания, выбрав вариант из следующего списка:
 
 > [!div class="op_single_selector"]
 > * [Resource Manager — портал Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -69,7 +70,7 @@ ms.lasthandoff: 05/23/2017
 
 ### <a name="before-you-begin"></a>Перед началом работы
 
-Сначала вам потребуется установить командлеты PowerShell Azure Resource Manager. См. дополнительные сведения об [установке и настройке командлетов Azure PowerShell](/powershell/azure/overview). 
+Прежде всего вам необходимо установить последнюю версию командлетов PowerShell для Azure Resource Manager (4.0 или более позднюю). См. дополнительные сведения об [установке и настройке командлетов Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="Step1"></a>Шаг 1. Планирование диапазонов IP-адресов
 
@@ -282,7 +283,7 @@ ms.lasthandoff: 05/23/2017
 
 ![Схема подключения между виртуальными сетями](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-В этом сценарии мы создадим подключение между TestVNet1 и TestVNet5. TestVNet1 и TestVNet5 находятся в разных подписках. Разница между этими действиями и предыдущими заключается в том, что часть настройки нужно выполнить в отдельном сеансе PowerShell в контексте второй подписки, особенно если две подписки используются разными организациями.
+В этом сценарии мы создадим подключение между TestVNet1 и TestVNet5. TestVNet1 и TestVNet5 находятся в разных подписках. Подписки не обязательно должны быть связаны с одним и тем же клиентом Active Directory. Разница между этими действиями и предыдущими заключается в том, что часть настройки нужно выполнить в отдельном сеансе PowerShell в контексте второй подписки, особенно если две подписки используются разными организациями.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Шаг 5. Создание и настройка TestVNet1
 

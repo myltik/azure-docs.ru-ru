@@ -13,14 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 07/10/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: e9dfb5a744a7c63ef9805b1341236c4f3c57ec4d
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 17fc7e6a19b835e08360d1bf638d69aabb14e121
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Обзор шлюза приложений
@@ -43,6 +42,7 @@ ms.lasthandoff: 05/02/2017
 * **[Маршрутизация для нескольких сайтов.](application-gateway-multi-site-overview.md)** На одном шлюзе приложений можно объединять до 20 веб-сайтов.
 * **[Поддержка WebSocket.](application-gateway-websocket.md)** Еще одна отличная функция шлюза приложений — встроенная поддержка WebSocket.
 * **[Мониторинг работоспособности.](application-gateway-probe-overview.md)** Шлюз приложений обеспечивает используемый по умолчанию мониторинг работоспособности ресурсов серверной части, а также пользовательские пробы для мониторинга в конкретных сценариях.
+* **[Перенаправление запросов.](application-gateway-redirect-overview.md)** Эта функция предоставляет возможность перенаправлять HTTP запросы в прослушиватель HTTPS.
 * **[Расширенная диагностика.](application-gateway-diagnostics.md)** Шлюз приложений предоставляет все журналы доступа и диагностики. Журналы брандмауэра доступны для ресурсов шлюза приложений с включенным WAF.
 
 ## <a name="benefits"></a>Преимущества

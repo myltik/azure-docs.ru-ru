@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 07/19/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: db97edd3c4fbfdbe955c49cc9a58de30c5085305
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: b382225b9e355148279181fbf6238eb1e08f382d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="azure-resource-manager-overview"></a>Общие сведения о диспетчере ресурсов Azure
@@ -82,7 +81,7 @@ Resource Manager обеспечивает слой согласованного 
 ## <a name="resource-providers"></a>Поставщики ресурсов
 Каждый поставщик ресурсов предоставляет набор ресурсов и операций для работы со службой Azure. Например, чтобы хранить ключи и секреты, вам придется работать с поставщиком ресурсов **Microsoft.KeyVault**. Этот поставщик ресурсов предлагает тип ресурса с именем **vaults** для создания хранилища ключей. 
 
-Формат имени типа ресурса: **{поставщик_ресурса}/{тип_ресурса}**. Например, тип хранилища ключей — **Microsoft.KeyVault\vaults**.
+Формат имени типа ресурса: **{поставщик_ресурса}/{тип_ресурса}**. Например, тип хранилища ключей — **Microsoft.KeyVault/vaults**.
 
 Прежде чем начинать развертывание ресурсов, необходимо подробнее узнать о доступных поставщиках ресурсов. Сведения об именах поставщиков ресурсов и самих ресурсов помогут определить, какие ресурсы необходимо развернуть в Azure. Также вы должны знать допустимые расположения и версии API для каждого типа ресурсов. См. дополнительные сведения о [поставщиках и типах ресурсов](resource-manager-supported-services.md).
 
@@ -258,49 +257,28 @@ Resource Manager регистрирует все операции создани
 Существует множество типов политик, которые можно создать. в статье [Применение политик для управления ресурсами и контроля доступа](resource-manager-policy.md).
 
 ## <a name="sdks"></a>Пакеты SDK
-Пакеты SDK для Azure доступны для нескольких языков и платформ.
-Каждая из этих языковых реализаций доступна в диспетчере пакетов экосистемы и на сайте GitHub.
-
-Код в каждом из этих пакетов SDK генерируется из спецификаций RESTful API Azure.
-Эти спецификации с открытым исходным кодом основаны на спецификации Swagger 2.0.
-Код пакета SDK создается в проекте с открытым исходным кодом под названием AutoRest.
-AutoRest преобразует эти спецификации RESTful API в клиентские библиотеки на нескольких языках.
-Если требуется изменить какие-либо аспекты созданного кода в пакетах SDK, можно воспользоваться открытым, бесплатным, поддерживающим распространенный формат спецификации API набором средств для создания пакетов SDK.
+Пакеты SDK для Azure доступны для нескольких языков и платформ. Каждая из этих языковых реализаций доступна в диспетчере пакетов экосистемы и на сайте GitHub.
 
 Вот наши репозитории пакета SDK Open Source. Присылайте отзывы, сообщения о проблемах и запросы на включение внесенных изменений.
 
-[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
+* [Пакет Azure SDK для .NET](https://github.com/Azure/azure-sdk-for-net)
+* [Библиотеки управления Azure для Java](https://github.com/Azure/azure-sdk-for-java)
+* [Пакет Azure SDK для Node.js](https://github.com/Azure/azure-sdk-for-node)
+* [Пакет Azure SDK для PHP](https://github.com/Azure/azure-sdk-for-php)
+* [Пакет SDK для Azure для Python](https://github.com/Azure/azure-sdk-for-python)
+* [Пакет Azure SDK для Ruby ](https://github.com/Azure/azure-sdk-for-ruby)
+
+Дополнительные сведения об использовании этих языков с вашими ресурсами см. в следующих статьях:
+
+* [Azure for .NET developers](/dotnet/azure/?view=azure-dotnet) (Azure для разработчиков .NET);
+* [Azure for Java developers](/java/azure/) (Azure для разработчиков Java);
+* [Azure for Node.js developers](/nodejs/azure/) (Azure для разработчиков Node.js);
+* [Azure for Python developers](/python/azure/) (Azure для разработчиков Python).
 
 > [!NOTE]
 > Если пакет SDK не обеспечивает требуемую функциональность, можно также напрямую вызвать интерфейс [REST API Azure](https://docs.microsoft.com/rest/api/resources/) .
 > 
 > 
-
-## <a name="samples"></a>Примеры
-### <a name="net"></a>.NET
-* [Manage Azure resources and resource groups with .NET (Управление ресурсами и группами ресурсов Azure с помощью .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-* [Deploy an SSH Enabled VM with a Template with .NET (Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона c помощью .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-
-### <a name="java"></a>Java
-* [Getting Started with Resources - Manage Resource - in Java (Приступая к работе с ресурсами: управление ресурсами в Java)](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
-* [Приступая к работе с ресурсами: управление группой ресурсов на Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-* [Deploy an SSH Enabled VM with a Template with .NET (Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона c помощью .NET)](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-
-### <a name="nodejs"></a>Node.js
-* [Manage Azure resources and resource groups with .NET (Управление ресурсами и группами ресурсов Azure с помощью .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-* [Deploy an SSH Enabled VM with a Template with .NET (Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона c помощью .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-
-### <a name="python"></a>Python
-* [Manage Azure resources and resource groups with .NET (Управление ресурсами и группами ресурсов Azure с помощью .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-* [Deploy an SSH Enabled VM with a Template with .NET (Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона c помощью .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-
-### <a name="ruby"></a>Ruby
-* [Manage Azure resources and resource groups with .NET (Управление ресурсами и группами ресурсов Azure с помощью .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-* [Deploy an SSH Enabled VM with a Template with .NET (Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона c помощью .NET)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
-Наряду с этими образцами можно также выполнять поиск по коллекции образцов.
-
-[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Вводные сведения о работе с шаблонами см. в статье [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).

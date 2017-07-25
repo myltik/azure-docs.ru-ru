@@ -1,10 +1,4 @@
-``*.accesscontrol.windows.net``: используется для контроля доступа и управления удостоверениями.<br/><br/>``\*.backup.windowsazure.com``: используется для передачи данных репликации и оркестрации. <br/><br/> ``\*.blob.core.windows.net``: используется для доступа к учетной записи хранения, в которой хранятся реплицируемые данные.<br/><br/> ``\*.hypervrecoverymanager.windowsazure.com``: используется для операций управления репликацией и оркестрации;<br/><br/>
-``time.nist.gov`` и ``time.windows.com``: используются для проверки синхронизации времени системы с глобальным временем.
+``*.accesscontrol.windows.net``. Используется для управления доступом и идентификаторами.<br/><br/>``\*.backup.windowsazure.com``. Используется для передачи данных репликации и координации. <br/><br/> ``\*.blob.core.windows.net``. Используется для доступа к учетной записи хранения, в которой хранятся реплицируемые данные.<br/><br/> ``\*.hypervrecoverymanager.windowsazure.com``. Используется для операций управления репликацией и координации.<br/><br/>
+``time.nist.gov`` и ``time.windows.com``. Используются для проверки синхронизации системного и глобального времени.
 <br/><br/>
-
-URL-адреса для облака Azure для государственных организаций:
-
-- .ugv.hypervrecoverymanager.windowsazure.us
-- .ugv.backup.windowsazure.us
-- .ugi.hypervrecoverymanager.windowsazure.us
-- .ugi.backup.windowsazure.us
+URL-адреса для облака Azure для государственных организаций:<br/>— .ugv.hypervrecoverymanager.windowsazure.us;<br/>— .ugv.backup.windowsazure.us;<br/>— .ugi.hypervrecoverymanager.windowsazure.us;<br/>— .ugi.backup.windowsazure.us.

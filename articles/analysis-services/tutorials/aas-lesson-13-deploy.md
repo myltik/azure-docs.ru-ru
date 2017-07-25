@@ -1,5 +1,5 @@
 ---
-title: "Учебник по службам Azure Analysis Services: занятие 13 &quot;Развертывание&quot; | Документы Майкрософт"
+title: "Учебник по службам Azure Analysis Services: занятие 13 \"Развертывание\" | Документы Майкрософт"
 description: "Описывает развертывание учебного проекта в службах Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
@@ -13,27 +13,31 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 8e3e1be572aa66ab46f894a2e5f395d1e6f2ea23
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="lesson-13-deploy"></a>Занятие 13. Развертывание
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-В этом занятии вы настроите свойства развертывания, указав сервер Analysis Services в Azure или сервер SQL Server vNext Analysis Services в локальной среде, а также имя модели. Затем вы развернете модель на этом экземпляре. После развертывания модели пользователи смогут подключаться к ней с помощью клиентского приложения по созданию отчетов. Дополнительные сведения см. в статье [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) (Развертывание в службы Azure Analysis Services).  
+На этом уроке вы настроите свойства развертывания, указав сервер Azure Analysis Services, на котором оно будет выполняться, развертывания и имя модели. Затем вы развернете модель на этом экземпляре. После развертывания модели пользователи смогут подключаться к ней с помощью клиентского приложения по созданию отчетов. Дополнительные сведения см. в статье [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) (Развертывание в службы Azure Analysis Services).  
   
 Предполагаемое время выполнения этого занятия: **5 минут**  
   
 ## <a name="prerequisites"></a>Предварительные требования  
 Этот раздел входит в учебник по табличному моделированию, который следует изучать в предложенном порядке. Прежде чем выполнять задачи в этом разделе, нужно завершить предыдущее занятие: [Занятие 12. Анализ в Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
-**Важно!** Если вы установили пример базы данных AdventureWorksDW2014 на SQL Server и развертываете модель на сервере служб Azure Analysis Services, требуется [локальный шлюз данных](../analysis-services-gateway.md).
+> [!IMPORTANT]  
+> Вы должны иметь [права администратора](../analysis-services-server-admins.md) на удаленном сервере служб Analysis Services для его развертывания.  
+
+> [!IMPORTANT]  
+> Если вы установили пример базы данных AdventureWorksDW2014 на локальном сервере SQL Server и развертываете свою модель на сервере служб Azure Analysis Services, необходим [локальный шлюз данных](../analysis-services-gateway.md).
   
 ## <a name="deploy-the-model"></a>Развертывание модели  
   
@@ -42,12 +46,9 @@ ms.lasthandoff: 06/03/2017
   
 1.  В **обозревателе решений** щелкните правой кнопкой мыши проект **AW Internet Sales** и выберите пункт **Свойства**.  
   
-2.  В свойстве **Сервер** из области **Сервер развертывания** диалогового окна **Страницы свойств AW Internet Sales** введите имя сервера служб Analysis Services в Azure или локальной среде.  
+2.  В диалоговом окне **AW Internet Sales Property Pages** (Страницы свойств AW Internet Sales) в разделе **Сервер развертывания** в свойстве **Сервер** введите полное название сервера.  
 
     ![aas-lesson13-deploy-property](../tutorials/media/aas-lesson13-deploy-property.png)
- 
-    > [!IMPORTANT]  
-    > Чтобы развернуть модель на удаленном экземпляре Analysis Services, для него нужно обладать правами администратора.  
   
 3.  В свойстве **База данных** введите **Adventure Works Internet Sales**.  
   
@@ -61,7 +62,7 @@ ms.lasthandoff: 06/03/2017
 
 2.  Щелкните правой кнопкой мыши проект **AW Internet Sales** и выберите пункт **Развернуть**.
 
-    При развертывании в службах Azure Analysis Services может потребоваться ввести вашу учетную запись. Укажите свою учетную запись в организации и пароль, например nancy@adventureworks.com. Это учетная запись должна обладать правами администратора на экземпляре сервера.
+    При развертывании в службах Azure Analysis Services может потребоваться ввести вашу учетную запись. Укажите свою учетную запись в организации и пароль, например nancy@adventureworks.com. Эта учетная запись должна быть у администраторов на сервере.
   
     Появляется диалоговое окно "Развертывание", отображающее состояние развертывания метаданных и все таблицы, включенные в модель.  
     
@@ -77,9 +78,8 @@ ms.lasthandoff: 06/03/2017
   
   
 ## <a name="whats-next"></a>Что дальше?
-*  [Дополнительное занятие. Динамическая безопасность](../tutorials/aas-supplemental-lesson-dynamic-security.md)
-
-*  [Дополнительное занятие. Строки детализации](../tutorials/aas-supplemental-lesson-detail-rows.md)
-
-*  [Дополнительное занятие. Неоднородные иерархии](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
+[Подключение с помощью Power BI](../analysis-services-connect-pbi.md)   
+[Дополнительное занятие. Динамическая безопасность](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
+[Дополнительное занятие. Строки детализации](../tutorials/aas-supplemental-lesson-detail-rows.md)   
+[Дополнительное занятие. Неоднородные иерархии](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
 

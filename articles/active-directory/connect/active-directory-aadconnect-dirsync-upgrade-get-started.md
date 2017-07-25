@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 08ba157ba783d00069750cdc1c80d13111b6a670
-ms.lasthandoff: 02/08/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -135,7 +136,7 @@ Azure AD Connect является преемником Microsoft Azure Active Di
 1. Запустите установщик Azure AD Connect (MSI).
 2. При отображении экрана **Вас приветствует Azure AD Connect** выйдите из мастера установки, нажав кнопку c крестиком в правом верхнем углу окна.
 3. Откройте окно командной строки.
-4. Из папки установки Azure AD Connect (по умолчанию: C:\Program Files\Microsoft Azure Active Directory Connect) выполните следующую команду:  `AzureADConnect.exe /ForceExport`.
+4. Из папки установки Azure AD Connect (по умолчанию: C:\Program Files\Microsoft Azure Active Directory Connect) выполните следующую команду: `AzureADConnect.exe /ForceExport`.
 5. Нажмите кнопку **Экспорт параметров** . Если вы устанавливаете Azure AD Connect на отдельном сервере, эти параметры будут перенесены из текущей службы DirSync в устанавливаемую службу Azure AD Connect.
 
 ![Анализ завершен.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
@@ -148,7 +149,7 @@ Azure AD Connect является преемником Microsoft Azure Active Di
 1. Запустите установщик Azure AD Connect (MSI).
 2. При отображении экрана **Вас приветствует Azure AD Connect** выйдите из мастера установки, нажав кнопку c крестиком в правом верхнем углу окна.
 3. Откройте окно командной строки.
-4. Из папки установки Azure AD Connect (по умолчанию: C:\Program Files\Microsoft Azure Active Directory Connect) выполните следующую команду:  `AzureADConnect.exe /migrate`.
+4. Из папки установки Azure AD Connect (по умолчанию: C:\Program Files\Microsoft Azure Active Directory Connect) выполните следующую команду: `AzureADConnect.exe /migrate`.
    Будет запущен мастер установки Azure AD Connect, и появится следующий экран:  
    ![Введите учетные данные Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
 5. Выберите файл параметров, экспортированный из установки DirSync.
@@ -158,7 +159,7 @@ Azure AD Connect является преемником Microsoft Azure Active Di
    * Учетная запись службы, используемая для подключения к SQL Server (если база данных SQL Server удаленная, эта учетная запись должна быть учетной записью службы домена).
      Следующие параметры можно увидеть на этом экране:   
      ![Введите учетные данные Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
-7. Нажмите кнопку **Далее**.
+7. Щелкните **Далее**.
 8. Не снимайте флажок **Запустить синхронизацию сразу после завершения настройки** на странице **Готово к настройке**. Теперь сервер находится в [промежуточном режиме](active-directory-aadconnectsync-operations.md#staging-mode), поэтому изменения не экспортируются в Azure AD.
 9. Щелкните **Install**(Установить).
 10. После завершения установки выполните выход из Windows и снова войдите, прежде чем использовать диспетчер службы синхронизации или редактор правил синхронизации либо вносить в конфигурацию какие-либо другие изменения.

@@ -3,8 +3,8 @@ title: "Создание мобильного приложения Cordova в с
 description: "Изучите этот учебник, чтобы начать работу с серверными частями мобильных приложений Azure для разработки программ Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 tags: 
 keywords: "cordova, javascript, мобильный, клиент"
@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
-ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
-ms.lasthandoff: 12/01/2016
-
+ms.date: 07/07/2017
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 251e36364d0440890dc30dc5267be9f775d95933
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="create-an-apache-cordova-app"></a>Создание приложения Apache Cordova
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/01/2016
 ## <a name="prerequisites"></a>Предварительные требования
 Для работы с данным руководством вам потребуется:
 
-* компьютер с [Visual Studio Community 2015] или более поздней версии;
+* компьютер с [Visual Studio Community 2017] или более поздней версии;
 * [набор средств Visual Studio для Apache Cordova];
 * [Активная учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 12/01/2016
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: http://www.visualstudio.com/
 [набор средств Visual Studio для Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Автономные данные]: app-service-mobile-offline-data-sync.md
 [Аутентификация]: app-service-mobile-auth.md

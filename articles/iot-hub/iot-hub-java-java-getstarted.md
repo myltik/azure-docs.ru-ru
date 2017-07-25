@@ -16,19 +16,19 @@ ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 7d95ba163712c8a3610839029fe3453bd5c308a8
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 7f0fbaf5d8e0379fc67ad62ea7c9ab63c6737150
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="connect-your-simulated-device-to-your-iot-hub-using-java"></a>Подключение виртуального устройства к Центру Интернета вещей с помощью Java
+# <a name="connect-your-device-to-your-iot-hub-using-java"></a>Подключение устройства к Центру Интернета вещей с помощью Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 В конце этого руководства у вас будет три консольных приложения Java:
 
-* **create-device-identity** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к приложению виртуального устройства;
-* **read-d2c-messages** — отображает данные телеметрии, отправляемые приложением виртуального устройства;
+* **create-device-identity** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к приложению устройства;
+* **read-d2c-messages** — отображает данные телеметрии, отправляемые приложением устройства;
 * **simulated-device** — подключается к Центру Интернета вещей с созданным ранее удостоверением устройства и отправляет сообщения телеметрии с частотой один раз в секунду по протоколу MQTT.
 
 > [!NOTE]
@@ -93,6 +93,7 @@ ms.lasthandoff: 07/13/2017
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "myFirstJavaDevice";
     ```
+[!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
 8. Измените подпись метода **main** , чтобы включить исключения, указанные ниже.
 
@@ -302,9 +303,12 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
     mvn clean package -DskipTests
     ```
 
+<<<<<<< HEAD
+## <a name="create-a-device-app"></a>Создание приложения устройства
+=======
 ## <a name="create-a-simulated-device-app"></a>Создание приложения виртуального устройства
 
-В этом разделе вы создаете консольное приложение Java, которое имитирует устройство, отправляющее сообщения с устройства в облако в Центре Интернета вещей.
+>>>>>>> В этом разделе вы создаете консольное приложение Java, которое имитирует устройство, отправляющее сообщения с устройства в облако в Центре Интернета вещей.
 
 1. В папке iot-java-get-started, созданной в разделе *Создание удостоверения устройства*, создайте проект Maven с именем **simulated-device**, выполнив в командной строке следующую команду. Обратите внимание, что это одна длинная команда.
 
@@ -374,11 +378,19 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
       }
     }
     ```
+<<<<<<< HEAD
+9. Чтобы отобразить состояние подтверждения, возвращаемое Центром Интернета вещей при обработке сообщения с устройства приложения, добавьте в класс **App** приведенный ниже вложенный класс **EventCallback**. Этот метод также уведомляет основной поток в приложении о том, что сообщение обработано.
+   
+    ```
+    private static class EventCallback implements IotHubEventCallback
+    {
+=======
 
-9. Чтобы отобразить состояние подтверждения, возвращаемое Центром Интернета вещей при обработке сообщения с виртуального устройства, добавьте в класс **App** приведенный ниже вложенный класс **EventCallback**. Этот метод также уведомляет основной поток в приложении о том, что сообщение обработано.
+9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
 
     ```java
     private static class EventCallback implements IotHubEventCallback {
+>>>>>>> master
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    
@@ -488,8 +500,11 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
     ![Плитка "Использование" на портале Azure, отображающая количество сообщений, отправленных в Центр Интернета вещей][43]
 
 ## <a name="next-steps"></a>Дальнейшие действия
+<<<<<<< HEAD В этом руководстве мы настроили новый Центр Интернета вещей на портале Azure и создали удостоверение устройства в реестре удостоверений Центра Интернета вещей. Это удостоверение позволяет приложению устройства отправлять в Центр Интернета вещей сообщения, передаваемые из устройства в облако. Кроме того, мы создали приложение, которое отображает сообщения, полученные Центром Интернета вещей. 
+=======
 
 В этом руководстве мы настроили новый Центр Интернета вещей на портале Azure и создали удостоверение устройства в реестре удостоверений Центра Интернета вещей. Это удостоверение позволяет приложению виртуального устройства отправлять в Центр Интернета вещей сообщения, передаваемые из устройства в облако. Кроме того, мы создали приложение, которое отображает сообщения, полученные Центром Интернета вещей.
+>>>>>>> master
 
 Чтобы продолжить знакомство с Центром Интернета вещей и изучить другие сценарии Интернета вещей, см. следующие ресурсы:
 
