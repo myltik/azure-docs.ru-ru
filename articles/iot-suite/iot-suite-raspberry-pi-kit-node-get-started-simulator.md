@@ -12,14 +12,13 @@ ms.devlang: node.js
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 07/26/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: 3d41a3665ffb2217ecbe1ad53853f0e9d30fac34
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/03/2017
-
 
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-nodejs"></a>Подключение устройства Raspberry Pi 3 к решению для удаленного мониторинга и отправка имитированных данных телеметрии с помощью Node.js
@@ -52,33 +51,44 @@ ms.lasthandoff: 05/03/2017
 
 1. Чтобы обновить устройство Raspberry Pi, используйте следующую команду:
 
-    `sudo apt-get update`
+    ```sh
+    sudo apt-get update
+    ```
 
 1. Чтобы скачать двоичные файлы Node.js на устройство Raspberry Pi, используйте следующую команду:
 
-    `wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Чтобы установить эти двоичные файлы, используйте следующую команду:
 
-    `sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Чтобы убедиться в успешной установке Node.js версии 6.10.2, используйте следующую команду:
 
-    `node --version`
+    ```sh
+    node --version
+    ```
 
 ### <a name="clone-the-repositories"></a>Клонирование репозиториев
 
 Клонируйте необходимые репозитории (если вы еще не сделали это), выполнив следующие команды в терминале на устройстве Pi:
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git
+```
 
 ### <a name="update-the-device-connection-string"></a>Обновление строки подключения устройства
 
 Откройте исходный файл примера в редакторе **nano**, используя следующую команду:
 
-`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator/remote_monitoring.js`
+```sh
+nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator/remote_monitoring.js
+```
 
 Найдите следующую строку:
 
@@ -92,13 +102,16 @@ var connectionString = 'HostName=[Your IoT hub name].azure-devices.net;DeviceId=
 
 Чтобы установить пакеты необходимых компонентов для примера, выполните следующие команды:
 
-`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator`
-
-`npm install`
+```sh
+cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator
+npm install
+```
 
 Теперь вы можете запустить пример программы на устройстве Raspberry Pi. Введите команду:
 
-`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator/remote_monitoring.js`
+```sh
+sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/simulator/remote_monitoring.js
+```
 
 Следующий пример с выходными данными отобразится в командной строке на устройстве Raspberry Pi:
 
@@ -111,7 +124,6 @@ var connectionString = 'HostName=[Your IoT hub name].azure-devices.net;DeviceId=
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные примеры и документацию по Azure IoT можно найти в [Центре разработчиков Azure IoT](https://azure.microsoft.com/develop/iot/).
-
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-node-get-started-simulator/app-output.png
 
