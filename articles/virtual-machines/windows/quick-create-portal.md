@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/03/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 05/31/2017
 
 1. Щелкните **Создать** в верхнем левом углу портала Azure.
 
-2. Щелкните **Вычисления**, выберите **Windows Server 2016 Datacenter** и модель развертывания **Resource Manager**. Нажмите кнопку **Создать** . 
+2. Выберите **Вычисления**, а затем — **Windows Server 2016 Datacenter**. 
 
 3. Введите сведения о виртуальной машине. Имя пользователя и пароль понадобятся для входа на виртуальную машину. По завершении нажмите кнопку **ОК**.
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/31/2017
 
     ![Снимок экрана, на котором показаны размеры виртуальных машин](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. В колонке "Параметры" в разделе **Использование управляемых дисков** выберите **Да**, для остальных параметров оставьте значения по умолчанию и нажмите кнопку **ОК**.
+5. В колонке параметров оставьте значения по умолчанию и нажмите кнопку **OK**.
 
 6. На странице сводки нажмите кнопку **OК**, чтобы начать развертывание виртуальной машины.
 

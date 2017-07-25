@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 8c51af189e8086a509d44546882e1b26605dddae
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -48,7 +48,7 @@ ssh-keygen -t rsa -b 2048
 
 1. Щелкните **Создать** в верхнем левом углу портала Azure.
 
-2. Щелкните **Вычисления**, выберите **Ubuntu Server 16.04 LTS** и убедитесь, что выбрана модель развертывания **Resource Manager**. Нажмите кнопку **Создать** . 
+2. Выберите **Вычисления**, а затем — **Сервер Ubuntu 16.04 LTS**. 
 
 3. Введите сведения о виртуальной машине. Для параметра **Тип проверки подлинности** выберите значение **Открытый ключ SSH**. При вставке открытого ключа SSH обязательно удалите из него начальные и конечные пробелы. По завершении нажмите кнопку **ОК**.
 
@@ -58,7 +58,7 @@ ssh-keygen -t rsa -b 2048
 
     ![Снимок экрана, на котором показаны размеры виртуальных машин](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. В колонке "Параметры" в разделе **Использование управляемых дисков** выберите **Да**, для остальных параметров оставьте значения по умолчанию и нажмите кнопку **ОК**.
+5. В колонке параметров оставьте значения по умолчанию и нажмите кнопку **OK**.
 
 6. На странице сводки нажмите кнопку **OК**, чтобы начать развертывание виртуальной машины.
 

@@ -1,6 +1,6 @@
 ---
-title: "Начало работы с Service Fabric и Azure CLI 2.0"
-description: "Использование командного модуля Service Fabric в Azure CLI версии 2.0, например, для подключения к кластеру и управления приложениями"
+title: "Начало работы с Azure Service Fabric и Azure CLI 2.0"
+description: "Узнайте, как использовать команды модуля Service Fabric в Azure CLI версии 2.0 Узнайте, как подключится к кластеру и как управлять приложениями."
 services: service-fabric
 author: samedder
 manager: timlt
@@ -8,34 +8,28 @@ ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: edwardsa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: c5cc6e54acf27456185eeb48858c4d981aa46b4b
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: ee3302b984ca2f5509755dc17b0a5fd06ace0afe
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="service-fabric-and-azure-cli-20" class="xliff"></a>
+# <a name="azure-service-fabric-and-azure-cli-20"></a>Azure Service Fabric и Azure CLI 2.0
 
-# Service Fabric и Azure CLI 2.0
+Интерфейс командной строки Azure (Azure CLI) версии 2.0 включает команды для управления кластерами Azure Service Fabric. Узнайте, как начать работу с Azure CLI и Service Fabric.
 
-Новая версия Azure CLI 2.0 содержит команды для управления кластерами Service Fabric. В этой документации представлены инструкции по началу работы с Azure CLI.
+## <a name="install-azure-cli-20"></a>Установка Azure CLI 2.0
 
-<a id="install-azure-cli-20" class="xliff"></a>
+Команды Azure CLI 2.0 можно использовать для взаимодействия с кластерами Service Fabric и управления ими. Чтобы получить последнюю версию Azure CLI, следуйте [стандартному процессу установки Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-## Установка Azure CLI 2.0
+Дополнительные сведения см. в [обзоре Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview).
 
-Теперь Azure CLI содержит команды для взаимодействия с кластерами Service Fabric и управления ими. Выполните [стандартный процесс установки](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), чтобы получить последнюю версию Azure CLI.
+## <a name="azure-cli-syntax"></a>Синтаксис Azure CLI
 
-Дополнительные сведения см. в [документации по Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview)
+Все команды Service Fabric в Azure CLI начинаются с префикса `az sf`. Чтобы получить общие сведения о командах, которые можно применять, используйте `az sf -h`. Для получения сведений об одной команде используйте `az sf <command> -h`.
 
-<a id="cli-syntax" class="xliff"></a>
-
-## Синтаксис CLI
-
-Все команды Azure Service Fabric в Azure CLI начинаются с префикса `az sf`. Дополнительные сведения о доступных командах можно просмотреть, выполнив `az sf -h`. А выполнив `az sf <command> -h`, можно получить подробную справку по определенной команде.
-
-Команды Azure Service Fabric в CLI соответствуют следующему шаблону именования:
+Команды Service Fabric в Azure CLI соответствуют такому шаблону именования:
 
 ```azurecli
 az sf <object> <action>
@@ -43,45 +37,41 @@ az sf <object> <action>
 
 Здесь `<object>` является целевым объектом для `<action>`.
 
-<a id="selecting-a-cluster" class="xliff"></a>
+## <a name="select-a-cluster"></a>Выбор кластера
 
-## Выбор кластера
-
-Перед выполнением любых операций выберите кластер, к которому нужно подключиться. Например, см. следующий фрагмент кода для подключения к незащищенному кластеру.
+Перед выполнением любых операций выберите кластер, к которому нужно подключиться. В качестве примера ниже приведен код. Код подключается к незащищенному кластеру.
 
 > [!WARNING]
-> Не используйте незащищенные кластеры Service Fabric для рабочей среды.
+> Не используйте незащищенные кластеры Service Fabric в рабочей среде.
 
 ```azurecli
 az sf cluster select --endpoint http://testcluster.com:19080
 ```
 
-Конечная точка кластера должна начинаться с префикса `http` или `https` и включать номер порта для шлюза HTTP. Этот порт и адрес аналогичны URL-адресу Service Fabric Explorer.
+Конечная точка кластера должна иметь префикс `http` или `https`. Она должна включать порт для шлюза HTTP. Этот порт и адрес аналогичны URL-адресу Service Fabric Explorer.
 
-Для кластеров, защищенных с помощью сертификата, поддерживаются незашифрованные файлы `pem` или `crt` и `key`.
+Для кластеров, защищенных с помощью сертификата, можно использовать не зашифрованные PEM-файлы или CRT-файлы и KEY-файлы. Например:
 
 ```azurecli
 az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Дополнительные сведения см. в [полной документации по подключению к защищенным кластерам](service-fabric-connect-to-secure-cluster.md).
+Дополнительные сведения см. в статье [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md).
 
 > [!NOTE]
-> При использовании команды select запросы не выполняются до получения результатов. Чтобы удостовериться, что кластер указан правильно, введите команду, например `az sf cluster health`, и проверьте, сопровождается ли выполнение ошибками.
+> Команда `select` не обрабатывает запросы до возвращения. Чтобы убедиться, что вы указали кластер правильно, используйте команды, аналогичные `az sf cluster health`. Убедитесь, что команда не возвращает каких-либо ошибок.
 
-<a id="performing-basic-operations" class="xliff"></a>
+## <a name="basic-operations"></a>Базовые операции
 
-## Выполнение основных операций
+Сведения о подключении кластера сохраняется между различными сеансами Azure CLI. Выбрав кластер Service Fabric, можно выполнить любую команду Service Fabric в кластере.
 
-Сведения о подключении кластера сохраняется для различных сеансов Azure CLI. Выбрав кластер Service Fabric, можно выполнить любую команду Service Fabric.
-
-Например, чтобы получить сведения о работоспособности кластера Service Fabric, выполните следующую команду:
+Например, чтобы получить сведения о работоспособности кластера Service Fabric, используйте следующую команду:
 
 ```azurecli
 az sf cluster health
 ```
 
-При условии, что в конфигурации Azure CLI указаны выходные данные JSON, будет получен следующий результат:
+При условии, что в конфигурации Azure CLI указаны выходные данные JSON, будет получен следующий результат:
 
 ```json
 {
@@ -106,51 +96,41 @@ az sf cluster health
 }
 ```
 
-<a id="tips-and-faq" class="xliff"></a>
+## <a name="tips-and-troubleshooting"></a>Рекомендации и устранение неполадок
 
-## Советы и часто задаваемые вопросы
+Следующие сведения могут оказаться полезными в случае возникновения проблем при использовании команд Service Fabric в Azure CLI.
 
-Сведения ниже могут пригодиться при возникновении проблем с использованием команд Service Fabric в Azure CLI
+### <a name="convert-a-certificate-from-pfx-to-pem-format"></a>Преобразование сертификата PFX в формат PEM
 
-<a id="converting-a-certificate-from-pfx-to-pem" class="xliff"></a>
-
-### Преобразование сертификата PFX в PEM
-
-Azure CLI поддерживает клиентские сертификаты, такие как файлы PEM (расширение `.pem`). При использовании PFX-файлов из Windows эти сертификаты необходимо преобразовать в формат PEM. Чтобы преобразовать PFX-файл в PEM-файл, используйте следующую команду:
+Azure CLI поддерживает клиентские сертификаты, такие как PEM-файлы. При использовании PFX-файлов из Windows эти сертификаты необходимо преобразовать в формат PEM. Чтобы преобразовать PFX-файл в PEM-файл, используйте следующую команду:
 
 ```bash
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
-Дополнительные сведения см. в [документации по OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html).
+Дополнительные сведения см. в [документации по OpenSSL](https://www.openssl.org/docs/).
 
-<a id="connection-issues" class="xliff"></a>
+### <a name="connection-issues"></a>Проблемы с подключением
 
-### Проблемы с подключением
+Некоторые операции могут создавать следующее сообщение:
 
-Во время выполнения операций может возникать следующая ошибка:
+`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
 
-> `Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+Убедитесь, что указанная конечная точка кластера доступна и ожидает передачи данных. Также проверьте, доступен ли для этого узла и порта пользовательский интерфейс Service Fabric Explorer. Обновите конечную точку с помощью `az sf cluster select`.
 
-В таком случае удостоверьтесь, что указанная конечная точка кластера доступна и ожидает передачи данных. Также проверьте, доступен ли для этого узла и порта пользовательский интерфейс Service Fabric Explorer. Обновите конечную точку с помощью `az sf cluster select`.
+### <a name="detailed-logs"></a>Подробные журналы
 
-<a id="getting-detailed-logs" class="xliff"></a>
+Подробные журналы часто полезны при отладке или при сообщении о проблеме. В Azure CLI предусмотрен глобальный флаг `--debug`, повышающий уровень детализации файлов журналов.
 
-### Получение подробных журналов
+### <a name="command-help-and-syntax"></a>Справка и синтаксис для команд
 
-При отладке или описании проблемы рекомендуется включать подробные журналы. В Azure CLI предусмотрен глобальный флаг `--debug`, повышающий уровень детализации журналов.
-
-<a id="command-help-and-syntax" class="xliff"></a>
-
-### Справка и синтаксис для команд
-
-Команды Service Fabric соответствуют тому же соглашению, что и Azure CLI. Установите флаг `-h`, чтобы получить справку по определенной команде или группе команд. Например:
+Команды Service Fabric соответствуют тому же соглашению, что и Azure CLI. Для получения справки по определенной команде или группе команд используйте флаг `-h`:
 
 ```azurecli
 az sf application -h
 ```
 
-или
+Вот еще один пример:
 
 ```azurecli
 az sf application create -h

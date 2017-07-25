@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Отчеты о действиях аудита на портале Azure Active Directory
-<a id="audit-activity-reports-in-the-azure-active-directory-portal" class="xliff"></a> 
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Отчеты о действиях аудита на портале Azure Active Directory 
 
 Функция отчетов в Azure Active Directory (Azure AD) позволяет получать всю необходимую информацию, с помощью которой можно определить, как работает среда.
 
@@ -38,15 +37,13 @@ ms.lasthandoff: 05/26/2017
 
 В этом разделе содержатся общие сведения о действиях аудита.
  
-## Кто может получить доступ к данным?
-<a id="who-can-access-the-data" class="xliff"></a>
+## <a name="who-can-access-the-data"></a>Кто может получить доступ к данным?
 * Пользователи с ролью администратора безопасности или читателя безопасности
 * Глобальные администраторы
 * Отдельные пользователи (не администраторы) могут просматривать собственные действия.
 
 
-## Журналы аудита
-<a id="audit-logs" class="xliff"></a>
+## <a name="audit-logs"></a>Журналы аудита
 
 Журналы аудита в Azure Active Directory содержат записи о действиях системы (необходимые для соответствия требованиям).  
 Знакомство с данными аудита следует начать с **журналов аудита** в разделе **Действие** службы **Azure Active Directory**.
@@ -76,8 +73,7 @@ ms.lasthandoff: 05/26/2017
 ![Журналы аудита](./media/active-directory-reporting-activity-audit-logs/22.png "Журналы аудита")
 
 
-## Фильтрация журналов аудита
-<a id="filtering-audit-logs" class="xliff"></a>
+## <a name="filtering-audit-logs"></a>Фильтрация журналов аудита
 
 Для сужения результатов до подходящего уровня вы можете отфильтровать данные аудита, используя следующие поля:
 
@@ -134,19 +130,17 @@ ms.lasthandoff: 05/26/2017
 
 Фильтр **Действие** зависит от выбранной категории и типа ресурса действия. Вы можете выбрать определенное действие или просмотреть все. 
 
-Чтобы получить список всех действий аудита, используйте API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, где $tenantdomain — это доменное имя, или см. статью о [событиях в отчете аудита](active-directory-reporting-audit-events.md#list-of-audit-report-events).
+Чтобы получить список всех действий аудита, используйте API Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, где $tenantdomain — это доменное имя, или см. статью о [событиях в отчете аудита](active-directory-reporting-audit-events.md).
 
 
-## Ярлыки журналов аудита
-<a id="audit-logs-shortcuts" class="xliff"></a>
+## <a name="audit-logs-shortcuts"></a>Ярлыки журналов аудита
 
 Помимо **Azure Active Directory** портал Azure предоставляет две дополнительные точки входа для данных аудита:
 
 - Пользователи и группы
 - корпоративные приложения.
 
-### Журналы аудита пользователей и групп
-<a id="users-and-groups-audit-logs" class="xliff"></a>
+### <a name="users-and-groups-audit-logs"></a>Журналы аудита пользователей и групп
 
 Отчеты аудита, касающиеся пользователей и групп, дают возможность ответить на такие вопросы:
 
@@ -170,8 +164,7 @@ ms.lasthandoff: 05/26/2017
 
 ![Журналы аудита](./media/active-directory-reporting-activity-audit-logs/93.png "Журналы аудита")
 
-### Журналы аудита корпоративных приложений
-<a id="enterprise-applications-audit-logs" class="xliff"></a>
+### <a name="enterprise-applications-audit-logs"></a>Журналы аудита корпоративных приложений
 
 Отчеты аудита, касающиеся приложений, дают возможность ответить на такие вопросы:
 
@@ -190,8 +183,8 @@ ms.lasthandoff: 05/26/2017
 ![Журналы аудита](./media/active-directory-reporting-activity-audit-logs/25.png "Журналы аудита")
 
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
-См. статью [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).
+## <a name="next-steps"></a>Дальнейшие действия
+
+Общие сведения об отчетах Azure Active Directory см. в [этой статье](active-directory-reporting-azure-portal.md).
 
 

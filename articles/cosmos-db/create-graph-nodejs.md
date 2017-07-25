@@ -3,7 +3,7 @@ title: "Создание приложения Azure Cosmos DB на платфо
 description: "В этой статье представлен пример кода Node.js, который можно использовать для подключения и выполнения запросов к Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,14 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/21/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: b9e8c46ba2f029f8dae2b357f05a806d769d0920
+ms.date: 07/14/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 153b4cc668fdebd28cec5f3d95093a595064202a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB. Создание приложения Node.js с помощью API Graph
@@ -96,19 +95,23 @@ Azure Cosmos DB — это глобально распределенная м�
 
 ## <a name="update-your-connection-string"></a>Обновление строки подключения
 
-Теперь вернитесь на портал Azure, чтобы получить данные строки подключения. Скопируйте эти данные в приложение.
+1. Откройте файл config.js. 
 
-1. На [портале Azure](http://portal.azure.com/) перейдите к учетной записи Azure Cosmos DB и в меню навигации слева щелкните **Ключи**, а затем выберите **Ключи записи-чтения**. На следующем шаге используйте кнопки копирования справа, чтобы скопировать URI и первичный ключ в файл `app.js`.
-
-    ![Колонка "Ключи" на портале Azure](./media/create-graph-nodejs/keys.png)
-
-2. Скопируйте значение Gremlin URI на портале (с помощью кнопки копирования) и добавьте его в качестве значения ключа `config.endpoint` в файле config.js. Конечная точка Gremlin должна состоять из имени узла без имени протокола или номера порта, например `mygraphdb.graphs.azure.com` (а не `https://mygraphdb.graphs.azure.com` или `mygraphdb.graphs.azure.com:433`).
+2. В файле сonfig.js заполните значения ключа config.endpoint значением **Gremlin URI** со страницы **обзора** на портале Azure. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
-3. Скопируйте значение первичного ключа с портала и добавьте его в качестве значения параметра config.primaryKey в файле config.js. Теперь приложение со всеми сведениями, необходимыми для взаимодействия с Azure Cosmos DB, обновлено. 
+    ![Просмотр и копирование ключа доступа на портале Azure, колонка "Ключи"](./media/create-graph-nodejs/gremlin-uri.png)
+
+   Если значение **Gremlin URI** не указано, можно создать значение на странице **Ключи** на портале с помощью значения **URI**, удалив https:// и изменив документы на графы.
+
+   Конечная точка Gremlin должна состоять из имени узла без имени протокола или номера порта, например `mygraphdb.graphs.azure.com` (а не `https://mygraphdb.graphs.azure.com` или `mygraphdb.graphs.azure.com:433`).
+
+3. В файле config.js заполните значения параметра config.primaryKey значением **первичного ключа** на странице **Ключи** на портале Azure. 
 
     `config.primaryKey = "PRIMARYKEY";`
+
+   ![Колонка "Ключи" на портале Azure](./media/create-graph-nodejs/keys.png)
 
 4. Введите имя базы данных и графа (контейнера) для значения config.database и config.collection. 
 
@@ -118,8 +121,8 @@ Azure Cosmos DB — это глобально распределенная м�
 var config = {}
 
 // Note that this must not have HTTPS or the port number
-config.endpoint = "mygraphdb.graphs.azure.com";
-config.primaryKey = "OjlhK6tjxfSXyKtrmCiM9O6gQQgu5DmgAoauzD1PdPIq1LZJmILTarHvrolyUYOB0whGQ4j21rdAFwoYep7Kkw==";
+config.endpoint = "testgraphacct.graphs.azure.com";
+config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
 config.collection = "Persons"
 

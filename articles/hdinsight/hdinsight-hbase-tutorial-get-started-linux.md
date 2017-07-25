@@ -1,6 +1,6 @@
 ---
 title: "Начало работы с примером HBase в HDInsight в Azure | Документация Майкрософт"
-description: "Сведения об использовании Apache HBase в HDInsight. Создание таблиц из оболочки HBase и обращение к ним с помощью Hive."
+description: "Ознакомьтесь с примером Apache HBase, чтобы начать использовать Hadoop в HDInsight. Создание таблиц из оболочки HBase и обращение к ним с помощью Hive."
 keywords: "hbasecommand, пример hbase"
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/09/2017
+ms.date: 07/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 5bac1fcc39d052dd1bd9bf710a45a3494b70cae9
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: 1c2437c6eed641a929a7e25265bfc72dc76a9782
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Начало работы с примером Apache HBase в HDInsight
@@ -42,7 +41,7 @@ ms.lasthandoff: 06/09/2017
 
 1. Щелкните следующее изображение, чтобы открыть шаблон на портале Azure. Шаблон хранится в общедоступном контейнере больших двоичных объектов. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. В колонке **Настраиваемое развертывание** укажите следующие значения.
    
    * **Подписка**: выберите подписку Azure, которая используется для создания этого кластера.
@@ -58,7 +57,7 @@ ms.lasthandoff: 06/09/2017
 3. Установите флажок **Я принимаю указанные выше условия** и нажмите кнопку **Приобрести**. Процесс создания кластера занимает около 20 минут.
 
 > [!NOTE]
-> После удаления кластера HBase можно создать другой кластер HBase, использовав тот же контейнер BLOB-объектов по умолчанию. Таблицы HBase, созданные в исходном кластере, получит новый кластер. Перед удалением кластера рекомендуется отключить таблицы HBase, чтобы избежать несогласованности.
+> После удаления кластера HBase можно создать другой кластер HBase, использовав тот же контейнер BLOB-объектов по умолчанию. Новый кластер получит таблицы HBase, созданные в исходном кластере. Перед удалением кластера рекомендуется отключить таблицы HBase, чтобы избежать несогласованности.
 > 
 > 
 
@@ -69,7 +68,7 @@ ms.lasthandoff: 06/09/2017
 
 ![Табличные данные HDInsight HBase][img-hbase-sample-data-tabular]
 
-В HBase, который является реализацией BigTable, те же данные выглядят следующим образом:
+В HBase (который является реализацией BigTable) те же данные выглядят следующим образом:
 
 ![Данные BigTable HDInsight HBase][img-hbase-sample-data-bigtable]
 
@@ -78,36 +77,47 @@ ms.lasthandoff: 06/09/2017
 
 1. Из SSH выполните следующую команду HBase:
    
-        hbase shell
+    ```bash
+    hbase shell
+    ```
+
 2. Создайте HBase с двумя столбцами:
-   
-        create 'Contacts', 'Personal', 'Office'
-        list
+
+    ```hbaseshell   
+    create 'Contacts', 'Personal', 'Office'
+    list
+    ```
 3. Вставьте какие-либо данные:
-   
-        put 'Contacts', '1000', 'Personal:Name', 'John Dole'
-        put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
-        put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
-        put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
-        scan 'Contacts'
+    
+    ```hbaseshell   
+    put 'Contacts', '1000', 'Personal:Name', 'John Dole'
+    put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
+    put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
+    put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
+    scan 'Contacts'
+    ```
    
     ![Оболочка HDInsight Hadoop HBase][img-hbase-shell]
 4. Получите одну строку
    
-        get 'Contacts', '1000'
+    ```hbaseshell
+    get 'Contacts', '1000'
+    ```
    
     Вы увидите те же результаты, что и при использовании команды сканирования, так как в таблице есть только одна строка.
    
     Дополнительную информацию о схеме таблицы HBase см. в статье с [общими сведениями о проектировании схемы HBase][hbase-schema]. Дополнительные команды HBase см. в [справочнике по Apache HBase][hbase-quick-start].
 5. Выйдите из оболочки
    
-        exit
+    ```hbaseshell
+    exit
+    ```
 
 **Для массовой загрузки данных в таблицу контактов HBase**
 
 HBase включает несколько методов загрузки данных в таблицы.  Для получения дополнительных сведений обратитесь к разделу [Массовая загрузка](http://hbase.apache.org/book.html#arch.bulk.load).
 
-Образец файла данных загружен в общедоступный контейнер больших двоичных объектов *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Файл данных содержит:
+Пример файла данных находится в общедоступном контейнере больших двоичных объектов *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Файл данных содержит:
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -125,14 +135,19 @@ HBase включает несколько методов загрузки дан
 > [!NOTE]
 > Эта процедура использует таблицу контактов HBase, созданную в предыдущей процедуре.
 > 
-> 
 
-1. Из SSH выполните следующую команду, чтобы преобразовать файл данных в StoreFiles и сохранить его по относительному пути, указанному в Dimporttsv.bulk.output:  Если вы используете оболочку HBase, выйдите из нее, выполнив команду exit.
-   
-        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+1. Из SSH выполните указанную ниже команду, чтобы преобразовать файл данных в StoreFiles и сохранить его по относительному пути, указанному в Dimporttsv.bulk.output.  Если вы используете оболочку HBase, выйдите из нее, выполнив команду exit.
+
+    ```bash   
+    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+    ```
+
 2. Для передачи данных из /example/data/storeDataFileOutput в таблицу HBase выполните следующую команду:
    
-        hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
+    ```bash
+    hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
+    ```
+
 3. Откройте оболочку HBase и выполните команду сканирования для получения списка содержимого таблицы.
 
 ## <a name="use-hive-to-query-hbase"></a>Использование Hive для создания запросов к HBase
@@ -142,47 +157,62 @@ HBase включает несколько методов загрузки дан
 1. Откройте **PuTTY** и подключитесь к кластеру.  См. инструкции в приведенной выше процедуре.
 2. В сеансе SSH используйте следующую команду, чтобы запустить Beeline.
 
-        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    ```bash
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    ```
+
     Дополнительные сведения о Beeline см. в статье [Использование Hive с Hadoop в HDInsight с применением Beeline](hdinsight-hadoop-use-hive-beeline.md).
        
 3. Выполните приведенный ниже скрипт HiveQL, чтобы создать таблицу Hive, сопоставляемую с таблицей HBase. Перед выполнением этого оператора убедитесь, что вы создали упомянутый в этом учебнике пример таблицы с помощью оболочки HBase.
-   
-        CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
-        STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
-        WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
-        TBLPROPERTIES ('hbase.table.name' = 'Contacts');
+
+    ```hiveql   
+    CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
+    STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+    WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
+    TBLPROPERTIES ('hbase.table.name' = 'Contacts');
+    ```
+
 4. Запустите приведенный ниже скрипт HiveQL, чтобы запросить данные в таблице HBase.
-   
-         SELECT count(rowkey) FROM hbasecontacts;
+
+    ```hiveql   
+    SELECT count(rowkey) FROM hbasecontacts;
+    ```
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Использование API REST для HBase
 
 REST API защищен с помощью [обычной проверки подлинности](http://en.wikipedia.org/wiki/Basic_access_authentication). Чтобы обеспечить безопасную отправку учетных данных на сервер, все запросы следует отправлять с помощью протокола HTTPS.
 
 2. Для получения списка имеющихся таблиц HBase используйте следующую команду:
-   
-        curl -u <UserName>:<Password> \
-        -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+
+    ```bash
+    curl -u <UserName>:<Password> \
+    -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+    ```
+
 3. Для создания новой таблицы HBase с двумя семействами столбцов используйте следующую команду:
-   
-        curl -u <UserName>:<Password> \
-        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
-        -H "Accept: application/json" \
-        -H "Content-Type: application/json" \
-        -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
-        -v
-   
+
+    ```bash   
+    curl -u <UserName>:<Password> \
+    -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
+    -v
+    ```
+
     Схема предоставляется в формате JSON.
 4. Чтобы вставить какие-либо данные, используйте следующую команду:
+
+    ```bash   
+    curl -u <UserName>:<Password> \
+    -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
+    -v
+    ```
    
-        curl -u <UserName>:<Password> \
-        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
-        -H "Accept: application/json" \
-        -H "Content-Type: application/json" \
-        -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
-        -v
-   
-    Необходимо закодировать значения, указанные в параметре -d, используя кодировку base64.  Ознакомьтесь со следующим примером:
+    Необходимо закодировать значения, указанные в параметре -d, используя кодировку base64. Ознакомьтесь со следующим примером:
    
    * MTAwMA==: 1000;
    * UGVyc29uYWw6TmFtZQ==: Personal:Name
@@ -191,10 +221,12 @@ REST API защищен с помощью [обычной проверки по�
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) позволяет вставить несколько (пакетных) значений.
 5. Для получения строки используйте следующую команду:
    
-        curl -u <UserName>:<Password> \
-        -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
-        -H "Accept: application/json" \
-        -v
+    ```bash 
+    curl -u <UserName>:<Password> \
+    -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
+    -H "Accept: application/json" \
+    -v
+    ```
 
 Дополнительные сведения см. в [справочнике по Apache HBase](https://hbase.apache.org/book.html#_rest).
 
@@ -218,7 +250,7 @@ HBase на HDInsight поставляется с веб-интерфейсом �
 
 **Доступ к основному интерфейсу HBase**
 
-1. Откройте веб-интерфейс Ambari по ссылке https://&lt;имя_кластера>.azurehdinsight.net
+1. Войдите в веб-интерфейс Ambari по ссылке https://&lt;имя_кластера>.azurehdinsight.net.
 2. В меню слева щелкните **HBase**.
 3. В верхней части страницы щелкните **Быстрые ссылки**, выберите ссылку на активный узел Zookeeper, а затем щелкните **HBase Master UI** (Основной интерфейс HBase).  Интерфейс откроется в новой вкладке браузера.
 
@@ -242,7 +274,7 @@ HBase на HDInsight поставляется с веб-интерфейсом �
 Если при создании кластеров HDInsight возникли проблемы, см. раздел [Создание кластеров](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Из этого руководства по HBase для HDInsight вы узнали, как создать кластер HBase, а также как создавать таблицы и просматривать данные в них из оболочки HBase. Вы также узнали, как использовать Hive для запроса данных из таблиц HBase и как использовать интерфейсы REST API на C# для HBase для создания таблицы HBase и извлечения данных из нее.
+Из этой статьи вы узнали, как создать кластер HBase, а также как создавать таблицы и просматривать данные в них из оболочки HBase. Вы также узнали, как использовать Hive для запроса данных из таблиц HBase и как использовать интерфейсы REST API на C# для HBase для создания таблицы HBase и извлечения данных из нее.
 
 Дополнительные сведения см. на следующих ресурсах:
 

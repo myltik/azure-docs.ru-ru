@@ -13,24 +13,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/06/2017
+ms.date: 07/17/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 1c9487be5415d05a8699f458259d872591280d3d
+ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
+ms.openlocfilehash: a8520c6d8962cc362fc935f6b515a299c0ce75b3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Сеть для масштабируемых наборов виртуальных машин Azure
 
 При развертывании масштабируемого набора виртуальных машин Azure с помощью портала определенные свойства сети заданы по умолчанию, например Azure Load Balancer с правилами преобразования сетевых адресов для входящих подключений. В этой статье описывается, как использовать некоторые расширенные сетевые функции, которые можно настроить с помощью наборов масштабирования.
 
-Вы можете настроить все функции, описанные в этой статье, с помощью шаблонов Azure Resource Manager. Для выбранных функций также включены примеры Azure CLI. Используйте интерфейс командной строки Azure версии за июль 2017 г. Скоро будут добавлены дополнительные примеры для интерфейса командной строки Azure и PowerShell.
+Вы можете настроить все функции, описанные в этой статье, с помощью шаблонов Azure Resource Manager. Кроме того, будут добавлены примеры Azure CLI и PowerShell для выбранных компонентов. Используйте интерфейс командной строки версии 2.10 и PowerShell 4.2.0 или более поздней версии.
 
 ## <a name="accelerated-networking"></a>Ускорение работы в сети
-[Ускорение работы в сети](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-vm-accelerated-networking) Azure повышает производительность сети с помощью использования виртуализации ввода-вывода с единым корнем (SR-IOV) для виртуальной машины. Чтобы использовать ускоренную сеть с масштабируемыми наборами, в настройках networkInterfaceConfigurations масштабируемого набора задайте для параметра enableAcceleratedNetworking значение _true_. Например:
+[Ускорение работы в сети](../virtual-network/virtual-network-create-vm-accelerated-networking.md) Azure повышает производительность сети с помощью использования виртуализации ввода-вывода с единым корнем (SR-IOV) для виртуальной машины. Чтобы использовать ускоренную сеть с масштабируемыми наборами, в настройках networkInterfaceConfigurations масштабируемого набора задайте для параметра enableAcceleratedNetworking значение **true**. Например:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -59,9 +58,9 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 ## <a name="configurable-dns-settings"></a>Настраиваемые параметры DNS
 По умолчанию наборы масштабирования принимают определенные параметры DNS виртуальной сети и подсети, в которых они были созданы. Однако вы можете настроить параметры DNS непосредственно для набора масштабирования.
-
+~
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Создание масштабируемого набора с настраиваемыми DNS-серверами
-Чтобы создать масштабируемый набор с настраиваемой конфигурацией DNS с помощью CLI 2.0, добавьте аргумент --dns-servers в команду _vmss create_, за которой следуют разделенные пробелами IP-адреса сервера. Например:
+Чтобы создать масштабируемый набор с настраиваемой конфигурацией DNS с помощью интерфейса командной строки 2.0, добавьте аргумент **--dns-servers** в команду **vmss create**, за которой следуют разделенные пробелами IP-адреса сервера. Например:
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
@@ -73,9 +72,9 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Создание масштабируемого набора с настраиваемыми именами доменов виртуальных машин
-Чтобы создать масштабируемый набор с настраиваемым DNS-именем для виртуальных машин с помощью CLI 2.0, добавьте аргумент _--vm-domain-name_ в команду _vmss create_, за которой следует строка, представляющая доменное имя.
+Чтобы создать масштабируемый набор с настраиваемым DNS-именем для виртуальных машин с помощью CLI 2.0, добавьте аргумент **--vm-domain-name** в команду **vmss create**, за которой следует строка, представляющая доменное имя.
 
-Чтобы настроить доменное имя в шаблоне Azure, добавьте свойство dnsSettings в раздел набора масштабирования networkInterfaceConfigurations. Например:
+Чтобы настроить доменное имя в шаблоне Azure, добавьте свойство **dnsSettings** в раздел масштабируемого набора **networkInterfaceConfigurations**. Например:
 
 ```json
 "networkProfile": {
@@ -109,84 +108,7 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 Выходные данные для DNS-имени отдельной виртуальной машины будут представлены следующим образом: 
 ```
-<vmname><vmindex>.<specifiedVmssDomainNameLabel>
-```
-
-## <a name="ipv6-preview-for-public-ips-and-load-balancer-pools"></a>Предварительная версия IPv6 для общедоступных IP-адресов и пулов подсистемы балансировки нагрузки
-Вы можете настроить общедоступные IP-адреса IPv6 в Azure Load Balancer, а также реализовать маршрутизацию подключений к пулам серверной части масштабируемых наборов виртуальных машин. Чтобы использовать протокол IPv6 (в настоящее время в предварительной версии), необходимо сначала создать ресурс с общедоступным адресом IPv6. Например:
-```json
-{
-    "apiVersion": "2016-03-30",
-    "type": "Microsoft.Network/publicIPAddresses",
-    "name": "[parameters('ipv6PublicIPAddressName')]",
-    "location": "[parameters('location')]",
-    "properties": {
-        "publicIPAddressVersion": "IPv6",
-        "publicIPAllocationMethod": "Dynamic",
-        "dnsSettings": {
-            "domainNameLabel": "[parameters('dnsNameforIPv6LbIP')]"
-        }
-    }
-}
-```
-Далее при необходимости нужно настроить интерфейсные конфигурации IP-адресов подсистемы балансировки нагрузки для IPv4 и IPv6:
-
-```json
-"frontendIPConfigurations": [
-    {
-        "name": "LoadBalancerFrontEndIPv6",
-        "properties": {
-            "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('ipv6PublicIPAddressName'))]"
-            }
-        }
-    }
-]
-```
-Определите необходимые пулы серверной части:
-```json
-"backendAddressPools": [
-    {
-        "name": "BackendPoolIPv4"
-    },
-    {
-        "name": "BackendPoolIPv6"
-    }
-]
-```
-Определите правила подсистемы балансировки нагрузки:
-```json
-{
-    "name": "LBRuleIPv6-46000",
-    "properties": {
-        "frontendIPConfiguration": {
-            "id": "[variables('ipv6FrontEndIPConfigID')]"
-        },
-        "backendAddressPool": {
-            "id": "[variables('ipv6LbBackendPoolID')]"
-        },
-        "protocol": "tcp",
-        "frontendPort": 46000,
-        "backendPort": 60001,
-        "probe": {
-            "id": "[variables('ipv4ipv6lbProbeID')]"
-        }
-    }
-}
-```
-Наконец используйте ссылку на пул IPv6 в разделе IPConfigurations сетевых свойств масштабируемого набора:
-```json
-{
-    "name": "ipv6IPConfig",
-    "properties": {
-        "privateIPAddressVersion": "IPv6",
-        "loadBalancerBackendAddressPools": [
-            {
-                "id": "[variables('ipv6LbBackendPoolID')]"
-            }
-        ]
-    }
-}
+<vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>Общедоступный IPv4 на каждую виртуальную машину
@@ -195,9 +117,9 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 Тем не менее, в некоторых сценариях виртуальным машинам в масштабируемом наборе обязательно нужны собственные общедоступные IP-адреса. В качестве примера можно привести игры, в которых консоли необходимо установить прямое подключение к облачной виртуальной машине, выполняющей физическую обработку игр. Другим примером можно назвать случай, когда виртуальным машинам необходимо установить внешние подключения между собой в регионах в распределенной базе данных.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Создание масштабируемого набора с общедоступным IP-адресом на виртуальную машину
-Чтобы создать масштабируемый набор, который назначает общедоступный IP-адрес каждой виртуальной машине с помощью CLI 2.0, добавьте параметр _--public-ip-per-vm_ в команду _vmss create_. 
+Чтобы создать масштабируемый набор, который назначает общедоступный IP-адрес каждой виртуальной машине с помощью CLI 2.0, добавьте параметр **--public-ip-per-vm** в команду **vmss create**. 
 
-Чтобы создать масштабируемый набор с помощью шаблона Azure, версия API ресурса Microsoft.Compute/virtualMachineScaleSets должна быть по крайней мере 2017-03-30. Добавьте свойство JSON _publicIpAddressConfiguration_ в раздел ipConfigurations масштабируемого набора. Например:
+Чтобы создать масштабируемый набор с помощью шаблона Azure версии API ресурса Microsoft.Compute/virtualMachineScaleSets должна быть по крайней мере **30-03-2017**. Добавьте свойство JSON **publicIpAddressConfiguration** в раздел ipConfigurations масштабируемого набора. Например:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -210,11 +132,21 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 Пример шаблона: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Запрос общедоступных IP-адресов виртуальных машин в масштабируемом наборе
-Чтобы получить список общедоступных IP-адресов, назначенных виртуальным машинам в масштабируемом наборе, с помощью CLI 2.0, используйте команду _az vmss list-instance-public-ips_.
+Чтобы получить список общедоступных IP-адресов, назначенных виртуальным машинам в масштабируемом наборе, с помощью CLI 2.0, используйте команду **az vmss list-instance-public-ips**.
 
-Вы также можете запросить общедоступные IP-адреса, назначенные виртуальным машинам в масштабируемом наборе, с помощью [обозревателя ресурсов Azure](https://resources.azure.com) или Azure REST API версии _2017-03-30_ и выше.
+Используйте команду _Get-AzureRmPublicIpAddress_, чтобы вывести список общедоступных IP-адресов масштабируемого набора, используя PowerShell. Например:
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+```
 
-Чтобы просмотреть общедоступные IP-адреса для масштабируемого набора с помощью обозревателя ресурсов, ознакомьтесь с разделом _publicipaddresses_ в масштабируемом наборе. Например, https://resources.azure.com/subscriptions/_ИД_подсистемы_/resourceGroups/_ваша_группа_ресурсов_/providers/Microsoft.Compute/virtualMachineScaleSets/_ваша_vmss_/publicipaddresses
+Вы также можете запрашивать общедоступные IP-адреса, напрямую ссылаясь на идентификатор ресурса конфигурации общедоступного IP-адреса. Например:
+```PowerShell
+PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+```
+
+Чтобы запросить общедоступные IP-адреса, назначенные виртуальным машинам в масштабируемом наборе, используйте [обозреватель ресурсов Azure](https://resources.azure.com) или Azure REST API версии **30-03-2017** или более поздней.
+
+Чтобы просмотреть общедоступные IP-адреса для масштабируемого набора с помощью обозревателя ресурсов, ознакомьтесь с разделом **publicipaddresses** в масштабируемом наборе. Например, https://resources.azure.com/subscriptions/_ИД_подсистемы_/resourceGroups/_ваша_группа_ресурсов_/providers/Microsoft.Compute/virtualMachineScaleSets/_ваша_vmss_/publicipaddresses
 
 ```
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30

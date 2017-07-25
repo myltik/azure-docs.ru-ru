@@ -12,35 +12,74 @@ Version
 3.5.0
 ```
 
-Каждый раз, когда вы добавляете теги к ресурсу или группе ресурсов, вы перезаписываете существующие теги в этом ресурсе или группе. Если существующие теги нужно сохранить, необходимо использовать другой подход. Ниже приведены командлеты для разных ситуаций.
+Чтобы просмотреть имеющиеся теги для **группы ресурсов**, используйте:
 
-* Добавление тегов к группе ресурсов, у которой нет тегов:
+```powershell
+(Get-AzureRmResourceGroup -Name examplegroup).Tags
+```
 
-  ```powershell
-  Set-AzureRmResourceGroup -Name TagTestGroup -Tag @{ Dept="IT"; Environment="Test" }
-  ```
+Она вернет ответ в следующем формате:
 
-* Добавление тегов к группе ресурсов, у которой уже есть теги:
+```powershell
+Name                           Value
+----                           -----
+Dept                           IT
+Environment                    Test
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResourceGroup -Name TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResourceGroup -Tag $tags -Name TagTestGroup
-  ```
+Чтобы просмотреть имеющиеся теги для **ресурса с указанным идентификатором ресурса**, используйте:
 
-* Добавление тегов к ресурсу, у которого нет тегов:
+```powershell
+(Get-AzureRmResource -ResourceId {resource-id}).Tags
+```
 
-  ```powershell
-  Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+Или чтобы просмотреть имеющиеся теги для **ресурса с указанным именем и группой ресурсов**, используйте:
 
-* Добавление тегов к ресурсу, у которого уже есть теги:
+```powershell
+(Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResource -ResourceName storageexample -ResourceGroupName TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResource -Tag $tags -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+Чтобы получить **группы ресурсов с определенным тегом**, используйте:
+
+```powershell
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
+```
+
+Чтобы получить **ресурсы с определенным тегом** , используйте:
+
+```powershell
+(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+```
+
+Каждый раз, когда вы добавляете теги к ресурсу или группе ресурсов, вы перезаписываете существующие теги в этом ресурсе или группе. Поэтому необходимо использовать другой подход, исходя из того, имеются ли теги в ресурсе или в группе ресурсов. 
+
+Чтобы добавить теги в **группу ресурсов без тегов**, используйте:
+
+```powershell
+Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
+```
+
+Чтобы добавить теги в **группу ресурсов с тегами**, извлеките их, добавьте новый тег и повторно примените теги:
+
+```powershell
+$tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
+```
+
+Чтобы добавить теги в **ресурс без тегов**, используйте:
+
+```powershell
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName exampleroup
+```
+
+Чтобы добавить теги в **ресурс с тегами**, используйте:
+
+```powershell
+$tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
+```
 
 Чтобы добавить все теги из группы ресурсов к ресурсам в этой группе, **не сохраняя существующие теги ресурсов**, используйте следующий сценарий.
 
@@ -77,18 +116,8 @@ foreach ($g in $groups)
 Чтобы удалить все теги, передайте пустую хэш-таблицу.
 
 ```powershell
-Set-AzureRmResourceGroup -Tag @{} -Name TagTestGgroup
+Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
 
-Чтобы получить группы ресурсов с определенным тегом, используйте командлет `Find-AzureRmResourceGroup`.
 
-```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
-```
-
-Чтобы получить все ресурсы с определенным тегом и значением, используйте командлет `Find-AzureRmResource`.
-
-```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
-```
 

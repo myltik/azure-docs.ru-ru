@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Масштабируемые наборы виртуальных машин Azure и управляемые диски
@@ -43,10 +42,6 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 ```
 
 Кроме того, вы можете просмотреть [репозиторий GitHub с шаблонами быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates), в котором находятся папки, содержащие `vmss`. Ознакомьтесь с примерами готовых шаблонов, которые используются для развертывания масштабируемых наборов. Список шаблонов, в которых уже используются управляемые диски, см. [здесь](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md).
-
-## <a name="api-versions"></a>Версии API
-
-Для использования масштабируемых наборов с управляемыми дисками требуется версия Microsoft.Compute APi `2016-04-30-preview` или выше. Масштабируемые наборы с неуправляемыми дисками будут по-прежнему работать даже в новых версиях API, которые поддерживают управляемые диски. Однако для масштабируемых наборов с неуправляемыми дисками будут недоступны преимущества управляемых дисков, даже если использовать эти новые версии API.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
