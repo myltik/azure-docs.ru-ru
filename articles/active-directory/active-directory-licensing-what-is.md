@@ -17,21 +17,20 @@ ms.date: 05/08/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
-ms.openlocfilehash: 7df8805139b6e3cc23041a8201b496fb7fce8063
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 684cb55c0bf2abfa1fc1410d7fc1224a220c2713
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="what-is-microsoft-azure-active-directory-licensing-in-the-azure-classic-portal"></a>Что такое лицензирование Microsoft Azure Active Directory на классическом портале Azure?
 
 > [!div class="op_single_selector"]
-> * [Портал Azure](active-directory-licensing-get-started-azure-portal.md)
-> * [классический портал Azure](active-directory-licensing-what-is.md)
+> * [Самостоятельное лицензирование и лицензирование пользователей в Azure Active Directory](active-directory-licensing-get-started-azure-portal.md)
+> * [Что такое лицензирование Microsoft Azure Active Directory на классическом портале Azure?](active-directory-licensing-what-is.md)
 >
 >
-
 
 Azure Active Directory (Azure AD) — это служба идентификации (IDaaS) корпорации Майкрософт, которая одновременно является и решением, и платформой. Служба Azure AD предлагается в различных функциональных и технических версиях. Вы можете использовать бесплатную версию Azure AD Free, которая доступна в любой службе Майкрософт, включая Office 365, Dynamics, Microsoft Intune и Azure (в этом режиме Azure AD не начисляет плату за использование), и платные версии Azure AD, включая Enterprise Mobility Suite (EMS), Azure AD Premium и Basic, а также Azure Multi-Factor Authentication (MFA). Как и многие онлайн-службы Майкрософт, большинство платных версий Azure AD доставляются на правах доступа «на пользователя», как в Office 365, Microsoft Intune и Azure AD. В этих случаях служба приобретается в виде одной или нескольких подписок, каждая из которых включает определенное количество лицензий для вашего клиента. Права пользователя «на пользователя» предоставляются путем назначения лицензий, создания связи между пользователем и продуктом, включения компонентов службы для пользователя и использования одной из предоплаченных лицензий.
 

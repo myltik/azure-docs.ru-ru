@@ -1,149 +1,249 @@
 ---
 title: "Руководство. Интеграция Azure Active Directory с AirWatch | Документация Майкрософт"
-description: "Узнайте, как использовать AirWatch вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
+description: "Узнайте, как настроить единый вход между Azure Active Directory и AirWatch."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 96a3bb1c-96c6-40dc-8ea0-060b0c2a62e5
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 07/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 8bb5433fb8d81635185d8bfc765ea240461e8a33
-ms.openlocfilehash: 4659531575e21823441eb75905b79d79592fa695
-ms.lasthandoff: 02/17/2017
-
+ms.reviewer: jeedes
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 1996ec97e7c0d94c5606ca43bb5956548f1f3712
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Руководство. Интеграция Azure Active Directory с AirWatch
-Цель данного руководства — показать интеграцию Azure и AirWatch.  
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-* действующая подписка Azure;
-* Подписка AirWatch с поддержкой единого входа
+В этом руководстве описано, как интегрировать AirWatch с Azure Active Directory (Azure AD).
 
-После выполнения инструкций, приведенных в этом руководстве, пользователи Azure AD, добавленные к AirWatch, смогут выполнять единый вход в приложение на корпоративный веб-сайт AirWatch (вход, инициированный поставщиком услуг) или на панели доступа, как описано в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Интеграция приложения AirWatch c Azure AD обеспечивает следующие преимущества.
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+- С помощью Azure AD вы можете контролировать, у кого есть доступ к приложению AirWatch.
+- Вы можете включить автоматический вход пользователей в AirWatch (единый вход) с учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-* Включение интеграции приложений для AirWatch
-* Настройка единого входа
-* Настройка подготовки учетных записей пользователей
-* Назначение пользователей
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791913.png "AirWatch")
+## <a name="prerequisites"></a>Предварительные требования
 
-## <a name="enable-the-application-integration-for-airwatch"></a>Включение интеграции приложений для AirWatch
-В этом разделе показано, как включить интеграцию приложений для AirWatch.
+Чтобы настроить интеграцию Azure AD с AirWatch, вам потребуется:
 
-**Чтобы включить интеграцию приложений для AirWatch, сделайте следующее:**
+- подписка Azure AD;
+- подписка AirWatch с поддержкой единого входа.
 
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-airwatch-tutorial/IC700993.png "Active Directory")
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-   ![Приложения](./media/active-directory-saas-airwatch-tutorial/IC700994.png "Приложения")
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-   ![Добавление приложения](./media/active-directory-saas-airwatch-tutorial/IC749321.png "Добавление приложения")
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-   ![Добавление приложения из коллекции](./media/active-directory-saas-airwatch-tutorial/IC749322.png "Добавление приложения из коллекции")
-6. В **поле поиска** введите **AirWatch**.
-   
-   ![Коллекция приложений](./media/active-directory-saas-airwatch-tutorial/IC791914.png "Коллекция приложений")
-7. В области результатов выберите **AirWatch** и щелкните **Завершить**, чтобы добавить приложение.
-   
-   ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791915.png "AirWatch")
-   
-## <a name="configure-single-sign-on"></a>Настройка единого входа
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в AirWatch со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
-**Чтобы настроить единый вход, выполните следующие действия:**
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. На странице интеграции с приложением **AirWatch** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791916.png "Настройка единого входа")
-2. На странице **Как пользователи должны входить в AirWatch?** выберите параметр **Единый вход Microsoft Azure AD** и щелкните **Далее**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791917.png "Настройка единого входа")
-3. На странице **Configure App URL** (Настройка URL-адреса приложения) введите в текстовом поле **AirWatch Sign On URL** (URL-адрес входа в AirWatch) URL-адрес, используемый для входа в приложение AirWatch (например, "*https:// companycode.awmdm.com/AirWatch/Login?gid=companycode*"), и щелкните **Далее**.
-   
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-airwatch-tutorial/IC791918.png "Настройка URL-адреса приложения")
-4. На странице **Настройка единого входа в AirWatch** щелкните **Скачать сертификат** и сохраните файл сертификата на своем компьютере.
-   
-   ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791919.png "Настройка единого входа")
-5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт AirWatch в качестве администратора.
-6. На панели навигации слева щелкните **Accounts** (Учетные записи), а затем — **Administrators** (Администраторы).
-   
-   ![Администраторы](./media/active-directory-saas-airwatch-tutorial/IC791920.png "Администраторы")
-7. Разверните меню **Settings** (Параметры) и выберите пункт **Directory Services** (Службы каталогов).
-   
-   ![Параметры](./media/active-directory-saas-airwatch-tutorial/IC791921.png "Параметры")
-8. Откройте вкладку **User** (Пользователь), введите в текстовом поле **Base DN** (Базовое доменное имя) свое доменное имя и щелкните **Save** (Сохранить).
-   
-   ![Пользователь](./media/active-directory-saas-airwatch-tutorial/IC791922.png "Пользователь")
-9. Откройте вкладку **Server** (Сервер).
-   
-   ![Сервер](./media/active-directory-saas-airwatch-tutorial/IC791923.png "Сервер")
-10. Выполните следующие действия:
+1. Добавление AirWatch из коллекции.
+2. Настройка и проверка единого входа в Azure AD
+
+## <a name="adding-airwatch-from-the-gallery"></a>Добавление AirWatch из коллекции
+Чтобы настроить интеграцию приложения AirWatch с Azure AD, вам нужно добавить это приложение из коллекции в свой список управляемых приложений SaaS.
+
+**Добавление приложения AirWatch из коллекции**
+
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Приложения][2]
     
-   ![Передача](./media/active-directory-saas-airwatch-tutorial/IC791924.png "Передача")    
-    1. Для параметра **Directory Type** (Тип каталога) выберите значение **None** (Нет).
-    2. Установите флажок **Use SAML For Authentication**(Использовать SAML для проверки подлинности).
-    3. Чтобы отправить скачанный сертификат, нажмите кнопку **Upload**(Отправить).
-11. В разделе **Request** (Запрос) выполните следующие действия.
-    
-    ![Запрос](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Запрос")  
-    1. Для параметра **Request Binding Type** (Тип привязки запроса) выберите значение **POST**.
-    2. На классическом портале Azure на диалоговой странице **Настройка единого входа в AirWatch** скопируйте значение поля **URL-адрес службы единого входа** и вставьте его в текстовом поле **Identity Provider Single Sign On URL** (URL-адрес единого входа для поставщика удостоверений).
-    3. Для параметра **NameID Format** (Формат идентификатора имени) выберите значение **Email Address** (Адрес электронной почты).
-    4. Щелкните **Сохранить**.
-12. Снова откройте вкладку **Пользователь** .
-    
-    ![Пользователь](./media/active-directory-saas-airwatch-tutorial/IC791926.png "Пользователь")
-13. В разделе **Атрибут** выполните следующие действия.
-    
-    ![Атрибут](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Атрибут")
-    1. В текстовом поле **Object Identifier** (Идентификатор объекта) введите **http://schemas.microsoft.com/identity/claims/objectidentifier**.
-    2. В текстовом поле **Username** (Имя пользователя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    3. В текстовом поле **Display Name** (Отображаемое имя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    4. В текстовом поле **First Name** (Имя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    5. В текстовом поле **Last Name** (Фамилия) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-    6. В текстовом поле **Email** (Электронная почта) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    7. Щелкните **Сохранить**.
-14. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-    
-   ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Настройка единого входа")
-    
-## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-Чтобы пользователи Azure AD могли выполнять вход в AirWatch, они должны быть подготовлены для AirWatch.
+    ![Приложения][3]
 
-* В случае с AirWatch подготовка выполняется вручную.
+4. В поле поиска введите **AirWatch**.
 
-**Чтобы подготовить учетные записи пользователей, выполните следующие действия.**
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_search.png)
+
+5. На панели результатов выберите **AirWatch** и нажмите кнопку **Добавить**, чтобы добавить приложение.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в приложение AirWatch с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа службе Azure AD нужно знать, какой пользователь в AirWatch соответствует пользователю в Azure AD. Иными словами, нужно установить связь между пользователем Azure AD и соответствующим пользователем в AirWatch.
+
+Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в AirWatch.
+
+Чтобы настроить и проверить единый вход Azure AD в AirWatch, выполните следующие действия:
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя AirWatch](#creating-a-airwatch-test-user)** требуется для создания в AirWatch пользователя Britta Simon, связанного с представлением этого пользователя в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+
+В этом разделе мы включим на портале Azure единый вход Azure AD и настроим его в приложении AirWatch.
+
+**Настройка единого входа Azure AD в AirWatch**
+
+1. На портале Azure на странице интеграции с приложением **AirWatch** щелкните **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения AirWatch** выполните следующие действия:
+
+    ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_url.png)
+
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
+
+    b. В текстовом поле **Идентификатор** введите значение `AirWatch`.
+
+    > [!NOTE] 
+    > Это значение приведено для примера. Вместо него необходимо указать фактический URL-адрес для входа. Для получения этого значения обратитесь в [службу поддержки клиентов AirWatch](http://www.air-watch.com/company/contact-us/). 
+ 
+4. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните XML-файл на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_certificate.png) 
+
+5. В разделе **Конфигурация AirWatch** щелкните **Настроить AirWatch**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+
+    ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_configure.png) 
+
+6. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/tutorial_general_400.png)
+<CS>
+7. В другом окне веб-браузера войдите на корпоративный веб-сайт AirWatch с правами администратора.
+
+8. На панели навигации слева щелкните **Accounts** (Учетные записи), а затем — **Administrators** (Администраторы).
+   
+   ![Администраторы](./media/active-directory-saas-airwatch-tutorial/ic791920.png "Администраторы")
+
+9. Разверните меню **Settings** (Параметры) и выберите пункт **Directory Services** (Службы каталогов).
+   
+   ![Параметры](./media/active-directory-saas-airwatch-tutorial/ic791921.png "Параметры")
+
+10. Откройте вкладку **User** (Пользователь), введите в текстовое поле **Base DN** (Базовое доменное имя) используемое доменное имя и щелкните **Save** (Сохранить).
+   
+   ![Пользователь](./media/active-directory-saas-airwatch-tutorial/ic791922.png "Пользователь")
+
+11. Откройте вкладку **Server** (Сервер).
+   
+   ![Сервер](./media/active-directory-saas-airwatch-tutorial/ic791923.png "Сервер")
+
+12. Выполните следующие действия:
+    
+    ![Передача](./media/active-directory-saas-airwatch-tutorial/ic791924.png "Передача")   
+    
+    а. Для параметра **Directory Type** (Тип каталога) выберите значение **None** (Нет).
+
+    b. Установите флажок **Use SAML For Authentication**(Использовать SAML для проверки подлинности).
+
+    c. Чтобы отправить скачанный сертификат, нажмите кнопку **Upload**(Отправить).
+
+13. В разделе **Request** (Запрос) выполните следующие действия.
+    
+    ![Запрос](./media/active-directory-saas-airwatch-tutorial/ic791925.png "Запрос")  
+
+    а. Для параметра **Request Binding Type** (Тип привязки запроса) выберите значение **POST**.
+
+    b. На портале Azure на диалоговой странице **Настройка единого входа в AirWatch** скопируйте значение в поле **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML) и вставьте его в текстовое поле **Identity Provider Single Sign On URL** (URL-адрес единого входа для поставщика удостоверений).
+
+    c. Для параметра **NameID Format** (Формат идентификатора имени) выберите значение **Email Address** (Адрес электронной почты).
+
+    г) Щелкните **Сохранить**.
+
+14. Снова откройте вкладку **Пользователь** .
+    
+    ![Пользователь](./media/active-directory-saas-airwatch-tutorial/ic791926.png "Пользователь")
+
+15. В разделе **Атрибут** выполните следующие действия.
+    
+    ![Атрибут](./media/active-directory-saas-airwatch-tutorial/ic791927.png "Атрибут")
+
+    а. В текстовом поле **Object Identifier** (Идентификатор объекта) введите **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+
+    b. В текстовом поле **Username** (Имя пользователя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+
+    c. В текстовом поле **Display Name** (Отображаемое имя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+
+    г) В текстовом поле **First Name** (Имя) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+
+    д. В текстовом поле **Last Name** (Фамилия) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+
+    f. В текстовом поле **Email** (Электронная почта) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+
+    g. Щелкните **Сохранить**.
+
+<CE>
+
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+![Создание пользователя Azure AD][100]
+
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_01.png) 
+
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_02.png) 
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_03.png) 
+
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_04.png) 
+
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
+
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи Britta Simon.
+
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-a-airwatch-test-user"></a>Создание тестового пользователя AirWatch
+
+Чтобы пользователи Azure AD могли выполнять вход в AirWatch, они должны быть подготовлены в AirWatch.
+
+* Подготовка в AirWatch выполняется вручную.
+
+**Чтобы подготовить учетную запись пользователя, сделайте следующее:**
 
 1. Выполните вход на корпоративном веб-сайте **AirWatch** в качестве администратора.
 2. На панели навигации слева щелкните **Accounts** (Учетные записи), а затем —**Users** (Пользователи).
    
-   ![Пользователи](./media/active-directory-saas-airwatch-tutorial/IC791929.png "Пользователи")
+   ![Пользователи](./media/active-directory-saas-airwatch-tutorial/ic791929.png "Пользователи")
 3. В меню **Users** (Пользователи) выберите пункт **List View** (Представление списка), а затем щелкните **Add \> Add User** (Добавить > Добавить пользователя).
    
-   ![Добавление пользователя](./media/active-directory-saas-airwatch-tutorial/IC791930.png "Добавление пользователя")
+   ![Добавление пользователя](./media/active-directory-saas-airwatch-tutorial/ic791930.png "Добавление пользователя")
 4. В диалоговом окне **Add / Edit User** (Добавление или изменение пользователя) выполните следующие действия.
-   
-   ![Добавление пользователя](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Добавление пользователя")   
+
+   ![Добавление пользователя](./media/active-directory-saas-airwatch-tutorial/ic791931.png "Добавление пользователя")   
    1. В текстовых полях **Username** (Имя пользователя), **Password** (Пароль), **Confirm Password** (Подтверждение пароля), **First Name** (Имя), **Last Name** (Фамилия) и **Email Address** (Адрес электронной почты) введите соответствующие данные действующей учетной записи Azure Active Directory, которую вы хотите подготовить.
    2. Щелкните **Сохранить**.
 
@@ -151,19 +251,62 @@ ms.lasthandoff: 02/17/2017
 >Вы можете использовать любые другие средства создания учетной записи пользователя AirWatch или API, предоставляемые AirWatch для подготовки учетных записей пользователя AAD.
 >  
 
-## <a name="assign-users"></a>Назначить пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-**Чтобы назначить пользователей AirWatch, сделайте следующее:**
+В этом разделе мы разрешим пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к AirWatch.
 
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **AirWatch** нажмите кнопку **Назначить пользователей**.
-   
-   ![Назначение пользователей](./media/active-directory-saas-airwatch-tutorial/IC791932.png "Назначение пользователей")
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-   ![Да](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Да")
+![Назначение пользователя][200] 
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+**Назначение пользователя Britta Simon приложению AirWatch**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **AirWatch**.
+
+    ![Настройка единого входа](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-airwatch-tutorial/tutorial_general_203.png
 
 

@@ -6,22 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 6d1cfd588ad60cbdf69a432b4f4baa0b13fed0d3
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 963749bce0a84a97a0938f5531ebf7d694a3ca58
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 
@@ -144,7 +143,7 @@ ms.lasthandoff: 05/11/2017
 
 Если при работе с компонентом обратной записи паролей Azure AD Connect наблюдаются нарушения работы службы, ниже приведен ряд быстрых действий, которые можно предпринять для решения этой проблемы.
 
-* [Перезапуск службы синхронизации Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
+* [Перезапуск службы синхронизации Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Отключение и повторное включение функции обратной записи паролей](#disable-and-re-enable-the-password-writeback-feature)
 * [Установка новейшей версии Azure AD Connect](#install-the-latest-azure-ad-connect-release)
 * [Устранение неполадок с обратной записью паролей](#troubleshoot-password-writeback)
@@ -200,6 +199,27 @@ ms.lasthandoff: 05/11/2017
 
 Если установка новейшей версии сервера Azure AD Connect не решила проблему, попробуйте отключить и повторно включить компонент обратной записи паролей в качестве последнего шага после установки новейшей версии.
 
+## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Проверка наличия у Azure AD Connect необходимого разрешения для обратной записи паролей 
+Чтобы выполнить обратную запись пароля, Azure AD Connect необходимо разрешение AD **Сброс пароля**. Чтобы узнать, обладает ли Azure AD Connect необходимыми разрешениями для определенной локальной учетной записи AD, можно использовать функцию действующих разрешений Windows:
+
+1. Войдите на сервер Azure AD Connect и запустите **Synchronization Service Manager** (Запуск → Synchronization Service (Служба синхронизации)).
+2. На вкладке **Соединители** выберите локальный **соединитель AD** и щелкните **Свойства**.  
+![Шаг 2. Действующее разрешение](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+3. Во всплывающем диалоговом окне выберите вкладку **Connect to Active Directory Forest** (Подключение к лесу Active Directory) и запишите свойство **Имя пользователя**. Это учетная запись AD DS, используемая Azure AD Connect для выполнения синхронизации каталогов. Чтобы Azure AD Connect выполнила обратную запись паролей, учетной записи AD DS нужно иметь разрешение на сброс пароля.  
+![Шаг 3. Действующее разрешение](./media/active-directory-passwords-troubleshoot/checkpermission02.png)  
+4. Войдите в локальный контроллер домена и запустите приложение **Пользователи и компьютеры Active Directory**.
+5. Щелкните **Просмотр** и убедитесь, что параметр **Дополнительные функции** включен.  
+![Шаг 5. Действующее разрешение](./media/active-directory-passwords-troubleshoot/checkpermission03.png)  
+6. Найдите учетную запись AD, которую необходимо проверить. Щелкните правой кнопкой мыши учетную запись и выберите **Свойства**.  
+![Шаг 6. Действующее разрешение](./media/active-directory-passwords-troubleshoot/checkpermission04.png)  
+7. Во всплывающем диалоговом окне перейдите на вкладку **Безопасность** и щелкните **Дополнительно**.  
+![Шаг 7. Действующее разрешение](./media/active-directory-passwords-troubleshoot/checkpermission05.png)  
+8. Во всплывающем диалоговом окне "Дополнительные параметры безопасности" перейдите на вкладку **Действующие права доступа**.
+9. Щелкните **Выбрать пользователя** и выберите учетную запись AD DS, используемую Azure AD Connect (шаг 3). Затем щелкните **Просмотреть действующие разрешения**.  
+![Шаг 9. Действующее разрешение](./media/active-directory-passwords-troubleshoot/checkpermission06.png)  
+10. Прокрутите список вниз и найдите **Сброс пароля**. Если возле записи установлен флажок, значит учетная запись AD DS имеет разрешение на сброс пароля выбранной учетной записи пользователя AD.  
+![Шаг 10. Действующее разрешение](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
 ## <a name="azure-ad-forums"></a>Форумы Azure AD
 
 Если у вас есть общие вопросы об Azure AD и самостоятельном сбросе пароля, их можно задать участникам сообщества на [форумах Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). В сообщество входят инженеры, менеджеры по продуктам, MVP и ИТ-специалисты.
@@ -236,7 +256,7 @@ ms.lasthandoff: 05/11/2017
 * [**Быстрое начало работы с самостоятельным сбросом пароля в Azure AD**](active-directory-passwords-getting-started.md). Запуск и выполнение службы самостоятельного управления паролями Azure AD. 
 * [**Licensing requirements for Azure AD self-service password reset**](active-directory-passwords-licensing.md) (Требования к лицензированию самостоятельного сброса пароля в Azure AD). Сведения о настройке лицензирования Azure AD.
 * [**Deploy password reset without requiring end-user registration**](active-directory-passwords-data.md) (Развертывание сброса пароля без регистрации пользователя). Сведения о необходимых данных и их использовании для управления паролями.
-* [**Развертывание функции сброса паролей для пользователей**](active-directory-passwords-best-practices.md). Рекомендации по планированию и развертыванию SSPR для пользователей.
+* [**Развертывание компонентов управления паролями и обучение пользователей их использованию**](active-directory-passwords-best-practices.md). Рекомендации по планированию и развертыванию SSPR для пользователей.
 * [**Настройка компонентов управления паролями в соответствии с требованиями организации**](active-directory-passwords-customize.md). Сведения о настройке интерфейса и параметров использования SSPR для организации.
 * [**Политики и ограничения для паролей в Azure Active Directory**](active-directory-passwords-policy.md). Общие сведения и информация об установке политик паролей Azure AD.
 * [**Обзор компонента обратной записи паролей**](active-directory-passwords-writeback.md). Как работает функция обратной записи паролей с вашим локальным каталогом.

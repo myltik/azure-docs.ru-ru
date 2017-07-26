@@ -15,19 +15,39 @@ ms.workload: data-services
 ms.date: 05/03/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6a5ec66172e7920a89ff8c0592224f01f19c9e41
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: e1ab8dd89c0590c8ee309a032efc17edeacf4d0e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Заметки о выпуске Stream Analytics
 
+## <a name="notes-for-06142017-update-of-stream-analytics-tools-for-visual-studio"></a>Заметки об обновлении 06/14/2017 инструментов Stream Analytics для Visual Studio
+Это обновление предназначено для инструментов Visual Studio. Этот выпуск содержит следующие функции.
+
+| Название | Описание |
+| --- | --- |
+| Поддержка редактора скриптов JavaScript |Можно использовать встроенные возможности редактора скриптов JavaScript после создания функций скрипта Java.|
+| Просмотр сообщения об ошибках времени выполнения заданий | Если имеются ошибки времени выполнения во время выполнения задания, их можно просмотреть на вкладке "Ошибки", выбрав окно времени. По умолчанию отображаются сообщения об ошибках за последние 30 минут. |
+| Поддержка CSV и Avro для локального тестирования входных данных | Помимо JSON, теперь можно использовать формат файлов CSV и Avro для локального тестирования входных данных.|
+
 ## <a name="notes-for-05032017-update-of-stream-analytics"></a>Заметки по обновлению Stream Analytics за 03.05.2017
 Это обновление предназначено для нашего выпуска документации по устранению неполадок.
 
 Мы выпустили [руководство по устранению неполадок](stream-analytics-troubleshooting-guide.md) и другие документы. Ознакомьтесь с ними и оставьте свои отзывы.
+
+## <a name="notes-for-04242017-update-of-stream-analytics-tools-for-visual-studio"></a>Заметки об обновлении 04/24/2017 инструментов Stream Analytics для Visual Studio
+Это обновление предназначено для инструментов Visual Studio. Этот выпуск содержит следующие функции.
+
+| Название | Описание |
+| --- | --- |
+| Просмотр результатов локальных веб-тестов в Visual Studio | Чтобы просмотреть выходные данные локального тестирования, нажмите клавишу ВВОД в окне вывода консоли или закройте его. Результат будет отображен в окне Visual Studio в табличном формате. |
+| Выходные данные локального тестирования в формате JSON | При запуске локального тестирования выходные данные будут сформированы в формате файлов CSV и JSON. |
+| Предварительный просмотр входных или выходных данных хранилищ BLOB-объектов или таблиц | Дважды щелкнув входные или выходные данные хранилища BLOB-объектов или таблиц в представлении задания, можно предварительно просмотреть данные в среде Visual Studio. |
+| Просмотр сообщения об ошибке для входных или выходных данных | При возникновении ошибок среды выполнения, связанных с входными или выходными данными задания, они будут отображаться на диаграмме задания. Чтобы просмотреть подробное сообщение об ошибке, наведите на него курсор.|
+
 
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Заметки о выпуске Stream Analytics от 01.02.2017
 Этот выпуск содержит следующее обновление.
@@ -147,7 +167,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Введение в Azure Stream Analytics](stream-analytics-introduction.md)
-* [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md)
+* [Приступая к работе с Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Масштабирование заданий в службе Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

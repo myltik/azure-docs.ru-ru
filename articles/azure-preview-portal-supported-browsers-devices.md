@@ -1,5 +1,5 @@
 ---
-title: "Поддерживаемые браузеры и устройства"
+title: "Браузеры и устройства, поддерживаемые порталом Azure | Документация Майкрософт"
 description: "Описание браузеров и устройств, поддерживаемых порталом Azure."
 services: 
 documentationcenter: 
@@ -13,32 +13,29 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2015
+ms.date: 06/28/2017
 ms.author: micflan
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2f243accae710bdeb3adb51d37a5c6803b761687
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 2d3046381892978e3aea12752f526d7cdf8184f5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="supported-browsers-and-devices"></a>Поддерживаемые браузеры и устройства
-Портал Microsoft Azure запускается на всех современных настольных и планшетных устройствах и во всех браузерах.
+# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Браузеры и устройства, поддерживаемые порталом Azure
+[Портал Azure](https://portal.azure.com) можно запустить на всех современных настольных и планшетных устройствах, а также во всех браузерах.
 
 ### <a name="supported-devices"></a>Поддерживаемые устройства
-Портал будет отлично работать на всех современных ПК, компьютерах Mac и планшетных устройствах. Мобильные телефоны в настоящее время не поддерживаются.
+Портал Azure отлично работает на современных компьютерах, компьютерах Mac и планшетных устройствах. Если вам нужно управлять ресурсами Azure с мобильного устройства, попробуйте приложение Azure, которое доступно в предварительной версии для iPhone и Android. Дополнительные сведения см. в записи блога [Introducing the Azure app public preview](https://azure.microsoft.com/blog/azure-app-preview/) (Общие сведения об общедоступной предварительной версии приложения Azure).
 
 ### <a name="supported-browsers"></a>Поддерживаемые браузеры
-Поддерживаются последние версии следующих браузеров:
+Мы советуем использовать самые последние браузеры, совместимые с вашей с операционной системой. Поддерживаются следующие браузеры:
 
-* Edge (последняя версия);
+* Microsoft Edge (последняя версия);
 * Internet Explorer 11;
 * Safari (последняя версия, только для Mac);
 * Chrome (последняя версия);
 * Firefox (последняя версия).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

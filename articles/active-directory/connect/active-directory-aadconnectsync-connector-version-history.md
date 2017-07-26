@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 3c91cb00d6535a4bc01a3b95547ef940cbff7fcb
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: e9699abe0c1bdb6ea449c99e087ae56adb717b8d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="connector-version-release-history"></a>История выпусков версий соединителей
@@ -39,7 +38,25 @@ ms.lasthandoff: 05/12/2017
 * [соединителю PowerShell](active-directory-aadconnectsync-connector-powershell.md) .
 * [соединителю Lotus Domino](active-directory-aadconnectsync-connector-domino.md) .
 
-## <a name="115220"></a>1.1.522.0
+## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
+
+### <a name="fixed-issues"></a>Исправленные проблемы:
+
+* Универсальный соединитель веб-служб:
+  * Средство Wsconfig не правильно преобразовало массив JSON из примера запроса для метода службы REST. По этой причине возникла проблема с сериализацией массива JSON для запроса REST.
+  * Средство настройки соединителя Web Service не поддерживает использование пробелов в именах атрибута JSON. Шаблон подстановки можно добавить в файл WSConfigTool.exe.config вручную, например ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```.
+
+* Lotus Notes:
+  * Если параметр **Allow custom certifiers for Organization/Organizational Units** (Разрешить настраиваемые заверители для организаций и подразделений) отключен, то во время экспорта (обновления) происходит сбой соединителя. Затем все атрибуты будут экспортированы в Domino, однако во время экспорта для синхронизации возвращается исключение KeyNotFoundException. Это связано с тем, что операция переименования завершается сбоем при попытке изменения DN (атрибута имени пользователя), изменив один из атрибутов ниже:  
+    - LastName
+    - FirstName
+    - MiddleInitial;
+    - AltFullName;
+    - AltFullNameLanguage;
+    - ou;
+    - altcommonname.
+
+  * Если параметр **Allow custom certifiers for Organization/Organizational Units** (Разрешить настраиваемые заверители для организации и подразделений) включен, но необходимые заверители все еще пусты, возникает исключение KeyNotFoundException.
 
 ### <a name="enhancements"></a>Улучшения
 

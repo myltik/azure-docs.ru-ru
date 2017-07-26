@@ -6,22 +6,21 @@ keywords: "Управление паролями Active Directory, управл�
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: fde08bfc3a73c54ee53b5d8efffd3001894416b3
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7783d0fc30b4b7d098a89595771993b33fb0aa97
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="password-writeback-overview"></a>Обзор обратной записи паролей
@@ -82,7 +81,7 @@ ms.lasthandoff: 05/12/2017
 
 DirSync и Azure AD Sync больше не поддерживаются для включения компонента обратной записи паролей. Статья [Обновление Windows Azure Active Directory Sync и Azure Active Directory Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) содержит дополнительные сведения, которые помогут при переходе.
 
-В инструкциях ниже предполагается, что вы уже настроили Azure AD Connect в своей среде с помощью [стандартных](./connect/active-directory-aadconnect-get-started-express.md) или [пользовательских](./connect/active-directory-aadconnect-get-started-custom.md) параметров.
+В инструкциях ниже предполагается, что вы уже настроили Azure AD Connect в своей среде с помощью [экспресс](./connect/active-directory-aadconnect-get-started-express.md) или [пользовательских](./connect/active-directory-aadconnect-get-started-custom.md) параметров.
 
 1. Чтобы настроить и включить компонент обратной записи паролей, войдите на сервер Azure AD Connect и запустите мастер настройки **Azure AD Connect**.
 2. На экране приветствия щелкните **Настроить**.
@@ -198,3 +197,4 @@ DirSync и Azure AD Sync больше не поддерживаются для �
 * [**Устранение неполадок, связанных с управлением паролями**](active-directory-passwords-troubleshoot.md). Сведения об устранении распространенных проблем с SSPR.
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Включение обратной записи паролей в Azure AD Connect"
+

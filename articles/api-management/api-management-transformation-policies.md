@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c46a85aaf5237a2a7643cc9069255bdad9ab1d69
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Политики преобразования службы управления API
@@ -227,15 +228,28 @@ ms.lasthandoff: 04/07/2017
     </outbound>  
 </policies>  
 ```  
+В этом примере политика задания внутренней службы направляет запросы на основе значения версии, переданного в строке запроса во внутреннюю службу, отличную от указанной в API.
   
- В этом примере политика задания внутренней службы направляет запросы на основе значения версии, переданного в строке запроса во внутреннюю службу, отличную от указанной в API.  
+Изначально базовый URL-адрес внутренней службы является производным от параметров API. Поэтому URL-адрес запроса `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` становится `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef`, где `http://contoso.com/api/10.4/` — URL-адрес внутренней службы, указанной в параметрах API.  
   
- Изначально базовый URL-адрес внутренней службы является производным от параметров API. Поэтому URL-адрес запроса `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` становится `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef`, где `http://contoso.com/api/10.4/` — URL-адрес внутренней службы, указанной в параметрах API.  
+Когда применяется правило политики [<choose\>](api-management-advanced-policies.md#choose), базовый URL-адрес внутренней службы может снова измениться на `http://contoso.com/api/8.2` или `http://contoso.com/api/9.1` в зависимости от значения параметра запроса версии. Например, если значение — `"2013-15"`, URL-адрес последнего запроса становится `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
   
- Когда применяется правило политики [<choose\>](api-management-advanced-policies.md#choose), базовый URL-адрес внутренней службы может снова измениться на `http://contoso.com/api/8.2` или `http://contoso.com/api/9.1` в зависимости от значения параметра запроса версии. Например, если значение — `"2013-15"`, URL-адрес последнего запроса становится `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
+Если требуются дополнительные преобразования запроса, можно воспользоваться другими [политиками преобразования](api-management-transformation-policies.md#TransformationPolicies). Например, чтобы удалить параметр запроса версии после направления запроса в конкретную серверную часть версии, для удаления атрибута избыточной версии можно использовать политику [Настройка параметра строки запроса](api-management-transformation-policies.md#SetQueryStringParameter).  
   
- Если требуются дополнительные преобразования запроса, можно воспользоваться другими [политиками преобразования](api-management-transformation-policies.md#TransformationPolicies). Например, чтобы удалить параметр запроса версии после направления запроса в конкретную серверную часть версии, для удаления атрибута избыточной версии можно использовать политику [Настройка параметра строки запроса](api-management-transformation-policies.md#SetQueryStringParameter).  
+### <a name="example"></a>Пример  
   
+```xml  
+<policies>  
+    <inbound>  
+        <set-backend-service backend-id="my-sf-service" sf-partition-key="@(context.Request.Url.Query.GetValueOrDefault("userId","")" sf-replica-type="primary" /> 
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+```  
+В этом примере политика направляет запрос к внутренней службе Service Fabric, используя строку запроса userId в качестве ключа секции и используя первичную реплику секции.  
+
 ### <a name="elements"></a>Элементы  
   
 |Имя|Описание|Обязательно|  
@@ -246,8 +260,13 @@ ms.lasthandoff: 04/07/2017
   
 |Имя|Описание|Обязательно|значение по умолчанию|  
 |----------|-----------------|--------------|-------------|  
-|base-url|Новый базовый URL-адрес внутренней службы.|Да|Недоступно|  
-  
+|base-url|Новый базовый URL-адрес внутренней службы.|Нет|Недоступно|  
+|backend-id|Идентификатор серверной части для перенаправления.|Нет|Недоступно|  
+|sf-partition-key|Применяется только, когда серверной частью является служба Service Fabric и она задана с помощью атрибута backend-id. Используется для разрешения определенной секции в имени службы разрешения имен.|Нет|Недоступно|  
+|sf-replica-type|Применяется только, когда серверной частью является служба Service Fabric и она задана с помощью атрибута backend-id. Контролирует, куда должен отправляться запрос: в первичную или вторичную реплику секции. |Нет|Недоступно|    
+|sf-resolve-condition|Применяется только, когда серверной частью является служба Service Fabric. Условие, определяющее, необходимо ли повторить вызов к серверной части Service Fabric с новым разрешением.|Нет|Недоступно|    
+|sf-service-instance-name|Применяется только, когда серверной частью является служба Service Fabric. Разрешает изменение экземпляров службы в среде выполнения. |Нет|Недоступно|    
+
 ### <a name="usage"></a>Использование  
  Эта политика может использоваться в следующих [разделах](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) и [областях](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
@@ -655,7 +674,7 @@ OriginalUrl.
   <outbound>  
       <base />  
       <xsl-transform>  
-          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -663,7 +682,7 @@ OriginalUrl.
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-          </xsl:stylesheet>  
+        </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  

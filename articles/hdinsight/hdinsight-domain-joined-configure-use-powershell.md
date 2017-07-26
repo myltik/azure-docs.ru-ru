@@ -1,5 +1,5 @@
 ---
-title: "Настройка присоединенных к домену кластеров HDInsight с помощью Azure PowerShell | Документация Майкрософт"
+title: "Настройка присоединенных к домену кластеров HDInsight с помощью Azure PowerShell | Документация Майкрософт"
 description: "Узнайте, как установить и настроить присоединенные к домену кластеры HDInsight с помощью Azure PowerShell."
 services: hdinsight
 documentationcenter: 
@@ -17,15 +17,18 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6f4189cb30d528a106dd8889c06acd621aebb699
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: d31ad53525ef75bdb61c42409dc07bba4138fc25
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Настройка присоединенных к домену кластеров HDInsight (предварительная версия) с помощью Azure PowerShell
 Узнайте, как настроить кластер Azure HDInsight со службой Azure Active Directory (Azure AD) и платформой [Apache Ranger](http://hortonworks.com/apache/ranger/) с помощью Azure PowerShell. Предоставленный скрипт Azure PowerShell позволяет настроить конфигурацию быстро и без ошибок. Присоединенный к домену кластер HDInsight можно настроить только с помощью кластеров под управлением Linux. Дополнительные сведения см. в статье [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Введение в присоединенные к домену кластеры HDInsight).
+
+> [!IMPORTANT]
+> Oozie не включен в присоединенный к домену HDInsight.
 
 Ниже описано, как поэтапно настроить типичную конфигурацию кластера HDInsight, присоединенного к домену.
 
@@ -60,7 +63,7 @@ ms.lasthandoff: 04/27/2017
 * Установите Azure PowerShell.  См. руководство по [установке и настройке Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-an-azure-classic-vnet-for-your-azure-ad"></a>Создайте классическую виртуальную сеть Azure для Azure AD.
-Инструкции см. [здесь](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
+Инструкции см. [здесь](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic).
 
 ## <a name="create-and-configure-azure-ad-and-azure-ad-ds"></a>Создайте и настройте Azure AD и доменные службы Azure Active Directory.
 Инструкции см. [здесь](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).
@@ -74,7 +77,7 @@ ms.lasthandoff: 04/27/2017
 2. Присвойте значения следующим переменным:
    
    * **$SubscriptionName** — имя подписки Azure, в которой будет создан кластер HDInsight. В этой подписке вы уже создали классическую виртуальную сеть, а теперь создадите виртуальную сеть Azure Resource Manager для кластера HDInsight.
-   * **$ClassicVNetName** —классическая виртуальная сеть, которая содержит доменные службы Azure AD. Эта виртуальная сеть должна быть в подписке, которая упомянута выше. Виртуальная сеть должна быть создана с помощью портала Azure, а не классического портала. Если вы создадите сеть в соответствии с руководством по [настройке присоединенных к домену кластеров HDInsight (предварительная версия)](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet), по умолчанию у сети будет имя contosoaadvnet.
+   * **$ClassicVNetName** —классическая виртуальная сеть, которая содержит доменные службы Azure AD. Эта виртуальная сеть должна быть в подписке, которая упомянута выше. Виртуальная сеть должна быть создана с помощью портала Azure, а не классического портала. Если вы создадите сеть в соответствии с руководством по [настройке присоединенных к домену кластеров HDInsight (предварительная версия)](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic), по умолчанию у сети будет имя contosoaadvnet.
    * **$ClassicResourceGroupName** — имя группы Resource Manager для классической виртуальной сети, упомянутой выше. Например, contosoaadrg. 
    * **$ArmResourceGroupName** — имя группы ресурсов, в которой будет создан кластер HDInsight. Можно использовать группу ресурсов $ArmResourceGroupName.  Если группа ресурсов не существует, скрипт создаст ее.
    * **$ArmVNetName** — имя виртуальной сети Resource Manager, в которой будет создан кластер HDInsight. Эта виртуальная сеть будет помещена в группу $ArmResourceGroupName.  Если виртуальная сеть не существует, скрипт PowerShell создаст ее. Если сеть существует, она должна входить в указанную выше группу ресурсов.

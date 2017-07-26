@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-translationtype: Human Translation
-ms.sourcegitcommit: c145642c06e477dd47e4d8d651262046519b656b
-ms.openlocfilehash: 564141d09bc54fbf4beb36d28bec160a7097f897
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 9528148792f083cb0e48d356e61cf61762ee954f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -40,7 +42,7 @@ ms.openlocfilehash: 564141d09bc54fbf4beb36d28bec160a7097f897
 * **Mapreduce.reduce.memory.mb** — объем памяти, выделяемой для каждого модуля уменьшения.
 * **Mapreduce.job.reduces** — число задач уменьшения на задание.
 
-**Mapreduce.map.memory или Mapreduce.reduce.memory** — это число настраивается в зависимости от объема памяти, требуемой для задачи сопоставления или уменьшения.  Стандартные значения mapreduce.map.memory и mapreduce.reduce.memory можно просмотреть в Ambari в конфигурации YARN.  В Ambari перейдите к YARN и откройте вкладку конфигураций.  Вы увидите значения для памяти.     
+**Mapreduce.map.memory или Mapreduce.reduce.memory** — это число настраивается в зависимости от объема памяти, требуемой для задачи сопоставления или уменьшения.  Стандартные значения mapreduce.map.memory и mapreduce.reduce.memory можно просмотреть в Ambari в конфигурации YARN.  В Ambari перейдите к YARN и откройте вкладку конфигураций.  Отобразится объем памяти YARN.  
 
 **Mapreduce.job.maps или Mapreduce.job.reduces** — определяет максимальное число создаваемых модулей сопоставления или уменьшения.  Количество разделений определяет число модулей сопоставления, создаваемых для задания MapReduce.  Следовательно, если разделений меньше, чем запрошенных модулей сопоставления, вы можете получить меньше модулей сопоставления, чем планировалось.       
 
@@ -58,10 +60,10 @@ ms.openlocfilehash: 564141d09bc54fbf4beb36d28bec160a7097f897
 **Шаг 4. Расчет числа контейнеров YARN**. Контейнеры YARN определяют уровень параллелизма для задания.  Разделите общий объем памяти YARN на значение mapreduce.map.memory.  
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
-    
-Чтобы обеспечить максимально возможный уровень параллелизма, число контейнеров YARN не должно превышать число используемых модулей сопоставления и уменьшения.  Вы можете поэкспериментировать, увеличивая число модулей сопоставления и уменьшения, чтобы понять, помогает ли это оптимизировать производительность.  Имейте в виду, что большое число модулей сопоставления может увеличить нагрузку, что, в свою очередь, может привести к снижению производительности.  
 
-Примечание. Возможности изоляции и планирования использования ресурсов ЦП отключены по умолчанию, следовательно, число контейнеров YARN ограничено объемом памяти.
+**Шаг 5. Установка mapreduce.job.maps/mapreduce.job.reduces.** Установите для mapreduce.job.maps/mapreduce.job.reduces по крайней мере число доступных контейнеров.  Вы можете поэкспериментировать, увеличивая число модулей сопоставления и уменьшения, чтобы понять, помогает ли это оптимизировать производительность.  Имейте в виду, что большое число модулей сопоставления может увеличить нагрузку, что, в свою очередь, может привести к снижению производительности.  
+
+Возможности изоляции и планирования использования ресурсов ЦП отключены по умолчанию, следовательно, число контейнеров YARN ограничено объемом памяти.
 
 ## <a name="example-calculation"></a>Пример вычисления
 
@@ -72,16 +74,20 @@ ms.openlocfilehash: 564141d09bc54fbf4beb36d28bec160a7097f897
 **Шаг 2: Настройка mapreduce.map.memory/mapreduce.reduce.memory**. В нашем примере выполняется задание с большим объемом операций ввода-вывода. Следовательно, выделить 3 ГБ памяти для задач сопоставления будет достаточно.
 
     mapreduce.map.memory = 3GB
-**Шаг 3. Определение общей памяти YARN** 
+**Шаг 3. Определение общей памяти YARN**
 
     total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **Шаг 4. Расчет числа контейнеров YARN**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
+**Шаг 5. Установка mapreduce.job.maps/mapreduce.job.reduces**
+
+    mapreduce.map.jobs = 256
+
 ## <a name="limitations"></a>Ограничения
 
-**Регулирование Azure Data Lake Store** 
+**Регулирование Azure Data Lake Store**
 
 Как мультитенантная служба, ADLS определяет ограничения пропускной способности на уровне учетной записи.  При превышении этих ограничений происходит сбой задач. Это можно определить, отслеживая ошибки регулирования в журналах задач.  Если для обработки задания требуется большая пропускная способность, свяжитесь с нами.   
 
@@ -98,24 +104,19 @@ ms.openlocfilehash: 564141d09bc54fbf4beb36d28bec160a7097f897
 Чтобы показать, как MapReduce выполняется в Azure Data Lake Store, ниже приведен пример кода, выполняемого в кластере со следующими параметрами:
 
 * 16 узлов D14v2;
-* кластер Hadoop под управлением HDI 3.5.
+* кластер Hadoop под управлением HDI 3.6.
 
 Для начала ознакомьтесь с примерами команд для запуска MapReduce Teragen, Terasort и Teravalidate.  Эти команды можно настроить в соответствии с имеющимися ресурсами.
 
 **Teragen**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
 
 **Terasort**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 -Dmapred.reduce.tasks=512 -Dmapred.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
 
 **Teravalidate**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=512 -Dmapred.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
 

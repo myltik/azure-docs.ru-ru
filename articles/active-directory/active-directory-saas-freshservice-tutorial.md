@@ -1,134 +1,224 @@
 ---
-title: "Учебник. Интеграция Azure Active Directory с FreshService | Документация Майкрософт"
-description: "Узнайте, как использовать FreshService вместе с Azure Active Directory для реализации единого входа, автоматической подготовки и выполнения других задач."
+title: "Учебник. Интеграция Azure Active Directory с Freshservice | Документы Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в Freshservice."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 3dd22b1f-445d-45c6-8eda-30207eb9a1a8
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 06/16/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 64421f1b7424751332b76508ae65d009a3e1f48b
-ms.openlocfilehash: df90d455f2c3bdbc59c38447fe65bf1b64979249
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: d32775fa91d3a49da1ef55e57d1d38990fa09346
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Руководство. Интеграция Azure Active Directory с FreshService
-Цель данного учебника — показать интеграцию Azure и FreshService.  
+# <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Учебник. Интеграция Azure Active Directory с FreshService
 
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+В этом учебнике описано, как интегрировать Freshservice с Azure Active Directory (Azure AD).
 
-* действующая подписка Azure;
-* подписка FreshService с поддержкой единого входа.
+Интеграция Azure AD с приложением Freshservice обеспечивает следующие преимущества:
 
-После выполнения действий, описанных в этом руководстве, пользователи Azure AD, которых вы прикрепите к FreshService, смогут использовать единый вход в приложение через панель доступа, как описано в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+- С помощью Azure AD вы можете контролировать доступ к Freshservice.
+- Вы можете включить автоматический вход пользователей в Freshservice (единый вход) с учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-* Включение интеграции приложений для FreshService
-* Настройка единого входа
-* Настройка подготовки учетных записей пользователей
-* Назначение пользователей
+## <a name="prerequisites"></a>Предварительные требования
 
-![Сценарий](./media/active-directory-saas-freshservice-tutorial/IC790807.png "Сценарий")
+Чтобы настроить интеграцию Azure AD с Freshservice, вам потребуется:
 
-## <a name="enable-the-application-integration-for-freshservice"></a>Включение интеграции приложений для FreshService
-В этом разделе показано, как включить интеграцию приложений для FreshService.
+- подписка Azure AD;
+- подписка Freshservice с поддержкой единого входа.
 
-**Чтобы включить интеграцию приложений для FreshService, сделайте следующее:**
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-freshservice-tutorial/IC700993.png "Active Directory")
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-   ![Приложения](./media/active-directory-saas-freshservice-tutorial/IC700994.png "Приложения")
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-   ![Добавление приложения](./media/active-directory-saas-freshservice-tutorial/IC749321.png "Добавление приложения")
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-   ![Добавление приложения из коллекции](./media/active-directory-saas-freshservice-tutorial/IC749322.png "Добавление приложения из коллекции")
-6. В **поле поиска** введите **FreshService**.
-   
-   ![Коллекция приложений](./media/active-directory-saas-freshservice-tutorial/IC790808.png "Коллекция приложений")
-7. В области результатов выберите **FreshService** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-   ![Freshservice](./media/active-directory-saas-freshservice-tutorial/IC790809.png "Freshservice")
-   
-## <a name="configure-single-sign-on"></a>Настройка единого входа
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в FreshService со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. 
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
-Чтобы настроить единый вход для FreshService, необходимо извлечь значение отпечатка из сертификата. Если вы не знакомы с этой процедурой, просмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-**Чтобы настроить единый вход, выполните следующие действия:**
+1. Добавление Freshservice из коллекции
+2. Настройка и проверка единого входа в Azure AD
 
-1. На странице интеграции с приложением **FreshService** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-freshservice-tutorial/IC790810.png "Настройка единого входа")
-2. На странице **Как пользователи должны входить в FreshService?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-freshservice-tutorial/IC790811.png "Настройка единого входа")
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **FreshService Sign On URL** (URL-адрес входа во FreshService) введите свой URL-адрес, используемый для входа в приложение Freshdesk (например, **http://democompany.freshservice.com/**), а затем щелкните **Далее**.
-   
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-freshservice-tutorial/IC790812.png "Настройка URL-адреса приложения")
-4. На странице **Настройка единого входа в FreshService** нажмите кнопку **Скачать сертификат** и сохраните файл сертификата на локальном компьютере.
-   
-   ![Настройка единого входа](./media/active-directory-saas-freshservice-tutorial/IC790813.png "Настройка единого входа")
-5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт FreshService в качестве администратора.
-6. В верхнем меню щелкните **Администратор**.
-   
-   ![Администратор](./media/active-directory-saas-freshservice-tutorial/IC790814.png "Администратор")
-7. В области **Customer Portal** (Клиентский портал) выберите **Security** (Безопасность).
-   
-   ![Безопасность](./media/active-directory-saas-freshservice-tutorial/IC790815.png "Безопасность")
-8. В разделе **Security** (Безопасность) выполните следующие действия.
-   
-   ![Единый вход](./media/active-directory-saas-freshservice-tutorial/IC790816.png "Единый вход")
-   
-   1. Включите **единый вход**.
-   2. Выберите **Единый вход SAML**.
-   3. На странице диалогового окна **Настройка единого входа в FreshService** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **SAML Login URL** (URL-адрес входа SAML).
-   4. На странице диалогового окна **Настройка единого входа в FreshService** классического портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **Logout URL** (URL-адрес для выхода).
-   5. Скопируйте значение поля **Thumbprint** (Отпечаток) из экспортированного сертификата и вставьте его в текстовое поле **Security Certificate Fingerprint** (Отпечаток сертификата безопасности).
-   
-      >[!TIP]
-      >Дополнительные сведения можно найти в видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI)
-      >
-9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-freshservice-tutorial/IC790817.png "Настройка единого входа")
-   
-## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
+## <a name="adding-freshservice-from-the-gallery"></a>Добавление Freshservice из коллекции
+Чтобы настроить интеграцию Freshservice с Azure AD, необходимо добавить Freshservice из коллекции в список управляемых приложений SaaS.
 
-Чтобы пользователи Azure AD могли выполнять вход в FreshService, они должны быть подготовлены для FreshService. В случае с FreshService подготовка выполняется вручную.
+**Чтобы добавить Freshservice из коллекции, выполните следующие действия.**
 
-**Чтобы подготовить учетные записи пользователей, выполните следующие действия.**
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Приложения][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
+    ![Приложения][3]
+
+4. В поле поиска введите **Freshservice**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_search.png)
+
+5. На панели результатов выберите **Freshservice** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD во Freshservice с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь во Freshservice соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем во Freshservice.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** во Freshservice.
+
+Чтобы настроить и проверить единый вход Azure AD во Freshservice, вам потребуется выполнить действия в следующих стандартных блоках:
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Freshservice](#creating-a-freshservice-test-user)** требуется для создания в Freshservice пользователя Britta Simon, связанного с представлением этого пользователя в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+
+В данном разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Freshservice.
+
+**Чтобы настроить единый вход Azure AD во Freshservice, выполните следующие действия.**
+
+1. На портале Azure на странице интеграции с приложением **Freshservice** щелкните **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения Freshservice** выполните следующие действия:
+
+    ![Настройка единого входа](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_url.png)
+
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<democompany>.freshservice.com`
+
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<democompany>.freshservice.com`
+
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить их, обратитесь в [службу поддержки клиентов Freshservice](https://support.freshservice.com/). 
+ 
+4. В разделе **Сертификат подписи SAML** скопируйте значение **отпечатка** сертификата.
+
+    ![Настройка единого входа](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-freshservice-tutorial/tutorial_general_400.png)
+
+6. В разделе **Конфигурация Freshservice** щелкните **Настроить Freshservice**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+
+    ![Настройка единого входа](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_configure.png) 
+
+7. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Freshservice в качестве администратора.
+
+8. В верхнем меню щелкните **Администратор**.
+   
+    ![Администратор](./media/active-directory-saas-freshservice-tutorial/ic790814.png "Администратор")
+
+9. В области **Customer Portal** (Клиентский портал) выберите **Security** (Безопасность).
+   
+    ![Безопасность](./media/active-directory-saas-freshservice-tutorial/ic790815.png "Безопасность")
+
+10. В разделе **Security** (Безопасность) выполните следующие действия.
+   
+    ![Единый вход](./media/active-directory-saas-freshservice-tutorial/ic790816.png "Единый вход")
+   
+    а. Включите **единый вход**.
+
+    b. Выберите **Единый вход SAML**.
+
+    c. В текстовое поле **URL-адрес входа SAML** вставьте значение **URL-адреса службы единого входа SAML**, скопированное на портале Azure.
+
+    г) В текстовое поле **URL-адрес выхода SAML** вставьте значение **URL-адреса выхода**, скопированное на портале Azure.
+
+    д. В текстовое поле **Отпечаток сертификата безопасности** вставьте значение **ОТПЕЧАТОК** сертификата, которое вы скопировали на портале Azure.
+
+    Е. Нажмите кнопку **Сохранить**
+   
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
+
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+![Создание пользователя Azure AD][100]
+
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-freshservice-tutorial/create_aaduser_01.png) 
+
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-freshservice-tutorial/create_aaduser_02.png) 
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-freshservice-tutorial/create_aaduser_03.png) 
+
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-freshservice-tutorial/create_aaduser_04.png) 
+
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
+
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-a-freshservice-test-user"></a>Создание тестового пользователя Freshservice
+
+Чтобы пользователи Azure AD могли выполнять вход во Freshservice, они должны быть подготовлены для Freshservice. В случае с FreshService подготовка выполняется вручную.
+
+**Чтобы подготовить учетную запись пользователя, сделайте следующее:**
 
 1. Выполните вход на корпоративный сайт **FreshService** в качестве администратора.
+
 2. В верхнем меню щелкните **Администратор**.
    
-   ![Администратор](./media/active-directory-saas-freshservice-tutorial/IC790814.png "Администратор")
+    ![Администратор](./media/active-directory-saas-freshservice-tutorial/ic790814.png "Администратор")
+
 3. В разделе **User Management** (Управление пользователями) выберите **Requesters** (Инициаторы запроса).
    
-   ![Инициатор запроса](./media/active-directory-saas-freshservice-tutorial/IC790818.png "Инициатор запроса")
+    ![Инициатор запроса](./media/active-directory-saas-freshservice-tutorial/ic790818.png "Инициатор запроса")
+
 4. Нажмите **Новый инициатор запроса**.
    
-   ![Создание инициаторов запроса](./media/active-directory-saas-freshservice-tutorial/IC790819.png "Создание инициаторов запроса")
+    ![Создание инициаторов запроса](./media/active-directory-saas-freshservice-tutorial/ic790819.png "Создание инициаторов запроса")
+
 5. В разделе **Новый инициатор запроса** выполните следующие действия.
    
-   ![Создание инициатора запроса](./media/active-directory-saas-freshservice-tutorial/IC790820.png "Создание инициатора запроса")   
-   1. В соответствующие текстовые поля введите атрибуты **First name** (Имя) и **Email** (Адрес электронной почты) действующей учетной записи Azure Active Directory, которую вы хотите подготовить.
-   2. Щелкните **Сохранить**.
+    ![Создание инициатора запроса](./media/active-directory-saas-freshservice-tutorial/ic790820.png "Создание инициатора запроса")   
+
+    а. В соответствующие текстовые поля введите атрибуты **First name** (Имя) и **Email** (Адрес электронной почты) действующей учетной записи Azure Active Directory, которую вы хотите подготовить.
+
+    b. Щелкните **Сохранить**.
    
     >[!NOTE]
     >Владелец учетной записи Azure Active Directory получит электронное сообщение со ссылкой для подтверждения учетной записи перед ее активацией.
@@ -138,19 +228,57 @@ ms.lasthandoff: 02/17/2017
 >Вы можете использовать любые другие инструменты создания учетных записей пользователя FreshService или API, предоставляемые FreshService для подготовки учетных записей пользователя AAD.
 >  
 
-## <a name="assign-users"></a>Назначить пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+![Назначение пользователя][200] 
 
-**Чтобы назначить пользователей FreshService, сделайте следующее:**
+**Чтобы назначить пользователя Britta Simon во Freshservice, сделайте следующее:**
 
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **FreshService** щелкните **Назначить пользователей**.
-   
-   ![Назначение пользователей](./media/active-directory-saas-freshservice-tutorial/IC790821.png "Назначение пользователей")
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-   ![Да](./media/active-directory-saas-freshservice-tutorial/IC767830.png "Да")
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Freshservice**.
+
+    ![Настройка единого входа](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув плитку Freshservice на панели доступа, вы автоматически войдете в приложение Freshservice.
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-freshservice-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-freshservice-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-freshservice-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-freshservice-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-freshservice-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-freshservice-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-freshservice-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-freshservice-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-freshservice-tutorial/tutorial_general_203.png
 
 

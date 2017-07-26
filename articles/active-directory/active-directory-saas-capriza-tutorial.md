@@ -1,220 +1,218 @@
 ---
-title: "Руководство. Интеграция Azure Active Directory с Capriza | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Capriza."
+title: "Руководство по интеграции Azure Active Directory с Capriza Platform | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в Capriza Platform."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: 48d92247-f00a-47b9-8d4e-137028d9e200
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 06/16/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
-ms.openlocfilehash: 1dd99c8fb989921a4d0b6f0b1545a1cf67fb6902
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 668c094d5330be1c5f71d51d2e76170dc69d1bce
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-capriza"></a>Руководство. Интеграция Azure Active Directory с Capriza
-Цель этого учебника — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Capriza.  
-Интеграция Azure AD с приложением Capriza обеспечивает следующие преимущества.
+# <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>Руководство по интеграции Azure Active Directory с Capriza Platform
 
-* С помощью Azure AD вы можете контролировать доступ к Capriza.
-* Вы можете включить автоматический вход пользователей в Capriza (единый вход) с использованием их учетных записей Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+В этом руководстве описано, как интегрировать Capriza Platform с Azure Active Directory (Azure AD).
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Интеграция Azure AD с Capriza Platform обеспечивает следующие преимущества:
+
+- С помощью Azure AD вы можете контролировать доступ к Capriza Platform.
+- Вы можете включить автоматический вход пользователей в Capriza Platform (единый вход) с использованием учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
+
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Чтобы настроить интеграцию Azure AD с Capriza, вам потребуется:
 
-* подписка Azure AD;
-* подписка Capriza с поддержкой единого входа.
+Чтобы настроить интеграцию Azure AD с Capriza Platform, вам потребуется:
+
+- подписка Azure AD;
+- подписка Capriza Platform с поддержкой единого входа.
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
-> 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-* Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. Добавление Capriza из коллекции
+1. Добавление Capriza Platform из коллекции
 2. Настройка и проверка единого входа в Azure AD
 
-## <a name="adding-capriza-from-the-gallery"></a>Добавление Capriza из коллекции
-Чтобы настроить интеграцию Capriza с Azure AD, необходимо добавить Capriza из коллекции в список управляемых приложений SaaS.
+## <a name="adding-capriza-platform-from-the-gallery"></a>Добавление Capriza Platform из коллекции
+Чтобы настроить интеграцию Capriza Platform с Azure AD, необходимо добавить Capriza Platform из коллекции в список управляемых приложений SaaS.
 
-**Чтобы добавить Capriza из коллекции, выполните следующие действия.**
+**Чтобы добавить Capriza Platform из коллекции, выполните следующие действия.**
 
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**. 
-   
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
     ![Active Directory][1]
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
     ![Приложения][2]
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
     ![Приложения][3]
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Приложения][4]
-6. В поле поиска введите **Capriza**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_01.png)
-7. В области результатов выберите **Capriza** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Capriza с использованием тестового пользователя Britta Simon.
+4. В поле поиска введите **Capriza Platform**.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в Capriza соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователям Azure AD и соответствующим пользователем в Capriza.  
-Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Capriza.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_search.png)
 
-Чтобы настроить и проверить единый вход Azure AD в Capriza, вам потребуется выполнить действия в следующих стандартных блоках.
+5. На панели результатов выберите **Capriza Platform** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в Capriza Platform с использованием тестового пользователя Britta Simon.
+
+Чтобы единый вход работал, Azure AD необходимо знать, какой пользователь в Capriza Platform соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователям Azure AD и соответствующим пользователем в Capriza Platform.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Capriza Platform.
+
+Чтобы настроить и проверить единый вход Azure AD в Capriza Platform, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Capriza](#creating-a-capriza-test-user)** требуется для создания пользователя Britta Simon в Capriza, связанного с соответствующим представлением в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+3. **[Создание тестового пользователя Capriza Platform](#creating-a-capriza-platform-test-user)** нужно для того, чтобы в Capriza Platform также существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение Capriza.
 
-**Чтобы настроить единый вход Azure AD в Capriza, выполните следующие действия.**
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Capriza Platform.
 
-1. На классическом портале Azure на странице интеграции с приложением **Capriza** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа][6] 
-2. На странице **Как пользователи должны входить в Capriza?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_03.png) 
-3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_04.png) 
+**Чтобы настроить единый вход Azure AD в Capriza Platform, выполните следующие действия.**
 
-    а. В текстовом поле "URL-адрес входа" введите URL-адрес, используемый пользователями для входа в приложение Capriza по следующей схеме: **https://companyname.capriza.com/tenantid**.
+1. На портале Azure на странице интеграции с приложением **Capriza Platform** щелкните **Единый вход**.
 
-    b. Нажмите кнопку **Далее**.
+    ![Настройка единого входа][4]
 
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_samlbase.png)
 
-1. На странице **Настройка единого входа в Capriza** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_05.png) 
-   
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
-2. Для получения единого входа, настроенного для вашего приложения, обратитесь в службу поддержки Capriza через support@capriza.com и прикрепите к сообщению электронной почты загруженный файл сертификата. Также укажите URL-адрес единого входа SAML, URL-адрес выхода и URL-адрес издателя, чтобы настроить их для интеграции единого входа.
-3. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
-   
-    ![единого входа Azure AD][10]
-4. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
-   
-    ![единого входа Azure AD][11]
+3. В разделе **Домены и URL-адреса приложения Capriza Platform** сделайте следующее.
+
+    ![Настройка единого входа](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_url.png)
+
+    В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<companyname>.capriza.com/<tenantid>`
+
+    > [!NOTE] 
+    > Это значение приведено для справки. Вместо него необходимо указать фактический URL-адрес входа. Для получения этого значения обратитесь к [группе поддержки Capriza Platform](mailTo:support@capriza.com). 
+
+4. В разделе **Сертификат подписи SAML** щелкните **Сертификат (Base64)**, а затем сохраните файл сертификата на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-capriza-tutorial/tutorial_general_400.png)
+
+6. В разделе **Конфигурация Capriza Platform** щелкните **Настроить Capriza Platform**, чтобы открыть окно **Настройка входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+
+    ![Настройка единого входа](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_configure.png) 
+
+7. Чтобы настроить единый вход на стороне **Capriza Platform**, нужно отправить скачанный **сертификат (Base64)**, **URL-адрес выхода**, **идентификатор сущности SAML** и **URL-адрес службы единого входа SAML** [группе поддержки Capriza Platform](mailTo:support@capriza.com). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах подключения.
+
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.  
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-![Создание пользователя Azure AD][20]
+![Создание пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_09.png) 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_03.png) 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_04.png) 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_05.png) 
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_06.png) 
-   
-    а. В текстовом поле **Имя** введите **Britta**.  
-   
-    b. В текстовом поле **Фамилия** введите **Simon**.
-   
-    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-    d. В списке **Роль** выберите **Пользователь**.
-   
-    д. Нажмите кнопку **Далее**.
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_07.png) 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_08.png) 
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
 
-### <a name="creating-a-capriza-test-user"></a>Создание тестового пользователя Capriza
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_01.png) 
+
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_02.png) 
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_03.png) 
+
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-capriza-tutorial/create_aaduser_04.png) 
+
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
+
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-a-capriza-platform-test-user"></a>Создание тестового пользователя Capriza Platform
+
 Цель этого раздела — создать пользователя с именем Britta Simon в Capriza. Приложение Capriza поддерживает JIT-подготовку. Эта функция включена по умолчанию. **Убедитесь, что ваше доменное имя настроено в Capriza для подготовки пользователей. После этого будет работать только своевременная подготовка пользователей.**
 
-В этом разделе никакие действия с вашей стороны не требуются. Пользователь будет создан при попытке получить доступ к Capriza (если он еще не создан). [Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on).
-
-> [!NOTE]
-> Если вам нужно вручную создать пользователя, необходимо обратиться в службу поддержки Capriza.
-> 
-> 
+В этом разделе никакие действия с вашей стороны не требуются. Пользователь будет создан при попытке получить доступ к Capriza (если он еще не создан).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — позволить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к Capriza.
+
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Capriza Platform.
 
 ![Назначение пользователя][200] 
 
-**Чтобы назначить пользователя Britta Simon в Capriza, выполните следующие действия.**
+**Чтобы назначить пользователя Britta Simon в Capriza Platform, выполните следующие действия.**
 
-1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
-   
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
     ![Назначение пользователя][201] 
-2. В списке приложений выберите **Capriza**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_50.png) 
-3. В меню в верхней части страницы щелкните **Пользователи**.
-   
-    ![Назначение пользователя][203] 
-4. В списке пользователей выберите **Britta Simon**.
-5. На панели инструментов внизу щелкните **Назначить**.
-   
-    ![Назначение пользователя][205]
 
+2. Из списка приложений выберите **Capriza Platform**.
+
+    ![Настройка единого входа](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
-Щелкнув элемент Capriza на панели доступа, вы автоматически войдете в приложение Capriza.
 
-## <a name="additional-resources"></a>дополнительные ресурсы.
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув элемент "Capriza Platform" на панели доступа, вы автоматически войдете в приложение Capriza Platform. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -223,19 +221,11 @@ ms.openlocfilehash: 1dd99c8fb989921a4d0b6f0b1545a1cf67fb6902
 [3]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

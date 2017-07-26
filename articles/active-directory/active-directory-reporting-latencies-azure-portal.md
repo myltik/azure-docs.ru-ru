@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1c6b79c5f67cee5d62c9879bdeec926091253af6
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: a1e385c235c3530744a83527574880c5f37caadd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="azure-active-directory-reporting-latencies---preview"></a>Задержки в отчетах Azure Active Directory (предварительная версия)
+# <a name="azure-active-directory-reporting-latencies"></a>Задержки в отчетах Azure Active Directory
 
-Функция отчетов в [предварительной версии](active-directory-preview-explainer.md) Azure Active Directory позволяет получать всю необходимую информацию, чтобы определить, как работает среда. Время, затрачиваемое для отображения данных отчетов на портале Azure, также называется задержкой. 
+Функция [отчетов](active-directory-preview-explainer.md) в Azure Active Directory позволяет получать всю необходимую информацию, чтобы определить, как работает среда. Время, затрачиваемое для отображения данных отчетов на портале Azure, также называется задержкой. 
 
 В этой статье приведены сведения о задержках для всех категорий отчетов на портале Azure. 
 
@@ -91,3 +91,4 @@ Azure Active Directory использует адаптивные алгорит�
 - [Отчет о событиях входа, представляющих риск, на портале Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 Чтобы узнать больше про события риска, см. статью о [событиях риска в Azure Active Directory](active-directory-reporting-risk-events.md).
+

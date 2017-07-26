@@ -1,5 +1,5 @@
 ---
-title: "Использование песочницы Hadoop для ознакомления с Hadoop | Документация Майкрософт"
+title: "Сведения об использовании эмулятора песочницы Hadoop в Azure HDInsight | Документация Майкрософт"
 description: "Чтобы начать ознакомление с экосистемой Hadoop, можно настроить на виртуальной машине Azure песочницу Hadoop с платформы Hortonworks. "
 keywords: "эмулятор hadoop,песочница hadoop"
 editor: cgronlun
@@ -10,21 +10,22 @@ documentationcenter:
 tags: azure-portal
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 1618ed7971ffef0eae55b73b4bdd04f3f14195ba
-ms.openlocfilehash: a070df78bf95173aa48da60d24d14d08d9be8d9a
-ms.lasthandoff: 01/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: b701879464205860edd1c097651b532f87bae388
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/01/2017
 
 
 ---
-# <a name="get-started-in-the-hadoop-ecosystem-with-a-hadoop-sandbox-on-a-virtual-machine"></a>Начало работы в экосистеме Hadoop с песочницей Hadoop на виртуальной машине
+# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Начало работы с песочницей Hadoop, эмулятором на виртуальной машине
 
 Узнайте, как настроить на виртуальной машине песочницу Hadoop с платформы Hortonworks, чтобы ознакомиться с экосистемой Hadoop. Песочница представляет собой локальную среду разработки для ознакомления с Hadoop, распределенной файловой системой Hadoop (HDFS) и отправкой заданий. Если вы знакомы с Hadoop, вы можете начать использовать Hadoop в Azure, создав кластер HDInsight. Дополнительные сведения см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -35,6 +36,7 @@ ms.lasthandoff: 01/07/2017
 
 ## <a name="download-and-install-the-virtual-machine"></a>Скачивание и установка виртуальной машины
 1. Перейдите на [страницу загрузок Hortonworks](http://hortonworks.com/downloads/#sandbox).
+
 2. Щелкните **DOWNLOAD FOR VIRTUALBOX** (Файл загрузки для VirtualBox), чтобы скачать последнюю песочницу Hortonworks на виртуальную машину. Перед началом скачивания вам будет предложено зарегистрироваться в Hortonworks. Скачивание может длиться один-два часа в зависимости от скорости сети.
    
     ![Изображение ссылки для скачивания песочницы Hortonworks для VirtualBox](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png)
@@ -62,12 +64,13 @@ ms.lasthandoff: 01/07/2017
    > Если клиент SSH не установлен, можно использовать веб-SSH, предоставляемый виртуальной машиной по адресу **http://localhost:4200/**.
    > 
    
-    При первом подключении с помощью SSH вам будет предложено изменить пароль для учетной записи root. Введите новый пароль, который будет использоваться при входе с помощью SSH в будущем.
+    При первом подключении с помощью SSH вам будет предложено изменить пароль для учетной записи root. Введите новый пароль, используемый при входе с помощью SSH.
+
 2. После входа в систему введите следующую команду:
    
         ambari-admin-password-reset
    
-    При появлении запроса укажите пароль для учетной записи администратора Ambari. Он будет использоваться при получении доступа к веб-интерфейсу Ambari.
+    При появлении запроса укажите пароль для учетной записи администратора Ambari. Он используется при получении доступа к веб-интерфейсу Ambari.
 
 ## <a name="use-hive-commands"></a>Использование команд Hive
 

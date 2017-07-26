@@ -1,6 +1,6 @@
 ---
-title: "Условный доступ в Azure Active Directory | Документация Майкрософт"
-description: "Используйте возможности управления условным доступом в Azure Active Directory, чтобы проверять определенные условия проверки подлинности при доступе к приложениям."
+title: "Условный доступ на классическом портале Azure | Документация Майкрософт"
+description: "Используйте возможности управления условным доступом на классическом портале Azure, чтобы проверять определенные условия проверки подлинности при доступе к приложениям."
 services: active-directory
 keywords: "условный доступ к приложениям, условный доступ посредством Azure Active Directory, безопасный доступ к ресурсам организации, политики условного доступа"
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/07/2017
 ms.author: markvi
+ms.reviewer: calebb
+ms.custom: oldportal
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 31659a7394a34cf8fb5b6ff11c955bdc9f8b65bb
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: b19fd8c0c41638ffec5fda32b6b1a855be2abc7b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/28/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="conditional-access-in-azure-active-directory"></a>Условный доступ в Azure Active Directory
+# <a name="conditional-access-in-the-azure-classic-portal"></a>Условный доступ на классическом портале Azure
 
-> [!div class="op_single_selector"]
-> * [классический портал Azure](active-directory-conditional-access.md)
-> * [Портал Azure](active-directory-conditional-access-azure-portal.md)
+Эта статья посвящена условному доступу на классическом портале Azure. Новейшие сведения об условном доступе в Azure Active Directory см. в [этой статье](active-directory-conditional-access-azure-portal.md).
+
 
 Возможности управления условным доступом в Azure Active Directory (Azure AD) позволяют обеспечивать защиту ресурсов как в облаке, так и в локальной среде. Политики условного доступа, такие как многофакторная идентификация, обеспечивают защиту от кражи и фишинга учетных данных. Другие политики условного доступа позволяют защитить данные организации. Например, помимо запроса учетных данных, можно настроить политику, согласно которой доступ к конфиденциальным службам организации получают только устройства, зарегистрированные в системе управления мобильными устройствами, например Microsoft Intune.
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2017
 ms.author: sasolank
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 46210c7bc3158c27cda40fb85ffef16820dcbdef
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: f9160be8c0fb3cff9efdd22ff623a4827ce3946f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -235,7 +236,7 @@ $apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Pr
 
 ### <a name="step-7"></a>Шаг 7
 
-Передайте сертификат, который будет использоваться для ресурсов внутреннего пула, поддерживающих протокол SSL.
+Передайте сертификат, который будет использоваться для ресурсов внутреннего пула, поддерживающих протокол SSL. Это тот же сертификат, который вы указали выше на шаге 4.
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile <full path to .cer file>
@@ -258,19 +259,46 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "a
 ```
 
 ### <a name="step-10"></a>Шаг 10
-Настройте пути URL-правил для пулов тыловых серверов. Это позволяет выбрать некоторое подмножество интерфейсов API из управления API, чтобы открыть к ним общий доступ. (Например, из набора `Echo API` (/echo/), `Calculator API` (/calc/) сделать доступным из Интернета только `Echo API`.) 
+
+Создайте параметры для фиктивного (несуществующего) внутреннего пула. Запросы к путям API, к которым вы не хотите предоставлять доступ из управления API через шлюз приложений, будут попадать на этот внутренний пул и возвращать ошибку 404.
+
+Настройте параметры HTTP для внутреннего пула.
+
+```powershell
+$dummyBackendSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "dummySetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+```
+
+Настройте фиктивный внутренний пул **dummyBackendPool**, который указывает на адрес полного доменного имени **dummybackend.com**. Этот адрес полного доменного имени не существует в виртуальной сети.
+
+```powershell
+$dummyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "dummyBackendPool" -BackendFqdns "dummybackend.com"
+```
+
+Создайте параметр правила, который шлюз приложений будет использовать по умолчанию и который указывает на несуществующий внутренний пул **dummybackend.com** в виртуальной сети.
+
+```powershell
+$dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistentapis" -Paths "/*" -BackendAddressPool $dummyBackendPool -BackendHttpSettings $dummyBackendSetting
+```
+
+### <a name="step-11"></a>Шаг 11
+
+Настройте пути URL-правил для пулов тыловых серверов. Это позволяет выбрать некоторое подмножество интерфейсов API из управления API, чтобы открыть к ним общий доступ. Например, из набора `Echo API` (/echo/), `Calculator API` (/calc/) и т. д. сделать доступным из Интернета только `Echo API`. 
 
 В следующем примере создается простое правило для маршрутизации трафика от пути /echo/ к пулу тыловых серверов apimProxyBackendPool.
 
 ```powershell
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
+```
 
-$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule -DefaultBackendAddressPool $apimProxyBackendPool -DefaultBackendHttpSettings $apimPoolSetting
+Если путь не соответствует правилам, которые необходимо включить с помощью управления API, то при настройке сопоставления для пути правил также настраивается внутренний пул адресов по умолчанию с именем **dummyBackendPool**. Например, файл http://api.contoso.net/calc/* перейдет в **dummyBackendPool**, так как этот пул определен как пул по умолчанию для несоответствующего трафика.
+
+```powershell
+$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
 ```
 
 Предыдущий шаг нужен для того, чтобы через шлюз приложений проходили запросы только для пути /echo. В ответ на запросы из Интернета на другие API-интерфейсы, настроенные в управлении API, шлюз приложений будет возвращать ошибки 404. 
 
-### <a name="step-11"></a>Шаг 11
+### <a name="step-12"></a>Шаг 12
 
 Создайте правило для использования маршрутизации на основе URL-путей в шлюзе приложений.
 
@@ -278,7 +306,7 @@ $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -
 $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
 ```
 
-### <a name="step-12"></a>Шаг 12
+### <a name="step-13"></a>Шаг 13
 
 Настройте число экземпляров и размер шлюза приложений. Здесь мы используем [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) для повышения уровня безопасности ресурса управления API.
 
@@ -286,7 +314,7 @@ $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleTyp
 $sku = New-AzureRmApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
 ```
 
-### <a name="step-13"></a>Шаг 13
+### <a name="step-14"></a>Шаг 14
 
 Настройте WAF в режиме предотвращения.
 ```powershell
@@ -298,7 +326,7 @@ $config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enab
 Создайте шлюз приложений, используя все созданные ранее объекты конфигурации.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name "appgwtest" -ResourceGroupName "apim-appGw-RG" -Location "West US" -BackendAddressPools $apimProxyBackendPool -BackendHttpSettingsCollection $apimPoolSetting -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
+$appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGroupName $resourceGroupName  -Location $location -BackendAddressPools $apimProxyBackendPool, $dummyBackendPool -BackendHttpSettingsCollection $apimPoolSetting, $dummyBackendSetting  -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert -Probes $apimprobe
 ```
 
 ## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>Создание сопоставления CNAME для связи имени узла прокси-сервера управления API с общедоступным DNS-именем ресурса шлюза приложений
@@ -318,8 +346,8 @@ Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 * Дополнительные сведения о шлюзе приложений Azure:
   * [Обзор шлюза приложений](../application-gateway/application-gateway-introduction.md)
   * [Application Gateway Web Application Firewall (preview)](../application-gateway/application-gateway-webapplicationfirewall-overview.md) (Брандмауэр веб-приложения шлюза приложений (предварительная версия))
+  * [Создание шлюза приложений с помощью маршрутизации на основе пути](../application-gateway/application-gateway-create-url-route-arm-ps.md)
 * См. дополнительные сведения о службе управлении API и виртуальных сетях
+  * [Использование службы управления API Azure совместно с внутренней виртуальной сетью](api-management-using-with-internal-vnet.md)
   * [How to use Azure API Management with virtual networks](api-management-using-with-vnet.md) (Использование управления API Azure в виртуальных сетях)
-
-
 

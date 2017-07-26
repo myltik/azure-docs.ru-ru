@@ -1,135 +1,254 @@
 ---
 title: "Руководство по интеграции Azure Active Directory с Projectplace | Документация Майкрософт"
-description: "Узнайте, как использовать Projectplace с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого."
+description: "Узнайте, как настроить единый вход Azure Active Directory в приложении Projectplace."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 298059ca-b652-4577-916a-c31393d53d7a
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/23/2017
+ms.date: 06/29/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fcf3332a6674524ea5354b96826586c79a4ba3e1
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: bb9dd10c887cb0e42e544066d9b0dcfa554e10ce
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>Учебник. Интеграция Azure Active Directory с Projectplace
-Цель данного учебника — показать интеграцию Azure и Projectplace. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-* Действующая подписка на Azure
-* подписка Projectplace с поддержкой единого входа (SSO).
+В данном руководстве описано, как интегрировать Projectplace с Azure Active Directory (Azure AD).
 
-После завершения этого руководства пользователи Azure AD, назначенные Projectplace, будут иметь возможность единого входа в приложение на веб-сайте компании Projectplace (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Интеграция Azure AD с приложением Projectplace обеспечивает следующие преимущества:
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+- С помощью Azure AD вы можете контролировать доступ к Projectplace.
+- Вы можете включить автоматический вход для пользователей в Projectplace (единый вход) с учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-1. Включение интеграции приложений для Projectplace
-2. Настройка единого входа.
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Сценарий](./media/active-directory-saas-projectplace-tutorial/IC790217.png "Сценарий")
+## <a name="prerequisites"></a>Предварительные требования
 
-## <a name="enabling-the-application-integration-for-projectplace"></a>Включение интеграции приложений для Projectplace
-В этом разделе показано, как включить интеграцию приложений для Projectplace.
+Чтобы настроить интеграцию Azure AD с Projectplace, вам потребуется:
 
-**Чтобы включить интеграцию приложений для Projectplace, выполните следующие действия:**
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-projectplace-tutorial/IC700993.png "Active Directory")
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-   ![Приложения](./media/active-directory-saas-projectplace-tutorial/IC700994.png "Приложения")
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-   ![Добавление приложения](./media/active-directory-saas-projectplace-tutorial/IC749321.png "Добавление приложения")
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-   ![Добавление приложения из коллекции](./media/active-directory-saas-projectplace-tutorial/IC749322.png "Добавление приложения из коллекции")
-6. В **поле поиска** введите **Projectplace**.
-   
-   ![Коллекция приложений](./media/active-directory-saas-projectplace-tutorial/IC790218.png "Коллекция приложений")
-7. В области результатов выберите **Projectplace** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-   ![ProjectPlace](./media/active-directory-saas-projectplace-tutorial/IC790219.png "ProjectPlace")
-   
-## <a name="configure-single-sign-on"></a>Настройка единого входа
+- подписка Azure AD;
+- подписка Projectplace с поддержкой единого входа.
 
-В этом разделе показано, как разрешить пользователям проходить аутентификацию в Projectplace со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-**Чтобы настроить единый вход, выполните следующие действия:**
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-1. На классическом портале Azure на странице интеграции с приложением **Projectplace** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-projectplace-tutorial/IC790220.png "Настройка единого входа")
-2. На странице **Как пользователи должны входить в Projectplace?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-projectplace-tutorial/IC790221.png "Настройка единого входа")
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Projectplace** введите URL-адрес клиента Projectplace (например, *http://company.projectplace.com*) и нажмите кнопку **Далее**.
-   
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-projectplace-tutorial/IC790222.png "Настройка URL-адреса приложения")
-4. На странице **Настройка единого входа в Projectplace** щелкните **Скачать метаданные**, а затем сохраните файл метаданных на своем компьютере.
-   
-   ![Настройка единого входа](./media/active-directory-saas-projectplace-tutorial/IC790223.png "Настройка единого входа")
-5. Отправьте файл метаданных в группу поддержки Projectplace.
-   
-   >[!NOTE]
-   >Настройку единого входа должна выполнять группа поддержки Projectplace. Сразу же после завершения настройки вы получите уведомление.
-   > 
-   > 
-6. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-projectplace-tutorial/IC790227.png "Настройка единого входа")
-   
-## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+
+1. Добавление Projectplace из коллекции.
+2. Настройка и проверка единого входа в Azure AD
+
+## <a name="adding-projectplace-from-the-gallery"></a>Добавление Projectplace из коллекции
+Чтобы настроить интеграцию Projectplace с Azure AD, необходимо добавить Projectplace из коллекции в список управляемых приложений SaaS.
+
+**Чтобы добавить Projectplace из коллекции, выполните следующие действия:**
+
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Приложения][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
+    ![Приложения][3]
+
+4. В поле поиска введите **Projectplace**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_search.png)
+
+5. На панели результатов выберите **Projectplace** и щелкните **Добавить**, чтобы добавить это приложение.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в приложение Projectplace с использованием тестового пользователя Britta Simon.
+
+Чтобы единый вход работал, Azure AD необходимо знать, какой пользователь в Projectplace соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Projectplace.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Projectplace.
+
+Чтобы настроить и проверить единый вход Azure AD в Projectplace, вам потребуется выполнить действия в следующих стандартных блоках:
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Projectplace](#creating-a-projectplace-test-user)** требуется для создания в Projectplace пользователя Britta Simon, связанного с представлением этого пользователя в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+
+В данном разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Projectplace.
+
+**Чтобы настроить единый вход Azure AD в Projectplace, выполните следующие действия:**
+
+1. На портале Azure на странице интеграции с приложением **Projectplace** выберите **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения Projectplace** выполните следующие действия:
+
+    ![Настройка единого входа](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_url.png)
+
+    В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<company>.projectplace.com`
+
+    > [!NOTE] 
+    > Это значение приведено для справки. Вместо него необходимо указать фактический URL-адрес входа. Для получения этого значения обратитесь в [службу поддержки клиентов Projectplace](https://success.planview.com/Projectplace/Support). 
+ 
+4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-projectplace-tutorial/tutorial_general_400.png)
+
+7. Чтобы настроить единый вход на стороне **Projectplace**, отправьте скачанный **XML-файл метаданных** в [службу поддержки Projectplace](https://success.planview.com/Projectplace/Support). Специалисты службы поддержки настроят подключение единого входа SAML на обеих сторонах.
+
+>[!NOTE]
+>Настройку единого входа должна выполнять [служба поддержки Projectplace](https://success.planview.com/Projectplace/Support). Сразу же после завершения настройки вы получите уведомление.
+
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+![Создание пользователя Azure AD][100]
+
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-projectplace-tutorial/create_aaduser_01.png) 
+
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-projectplace-tutorial/create_aaduser_02.png) 
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-projectplace-tutorial/create_aaduser_03.png) 
+
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-projectplace-tutorial/create_aaduser_04.png) 
+
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
+
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-a-projectplace-test-user"></a>Создание тестового пользователя Projectplace
 
 Чтобы пользователи Azure AD могли выполнять вход в Projectplace, они должны быть подготовлены для Projectplace. В случае с Projectplace подготовка выполняется вручную.
 
-**Чтобы подготовить учетные записи пользователей, выполните следующие действия.**
+**Чтобы подготовить учетную запись пользователя, сделайте следующее:**
 
 1. Выполните вход на сайт **Projectplace** компании в качестве администратора.
+
 2. Перейдите к разделу **People** (Люди) и щелкните **Members** (Участники).
    
-   ![Люди](./media/active-directory-saas-projectplace-tutorial/IC790228.png "Люди")
+    ![Люди](./media/active-directory-saas-projectplace-tutorial/ic790228.png "Люди")
+
 3. Щелкните **Добавить участника**.
    
-   ![Добавление участников](./media/active-directory-saas-projectplace-tutorial/IC790232.png "Добавление участников")
+    ![Добавление участников](./media/active-directory-saas-projectplace-tutorial/ic790232.png "Добавление участников")
+
 4. В разделе **Добавление участника** выполните следующие действия.
    
-   ![Новые участники](./media/active-directory-saas-projectplace-tutorial/IC790233.png "Новые участники")
+    ![Новые участники](./media/active-directory-saas-projectplace-tutorial/ic790233.png "Новые участники")
    
-   1. В разделе **Новые участники** введите электронный адрес действующей учетной записи AAD, которую вы хотите подготовить, в соответствующее текстовое поле.
-   2. Нажмите кнопку **Send**(Отправить).
+    а. В разделе **Новые участники** введите электронный адрес действующей учетной записи AAD, которую вы хотите подготовить, в соответствующее текстовое поле.
+   
+    b. Нажмите кнопку **Отправить**.
 
-Владельцу учетной записи Azure Active Directory будет отправлено электронное сообщение со ссылкой для подтверждения учетной записи перед ее активацией.
-
+   Владельцу учетной записи Azure Active Directory будет отправлено электронное сообщение со ссылкой для подтверждения учетной записи перед ее активацией.
 
 >[!NOTE]
 >Вы можете использовать любые другие инструменты создания учетных записей пользователя Projectplace или API, предоставляемые Projectplace для подготовки учетных записей пользователя AAD.
-> 
-> 
 
-## <a name="assign-users"></a>Назначить пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-**Чтобы назначить пользователей Projectplace, выполните следующие действия:**
+В данном разделе описано, как предоставить пользователю Britta Simon доступ к Projectplace, чтобы он мог использовать единый вход Azure.
 
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **Projectplace** щелкните **Назначить пользователей**.
-   
-   ![Назначение пользователей](./media/active-directory-saas-projectplace-tutorial/IC790234.png "Назначение пользователей")
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-   ![Да](./media/active-directory-saas-projectplace-tutorial/IC767830.png "Да")
+![Назначение пользователя][200] 
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+**Чтобы назначить пользователя Britta Simon в Projectplace, выполните следующие действия:**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Projectplace**.
+
+    ![Настройка единого входа](./media/active-directory-saas-projectplace-tutorial/tutorial_projectplace_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув элемент Projectplace на панели доступа, вы автоматически войдете в приложение Projectplace.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-projectplace-tutorial/tutorial_general_203.png
 
 

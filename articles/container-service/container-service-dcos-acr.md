@@ -16,111 +16,144 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 ms.author: juliens
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: a8a3716f8d03b596285026426c7514b7b642cb25
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: a394f7ec3f7985b97eec2eb649a8a310a31ac657
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Использование ACR в кластере DC/OS для развертывания приложения
 
-В этой статье рассматриваются способы использования закрытого реестра контейнеров, такого как ACR (реестр контейнеров Azure), совместно с кластером DC/OS. Используя ACR, вы можете сохранять образы в частном хранилище и самостоятельно управлять ими, например отслеживать версии и (или) применять обновления.
+В этой статье вы узнаете, как использовать реестр контейнеров Azure с кластером DC/OS. Использование ACR позволяет закрыто хранить образы контейнеров и управлять ими. В рамках этого руководства рассматриваются следующие задачи:
 
-Чтобы перейти к использованию этого примера, вам потребуется следующее: 
-* Кластер DC/OS, настроенный в Службе контейнеров Azure. Ознакомьтесь с разделом [Развертывание кластера службы контейнеров Azure](container-service-deployment.md).
-* Развернутая Служба контейнеров Azure. Изучите статьи [Создание частного реестра контейнеров Docker с помощью портала Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) или [Создание частного реестра контейнеров Docker с помощью Azure CLI 2.0](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli).
-* Общая папка, настроенная внутри кластера DC/OS. Подробнее см. статью [Создание и подключение файлового ресурса к кластеру DC/OS](container-service-dcos-fileshare.md).
-* Умение развернуть образ Docker в кластере DC/OS с помощью [веб-интерфейса](container-service-mesos-marathon-ui.md) или [REST API](container-service-mesos-marathon-rest.md).
+> [!div class="checklist"]
+> * Развертывание реестра контейнеров Azure (при необходимости).
+> * Настройка проверки подлинности ACR в кластере DC/OS.
+> * Отправка образа в реестр контейнеров Azure.
+> * Запуск образа контейнера из реестра контейнеров Azure.
 
-## <a name="manage-the-authentication-inside-your-cluster"></a>Управление аутентификацией в кластере
+Для выполнения действий, описанных в этом руководстве, потребуется кластер ACS DC/OS. При необходимости его можно создать с помощью следующего [примера сценария](./scripts/container-service-cli-deploy-dcos.md).
 
-Обычно, чтобы получить образ из закрытого реестра или передать образ в реестр, вам прежде всего нужно пройти проверку подлинности. Чтобы сделать это, выполните команду `docker login` в командной строке для любого клиентского процесса Docker, которому нужно использовать закрытый реестр.
-В рабочей среде, например в нашем кластере DC/OS, вам, как правило, нужна возможность получать образы от любого узла. Это означает, что процесс проверки подлинности нужно автоматизировать, чтобы не запускать команды отдельно на каждой машине. Как вы хорошо понимаете, при большом размере кластера выполнение этих операций вручную станет трудоемким и затруднительным. 
+Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-Предположим, что у вас уже настроена [общая папка в кластере DC/OS](container-service-dcos-fileshare.md), и теперь мы применим ее следующим образом.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-### <a name="from-any-client-machine-recommended-method"></a>На любом клиентском компьютере (предпочтительный метод)
+## <a name="deploy-azure-container-registry"></a>Развертывание реестра контейнеров Azure
 
-Следующие команды можно выполнять в любой среде (Windows, Mac или Linux).
+При необходимости создайте реестр контейнеров Azure с помощью команды [az acr create](/cli/azure/acr#create). 
 
-1. Убедитесь, что у вас есть все эти компоненты:
-  * TAR-средство
-    * [Windows](http://gnuwin32.sourceforge.net/packages/gtar.htm)
-  * Docker 
-    * [Windows](https://www.docker.com/docker-windows)
-    * [MAC](https://www.docker.com/docker-mac)
-    * [Ubuntu](https://www.docker.com/docker-ubuntu)
-    * [Прочее](https://www.docker.com/get-docker)
-  * Общая папка, подключенная внутри кластера [с помощью этого метода](container-service-dcos-fileshare.md).
+В следующем примере создается реестр со случайно созданным именем. При этом он настраивается с учетной записью администратора с помощью аргумента `--admin-enabled`.
 
-2. Выполните проверку подлинности в службе ACR, выполнив в любой оболочке терминала следующую команду: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. Переменные `USERNAME`, `PASSWORD` и `ACR-REGISTRY-NAME` в этой команде нужно заменить значениями, приведенными на портале Azure.
+```azurecli-interactive
+az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic --admin-enabled true
+```
 
-3. Обратите внимание на интересный факт. При выполнении операции `docker login` значения сохраняются на локальном компьютере в домашней папке пользователя (`cd ~/.docker` в Mac и Linux или `cd %HOMEPATH%` в Windows). Мы будем сжимать содержимое этой папки с помощью команды `tar czf`.
+После создания реестра Azure CLI выводит данные, подобные следующим. Запишите `name` и `loginServer`, так как они понадобятся на следующих шагах.
 
-4. Последним шагом нам нужно скопировать TAR-файл, который мы только что создали, в общую папку, [которая указана в списке предварительных требований](container-service-dcos-fileshare.md). Это можно сделать в командной строке Azure с помощью следующей команды: `az storage file upload -s <shareName> --account-name <storageAccountName> --account-key <storageAccountKey> -source <pathToTheTarFile>`
+```azurecli
+{
+  "adminUserEnabled": false,
+  "creationDate": "2017-06-06T03:40:56.511597+00:00",
+  "id": "/subscriptions/f2799821-a08a-434e-9128-454ec4348b10/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry23489",
+  "location": "eastus",
+  "loginServer": "mycontainerregistry23489.azurecr.io",
+  "name": "myContainerRegistry23489",
+  "provisioningState": "Succeeded",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "storageAccount": {
+    "name": "mycontainerregistr034017"
+  },
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+```
 
-Ниже представлен полный пример (для среды Windows), основанный на следующих настройках.
-* Имя ACR: **`demodcos`**
-* Имя пользователя: **`demodcos`**
-* Пароль: **`+js+/=I1=L+D=+eRpU+/=wI/AjvDo=J0`**
-* Имя учетной записи хранения: **`anystorageaccountname`**
-* Ключ учетной записи хранения: **`aYGl6Nys4De5J3VPldT1rXxz2+VjgO7dgWytnoWClurZ/l8iO5c5N8xXNS6mpJhSc9xh+7zkT7Mr+xIT4OIVMg==`**
-* Имя общего ресурса, созданного в учетной записи хранения: **`share`**
-* Путь к TAR-архиву для передачи: **`%HOMEPATH%/.docker/docker.tar.gz`**
+Получите учетные данные реестра контейнеров с помощью команды [az acr credential show](/cli/azure/acr/credential). Замените `--name` значением, записанным на предыдущем шаге. Запишите один пароль, так как он потребуется в дальнейшем.
 
-```bash
-# Changing directory to the home folder of the default user
-cd %HOMEPATH%
+```azurecli-interactive
+az acr credential show --name myContainerRegistry23489
+```
 
-# Authentication into my ACR
-docker login --username=demodcos --password=+js+/=I1=L+D=+eRpU+/=wI/AjvDo=J0 demodcos.azurecr.io
+Дополнительные сведения о реестре контейнеров Azure см. в статье [Общие сведения о частных реестрах контейнеров Docker](../container-registry/container-registry-intro.md). 
 
-# Tar the contains of the .docker folder
+## <a name="manage-acr-authentication"></a>Управление проверкой подлинности ACR
+
+Обычно, чтобы получить образ из закрытого реестра или передать образ в реестр, вам прежде всего нужно пройти проверку подлинности в реестре. Чтобы сделать это, используйте команду `docker login` на любом клиенте, которому требуется доступ к закрытому реестру. Так как кластер DC/OS может содержать множество узлов, которые должны пройти проверку подлинности с помощью ACR, полезно автоматизировать этот процесс для каждого узла. 
+
+### <a name="create-shared-storage"></a>Создание общего хранилища
+
+Этот процесс использует общую папку Azure, которая была подключена на каждом узле кластера. Если вы еще не настроили общее хранилище, ознакомьтесь со статьей [Создание и подключение файлового ресурса к кластеру DC/OS](container-service-dcos-fileshare.md).
+
+### <a name="configure-acr-authentication"></a>Настройка проверки подлинности ACR
+
+Сначала получите полное доменное имя главного кластера DC/OS и сохраните его в переменной.
+
+```azurecli-interactive
+FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
+```
+
+Создайте SSH-подключение к главному узлу (или первому главному узлу) кластера DC/OS. Измените имя пользователя, если при создании кластера использовалось значение не по умолчанию.
+
+```azurecli-interactive
+ssh azureuser@$FQDN
+```
+
+Выполните следующую команду, чтобы войти в реестр контейнеров Azure. Замените `--username` именем реестра контейнеров, а `--password` — одним из предоставленных паролей. Замените последний аргумент *mycontainerregistry.azurecr.io* в примере именем loginServer реестра контейнеров. 
+
+Эта команда сохраняет значения для проверки подлинности локально в пути `~/.docker`.
+
+```azurecli-interactive
+docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry.azurecr.io
+```
+
+Создайте сжатый файл, который содержит значения проверки подлинности реестра контейнера.
+
+```azurecli-interactive
 tar czf docker.tar.gz .docker
-
-# Upload the tar archive in the fileshare
-az storage file upload -s share --account-name anystorageaccountname --account-key aYGl6Nys4De5J3VPldT1rXxz2+VjgO7dgWytnoWClurZ/l8iO5c5N8xXNS6mpJhSc9xh+7zkT7Mr+xIT4OIVMg== --source %HOMEPATH%/docker.tar.gz
 ```
 
-### <a name="from-the-master-not-recommended-method"></a>На главном компьютере (мы не рекомендуем использовать этот метод)
+Скопируйте этот файл в общее хранилище кластера. Этот шаг делает файл доступным на всех узлах кластера DC/OS.
 
-Нежелательно выполнять такие операции на главном компьютере, чтобы потенциальные ошибки не влияли сразу на всю среду.
-
-1. Сначала установите SSH-подключение к главному узлу (или первому главному узлу) кластера DC/OS. Например, выполните команду `ssh userName@masterFQDN –A –p 22`, где masterFQDN — полное доменное имя главного узла. [Дополнительные сведения по этой ссылке](https://docs.microsoft.com/azure/container-service/container-service-connect#connect-to-a-dcos-or-swarm-cluster)
-
-2. Запустите проверку подлинности в службе ACR, выполнив следующую команду: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. Переменные `USERNAME`, `PASSWORD` и `ACR-REGISTRY-NAME` в этой команде нужно заменить значениями, приведенными на портале Azure.
-
-3. Обратите внимание на интересный факт. При выполнении операции `docker login` значения сохраняются на локальном компьютере в домашней папке пользователя (`~/.docker`). Мы будем сжимать содержимое этой папки с помощью команды `tar czf`.
-
-4. Последним шагом нам нужно скопировать TAR-файл, который мы только что создали, в общую папку. Эта операция позволит использовать эти учетные данные на всех виртуальных машинах нашего кластера и успешно авторизоваться в реестре контейнеров Azure.
-
-Ниже представлен полный пример, основанный на следующих настройках.
-* Имя ACR: **`demodcos`**
-* Имя пользователя: **`demodcos`**
-* Пароль: **`+js+/=I1=L+D=+eRpU+/=wI/AjvDo=J0`**
-* Точки подключения внутри кластера: **`/mnt/share`**
-
-```bash
-# Changing directory to the home folder of the default user
-cd ~
-
-# Authentication into my ACR
-sudo docker login --username=demodcos --password=+js+/=I1=L+D=+eRpU+/=wI/AjvDo=J0 demodcos.azurecr.io
-
-# Tar the contains of the .docker folder
-sudo tar czf docker.tar.gz .docker
-
-# Copy of the tar file in the file share of my cluster
-sudo cp docker.tar.gz /mnt/share
+```azurecli-interactive
+cp docker.tar.gz /mnt/share/dcosshare
 ```
 
+## <a name="upload-image-to-acr"></a>Отправка образа в ACR
 
-## <a name="deploy-an-image-from-acr-with-marathon"></a>Развертывание образа из ACR с помощью Marathon
+Теперь из компьютера разработки или любой другой системы с установленным Docker создайте образ и отправьте его в реестр контейнеров Azure.
 
-Мы предполагаем, что вы уже поместили в реестр контейнеров образы, которые хотите развернуть. См. статью [Отправка первого образа в частный реестр контейнеров Docker с помощью интерфейса командной строки Docker](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
+Создайте контейнер из образа Ubuntu.
 
-Предположим, что нам нужно развернуть **простой веб-образ** с тегом **2.1** из частного реестра, который размещается в Azure (ACR). Мы будем использовать следующую конфигурацию:
+```azurecli-interactive
+docker run ubunut --name base-image
+```
+
+Теперь добавьте контейнер в новый образ. Имя образа должно включать имя `loginServer` реестра контейнеров в формате `loginServer/imageName`.
+
+```azurecli-interactive
+docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
+````
+
+Войдите в реестр контейнеров Azure. Замените имя именем loginServer, --username — именем реестра контейнеров, а --password — одним из предоставленных паролей.
+
+```azurecli-interactive
+docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
+```
+
+Наконец, отправьте образ в реестр ACR. Этот пример отправляет образ с именем dcos-demo.
+
+```azurecli-interactive
+docker push mycontainerregistry30678.azurecr.io/dcos-demo
+```
+
+## <a name="run-an-image-from-acr"></a>Запуск образа из ACR
+
+Чтобы использовать образ из реестра ACR, создайте файл с именем *acrDemo.json* и скопируйте в него следующий текст. Замените имя образа именем loginServer реестра контейнеров и именем образа, например `loginServer/imageName`. Обратите внимание на свойство `uris`. Это свойство содержит расположение файла проверки подлинности реестра контейнеров, который в данном случае является общей папкой Azure, установленной на каждом узле в кластере DC/OS.
 
 ```json
 {
@@ -128,10 +161,16 @@ sudo cp docker.tar.gz /mnt/share
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "demodcos.azurecr.io/simple-web:2.1",
+      "image": "mycontainerregistry30678.azurecr.io/dcos-demo",
       "network": "BRIDGE",
       "portMappings": [
-        { "hostPort": 0, "containerPort": 80, "servicePort": 10000 }
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp",
+          "name": "80",
+          "labels": null
+        }
       ],
       "forcePullImage":true
     }
@@ -148,21 +187,25 @@ sudo cp docker.tar.gz /mnt/share
       "intervalSeconds": 2,
       "maxConsecutiveFailures": 10
   }],
-  "labels":{
-    "HAPROXY_GROUP":"external",
-    "HAPROXY_0_VHOST":"YOUR FQDN",
-    "HAPROXY_0_MODE":"http"
-  },
   "uris":  [
-       "file:///mnt/share/docker.tar.gz"
+       "file:///mnt/share/dcosshare/docker.tar.gz"
    ]
 }
 ```
 
-> [!NOTE] 
-> Как вы видите, место хранения учетных данных здесь указывается с помощью **идентификаторов URI**.
->
+Разверните приложение с помощью CLI DC/OS.
+
+```azurecli-interactive
+dcos marathon app add acrDemo.json
+```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-* Узнайте больше об [управлении контейнерами DC/OS](container-service-mesos-marathon-ui.md).
-* Управление контейнерами DC/OS с помощью [REST API Marathon](container-service-mesos-marathon-rest.md).
+
+В этом руководстве вы настроили кластер DC/OS для использования с реестром контейнеров Azure, в частности выполнили следующие задачи:
+
+> [!div class="checklist"]
+> * Развертывание реестра контейнеров Azure (при необходимости).
+> * Настройка проверки подлинности ACR в кластере DC/OS.
+> * Отправка образа в реестр контейнеров Azure.
+> * Запуск образа контейнера из реестра контейнеров Azure.
+

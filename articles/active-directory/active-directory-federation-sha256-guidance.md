@@ -15,16 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
-translationtype: Human Translation
-ms.sourcegitcommit: e1b909f419c8c04a9332a29669148321ab3dbd2d
-ms.openlocfilehash: 2afd8e04ac325f1c9f2dee8aed867b0d0a6b558d
-ms.lasthandoff: 02/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: c581b1468630a9f28204592c936360b72f42f0d8
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/21/2017
 
 
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Изменение хэш-алгоритма подписи для отношения доверия с проверяющей стороной Office 365
 ## <a name="overview"></a>Обзор
 Службы федерации Active Directory (AD FS) подписывают маркеры для Microsoft Azure Active Directory, чтобы защитить их от незаконного изменения. Подпись основывается на алгоритме SHA1 или SHA256. Теперь Azure Active Directory поддерживает маркеры, подписанные с помощью алгоритма SHA256. Мы рекомендуем выбирать этот алгоритм подписи маркера для обеспечения максимальной защиты. В этой статье описывается процедура замены алгоритма подписи маркера на алгоритм с более высоким уровнем защиты — SHA256.
+
+>[!NOTE]
+>Корпорация Майкрософт рекомендует использовать алгоритм SHA256 для подписания маркеров, так как он защищеннее, чем SHA1, но SHA1 по-прежнему поддерживается.
 
 ## <a name="change-the-token-signing-algorithm"></a>Изменение алгоритма подписи маркера
 После того как алгоритм подписи будет выбран с помощью одного из указанных ниже способов, службы AD FS будут подписывать маркеры для отношения доверия с проверяющей стороной Office 365 с помощью SHA256. В конфигурацию не требуется вносить никакие дополнительные изменения. Кроме того, это изменение никак не влияет на возможность доступа к Office 365 или другим приложениям Azure AD.

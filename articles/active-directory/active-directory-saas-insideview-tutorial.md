@@ -1,138 +1,257 @@
 ---
 title: "Учебник. Интеграция Azure Active Directory с InsideView | Документация Майкрософт"
-description: "Узнайте, как использовать InsideView вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
+description: "Узнайте, как настроить единый вход Azure Active Directory в приложении InsideView."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: c489a7ab-6b1f-4efb-8a66-8bc13bca78c3
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/02/2017
+ms.date: 06/29/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 48a8cb0afd9fc2f9201169b074cf10f6d910952f
-ms.openlocfilehash: 235b1f11c60a595dfc760701213cfc1b5f792b61
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: f2b0a1d4bc44f8d0cd57c61e2d78950cb6a99854
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/28/2017
 
 
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Руководство. Интеграция Azure Active Directory с InsideView
-Цель данного руководства — показать интеграцию Azure и InsideView.  
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-* Действующая подписка на Azure
-* Клиент InsideView
+В этом руководстве описано, как интегрировать InsideView с Azure Active Directory (Azure AD).
 
-По завершении работы с этим руководством пользователи Azure AD, назначенные в InsideView, смогут выполнять единый вход в приложение на веб-сайте InsideView компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Интеграция InsideView с Azure AD обеспечивает следующие преимущества:
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+- С помощью Azure AD вы можете контролировать доступ к InsideView.
+- Вы можете включить автоматический вход пользователей в InsideView (единый вход) с использованием учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-* Включение интеграции приложений для InsideView
-* Настройка единого входа
-* Настройка подготовки учетных записей пользователей
-* Назначение пользователей
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Сценарий](./media/active-directory-saas-insideview-tutorial/IC794128.png "Сценарий")
+## <a name="prerequisites"></a>Предварительные требования
 
-## <a name="enable-the-application-integration-for-insideview"></a>Включение интеграции приложений для InsideView
-В этом разделе показано, как включить интеграцию приложений для InsideView.
+Чтобы настроить интеграцию Azure AD с InsideView, вам нужно:
 
-**Чтобы включить интеграцию приложений для InsideView, сделайте следующее:**
+- подписка Azure AD;
+- подписка с поддержкой единого входа InsideView.
+
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
+
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+
+1. Добавление InsideView из коллекции.
+2. Настройка и проверка единого входа в Azure AD
+
+## <a name="adding-insideview-from-the-gallery"></a>Добавление InsideView из коллекции
+Чтобы настроить интеграцию InsideView с Azure AD, нужно добавить InsideView из коллекции в список управляемых приложений SaaS.
+
+**Чтобы добавить InsideView из коллекции, выполните следующие действия:**
+
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Приложения][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
+    ![Приложения][3]
+
+4. В поле поиска введите **InsideView**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_search.png)
+
+5. На панели результатов выберите **InsideView** и выберите **Добавить**, чтобы добавить приложение.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в InsideView с использованием тестового пользователя Britta Simon.
+
+Чтобы единый вход работал, Azure AD необходимо знать, какой пользователь в InsideView соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в InsideView.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в InsideView.
+
+Чтобы настроить и проверить единый вход Azure AD в InsideView, вам потребуется выполнить действия в следующих стандартных блоках:
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя InsideView](#creating-a-insideview-test-user)** требуется для создания в InsideView пользователя Britta Simon, связанного с представлением этого пользователя в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении InsideView.
+
+**Чтобы настроить единый вход Azure AD в InsideView, выполните следующие действия:**
+
+1. На портале Azure на странице интеграции с приложением **InsideView** выберите **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
  
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-insideview-tutorial/IC700993.png "Active Directory")
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-   ![Приложения](./media/active-directory-saas-insideview-tutorial/IC700994.png "Приложения")
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-   ![Добавление приложения](./media/active-directory-saas-insideview-tutorial/IC749321.png "Добавление приложения")
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-   ![Добавление приложения из коллекции](./media/active-directory-saas-insideview-tutorial/IC749322.png "Добавление приложения из коллекции")
-6. В **поле поиска** введите **InsideView**.
-   
-   ![Коллекция приложений](./media/active-directory-saas-insideview-tutorial/IC794129.png "Коллекция приложений")
-7. В области результатов выберите **InsideView** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-   ![InsideView](./media/active-directory-saas-insideview-tutorial/IC794130.png "InsideView")
-   
-## <a name="configure-single-sign-on"></a>Настройка единого входа
+    ![Настройка единого входа](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_samlbase.png)
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в InsideView со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
+3. В разделе **Домены и URL-адреса приложения InsideView** выполните следующие действия:
+
+    ![Настройка единого входа](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_url.png)
+    
+    В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://my.insideview.com/iv/<STS Name>/login.iv`.
+
+    > [!NOTE] 
+    > Это значение приведено для справки. Вместо него нужно указать фактический URL-адрес ответа. Чтобы получить это значение, обратитесь в [службу поддержки InsideView](mailto:support@insideview.com).
  
-В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+4. В разделе **Сертификат подписи SAML** щелкните **Certificate (Raw)** (Сертификат (необработанный)), а затем сохраните файл сертификата на компьютере.
 
-**Чтобы настроить единый вход, выполните следующие действия:**
+    ![Настройка единого входа](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_certificate.png) 
 
-1. На странице интеграции с приложением **InsideView** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-insideview-tutorial/IC794131.png "Настройка единого входа")
-2. На странице **Как пользователи должны входить в InsideView?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-insideview-tutorial/IC794132.png "Настройка единого входа")
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес ответа InsideView** введите свой URL-адрес единого входа InsideView (например, `https://my.insideview.com/iv/<STS Name>/login.iv`) и нажмите кнопку **Далее**.
-   
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-insideview-tutorial/IC794133.png "Настройка URL-адреса приложения")
-4. Для скачивания сертификата на странице **Настройка единого входа в InsideView** нажмите кнопку **Скачать сертификат** и сохраните файл сертификата на своем компьютере.
-   
-   ![Настройка единого входа](./media/active-directory-saas-insideview-tutorial/IC794134.png "Настройка единого входа")
-5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт InsideView в качестве администратора.
-6. На панели инструментов в верхней части экрана щелкните **Admin** (Администрирование), **SingleSignOn Settings** (Параметры единого входа) и выберите **Add SAML** (Добавить SAML).
-   
-   ![Параметры единого входа SAML](./media/active-directory-saas-insideview-tutorial/IC794135.png "Параметры единого входа SAML")
-7. В разделе **Добавить SAML** сделайте следующее:
-   
-   ![Добавление SAML](./media/active-directory-saas-insideview-tutorial/IC794136.png "Добавление SAML")
-   
-   1. В текстовом поле **Имя службы токенов безопасности** введите имя конфигурации.
-   2. На странице диалогового окна **Настройка единого входа в InsideView** классического портала Azure скопируйте значение поля **Конечная точка, инициированная поставщиком услуг** и вставьте его в текстовое поле **SamlP/WS-Fed Unsolicated EndPoint** (Незапрошенная конечная точка SamlP/WS-Fed).
-   3. Создайте файл в кодировке **Base-64** из загруженного сертификата.      
+5. Нажмите кнопку **Сохранить** .
 
-     >[!TIP]
-     >Дополнительные сведения вы можете узнать в видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o). 
-     >
-   4. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат службы токенов безопасности** .
-   5. Сделайте следующее:
-    * В текстовом поле **Crm User Id Mapping** (Сопоставление идентификаторов пользователей CRM) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    * В текстовом поле **Crm Email Mapping** (Сопоставление адресов электронной почты CRM) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    * В текстовом поле **Crm First Name Mapping** (Сопоставление имен CRM) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    * В текстовом поле **Crm lastName Mapping** (Сопоставление фамилий CRM) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-   9. Щелкните **Сохранить**.
-8. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-insideview-tutorial/IC794137.png "Настройка единого входа")
-   
-## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
+    ![Настройка единого входа](./media/active-directory-saas-insideview-tutorial/tutorial_general_400.png)
 
-Чтобы пользователи Azure AD могли выполнять вход в InsideView, они должны быть подготовлены для InsideView. В случае с InsideView подготовка выполняется вручную.
+6. В разделе **Настройка InsideView** выберите **Настроить InsideView**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
 
-Для получения пользователей и контактов, созданных в InsideView, обратитесь к своему менеджеру по работе с клиентами или отправьте сообщение электронной почты по адресу **support@insideview.com**
+    ![Настройка единого входа](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_configure.png) 
+
+7. В другом окне веб-браузера войдите на свой корпоративный веб-сайт InsideView в качестве администратора.
+
+8. На панели инструментов в верхней части экрана щелкните **Admin** (Администрирование), **SingleSignOn Settings** (Параметры единого входа) и выберите **Add SAML** (Добавить SAML).
+   
+   ![Параметры единого входа SAML](./media/active-directory-saas-insideview-tutorial/ic794135.png "Параметры единого входа SAML")
+
+9. В разделе **Добавить SAML** сделайте следующее:
+
+    ![Добавление SAML](./media/active-directory-saas-insideview-tutorial/ic794136.png "Добавление SAML")
+   
+    а. В текстовом поле **Имя службы токенов безопасности** введите имя конфигурации.
+
+    b. В текстовое поле **SamlP/WS-Fed Unsolicited EndPoint** (Незапрашиваемая конечная точка WS-Fed/SamlP) вставьте значение **URL-адреса службы единого входа SAML**, скопированное на портале Azure.
+    
+    c. Откройте сертификат в кодировке Base-64, скачанный на портале Azure, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **STS Certificate** (Сертификат STS).
+
+    г) В **Crm User Id Mapping** (Сопоставление идентификаторов пользователей Crm) введите `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+        
+    д. В **Crm Email Mapping** (Сопоставление адресов электронной почты CRM) введите `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+
+    f. В **Crm First Name Mapping** (Сопоставление имен CRM) введите `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    
+    ж. В **Crm lastName Mapping** (Сопоставление фамилий CRM) введите `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
+
+    h. Щелкните **Сохранить**.
+
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
+ 
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+![Создание пользователя Azure AD][100]
+
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-insideview-tutorial/create_aaduser_01.png) 
+
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-insideview-tutorial/create_aaduser_02.png) 
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-insideview-tutorial/create_aaduser_03.png) 
+
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-insideview-tutorial/create_aaduser_04.png) 
+
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
+
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-a-insideview-test-user"></a>Создание тестового пользователя InsideView
+
+Чтобы пользователи Azure AD могли выполнять вход в InsideView, им нужна определенная информация об InsideView. В случае с InsideView подготовка выполняется вручную.
+
+Чтобы создать контакты и пользователей в InsideView, обратитесь в [службу поддержки InsideView](mailto:support@insideview.com).
 
 >[!NOTE]
 >Вы можете использовать любые другие инструменты создания учетных записей пользователя InsideView или API, предоставляемые InsideView для подготовки учетных записей пользователя AAD.
->  
 
-## <a name="assign-users"></a>Назначить пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-**Чтобы назначить пользователей InsideView, сделайте следующее:**
+В этом разделе описано, как предоставить пользователю Britta Simon доступ к InsideView, чтобы он мог использовать единый вход Azure.
 
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **InsideView** щелкните **Назначить пользователей**.
-   
-   ![Назначение пользователей](./media/active-directory-saas-insideview-tutorial/IC794138.png "Назначение пользователей")
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-   ![Да](./media/active-directory-saas-insideview-tutorial/IC767830.png "Да")
+![Назначение пользователя][200] 
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+**Чтобы назначить пользователя Britta Simon в InsideView, выполните следующие указания:**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **InsideView**.
+
+    ![Настройка единого входа](./media/active-directory-saas-insideview-tutorial/tutorial_insideview_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув элемент InsideView на панели доступа, вы автоматически войдете в приложение InsideView.
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_203.png
 
 

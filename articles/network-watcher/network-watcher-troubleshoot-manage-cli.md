@@ -1,6 +1,6 @@
 ---
-title: "Устранение неполадок шлюза виртуальной сети и подключений Azure (Azure CLI) | Документация Майкрософт"
-description: "На этой странице объясняется, как устранить неполадки с помощью Наблюдателя за сетями и Azure CLI"
+title: "Устранение неполадок шлюза виртуальной сети и подключений Azure — Azure CLI 2.0 | Документы Майкрософт"
+description: "На этой странице объясняется, как устранить неполадки с помощью Наблюдателя за сетями и Azure CLI 2.0"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -12,30 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a213c146a9ea1bb6c23bbcbfb6353372f2e4cbfc
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 09270cf3181476f3ed2c1720b497e707edff880e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/20/2017
 
 
 ---
 
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Устранение неполадок шлюза виртуальной сети и подключений с помощью Наблюдателя за сетями Azure и Azure CLI
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>Устранение неполадок шлюза виртуальной сети и подключений с помощью наблюдателя за сетями Azure и Azure CLI 2.0
 
 > [!div class="op_single_selector"]
+> - [Портал](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](network-watcher-troubleshoot-manage-cli.md)
+> - [Интерфейс командной строки 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
-Наблюдатель за сетями предоставляет множество возможностей, так как он позволяет проанализировать сетевые ресурсы в Azure. Одна из этих возможностей — устранение неполадок в ресурсах. Процедуру устранения неполадок с ресурсами можно вызывать в PowerShell, интерфейсе командной строки или REST API. При вызове Наблюдатель за сетями проверяет работоспособность шлюза виртуальной сети или подключения и возвращает результаты.
+Наблюдатель за сетями предоставляет множество возможностей, так как он позволяет проанализировать сетевые ресурсы в Azure. Одна из этих возможностей — устранение неполадок в ресурсах. Процедуру устранения неполадок с ресурсами можно вызывать с помощью портала, PowerShell, интерфейса командной строки или API-интерфейса REST. При вызове Наблюдатель за сетями проверяет работоспособность шлюза виртуальной сети или подключения и возвращает результаты.
 
-В этой статье используется кроссплатформенной Azure CLI 1.0, доступный для Windows, Mac и Linux. Наблюдатель за сетями в настоящее время использует Azure CLI 1.0 в качестве интерфейса командной строки.
+В этой статье мы используем наш новейший интерфейс командной строки для модели развертывания с помощью Resource Manager, а именно Azure CLI 2.0. Этот инструмент доступен для Windows, Mac и Linux.
+
+Для выполнения действий, описанных в этой статье, требуется [установить интерфейс командной строки Azure для Mac, Linux и Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
 В этом сценарии предполагается, что вы создали Наблюдатель за сетями в соответствии с инструкциями в статье [Create an Azure Network Watcher instance](network-watcher-create.md) (Наблюдатель за сетями: создание экземпляра службы).
+
+Список поддерживаемых типов шлюзов см. в разделе [Поддерживаемые типы шлюзов](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## <a name="overview"></a>Обзор
 
@@ -46,19 +53,13 @@ ms.lasthandoff: 04/10/2017
 В этом примере выполняется устранение неполадок с таким ресурсом, как подключение. Его также можно передать шлюзу виртуальной сети. Следующий командлет выдает список VPN-подключений в группе ресурсов.
 
 ```azurecli
-azure network vpn-connection list -g resourceGroupName
-```
-
-Кроме того, можно выполнить команду, чтобы получить список связей в подписке.
-
-```azurecli
-azure network vpn-connection list -s subscription
+az network vpn-connection list --resource-group resourceGroupName
 ```
 
 Получив имя подключения, можно выполнить приведенную ниже команду, чтобы получить его идентификатор ресурса.
 
 ```azurecli
-azure network vpn-connection show -g resourceGroupName -n connectionName
+az network vpn-connection show --resource-group resourceGroupName --ids vpnConnectionIds
 ```
 
 ## <a name="create-a-storage-account"></a>Создайте учетную запись хранения.
@@ -68,27 +69,27 @@ azure network vpn-connection show -g resourceGroupName -n connectionName
 1. Создание учетной записи хранения
 
     ```azurecli
-    azure storage account create -n storageAccountName -l location -g resourceGroupName
+    az storage account create --name storageAccountName --location westcentralus --resource-group resourceGroupName --sku Standard_LRS
     ```
 
 1. Получение ключей учетной записи хранения
 
     ```azurecli
-    azure storage account keys list storageAccountName -g resourcegroupName
+    az storage account keys list --resource-group resourcegroupName --account-name storageAccountName
     ```
 
 1. Создание контейнера
 
     ```azurecli
-    azure storage container create --account-name storageAccountName -g resourcegroupName --acount-key {storageAccountKey} --container logs
+    az storage container create --account-name storageAccountName --account-key {storageAccountKey} --name logs
     ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Выполнение устранения неполадок с ресурсами Наблюдателя за сетями
 
-Для устранения неполадок с ресурсами используется командлет `network watcher troubleshoot`. В командлет нужно передать группу ресурсов, имя экземпляра Наблюдателя за сетями, идентификатор подключения, идентификатор учетной записи хранения и путь к большому двоичному объекту, в котором будут храниться результаты устранения неполадок.
+Для устранения неполадок с ресурсами используется командлет `az network watcher troubleshooting`. В командлет нужно передать группу ресурсов, имя экземпляра Наблюдателя за сетями, идентификатор подключения, идентификатор учетной записи хранения и путь к большому двоичному объекту, в котором будут храниться результаты устранения неполадок.
 
 ```azurecli
-azure network watcher -g resourceGroupName -n networkWatcherName -t connectionId -i storageId -p storagePath
+az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}
 ```
 
 После выполнения командлета Наблюдатель за сетями просматривает ресурсы, чтобы проверить их работоспособность. Он возвращает результаты в оболочку и сохраняет журналы результатов в указанной учетной записи хранения.

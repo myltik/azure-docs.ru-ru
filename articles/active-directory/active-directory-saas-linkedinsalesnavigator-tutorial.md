@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 06/14/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ddf4affe72c6413501ffa00747c110f8761ed70e
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: ef26a16e79d9c9b0654634960b57dc59827b2c24
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -136,17 +136,22 @@ ms.lasthandoff: 05/10/2017
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinsalesnavigator-tutorial/updateusermail.png)
     
-9. В разделе **Атрибуты пользователя** установите флажок **Просмотреть и изменить все другие атрибуты пользователей** и задайте эти атрибуты. Нужно также добавить утверждение с именем **department**, значение которого требуется сопоставить с **user.department**.
+9. В разделе **Атрибуты пользователя** установите флажок **Просмотреть и изменить все другие атрибуты пользователей** и задайте эти атрибуты. Пользователь должен добавить четыре утверждения — **email**, **department**, **firstname** и **lastname**, а их значения должны быть сопоставлены с **user.mail**, **user.department**, **user.givenname** и **user.surname**, соответственно
 
     | Имя атрибута | Значение атрибута |
     | --- | --- |    
+    | email| user.mail |
     | department| user.department |
-
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
-
+    | firstname| user.givenname |
+    | lastname| user.surname |
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+    
     а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно атрибута.
-
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_05.png)
    
     b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
     
@@ -154,19 +159,29 @@ ms.lasthandoff: 05/10/2017
     
     d. Нажмите кнопку **ОК**.
 
-10. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните XML-файл на компьютере.
+10. Выполните следующие действия с атрибутом **name**.
+
+    а. Щелкните атрибут, чтобы открыть окно **Изменить атрибут**.
+
+    ![Настройка единого входа](./media/active-directory-saas-linkedinsalesnavigator-tutorial/url_update.png)
+
+    b. Удалите значение URL-адреса из **пространства имен**.
+    
+    c. Нажмите кнопку **ОК**, чтобы сохранить настройки.
+
+11. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните XML-файл на компьютере.
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
 
-11. Нажмите кнопку **Сохранить** .
+12. Нажмите кнопку **Сохранить** .
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
-12. Перейдите в раздел **LinkedIn Admin Settings** (Параметры администратора LinkedIn). Щелкните **Upload XML file** (Отправить XML-файл), чтобы отправить XML-файл метаданных, скачанный с портала Azure.
+13. Перейдите в раздел **LinkedIn Admin Settings** (Параметры администратора LinkedIn). Щелкните **Upload XML file** (Отправить XML-файл), чтобы отправить XML-файл метаданных, скачанный с портала Azure.
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. Нажмите кнопку **On** (Включить), чтобы включить единый вход. Состояние единого входа изменяется с **Not Connected** (Не подключено) на **Connected** (Подключено.)
+14. Нажмите кнопку **On** (Включить), чтобы включить единый вход. Состояние единого входа изменяется с **Not Connected** (Не подключено) на **Connected** (Подключено.)
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 

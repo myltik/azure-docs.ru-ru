@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 07/05/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d1756dee37771941caae781682b342986c7ecbc9
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: f3f4a2e721b1a75a5b92a5c17a9939c7013340d4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/27/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Обзор API-интерфейсов гибридных подключений ретранслятора Azure для платформы .NET Standard
+
 В этой статье перечислены некоторые ключевые [клиентские API-интерфейсы](/dotnet/api/microsoft.azure.relay) гибридных подключений ретранслятора Azure для платформы .NET Standard.
   
 ## <a name="relay-connection-string-builder"></a>Построитель строк подключения ретранслятора
-Класс [RelayConnectionStringBuilder][RelayConnectionStringBuilder] отформатирует строки подключения, которые относятся к гибридным подключениям ретранслятора. Его можно использовать для проверки формата строки подключения, а также для создания строки подключения с нуля. См. пример ниже.
+
+Класс [RelayConnectionStringBuilder][RelayConnectionStringBuilder] форматирует строки подключения, которые относятся к гибридным подключениям ретранслятора. Его можно использовать для проверки формата строки подключения, а также для создания строки подключения с нуля. В качестве примера ниже приведен код.
 
 ```csharp
 var endpoint = "{Relay namespace}";
@@ -44,7 +46,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 };
 ```
 
-Вы также можете передать строку подключения непосредственно в метод `RelayConnectionStringBuilder`. Это позволит убедиться, что строка подключения имеет допустимый формат, а конструктор выдаст исключение `ArgumentException`, если какой-либо из параметров окажется недопустимым.
+Вы также можете передать строку подключения непосредственно в метод `RelayConnectionStringBuilder`. Эта операция позволит убедиться, что строка подключения имеет допустимый формат. Если какой-либо из параметров окажется недоступным, конструктор выдаст `ArgumentException`.
 
 ```csharp
 var myConnectionString = "{RelayConnectionString}";
@@ -67,7 +69,7 @@ catch (ArgumentException ae)
 ### <a name="getting-a-hybrid-connection-stream"></a>Получение потока гибридного подключения
 
 #### <a name="listener"></a>Прослушиватель
-С помощью [HybridConnectionListener][HCListener] можно получить `HybridConnectionStream` следующим образом:
+С помощью [HybridConnectionListener][HCListener] можно получить объект `HybridConnectionStream` следующим образом:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -79,7 +81,7 @@ var hybridConnectionStream = await listener.AcceptConnectionAsync();
 ```
 
 #### <a name="client"></a>Клиент
-С помощью [HybridConnectionClient][HCClient] можно получить `HybridConnectionStream` следующим образом:
+С помощью [HybridConnectionClient][HCClient] можно получить объект `HybridConnectionStream` следующим образом:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -89,7 +91,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
 ### <a name="receiving-data"></a>Получение данных
-Класс [HybridConnectionStream][HCStream] можно использовать для двустороннего обмена данными. В большинстве случаев требуется непрерывное получение данных из потока. Если выполняется чтение текста из потока, вам также может потребоваться [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) для упрощения анализа данных. Например, можно считывать данные как текст, а не как `byte[]`.
+Класс [HybridConnectionStream][HCStream] можно использовать для двустороннего обмена данными. В большинстве случаев вы будете непрерывно получать данные из потока. Если выполняется чтение текста из потока, вам также может потребоваться использовать объект [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) для упрощения анализа данных. Например, можно считывать данные как текст, а не как `byte[]`.
 
 Следующий код считывает отдельные строки текста из потока, пока не будет запрошена отмена.
 

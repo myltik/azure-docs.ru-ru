@@ -14,36 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 5d15ad7a4e75410390891b5e11f72c6a649ebf53
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 7a28c92e921354cd4a623af29098a40e1c8b56b0
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 
 ---
-
-
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: запрос маркеров доступа
-
 
 Маркер доступа (обозначается как **access\_token**) является разновидностью маркеров безопасности, с помощью которого клиенты могут получить доступ к ресурсам, защищенным [сервером авторизации](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), таким как веб-API. Они представлены в виде [маркеров JWT](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) и содержат сведения о целевом сервере ресурсов и предоставленных разрешениях для сервера. При вызове сервера ресурсов маркер доступа должен присутствовать в HTTP-запросе.
 
 В этой статье описывается, как настроить клиентское приложение и выполнить запрос, чтобы получить **access\_token** из конечных точек `authorize` и `token`.
 
+> [!NOTE]
+> **Цепочки веб-API ("от имени") не поддерживаются в Azure AD B2C.**
+>
+> Многие архитектуры включают в себя веб-API, которому требуется вызывать другой нисходящий веб-API. При этом Azure AD B2C защищает оба интерфейса. Этот сценарий характерен для собственных клиентов с внутренним веб-API, который в свою очередь вызывает службу Microsoft Online, например API Graph Azure AD.
+>
+> Этот сценарий веб-API с цепочками может поддерживаться с помощью предоставления учетных данных носителя маркера JWT OAuth 2.0 или потока On-Behalf-Of. Однако в Azure AD B2C поток On-Behalf-Of еще не реализован.
+
 ## <a name="prerequisite"></a>Предварительные требования
 
-Прежде чем запрашивать маркер доступа, сначала необходимо зарегистрировать веб-API и опубликовать разрешения, которые могут быть предоставлены клиентскому приложению. Сначала выполните действия, приведенные в разделе [Регистрация веб-API](active-directory-b2c-app-registration.md).
+Прежде чем запрашивать маркер доступа, сначала необходимо зарегистрировать веб-API и опубликовать разрешения, которые могут быть предоставлены клиентскому приложению. Сначала выполните действия, приведенные в разделе [Регистрация веб-API](active-directory-b2c-app-registration.md#register-a-web-api).
 
 ## <a name="granting-permissions-to-a-web-api"></a>Предоставление разрешений для веб-API
 
 Воспользуйтесь порталом Azure, чтобы предоставить клиентскому приложению соответствующие разрешения для API. Сделайте следующее:
 
 1. Перейдите к меню **Приложения** в колонке функций B2C.
-2. Щелкните клиентское приложение ([зарегистрируйте приложение](active-directory-b2c-app-registration.md), если это еще не сделано).
-3. Выберите **Доступ через API**.
-4. Щелкните **Добавить**.
-5. Выберите веб-API и области (разрешения), которые нужно предоставить.
-6. Нажмите кнопку **ОК**.
+1. Зарегистрируйте клиентское приложение ([веб-приложение](active-directory-b2c-app-registration.md#register-a-web-application) или [собственный клиент](active-directory-b2c-app-registration.md#register-a-mobilenative-application)), если у вас еще его нет.
+1. В колонке "Параметры" вашего приложения выберите **Доступ к API**.
+1. Щелкните **Добавить**.
+1. Выберите веб-API и области (разрешения), которые нужно предоставить.
+1. Нажмите кнопку **ОК**.
 
 > [!NOTE]
 > Для Azure AD B2C не нужно предоставлять согласие пользователей клиентского приложения. Вместо этого требуется согласие администратора, которое определяется на основе разрешений, настроенных для приложений, как описано выше. Если отозвать разрешение для приложения, все пользователи, которые могли получить это разрешение, больше не смогут его использовать.
@@ -51,6 +56,9 @@ ms.lasthandoff: 03/23/2017
 ## <a name="requesting-a-token"></a>Запрос маркера
 
 Чтобы получить маркер доступа для приложения ресурсов, для клиентского приложения нужно указать необходимые разрешения в параметре **scope** запроса. Например, чтобы получить разрешение на чтение для приложения ресурсов с URI идентификатора приложения `https://contoso.onmicrosoft.com/notes`, нужно задать область `https://contoso.onmicrosoft.com/notes/read`. Ниже приведен пример запроса кода авторизации к конечной точке `authorize`.
+
+> [!NOTE]
+> На этом этапе пользовательские домены и маркеры доступа не поддерживаются. В URL-адресе запроса следует использовать домен yourtenantId.onmicrosoft.com.
 
 ```
 https://login.microsoftonline.com/<yourTenantId>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
@@ -97,3 +105,4 @@ scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_ac
 Когда API получает **access\_token**, он [проверяет маркер](active-directory-b2c-reference-tokens.md), чтобы подтвердить его подлинность и убедиться, что он имеет правильные утверждения.
 
 Мы всегда рады вашим отзывам и предложениям! Если у вас возникли трудности с выполнением действий, описанных в этой статье или у вас есть рекомендации по улучшению этого материала, поделитесь с нами своими наблюдениями, воспользовавшись формой в нижней части страницы. Запросы функций оставляйте на форуме [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 06/22/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 5e363a3e59b077a7bccfaff2ae6eee51418c77e5
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 77b5fb94cdfa5722081198aabc59fbf86229c2b0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 05/05/2017
 Чтобы настроить интеграцию Azure AD с Cerner Central, вам потребуется:
 
 - подписка Azure AD;
-- подписка Cerner Central с активированной функцией единого входа.
+- утвержденная системная учетная запись Cerner Central.
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
@@ -110,18 +110,33 @@ ms.lasthandoff: 05/05/2017
 
     ![Настройка единого входа](./media/active-directory-saas-cernercentral-tutorial/tutorial_cernercentral_url.png)
 
-    а. В текстовом поле **Идентификатор** введите значение в следующем формате: `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata`.
+    а. В текстовое поле **Идентификатор** введите значение в приведенном ниже формате.
+    
+    | |
+    |--|
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.sandboxcerner.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso`.
+    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: 
+    | |
+    |--|
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
+    | `https://cernercentral.com/<instasncename>` |
+    | `https://sandboxcernercentral.com/<instancename>` |
+    | `https://sandboxcernercentral.com/<instancename>` |
+    | `https://<subdomain>.sandboxcernercentral.com/<instancename>` |
 
     > [!NOTE] 
-    > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Мы рекомендуем использовать уникальное значение строки идентификатора. Чтобы получить эти значения, обратитесь в [службу поддержки Cerner Central](https://www.cerner.com/support).
+    > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь в [службу поддержки Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations).
  
-5. Нажмите кнопку **Сохранить** .
+4. Нажмите кнопку **Сохранить** .
 
     ![Настройка единого входа](./media/active-directory-saas-cernercentral-tutorial/tutorial_general_400.png)
 
-6. Для создания URL-адреса **метаданных** выполните следующие действия.
+5. Для создания URL-адреса **метаданных** выполните следующие действия.
 
     а. Щелкните **Регистрация приложений**.
     
@@ -141,7 +156,7 @@ ms.lasthandoff: 05/05/2017
 
     д. Создайте **URL-адрес метаданных** по следующему шаблону: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.
 
-7. Для настройки единого входа на стороне **Cerner Central** необходимо отправить **URL-адрес метаданных** в [службу поддержки Cerner Central](https://www.cerner.com/support). Специалисты службы поддержки настроят единый вход на стороне приложения для завершения интеграции.
+6. Для настройки единого входа на стороне **Cerner Central** необходимо отправить **URL-адрес метаданных** в [службу поддержки Cerner Central](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations). Специалисты службы поддержки настроят единый вход на стороне приложения для завершения интеграции.
 
 > [!TIP]
 > Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -180,7 +195,7 @@ ms.lasthandoff: 05/05/2017
  
 ### <a name="creating-a-cerner-central-test-user"></a>Создание тестового пользователя Cerner Central
 
-Чтобы пользователи Azure AD могли выполнить вход в Cerner Central, они должны быть подготовлены в Cerner Central. Есть разные способы создания пользователей в приложении Cerner Central. Чтобы вручную создать пользователя в приложении Cerner Central, свяжитесь со [службой поддержки Cerner Central](https://www.cerner.com/support).
+Приложение **Cerner Central** разрешает аутентификацию посредством любого поставщика федеративных удостоверений. Если пользователь может войти на домашнюю страницу приложения, то он является федеративным и не требует подготовки вручную.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
@@ -216,7 +231,7 @@ ms.lasthandoff: 05/05/2017
 
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
-Щелкнув элемент Cerner Central на панели доступа, вы автоматически войдете в приложение Cerner Central. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+Щелкнув элемент Cerner Central на панели доступа, вы автоматически войдете в приложение Cerner Central. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 

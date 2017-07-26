@@ -13,62 +13,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 06/26/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: d9578aa13fc22a148f76d95a2c548b88b699e723
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: a0c9c771c273728cf35d9cd727e1570e2a9bff5a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Настройка оповещений для заданий Azure Stream Analytics
 ## <a name="introduction-monitor-page"></a>Введение: страница мониторинга
-Оповещения можно настроить на отображение в случае, если метрика достигнет указанного состояния.
+Оповещения можно настроить на отображение в случае, если метрика достигнет указанного состояния. Например, оповещение для условия можно настроить следующим образом:
 
-Например: "Если число выходных событий за последние 15 минут < 100, отправлять уведомления на электронный адрес: xyz@company.com".
+`If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`
 
 Правила на основе метрик можно настраивать через портал либо [программным путем](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) , используя данные в журналах операций.
 
-## <a name="set-up-alerts-through-the-azure-classic-portal"></a>Настройка оповещений через классический портал Azure
-Настроить оповещения на классическом портале Azure можно двумя способами:  
-
-1. Вкладка **Монитор** задания Stream Analytics.  
-2. Журнал операций в службах управления.  
-
-## <a name="set-up-alert-through-the-monitor-tab-of-the-job-in-the-portal"></a>Настройка оповещений с помощью вкладки "Монитор" задания на портале
-1. На вкладке "Монитор" выберите метрику, в нижней части панели мониторинга нажмите кнопку **Добавить правило** и настройте правила.  
-   
-   ![Панель мониторинга](./media/stream-analytics-set-up-alerts/01-stream-analytics-set-up-alerts.png)  
-2. Определение имени и описания оповещения  
-   
-   ![Создание правила](./media/stream-analytics-set-up-alerts/02-stream-analytics-set-up-alerts.png)  
-3. Введите пороговые значения, интервал оповещений и действия при получении оповещений.  
-   
-   ![Определение условий](./media/stream-analytics-set-up-alerts/03-stream-analytics-set-up-alerts.png)  
-
-## <a name="set-up-alerts-through-the-operations-logs"></a>Настройка оповещений с помощью журналов операций
-1. Откройте вкладку **Оповещения** в службах управления на [классическом портале Azure](https://manage.windowsazure.com).  
-2. Нажмите кнопку **Добавить правило**  
-   
-   ![Критерии](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)  
-3. Определите имя и описание оповещения. Выберите в поле "Тип службы" значение Stream Analytics, а в поле "Имя службы" — имя задания.  
-   
-   ![Определение оповещения](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)  
-
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Настройка оповещений на портале Azure
-На портале Azure перейдите к нужному заданию Stream Analytics и откройте раздел **Мониторинг** .  В появившейся колонке **Метрика** выберите команду **Добавить оповещение**.
+1. На портале Azure откройте задание Stream Analytics, для которого требуется создать оповещение. 
 
-  ![Настройка портала Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+2. В колонке **Задание** щелкните раздел **Мониторинг**.  
 
-Правилу оповещения можно дать имя и выбрать описание, которое будет отображаться в уведомлении по электронной почте.
+3. В колонке **Метрика** выберите команду **Добавить оповещение**.
 
-Если вы выбрали раздел "Метрики", нужно задать условия и пороговое значение для метрики.
+      ![Настройка портала Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
 
-  ![Выбор метрики на портале Azure](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)  
+4. Введите имя и описание.
+
+5. Используйте селекторы для определения условий, при которых будут отправляться оповещения.
+
+6. Предоставьте сведения о том, куда следует отправлять оповещения.
+
+      ![Настройка оповещений для заданий Azure Streaming Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-add-alert.png)  
 
 Дополнительные сведения о настройке оповещений на портале Azure см. в статье [Получение уведомлений](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
+
 
 ## <a name="get-help"></a>Получение справки
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)

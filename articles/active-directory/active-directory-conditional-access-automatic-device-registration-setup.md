@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 06/16/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0fb7e8fe778c8d6f7e12b1c8a75c95941da3d4d9
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: b8cac63967bf837183095cbb235c4a84f2dabcb9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Настройка автоматической регистрации присоединенных к домену устройств Windows в Azure Active Directory
@@ -33,6 +33,7 @@ ms.lasthandoff: 04/27/2017
 
 - Условный доступ описан в статье [Условный доступ в Azure Active Directory — предварительная версия](active-directory-conditional-access-azure-portal.md). 
 - Сведения об устройствах Windows 10 в рабочей области и об улучшенной процедуре регистрации пользователей в Azure AD см. в статье [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md).
+- Сведения о Windows 10 Корпоративная E3 в CSP см. в [этой статье](https://docs.microsoft.com/en-us/windows/deployment/windows-10-enterprise-e3-overview).
 
 
 ## <a name="before-you-begin"></a>Перед началом работы
@@ -59,9 +60,8 @@ ms.lasthandoff: 04/27/2017
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- Регистрация устройств Windows нижнего уровня **не поддерживается** в следующих сценариях:
-    - В средах, не являющихся федеративными (конфигурации с синхронизацией хэша паролей).  
-    - На устройствах с перемещаемыми профилями. Если вам требуются перемещаемые профили или параметры, используйте только Windows 10.
+- Регистрация устройств Windows нижнего уровня **поддерживается** в средах, не являющихся федеративными, с помощью простого единого входа. [Простой единый вход Azure Active Directory](https://aka.ms/hybrid/sso).
+- Регистрация устройств Windows нижнего уровня **не поддерживается** на устройствах с перемещаемыми профилями. Если вам требуются перемещаемые профили или параметры, используйте только Windows 10.
 
 
 
@@ -137,7 +137,10 @@ Azure AD Connect выполняет следующие функции:
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
-В командлете `Initialize-ADSyncDomainJoinedComputerSync` используется модуль PowerShell для Active Directory, который использует веб-службы Active Directory в контроллере домена. Поддержку веб-служб Active Directory выполняют контроллеры домена под управлением Windows Server 2008 R2 и более поздних версий. 
+Командлет `Initialize-ADSyncDomainJoinedComputerSync`:
+
+- В этом командлете используется модуль PowerShell для Active Directory, который использует веб-службы Active Directory в контроллере домена. Поддержку веб-служб Active Directory выполняют контроллеры домена под управлением Windows Server 2008 R2 и более поздних версий.
+- Он поддерживается только **модулем MSOnline PowerShell версии 1.1.166.0**. Чтобы скачать этот модуль, используйте эту [ссылку](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
 
 Если вы используете контроллер домена под управлением Windows Server 2008 или более ранних версий, для создания точки подключения службы используйте приведенный ниже скрипт.
 
@@ -525,6 +528,8 @@ Azure AD Connect выполняет следующие функции:
 ## <a name="step-4-control-deployment-and-rollout"></a>Шаг 4. Контроль развертывания
 
 Когда вы выполните эти обязательные шаги, все будет готово для автоматической регистрации в Azure AD устройств, присоединенных к домену. Все присоединенные к домену устройства под управлением юбилейного обновления Windows 10 и Windows Server 2016 будут выполнять автоматическую регистрацию в Azure AD при перезагрузке устройства и при входе пользователя. Новые устройства зарегистрируются в Azure AD, когда завершится перезагрузка после присоединения к домену.
+
+Устройства, которые были ранее присоединены к рабочей области Azure AD (например, для Intune), перейдут в состояние *Присоединено к домену и Зарегистрировано в AAD*. Однако из-за обычного потока действий домена и пользователя, чтобы завершить этот процесс на всех устройствах понадобится некоторое время.
 
 ### <a name="remarks"></a>Примечания
 
