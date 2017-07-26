@@ -1,5 +1,5 @@
 ---
-title: "Использование Interactive Hive в HDInsight | Документация Майкрософт"
+title: "Использование Interactive Hive в HDInsight — Azure | Документы Майкрософт"
 description: "Сведения об использовании Interactive Hive (Hive в LLAP) в HDInsight."
 keywords: 
 services: hdinsight
@@ -18,15 +18,15 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 72206e299c245187731e4397610bbcfb01f5311c
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: e7874b55fc72f14d8e2c801872359e823cb2ba34
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
 # <a name="use-interactive-hive-in-hdinsight-preview"></a>Использование Interactive Hive в HDInsight (предварительная версия)
-Interactive Hive (также называемый [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) является новым [типом кластера](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) HDInsight.  Interactive Hive обеспечивает кэширование в памяти, благодаря чему запросы Hive становятся более интерактивными и быстрыми. Эта новая функция делает HDInsight одним из самых производительных, гибких и открытых решений для работы с большими данными в облаке с кэш-памятью (с использованием Hive и Spark). Она также предусматривает расширенную аналитику благодаря тесной интеграции со службами R. 
+Interactive Hive (также называемый [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) является новым [типом кластера](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) HDInsight.  Interactive Hive обеспечивает кэширование в памяти, благодаря чему запросы Hive становятся более интерактивными и быстрыми. Эта новая функция делает HDInsight одним из самых производительных, гибких и открытых решений для работы с большими данными в облаке с кэш-памятью (с использованием Hive и Spark). Она также предоставляет расширенную аналитику благодаря тесной интеграции со службами R. 
 
 Кластер Interactive Hive отличается от кластера Hadoop. Он содержит только службу Hive. 
 

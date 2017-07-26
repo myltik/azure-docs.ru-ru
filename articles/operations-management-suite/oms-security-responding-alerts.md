@@ -4,7 +4,7 @@ description: "В этом документе описывается функци
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -83,9 +84,21 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 > [!NOTE]
 > Как использовать эту возможность в процессе реагирования на инциденты демонстрируется в презентации [Mitigate datacenter security threats with guided investigation using Operations Management Suite](https://myignite.microsoft.com/videos/5000) (Устранение угроз для центра обработки данных посредством управляемого исследования с помощью Operations Management Suite) от Microsoft Ignite.
 > 
-> 
 
-## <a name="see-also"></a>Дополнительные материалы
+### <a name="responding-to-distinct-malicious-ip-accessed"></a>Реагирование на доступ к отдельным вредоносным IP-адресам
+В некоторых случаях можно заметить потенциально вредоносные IP-адреса, поступившие с одного отслеживаемого компьютера:
+
+![Карта анализа угроз](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Это и другие предупреждения одной категории создаются системой безопасности OMS с использованием [аналитики угроз корпорации Майкрософт](https://youtu.be/O4WtxgUrDc8). Данные аналитики угроз собираются корпорацией Майкрософт, а также приобретаются у ведущих поставщиков решений по аналитике угроз. Эти данные часто обновляются и адаптируются в соответствии с быстрым изменением угроз. При этом предупреждения системы безопасности следует [анализировать](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) вместе с данными из других источников, поставляющих сведения о безопасности. 
+
+## <a name="customize-alerts-received-via-e-mail"></a>Настройка оповещений, получаемых по электронной почте
+
+Вы можете указать, кто из пользователей будет получать оповещения при активации предупреждений безопасности компонентом безопасности OMS. Этот параметр доступен на панели мониторинга OMS в разделе "Обзор" > "Параметры".
+
+![Email](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig7.png)
+
+## <a name="see-also"></a>См. также
 В этом документе вы ознакомились с функцией **Анализ угроз** в решении OMS "Безопасность и аудит", которая позволяет реагировать на оповещения системы безопасности. Дополнительные сведения о функциях безопасности OMS см. в следующих статьях.
 
 * [Общие сведения об Operations Management Suite (OMS)](operations-management-suite-overview.md)

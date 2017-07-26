@@ -1,6 +1,7 @@
 ---
-title: "Выполнение заданий Sqoop с помощью .NET и Azure HDInsight | Документация Майкрософт"
+title: "Выполнение заданий Sqoop с помощью .NET и HDInsight в Azure | Документы Майкрософт"
 description: "Узнайте, как использовать пакет SDK HDInsight для .NET, чтобы выполнять импорт и экспорт Sqoop между кластером HDInsight и базой данных SQL Azure."
+keywords: "задание sqoop"
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -9,17 +10,18 @@ tags: azure-portal
 author: mumian
 ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 9cadb72e065f82de8e007b38e909d2bc07d18126
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: c95641fc6d20e2911e007d1974b9e2c2398b3133
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -29,19 +31,19 @@ ms.lasthandoff: 01/24/2017
 Узнайте, как использовать пакет SDK HDInsight для .NET для выполнения заданий Sqoop, осуществляющих импорт и экспорт между кластером HDInsight и базой данных SQL Azure или базой данных SQL Server.
 
 > [!NOTE]
-> Действия, описанные в этой статье можно использовать для кластера HDInsight под управлением Windows или Linux. Но эти действия могут быть запущены только из клиента Windows. Используйте выбор вкладок в верхней части этой статьи, чтобы выбрать другие методы.
+> Действия, описанные в этой статье, можно использовать для кластера HDInsight под управлением Windows или Linux. Однако эти действия можно выполнять только из клиента Windows. Используйте выбор вкладок в верхней части этой статьи, чтобы выбрать другие методы.
 > 
 > 
 
 ### <a name="prerequisites"></a>Предварительные требования
-Перед началом работы с этим учебником необходимо иметь следующее:
+Перед началом работы с этим руководством необходимо иметь следующее:
 
 * **Кластер Hadoop в HDInsight**. Ознакомьтесь с разделом [Создание кластера и базы данных SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## <a name="run-sqoop-using-net-sdk"></a>Запуск Sqoop с использованием пакета SDK
-Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. В этом разделе вы создадите и настроите консольное приложение C# для экспорта hivesampletable в созданную ранее таблицу базы данных SQL.
+## <a name="use-sqoop-on-hdinsight-clusters-using-net-sdk"></a>Использование Sqoop в кластерах HDInsight с помощью пакета SDK для .NET
+Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. В этом разделе вы создадите консольное приложение C# для экспорта hivesampletable в созданную ранее таблицу базы данных SQL.
 
-**Отправка задания Sqoop**
+## <a name="submit-a-sqoop-job"></a>Отправка задания Sqoop
 
 1. Создайте в Visual Studio консольное приложение C#.
 2. В Консоли диспетчера пакетов Visual Studio выполните следующую команду Nuget, чтобы импортировать пакет:
@@ -114,7 +116,7 @@ ms.lasthandoff: 01/24/2017
 
 ## <a name="limitations"></a>Ограничения
 * Массовый экспорт: при использовании HDInsight на основе Linux соединитель Sqoop, применяемый для экспорта данных в Microsoft SQL Server или базу данных SQL Azure, пока не поддерживает операции массовой вставки.
-* Пакетная обработка: при использовании HDInsight на основе Linux, когда для выполнения вставок применяется переключатель `-batch` , Sqoop выполняет несколько вставок вместо пакетной обработки операций вставки.
+* Пакетная обработка: при использовании HDInsight на основе Linux, когда для вставок применяется параметр `-batch`, Sqoop выполняет несколько вставок вместо пакетной обработки операций вставки.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Теперь вы узнали, как использовать Sqoop. Дополнительные сведения см. на следующих ресурсах:

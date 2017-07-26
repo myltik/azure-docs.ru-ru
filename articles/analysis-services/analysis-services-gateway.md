@@ -13,17 +13,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 05/26/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: e47fa44d87ad29054b833ee4bf201ac4d72e1e6e
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: f8c9e9ab8b8728202ec3f049b309d96d883022f4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="on-premises-data-gateway"></a>Локальный шлюз данных
 Локальный шлюз данных действует как мост, обеспечивая передачу данных между локальными источниками данных и сервером служб Azure Analysis Services в облаке.
+
+Последняя версия шлюза поддерживает табличные модели 1400, подключенные к локальным источникам данных с помощью запросов Get Data и M в SSDT. 
+
+Дополнительные сведения о поддерживаемых локальных источниках данных см. в статье [Источники данных, поддерживаемые в Azure Analysis Services](analysis-services-datasource.md).
 
 Шлюз устанавливается на компьютере в сети. Для каждого сервера служб Azure Analysis Services в подписке Azure необходимо установить один шлюз. Например, при наличии в подписке Azure двух серверов, которые подключаются к локальным источникам данных, шлюз необходимо установить на двух разных компьютерах в сети.
 
@@ -48,14 +53,6 @@ ms.lasthandoff: 04/20/2017
 * Чтобы изменить имя сервера для шлюза, который уже настроен, необходимо повторно установить и настроить новый шлюз.
 * В некоторых случаях табличные модели, которые подключаются к источникам данных с помощью собственных поставщиков, таких как собственный клиент SQL Server (SQLNCLI11), могут возвращать ошибку. Дополнительные сведения см. в статье [Datasource connections](analysis-services-datasource.md) (Подключение к источникам данных).
 
-## <a name="supported-on-premises-data-sources"></a>Поддерживаемые локальные источники данных
-Шлюз поддерживает подключения между сервером служб Azure Analysis Services и следующими локальными источниками данных:
-
-* SQL Server
-* Хранилище данных SQL
-* APS
-* Oracle
-* Teradata
 
 ## <a name="download"></a>Загрузить
  [Скачайте шлюз](https://aka.ms/azureasgateway).
@@ -128,7 +125,7 @@ ms.lasthandoff: 04/20/2017
 
 Если у вас возникли проблемы с установкой или настройкой шлюза, см. статью [Устранение неполадок локального шлюза данных](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/). Если возникли проблемы с брандмауэром, ознакомьтесь с разделами о настройке брандмауэра или прокси-сервера.
 
-При возникновении проблем с настройкой прокси-сервера для шлюза см. статью [Настройка параметров прокси-сервера для шлюзов Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md).
+При возникновении проблем с настройкой прокси-сервера для шлюза см. статью [Настройка параметров прокси-сервера для шлюзов Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy).
 
 ### <a name="telemetry"></a>Телеметрия
 Телеметрию можно использовать для мониторинга и устранения неполадок. 

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 07/17/2017
+ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 08df9939eb31c224d62d96a0d034d1cda10ba270
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 32b5e5a8025be3381e20aad0b22289b2c641f74e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Службы синхронизации Azure AD Connect: атрибуты, синхронизируемые с Azure Active Directory
@@ -54,6 +53,7 @@ ms.lasthandoff: 05/12/2017
 | --- |:---:|:---:|:---:| --- |
 | AccountEnabled |X | | |Определяет, включена ли учетная запись. |
 | assistant |X |X | | |
+| altRecipient |X | | |Требуется Azure AD Connect сборки 1.1.552.0 или более поздних версий. |
 | authOrig |X |X |X | |
 | c |X |X | | |
 | cn |X | |X | |
@@ -432,8 +432,9 @@ ms.lasthandoff: 05/12/2017
 | msExchUCVoiceMailSettings |X | | |Включение единой системы обмена сообщениями (сетевая голосовая почта): используется при интеграции сервера Microsoft Lync Server, указывая локальному серверу Lync Server, что у пользователя в онлайн-службах есть голосовая почта. |
 | msExchUserHoldPolicies |X | | |Хранение для судебного разбирательства: позволяет облачным службам определять, на каких пользователей действует хранение для судебного разбирательства. |
 | proxyAddresses |X |X |X |Вставляется только адрес x500 из Exchange Online. |
+| publicDelegates |X | | |Позволяет в почтовом ящике Exchange Online предоставлять права SendOnBehalfTo пользователям с локальными почтовыми ящиками Exchange. Требуется Azure AD Connect сборки 1.1.552.0 или более поздних версий. |
 
-## <a name="exchange-mail-public-folder"></a>Общедоступные почтовые папки Exchange
+## <a name="exchange-mail-public-folder"></a>Общедоступная папка почты Exchange
 Эти атрибуты синхронизируются из локального экземпляра Active Directory в Azure AD при включении **общедоступных почтовых папок Exchange**.
 
 | Имя атрибута | PublicFolder | Комментарий |

@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/31/2016
-ms.author: elbutter; barbkess
+ms.date: 07/25/2017
+ms.author: elbutter
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: e250fa59204be14614a4c91fb5a0c1af5a8d5281
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-rest"></a>Управление вычислительными ресурсами в хранилище данных SQL Azure (REST)
@@ -42,7 +41,7 @@ ms.lasthandoff: 06/01/2017
 Чтобы изменить число DWU, используйте REST API [создания или обновления базы данных][Create or Update Database]. В приведенном ниже примере для базы данных MySQLDW, размещенной на сервере MyServer, устанавливается цель уровня обслуживания DW1000. Сервер находится в группе ресурсов Azure с именем ResourceGroup1.
 
 ```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
+PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
 Content-Type: application/json; charset=UTF-8
 
 {

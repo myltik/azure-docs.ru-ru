@@ -1,5 +1,5 @@
 ---
-title: "Управление ресурсами для кластера Apache Spark в Azure HDInsight | Документация Майкрософт"
+title: "Управление ресурсами для кластера Apache Spark в Azure HDInsight | Документы Майкрософт"
 description: "Узнайте, как управлять ресурсами для кластеров Spark в Azure HDInsight для повышения производительности."
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/25/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 68972d9422dd0861318b0f26a4543f7596d9a680
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 7acd83cf477f9294c75e1bf11f093be50c32e786
 ms.contentlocale: ru-ru
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/24/2017
 1. На начальной панели [портала Azure](https://portal.azure.com/)щелкните элемент кластера Spark (если он закреплен на начальной панели). Кроме того, вы можете перейти к кластеру, последовательно щелкнув **Просмотреть все** > **Кластеры HDInsight**.
 2. В колонке кластера Spark нажмите **Панель мониторинга**. При появлении запроса введите учетные данные администратора для кластера Spark.
 
-    ![Запуск Ambari](./media/hdinsight-apache-spark-resource-manager/hdispark.cluster.launch.dashboard.png "Запуск Resource Manager")
+    ![Запуск Ambari](./media/hdinsight-apache-spark-resource-manager/hdinsight-launch-cluster-dashboard.png "Запуск Resource Manager")
 3. В результате должен запуститься веб-интерфейс Ambari, как показано ниже.
 
     ![Веб-интерфейс Ambari](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Веб-интерфейс Ambari")   
@@ -147,11 +147,11 @@ ms.lasthandoff: 01/24/2017
 ## <a name="how-do-i-kill-a-running-application-to-free-up-resource"></a>Как завершить работу запущенного приложения, чтобы освободить ресурс?
 1. В пользовательском интерфейсе Yarn на левой панели щелкните **Running** (Выполняется). В списке выполняющихся приложений определите приложение, работу которого необходимо завершить, и щелкните **ID** (Идентификатор).
 
-    ![Завершение работы приложения&1;](./media/hdinsight-apache-spark-resource-manager/kill-app1.png "Завершение работы приложения&1;")
+    ![Завершение работы приложения 1](./media/hdinsight-apache-spark-resource-manager/kill-app1.png "Завершение работы приложения 1")
 
 2. В правом верхнем углу щелкните **Kill Application** (Завершить работу приложения), а затем нажмите кнопку **ОК**.
 
-    ![Завершение работы приложения&2;](./media/hdinsight-apache-spark-resource-manager/kill-app2.png "Завершение работы приложения&2;")
+    ![Завершение работы приложения 2](./media/hdinsight-apache-spark-resource-manager/kill-app2.png "Завершение работы приложения 2")
 
 ## <a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -170,7 +170,7 @@ ms.lasthandoff: 01/24/2017
 ### <a name="tools-and-extensions"></a>Средства и расширения
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
@@ -186,6 +186,5 @@ ms.lasthandoff: 01/24/2017
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 

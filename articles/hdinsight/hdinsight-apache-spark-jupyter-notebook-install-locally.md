@@ -1,5 +1,5 @@
 ---
-title: "Установка записной книжки Jupyter в локальной среде и ее подключение к кластеру Azure HDInsight Spark | Документация Майкрософт"
+title: "Установка записной книжки Jupyter в локальной среде и ее подключение к кластеру Azure HDInsight Spark | Документы Майкрософт"
 description: "Сведения о том, как установить записную книжку Jupyter на компьютере локально и как подключить ее к кластеру Apache Spark в Azure HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: c2949fbda0503c779b117aebb14d4d7b76bae426
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: fe9dcdb643aa6a8ee5d55738b7a446e4b0153986
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -44,7 +44,7 @@ ms.lasthandoff: 05/17/2017
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Установка записной книжки Jupyter на компьютер
 
-Перед установкой записных книжек Jupyter необходимо установить Python. Python и Jupyter доступны в составе [дистрибутива Ananconda](https://www.continuum.io/downloads). При установке Anaconda устанавливается дистрибутив Python. После установки Anaconda выполните соответствующие команды для установки Jupyter.
+Перед установкой записных книжек Jupyter необходимо установить Python. Python и Jupyter доступны в составе [дистрибутива Anaconda](https://www.continuum.io/downloads). При установке Anaconda устанавливается дистрибутив Python. После установки Anaconda выполните соответствующие команды для установки Jupyter.
 
 1. Скачайте [установщик Anaconda](https://www.continuum.io/downloads) для своей платформы и запустите программу установки. В мастере установки укажите параметр для добавления Anaconda в переменную PATH.
 2. Выполните следующую команду для установки Jupyter.
@@ -109,7 +109,7 @@ ms.lasthandoff: 05/17/2017
             "heartbeat_retry_seconds": 1
 
     >[!TIP]
-    >Сигналы пульса отправляются, чтобы предотвратить утечку сеансов. Обратите внимание, что при переходе в спящий режим или завершении работы компьютера пульс не будет отправлен, что приведет к очистке сеанса. Если вы хотите отключить такое поведение для кластеров версии 3.4, то можете настроить для параметра Livy `livy.server.interactive.heartbeat.timeout` значение `0` с помощью пользовательского интерфейса Ambari. Если для кластеров версии 3.5 не настроить соответствующую конфигурацию, приведенную выше, то сеанс не будет удален.
+    >Сигналы пульса отправляются, чтобы предотвратить утечку сеансов. При переходе в спящий режим или завершении работы компьютера пульс не отправляется, что приводит к очистке сеанса. Если вы хотите отключить такое поведение для кластеров версии 3.4, то можете настроить для параметра Livy `livy.server.interactive.heartbeat.timeout` значение `0` с помощью пользовательского интерфейса Ambari. Если для кластеров версии 3.5 не настроить соответствующую конфигурацию, приведенную выше, то сеанс не будет удален.
 
 6. Запустите Jupyter. Выполните следующую команду из командной строки.
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 05/17/2017
 ### <a name="tools-and-extensions"></a>Средства и расширения
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 

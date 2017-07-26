@@ -1,6 +1,6 @@
 ---
-title: "Известные проблемы в работе кластера Apache Spark в Azure HDInsight | Документация Майкрософт"
-description: "Известные проблемы в работе кластеров Apache Spark в Azure HDInsight."
+title: "Устранение неполадок кластера Apache Spark в Azure HDInsight | Документы Майкрософт"
+description: "Сведения о проблемах, связанных с кластерами Apache Spark в Azure HDInsight, и их решении."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 2ba5f280b38622b6a0c966d76617cd5698420b92
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 3a493a2c35a6cdd31bb1e4ff66113a8f8d97d4f4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/25/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -128,7 +128,7 @@ ms.lasthandoff: 03/25/2017
 ### <a name="tools-and-extensions"></a>Средства и расширения
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

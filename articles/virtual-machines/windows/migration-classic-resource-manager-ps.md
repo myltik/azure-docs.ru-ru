@@ -21,7 +21,6 @@ ms.openlocfilehash: 7520e07700680fa4129a9babff30202218cefa71
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Перенос ресурсов IaaS из классической модели в модель Azure Resource Manager с помощью Azure PowerShell
 Ниже последовательно описано, как использовать команды Azure PowerShell для переноса ресурсов IaaS из классической модели развертывания в модель развертывания с помощью Azure Resource Manager.
@@ -78,7 +77,7 @@ ms.lasthandoff: 07/04/2017
 Получите доступные подписки с помощью следующей команды.
 
 ```powershell
-    Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+    Get-AzureRMSubscription | Sort Name | Select Name
 ```
 
 Задайте подписку Azure для текущего сеанса. В этом примере задается имя подписки по умолчанию **My Azure Subscription**. Замените имя подписки в примере своим собственным значением.

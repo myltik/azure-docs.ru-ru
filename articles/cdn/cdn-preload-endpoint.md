@@ -3,7 +3,7 @@ title: "Предварительная загрузка ресурсов на к
 description: "Узнайте, как предварительно загружать кэшированное содержимое в конечной точке Azure CDN."
 services: cdn
 documentationcenter: 
-author: zhangmanling
+author: smcevoy
 manager: erikre
 editor: 
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 242c3a6bf656da9b029a780e8b80667405b7b92f
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 1f2dcd9a91bb6e883cbef06373c1acd98bf8d45f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -64,11 +65,11 @@ ms.lasthandoff: 03/04/2017
     ![Кнопка загрузки](./media/cdn-preload-endpoint/cdn-load-button.png)
 
 > [!NOTE]
-> Существует ограничение: 10 запросов на загрузку в минуту на профиль CDN.
+> Существует ограничение: 10 запросов на загрузку в минуту на профиль CDN. На запрос разрешено использовать до 50 путей. Каждый путь имеет ограничение по длине, равное 1024 символам.
 > 
 > 
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * [Очистка конечной точки сети CDN Azure](cdn-purge-endpoint.md)
 * [Справочник по API REST CDN. Очистка и предварительная загрузка конечной точки](https://msdn.microsoft.com/library/mt634451.aspx)
 

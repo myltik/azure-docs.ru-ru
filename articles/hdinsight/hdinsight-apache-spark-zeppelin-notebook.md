@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: bc1b22b6269dc42add45a63d12c6c733e9d8c6ab
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 9a588a28312388a524d91df7363234e0f609660e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -28,8 +28,7 @@ ms.lasthandoff: 05/18/2017
 Кластеры Spark HDInsight включают в себя записные книжки Zeppelin, которые можно использовать для выполнения заданий Spark. Из этой статьи вы узнаете, как использовать записную книжку Zeppelin в кластере HDInsight.
 
 > [!NOTE]
-> По умолчанию записные книжки Zeppelin доступны только для Spark 1.6.2 в кластере HDInsight версии 3.5. Если вы хотите использовать Zeppelin в других версиях кластеров HDInsight Spark, можно установить Zeppelin с помощью действия сценария. Дополнительные сведения см. в статье [Установка записных книжек Zeppelin для кластера Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-use-zeppelin-notebook.md).
-> 
+> Записные книжки Zeppelin доступны только для Spark 1.6.3 в HDInsight 3.5 и для Spark 2.1.0 в HDInsight 3.6.
 >
 
 **Предварительные требования:**

@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 05/17/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 6d0a1501b97ddb2c819361b00a85ebec12f7b50e
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: f65b992297c429eda2090f744b9b88b1ede39533
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -59,7 +59,7 @@ var description = manager.CreateEventHubIfNotExists("MyEventHub");
 Класс [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) содержит сведения о концентраторе событий, включая правила авторизации, интервал хранения сообщений, идентификаторы секций, состояние и путь. Этот класс можно использовать для обновления метаданных в концентраторе событий.
 
 ## <a name="create-an-event-hubs-client"></a>Создание клиента концентратора событий
-Основным классом для взаимодействия с концентраторами событий является класс [Microsoft.ServiceBus.Messaging.EventHubClient]. Этот класс предоставляет возможности отправителя и получателя. Можно создать экземпляр этого класса с помощью метода [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) , как показано в следующем примере.
+Основным классом для взаимодействия с концентраторами событий является класс [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Этот класс предоставляет возможности отправителя и получателя. Можно создать экземпляр этого класса с помощью метода [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) , как показано в следующем примере.
 
 ```csharp
 var client = EventHubClient.Create(description.Path);
@@ -109,6 +109,8 @@ var client = factory.CreateEventHubClient("MyEventHub");
 - удаление (удалите ненужные сообщения);
 - повторная попытка (обработайте сообщение повторно по своему усмотрению);
 - [недоставленные сообщения](../service-bus-messaging/service-bus-dead-letter-queues.md) (используйте очередь или другой концентратор событий только для недоставленных сообщений, которые не удалось обработать).
+
+Дополнительные сведения и обсуждение компромиссов между доступностью и согласованностью см. в разделе [Доступность и согласованность в концентраторах событий](event-hubs-availability-and-consistency.md). 
 
 ## <a name="batch-event-send-operations"></a>Пакетные операции отправки событий
 Пакетная отправка событий позволяет значительно повысить пропускную способность. Метод [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) принимает параметр **IEnumerable** типа [EventData][] и отправляет весь пакет в концентратор событий посредством атомарной операции.
@@ -187,6 +189,7 @@ while(receive)
 
 * [Общие сведения об API концентраторов событий](event-hubs-api-overview.md)
 * [Что такое концентраторы событий?](event-hubs-what-is-event-hubs.md)
+* [Доступность и согласованность в концентраторах событий](event-hubs-availability-and-consistency.md)
 * [Справочник по API узла обработчика событий](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager

@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 7c13931aa6d17036e59674cdd917e3ca221ac57f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -39,16 +41,11 @@ ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
 | Южная Европа |Мадрид, Испания<br />Милан, Италия |**&#x2713;**\* |
 | Восточная Азия |Токио, Япония<br />Осака, Япония<br />Батам, Индонезия<br />Джакарта, Индонезия<br />Гонконг<br />Гаосюн, Тайвань<br />Сеул, Южная Корея<br />Сингапур |**&#x2713;**\* |
 | Южная и Центральная Азия |Бангалор, Индия<br />Ченнай, Индия<br />Дели, Индия<br />Мумбай, Индия |**&#x2713;**\* |
-| Ближний Восток и Западная Азия |Мускат, Оман |**&#x2713;**\* |
+| Ближний Восток и Западная Азия |Мускат, Оман <br /> Фуджира, Объединенные Арабские Эмираты |**&#x2713;**\* |
 | Африка | |**&#x2713;**\* |
 | Австралия и Новая Зеландия |Мельбурн, Австралия<br />Сидней, Австралия |**&#x2713;**\* |
 
 ## <a name="see-also"></a>См. также
 * [Использование API граничных узлов Azure CDN для получения последних IP-адресов и создания списка разрешений](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Использование Apache Phoenix и SQuirreL c Azure HDInsight (HBase) | Документация Майкрософт"
+title: "Использование Apache Phoenix и SQuirreL c HBase в Azure HDInsight | Документы Майкрософт"
 description: "Узнайте о том, как использовать Apache Phoenix в HDInsight, а также как установить и настроить SQuirreL на рабочей станции для подключения к кластеру HBase в HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/26/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 04e078d662c861d5c587c571a42478603e291587
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 13d17083bbe26fa9745ce4c5fef9f56859243c2e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 03/25/2017
 >
 
 ## <a name="use-sqlline"></a>Использование SQLLine
-[SQLLine](http://sqlline.sourceforge.net/) — это утилита командной строки для выполнения SQL.
+[SQLLine](http://sqlline.sourceforge.net/) — это программа командной строки для выполнения SQL.
 
 ### <a name="prerequisites"></a>Предварительные требования
 Перед использованием SQLLine необходимо иметь следующее:
@@ -39,13 +40,13 @@ ms.lasthandoff: 03/25/2017
 * **Кластер HBase в HDInsight.** Сведения о подготовке кластера HBase см. в статье [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Windows в HDInsight][hdinsight-hbase-get-started].
 * **Подключение к кластеру с помощью протокола удаленного рабочего стола.** Инструкции см. в статье [Управление кластерами Hadoop в HDInsight с помощью портала Azure][hdinsight-manage-portal].
 
-При подключении к кластеру HBase необходимо подключиться к одному из Zookeeper. Каждый кластер HDInsight содержит 3 Zookeeper.
+При подключении к кластеру HBase необходимо подключиться к одному из Zookeeper. Каждый кластер HDInsight содержит три узла Zookeeper.
 
 **Определение имени узла Zookeeper**
 
 1. Откройте Ambari, перейдя по адресу **https://<ClusterName>.azurehdinsight.net**.
 2. Введите имя пользователя (кластера) HTTP и пароль для входа.
-3. В меню слева щелкните **Zookeeper** . Вы увидите 3 сервера **ZooKeeper Server** .
+3. В меню слева щелкните **Zookeeper** . В списке будет три сервера **ZooKeeper Server**.
 4. Выберите один из серверов **ZooKeeper Server** . На панели сводки найдите **Имя узла**. Оно аналогично *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 
 **Использование SQLLine**

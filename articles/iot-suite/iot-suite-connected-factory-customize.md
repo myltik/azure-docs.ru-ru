@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4e466f34880bf6ffce5012353f539ee93160892b
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: ec4b2808e6984821200be182183e53b69887b912
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="introduction"></a>Введение
 
-Решение подключенной фабрики агрегирует и отображает данные с серверов OPC UA, подключенных к решению. В решении можно просматривать и отправлять команды на серверы OPC UA.
+Решение подключенной фабрики агрегирует и отображает данные с серверов OPC UA, подключенных к решению. В решении можно просматривать и отправлять команды на серверы OPC UA. Дополнительные сведения об OPC UA см. в разделе [Часто задаваемые вопросы][lnk-faq].
 
 Примеры агрегированных данных в решении включают общую эффективность оборудования (OEE) и ключевые показатели эффективности (KPI), которые можно просмотреть на панели мониторинга на уровне станции, линии и фабрики. На следующем рисунке показаны значения OEE и KPI для станции **сборки** на **производственной линии 1** фабрики в **Мюнхене**:
 
@@ -174,7 +174,7 @@ ms.lasthandoff: 05/10/2017
 Дополнительные сведения о предварительно настроенном решении подключенной фабрики см. в следующих статьях:
 
 * [Пошаговое руководство по работе с настроенным решением для удаленного мониторинга][lnk-rm-walkthrough]
-* [Connect your device to the Connected factory preconfigured solution][lnk-connect-cf] (Подключение устройства к предварительно настроенному решению для подключенной фабрики)
+* [Развертывание шлюза для подключенной фабрики][lnk-connect-cf]
 * [Разрешения на сайте azureiotsuite.com][lnk-permissions]
 * [Часто задаваемые вопросы об IoT Suite][lnk-faq]
 
@@ -188,7 +188,7 @@ ms.lasthandoff: 05/10/2017
 [img-server-uris]: ./media/iot-suite-connected-factory-customize/serveruris.png
 [lnk-kpi]: ./media/iot-suite-connected-factory-customize/kpidisplay.png
 
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

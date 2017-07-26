@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ef310a094667f390addd5d0df3dc68d67100d2f4
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: fdee02fb60b633c26704fc1774dfc3a7825b5e0d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -27,16 +27,13 @@ ms.lasthandoff: 05/09/2017
 
 Инструкции по разработке сборок общего назначения для U-SQL см. в статье [Разработка сборок U-SQL для заданий Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md).
 
-## <a name="define-and-use-user-defined-operator-in-u-sql"></a>Определение и использование определяемых пользователем операторов в U-SQL
+## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Определение и использование определяемых пользователем операторов в U-SQL
 **Создание и отправка задания U-SQL**
 
-1. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
-2. Выберите тип **Проект U-SQL** .
-
-    ![новый проект U-SQL в Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. Нажмите кнопку **ОК**. Visual Studio создает решение с помощью файла Script.usql.
-4. В **обозревателе решений** разверните узел Script.usql и дважды щелкните файл **Script.usql.cs**.
-5. Скопируйте приведенный ниже код и вставьте его в файл.
+1. В Visual Studio выберите **Файл > Создать > Проект > Проект U-SQL**.
+2. Нажмите кнопку **ОК**. Visual Studio создаст решение с помощью файла Script.usql.
+3. В **обозревателе решений** разверните узел Script.usql и дважды щелкните файл **Script.usql.cs**.
+4. Скопируйте приведенный ниже код и вставьте его в файл.
 
         using Microsoft.Analytics.Interfaces;
         using System.Collections.Generic;
@@ -51,7 +48,7 @@ ms.lasthandoff: 05/09/2017
                         "Deutschland", "Germany"
                     },
                     {
-                        "Schwiiz", "Switzerland"
+                        "Suisse", "Switzerland"
                     },
                     {
                         "UK", "United Kingdom"
