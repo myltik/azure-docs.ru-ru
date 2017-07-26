@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: e7dad0f943375f1bf2996564558e313416506506
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: e0adac5193ae412845c8413dfee6b5557096359a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -149,7 +149,7 @@ Azure DevTest Labs предусматривает два типа ролей д�
 Чтобы создать несколько виртуальных машин, используйте [задачи VSTS](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) или во время создания виртуальной машины [создайте шаблон Azure Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) и [разверните его из Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab"></a>Как переместить имеющиеся виртуальные машины Azure в лабораторию Azure DevTest Labs?
-Мы уже разрабатываем решение для перемещения виртуальных машин непосредственно в Azure DevTest Labs. Пока что вы можете скопировать имеющиеся виртуальные машины в Azure DevTest Labs, выполнив следующие действия:
+Чтобы переместить существующие виртуальные машины в Azure DevTest Labs, выполните следующие действия:
 
 1. Скопируйте VHD-файл имеющейся виртуальной машины с помощью этого [сценария Windows PowerShell](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1)
 2. [пользовательский образ](devtest-lab-create-template.md) .

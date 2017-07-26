@@ -14,32 +14,33 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7169b6f2d9738abd9651120be96bb1cf209ea85d
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/23/2017
 
 
 ---
 # <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Развертывание контейнера ASP.NET на удаленном узле Docker
 ## <a name="overview"></a>Обзор
 Docker — это облегченная платформа контейнеров, чем-то похожая на виртуальную машину, которую можно использовать для размещения приложений и служб.
-В этом руководстве пошагово описывается использование расширения [Средства Visual Studio 2015 для Docker](http://aka.ms/DockerToolsForVS) для развертывания приложения ASP.NET Core на узле Docker в Azure с помощью PowerShell.
+В этом руководстве пошагово описывается использование расширения [Средства Visual Studio для Docker](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) для развертывания приложения ASP.NET Core на узле Docker в Azure с помощью PowerShell.
 
 ## <a name="prerequisites"></a>Предварительные требования
-Для работы с этим учебником необходимо выполнить следующие действия:
+Для работы с этим руководством предварительно необходимо сделать следующее:
 
 * Создать виртуальную машину для узла Docker в Azure, как описано в статье [Использование машины Docker с драйвером Azure](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Установить [Visual Studio 2015 с обновлением 3](https://go.microsoft.com/fwlink/?LinkId=691129)
-* Установить [пакет SDK для Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122).
-* Установить [Средства Visual Studio 2015 для Docker — предварительная версия](http://aka.ms/DockerToolsForVS)
+* Установить последнюю версию [Visual Studio](https://www.visualstudio.com/downloads/).
+* Скачать [пакет SDK для Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122).
+* Установить [Docker для Windows](https://docs.docker.com/docker-for-windows/install/).
 
 ## <a name="1-create-an-aspnet-core-web-app"></a>1. Создание веб-приложения ASP.NET Core
-Выполнив следующие шаги, вы создадите простое приложение ASP.NET Core, которое будет использоваться в этом руководстве.
+Давайте создадим простое приложение ASP.NET Core, которое мы будем использоваться в этом руководстве.
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## <a name="2-add-docker-support"></a>2. Добавление поддержки Docker
+## <a name="2-add-docker-support"></a>2) Добавление поддержки Docker
 [!INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
 ## <a name="3-use-the-dockertaskps1-powershell-script"></a>3. Использование сценария PowerShell DockerTask.ps1
@@ -56,19 +57,12 @@ Docker — это облегченная платформа контейнеро
    MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
    ```
    
-   > [!NOTE]
-   > Если вы используете бета-версию Docker, здесь не будет отображаться ваш узел.
-   > 
-   > 
 3. Создайте приложение с использованием параметра -Build.
    
    ```
    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
    ```  
-   
-   > [!NOTE]
-   > При использовании бета-версии Docker не указывайте аргумент -Machine.
-   > 
+
    > ```
    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
    > ```  
@@ -80,9 +74,6 @@ Docker — это облегченная платформа контейнеро
    PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
    ```
    
-   > [!NOTE]
-   > При использовании бета-версии Docker не указывайте аргумент -Machine.
-   > 
    > ```
    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
    > ```

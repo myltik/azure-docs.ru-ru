@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/06/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 42f93a638ea0bb5139063b76b223fd811ba58fb4
-ms.openlocfilehash: 98bf824831f60a70877e8c41f8b60c339df173d6
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -81,7 +82,7 @@ ms.lasthandoff: 02/24/2017
 
 1. Добавьте приложение Box из корпоративных приложений.
 
-2. Чтобы настроить единый вход, выполните следующие действия.
+2. Настройте единый вход, выполнив следующие действия:
 
   ![Настройте единый вход в Box.](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
@@ -94,7 +95,7 @@ ms.lasthandoff: 02/24/2017
 
  г) Чтобы настроить клиент Box.com для использования в качестве поставщика удостоверений Azure AD, скачайте файл метаданных и сохраните его на локальный диск.
 
- д. Перешлите файл метаданных группе поддержки Box, чтобы она настроила для вас единый вход.
+ д. Перешлите файл метаданных группе поддержки Box, которая настраивает для вас единый вход.
 
 3. Чтобы настроить автоматическую подготовку пользователей в Azure AD, на левой панели выберите **Подготовка**, а затем нажмите кнопку **Авторизовать**.
 

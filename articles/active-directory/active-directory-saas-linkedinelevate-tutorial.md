@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: c175d54fcc7e55bae5057adbb4b9dba0a8843fe2
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 5949ae254233aa32384aab50b188fdd6527787a0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/12/2017
 
 Интеграция Azure AD с LinkedIn Elevate обеспечивает следующие преимущества:
 
-- С помощью Azure AD вы можете контролировать доступ к LinkedIn Elevate.
+- С помощью Azure AD вы можете контролировать, у кого есть доступ к приложению LinkedIn Elevate.
 - Вы можете включить автоматический вход пользователей в LinkedIn Elevate (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал управления Azure.
 
@@ -55,9 +55,9 @@ ms.lasthandoff: 05/12/2017
 2. Настройка и проверка единого входа в Azure AD
 
 ## <a name="adding-linkedin-elevate-from-the-gallery"></a>Добавление LinkedIn Elevate из коллекции
-Чтобы настроить интеграцию LinkedIn Elevate с Azure AD, необходимо добавить LinkedIn Elevate из коллекции в список управляемых приложений SaaS.
+Чтобы настроить интеграцию приложения LinkedIn Elevate с Azure AD, вам нужно добавить это приложение из коллекции в свой список управляемых приложений SaaS.
 
-**Чтобы добавить LinkedIn Elevate из коллекции, выполните следующие действия:**
+**Добавление приложения LinkedIn Elevate из коллекции**
 
 1. На **[портале управления Azure](https://portal.azure.com)** в левой области навигации нажмите значок **Azure Active Directory**. 
 
@@ -78,11 +78,11 @@ ms.lasthandoff: 05/12/2017
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в приложение LinkedIn Elevate с использованием тестового пользователя Britta Simon.
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в LinkedIn Elevate соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в LinkedIn Elevate.
+Для работы единого входа службе Azure AD нужно знать, какой пользователь в LinkedIn Elevate соответствует пользователю в Azure AD. Иными словами, нужно установить связь между пользователем Azure AD и соответствующим пользователем в LinkedIn Elevate.
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в LinkedIn Elevate.
 
-Чтобы настроить и проверить единый вход Azure AD в LinkedIn Elevate, вам потребуется выполнить действия в следующих стандартных блоках:
+Чтобы настроить и проверить единый вход Azure AD в LinkedIn Elevate, выполните следующие действия:
 
 1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
@@ -92,9 +92,9 @@ ms.lasthandoff: 05/12/2017
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
-В этом разделе описано, как включить единый вход Azure AD на портале управления Azure и настроить его в приложении LinkedIn Elevate.
+В этом разделе мы включим на портале Azure единый вход Azure AD и настроим его в приложении LinkedIn Elevate.
 
-**Чтобы настроить единый вход Azure AD в LinkedIn Elevate, выполните следующие действия:**
+**Настройка единого входа Azure AD в LinkedIn Elevate**
 
 1. На портале управления Azure на странице интеграции с приложением **LinkedIn Elevate** щелкните **Единый вход**.
 
@@ -140,11 +140,14 @@ ms.lasthandoff: 05/12/2017
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
-    а. Щелкните "Добавить атрибут", чтобы открыть страницу сведений об атрибутах. Добавьте атрибут department, как показано ниже.
-    
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
 
-    b. Нажмите кнопку **ОК**, чтобы сохранить атрибут.
+       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+
+       b. Click on **Ok** to save the attribute.
+
+    c. Измените имя атрибута **emailaddress** на **email**.
+
 
 10. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните XML-файл на компьютере.
 
@@ -201,11 +204,11 @@ ms.lasthandoff: 05/12/2017
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к LinkedIn Elevate.
+В этом разделе мы разрешим пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к LinkedIn Elevate.
 
 ![Назначение пользователя][200] 
 
-**Чтобы назначить пользователя Britta Simon в LinkedIn Elevate, выполните следующие действия:**
+**Назначение пользователя Britta Simon приложению LinkedIn Elevate**
 
 1. На портале управления Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
@@ -237,6 +240,7 @@ ms.lasthandoff: 05/12/2017
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
+* [Руководство по настройке LinkedIn Elevate для автоматической подготовки пользователей с помощью Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -254,4 +258,3 @@ ms.lasthandoff: 05/12/2017
 [201]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_203.png
-

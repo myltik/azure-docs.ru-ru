@@ -1,12 +1,12 @@
 ---
 
 title: "Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory? | Документация Майкрософт"
-description: "Служба совместной работы Azure Active Directory B2B позволяет информационным работникам добавлять в Azure AD пользователей своей организации для доступа к корпоративным приложениям."
+description: "Служба совместной работы B2B позволяет информационным работникам добавлять в Azure AD пользователей из своей организации | Документация Майкрософт"
 services: active-directory
 documentationcenter: 
 author: sasubram
 manager: femila
-editor: 
+editor: curtand
 tags: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,22 +14,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
-ms.openlocfilehash: 02a1b163c77f3f7f6853762f442bffa617bd9f52
-ms.lasthandoff: 02/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: c6ca561d1a02e283c7932f08f53b8dd590208835
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 ---
 
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Как информационные работники могут добавить пользователей службы совместной работы B2B в Azure Active Directory?
 
-Информационные работники могут использовать [панель доступа приложения](http://myapps.microsoft.com), чтобы добавлять пользователей службы совместной работы B2B в группы и приложения, которые они администрируют.
+Информационные работники могут добавлять в администрируемые ими группы и приложения пользователей службы совместной работы B2B с помощью [панели доступа к приложениям](http://myapps.microsoft.com).
 
 ## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>Как информационные работники могут добавить пользователей службы совместной работы B2B в приложение?
-Как информационный работник в партнерской организации назначьте приложению пользователей службы совместной работы B2B. Это процесс показан в следующем видеоролике:
+Информационные работники в партнерских организациях могут добавлять в приложения пользователей службы совместной работы B2B. Это процесс показан в видеоролике ниже.
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
 

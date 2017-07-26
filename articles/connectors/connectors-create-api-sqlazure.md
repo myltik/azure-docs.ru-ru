@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3c228be32539050123b01c5ccd74547b0d04ed28
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -32,11 +32,6 @@ ms.lasthandoff: 05/10/2017
 * использовать действия для получения строки данных, вставки новой строки и даже ее удаления. Например, при создании записи в Dynamics CRM Online (триггер) может вставляться строка в базу данных SQL Azure (действие). 
 
 В этой статье содержатся сведения об использовании соединителя базы данных SQL в приложении логики, а также перечислены предоставляемые им действия.
-
-> [!NOTE]
-> Эта версия статьи предназначена для общедоступного выпуска приложений логики. 
-> 
-> 
 
 Дополнительные сведения о приложениях логики см. в статье, посвященной [приложениям логики](../logic-apps/logic-apps-what-are-logic-apps.md), и [руководстве по созданию приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).
 
@@ -73,8 +68,9 @@ ms.lasthandoff: 05/10/2017
    > 
 5. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
 
-## <a name="view-the-swagger"></a>Просмотр Swagger
-Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/sql/). 
+## <a name="connector-specific-details"></a>Сведения о соединителях
+
+Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).

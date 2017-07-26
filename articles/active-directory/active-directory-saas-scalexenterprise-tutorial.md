@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 9c780d89093a6d29a22cd1e5504dcc36b39056ea
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: 0ebed0c2605862426384c0e219e52c9d626b6246
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -27,11 +27,11 @@ ms.lasthandoff: 04/28/2017
 
 Интеграция ScaleX Enterprise с Azure AD обеспечивает следующие преимущества:
 
-- С помощью Azure AD можно контролировать, кто будет иметь доступ к ScaleX Enterprise.
+- С помощью Azure AD вы можете контролировать, у кого есть доступ к приложению ScaleX Enterprise.
 - Вы можете включить автоматический вход пользователей в ScaleX Enterprise (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье "Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?" (active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -55,9 +55,9 @@ ms.lasthandoff: 04/28/2017
 2. Настройка и проверка единого входа в Azure AD
 
 ## <a name="adding-scalex-enterprise-from-the-gallery"></a>Добавление ScaleX Enterprise из коллекции
-Чтобы настроить интеграцию ScaleX Enterprise в Azure AD, необходимо добавить ScaleX Enterprise из коллекции в список управляемых приложений SaaS.
+Чтобы настроить интеграцию приложения ScaleX Enterprise с Azure AD, вам нужно добавить это приложение из коллекции в свой список управляемых приложений SaaS.
 
-**Чтобы добавить ScaleX Enterprise из коллекции, сделайте следующее:**
+**Добавление приложения ScaleX Enterprise из коллекции**
 
 1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
@@ -82,11 +82,11 @@ ms.lasthandoff: 04/28/2017
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
 В этом разделе описана настройка и проверка единого входа Azure AD в ScaleX Enterprise с использованием тестового пользователя Britta Simon.
 
-Чтобы единый вход в Azure AD работал, необходимо указать, какой пользователь в ScaleX Enterprise соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в ScaleX Enterprise.
+Для работы единого входа службе Azure AD нужно знать, какой пользователь в ScaleX Enterprise соответствует пользователю в Azure AD. Иными словами, нужно установить связь между пользователем Azure AD и соответствующим пользователем в ScaleX Enterprise.
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в ScaleX Enterprise.
 
-Чтобы настроить и проверить единый вход Azure AD в ScaleX Enterprise, вам потребуется выполнить действия в следующих стандартных блоках:
+Чтобы настроить и проверить единый вход Azure AD в ScaleX Enterprise, выполните следующие действия:
 
 1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
@@ -96,9 +96,9 @@ ms.lasthandoff: 04/28/2017
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
-В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении ScaleX Enterprise.
+В этом разделе мы включим на портале Azure единый вход Azure AD и настроим его в приложении ScaleX Enterprise.
 
-**Чтобы настроить единый вход Azure AD в ScaleX Enterprise, сделайте следующее:**
+**Настройка единого входа Azure AD в ScaleX Enterprise**
 
 1. На портале Azure на странице интеграции с приложением **ScaleX Enterprise** щелкните **Единый вход**.
 
@@ -223,11 +223,11 @@ ms.lasthandoff: 04/28/2017
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-В этом разделе описано, как предоставить пользователю Britta Simon доступ к ScaleX Enterprise, чтобы он мог использовать единый вход Azure.
+В этом разделе мы разрешим пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к ScaleX Enterprise.
 
 ![Назначение пользователя][200] 
 
-**Чтобы назначить Britta Simon в ScaleX Enterprise, сделайте следующее:**
+**Назначение пользователя Britta Simon приложению ScaleX Enterprise**
 
 1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 

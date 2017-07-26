@@ -12,13 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/02/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 12b121783f6d95a952441f1a570d58af9ec1eb7a
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 465306d2de8d1dbe6ba1f0cd74be720b78a50de3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -153,10 +154,11 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 Действие зависимости основано на условии выхода родительской задачи. Можно указать действие зависимости для любого из приведенных ниже условий выхода. Чтобы получить сведения для .NET, ознакомьтесь с классом [ExitConditions][net_exitconditions].
 
-- Когда возникает ошибка планирования.
-- Когда задача завершается с кодом выхода, определенным свойством **ExitCodes**.
+- Если возникла ошибка предварительной обработки.
+- Если возникла ошибка отправки файла. Если задача завершается с кодом выхода, который был задан с помощью свойства **exitCodes** или **exitCodeRanges**, а затем возникает ошибка отправки файла, действие, указанное в коде выхода, имеет более высокий приоритет.
+- Когда задача завершается с кодом выхода, определенным в свойстве **ExitCodes**.
 - Когда задача завершается с кодом выхода, который попадает в диапазон, заданный свойством **ExitCodeRanges**.
-- Случай по умолчанию: если задача завершается с кодом выхода, не определенным свойством **ExitCodes** или **ExitCodeRanges**, или если задача завершается с ошибкой планирования и свойство **SchedulingError** не задано. 
+- По умолчанию, если задача завершается с кодом выхода, не указанным в свойстве **ExitCodes** или **ExitCodeRanges**, или если задача завершается с ошибкой предварительной обработки и свойство **PreProcessingError** не задано, или если происходит сбой выполнения задачи с ошибкой отправки файла и свойство **FileUploadError** не задано. 
 
 Чтобы указать действие зависимости в .NET, задайте свойство [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] для условия выхода. Свойство **DependencyAction** принимает одно из двух значений:
 
@@ -165,29 +167,29 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 По умолчанию для свойства **DependencyAction** заданы значение **Satisfy** для кода выхода 0 и значение **Block** для всех остальных условий выхода.
 
-В следующем фрагменте кода настраивается свойство **DependencyAction** родительской задачи. Если родительская задача завершается с ошибкой планирования или ошибкой с заданным кодом, то зависимая задача блокируется. Если родительская задача завершается с любой другой ошибкой, код которой не равен&0;, то зависимая задача выполняется.
+В следующем фрагменте кода настраивается свойство **DependencyAction** родительской задачи. Если родительская задача завершается ошибкой предварительной обработки или ошибкой с заданным кодом, то зависимая задача блокируется. Если родительская задача завершается с любой другой ошибкой, код которой не равен 0, то зависимая задача выполняется.
 
 ```csharp
 // Task A is the parent task.
 new CloudTask("A", "cmd.exe /c echo A")
 {
     // Specify exit conditions for task A and their dependency actions.
-    ExitConditions = new ExitConditions()
+    ExitConditions = new ExitConditions
     {
-        // If task A exits with a scheduling error, block any downstream tasks (in this example, task B).
-        SchedulingError = new ExitOptions()
+        // If task A exits with a pre-processing error, block any downstream tasks (in this example, task B).
+        PreProcessingError = new ExitOptions
         {
             DependencyAction = DependencyAction.Block
         },
         // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
-        ExitCodes = new List<ExitCodeMapping>()
+        ExitCodes = new List<ExitCodeMapping>
         {
             new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
             new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
         },
         // If task A succeeds or fails with any other error, any downstream tasks become eligible to run 
         // (in this example, task B).
-        Default = new ExitOptions()
+        Default = new ExitOptions
         {
             DependencyAction = DependencyAction.Satisfy
         }
