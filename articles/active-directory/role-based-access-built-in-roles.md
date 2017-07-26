@@ -1,9 +1,9 @@
 ---
-title: "Свойства Actions и NotActions ролей в Azure RBAC | Документация Майкрософт"
-description: "В этом разделе описаны встроенные роли для управления доступом на основе ролей (RBAC)."
+title: "Свойства Actions и NotActions в компоненте управления доступом на основе ролей (RBAC) Azure | Документация Майкрософт"
+description: "В этом разделе описаны встроенные роли для управления доступом на основе ролей (RBAC). Роли постоянно добавляются, поэтому проверяйте актуальность документации."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: curtand
 manager: femila
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/21/2017
-ms.author: kgremban
+ms.date: 06/28/2017
+ms.author: curtand
+ms.reviewer: 
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a0a3b7ad7757439b5f73c38e759761f671ca2e17
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 7f1aa292e6c15e2702f939b9751fe13a27bc5b7f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Встроенные роли для управления доступом на основе ролей в Azure
+# <a name="built-in-roles-for-azure-role-based-access-control"></a>Встроенные роли управления доступом на основе ролей в Azure
 Управление доступом на основе ролей Azure (RBAC) поставляется со следующими встроенными ролями, которые могут быть назначены пользователям, группам и службам. Изменить определения встроенных ролей нельзя. Однако можно создать [настраиваемые роли в Azure RBAC](role-based-access-control-custom-roles.md) в соответствии с потребностями вашей организации.
 
 ## <a name="roles-in-azure"></a>Роли в Azure
@@ -30,12 +31,12 @@ ms.lasthandoff: 05/10/2017
 
 Действие определяет, какие типы операций можно выполнять с ресурсом заданного типа. Например:
 - **Запись** позволяет выполнять операции PUT, POST, PATCH и DELETE.
-- **Чтение** позволяет выполнять операции GET. 
+- **Чтение** позволяет выполнять операции GET.
 
-В данной статье рассматриваются только различные роли, которые существуют на сегодняшний день. При назначении роли пользователю можно точнее ограничить разрешенные действия, определив их область. Это удобно, если вы хотите привлечь какого-либо пользователя к работе над веб-сайтом, но только для одной группы ресурсов. 
+В данной статье рассматриваются только различные роли, которые существуют на сегодняшний день. При назначении роли пользователю можно точнее ограничить разрешенные действия, определив их область. Это удобно, если вы хотите привлечь какого-либо пользователя к работе над веб-сайтом, но только для одной группы ресурсов.
 
 > [!NOTE]
-> Определения ролей Azure постоянно развиваются. Эта статья регулярно обновляется для поддержания актуальности сведений, но вы всегда можете найти последние определения ролей в Azure PowerShell. Используйте командлет [Get AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition), чтобы получить список всех текущих ролей. Можно подробнее изучить определенную роль с помощью `(get-azurermroledefinition "<role name>").actions` или `(get-azurermroledefinition "<role name>").notactions`, если это возможно. Выполните командлет [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation), чтобы вывести список операций определенных поставщиков ресурсов Azure. 
+> Определения ролей Azure постоянно развиваются. Эта статья регулярно обновляется для поддержания актуальности сведений, но вы всегда можете найти последние определения ролей в Azure PowerShell. Используйте командлет [Get AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition), чтобы получить список всех текущих ролей. Можно подробнее изучить определенную роль с помощью `(get-azurermroledefinition "<role name>").actions` или `(get-azurermroledefinition "<role name>").notactions`, если это возможно. Выполните командлет [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation), чтобы вывести список операций определенных поставщиков ресурсов Azure.
 
 
 | Имя роли | Description (Описание) |
@@ -57,6 +58,8 @@ ms.lasthandoff: 05/10/2017
 | [Участник зоны DNS](#dns-zone-contributor) |Может управлять зонами и записями DNS. |
 | [Участник учетной записи Azure Cosmos DB](#documentdb-account-contributor) |Может управлять учетными записями Azure Cosmos DB |
 | [Участник учетной записи интеллектуальных систем](#intelligent-systems-account-contributor) |Может управлять учетными записями интеллектуальных систем |
+| Создатель приложений логики | Может управлять всеми аспектами приложений логики, но не может создавать их. |
+| Оператор приложений логики |Может запускать и останавливать рабочие процессы, определенные в приложении логики. |
 | [Monitoring Reader](#monitoring-reader) (Читатель данных мониторинга) |Может читать все данные мониторинга. |
 | [Monitoring Contributor](#monitoring-contributor) (Участник мониторинга) |Может читать данные мониторинга и изменять параметры мониторинга. |
 | [Участник сети](#network-contributor) |Может управлять всеми сетевыми ресурсами |
@@ -67,11 +70,15 @@ ms.lasthandoff: 05/10/2017
 | [Участник коллекции заданий планировщика](#scheduler-job-collections-contributor) |Может управлять коллекциями заданий планировщика |
 | [Участник службы поиска](#search-service-contributor) |Может управлять службами поиска |
 | [Диспетчер безопасности](#security-manager) |Может управлять компонентами безопасности, политиками безопасности и виртуальными машинами |
+| [Участник Site Recovery](#site-recovery-contributor) | Может управлять Site Recovery в хранилище служб восстановления. |
+| [Оператор Site Recovery](#site-recovery-operator) | Может управлять операциями отработки отказа и восстановления размещения Site Recovery в хранилище служб восстановления. |
+| [Читатель Site Recovery](#site-recovery-reader) | Может просматривать все операции управления Site Recovery.  |
 | [Участник базы данных SQL](#sql-db-contributor) |Может управлять базами данных SQL, но не их политиками безопасности |
 | [Диспетчер безопасности SQL](#sql-security-manager) |Может управлять политиками безопасности для серверов и баз данных SQL |
 | [Участник SQL Server](#sql-server-contributor) |Может управлять серверами и базами данных SQL, но не их политиками безопасности |
 | [Участник классической учетной записи хранения](#classic-storage-account-contributor) |Может управлять классическими учетными записями хранения |
 | [Участник учетной записи хранения](#storage-account-contributor) |Может управлять учетными записями хранения |
+| [Support Request Contributor](#support-request-contributor) (Участник с правом создавать запросы на поддержку) | Может создавать запросы на поддержку и управлять ими. |
 | [Администратор доступа пользователей](#user-access-administrator) |Может управлять доступом пользователей к ресурсам Azure |
 | [Участник классической виртуальной машины](#classic-virtual-machine-contributor) |Может управлять классическими виртуальными машинами, но не виртуальными сетями и учетными записями хранения, к которым они подключены |
 | [Участник виртуальной машины](#virtual-machine-contributor) |Может управлять виртуальными машинами, но не виртуальными сетями и учетными записями хранения, к которым они подключены |
@@ -184,7 +191,7 @@ ms.lasthandoff: 05/10/2017
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Создание элементов, включаемых в резервную копию, и управление ими |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Создание контейнеров с элементами, включаемыми в резервную копию, и управление такими контейнерами |
 | Microsoft.RecoveryServices/Vaults/certificates/* | Создание сертификатов, связанных с резервной копией в хранилище служб восстановления, и управление ими |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Создание расширенных сведений, связанных с хранилищем, и управление ими | 
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Создание расширенных сведений, связанных с хранилищем, и управление ими |
 | Microsoft.RecoveryServices/Vaults/read | Чтение хранилищ служб восстановления |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Управление операциями обнаружения для получения новых контейнеров |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Создание зарегистрированных удостоверений и управление ими |
@@ -219,8 +226,8 @@ ms.lasthandoff: 05/10/2017
 | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Создание элементов, для которых можно создавать резервные копии, и управление ими |
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Чтение элементов, включенных в резервную копию |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Чтение контейнеров, содержащих элементы резервного копирования |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Чтение расширенных сведений, связанных с хранилищем | 
-| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Запись расширенных сведений, связанных с хранилищем | 
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Чтение расширенных сведений, связанных с хранилищем |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Запись расширенных сведений, связанных с хранилищем |
 | Microsoft.RecoveryServices/Vaults/read | Чтение хранилищ служб восстановления |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Управление операциями обнаружения для получения новых контейнеров |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Чтение результатов операции, выполняемой для зарегистрированных элементов хранилища |
@@ -259,7 +266,7 @@ ms.lasthandoff: 05/10/2017
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Чтение зарегистрированных элементов хранилища |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Чтение данных об использовании хранилища служб восстановления |
 
-## <a name="billing-reader"></a>Читатель счетов
+### <a name="billing-reader"></a>Читатель счетов
 Может просматривать все данные о выставлении счетов
 
 | **Действия** |  |
@@ -516,6 +523,131 @@ ms.lasthandoff: 05/10/2017
 | Microsoft.Security/* |Создание компонентов и политик безопасности и управление ими |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
 
+### <a name="site-recovery-contributor"></a>Участник Site Recovery
+Может управлять всеми операциями управления Site Recovery, за исключением создания хранилища служб восстановления и назначения прав доступа другим пользователям.
+
+| **Действия** | |
+| --- | --- |
+| Microsoft.Authorization/*/read | Чтение ролей и назначений ролей |
+| Microsoft.Insights/alertRules/* | Создание правил оповещения и управление ими |
+| Microsoft.Network/virtualNetworks/read | Чтение виртуальных сетей |
+| Microsoft.RecoveryServices/Vaults/certificates/write | Обновление сертификата учетных данных хранилища |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Создание расширенных сведений, связанных с хранилищем, и управление ими |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Чтение оповещений для хранилища служб восстановления |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Чтение конфигурации уведомлений хранилища служб восстановления |
+| Microsoft.RecoveryServices/Vaults/read | Чтение хранилищ служб восстановления |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read | Управление операциями обнаружения для получения новых контейнеров |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Создание зарегистрированных удостоверений и управление ими |
+| Microsoft.RecoveryServices/vaults/replicationAlertSettings/* | Создание или обновление параметров оповещения репликации |
+| Microsoft.RecoveryServices/vaults/replicationEvents/read | Чтение событий репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/* | Создание структур репликации и управление ими |
+| Microsoft.RecoveryServices/vaults/replicationJobs/* | Создание заданий репликации и управление ими |
+| Microsoft.RecoveryServices/vaults/replicationPolicies/* | Создание политик репликации и управление ими |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/* | Создание планов восстановления и управление ими |
+| Microsoft.RecoveryServices/Vaults/storageConfig/* | Создание конфигурации службы хранилища для хранилища служб восстановления и управление ею |
+| Microsoft.RecoveryServices/Vaults/tokenInfo/read | Чтение сведений о маркере для хранилища служб восстановления |
+| Microsoft.RecoveryServices/Vaults/usages/read | Чтение данных об использовании хранилища служб восстановления |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
+| Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |
+| Microsoft.Storage/storageAccounts/read | Чтение учетных записей хранения |
+| Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
+
+### <a name="site-recovery-operator"></a>Оператор Site Recovery
+Может выполнять отработку отказа и восстановление размещения, но не может выполнять другие действия управления Site Recovery или назначать доступ другим пользователям.
+
+| **Действия** | |
+| --- | --- |
+| Microsoft.Authorization/*/read | Чтение ролей и назначений ролей |
+| Microsoft.Insights/alertRules/* | Создание правил оповещения и управление ими |
+| Microsoft.Network/virtualNetworks/read | Чтение виртуальных сетей |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Чтение расширенных сведений, связанных с хранилищем |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Чтение оповещений для хранилища служб восстановления |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Чтение конфигурации уведомлений хранилища служб восстановления |
+| Microsoft.RecoveryServices/Vaults/read | Чтение хранилищ служб восстановления |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read | Управление операциями обнаружения для получения новых контейнеров |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Чтение состояния и результата отправленной операции. |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Чтение контейнеров, зарегистрированных для ресурса. |
+| Microsoft.RecoveryServices/vaults/replicationAlertSettings/read | Чтение параметров оповещений репликации. |
+| Microsoft.RecoveryServices/vaults/replicationEvents/read | Чтение событий репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Проверка согласованности структуры |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/read | Чтение структуры репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/action | Изменение назначения шлюза репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Обновление сертификата структуры репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Чтение сетей структуры репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Чтение сопоставления сетей структуры репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Чтение контейнеров защиты |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Возврат списка всех защищаемых элементов |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ applyRecoveryPoint/action | Применение определенной точки восстановления |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ failoverCommit/action | Фиксация отработки отказа элемента после отработки отказа |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ plannedFailover/action | Запуск плановой отработки отказа защищенного элемента |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read | Возврат списка всех защищенных элементов |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Возврат списка доступных точек восстановления |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ repairReplication/action | Исправление репликации защищенного элемента |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/reProtect/action | Запуск повторной защиты защищенного элемента|
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/action | Запуск тестовой отработки отказа защищенного элемента |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ testFailoverCleanup/action | Запуск очистки тестовой отработки отказа |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ unplannedFailover/action | Запуск внеплановой отработки отказа защищенного элемента |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ updateMobilityService/action | Обновление службы Mobility Service |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Чтение сопоставлений контейнера защиты |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read | Чтение поставщиков служб восстановления |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/action | Обновление поставщика служб восстановления |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Чтение классификаций хранилища для структуры репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Чтение сопоставлений классификаций хранилища |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Чтение сведений о зарегистрированном сервере vCenter Server |
+| Microsoft.RecoveryServices/vaults/replicationJobs/* | Создание заданий репликации и управление ими |
+| Microsoft.RecoveryServices/vaults/replicationPolicies/read | Чтение политик репликации |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ failoverCommit/action | Фиксация отработки отказа плана восстановления |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ plannedFailover/action | Запуск отработки отказа плана восстановления |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Чтение планов восстановления |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Запуск повторной защиты плана восстановления |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Запуск тестовой отработки отказа плана восстановления |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ testFailoverCleanup/action | Запуск очистки тестовой отработки отказа плана восстановления |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/ unplannedFailover/action | Запуск внеплановой отработки отказа плана восстановления |
+| Microsoft.RecoveryServices/Vaults/storageConfig/read | Чтение конфигурации службы хранилища для хранилища служб восстановления |
+| Microsoft.RecoveryServices/Vaults/tokenInfo/read | Чтение сведений о маркере для хранилища служб восстановления |
+| Microsoft.RecoveryServices/Vaults/usages/read | Чтение данных об использовании хранилища служб восстановления |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
+| Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |
+| Microsoft.Storage/storageAccounts/read | Чтение учетных записей хранения |
+| Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
+
+### <a name="site-recovery-reader"></a>Читатель Site Recovery
+Может отслеживать состояние Site Recovery в хранилище служб восстановления и отправлять запросы в службу поддержки.
+
+| **Действия** | |
+| --- | --- |
+| Microsoft.Authorization/*/read | Чтение ролей и назначений ролей |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Чтение расширенных сведений, связанных с хранилищем |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Чтение оповещений для хранилища служб восстановления |
+| Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Чтение конфигурации уведомлений хранилища служб восстановления |
+| Microsoft.RecoveryServices/Vaults/read  | Чтение хранилищ служб восстановления |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Управление операциями обнаружения для получения новых контейнеров |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Чтение состояния и результата отправленной операции. |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Чтение контейнеров, зарегистрированных для ресурса. |
+| Microsoft.RecoveryServices/vaults/replicationAlertSettings/read | Чтение параметров оповещений репликации. |
+| Microsoft.RecoveryServices/vaults/replicationEvents/read  | Чтение событий репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/read  | Чтение структуры репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read  | Чтение сетей структуры репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read  | Чтение сопоставления сетей структуры репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read  |  Чтение контейнеров защиты |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read  | Возврат списка всех защищаемых элементов |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read  | Возврат списка всех защищенных элементов |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read  | Возврат списка доступных точек восстановления |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read  | Чтение сопоставлений контейнера защиты |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read  | Чтение поставщиков служб восстановления |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read  | Чтение классификаций хранилища для структуры репликации |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read  |  Чтение сопоставлений классификаций хранилища |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read  |  Чтение сведений о зарегистрированном сервере vCenter Server |
+| Microsoft.RecoveryServices/vaults/replicationJobs/read  |  Чтение состояния заданий репликации |
+| Microsoft.RecoveryServices/vaults/replicationPolicies/read  |  Чтение политик репликации |
+| Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read  |  Чтение планов восстановления |
+| Microsoft.RecoveryServices/Vaults/storageConfig/read  |  Чтение конфигурации службы хранилища для хранилища служб восстановления |
+| Microsoft.RecoveryServices/Vaults/tokenInfo/read  |  Чтение сведений о маркере для хранилища служб восстановления |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Чтение данных об использовании хранилища служб восстановления |
+| Microsoft.Support/*  |  Создание запросов в службу поддержки и управление ими |
+
 ### <a name="sql-db-contributor"></a>Участник БД SQL
 Может управлять базами данных SQL, но не их политиками безопасности
 
@@ -619,6 +751,15 @@ ms.lasthandoff: 05/10/2017
 | Microsoft.Resources/subscriptions/resourceGroups/read |Чтение группы ресурсов |
 | Microsoft.Storage/storageAccounts/* |Создание учетных записей хранения и управление ими |
 | Microsoft.Support/* |Создание запросов в службу поддержки и управление ими |
+
+### <a name="support-request-contributor"></a>Support Request Contributor (Участник с правом создавать запросы на поддержку)
+Может создавать запросы в службу поддержки на уровне подписки и управлять ими.
+
+| **Действия** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read | Авторизация на чтение |
+| Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение ролей и назначений ролей |
 
 ### <a name="user-access-administrator"></a>Администратор доступа пользователей
 Может управлять доступом пользователей к ресурсам Azure

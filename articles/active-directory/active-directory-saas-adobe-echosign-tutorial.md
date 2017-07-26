@@ -1,157 +1,280 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Adobe EchoSign | Документация Майкрософт"
-description: "Узнайте, как использовать Adobe EchoSign вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
+title: "Руководство по интеграции Azure Active Directory с Adobe Sign | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в приложении Adobe Sign."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 06/24/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
-ms.openlocfilehash: b4b215b17ff54bc04bae681fae8a7ea916bc9e3c
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: b413772de1af1fbb128d29b81e5831cfd6a39ab4
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/23/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-echosign"></a>Руководство. Интеграция Azure Active Directory с Adobe EchoSign
-Цель данного учебника — показать интеграцию Azure и Adobe EchoSign.  
+# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Руководство по интеграции Azure Active Directory с Adobe Sign
 
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+В этом руководстве описано, как интегрировать Adobe Sign с Azure Active Directory (Azure AD).
 
-* действующая подписка Azure;
-* Подписка Adobe EchoSign с поддержкой единого входа
+Интеграция Azure AD с Adobe Sign обеспечивает следующие преимущества:
 
-После выполнения инструкций, приведенных в этом руководстве, пользователи Azure AD, назначенные Adobe EchoSign, смогут выполнять единый вход в приложение на корпоративном веб-сайте Adobe EchoSign (вход, инициированный поставщиком услуг) или на панели доступа, как описано в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+- С помощью Azure AD вы можете контролировать доступ к Adobe Sign.
+- Вы можете включить автоматический вход пользователей в Adobe Sign (единый вход) с использованием учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-1. Включение интеграции приложений для Adobe EchoSign
-2. Настройка единого входа
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+## <a name="prerequisites"></a>Предварительные требования
 
-![Сценарий](./media/active-directory-saas-adobe-echosign-tutorial/IC789511.png "Сценарий")
+Чтобы настроить интеграцию Azure AD с Adobe Sign, вам потребуется:
 
-## <a name="enable-the-application-integration-for-adobe-echosign"></a>Включение интеграции приложений для Adobe EchoSign
-В этом разделе показано, как включить интеграцию приложений для Adobe EchoSign.
+- подписка Azure AD;
+- подписка Adobe Sign с поддержкой единого входа.
 
-**Чтобы включить интеграцию приложений для Adobe EchoSign, сделайте следующее:**
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-adobe-echosign-tutorial/IC700993.png "Active Directory")
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-   ![Приложения](./media/active-directory-saas-adobe-echosign-tutorial/IC700994.png "Приложения")
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-   ![Добавление приложения](./media/active-directory-saas-adobe-echosign-tutorial/IC749321.png "Добавление приложения")
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-   ![Добавление приложения из коллекции](./media/active-directory-saas-adobe-echosign-tutorial/IC749322.png "Добавление приложения из коллекции")
-6. В **поле поиска** введите **Adobe EchoSign**.
-   
-   ![Коллекция приложений](./media/active-directory-saas-adobe-echosign-tutorial/IC789514.png "Коллекция приложений")
-7. В области результатов выберите **Adobe EchoSign** и щелкните **Завершить**, чтобы добавить приложение.
-   
-   ![Adobe EchoSign](./media/active-directory-saas-adobe-echosign-tutorial/IC789515.png "Adobe EchoSign")
-   
-## <a name="configure-single-sign-on"></a>Настройка единого входа
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Adobe EchoSign со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
-В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
-1. На странице интеграции с приложением **Adobe EchoSign** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/IC789516.png "Настройка единого входа")
-2. На странице **Как пользователи должны входить в Adobe EchoSign?** выберите **Единый вход Microsoft Azure AD** и щелкните **Далее**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/IC789517.png "Настройка единого входа")
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес для входа в Adobe EchoSign** введите свой URL-адрес в формате *https://company.echosign.com/* и щелкните **Далее**.
-   
-   ![Настройка URL-адреса приложения](./media/active-directory-saas-adobe-echosign-tutorial/IC789518.png "Настройка URL-адреса приложения")
-4. На странице **Настройка единого входа в Adobe EchoSign** щелкните **Загрузить сертификат** и сохраните файл сертификата локально на компьютере.
-   
-   ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/IC789519.png "Настройка единого входа")
-5. В другом окне веб-браузера войдите в свой корпоративный веб-сайт Adobe EchoSign в качестве администратора.
-6. В меню в верхней части экрана выберите **Account** (Учетная запись), а затем в области навигации с левой стороны выберите **SAML Settings** (Параметры SAML) в разделе **Account Settings** (Параметры учетной записи).
-   
-   ![Учетная запись](./media/active-directory-saas-adobe-echosign-tutorial/IC789520.png "Учетная запись")
-7. В разделе «Параметры SAML» выполните следующие действия.
-   
-   ![Параметры SAML](./media/active-directory-saas-adobe-echosign-tutorial/IC789521.png "Параметры SAML")
-   
-   1. В разделе **SAML Mode** (Режим SAML) выберите параметр **SAML Mandatory** (SAML обязательно).
-   2. Установите флажок **Allow EchoSign Account Administrators to log in using their EchoSign Credentials**(Разрешить администраторам учетных записей EchoSign вход с использованием учетных данных EchoSign).
-   3. В разделе **User Creation** (Создание пользователей) установите флажок **Automatically add users authenticated through SAML** (Автоматически добавлять пользователей, прошедших проверку подлинности с использованием SAML).
-8. После этого выполните следующие действия.
-   
-   ![Параметры SAML](./media/active-directory-saas-adobe-echosign-tutorial/IC789522.png "Параметры SAML")
-   
-   1. На классическом портале Azure на диалоговой странице **Настройка единого входа в Adobe EchoSign** скопируйте значение поля **Идентификатор сущности** и вставьте его в текстовое поле **IdP Entity ID** (Идентификатор сущности IdP).
-   2. На классическом портале Azure на диалоговой странице **Настройка единого входа в Adobe EchoSign** скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **IdP Login URL** (URL-адрес входа для IdP).
-   3. На классическом портале Azure на диалоговой странице **Настройка единого входа в Adobe EchoSign** скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **IdP Logout URL** (URL-адрес выхода для IdP).
-   4. Создайте файл в кодировке **Base-64** из загруженного сертификата.  
-      
-      >[!TIP]
-      >Дополнительные сведения вы можете узнать в видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
-      >  
-   5. Откройте сертификат в кодировке Base-64 в блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **IdP Certificate** (Сертификат IdP).
-   6. Нажмите кнопку **Сохранить изменения**.
-9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-   
-   ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/IC789523.png "Настройка единого входа")
-   
-   ## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
+1. Добавление Adobe Sign из коллекции
+2. Настройка и проверка единого входа в Azure AD
 
-Чтобы пользователи Azure AD могли входить в Adobe EchoSign, они должны быть подготовлены для Adobe EchoSign.  
+## <a name="adding-adobe-sign-from-the-gallery"></a>Добавление Adobe Sign из коллекции
+Чтобы настроить интеграцию Adobe Sign с Azure AD, необходимо добавить Adobe Sign из коллекции в список управляемых приложений SaaS.
 
-* В случае Adobe EchoSign подготовка выполняется вручную.
+**Чтобы добавить Adobe Sign из коллекции, сделайте следующее.**
 
-**Чтобы подготовить учетные записи пользователей, выполните следующие действия.**
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-1. Выполните вход на корпоративный веб-сайт **Adobe EchoSign** в качестве администратора.
-2. В меню в верхней части экрана щелкните **Account** (Учетная запись), а затем в области навигации слева выберите **Users & Groups** (Пользователи и группы), а затем — **Create a new user** (Создать пользователя).
+    ![Active Directory][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Приложения][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
+    ![Приложения][3]
+
+4. В поле поиска введите **Adobe Sign**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_search.png)
+
+5. На панели результатов выберите **Adobe Sign** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в Adobe Sign с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Adobe Sign соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Adobe Sign.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Adobe Sign.
+
+Чтобы настроить и проверить единый вход Azure AD в Adobe Sign, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Adobe Sign](#creating-an-adobe-sign-test-user)** нужно для того, чтобы в Adobe Sign также существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Adobe Sign.
+
+**Чтобы настроить единый вход Azure AD в Adobe Sign, сделайте следующее.**
+
+1. На портале Azure на странице интеграции с приложением **Adobe Sign** щелкните **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения Adobe Sign** сделайте следующее.
+
+    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_url.png)
+
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<companyname>.echosign.com/`
+
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<companyname>.echosign.com`
+
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь к [группе поддержки Adobe Sign](https://helpx.adobe.com/in/contact/support.html). 
+ 
+4. В разделе **Сертификат подписи SAML** щелкните **Сертификат (Base64)**, а затем сохраните файл сертификата на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_400.png)
+
+6. В разделе **Конфигурация Adobe Sign** щелкните **Настроить Adobe Sign**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+
+    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
+
+
+7. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Adobe Sign в качестве администратора.
+
+8. В меню в верхней части экрана выберите **Account** (Учетная запись), а затем в области навигации с левой стороны выберите **SAML Settings** (Параметры SAML) в разделе **Account Settings** (Параметры учетной записи).
    
-   ![Учетная запись](./media/active-directory-saas-adobe-echosign-tutorial/IC789524.png "Учетная запись")
-3. В разделе **Создание нового пользователя** выполните следующие действия.
-   
-   ![Создание пользователя](./media/active-directory-saas-adobe-echosign-tutorial/IC789525.png "Создание пользователя")
-   
-   1. Введите в текстовые поля **Email Address** (Адрес электронной почты), **First Name** (Имя) и **Last Name** (Фамилия) соответствующие данные действующей учетной записи AAD, которую нужно подготовить.
-   2. Щелкните **Создать пользователя**.
-      
-      >[!NOTE]
-      >Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи. 
-      > 
+   ![Учетная запись](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Учетная запись")
 
->[!NOTE]
->Вы можете использовать любые другие средства создания учетной записи пользователя Adobe EchoSign или API, предоставляемые Adobe EchoSign для подготовки учетных записей пользователя AAD. 
+9. В разделе «Параметры SAML» выполните следующие действия.
+   
+   ![Параметры SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "Параметры SAML")
+   
+   а. В разделе **SAML Mode** (Режим SAML) выберите параметр **SAML Mandatory** (SAML обязательно).
+   
+   b. Установите флажок **Allow EchoSign Account Administrators to log in using their EchoSign Credentials**(Разрешить администраторам учетных записей EchoSign вход с использованием учетных данных EchoSign).
+   
+   c. В разделе **User Creation** (Создание пользователей) установите флажок **Automatically add users authenticated through SAML** (Автоматически добавлять пользователей, прошедших проверку подлинности с использованием SAML).
+
+10. После этого выполните следующие действия.
+
+       ![Параметры SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "Параметры SAML")
+
+    а. Вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure, в поле **IdP Entity ID** (Идентификатор сущности IdP).
+    
+    b. В текстовое поле **IdP Login URL** (URL-адрес входа IdP) вставьте значение **URL-адрес службы единого входа SAML**, скопированное на портале Azure.
+   
+    c. В текстовое поле **IdP Logout URL** (URL-адрес выхода IdP) вставьте значение **URL-адрес выхода**, скопированное на портале Azure.
+
+    г) Откройте скачанный файл **сертификата (Base64)** в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **IdP Certificate** (Сертификат IdP).
+
+    д. Нажмите кнопку **Сохранить изменения**.
+
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
-## <a name="assign-users"></a>Назначить пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-**Чтобы назначить пользователей Adobe EchoSign, сделайте следующее:**
+![Создание пользователя Azure AD][100]
 
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **Adobe EchoSign** нажмите кнопку **Назначить пользователей**.
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_01.png) 
+
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_02.png) 
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_03.png) 
+
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-adobe-echosign-tutorial/create_aaduser_04.png) 
+
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
+
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-an-adobe-sign-test-user"></a>Создание тестового пользователя Adobe Sign
+
+Чтобы пользователи Azure AD могли выполнять вход в Adobe Sign, они должны быть подготовлены в Adobe Sign. В случае Adobe Sign подготовка выполняется вручную.
+
+>[!NOTE]
+>Вы можете использовать любые другие инструменты создания учетной записи пользователя Adobe Sign или API, предоставляемые Adobe Sign для подготовки учетных записей пользователя AAD. 
+
+**Чтобы подготовить учетную запись пользователя, сделайте следующее:**
+
+1. Выполните вход на свой корпоративный веб-сайт **Adobe Sign** в качестве администратора.
+
+2. В меню в верхней части экрана щелкните **Account** (Учетная запись), а затем в области навигации слева выберите **Users & Groups** (Пользователи и группы), а затем — **Create a new user** (Создать пользователя).
    
-   ![Назначение пользователей](./media/active-directory-saas-adobe-echosign-tutorial/IC789526.png "Назначение пользователей")
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+   ![Учетная запись](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "Учетная запись")
    
-   ![Да](./media/active-directory-saas-adobe-echosign-tutorial/IC767830.png "Да")
+3. В разделе **Создание нового пользователя** выполните следующие действия.
+   
+   ![Создание пользователя](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "Создание пользователя")
+   
+   а. Введите в текстовые поля **Email Address** (Адрес электронной почты), **First Name** (Имя) и **Last Name** (Фамилия) соответствующие данные действующей учетной записи AAD, которую нужно подготовить.
+   
+   b. Щелкните **Создать пользователя**.
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+>[!NOTE]
+>Владелец учетной записи Azure Active Directory получит электронное сообщение со ссылкой для подтверждения учетной записи перед ее активацией. 
+
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Adobe Sign.
+
+![Назначение пользователя][200] 
+
+**Чтобы назначить пользователя Britta Simon в Adobe Sign, выполните указанные ниже действия.**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. Из списка приложений выберите **Adobe Sign**.
+
+    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
+Щелкнув элемент "Adobe Sign" на панели доступа, вы автоматически войдете в приложение Adobe Sign.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_203.png
 
 

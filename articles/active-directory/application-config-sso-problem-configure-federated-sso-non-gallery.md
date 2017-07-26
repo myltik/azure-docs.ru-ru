@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5c4ff9ce7dc2c70496b7f7f25de3ee31bd45a662
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: d6bc4a67a95f41db7f89fbafd35819d38a9844d1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -47,13 +47,13 @@ Azure AD выбирает формат атрибута NameID (идентифи
 
 1.  Откройте [**портал Azure**](https://portal.azure.com/) и войдите в систему как **глобальный администратор** или **соадминистратор**.
 
-2.  Откройте **расширение Azure Active Directory**, щелкнув **Дополнительные службы** в нижней части расположенного слева главного меню навигации.
+2.  Откройте **расширение Azure Active Directory**, щелкнув **Больше служб** в нижней части расположенного слева главного меню навигации.
 
-3.  Введите **Azure Active Directory** в поле фильтра поиска и выберите элемент **Azure Active Directory**.
+3.  В поле фильтра поиска введите **Azure Active Directory** и выберите элемент **Azure Active Directory**.
 
-4.  Щелкните **Корпоративные приложения** в меню навигации Azure Active Directory слева.
+4.  В меню навигации Azure Active Directory слева щелкните **Корпоративные приложения**.
 
-5.  Щелкните **Все приложения** для просмотра списка всех приложений.
+5.  Щелкните **Все приложения**, чтобы открыть полный список приложений.
 
    * Если нужное приложение отсутствует в списке, воспользуйтесь элементом управления **Фильтр** в верхней части списка **Все приложения**, указав в нем для параметра **Показать** значение **Все приложения**.
 
@@ -64,6 +64,10 @@ Azure AD выбирает формат атрибута NameID (идентифи
 8.  Перейдите в раздел **Сертификат подписи SAML** и выберите значение в столбце **Скачать**. В зависимости от того, что именно требуется для настройки единого входа, вы сможете скачать XML-файл метаданных или сертификат.
 
 Azure AD не предоставляет URL-адреса для получения метаданных. Метаданные можно скачать только в виде XML-файла.
+
+## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Не знаете, как настроить утверждения SAML, отправляемые в приложение
+
+Чтобы узнать, как настроить атрибут утверждений SAML, отправляемых в приложение, ознакомьтесь с разделом [Сопоставление утверждений в Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Управление приложениями с помощью Azure Active Directory](active-directory-enable-sso-scenario.md)

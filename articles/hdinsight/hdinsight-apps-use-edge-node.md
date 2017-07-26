@@ -1,6 +1,6 @@
 ---
-title: "Использование пустых граничных узлов в HDInsight | Документация Майкрософт"
-description: "Сведения о том, как добавить пустой граничный узел в кластер HDInsight, который может использоваться в качестве клиента, а также тестировать и разместить приложения HDInsight."
+title: "Использование пустых граничных узлов в кластерах Hadoop в Azure HDInsight | Документация Майкрософт"
+description: "Сведения о том, как добавить пустой граничный узел в кластер HDInsight, который может использоваться в качестве клиента, а затем тестировать и разместить приложения HDInsight."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -9,7 +9,7 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,16 +17,16 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: ab888881a841f5a9bf2d47aea946022e6603c585
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0b5ccfa5da0f6a4aa2ca72eb580e5238f3b262c5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="use-empty-edge-nodes-in-hdinsight"></a>Использование пустых граничных узлов в HDInsight
+# <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Использование пустых граничных узлов в кластерах Hadoop в HDInsight
 
-Cведения о том, как добавить пустой граничный узел в кластер HDInsight под управлением Linux. Пустой граничный узел — это виртуальная машина Linux, где установлены и настроены те же клиентские средства, что и на головных узлах, но без служб Hadoop. Граничный узел можно использовать для доступа к кластеру, а также тестирования и размещения клиентских приложений. 
+Сведения о том, как добавить пустой граничный узел в кластер HDInsight. Пустой граничный узел — это виртуальная машина Linux, где установлены и настроены те же клиентские средства, что и на головных узлах, но без служб Hadoop. Граничный узел можно использовать для доступа к кластеру, а также тестирования и размещения клиентских приложений. 
 
 Пустой граничный узел можно добавить в имеющийся кластер HDInsight или в новый кластер при его создании. Добавление пустого граничного узла осуществляется с помощью шаблона Azure Resource Manager.  В следующем примере показано, как это сделать:
 
@@ -65,12 +65,20 @@ Cведения о том, как добавить пустой граничны
 
 После создания граничного узла можно подключиться к нему с помощью SSH и запустить клиентские средства для доступа к кластеру Hadoop в HDInsight.
 
+> [!WARNING] 
+> Возможность использования пустого граничного узла с HDInsight доступна в предварительной версии. Пользовательские компоненты, установленные на граничном узле, получают коммерчески оправданную поддержку от компании Майкрософт. В результате могут быть устранены возникающие проблемы. Или вы можете обратиться к ресурсам сообщества для получения дополнительной помощи. Ниже приведены некоторые из наиболее активных сайтов для получения помощи от сообщества.
+>
+> * [Форум MSDN для HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
+> * [http://stackoverflow.com](http://stackoverflow.com).
+>
+> При использовании технологии Apache можно получить помощь на соответствующих сайтах для проектов Apache, например [Hadoop](http://hadoop.apache.org/) на сайте [http://apache.org](http://apache.org).
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Добавление граничного узла в имеющийся кластер
 В этом разделе описано, как использовать шаблон Resource Manager, чтобы добавить граничный узел в имеющийся кластер HDInsight.  Шаблон Resource Manager можно найти в [GitHub](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode). Шаблон Resource Manager вызывает сценарий действия сценария, находящийся по адресу https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. Этот скрипт не выполняет никаких действий.  Он необходим для демонстрации вызова действия скрипта с помощью шаблона Resource Manager.
 
 **Добавление граничного узла в имеющийся кластер**
 
-1. Создайте кластер HDInsight, если его еще нет.  Дополнительные сведения см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Создайте кластер HDInsight, если его еще нет.  Ознакомьтесь со статьей [Руководство по Hadoop. Приступая к работе с Hadoop в HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 2. Нажмите следующую кнопку, чтобы войти в Azure и открыть шаблон Azure Resource Manager на портале Azure. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FEmptyNode%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
@@ -89,7 +97,7 @@ Cведения о том, как добавить пустой граничны
 
 **Добавление граничного узла в имеющийся кластер**
 
-1. Создайте кластер HDInsight, если его еще нет.  Дополнительные сведения см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
+1. Создайте кластер HDInsight, если его еще нет.  Ознакомьтесь со статьей [Руководство по Hadoop. Приступая к работе с Hadoop в HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 2. Нажмите следующую кнопку, чтобы войти в Azure и открыть шаблон Azure Resource Manager на портале Azure. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>

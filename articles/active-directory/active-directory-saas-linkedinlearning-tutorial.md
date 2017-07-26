@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 06/15/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: a61cf0ffce8bede930744d445df88dde22061a59
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 6ad28cb3adaa63ddc3d3769a650d26ca6a7e2695
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 05/09/2017
 
 - С помощью Azure AD вы можете контролировать доступ к LinkedIn Learning.
 - Вы можете включить автоматический вход пользователей в LinkedIn Learning (единый вход) с использованием учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно — через портал управления Azure.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
@@ -45,8 +45,8 @@ ms.lasthandoff: 05/09/2017
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
@@ -59,7 +59,7 @@ ms.lasthandoff: 05/09/2017
 
 **Чтобы добавить LinkedIn Learning из коллекции, выполните следующие действия:**
 
-1. На **[портале управления Azure](https://portal.azure.com)** в левой области навигации нажмите значок **Azure Active Directory**. 
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
     ![Active Directory][1]
 
@@ -92,11 +92,11 @@ ms.lasthandoff: 05/09/2017
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
-В этом разделе описано, как включить единый вход Azure AD на портале управления Azure и настроить его в приложении LinkedIn Learning.
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении LinkedIn Learning.
 
 **Чтобы настроить единый вход Azure AD в LinkedIn Learning, выполните следующие действия:**
 
-1. На портале управления Azure на странице интеграции с приложением **LinkedIn Learning** щелкните **Единый вход**.
+1. На портале Azure на странице интеграции с приложением **LinkedIn Learning** щелкните **Единый вход**.
 
     ![Настройка единого входа][4]
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 05/09/2017
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
-6. Если вы хотите настроить единый вход в режиме, **инициированном поставщиком удостоверений**, то на портале Azure в разделе **Домены и URL-адреса приложения LinkedIn Learning** выполните следующие действия:
+6. Если вы хотите настроить единый вход в режиме, **инициированном поставщиком удостоверений**, то на портале Azure в разделе **Домены и URL-адреса приложения LinkedIn Learning** выполните следующие действия.
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
 
@@ -132,52 +132,71 @@ ms.lasthandoff: 05/09/2017
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinlearning-tutorial/updateusermail.png)
     
-9. В разделе **Атрибуты пользователя** установите флажок **Просмотреть и изменить все другие атрибуты пользователей** и задайте эти атрибуты. Необходимо также добавить утверждение с именем **department**, значение которого должно быть сопоставлено с **user.department**.
+9. В разделе **Атрибуты пользователя** установите флажок **Просмотреть и изменить все другие атрибуты пользователей** и задайте эти атрибуты. Пользователь должен добавить четыре утверждения — **email**, **department**, **firstname** и **lastname**, а их значения должны быть сопоставлены с **user.mail**, **user.department**, **user.givenname** и **user.surname**, соответственно
 
     | Имя атрибута | Значение атрибута |
-    | --- | --- |    
+    | --- | --- |
+    | email| user.mail |    
     | department| user.department |
+    | firstname| user.givenname |
+    | lastname| user.surname |
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
+    
+    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно атрибута.
 
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinLearning-tutorial/tutorial_attribute_04.png)
 
-   а. Щелкните "Добавить атрибут", чтобы открыть страницу сведений об атрибутах. Добавьте атрибут department, как показано ниже.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinLearning-tutorial/tutorial_attribute_05.png)
+    
+    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+    
+    c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
+    
+    d. Нажмите кнопку **ОК**.
 
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinLearning-tutorial/adduserattribute.png)
-   
-   b. Нажмите кнопку **ОК**, чтобы сохранить атрибут.
+10. Выполните следующие действия с атрибутом **name**.
 
-10. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните XML-файл на компьютере.
+    а. Щелкните атрибут, чтобы открыть окно **Изменить атрибут**.
+
+    ![Настройка единого входа](./media/active-directory-saas-linkedinLearning-tutorial/url_update.png)
+
+    b. Удалите значение URL-адреса из **пространства имен**.
+    
+    c. Нажмите кнопку **ОК**, чтобы сохранить настройки.
+
+11. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните XML-файл на компьютере.
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
 
-11. Щелкните **Сохранить**.
+12. Щелкните **Сохранить**.
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_400.png)
 
-12. Перейдите в раздел **LinkedIn Admin Settings** (Параметры администратора LinkedIn). Передайте XML-файл, скачанный с портала Azure. Для этого нажмите кнопку "Upload XML file" (Передать XML-файл).
+13. Перейдите в раздел **LinkedIn Admin Settings** (Параметры администратора LinkedIn). Отправьте XML-файл, скачанный с портала Azure. Для этого нажмите кнопку "Отправить XML-файл".
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. Нажмите кнопку **On** (Включить), чтобы включить единый вход. Состояние единого входа изменится с **Not Connected** (Не подключено) на **Connected** (Подключено.)
+14. Нажмите кнопку **On** (Включить), чтобы включить единый вход. Состояние единого входа изменяется с **Not Connected** (Не подключено) на **Connected** (Подключено.)
 
     ![Настройка единого входа](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на портале управления Azure тестового пользователя с именем Britta Simon.
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
 ![Создание пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **портале управления Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_01.png) 
 
-2. Перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**, чтобы отобразить список пользователей.
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
     
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_02.png) 
 
-3. В верхней части диалогового окна щелкните **Добавить**, чтобы открыть диалоговое окно **Пользователь**.
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
  
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_03.png) 
 
@@ -195,19 +214,19 @@ ms.lasthandoff: 05/09/2017
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>Создание тестового пользователя LinkedIn Learning
 
-Приложение Linked Learning поддерживает JIT-подготовку пользователей, поэтому после аутентификации пользователи будут созданы в приложении автоматически. На странице параметров администратора на портале LinkedIn Learning включите параметр **Automatically assign licenses** (Автоматически назначать лицензии), чтобы активировать JIT-подготовку. При этом пользователю будет также назначена лицензия.
+Приложение Linked Learning поддерживает своевременную подготовку (JIT-подготовку) пользователей, поэтому после проверки подлинности пользователи будут созданы в приложении автоматически. На странице параметров администратора на портале LinkedIn Learning включите параметр **Automatically assign licenses** (Автоматически назначать лицензии), чтобы активировать JIT-подготовку. При этом пользователю будет также назначена лицензия.
    
    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-linkedinLearning-tutorial/LinkedinUserprovswitch.png)
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к LinkedIn Learning.
+В этом разделе описано, как предоставить пользователю Britta Simon доступ к LinkedIn Learning, чтобы он мог использовать единый вход Azure.
 
 ![Назначение пользователя][200] 
 
 **Чтобы назначить пользователя Britta Simon в LinkedIn Learning, выполните следующие действия:**
 
-1. На портале управления Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
     ![Назначение пользователя][201] 
 
@@ -240,7 +259,6 @@ ms.lasthandoff: 05/09/2017
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_01.png
@@ -254,4 +272,3 @@ ms.lasthandoff: 05/09/2017
 [201]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_203.png
-

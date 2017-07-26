@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2016
+ms.date: 06/01/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dd6b2fa2a1ca003578eaee82ef42741b9b1bf2a4
-ms.openlocfilehash: b509629ba0d6bbaea3de979a4e67f5c444e5e9e0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e859aef473b433fbf4efb639962f3a3ce0a23d7b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -51,7 +53,7 @@ ms.openlocfilehash: b509629ba0d6bbaea3de979a4e67f5c444e5e9e0
 
 ### <a name="advantages"></a>Преимущества
 * Реализация сложной логики с помощью кода рабочего процесса PowerShell без дополнительного усложнения рабочего процесса PowerShell. 
-* Модуль Runbook запускается быстрее, чем графические модули или модули рабочего процесса PowerShell, поскольку не требуют предварительной компиляции.
+* Модуль Runbook запускается быстрее, чем модули рабочего процесса PowerShell, поскольку не требуют предварительной компиляции.
 
 ### <a name="limitations"></a>Ограничения
 * Необходимо знание сценариев PowerShell.
@@ -92,10 +94,5 @@ Runbook рабочих процессов PowerShell представляют с
 * Дополнительные сведения о графической разработке модулей Runbook см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md).
 * Чтобы понять различия между PowerShell и рабочими процессами PowerShell для модулей Runbook, см. статью [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md).
 * Дополнительные сведения о создании и импорте модуля Runbook см. в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

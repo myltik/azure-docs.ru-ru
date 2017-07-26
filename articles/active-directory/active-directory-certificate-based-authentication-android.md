@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0e2bbb2a94986ca93035aa553db0f9b54af635d5
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 58733a36e1753c219df51e1fbe845a2f2a0fdbdc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Аутентификация на основе сертификата в Azure Active Directory на устройстве Android
@@ -31,7 +31,9 @@ ms.lasthandoff: 04/27/2017
 
 Настройка данной функции избавляет от необходимости ввода имени пользователя и пароля в определенных почтовых клиентах и приложениях Microsoft Office на мобильных устройствах. 
 
-В этой статье приведены требования и поддерживаемые сценарии для настройки CBA на устройстве Android для пользователей клиентов в тарифных планах Office 365 корпоративный, бизнес, для образования и для государственных организаций США. 
+В этой статье приведены требования и поддерживаемые сценарии для настройки CBA на устройстве Android для пользователей клиентов в тарифных планах Office 365 корпоративный, бизнес, для образования, для государственных организаций США и для Китая.
+
+
 
 В тарифных планах Office 365 US Government Defense и Federal доступна предварительная версия этой функции.
 
@@ -46,6 +48,8 @@ ms.lasthandoff: 04/27/2017
 | Yammer |![Проверка][1] |
 | Skype для бизнеса |![Проверка][1] |
 | Приложение Azure Information Protection |![Проверка][1] |
+| Microsoft Teams |![Проверка][1] |
+
 
 
 ### <a name="implementation-requirements"></a>Требования к реализации

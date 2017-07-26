@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 07/05/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 74e020992f5d841d9692dee2cb0bea97a9f27f8e
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 28526c05c7f364f0fcaaa362fc97857f850040ee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/27/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 
-# <a name="relay-hybrid-connections-hyco-ws-node-api-overview"></a>Общие сведения об API узла hyco-ws гибридных подключений ретранслятора
+# <a name="relay-hybrid-connections-node-api-overview"></a>Общие сведения об API узла гибридных подключений ретранслятора
 
 ## <a name="overview"></a>Обзор
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/27/2017
   
 ## <a name="documentation"></a>Документация
 
-Интерфейсы API [документированы в основном пакете ws](https://github.com/websockets/ws/blob/master/doc/ws.md). В этом документе описаны отличия этого пакета от базового. 
+Интерфейсы API [документированы в основном пакете ws](https://github.com/websockets/ws/blob/master/doc/ws.md). В этой статье описаны отличия этого пакета от базового. 
 
 Основные различия между базовым пакетом и пакетом hyco-ws заключаются в том, что он добавляет новый класс сервера, который экспортируется с помощью `require('hyco-ws').RelayedServer`, и несколько вспомогательных методов.
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/27/2017
 
 В экспорте пакета доступны несколько служебных методов, на которые можно ссылаться следующим образом:
 
-``` JavaScript
+```JavaScript
 const WebSocket = require('hyco-ws');
 
 var listenUri = WebSocket.createRelayListenUri('namespace.servicebus.windows.net', 'path');
@@ -52,56 +52,59 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 Вспомогательные методы предназначены для использования с этим пакетом, но также могут использоваться сервером узла для создания отправителей или прослушивателей с помощью веб-клиента или клиента устройства. Сервер использует эти методы, передавая их в коды URI, в которые внедрены кратковременные токены. Эти коды URI также можно использовать с общими стеками WebSocket, не поддерживающими задание HTTP-заголовков для подтверждения WebSocket. Внедрение маркеров проверки подлинности в URI поддерживается в основном для сценариев внешнего использования библиотек. 
 
 #### <a name="createrelaylistenuri"></a>createRelayListenUri
-``` JavaScript
+
+```JavaScript
 var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 ```
 
 Создает допустимый URI прослушивателя гибридного подключения ретранслятора Azure для указанного пространства имен и пути. Затем этот URI можно использовать с версией ретранслятора класса WebSocketServer.
 
-- **namespaceName** (обязательно) — полное имя домена пространства имен ретранслятора Azure.
-- **path** (обязательно) — имя существующего гибридного подключения ретранслятора Azure в этом пространстве имен.
-- **token** (необязательно) — ранее выданный токен доступа к ретранслятору, который внедряется в URI прослушивателя (см. следующий пример).
-- **id** (необязательно) — идентификатор отслеживания, который позволяет отслеживать комплексную диагностику запросов.
+- `namespaceName` (обязательно) — полное имя домена пространства имен ретранслятора Azure.
+- `path` (обязательно) — имя существующего гибридного подключения ретранслятора Azure в этом пространстве имен.
+- `token` (необязательно) — ранее выданный токен доступа к ретранслятору, который внедряется в URI прослушивателя (см. следующий пример).
+- `id` (необязательно) — идентификатор отслеживания, который позволяет отслеживать комплексную диагностику запросов.
 
-Значение **token** является обязательным и должно использоваться, только когда невозможно отправить заголовки HTTP вместе с подтверждением WebSocket, как в случае со стеком W3C WebSocket.                  
+Значение `token` является обязательным и должно использоваться, только когда невозможно отправить заголовки HTTP вместе с подтверждением WebSocket, как в случае со стеком W3C WebSocket.                  
 
 
-#### <a name="createrelaysenduri"></a>createRelaySendUri 
-``` JavaScript
+#### <a name="createrelaysenduri"></a>createRelaySendUri
+ 
+```JavaScript
 var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 ```
 
 Создает допустимый URI отправки гибридного подключения Azure ретранслятора для указанного пространства имен и пути. Этот URI можно использовать с любым клиентом WebSocket.
 
-- **namespaceName** (обязательно) — полное имя домена пространства имен ретранслятора Azure.
-- **path** (обязательно) — имя существующего гибридного подключения ретранслятора Azure в этом пространстве имен.
-- **token** (необязательно) — ранее выданный токен доступа к ретранслятору, который внедряется в URI отправки (см. следующий пример).
-- **id** (необязательно) — идентификатор отслеживания, который позволяет отслеживать комплексную диагностику запросов.
+- `namespaceName` (обязательно) — полное имя домена пространства имен ретранслятора Azure.
+- `path` (обязательно) — имя существующего гибридного подключения ретранслятора Azure в этом пространстве имен.
+- `token` (необязательно) — ранее выданный токен доступа к ретранслятору, который внедряется в URI отправки (см. следующий пример).
+- `id` (необязательно) — идентификатор отслеживания, который позволяет отслеживать комплексную диагностику запросов.
 
-Значение **token** является обязательным и должно использоваться, только когда невозможно отправить заголовки HTTP вместе с подтверждением WebSocket, как в случае со стеком W3C WebSocket.                   
+Значение `token` является обязательным и должно использоваться, только когда невозможно отправить заголовки HTTP вместе с подтверждением WebSocket, как в случае со стеком W3C WebSocket.                   
 
 
 #### <a name="createrelaytoken"></a>createRelayToken 
-``` JavaScript
+
+```JavaScript
 var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
 Создает токен подписи общего доступа (SAS) ретранслятора Azure для заданного целевого объекта URI, правило SAS и ключ правила SAS, который действителен заданное количество секунд или часов с текущего момента, если пропущен аргумент окончания срока действия.
 
-- **uri** (обязательно) — URI, для которого будет выдаваться токен. URI нормализуется для использования схемы HTTP, а данные строки запроса будут удалены.
-- **ruleName** (обязательно) — имя правила SAS для любой сущности, представленной заданным URI, или для пространства имен, представленного частью хоста URI.
-- **key** (обязательно) — допустимый ключ для правила SAS. 
-- **expirationSeconds** (необязательно) — количество секунд до истечения срока действия созданного токена. 
-                            Значение по умолчанию составляет 1 час (3600), если не указано другое.
+- `uri` (обязательно) — URI, для которого будет выдаваться токен. URI нормализуется для использования схемы HTTP, а данные строки запроса будут удалены.
+- `ruleName` (обязательно) — имя правила SAS для любой сущности, представленной заданным URI, или для пространства имен, представленного частью узла URI.
+- `key` (обязательно) — допустимый ключ для правила SAS. 
+- `expirationSeconds` (необязательно) — количество секунд до истечения срока действия созданного токена. Значение по умолчанию составляет 1 час (3600), если не указано другое.
 
 Выданный токен предоставляет права, связанные с указанным правилом SAS, в течение заданного времени.
 
 #### <a name="appendrelaytoken"></a>appendRelayToken
-``` JavaScript
+
+```JavaScript
 var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
-Этот метод является функциональным эквивалентом описанного выше метода **createRelayToken**, но возвращаемый токен правильно добавлен в URI входа.
+Этот метод является функциональным эквивалентом описанного выше метода `createRelayToken`, но возвращаемый токен правильно добавлен в URI входа.
 
 ### <a name="class-wsrelayedserver"></a>Класс ws.RelayedServer
 
@@ -111,37 +114,39 @@ var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 
 #### <a name="constructor"></a>Конструктор  
 
-``` JavaScript 
+```JavaScript 
 var ws = require('hyco-ws');
 var server = ws.RelayedServer;
 
 var wss = new server(
     {
-        server : ws.createRelayListenUri(ns, path),
+        server: ws.createRelayListenUri(ns, path),
         token: function() { return ws.createRelayToken('http://' + ns, keyrule, key); }
     });
 ```
 
-Конструктор `RelayedServer` поддерживает набор аргументов, отличный от поддерживаемых `Server`, так как он не является автономным прослушивателем и не встраивается в существующую структуру прослушивателя HTTP. В нем также доступно меньшее количество параметров, так как управление WebSocket во многом делегируется службе ретранслятора.
+Конструктор `RelayedServer` поддерживает набор аргументов, отличный от поддерживаемых `Server`, так как он не является автономным прослушивателем и не встраивается в имеющуюся структуру прослушивателя HTTP. В нем также доступно меньшее количество параметров, так как управление WebSocket во многом делегируется службе ретранслятора.
 
 Аргументы конструктора:
 
-- **server** (обязательно) — полный URI гибридного подключения для прослушивания, который обычно создается с помощью вспомогательного метода WebSocket.createRelayListenUri().
-- **token** (обязательно) — этот аргумент содержит строку ранее выданного токена или функцию обратного вызова, которую можно вызвать для получения строки токена. Предпочтителен параметр обратного вызова, так как он позволяет возобновлять действие токена.
+- `server` (обязательно) — полный URI гибридного подключения для прослушивания, который обычно создается с помощью вспомогательного метода WebSocket.createRelayListenUri().
+- `token` (обязательно) — этот аргумент содержит строку ранее выданного токена или функцию обратного вызова, которую можно вызвать для получения строки токена. Предпочтителен параметр обратного вызова, так как он позволяет возобновлять действие токена.
 
 #### <a name="events"></a>События
 
-Экземпляры `RelayedServer` генерируют три события, которые позволяют обрабатывать входящие запросы, устанавливать подключения и обнаруживать ошибочные условия. Чтобы обрабатывать сообщения, необходимо подписаться на событие подключения. 
+Экземпляры `RelayedServer` генерируют три события, которые позволяют обрабатывать входящие запросы, устанавливать подключения и обнаруживать ошибочные условия. Чтобы обрабатывать сообщения, необходимо подписаться на событие `connect`. 
 
 ##### <a name="headers"></a>headers
-``` JavaScript 
+
+```JavaScript 
 function(headers)
 ```
 
-Событие headers (заголовки) возникает непосредственно перед тем, как принимается входящее подключение, позволяя изменять заголовки для отправки клиенту. 
+Событие `headers` возникает непосредственно перед тем, как принимается входящее подключение, позволяя изменять заголовки для отправки клиенту. 
 
 ##### <a name="connection"></a>connection;
-``` JavaScript
+
+```JavaScript
 function(socket)
 ```
 
@@ -149,7 +154,8 @@ function(socket)
 
 
 ##### <a name="error"></a>error
-``` JavaScript
+
+```JavaScript
 function(error)
 ```
 
@@ -161,26 +167,30 @@ function(error)
 
 ##### <a name="createrelayedlistener"></a>createRelayedListener
 
-``` JavaScript
-    var WebSocket = require('hyco-ws');
+```JavaScript
+var WebSocket = require('hyco-ws');
 
-    var wss = WebSocket.createRelayedServer(
-        {
-            server : WebSocket.createRelayListenUri(ns, path),
-            token: function() { return WebSocket.createRelayToken('http://' + ns, keyrule, key); }
-        }, 
-        function (ws) {
-            console.log('connection accepted');
-            ws.onmessage = function (event) {
-                console.log(JSON.parse(event.data));
-            };
-            ws.on('close', function () {
-                console.log('connection closed');
-            });       
-    });
+var wss = WebSocket.createRelayedServer(
+    {
+        server: WebSocket.createRelayListenUri(ns, path),
+        token: function() { return WebSocket.createRelayToken('http://' + ns, keyrule, key); }
+    }, 
+    function (ws) {
+        console.log('connection accepted');
+        ws.onmessage = function (event) {
+            console.log(JSON.parse(event.data));
+        };
+        ws.on('close', function () {
+            console.log('connection closed');
+        });       
+});
 ``` 
 
+##### <a name="createrelayedserver"></a>createRelayedServer
+
+```javascript
 var server = createRelayedServer([options], [connectCallback] )
+```
 
 Этот метод вызывает конструктор для создания нового экземпляра RelayedServer, а затем подписывает предоставленный обратный вызов на событие connection (подключение).
  
@@ -188,15 +198,15 @@ var server = createRelayedServer([options], [connectCallback] )
 
 Просто зеркально отображая вспомогательный метод `createRelayedServer` в функции, `relayedConnect` создает клиентское подключение и подписывается на событие open (открыть) для итогового сокета.
 
-``` JavaScript
-    var uri = WebSocket.createRelaySendUri(ns, path);
-    WebSocket.relayedConnect(
-        uri,
-        WebSocket.createRelayToken(uri, keyrule, key),
-        function (socket) {
-            ...
-        }
-    );
+```JavaScript
+var uri = WebSocket.createRelaySendUri(ns, path);
+WebSocket.relayedConnect(
+    uri,
+    WebSocket.createRelayToken(uri, keyrule, key),
+    function (socket) {
+        ...
+    }
+);
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия

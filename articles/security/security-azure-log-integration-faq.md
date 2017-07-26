@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 06/26/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
-ms.lasthandoff: 03/31/2017
+ms.custom: azlog
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: e6aefe5f16e7148f7837a8741355c61851618495
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -33,6 +35,16 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Как увидеть учетные записи хранения, из которых служба интеграции журналов Azure извлекает журналы виртуальных машин Azure?
 Выполните команду **azlog source list**.
+
+## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Как определить, из каких подписок получены журналы службы интеграции журналов Azure?
+
+Журналы аудита хранятся в каталогах AzureResourcemanagerJson. В их случае идентификатор подписки — это имя файла журнала. Это правило применяется и к журналам в папке AzureSecurityCenterJson. Например:
+
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+
+В состав имен журналов аудита Azure Active Directory входит идентификатор клиента.
+
+В состав имен журналов диагностики, полученных из концентратора событий, не входит идентификатор клиента, но в их имени содержится понятное имя, указанное в процессе создания источника концентратора событий. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Как обновить конфигурацию прокси-сервера?
 Если параметры прокси-сервера не позволяют получать доступ к хранилищу Azure напрямую, то откройте файл **AZLOG.EXE.CONFIG** из расположения **c:\Program Files\Microsoft Azure Log Integration**. Обновите файл, включив в его раздел **defaultProxy** прокси-адрес вашей организации. После завершения обновления остановите и запустите службу с помощью команд **net stop azlog** и **net start azlog**.
@@ -113,6 +125,9 @@ XML-файл события содержит метаданные, как пок
 
 В случае проблем при установке и настройке создайте [запрос в службу поддержки](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request), указав **Интеграция журнала** в качестве службы, для которой запрашивается поддержка.
 
+### <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>Можно ли интегрировать журналы Наблюдателя за сетями с системой SIEM с помощью службы интеграции журналов Azure?
+
+Наблюдатель за сетями регистрирует в журналах большие объемы информации. Эти журналы не обязательно должны отправляться в систему SIEM. Журналы Наблюдателя за сетями отправляются только в учетную запись хранения. Azlog не поддерживает чтение этих журналов и не обеспечивает их доступность в системе SIEM.
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

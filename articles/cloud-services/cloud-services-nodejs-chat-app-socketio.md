@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: e9607d2426192eca990261e5ef3b4e06b25b1dec
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: efa459f6b382ff22c94802e1250836d5f622b4ed
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -80,6 +81,7 @@ Socket.IO обеспечивает связь в режиме реального
          , nib = require('nib')
        //, sio = require('..//..//lib//socket.io'); //Original
          , sio = require('socket.io');                //Updated
+         var port = process.env.PORT || 3000;         //Updated
 3. Чтобы приложение прослушивало правильный порт, откройте файл server.js в Блокноте или другом текстовом редакторе, а затем измените следующую строку, заменив **3000** на **process.env.port**, как показано ниже:
    
        //app.listen(3000, function () {            //Original
@@ -105,6 +107,15 @@ Socket.IO обеспечивает связь в режиме реального
 1. Запустите эмулятор, выполнив следующую команду:
    
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
+   
+   > [!NOTE]
+   > С запуском эмулятора может возникнуть проблема, например во время выполнения команды Start-AzureEmulator произошла непредвиденная ошибка.  Подробные сведения: произошла непредвиденная ошибка. Коммуникационный объект System.ServiceModel.Channels.ServiceChannel нельзя использовать для связи, так как он находится в состоянии Faulted.
+   
+      Переустановите AzureAuthoringTools версии 2.7.1 и AzureComputeEmulator версии 2.7 (убедитесь, что версии совпадают).
+   >
+   >
+
+
 2. Откройте веб-браузер и перейдите по адресу **http://127.0.0.1**.
 3. В открывшемся окне браузера введите псевдоним, а затем нажмите клавишу ВВОД.
    Это все, что вам потребуется для отправки сообщений в качестве конкретного псевдонима. Чтобы проверить многопользовательскую функциональность, откройте дополнительные окна браузера, используя тот же URL-адрес, и введите разные псевдонимы.

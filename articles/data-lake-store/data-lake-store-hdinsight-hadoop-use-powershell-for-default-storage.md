@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/08/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: d129ea9e5f3e320ccd705028f9860188babe2fe4
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 77eb83b80312eca401e6f60d57ed6a5668ea442e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -33,11 +33,9 @@ ms.lasthandoff: 05/09/2017
 
 Ниже приведены некоторые важные сведения об использовании HDInsight с Data Lake Store.
 
-* Возможность создавать кластеры HDInsight, использующие Data Lake Store в качестве хранилища по умолчанию, поддерживается для версии HDInsight 3.5.
+* Возможность создавать кластеры HDInsight, использующие Data Lake Store в качестве хранилища по умолчанию, поддерживается для HDInsight версий 3.5 и 3.6.
 
 * Возможность создавать кластеры HDInsight, использующие Data Lake Store в качестве хранилища по умолчанию, *не поддерживается* для кластеров HDInsight уровня "Премиум".
-
-* В кластерах HBase (Windows и Linux) Data Lake Store *невозможно* использовать ни как хранилище по умолчанию, ни как дополнительное хранилище.
 
 Чтобы настроить HDInsight для работы с Data Lake Store с помощью PowerShell, следуйте инструкциям в следующих пяти разделах.
 
@@ -46,7 +44,7 @@ ms.lasthandoff: 05/09/2017
 
 * **Подписка на Azure**. Перейдите на сайт [бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 или более поздняя версия**. Инструкции см. в статье [Приступая к работе с командлетами Azure PowerShell](/powershell/azure/overview).
-* **Пакет средств разработки программного обеспечения для Windows (пакет SDK)**. Инструкции по установке пакета Windows SDK приведены на странице [Загружаемые файлы и инструменты для Windows 10](https://dev.windows.com/en-us/downloads). Пакет Windows SDK используется для создания сертификата безопасности.
+* **Пакет средств разработки программного обеспечения для Windows (пакет SDK)**. Инструкции по установке пакета Windows SDK приведены на странице [Загружаемые файлы и инструменты для Windows 10](https://dev.windows.com/en-us/downloads). Пакет SDK используется для создания сертификата безопасности.
 * **Субъект-служба Azure Active Directory**. В этом руководстве описывается создание субъекта-службы в Azure Active Directory (Azure AD). Чтобы создать субъект-службу, необходимо быть администратором Azure AD. Если вы являетесь администратором, то можете пропустить это предварительное требование и продолжить работу с руководством.
 
     >[!NOTE]
@@ -187,7 +185,7 @@ ms.lasthandoff: 05/09/2017
         # Set these variables
 
         $location = "East US 2"
-        $storageAccountName = $dataLakeStoreName                          # Data Lake Store account name
+        $storageAccountName = $dataLakeStoreName                       # Data Lake Store account name
         $storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
         $clusterName = "<unique cluster name>"
         $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
@@ -205,7 +203,7 @@ ms.lasthandoff: 05/09/2017
                -DefaultStorageAccountType AzureDataLakeStore `
                -DefaultStorageAccountName "$storageAccountName.azuredatalakestore.net" `
                -DefaultStorageRootPath $storageRootPath `
-               -Version "3.5" `
+               -Version "3.6" `
                -SshCredential $sshCredentials `
                -AadTenantId $tenantId `
                -ObjectId $objectId `

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 06/27/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 12d4282082b3318bd14535a49e25c8d606d1bd7f
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 8af9d70965c1c9ad8c49b7d2bb04244fc207058d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -51,7 +51,10 @@ ms.lasthandoff: 04/26/2017
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Добавление пакета NuGet для концентраторов событий
 
-Добавьте в проект пакет NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/).
+Добавьте пакет NuGet библиотеки .NET Standard [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) в проект, сделав следующее: 
+
+1. Щелкните созданный проект правой кнопкой мыши и выберите **Управление пакетами NuGet**.
+2. Откройте вкладку **Обзор**, а затем выполните поиск по фразе Microsoft.Azure.EventHubs и выберите пакет **Microsoft.Azure.EventHubs**. Щелкните **Установить** , чтобы выполнить установку, а затем закройте это диалоговое окно.
 
 ## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Написание кода для отправки сообщений в концентратор событий
 

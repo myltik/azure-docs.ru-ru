@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/15/2017
 ms.author: eugenesh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: faa6d403aa130738ae0b58ba1ffc828a1e37e9f4
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 509682297a3db090caa73bd9438f6434257d558f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -34,7 +34,8 @@ ms.lasthandoff: 05/10/2017
 * XML
 * ZIP;
 * EML
-* Обычные текстовые файлы  
+* RTF
+* Обычные текстовые файлы
 * JSON (сведения о предварительной версии функции см. в статье [Индексирование больших двоичных объектов JSON с помощью индексатора больших двоичных объектов службы поиска Azure](search-howto-index-json-blobs.md));
 * CSV (сведения о предварительной версии функции см. в статье [Индексирование больших двоичных объектов CSV с помощью индексатора больших двоичных объектов службы поиска Azure](search-howto-index-csv-blobs.md)).
 
@@ -141,7 +142,7 @@ ms.lasthandoff: 05/10/2017
 
 > [!NOTE]
 > По умолчанию большие двоичные объекты со структурированным содержимым, например JSON- или CSV-файлы, индексируются как один блок текста. Если необходимо индексировать большие двоичные объекты JSON и CSV структурированным способом, сведения о предварительной версии этих функций см. в статьях [Индексирование больших двоичных объектов JSON с помощью индексатора больших двоичных объектов службы поиска Azure](search-howto-index-json-blobs.md) и [Индексирование больших двоичных объектов CSV с помощью индексатора больших двоичных объектов службы поиска Azure](search-howto-index-csv-blobs.md).
-> 
+>
 > Составной или внедренный документ (например, ZIP-файл или документ Word с внедренным электронным сообщением Outlook, содержащим вложения) также индексируется как один документ.
 
 * Текстовое содержимое документа извлекается в строковое поле `content`.
@@ -366,7 +367,9 @@ ms.lasthandoff: 05/10/2017
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Удаление разметки XML и извлечение текста |
 | JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Извлечение текста<br/>Примечание. Инструкции по извлечению нескольких полей документа из большого двоичного объекта JSON см. в статье [Индексирование BLOB-объектов JSON с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-json-blobs.md). |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Извлечение текста, включая вложения |
-| Обычный текст (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | |
+| RTF (приложение или RTF) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Извлечение текста|
+| Обычный текст (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Извлечение текста|
+
 
 ## <a name="help-us-make-azure-search-better"></a>Помогите нам усовершенствовать службу поиска Azure
 Если вам нужна какая-либо функция или у вас есть идеи, которые можно было бы реализовать, сообщите об этом на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

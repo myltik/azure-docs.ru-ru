@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a5b845a93f318b991e14705f0fadea3acd802ced
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 766d327a87ed13e04166d71c3d9ae0a1e7a66d19
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.lasthandoff: 03/21/2017
 
 **Использование портала Azure**
 
-* В области навигации слева выберите "Подписки" и скопируйте идентификатор подписки.
+* В области навигации слева выберите **Подписки** и скопируйте идентификатор подписки.
 
 **Использование Azure CLI**
 
@@ -48,7 +49,7 @@ ms.lasthandoff: 03/21/2017
 
 В приведенном ниже примере используются [значения по умолчанию](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), но при необходимости можно задать следующие значения. 
 
-* azure-dns в качестве имени, связанного с созданными общедоступным IP-адресом и сертификатами.  В таком случае можно безопасно остановить виртуальную машину, освободить динамический IP-адрес и выполнить повторное подключение, после того как виртуальная машина начнет работу с новым IP-адресом.  Префикс имени должен быть уникальным для этого региона: UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
+* azure-dns в качестве имени, связанного с созданными общедоступным IP-адресом и сертификатами. Это DNS-имя вашей виртуальной машины. В таком случае можно безопасно остановить виртуальную машину, освободить динамический IP-адрес и выполнить повторное подключение, после того как виртуальная машина начнет работу с новым IP-адресом. Префикс имени должен быть уникальным для этого региона: UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
 * Открытые порта 80 на виртуальной машине для исходящего доступа к Интернету.
 * Размер виртуальной машины для использования более быстрого хранилища класса Premium.
 * Хранилище класса Premium, используемое для диска виртуальной машины.
@@ -107,7 +108,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp, 443/tcp   goofy_mahavira
 ```
 
-Введите `docker-machine ip <VM name>` , чтобы узнать IP-адрес, который вводится в браузере:
+Введите `docker-machine ip <VM name>`, чтобы узнать IP-адрес, который вводится в браузере:
 
 ```
 PS C:\> docker-machine ip MyDockerHost

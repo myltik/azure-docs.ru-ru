@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 06/26/2017
 ms.author: sngun; v-reagie
-translationtype: Human Translation
-ms.sourcegitcommit: a8ecffbc5f9c7e2408708d59459a0d39e59d6e1e
-ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -64,6 +66,22 @@ ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 **Советы по устранению неполадки.** Сведения об использовании сертификата с командлетами управления службами Azure см. в руководстве по [созданию и добавлению сертификатов для управления службами Azure](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Сведения об использовании субъекта-службы с командлетами диспетчера ресурсов Azure см. в статьях о [создании субъекта-службы с помощью портала Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) и [аутентификации субъекта-службы в диспетчере ресурсов Azure](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Распространенные ошибки при работе с модулями Runbook
+### <a name="scenario-the-runbook-job-start-was-attempted-three-times-but-it-failed-to-start-each-time"></a>Сценарий: было предпринято три попытки запуска задания Runbook, но все они были неудачными
+**Ошибка:** запуск задания Runbook завершается ошибкой "The job was tried three times but it failed" (Было предпринято три попытки запуска задания, но все они были неудачными).
+
+**Причина ошибки:** эта ошибка может вызываться описанными ниже причинами.  
+
+1. Предельный объем памяти.  Объемы памяти, выделяемые для песочницы службы автоматизации, ограничены и приводятся в [этом разделе](../azure-subscription-service-limits.md#automation-limits), поэтому задание может завершиться ошибкой, если оно используют более 400 МБ памяти. 
+
+2. Модуль несовместим.  Данная ситуация может возникать, если зависимости модуля заданы неправильно, в результате чего модуль Runbook, как правило, возвращает сообщение об ошибке "Команда не найдена" или "Не удается привязать параметр". 
+
+**Советы по устранению неполадки** : эту проблему можно устранить одним из следующих способов.  
+
+* Чтобы работа выполнялась в заданных пределах объема памяти, рекомендуется разделить рабочую нагрузку между несколькими модулями Runbook, не обрабатывать слишком большой объем данных в памяти, не записывать ненужные выходные данные из модулей Runbook или учитывать, сколько контрольных точек записывается в модули Runbook рабочих процессов PowerShell.  
+
+* Необходимо обновить модули Azure, выполнив действия, описанные в статье [Как обновить модули Azure PowerShell в службе автоматизации Azure](automation-update-azure-modules.md).  
+
+
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Сценарий: сбой модуля Runbook из-за десериализованного объекта
 **Ошибка:** выполнение модуля Runbook завершается ошибкой "Не удается привязать параметр ``<ParameterName>``. Не удается преобразовать значение ``<ParameterType>`` десериализированного типа ``<ParameterType>`` в тип ``<ParameterType>``".
 
@@ -172,9 +190,4 @@ ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 * Отправьте запрос в службу поддержки Azure Перейдите на [сайт службы поддержки Azure](https://azure.microsoft.com/support/options/) и в разделе **Technical and billing support** (Поддержка по выставлению счетов и техническая поддержка) щелкните **Получить поддержку**.
 * Опубликуйте запрос на сценарий на странице [Центр скриптов](https://azure.microsoft.com/documentation/scripts/) , если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook.
 * Оставьте свой отзыв или запрос на ту или иную функцию для службы автоматизации Azure на [странице отзывов](https://feedback.azure.com/forums/34192--general-feedback).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

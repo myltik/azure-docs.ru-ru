@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: asteen
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 0b63c7d15ca7570033a889dc1b57ebd202f4627b
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 30db71c0706de1dcc0d48fb72fa5d62475a14ba7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 05/08/2017
 
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Пользователи для приложения в коллекции Azure AD не подготавливаются
 
-Настройте автоматическую подготовку для приложения (проверив действительность учетных данных, с помощью которых Azure AD подключается к приложению). Пользователи и (или) группы, которые подготавливаются для приложения, определяются следующими критериями:
+Настройте автоматическую подготовку для приложения (проверив действительность учетных данных, с помощью которых Azure AD подключается к приложению). Пользователи и (или) группы, которые подготавливаются для приложения, определяются следующими критериями.
 
 -   Какие пользователи и группы были **назначены** приложению. Дополнительные сведения о назначении см. в разделе [Назначение пользователя или группы корпоративному приложению в Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 

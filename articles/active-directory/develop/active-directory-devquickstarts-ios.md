@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 384f4bc285f62b102778118a92a912e73d241663
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -60,8 +60,8 @@ ms.lasthandoff: 05/09/2017
 <app-scheme>://<bundle-id>
 ```
 
-* Схема **aap-scheme** регистрируется в проекте XCode и используется для вызова из других приложений. Ее можно найти в проекте XCode, последовательно выбрав **Info.plist** > **Типы URL-адресов** > **Идентификатор URL-адреса**. Если вы еще не создали или не настроили хотя бы одну схему, следует сделать это.
-* **bundle-id** — это идентификатор пакета, который можно найти в разделе **identity** параметров проекта XCode.
+* Схема **aap-scheme** регистрируется в проекте XCode и используется для вызова из других приложений. Данные сведения можно найти в файле Info.plist (URL Types -> URL Identifier). Если вы еще не создали или не настроили хотя бы одну схему, следует сделать это.
+* **bundle-id** — это идентификатор пакета, который можно найти в разделе "identity" параметров проекта XCode.
 
 Пример для рассматриваемого проекта QuickStart: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 

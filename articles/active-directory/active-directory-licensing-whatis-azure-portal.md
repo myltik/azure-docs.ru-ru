@@ -1,7 +1,7 @@
 ---
 
 title: "Что такое лицензии групп в Azure Active Directory? | Документация Майкрософт"
-description: "Описание лицензий групп Azure Active Directory, принципы их работы, начало работы с лицензиями групп и рекомендации."
+description: "Описание лицензий групп Azure Active Directory, принципы их работы и рекомендации"
 services: active-directory
 keywords: "Лицензирование Azure AD"
 documentationcenter: 
@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 06/29/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
+ms.reviewer: piotrci
+ms.custom: H1Hack27Feb2017;it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 52c3e88689441045c3bd34ea3ab17a8a1d270f23
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 52dd48ce4e4acaf48f31edc51bbb657f8cd249cd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Основы группового лицензирования в Azure Active Directory
 
-Облачные службы Майкрософт, такие как Office 365, Enterprise Mobility + Security, Dynamics CRM и другие аналогичные продукты, требуют лицензий. Эти лицензии назначаются каждому пользователю, которому нужен доступ к этим службам. Для управления лицензиями администраторы используют один из порталов управления (Office или Azure) и командлеты PowerShell. Azure Active Directory (Azure AD) — это базовая инфраструктура, обеспечивающая управление удостоверениями для всех облачных служб Майкрософт. Azure AD хранит сведения о состоянии назначения лицензии для пользователей.
+Использование платных облачных служб Майкрософт, таких как Office 365, Enterprise Mobility + Security, Dynamics CRM и других аналогичных продуктов, требует лицензий. Эти лицензии назначаются каждому пользователю, которому нужен доступ к этим службам. Для управления лицензиями администраторы используют один из порталов управления (Office или Azure) и командлеты PowerShell. Azure Active Directory (Azure AD) — это базовая инфраструктура, обеспечивающая управление удостоверениями для всех облачных служб Майкрософт. Azure AD хранит сведения о состоянии назначения лицензии для пользователей.
 
 До настоящего момента лицензии можно было назначать только на уровне отдельного пользователя, что могло усложнять крупномасштабное управление. Например, чтобы добавить или удалить лицензии пользователей в случае изменений в организации (например, когда пользователи приходят в организацию или отдел или покидают его), администратору часто приходится создавать сложный сценарий PowerShell, выполняющий отдельные вызовы к облачной службе.
 
@@ -58,6 +59,7 @@ ms.lasthandoff: 04/06/2017
 
 Дополнительные сведения о других сценариях управления лицензиями на основе группы см. в следующих статьях:
 
+* [Самостоятельное лицензирование и лицензирование пользователей в Azure Active Directory](active-directory-licensing-get-started-azure-portal.md)
 * [Назначение лицензий группе в Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
 * [Поиск и устранение проблем лицензирования группы в Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Как перевести отдельных лицензированных пользователей на групповое лицензирование в Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)

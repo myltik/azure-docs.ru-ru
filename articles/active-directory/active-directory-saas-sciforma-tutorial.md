@@ -1,120 +1,230 @@
 ---
 title: "Руководство по интеграции Azure Active Directory со Sciforma | Документация Майкрософт"
-description: "Узнайте, как использовать Sciforma с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого."
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Sciforma."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: abbfb5ac-7687-4153-b263-8090102dae37
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/23/2017
+ms.date: 05/09/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 18b24a3ceddd667eb41e578cd193d3a0d0d0ac1c
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 4a04f5b2b5ccb33dddefc063a89118d87a11ebf5
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="tutorial-azure-ad-integration-with-sciforma"></a>Учебник. Интеграция Azure AD с Sciforma
-Цель данного учебника — показать интеграцию Azure и Sciforma.  
+# <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Руководство. Интеграция Azure Active Directory с Sciforma
 
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+В этом руководстве описано, как интегрировать Sciforma с Azure Active Directory (Azure AD).
 
-* действующая подписка Azure;
-* Клиент Sciforma.
+Интеграция Azure AD с приложением Sciforma обеспечивает следующие преимущества.
 
-После завершения этого руководства пользователи Azure AD, назначенные Sciforma, будут иметь возможность единого входа в приложение на веб-сайте компании Sciforma (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+- С помощью Azure AD вы можете контролировать доступ к Sciforma.
+- Вы можете включить автоматический вход пользователей в Sciforma (единый вход) с учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-1. Включение интеграции приложений для Sciforma
-2. Настройка единого входа.
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+## <a name="prerequisites"></a>Предварительные требования
 
-![Сценарий](./media/active-directory-saas-sciforma-tutorial/IC777369.png "Сценарий")
+Чтобы настроить интеграцию Azure AD с Sciforma, вам потребуется:
 
-## <a name="enable-the-application-integration-for-sciforma"></a>Включение интеграции приложений для Sciforma
-В этом разделе показано, как включить интеграцию приложений для Sciforma.
+- подписка Azure AD;
+- подписка Sciforma с поддержкой единого входа.
 
-**Чтобы включить интеграцию приложений для Sciforma, сделайте следующее:**
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-    ![Active Directory](./media/active-directory-saas-sciforma-tutorial/IC700993.png "Active Directory")
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-    ![Приложения](./media/active-directory-saas-sciforma-tutorial/IC700994.png "Приложения")
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-    ![Добавление приложения](./media/active-directory-saas-sciforma-tutorial/IC749321.png "Добавление приложения")
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Добавление приложения из коллекции](./media/active-directory-saas-sciforma-tutorial/IC749322.png "Добавление приложения из коллекции")
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-6. В **поле поиска** введите **Sciforma**.
-   
-    ![Коллекция приложений](./media/active-directory-saas-sciforma-tutorial/IC777370.png "Коллекция приложений")
+1. Добавление Sciforma из коллекции
+2. Настройка и проверка единого входа в Azure AD
 
-7. В области результатов выберите **Sciforma** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-    ![Sciforma](./media/active-directory-saas-sciforma-tutorial/IC777371.png "Sciforma")
-   
-## <a name="configure-single-sign-on"></a>Настройка единого входа
+## <a name="adding-sciforma-from-the-gallery"></a>Добавление Sciforma из коллекции
+Чтобы настроить интеграцию HPE Sciforma с Azure AD, необходимо добавить Sciforma из коллекции в список управляемых приложений SaaS.
 
-В этом разделе показано, как разрешить пользователям проходить аутентификацию в Sciforma со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+**Чтобы добавить Sciforma из коллекции, выполните следующие действия.**
 
-**Чтобы настроить единый вход, выполните следующие действия:**
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-1. На классическом портале Azure на странице интеграции с приложением **Sciforma** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Configure Single Sign On** (Настройка единого входа).
-   
-    ![Настройка единого входа](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Настройка единого входа")
+    ![Active Directory][1]
 
-2. На странице **Как пользователи должны входить в Sciforma?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sciforma-tutorial/IC777373.png "Настройка единого входа")
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес для входа в Sciforma** введите свой URL-адрес, используя шаблон *https://\<имя_клиента\>.Sciforma.com*, а затем нажмите кнопку **Далее**.
-   
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-sciforma-tutorial/IC777374.png "Настройка URL-адреса приложения")
+    ![Приложения][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-4. На странице **Настройка единого входа в Sciforma** щелкните **Скачать метаданные**, чтобы скачать метаданные, а затем сохраните файл метаданных на локальном компьютере как **c:\\SciformaMetaData.xml**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sciforma-tutorial/IC777375.png "Настройка единого входа")
+    ![Приложения][3]
 
-5. Передайте этот файл метаданных в группу поддержки Sciforma. Группа поддержки осуществляет настройку единого входа.
+4. В поле поиска введите **Sciforma**.
 
-6. Выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sciforma-tutorial/IC777376.png "Настройка единого входа")
-   
-## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_search.png)
+
+5. На панели результатов выберите **Sciforma** и нажмите кнопку **Добавить**, чтобы добавить приложение.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в приложение Sciforma с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Sciforma соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Sciforma.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Sciforma.
+
+Чтобы настроить и проверить единый вход Azure AD в Sciforma, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Sciforma](#creating-a-sciforma-test-user)** требуется для создания в Sciforma пользователя Britta Simon, связанного с представлением этого же пользователя в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Sciforma.
+
+**Чтобы настроить единый вход Azure AD в Sciforma, выполните следующие действия.**
+
+1. На портале Azure на странице интеграции с приложением **Sciforma** щелкните **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения Sciforma** сделайте следующее:
+
+    ![Настройка единого входа](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_url.png)
+
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.sciforma.net/sciforma/main.html`
+
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.sciforma.net/sciforma/saml`
+
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить их, обратитесь в [службу поддержки клиентов Sciforma](http://www.sciforma.com/company/contact_us). 
+ 
+
+
+4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-sciforma-tutorial/tutorial_general_400.png)
+
+6. Чтобы настроить единый вход на стороне **Sciforma**, отправьте скачанный **XML-файл метаданных** в [службу поддержки Sciforma](http://www.sciforma.com/company/contact_us).
+
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
+
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+![Создание пользователя Azure AD][100]
+
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sciforma-tutorial/create_aaduser_01.png) 
+
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sciforma-tutorial/create_aaduser_02.png) 
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sciforma-tutorial/create_aaduser_03.png) 
+
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sciforma-tutorial/create_aaduser_04.png) 
+
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
+
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-a-sciforma-test-user"></a>Создание тестового пользователя Sciforma
 
 Действие для настройки подготовки пользователей в Sciforma отсутствует. Когда назначенный пользователь пытается войти в Sciforma с помощью панели доступа, Sciforma проверяет, существует ли данный пользователь.  
 
 * Если учетная запись пользователя отсутствует, Sciforma автоматически создает ее.
 
-## <a name="assign-users"></a>Назначить пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-**Чтобы назначить пользователей Sciforma, сделайте следующее:**
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к Sciforma.
 
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **Sciforma** щелкните **Назначить пользователей**.
-   
-    ![Назначение пользователей](./media/active-directory-saas-sciforma-tutorial/IC777377.png "Назначение пользователей")
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-    ![Да](./media/active-directory-saas-sciforma-tutorial/IC767830.png "Да")
+![Назначение пользователя][200] 
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+**Чтобы назначить пользователя Britta Simon приложению Sciforma, выполните следующие действия.**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Sciforma**.
+
+    ![Настройка единого входа](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-sciforma-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-sciforma-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-sciforma-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-sciforma-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-sciforma-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-sciforma-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-sciforma-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-sciforma-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-sciforma-tutorial/tutorial_general_203.png
 
 

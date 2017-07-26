@@ -14,17 +14,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 31582a87354bf915f058090add02d837f835a77c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 35cddba38c364dfb2f6a8646b0014d48ca4cb795
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/08/2017
 
 
 ---
 # <a name="installing-the-azure-toolkit-for-eclipse"></a>Установка набора средств Azure для Eclipse
-В набор средств Azure для Eclipse входят шаблоны и функциональные возможности для простого создания, разработки, тестирования и развертывания приложений Azure с помощью среды разработки Eclipse. Набор средств Azure для Eclipse — это проект с открытым кодом, исходный код которого доступен по лицензии MIT на сайте проекта в GitHub по следующему URL-адресу:
-
-<https://github.com/microsoft/azure-tools-for-java>
+В набор средств Azure для Eclipse входят шаблоны и функциональные возможности для простого создания, разработки, тестирования и развертывания приложений Azure с помощью среды разработки Eclipse. Набор средств Azure для Eclipse является проектом с открытым кодом. Исходный код доступен по лицензии MIT по адресу: <https://github.com/microsoft/azure-tools-for-java>.
 
 Ниже приведен процесс установки набора средств Azure для Eclipse.
 
@@ -32,10 +31,10 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="to-install-the-azure-toolkit-for-eclipse"></a>Установка набора средств Azure для Eclipse
 1. Запустите Eclipse.
-2. Когда откроется Eclipse, щелкните меню **Справка** и выберите пункт **Install New Software** (Установить новое программное обеспечение), как показано на следующем рисунке.
+2. Щелкните меню **Help** (Справка) и выберите пункт **Install New Software** (Установить новое программное обеспечение), как показано на следующем рисунке.
    
     ![Установка набора средств Azure для Eclipse][01]
-3. В диалоговом окне **Available Software** (Доступное программное обеспечение) в текстовом поле **Work with** (Работа с) введите **http://dl.microsoft.com/eclipse** и нажмите клавишу **ВВОД**.
+3. В диалоговом окне **Available Software** (Доступное программное обеспечение) в текстовом поле **Work with** (Работа с) введите `http://dl.microsoft.com/eclipse` и нажмите клавишу **ВВОД**.
 4. В области **Name** (Имя) установите флажок **Azure Toolkit for Eclipse** (Набор средств Azure для Eclipse) и снимите флажок **Contact all update sites during install to find required software** (Проверить все сайты обновления во время установки для поиска требуемого ПО). Экран должен выглядеть следующим образом:
    
     ![Установка набора средств Azure для Eclipse][02]
@@ -50,7 +49,7 @@ ms.lasthandoff: 04/22/2017
    * **Драйвер Microsoft JDBC 4.2 для SQL Server**— этот компонент предоставляет API JDBC для SQL Server и Базу данных SQL Microsoft Azure для платформы Java Enterprise Edition 8.
    * **Package for Apache Qpid Client Libraries for JMS**(Пакет для клиентских библиотек Apache Qpid для JMS) — этот компонент предоставляет клиентские компоненты JMS из проекта Apache Qpid, чтобы ваше приложение могло использовать обмен сообщениями на основе протокола AMQP в Azure.
    * **Пакет для библиотек Microsoft Azure для Java** — этот компонент предоставляет API для доступа к службам Microsoft Azure, таким как хранилище, служебная шина, среда выполнения службы и т. д.
-6. Нажмите кнопку **Далее**. (Если при установке набора средств возникают необычные задержки, убедитесь, что снят флажок **Contact all update sites during install to find required software** [Проверить все сайты обновления во время установки для поиска требуемого ПО].)
+6. Щелкните **Далее**. (Если при установке набора средств возникают необычные задержки, убедитесь, что снят флажок **Contact all update sites during install to find required software** [Проверить все сайты обновления во время установки для поиска требуемого ПО].)
 7. В диалоговом окне **Install Details** (Сведения об установке) нажмите кнопку **Далее**.
    
     ![Просмотр сведений об установке][03]
