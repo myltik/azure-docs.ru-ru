@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: c5567b2f6fdc9a5708ce611faa372d481d815e7f
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 63bd33bf4e09b98aa53dcfec9fcc4a0109204952
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -88,9 +88,9 @@ ms.lasthandoff: 05/17/2017
 5. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
 
 
-## <a name="view-the-swagger"></a>Просмотр Swagger
+## <a name="connector-specific-details"></a>Сведения о соединителях
 
-Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/onedriveconnector/).
+Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/onedriveconnector/).
 
 ## <a name="more-connectors"></a>Дополнительные сведения о соединителях
 Вы можете вернуться к [списку интерфейсов API](apis-list.md).

@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 1901613b3e0db19f86247ee78828eccd58fb026b
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 8e77153493b6f37f5f48116b86bad6b25a50d1a1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/27/2017
 
 [Sqoop][sqoop-user-guide-1.4.4] — это средство, предназначенное для передачи данных между кластерами Hadoop и реляционными базами данных. С его помощью можно импортировать данные из системы управления реляционной базой данных (реляционной СУБД), например SQL Server, MySQL или Oracle, в распределенную файловую систему Hadoop (HDFS), преобразовать данные в системе Hadoop с использованием MapReduce или Hive, а затем экспортировать данные обратно в реляционную СУБД. В этом учебнике в качестве реляционной базы данных используется база данных SQL.
 
-Сведения о версиях Sqoop, поддерживаемых в кластерах HDInsight, см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?][hdinsight-versions].
+Сведения о версиях Sqoop, поддерживаемых в кластерах HDInsight, см. в статье о [новых возможностях в версиях кластеров HDInsight][hdinsight-versions].
 
 ## <a name="understand-the-scenario"></a>Ознакомление со сценарием
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 04/27/2017
 * **База данных SQL Azure**: для сервера базы данных SQL Azure необходимо настроить правило брандмауэра, чтобы разрешить доступ с рабочей станции. Инструкции по созданию базы данных Azure SQL и настройке брандмауэра см. в статье [Начало работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure и SQL Server Management Studio][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, таких как Azure HDInsight. Если этот параметр брандмауэра отключен, вы должны включить его на портале Azure. Инструкции по созданию базы данных SQL Azure и настройке правил брандмауэра см. в статье [Начало работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure и SQL Server Management Studio][sqldatabase-create-configue].
+  > По умолчанию в базе данных SQL Azure разрешены подключения из служб Azure, таких как Azure HDInsight. Если этот параметр брандмауэра отключен, его нужно включить на портале Azure. Инструкции по созданию базы данных SQL Azure и настройке правил брандмауэра см. в статье [Начало работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure и SQL Server Management Studio][sqldatabase-create-configue].
   > 
   > 
 * **SQL Server**: если ваш кластер HDInsight находится в той же виртуальной сети Azure, что и SQL Server, эта статья поможет вам разобраться с импортом данных в базу данных SQL Server и их экспортом из нее.

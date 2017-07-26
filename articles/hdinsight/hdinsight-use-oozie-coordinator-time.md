@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: fc79b8017f2184091f2473a0ff9cdfbd0a4cbdf8
-ms.openlocfilehash: ebab21a8289ae639efae8bd802d7c493fd843d05
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: b43ea48b9b34f3ab6980f7bdc5c21a19d20fd5b6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -65,7 +66,8 @@ Apache Oozie — это система рабочих процессов и ко
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-* **Рабочая станция с Azure PowerShell.**.
+* <seg>
+  **Рабочая станция с Azure PowerShell**.</seg>
 
     > [!IMPORTANT]
     > Поддержка Azure PowerShell для управления ресурсами HDInsight с помощью диспетчера служб Azure (ASM) объявлена **устаревшей** и будет прекращена с 1 января 2017 г. В описанных в этом документе инструкциях используются новые командлеты HDInsight, которые работают с Azure Resource Manager.
@@ -82,7 +84,7 @@ Apache Oozie — это система рабочих процессов и ко
     <tr><td>Имя учетной записи хранения Azure</td><td>$storageAccountName</td><td></td><td>Учетная запись хранения Azure, доступная для кластера HDInsight. В этом учебнике используйте учетную запись хранения по умолчанию, указанную в процессе подготовки кластера.</td></tr>
     <tr><td>Имя контейнера BLOB-объектов Azure</td><td>$containerName</td><td></td><td>Для этого примера применяйте контейнер хранилища BLOB-объектов Azure, используемый для файловой системы кластера HDInsight по умолчанию. По умолчанию его имя совпадает с именем кластера HDInsight.</td></tr>
     </table>
-* **База данных SQL Azure.**Необходимо настроить правило брандмауэра для сервера базы данных SQL, чтобы разрешить доступ к рабочей станции. Инструкции по созданию базы данных Azure SQL и настройке брандмауэра см. Инструкции по созданию базы данных Azure SQL и настройке брандмауэра см. в статье [Начало работы с серверами баз данных SQL Azure, базами данных и правилами брандмауэра с использованием портала Azure и SQL Server Management Studio][sqldatabase-get-started]. Эта статья включает сценарий Windows PowerShell для создания таблицы базы данных Azure SQL, необходимой в рамках этого учебника.
+* **База данных SQL Azure.**Необходимо настроить правило брандмауэра для сервера базы данных SQL, чтобы разрешить доступ к рабочей станции. Инструкции по созданию базы данных Azure SQL и настройке брандмауэра см. Инструкции по созданию базы данных Azure SQL и настройке брандмауэра см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure][sqldatabase-get-started]. Эта статья включает сценарий Windows PowerShell для создания таблицы базы данных Azure SQL, необходимой в рамках этого учебника.
 
     <table border = "1">
     <tr><th>Свойство базы данных SQL</th><th>Имя переменной Windows PowerShell</th><th>Значение</th><th>Описание</th></tr>

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 845dd16c703362e9e64f02832a35c90e7e77e264
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -168,9 +168,9 @@ ms.lasthandoff: 05/10/2017
 
 Дополнительные сведения об устранении неполадок в приложениях логики см. в статье [Диагностика сбоев приложений логики](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## <a name="view-the-swagger"></a>Просмотр Swagger
+## <a name="connector-specific-details"></a>Сведения о соединителях
 
-Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/crm/). 
+Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/crm/). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).

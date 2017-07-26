@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 05/18/2017
 ms.author: adegeo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 76f59384db37967a9210ba5efa49b25788d21cdc
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: e66a3390c08b66e0f2f38725425cd78a36004118
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -113,7 +113,7 @@ ms.lasthandoff: 04/27/2017
     ![Мастер привязки ресурсов, страница 1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
 4. Щелкните **Создать новый ресурс** или **Привязать существующий ресурс**.
-5. Выберите тип связываемого ресурса. На [классическом портале Azure](http://manage.windowsazure.com/)щелкните **База данных SQL**. (В предварительной версии классического портала Azure не поддерживается привязка учетной записи хранения к облачной службе.)
+5. Выберите тип связываемого ресурса. На [классическом портале Azure](http://manage.windowsazure.com/) щелкните **База данных SQL**. (Привязать учетную запись хранения к облачной службе можно только на классическом портале Azure.)
 6. Выполните настройку базы данных в соответствии с инструкциями в справке для области **Базы данных SQL** классического портала Azure.
 
     Состояние операции связывания можно контролировать с помощью области сообщений.

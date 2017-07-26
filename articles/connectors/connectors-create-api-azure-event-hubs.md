@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fd691f898e26bea0a304bcf52e5df9ee7db8b818
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -123,8 +123,9 @@ ms.lasthandoff: 05/10/2017
 
     Теперь у вас есть настроенное действие для отправки событий из приложения логики. 
 
-## <a name="view-the-swagger"></a>Просмотр Swagger
-Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/eventhubs/). 
+## <a name="connector-specific-details"></a>Сведения о соединителях
+
+Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/eventhubs/). 
 
 ## <a name="get-help"></a>Получение справки
 

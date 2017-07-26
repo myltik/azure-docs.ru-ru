@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/21/2017
+ms.date: 05/22/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 2c7032e74dc59eb610b8860338486afc52e3abbe
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -42,11 +43,11 @@ ms.lasthandoff: 04/22/2017
 Если вы уже используете старую версию пакета SDK для .NET для Поиска Azure и хотите выполнить обновление до общедоступной версии, ознакомьтесь с инструкциями в [этой статье](search-dotnet-sdk-migration.md) .
 
 ## <a name="requirements-for-the-sdk"></a>Требования для пакета SDK
-1. Visual Studio 2015.
+1. Visual Studio 2017.
 2. Ваша личная служба поиска Azure. Чтобы использовать пакет SDK, необходимо указать имя службы и один или несколько ключей API. [Создание службы на портале](search-create-service-portal.md) поможет вам это сделать.
 3. Скачайте пакет SDK для Поиска Azure Search в .NET в виде [пакета NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) с помощью команды "Управление пакетами NuGet" в Visual Studio. Достаточно найти имя пакета `Microsoft.Azure.Search` на сайте NuGet.org.
 
-Пакет SDK .NET для службы поиска Azure поддерживает приложения, предназначенные для платформ .NET Framework 4.5 или .NET Core, а также приложения, совместимые с [переносимой библиотекой классов (PCL), Profile111](https://docs.microsoft.com/dotnet/articles/standard/library).
+Пакет SDK для .NET для службы поиска Azure поддерживает приложения, предназначенные для .NET Framework 4.6 и .NET Core.
 
 ## <a name="core-scenarios"></a>Основные сценарии
 В приложении поиска необходимо выполнить несколько действий. В данном руководстве мы обсудим эти основные сценарии:
@@ -64,7 +65,10 @@ ms.lasthandoff: 04/22/2017
 // This sample shows how to delete, create, upload documents and query an index
 static void Main(string[] args)
 {
-    SearchServiceClient serviceClient = CreateSearchServiceClient();
+    IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+    IConfigurationRoot configuration = builder.Build();
+
+    SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 
     Console.WriteLine("{0}", "Deleting index...\n");
     DeleteHotelsIndexIfExists(serviceClient);
@@ -77,7 +81,7 @@ static void Main(string[] args)
     Console.WriteLine("{0}", "Uploading documents...\n");
     UploadDocuments(indexClient);
 
-    ISearchIndexClient indexClientForQueries = CreateSearchIndexClient();
+    ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(configuration);
 
     RunQueries(indexClientForQueries);
 
@@ -91,13 +95,13 @@ static void Main(string[] args)
 > 
 >
 
-Мы рассмотрим ее шаг за шагом. Для начала необходимо создать `SearchServiceClient`. Этот объект позволяет управлять индексами. Чтобы создать его, необходимо указать имя службы поиска Azure и ключ API администратора.
+Мы рассмотрим ее шаг за шагом. Для начала необходимо создать `SearchServiceClient`. Этот объект позволяет управлять индексами. Чтобы создать его, необходимо указать имя службы поиска Azure и ключ API администратора. Эту информацию можно указать в файле `appsettings.json` из [примера приложения](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
 ```csharp
-private static SearchServiceClient CreateSearchServiceClient()
+private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
 {
-    string searchServiceName = "myservice";
-    string adminApiKey = "Put your API admin key here";
+    string searchServiceName = configuration["SearchServiceName"];
+    string adminApiKey = configuration["SearchServiceAdminApiKey"];
 
     SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
     return serviceClient;
@@ -140,7 +144,7 @@ UploadDocuments(indexClient);
 Наконец, мы выполним несколько поисковых запросов и отобразим результаты. На этот раз мы используем другой метод `SearchIndexClient`:
 
 ```csharp
-ISearchIndexClient indexClientForQueries = CreateSearchIndexClient();
+ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(configuration);
 
 RunQueries(indexClientForQueries);
 ```
@@ -148,17 +152,17 @@ RunQueries(indexClientForQueries);
 Метод `RunQueries` мы позже рассмотрим подробно. Это код для создания нового объекта `SearchIndexClient`:
 
 ```csharp
-private static SearchIndexClient CreateSearchIndexClient()
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
 {
-    string searchServiceName = "myservice";
-    string queryApiKey = "Put one of your API query keys here";
+    string searchServiceName = configuration["SearchServiceName"];
+    string queryApiKey = configuration["SearchServiceQueryApiKey"];
 
     SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
     return indexClient;
 }
 ```
 
-На этот раз мы воспользуемся ключом запроса, так как доступ на запись к индексу не требуется.
+На этот раз мы воспользуемся ключом запроса, так как доступ на запись к индексу не требуется. Эту информацию можно указать в файле `appsettings.json` из [примера приложения](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
 Если запустить это приложение с действительными именем службы и ключами API, результат будет выглядеть так:
 
@@ -327,6 +331,12 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 Вас может интересовать, как пакет SDK для Поиска Azure в .NETможет передавать экземпляры пользовательского класса, например `Hotel` , в индекс. Чтобы ответить на этот вопрос, рассмотрим класс `Hotel` :
 
 ```csharp
+using System;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Microsoft.Spatial;
+using Newtonsoft.Json;
+
 // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
 // It ensures that Pascal-case property names in the model class are mapped to camel-case
 // field names in the index.

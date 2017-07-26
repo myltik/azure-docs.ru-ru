@@ -12,10 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
-translationtype: Human Translation
-ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
-ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -29,17 +30,17 @@ ms.lasthandoff: 02/21/2017
 https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## <a name="step-1---create-an-azure-ad-b2c-tenant"></a>Шаг 1. Создание клиента Azure AD B2C
-
-Сначала нужно создать клиент B2C. Пропустите этот шаг, если вы уже создали целевого клиента B2C. [Начало работы с Azure AD B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started/)
+Сначала нужно создать клиент B2C. Пропустите этот шаг, если вы уже создали целевого клиента B2C. [Начало работы с Azure AD B2C](active-directory-b2c-get-started.md)
 
 ## <a name="step-2---open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Шаг 2. Открытие портала Azure со страницей подписки Azure в клиенте Azure AD
-Перейдите по адресу portal.azure.com. Переключитесь в клиент Azure AD, в котором содержится подписка Azure, которую нужно использовать. Этот клиент Azure AD отличается от клиента B2C. На портале Azure щелкните имя учетной записи в правом верхнем углу панели мониторинга, чтобы выбрать клиента Azure AD. Чтобы продолжить, требуется подписка Azure. [Оформление подписки Azure](https://account.windowsazure.com/signup?showCatalog=True)
+Перейдите на [портал Azure](https://portal.azure.com). Переключитесь в клиент Azure AD, в котором содержится подписка Azure, которую нужно использовать. Этот клиент Azure AD отличается от клиента B2C. На портале Azure щелкните имя учетной записи в правом верхнем углу панели мониторинга, чтобы выбрать клиента Azure AD. Чтобы продолжить, требуется подписка Azure. [Оформление подписки Azure](https://account.windowsazure.com/signup?showCatalog=True)
 
 ![Переход к своему клиенту Azure AD](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
 ## <a name="step-3---create-a-b2c-tenant-resource-in-azure-marketplace"></a>Шаг 3. Создание ресурса "Клиент B2C" в Azure Marketplace
 Откройте Marketplace, щелкнув соответствующий значок или выбрав зеленый знак плюса в левом верхнем углу панели мониторинга.  Найдите и выберите Azure Active Directory B2C. Нажмите кнопку Создать.
-Выбор ![Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
+
+![Выбор плитки Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
 
 ![Поиск AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
 
@@ -75,12 +76,5 @@ https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 ## <a name="next-steps"></a>Дальнейшие действия
 После того как вы выполните эти шаги для каждого клиента B2C, счета за подписку Azure будут выставляться в соответствии с вашим соглашением Azure Direct или Enterprise.
 - Просмотр сведений об использовании и выставлении счетов в выбранной подписке Azure
-- Просмотр подробных отчетов о ежедневном использовании с помощью [API отчетов об использовании](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
-
-
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
+- Просмотр подробных отчетов о ежедневном использовании с помощью [API отчетов об использовании](active-directory-b2c-reference-usage-reporting-api.md)
 

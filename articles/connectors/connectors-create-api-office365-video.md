@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 8f979875dc2dd53f290fe827d8c7a6ba024b16b3
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: f0e3613d4a3fd5478787c0365eb7a0bcde886c81
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -41,9 +41,9 @@ ms.lasthandoff: 05/17/2017
 После создания подключения укажите свойства Office 365 Видео, такие как имя клиента или идентификатор канала. 
 
 
-## <a name="view-the-swagger"></a>Просмотр Swagger
+## <a name="connector-specific-details"></a>Сведения о соединителях
 
-Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/office365videoconnector/).
+Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/office365videoconnector/).
 
 ## <a name="more-connectors"></a>Дополнительные сведения о соединителях
 Вы можете вернуться к [списку интерфейсов API](apis-list.md).

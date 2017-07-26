@@ -1,5 +1,5 @@
 ---
-title: "Управление кластерами Hadoop в HDInsight с помощью пакета SDK для .NET | Документация Майкрософт"
+title: "Управление кластерами Hadoop в HDInsight с помощью пакета SDK для .NET — Azure | Документация Майкрософт"
 description: "Узнайте, как осуществлять управление кластерами Hadoop в HDInsight с помощью пакета SDK для HDInsight .NET."
 services: hdinsight
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ec710057c2016175f65578a9d6884f7273b65169
-ms.openlocfilehash: f2a762ad64feeef91802429cdd959cec67b73473
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: c10471425fa1202ddb7fe35d0adf4ef33509f268
 ms.contentlocale: ru-ru
-ms.lasthandoff: 12/20/2016
+ms.lasthandoff: 05/26/2017
 
 
 ---

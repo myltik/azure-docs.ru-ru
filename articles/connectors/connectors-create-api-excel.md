@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/23/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 423731710c5584f91188a72702b188636d3104e5
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4d62bee573aba4c8b0445b1f4c44190496fb3a18
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -29,9 +29,9 @@ ms.lasthandoff: 05/17/2017
 ## <a name="to-use-excel-data"></a>Использование данных Excel
 Вы можете сохранить данные Excel как файл с разделителями-запятыми (CSV) в папку хранилища, например [OneDrive](connectors-create-api-onedrive.md). Этот CSV-файл можно использовать с [соединителем неструктурированного файла](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
 
-## <a name="view-the-swagger"></a>Просмотр Swagger
+## <a name="connector-specific-details"></a>Сведения о соединителях
 
-Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/excel/).
+Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/excel/).
 
 ## <a name="more-connectors"></a>Дополнительные сведения о соединителях
 Вы можете вернуться к [списку интерфейсов API](apis-list.md).

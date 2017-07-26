@@ -15,93 +15,93 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5fd017b6f7645220ee7572e50c02265de41e938c
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 70e78af25c7087aa0eb59697aa9b51d615480085
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="use-packet-capture-to-do-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Использование записи пакетов для упреждающего мониторинга сети с помощью оповещений и функций Azure
+# <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Использование записи пакетов для упреждающего мониторинга сети с помощью оповещений и функций Azure
 
-Функция записи пакетов службы наблюдения за сетями (Наблюдатель за сетями) отслеживает входящий и исходящий трафик виртуальной машины. Файл записи можно создавать с использованием фильтра, чтобы отслеживать только нужный для мониторинга трафик. Эти данные затем сохраняются в хранилище BLOB-объектов или локально на гостевом компьютере.
+Функция записи пакетов службы наблюдения за сетями ("Наблюдатель за сетями") отслеживает входящий и исходящий трафик виртуальных машин. Файл записи можно создать с использованием фильтра, чтобы отслеживать только нужный трафик. Эти данные затем сохраняются в хранилище BLOB-объектов или локально на гостевом компьютере.
 
-Эта возможность допускает удаленный запуск из других сценариев службы автоматизации, включая функции Azure. Возможность записи пакетов позволяет создавать упреждающие записи пакетов, активируемые при обнаружении определенных сетевых аномалий. Она также помогает выполнять сбор сетевой статистики, получать сведения о сетевых вторжениях, выполнять отладку передачи данных между клиентом и сервером и многое другое.
+Эта возможность допускает удаленный запуск из других сценариев службы автоматизации, таких как функции Azure. Возможность записи пакетов позволяет создавать упреждающие записи пакетов, активируемые при обнаружении определенных сетевых аномалий. Они также помогают выполнять сбор сетевой статистики, получать сведения о сетевых вторжениях, выполнять отладку передачи данных между клиентом и сервером и другие операции.
 
-Развернутые в Azure ресурсы выполняются круглосуточно и без выходных. И вам и вашим сотрудникам не удастся эффективно отслеживать состояние всех ресурсов без перерывов. Что вы будете делать, если сбой произойдет в два часа ночи?
+Развернутые в Azure ресурсы работают круглосуточно и без выходных. Вам и вашим сотрудникам вряд ли удастся эффективно отслеживать состояние всех ресурсов без перерывов. К примеру, что вы будете делать, если сбой произойдет в два часа ночи?
 
-С помощью Наблюдателя за сетями, оповещений и функций экосистемы Azure вы можете не только заранее подготовиться к проблемам в сети, но также подготовить данные и средства для устранения проблем.
+С помощью службы "Наблюдатель за сетями", оповещений и функций экосистемы Azure вы можете заранее подготовить данные и средства для устранения проблем в сети.
 
-![сценарий][scenario]
+![Сценарий][scenario]
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-* Установка последней версии [Azure PowerShell](/powershell/azure/install-azurerm-ps)
-* Наличие или [создание экземпляра наблюдателя за сетями](network-watcher-create.md)
-* Наличие виртуальной машины в том же регионе, что и указанный выше наблюдатель за сетями, с [расширением виртуальных машин для Windows](../virtual-machines/windows/extensions-nwa.md) или [Linux](../virtual-machines/linux/extensions-nwa.md)
+* Последняя версия [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* Существующий экземпляр службы "Наблюдатель за сетями". Если у вас нет экземпляра этой службы, [создайте его](network-watcher-create.md).
+* Существующая виртуальная машина в том же регионе, что и служба "Наблюдатель за сетями", с [расширением виртуальных машин для Windows](../virtual-machines/windows/extensions-nwa.md) или [Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="scenario"></a>Сценарий
 
-В этом примере мы рассмотрим виртуальную машину, которая отправляет больше TCP-сегментов, чем обычно. Вы хотите получать оповещения о такой ситуации. TCP-сегменты используются только в качестве примера. Вы можете использовать любое условие оповещения.
+В этом примере мы рассмотрим виртуальную машину, которая отправляет больше TCP-сегментов, чем обычно. Предположим, вы хотите получать оповещения о такой ситуации. TCP-сегменты используются только в качестве примера. Вы можете использовать любое условие оповещения.
 
-Когда создается оповещение, вам нужно получить данные на уровне пакетов, чтобы найти причину необычной активности. Это позволит принять меры для восстановления на компьютере обычного режима обмена данными.
+Когда создается оповещение, вам нужно получить данные на уровне пакетов, чтобы найти причину необычной активности. Это позволит принять меры для восстановления на виртуальной машине обычного режима обмена данными.
 
-В этом сценарии предполагается, что у вас есть экземпляр наблюдателя за сетями, а также группа ресурсов с допустимой виртуальной машиной.
-
-В этом примере мы рассмотрим виртуальную машину, которая отправляет больше TCP-сегментов, чем обычно. Вы хотите получать оповещения о такой ситуации. TCP-сегменты используются только в качестве примера. Вы можете использовать любое условие оповещения. Когда создается оповещение, вам нужно получить данные на уровне пакетов, чтобы найти причину необычной активности и восстановить на компьютере обычного режима обмена данными.
+В этом сценарии предполагается, что у вас есть экземпляр службы "Наблюдатель за сетями", а также группа ресурсов с допустимой виртуальной машиной.
 
 Ниже приведен обзор соответствующего рабочего процесса.
 
 1. На виртуальной машине активируется оповещение.
 1. Это оповещение вызывает функцию Azure через webhook.
 1. Функция Azure обрабатывает оповещение и запускает сеанс записи пакетов в наблюдателе за сетями.
-1. На виртуальной машине выполняется запись пакетов, которая собирает данные о трафике.
+1. На виртуальной машине выполняется запись пакетов и собираются данные о трафике.
 1. Файл записи пакетов передается в учетную запись хранения для проверки и диагностики.
 
-Чтобы автоматизировать этот процесс, мы создадим и подключим на виртуальной машине оповещение, которое будет срабатывать при возникновении проблемы. Также мы создадим функцию для вызова наблюдателя за сетями.
+Чтобы автоматизировать этот процесс, мы создадим и подключим на виртуальной машине оповещение, которое будет срабатывать при возникновении проблемы. Также мы создадим функцию для вызова службы "Наблюдатель за сетями".
 
 Этот сценарий выполняет следующее:
 
 * создает функцию Azure, которая запускает запись пакетов;
 * создает правило генерации оповещений на виртуальной машине и настраивает его для вызова функции Azure.
 
-## <a name="creating-an-azure-function"></a>Создание функции Azure
+## <a name="create-an-azure-function"></a>Создание функции Azure
 
 Первым делом нам нужно создать функцию Azure для обработки оповещения и создания записи пакетов.
 
-1. На [портале Azure](https://portal.azure.com) щелкните **Создать** > **Вычисления** > **Приложение-функция**.
+1. На [портале Azure](https://portal.azure.com) последовательно выберите **Создать** > **Вычисления** > **Приложение-функция**.
 
     ![Создание приложения-функции][1-1]
 
-2. В разделе **Приложение-функция** введите следующие значения и нажмите кнопку **ОК** для создания приложения-функции:
+2. В колонке **Приложение-функция** введите следующие значения и нажмите кнопку **ОК** для создания приложения:
 
     |**Параметр** | **Значение** | **Дополнительные сведения** |
     |---|---|---|
-    |**Имя приложения**|PacketCaptureExample|Имя приложения-функции|
-    |**Подписка**|[Ваша подписка]|Выберите подписку Azure для создания приложения-функции.||
-    |**Группа ресурсов**|PacketCaptureRG|Имя группы ресурсов, куда будет помещено приложение-функция.|
-    |**План размещения**|План потребления| Тип плана, который будет использовать приложение-функция. Доступен план потребления или план службы приложений. |
+    |**Имя приложения**|PacketCaptureExample|Имя приложения-функции.|
+    |**Подписка**|[Ваша подписка] Подписка, в которой нужно создать приложение-функцию.||
+    |**Группа ресурсов**|PacketCaptureRG|Группа ресурсов, куда будет помещено приложение-функция.|
+    |**План размещения**|План потребления| Тип плана, который использует приложение-функция. Можно выбрать план потребления или план службы приложений Azure. |
     |**Расположение**|Центральный регион США| Регион для создания приложения-функции.|
     |**Учетная запись хранения**|{autogenerated}| Это учетная запись хранения, необходимая функциям Azure для хранилища общего назначения.|
 
-3. В колонке **PacketCaptureExample** приложений-функций щелкните **+** в разделе **Функции** > **Пользовательская функция**. Выберите **HttpTrigger-Powershell**, введите остальные сведения и нажмите кнопку **Создать** для создания функции.
+3. В колонке **приложения-функции PacketCaptureExample** последовательно выберите **Функции** > **Пользовательская функция** >**+**.
+
+4. Выберите **HttpTrigger-Powershell** и введите остальные сведения. Наконец, чтобы создать функцию, выберите **Создать**.
 
     |**Параметр** | **Значение** | **Дополнительные сведения** |
     |---|---|---|
     |**Сценарий**|Экспериментальная возможность|Тип сценария|
     |**Имя функции**|AlertPacketCapturePowerShell|Имя функции|
-    |**Уровень авторизации**|Функция|Уровень авторизации для функции.|
+    |**Уровень авторизации**|Функция|Уровень авторизации для функции|
 
-![Пример функции][functions1]
+![Пример функций][functions1]
 
 > [!NOTE]
 > Шаблон PowerShell является экспериментальным и не обеспечивает полную поддержку.
 
 Для этого примера требуются настройки, описанные ниже.
 
-### <a name="adding-modules"></a>Добавление модулей
+### <a name="add-modules"></a>Добавление модулей
 
-Чтобы использовать командлеты PowerShell для Наблюдателя за сетями, необходимо передать в приложение-функцию последнюю версию модуля PowerShell.
+Чтобы использовать командлеты PowerShell для службы "Наблюдатель за сетями", передайте в приложение-функцию последнюю версию модуля PowerShell.
 
 1. На локальном компьютере, на котором установлена последняя версия модулей Azure PowerShell, выполните следующую команду PowerShell.
 
@@ -119,13 +119,15 @@ ms.lasthandoff: 04/27/2017
 
     ![Папки PowerShell][functions5]
 
-1. Выберите **Параметры приложения-функции** > **Перейти в редактор службы приложений**.
+1. Последовательно выберите **Параметры приложения-функции** > **Перейти в редактор службы приложений**.
 
-    ![Функции Kudu][functions2]
+    ![Параметры приложения-функции][functions2]
 
-1. Щелкните правой кнопкой мыши папку AlertPacketCapturePowershell и создайте папку **azuremodules**. Создайте вложенные папки для каждого необходимого модуля.
+1. Щелкните правой кнопкой мыши папку **AlertPacketCapturePowershell** и создайте папку **azuremodules**. 
 
-    ![Функции Kudu][functions3]
+4. Создайте вложенную папку для каждого требуемого модуля.
+
+    ![Папки и вложенные папки][functions3]
 
     * AzureRM.Network
 
@@ -133,9 +135,13 @@ ms.lasthandoff: 04/27/2017
 
     * AzureRM.Resources
 
-1. Щелкните правой кнопкой мыши вложенную папку **AzureRM.Network** и щелкните **Отправить файлы**. Перейдите к папке с установленными модулями Azure. В локальной папке AzureRM.Network выберите все файлы и нажмите кнопку **OK**.  Повторите эти шаги для папок AzureRM.Profile и AzureRM.Resources.
+1. Щелкните правой кнопкой мыши вложенную папку **AzureRM.Network** и выберите пункт **Отправить файлы**. 
 
-    ![Передача файлов][functions6]
+6. Перейдите к модулям Azure. В локальной папке **AzureRM.Network** выберите все файлы. Нажмите кнопку **ОК**. 
+
+7. Повторите эти шаги для папок **AzureRM.Profile** и **AzureRM.Resources**.
+
+    ![Отправка файлов][functions6]
 
 1. По завершении в каждой папке должны находиться файлы модулей PowerShell с локального компьютера.
 
@@ -143,39 +149,39 @@ ms.lasthandoff: 04/27/2017
 
 ### <a name="authentication"></a>Аутентификация
 
-Чтобы использовать командлеты PowerShell, нужно пройти аутентификацию. Аутентификация должна быть настроена в приложении-функции. Чтобы настроить аутентификацию, нужно задать переменные среды и передать зашифрованный файл ключа в приложение-функцию.
+Чтобы использовать командлеты PowerShell, нужно пройти аутентификацию. Настройте проверку подлинности для приложения-функции. Для этого задайте переменные среды и передайте зашифрованный файл ключа в приложение-функцию.
 
 > [!NOTE]
-> В этом сценарии приводится всего один пример того, как реализовать аутентификацию с использованием Функций Azure. Существуют и другие способы сделать это.
+> В этом сценарии приводится всего один пример того, как реализовать проверку подлинности с использованием функций Azure. Существуют и другие способы сделать это.
 
 #### <a name="encrypted-credentials"></a>Зашифрованные учетные данные
 
-Следующий сценарий PowerShell создает файл ключа **PassEncryptKey.key** и предоставляет зашифрованную версию введенного пароля.  Это тот же пароль, который определен для приложения Azure AD и используется для аутентификации.
+С помощью указанного ниже скрипта PowerShell создается файл ключа с именем **PassEncryptKey.key**, а также предоставляется зашифрованная версия пароля. Это тот же пароль, который определен для приложения Azure Active Directory и используется для проверки подлинности.
 
 ```powershell
-#variables
+#Variables
 $keypath = "C:\temp\PassEncryptKey.key"
 $AESKey = New-Object Byte[] 32
 $Password = "<insert a password here>"
 
-#keys
+#Keys
 [Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($AESKey) 
 Set-Content $keypath $AESKey
 
-#get encrypted password
+#Get encrypted password
 $secPw = ConvertTo-SecureString -AsPlainText $Password -Force
 $AESKey = Get-content $KeyPath
 $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
 $Encryptedpassword
 ```
 
-В редакторе службы приложений для приложения-функции создайте папку **keys** в папке **AlertPacketCapturePowerShell** и передайте в нее файл **PassEncryptKey.key**, созданный предыдущим примером PowerShell.
+В редакторе службы приложений для приложения-функции создайте папку **keys** в папке **AlertPacketCapturePowerShell**. Затем передайте в нее файл **PassEncryptKey.key**, который вы создали в предыдущем примере PowerShell.
 
-![Ключ для функции][functions8]
+![Ключ для функций][functions8]
 
 ### <a name="retrieve-values-for-environment-variables"></a>Извлечение значений переменных среды
 
-Чтобы завершить настройку, необходимо задать переменные среды, требуемые для доступа к значениям для аутентификации. Ниже приведен список создаваемых переменных среды.
+В завершение необходимо задать переменные среды, которые требуются для доступа к значениям для проверки подлинности. Ниже приведен список создаваемых переменных среды.
 
 * AzureClientID
 
@@ -198,19 +204,19 @@ $Encryptedpassword
     ```
 
    > [!NOTE]
-   > Пароль, используемый при создании приложения, должен совпадать с паролем, который был создан ранее при сохранении файла ключа.
+   > Пароль, который вы использовали при создании приложения, должен совпадать с паролем, созданным ранее при сохранении файла ключа.
 
-1. На портале Azure щелкните **Подписки**, выберите подписку и щелкните **Управление доступом (IAM)**.
+1. На портале Azure выберите **Подписки**. Выберите подписку, которую нужно использовать, а затем — пункт **Управление доступом (IAM)**.
 
     ![Функции (IAM)][functions9]
 
-1. Выберите учетную запись и щелкните "Свойства". Скопируйте идентификатор приложения.
+1. Выберите учетную запись, а затем — пункт **Свойства**. Скопируйте идентификатор приложения.
 
-    ![Идентификатор приложения-функции][functions10]
+    ![Идентификатор приложений-функций][functions10]
 
 #### <a name="azuretenant"></a>AzureTenant
 
-Код клиента можно получить, выполнив следующий пример PowerShell.
+Получите код клиента, выполнив следующий пример PowerShell:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "<subscriptionName>").TenantId
@@ -218,19 +224,19 @@ $Encryptedpassword
 
 #### <a name="azurecredpassword"></a>AzureCredPassword
 
-Значением переменной среды AzureCredPassword является значение, получаемое с помощью следующего примера PowerShell. Это пример, который был показан в предыдущем разделе **Зашифрованные учетные данные**. Необходимым значением являются выходные данные переменной `$Encryptedpassword`.  Это пароль субъекта-службы, который мы зашифрованы с помощью сценария PowerShell.
+Значением переменной среды AzureCredPassword является значение, получаемое с помощью примера PowerShell ниже. Это пример, который был показан в предыдущем разделе **Зашифрованные учетные данные**. Требуемым значением являются выходные данные переменной `$Encryptedpassword`.  Это пароль субъекта-службы, который вы зашифровали с помощью скрипта PowerShell.
 
 ```powershell
-#variables
+#Variables
 $keypath = "C:\temp\PassEncryptKey.key"
 $AESKey = New-Object Byte[] 32
 $Password = "<insert a password here>"
 
-#keys
+#Keys
 [Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($AESKey) 
 Set-Content $keypath $AESKey
 
-#get encrypted password
+#Get encrypted password
 $secPw = ConvertTo-SecureString -AsPlainText $Password -Force
 $AESKey = Get-content $KeyPath
 $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
@@ -239,94 +245,94 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>Хранение переменных среды
 
-1. Перейдите к приложению-функции и щелкните **Параметры приложения-функции** > **Настроить параметры приложения**.
+1. Перейдите к приложению-функции. Затем последовательно выберите **Параметры приложения-функции** > **Настроить параметры приложения**.
 
     ![Настройка параметров приложения][functions11]
 
 1. Добавьте переменные среды и их значения к параметрам приложения и нажмите кнопку **Сохранить**.
 
-    ![параметры приложения][functions12]
+    ![Параметры приложения][functions12]
 
 ### <a name="add-powershell-to-the-function"></a>Добавление PowerShell в функцию
 
-Пришло время выполнить вызов Наблюдателя за сетями из функции Azure. Реализация этой функции будет отличаться в зависимости от конкретных требований. Но общая схема потока кода будет иметь такой вид.
+Пришло время вызвать службу "Наблюдатель за сетями" из функции Azure. Реализация этой функции будет зависеть от конкретных требований. Но в целом последовательность кода будет выглядеть примерно так:
 
 1. Обработка входных параметров.
-2. Запрос уже существующих записей пакетов для проверки ограничений и разрешения конфликтов имен.
+2. Запрос существующих записей пакетов для проверки ограничений и разрешения конфликтов имен.
 3. Создание записи пакетов с необходимыми параметрами.
 4. Периодический опрос процесса записи пакетов вплоть до его завершения.
-5. Уведомление пользователя о завершении сеанса записи пакета.
+5. Уведомление пользователя о завершении сеанса записи пакетов.
 
-Следующий пример PowerShell можно использовать в функции Azure. Необходимо заменить значения subscriptionId, resourceGroupName и storageAccountName.
+В функции можно использовать указанный ниже пример кода PowerShell. Необходимо заменить значения **subscriptionId**, **resourceGroupName** и **storageAccountName**.
 
 ```powershell
-#Import Azure PowerShell modules required to make calls to Network Watcher
-Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
-Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
-Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
+            #Import Azure PowerShell modules required to make calls to Network Watcher
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
 
-#Process Alert Request Body
-$requestBody = Get-Content $req -Raw | ConvertFrom-Json
+            #Process alert request body
+            $requestBody = Get-Content $req -Raw | ConvertFrom-Json
 
-#Storage Account Id to save captures in
-$storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
+            #Storage account ID to save captures in
+            $storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
 
-#Packet Capture Vars
-$packetcapturename = "PSAzureFunction"
-$packetCaptureLimit = 10
-$packetCaptureDuration = 10
+            #Packet capture vars
+            $packetcapturename = "PSAzureFunction"
+            $packetCaptureLimit = 10
+            $packetCaptureDuration = 10
 
-#Credentials
-$tenant = $env:AzureTenant
-$pw = $env:AzureCredPassword
-$clientid = $env:AzureClientId
-$keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key"
+            #Credentials
+            $tenant = $env:AzureTenant
+            $pw = $env:AzureCredPassword
+            $clientid = $env:AzureClientId
+            $keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key"
 
-#Authentication
-$secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
-$credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+            #Authentication
+            $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
+            $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
+            Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
-#Get the VM that fired the Alert
-if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
-{
-    Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
-    Write-Output ("Resource Group:  {0}" -f $requestBody.context.resourceGroupName)
-    Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
-    Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
+            #Get the VM that fired the alert
+            if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
+            {
+                Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
+                Write-Output ("Resource Group:  {0}" -f $requestBody.context.resourceGroupName)
+                Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
+                Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
-    #Get the Network Watcher in the VM's Region
-    $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
-    $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+                #Get the Network Watcher in the VM's region
+                $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
+                $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-    #Get existing packetCaptures
-    $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
+                #Get existing packetCaptures
+                $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
-    #Remove existing packet capture created by the function if it exists
-    $packetCaptures | %{if($_.Name -eq $packetCaptureName)
-    { 
-        Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
-    }}
+                #Remove existing packet capture created by the function (if it exists)
+                $packetCaptures | %{if($_.Name -eq $packetCaptureName)
+                { 
+                    Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
+                }}
 
-    #Initiate Packet Capture on the VM that fired the alert
-    if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
-        echo "Initiating Packet Capture"
-        New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
-        Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
-    }
-} 
-``` 
+                #Initiate packet capture on the VM that fired the alert
+                if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
+                    echo "Initiating Packet Capture"
+                    New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
+                    Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
+                }
+            } 
+ ``` 
+#### <a name="retrieve-the-function-url"></a>Извлечение URL-адреса функции 
+1. Когда функция будет готова, настройте вызов связанного с ней URL-адреса в оповещении. Чтобы получить нужное значение, скопируйте URL-адрес функции из приложения-функции.
 
-Когда функция будет готова, настройте вызов связанного с ней URL-адреса в оповещении. Чтобы получить нужное значение, скопируйте URL-адрес функции из приложения-функции.
+    ![Поиск URL-адреса функции][functions13]
 
-![Поиск URL-адреса функции 1][functions13]
+2. Скопируйте URL-адрес функции для приложения-функции.
 
-Скопируйте URL-адрес функции для приложения-функции.
+    ![Копирование URL-адреса функции][2]
 
-![Поиск URL-адреса функции 2][2]
-
-Если вы хотите передавать пользовательские свойства в полезных данных запроса POST, передаваемого в webhook, изучите статью [Настройка объектов webhook для оповещений на основе метрик Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Если вы хотите передавать пользовательские свойства в полезных данных запроса POST, передаваемого в веб-перехватчике, см. статью [Настройка объектов webhook для оповещений на основе метрик Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
 ## <a name="configure-an-alert-on-a-vm"></a>Настройка оповещения на виртуальной машине
 
@@ -334,7 +340,7 @@ if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
 
 ### <a name="create-the-alert-rule"></a>Создание правила для оповещения
 
-Перейдите к существующей виртуальной машине и добавьте правило генерации оповещений. Дополнительные сведения о настройке оповещений см. в статье [Создание оповещений в Azure Monitor для служб Azure с помощью портала Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Введите в колонке приведенные ниже значения и нажмите кнопку **ОК**:
+Перейдите к существующей виртуальной машине и добавьте правило генерации оповещений. Дополнительные сведения о настройке оповещений см. в статье [Создание оповещений в Azure Monitor для служб Azure с помощью портала Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Введите указанные ниже значения в колонке **Правило генерации оповещений** и нажмите кнопку **ОК**.
 
   |**Параметр** | **Значение** | **Дополнительные сведения** |
   |---|---|---|
@@ -342,22 +348,22 @@ if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
   |**Описание**|Число отправленных TCP-сегментов превысило пороговое значение|Описание для правила генерации оповещений.||
   |**Метрика**|Отправлено TCP-сегментов| Метрика, используемая для активации оповещения. |
   |**Condition**|Больше| Условие, используемое при вычислении метрики.|
-  |**Пороговое значение**.|100| Это значение метрики, активирующее оповещение. Оно должно быть допустимым для используемой среды.|
-  |**Период**|Период за последние 5 минут| Определяет период, за который проверяется пороговое значение для метрики.|
-  |**webhook**|[URL-адрес webhook из приложения-функции]| Это URL-адрес webhook из приложения-функции, созданного в предыдущих шагах.|
+  |**Пороговое значение**.|100| Это значение метрики, при достижении которого запускается оповещение. Оно должно быть допустимым для вашей среды.|
+  |**Период**|За последние пять минут| Определяет период, за который проверяется пороговое значение для метрики.|
+  |**webhook**|[URL-адрес веб-перехватчика из приложения-функции]| Это URL-адрес веб-перехватчика из приложения-функции, созданного на предыдущих шагах.|
 
 > [!NOTE]
-> Метрика сегментов TCP не включена по умолчанию. Дополнительные сведения о том, как включить такие метрики, см. в статье [Включение мониторинга и диагностики](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> Метрика сегментов TCP не включена по умолчанию. Подробные сведения о том, как включить дополнительные метрики, см. в статье [Приступая к работе с Azure Monitor](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
 
 ## <a name="review-the-results"></a>Просмотр результатов
 
-После задания условий для триггеров оповещений создается запись пакетов. Откройте наблюдатель за сетями и щелкните **Запись пакетов**. На этой странице можно щелкнуть ссылку на файла записи пакетов, чтобы скачать ее.
+После задания условий для триггеров оповещений создается запись пакетов. Перейдите к службе "Наблюдатель за сетями" и выберите **Запись пакетов**. На этой странице вы можете воспользоваться ссылкой на файл записи пакетов, чтобы скачать его.
 
 ![Просмотр записи пакетов][functions14]
 
-Если же файл записи хранится локально, для доступа к нему войдите в виртуальную машину.
+Если же файл записи хранится локально, вы можете войти на виртуальную машину, чтобы извлечь его.
 
-Инструкции по скачиванию файлов из учетных записей хранения Azure см. в статье [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](../storage/storage-dotnet-how-to-use-blobs.md). Кроме того, можно использовать такое средство, как обозреватель хранилищ. Дополнительные сведения об обозревателе хранилищ см. [здесь](http://storageexplorer.com/).
+Инструкции по скачиванию файлов из учетных записей хранения Azure см. в статье [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](../storage/storage-dotnet-how-to-use-blobs.md). Кроме того, можно использовать такое средство, как [обозреватель хранилищ](http://storageexplorer.com/).
 
 Когда вы скачаете нужную запись, ее можно просмотреть в любом средстве, поддерживающем формат **CAP**. Ниже приведены ссылки на два таких средства.
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 77030e3e6375682c416d99ef22d754b908ad484d
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 00cb963e85111274c36c3a84489894811ad2dabd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -48,7 +49,7 @@ ms.lasthandoff: 05/10/2017
 | Субъект| {Тема}|Строка для уникальной идентификации входа пользователя в Интернете|
 | Tenant ID| Guid| Значение *guid* используется для однозначного представления организации пользователя Azure Active Directory.|
 
-Кроме того, вы увидите таблицу со всеми утверждениями пользователя, включенными в запрос проверки подлинности. Список всех утверждений в маркере идентификатора и их описание см. в статье [Справочник по токенам в Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Кроме того, вы увидите таблицу со всеми утверждениями пользователя, включенными в запрос проверки подлинности. Список всех утверждений в маркере идентификатора и их описание см. в этой [статье](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "Список утверждений в маркере идентификатора").
 
 
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Проверка доступа к методу, включающему атрибут *[Authorize]* (необязательно)
@@ -82,6 +83,6 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 > Чтобы разрешить вход для пользователей из списка определенных организаций, задайте параметру `ValidateIssuer` значение true и используйте параметр `ValidIssuers`, чтобы указать список организаций.
 
-> Другой вариант — реализовать пользовательский метод для проверки издателей с помощью параметра IssuerValidator. Дополнительные сведения о `TokenValidationParameters` см. в [этой статье MSDN](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters.aspx).
+> Другой вариант — реализовать пользовательский метод для проверки издателей с помощью параметра IssuerValidator. Дополнительные сведения о `TokenValidationParameters` см. в этой [статье](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "Статья о классе TokenValidationParameters на сайте MSDN") на сайте MSDN.
 
 

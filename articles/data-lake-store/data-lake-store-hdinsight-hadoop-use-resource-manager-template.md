@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/06/2017
+ms.date: 05/04/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: cfa0320b6c83cf169c64eb5f1932e96bd172f827
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 6f43423096f0e74f41afea275e4ec9801dc2cea5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -39,12 +39,9 @@ ms.lasthandoff: 04/27/2017
 
 Ниже приведены некоторые важные сведения об использовании HDInsight с Data Lake Store.
 
-* Возможность создавать кластеры HDInsight с доступом к Data Lake Store в качестве хранилища по умолчанию поддерживается для версии HDInsight 3.5.
+* Возможность создавать кластеры HDInsight с доступом к Data Lake Store в качестве хранилища по умолчанию поддерживается в HDInsight версий 3.5 и 3.6.
 
-* Возможность создавать кластеры HDInsight с доступом к Data Lake Store в качестве дополнительного хранилища поддерживается для версий HDInsight 3.2, 3.4 и 3.5.
-
-* В кластерах HBase (Windows и Linux) Data Lake Store **нельзя** использовать как хранилище по умолчанию, а также как дополнительное хранилище.
-
+* Возможность создавать кластеры HDInsight с доступом к Data Lake Store в качестве дополнительного хранилища поддерживается в HDInsight версий 3.2, 3.4, 3.5 и 3.6.
 
 В этой статье мы подготовим кластер Hadoop, в котором хранилище озера данных будет дополнительным хранилищем. Инструкции по созданию кластера Hadoop с Data Lake Store в качестве хранилища по умолчанию см. в статье [Создание кластера HDInsight с Data Lake Store с помощью портала Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
 

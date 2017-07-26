@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0dd751d9c824f27bdb25681908cb0dca5116100b
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -88,8 +88,9 @@ ms.lasthandoff: 05/10/2017
 
 Теперь вы можете добавить другое действие, например [SQL Server - insert row](connectors-create-api-sqlazure.md) (SQL Server — вставка строки), которое будет вставлять содержимое нового или измененного файла в таблицу базы данных SQL.  
 
-## <a name="view-the-swagger"></a>Просмотр Swagger
-Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/ftpconnector/). 
+## <a name="connector-specific-details"></a>Сведения о соединителях
+
+Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/ftpconnector/). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создайте приложение логики](../logic-apps/logic-apps-create-a-logic-app.md)

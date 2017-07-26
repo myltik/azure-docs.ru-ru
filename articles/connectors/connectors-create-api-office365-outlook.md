@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b3d6f232f1ad7a672746287130c15eb738c1b7a1
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 5335dae62e61659b68e8befb4ed0d404dffb800c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -92,8 +92,9 @@ Office 365 Outlook позволяет следующее:
    > 
 5. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
 
-## <a name="view-the-swagger"></a>Просмотр Swagger
-Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/office365connector/). 
+## <a name="connector-specific-details"></a>Сведения о соединителях
+
+Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).

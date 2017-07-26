@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 08/02/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e5d3301c90adf993b1cba35969dfe4dbeaeab499
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 1e2ce06f5993280dbdb67121849591e67f7979e9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -47,8 +47,9 @@ ms.lasthandoff: 05/10/2017
 
 [!INCLUDE [Steps to create a Service Bus action](../../includes/connectors-create-api-servicebus-action.md)]
 
-## <a name="view-the-swagger"></a>Просмотр Swagger
-Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/servicebus/). 
+## <a name="connector-specific-details"></a>Сведения о соединителях
+
+Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/servicebus/). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md).

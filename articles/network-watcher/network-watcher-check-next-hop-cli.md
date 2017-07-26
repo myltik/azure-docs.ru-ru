@@ -1,5 +1,5 @@
 ---
-title: "Поиск следующего прыжка с помощью возможности определения следующего прыжка Наблюдателя за сетями Azure (Azure CLI) | Документация Майкрософт"
+title: "Поиск следующего прыжка с помощью возможности определения следующего прыжка в Наблюдателе за сетями Azure (Azure CLI 2.0) | Документация Майкрософт"
 description: "В этой статье описано, как определить тип следующего прыжка и IP-адрес, используя возможность определения следующего прыжка в Azure CLI."
 services: network-watcher
 documentationcenter: na
@@ -14,26 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 49939946f887c51fbc2a135c28236407f5569f48
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d1ee6870ba0188ff2c473e4cca12a5bdc1f97d3d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/26/2017
 
 
 ---
 
-# <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli"></a>Определите тип следующего прыжка, используя возможность определения следующего прыжка Наблюдателя за сетями Azure в Azure CLI.
+# <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Определите тип следующего прыжка, используя возможность определения следующего прыжка в Наблюдателе за сетями Azure в Azure CLI 2.0.
 
 > [!div class="op_single_selector"]
 > - [Портал Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
-> - [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](network-watcher-check-next-hop-cli.md)
+> - [Интерфейс командной строки 1.0](network-watcher-check-next-hop-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [Azure REST API](network-watcher-check-next-hop-rest.md)
-
 
 Определение следующего прыжка — это возможность Наблюдателя за сетями, позволяющая определить тип следующего прыжка и IP-адрес на основе указанной виртуальной машины. Эта возможность используется, чтобы определить путь передачи исходящего трафика виртуальной машины (шлюз, Интернет или виртуальные сети) к месту назначения.
 
-В этой статье используется кроссплатформенной Azure CLI 1.0, доступный для Windows, Mac и Linux. Наблюдатель за сетями в настоящее время использует Azure CLI 1.0 в качестве интерфейса командной строки.
+В этой статье мы используем наш новейший интерфейс командной строки для модели развертывания ресурсов и управления ими, а именно Azure CLI 2.0. Этот интерфейс доступен для Windows, Mac и Linux.
+
+Для выполнения действий, описанных в этой статье, требуется [установить интерфейс командной строки Azure для Mac, Linux и Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="before-you-begin"></a>Перед началом работы
 
@@ -48,10 +51,13 @@ ms.lasthandoff: 03/28/2017
 
 ## <a name="get-next-hop"></a>Получение следующего прыжка
 
-Чтобы получить следующий прыжок, вызовите командлет `azure netowrk watcher next-hop`. Мы передаем в командлет группу ресурсов Наблюдателя за сетями, Наблюдатель за сетями, идентификатор виртуальной машины, IP-адрес источника и места назначения. В этом примере в качестве IP-адреса места назначения используется IP-адрес виртуальной машины в другой виртуальной сети. Между двумя виртуальными сетями находится шлюз виртуальной сети.
+Чтобы получить следующий прыжок, вызовите командлет `az network watcher show-next-hop`. Мы передаем в командлет группу ресурсов Наблюдателя за сетями, Наблюдатель за сетями, идентификатор виртуальной машины, IP-адрес источника и места назначения. В этом примере в качестве IP-адреса места назначения используется IP-адрес виртуальной машины в другой виртуальной сети. Между двумя виртуальными сетями находится шлюз виртуальной сети.
+
+Установите и настройте последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) (если вы еще этого не сделали), а затем войдите с использованием учетной записи Azure, выполнив команду [az login](/cli/azure/#login). Затем выполните следующую команду.
 
 ```azurecli
-azure network watcher next-hop -g resourceGroupName -n networkWatcherName -t targetResourceId -a <source-ip> -d <destination-ip>
+az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>
+
 ```
 
 > [!NOTE]
@@ -61,9 +67,12 @@ azure network watcher next-hop -g resourceGroupName -n networkWatcherName -t tar
 
 По завершении выводятся результаты. Возвращается IP-адрес следующего прыжка и тип ресурса.
 
-```
-data:    Next Hop Ip Address             : 10.0.1.2
-info:    network watcher next-hop command OK
+```azurecli
+{
+    "nextHopIpAddress": null,
+    "nextHopType": "Internet",
+    "routeTableId": "System Route"
+}
 ```
 
 Ниже перечислены доступные значения NextHopType.

@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 05/02/2017
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a52cc8d5685fad849bf8ea2a4c4f8fde3f340bde
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: bc7908868828bd1628633cf9e57f8c44f8000827
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -71,9 +71,9 @@ ms.lasthandoff: 05/10/2017
 > [!TIP]
 > [Обозреватель хранилищ](http://storageexplorer.com/) — это отличное средство для управления несколькими учетными записями хранения.
 
-## <a name="view-the-swagger"></a>Просмотр Swagger
+## <a name="connector-specific-details"></a>Сведения о соединителях
 
-Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/azureblobconnector/). 
+Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/azureblobconnector/). 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [Создание приложения логики](../logic-apps/logic-apps-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, просмотрите [список интерфейсов API](apis-list.md).

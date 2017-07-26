@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 54389c0b6dfbe5483106ca74e379dff9091fb907
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 2962e30e5d9c60b8e786e2ba79647cabfc5925cd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -26,7 +26,8 @@ ms.lasthandoff: 05/11/2017
 
 > [!div class="op_single_selector"]
 > * [Портал Azure](dns-operations-recordsets-portal.md)
-> * [Интерфейс командной строки Azure](dns-operations-recordsets-cli.md)
+> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 В этой статье описывается, как управлять записями DNS для зоны DNS с помощью Azure PowerShell. Записями DNS также можно управлять с помощью кроссплатформенного [интерфейса командной строки Azure](dns-operations-recordsets-cli.md) или [портала Azure](dns-operations-recordsets-portal.md).
@@ -46,13 +47,13 @@ ms.lasthandoff: 05/11/2017
 
 Если вы создаете запись с такими же именем и типом, как у существующей записи, эту новую запись нужно [добавить в существующий набор записей](#add-a-record-to-an-existing-record-set). Если имя и тип новой и существующих записей отличаются, вам нужно создать другой набор записей. 
 
-### <a name="create-a-records-in-a-new-record-set"></a>Создание записей типа А в новом наборе записей
+### <a name="create-a-records-in-a-new-record-set"></a>Создание записей А в новом наборе записей
 
 Для создания наборов записей используется командлет `New-AzureRmDnsRecordSet`. Создавая набор записей, вам нужно определить для него имя, зону, срок жизни (TTL), тип записей и сами создаваемые записи.
 
 Параметры для добавления записей в набор записей зависят от типа набора записей. Например, при использовании набора записей типа A вам нужно указать IP-адрес с использованием параметра `-IPv4Address`. Другие параметры используются для других типов записей (см. [примеры других типов записей](#additional-record-type-examples)).
 
-В следующем примере создается набор записей с относительным именем www в зоне DNS contoso.com. Полное доменное имя набора записей — www.contoso.com. Тип записи — A, а срок жизни составляет 3600 секунд. Каждый такой набор содержит одну запись с IP-адресом 1.2.3.4.
+В следующем примере создается набор записей с относительным именем www в зоне DNS contoso.com. Полное доменное имя набора записей — www.contoso.com. Тип записи — A, а срок жизни — 3600 секунд. Каждый такой набор содержит одну запись с IP-адресом 1.2.3.4.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
@@ -164,7 +165,7 @@ New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName "contoso.com"
 $rs = Get-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
-Кроме того, зону можно также определить с помощью соответствующего объекта, переданного с помощью параметра -Zone. 
+Кроме того, зону можно указать с помощью объекта зоны, переданного с помощью параметра `-Zone`.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"
@@ -306,7 +307,7 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 
 Набор записей типа NS на вершине зоны автоматически создается вместе с каждой зоной DNS. Он содержит имена DNS-серверов Azure, назначенные зоне.
 
-Вы можете добавить дополнительные имена серверов в этот набор записей NS, обеспечив поддержку совместного размещения доменов с использованием более чем одного поставщика DNS. Вы также можете изменить срок жизни и метаданные для этого набора записей. При этом вы не можете удалить или изменить предварительно заполненные DNS-серверы Azure.
+Вы можете добавить дополнительные имена серверов в этот набор записей NS, обеспечив поддержку совместного размещения доменов с использованием более чем одного поставщика DNS. Вы также можете изменить срок жизни и метаданные для этого набора записей. При этом вы не можете удалить или изменить предварительно заполненные серверы доменных имен Azure DNS.
 
 Обратите внимание, что это относится только к набору записей NS на вершине зоны. Другие наборы записей NS в зоне (используемые для делегирования дочерних зон) можно изменять без ограничений.
 

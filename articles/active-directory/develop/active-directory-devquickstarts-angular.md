@@ -3,7 +3,7 @@ title: "Приступая к работе с Azure AD на AngularJS | Доку
 description: "Практическое руководство по созданию одностраничного приложения на AngularJS, которое выполняет вход через Azure AD и вызывает API-интерфейсы, защищенные в Azure AD, по протоколу OAuth."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
@@ -13,10 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: a9997b6a6d30fbd2d21dee5d9c1e3ea92dfa97ab
-ms.openlocfilehash: 0ace1ee96d9266db9310ba73c36788a787a9dd15
+ms.author: jmprieur
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 797b6236afad45e3e308ce073a8beb90cb7e94a1
+ms.contentlocale: ru-ru
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -29,6 +32,7 @@ ms.openlocfilehash: 0ace1ee96d9266db9310ba73c36788a787a9dd15
 Для JavaScript-приложений, выполняющихся в браузере, Azure AD предоставляет библиотеку adal.js, используемую при аутентификации в Active Directory. Adal.js выполняет единственную функцию — упрощает получение маркеров доступа. Чтобы показать, насколько это просто, создадим приложение To Do List (список дел) на AngularJS, которое:
 
 * выполняет вход пользователя в приложение, используя Azure AD как поставщика удостоверений;
+
 * Отображает некоторые сведения о пользователе.
 * безопасно вызывает реализованный в приложении интерфейс приложения со списком дел, используя токены носителя из Azure AD;
 * Обеспечивает функцию выхода пользователя из приложения.
@@ -44,8 +48,8 @@ ms.openlocfilehash: 0ace1ee96d9266db9310ba73c36788a787a9dd15
 ## <a name="step-1-register-the-directorysearcher-application"></a>Шаг 1. Регистрация приложения DirectorySearcher
 Чтобы приложение могло осуществлять аутентификацию пользователей и получать маркеры, необходимо зарегистрировать его в клиенте Azure AD.
 
-1. Войдите на [портал Azure](https://portal.azure.com).
-2. На верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиент Azure AD для регистрации приложения.
+1. Выполните вход на [портал Azure](https://portal.azure.com).
+2. Если вы вошли в несколько каталогов, убедитесь, что вы просматриваете правильный каталог. Для этого на верхней панели щелкните свою учетную запись. В списке **Каталог** выберите клиент Azure AD для регистрации приложения.
 3. В области слева щелкните **Больше служб** и выберите **Azure Active Directory**.
 4. Щелкните **Регистрация приложений**, а затем выберите **Добавить**.
 5. Следуйте инструкциям на экране, а затем создайте новое веб-приложение и (или) веб-API.
@@ -61,6 +65,7 @@ ms.openlocfilehash: 0ace1ee96d9266db9310ba73c36788a787a9dd15
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Шаг 2. Установка библиотеки ADAL и настройка одностраничного приложения
 Теперь, когда приложение зарегистрировано в Azure AD, можно установить библиотеку adal.js и написать код для работы с удостоверением.
 
+### <a name="configure-the-javascript-client"></a>Настройка клиента JavaScript
 Добавьте adal.js в проект TodoSPA с помощью консоли диспетчера пакетов.
   1. Скачайте файл [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js) и добавьте его в каталог проекта `App/Scripts/`.
   2. Скачайте файл [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) и добавьте его в каталог проекта `App/Scripts/`.
@@ -73,6 +78,7 @@ ms.openlocfilehash: 0ace1ee96d9266db9310ba73c36788a787a9dd15
     ...
     ```
 
+### <a name="configure-the-back-end-server"></a>Настройка внутреннего сервера
 Чтобы API серверной части одностраничного интерфейсного приложения со списком дел мог принимать маркеры от браузера, ему требуются сведения о параметрах регистрации приложения. В проекте TodoSPA откройте файл `web.config`. Замените значения элементов в разделе `<appSettings>` на значения, которые вы указали на портале Azure. Ваш код будет ссылаться на эти значения при каждом использовании ADAL.
   * `ida:Tenant` — это имя вашего клиента Azure AD, например contoso.onmicrosoft.com.
   * Для `ida:Audience` укажите скопированный на портале идентификатор клиента приложения.
@@ -156,9 +162,4 @@ Adal.js позволяет легко добавлять в приложение
 Теперь можно приступить к изучению других сценариев. Попробуйте осуществить [вызов веб-интерфейса API CORS из одностраничного приложения](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
