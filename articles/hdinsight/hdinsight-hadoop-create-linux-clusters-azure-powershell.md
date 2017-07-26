@@ -1,5 +1,5 @@
 ---
-title: "Создание кластеров Azure HDInsight (Hadoop) с помощью PowerShell | Документация Майкрософт"
+title: "Создание кластеров Hadoop с помощью PowerShell в Azure HDInsight | Документы Майкрософт"
 description: "Узнайте, как создавать кластеры Hadoop, HBase, Storm или Spark на платформе Linux для HDInsight с помощью Azure PowerShell."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: f22fc9e9306d34b66e89966a0f4485461539899d
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: ca75974e6ec4f60739137d4cb5458bbfd735de3e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -55,69 +55,16 @@ Azure PowerShell — это полнофункциональная среда с
 * Создание контейнера BLOB-объектов Azure
 * Создание кластера HDInsight
 
-Чтобы вы могли создавать кластеры на платформе Linux, укажите два главных параметра, которые определяют тип ОС и предоставляют сведения о пользователе SSH.
-
-* Укажите для параметра **-OSType** значение **Linux**.
-* Для использования SSH в удаленных сеансах кластеров можно указать пароль пользователя SSH или открытый ключ SSH. Если указать и пароль пользователя SSH, и открытый ключ SSH, ключ будет игнорироваться. Если вам нужно использовать ключ SSH для удаленных сеансов, оставьте поле пустым при запросе пароля SSH. См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
 Следующий сценарий демонстрирует создание нового кластера.
 
-    $token ="<SpecifyAnUniqueString>"
-    $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
+[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-71)]
 
-    $resourceGroupName = $token + "rg"      # Provide a Resource Group name
-    $clusterName = $token
-    $defaultStorageAccountName = $token + "store"   # Provide a Storage account name
-    $defaultStorageContainerName = $token + "container"
-    $location = "East US 2"     # Change the location if needed
-    $clusterNodes = 1           # The number of nodes in the HDInsight cluster
+Значения, указываемые для входа в кластер, используются для создания учетной записи пользователя Hadoop в кластере. Используйте эту учетную запись для подключения к службам, размещенным в кластере, например веб-интерфейсам пользователя или REST API.
 
-    # Sign in to Azure
-    Login-AzureRmAccount
-
-    # Select the subscription to use if you have multiple subscriptions
-    Select-AzureRmSubscription -SubscriptionId $subscriptionID
-
-    # Create an Azure Resource Group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-
-    # Create an Azure Storage account and container used as the default storage
-    New-AzureRmStorageAccount `
-        -ResourceGroupName $resourceGroupName `
-        -StorageAccountName $defaultStorageAccountName `
-        -Location $location `
-        -Type Standard_LRS
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $defaultStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
-    New-AzureStorageContainer -Name $defaultStorageContainerName -Context $destContext
-
-    # Create an HDInsight cluster
-    $credentials = Get-Credential -Message "Enter Cluster user credentials" -UserName "admin"
-    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
-
-    # The location of the HDInsight cluster must be in the same data center as the Storage account.
-    $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $defaultStorageAccountName | %{$_.Location}
-
-    New-AzureRmHDInsightCluster `
-        -ClusterName $clusterName `
-        -ResourceGroupName $resourceGroupName `
-        -HttpCredential $credentials `
-        -Location $location `
-        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultStorageContainer $defaultStorageContainerName  `
-        -ClusterSizeInNodes $clusterNodes `
-        -ClusterType Hadoop `
-        -OSType Linux `
-        -Version "3.4" `
-        -SshCredential $sshCredentials
-
-Значения, указываемые для параметра **$clusterCredentials** , используются для создания учетной записи Hadoop в кластере. Эта учетная запись будет использоваться для подключения к кластеру.
-
-Значения, указываемые для параметра **$sshCredentials** , используются для создания пользователя SSH в кластере. Используйте эту учетную запись для запуска удаленного сеанса SSH в кластере и выполнения заданий.
+Значения, указываемые для пользователя SSH, используются для создания пользователя SSH в кластере. Используйте эту учетную запись для запуска удаленного сеанса SSH в кластере и выполнения заданий. Дополнительные сведения см. в статье [Подключение к HDInsight (Hadoop) с помощью SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 > [!IMPORTANT]
-> В этом скрипте необходимо указать количество узлов рабочей роли, которые будут находиться в кластере. Если вы планируете использовать более 32 узлов рабочей роли (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
+> Если вы планируете использовать более 32 узлов рабочей роли (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
 >
 > Дополнительные сведения о размерах узлов и их стоимости см. на странице с [ценами на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -129,43 +76,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 Приведенный ниже сценарий создает объект конфигурации для настройки R Server для типа кластера HDInsight. Конфигурация включает граничный узел, RStudio и дополнительную учетную запись хранения.
 
-    # Create another storage account used as additional storage account
-    $additionalStorageAccountName = $token + "store2"
-    New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName `
-        -StorageAccountName $additionalStorageAccountName `
-        -Location $location `
-        -Type Standard_LRS
-    $additionalStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $additionalStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
-
-    # Create a new configuration for RServer cluster type
-    # Use -EdgeNodeSize to set the size of the edge node for RServer clusters
-    # if you want a specific size. Otherwise, the default size is used.
-    $config = New-AzureRmHDInsightClusterConfig `
-        -ClusterType "RServer" `
-        -EdgeNodeSize "Standard_D12_v2"
-
-    # Add RStudio to the configuration
-    $rserverConfig = @{"RStudio"="true"}
-    $config = $config | Add-AzureRmHDInsightConfigValues `
-        -RServer $rserverConfig
-
-    # Add an additional storage account
-    Add-AzureRmHDInsightStorage -Config $config -StorageAccountName "$additionalStorageAccountName.blob.core.windows.net" -StorageAccountKey $additionalStorageAccountKey
-
-    # Create a new HDInsight cluster
-    New-AzureRmHDInsightCluster `
-        -ClusterName $clusterName `
-        -ResourceGroupName $resourceGroupName `
-        -HttpCredential $credentials `
-        -Location $location `
-        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultStorageContainer $defaultStorageContainerName  `
-        -ClusterSizeInNodes $clusterNodes `
-        -OSType Linux `
-        -Version "3.5" `
-        -SshCredential $sshCredentials `
-        -Config $config
+[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 
 > [!WARNING]
 > Использование учетной записи хранения, расположение которой отличается от расположения кластера HDInsight, не поддерживается. При использовании этого примера создайте дополнительную учетную запись хранения в том же расположении, что и сервер.

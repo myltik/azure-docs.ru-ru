@@ -12,30 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2017
+ms.date: 06/17/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 8296e88024109e35379faa67ca887e6d2c52a6c5
-ms.openlocfilehash: 41bba4608fd7e3d0b16cbf0d846f5f65a071ad20
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Руководство по REST для ретранслятора WCF Azure
+
 В этом руководстве описано, как создать простое ведущее приложение ретранслятора Azure, предоставляющее интерфейс на основе REST. REST позволяет веб-клиенту, например веб-браузеру, получить доступ к интерфейсам API служебной шины с помощью HTTP-запросов.
 
-В этом руководстве для создания службы REST в служебной шине используется модель программирования REST Windows Communication Foundation (WCF). Дополнительные сведения см. в разделах [Модель программирования REST WCF](https://msdn.microsoft.com/library/bb412169.aspx) и [Разработка и реализация служб](https://msdn.microsoft.com/library/ms729746.aspx) в документации по WCF.
+В этом руководстве для создания службы REST в служебной шине используется модель программирования REST Windows Communication Foundation (WCF). Дополнительные сведения см. в разделах [Модель программирования REST WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) и [Разработка и реализация служб](/dotnet/framework/wcf/designing-and-implementing-services) в документации по WCF.
 
-## <a name="step-1-create-a-service-namespace"></a>Этап 1. Создание пространства имен службы
+## <a name="step-1-create-a-namespace"></a>Шаг 1. Создание пространства имен
 
 Чтобы начать использовать функции ретранслятора Azure, необходимо сначала создать пространство имен службы. Пространство имен предоставляет контейнер для адресации ресурсов Azure в вашем приложении. Выполните [эти инструкции](relay-create-namespace-portal.md), чтобы создать пространство имен ретранслятора.
 
 ## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Шаг 2. Определение контракта службы WCF на основе REST, используемого в ретрансляторе Azure
+
 При создании службы WCF на основе REST необходимо определить контракт. Контракт определяет, какие операции поддерживает узел. Операцию службы можно рассматривать как метод веб-службы. Контракты создаются путем определения интерфейса C++, C# или Visual Basic. Каждый метод в интерфейсе соответствует определенной операции службы. К каждому интерфейсу должен быть применен атрибут [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx), а к каждой операции — атрибут [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx). Если у метода в интерфейсе с атрибутом [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) нет атрибута [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), такой метод не предоставляется. Код для выполнения этих задач показан в примере, приведенном после описания последовательности выполнения действий.
 
 Основное различие между WCF и контрактом REST заключается в добавлении свойства к атрибуту [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Это свойство позволяет сопоставить метод в интерфейсе с методом на другой стороне интерфейса. В нашем примере атрибут [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) используется для связывания метода с HTTP GET. Это позволяет служебной шине точно извлекать и интерпретировать команды, отправляемые в интерфейс.
 
 ### <a name="to-create-a-contract-with-an-interface"></a>Создание контракта с помощью интерфейса
+
 1. Откройте Visual Studio с правами администратора, щелкнув программу правой кнопкой мыши в меню **Пуск** и выбрав **Запуск от имени администратора**.
 2. Создайте новый проект консольного приложения. В меню **Файл** выберите **Создать**, а затем — **Проект**. В диалоговом окне **Новый проект** щелкните **Visual C#**, выберите шаблон **Консольное приложение** и назовите его **ImageListener**. Используйте **расположение** по умолчанию. Нажмите кнопку **ОК** , чтобы создать проект.
 3. Для проекта C# в Visual Studio создается файл с именем `Program.cs`. Этот класс содержит пустой метод `Main()`, необходимый для правильной сборки проекта консольного приложения.
@@ -558,9 +562,9 @@ namespace Microsoft.ServiceBus.Samples
 ## <a name="next-steps"></a>Дальнейшие действия
 Вы научились создавать приложение, которое использует службу ретранслятора служебной шины. Дополнительные сведения о ретрансляторе Azure можно найти в следующих статьях:
 
-* [Обзор архитектуры служебной шины Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
+* [Обзор архитектуры служебной шины Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Что такое ретранслятор Azure?](relay-what-is-it.md)
-* [Как использовать ретранслятор WCF служебной шины с .NET](service-bus-dotnet-how-to-use-relay.md)
+* [Как использовать ретранслятор WCF служебной шины с .NET](relay-wcf-dotnet-get-started.md)
 
 [Azure portal]: https://portal.azure.com
 

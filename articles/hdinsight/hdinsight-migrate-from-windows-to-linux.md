@@ -1,5 +1,5 @@
 ---
-title: "Миграция из кластера HDInsight под управлением Windows на кластер HDInsight под управлением Linux | Документация Майкрософт"
+title: "Миграция из кластера HDInsight под управлением Windows в кластер HDInsight под управлением Linux в Azure | Документы Майкрософт"
 description: "Узнайте, как выполнить миграцию из кластера HDInsight под управлением Windows на кластер HDInsight под управлением Linux."
 services: hdinsight
 documentationcenter: 
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/12/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f2c4956ba296781907498226a18708684281692b
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 2efd8e9981ac5d8f2ff28df9ffe1e6b5c01ba953
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/13/2017
-
+ms.lasthandoff: 06/10/2017
 
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Миграция из кластера HDInsight под управлением Windows на кластер под управлением Linux

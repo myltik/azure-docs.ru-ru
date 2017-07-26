@@ -4,7 +4,7 @@ description: "Узнайте о том, как выполнять код Python 
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
-manager: sukvg
+manager: jhubbard
 editor: cgronlun
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 06/20/2017
 ms.author: saveenr
-translationtype: Human Translation
-ms.sourcegitcommit: 624b0370a85827cb9feaa48924bfa76d9ae19d0f
-ms.openlocfilehash: b3a9434df566d391e50e7755f9ab7fa880fe1d53
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 6f3477b67b27a30e6b69f6015e9063bfa27834f7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -25,10 +26,10 @@ ms.openlocfilehash: b3a9434df566d391e50e7755f9ab7fa880fe1d53
 
 Расширения Python для U-SQL позволяют разработчикам выполнять код Python с массовым параллелизмом. В следующих примерах представлены основные шаги:
 
-* Включение расширений Python для сценария U-SQL с помощью инструкции REFERENCE ASSEMBLY.
-* Разделение входных данных для ключа с помощью операции REDUCE.
-* Расширения Python для U-SQL включают встроенный инструмент редукции (Extension.Python.Reducer), который выполняет код Python в каждой вершине, назначенной инструменту редукции.
-* Сценарий U-SQL содержит встроенный код Python с функцией usqlml_main, которая принимает кадр данных Pandas в качестве входных данных и возвращает его в качестве выходных данных.
+* Используйте инструкцию `REFERENCE ASSEMBLY`, чтобы включить расширения Python для сценария U-SQL
+* Использование операции `REDUCE` для разделения входных данных в разделе
+* Расширения Python для U-SQL включают встроенный инструмент редукции (`Extension.Python.Reducer`), который выполняет код Python в каждой вершине, назначенный инструменту редукции.
+* Сценарий U-SQL содержит встроенный код Python с функцией `usqlml_main`, которая принимает кадр данных Pandas в качестве входных данных и возвращает его в качестве выходных данных.
 
 --
 
@@ -68,7 +69,7 @@ ms.openlocfilehash: b3a9434df566d391e50e7755f9ab7fa880fe1d53
 ### <a name="datatypes"></a>Типы данных
 
 * Строковые и числовые столбцы из U-SQL преобразовываются без изменений между Pandas и U-SQL.
-* Пустые значения U-SQL преобразовываются в недоступные значения Pandas и из них.
+* Пустые значения U-SQL преобразовываются в значения Pandas `NA` и из них.
 
 ### <a name="schemas"></a>Схемы
 
@@ -99,10 +100,5 @@ ms.openlocfilehash: b3a9434df566d391e50e7755f9ab7fa880fe1d53
 * [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
 * [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

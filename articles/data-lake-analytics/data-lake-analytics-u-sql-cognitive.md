@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-translationtype: Human Translation
-ms.sourcegitcommit: 21b4d574705d589406f50cac106a47ada71d24cd
-ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -26,11 +28,11 @@ ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
 Когнитивные возможности U-SQL позволяют разработчикам использовать аналитику в программах, которые работают с большими данными. В целом этот процесс прост:
 
 * Включите когнитивные функции для сценария U-SQL с помощью инструкции REFERENCE ASSEMBLY.
-* Используйте когнитивные возможности с помощью операции PROCESS. 
+* Вызовите операцию PROCESS, чтобы использовать когнитивные возможности 
 
 ## <a name="imaging-scenarios"></a>Сценарии создания образов
 
-### <a name="a-simple-example-image-tagging"></a>Простой пример: добавление тегов к образу
+### <a name="example-image-tagging"></a>Пример: добавление тегов к образу
 
 В следующем примере показано комплексное использование возможностей образа, с помощью которых можно распознать объекты на изображениях.
 
@@ -150,10 +152,5 @@ ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
                 Chapter,
                 Text
         USING new Cognition.Text.SentimentAnalyzer(true);
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

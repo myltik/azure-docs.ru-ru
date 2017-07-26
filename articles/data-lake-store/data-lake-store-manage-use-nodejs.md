@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 06/06/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
-ms.openlocfilehash: 091ab246826c96b9d816c87b27014c1e54039429
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 8c7a2e6ca061bbfa077592efb73d592906c3d070
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/01/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -28,15 +28,15 @@ ms.lasthandoff: 02/01/2017
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Пакет SDK для .NET](data-lake-store-get-started-net-sdk.md)
 > * [Пакет SDK для Java](data-lake-store-get-started-java-sdk.md)
-> * [ИНТЕРФЕЙС REST API](data-lake-store-get-started-rest-api.md)
-> * [Интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
+> * [REST API](data-lake-store-get-started-rest-api.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 > 
 
 > [!NOTE]
-> Для передачи и скачивания больших объемов данных (больших файлов, большого количества файлов или и того, и другого) мы рекомендуем использовать [пакет SDK для Python](data-lake-store-get-started-python.md), [пакет SDK для .NET](data-lake-store-get-started-net-sdk.md) или [Azure PowerShell](data-lake-store-get-started-powershell.md). Их производительность выше, так как они используют несколько потоков для параллельной передачи данных.
+> Для передачи и скачивания больших объемов данных (больших файлов, большого количества файлов или и того, и другого) мы рекомендуем использовать [пакет SDK для Python](data-lake-store-get-started-python.md), [пакет SDK для .NET](data-lake-store-get-started-net-sdk.md), [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md) или [Azure PowerShell](data-lake-store-get-started-powershell.md). Они имеют повышенную производительность, так как используют несколько потоков для параллельной передачи данных.
 > 
 > 
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/01/2017
 Перед началом работы с этой статьей необходимо иметь следующее:
 
 * **Подписка Azure**. Ознакомьтесь с [бесплатной пробной версией Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Создание приложения Azure Active Directory**. Это приложение будет использоваться для проверки подлинности приложения Data Lake Store в Azure AD. Есть разные способы проверки подлинности приложения с помощью Azure AD: **проверка подлинности пользователя** и **проверка подлинности со взаимодействием между службами**. Инструкции и дополнительные сведения о проверке подлинности см. в статье, посвященной [проверке подлинности приложений Data Lake Store с помощью Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+* **Создание приложения Azure Active Directory**. Это приложение будет использоваться для проверки подлинности приложения Data Lake Store в Azure AD. Есть разные способы проверки подлинности приложения с помощью Azure AD: **проверка подлинности пользователя** и **проверка подлинности со взаимодействием между службами**. Инструкции и дополнительные сведения об аутентификации см. в разделах [Аутентификация пользователей](data-lake-store-end-user-authenticate-using-active-directory.md) и [Аутентификация между службами](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="how-to-install"></a>Установка
 ```bash

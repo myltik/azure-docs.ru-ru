@@ -1,5 +1,5 @@
 ---
-title: "Настройка кластеров HDInsight с помощью службы начальной загрузки | Документация Майкрософт"
+title: "Настройка кластеров HDInsight с помощью программы начальной загрузки — Azure | Документы Майкрософт"
 description: "Узнайте, как настраивать кластеры HDInsight с помощью начальной загрузки."
 services: hdinsight
 documentationcenter: 
@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: c8abf308c20968f184a80b20dc40185b1631105d
-ms.openlocfilehash: 903004ae83d86ddcda13c6f2fce708e71ffa729b
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: c7a6fafa90eac66774d564c82c926c662baf784c
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -127,9 +128,9 @@ ms.lasthandoff: 02/22/2017
     }
 
 
-![HDInsight Hadoop настройка кластер начальная загрузка шаблон Azure Resource Manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![Настройка шаблона Azure Resource Manager для начальной загрузки кластера с помощью HDInsight Hadoop](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>Дополнительные материалы
+## <a name="see-also"></a>См. также
 * В статье [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision-cluster] приведены указания по созданию кластера HDInsight с использованием других настраиваемых параметров.
 * [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script]
 * [Установка и использование Spark в кластерах HDInsight Hadoop с помощью действия сценария][hdinsight-install-spark]

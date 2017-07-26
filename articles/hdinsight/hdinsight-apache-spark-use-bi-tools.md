@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/09/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: bc6749f583de752592b0b49548c5a42321cac7b3
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 8e550b8caaece7a27612686135752336483aa662
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -99,7 +99,7 @@ ms.lasthandoff: 05/16/2017
         +---------------+-------------+
         |tableName      |isTemporary  |
         +---------------+-------------+
-        |hvactemptable  |true         |
+        |hvactemptable  |true        |
         |hivesampletable|false        |
         |hvac           |false        |
         +---------------+-------------+
@@ -114,6 +114,11 @@ ms.lasthandoff: 05/16/2017
 9. Завершите работу записной книжки для освобождения ресурсов. Для этого в записной книжке в меню **Файл** выберите пункт **Close and Halt** (Закрыть и остановить).
 
 ## <a name="powerbi"></a>Использование Power BI для визуализации данных Spark
+
+> [!NOTE]
+> Этот раздел применим только к Spark 1.6 в HDInsight 3.4 и к Spark 2.0 в HDInsight 3.5.
+>
+>
 
 После сохранения данных в виде таблицы можно воспользоваться Power BI для подключения к данным и визуализировать их для создания отчетов, панелей мониторинга и т. д.
 
@@ -214,7 +219,7 @@ ms.lasthandoff: 05/16/2017
 ### <a name="tools-and-extensions"></a>Средства и расширения
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)

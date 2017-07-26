@@ -12,10 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 9e09425b0143c1907d1af167782d1e4b1457d626
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 9b7adf78271407963ed1d4b34a7760d707b5fc3a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -262,28 +263,28 @@ Spacious,||air-condition*+"Ocean view"
 
 | Термин | Список документов |
 |------|---------------|
-| air |    3
-| и |    4.
+| air | 3
+| и | 4.
 | beach | 1
-| conditioned |    3
-| comfortable |    3
+| conditioned | 3
+| comfortable | 3
 | distance | 1
 | island | 2
 | kauaʻi | 2
-| located |    2
+| located | 2
 | north | 2
 | ocean | 1, 2, 3
 | of | 2
 | on |2
 | quiet | 4.
-| rooms     | 1, 3
+| rooms  | 1, 3
 | secluded | 4.
-| shore    | 2
+| shore | 2
 | spacious | 1
 | the | 1, 2
 | значение | 1
 | view | 1, 2, 3
-| walking |    1
+| walking | 1
 | на | 3
 
 
@@ -385,6 +386,8 @@ search=Spacious, air-condition* +"Ocean view"
 + Узнайте, как применить [лексические анализаторы для конкретного языка](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Настройте пользовательские анализаторы](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) для минимальной или специализированной обработки определенных полей.
+
++ [Параллельно сравните стандартный анализатор и анализатор английского языка](http://alice.unearth.ai/) на этом демонстрационном веб-сайте. 
 
 ## <a name="see-also"></a>См. также
 

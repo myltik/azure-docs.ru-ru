@@ -1,177 +1,282 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с ShiftPlanning | Документация Майкрософт"
-description: "Узнайте, как использовать ShiftPlanning с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
+title: "Учебник. Интеграция Azure Active Directory с Humanity | Документы Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Humanity."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/22/2017
+ms.date: 06/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1477ba08b35a853ef7c26f74a4d9e86b3bf6d850
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 327cc1e3d0836e79376e0a3cd5a4422a967f5943
+ms.contentlocale: ru-ru
+ms.lasthandoff: 06/16/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shiftplanning"></a>Учебник. Интеграция Azure Active Directory с ShiftPlanning
-Цель данного учебника — показать интеграцию Azure и ShiftPlanning.
+# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Учебник. Интеграция Azure Active Directory с Humanity
 
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+В этом учебнике описано, как интегрировать Humanity с Azure Active Directory (Azure AD).
 
-* Действующая подписка на Azure
-* Подписка ShiftPlanning с поддержкой единого входа.
+Интеграция Azure AD с приложением Humanity обеспечивает следующие преимущества.
 
-По завершении работы с этим руководством пользователи Azure AD, назначенные в ShiftPlanning, смогут выполнять единый вход в приложение на веб-сайте ShiftPlanning компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+- С помощью Azure AD можно управлять доступом к Humanity.
+- Вы можете включить автоматический вход пользователей в Humanity (единый вход) с учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-1. Включение интеграции приложений для ShiftPlanning
-2. Настройка единого входа.
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+## <a name="prerequisites"></a>Предварительные требования
 
-![Сценарий](./media/active-directory-saas-shiftplanning-tutorial/IC786612.png "Сценарий")
+Чтобы настроить интеграцию Azure AD с Humanity, вам потребуется:
 
-## <a name="enable-the-application-integration-for-shiftplanning"></a>Включение интеграции приложений для ShiftPlanning
-В этом разделе показано, как включить интеграцию приложений для ShiftPlanning.
+- подписка Azure AD;
+- подписка Humanity с поддержкой единого входа.
 
-**Чтобы включить интеграцию приложений для ShiftPlanning, сделайте следующее:**
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
+
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+
+1. Добавление Humanity из коллекции
+2. Настройка и проверка единого входа в Azure AD
+
+## <a name="adding-humanity-from-the-gallery"></a>Добавление Humanity из коллекции
+Чтобы настроить интеграцию Humanity с Azure AD, необходимо добавить Humanity из коллекции в список управляемых приложений SaaS.
+
+**Чтобы добавить Humanity из коллекции, выполните следующие действия.**
+
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Приложения][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
+    ![Приложения][3]
+
+4. В поле поиска введите **Humanity**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_search.png)
+
+5. На панели результатов выберите **Humanity** и нажмите кнопку **Добавить**, чтобы добавить приложение.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в Humanity с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Humanity соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Humanity.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Humanity.
+
+Чтобы настроить и проверить единый вход Azure AD в Humanity, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Humanity](#creating-a-humanity-test-user)** требуется для создания в Humanity пользователя Britta Simon, связанного с представлением этого пользователя в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+
+В этом разделе описано, как включить единый вход Azure AD на новом портале Azure и настроить его в приложении Humanity.
+
+**Чтобы настроить единый вход Azure AD в Humanity, выполните следующие действия.**
+
+1. На портале Azure на странице интеграции с приложением **Humanity** щелкните **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения Humanity** выполните следующие действия.
+
+    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_url.png)
+
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://company.humanity.com/includes/saml/`
+
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://company.humanity.com/app/`
+
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить их, обратитесь в [службу поддержки клиентов Humanity](https://www.humanity.com/support/). 
+ 
+4. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_400.png)
+
+6. В разделе **Настройка Humanity** щелкните **Настроить Humanity**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес службы единого входа SAML и URL-адрес выхода** из раздела **Краткий справочник.**
+
+    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_configure.png) 
+
+7. В другом окне веб-браузера войдите на свой корпоративный веб-сайт **Humanity** в качестве администратора.
+
+8. В верхнем меню щелкните **Администратор**.
    
-    ![Active Directory](./media/active-directory-saas-shiftplanning-tutorial/IC700993.png "Active Directory")
+    ![Администратор](./media/active-directory-saas-shiftplanning-tutorial/iC786619.png "Администратор")
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+9. В разделе **Integration** (Интеграция) щелкните **Single Sign-On** (Единый вход).
    
-    ![Приложения](./media/active-directory-saas-shiftplanning-tutorial/IC700994.png "Приложения")
+    ![Единый вход](./media/active-directory-saas-shiftplanning-tutorial/iC786620.png "Единый вход")
 
-4. В нижней части страницы нажмите кнопку **Добавить** .
+10. В разделе **Единый вход** сделайте следующее:
    
-    ![Добавление приложения](./media/active-directory-saas-shiftplanning-tutorial/IC749321.png "Добавление приложения")
-
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+    ![Единый вход](./media/active-directory-saas-shiftplanning-tutorial/iC786905.png "Единый вход")
    
-    ![Добавление приложения из коллекции](./media/active-directory-saas-shiftplanning-tutorial/IC749322.png "Добавление приложения из коллекции")
+    а. Установите флажок **SAML включен**.
 
-6. В **поле поиска** введите **ShiftPlanning**.
+    b. Установите флажок **Allow Password Login** (Разрешить вход с паролем).
+
+    c. Вставьте **URL-адрес службы единого входа SAML** в текстовое поле **URL-адрес издателя SAML**.
+
+    г) Вставьте значение **URL-адреса выхода** в текстовое поле **URL-адрес удаленного выхода**.
    
-    ![Коллекция приложений](./media/active-directory-saas-shiftplanning-tutorial/IC786613.png "Коллекция приложений")
+    д. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат X.509** .
 
-7. В области результатов выберите **ShiftPlanning** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-    ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.png "ShiftPlanning")
-   
-## <a name="configure-single-sign-on"></a>Настройка единого входа
+11. Нажмите кнопку **Сохранить параметры**.
 
-В этом разделе показано, как разрешить пользователям проходить аутентификацию в ShiftPlanning со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
-В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64.  
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
+![Создание пользователя Azure AD][100]
 
-**Чтобы настроить единый вход, выполните следующие действия:**
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На классическом портале Azure на странице интеграции с приложением **ShiftPlanning** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Configure Single Sign On** (Настройка единого входа).
-   
-    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Настройка единого входа")
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
 
-2. На странице **Как пользователи должны входить в ShiftPlanning?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786616.png "Настройка единого входа")
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_01.png) 
 
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в ShiftPlanning** введите свой URL-адрес, используя формат *https://company.shiftplanning.com/includes/saml/*, а затем нажмите кнопку **Далее**.
-   
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-shiftplanning-tutorial/IC786617.png "Настройка URL-адреса приложения")
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_02.png) 
 
-4. Чтобы скачать сертификат, на странице **Настройка единого входа в ShiftPlanning** щелкните **Скачать сертификат** и сохраните файл сертификата на своем компьютере.
-   
-    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786618.png "Настройка единого входа")
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_03.png) 
 
-5. В другом окне веб-браузера войдите на веб-сайт **ShiftPlanning** компании в качестве администратора.
-6. В верхнем меню щелкните **Администратор**.
-   
-    ![Администратор](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Администратор")
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-shiftplanning-tutorial/create_aaduser_04.png) 
 
-7. В разделе **Integration** (Интеграция) щелкните **Single Sign-On** (Единый вход).
-   
-    ![Единый вход](./media/active-directory-saas-shiftplanning-tutorial/IC786620.png "Единый вход")
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
 
-8. В разделе **Единый вход** сделайте следующее:
-   
-    ![Единый вход](./media/active-directory-saas-shiftplanning-tutorial/IC786905.png "Единый вход")
-   
-   1. Установите флажок **SAML включен**.
-   2. Установите флажок **Allow Password Login** (Разрешить вход с паролем).
-   3. На странице диалогового окна **Настройка единого входа в ShiftPlanning** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **SAML Issuer URL** (URL-адрес издателя SAML).
-   4. На странице диалогового окна **Настройка единого входа в ShiftPlanning** классического портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **URL-адрес удаленного выхода**.
-   5. Создайте файл в кодировке **Base-64** из загруженного сертификата.  
-       
-     >[!TIP]
-     >Дополнительные сведения можно узнать из видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
-     > 
-     > 
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
-   6. Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат X.509** .
-   7. Нажмите кнопку **Сохранить параметры**.
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Настройка единого входа")
-   
-## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-a-humanity-test-user"></a>Создание тестового пользователя Humanity
 
-Чтобы пользователи Azure AD могли выполнить вход в ShiftPlanning, они должны быть подготовлены в ShiftPlanning.  
+Чтобы пользователи Azure AD могли выполнять вход в Humanity, они должны быть подготовлены в Humanity. В случае с Humanity подготовка выполняется вручную.
 
-В случае ShiftPlanning подготовка выполняется вручную.
+**Чтобы подготовить учетную запись пользователя, сделайте следующее:**
 
-**Чтобы подготовить учетные записи пользователей, выполните следующие действия.**
+1. Войдите на веб-сайт **Humanity** вашей компании в качестве администратора.
 
-1. Войдите на веб-сайт **ShiftPlanning** компании в качестве администратора.
 2. Щелкните **Администратор**.
    
-    ![Администратор](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Администратор")
+    ![Администратор](./media/active-directory-saas-shiftplanning-tutorial/iC786619.png "Администратор")
+
 3. Щелкните **Персонал**.
    
-    ![Персонал](./media/active-directory-saas-shiftplanning-tutorial/IC786623.png "Персонал")
-4. В разделе **Actions** (Действия) щелкните **Add Employee** (Добавить сотрудника).
+    ![Персонал](./media/active-directory-saas-shiftplanning-tutorial/ic786623.png "Персонал")
+
+4. В разделе **Действия** щелкните **Добавление сотрудников**.
    
-    ![Добавить сотрудников](./media/active-directory-saas-shiftplanning-tutorial/IC786624.png "Добавить сотрудников")
+    ![Добавить сотрудников](./media/active-directory-saas-shiftplanning-tutorial/iC786624.png "Добавить сотрудников")
+
 5. В разделе **Добавление сотрудников** сделайте следующее:
    
-    ![Сохранить сотрудников](./media/active-directory-saas-shiftplanning-tutorial/IC786625.png "Сохранить сотрудников")
+    ![Сохранить сотрудников](./media/active-directory-saas-shiftplanning-tutorial/iC786625.png "Сохранить сотрудников")
    
-   1. Заполните текстовые поля **First Name** (Имя), **Last Name** (Фамилия) и **Email** (Электронный адрес) данными действующей учетной записи AAD, которую необходимо подготовить.
-   2. Щелкните **Сохранить сотрудников**.
+    а. Заполните текстовые поля **Имя**, **Фамилия** и **Email** (Электронная почта) данными действующей учетной записи AAD, которую необходимо подготовить.
+
+    b. Щелкните **Сохранить сотрудников**.
 
 >[!NOTE]
->Вы можете использовать любые другие инструменты создания учетных записей пользователей ShiftPlanning или API, предоставляемые ShiftPlanning для подготовки учетных записей пользователей AAD.
-> 
-> 
+>Вы можете использовать любые другие средства создания учетной записи пользователя Humanity или API, предоставляемые Humanity для подготовки учетных записей пользователей AAD.
 
-## <a name="assign-users"></a>Назначить пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-**Чтобы назначить пользователей ShiftPlanning, сделайте следующее:**
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure путем предоставления доступа к Humanity.
 
-1. На классическом портале Azure создайте тестовую учетную запись.
+![Назначение пользователя][200] 
 
-2. На странице интеграции с приложением **ShiftPlanning** щелкните **Назначить пользователей**.
-   
-    ![Назначение пользователей](./media/active-directory-saas-shiftplanning-tutorial/IC786626.png "Назначение пользователей")
+**Чтобы назначить пользователя Britta Simon в Humanity, выполните следующие действия.**
 
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-    ![Да](./media/active-directory-saas-shiftplanning-tutorial/IC767830.png "Да")
- 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Humanity**.
+
+    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/tutorial_humanity_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув плитку Humanity на панели доступа, вы автоматически войдете в приложение Humanity.
+Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-shiftplanning-tutorial/tutorial_general_203.png
 
 

@@ -13,24 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 88d0c2495a13ccf02f7d0e56ce7158ac80dcc2d5
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: ff96602642c56a3cd02aeada056c059573707731
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="connect-with-excel"></a>Подключение с помощью Excel
 
-Создав в Azure сервер и развернув на нем табличную модель, вы сможете подключиться к нему для работы с данными. 
+Создав в Azure сервер и развернув на нем табличную модель, вы сможете подключиться к нему для работы с данными.
 
 
 ## <a name="connect-in-excel"></a>Подключение в Excel
 
-Подключиться к серверу из Excel можно с помощью функции "Получить данные" (в Excel 2016) или Power Query (в более ранних версиях). Подключение с помощью мастера импорта таблиц в Power Pivot не поддерживается. 
+Подключиться к серверу из Excel можно с помощью функции "Получить данные" в Excel 2016. Подключение с помощью мастера импорта таблиц в Power Pivot не поддерживается. 
 
 **Подключение в Excel 2016**
 

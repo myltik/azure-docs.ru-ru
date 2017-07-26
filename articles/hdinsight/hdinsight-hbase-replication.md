@@ -1,5 +1,5 @@
 ---
-title: "Настройка репликации HBase | Документация Майкрософт"
+title: "Настройка репликации кластера HBase в виртуальных сетях — Azure | Документы Майкрософт"
 description: "Сведения о том, как настроить репликацию HBase для балансировки нагрузки, обеспечения высокого уровня доступности, переноса или обновления с одной версии HDInsight на другую без простоя и аварийного восстановления."
 services: hdinsight,virtual-network
 documentationcenter: 
@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a62cd616f0abd59c83c834bf13b4ba8549a9c73e
-ms.openlocfilehash: 83aabe0e5161cd3f94caa996dec29bc020e5308b
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 7a6a473b6db745563b3667da1013a8e78db8593c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="configure-hbase-replication"></a>Настройка репликации HBase
+# <a name="configure-hbase-cluster-replication-within-virtual-networks"></a>Настройка репликации кластера HBase в виртуальных сетях
 
 В этой статье вы узнаете, как настроить репликацию HBase в одной или между двумя виртуальными сетями.
 

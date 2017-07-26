@@ -3,8 +3,8 @@ title: "Устранение неполадок с заданиями Azure Data
 description: "Узнайте, как использовать портал Azure для устранения неполадок с заданиями аналитики озера данных. "
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.service: data-lake-analytics
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: b2b19a6f2ea20c414119e9dfbf84fda92dd93402
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -27,50 +27,31 @@ ms.lasthandoff: 05/26/2017
 
 При прохождении этого учебника вы смоделируете проблему с отсутствующим исходным файлом и устраните ее с помощью портала Azure.
 
-**Предварительные требования**
-
-Перед началом работы с этим учебником необходимо иметь следующее:
-
-* **Базовые знания о процедуре выполнения заданий Data Lake Analytics**. Ознакомьтесь со статьей [Руководство. Начало работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md).
-* **Учетная запись Data Lake Analytics**. Ознакомьтесь со статьей [Руководство. Начало работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-* **Копия примера данных в учетной записи Data Lake Store по умолчанию**.  Ознакомьтесь со статьей [Подготовка образца данных](data-lake-analytics-get-started-portal.md).
-
 ## <a name="submit-a-data-lake-analytics-job"></a>Отправка задания аналитики озера данных
-Теперь вы создадите задание U-SQL с неправильным именем исходного файла.  
 
-**Отправка задания**
+Отправьте следующее задание U-SQL:
 
-1. На портале Azure щелкните **Microsoft Azure** в левом верхнем углу.
-2. Щелкните элемент с именем вашей учетной записи аналитики озера данных.  Она была закреплена здесь при создании учетной записи.
-   Если учетная запись здесь не закреплена, ознакомьтесь с инструкциями из статьи [Открытие учетной записи аналитики из портала](data-lake-analytics-manage-use-portal.md#manage-data-sources).
-3. Выберите команду **Создать задание** в верхнем меню.
-4. Введите имя задания и следующий скрипт U-SQL:
+```
+@searchlog =
+   EXTRACT UserId          int,
+           Start           DateTime,
+           Region          string,
+           Query           string,
+           Duration        int?,
+           Urls            string,
+           ClickedUrls     string
+   FROM "/Samples/Data/SearchLog.tsv1"
+   USING Extractors.Tsv();
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv1"
-            USING Extractors.Tsv();
+OUTPUT @searchlog   
+   TO "/output/SearchLog-from-adls.csv"
+   USING Outputters.Csv();
+```
+    
+В сценарии определен исходный файл **/Samples/Data/SearchLog.tsv1**, а должен быть **/Samples/Data/SearchLog.tsv**.
 
-        OUTPUT @searchlog   
-            TO "/output/SearchLog-from-adls.csv"
-        USING Outputters.Csv();
-
-    В сценарии определен исходный файл **/Samples/Data/SearchLog.tsv1**, а должен быть **/Samples/Data/SearchLog.tsv**.
-5. Щелкните **Отправить задание** наверху. Откроется новая панель сведений о задании. В строке заголовка будет отображено состояние задания. На завершение задания может потребоваться несколько минут. Щелкните **Обновить** , чтобы вывести актуальное состояние.
-6. Подождите, пока состояние задания не изменится на **Ошибка**.  Задание может иметь состояние **Успешно**, если вы не удалили папку /Samples. Ознакомьтесь с разделом **Предварительные требования** в начале этого руководства.
-
-Может возникнуть вопрос: почему небольшое задание выполняется так долго.  Вспомните — аналитика озера данных предназначена для обработки больших данных.  Она отлично справляется с обработкой большого объема данных благодаря своей распределенной архитектуре.
-
-Предположим, вы отправили задание и закрыли портал.  В следующем разделе вы научитесь устранять неполадки задания.
 
 ## <a name="troubleshoot-the-job"></a>Устранение неполадок задания
-В предыдущем разделе вы отправили задание, и оно завершилось сбоем.  
 
 **Просмотр всех заданий**
 

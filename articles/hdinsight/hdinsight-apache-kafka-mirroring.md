@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/15/2017
+ms.date: 06/13/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 0b8de346d8209dcfd665baf18ce054e5556a883b
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 06c09658d09bc05d2f5e2a0f17a9047ee8044486
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/21/2017
 
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>Репликация разделов Apache Kafka с помощью Kafka в HDInsight (предварительная версия) и MirrorMaker
@@ -68,9 +68,12 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
 
 1. Нажмите эту кнопку, чтобы войти в Azure и открыть шаблон на портале Azure.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Шаблон Azure Resource Manager находится по адресу **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.json**.
+    Шаблон Azure Resource Manager находится по адресу **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
+
+    > [!WARNING]
+    > Чтобы обеспечить доступность Kafka в HDInsight, кластер должен содержать не менее трех рабочих узлов. Этот шаблон создает кластер Kafka, содержащий три рабочих узла.
 
 2. Используйте следующие сведения, чтобы заполнить колонку **Настраиваемое развертывание**.
     
@@ -104,30 +107,32 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
 ## <a name="create-topics"></a>Создание разделов
 
 1. Подключитесь к **исходному** кластеру с помощью SSH.
-   
-        ssh sshuser@source-BASENAME-ssh.azurehdinsight.net
-   
+
+    ```bash
+    ssh sshuser@source-BASENAME-ssh.azurehdinsight.net
+    ```
+
     Замените **sshuser** именем пользователя SSH, которое использовалось при создании кластера. Замените **BASENAME** базовым именем, которое использовалось при создании кластера.
-   
+
     См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Выполните следующую команду, чтобы найти узлы Zookeeper, задать переменную `SOURCE_ZKHOSTS`, а затем создать несколько разделов с именем `testtopic`:
-   
+
     ```bash
     SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
     ```
 
 3. С помощью этой команды проверьте, создан ли раздел:
-   
+
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $SOURCE_ZKHOSTS
     ```
-   
+
     Ответ содержит `testtopic`.
 
 4. Чтобы просмотреть сведения об узле Zookeeper для этого (**исходного**) кластера, выполните следующую команду:
-   
+
     ```bash
     echo $SOURCE_ZKHOSTS
     ```
@@ -141,40 +146,44 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
 ## <a name="configure-mirroring"></a>Настройка зеркального отображения
 
 1. Подключитесь к **целевому** кластеру с помощью другого сеанса SSH:
-   
-        ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
-   
+
+    ```bash
+    ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
+    ```
+
     Замените **sshuser** именем пользователя SSH, которое использовалось при создании кластера. Замените **BASENAME** базовым именем, которое использовалось при создании кластера.
-   
+
     См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Выполните следующую команду, чтобы создать файл `consumer.properties`, который настраивает обмен данными с **исходным** кластером:
-   
+
     ```bash
     nano consumer.properties
     ```
-   
+
     Добавьте в файл `consumer.properties` следующее содержимое:
-   
-        zookeeper.connect=SOURCE_ZKHOSTS
-        group.id=mirrorgroup
-   
+
+    ```yaml
+    zookeeper.connect=SOURCE_ZKHOSTS
+    group.id=mirrorgroup
+    ```
+
     Замените **SOURCE_ZKHOSTS** сведениями об узлах Zookeeper для **исходного** кластера.
-   
+
     Этот файл включает сведения о получателе, которые используются при считывании данных из исходного кластера Kafka. Дополнительные сведения о конфигурации получателя см. в [этом разделе](https://kafka.apache.org/documentation#consumerconfigs) на сайте kafka.apache.org.
-   
+
     Чтобы сохранить файл, нажмите клавиши **CTRL+X**, затем — **Y** и **ВВОД**.
 
 3. Прежде чем настраивать производитель, который обменивается данными с целевым кластером, найдите узлы брокера для **целевого** кластера. Чтобы получить эти сведения, выполните следующие команды:
-   
+
     ```bash
     sudo apt -y install jq
     DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
     echo $DEST_BROKERHOSTS
     ```
-   
+
     Эта команда возвращает следующую информацию:
-   
+
         wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
 
 4. Выполните следующую команду, чтобы создать файл `producer.properties`, который настраивает обмен данными с **целевым** кластером:
@@ -184,42 +193,44 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
     ```
 
     Добавьте в файл `producer.properties` следующее содержимое:
-   
-        bootstrap.servers=DEST_BROKERS
-        compression.type=none
-   
-    Замените **DEST_BROKERS** сведениями о брокере из предыдущего шага. 
-   
+
+    ```yaml
+    bootstrap.servers=DEST_BROKERS
+    compression.type=none
+    ```
+
+    Замените **DEST_BROKERS** сведениями о брокере из предыдущего шага.
+
     Дополнительные сведения о конфигурации производителя см. в [этом разделе](https://kafka.apache.org/documentation#producerconfigs) на сайте kafka.apache.org.
 
 ## <a name="start-mirrormaker"></a>Запуск MirrorMaker
 
 1. Чтобы запустить процесс MirrorMaker, выполните следующие команды в рамках SSH-подключения к **целевому** кластеру:
-   
+
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
     ```
-   
+
     В этом примере используются следующие параметры.
-   
+
     * **--consumer.config** — указывает файл, который содержит свойства получателя. Эти свойства используются для создания получателя, который считывает данные из *исходного* кластера Kafka.
 
     * **--producer.config** — указывает файл, который содержит свойства производителя. Эти свойства используются для создания производителя, который записывает данные в *целевой* кластер Kafka.
 
     * **--whitelist** — список разделов, которые MirrorMaker реплицирует из исходного кластера в целевой.
-    
+
     * **--num.streams** — число создаваемых потоков получателя.
-     
+
     При запуске MirrorMaker возвращает следующую информацию:
-        
-    ```
+
+    ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
     metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-kafka.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-2, security.protocol=PLAINTEXT}
     metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-1, security.protocol=PLAINTEXT}
     ```
 
 2. Чтобы запустить производитель и отправить сообщения в раздел, выполните следующую команду из SSH-подключения к **исходному** кластеру:
-    
+
     ```bash
     sudo apt -y install jq
     SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
@@ -229,13 +240,13 @@ Apache Kafka в HDInsight не предоставляет доступ к слу
  При переходе в пустую строку с курсором введите несколько текстовых сообщений. Они отправляются в раздел в **исходном** кластере. По завершении нажмите клавиши **Ctrl+C**, чтобы завершить процесс производителя.
 
 3. Чтобы завершить процесс MirrorMaker, нажмите клавиши **Ctrl+C** в рамках SSH-подключения к **целевому** кластеру. Затем используйте следующие команды, чтобы убедиться, что раздел `testtopic` создан и данные в нем реплицированы в это зеркало:
-    
+
     ```bash
     DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
-    
+
   Теперь в списке разделов есть раздел `testtopic`, который создается, когда MirrorMaster зеркально отражает раздел из исходного кластера в место назначения. Сообщения, полученные из раздела, совпадают с введенными в исходном кластере.
 
 ## <a name="delete-the-cluster"></a>Удаление кластера

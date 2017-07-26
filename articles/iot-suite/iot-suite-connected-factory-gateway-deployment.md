@@ -15,15 +15,28 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: e8774cc290847d48ecdc5dcdac1f2533fdc7d072
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 09585a8e2ffbe0c825ee63f459218c7945cdd243
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 06/08/2017
 
 ---
 
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Развертывание шлюза в ОС Windows или Linux для предварительно настроенного решения подключенной фабрики
+
+Программное обеспечение, необходимое для развертывания шлюза для предварительно настроенного решения подключенной фабрики, состоит из двух компонентов:
+
+* *Прокси OPC* устанавливает подключение к Центру Интернета вещей и ожидает команды и контрольных сообщений от встроенного браузера OPC, работающего на портале решения подключенной фабрики.
+* *Издатель OPC* соединяется с существующими локальными серверами OPC UA и пересылает сообщения телеметрии от них в Центр Интернета вещей.
+
+Оба компонента имеют открытый исходный код и доступны в виде файлов с исходным кодом на GitHub и в качестве контейнеров Docker:
+
+| GitHub | DockerHub |
+| ------ | --------- |
+| [Издатель OPC][lnk-publisher-github] | [Издатель OPC][lnk-publisher-docker] |
+| [Прокси OPC][lnk-proxy-github] | [Прокси OPC][lnk-proxy-docker] |
+
+Для этих компонентов не требуется общедоступный IP-адрес или заглушка в брандмауэре шлюза. Прокси OPC и издатель OPC используют только исходящие порты 443, 5671 и 8883.
 
 Описанные в этой статье действия показывают, как развернуть шлюз с помощью Docker в ОС Windows или Linux. Шлюз обеспечивает подключение к предварительно настроенному решению подключенной фабрики.
 
@@ -58,7 +71,7 @@ ms.lasthandoff: 05/16/2017
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
-    * **&lt;ApplicationName&gt;** — это имя приложения на основе унифицированной архитектуры OPC, которое шлюз создает в формате **publisher.&lt;ваше полное доменное имя&gt;**. Например, **publisher.microsoft.com**.
+    * **&lt;ApplicationName&gt;** — это имя, которое дается издателю OPC UA в формате **publisher.&lt;полное доменное имя&gt;**. Например, если сеть фабрики имеет название **myfactorynetwork.com**, то **ApplicationName** будет иметь значение **publisher.myfactorynetwork.com**.
     * **&lt;IoTHubOwnerConnectionString&gt;** — это строка подключения **iothubowner**, которую вы скопировали на предыдущем шаге. Эта строка подключения используется только на этом шаге и больше не потребуется.
 
     Сопоставленная папка D:\\docker (аргумент `-v`) затем используется для хранения двух сертификатов X.509, используемых модулями шлюза.
@@ -67,7 +80,7 @@ ms.lasthandoff: 05/16/2017
 
 1. Перезапустите шлюз с помощью следующих команд:
 
-    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e \_GW\_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
@@ -152,5 +165,10 @@ ms.lasthandoff: 05/16/2017
 [портале Azure]: http://portal.azure.com/
 [клиент на основе унифицированной архитектуры OPC с открытым кодом]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
 [Установите Docker]: https://www.docker.com/community-edition#/download
-[lnk-walkthrough]: iot-suite-overview.md
+[lnk-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [Edge Интернета вещей Azure]: https://github.com/Azure/iot-edge (Edge Интернета вещей Azure)
+
+[lnk-publisher-github]: https://github.com/Azure/iot-edge-opc-publisher
+[lnk-publisher-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua
+[lnk-proxy-github]: https://github.com/Azure/iot-edge-opc-proxy
+[lnk-proxy-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua-proxy

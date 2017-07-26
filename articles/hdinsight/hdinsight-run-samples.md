@@ -1,5 +1,5 @@
 ---
-title: "Выполнение учебных задач Hadoop в HDInsight | Документация Майкрософт"
+title: "Выполнение учебных задач Hadoop в HDInsight — Azure | Документы Майкрософт"
 description: "Вы начнете использовать службу Azure HDInsight с помощью представленных примеров. Использование сценариев PowerShell, которые запускают программы MapReduce в кластерах данных."
 services: hdinsight
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: e4042dfbf28e78d2fca5c3f6a93df751a12153f2
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: c3e9ee66974f8b7077a0436b3686fb0515ea5e22
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/27/2017
 * [**Счетчик слов**][hdinsight-sample-wordcount]: подсчитывает количество вхождений слова в текстовом файле.
 * [**Потоковый счетчик слов на C#**][hdinsight-sample-csharp-streaming]: подсчитывает количество вхождений слова в текстовом файле с использованием интерфейса потоковой передачи Hadoop.
 * [**Оценка числа пи**][hdinsight-sample-pi-estimator]: использует статистический метод (квази-Монте-Карло) для оценки значения числа пи.
-* [**Сортировка данных объемом 10 ГБ (Graysort)**][hdinsight-sample-10gb-graysort]: демонстрирует выполнение универсальной сортировки GraySort для файла размером 10 ГБ, используя службу HDInsight. Выполняются три задания: Teragen создает данные, Terasort сортирует эти данных и Teravalidate проверяет правильность их сортировки.
+* [**Сортировка данных объемом 10 ГБ (Graysort)**][hdinsight-sample-10gb-graysort]: демонстрирует выполнение универсальной сортировки GraySort для файла размером 10 ГБ с помощью HDInsight. Выполняются три задания: Teragen создает данные, Terasort сортирует эти данных и Teravalidate проверяет правильность их сортировки.
 
 > [!NOTE]
 > Исходный код можно найти в приложении.

@@ -3,8 +3,8 @@ title: "Анализ журналов веб-сайта с помощью Azure 
 description: "Информация об анализе журналов веб-сайта с помощью аналитики озера данных Azure. "
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
@@ -13,38 +13,29 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
+ms.author: saveenr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: ad0610c1aed8e21f322516a4b7ea41bf55cc200e
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 25fbbe97d26491fc421f4821315761c18e523ec8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="tutorial-analyze-website-logs-using-azure-data-lake-analytics"></a>Руководство: анализ журналов веб-сайта с помощью службы аналитики озера данных Azure
+# <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Анализ журналов веб-сайта с помощью Azure Data Lake Analytics
 Сведения об анализе журналов веб-сайтов с помощью службы аналитики озера, а также информация об источниках ссылок, которые столкнулись с ошибками во время попытки посетить веб-сайт.
 
-> [!NOTE]
-> Если вы просто хотите, чтобы приложение работало, сэкономьте время и ознакомьтесь со статьей [Интерактивные учебники по использованию аналитики озера данных Azure](data-lake-analytics-use-interactive-tutorials.md). Настоящее руководство основано на том же сценарии и том же коде. Цель этого руководства — познакомить разработчиков с процессом создания и запуска приложения аналитики озера данных от начала до конца.
->
->
-
-## <a name="prerequisites"></a>Предварительные требования:
-* **Visual Studio 2015, Visual Studio 2013 с обновлением 4 или Visual Studio 2012 с установленным Visual C++**
-* **Microsoft Azure SDK для .NET (версии 2.5 или выше)**.  Вы можете установить его с помощью [установщика веб-платформы](http://www.microsoft.com/web/downloads/platform.aspx).
+## <a name="prerequisites"></a>Предварительные требования
+* **Visual Studio 2015 или Visual Studio 2013**.
 * **[Средства Data Lake для Visual Studio](http://aka.ms/adltoolsvs)**.
 
-    После установки средств озера данных для Visual Studio вы увидите меню **Озеро данных** в Visual Studio:
+    После установки Средств Data Lake для Visual Studio вы увидите пункт **Data Lake** в меню **Сервис** Visual Studio.
 
     ![Меню U-SQL в Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 * **Базовые знания о Data Lake Analytics и инструментах Data Lake для Visual Studio**. Чтобы начать работу, см. следующие статьи.
 
-  * [Начало работы с аналитическим модулем озера данных Azure при помощи портала Azure](data-lake-analytics-get-started-portal.md).
   * [Разработка сценария U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* **Учетная запись Data Lake Analytics**.  Ознакомьтесь с разделом [Создание учетной записи Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-
-    Средства озера данных не поддерживают создание учетных записей аналитики озера данных.  Поэтому ее необходимо создать с помощью портала Azure, Azure PowerShell, пакета SDK .NET или интерфейса командной строки Azure.
+* **Учетная запись Data Lake Analytics**.  Ознакомьтесь с разделом [Создание учетной записи Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 * **Передача примера данных в учетную запись Data Lake Analytics.** Ознакомьтесь с разделом о [копировании файлов с примерами данных](data-lake-analytics-get-started-portal.md).
 
     Чтобы выполнить задание аналитики озера данных, потребуются некоторые данные. Несмотря на то, что средства озера данных поддерживают передачу данных, чтобы упростить работу с этим руководством, для передачи примера данных мы используем портал.
@@ -55,7 +46,7 @@ ms.lasthandoff: 05/31/2017
 **Подключение к аналитике озера данных**
 
 1. Откройте Visual Studio.
-2. В меню **Озеро данных** щелкните **Options and Settings** (Параметры и настройки).
+2. Щелкните **Data Lake > Параметры и настройки**.
 3. Щелкните **Вход** или **Изменить пользователя**, если кто-то уже выполнил вход, и выполните инструкции для входа.
 4. Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно параметров и настроек.
 
@@ -71,7 +62,7 @@ ms.lasthandoff: 05/31/2017
 
 **Создание и отправка задания аналитики озера данных**
 
-1. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
+1. Щелкните **Файл > Создать > Проект**.
 2. Выберите тип «Проект U-SQL».
 
     ![Новый проект U-SQL в Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
@@ -141,7 +132,7 @@ ms.lasthandoff: 05/31/2017
         (
             INDEX idx1
             CLUSTERED(Year ASC)
-            PARTITIONED BY HASH(Year)
+            DISTRIBUTED BY HASH(Year)
         ) AS
 
         SELECT s_date.Year AS Year,
@@ -178,11 +169,6 @@ ms.lasthandoff: 05/31/2017
     ![аналитика озера данных анализ веб-журналов журналы веб-сайтов](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
 11. Теперь повторите шаги 7–10 для файла **Script1.usql**.
 
-> [!NOTE]
-> Вы не можете осуществлять чтение или запись в таблице U-SQL, которая была создана или изменена в рамках того же скрипта.  Поэтому для этого примера используется два скрипта.
->
->
-
 **Просмотр выходных данных задания**
 
 1. В **обозревателе сервера** разверните узлы **Azure** и **Data Lake Analytics**, разверните учетную запись Data Lake Analytics и **учетные записи хранения**, а затем щелкните правой кнопкой мыши учетную запись хранения Data Lake по умолчанию и выберите **Обозреватель**.
@@ -196,10 +182,4 @@ ms.lasthandoff: 05/31/2017
 * [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
 * [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Начало работы с аналитикой озера данных с помощью пакета SDK .NET.](data-lake-analytics-get-started-net-sdk.md)
-
-Другие ресурсы по разработке
-
-* [Разработка сценариев U-SQL с помощью средств озера данных для Visual Studio.](data-lake-analytics-data-lake-tools-get-started.md)
-* [Начало работы с языком U-SQL в службе аналитики озера данных Azure.](data-lake-analytics-u-sql-get-started.md)
-* [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных.](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
