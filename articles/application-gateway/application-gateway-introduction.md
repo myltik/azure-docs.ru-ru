@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 17fc7e6a19b835e08360d1bf638d69aabb14e121
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c9aafa13ebdeeb84a35e55e25650f334ddc71af5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Обзор шлюза приложений
@@ -103,4 +103,6 @@ ms.lasthandoff: 07/19/2017
 Изучив принципы создания шлюза приложений, вы можете [создать шлюз приложений](application-gateway-create-gateway-portal.md) или [разгрузку SSL шлюза приложений](application-gateway-ssl-arm.md) для балансировки нагрузки подключений HTTPS.
 
 Чтобы узнать, как создать шлюз приложений с маршрутизацией содержимого на основе URL-адресов, за дополнительной информацией обратитесь к статье [Создание шлюза приложений с помощью маршрутизации на основе URL-адресов](application-gateway-create-url-route-arm-ps.md) .
+
+Дополнительные сведения о некоторых других ключевых сетевых возможностях Azure см. в разделе [Сети Azure]((../networking/networking-overview.md).
 

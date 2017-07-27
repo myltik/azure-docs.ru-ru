@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/14/2017
+ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 46766e29287ca130e68aa0f027cbb1ded2526af3
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Анализ использования данных в службе Log Analytics
@@ -110,30 +110,47 @@ Log Analytics содержит сведения об объеме собранн
 
 Диаграмма *объема данных для каждого решения* отображает объем данных, отправляемый каждым решением, а также решения, отправляющие наибольший объем данных. В верхней области диаграммы вы можете увидеть общий объем данных, отправляемый каждым решением за определенное время. Эта информация позволяет определить, отправляет ли решение превышенный объем данных, средний объем или меньший, чем необходимо, объем за определенное время. Список решений отображает 10 решений, которые отправляют наибольший объем данных. 
 
+На этих двух диаграммах отображаются все данные. Одни данные оплачиваются, другие — нет. Чтобы оставить только оплачиваемые данные, изменить запрос на странице поиска, добавив элемент `IsBillable=true`.  
+
 ![диаграммы объема данных](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
 
 Обратите внимание на диаграмму *объема данных по времени*. Чтобы просмотреть решения и типы данных, которые отправляют наибольший объем данных для определенного компьютера, щелкните имя компьютера. Щелкните имя первого компьютера в списке.
 
 На следующем снимке экрана тип данных *Управление журналами / Perf* отправляет наибольший объем данных для определенного компьютера. 
-![объем данных для компьютера](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
+![Объем данных для компьютера](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
-Далее, вернитесь на панель мониторинга *использования* и просмотрите диаграмму *объема данных для каждого решения*. Чтобы просмотреть компьютеры, отправляющие наибольший объем данных для решения, щелкните имя решения в списке. Щелкните имя первого решения в списке. 
+Затем вернитесь на панель мониторинга *Использование* и просмотрите диаграмму *Том данных по решениям*. Чтобы просмотреть компьютеры, отправляющие наибольший объем данных для решения, щелкните имя решения в списке. Щелкните имя первого решения в списке. 
 
 На следующем снимке экрана мы видим подтверждение, что компьютер *acmetomcat* отправляет наибольший объем данных для решения управления журналами.
 
 ![объем данных для решения](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
 
+При необходимости выполните дополнительный анализ, чтобы определить большие объемы в рамках типа данных или решения. Примеры запросов приведены ниже.
+
++ Решение по **безопасности**
+  - `Type=SecurityEvent | measure count() by EventID`
++ Решение для **управления журналами**
+  - `Type=Usage Solution=LogManagement IsBillable=true | measure count() by DataType`
++ Тип данных **Perf**
+  - `Type=Perf | measure count() by CounterPath`
+  - `Type=Perf | measure count() by CounterName`
++ Тип данных **Event**
+  - `Type=Event | measure count() by EventID`
+  - `Type=Event | measure count() by EventLog, EventLevelName`
++ Тип данных **Syslog**
+  - `Type=Syslog | measure count() by Facility, SeverityLevel`
+  - `Type=Syslog | measure count() by ProcessName`
 
 Чтобы уменьшить объем собранных журналов, сделайте следующее:
 
 | Источник превышенного объема данных | Как сократить объем данных |
 | -------------------------- | ------------------------- |
-| События безопасности            | Выберите [события со стандартным или минимальным уровнем безопасности](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Измените политику аудита безопасности. Например, отключите [аудит событий платформы фильтрации](https://technet.microsoft.com/library/dd772749(WS.10).aspx). |
+| События безопасности            | Выберите [события со стандартным или минимальным уровнем безопасности](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/). <br> Измените политику аудита безопасности таким образом, чтобы собирать только необходимые события. В частности проверьте необходимость сбора следующих событий: <br> - [аудит платформы фильтрации](https://technet.microsoft.com/library/dd772749(WS.10).aspx); <br> - [аудит реестра](https://docs.microsoft.com/windows/device-security/auditing/audit-registry);<br> - [аудит файловой системы](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system);<br> - [аудит объектов ядра](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object);<br> - [аудит работы с дескрипторами](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation);<br> - [аудит съемных носителей](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage). |
 | Счетчики производительности       | Измените [конфигурацию счетчика производительности](log-analytics-data-sources-performance-counters.md), чтобы <br> уменьшить частоту сбора или <br> сократить число счетчиков производительности. |
 | Журналы событий                 | Измените [конфигурацию журнала событий](log-analytics-data-sources-windows-events.md), чтобы <br> сократить число собранных журналов событий или <br> выполнять сбор только необходимых уровней событий. Например, не выполняйте сбор событий уровня *сведений*. |
 | syslog                     | Измените [конфигурацию системного журнала](log-analytics-data-sources-syslog.md), чтобы <br> сократить число собранных объектов или <br> выполнять сбор только необходимых уровней событий. Например, не выполняйте сбор событий уровня *сведений* и *отладки*. |
-| Данные решений с компьютеров, которым не требуется решение | Используйте [нацеливание решений](../operations-management-suite/operations-management-suite-solution-targeting.md), чтобы выполнять сбор данных только в нужных группах компьютеров.
+| Данные решений с компьютеров, которым не требуется решение | Используйте [нацеливание решений](../operations-management-suite/operations-management-suite-solution-targeting.md), чтобы выполнять сбор данных только в нужных группах компьютеров. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Проверьте, превышено ли число узлов
 Если у вас ценовая категория с оплатой *за каждый узел (OMS)*, то плата взимается на основании числа используемых узлов и решений. В разделе *offerings* (предложения) панели мониторинга "Использование" можно увидеть, сколько узлов из каждого предложения используется.
@@ -148,4 +165,9 @@ Log Analytics содержит сведения об объеме собранн
 ## <a name="next-steps"></a>Дальнейшие действия
 * Ознакомьтесь со статьей [Поиск данных по журналам](log-analytics-log-searches.md), чтобы узнать, как использовать язык поиска. Вы можете использовать поисковые запросы, чтобы выполнить дополнительный анализ данных об использовании.
 * Выполните действия, описанные в разделе [Создание правила оповещения](log-analytics-alerts-creating.md#create-an-alert-rule), чтобы получать уведомления при выполнении условий поиска.
+* Используйте [нацеливание решений](../operations-management-suite/operations-management-suite-solution-targeting.md), чтобы собирать данные только в нужных группах компьютеров.
+* Выберите [события со стандартным или минимальным уровнем безопасности](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/).
+* Измените [конфигурацию счетчика производительности](log-analytics-data-sources-performance-counters.md).
+* Измените [конфигурацию журнала событий](log-analytics-data-sources-windows-events.md).
+* Измените [конфигурацию системного журнала](log-analytics-data-sources-syslog.md).
 
