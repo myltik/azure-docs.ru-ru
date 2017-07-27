@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 9ab5368c173f016f44546d6c8acb360598f5f5ab
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: f6bcb18a04be9a802e14b960a1e2d04a71a691cc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Создание учетной записи служб мультимедиа Azure с помощью портала Azure
@@ -44,7 +44,7 @@ ms.lasthandoff: 07/12/2017
 * Учетная запись хранения Azure. Учетная запись хранения должна находиться в том же географическом регионе, что и учетная запись служб мультимедиа. При создании учетной записи служб мультимедиа можно выбрать существующую учетную запись хранения в той же области или создать новую учетную запись хранения в той же области. При удалении учетной записи служб мультимедиа, BLOB-объекты в связанной учетной записи хранения не удаляются.
 
 > [!NOTE]
-> Дополнительные сведения о доступности функций служб мультимедиа Azure в различных регионах см. в [этой статье](scenarios-and-availability.md#a-idavailabilitya-availability-of-media-services-features-across-datacenters).
+> Дополнительные сведения о доступности функций служб мультимедиа Azure в различных регионах см. в [этой статье](scenarios-and-availability.md#availability).
 
 ## <a name="create-an-ams-account"></a>Создание учетной записи AMS
 В этом разделе показано, как создать учетную запись AMS.

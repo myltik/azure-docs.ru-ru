@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 0185d898f5443cc03135cb1692a54194a82b1e50
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Отправка запросов в индекс службы поиска Azure с помощью пакета SDK для .NET
@@ -33,7 +33,8 @@ ms.lasthandoff: 07/12/2017
 
 Прежде чем приступать к выполнению инструкций из этого руководства, необходимо [создать индекс службы поиска Azure](search-what-is-an-index.md) и [заполнить его данными](search-what-is-data-import.md).
 
-Все приведенные здесь примеры кода написаны на языке C#. Полный исходный код можно найти на сайте [GitHub](http://aka.ms/search-dotnet-howto).
+> [!NOTE]
+> Все приведенные здесь примеры кода написаны на языке C#. Полный исходный код можно найти на сайте [GitHub](http://aka.ms/search-dotnet-howto). Подробные примеры использования кода см. в сведениях о [пакете SDK .NET для службы поиска Azure](search-howto-dotnet-sdk.md).
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Определение ключа API запроса службы поиска Azure
 Теперь, когда вы создали индекс службы поиска Azure, вы почти готовы отправлять запросы с помощью пакета SDK для .NET. Для этого сначала нужно получить один из ключей API запроса, созданный для подготовленной службы поиска. Пакет SDK для .NET отправляет этот ключ при каждом запросе к службе. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.

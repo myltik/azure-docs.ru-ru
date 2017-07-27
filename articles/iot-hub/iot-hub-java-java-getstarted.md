@@ -16,10 +16,10 @@ ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 7f0fbaf5d8e0379fc67ad62ea7c9ab63c6737150
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 0c8a4b518c6946781c2340f79ab479612b595c74
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>Подключение устройства к Центру Интернета вещей с помощью Java
@@ -303,12 +303,8 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
     mvn clean package -DskipTests
     ```
 
-<<<<<<< HEAD
 ## <a name="create-a-device-app"></a>Создание приложения устройства
-=======
-## <a name="create-a-simulated-device-app"></a>Создание приложения виртуального устройства
-
->>>>>>> В этом разделе вы создаете консольное приложение Java, которое имитирует устройство, отправляющее сообщения с устройства в облако в Центре Интернета вещей.
+В этом разделе вы создаете консольное приложение Java, которое имитирует устройство, отправляющее сообщения с устройства в облако в Центре Интернета вещей.
 
 1. В папке iot-java-get-started, созданной в разделе *Создание удостоверения устройства*, создайте проект Maven с именем **simulated-device**, выполнив в командной строке следующую команду. Обратите внимание, что это одна длинная команда.
 
@@ -378,19 +374,10 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
       }
     }
     ```
-<<<<<<< HEAD
 9. Чтобы отобразить состояние подтверждения, возвращаемое Центром Интернета вещей при обработке сообщения с устройства приложения, добавьте в класс **App** приведенный ниже вложенный класс **EventCallback**. Этот метод также уведомляет основной поток в приложении о том, что сообщение обработано.
    
-    ```
-    private static class EventCallback implements IotHubEventCallback
-    {
-=======
-
-9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
-
     ```java
     private static class EventCallback implements IotHubEventCallback {
->>>>>>> master
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    
@@ -500,11 +487,7 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
     ![Плитка "Использование" на портале Azure, отображающая количество сообщений, отправленных в Центр Интернета вещей][43]
 
 ## <a name="next-steps"></a>Дальнейшие действия
-<<<<<<< HEAD В этом руководстве мы настроили новый Центр Интернета вещей на портале Azure и создали удостоверение устройства в реестре удостоверений Центра Интернета вещей. Это удостоверение позволяет приложению устройства отправлять в Центр Интернета вещей сообщения, передаваемые из устройства в облако. Кроме того, мы создали приложение, которое отображает сообщения, полученные Центром Интернета вещей. 
-=======
-
-В этом руководстве мы настроили новый Центр Интернета вещей на портале Azure и создали удостоверение устройства в реестре удостоверений Центра Интернета вещей. Это удостоверение позволяет приложению виртуального устройства отправлять в Центр Интернета вещей сообщения, передаваемые из устройства в облако. Кроме того, мы создали приложение, которое отображает сообщения, полученные Центром Интернета вещей.
->>>>>>> master
+В этом руководстве мы настроили новый Центр Интернета вещей на портале Azure и создали удостоверение устройства в реестре удостоверений Центра Интернета вещей. Это удостоверение позволяет приложению устройства отправлять в Центр Интернета вещей сообщения, передаваемые из устройства в облако. Кроме того, мы создали приложение, которое отображает сообщения, полученные Центром Интернета вещей.
 
 Чтобы продолжить знакомство с Центром Интернета вещей и изучить другие сценарии Интернета вещей, см. следующие ресурсы:
 
