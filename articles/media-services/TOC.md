@@ -222,7 +222,7 @@
 
 # Ресурсы
 ## [Сообщество служб мультимедиа Azure](media-services-community.md)
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Цены](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Заметки о выпуске](media-services-release-notes.md)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=media-services)

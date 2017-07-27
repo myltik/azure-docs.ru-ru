@@ -158,7 +158,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # Ресурсы
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Блог о сетях](http://azure.microsoft.com/blog/topics/networking)
 ## [Форум по сетям](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Цены](https://azure.microsoft.com/pricing/details/virtual-network)

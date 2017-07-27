@@ -1,218 +1,109 @@
 # [Обзор](active-directory-developers-guide.md)
-
 ## [Почему именно Azure?](https://azure.microsoft.com/develop/identity/signin/)
-
 ## [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md)
-
 ## [Типы приложений](active-directory-authentication-scenarios.md#application-types-and-scenarios)
-
 # Начало работы
-
 ## Классические и мобильные приложения
-
 ### [Обзор](active-directory-authentication-scenarios.md#native-application-to-web-api)
-
 ### [iOS](active-directory-devquickstarts-ios.md)
-
 ### [Android](active-directory-devquickstarts-android.md)
-
 ### [.NET](active-directory-devquickstarts-dotnet.md)
-
 ### [Windows](active-directory-devquickstarts-windowsstore.md)
-
 ### [Xamarin](active-directory-devquickstarts-xamarin.md)
-
 ### [Cordova](active-directory-devquickstarts-cordova.md)
-
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
-
 ## веб-приложений:
-
 ### [Обзор](active-directory-authentication-scenarios.md#web-browser-to-web-application)
-
 ### [ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)
-
 ### [Java](active-directory-devquickstarts-webapp-java.md)
-
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
-
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-
 ## Одностраничные приложения
-
 ### [Обзор](active-directory-authentication-scenarios.md#single-page-application-spa)
-
 ### [AngularJS](active-directory-devquickstarts-angular.md)
-
 ### [Javascript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)
-
 ## Веб-API
-
 ### [Обзор](active-directory-authentication-scenarios.md#web-application-to-web-api)
-
 ### [ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)
-
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-
 ## Вызовы между службами
-
 ### [Обзор](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)
-
 ### [.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
-
 ### [Учетные данные клиента OAuth 2.0](active-directory-protocols-oauth-service-to-service.md)
-
 # Руководства
-
 ## [Регистрация приложения](active-directory-integrating-applications.md)
-
 ## [Мультитенантные приложения](active-directory-devhowto-multi-tenant-overview.md)
-
 ## OAuth и OpenID Connect
-
 ### [Протокол OpenID Connect](active-directory-protocols-openid-connect-code.md)
-
 ### [Предоставление кода аутентификации OAuth 2.0](active-directory-protocols-oauth-code.md)
-
 ### [Неявное разрешение Oauth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
-
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-
 ### [Настройка утверждений](active-directory-saml-claims-customization.md)
-
 ### [Отладка единого входа на основе SAML](active-directory-saml-debugging.md)
-
 ### [Протокол единого входа SAML](active-directory-single-sign-on-protocol-reference.md)
-
 ### [Протокол единого выхода SAML](active-directory-single-sign-out-protocol-reference.md)
-
 ### [Создание клиента](active-directory-howto-tenant.md)
-
 ## [Рекомендации по фирменной символике](active-directory-branding-guidelines.md)
-
 ## Классические и мобильные приложения: единый вход
-
 ### [Включение единого входа в Android](active-directory-sso-android.md)
-
 ### [Включение единого входа в iOS](active-directory-sso-ios.md)
-
 ## [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md)
-
 ## [Подготовка пользователей с использованием SCIM](../active-directory-scim-provisioning.md)
-
 ## [API Graph Azure AD](active-directory-graph-api.md)
-
 ### [Приступая к работе с AAD Graph](active-directory-graph-api-quickstart.md)
-
 ## [Сертификат AppSource](active-directory-devhowto-appsource-certified.md)
-
 ## [Коллекция приложений Azure AD](active-directory-app-gallery-listing.md)
-
 ## [Панель мониторинга продавца Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
-
 ## Работа с Visual Studio
-
 ### [Начало работы с подключенными службами Visual Studio](vs-active-directory-dotnet-getting-started.md)
-
 ### [Ошибка при обнаружении аутентификации](vs-active-directory-error.md)
-
 ### [Приступая к работе с WebApi](vs-active-directory-webapi-getting-started.md)
-
 ### [Что произошло с моим проектом WebApi?](vs-active-directory-webapi-what-happened.md)
-
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
-
 # Справочные материалы
-
 ## [Библиотеки аутентификации (ADAL)](active-directory-authentication-libraries.md)
-
 ## [Примеры кода](active-directory-code-samples.md)
-
 ## [Глоссарий](active-directory-dev-glossary.md)
-
 ## [Протоколы аутентификации](active-directory-authentication-protocols.md)
-
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-
 ### [OAuth](active-directory-protocols-oauth-code.md)
-
 ### [Вызовы между службами](active-directory-protocols-oauth-service-to-service.md)
-
 ### [Поток On-Behalf-Of](active-directory-protocols-oauth-on-behalf-of.md)
-
 ### [Поддерживаемые маркеры и типы утверждений](active-directory-token-and-claims.md)
-
 ### [Смена ключей подписывания](active-directory-signing-key-rollover.md)
-
 ### [Метаданные федерации](active-directory-federation-metadata.md)
-
 ### [Учетные данные сертификата](active-directory-certificate-credentials.md)
-
 ## [Объекты приложения](active-directory-application-objects.md)
-
 ### [Приложения и Azure AD](active-directory-how-applications-are-added.md)
-
 ## [Манифест приложения](active-directory-application-manifest.md)
-
 ## [Время существования маркеров](../active-directory-configurable-token-lifetimes.md)
-
 ## [Ограничения служб](../active-directory-service-limits-restrictions.md)
-
 # Конечная точка v2.0
-
 ## [Обзор](active-directory-appmodel-v2-overview.md)
-
 ### [Типы приложений](active-directory-v2-flows.md)
-
 ### [Ограничения](active-directory-v2-limitations.md)
-
 ### [Сравнение версии 1 и версии 2](active-directory-v2-compare.md)
-
 ## Начало работы
-
 ### Классические и мобильные приложения
-
 #### [iOS](guidedsetups/active-directory-ios.md)
-
 #### [Android](guidedsetups/active-directory-android.md)
-
 #### [Платформа .NET для классических приложений Windows](guidedsetups/active-directory-windesktop.md)
-
 ### веб-приложений:
-
 #### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
-
 #### [Веб-сервер ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
-
 #### [Веб-приложение Node.js](active-directory-v2-devquickstarts-node-web.md)
-
 ## Руководства
-
 ### [Регистрация приложения](active-directory-v2-app-registration.md)
-
 ## Справочные материалы
-
 ### [Библиотеки аутентификации](active-directory-v2-libraries.md)
-
 ### [Протоколы проверки подлинности v2.0 ](active-directory-v2-protocols.md)
-
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-
 #### [Предоставление кода авторизации OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
-
 #### [Неявное разрешение Oauth 2.0](active-directory-v2-protocols-implicit.md)
-
 #### [Предоставление учетных данных клиента OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-
 #### [Поток Oauth 2.0 On-Behalf-Of](active-directory-v2-protocols-oauth-on-behalf-of.md)
-
 #### [Справочник по маркерам](active-directory-v2-tokens.md)
-
 #### [Учетные данные сертификата](active-directory-certificate-credentials.md)
-
 ### [Области действия](active-directory-v2-scopes.md)
-
 # Ресурсы
-
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
-
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)

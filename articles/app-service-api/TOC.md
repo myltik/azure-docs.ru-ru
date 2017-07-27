@@ -80,7 +80,6 @@
 ### Личные домены
 #### [Приобретение и настройка личных доменов](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Сопоставление личных доменов](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Настройка доменов GoDaddy](../app-service-web/web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Личные домены с диспетчером трафика](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ### [Клонирование существующего приложения](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)

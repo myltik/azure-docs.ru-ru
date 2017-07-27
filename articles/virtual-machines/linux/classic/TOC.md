@@ -66,6 +66,7 @@
 ## Устранение неполадок
 ### [Развернутые виртуальные машины](troubleshoot-deployment-new-vm.md)
 ### [Перезапуск или изменение размера виртуальной машины](restart-resize-error-troubleshooting.md)
+### [Подключение виртуального жесткого диска для устранения неполадок виртуальной машины](troubleshoot-recovery-disks-portal.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/azure/overview)
@@ -79,7 +80,7 @@
 
 
 # Ресурсы
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Цены](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Доступность по регионам](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

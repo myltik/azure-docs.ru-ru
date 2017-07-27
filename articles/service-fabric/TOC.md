@@ -16,7 +16,8 @@
 ### [2. Развертывание приложения .NET с помощью Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Примеры
-## [PowerShell](service-fabric-powershell-samples.md) 
+## [PowerShell](service-fabric-powershell-samples.md)
+## [Интерфейс командной строки Azure](samples-cli.md)
 # Основные понятия
 ## [Основные сведения о микрослужбах](service-fabric-overview-microservices.md)
 ## [Общая картина](service-fabric-content-roadmap.md)

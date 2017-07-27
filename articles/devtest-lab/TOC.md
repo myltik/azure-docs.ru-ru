@@ -67,3 +67,7 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 ## [Цены](https://azure.microsoft.com/pricing/details/devtest-lab/)
+
+
+# Ресурсы
+## [Стратегия развития Azure](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)

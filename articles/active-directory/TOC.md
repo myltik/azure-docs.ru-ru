@@ -384,7 +384,7 @@
 
 # Ресурсы
 ## [Форум отзывов и предложений по Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Цены](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=active-directory)

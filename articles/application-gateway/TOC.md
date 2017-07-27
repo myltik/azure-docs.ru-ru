@@ -67,7 +67,7 @@
 ## [Подсистема балансировки нагрузки](/azure/load-balancer/)
 ## [Диспетчер трафика](/azure/traffic-manager/)
 # Ресурсы
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Цены](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=application-gateway)
