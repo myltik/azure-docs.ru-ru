@@ -81,7 +81,8 @@
 ### [Доступ к приложению](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Неполадки в классическом развертывании при создании виртуальной машины](troubleshoot-deployment-new-vm.md)
 ### [Неполадки в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [Сброс пароля удаленного рабочего стола](reset-rdp.md)
+### [Сброс пароля удаленного рабочего стола](reset-rdp.md)
+### [Подключение виртуального жесткого диска для устранения неполадок виртуальной машины](troubleshoot-recovery-disks-portal.md)
 
 # Справочные материалы
 ## [PowerShell](/powershell/azure/overview)
@@ -95,7 +96,7 @@
 ## [REST для службы хранилища](/rest/api/storageservices)
 
 # Ресурсы
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Цены](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
 ## [Доступность по регионам](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

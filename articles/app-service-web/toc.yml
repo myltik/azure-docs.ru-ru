@@ -48,16 +48,13 @@
 - name: Основные понятия
   items:
     - name: Принцип работы службы приложений
-      href: >-
-        ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Планы службы приложений
-      href: >-
-        ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Среда службы приложений
       href: ../app-service/app-service-environment/intro.md
     - name: Аутентификация и авторизация
-      href: >-
-        ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Проверка подлинности с помощью локальной службы AD
       href: web-sites-authentication-authorization.md
 - name: Практические руководства
@@ -161,8 +158,6 @@
               href: custom-dns-web-site-buydomains-web-app.md
             - name: Сопоставление доменов с помощью диспетчера трафика
               href: web-sites-traffic-manager-custom-domain-name.md
-            - name: Сопоставление доменов GoDaddy
-              href: web-sites-godaddy-custom-domain-name.md
             - name: Перенос активного домена
               href: app-service-custom-domain-name-migrate.md
         - name: Перенос из IIS
@@ -186,20 +181,15 @@
         - name: Проверка подлинности пользователей
           items:
             - name: "Проверка подлинности с помощью Azure\_AD"
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Проверка подлинности с помощью Facebook
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Проверка подлинности с помощью Google
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Проверка подлинности с помощью учетной записи Майкрософт
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Проверка подлинности с помощью Twitter
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Проверка подлинности с помощью локальной службы AD
               href: web-sites-authentication-authorization.md
             - name: Приложения с мультитенантной базой данных
@@ -213,20 +203,17 @@
         - name: Увеличение масштаба
           href: web-sites-scale.md
         - name: Масштабирование
-          href: >-
-            ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Балансировка нагрузки с помощью диспетчера трафика
           href: web-sites-traffic-manager.md
         - name: Высокая степень масштабирования с помощью сред службы приложений
-          href: >-
-            ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Глобальный доступ с помощью Azure CDN
           href: cdn-websites-with-cdn.md
         - name: Подключение к кэшу Redis через Memcache
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: Создание кэша Redis
-          href: >-
-            ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Управление состоянием сеанса с кэшем Redis для Azure
           href: web-sites-dotnet-session-state-caching.md
     - name: Монитор
@@ -260,8 +247,7 @@
     - name: Интеграция
       items:
         - name: Экспорт в PowerApps и Microsoft Flow
-          href: >-
-            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: Среда службы приложений
       items:
         - name: Использование среды службы приложений
@@ -308,11 +294,8 @@
           href: app-service-web-troubleshoot-performance-degradation.md
         - name: Часто задаваемые вопросы
           items:
-            - name: >-
-                Часто задаваемые вопросы о доступности, производительности и
-                приложениях
-              href: >-
-                app-service-web-availability-performance-application-issues-faq.md
+            - name: 'Часто задаваемые вопросы о доступности, производительности и приложениях'
+              href: app-service-web-availability-performance-application-issues-faq.md
             - name: Часто задаваемые вопросы о развертывании
               href: app-service-web-deployment-faq.md
             - name: Часто задаваемые вопросы о технологиях с открытым кодом
@@ -335,18 +318,14 @@
           href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
         - name: Общие сведения о сетевой архитектуре
           href: app-service-app-service-environment-network-architecture-overview.md
-        - name: >-
-            Реализация многоуровневой архитектуры безопасности со средами службы
-            приложений
+        - name: Реализация многоуровневой архитектуры безопасности со средами службы приложений
           href: app-service-app-service-environment-layered-security.md
         - name: Как управлять входящим трафиком
           href: app-service-app-service-environment-control-inbound-traffic.md
         - name: Безопасное подключение к серверным ресурсам
-          href: >-
-            app-service-app-service-environment-securely-connecting-to-backend-resources.md
+          href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: Сведения о настройке сети для работы с ExpressRoute
-          href: >-
-            app-service-app-service-environment-network-configuration-expressroute.md
+          href: app-service-app-service-environment-network-configuration-expressroute.md
         - name: Автомасштабирование в среде службы приложений
           href: ../app-service/app-service-environment-auto-scale.md
     - name: Цены

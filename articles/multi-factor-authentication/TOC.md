@@ -50,4 +50,4 @@
 ### [Задать вопрос](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Ошибки расширения NPS](multi-factor-authentication-nps-errors.md)
 # Ресурсы
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
