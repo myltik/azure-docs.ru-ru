@@ -131,9 +131,19 @@
     - name: Соединители
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/
+    - name: Экземпляры контейнеров
+      tocHref: /azure/container-instances/
+      topicHref: /azure/container-instances/
     - name: Служба контейнеров
       tocHref: /azure/container-service/
       topicHref: /azure/container-service/
+      items:
+        - name: DC/OS и Swarm
+          tocHref: /azure/container-service/dcos-swarm/
+          topicHref: /azure/container-service/dcos-swarm/
+        - name: kubernetes
+          tocHref: /azure/container-service/kubernetes/
+          topicHref: /azure/container-service/kubernetes/
     - name: "Cosmos\_DB"
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/

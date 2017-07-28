@@ -1,0 +1,61 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по Службе контейнеров Azure с Kubernetes
+metadata:
+  document_id: null
+  title: Документация по Службе контейнеров Azure с Kubernetes. Руководства и справочник по API | Документация Майкрософт
+  meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.'
+  services: container-service
+  author: carolz
+  manager: carolz
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07-21-2017
+  ms.author: carolz
+abstract:
+  description: 'Служба контейнера Azure позволяет быстро развертывать готовые к работе кластеры Kubernetes. Узнайте, как работать со Службой контейнеров Azure с Kubernetes, используя наши краткие инструкции, руководства и примеры.'
+sections:
+  - title: 5-минутные руководства по началу работы
+    items:
+      - type: paragraph
+        text: 'Дополнительные сведения о развертывании кластеров Kubernetes с помощью службы контейнеров Azure:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+            text: Linux
+            href: /azure/container-service/kubernetes/container-service-kubernetes-walkthrough
+  - title: Пошаговые руководства
+    items:
+      - type: paragraph
+        text: 'Узнайте, как развертывать, администрировать и обновлять приложения в кластере Kubernetes службы контейнеров Azure.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Создание образов контейнеров из приложения</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Передача образов контейнеров в реестр контейнеров Azure</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Развертывание кластеров Kubernetes в службе контейнеров Azure</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Запуск образов контейнеров в Kubernetes</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Масштабирование приложений и инфраструктуры Kubernetes</a>
+          - html: '<a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Обновление приложений, выполняющихся в Kubernetes</a>'
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Мониторинг Kubernetes с помощью OMS</a>
+  - title: Примеры
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/container-service/cli-samples">Интерфейс командной строки Azure</a>
+  - title: Справочные материалы
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Командная строка
+            html: <p><a href="/cli/azure/acs">Интерфейс командной строки Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/compute/containerservices">ИНТЕРФЕЙС REST API</a></p>

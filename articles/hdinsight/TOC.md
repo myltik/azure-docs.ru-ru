@@ -13,7 +13,12 @@
 
 # Начало работы
 ## [Начало работы с Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Начало работы со Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+## Приступая к работе со Spark
+### [Создание кластера Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+### [Выполнение запросов в кластере Spark](hdinsight-apache-spark-load-data-run-query.md)
+### [Анализ данных с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
+### [Управление кластерными ресурсами](hdinsight-apache-spark-resource-manager.md)
+### [Отладка заданий Spark](hdinsight-apache-spark-job-debugging.md)
 ## [Начало работы с R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Начало работы с HBase и NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Начало работы со Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
@@ -59,7 +64,6 @@
 ### [ScaleR и SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Использование Spark для обработки в памяти
 ### [С помощью Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [С помощью инструментов бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
 ### [Создание автономного приложения](hdinsight-apache-spark-create-standalone-application.md)
 ### [Создание приложений с помощью Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Создание приложений с помощью IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
@@ -76,8 +80,6 @@
 ### [Использование локальной записной книжки Jupyter](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Работа с удаленными заданиями с помощью Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Удаленная отладка заданий с помощью IntelliJ через VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-### [Управление ресурсами](hdinsight-apache-spark-resource-manager.md)
-### [Отслеживание и отладка заданий](hdinsight-apache-spark-job-debugging.md)
 ### [Известные проблемы](hdinsight-apache-spark-known-issues.md)
 ## Использование HBase
 ### [Использование Phoenix и SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
@@ -234,7 +236,7 @@
 ### [Отслеживание кластеров с помощью Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Ресурсы
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Обращение за помощью на форум](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Программа Microsoft Professional для больших данных](https://academy.microsoft.com/en-us/professional-program/big-data/)

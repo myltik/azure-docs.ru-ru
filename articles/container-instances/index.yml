@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Документация по службе "Экземпляры контейнеров Azure"
+metadata:
+  title: Документация по службе "Экземпляры контейнеров Azure". Руководства | Документация Майкрософт
+  description: Служба "Экземпляры контейнеров Azure" предоставляет быстрый и простой способ запуска контейнера в Azure без подготовки виртуальных машин и применения службы более высокого уровня.
+  services: container-instances
+  author: carolz
+  manager: carolz
+  ms.service: container-instances
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: 'Служба "Экземпляры контейнеров Azure" предоставляет быстрый и простой способ запуска контейнера в Azure без подготовки виртуальных машин и применения службы более высокого уровня. Если вам требуется полнофункциональное решение для оркестрации контейнеров, см. <a href="/azure/container-service/kubernetes/">документацию по использованию Kubernetes в Службе контейнеров Azure</a>. Узнайте, как создавать экземпляры контейнеров и управлять ими, используя наши краткие инструкции, примеры и руководства.'
+sections:
+  - title: 5-минутные руководства по началу работы
+    items:
+      - type: paragraph
+        text: 'Узнайте, как развертывать образы контейнеров при помощи службы "Экземпляры контейнеров Azure".'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/container-instances/media/container-instances.png
+            text: Создание экземпляра контейнера
+            href: /azure/container-instances/container-instances-quickstart
+  - title: Пошаговые руководства
+    items:
+      - type: paragraph
+        text: 'Узнайте, как упаковать код в образ контейнера и выполнить его в службе "Экземпляры контейнеров Azure".'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Упаковка приложения в образ контейнера</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Создание реестра контейнеров Azure и отправка образа контейнера</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Развертывание образа контейнера в службе "Экземпляры контейнеров Azure"</a>

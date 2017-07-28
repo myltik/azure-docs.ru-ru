@@ -135,9 +135,7 @@
 #### [Включение и просмотр метрик](storage-enable-and-view-metrics.md)
 #### [Мониторинг, диагностирование и устранение неполадок](storage-monitoring-diagnosing-troubleshooting.md)
 #### [Учебник устранению неполадок](storage-e2e-troubleshooting.md)
-### Устранение ошибок при удалении диска
-#### [В развертывании с помощью Resource Manager](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
-#### [В классическом развертывании](storage-cannot-delete-storage-account-container-vhd.md)
+### [Устранение ошибок при удалении диска](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 ### [Устранение неполадок хранилища файлов](storage-troubleshoot-file-connection-problems.md)
 ## Передача данных
 ### [Перемещение данных в хранилище и из него](storage-moving-data.md)
@@ -208,7 +206,7 @@
 ### [Учебник устранению неполадок](storage-e2e-troubleshooting-classic-portal.md)
 
 # Ресурсы
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=storage)
 ## [Клиентские инструменты службы хранилища Azure](storage-explorers.md)
 ## [Форум](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Цены](https://azure.microsoft.com/pricing/details/storage/blobs/)
