@@ -22,7 +22,6 @@ ms.openlocfilehash: 41275f8264353e7158ca42e5cfc089b2fbaa556d
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Анализ журналов веб-сайтов с помощью пользовательской библиотеки Python и кластера Spark в HDInsight
 
@@ -69,7 +68,7 @@ ms.lasthandoff: 06/07/2017
 
 1. Создайте RDD, используя пример данных журнала, уже доступных в кластере. Доступ к данным в связанной с кластером учетной записи хранения по умолчанию можно получить с помощью файла **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**.
 
-        logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
+        logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
 
 1. Извлеките пример набора журналов и убедитесь в том, что описанный выше шаг успешно выполнен.
@@ -93,7 +92,7 @@ ms.lasthandoff: 06/07/2017
 
     Однако в `PYTHONPATH` эта библиотека не входит, поэтому использовать ее с помощью такого оператора импорта, как `import iislogparser`, нельзя. Чтобы использовать эту библиотеку, необходимо распространить ее на все рабочие узлы. Выполните следующий фрагмент кода.
 
-        sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
+        sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
 1. `iislogparser` предоставляет функцию `parse_log_line`, которая возвращает `None`, если строка журнала является строкой заголовка, или экземпляр класса `LogLine` при обнаружении строки журнала. Класс `LogLine` позволяет извлечь только строки журнала из RDD:
@@ -120,7 +119,7 @@ ms.lasthandoff: 06/07/2017
        numLines = logLines.count()
        numErrors = errors.count()
        print 'There are', numErrors, 'errors and', numLines, 'log entries'
-       errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
+       errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
    Вы должны увидеть подобные выходные данные:
 

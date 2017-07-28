@@ -23,11 +23,8 @@ ms.openlocfilehash: 10c8b1806a13d07e804b15cf8357de48a16fbc64
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
 
-
 ---
-<a id="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster" class="xliff"></a>
-
-# Удаленная отправка заданий Spark в кластер Azure HDInsight с помощью Apache Spark REST API
+# <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Удаленная отправка заданий Spark в кластер Azure HDInsight с помощью Apache Spark REST API
 
 Узнайте, как использовать Livy, интерфейс Apache Spark REST API, который используется для удаленной отправки заданий в кластер HDInsight Spark. Подробную документацию см. в статье о [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
@@ -39,9 +36,7 @@ ms.lasthandoff: 06/07/2017
 
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-<a id="submit-a-livy-spark-batch-job" class="xliff"></a>
-
-## Отправка пакетного задания Livy Spark
+## <a name="submit-a-livy-spark-batch-job"></a>Отправка пакетного задания Livy Spark
 Перед отправкой пакетного задания необходимо загрузить JAR-файл приложения в хранилище кластеров, связанное с соответствующим кластером. Вы можете использовать для этого служебную программу командной строки [**AzCopy**](../storage/storage-use-azcopy.md). Кроме того, для отправки данных вы можете использовать множество других клиентов. Дополнительные сведения о них см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
@@ -50,14 +45,12 @@ ms.lasthandoff: 06/07/2017
 
 * Если JAR-файл находится в хранилище кластеров (WASB)
   
-        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
+        curl -k --user "admin:mypassword1!" -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://mysparkcluster.azurehdinsight.net/livy/batches"
 * Если имя JAR-файла и имя класса необходимо передать в составе входного файла (в данном примере input.txt)
   
         curl -k  --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\input.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-<a id="get-information-on-livy-spark-batches-running-on-the-cluster" class="xliff"></a>
-
-## Получение сведений о пакетах Livy Spark, выполняемых в кластере
+## <a name="get-information-on-livy-spark-batches-running-on-the-cluster"></a>Получение сведений о пакетах Livy Spark, выполняемых в кластере
     curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
 
 **Примеры**:
@@ -69,26 +62,20 @@ ms.lasthandoff: 06/07/2017
   
         curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
 
-<a id="delete-a-livy-spark-batch-job" class="xliff"></a>
-
-## Удаление пакетного задания Livy Spark
+## <a name="delete-a-livy-spark-batch-job"></a>Удаление пакетного задания Livy Spark
     curl -k --user "<hdinsight user>:<user password>" -v -X DELETE "https://<spark_cluster_name>.azurehdinsight.net/livy/batches/{batchId}"
 
 **Пример**:
 
     curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
 
-<a id="livy-spark-and-high-availability" class="xliff"></a>
-
-## Livy Spark и высокая доступность
+## <a name="livy-spark-and-high-availability"></a>Livy Spark и высокая доступность
 Livy обеспечивает высокую доступность заданий Spark, выполняемых в кластере. Вот несколько примеров.
 
 * Если после удаленной отправки задания в кластер Spark служба Livy перестает работать, задание продолжает выполняться в фоновом режиме. Выполняя резервное копирование, служба Livy восстанавливает состояние задания и отправляет отчет.
 * Служба Livy в серверной части обеспечивает работу записных книжек Jupyter для HDInsight. Если записная книжка выполняет задание Spark, а служба Livy перезапускается, записная книжка продолжает выполнять ячейки кода. 
 
-<a id="show-me-an-example" class="xliff"></a>
-
-## Показать пример
+## <a name="show-me-an-example"></a>Показать пример
 В этом разделе мы рассмотрим примеры использования Livy Spark для отправки пакетного задания, проследим за ходом выполнения задания, а затем удалим задание. В примере используется приложение, разработанное в статье [Создание автономного приложения Scala для работы в кластере HDInsight Spark (Linux)](hdinsight-apache-spark-create-standalone-application.md). В описанных ниже действиях предполагается следующее.
 
 * Вы уже скопировали JAR-файл приложения в учетную запись хранения, связанную с кластером.
@@ -120,7 +107,7 @@ Livy обеспечивает высокую доступность задани
    
     Параметры в файле **input.txt** определяются следующим образом:
    
-        { "file":"wasbs:///example/jars/SparkSimpleApp.jar", "className":"com.microsoft.spark.example.WasbIOTest" }
+        { "file":"wasb:///example/jars/SparkSimpleApp.jar", "className":"com.microsoft.spark.example.WasbIOTest" }
    
     Должен отобразиться результат, аналогичный приведенному ниже:
    
@@ -173,9 +160,7 @@ Livy обеспечивает высокую доступность задани
    
     Последняя строка выходных данных показывает, что пакет удален. Если задание удаляется в процессе выполнения, оно фактически аннулируется. Если задание удаляется после завершения (независимо от успешности выполнения), удаляются все данные об этом задании.
 
-<a id="using-livy-spark-on-hdinsight-35-clusters" class="xliff"></a>
-
-## Использование Livy Spark в кластерах HDInsight 3.5
+## <a name="using-livy-spark-on-hdinsight-35-clusters"></a>Использование Livy Spark в кластерах HDInsight 3.5
 
 Кластер HDInsight 3.5 по умолчанию запрещает использование локальных путей для доступа к примерам файлов данных или JAR-файлам. Мы рекомендуем использовать путь `wasb://` для доступа к JAR-файлам или примерам файлов данных из кластера. Если вы хотите использовать локальный путь, необходимо соответствующим образом обновить конфигурацию Ambari. Для этого выполните следующие действия:
 
@@ -185,15 +170,11 @@ Livy обеспечивает высокую доступность задани
 
 3. В разделе **livy-default** добавьте имя свойства `livy.file.local-dir-whitelist` и присвойте ему значение **"/"**, если вы хотите разрешить полный доступ к файловой системе. Если вы хотите разрешить доступ только к конкретному каталогу, то в качестве значения свойства укажите путь к этому каталогу.
 
-<a id="troubleshooting" class="xliff"></a>
-
-## Устранение неполадок
+## <a name="troubleshooting"></a>Устранение неполадок
 
 Ниже приведены некоторые проблемы, которые могут возникнуть при использовании Livy для отправки удаленных заданий в кластеры Spark.
 
-<a id="using-an-external-jar-from-the-additional-storage-is-not-supported" class="xliff"></a>
-
-### Использование внешних JAR-файлов из дополнительных хранилищ не поддерживается
+### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>Использование внешних JAR-файлов из дополнительных хранилищ не поддерживается
 
 **Проблема.** При выполнении задания Livy Spark и ссылке на внешний JAR-файл из дополнительного хранилища, связанного с кластером, происходит сбой.
 
@@ -203,23 +184,17 @@ Livy обеспечивает высокую доступность задани
 ## <a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-<a id="scenarios" class="xliff"></a>
-
-### Сценарии
+### <a name="scenarios"></a>Сценарии
 * [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для анализа температуры в здании на основе данных системы кондиционирования](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
 * [Анализ журнала веб-сайта с использованием Spark в HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-<a id="create-and-run-applications" class="xliff"></a>
-
-### Создание и запуск приложений
+### <a name="create-and-run-applications"></a>Создание и запуск приложений
 * [Создание автономного приложения с использованием Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-<a id="tools-and-extensions" class="xliff"></a>
-
-### Средства и расширения
+### <a name="tools-and-extensions"></a>Средства и расширения
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
@@ -227,9 +202,7 @@ Livy обеспечивает высокую доступность задани
 * [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-<a id="manage-resources" class="xliff"></a>
-
-### Управление ресурсами
+### <a name="manage-resources"></a>Управление ресурсами
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 

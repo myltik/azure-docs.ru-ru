@@ -85,7 +85,7 @@ ms.lasthandoff: 06/10/2017
 6. В сеансе SSH используйте следующую команду для копирования файлов из связанной учетной записи хранения в новую учетную запись хранения по умолчанию. Замените CONTAINER данными контейнера, возвращенными PowerShell. Замените __ACCOUNT__ именем учетной записи. Замените путь к данным на путь к файлу данных.
 
     ```bash
-    hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
+    hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
     ```
 
     > [!NOTE]
@@ -280,9 +280,9 @@ Ambari имеет систему предупреждений, которые м
 * **После передачи в кластер**: используйте приведенную ниже команду в сеансе SSH-подключения к кластеру Linux для изменения сценария.
 
     ```bash
-    hdfs dfs -get wasbs:///path/to/script.py oldscript.py
+    hdfs dfs -get wasb:///path/to/script.py oldscript.py
     tr -d '\r' < oldscript.py > script.py
-    hdfs dfs -put -f script.py wasbs:///path/to/script.py
+    hdfs dfs -put -f script.py wasb:///path/to/script.py
     ```
 
 ## <a name="next-steps"></a>Дальнейшие действия

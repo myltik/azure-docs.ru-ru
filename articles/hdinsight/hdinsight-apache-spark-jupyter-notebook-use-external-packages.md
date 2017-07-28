@@ -22,11 +22,8 @@ ms.openlocfilehash: 5d566e7b84723bacf575ade8ea6947cfdaf8b606
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/07/2017
 
-
 ---
-<a id="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight" class="xliff"></a>
-
-# Использование внешних пакетов с записными книжками Jupyter в кластерах Apache Spark в HDInsight
+# <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Использование внешних пакетов с записными книжками Jupyter в кластерах Apache Spark в HDInsight
 > [!div class="op_single_selector"]
 > * [Использование волшебных команд](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Использование действия сценария](hdinsight-apache-spark-python-package-installation.md)
@@ -41,16 +38,12 @@ ms.lasthandoff: 06/07/2017
 
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Необходимо следующее:
 
 * Кластер Apache Spark в HDInsight. Инструкции см. в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-<a id="use-external-packages-with-jupyter-notebooks" class="xliff"></a>
-
-## Использование внешних пакетов с записными книжками Jupyter
+## <a name="use-external-packages-with-jupyter-notebooks"></a>Использование внешних пакетов с записными книжками Jupyter
 1. На начальной панели [портала Azure](https://portal.azure.com/)щелкните элемент кластера Spark (если он закреплен на начальной панели). Кроме того, вы можете перейти к кластеру, последовательно щелкнув **Просмотреть все** > **Кластеры HDInsight**.   
 2. В колонке кластера Spark щелкните **Быстрые ссылки**, затем в колонке **Панель мониторинга кластера** выберите **Записная книжка Jupyter**. При появлении запроса введите учетные данные администратора для кластера.
 
@@ -97,7 +90,7 @@ ms.lasthandoff: 06/07/2017
         val df = sqlContext.read.format("com.databricks.spark.csv").
         option("header", "true").
         option("inferSchema", "true").
-        load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 8. Затем можно запустить фрагменты кода, как показано ниже, чтобы просмотреть данные из таблицы данных, созданной на предыдущем шаге.
    
@@ -108,24 +101,18 @@ ms.lasthandoff: 06/07/2017
 ## <a name="seealso"></a>Дополнительные материалы
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-<a id="scenarios" class="xliff"></a>
-
-### Сценарии
+### <a name="scenarios"></a>Сценарии
 * [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для анализа температуры в здании на основе данных системы кондиционирования](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
 * [Анализ журнала веб-сайта с использованием Spark в HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-<a id="create-and-run-applications" class="xliff"></a>
-
-### Создание и запуск приложений
+### <a name="create-and-run-applications"></a>Создание и запуск приложений
 * [Создание автономного приложения с использованием Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Удаленный запуск заданий с помощью Livy в кластере Spark](hdinsight-apache-spark-livy-rest-interface.md)
 
-<a id="tools-and-extensions" class="xliff"></a>
-
-### Средства и расширения
+### <a name="tools-and-extensions"></a>Средства и расширения
 
 * [Использование внешних пакетов Python с элементами Jupyter Notebook в кластерах Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-python-package-installation.md)
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
@@ -134,9 +121,7 @@ ms.lasthandoff: 06/07/2017
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-<a id="manage-resources" class="xliff"></a>
-
-### Управление ресурсами
+### <a name="manage-resources"></a>Управление ресурсами
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 

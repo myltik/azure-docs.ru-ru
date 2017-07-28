@@ -23,7 +23,6 @@ ms.openlocfilehash: 47cbb4ba34bb075f51306cc9481afd308ff672b4
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/09/2017
 
-
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Использование Spark MLlib для создания приложения машинного обучения и анализа набора данных
 
@@ -93,7 +92,7 @@ MLlib — это основная библиотека Spark, содержаща
             sio.close()
             return value
 
-        inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+        inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
 1. Теперь у нас есть CSV-файл в качестве устойчивого распределенного набора данных (RDD).  Чтобы разобраться со схемой данных, извлечем одну строку из RDD.
 
@@ -253,7 +252,7 @@ MLlib предоставляет простой способ выполнени�
 
 1. Приведенный ниже фрагмент кода создает кадр данных **predictionsDf**, содержащий сформированный моделью прогноз. Фрагмент кода также создает временную таблицу **Predictions** на основе кадра данных.
 
-        testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+        testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                  .map(csvParse) \
                  .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
         testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
