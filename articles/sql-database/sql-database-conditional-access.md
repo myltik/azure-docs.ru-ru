@@ -35,7 +35,7 @@ ms.lasthandoff: 06/08/2017
   ![выбор пользователей и групп](./media/sql-database-conditional-access/select-users-and-groups.png)  
 
 4.  Выберите **Облачные приложения** и щелкните **Выбрать приложения**. Вы увидите все приложения, доступные для условного доступа. Выберите **База данных SQL Azure**, в нижней области щелкните **Выбрать**, а затем щелкните **Готово**.  
-  ](./media/sql-database-conditional-access/select-sql-database.png)выбор базы данных SQL![  
+  ![выбор базы данных SQL](./media/sql-database-conditional-access/select-sql-database.png)  
   Если не удается найти **базу данных SQL Azure**, как на третьем снимке экрана, выполните следующие действия:   
   - Войдите на свой экземпляр базы данных или хранилища данных SQL Azure с помощью SSMS, используя учетную запись администратора AAD.  
   - Выполните `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
