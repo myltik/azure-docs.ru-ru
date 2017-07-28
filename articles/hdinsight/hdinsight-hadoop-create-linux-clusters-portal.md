@@ -22,7 +22,6 @@ ms.openlocfilehash: 678b2847f9bf39995fa214f181a05c96df9e49f2
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Создание кластеров под управлением Linux в HDInsight с помощью портала Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,6 +36,9 @@ ms.lasthandoff: 06/13/2017
 
 ## <a name="create-clusters"></a>Создание кластеров
 Портал Azure предоставляет большую часть свойств кластера. С помощью шаблона Azure Resource Manager можно скрыть много сведений. Дополнительные сведения см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
 
 1. Войдите на [портал Azure](https://portal.azure.com).
 2. Щелкните **+**, **Аналитика**, а затем — **HDInsight**.

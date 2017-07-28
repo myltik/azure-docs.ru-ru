@@ -23,8 +23,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 05/02/2017
 
 ---
-# Использование языка C# для потоковой передачи MapReduce в Hadoop в HDInsight
-<a id="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight" class="xliff"></a>
+# <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Использование языка C# для потоковой передачи MapReduce в Hadoop в HDInsight
 
 Узнайте, как использовать C# для создания решения MapReduce в HDInsight.
 
@@ -33,15 +32,13 @@ ms.lasthandoff: 05/02/2017
 
 Потоковая передача Hadoop обеспечивается служебной программой, которая позволяет запускать задания MapReduce с помощью сценария или исполняемого файла. В этом примере .NET используется для реализации модулей сопоставления и редукции для решения для подсчета слов.
 
-## .NET в HDInsight
-<a id="net-on-hdinsight" class="xliff"></a>
+## <a name="net-on-hdinsight"></a>.NET в HDInsight
 
 В кластерах __HDInsight под управлением Linux__ для запуска приложений .NET используется [Mono (https://mono-project.com)](https://mono-project.com). Mono версии 4.2.1 входит в состав HDInsight версии 3.5. Дополнительные сведения о версии Mono, которая входит в состав HDInsight, см. в разделе [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md) Чтобы использовать определенную версию Mono, см. статью об [установке или обновлении Mono](hdinsight-hadoop-install-mono.md).
 
 Дополнительные сведения о совместимости Mono с различными версиями платформы .NET Framework см. в разделе [Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) (Совместимость).
 
-## Как работает потоковая передача Hadoop
-<a id="how-hadoop-streaming-works" class="xliff"></a>
+## <a name="how-hadoop-streaming-works"></a>Как работает потоковая передача Hadoop
 
 Базовый процесс потоковой передачи в данном документе выглядит следующим образом.
 
@@ -53,8 +50,7 @@ ms.lasthandoff: 05/02/2017
 
 Дополнительные сведения о потоковой передаче см. в разделе [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html) (Потоковая передача Hadoop).
 
-## Предварительные требования
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Предварительные требования
 
 * Опыт написания и выполнения сборки кода C#, предназначенного для платформы .NET Framework 4.5. В этом руководстве используется Visual Studio 2017.
 
@@ -64,8 +60,7 @@ ms.lasthandoff: 05/02/2017
 
 * Hadoop в кластере HDInsight. Дополнительные сведения о создании кластера см. в статье [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md).
 
-## Создание модуля сопоставления
-<a id="create-the-mapper" class="xliff"></a>
+## <a name="create-the-mapper"></a>Создание модуля сопоставления
 
 Создайте __консольное приложение__ в Visual Studio и назовите его __mapper__. Используйте для него следующий код.
 
@@ -102,8 +97,7 @@ namespace mapper
 
 После создания приложения выполните его сборку, чтобы создать файл `/bin/Debug/mapper.exe` в каталоге проекта.
 
-## Создание модуля редукции
-<a id="create-the-reducer" class="xliff"></a>
+## <a name="create-the-reducer"></a>Создание модуля редукции
 
 Создайте __консольное приложение__ в Visual Studio и назовите его __reducer__. Используйте для него следующий код.
 
@@ -156,8 +150,7 @@ namespace reducer
 
 После создания приложения выполните его сборку, чтобы создать файл `/bin/Debug/reducer.exe` в каталоге проекта.
 
-## Отправка в хранилище
-<a id="upload-to-storage" class="xliff"></a>
+## <a name="upload-to-storage"></a>Отправка в хранилище
 
 1. В Visual Studio в откройте **обозреватель сервера**.
 
@@ -183,8 +176,7 @@ namespace reducer
 
     После завершения передачи __mapper.exe__ повторите этот процесс для передачи файла __reducer.exe__.
 
-## Выполнение задания с помощью сеанса SSH
-<a id="run-a-job-using-an-ssh-session" class="xliff"></a>
+## <a name="run-a-job-using-an-ssh-session"></a>Выполнение задания с помощью сеанса SSH
 
 1. Подключитесь к кластеру HDInsight с помощью SSH. Дополнительные сведения см. в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -199,7 +191,7 @@ namespace reducer
     * Если в качестве хранилища по умолчанию используется __служба хранилища Azure__:
 
         ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
         ```
 
     Ниже перечислены функции каждого из параметров.
@@ -229,8 +221,7 @@ namespace reducer
         yourselves      3
         youth   17
 
-## Выполнение задания с помощью PowerShell
-<a id="run-a-job-using-powershell" class="xliff"></a>
+## <a name="run-a-job-using-powershell"></a>Выполнение задания с помощью PowerShell
 
 Используйте приведенный ниже сценарий PowerShell для запуска задания MapReduce и скачивания результатов.
 
@@ -248,8 +239,7 @@ namespace reducer
     yourselves      3
     youth   17
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об использовании MapReduce с HDInsight см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
 

@@ -104,7 +104,7 @@
     - name: Инфраструктура CLI Azure
       href: /cli/azure/postgres
     - name: Интерфейс REST API
-      href: /rest/api/postgres
+      href: /rest/api/postgresql
 - name: Ресурсы
   items:
     - name: Стратегия развития Azure
