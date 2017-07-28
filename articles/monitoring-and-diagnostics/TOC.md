@@ -59,8 +59,9 @@
 ### [Устранение неполадок](azure-diagnostics-troubleshooting.md)
 
 # Справочные материалы
-## [Список поддерживаемых метрик](monitoring-supported-metrics.md)
 ## [Источники данных мониторинга](monitoring-data-sources.md)
+## [Список поддерживаемых метрик](monitoring-supported-metrics.md)
+## [Схема событий журнала действий](monitoring-activity-log-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
@@ -71,7 +72,7 @@
 
 # Ресурсы
 ## [Примеры для Azure CLI 1.0](insights-cli-samples.md)
-## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Примеры для PowerShell](insights-powershell-samples.md)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Шаблоны быстрого запуска](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

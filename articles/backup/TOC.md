@@ -17,7 +17,7 @@
 ### Резервное копирование виртуальных машин
 #### [Резервное копирование виртуальных машин Azure в хранилище служб восстановления](backup-azure-arm-vms.md)
 #### [Резервное копирование зашифрованных виртуальных машин](backup-azure-vms-encryption.md)
-#### [Резервное копирование виртуальных машин Azure в резервное хранилище](backup-azure-vms.md)
+#### [Архивация виртуальных машин Azure](backup-azure-vms.md)
 ### Контроль и мониторинг виртуальных машин
 #### [Управлять резервным копированием виртуальных машин Azure на портале Azure](backup-azure-manage-vms.md)
 #### [Мониторинг предупреждений о резервном копировании виртуальных машин Azure на портале Azure](backup-azure-monitor-vms.md)
@@ -57,7 +57,7 @@
 ### [Подготовка рабочих нагрузок DPM на портале Azure](backup-azure-dpm-introduction.md)
 ### [Подготовка рабочих нагрузок DPM на классическом портале](backup-azure-dpm-introduction-classic.md)
 ### [Резервное копирование Exchange Server с помощью System Center DPM](backup-azure-backup-exchange-server.md)
-### [Восстановление данных из хранилища резервных копий на альтернативный сервер DPM](backup-azure-alternate-dpm-server.md)
+### [Восстановление данных на альтернативный сервер DPM](backup-azure-alternate-dpm-server.md)
 ### [Резервное копирование рабочих нагрузок SQL Server с помощью DPM](backup-azure-backup-sql.md)
 ### [Резервное копирование фермы SharePoint с помощью DPM](backup-azure-backup-sharepoint.md)
 
@@ -90,11 +90,12 @@
 # Основные понятия
 ## [Обзор хранилищ служб восстановления](backup-azure-recovery-services-vault-overview.md)
 ## [Обновление резервного хранилища до хранилища служб восстановления](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Удаление хранилища службы архивации Azure](backup-azure-delete-vault.md)
+## [Удаление хранилища служб восстановления](backup-azure-delete-vault.md)
 ## [Контроль доступа на основе ролей](backup-rbac-rs-vault.md)
 ## [Безопасность гибридных резервных копий](backup-azure-security-feature.md)
 ## [Настройка отчетов службы архивации Azure](backup-azure-configure-reports.md)
 ## [Модель данных для отчетов службы архивации Azure](backup-azure-reports-data-model.md)
+## [Модель данных Log Analytics для Azure Backup](backup-azure-log-analytics-data-model.md)
 ## [Настройка автономного резервного копирования](backup-azure-backup-import-export.md)
 ## [Замена ленточным библиотекам](backup-azure-backup-cloud-as-tape.md)
 ## [Согласованное с приложениями резервное копирование виртуальных машин Linux](backup-azure-linux-app-consistent.md)
