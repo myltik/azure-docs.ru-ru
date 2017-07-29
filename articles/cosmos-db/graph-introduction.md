@@ -2,7 +2,7 @@
 title: "Знакомство с API-интерфейсами Graph базы данных Azure Cosmos DB | Документация Майкрософт"
 description: "Узнайте, как можно использовать базу данных Azure Cosmos DB, чтобы хранить, запрашивать и передавать массивные графы с минимальной задержкой с помощью языка запросов графа Gremlin в Apache TinkerPop."
 services: cosmos-db
-author: arramac
+author: dennyglee
 documentationcenter: 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
@@ -11,13 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/21/2017
-ms.author: arramac
+ms.author: denlee
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 4ee52c2665d5856cb0022365edf0485458b629fe
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/15/2017
-
 
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Знакомство с базой данных Azure Cosmos DB. API Graph

@@ -1,9 +1,9 @@
 ---
-title: "Azure Cosmos DB как хранилище пар &quot;ключ — значение&quot;. Общие сведения о стоимости | Документация Майкрософт"
-description: "Сведения об экономичности использования Azure Cosmos DB для хранения пар &quot;ключ — значение&quot;."
-keywords: "Хранилище пар &quot;ключ-значение&quot;"
+title: "Azure Cosmos DB как хранилище пар \"ключ — значение\". Общие сведения о стоимости | Документация Майкрософт"
+description: "Сведения об экономичности использования Azure Cosmos DB для хранения пар \"ключ — значение\"."
+keywords: "Хранилище пар \"ключ-значение\""
 services: cosmos-db
-author: ArnoMicrosoft
+author: mimig1
 manager: jhubbard
 editor: 
 tags: 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: acomet
+ms.author: mimig
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: c7d01eee1ba10599ca24291bb71cd7fdc6455f0e

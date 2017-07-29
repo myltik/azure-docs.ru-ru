@@ -1,6 +1,6 @@
 ---
-title: "Приступая к работе с решением &quot;Безопасность и аудит&quot; Operations Management Suite | Документация Майкрософт"
-description: "Эта статья поможет вам приступить к работе с возможностями мониторинга гибридного облака, предоставленными в решении &quot;Безопасность и аудит&quot; набора Operations Management Suite."
+title: "Приступая к работе с решением \"Безопасность и аудит\" Operations Management Suite | Документация Майкрософт"
+description: "Эта статья поможет вам приступить к работе с возможностями мониторинга гибридного облака, предоставленными в решении \"Безопасность и аудит\" набора Operations Management Suite."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -13,14 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 07/18/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Приступая к работе с решением "Безопасность и аудит" Operations Management Suite
@@ -73,6 +72,8 @@ Microsoft Operations Management Suite (OMS) — это облачное реше
 ![Записи безопасности в динамике по времени](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
 Если щелкнуть эту плитку, откроется колонка **Поиск** с результатом запроса для **событий безопасности** (Type=SecurityEvents) и данными за последние семь дней, как показано ниже.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Записи безопасности в динамике по времени](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 

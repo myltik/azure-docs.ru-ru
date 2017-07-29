@@ -1,5 +1,5 @@
 ---
-title: "Решение &quot;Аналитика DNS&quot; в Azure Log Analytics | Документация Майкрософт"
+title: "Решение \"Аналитика DNS\" в Azure Log Analytics | Документация Майкрософт"
 description: "Узнайте, как настроить и использовать решение аналитики DNS в Log Analytics, чтобы собрать сведения об инфраструктуре DNS — безопасности, производительности и операциях."
 services: log-analytics
 documentationcenter: 
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: 1b2f9c3fc59a83b384a63db00d2d039cab8679e8
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/09/2017
-
 
 ---
 
@@ -147,6 +146,8 @@ ms.lasthandoff: 06/09/2017
 ![Колонка "Запросы на регистрацию имени" ](./media/log-analytics-dns/name-reg-req-blade.png)
 
 **Примеры запросов аналитики DDI**. Содержит список наиболее распространенных поисковых запросов, которые напрямую извлекают необработанные данные аналитики.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Примеры запросов](./media/log-analytics-dns/queries.png)
 
