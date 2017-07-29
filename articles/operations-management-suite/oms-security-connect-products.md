@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 07/18/2017
 ms.author: yurid
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
 ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
+ms.contentlocale: ru-ru
 ms.lasthandoff: 12/06/2016
-
 
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Подключение средств обеспечения безопасности к решению для защиты и аудита Operations Management Suite (OMS) 
@@ -90,11 +90,13 @@ CEF — это отраслевой стандартный формат на о
     ```
 6. Введите следующую команду и проверьте результат, чтобы убедиться, что в журнале агента OMS нет ошибок:
 
-    ```    
+    ``` 
     tail /var/opt/microsoft/omsagent/log/omsagent.log
     ```
 
 ## <a name="reviewing-collected-security-events"></a>Просмотр собранных событий безопасности
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 После завершения конфигурации решение для защиты OMS начнет принимать события безопасности. Чтобы визуализировать эти события, откройте поиск по журналам, введите в поле поиска команду *Type=CommonSecurityLog* и нажмите клавишу ВВОД. В следующем примере показан результат выполнения этой команды. Обратите внимание, что в этом случае решение для защиты OMS уже приняло журналы безопасности от нескольких поставщиков:
    

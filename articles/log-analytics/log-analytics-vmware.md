@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 07/18/2017
 ms.author: banders
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
@@ -151,7 +151,10 @@ vSphere ESXi Host версий 5.5 и 6.0.
 #### <a name="common-search-queries"></a>Распространенные поисковые запросы
 Решение включает и другие полезные запросы, которые помогают управлять узлами ESXi узлов. Сюда входят запросы к данным о переполнении дискового пространства, задержках хранилища и сбоях пути.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![Запросы](./media/log-analytics-vmware/queries.png)
+
 
 #### <a name="save-queries"></a>Сохранение запросов
 Сохранение запросов поиска — это стандартная функция OMS, которая помогает сохранять запросы, которые оказались полезными для вас. Создав запрос, который вы считаете полезным, сохраните его, щелкнув **Избранное**. Сохранение запроса позволяет без труда использовать его позже на странице [Моя панель мониторинга](log-analytics-dashboards.md), где вы можете создавать собственные настраиваемые панели мониторинга.

@@ -3,7 +3,7 @@ title: "Как выполнять запросы к данным графа в �
 description: "Узнайте, как выполнять запросы к данным графа в базе данных Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: dennyglee
 manager: jhubbard
 editor: 
 tags: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: denlee
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 630aeba6a881c814a6afb030ad2c064055fc452f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/10/2017
-
 
 ---
 

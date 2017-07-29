@@ -20,7 +20,6 @@ ms.openlocfilehash: 6f864581fe1d1771371d6805407cb881fedb4187
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Оценка приложений и микрослужб Azure Service Fabric на портале Azure
 
@@ -78,6 +77,8 @@ ms.lasthandoff: 07/06/2017
 ### <a name="viewing-performance-data"></a>Просмотр данных о производительности
 Чтобы просмотреть данные о производительности из узлов, сделайте следующее:
 </br>
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 * Запустите рабочую область Log Analytics на портале Azure.
 
