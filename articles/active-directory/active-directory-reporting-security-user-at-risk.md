@@ -20,8 +20,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 05/09/2017
 
 ---
-# Отчет системы безопасности о пользователях под угрозой на портале Azure Active Directory
-<a id="users-at-risk-security-report-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Отчет системы безопасности о пользователях под угрозой на портале Azure Active Directory
 
 С помощью отчетов о безопасности в Azure Active Directory (Azure AD) можно получить ценную информацию о наличии скомпрометированных учетных записей пользователей в вашей среде. 
 
@@ -37,8 +36,7 @@ Azure Active Directory обнаруживает подозрительные д�
 
 ![События входа, представляющие риск](./media/active-directory-reporting-security-user-at-risk/10.png)
 
-## Выпуски "Бесплатный" и "Базовый" Azure Active Directory
-<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
+## <a name="azure-active-directory-free-and-basic-edition"></a>Выпуски "Бесплатный" и "Базовый" Azure Active Directory
 
 В выпусках "Бесплатный" и "Базовый" Azure Active Directory доступен список учетных записей пользователей, конфиденциальность которых могла быть нарушена. 
 
@@ -50,8 +48,7 @@ Azure Active Directory обнаруживает подозрительные д�
 
 ![События входа, представляющие риск](./media/active-directory-reporting-security-user-at-risk/46.png)
 
-## Выпуски Azure Active Directory Premium
-<a id="azure-active-directory-premium-editions" class="xliff"></a>
+## <a name="azure-active-directory-premium-editions"></a>Выпуски Azure Active Directory Premium
 
 Отчет о пользователях под угрозой в выпусках Azure Active Directory Premium предоставляет следующее.
 
@@ -88,8 +85,7 @@ Azure Active Directory обнаруживает подозрительные д�
 
 
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о защите идентификации Azure см. в статье [Защита идентификации Azure Active Directory](active-directory-identityprotection.md).
 

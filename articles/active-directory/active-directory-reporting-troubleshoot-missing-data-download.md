@@ -23,30 +23,25 @@ ms.lasthandoff: 05/08/2017
 
 ---
 
-# Не удается найти данные в скачанном журнале действий Azure Active Directory
-<a id="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded" class="xliff"></a>
+# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>Не удается найти данные в скачанном журнале действий Azure Active Directory
 
 
-## Симптомы
-<a id="symptoms" class="xliff"></a>
+## <a name="symptoms"></a>Симптомы
 
 В скачанном журнале действий (аудита или входа) нет всех записей за выбранный период времени. Почему? 
 
  ![Отчеты](./media/active-directory-reporting-troubleshoot-missing-data-download/01.png)
  
 
-## Причина:
-<a id="cause" class="xliff"></a>
+## <a name="cause"></a>Причина:
 
 К журналам действий, скачиваемым на портале Azure, применяется ограничение в 120 тыс. последних записей. 
 
-## Способы устранения:
-<a id="resolution" class="xliff"></a>
+## <a name="resolution"></a>Способы устранения:
 
 Вы можете в любой момент использовать [интерфейсы API отчетов Azure AD](active-directory-reporting-api-getting-started.md), чтобы извлечь до миллиона записей. Мы рекомендуем настроить расписание выполнения скрипта, который вызывает интерфейсы API отчетов для получения данных за определенный период времени (например, ежедневно или еженедельно).
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 См. сведения в статье [Часто задаваемые вопросы об отчетах Azure Active Directory](active-directory-reporting-faq.md).
 
 

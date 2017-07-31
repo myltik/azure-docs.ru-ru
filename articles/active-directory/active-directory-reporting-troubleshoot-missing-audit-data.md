@@ -23,31 +23,26 @@ ms.lasthandoff: 05/08/2017
 
 ---
 
-# Не удается найти некоторые выполненные действия в журнале действий Azure Active Directory
-<a id="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log" class="xliff"></a>
+# <a name="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log"></a>Не удается найти некоторые выполненные действия в журнале действий Azure Active Directory
 
 
-## Симптомы
-<a id="symptoms" class="xliff"></a>
+## <a name="symptoms"></a>Симптомы
 
 Действия, выполненные на портале Azure, не отображаются в журнале аудита в колонке `Activity logs > Audit Logs`.
 
  ![Отчеты](./media/active-directory-reporting-troubleshoot-missing-audit-data/01.png)
  
 
-## Причина:
-<a id="cause" class="xliff"></a>
+## <a name="cause"></a>Причина:
 
 Действия отображаются в журнале аудита действий спустя некоторое время. Чтобы действия отобразились в журнале аудита на портале, с момента выполнения операции может пройти от 15 минут до часа.
 
-## Способы устранения:
-<a id="resolution" class="xliff"></a>
+## <a name="resolution"></a>Способы устранения:
 
 Подождите от 15 минут до часа и проверьте, появились ли действия в журнале. Если они по-прежнему отсутствуют, отправьте запрос в службу поддержки, и мы рассмотрим вашу проблему.
 
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 См. сведения в статье [Часто задаваемые вопросы об отчетах Azure Active Directory](active-directory-reporting-faq.md).
 
 

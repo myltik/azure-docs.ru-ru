@@ -20,8 +20,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 05/09/2017
 
 ---
-# Отчет о событиях входа, представляющих риск, на портале Azure Active Directory
-<a id="risky-sign-ins-report-in-the-azure-active-directory-portal" class="xliff"></a>
+# <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Отчет о событиях входа, представляющих риск, на портале Azure Active Directory
 
 С помощью отчетов о безопасности в Azure Active Directory (Azure AD) можно получить ценную информацию о наличии скомпрометированных учетных записей пользователей в вашей среде. 
 
@@ -38,8 +37,7 @@ Azure AD обнаруживает подозрительные действия
 ![события входа, представляющие риск.](./media/active-directory-reporting-security-risky-sign-ins/10.png)
 
 
-## Выпуски "Бесплатный" и "Базовый" Azure Active Directory
-<a id="azure-active-directory-free-and-basic-edition" class="xliff"></a>
+## <a name="azure-active-directory-free-and-basic-edition"></a>Выпуски "Бесплатный" и "Базовый" Azure Active Directory
 
 В выпусках "Бесплатный" и "Базовый" Azure Active Directory вы можете просмотреть информацию об обнаруженных входах, представляющих риск, которые связаны с вашими пользователями. Отчет о событиях риска содержит следующие сведения.
 
@@ -64,8 +62,7 @@ Azure AD обнаруживает подозрительные действия
 
 Дополнительные сведения см. в разделе [Закрытие событий риска вручную](active-directory-identityprotection.md#closing-risk-events-manually).
 
-## Выпуски Azure Active Directory Premium
-<a id="azure-active-directory-premium-editions" class="xliff"></a>
+## <a name="azure-active-directory-premium-editions"></a>Выпуски Azure Active Directory Premium
 
 Отчет о событиях входа, представляющих риск, в выпусках Azure Active Directory Premium предоставляет следующее.
 
@@ -114,8 +111,7 @@ Azure AD обнаруживает подозрительные действия
 
 
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения о защите идентификации Azure см. в статье [Защита идентификации Azure Active Directory](active-directory-identityprotection.md).
 
