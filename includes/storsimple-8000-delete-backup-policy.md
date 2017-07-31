@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### Удаление политики резервного копирования StorSimple
-<a id="to-delete-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-delete-a-storsimple-backup-policy"></a>Удаление политики резервного копирования StorSimple
 
 1. Перейдите к устройству StorSimple и щелкните **Политика архивации**.
 

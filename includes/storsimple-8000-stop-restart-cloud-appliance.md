@@ -1,5 +1,4 @@
-#### Остановка и запуск облачного устройства
-<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
+#### <a name="to-stop-and-start-a-cloud-appliance"></a>Остановка и запуск облачного устройства
 
 1. Чтобы остановить облачное устройство, перейдите к виртуальной машине данного устройства.
     ![Виртуальная машина облачного устройства StorSimple](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart1.png)
@@ -26,8 +25,7 @@
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-#### Перезапуск облачного устройства
-<a id="to-restart-a-cloud-appliance" class="xliff"></a>
+#### <a name="to-restart-a-cloud-appliance"></a>Перезапуск облачного устройства
 
 Чтобы перезапустить облачное устройство, перейдите к виртуальной машине данного устройства. На панели команд нажмите кнопку **Перезапустить**. При появлении запроса подтвердите перезапуск. Когда облачное устройство будет готово к использованию, его состояние будет **Работает**.
 

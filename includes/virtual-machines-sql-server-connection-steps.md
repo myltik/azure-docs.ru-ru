@@ -1,5 +1,4 @@
-### Откройте TCP-порты в брандмауэре Windows для экземпляра ядра СУБД по умолчанию
-<a id="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine" class="xliff"></a>
+### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Откройте TCP-порты в брандмауэре Windows для экземпляра ядра СУБД по умолчанию
 1. Подключитесь к виртуальной машине через удаленный рабочий стол. Подробные инструкции по подключению к виртуальной машине см. в разделе [Открывать виртуальные машины с помощью удаленного рабочего стола](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
 2. После входа введите **WF.msc**на начальном экране и нажмите клавишу ВВОД.
    
@@ -28,8 +27,7 @@
 
 При необходимости откройте дополнительные порты для других компонентов. Дополнительные сведения содержатся в разделе [Настройка брандмауэра Windows для разрешения доступа к SQL Server](http://msdn.microsoft.com/library/cc646023.aspx).
 
-### Настройка SQL Server для прослушивания через протокол TCP
-<a id="configure-sql-server-to-listen-on-the-tcp-protocol" class="xliff"></a>
+### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>Настройка SQL Server для прослушивания через протокол TCP
 1. При установленном подключении к виртуальной машине на начальной странице введите **SQL Server Configuration Manager** и нажмите клавишу ВВОД.
    
     ![Откройте SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
@@ -44,8 +42,7 @@
 
 Дополнительные сведения о включении протоколов для компонента Ядро СУБД SQL Server см. в статье [Включение или отключение сетевого протокола сервера](http://msdn.microsoft.com/library/ms191294.aspx).
 
-### Настройка SQL Server на проверку подлинности в смешанном режиме
-<a id="configure-sql-server-for-mixed-mode-authentication" class="xliff"></a>
+### <a name="configure-sql-server-for-mixed-mode-authentication"></a>Настройка SQL Server на проверку подлинности в смешанном режиме
 Компонент SQL Server Database Engine не может использовать проверку подлинности Windows без среды домена. Чтобы подключиться к компоненту Database Engine с другого компьютера, необходимо настроить для SQL Server смешанный режим проверки подлинности. Смешанный режим позволяет выполнять проверку подлинности SQL Server и проверку подлинности Windows.
 
 > [!NOTE]
@@ -71,8 +68,7 @@
     ![Перезагрузить](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. В диалоговом окне SQL Server Management Studio щелкните **Да** для подтверждения перезапуска SQL Server.
 
-### Создание учетных записей проверки подлинности SQL Server
-<a id="create-sql-server-authentication-logins" class="xliff"></a>
+### <a name="create-sql-server-authentication-logins"></a>Создание учетных записей проверки подлинности SQL Server
 Чтобы подключиться к компоненту Database Engine с другого компьютера, необходимо создать как минимум одну учетную запись проверки подлинности SQL Server.
 
 1. В обозревателе объектов SQL Server Management Studio разверните папку экземпляра сервера, на котором требуется создать новую учетную запись.
