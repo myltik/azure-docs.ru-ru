@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 01/02/17-->
 
 
-#### Добавление или удаление тома
-<a id="to-add-or-remove-a-volume" class="xliff"></a>
+#### <a name="to-add-or-remove-a-volume"></a>Добавление или удаление тома
 
 1. Перейдите к устройству StorSimple и щелкните **Политика архивации**.
 

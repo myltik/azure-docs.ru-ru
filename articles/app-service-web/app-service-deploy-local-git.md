@@ -22,15 +22,11 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="local-git-deployment-to-azure-app-service" class="xliff"></a>
-
-# Развертывание локального репозитория Git в службе приложений Azure
+# <a name="local-git-deployment-to-azure-app-service"></a>Развертывание локального репозитория Git в службе приложений Azure
 В этом учебнике содержатся сведения о развертывании приложения в [службе приложений Azure] из репозитория Git на локальном компьютере. Служба приложений поддерживает такой подход, если на **портале Azure** выбран вариант развертывания [Локальный репозиторий Git].  
 Многие команды Git, описанные в этой статье, автоматически выполняются при создании приложения службы приложений с помощью [интерфейса командной строки Azure], как описано [здесь](app-service-web-get-started.md).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
 * Git. Двоичный файл установки можно скачать [отсюда](http://www.git-scm.com/downloads).  
@@ -171,9 +167,7 @@ git config --global http.postBuffer 524288000
       ИЛИ
   * npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
-<a id="additional-resources" class="xliff"></a>
-
-## дополнительные ресурсы.
+## <a name="additional-resources"></a>дополнительные ресурсы.
 * [Документация по Git](http://git-scm.com/documentation)
 * [Документация по проекту Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Непрерывное развертывание в службе приложений Azure](app-service-continuous-deployment.md)

@@ -1,6 +1,5 @@
 
-#### Настройка удаленного управления на облачном устройстве
-<a id="to-configure-remote-management-on-cloud-appliance" class="xliff"></a>
+#### <a name="to-configure-remote-management-on-cloud-appliance"></a>Настройка удаленного управления на облачном устройстве
 
 1. В службе диспетчера устройств StorSimple щелкните **Устройства**. Выберите облачное устройство в списке устройств, подключенных к службе.
     ![Выбор облачного устройства StorSimple](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage1.png)
