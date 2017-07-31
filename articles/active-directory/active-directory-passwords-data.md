@@ -23,8 +23,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 05/08/2017
 
 ---
-# Развертывание сброса пароля без регистрации пользователя
-<a id="deploy-password-reset-without-requiring-end-user-registration" class="xliff"></a>
+# <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Развертывание сброса пароля без регистрации пользователя
 
 Для развертывания функции самостоятельного сброса пароля нужно указать данные аутентификации. Хотя в некоторых организациях пользователи вводят свои данные аутентификации самостоятельно, в других используется синхронизация существующих данных в Active Directory. Если правильно отформатировать данные в локальном каталоге и настроить [Azure AD Connect, используя стандартные параметры](./connect/active-directory-aadconnect-get-started-express.md), эти данные становятся доступным для Azure AD и функции самостоятельного сброса паролей без участия пользователя.
 
@@ -33,8 +32,7 @@ ms.lasthandoff: 05/08/2017
 > [!NOTE]
 > Функция сброса пароля не поддерживает добавочные номера. Даже добавочные номера в формате +1 4255551234X12345 будут удаляться.
 
-## Заполненные поля
-<a id="fields-populated" class="xliff"></a>
+## <a name="fields-populated"></a>Заполненные поля
 
 Если вы используете параметры по умолчанию, в Azure AD Connect выполняются следующие сопоставления.
 
@@ -44,13 +42,11 @@ ms.lasthandoff: 05/08/2017
 | mobile | Мобильный телефон | Номер телефона |
 
 
-## Контрольные вопросы и ответы на них
-<a id="security-questions-and-answers" class="xliff"></a>
+## <a name="security-questions-and-answers"></a>Контрольные вопросы и ответы на них
 
 Контрольные вопросы и ответы на них надежно хранятся в клиенте Azure AD. Эти данные доступны пользователям только на [портале регистрации SSPR](https://aka.ms/ssprsetup). Администраторы не могут видеть или изменять содержимое вопросов и ответов других пользователей.
 
-### Что происходит, когда пользователь проходит регистрацию?
-<a id="what-happens-when-a-user-registers" class="xliff"></a>
+### <a name="what-happens-when-a-user-registers"></a>Что происходит, когда пользователь проходит регистрацию?
 
 Когда пользователь регистрируется, на странице регистрации будут заполнены следующие поля:
 
@@ -60,8 +56,7 @@ ms.lasthandoff: 05/08/2017
 
 Если вы указали значения для полей **Мобильный телефон** или **Запасной адрес электронной почты**, пользователи могут использовать их для сброса паролей, даже если они еще не прошли регистрацию в службе. Кроме того, эти значения будут отображаться для пользователей при первой регистрации, и они смогут изменить их при необходимости. После успешной регистрации эти значения будут храниться в полях **Телефон для проверки подлинности** и **Адрес электронной почты для проверки подлинности** (их нельзя будет изменить).
 
-## Установка и считывание данных аутентификации с помощью PowerShell
-<a id="set-and-read-authentication-data-using-powershell" class="xliff"></a>
+## <a name="set-and-read-authentication-data-using-powershell"></a>Установка и считывание данных аутентификации с помощью PowerShell
 
 С помощью PowerShell можно заполнить следующие поля
 
@@ -69,13 +64,11 @@ ms.lasthandoff: 05/08/2017
 * Мобильный телефон
 * Рабочий телефон — его можно указать, только если это значение не синхронизируется с локальным каталогом
 
-### Использование PowerShell V1
-<a id="using-powershell-v1" class="xliff"></a>
+### <a name="using-powershell-v1"></a>Использование PowerShell V1
 
 Чтобы начать работу, необходимо [скачать и установить модуль Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). После его установки вы можете выполнить следующие процедуры по настройке каждого поля.
 
-#### Настройка данных аутентификации с помощью PowerShell V1
-<a id="set-authentication-data-with-powershell-v1" class="xliff"></a>
+#### <a name="set-authentication-data-with-powershell-v1"></a>Настройка данных аутентификации с помощью PowerShell V1
 
 ```
 Connect-MsolService
@@ -87,8 +80,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 1234567890" -PhoneNumber "+1 1234567890"
 ```
 
-#### Чтение данных аутентификации с помощью PowerShell V1
-<a id="read-authentication-data-with-powershellpowershell-v1" class="xliff"></a>
+#### <a name="read-authentication-data-with-powershellpowershell-v1"></a>Чтение данных аутентификации с помощью PowerShell V1
 
 ```
 Connect-MsolService
@@ -100,8 +92,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
 Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,MobilePhone,PhoneNumber | Format-Table
 ```
 
-#### Телефон и адрес электронной почты для аутентификации можно прочитать только с помощью следующих команд PowerShell V1:
-<a id="authentication-phone-and-authentication-email-can-only-be-read-using-powershell-v1-using-the-commands-that-follow" class="xliff"></a>
+#### <a name="authentication-phone-and-authentication-email-can-only-be-read-using-powershell-v1-using-the-commands-that-follow"></a>Телефон и адрес электронной почты для аутентификации можно прочитать только с помощью следующих команд PowerShell V1:
 
 ```
 Connect-MsolService
@@ -109,8 +100,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
 ```
 
-### Использование PowerShell V2
-<a id="using-powershell-v2" class="xliff"></a>
+### <a name="using-powershell-v2"></a>Использование PowerShell V2
 
 Чтобы начать работу, необходимо [скачать и установить модуль Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). После его установки вы можете выполнить следующие процедуры по настройке каждого поля.
 
@@ -122,8 +112,7 @@ Install-Module AzureADPreview
 Connect-AzureAD
 ```
 
-#### Настройка данных аутентификации с помощью PowerShell V2
-<a id="set-authentication-data-with-powershell-v2" class="xliff"></a>
+#### <a name="set-authentication-data-with-powershell-v2"></a>Настройка данных аутентификации с помощью PowerShell V2
 
 ```
 Connect-AzureAD
@@ -135,8 +124,7 @@ Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 1234567890"
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 1234567890" -TelephoneNumber "+1 1234567890"
 ```
 
-### Чтение данных аутентификации с помощью PowerShell V2
-<a id="read-authentication-data-with-powershell-v2" class="xliff"></a>
+### <a name="read-authentication-data-with-powershell-v2"></a>Чтение данных аутентификации с помощью PowerShell V2
 
 ```
 Connect-AzureAD
@@ -148,8 +136,7 @@ Get-AzureADUser -ObjectID user@domain.com | select TelephoneNumber
 Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,TelephoneNumber | Format-Table
 ```
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения о сбросе пароля с помощью Azure AD см. в следующих источниках:
 

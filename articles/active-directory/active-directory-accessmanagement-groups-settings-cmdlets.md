@@ -21,8 +21,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 05/05/2017
 
 ---
-# Настройка параметров групп с помощью командлетов Azure Active Directory
-<a id="azure-active-directory-cmdlets-for-configuring-group-settings" class="xliff"></a>
+# <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Настройка параметров групп с помощью командлетов Azure Active Directory
 
 > [!IMPORTANT]
 > Это содержимое относится только к единым группам, также известным как группы Office 365. 
@@ -31,16 +30,14 @@ ms.lasthandoff: 05/05/2017
 
 Командлеты являются частью модуля PowerShell версии 2 для Azure Active Directory. Дополнительные сведения об этом модуле и инструкции по его скачиванию и установке на компьютер см. в разделе [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) (PowerShell версии 2 для Azure Active Directory). Можно установить выпуск версии 2 модуля [отсюда](https://www.powershellgallery.com/packages/AzureAD/).
 
-## Получение определенного значения параметра
-<a id="retrieve-a-specific-settings-value" class="xliff"></a>
+## <a name="retrieve-a-specific-settings-value"></a>Получение определенного значения параметра
 Если вам известно имя параметра, которое необходимо получить, можно использовать приведенный ниже командлет. В этом примере показано получение значения для параметра с именем "UsageGuidelinesUrl". Дополнительные сведения о параметрах каталога и их именах приводятся далее в этой статье.
 
 ```powershell
 (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
 ```
 
-## Создание параметров на уровне каталога
-<a id="create-settings-at-the-directory-level" class="xliff"></a>
+## <a name="create-settings-at-the-directory-level"></a>Создание параметров на уровне каталога
 Далее приведены действия, необходимые для создания параметров на уровне каталога, которые применяются ко всем единым группам в каталоге.
 
 1. В командлетах DirectorySettings потребуется указать идентификатор объекта SettingsTemplate, который вы хотите использовать. Если он вам неизвестен, выполните приведенный ниже командлет, чтобы отобразить все шаблоны параметров.
@@ -105,8 +102,7 @@ ms.lasthandoff: 05/05/2017
 |  <ul><li>EnableGroupCreation<li>Тип: логический<li>значение по умолчанию: True | Логическое значение, указывающее, могут ли пользователи без прав администратора создавать единые группы. |
 
 
-## Чтение параметров на уровне каталога
-<a id="read-settings-at-the-directory-level" class="xliff"></a>
+## <a name="read-settings-at-the-directory-level"></a>Чтение параметров на уровне каталога
 Далее приведены действия, необходимые для чтения параметров на уровне каталога, применимые ко всем группам Office в каталоге.
 
 1. Чтение всех существующих параметров каталога:
@@ -146,8 +142,7 @@ ms.lasthandoff: 05/05/2017
   EnableGroupCreation           True
   ```
 
-## Обновление параметров определенной группы
-<a id="update-settings-for-a-specific-group" class="xliff"></a>
+## <a name="update-settings-for-a-specific-group"></a>Обновление параметров определенной группы
 
 1. Найдите шаблон параметров Groups.Unified.Guest.
   ```
@@ -183,8 +178,7 @@ ms.lasthandoff: 05/05/2017
   25651479-a26e-4181-afce-ce24111b2cb5             08d542b9-071f-4e16-94b0-74abb372e3d9 {class SettingValue {...
   ```
 
-## Обновление параметров на уровне каталога
-<a id="update-settings-at-the-directory-level" class="xliff"></a>
+## <a name="update-settings-at-the-directory-level"></a>Обновление параметров на уровне каталога
 
 Далее приведены действия, необходимые для обновления параметров на уровне каталога, которые применяются ко всем единым группам в каталоге. В этих примерах предполагается, что в каталоге уже существует объект Settings.
 
@@ -209,19 +203,16 @@ ms.lasthandoff: 05/05/2017
   Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting
   ```
 
-## Удаление параметров на уровне каталога
-<a id="remove-settings-at-the-directory-level" class="xliff"></a>
+## <a name="remove-settings-at-the-directory-level"></a>Удаление параметров на уровне каталога
 Далее приведено действие, необходимое для удаления параметров на уровне каталога, применимое ко всем группам Office в каталоге.
   ```
   Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
   ```
 
-## Справочник по синтаксису командлетов
-<a id="cmdlet-syntax-reference" class="xliff"></a>
+## <a name="cmdlet-syntax-reference"></a>Справочник по синтаксису командлетов
 Дополнительную документацию по PowerShell Azure Active Directory см. в разделе [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0) (Командлеты Azure Active Directory).
 
-## Дополнительные материалы
-<a id="additional-reading" class="xliff"></a>
+## <a name="additional-reading"></a>Дополнительные материалы
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
