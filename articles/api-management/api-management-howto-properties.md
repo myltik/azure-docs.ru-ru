@@ -22,9 +22,7 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="how-to-use-properties-in-azure-api-management-policies" class="xliff"></a>
-
-# Использование свойств в политиках управления API Azure
+# <a name="how-to-use-properties-in-azure-api-management-policies"></a>Использование свойств в политиках управления API Azure
 Политики управления API представляют собой одну из эффективных функций системы, позволяющих издателю изменять поведение интерфейса API путем его настройки. Политика — это коллекция правил, которые выполняются последовательно над запросом или ответом API. Для создания правил политики можно использовать литеральные текстовые значения, выражения политики и свойства. 
 
 Каждый экземпляр службы управления API имеет коллекцию свойств пар "ключ-значение", которые являются глобальными для экземпляра службы. Эти свойства можно использовать для управления постоянными строковыми значениями во всей конфигурации и политиках API. Каждое свойство имеет следующие атрибуты.
@@ -48,9 +46,7 @@ ms.lasthandoff: 07/06/2017
 | ContosoHeaderValue |•••••••••••••••••••••• |Истина |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |Ложь | |
 
-<a id="to-use-a-property" class="xliff"></a>
-
-## Использование свойства
+## <a name="to-use-a-property"></a>Использование свойства
 Чтобы использовать свойство в политике, поместите имя свойства внутри пары двойных фигурных скобок `{{ContosoHeader}}`, как показано в следующем примере.
 
 ```xml
@@ -83,9 +79,7 @@ ms.lasthandoff: 07/06/2017
 
 Обратите внимание, что хотя значения свойств могут содержать выражения политики, они не могут содержать другие свойства. Если текст, содержащий ссылку на свойство, используется для значения свойства, такого как `Property value text {{MyProperty}}`, эта ссылка на свойство не будет заменена и включится в значение свойства.
 
-<a id="to-create-a-property" class="xliff"></a>
-
-## Создание свойства
+## <a name="to-create-a-property"></a>Создание свойства
 Чтобы создать свойство, нажмите кнопку **Добавить свойство** на вкладке **Свойства**.
 
 ![Добавление свойства][api-management-properties-add-property-menu]
@@ -100,9 +94,7 @@ ms.lasthandoff: 07/06/2017
 
 Сведения о создании свойства с помощью REST API см. в [этом разделе](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
 
-<a id="to-edit-a-property" class="xliff"></a>
-
-## Изменение свойства
+## <a name="to-edit-a-property"></a>Изменение свойства
 Чтобы изменить свойство, щелкните **Изменить** рядом с нужным свойством.
 
 ![Изменение свойства][api-management-properties-edit]
@@ -113,9 +105,7 @@ ms.lasthandoff: 07/06/2017
 
 Сведения об изменении свойства с помощью REST API см. в [этом разделе](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
 
-<a id="to-delete-a-property" class="xliff"></a>
-
-## Удаление свойства
+## <a name="to-delete-a-property"></a>Удаление свойства
 Чтобы удалить свойство, нажмите кнопку **Удалить** рядом с нужным свойством.
 
 ![Изменение свойства][api-management-properties-delete]
@@ -131,9 +121,7 @@ ms.lasthandoff: 07/06/2017
 
 Сведения об удалении свойства с помощью REST API см. в [этом разделе](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
 
-<a id="to-search-and-filter-properties" class="xliff"></a>
-
-## Поиск и фильтрация свойств
+## <a name="to-search-and-filter-properties"></a>Поиск и фильтрация свойств
 На вкладке **Свойства** находятся функции поиска и фильтрации, упрощающие управление свойствами. Чтобы отфильтровать список свойств по имени свойства, введите условие поиска в поле **Свойство поиска** . Чтобы отобразить все свойства, очистите поле **Свойство поиска** и нажмите клавишу ВВОД.
 
 ![Поиск][api-management-properties-search]
@@ -142,17 +130,13 @@ ms.lasthandoff: 07/06/2017
 
 ![Фильтр][api-management-properties-filter]
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о работе с политиками
   * [Политики в управлении API](api-management-howto-policies.md)
   * [Справочник по политикам](https://msdn.microsoft.com/library/azure/dn894081.aspx)
   * [Выражения политики](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
-<a id="watch-a-video-overview" class="xliff"></a>
-
-## Просмотр видеообзора
+## <a name="watch-a-video-overview"></a>Просмотр видеообзора
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Use-Properties-in-Policies/player]
 > 
 > 

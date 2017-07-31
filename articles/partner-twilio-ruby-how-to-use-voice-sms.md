@@ -22,9 +22,7 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby" class="xliff"></a>
-
-# Использование Twilio для поддержки голосовых возможностей и SMS в Ruby
+# <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Использование Twilio для поддержки голосовых возможностей и SMS в Ruby
 В этом руководстве показано, как выполнять типовые задачи программирования с помощью службы Twilio API в Azure. Здесь описываются такие сценарии, как телефонный звонок и отправка SMS-сообщения. Дополнительные сведения о Twilio и использовании голосовых функций и SMS в приложениях см. в разделе [Дальнейшие действия](#NextSteps).
 
 ## <a id="WhatIs"></a>Что такое Twilio?

@@ -31,9 +31,7 @@ ms.lasthandoff: 07/06/2017
 * Единый рабочий процесс развертывания для веб-приложения и контента, обслуживаемого CDN.
 * Интеграция объединения и минификации ASP.NET с Azure CDN.
 
-<a id="what-you-will-learn" class="xliff"></a>
-
-## Новые знания
+## <a name="what-you-will-learn"></a>Новые знания
 Из этого учебника вы узнаете следующее:
 
 * [Интеграция конечной точки Azure CDN с облачной службой и обслуживание статического содержимого на веб-страницах из Azure CDN](#deploy)
@@ -42,14 +40,10 @@ ms.lasthandoff: 07/06/2017
 * [Обслуживание объединенного в пакет и минифицированного содержимого через Azure CDN с поддержкой интерфейса отладки сценариев в Visual Studio](#bundling)
 * [Настройка резервирования сценариев и CSS, когда Azure CDN находится в автономном режиме](#fallback)
 
-<a id="what-you-will-build" class="xliff"></a>
-
-## Что будет строиться
+## <a name="what-you-will-build"></a>Что будет строиться
 Будет выполняться развертывание веб-роли облачной службы с помощью шаблона MVC ASP.NET по умолчанию, добавление кода для обслуживания контента из интегрированной Azure CDN, такого как образ, результаты действий контроллера, файлы JavaScript и CSS по умолчанию, а также создание кода для настройки резервного механизма обслуживаемых пакетов в случае, когда CDN находится в автономном режиме.
 
-<a id="what-you-will-need" class="xliff"></a>
-
-## Необходимые условия
+## <a name="what-you-will-need"></a>Необходимые условия
 Для работы с этим учебником необходимы следующие компоненты.
 
 * Активная [учетная запись Microsoft Azure](/account/)
@@ -65,9 +59,7 @@ ms.lasthandoff: 07/06/2017
 
 <a name="deploy"></a>
 
-<a id="deploy-a-cloud-service" class="xliff"></a>
-
-## Развертывание облачной службы
+## <a name="deploy-a-cloud-service"></a>Развертывание облачной службы
 В этом разделе будет выполняться развертывание шаблона приложения MVC ASP.NET по умолчанию в Visual Studio 2015 в веб-роли облачной службы, после чего оно будет интегрировано с новой конечной точкой CDN. Выполните приведенные далее инструкции.
 
 1. В Visual Studio 2015 создайте облачную службу Azure, последовательно выбрав **Файл > Создать > Проект > Облако > Облачная служба Azure**. Назначьте ей имя и нажмите кнопку **ОК**.
@@ -108,9 +100,7 @@ ms.lasthandoff: 07/06/2017
    > 
    > 
 
-<a id="create-a-new-cdn-profile" class="xliff"></a>
-
-## Создание нового профиля сети CDN
+## <a name="create-a-new-cdn-profile"></a>Создание нового профиля сети CDN
 Профиль сети CDN представляет собой коллекцию конечных точек сети CDN.  Каждый профиль содержит одну или несколько конечных точек сети CDN.  Вы можете использовать несколько профилей для упорядочения конечных точек сети CDN по домену Интернета, веб-приложению или согласно другим условиям.
 
 > [!TIP]
@@ -120,9 +110,7 @@ ms.lasthandoff: 07/06/2017
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-<a id="create-a-new-cdn-endpoint" class="xliff"></a>
-
-## Создание новой конечной точки сети CDN
+## <a name="create-a-new-cdn-endpoint"></a>Создание новой конечной точки сети CDN
 **Создание новой конечной точки CDN для учетной записи хранения**
 
 1. На [портале управления Azure](https://portal.azure.com)перейдите к профилю сети CDN.  На предыдущем шаге вы могли прикрепить его к панели мониторинга.  Если профиль не прикреплен, найдите его, нажав кнопку **Обзор**, выбрав **Профили CDN** и щелкнув профиль, к которому нужно добавить конечную точку.
@@ -151,9 +139,7 @@ ms.lasthandoff: 07/06/2017
    > 
    > 
 
-<a id="test-the-cdn-endpoint" class="xliff"></a>
-
-## Тестирование конечной точки сети CDN
+## <a name="test-the-cdn-endpoint"></a>Тестирование конечной точки сети CDN
 Когда публикация перейдет в состояние **Завершено**, откройте окно браузера и перейдите по адресу **http://<cdnName>*.azureedge.net/Content/bootstrap.css**. В моей настройке это следующий URL-адрес:
 
     http://camservice.azureedge.net/Content/bootstrap.css
@@ -187,9 +173,7 @@ ms.lasthandoff: 07/06/2017
 
 <a name="caching"></a>
 
-<a id="configure-caching-options-for-static-files-in-your-cloud-service" class="xliff"></a>
-
-## Настройка параметров кэширования для статических файлов в облачной службе
+## <a name="configure-caching-options-for-static-files-in-your-cloud-service"></a>Настройка параметров кэширования для статических файлов в облачной службе
 С помощью интеграции Azure CDN в облачной службе можно указать, как статическое содержимое должно кэшироваться в конечной точке CDN. Для этого откройте файл *Web.config* из проекта веб-роли (например, WebRole1) и добавьте элемент `<staticContent>` в `<system.webServer>`. Следующий XML настраивает истечение срока годности кэша через 3 дня.  
 
     <system.webServer>
@@ -218,9 +202,7 @@ ms.lasthandoff: 07/06/2017
 
 <a name="controller"></a>
 
-<a id="serve-content-from-controller-actions-through-azure-cdn" class="xliff"></a>
-
-## Обслуживание содержимого из действий контроллера с помощью Azure CDN
+## <a name="serve-content-from-controller-actions-through-azure-cdn"></a>Обслуживание содержимого из действий контроллера с помощью Azure CDN
 При интеграции веб-роли облачной службы с Azure CDN сравнительно легко обслуживать содержимое от действий контроллера, используя Azure CDN. Помимо обслуживания облачной службы непосредственно через Azure CDN (показанного выше), в видео [Reducing latency on the web with the Azure CDN](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN) (Уменьшение задержки в Интернете с помощью Azure CDN) [Мартин Баллиау](https://twitter.com/maartenballiauw) (Maarten Balliauw) показывает, как это делать с помощью контроллера MemeGenerator. Я просто воспроизведу это здесь.
 
 Предположим, вы хотите создать в облачной службе мемы на основе образа молодого Чака Норриса (фото [Алана Лайта (Alan Light)](http://www.flickr.com/photos/alan-light/218493788/)):
@@ -387,9 +369,7 @@ ms.lasthandoff: 07/06/2017
 
 <a name="bundling"></a>
 
-<a id="integrate-aspnet-bundling-and-minification-with-azure-cdn" class="xliff"></a>
-
-## Интеграция объединения и минификации ASP.NET с Azure CDN.
+## <a name="integrate-aspnet-bundling-and-minification-with-azure-cdn"></a>Интеграция объединения и минификации ASP.NET с Azure CDN.
 Скрипты и таблицы стилей CSS изменяются нечасто и являются основными кандидатами для кэша Azure CDN. Обслуживание всей веб-роли посредством Azure CDN представляет простейший способ интеграции объединения и минификации с Azure CDN. Однако поскольку вы можете не хотеть это делать, я покажу, как это сделать, сохраняя желаемый интерфейс разработчика объединения и минификации ASP.NET со следующими характеристиками.
 
 * Отличное взаимодействие в режиме отладки.
@@ -508,9 +488,7 @@ ms.lasthandoff: 07/06/2017
 
 <a name="fallback"></a>
 
-<a id="fallback-mechanism-for-cdn-urls" class="xliff"></a>
-
-## Резервный механизм для URL-адресов CDN
+## <a name="fallback-mechanism-for-cdn-urls"></a>Резервный механизм для URL-адресов CDN
 Желательно, чтобы в случае сбоя конечной точки Azure CDN по какой-либо причине веб-страница могла использовать в качестве резервной возможности доступ к исходному веб-серверу для загрузки JavaScript или Bootstrap. Одно дело – потерять изображения на веб-сайте из-за недоступности CDN, и совсем другое – потерять критически важные функциональные возможности страницы, обеспечиваемые сценариями и таблицами стилей.
 
 Класс [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) содержит свойство с именем [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx), которое позволяет настраивать резервный механизм на случай сбоя CDN. Для использования этого свойства выполните приведенные ниже действия.
@@ -614,9 +592,7 @@ ms.lasthandoff: 07/06/2017
 
     Но поскольку первая часть выражения '||' будет всегда возвращать значение true (в строке прямо над этой), функция document.write() никогда не будет выполняться.
 
-<a id="more-information" class="xliff"></a>
-
-## Дополнительные сведения
+## <a name="more-information"></a>Дополнительные сведения
 * [Общие сведения о сети доставки контента (CDN) Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 * [Использование Azure CDN](cdn-create-new-endpoint.md)
 * [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)

@@ -22,9 +22,7 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl" class="xliff"></a>
-
-# Общее представление о схеме узлов для сопоставления существующей веб-службы с OData с помощью языка CSDL
+# <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>Общее представление о схеме узлов для сопоставления существующей веб-службы с OData с помощью языка CSDL
 > [!IMPORTANT]
 > **В настоящее время мы больше не подключаем новые издатели служб данных. Новые службы данных не будут утверждены для добавления в список.** Дополнительные сведения о публикации бизнес-приложения SaaS на AppSource см. [здесь](https://appsource.microsoft.com/partners). Дополнительные сведения о публикации приложений IaaS или службы разработчика в Azure Marketplace см. [здесь](https://azure.microsoft.com/marketplace/programs/certified/).
 >
@@ -32,9 +30,7 @@ ms.lasthandoff: 07/06/2017
 
 В этом документе поясняется структура узла для сопоставления протокола OData и CSDL. Следует отметить, что структура узла представляет собой XML-документ правильного формата. Поэтому при разработке сопоставления OData применяются корневая, родительская и дочерняя схемы.
 
-<a id="ignored-elements" class="xliff"></a>
-
-## Пропускаемые элементы
+## <a name="ignored-elements"></a>Пропускаемые элементы
 Ниже приведены элементы CSDL высокого уровня (узлы XML), которые не будут использоваться серверной службой Azure Marketplace во время импорта метаданных веб-служб. Они могут присутствовать, но будут пропущены.
 
 | Элемент | Область |
@@ -51,9 +47,7 @@ ms.lasthandoff: 07/06/2017
 
 Ниже подробно описаны изменения (добавляемые и пропускаемые элементы) различных узлов XML на языке CSDL.
 
-<a id="functionimport-node" class="xliff"></a>
-
-## Узел FunctionImport
+## <a name="functionimport-node"></a>Узел FunctionImport
 Узел FunctionImport представляет один URL-адрес (точку входа), который предоставляет службу пользователю. Он позволяет описать способ обращения к URL-адресу, доступные пользователю параметры и способ предоставления этих параметров.
 
 Подробные сведения об этом узле см. на странице [MSDNFunctionImportLink](https://msdn.microsoft.com/library/cc716710.aspx).
@@ -155,9 +149,7 @@ ms.lasthandoff: 07/06/2017
 
 **d:ErrorMessage** — дополнительное расширение OData.
 
-<a id="parameter-node" class="xliff"></a>
-
-## Узел параметра
+## <a name="parameter-node"></a>Узел параметра
 Этот узел представляет один параметр, который предоставляется как часть шаблона URI или текста запроса, который был указан в узле FunctionImport.
 
 Полезные сведения об узле Parameter Element см. [здесь](http://msdn.microsoft.com/library/ee473431.aspx). (Используйте раскрывающийся список **Другие версии**, чтобы просмотреть документацию по другой версии.) *Пример:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
@@ -180,9 +172,7 @@ ms.lasthandoff: 07/06/2017
 | **d: Nullable** *(необязательно)* |Позволяет определить, может ли параметр иметь значение NULL. Значение по умолчанию — true. Однако параметры, предоставляемые как часть пути в шаблоне URI, не могут принимать значение NULL. Если для этих параметров в атрибуте задано значение false, входные данные пользователя переопределяются. **Пример:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
 | **d:SampleValue** *(необязательно)* |Пример значения, который отображается в виде сообщения клиенту в пользовательском интерфейсе.  Чтобы добавить несколько значений, воспользуйтесь списком значений, разделенных вертикальной чертой, т. е. `a |
 
-<a id="entitytype-node" class="xliff"></a>
-
-## Узел EntityType
+## <a name="entitytype-node"></a>Узел EntityType
 Этот узел представляет один из типов, возвращаемых пользователю из Marketplace. Он также содержит сопоставление выходных данных, возвращенных службой поставщика содержимого, со значениями, которые возвращаются пользователю.
 
 Сведения об этом узле см. [здесь](http://msdn.microsoft.com/library/bb399206.aspx). (Используйте раскрывающийся список **Другие версии**, чтобы просмотреть документацию по другой версии.)
@@ -206,9 +196,7 @@ ms.lasthandoff: 07/06/2017
 
 **Key** — Marketplace пропускает этот атрибут. Веб-службы на основе REST обычно не предоставляют первичный ключ.
 
-<a id="property-node" class="xliff"></a>
-
-## Узел Property
+## <a name="property-node"></a>Узел Property
 Этот узел содержит одно свойство записи.
 
 Сведения об этом узле см. по адресу [http://msdn.microsoft.com/library/bb399546.aspx.](http://msdn.microsoft.com/library/bb399546.aspx) (Используйте раскрывающийся список **Другие версии**, чтобы просмотреть документацию по другой версии.) *Пример:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
@@ -264,9 +252,7 @@ ms.lasthandoff: 07/06/2017
 
 **d:DatabaseDataType** — тип данных столбца в базе данных, то есть тип данных SQL. См. пример DataService CSDL.
 
-<a id="supported-parametersproperty-types" class="xliff"></a>
-
-## Поддерживаемые типы параметров и свойств
+## <a name="supported-parametersproperty-types"></a>Поддерживаемые типы параметров и свойств
 Ниже приведены поддерживаемые типы параметров и свойств. (Учитывается регистр.)
 
 | Примитивные типы | Описание |
@@ -284,9 +270,7 @@ ms.lasthandoff: 07/06/2017
 | Int64 |Представляет 64-разрядное целое значение со знаком |
 | Строка |Представляет символьные данные фиксированной или переменной длины |
 
-<a id="see-also" class="xliff"></a>
-
-## См. также
+## <a name="see-also"></a>См. также
 * Если вы хотите понять процесс и смысл сопоставления OData, см. статью [Сопоставление существующей веб-службы и OData с помощью CSDL](marketplace-publishing-data-service-creation-odata-mapping.md), где приводятся определения, структуры и инструкции.
 * Если вы хотите поработать с примерами, см. статью [Примеры сопоставления существующей веб-службы OData через CSDL](marketplace-publishing-data-service-creation-odata-mapping-examples.md), где приводятся примеры кода вместе с объяснением синтаксиса и контекста.
 * Чтобы вернуться к указанному пути для публикации службы данных в Azure Marketplace, см. [руководство по публикации службы данных](marketplace-publishing-data-service-creation.md).
