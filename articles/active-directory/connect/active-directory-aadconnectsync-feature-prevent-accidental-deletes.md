@@ -21,16 +21,12 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 03/24/2017
 
 ---
-<a id="azure-ad-connect-sync-prevent-accidental-deletes" class="xliff"></a>
-
-# Синхронизация Azure AD Connect: предотвращение случайного удаления
+# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Синхронизация Azure AD Connect: предотвращение случайного удаления
 В этом разделе описывается функция предотвращения случайного удаления в Azure AD Connect.
 
 При установке Azure AD Connect функция предотвращения случайного удаления включается по умолчанию с настроенным запретом экспортировать более 500 операций удаления. Эта функция защищает от случайных изменений конфигурации и изменений в локальном каталоге, которые могут повлиять на большое количество пользователей и других объектов.
 
-<a id="what-is-prevent-accidental-deletes" class="xliff"></a>
-
-## Предотвращение случайного удаления
+## <a name="what-is-prevent-accidental-deletes"></a>Предотвращение случайного удаления
 Распространенные сценарии включают следующие:
 
 * изменения [фильтрации](active-directory-aadconnectsync-configure-filtering.md), когда целое [подразделение](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) или [домен](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) остаются невыбранными;
@@ -68,9 +64,7 @@ ms.lasthandoff: 03/24/2017
 3. С выбранным соединителем Azure Active Directory укажите действие **Запустить** и затем выберите **Экспорт**.
 4. Чтобы повторно включить защиту, запустите командлет PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Замените 500 значением, которое вы записали при получении текущего порогового значения удаления. Укажите имя учетной записи и пароль глобального администратора Azure AD.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 **Обзорные статьи**
 
 * [Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка](active-directory-aadconnectsync-whatis.md)

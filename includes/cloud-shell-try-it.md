@@ -1,7 +1,5 @@
 
-<a id="launch-azure-cloud-shell" class="xliff"></a>
-
-## Запуск Azure Cloud Shell
+## <a name="launch-azure-cloud-shell"></a>Запуск Azure Cloud Shell
 
 Azure Cloud Shell — это бесплатная оболочка Bash, которую можно запускать непосредственно на портале Azure. Она включает предварительно установленный интерфейс Azure CLI и настроена для использования с вашей учетной записью. Нажмите кнопку меню **Cloud Shell** в правом верхнем углу [портала Azure](https://portal.azure.com).
 
