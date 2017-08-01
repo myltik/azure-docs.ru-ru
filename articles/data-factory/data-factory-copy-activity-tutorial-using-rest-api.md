@@ -22,8 +22,7 @@ ms.lasthandoff: 06/14/2017
 
 
 ---
-<a id="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data" class="xliff"></a>
-# Руководство по созданию конвейера фабрики данных Azure для копирования данных с использованием REST API 
+# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Руководство по созданию конвейера фабрики данных Azure для копирования данных с использованием REST API 
 > [!div class="op_single_selector"]
 > * [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
@@ -47,8 +46,7 @@ ms.lasthandoff: 06/14/2017
 >  
 > В этом руководстве конвейер данных копирует данные из исходного хранилища данных в целевое. Инструкции по преобразованию данных с помощью фабрики данных Azure см. в [руководстве по созданию конвейера для преобразования данных с помощью кластера Hadoop](data-factory-build-your-first-pipeline.md).
 
-<a id="prerequisites" class="xliff"></a>
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 * Прочтите [обзор руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования** .
 * Установите на компьютер программу [curl](https://curl.haxx.se/dlwiz/) . Она будет использоваться с командами REST для создания фабрики данных. 
 * Следуя инструкциям в [этой статье](../azure-resource-manager/resource-group-create-service-principal-portal.md) , выполните следующее: 
@@ -84,12 +82,10 @@ ms.lasthandoff: 06/14/2017
      
       Некоторые действия, описанные в этом учебнике, предполагают, что вы используете группу ресурсов с именем ADFTutorialResourceGroup. Если вы используете другую группу ресурсов, укажите ее имя вместо ADFTutorialResourceGroup.
 
-<a id="create-json-definitions" class="xliff"></a>
-## Создание определений JSON
+## <a name="create-json-definitions"></a>Создание определений JSON
 В папке, где находится файл curl.exe, создайте следующие JSON-файлы. 
 
-<a id="datafactoryjson" class="xliff"></a>
-### datafactory.json
+### <a name="datafactoryjson"></a>datafactory.json
 > [!IMPORTANT]
 > Имя должно быть глобально уникальным, поэтому может потребоваться добавить к ADFCopyTutorialDF префикс или суффикс. 
 > 
@@ -102,8 +98,7 @@ ms.lasthandoff: 06/14/2017
 }  
 ```
 
-<a id="azurestoragelinkedservicejson" class="xliff"></a>
-### azurestoragelinkedservice.json
+### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
 > Замените значения **accountname** и **accountkey** на имя вашей учетной записи хранения Azure и ее ключ. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 
@@ -121,8 +116,7 @@ ms.lasthandoff: 06/14/2017
 
 Дополнительные сведения о свойствах JSON см. в разделе [Связанная служба хранилища Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 
-<a id="azuersqllinkedservicejson" class="xliff"></a>
-### azuersqllinkedservice.json
+### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
 > [!IMPORTANT]
 > Замените **servername**, **databasename**, **username** и **password** на имя сервера SQL Azure, имя базы данных SQL, имя учетной записи пользователя и ее пароль.  
 > 
@@ -143,8 +137,7 @@ ms.lasthandoff: 06/14/2017
 
 Дополнительные сведения о свойствах JSON см. в разделе [Свойства связанной службы](data-factory-azure-sql-connector.md#linked-service-properties).
 
-<a id="inputdatasetjson" class="xliff"></a>
-### inputdataset.json
+### <a name="inputdatasetjson"></a>inputdataset.json
 
 ```JSON
 {
@@ -194,8 +187,7 @@ ms.lasthandoff: 06/14/2017
 
 Дополнительные сведения об этих свойствах JSON см. в [этом разделе](data-factory-azure-blob-connector.md#dataset-properties).
 
-<a id="outputdatasetjson" class="xliff"></a>
-### outputdataset.json
+### <a name="outputdatasetjson"></a>outputdataset.json
 
 ```JSON
 {
@@ -236,8 +228,7 @@ ms.lasthandoff: 06/14/2017
 
 Дополнительные сведения об этих свойствах JSON см. в [этом разделе](data-factory-azure-sql-connector.md#dataset-properties).
 
-<a id="pipelinejson" class="xliff"></a>
-### pipeline.json
+### <a name="pipelinejson"></a>pipeline.json
 
 ```JSON
 {
@@ -299,8 +290,7 @@ ms.lasthandoff: 06/14/2017
 
 Описание свойств JSON в определении конвейера см. в статье [Конвейеры и действия в фабрике данных Azure](data-factory-create-pipelines.md). Описание свойств JSON в определении действия копирования см. в статье [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md). Описание свойств JSON, поддерживаемых BlobSource, см. в статье о [соединителе больших двоичных объектов Azure](data-factory-azure-blob-connector.md). Описание свойств JSON, поддерживаемых SqlSink, см. в статье о [соединителе базы данных SQL Azure](data-factory-azure-sql-connector.md).
 
-<a id="set-global-variables" class="xliff"></a>
-## Настройка глобальных переменных
+## <a name="set-global-variables"></a>Настройка глобальных переменных
 Выполните следующие команды в Azure PowerShell, подставив собственные значения.
 
 > [!IMPORTANT]
@@ -323,8 +313,7 @@ $rg = "ADFTutorialResourceGroup"
 $adf = "ADFCopyTutorialDF"
 ```
 
-<a id="authenticate-with-aad" class="xliff"></a>
-## Проверка подлинности с помощью AAD
+## <a name="authenticate-with-aad"></a>Проверка подлинности с помощью AAD
 Выполните следующую команду для аутентификации с помощью Azure Active Directory (AAD): 
 
 ```PowerShell
@@ -335,8 +324,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 (ConvertFrom-Json $responseToken) 
 ```
 
-<a id="create-data-factory" class="xliff"></a>
-## Создание фабрики данных
+## <a name="create-data-factory"></a>Создание фабрики данных
 На этом шаге создается фабрика данных Azure с именем **ADFCopyTutorialDF**. Фабрика данных может иметь один или несколько конвейеров. Конвейер может содержать одно или несколько действий. Например, действие копирования, копирующее данные из исходного хранилища данных в целевое. Действие HDInsight Hive, запускающее скрипт Hive для преобразования входных данных в выходные данные продукта. Чтобы создать фабрику данных, выполните следующие команды: 
 
 1. Назначьте команду переменной с именем **cmd**. 
@@ -385,16 +373,14 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
 Прежде чем создавать конвейер, необходимо создать несколько сущностей фабрики данных. Сначала вам нужно создать связанные службы, чтобы подключить исходное и целевое хранилища данных к своему хранилищу данных. Затем следует определить входные и выходные наборы данных для представления данных в связанных хранилищах. После этого создается конвейер с действием, которое использует эти наборы данных.
 
-<a id="create-linked-services" class="xliff"></a>
-## Создание связанных служб
+## <a name="create-linked-services"></a>Создание связанных служб
 Связанная служба в фабрике данных связывает хранилища данных и службы вычислений с фабрикой данных. В этом руководстве не используются службы вычислений, например Azure HDInsight или Azure Data Lake Analytics. Вы используете два хранилища данных — служба хранилища Azure (источник) и база данных SQL Azure (конечное хранилище). Поэтому нужно создать две связанные службы: служба хранилища Azure с именем AzureStorageLinkedService и база данных SQL Azure с именем AzureSqlLinkedService.  
 
 Связанная служба хранилища Azure связывает учетную запись хранения Azure с фабрикой данных. В этой учетной записи хранения вы создали контейнер и отправили в нее данные в ходе выполнения предварительных [требований](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
 Связанная служба SQL Azure связывает базу данных SQL Azure с фабрикой данных. В этой базе данных хранятся данные, скопированные из хранилища BLOB-объектов. Вы создали пустую таблицу в этой базе данных в ходе выполнения [предварительных требований](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).  
 
-<a id="create-azure-storage-linked-service" class="xliff"></a>
-### Создание связанной службы хранения Azure
+### <a name="create-azure-storage-linked-service"></a>Создание связанной службы хранения Azure
 На этом шаге вы свяжете учетную запись хранения Azure с фабрикой данных. В этом разделе вы укажете имя и ключ вашей учетной записи хранения Azure. Дополнительные сведения о свойствах JSON для определения связанной службы хранилища Azure см. в разделе [Связанная служба хранилища Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service).  
 
 1. Назначьте команду переменной с именем **cmd**. 
@@ -413,8 +399,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     Write-Host $results
     ```
 
-<a id="create-azure-sql-linked-service" class="xliff"></a>
-### Создание связанной службы SQL Azure
+### <a name="create-azure-sql-linked-service"></a>Создание связанной службы SQL Azure
 На этом шаге вы свяжете базу данных SQL Azure с фабрикой данных. В этом разделе вы укажете имя сервера SQL Azure, имя базы данных, имя пользователя и пароль. Дополнительные сведения о свойствах JSON для определения связанной службы SQL Azure см. в разделе [Связанная служба SQL Azure](data-factory-azure-sql-connector.md#linked-service-properties).
 
 1. Назначьте команду переменной с именем **cmd**. 
@@ -433,16 +418,14 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     Write-Host $results
     ```
 
-<a id="create-datasets" class="xliff"></a>
-## Создание наборов данных
+## <a name="create-datasets"></a>Создание наборов данных
 На предыдущем шаге вы создали связанные службы, связывающие учетную запись хранения Azure и базу данных SQL Azure с фабрикой данных. На этом этапе вы определите два набора данных с именами AzureBlobInput и AzureSqlOutput, представляющие входные и выходные данные в хранилищах данных, на которые ссылаются службы AzureStorageLinkedService и AzureSqlLinkedService соответственно.
 
 Связанная служба хранилища Azure указывает строку подключения, которую фабрика данных использует во время выполнения, чтобы подключиться к учетной записи хранения Azure. А входной набор данных больших двоичных объектов (AzureBlobInput) определяет контейнер и папку с входными данными.  
 
 Аналогичным образом связанная служба базы данных SQL Azure указывает строку подключения, которую служба фабрики данных использует во время выполнения, чтобы подключиться к базе данных SQL Azure. А выходной набор данных таблицы SQL (OututDataset) определяет таблицу в базе данных, в которую копируются данные из хранилища BLOB-объектов. 
 
-<a id="create-input-dataset" class="xliff"></a>
-### Создание входного набора данных
+### <a name="create-input-dataset"></a>Создание входного набора данных
 На этом этапе вы создадите набор данных с именем AzureBlobInput. Он указывает на файл большого двоичного объекта (emp.txt) в корневой папке контейнера больших двоичных объектов в службе хранилища Azure, которая представлена связанной службой AzureStorageLinkedService. Если не указать значение fileName (или пропустить его), данные из всех больших двоичных объектов в папке входных данных копируются в целевое расположение. В этом руководстве вы укажете значение параметра fileName. 
 
 1. Назначьте команду переменной с именем **cmd**. 
@@ -461,8 +444,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     Write-Host $results
     ```
 
-<a id="create-output-dataset" class="xliff"></a>
-### Создание выходного набора данных
+### <a name="create-output-dataset"></a>Создание выходного набора данных
 База данных SQL Azure указывает строку подключения, которую служба фабрики данных использует во время выполнения, чтобы подключиться к базе данных SQL Azure. Выходной набор данных таблицы SQL (OututDataset), который вы создаете на этом шаге, определяет таблицу в базе данных, в которую копируются данные из хранилища BLOB-объектов.
 
 1. Назначьте команду переменной с именем **cmd**.
@@ -481,8 +463,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     Write-Host $results
     ``` 
 
-<a id="create-pipeline" class="xliff"></a>
-## Создание конвейера
+## <a name="create-pipeline"></a>Создание конвейера
 На этом шаге создается конвейер с **действием копирования**, которое использует **AzureBlobInput** в качестве входных данных и **AzureSqlOutput** в качестве выходных.
 
 Сейчас на основе этого набора настраивается расписание. В этом руководстве выходной набор данных создает срез раз в час. Для конвейера настроено время начала и время окончания с разницей в сутки. Таким образом, конвейер создает 24 среза для выходного набора данных. 
@@ -505,8 +486,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
 **Поздравляем!** Фабрика данных Azure с конвейером, который копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure, успешно создана.
 
-<a id="monitor-pipeline" class="xliff"></a>
-## Отслеживание конвейера
+## <a name="monitor-pipeline"></a>Отслеживание конвейера
 На этом шаге используется REST API фабрики данных, чтобы отслеживать срезы, созданные конвейером.
 
 ```PowerShell
@@ -536,8 +516,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 
 Для каждого среза в таблицу emp в базе данных SQL Azure копируются две строки данных из исходного файла. Таким образом, если все срезы успешно обработаны (в состоянии "Готово"), в таблице emp отобразится 24 записи. 
 
-<a id="summary" class="xliff"></a>
-## Сводка
+## <a name="summary"></a>Сводка
 В этом руководстве вы использовали REST API, чтобы создать фабрику данных Azure для копирования данных из большого двоичного объекта Azure в базу данных SQL Azure. Вот обобщенные действия, которые вы выполнили в этом руководстве:  
 
 1. Создание **фабрики данных Azure**.
@@ -547,8 +526,7 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 3. Создание **наборов данных**, описывающих входные и выходные данные для конвейеров.
 4. Создание **конвейера** с BlobSource в качестве источника и SqlSink в качестве приемника с помощью действия копирования. 
 
-<a id="next-steps" class="xliff"></a>
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 В этом руководстве в ходе операции копирования вы использовали хранилище BLOB-объектов Azure как исходное хранилище данных, а базу данных SQL Azure — как целевое хранилище данных. В следующей таблице приведен список хранилищ данных, которые поддерживаются в качестве источников и целевых расположений для действия копирования. 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
