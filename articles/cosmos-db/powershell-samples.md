@@ -23,9 +23,7 @@ ms.lasthandoff: 06/24/2017
 
 ---
 
-<a id="azure-powershell-samples-for-azure-cosmos-db" class="xliff"></a>
-
-# Примеры Azure PowerShell для базы данных Azure Cosmos DB
+# <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Примеры Azure PowerShell для базы данных Azure Cosmos DB
 
 В следующей таблице содержатся ссылки на примеры скриптов Azure PowerShell для базы данных Azure Cosmos DB.
 

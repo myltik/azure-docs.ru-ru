@@ -16,9 +16,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="create-a-function-app-and-deploy-function-code-from-github" class="xliff"></a>
-
-# Создание приложения-функции и развертывание кода функции из GitHub
+# <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Создание приложения-функции и развертывание кода функции из GitHub
 
 Этот пример сценария создает приложение-функцию с помощью [плана потребления](../functions-scale.md#consumption-plan) со связанными ресурсами и развертывает код функции из открытого репозитория GitHub (без непрерывного развертывания). Для непрерывной доставки кода функции из GitHub см. статью [Создание службы приложений](functions-cli-create-function-app-github-continuous.md).
 
@@ -28,9 +26,7 @@ ms.lasthandoff: 06/20/2017
 
 Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="sample-script" class="xliff"></a>
-
-## Пример скрипта
+## <a name="sample-script"></a>Пример скрипта
 
 Этот пример создает приложения-функцию Azure и развертывает код функции из GitHub.
 
@@ -38,9 +34,7 @@ ms.lasthandoff: 06/20/2017
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-<a id="script-explanation" class="xliff"></a>
-
-## Описание скрипта
+## <a name="script-explanation"></a>Описание скрипта
 
 Для каждой команды в таблице приведены ссылки на соответствующую документацию. Этот сценарий использует следующие команды:
 
@@ -51,9 +45,7 @@ ms.lasthandoff: 06/20/2017
 | [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Создает приложение-функцию Azure. |
 | [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Связывает приложение-функцию с репозиторием Git или Mercurial. |
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

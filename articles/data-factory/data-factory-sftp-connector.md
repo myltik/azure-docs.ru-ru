@@ -19,7 +19,6 @@ ms.openlocfilehash: c8ac99f63bd6700349bb352b2c880a2ffedf7457
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/05/2017
 
-
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Перемещение данных с SFTP-сервера с использованием фабрики данных Azure
 В этой статье описано, как с помощью действия копирования в фабрике данных Azure переместить данные с локального или облачного SFTP-сервера в поддерживаемое хранилище-приемник данных. В этой статье в продолжение темы о [действиях перемещения данных](data-factory-data-movement-activities.md) приведены общие сведения о перемещении данных с помощью действия копирования, а также список поддерживаемых хранилищ данных, используемых в качестве источников и приемников.
@@ -219,7 +218,7 @@ ms.lasthandoff: 06/05/2017
 ## <a name="supported-file-and-compression-formats"></a>Поддерживаемые форматы файлов и сжатия
 Дополнительные сведения см. в статье [Форматы файлов и сжатия данных, поддерживаемые фабрикой данных Azure](data-factory-supported-file-and-compression-formats.md).
 
-### <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Пример JSON. Копирование данных с FTP-сервера в большой двоичный объект Azure
+## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Пример JSON. Копирование данных с FTP-сервера в большой двоичный объект Azure
 Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Вы узнаете, как копировать данные из источника SFTP в хранилище BLOB-объектов Azure. Тем не менее данные можно копировать **непосредственно** из любых источников в любой указанный [здесь](data-factory-data-movement-activities.md#supported-data-stores-and-formats) приемник. Это делается с помощью действия копирования в фабрике данных Azure.
 
 > [!IMPORTANT]

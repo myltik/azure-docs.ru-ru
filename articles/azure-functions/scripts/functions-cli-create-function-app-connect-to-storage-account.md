@@ -23,9 +23,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="integrate-function-app-into-azure-storage-account" class="xliff"></a>
-
-# Интеграция приложения-функции в учетную запись хранения Azure
+# <a name="integrate-function-app-into-azure-storage-account"></a>Интеграция приложения-функции в учетную запись хранения Azure
 
 Этот пример скрипта создает приложение-функцию и учетную запись хранения.
 
@@ -35,26 +33,20 @@ ms.lasthandoff: 06/20/2017
 
 Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="sample-script" class="xliff"></a>
-
-## Пример скрипта
+## <a name="sample-script"></a>Пример скрипта
 
 Этот пример создает приложение-функцию Azure и добавляет строку подключения хранилища в параметры приложения.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Интеграция приложения-функции в учетную запись хранения Azure")]
 
 
-<a id="clean-up-deployment" class="xliff"></a>
-
-## Очистка развертывания
+## <a name="clean-up-deployment"></a>Очистка развертывания
 
 Выполнив пример сценария, вы можете удалить группу ресурсов, приложение службы приложений и все связанные ресурсы с помощью следующей команды:
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-<a id="script-explanation" class="xliff"></a>
-
-## Описание скрипта
+## <a name="script-explanation"></a>Описание скрипта
 
 Этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
@@ -66,9 +58,7 @@ ms.lasthandoff: 06/20/2017
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Создайте приложение-функцию. |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Очистка |
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
