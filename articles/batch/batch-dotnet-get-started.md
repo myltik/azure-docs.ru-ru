@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1dc728cf6497d8ba0d35a7e41e51a52c5ca6d7df
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Приступая к созданию решений с помощью клиентской библиотеки пакетной службы для .NET
@@ -45,7 +44,7 @@ ms.lasthandoff: 07/08/2017
 * **Учетная запись хранения**. См. раздел [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account) в статье [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Сейчас пакетная служба поддерживает *только* тип учетной записи хранения **общего назначения**, как описано в шаге 5 раздела [Создайте учетную запись хранения](../storage/storage-create-storage-account.md#create-a-storage-account) статьи [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
+> Сейчас пакетная служба поддерживает *только* тип учетной записи хранения **общего назначения**, как описано в шаге 5 раздела [Создайте учетную запись хранения](../storage/storage-create-storage-account.md#create-a-storage-account) статьи [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -105,7 +104,7 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Как упоминалось выше, необходимо указать учетные данные для учетной записи хранения **общего назначения** в службе хранилища Azure. В приложениях пакетной службы используется хранилище BLOB-объектов в пределах учетной записи хранения **общего назначения** . Не указывайте учетные данные для учетной записи службы хранилища, во время создания которой в качестве типа учетной записи выбрано значение *Хранилище BLOB-объектов* .
+> Как упоминалось выше, необходимо указать учетные данные для учетной записи хранения **общего назначения** в службе хранилища Azure. В приложениях пакетной службы используется хранилище BLOB-объектов в пределах учетной записи хранения **общего назначения**. Не указывайте учетные данные для учетной записи службы хранилища, во время создания которой в качестве типа учетной записи выбрано значение *Хранилище BLOB-объектов* .
 >
 >
 
@@ -363,7 +362,12 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-Во время создания пула с использованием метода [CreatePool][net_pool_create] нужно указать несколько параметров, например количество вычислительных узлов, [размер узлов](../cloud-services/cloud-services-sizes-specs.md) и их операционную систему. В приложении *DotNetTutorial* используется [CloudServiceConfiguration][net_cloudserviceconfiguration], чтобы указать Windows Server 2012 R2 из [облачных служб](../cloud-services/cloud-services-guestos-update-matrix.md). Но если вместо этого указать [VirtualMachineConfiguration][net_virtualmachineconfiguration], можно создать пулы узлов, созданных на основе образов из Marketplace, в том числе образов Windows и Linux. Дополнительные сведения см. в статье [Подготовка вычислительных узлов Linux в пулах пакетной службы Azure](batch-linux-nodes.md).
+Во время создания пула с использованием метода [CreatePool][net_pool_create] нужно указать несколько параметров, например количество вычислительных узлов, [размер узлов](../cloud-services/cloud-services-sizes-specs.md) и их операционную систему. В приложении *DotNetTutorial* используется [CloudServiceConfiguration][net_cloudserviceconfiguration], чтобы указать Windows Server 2012 R2 из [облачных служб](../cloud-services/cloud-services-guestos-update-matrix.md). 
+
+Также можно создать пулы вычислительных узлов, представленные виртуальными машинами Azure, указав [VirtualMachineConfiguration][net_virtualmachineconfiguration] для пула. Пул вычислительных узлов виртуальных машин можно создать из образов Windows или [Linux](batch-linux-nodes.md). Источник для образов виртуальных машин может быть следующим:
+
+- [Магазин виртуальных машин Azure Marketplace][vm_marketplace], который предоставляет образы Windows и Linux, готовые к использованию. 
+- Настраиваемый образ, подготавливаемый и предоставляемый пользователем. Дополнительные сведения о пользовательских образах см. в руководстве по [разработке решений для крупномасштабных параллельных вычислений с помощью пакетной службы](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
 > В пакетной службе за использование вычислительных ресурсов взимается плата. Чтобы свести к минимуму затраты, перед запуском примера уменьшите значение параметра `targetDedicatedComputeNodes` до 1.
@@ -788,6 +792,7 @@ Sample complete, hit ENTER to exit...
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/vs/
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Создание контейнеров в службе хранилища Azure"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Отправка файлов приложения и входных данных в контейнеры"

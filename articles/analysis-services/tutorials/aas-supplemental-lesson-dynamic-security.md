@@ -1,5 +1,5 @@
 ---
-title: "Дополнительное занятие для учебника по службам Azure Analysis Services: &quot;Динамическая безопасность&quot; | Документы Майкрософт"
+title: "Дополнительное занятие для учебника по службам Azure Analysis Services: \"Динамическая безопасность\" | Документы Майкрософт"
 description: "Описывает использование динамической безопасности с помощью фильтров строк в учебном проекте служб Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: cd74b0cb0d58036cc7b1198a58649ba38e386322
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 4e97a558ae1a2601b5275a73164b483351f03857
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Дополнительное занятие. Динамическая безопасность
@@ -106,7 +106,7 @@ ms.lasthandoff: 06/03/2017
     Обратите внимание, что для свойства "Активна" этой связи установлено значение False, то есть связь неактивна. С таблицей FactInternetSales установлена другая активная связь.  
   
 ## <a name="hide-the-employeesecurity-table-from-client-applications"></a>Скрытие таблицы EmployeeSecurity в клиентских приложениях  
-В этой задаче вы скрываете таблицу EmployeeSecurity, запрещая ее отображение в списке полей клиентского приложения. Имейте в виду, что скрытие таблицы не защищает. Пользователи по-прежнему могут запрашивать данные из таблицы EmployeeSecurity, если они знают, как это сделать. Чуть позже вы примените фильтр позже, чтобы защитить данные в таблице EmployeeSecurity, запретив пользователям запрашивать любые ее данные.  
+В этой задаче вы скрываете таблицу EmployeeSecurity, запрещая ее отображение в списке полей клиентского приложения. Имейте в виду, что скрытие таблицы не повышает ее защищенность. Пользователи по-прежнему могут запрашивать данные из таблицы EmployeeSecurity, если они знают, как это сделать. Чуть позже вы примените фильтр позже, чтобы защитить данные в таблице EmployeeSecurity, запретив пользователям запрашивать любые ее данные.  
   
 #### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>Скрытие таблицы EmployeeSecurity в клиентских приложениях  
   

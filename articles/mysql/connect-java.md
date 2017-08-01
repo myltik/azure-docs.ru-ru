@@ -12,10 +12,10 @@ ms.topic: hero-article
 ms.devlang: java
 ms.date: 06/20/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 0190fb5a88f766369e6462965e47686c5f289551
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6ffcf3b38a3d868dfa10ea2e2a9d097441387d4f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 07/13/2017
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Создание сервера базы данных Azure для MySQL с помощью Azure CLI)
 
 Также вам потребуется:
-- скачать драйвер JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/);
-- включить JAR-файл JDBC (например, mysql-connector-java-5.1.42-bin.jar) в путь к классу приложения;
-- убедиться, что безопасность подключения базы данных Azure для MySQL настроена с открытым брандмауэром и параметры SSL настроены для успешного подключения приложения.
+- Скачать драйвер JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/).
+- Включить JAR-файл JDBC (например, mysql-connector-java-5.1.42-bin.jar) в путь к классу приложения. Если возникнут сложности, изучите в документации по своей среде информацию о путях классов (например, [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) или [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)).
+- Убедиться, что безопасность подключения базы данных Azure для MySQL настроена с открытым брандмауэром и параметры SSL настроены для успешного подключения приложения.
 
 ## <a name="get-connection-information"></a>Получение сведений о подключении
 Получите сведения о подключении, необходимые для подключения к базе данных Azure.для MySQL. Вам потребуется полное имя сервера и учетные данные для входа.

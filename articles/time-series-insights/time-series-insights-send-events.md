@@ -1,36 +1,32 @@
 ---
 title: "Отправка событий в среду Azure Time Series Insights | Документация Майкрософт"
-description: "Это руководство содержит сведения о передаче событий в среду Time Series Insights"
+description: "Это руководство содержит сведения об отправке событий в среду Time Series Insights."
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: venkatgct
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/21/2017
 ms.author: venkatja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9f2d3b57a42efb7b04566278d3267b3cdbed713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/24/2017
 
 ---
-<a id="send-events-to-a-time-series-insights-environment-via-event-hub" class="xliff"></a>
-
-# Отправка событий в среду Time Series Insights через концентратор событий
+# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Отправка событий в среду Time Series Insights через концентратор событий
 
 Это руководство содержит сведения о том, как создать и настроить концентратор событий и запустить пример приложения для передачи событий. Если у вас уже есть концентратор событий, содержащий события в формате JSON, пропустите это руководство и просмотрите свою среду в [Time Series Insights](https://insights.timeseries.azure.com).
 
-<a id="configure-an-event-hub" class="xliff"></a>
-
-## Настройка концентратора событий
+## <a name="configure-an-event-hub"></a>Настройка концентратора событий
 1. Чтобы создать концентратор событий, следуйте инструкциям из [документации](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) по концентратору событий.
 
 2. Создайте группу потребителей, которая используется исключительно источником событий Time Series Insights.
@@ -46,18 +42,14 @@ ms.lasthandoff: 07/01/2017
 
   ![Добавление новой политики общего доступа](media/send-events/shared-access-policy-2.png)  
 
-<a id="create-time-series-insights-event-source" class="xliff"></a>
+## <a name="create-time-series-insights-event-source"></a>Создание источника событий Time Series Insights
+1. Если вы еще не создали источник событий, создайте его, [следуя инструкциям](time-series-insights-add-event-source.md).
 
-## Создание источника событий Time Series Insights
-1. Если вы еще не создали источник событий, следуйте инструкциям по его созданию, указанным [здесь](time-series-insights-add-event-source.md).
-
-2. В качестве имени свойства метки времени укажите deviceTimestamp. Это свойство будет использоваться в качестве фактической метки времени в примере C#. Имя свойства метки времени чувствительно к регистру, поэтому при отправке JSON в концентратор событий значения должны иметь формат __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__. Если свойство не существует в событии, используется время размещения в очереди для концентратора событий.
+2. В качестве имени свойства метки времени укажите deviceTimestamp. Это свойство будет использоваться в качестве фактической метки времени в примере C#. Имя свойства метки времени чувствительно к регистру, поэтому при отправке в концентратор событий в формате JSON значения должны иметь формат __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__. Если свойство не существует в событии, используется время размещения в очереди для концентратора событий.
 
   ![Создание источника событий](media/send-events/event-source-1.png)
 
-<a id="sample-code-to-push-events" class="xliff"></a>
-
-## Пример кода для принудительной отправки событий
+## <a name="sample-code-to-push-events"></a>Пример кода для принудительной отправки событий
 1. Перейдите к политике концентратора событий MySendPolicy и скопируйте строку подключения с ключом политики.
 
   ![Копирование строки подключения MySendPolicy](media/send-events/sample-code-connection-string.png)
@@ -131,16 +123,10 @@ namespace Microsoft.Rdx.DataGenerator
 }
 
 ```
-<a id="supported-json-shapes" class="xliff"></a>
+## <a name="supported-json-shapes"></a>Поддерживаемые формы JSON
+### <a name="sample-1"></a>Пример 1
 
-## Поддерживаемые формы JSON
-<a id="sample-1" class="xliff"></a>
-
-### Пример 1
-
-<a id="input" class="xliff"></a>
-
-#### Входные данные
+#### <a name="input"></a>Входные данные
 
 Простой объект JSON.
 
@@ -150,21 +136,15 @@ namespace Microsoft.Rdx.DataGenerator
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-<a id="output---1-event" class="xliff"></a>
-
-#### Выходные данные, одно событие
+#### <a name="output---1-event"></a>Выходные данные, одно событие
 
 |id|Timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
-<a id="sample-2" class="xliff"></a>
+### <a name="sample-2"></a>Пример 2
 
-### Пример 2
-
-<a id="input" class="xliff"></a>
-
-#### Входные данные
+#### <a name="input"></a>Входные данные
 Массив JSON с двумя объектами JSON. Каждый объект JSON будет преобразован в событие.
 ```json
 [
@@ -178,21 +158,15 @@ namespace Microsoft.Rdx.DataGenerator
     }
 ]
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Выходные данные, два события
+#### <a name="output---2-events"></a>Выходные данные, два события
 
 |id|Timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
-<a id="sample-3" class="xliff"></a>
+### <a name="sample-3"></a>Пример 3
 
-### Пример 3
-
-<a id="input" class="xliff"></a>
-
-#### Входные данные
+#### <a name="input"></a>Входные данные
 
 Объект JSON с вложенным массивом JSON, содержащий два объекта JSON.
 ```json
@@ -211,9 +185,7 @@ namespace Microsoft.Rdx.DataGenerator
 }
 
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Выходные данные, два события
+#### <a name="output---2-events"></a>Выходные данные, два события
 Обратите внимание, что свойство location копируется для каждого события.
 
 |location|events.id|events.timestamp|
@@ -221,13 +193,9 @@ namespace Microsoft.Rdx.DataGenerator
 |WestUs|device1|2016-01-08T01:08:00Z|
 |WestUs|device2|2016-01-08T01:17:00Z|
 
-<a id="sample-4" class="xliff"></a>
+### <a name="sample-4"></a>Пример 4
 
-### Пример 4
-
-<a id="input" class="xliff"></a>
-
-#### Входные данные
+#### <a name="input"></a>Входные данные
 
 Объект JSON с вложенным массивом JSON, содержащий два объекта JSON. Эти входные данные указывают на то, что глобальные свойства могут быть представлены сложным объектом JSON.
 
@@ -260,18 +228,14 @@ namespace Microsoft.Rdx.DataGenerator
     ]
 }
 ```
-<a id="output---2-events" class="xliff"></a>
-
-#### Выходные данные, два события
+#### <a name="output---2-events"></a>Выходные данные, два события
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Просмотрите свою среду на [портале Time Series Insights](https://insights.timeseries.azure.com).
 

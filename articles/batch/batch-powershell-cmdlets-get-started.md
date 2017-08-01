@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5e1819a9f081284fa03e9355730689629166006f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 015096a48e5287af6b225f16a38fac328ed28630
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Управление ресурсами пакетной службы с помощью командлетов PowerShell
@@ -101,7 +100,7 @@ ms.lasthandoff: 07/08/2017
 При использовании этих командлетов вам нужно не только передать объект BatchContext, но также создать или передать объекты, которые содержат параметры с подробными настройками ресурсов, как показано в следующем примере. Дополнительные примеры доступны в справочных материалах по каждому командлету.
 
 ### <a name="create-a-batch-pool"></a>Создание пула пакетной службы
-При создании или обновлении пула пакетной службы нужно выбрать конфигурацию облачной службы или виртуальной машины для операционной системы на вычислительных узлах (см. [обзор функций пакетной службы](batch-api-basics.md#pool)). По сути вы выберете, будет ли создан образ вычислительных узлов с одним из [выпусков гостевой ОС Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases) или с одним из поддерживаемых образов виртуальной машины Windows или Linux в Azure Marketplace.
+Создавая или обновляя пул пакетной службы, вам нужно выбрать конфигурацию облачной службы или виртуальной машины для операционной системы на вычислительных узлах (см. [обзор функций пакетной службы](batch-api-basics.md#pool)). Если вы указываете конфигурацию облачной службы, образы вычислительных узлов будут созданы на основе одного из [выпуска гостевых ОС Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Если вы указываете конфигурацию виртуальной машины, можно выбрать один из поддерживаемых образов виртуальных машин Linux или Windows, доступных в [магазине виртуальных машин Azure Marketplace][vm_marketplace], или предоставить настраиваемый образ, подготовленный вами.
 
 При выполнении командлета **New-AzureBatchPool** передайте параметры операционной системы в объекте PSCloudServiceConfiguration или PSVirtualMachineConfiguration. Например, следующий командлет создает новый пул пакетной службы с вычислительными узлами малого размера в конфигурации облачной службы. При этом образ создан с использованием последней версии операционной системы семейства 3 (Windows Server 2012). Здесь параметр **CloudServiceConfiguration** определяет переменную *$configuration* как объект PSCloudServiceConfiguration. Параметр **BatchContext** определяет ранее заданную переменную *$context* как объект BatchAccountContext.
 
@@ -241,4 +240,4 @@ ms.lasthandoff: 07/08/2017
 * Подробные сведения о синтаксисе командлетов и их примеры см. в [справке по командлетам пакетной службы Azure](/powershell/module/azurerm.batch/#batch).
 * Дополнительные сведения о приложениях и пакетах приложений в пакетной службе см. в статье [Развертывание приложений на вычислительных узлах с помощью пакетов приложений пакетной службы](batch-application-packages.md).
 
-
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

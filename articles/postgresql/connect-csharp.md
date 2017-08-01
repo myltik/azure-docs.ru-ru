@@ -11,47 +11,37 @@ ms.custom: mvc
 ms.devlang: csharp
 ms.topic: hero-article
 ms.date: 06/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 87854637471fa15a76ae216cb57c549962810b7b
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 9f393e9ab1b3b6ab7f1ff085d625362d50adc97c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
-<a id="azure-database-for-postgresql-use-net-c-to-connect-and-query-data" class="xliff"></a>
-
-# База данных Azure для PostgreSQL: подключение и запрос данных с помощью C# (.NET)
+# <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запрос данных с помощью C# (.NET)
 В этом кратком руководстве объясняется, как подключиться к базе данных Azure для PostgreSQL с помощью приложения C#. Здесь также показано, как использовать инструкции SQL для запроса, вставки, обновления и удаления данных в базе данных. В этой статье предполагается, что у вас уже есть опыт разработки на C# и вы только начали работу с базой данных Azure для PostgreSQL.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 В качестве отправной точки в этом кратком руководстве используются ресурсы, созданные в соответствии со следующими материалами:
 - [Создание базы данных с помощью портала](quickstart-create-server-database-portal.md)
 - [Создание базы данных SQL Azure и отправка к ней запросов с помощью Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 Также вам потребуется:
 - установить [.NET Framework](https://www.microsoft.com/net/download);
-- Установите [Visual Studio](https://www.visualstudio.com/downloads/)
+- установить [Visual Studio](https://www.visualstudio.com/downloads/);
 - установить [Npgsql](http://www.npgsql.org/doc/index.html). 
 
-<a id="install-visual-studio-and-net" class="xliff"></a>
-
-## Установка Visual Studio и .NET
+## <a name="install-visual-studio-and-net"></a>Установка Visual Studio и .NET
 В этом разделе предполагается, что у вас уже есть опыт разработки с использованием .NET.
 
-<a id="windows-net-framework-and-net-core" class="xliff"></a>
-
-### **Windows .NET Framework и .NET Core**
+### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework и .NET Core**
 Выпуск Visual Studio Community 2017 — это полнофункциональная расширяемая бесплатная среда IDE для создания современных приложений для Android, iOS, Windows, а также веб-приложений, приложений базы данных и облачных служб. Вы можете установить полную версию .NET Framework или только .NET Core. Фрагменты кода в кратком руководстве работают с любой из них. Если среда Visual Studio уже установлена на вашем компьютере, то вы можете пропустить следующие действия.
 
 1. Скачайте [установщик Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
 2. Запустите установщик и выполните указанные действия, чтобы завершить установку.
 
-<a id="mac-os" class="xliff"></a>
-
-### **Mac OS**
+### <a name="mac-os"></a>**Mac OS**
 Откройте терминал и перейдите в каталог, в котором вы планируете создать проект .NET Core. Введите следующие команды для установки **brew**, **OpenSSL** и **.NET Core**: 
 
 ```bash
@@ -65,9 +55,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 Установите .NET Core на macOS. Скачайте [официальный установщик](https://go.microsoft.com/fwlink/?linkid=843444). С помощью этого установщика можно установить средства и поместить их в свой путь, чтобы запустить dotnet в окне консоли.
 
-<a id="linux-ubuntu" class="xliff"></a>
-
-### **Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Откройте терминал и перейдите в каталог, в котором вы планируете создать проект .NET Core. Введите следующие команды для установки **.NET Core**:
 
 ```bash
@@ -77,10 +65,8 @@ sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
 
-<a id="install-npgsql-references-into-your-visual-studio-solution" class="xliff"></a>
-
-## Установка библиотеки Npgsql со ссылками в решении Visual Studio
-Чтобы подключиться из приложения C# к PostgreSQL, используйте библиотеку ADO.NET с открытым кодом с именем Npgsql. С помощью NuGet можно легко скачивать ссылки и управлять ими.
+## <a name="install-npgsql-references-into-your-visual-studio-solution"></a>Установка библиотеки Npgsql со ссылками в решении Visual Studio
+Чтобы подключиться из приложения C# к PostgreSQL, используйте открытую библиотеку ADO.NET с именем Npgsql. С помощью NuGet можно легко скачивать ссылки и управлять ими.
 
 1. Создайте новое решение C# или откройте существующее. 
    - Создайте решение в Visual Studio, открыв меню "Файл" и последовательно выбрав **Создать** > **Проект**.
@@ -92,9 +78,7 @@ sudo apt-get install dotnet-dev-1.0.1
    - В области **Консоль диспетчера пакетов** введите `Install-Package Npgsql`.
    - Команда установки скачает файл Npgsql.dll и связанные сборки, а затем добавит их в решение в качестве зависимостей.
 
-<a id="get-connection-information" class="xliff"></a>
-
-## Получение сведений о подключении
+## <a name="get-connection-information"></a>Получение сведений о подключении
 Получите сведения, необходимые для подключения к базе данных Azure.для PostgreSQL. Вам потребуется полное имя сервера и учетные данные для входа.
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
@@ -104,9 +88,7 @@ sudo apt-get install dotnet-dev-1.0.1
  ![База данных Azure для PostgreSQL. Учетные данные администратора сервера для входа](./media/connect-csharp/1-connection-string.png)
 5. Если вы забыли данные для входа на сервер, перейдите на страницу **Обзор**, чтобы просмотреть имя администратора сервера и при необходимости сбросить пароль.
 
-<a id="connect-create-table-and-insert-data" class="xliff"></a>
-
-## Подключение, создание таблицы и вставка данных
+## <a name="connect-create-table-and-insert-data"></a>Подключение, создание таблицы и вставка данных
 Используйте приведенный ниже код для подключения и загрузки данных с помощью инструкций SQL **CREATE TABLE** и **INSERT INTO**. В коде используется класс NpgsqlCommand с методом [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open), чтобы установить подключение к PostgreSQL. Затем код использует метод [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), устанавливает свойство CommandText и вызывает метод [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery), чтобы выполнить команды базы данных. 
 
 Замените значения параметров Host, DBName, User и Password значениями, указанными при создании сервера и базы данных. 
@@ -137,7 +119,7 @@ namespace Driver
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}; SSL Mode=Prefer; Trust Server Certificate=true",
                     Host,
                     User,
                     DBname,
@@ -183,9 +165,7 @@ namespace Driver
 }
 ```
 
-<a id="read-data" class="xliff"></a>
-
-## Считывание данных
+## <a name="read-data"></a>Считывание данных
 Используйте указанный ниже код с инструкцией SQL **SELECT** для подключения и чтения данных. В коде используется класс NpgsqlCommand с методом [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open), чтобы установить подключение к PostgreSQL. Затем код использует метод [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) и [ExecuteReader()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) для выполнения команд базы данных. После чего используется метод [Read()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) для перехода к записям в результирующем наборе. Затем используются метод [GetInt32()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) и метод [GetString()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) для анализа значений в записи.
 
 Замените значения параметров Host, DBName, User и Password значениями, указанными при создании сервера и базы данных. 
@@ -255,9 +235,7 @@ namespace Driver
 ```
 
 
-<a id="update-data" class="xliff"></a>
-
-## Обновление данных
+## <a name="update-data"></a>Обновление данных
 Используйте указанный ниже код с инструкцией SQL **UPDATE** для подключения и чтения данных. В коде используется класс NpgsqlCommand с методом [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open), чтобы установить подключение к PostgreSQL. Затем код использует метод [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), устанавливает свойство CommandText и вызывает метод [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery), чтобы выполнить команды базы данных.
 
 Замените значения параметров Host, DBName, User и Password значениями, указанными при создании сервера и базы данных. 
@@ -321,9 +299,7 @@ namespace Driver
 ```
 
 
-<a id="delete-data" class="xliff"></a>
-
-## Удаление данных
+## <a name="delete-data"></a>Удаление данных
 Используйте указанный ниже код с инструкцией SQL **DELETE** для подключения и чтения данных. 
 
  В коде используется класс NpgsqlCommand с методом [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open), чтобы установить подключение к PostgreSQL. Затем код использует метод [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), устанавливает свойство CommandText и вызывает метод [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery), чтобы выполнить команды базы данных.
@@ -385,9 +361,7 @@ namespace Driver
 }
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 > [!div class="nextstepaction"]
 > [Перенос базы данных с помощью экспорта и импорта](./howto-migrate-using-export-and-import.md)
 

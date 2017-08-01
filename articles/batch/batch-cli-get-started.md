@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Управление ресурсами пакетной службы с помощью Azure CLI
@@ -78,7 +77,7 @@ Azure CLI 2.0 — это новый интерфейс командной ст
 az login
 ```
 
-Команда `az login` возвращает токен, используемый при проверке подлинности, как показано ниже. Следуйте предоставленным указаниям, чтобы открыть веб-страницу и отправить токен в Azure:
+Команда `az login` возвращает токен, используемый при аутентификации, как показано ниже. Следуйте предоставленным указаниям, чтобы открыть веб-страницу и отправить токен в Azure:
 
 ![Вход в Azure](./media/batch-cli-get-started/az-login.png)
 
@@ -119,6 +118,10 @@ az login
     ```
 
 В примерах, приведенных в разделе [Примеры скриптов оболочки](#sample-shell-scripts), описано, как войти в учетную запись пакетной службы с помощью Azure CLI, использую и Azure AD, и общий ключ.
+
+## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Использование шаблонов интерфейса командной строки для пакетной службы Azure и передачи файлов (предварительная версия)
+
+Azure CLI можно использовать для запуска заданий пакетной службы без необходимости писать код. Файлы шаблона пакетной службы поддерживают создание пулов, заданий и задач с помощью Azure CLI. Вы также можете использовать Azure CLI для отправки входных файлов заданий в учетную запись хранения Azure, связанную с учетной записью пакетной службы, а также скачивания выходных файлов задания из нее. См. дополнительные сведения об [использовании шаблонов интерфейса командной строки для пакетной службы Azure и передаче файлов (предварительная версия)](batch-cli-templates.md).
 
 ## <a name="sample-shell-scripts"></a>Примеры скриптов оболочки
 
@@ -187,7 +190,7 @@ az batch task list --job-id job001
 
 * Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 * Дополнительные сведения о ресурсах пакетной службы см. в статье [Разработка решений для крупномасштабных параллельных вычислений с использованием пакетной службы](batch-api-basics.md).
-* Дополнительные сведения о развертывании приложений, работающих на вычислительных узлах пакетной службы, и управлении ими с помощью этой функции см. в статье [Развертывание приложений на вычислительных узлах с помощью пакетов приложений пакетной службы](batch-application-packages.md).
+* Дополнительные сведения о создании пулов, заданий и задач без написания кода с помощью шаблонов пакетной службы см. в руководстве по [использованию шаблонов интерфейса командной строки для пакетной службы Azure и передаче файлов (предварительная версия)](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
