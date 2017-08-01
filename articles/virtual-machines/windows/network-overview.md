@@ -23,8 +23,7 @@ ms.lasthandoff: 04/27/2017
 
 ---
 
-# Виртуальные сети и виртуальные машины Windows в Azure
-<a id="virtual-networks-and-windows-virtual-machines-in-azure" class="xliff"></a> 
+# <a name="virtual-networks-and-windows-virtual-machines-in-azure"></a>Виртуальные сети и виртуальные машины Windows в Azure 
 
 При создании виртуальной машины Azure вам потребуется [виртуальная сеть](../../virtual-network/virtual-networks-overview.md). Вы можете создать ее или использовать уже готовую. Кроме того, необходимо решить, как в этой виртуальной сети будет предоставляться доступ к виртуальным машинам. Очень важно [спланировать это перед созданием ресурсов](../../virtual-network/virtual-network-vnet-plan-design-arm.md), а также ознакомиться с [ограничениями, применяемыми к сетевым ресурсам](../../azure-subscription-service-limits.md#networking-limits).
 
@@ -45,8 +44,7 @@ ms.lasthandoff: 04/27/2017
 - Группы безопасности сети
 - Балансировщики нагрузки 
 
-## Сетевые интерфейсы
-<a id="network-interfaces" class="xliff"></a>
+## <a name="network-interfaces"></a>Сетевые интерфейсы
 
 [Сетевой интерфейс (NIC)](../../virtual-network/virtual-network-network-interface.md) обеспечивает взаимодействие между виртуальной машиной и виртуальной сетью. Виртуальная машина должна иметь по крайней мере один сетевой интерфейс, но в зависимости от ее размера количество сетевых интерфейсов можно увеличить. Дополнительные сведения о количестве сетевых интерфейсов, поддерживаемых каждым из размеров виртуальной машины, см. в статье [Размеры виртуальных машин в Azure](sizes.md). 
 
@@ -65,8 +63,7 @@ ms.lasthandoff: 04/27/2017
 | [Интерфейс командной строки Azure](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md) | Чтобы указать идентификатор созданного ранее общедоступного IP-адреса, выполните команду [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) с параметром **--public-ip-address**. |
 | [Шаблон](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) | Используйте шаблон [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) (Сетевой интерфейс в виртуальной сети с общедоступным IP-адресом) в качестве руководства по развертыванию сетевого интерфейса с помощью шаблона. |
 
-## IP-адреса;
-<a id="ip-addresses" class="xliff"></a> 
+## <a name="ip-addresses"></a>IP-адреса; 
 
 В Azure сетевому интерфейсу можно назначить следующие типы [IP-адресов](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
@@ -90,8 +87,7 @@ ms.lasthandoff: 04/27/2017
 
 После создания общедоступного IP-адреса его можно связать с виртуальной машиной, присвоив его сетевому интерфейсу.
 
-## Виртуальные сети и подсети
-<a id="virtual-network-and-subnets" class="xliff"></a>
+## <a name="virtual-network-and-subnets"></a>Виртуальные сети и подсети
 
 Подсеть — это диапазон IP-адресов в виртуальной сети. Виртуальную сеть можно разделить на несколько подсетей, чтобы организовать ее и повысить безопасность. Каждый сетевой интерфейс виртуальной машины подключен к одной подсети в одной виртуальной сети. Сетевые интерфейсы, подключенные к подсетям (одной или разным) в виртуальной сети, могут взаимодействовать друг с другом без дополнительной настройки.
 
@@ -110,8 +106,7 @@ ms.lasthandoff: 04/27/2017
 | [Интерфейс командной строки Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md) | Подсеть и виртуальная сеть создаются одновременно. В команду [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) добавьте параметр **--subnet-name** с именем подсети. |
 | [Шаблон](../../virtual-network/virtual-networks-create-vnet-arm-template-click.md) | Для создания виртуальной сети и подсетей проще всего скачать готовый шаблон, например [Virtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets) (Виртуальная сеть с двумя подсетями), и изменить его в соответствии со своими потребностями. |
 
-## Группы безопасности сети
-<a id="network-security-groups" class="xliff"></a>
+## <a name="network-security-groups"></a>Группы безопасности сети
 
 [Группа безопасности сети](../../virtual-network/virtual-networks-nsg.md) содержит перечень правил списка управления доступом (ACL), которые разрешают или запрещают сетевой трафик к подсетям и сетевым интерфейсам (или и к тому, и к другому). Группы безопасности сети можно связать с подсетями или отдельными сетевыми интерфейсами, подключенными к подсети. Если группа безопасности сети связана с подсетью, правила списка управления доступом применяются ко всем виртуальным машинам в этой подсети. Кроме того, трафик к отдельным сетевым интерфейсам можно ограничить, связав группу безопасности сети непосредственно с нужным сетевым интерфейсом.
 
@@ -132,8 +127,7 @@ ms.lasthandoff: 04/27/2017
 | [Интерфейс командной строки Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md) | Используйте команду [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create), чтобы изначально создать группу безопасности сети. Команда [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) позволяет добавить правила в группу безопасности сети, а команда [az network vnet subnet update](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#update) — добавить группу безопасности сети в подсеть. |
 | [Шаблон](../../virtual-network/virtual-networks-create-nsg-arm-template.md) | Используйте шаблон [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) (Создание группы безопасности сети) в качестве руководства по развертыванию группы безопасности сети с помощью шаблона. |
 
-## Балансировщики нагрузки
-<a id="load-balancers" class="xliff"></a>
+## <a name="load-balancers"></a>Балансировщики нагрузки
 
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) обеспечивает высокую доступность и производительность сети для приложений. Балансировщик нагрузки можно настроить для [балансировки входящего интернет-трафика](../../load-balancer/load-balancer-internet-overview.md) виртуальных машин или для [балансировки трафика между виртуальными машинами в виртуальной сети](../../load-balancer/load-balancer-internal-overview.md). Кроме того, балансировщик нагрузки может выполнять балансировку трафика между локальными компьютерами и виртуальными машинами в распределенных сетях или перенаправлять внешний трафик на определенную виртуальную машину.
 
@@ -165,8 +159,7 @@ ms.lasthandoff: 04/27/2017
 | [Интерфейс командной строки Azure](../../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Используйте команду [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#create), чтобы создать начальную конфигурацию балансировщика нагрузки, и команду [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) с параметром **--private-ip-address**, чтобы определить частный IP-адрес. Команда [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) позволяет добавить конфигурацию пула внутренних адресов, команда [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) — правила преобразования сетевых адресов, команда [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) — правила балансировщика нагрузки, а команда [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) — пробы.|
 | [Шаблон](../../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Используйте шаблон [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) (2 виртуальные машины в балансировщике нагрузки и настройка правил преобразования сетевых адресов для балансировки нагрузки) в качестве руководства по развертыванию балансировщика нагрузки с помощью шаблона. |
 
-## Виртуальные машины
-<a id="vms" class="xliff"></a>
+## <a name="vms"></a>Виртуальные машины
 
 Виртуальные машины можно создать в одной виртуальной сети, и они могут подключаться друг к другу с помощью частных IP-адресов. Они могут взаимодействовать, даже если находятся в разных подсетях. Для этого не нужно настраивать шлюз или использовать общедоступные IP-адреса. Чтобы добавить виртуальные машины в виртуальную сеть, необходимо сначала создать виртуальную сеть, а затем, создавая виртуальные машины, назначить каждую определенной виртуальной сети или подсети. Параметры сети виртуальных машин задаются во время развертывания или запуска,  
 
@@ -182,8 +175,7 @@ ms.lasthandoff: 04/27/2017
 | [Azure PowerShell](../virtual-machines-windows-ps-create.md) | Используйте командлет [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface), чтобы добавить в конфигурацию виртуальной машины созданный ранее сетевой интерфейс. |
 | [Шаблон](ps-template.md) | Используйте шаблон [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) (Простое развертывание виртуальной машины Windows) в качестве руководства по развертыванию виртуальной машины с помощью шаблона. |
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Дополнительные сведения об [определяемых пользователем маршрутах и IP-пересылке](../../virtual-network/virtual-networks-udr-overview.md). 
 - Дополнительные сведения о [настройке подключения между виртуальными сетями](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).

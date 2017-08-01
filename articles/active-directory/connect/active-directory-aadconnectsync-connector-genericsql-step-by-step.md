@@ -21,22 +21,16 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 01/05/2017
 
 ---
-<a id="generic-sql-connector-step-by-step" class="xliff"></a>
-
-# Универсальный соединитель SQL: пошаговое руководство
+# <a name="generic-sql-connector-step-by-step"></a>Универсальный соединитель SQL: пошаговое руководство
 Эта статья является пошаговым руководством. Она поможет вам создать простую базу данных для отдела кадров, которая предназначена для импорта некоторых пользователей и их членства в группе.
 
-<a id="prepare-the-sample-database" class="xliff"></a>
-
-## Подготовка образца базы данных
+## <a name="prepare-the-sample-database"></a>Подготовка образца базы данных
 На сервере под управлением SQL Server запустите сценарий SQL, который находится в [Приложении A](#appendix-a). Этот сценарий создает пример базы данных с именем GSQLDEMO. Объектная модель для созданной базы данных выглядит так:   
 ![Объектная модель](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/objectmodel.png)
 
 Также создайте пользователя, который будет использоваться для подключения к базе данных. В этом пошаговом руководстве пользователю присвоено имя FABRIKAM\SQLUser, и он находится в домене.
 
-<a id="create-the-odbc-connection-file" class="xliff"></a>
-
-## Создание файла подключения ODBC
+## <a name="create-the-odbc-connection-file"></a>Создание файла подключения ODBC
 Универсальный соединитель SQL использует ODBC для подключения к удаленному серверу. Сначала необходимо создать файл с данными подключения ODBC.
 
 1. Запустите программу управления ODBC на сервере:   
@@ -66,9 +60,7 @@ ms.lasthandoff: 01/05/2017
 
 Теперь у нас есть нужный файл, и можно приступить к созданию соединителя.
 
-<a id="create-the-generic-sql-connector" class="xliff"></a>
-
-## Создание универсального соединителя SQL
+## <a name="create-the-generic-sql-connector"></a>Создание универсального соединителя SQL
 1. В пользовательском интерфейсе Synchronization Service Manager выберите **Connectors** (Соединители) и нажмите кнопку **Create** (Создать). Выберите **Generic SQL (Microsoft)** (Универсальный SQL (Майкрософт)) и присвойте описательное имя.  
    ![Соединитель 1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector1.png)
 2. Найдите файл DSN, созданный в предыдущем разделе, и отправьте его на сервер. Укажите учетные данные для подключения к базе данных.  
@@ -89,9 +81,7 @@ ms.lasthandoff: 01/05/2017
    ![Соединитель 9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector9.png)
 10. На странице **Выбор типов объектов** и **Выбор атрибутов** выберите оба типа объектов и все атрибуты. На странице **Configure Anchors** (Настройка привязки) нажмите кнопку **Готово**.
 
-<a id="create-run-profiles" class="xliff"></a>
-
-## Создание профилей выполнения
+## <a name="create-run-profiles"></a>Создание профилей выполнения
 1. В пользовательском интерфейсе Synchronization Service Manager выберите **Connectors** (Соединители) и щелкните **Configure Run Profiles** (Настроить профили выполнения). Щелкните **New Profile**(Новый профиль). Мы начнем с профиля **Full Import**(Полный импорт).  
    ![Профиль выполнения 1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile1.png)
 2. Выберите тип **Full Import (Stage Only)**(Полный импорт (только демонстрация)).  
@@ -107,18 +97,14 @@ ms.lasthandoff: 01/05/2017
 6. Можно настроить дополнительные профили выполнения, но это необязательно. В этом пошаговом руководстве используется только профиль "Full Import" (Полный импорт).
 7. Нажмите кнопку **ОК** , чтобы завершить изменение профилей выполнения.
 
-<a id="add-some-test-data-and-test-the-import" class="xliff"></a>
-
-## Добавление некоторых тестовых данных и тестирование импорта
+## <a name="add-some-test-data-and-test-the-import"></a>Добавление некоторых тестовых данных и тестирование импорта
 Введите тестовые данные в образец базы данных. Когда будете готовы, щелкните **Run** (Выполнить) и **Full import** (Полный импорт).
 
 Здесь мы видим пользователя с двумя телефонными номерами и группу с несколькими участниками.  
 ![Пространство соединителя 1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs1.png)  
 ![Пространство соединителя 2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
 
-<a id="appendix-a" class="xliff"></a>
-
-## Приложении A
+## <a name="appendix-a"></a>Приложении A
 **Сценарий SQL для создания образца базы данных**
 
 ```SQL

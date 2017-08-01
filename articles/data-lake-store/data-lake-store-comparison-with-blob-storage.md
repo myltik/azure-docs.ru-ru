@@ -22,8 +22,7 @@ ms.lasthandoff: 01/05/2017
 
 
 ---
-# Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure
-<a id="comparing-azure-data-lake-store-and-azure-blob-storage" class="xliff"></a>
+# <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure
 В таблице ниже приведены различия между Azure Data Lake Store и хранилищем BLOB-объектов Azure, а также некоторые ключевые аспекты обработки больших данных. Хранилище BLOB-объектов Azure является универсальным масштабируемым хранилищем объектов, предназначенным для разнообразных сценариев хранения. Azure Data Lake Store — это гипермасштабируемый репозиторий, оптимизированный для рабочих нагрузок, относящихся к аналитике больших данных.
 
 |  | Хранилище озера данных Azure | Хранилище больших двоичных объектов Azure |
@@ -49,8 +48,7 @@ ms.lasthandoff: 01/05/2017
 | Доступ по регионам |Дополнительные сведения см. [здесь](https://azure.microsoft.com/regions/#services). |Дополнительные сведения см. [здесь](https://azure.microsoft.com/regions/#services). |
 | Цена |Дополнительные сведения см. на [этой странице](https://azure.microsoft.com/pricing/details/data-lake-store/). |Дополнительные сведения см. на [этой странице](https://azure.microsoft.com/pricing/details/storage/). |
 
-### Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+### <a name="next-steps"></a>Дальнейшие действия
 * [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 * [Начало работы с хранилищем озера данных](data-lake-store-get-started-portal.md)
 
