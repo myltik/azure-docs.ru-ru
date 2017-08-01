@@ -1,6 +1,6 @@
 ---
 title: "Приступая к работе с Azure Active Directory Premium"
-description: "Раздел, где объясняется, как подписаться на выпуск Azure Active Directory Premium на веб-сайте корпоративного лицензирования."
+description: "Из этой статьи вы узнаете, как оформить подписку на выпуск Azure Active Directory Premium на веб-сайте корпоративного лицензирования."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,17 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73cbbce9ae3d727632b8cac2a29c2b1b92332ae7
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 12/08/2016
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="getting-started-with-azure-active-directory-premium"></a>Приступая к работе с Azure Active Directory Premium
+Из этой статьи вы узнаете, как приступить к работе со службой Azure Active Directory Premium, приобретенной по программе корпоративного лицензирования. Дополнительную информацию о разных выпусках Azure Active Directory см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).  
+
+> [!IMPORTANT]
+> Для управления службой Azure AD мы рекомендуем использовать [Центр администрирования Azure AD](https://aad.portal.azure.com) на портале Azure, а не классический портал Azure, который упоминается в этой статье. 
+
 Есть несколько способов регистрации в Active Directory Premium: 
 
 **Azure или Office 365** — каждый подписчик Azure или Office 365 может приобрести Active Directory Premium через Интернет. Подробные инструкции см. в видео [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Как существующие клиенты могут приобрести Azure Active Directory Premium) и [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Как новые клиенты могут приобрести Azure Active Directory Premium).  
@@ -29,8 +34,6 @@ ms.lasthandoff: 12/08/2016
 **Enterprise Mobility + Security** (предыдущее название — Enterprise Mobility Suite) — это эффективное средство, с помощью которого организации могут совместно использовать службы Active Directory Premium, Azure Rights Management и Microsoft Intune в рамках одного плана лицензирования. Дополнительные сведения см. на веб-сайте [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx). Чтобы получить бесплатную 30-дневную пробную версию, щелкните [здесь](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
 **Корпоративное лицензирование Microsoft** — служба Azure Active Directory Premium доступна по программам [Microsoft Enterprise](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 и более лицензий) и [Open Volume](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 лицензий).
-
-В этой статье показано, как приступить к работе со службой Azure Active Directory Premium, приобретенной по программе корпоративного лицензирования. Дополнительную информацию о разных выпусках Azure Active Directory см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).  
 
 > [!NOTE]
 > Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих доступный по всему миру экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).

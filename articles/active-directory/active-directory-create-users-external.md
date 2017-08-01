@@ -12,24 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Добавление пользователей из других каталогов или компаний-партнеров в Azure Active Directory
-> [!div class="op_single_selector"]
-> * [Портал Azure](active-directory-users-create-external-azure-portal.md )
-> * [классическом портале Azure](active-directory-create-users-external.md)
->
->
 
-В этой статье объясняется, как добавлять в Azure Active Directory пользователей из других каталогов, а также пользователей из компаний-партнеров. Сведения о добавлении новых корпоративных пользователей, а также пользователей с учетными записями Майкрософт см. в статье [Добавление новых пользователей или пользователей с учетными записями Майкрософт в Azure Active Directory](active-directory-create-users.md). По умолчанию добавленные пользователи не имеют прав администратора, но вы можете назначать им роли в любое время.
+В этой статье объясняется, как добавлять в Azure Active Directory пользователей из других каталогов, а также пользователей из компаний-партнеров. Сведения о добавлении новых корпоративных пользователей, а также пользователей с учетными записями Майкрософт см. в статье [Добавление новых пользователей или пользователей с учетными записями Майкрософт в Azure Active Directory](active-directory-create-users.md). 
+
+> [!IMPORTANT]
+> Для управления службой Azure AD мы рекомендуем использовать [Центр администрирования Azure AD](https://aad.portal.azure.com) на портале Azure, а не классический портал Azure, который упоминается в этой статье. Сведения о том, как добавлять гостевых пользователей службы совместной работы B2B в центре администрирования Azure AD, см. в статье [Что такое служба совместной работы Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md).
+
+По умолчанию добавленные пользователи не имеют прав администратора, но вы можете назначать им роли в любое время.
 
 ## <a name="add-a-user"></a>Добавление пользователей
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с помощью учетной записи глобального администратора каталога.

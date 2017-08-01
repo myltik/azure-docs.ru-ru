@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Создание, запуск или удаление шлюза приложений с помощью диспетчера ресурсов Azure
@@ -171,10 +170,10 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPA
 
 ### <a name="step-3"></a>Шаг 3.
 
-Настройте параметры шлюза приложений с именем **poolsetting01** для балансировки нагрузки сетевого трафика во внутреннем пуле. Для каждого пула тыловых серверов параметры можно настроить отдельно.  Серверные параметры HTTP используются правилами для перенаправления трафика соответствующим участникам серверного пула. Серверные параметры HTTP определяют протокол и порт, используемый для отправки трафика участникам серверного пула. Сеансы на основе файлов cookie также определяются с помощью серверных параметров HTTP.  Если этот параметр включен, соответствие сеансу на основе файлов cookie отправляет для каждого пакета трафик в ту же серверную часть, что и для предыдущих запросов.
+Настройте параметр **poolsetting** шлюза приложений для балансировки нагрузки сетевого трафика во внутреннем пуле. Для каждого пула тыловых серверов параметры можно настроить отдельно.  Серверные параметры HTTP используются правилами для перенаправления трафика соответствующим участникам серверного пула. Серверные параметры HTTP определяют протокол и порт, используемый для отправки трафика участникам серверного пула. Сеансы на основе файлов cookie также определяются с помощью серверных параметров HTTP.  Если этот параметр включен, соответствие сеансу на основе файлов cookie отправляет для каждого пакета трафик в ту же серверную часть, что и для предыдущих запросов.
 
 ```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 ```
 
 ### <a name="step-4"></a>Шаг 4.
@@ -206,7 +205,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 Создайте для балансировщика нагрузки правило маршрутизации **rule01**, которое будет определять его поведение. Параметры серверного пула, прослушиватель и серверный пул, созданные ранее, составляют правило. Трафик, определенный на основе критериев, перенаправляется в соответствующую серверную часть.
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 ### <a name="step-8"></a>Шаг 8

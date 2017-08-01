@@ -6,7 +6,7 @@
 
 | Дистрибутив | Драйвер |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Версия 7.3 на основе CentOS | NVIDIA GRID 4.2, драйверы серии R367|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>Версия 7.3 на основе CentOS | NVIDIA GRID 4.3, драйверы ветви R367|
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>Драйверы NVIDIA Tesla для экземпляров NC
 | Дистрибутив | Драйвер |

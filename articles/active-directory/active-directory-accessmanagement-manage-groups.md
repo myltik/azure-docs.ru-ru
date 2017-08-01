@@ -12,13 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 07/24/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
-ms.lasthandoff: 02/11/2017
-
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 2cc2b63312b331a19c61cd7b59a4cac78edf32e6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="managing-groups-in-azure-active-directory"></a>Управление группами в Azure Active Directory
@@ -35,6 +38,9 @@ ms.lasthandoff: 02/11/2017
 * ресурсам, которые являются внешними по отношению к каталогу, например приложениям SaaS, службам Azure, сайтам SharePoint или локальным ресурсам.
 
 Кроме того, владелец ресурса может назначить доступ к ресурсу группе Azure AD, принадлежащей кому-то другому. В результате такого назначения участники данной группы получат доступ к ресурсу. Членством в группе управляет ее владелец. Фактически владелец ресурса делегирует владельцу группы разрешение назначать пользователям доступ к ресурсу.
+
+> [!IMPORTANT]
+> Для управления службой Azure AD мы рекомендуем использовать [Центр администрирования Azure AD](https://aad.portal.azure.com) на портале Azure, а не классический портал Azure, который упоминается в этой статье. Сведения о том, как управлять группами в Центре администрирования Azure AD, см. в статье [Создание группы и добавление в нее пользователей в Azure Active Directory](active-directory-groups-create-azure-portal.md).
 
 ## <a name="how-do-i-create-a-group"></a>Как создать группу?
 В зависимости от служб, на которые подписана ваша организация, вы можете создать группу, используя один из следующих вариантов:

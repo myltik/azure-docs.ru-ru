@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: bfa8dbbd0b1d943a9eb7a042df0bac25189d9ac9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="overview-of-azure-iot-suite"></a>Общие сведения о наборе Azure IoT Suite
@@ -55,7 +54,13 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="preconfigured-solutions"></a>предварительно настроенные решения
 
-Пакет IoT Suite содержит предварительно настроенные решения, которые позволяют быстро приступить к работе и изучить наиболее распространенные сценарии, связанные с Интернетом вещей, например *Удаленный мониторинг* и *Диагностическое обслуживание* и *Подключенная фабрика*. Вы можете развернуть эти решения в своей подписке Azure, а затем запустить готовый к использованию комплексный сценарий IoT.
+Пакет IoT Suite содержит предварительно настроенные решения, которые позволяют быстро приступить к работе и изучить наиболее распространенные сценарии, связанные с Интернетом вещей, в частности:
+
+* удаленный мониторинг;
+* диагностическое обслуживание;
+* подключенная фабрика.
+
+Вы можете развернуть эти решения в своей подписке Azure, а затем запустить готовый к использованию комплексный сценарий IoT.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
