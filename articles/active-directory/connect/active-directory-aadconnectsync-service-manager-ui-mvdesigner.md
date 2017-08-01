@@ -22,15 +22,13 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 03/04/2017
 
 ---
-# Вкладка "Metaverse Designer" (Конструктор метавселенной) в Synchronization Service Manager
-<a id="sync-service-manager-metaverse-designer" class="xliff"></a>
+# <a name="sync-service-manager-metaverse-designer"></a>Вкладка "Metaverse Designer" (Конструктор метавселенной) в Synchronization Service Manager
 
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/mvdesigner.png)
 
 Для большинства клиентов здесь ничего не нужно настраивать.
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

@@ -21,15 +21,11 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problems-signing-in-to-an-custom-developed-application" class="xliff"></a>
-
-# Проблемы при входе в специально разработанное приложение
+# <a name="problems-signing-in-to-an-custom-developed-application"></a>Проблемы при входе в специально разработанное приложение
 
 Существует несколько ошибок, которые могут препятствовать входу в приложение. Основной причиной является неправильная настройка приложений.
 
-<a id="errors-related-to--misconfigured-apps" class="xliff"></a>
-
-## Ошибки, связанные с неправильной настройкой приложений
+## <a name="errors-related-to--misconfigured-apps"></a>Ошибки, связанные с неправильной настройкой приложений
 
 * Убедитесь, что конфигурации на портале соответствуют значениям в приложении. В частности, сравните идентификатор клиента и приложения, URL-адреса ответа, ключи и секреты клиентов, а также URI идентификатора приложения.
 
@@ -37,9 +33,7 @@ ms.lasthandoff: 04/17/2017
 
 * Сведения об аналогичных ошибках или проблемах см. в разделе [StackOverflow в Azure AD](http://stackoverflow.com/questions/tagged/azure-active-directory).
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Руководство разработчика по Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 

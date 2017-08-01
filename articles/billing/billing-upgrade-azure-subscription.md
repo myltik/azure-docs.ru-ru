@@ -24,8 +24,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 03/17/2017
 
 ---
-<a id="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go" class="xliff"></a>
-# Обновление с бесплатной пробной версии или подписки Azure Microsoft Imagine до подписки с оплатой по мере использования
+# <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Обновление с бесплатной пробной версии или подписки Azure Microsoft Imagine до подписки с оплатой по мере использования
 Обновите свою [бесплатную пробную версию](https://azure.microsoft.com/free/) или подписку [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) до [подписки с оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/) на портале учетных записей Azure. Само обновление ничего не стоит, плата будет взиматься только за используемые службы.
 
 1. Войдите на [портал учетных записей Azure](https://account.windowsazure.com/subscriptions) и перейдите на вкладку **Подписки**.

@@ -20,36 +20,26 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problems-configuring-or-registering-my-application" class="xliff"></a>
-
-# Проблемы при настройке или регистрации моего приложения
+# <a name="problems-configuring-or-registering-my-application"></a>Проблемы при настройке или регистрации моего приложения
 
 
 
-<a id="i-dont-know-how-to-configure-my-application" class="xliff"></a>
-
-## Я не знаю, как настроить свое приложение
+## <a name="i-dont-know-how-to-configure-my-application"></a>Я не знаю, как настроить свое приложение
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Я не знаю, какие конечные точки аутентификации используются для моего приложения](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
   * [Я не знаю, как настроить единый вход в мое приложение](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-sso-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
   * [Я не знаю, как заполнить определенное поле объекта приложения](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-specific-application-property-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
 
-<a id="i-dont-know-how-to-create-and-configure-a-multi-tenant-application" class="xliff"></a>
-
-## Я не знаю, как создать и настроить мультитенантное приложение
+## <a name="i-dont-know-how-to-create-and-configure-a-multi-tenant-application"></a>Я не знаю, как создать и настроить мультитенантное приложение
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Я не знаю, как настроить мультитенантное приложение](https://docs.microsoft.com/azure/active-directory/application-dev-setup-multi-tenant-app/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
   * [Я не знаю, как добавить мое мультитенантное приложение в коллекцию приложений Azure AD](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
 
-<a id="i-dont-know-how-to-select-or-manage-permissions-for-my-application" class="xliff"></a>
-
-## Я не знаю, как выбрать разрешения для своего приложения и управлять ими
+## <a name="i-dont-know-how-to-select-or-manage-permissions-for-my-application"></a>Я не знаю, как выбрать разрешения для своего приложения и управлять ими
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Я не знаю, какие разрешения следует выбрать для заданного API](https://docs.microsoft.com/azure/active-directory/application-dev-perms-for-given-api/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
 
-<a id="im-having-a-problem-using-or-finding-a-specific-api" class="xliff"></a>
-
-## Возникают проблемы при использовании или поиске конкретного API-интерфейса
+## <a name="im-having-a-problem-using-or-finding-a-specific-api"></a>Возникают проблемы при использовании или поиске конкретного API-интерфейса
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Не удается найти API, необходимый для моего приложения](https://docs.microsoft.com/azure/active-directory/application-dev-api-find-an-api-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
   * [Я не знаю, как изменить время существования по умолчанию маркера для моего приложения](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-change-token-lifetime-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)

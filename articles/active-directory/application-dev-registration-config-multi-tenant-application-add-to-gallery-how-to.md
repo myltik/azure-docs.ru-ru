@@ -21,19 +21,13 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="how-to-add-a-multi-tenant-application-to-the-azure-ad-application-gallery" class="xliff"></a>
+# <a name="how-to-add-a-multi-tenant-application-to-the-azure-ad-application-gallery"></a>Добавление мультитенантного приложения в коллекцию приложений Azure AD
 
-# Добавление мультитенантного приложения в коллекцию приложений Azure AD
-
-<a id="what-is-the-azure-ad-application-gallery" class="xliff"></a>
-
-## Что такое коллекция приложений Azure AD?
+## <a name="what-is-the-azure-ad-application-gallery"></a>Что такое коллекция приложений Azure AD?
 
 Коллекция приложений Azure AD отлично подходит для того, чтобы представить приложение миллионам пользователей Azure Active Directory, что расширяет его аудиторию в магазине. Ниже показано, как добавить приложение в коллекцию приложений Azure AD.
 
-<a id="if-your-application-supports-saml-or-openidconnect" class="xliff"></a>
-
-## Если приложение поддерживает SAML или OpenIDConnect
+## <a name="if-your-application-supports-saml-or-openidconnect"></a>Если приложение поддерживает SAML или OpenIDConnect
 Если у вас есть мультитенантное приложение, которые нужно включить в коллекцию приложений Azure AD, сначала убедитесь, что оно поддерживает одну из следующих технологий единого входа:
 
 1. **OpenID Connect.** Прямая интеграция с Azure AD с помощью OpenID Connect для проверки подлинности и API согласия Azure AD для конфигурации. Этот режим является рекомендуемым, если вы только начали интеграцию и ваше приложение не поддерживает SAML.
@@ -41,13 +35,9 @@ ms.lasthandoff: 04/17/2017
 
 Если ваше мультитенантное приложение поддерживает один из этих режимов единого входа и вы бы хотели включить его в коллекцию приложений Azure AD, выполните действия, описанные в документе ниже. Чтобы быстро начать работу, отправьте сообщение по адресу **waadpartners@microsoft.com**.
 
-<a id="if-your-application-does-not-support-saml-or-openidconnect" class="xliff"></a>
-
-## Если приложение не поддерживает SAML или OpenIDConnect
+## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Если приложение не поддерживает SAML или OpenIDConnect
 Даже если приложение не поддерживает один из этих режимов, мы по-прежнему можем интегрировать его в свою коллекцию, применив технологию единого входа с паролем. Если вы хотите изучить эту возможность, отправьте сообщение по адресу **waadpartners@microsoft.com**.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [Добавление приложения в коллекцию приложений Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
 

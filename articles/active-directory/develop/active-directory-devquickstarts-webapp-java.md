@@ -22,9 +22,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 03/18/2017
 
 ---
-<a id="java-web-app-sign-in-and-sign-out-with-azure-ad" class="xliff"></a>
-
-# Вход в веб-приложение Java и выход из него с помощью Azure AD
+# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Вход в веб-приложение Java и выход из него с помощью Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Azure Active Directory (Azure AD) позволяет легко выполнять функции управления удостоверением веб-приложения, обеспечивая единый вход и выход с помощью всего лишь нескольких строк кода. Пользователи могут входить в веб-приложения Java и выходить из них с помощью реализованной корпорацией Майкрософт библиотеки проверки подлинности Azure Active Directory для Java (ADAL4J), поддерживаемой сообществом.
@@ -35,18 +33,14 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
 * отображать некоторые сведения о пользователе;
 * выполнять выход пользователей из приложений.
 
-<a id="before-you-get-started" class="xliff"></a>
-
-## Необходимые условия
+## <a name="before-you-get-started"></a>Необходимые условия
 
 * Скачайте [схему приложения](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) или [готовый пример](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).
 * Вам также необходим клиент Azure AD для регистрации приложения. Если у вас еще нет клиента Azure AD, [узнайте, как его получить](active-directory-howto-tenant.md).
 
 Когда будете готовы, выполните процедуры, описанные в следующих девяти разделах.
 
-<a id="step-1-register-the-new-app-with-azure-ad" class="xliff"></a>
-
-## Шаг 1. Регистрация приложения в Azure AD
+## <a name="step-1-register-the-new-app-with-azure-ad"></a>Шаг 1. Регистрация приложения в Azure AD
 Чтобы настроить приложение для аутентификации пользователей, сначала зарегистрируйте его в клиенте. Для этого выполните следующие действия:
 
 1. Войдите на [портал Azure](https://portal.azure.com).
@@ -61,9 +55,7 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
 
 На портале создайте и скопируйте ключ приложения на странице **Параметры**. Скоро он вам понадобится.
 
-<a id="step-2-set-up-the-app-to-use-the-adal4j-and-prerequisites-by-using-maven" class="xliff"></a>
-
-## Шаг 2. Настройка приложения для использования ADAL4J и выполнение предварительных требований с помощью Maven
+## <a name="step-2-set-up-the-app-to-use-the-adal4j-and-prerequisites-by-using-maven"></a>Шаг 2. Настройка приложения для использования ADAL4J и выполнение предварительных требований с помощью Maven
 На этом шаге вы настраиваете библиотеку ADAL4J для использования протокола проверки подлинности OpenID Connect. ADAL4J используется для выдачи запросов на вход и выход, управления сеансами пользователей, получения сведений о пользователях и т. д.
 
 В корневом каталоге проекта откройте или создайте файл `pom.xml`, найдите строку `// TODO: provide dependencies for Maven` и замените ее следующим кодом:
@@ -178,9 +170,7 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
     </project>
 ```
 
-<a id="step-3-create-the-java-web-app-files-web-inf" class="xliff"></a>
-
-## Шаг 3. Создание файлов веб-приложения Java (WEB-INF)
+## <a name="step-3-create-the-java-web-app-files-web-inf"></a>Шаг 3. Создание файлов веб-приложения Java (WEB-INF)
 На этом шаге вы настраиваете веб-приложение Java для использования протокола проверки подлинности OpenID Connect. Используйте ADAL4J для выдачи запросов на вход и выход, управления сеансом пользователя, получения сведений о пользователе и т. д.
 
 1. Откройте файл web.xml, расположенный в папке \webapp\WEB-INF\,, и введите значения конфигурации приложения в XML-файле. XML-файл должен содержать следующий код:
@@ -269,9 +259,7 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
 
  Этот код указывает веб-приложению использовать Spring и сообщает, где искать JSP-файл, который вы создадите в следующем разделе.
 
-<a id="step-4-create-the-jsp-view-files-for-basicfilter-mvc" class="xliff"></a>
-
-## Шаг 4. Создание файлов представления JSP (для BasicFilter MVC)
+## <a name="step-4-create-the-jsp-view-files-for-basicfilter-mvc"></a>Шаг 4. Создание файлов представления JSP (для BasicFilter MVC)
 Пока вы выполнили лишь половину процедуры по настройке веб-приложения в WEB-INF. Сейчас мы создадим файлы JSP для контроллера представления модели (MVC) BasicFilter, которые будет выполнять веб-приложение. При этом мы будем следовать инструкциям в конфигурации.
 
 Ранее в XML-файлах конфигурации вы сообщили Java, что у вас есть ресурс `/`, который загружает JSP-файлы, и ресурс `/secure`, который проходит через фильтр с именем BasicFilter.
@@ -341,9 +329,7 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
 
 Теперь нужно настроить файлы Java, чтобы сервлет мог выполнять свою работу.
 
-<a id="step-5-create-some-java-helper-files-for-basicfilter-mvc" class="xliff"></a>
-
-## Шаг 5. Создание вспомогательных файлов Java (для BasicFilter MVC)
+## <a name="step-5-create-some-java-helper-files-for-basicfilter-mvc"></a>Шаг 5. Создание вспомогательных файлов Java (для BasicFilter MVC)
 Наша цель на этом шаге — создать файлы Java, которые:
 
 * позволят пользователям входить в приложение и выходить из него;
@@ -738,9 +724,7 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
 
     ```
 
-<a id="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc" class="xliff"></a>
-
-## Шаг 6. Создание файлов Java для модели API Graph (для BasicFilter MVC)
+## <a name="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc"></a>Шаг 6. Создание файлов Java для модели API Graph (для BasicFilter MVC)
 Как указывалось ранее, вы можете использовать API Graph для получения сведений о вошедшем пользователе. Чтобы упростить этот процесс, создайте файл, который будет представлять объект каталога, и файл, который будет представлять пользователя, чтобы можно было использовать объектно-ориентированный шаблон Java.
 
 1. Создайте файл с именем DirectoryObject.java, в котором хранятся основные данные о любом объекте каталога. Этот файл можно использовать позже для любых других запросов Graph. Чтобы создать файл, вставьте следующий код:
@@ -1311,9 +1295,7 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
 
     ```
 
-<a id="step-7-create-the-authentication-model-and-controller-files-for-basicfilter" class="xliff"></a>
-
-## Шаг 7. Создание файлов контроллера или модели проверки подлинности (для BasicFilter)
+## <a name="step-7-create-the-authentication-model-and-controller-files-for-basicfilter"></a>Шаг 7. Создание файлов контроллера или модели проверки подлинности (для BasicFilter)
 Мы понимаем, что код Java может быть объемным, но уже почти все готово. Прежде чем написать сервлет BasicFilter для обработки запросов, нужно написать вспомогательные файлы, необходимые для библиотеки ADAL4J.
 
 1. Создайте файл с именем AuthHelper.java, в который вы добавите методы для определения состояния вошедшего пользователя. К ним относятся:
@@ -1465,9 +1447,7 @@ Azure Active Directory (Azure AD) позволяет легко выполнят
 
     ```
 
-<a id="step-8-create-the-basicfilter-file-for-basicfilter-mvc" class="xliff"></a>
-
-## Шаг 8. Создание файла BasicFilter (для BasicFilter MVC)
+## <a name="step-8-create-the-basicfilter-file-for-basicfilter-mvc"></a>Шаг 8. Создание файла BasicFilter (для BasicFilter MVC)
 Теперь можно создать файл BasicFilter.java, который обрабатывает запросы из файлов представления JSP. Чтобы создать файл, вставьте следующий код:
 
 ```Java
@@ -1719,9 +1699,7 @@ public class BasicFilter implements Filter {
 * **createSessionPrincipal()** — создает субъект сеанса, который используется для доступа к API Graph.
 * **getRedirectUrl()** — получает URL-адрес перенаправления, который затем сравнивается с указанным на портале значением.
 
-<a id="step-9-compile-and-run-the-sample-in-tomcat" class="xliff"></a>
-
-## Шаг 9. Компиляция и запуск примера в Tomcat
+## <a name="step-9-compile-and-run-the-sample-in-tomcat"></a>Шаг 9. Компиляция и запуск примера в Tomcat
 
 1. Измените корневой каталог.
 2. Выполните следующую команду, чтобы скомпилировать пример, который вы только что собрали с помощью `maven`.
@@ -1736,9 +1714,7 @@ public class BasicFilter implements Filter {
 > WAR-файлы очень просто развертывать с помощью последних версий серверов Tomcat. Перейдите на сайт http://localhost:8080/manager/ и следуйте инструкциям по отправке файла adal4jsample.war. Он будет автоматически развернут с правильной конечной точкой.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Теперь у вас есть рабочее приложение Java, которое позволяет проверять подлинность пользователей, безопасно вызывать методы веб-API по протоколу OAuth 2.0 и получать основные сведения о пользователях. Если в клиент пользователи еще не добавлены, сейчас самое время это сделать.
 
 Для дополнительной справки вы можете получить готовый пример (без ваших значений конфигурации) одним из следующих способов:

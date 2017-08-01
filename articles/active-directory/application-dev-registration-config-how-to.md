@@ -21,9 +21,7 @@ ms.lasthandoff: 04/14/2017
 
 ---
 
-<a id="how-to-select-permissions-for-a-given-api" class="xliff"></a>
-
-# Выбор разрешений для заданного API
+# <a name="how-to-select-permissions-for-a-given-api"></a>Выбор разрешений для заданного API
 
 Конечные точки проверки подлинности для приложения можно найти на [портале Azure](https://portal.azure.com).
 
@@ -37,8 +35,6 @@ ms.lasthandoff: 04/14/2017
 
 -   Используйте соответствующую конечную точку для протокола проверки подлинности в сочетании с идентификатором приложения, чтобы создать запрос проверки подлинности для своего приложения.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [Руководство разработчика по Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
 

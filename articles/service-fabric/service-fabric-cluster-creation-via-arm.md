@@ -21,9 +21,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 07/04/2017
 
 ---
-<a id="create-a-service-fabric-cluster-by-using-azure-resource-manager" class="xliff"></a>
-
-# Создание кластера Service Fabric в Azure с помощью Azure Resource Manager
+# <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Создание кластера Service Fabric в Azure с помощью Azure Resource Manager
 > [!div class="op_single_selector"]
 > * [Диспетчер ресурсов Azure](service-fabric-cluster-creation-via-arm.md)
 > * [Портал Azure](service-fabric-cluster-creation-via-portal.md)
@@ -42,9 +40,7 @@ ms.lasthandoff: 07/04/2017
 
 Концепция создания безопасного кластер в Linux или Windows ничем не отличается. Дополнительные сведения о создании безопасных кластеров Linux, а также вспомогательные скрипты см. в разделе [Создание безопасных кластеров в Linux](#secure-linux-clusters).
 
-<a id="sign-in-to-your-azure-account" class="xliff"></a>
-
-## Вход в учетную запись Azure
+## <a name="sign-in-to-your-azure-account"></a>Вход в учетную запись Azure
 В этом руководстве используется [Azure PowerShell][azure-powershell]. При запуске нового сеанса PowerShell войдите в свою учетную запись Azure и выберите подписку перед выполнением команд Azure.
 
 Вход в учетную запись Azure:
@@ -60,9 +56,7 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-<a id="set-up-a-key-vault" class="xliff"></a>
-
-## Настройка хранилища ключей
+## <a name="set-up-a-key-vault"></a>Настройка хранилища ключей
 В этом разделе описывается, как создать хранилище ключей для кластера Service Fabric в Azure и приложений Service Fabric. Полное руководство по использованию Azure Key Vault см. в статье [Приступая к работе с хранилищем ключей Azure][key-vault-get-started].
 
 Service Fabric использует сертификаты X.509 для защиты кластера и обеспечения функций безопасности приложений. Key Vault используется для управления сертификатами кластеров Service Fabric в Azure. При развертывании кластера в Azure поставщик ресурсов Azure, ответственный за создание кластеров Service Fabric, извлекает сертификаты из Key Vault и устанавливает их на виртуальные машины кластера.
@@ -71,9 +65,7 @@ Service Fabric использует сертификаты X.509 для защи
 
 ![Схема установки сертификата][cluster-security-cert-installation]
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-### Создание группы ресурсов
+### <a name="create-a-resource-group"></a>Создание группы ресурсов
 Первый шаг — создание группы ресурсов специально для хранилища ключей. Рекомендуется поместить хранилище ключей в собственной группе ресурсов. Так вы сможете удалять группы ресурсов для вычислений и хранения, включая группу ресурсов, в которой размещен кластер Service Fabric, без потери ключей и секретов. Группа ресурсов с хранилищем ключей _должна находиться в том же регионе_, что и кластер, который ее использует.
 
 Если вы планируете развертывание кластеров в нескольких регионах, рекомендуется выбрать имя для группы ресурсов и хранилища ключей, чтобы обозначить область, к которой они относятся.  
@@ -97,9 +89,7 @@ Service Fabric использует сертификаты X.509 для защи
 ```
 <a id="new-key-vault"></a>
 
-<a id="create-a-key-vault-in-the-new-resource-group" class="xliff"></a>
-
-### Создание хранилища ключей в новой группе ресурсов.
+### <a name="create-a-key-vault-in-the-new-resource-group"></a>Создание хранилища ключей в новой группе ресурсов.
 Хранилище ключей _должно быть доступно для развернутой службы_. Это позволит поставщику вычислительных ресурсов получить из него сертификаты и установить их на экземплярах виртуальных машин.
 
 ```powershell
@@ -135,9 +125,7 @@ Service Fabric использует сертификаты X.509 для защи
 ```
 <a id="existing-key-vault"></a>
 
-<a id="use-an-existing-key-vault" class="xliff"></a>
-
-## Использование существующего хранилища ключей
+## <a name="use-an-existing-key-vault"></a>Использование существующего хранилища ключей
 
 Чтобы использовать существующее хранилище ключей, _необходимо включить его для развернутой службы_, благодаря чему поставщик вычислительных ресурсов сможет получить из него сертификаты и установить его на узлах кластера:
 
@@ -149,15 +137,11 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployme
 
 <a id="add-certificate-to-key-vault"></a>
 
-<a id="add-certificates-to-your-key-vault" class="xliff"></a>
-
-## Добавление сертификатов в хранилище ключей
+## <a name="add-certificates-to-your-key-vault"></a>Добавление сертификатов в хранилище ключей
 
 Сертификаты используются в Service Fabric, чтобы обеспечить функции аутентификации и шифрования для защиты различных аспектов кластера и его приложений. Дополнительные сведения о том, как сертификаты используются в Service Fabric, см. в статье [Сценарии защиты кластера Service Fabric][service-fabric-cluster-security].
 
-<a id="cluster-and-server-certificate-required" class="xliff"></a>
-
-### Сертификат кластера и сервера (обязательно)
+### <a name="cluster-and-server-certificate-required"></a>Сертификат кластера и сервера (обязательно)
 Этот сертификат требуется для защиты кластера и предотвращения несанкционированного доступа к нему. Он обеспечивает безопасность кластера двумя способами.
 
 * Аутентификация в кластере позволяет аутентифицировать обмен данными между узлами для федерации кластера. Только узлы, которые могут подтвердить свою подлинность с помощью этого сертификата, могут присоединиться к кластеру.
@@ -169,17 +153,13 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployme
 * Сертификат должен быть создан для обмена ключами, которые можно экспортировать в файл обмена личной информацией (PFX-файл).
 * Имя субъекта сертификата должно совпадать с доменным именем, которое используется для обращения к кластеру Service Fabric. Это необходимо, чтобы предоставить SSL-протокол конечным точкам управления HTTPS в кластере и Service Fabric Explorer. Не удается получить SSL-сертификат от центра сертификации (ЦС) в домене .cloudapp.azure.com. Необходимо получить имя личного домена для кластера. При запросе сертификата из ЦС имя субъекта сертификата должно совпадать с именем личного домена, используемого для кластера.
 
-<a id="application-certificates-optional" class="xliff"></a>
-
-### Сертификаты приложения (необязательно)
+### <a name="application-certificates-optional"></a>Сертификаты приложения (необязательно)
 В кластере можно установить любое количество дополнительных сертификатов для обеспечения безопасности приложений. Перед созданием кластера рассмотрите сценарии безопасности приложений, которые требуют установки сертификатов на узлах, в том числе:
 
 * шифрование и расшифровка значений конфигурации приложений;
 * шифрование данных между узлами во время репликации.
 
-<a id="formatting-certificates-for-azure-resource-provider-use" class="xliff"></a>
-
-### форматирование сертификатов для использования поставщиком ресурсов Azure.
+### <a name="formatting-certificates-for-azure-resource-provider-use"></a>форматирование сертификатов для использования поставщиком ресурсов Azure.
 Файлы закрытых ключей (PFX) можно добавить и использовать непосредственно в своем хранилище ключей. Однако для поставщика вычислительных ресурсов Azure необходимо хранить ключи в специальном формате нотации объектов JavaScript (JSON). В этом формате PFX-файл представлен в виде строки в кодировке Base64 и пароля закрытого ключа. Чтобы соблюсти эти требования, ключи должны быть помещены в строку JSON и сохранены как "секреты" в хранилище ключей.
 
 Для упрощения этого процесса [на сайте GitHub доступен соответствующий модуль PowerShell][service-fabric-rp-helpers]. Чтобы использовать этот модуль, выполните следующие действия.
@@ -196,9 +176,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployme
 
 Команда `Invoke-AddCertToKeyVault` в этом модуле PowerShell автоматически форматирует закрытый ключ сертификата в строку JSON и передает ее в хранилище ключей. Используйте эту команду для добавления сертификата кластера и всех дополнительных сертификатов приложения в хранилище ключей. Повторите этот шаг для всех дополнительных сертификатов, которые нужно установить в кластере.
 
-<a id="uploading-an-existing-certificate" class="xliff"></a>
-
-#### Загрузка существующего сертификата
+#### <a name="uploading-an-existing-certificate"></a>Загрузка существующего сертификата
 
 ```powershell
 
@@ -246,9 +224,7 @@ Value : https://mywestusvault.vault.azure.net:443/secrets/mycert/4d087088df974e8
 
 <a id="add-self-signed-certificate-to-key-vault"></a>
 
-<a id="creating-a-self-signed-certificate-and-uploading-it-to-the-key-vault" class="xliff"></a>
-
-#### Создание самозаверяющего сертификата и передача его в хранилище ключей
+#### <a name="creating-a-self-signed-certificate-and-uploading-it-to-the-key-vault"></a>Создание самозаверяющего сертификата и передача его в хранилище ключей
 
 Если сертификат уже отправлен в хранилище ключей, пропустите этот шаг. На этом шаге создается новый самозаверяющий сертификат и выполняется его передача в хранилище ключей. После изменения параметров в следующем сценарии и его выполнения вам будет предложено ввести пароль сертификата.  
 
@@ -315,9 +291,7 @@ Value : https://westuskv1.vault.azure.net:443/secrets/chackonewcertificate1/ee24
 
 <a id="add-AAD-for-client"></a>
 
-<a id="set-up-azure-active-directory-for-client-authentication" class="xliff"></a>
-
-## Настройка Azure Active Directory для проверки подлинности клиента
+## <a name="set-up-azure-active-directory-for-client-authentication"></a>Настройка Azure Active Directory для проверки подлинности клиента
 
 Azure AD позволяет организациям (известным как клиенты) управлять доступом пользователей к приложениям. Приложения можно разделить на две группы: те, в которых есть пользовательский веб-интерфейс входа в систему, и те, в которых вход выполняется с помощью собственного клиентского приложения. В этой статье предполагается, что клиент уже создан. Если это не так, обратитесь к статье [Как получить клиент Azure Active Directory][active-directory-howto-tenant].
 
@@ -360,26 +334,18 @@ Azure AD позволяет организациям (известным как 
 },
 ```
 
-<a id="create-a-service-fabric-cluster-resource-manager-template" class="xliff"></a>
-
-## Создание шаблона Resource Manager для кластера Service Fabric
+## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Создание шаблона Resource Manager для кластера Service Fabric
 В этом разделе выходные данные предыдущей команды PowerShell переносятся в шаблон Resource Manager для кластера Service Fabric.
 
 Примеры шаблонов Resource Manager доступны в [коллекции шаблонов быстрого запуска Azure на сайте GitHub][azure-quickstart-templates]. Их можно использовать в качестве отправной точки для создания шаблона кластера.
 
-<a id="create-the-resource-manager-template" class="xliff"></a>
-
-### Создание шаблона Resource Manager
+### <a name="create-the-resource-manager-template"></a>Создание шаблона Resource Manager
 В этом руководстве используется пример шаблона [защищенного кластера с 5 узлами][service-fabric-secure-cluster-5-node-1-nodetype] и его параметры. Скачайте файлы `azuredeploy.json` и `azuredeploy.parameters.json` на компьютер и откройте их в текстовом редакторе.
 
-<a id="add-certificates" class="xliff"></a>
-
-### Добавление сертификатов
+### <a name="add-certificates"></a>Добавление сертификатов
 Сертификаты добавляются в шаблон Resource Manager кластера с помощью ссылок на хранилище ключей, которое содержит ключи сертификата. Рекомендуется поместить значения хранилища ключей в файл параметров шаблона Resource Manager. Благодаря этому файл шаблона Resource Manager доступен для повторного использования и не зависит от значений, связанных с определенной развернутой службой.
 
-<a id="add-all-certificates-to-the-virtual-machine-scale-set-osprofile" class="xliff"></a>
-
-#### Добавление всех сертификатов в osProfile набора масштабирования виртуальных машин
+#### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>Добавление всех сертификатов в osProfile набора масштабирования виртуальных машин
 Каждый сертификат, который устанавливается в кластере, должен быть настроен в разделе osProfile ресурса VMSS (Microsoft.Compute/virtualMachineScaleSets). Это указывает, что поставщик ресурсов должен установить сертификат на виртуальных машинах. Эта установка содержит сертификат кластера, а также все сертификаты безопасности приложений, которые планируется использовать для приложений.
 
 ```json
@@ -414,14 +380,10 @@ Azure AD позволяет организациям (известным как 
 }
 ```
 
-<a id="configure-the-service-fabric-cluster-certificate" class="xliff"></a>
-
-#### Настройка сертификата кластера Service Fabric
+#### <a name="configure-the-service-fabric-cluster-certificate"></a>Настройка сертификата кластера Service Fabric
 Сертификат аутентификации кластера должен быть настроен в ресурсе кластера Service Fabric (Microsoft.ServiceFabric/clusters) и расширении Service Fabric для масштабируемых наборов виртуальных машин в ресурсе масштабируемого набора виртуальных машин. Это позволяет поставщику ресурсов Service Fabric настроить его, чтобы использовать для аутентификации кластера и сервера на конечных точках управления.
 
-<a id="virtual-machine-scale-set-resource" class="xliff"></a>
-
-##### Ресурс масштабируемого набора виртуальных машин:
+##### <a name="virtual-machine-scale-set-resource"></a>Ресурс масштабируемого набора виртуальных машин:
 ```json
 {
   "apiVersion": "2016-03-30",
@@ -453,9 +415,7 @@ Azure AD позволяет организациям (известным как 
 }
 ```
 
-<a id="service-fabric-resource" class="xliff"></a>
-
-##### Ресурс Service Fabric.
+##### <a name="service-fabric-resource"></a>Ресурс Service Fabric.
 ```json
 {
   "apiVersion": "2016-03-01",
@@ -475,9 +435,7 @@ Azure AD позволяет организациям (известным как 
 }
 ```
 
-<a id="insert-azure-ad-configuration" class="xliff"></a>
-
-### Получение конфигурации Azure AD
+### <a name="insert-azure-ad-configuration"></a>Получение конфигурации Azure AD
 Конфигурацию Azure AD, которая была создана ранее, можно добавить непосредственно в шаблон Resource Manager. Тем не менее рекомендуется сначала извлечь значения в файл параметров, чтобы сохранить возможность повторного использования шаблона Resource Manager и не привязываться к значениям, относящимся к определенной развернутой службе.
 
 ```json
@@ -560,23 +518,17 @@ Azure AD позволяет организациям (известным как 
 
 ![Сопоставление зависимостей Resource Manager][cluster-security-arm-dependency-map]
 
-<a id="create-the-cluster" class="xliff"></a>
-
-## Создание кластера
+## <a name="create-the-cluster"></a>Создание кластера
 Теперь можно создать кластер с помощью [развертывания шаблона ресурсов Azure][resource-group-template-deploy].
 
-<a id="test-it" class="xliff"></a>
-
-#### Тестирование
+#### <a name="test-it"></a>Тестирование
 Используйте следующую команду PowerShell для тестирования шаблона Resource Manager с помощью файла параметров.
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-<a id="deploy-it" class="xliff"></a>
-
-#### Развертывание
+#### <a name="deploy-it"></a>Развертывание
 Если шаблон Resource Manager прошел проверку, то введите следующую команду PowerShell для развертывания этого шаблона с использованием файла параметров.
 
 ```powershell
@@ -585,9 +537,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 
 <a name="assign-roles"></a>
 
-<a id="assign-users-to-roles" class="xliff"></a>
-
-## Назначение пользователей ролям
+## <a name="assign-users-to-roles"></a>Назначение пользователей ролям
 Создав приложения, представляющие кластер, сопоставьте пользователей с ролями, поддерживаемыми Service Fabric и разрешающими доступ на чтение и администрирование. Роли можно назначить с помощью [классического портала Azure][azure-classic-portal].
 
 1. На портале Azure перейдите к нужному клиенту и выберите элемент **Приложения**.
@@ -607,9 +557,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 
  <a name="secure-linux-cluster"></a>
 
-<a id="create-secure-clusters-on-linux" class="xliff"></a>
-
-## Создание безопасных кластеров в Linux
+## <a name="create-secure-clusters-on-linux"></a>Создание безопасных кластеров в Linux
 Чтобы упростить процесс, мы предоставили [вспомогательный сценарий](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux). Прежде чем использовать этот вспомогательный сценарий, убедитесь, что интерфейс командной строки Azure уже установлен и указан в пути. Убедитесь, что скрипт имеет разрешения на выполнение, запустив `chmod +x cert_helper.py` после скачивания. Первым делом войдите в учетную запись Azure с помощью команды `azure login` интерфейса командной строки. Войдя в учетную запись Azure, используйте вспомогательный сценарий, передав ему подписанный сертификат ЦС, как показано в следующем примере:
 
 ```sh
@@ -654,74 +602,46 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
 Параметры можно заполнить данными из вспомогательного сценария на портале Azure, как описано в разделе [Создание кластера на портале Azure](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal).
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 На этом этапе у вас имеется защищенный кластер с Azure Active Directory для аутентификации управления. Далее [подключитесь к этому кластеру](service-fabric-connect-to-secure-cluster.md) и узнайте, как [управлять секретами приложений](service-fabric-application-secret-management.md).
 
-<a id="troubleshoot-setting-up-azure-active-directory-for-client-authentication" class="xliff"></a>
-
-## Устранение неполадок с настройкой Azure Active Directory для проверки подлинности клиента
+## <a name="troubleshoot-setting-up-azure-active-directory-for-client-authentication"></a>Устранение неполадок с настройкой Azure Active Directory для проверки подлинности клиента
 Если при настройке Azure AD для аутентификации клиента возникли проблемы, возможные решения можно найти в этом разделе.
 
-<a id="service-fabric-explorer-prompts-you-to-select-a-certificate" class="xliff"></a>
-
-### Service Fabric Explorer предлагает выбрать сертификат
-<a id="problem" class="xliff"></a>
-
-#### Проблема
+### <a name="service-fabric-explorer-prompts-you-to-select-a-certificate"></a>Service Fabric Explorer предлагает выбрать сертификат
+#### <a name="problem"></a>Проблема
 После успешного входа в Azure AD в Service Fabric Explorer браузер отображает домашнюю страницу, но на экране отображается предложение выбрать сертификат.
 
 ![Диалоговое окно выбора сертификата в Service Fabric Explorer][sfx-select-certificate-dialog]
 
-<a id="reason" class="xliff"></a>
-
-#### Причина
+#### <a name="reason"></a>Причина
 Пользователю не назначена роль в приложении кластера Azure AD. Таким образом, аутентификация Azure AD в кластере Service Fabric завершается ошибкой. Service Fabric Explorer воспользуется проверкой подлинности на основе сертификата.
 
-<a id="solution" class="xliff"></a>
-
-#### Решение
+#### <a name="solution"></a>Решение
 Следуйте инструкциям по настройке Azure AD и назначению ролей пользователей. Кроме того, рекомендуется включить параметр "Для доступа к приложению требуется назначение пользователей", как делает сценарий `SetupApplications.ps1`.
 
-<a id="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid" class="xliff"></a>
-
-### Подключение с помощью PowerShell завершается ошибкой: "Указанные учетные данные недействительны".
-<a id="problem" class="xliff"></a>
-
-#### Проблема
+### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>Подключение с помощью PowerShell завершается ошибкой: "Указанные учетные данные недействительны".
+#### <a name="problem"></a>Проблема
 После успешного входа в Azure AD при использовании PowerShell для подключения к кластеру с помощью режима безопасности AzureActiveDirectory возникла ошибка, подключение завершается с ошибкой: "Указанные учетные данные недействительны".
 
-<a id="solution" class="xliff"></a>
-
-#### Решение
+#### <a name="solution"></a>Решение
 Решение этой проблемы такое же, как и в предыдущем случае.
 
-<a id="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011" class="xliff"></a>
-
-### Service Fabric Explorer при входе возвращает ошибку "AADSTS50011"
-<a id="problem" class="xliff"></a>
-
-#### Проблема
+### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer при входе возвращает ошибку "AADSTS50011"
+#### <a name="problem"></a>Проблема
 При попытке входа на страницу Azure AD в Service Fabric Explorer выдается ошибка: "AADSTS50011: адрес ответа &lt;URL-адрес&gt; не совпадает с адресами ответа, настроенными для приложения: &lt;guid&gt;".
 
 ![Несовпадение адреса ответа в Service Fabric Explorer][sfx-reply-address-not-match]
 
-<a id="reason" class="xliff"></a>
-
-#### Причина
+#### <a name="reason"></a>Причина
 Приложение кластера (веб-приложение), представляющее Service Fabric Explorer, пытается выполнить аутентификацию в Azure AD и в составе запроса предоставляет URL-адрес ответа для перенаправления. URL-адрес не указан в списке **URL-АДРЕС ОТВЕТА** приложения Azure AD.
 
-<a id="solution" class="xliff"></a>
-
-#### Решение
+#### <a name="solution"></a>Решение
 Добавьте URL-адрес Service Fabric Explorer в список **URL-АДРЕСОВ ОТВЕТА** на вкладке **Настройки** приложения кластера (веб-приложения) или замените один из элементов в списке. После завершения сохраните изменения.
 
 ![URL-адрес ответа веб-приложения][web-application-reply-url]
 
-<a id="connect-the-cluster-by-using-azure-ad-authentication-via-powershell" class="xliff"></a>
-
-### Подключение к кластеру с помощью аутентификации Azure AD с использованием PowerShell
+### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Подключение к кластеру с помощью аутентификации Azure AD с использованием PowerShell
 Чтобы подключить кластер Service Fabric, воспользуйтесь следующим примером команды PowerShell:
 
 ```powershell
@@ -730,14 +650,10 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalIn
 
 Дополнительные сведения о командлете Connect-ServiceFabricCluster см. в [этой статье](https://msdn.microsoft.com/library/mt125938.aspx).
 
-<a id="can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters" class="xliff"></a>
-
-### Можно ли повторно использовать один и тот же клиент Azure AD в нескольких кластерах?
+### <a name="can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters"></a>Можно ли повторно использовать один и тот же клиент Azure AD в нескольких кластерах?
 Да. Не забудьте добавить URL-адрес Service Fabric Explorer в (веб-)приложение кластера. В противном случае — Service Fabric Explorer не работает.
 
-<a id="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled" class="xliff"></a>
-
-### Почему мне все еще нужен сертификат сервера при включенном Azure AD?
+### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>Почему мне все еще нужен сертификат сервера при включенном Azure AD?
 FabricClient и FabricGateway выполняют взаимную аутентификацию. Во время аутентификации Azure AD интеграция Azure AD предоставляет удостоверение клиента серверу и для аутентификации сервера используется сертификат сервера. Дополнительные сведения о сертификатах Service Fabric см. в разделе [Сертификаты X.509 и Service Fabric][x509-certificates-and-service-fabric].
 
 <!-- Links -->

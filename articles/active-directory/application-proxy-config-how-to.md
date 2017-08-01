@@ -21,15 +21,11 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="how-to-configure-an-application-proxy-application" class="xliff"></a>
-
-# Как настроить приложение прокси приложения
+# <a name="how-to-configure-an-application-proxy-application"></a>Как настроить приложение прокси приложения
 
 Из этой статьи вы узнаете, как настроить приложение прокси приложения в Azure AD так, чтобы локальные приложения были доступны в облаке.
 
-<a id="recommended-documents" class="xliff"></a>
-
-## Рекомендуемые документы 
+## <a name="recommended-documents"></a>Рекомендуемые документы 
 
 Дополнительные сведения о начальной конфигурации и о создании приложения прокси приложения доступны в разделе [Публикация приложений с помощью прокси приложения Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) в портале администрирования.
 
@@ -37,9 +33,7 @@ ms.lasthandoff: 04/17/2017
 
 Сведения об отправке сертификатов и пользовательских доменах см. в разделе [Работа с пользовательскими доменами в прокси приложения Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains).
 
-<a id="create-the-applicationsetting-the-urls" class="xliff"></a>
-
-## Создание приложения/Настройка URL-адресов
+## <a name="create-the-applicationsetting-the-urls"></a>Создание приложения/Настройка URL-адресов
 
 Если при выполнении инструкций из раздела [Публикация приложений с помощью прокси приложения Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) вы получили сообщение об ошибке при создании приложения, обратитесь к сведениям в сообщении ошибке и к рекомендациям по устранению ошибок. Большинство сообщений об ошибках включают в себя предлагаемое исправление. Чтобы избежать распространенных ошибок, проверьте следующее:
 
@@ -57,17 +51,13 @@ ms.lasthandoff: 04/17/2017
 
    ![Уведомление](./media/application-proxy-config-how-to/error-message.png)
 
-<a id="configure-connectorsconnector-groups" class="xliff"></a>
-
-## Настройка соединителей и групп соединителей
+## <a name="configure-connectorsconnector-groups"></a>Настройка соединителей и групп соединителей
 
 Если при настройке приложения возникают проблемы из-за предупреждений, связанных с соединителями и группами соединителей, обратитесь к сведениям о том, как скачать соединители, в инструкциях по включению прокси приложения. Дополнительные сведения о соединителях см. в [документации по соединителям](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors).
 
 Если соединители не активны, это означает, что они не могут подключиться к службе. Часто это вызвано тем, что требуемые порты закрыты. Чтобы просмотреть список необходимых портов, ознакомьтесь с разделом "Необходимые компоненты" в документации по прокси приложения.
 
-<a id="upload-certificates-for-custom-domains" class="xliff"></a>
-
-## Отправка сертификатов для пользовательских доменов
+## <a name="upload-certificates-for-custom-domains"></a>Отправка сертификатов для пользовательских доменов
 
 В качестве пользовательских доменов можно указать домен для внешних URL-адресов. Чтобы использовать пользовательские домены, необходимо отправить сертификат для этого домена. Сведения об использовании сертификатов и пользовательских доменов см. в разделе [Работа с пользовательскими доменами в прокси приложения Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains). 
 
@@ -83,8 +73,6 @@ ms.lasthandoff: 04/17/2017
 
    ![Уведомление](./media/application-proxy-config-how-to/error-message2.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [Публикация приложений с помощью прокси приложения Azure AD](application-proxy-publish-azure-portal.md)
 

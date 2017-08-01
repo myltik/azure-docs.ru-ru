@@ -21,17 +21,13 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on" class="xliff"></a>
-
-# Проблемы с входом в приложение из коллекции Azure AD, для которого настроен единый вход по паролю
+# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Проблемы с входом в приложение из коллекции Azure AD, для которого настроен единый вход по паролю
 
 Панель доступа — это веб-портал, позволяющий пользователям с рабочей или учебной учетной записью Azure Active Directory (Azure AD) просматривать и запускать облачные приложения, к которым администратор Azure AD предоставил доступ. Пользователь, у которого есть выпуски Azure AD, также может использовать возможности самостоятельного управления группами и приложениями с помощью панели доступа. Панель доступа отделена от портала Azure, и для нее не требуется подписка Azure.
 
 Чтобы использовать единый вход на основе пароля на панели доступа, в браузере нужно установить расширение панели доступа. Это расширение автоматически загружается при выборе пользователем приложения, настроенного на работу с единым входом с помощью пароля.
 
-<a id="meeting-browser-requirements-for-the-access-panel" class="xliff"></a>
-
-## Соответствие требованиям к браузеру для панели доступа
+## <a name="meeting-browser-requirements-for-the-access-panel"></a>Соответствие требованиям к браузеру для панели доступа
 
 Для работы с панелью доступа требуется браузер с включенной поддержкой JavaScript и CSS. Чтобы использовать единый вход на основе пароля на панели доступа, в браузере нужно установить расширение панели доступа. Это расширение автоматически загружается при выборе пользователем приложения, настроенного на работу с единым входом с помощью пароля.
 
@@ -48,9 +44,7 @@ ms.lasthandoff: 04/17/2017
 >
 >
 
-<a id="how-to-install-the-access-panel-browser-extension" class="xliff"></a>
-
-## Установка расширения "Панель доступа" для браузера
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Установка расширения "Панель доступа" для браузера
 
 Чтобы установить расширение "Панель доступа" для браузера, выполните указанные ниже действия.
 
@@ -74,9 +68,7 @@ ms.lasthandoff: 04/17/2017
 
 -   [Расширение "Панель доступа" для Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-<a id="setting-up-a-group-policy-for-internet-explorer" class="xliff"></a>
-
-## Настройка групповой политики для Internet Explorer
+## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Настройка групповой политики для Internet Explorer
 
 Вы можете настроить групповую политику, которая позволяет удаленно устанавливать расширение панели доступа для Internet Explorer на компьютерах пользователей.
 
@@ -88,15 +80,11 @@ ms.lasthandoff: 04/17/2017
 
 Пошаговые инструкции по настройке групповой политики и ее развертыванию для пользователей см. в учебнике [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
 
-<a id="troubleshoot-the-access-panel-in-internet-explorer" class="xliff"></a>
-
-## Устранение неполадок панели доступа в Internet Explorer
+## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Устранение неполадок панели доступа в Internet Explorer
 
 Сведения о доступе к средству диагностики и пошаговые инструкции по настройке расширения для Internet Explorer см. в руководстве [Устранение неполадок расширения "Панель доступа" для Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot).
 
-<a id="how-to-configure-password-single-sign-on-for-a-non-gallery-application" class="xliff"></a>
-
-## Настройка единого входа по паролю для приложения не из коллекции
+## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Настройка единого входа по паролю для приложения не из коллекции
 
 Чтобы настроить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -106,9 +94,7 @@ ms.lasthandoff: 04/17/2017
 
 -   [Назначение пользователей для приложения](#assign-users-to-the-application)
 
-<a id="add-a-non-gallery-application" class="xliff"></a>
-
-### Добавление приложения не из коллекции
+### <a name="add-a-non-gallery-application"></a>Добавление приложения не из коллекции
 
 Чтобы добавить приложение из коллекции Azure AD, выполните указанные ниже действия.
 
@@ -128,9 +114,7 @@ ms.lasthandoff: 04/17/2017
 
 Через некоторое время появится колонка настройки приложения.
 
-<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
-
-### Настройка приложения для единого входа на основе пароля
+### <a name="configure-the-application-for-password-single-sign-on"></a>Настройка приложения для единого входа на основе пароля
 
 Чтобы настроить единый вход для приложения, выполните указанные ниже действия.
 
@@ -158,9 +142,7 @@ ms.lasthandoff: 04/17/2017
 
 11. Кроме того, можно также предоставить учетные данные от имени пользователя, выбрав строки пользователей, щелкнув **Обновить учетные данные** и введя имя пользователя и пароль. В противном случае пользователям будет предложено ввести учетные данные при запуске.
 
-<a id="assign-users-to-the-application" class="xliff"></a>
-
-### Назначение пользователей для приложения
+### <a name="assign-users-to-the-application"></a>Назначение пользователей для приложения
 
 Чтобы напрямую назначить одного или нескольких пользователей для приложения, выполните указанные ниже действия.
 
@@ -198,9 +180,7 @@ ms.lasthandoff: 04/17/2017
 
 Вскоре выбранные пользователи смогут запускать это приложение на панели доступа.
 
-<a id="if-these-troubleshooting-steps-do-not-the-resolve-the-issue" class="xliff"></a>
-
-## Действия по устранению неполадок безрезультатны
+## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Действия по устранению неполадок безрезультатны
 
 В таком случае создайте запрос в службу поддержки, указав следующие сведения (при наличии):
 
@@ -216,9 +196,7 @@ ms.lasthandoff: 04/17/2017
 
 -   трассировки Fiddler.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [Реализация единого входа в приложения с помощью прокси приложения](active-directory-application-proxy-sso-using-kcd.md)
 
 

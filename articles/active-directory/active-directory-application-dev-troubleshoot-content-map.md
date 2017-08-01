@@ -20,9 +20,7 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="troubleshoot-azure-active-directory-application-development" class="xliff"></a>
-
-# Устранение неполадок при разработке приложения Azure Active Directory
+# <a name="troubleshoot-azure-active-directory-application-development"></a>Устранение неполадок при разработке приложения Azure Active Directory
 По следующим ссылкам вы можете перейти к картам содержимого, которые помогут решить некоторые из наиболее распространенных проблем при разработке приложений с помощью **реестра приложений** в Azure Active Directory.
 
 * [Проблемы при настройке или регистрации моего приложения](active-directory-application-dev-config-content-map.md)
