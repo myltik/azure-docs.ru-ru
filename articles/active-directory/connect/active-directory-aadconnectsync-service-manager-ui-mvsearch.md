@@ -21,8 +21,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 03/04/2017
 
 ---
-# Поиск в метавселенной Synchronization Service Manager
-<a id="sync-service-manager-metaverse-search" class="xliff"></a>
+# <a name="sync-service-manager-metaverse-search"></a>Поиск в метавселенной Synchronization Service Manager
 
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
@@ -30,8 +29,7 @@ ms.lasthandoff: 03/04/2017
 
 В результатах поиска выберите объект и щелкните **Properties** (Свойства), чтобы просмотреть [свойства объекта метавселенной](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

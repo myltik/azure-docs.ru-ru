@@ -20,29 +20,21 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problems-when-signing-in-to-applications" class="xliff"></a>
-
-# Проблемы при входе в приложения
+# <a name="problems-when-signing-in-to-applications"></a>Проблемы при входе в приложения
 
 
 
-<a id="i-can-complete-azure-ad-sign-in-but-im-seeing-a-prompt-that-i-dont-expect" class="xliff"></a>
-
-## Я могу выполнить вход с помощью Azure AD, но на экране появляется неожиданный запрос
+## <a name="i-can-complete-azure-ad-sign-in-but-im-seeing-a-prompt-that-i-dont-expect"></a>Я могу выполнить вход с помощью Azure AD, но на экране появляется неожиданный запрос
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [При входе в приложение пользователь видит непредвиденный запрос на согласие](https://docs.microsoft.com/azure/active-directory/application-sign-in-unexpected-user-consent-prompt/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [При предоставлении согласия для приложения пользователь видит сообщение о непредвиденной ошибке](https://docs.microsoft.com/azure/active-directory/application-sign-in-unexpected-user-consent-error/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
 
-<a id="im-having-other-problems-signing-in" class="xliff"></a>
-
-## У меня возникли другие проблемы при входе
+## <a name="im-having-other-problems-signing-in"></a>У меня возникли другие проблемы при входе
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Я могу войти в приложение напрямую, но не могу войти в него, перейдя по прямой ссылке на моем пользовательском портале](https://docs.microsoft.com/azure/active-directory/application-sign-in-other-problem-deeplink/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Я могу войти в приложение напрямую, но не могу войти в него с помощью панели доступа](https://docs.microsoft.com/azure/active-directory/application-sign-in-other-problem-access-panel/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
 
-<a id="im-having-problems-signing-in-to-a-specific-application" class="xliff"></a>
-
-## Возникла проблема при входе в определенное приложение
+## <a name="im-having-problems-signing-in-to-a-specific-application"></a>Возникла проблема при входе в определенное приложение
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Я могу выполнить вход с помощью Azure AD, но после этого на странице входа приложения отображается ошибка](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-application-error/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Не удается войти приложение не из коллекции, для которого настроен единый вход по паролю](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-password-sso-non-gallery/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)

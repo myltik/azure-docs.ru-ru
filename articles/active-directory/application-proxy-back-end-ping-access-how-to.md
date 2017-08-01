@@ -21,15 +21,11 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="how-to-configure-an-application-proxy-application-to-use-pingaccess" class="xliff"></a>
-
-# Настройка приложения прокси приложения для использования PingAccess
+# <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Настройка приложения прокси приложения для использования PingAccess
 
 Наше сотрудничество с PingAccess позволило предоставить преимущества прокси приложения в приложениях, использующих проверку подлинности на основе заголовков. Если ваши приложения не используют заголовки, см. нашу [документацию по единому входу](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) для получения сведений о других возможностях.
 
-<a id="overview-of-steps-and-recommended-documents" class="xliff"></a>
-
-## Обзор шагов и рекомендуемые документы
+## <a name="overview-of-steps-and-recommended-documents"></a>Обзор шагов и рекомендуемые документы
 
 Чтобы настроить приложение для использования PingAccess, нужно выполнить четыре шага:
 

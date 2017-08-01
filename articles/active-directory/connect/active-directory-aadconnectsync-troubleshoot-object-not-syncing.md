@@ -21,8 +21,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 03/04/2017
 
 ---
-# Устранение неполадок синхронизации объекта с Azure AD
-<a id="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad" class="xliff"></a>
+# <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Устранение неполадок синхронизации объекта с Azure AD
 
 Если при синхронизации объекта с Azure AD возникают неполадки, то это может быть вызвано несколькими причинами. Если вы получили от Azure AD сообщение об ошибке по электронной почте или ошибка отображается в службе Azure AD Connect Health, то ознакомьтесь со статьей [Устранение ошибок синхронизации](active-directory-aadconnect-troubleshoot-sync-errors.md). Но если возникла ситуация, при которой объект не находится в Azure AD, то вы найдете все необходимые сведения в этой статье. Здесь описывается, как найти ошибки в локальном компоненте под названием "Синхронизация Azure AD Connect".
 
@@ -34,8 +33,7 @@ ms.lasthandoff: 03/04/2017
 
 Прежде чем выполнять эти действия, запустите [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
 
-## Операции
-<a id="operations" class="xliff"></a>
+## <a name="operations"></a>Операции
 Начните устранение неполадок с вкладки "Operations" (Операции) в Synchronization Service Manager. На вкладке "Operations" (Операции) отображаются результаты последних операций.  
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
@@ -53,8 +51,7 @@ ms.lasthandoff: 03/04/2017
 
 При выборе строки в нижней части отображаются сведения об этой операции выполнения. Слева внизу может отображаться список **Step #**(Шаг №). Он отображается, только если у вас в лесу несколько доменов, где каждый домен представлен шагом. Имя домена можно найти в разделе **Partition**(Секция). В разделе **Synchronization Statistics**(Статистика синхронизации) можно найти дополнительные сведения о числе обработанных изменений. Щелкая ссылки, можно получить список измененных объектов. Если у вас есть объекты с ошибкой, они отображаются в разделе **Synchronization Errors**(Ошибки синхронизации).
 
-### Устранение ошибок на вкладке "Operations" (Операции)
-<a id="troubleshoot-errors-in-operations-tab" class="xliff"></a>
+### <a name="troubleshoot-errors-in-operations-tab"></a>Устранение ошибок на вкладке "Operations" (Операции)
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorsync.png)  
 Если есть ошибки, то отображаемый в них объект и сама ошибка представлены ссылками, перейдя по которым можно получить дополнительные сведения.
 
@@ -68,12 +65,10 @@ ms.lasthandoff: 03/04/2017
 
 Если сама ошибка не содержит достаточно сведений, значит, пора взглянуть на данные. Вы можете щелкнуть ссылку с идентификатором объекта и продолжить устранение неполадок в [импортированном объекте пространства соединителя](#cs-import).
 
-## Свойства объекта пространства соединителя
-<a id="connector-space-object-properties" class="xliff"></a>
+## <a name="connector-space-object-properties"></a>Свойства объекта пространства соединителя
 Если на вкладке [Operations](#operations) (Операции) ошибки не выявлены, то необходимо отследить объект пространства соединителя, перейдя из Active Directory в метавселенную, а затем — в Azure AD. На этом пути проблема должна быть выявлена.
 
-### Поиск объекта в пространстве соединителя
-<a id="search-for-an-object-in-the-cs" class="xliff"></a>
+### <a name="search-for-an-object-in-the-cs"></a>Поиск объекта в пространстве соединителя
 
 В **Synchronization Service Manager** откройте раздел **Connectors** (Соединители), выберите соединитель Active Directory, а затем выберите **Search Connector Space** (Поиск в пространстве соединителя).
 
@@ -86,8 +81,7 @@ ms.lasthandoff: 03/04/2017
 ![Поиск потерянного объекта в пространстве соединителя](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
 Эти объекты были созданы другим модулем синхронизации или модулем синхронизации с другими настройками фильтрации. Это представление является списком **потерянных объектов**, управление которыми больше не осуществляется. Просмотрите список и по возможности удалите эти объекты с помощью командлетов [Azure AD PowerShell](http://aka.ms/aadposh).
 
-### Импорт в пространстве соединителя
-<a id="cs-import" class="xliff"></a>
+### <a name="cs-import"></a>Импорт в пространстве соединителя
 При открытии объекта пространства соединителя в верхней части отображаются несколько вкладок. На вкладке **импорта** отображаются данные, добавленные после импорта.  
 ![Объект пространства соединителя](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
 В столбце **Old Value** (Старое значение) отображаются объекты, в настоящее время хранящиеся в Connect. В столбце **New Value** (Новое значение) отображаются объекты, полученные из исходной системы и еще не примененные. Если в объекте имеется ошибка, то изменения не обрабатываются.
@@ -96,8 +90,7 @@ ms.lasthandoff: 03/04/2017
 ![Объект пространства соединителя](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
 Вкладка **Synchronization Error** (Ошибка синхронизации) отображается только при наличии проблемы с объектом. Дополнительные сведения см. в разделе [Устранение ошибок на вкладке "Operations" (Операции)](#troubleshoot-errors-in-operations-tab).
 
-### Журнал преобразований пространства соединителя
-<a id="cs-lineage" class="xliff"></a>
+### <a name="cs-lineage"></a>Журнал преобразований пространства соединителя
 На вкладке журнала преобразований отображается связь объекта пространства соединителя с объектом метавселенной. Можно увидеть, когда соединитель в последний раз импортировал изменение из подключенной системы и какие правила были применены для внесения данных в метавселенную.  
 ![Журнал преобразований пространства соединителя](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineage.png)  
 В столбце **Действия** отображается одно правило синхронизации с направлением **Входящее** и действием **Подготовка**. Это значит, что объект метавселенной хранится, пока существует этот объект пространства соединителя. Если в списке правил синхронизации отображается правило синхронизации с направлением **Outbound** (Исходящее) и действием **Provision** (Подготовка), это значит, что объект удаляется вместе с объектом метавселенной.  
@@ -108,23 +101,19 @@ ms.lasthandoff: 03/04/2017
 
 На каждой вкладке в нижней части есть две кнопки: **Preview** (Предварительный просмотр) и **Log** (Журнал).
 
-### Предварительный просмотр
-<a id="preview" class="xliff"></a>
+### <a name="preview"></a>Предварительный просмотр
 Страница предварительного просмотра используется для синхронизации одного объекта. Это полезно, если необходимо устранить ошибки некоторых пользовательских правил синхронизации и увидеть результат изменения одного объекта. Можно выбрать нужный режим: **Full Sync** (Полная синхронизация) и **Delta sync** (Синхронизация изменений). Кроме того, можно нажать кнопку **Generate Preview** (Создать предварительный просмотр), чтобы сохранить изменения в памяти, или кнопку **Commit Preview** (Просмотр перед фиксацией), чтобы обновить метавселенную и передать все изменения в целевые пространства соединителей.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/preview.png)  
 Вы можете проверить объект и узнать, какое правило применено к конкретному потоку атрибутов.  
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
-### Журнал
-<a id="log" class="xliff"></a>
+### <a name="log"></a>Журнал
 Страница журнала используется для проверки состояния синхронизации пароля и просмотра сведений журнала. Дополнительные сведения см. в статье [Устранение неполадок синхронизации паролей с помощью службы синхронизации Azure AD Connect](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
-## Свойства объекта метавселенной
-<a id="metaverse-object-properties" class="xliff"></a>
+## <a name="metaverse-object-properties"></a>Свойства объекта метавселенной
 Как правило, лучше начинать поиск с исходного [пространства соединителя](#connector-space) Active Directory. Но также можно начать поиск с метавселенной.
 
-### Поиск объекта в метавселенной
-<a id="search-for-an-object-in-the-mv" class="xliff"></a>
+### <a name="search-for-an-object-in-the-mv"></a>Поиск объекта в метавселенной
 В **Synchronization Service Manager** щелкните **Metaverse Search** (Поиск в метавселенной). Создайте запрос, который точно найдет пользователя. Можно искать по распространенным атрибутам, таким как accountName (sAMAccountName) или userPrincipalName. Дополнительные сведения см. в статье [Синхронизация Azure AD Connect: Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvsearch.png)  
 
@@ -132,8 +121,7 @@ ms.lasthandoff: 03/04/2017
 
 Если объект не найден, то это значит, что он еще не достиг метавселенной. Продолжайте поиск объекта в [пространстве соединителя](#connector-space-object-properties) Active Directory. Возможно, возникла ошибка синхронизации, которая блокирует попадание объекта в метавселенную, или мог быть применен фильтр.
 
-### Атрибуты метавселенной
-<a id="mv-attributes" class="xliff"></a>
+### <a name="mv-attributes"></a>Атрибуты метавселенной
 На вкладке атрибутов можно просмотреть значения и узнать, какой соединитель их передал.  
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvobject.png)  
 
@@ -141,8 +129,7 @@ ms.lasthandoff: 03/04/2017
 - Присутствует ли атрибут **cloudFiltered** и задано ли ему значение **true**? Если да, то это значит, что он был отфильтрован, как указано в разделе [Фильтрация по атрибутам](active-directory-aadconnectsync-configure-filtering.md#attribute-based-filtering).
 - Присутствует ли атрибут **sourceAnchor**? Если нет, то есть у вас топология леса ресурсов учетной записи? Если объект определяется как связанный почтовый ящик (атрибут **msExchRecipientTypeDetails** имеет значение 2), то атрибут sourceAnchor заполняется из леса с действующей учетной записью Active Directory. Убедитесь, что главная учетная запись правильно импортирована и синхронизирована. Главная учетная запись должны быть указана в списке [соединителей](#mv-connectors) для объекта.
 
-### Соединители метавселенной
-<a id="mv-connectors" class="xliff"></a>
+### <a name="mv-connectors"></a>Соединители метавселенной
 На вкладке соединителей отображаются все пространства соединителя, которые включают представление объекта.  
 ![Диспетчер службы синхронизации](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvconnectors.png)  
 Необходимо иметь соединитель для:
@@ -154,8 +141,7 @@ ms.lasthandoff: 03/04/2017
 
 С этой вкладки также можно перейти к [объекту пространства соединителя](#connector-space-object-properties). Выберите строку и щелкните **Свойства**.
 
-## Дальнейшие действия
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).

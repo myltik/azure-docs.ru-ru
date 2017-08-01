@@ -21,17 +21,13 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="unexpected-consent-prompt-when-signing-in-to-an-application" class="xliff"></a>
-
-# Непредвиденный запрос на согласие при входе в приложение
+# <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Непредвиденный запрос на согласие при входе в приложение
 
 Для правильной работы многим приложениям, интегрирующимся с Azure Active Directory, нужны разрешения на доступ к разным ресурсам. Если эти ресурсы также интегрированы с Azure Active Directory, доступ к ним запрашивается с помощью инфраструктуры согласия Azure AD. 
 
 Это приводит к отображению запроса на согласие при первом запуске приложения, что часто является единовременной операцией. 
 
-<a id="scenarios-in-which-users-see-consent-prompts" class="xliff"></a>
-
-## Сценарии, в которых пользователи видят запрос на согласие
+## <a name="scenarios-in-which-users-see-consent-prompts"></a>Сценарии, в которых пользователи видят запрос на согласие
 
 Дополнительные запросы можно ожидать в разных сценариях:
 
@@ -47,9 +43,7 @@ ms.lasthandoff: 04/17/2017
 
 * Разработчик настроил приложение для обязательного запроса на согласие при каждом использовании (обратите внимание, что такой подход не является рекомендуемым).
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 -   [Приложения, разрешения и согласие в Azure Active Directory (конечная точка версии 1.0)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
 

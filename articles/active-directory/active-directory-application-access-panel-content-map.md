@@ -20,33 +20,23 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="problems-using-the-application-access-panel-website-or-mobile-application" class="xliff"></a>
-
-# Проблемы при использовании веб-сайта или мобильного приложения панели доступа к приложениям
+# <a name="problems-using-the-application-access-panel-website-or-mobile-application"></a>Проблемы при использовании веб-сайта или мобильного приложения панели доступа к приложениям
 
 
-<a id="i-do-not-see-the-applications-i-expect-on-the-application-access-panel" class="xliff"></a>
-
-## Ожидаемые приложения не отображаются на панели доступа к приложениям
+## <a name="i-do-not-see-the-applications-i-expect-on-the-application-access-panel"></a>Ожидаемые приложения не отображаются на панели доступа к приложениям
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Я не знаю, почему назначенное мной приложение не отображается на панели доступа](https://docs.microsoft.com/azure/active-directory/application-access-panel-unexpected-application-not-appearing/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Я не знаю, почему приложение отображается на панели доступа](https://docs.microsoft.com/azure/active-directory/application-access-panel-unexpected-application-appears/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
 
-<a id="im-having-problems-signing-in-to-the-application-access-panel" class="xliff"></a>
-
-## Возникают проблемы при входе на панель доступа к приложениям
+## <a name="im-having-problems-signing-in-to-the-application-access-panel"></a>Возникают проблемы при входе на панель доступа к приложениям
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Не удается войти на веб-сайт панели доступа](https://docs.microsoft.com/azure/active-directory/application-access-panel-web-sign-in-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
 
-<a id="im-having-problems-using-the-application-access-panel-browser-extension" class="xliff"></a>
-
-## При использовании расширения браузера для панели доступа к приложениям возникла ошибка
+## <a name="im-having-problems-using-the-application-access-panel-browser-extension"></a>При использовании расширения браузера для панели доступа к приложениям возникла ошибка
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [При установке расширения браузера для панели доступа к приложениям возникла ошибка](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
 
-<a id="im-having-problems-with-a-feature-on-the-application-access-panel" class="xliff"></a>
-
-## Возникают проблемы с функциями панели доступа к приложениям
+## <a name="im-having-problems-with-a-feature-on-the-application-access-panel"></a>Возникают проблемы с функциями панели доступа к приложениям
   Приведенные ниже документы помогут устранить некоторые из наиболее распространенных проблем в этой категории.
   * [Я не знаю, как использовать самостоятельный доступ к приложениям](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Возникла проблема при использовании самостоятельного доступа к приложениям](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)

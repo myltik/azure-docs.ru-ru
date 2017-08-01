@@ -20,9 +20,7 @@ ms.lasthandoff: 04/17/2017
 
 ---
 
-<a id="troubleshoot-azure-active-directory-application-management" class="xliff"></a>
-
-# Устранение неполадок при управлении приложением Azure Active Directory
+# <a name="troubleshoot-azure-active-directory-application-management"></a>Устранение неполадок при управлении приложением Azure Active Directory
 По следующим ссылкам вы можете перейти к картам содержимого, которые помогут решить некоторые из наиболее распространенных проблем при управлении **корпоративными приложениями** в Azure Active Directory.
 
 * [Проблемы при добавлении или настройке приложений](active-directory-application-config-content-map.md)
