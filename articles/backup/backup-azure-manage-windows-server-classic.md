@@ -22,9 +22,7 @@ ms.lasthandoff: 06/16/2017
 
 
 ---
-<a id="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model" class="xliff"></a>
-
-# Управление хранилищами и серверами службы архивации Azure с помощью классической модели развертывания
+# <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Управление хранилищами и серверами службы архивации Azure с помощью классической модели развертывания
 > [!div class="op_single_selector"]
 > * [Диспетчер ресурсов](backup-azure-manage-windows-server.md)
 > * [Классический](backup-azure-manage-windows-server-classic.md)
@@ -42,9 +40,7 @@ ms.lasthandoff: 06/16/2017
 >- Вы не сможете получить доступ к данным резервных копий на классическом портале. Вместо этого для доступа к данным резервных копий в хранилищах служб восстановления используйте портал Azure.
 >
 
-<a id="management-portal-tasks" class="xliff"></a>
-
-## Задачи на портале управления
+## <a name="management-portal-tasks"></a>Задачи на портале управления
 1. Выполните вход на [Портал управления](https://manage.windowsazure.com).
 2. Щелкните **Службы восстановления**и выберите имя хранилища архивации, чтобы просмотреть соответствующую страницу «Быстрый запуск».
 
@@ -54,9 +50,7 @@ ms.lasthandoff: 06/16/2017
 
 ![Управление вкладками](./media/backup-azure-manage-windows-server-classic/qs-page.png)
 
-<a id="dashboard" class="xliff"></a>
-
-### Панель мониторинга
+### <a name="dashboard"></a>Панель мониторинга
 Щелкните **Панель мониторинга** , чтобы посмотреть обзор использования сервера. В разделе **Обзор использования** представлены следующие сведения:
 
 * Количество серверов Windows Server, зарегистрированных в облаке
@@ -71,9 +65,7 @@ ms.lasthandoff: 06/16/2017
 
 ![Задачи панели мониторинга архивации](./media/backup-azure-manage-windows-server-classic/dashboard-tasks.png)
 
-<a id="registered-items" class="xliff"></a>
-
-## Зарегистрированные элементы
+## <a name="registered-items"></a>Зарегистрированные элементы
 Щелкните **Зарегистрированные элементы** для просмотра имен серверов, зарегистрированных в этом хранилище.
 
 ![Зарегистрированные элементы](./media/backup-azure-manage-windows-server-classic/registered-items.png)
@@ -87,16 +79,12 @@ ms.lasthandoff: 06/16/2017
 
     ![Задачи зарегистрированных элементов](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
 
-<a id="protected-items" class="xliff"></a>
-
-## Защищенные элементы
+## <a name="protected-items"></a>Защищенные элементы
 Щелкните **Защищенные элементы** для просмотра элементов, заархивированных с серверов.
 
 ![Защищенные элементы](./media/backup-azure-manage-windows-server-classic/protected-items.png)
 
-<a id="configure" class="xliff"></a>
-
-## Настройка
+## <a name="configure"></a>Настройка
 На вкладке **Настройка** можно задать соответствующие параметры избыточности хранилища. Лучше выбирать параметры избыточности хранилища сразу после его создания и до регистрации в нем компьютеров.
 
 > [!WARNING]
@@ -108,12 +96,8 @@ ms.lasthandoff: 06/16/2017
 
 Дополнительные сведения см. в статье об [избыточности хранилища](../storage/storage-redundancy.md).
 
-<a id="microsoft-azure-backup-agent-tasks" class="xliff"></a>
-
-## Задачи агента службы архивации Microsoft Azure
-<a id="console" class="xliff"></a>
-
-### Консоль
+## <a name="microsoft-azure-backup-agent-tasks"></a>Задачи агента службы архивации Microsoft Azure
+### <a name="console"></a>Консоль
 Откройте **агент службы архивации Microsoft Azure** (чтобы найти его, введите *Служба архивации Microsoft Azure*в строке поиска на своем компьютере).
 
 ![Агент службы архивации](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
@@ -132,9 +116,7 @@ ms.lasthandoff: 06/16/2017
 >
 >
 
-<a id="modify-an-existing-backup" class="xliff"></a>
-
-### Изменение существующего архива
+### <a name="modify-an-existing-backup"></a>Изменение существующего архива
 1. В агенте службы архивации Microsoft Azure щелкните **Создать расписание архивации**.
 
     ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
@@ -165,9 +147,7 @@ ms.lasthandoff: 06/16/2017
 
     После изменения защиты можно проверить, своевременно ли запускается архивация. Для этого перейдите на вкладку **Задания** и убедитесь, что изменения отражаются в заданиях архивации.
 
-<a id="enable-network-throttling" class="xliff"></a>
-
-### Включение регулирования сети
+### <a name="enable-network-throttling"></a>Включение регулирования сети
 В агенте службы архивации Azure есть вкладка "Регулирование", которая позволяет управлять использованием пропускной способности сети при передаче данных. Это полезно, если вам нужно выполнить архивацию в рабочее время так, чтобы операция копирования не мешала другим процессам, связанным с обработкой интернет-трафика. Регулирование передачи данных применяется при резервном копировании и восстановлении.  
 
 Чтобы включить регулирование:
@@ -181,9 +161,7 @@ ms.lasthandoff: 06/16/2017
     Значения пропускной способности начинаются с 512 килобит в секунду (Кбит/с) и могут перейти до 1023 мегабит в секунду (Мбит/с). Можно также назначить время начала и окончания для **рабочих часов**и выбрать, какие дни недели считаются рабочими. Время вне назначенных рабочих часов считается нерабочим.
 4. Нажмите кнопку **ОК**.
 
-<a id="exclusion-settings" class="xliff"></a>
-
-## параметры исключений
+## <a name="exclusion-settings"></a>параметры исключений
 1. Откройте **агент службы архивации Microsoft Azure** (чтобы найти его, введите *Служба архивации Microsoft Azure*в строке поиска на своем компьютере).
 
     ![Открытие агента службы архивации](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
@@ -218,9 +196,7 @@ ms.lasthandoff: 06/16/2017
 
     ![Подтверждение исключения](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 * [Восстановление Windows Server или клиента Windows из Azure](backup-azure-restore-windows-server.md)
 * Дополнительную информацию о службе архивации Azure см. в статье [Обзор службы архивации Azure](backup-introduction-to-azure-backup.md).
 * Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)

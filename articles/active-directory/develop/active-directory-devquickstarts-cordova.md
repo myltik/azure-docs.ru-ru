@@ -22,9 +22,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 02/14/2017
 
 ---
-<a id="integrate-azure-ad-with-an-apache-cordova-app" class="xliff"></a>
-
-# Интеграция Azure AD с приложением Apache Cordova
+# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Интеграция Azure AD с приложением Apache Cordova
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,9 +44,7 @@ ms.lasthandoff: 02/14/2017
 3. Добавить код, использующий маркер для запросов Graph API и отображения результатов.
 4. Создать проект развертывания Cordova на всех целевых платформах, добавить подключаемый модуль Cordova ADAL и протестировать решение в эмуляторах.
 
-<a id="prerequisites" class="xliff"></a>
-
-## Предварительные требования
+## <a name="prerequisites"></a>Предварительные требования
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
 * Клиент Azure AD с учетной записью с правами на разработку приложений.
@@ -86,9 +82,7 @@ ms.lasthandoff: 02/14/2017
 
   Пакет SDK для Android по умолчанию не содержит эмулятор. Чтобы запустить приложение Android в эмуляторе, необходимо создать эмулятор, выполнив команду `android avd` из терминала, а затем выбрав **Create** (Создать). Рекомендуемый уровень API — 19 или выше. Дополнительные сведения об эмуляторе Android и параметрах его создания см. в документе [Create and Manage Virtual Devices](http://developer.android.com/tools/help/avd-manager.html) (Создание и управление виртуальными устройствами) на сайте Android.
 
-<a id="step-1-register-an-application-with-azure-ad" class="xliff"></a>
-
-## Шаг 1. Регистрация приложения в Azure AD
+## <a name="step-1-register-an-application-with-azure-ad"></a>Шаг 1. Регистрация приложения в Azure AD
 Этот шаг не является обязательным. В руководстве представлены заранее подготовленные значения, позволяющие наблюдать пример в действии без какой-либо подготовки вашего клиента. Однако мы все же рекомендуем пройти данный этап и ознакомиться с процессом, так как это потребуется вам при создании собственных приложений.
 
 Azure AD выдает маркеры только для знакомых приложений. Прежде чем использовать службу Azure AD из приложения, вы должны создать для него запись в собственном клиенте. Чтобы зарегистрировать новое приложение в клиенте:
@@ -108,16 +102,12 @@ Azure AD выдает маркеры только для знакомых при
 1. На странице **Параметры** выберите **Необходимые разрешения** и щелкните **Добавить**.  
 2. Для приложения Azure Active Directory выберите в качестве интерфейса API **Microsoft Graph** и добавьте разрешение **Access the directory as the signed-in user** (Доступ к каталогу в качестве пользователя, выполнившего вход) в списке **Делегированные разрешения**.  Это позволит приложению запрашивать API Graph для пользователей.
 
-<a id="step-2-clone-the-sample-app-repository" class="xliff"></a>
-
-## Шаг 2. Клонирование примера репозитория приложений
+## <a name="step-2-clone-the-sample-app-repository"></a>Шаг 2. Клонирование примера репозитория приложений
 Введите следующую команду из оболочки или командной строки:
 
     git clone -b skeleton https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova.git
 
-<a id="step-3-create-the-cordova-app" class="xliff"></a>
-
-## Шаг 3. Создание приложения Cordova
+## <a name="step-3-create-the-cordova-app"></a>Шаг 3. Создание приложения Cordova
 Существует несколько способов создания приложений Cordova. В данном руководстве используется интерфейс командной строки (CLI) Cordova.
 
 1. Введите следующую команду из оболочки или командной строки:
@@ -149,9 +139,7 @@ Azure AD выдает маркеры только для знакомых при
 
         cordova plugin add cordova-plugin-ms-adal
 
-<a id="step-4-add-code-to-authenticate-users-and-obtain-tokens-from-azure-ad" class="xliff"></a>
-
-## Шаг 4. Добавление кода аутентификации пользователей и получение маркеров из Azure AD
+## <a name="step-4-add-code-to-authenticate-users-and-obtain-tokens-from-azure-ad"></a>Шаг 4. Добавление кода аутентификации пользователей и получение маркеров из Azure AD
 Приложение, которое разрабатывается в данном руководстве, предоставляет базовую функцию поиска в каталоге. Пользователь может ввести псевдоним любого пользователя в каталоге и просмотреть некоторые основные атрибуты. Начальный проект содержит определение базового пользовательского интерфейса приложения (в файле www/index.html) и шаблона, который реализует циклы обработки основных событий приложения, привязку интерфейса пользователя и логику отображения результатов (в файле www/js/index.js). Вам остается только добавить логику, реализующую задачи по работе с удостоверениями.
 
 Первое, что необходимо сделать — это вставить в код значения протокола, используемые Azure AD для идентификации вашего приложения и целевых ресурсов. Позже эти значения будут использоваться для создания запросов маркеров. Вставьте следующий фрагмент в самое начала файла index.js.
@@ -249,18 +237,14 @@ var authority = "https://login.microsoftonline.com/common",
 ```
 Файлы начальной точки содержат соответствующую поддержку для ввода псевдонима пользователя в текстовое поле. Данный метод использует значение псевдонима для создания запроса, сочетания его с маркером доступа, отправки в Microsoft Graph и анализа результатов. Метод `renderData`, который уже присутствует в файле начальной точки, отвечает за отображение результатов.
 
-<a id="step-5-run-the-app" class="xliff"></a>
-
-## Шаг 5. Запуск приложения
+## <a name="step-5-run-the-app"></a>Шаг 5. Запуск приложения
 Теперь вы можете запустить приложение. Процесс работы прост: после запуска приложения введите псевдоним нужного пользователя, а затем нажмите кнопку. Будет предложено ввести учетные данные для проверки подлинности. После ее завершения и успешного поиска будут отображены атрибуты нужного пользователя.
 
 Последующие запуски будут выполнять поиск без отображения запроса благодаря присутствию в кэше маркера, полученного ранее.
 
 Конкретные этапы запуска приложения зависят от платформы.
 
-<a id="windows-10" class="xliff"></a>
-
-### Windows 10
+### <a name="windows-10"></a>Windows 10
    Планшет или ПК: `cordova run windows --archs=x64 -- --appx=uap`
 
    Мобильное устройство (требуется мобильное устройство с Windows 10, подключенное к компьютеру): `cordova run windows --archs=arm -- --appx=uap --phone`
@@ -268,26 +252,20 @@ var authority = "https://login.microsoftonline.com/common",
    > [!NOTE]
    > Во время первого запуска может потребоваться выполнить вход для предоставления системе лицензии разработчика. Дополнительные сведения см. в статье [Получение лицензии разработчика](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
-<a id="windows-81-tabletpc" class="xliff"></a>
-
-### Планшеты или компьютеры с Windows 8.1
+### <a name="windows-81-tabletpc"></a>Планшеты или компьютеры с Windows 8.1
    `cordova run windows`
 
    > [!NOTE]
    > Во время первого запуска может потребоваться выполнить вход для предоставления системе лицензии разработчика. Дополнительные сведения см. в статье [Получение лицензии разработчика](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
-<a id="windows-phone-81" class="xliff"></a>
-
-### Windows Phone 8.1
+### <a name="windows-phone-81"></a>Windows Phone 8.1
    Запустить приложение на подключенном устройстве: `cordova run windows --device -- --phone`
 
    Запустить приложение в эмуляторе по умолчанию: `cordova emulate windows -- --phone`
 
    Используйте `cordova run windows --list -- --phone` для просмотра всех доступных целевых объектов и `cordova run windows --target=<target_name> -- --phone` —для запуска приложения на конкретном устройстве или эмуляторе (например, `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
 
-<a id="android" class="xliff"></a>
-
-### Android
+### <a name="android"></a>Android
    Запустить приложение на подключенном устройстве: `cordova run android --device`
 
    Запустить приложение в эмуляторе по умолчанию: `cordova emulate android`
@@ -296,9 +274,7 @@ var authority = "https://login.microsoftonline.com/common",
 
    Используйте `cordova run android --list` для просмотра всех доступных целевых объектов и `cordova run android --target=<target_name>` —для запуска приложения на конкретном устройстве или эмуляторе (например, `cordova run android --target="Nexus4_emulator"`).
 
-<a id="ios" class="xliff"></a>
-
-### iOS
+### <a name="ios"></a>iOS
    Запустить приложение на подключенном устройстве: `cordova run ios --device`
 
    Запустить приложение в эмуляторе по умолчанию: `cordova emulate ios`
@@ -310,9 +286,7 @@ var authority = "https://login.microsoftonline.com/common",
 
     Use `cordova run --help` to see additional build and run options.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Готовый пример (для которого лишь осталось задать конфигурацию) можно найти в [репозитории GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).
 
 Теперь вы можете приступить к более сложным и содержательным сценариям. Дополнительные сведения см. в статье [Приступая к работе с веб-интерфейсом API для узла](active-directory-devquickstarts-webapi-nodejs.md).

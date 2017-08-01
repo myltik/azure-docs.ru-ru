@@ -16,9 +16,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="create-an-app-service" class="xliff"></a>
-
-# Создание службы приложений
+# <a name="create-an-app-service"></a>Создание службы приложений
 
 Из этой статьи вы узнаете, как создать приложение-функцию с помощью [плана потребления](../functions-scale.md#consumption-plan) и связанных с ним ресурсов, а также как выполнить непрерывное развертывание кода функции из репозитория Visual Studio Team Services (VSTS). Для этого примера потребуется:
 
@@ -31,9 +29,7 @@ ms.lasthandoff: 06/20/2017
 
 Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="sample-script" class="xliff"></a>
-
-## Пример скрипта
+## <a name="sample-script"></a>Пример скрипта
 
 Этот пример создает приложение-функцию Azure и развертывает код функции из Visual Studio Team Services.
 
@@ -41,9 +37,7 @@ ms.lasthandoff: 06/20/2017
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-<a id="script-explanation" class="xliff"></a>
-
-## Описание скрипта
+## <a name="script-explanation"></a>Описание скрипта
 
 Для создания группы ресурсов, веб-приложений, DocumentDB и всех связанных ресурсов этот скрипт использует следующие команды. Для каждой команды в таблице приведены ссылки на соответствующую документацию.
 
@@ -54,9 +48,7 @@ ms.lasthandoff: 06/20/2017
 | [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#delete) |
 | [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config) | Связывает приложение-функцию с репозиторием Git или Mercurial. |
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 

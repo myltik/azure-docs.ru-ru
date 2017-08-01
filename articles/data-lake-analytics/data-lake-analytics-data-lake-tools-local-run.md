@@ -22,15 +22,11 @@ ms.lasthandoff: 06/20/2017
 
 
 ---
-<a id="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk" class="xliff"></a>
-
-# Тестирование и отладка заданий U-SQL с помощью локального выполнения и пакета SDK U-SQL для Azure Data Lake
+# <a name="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk"></a>Тестирование и отладка заданий U-SQL с помощью локального выполнения и пакета SDK U-SQL для Azure Data Lake
 
 Вы можете использовать средства Azure Data Lake для Visual Studio и пакет SDK U-SQL для Azure Data Lake, чтобы запускать задания U-SQL на рабочей станции так же, как в службе Azure Data Lake. Оба этих компонента для локального выполнения помогут вам быстрее выполнять тестирование и отладку заданий U-SQL.
 
-<a id="understand-the-data-root-folder-and-the-file-path" class="xliff"></a>
-
-## Сведения о корневой папке данных и пути к файлу
+## <a name="understand-the-data-root-folder-and-the-file-path"></a>Сведения о корневой папке данных и пути к файлу
 
 Для локального выполнения и использования пакетов SDK U-SQL вам потребуется настроить корневую папку данных. Корневая папка данных служит "локальным хранилищем" для локальной учетной записи среды вычислений. Она действует так же, как учетная запись Azure Data Lake Store в учетной записи Data Lake Analytics. Переход на другую корневую папку данных аналогичен переходу на другую учетную запись хранения. Если вам нужен доступ к данным, которые совместно используются различными корневыми папками данных, следует использовать в скриптах абсолютные пути или создать в корневой папке данных символические ссылки файловой системы (например, с помощью команды **mklink** для файловой системы NTFS), указывающие на совместно используемые данные.
 
@@ -47,9 +43,7 @@ ms.lasthandoff: 06/20/2017
 |abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
 |D:/abc/def/input.csv |D:\abc\def\input.csv|
 
-<a id="use-local-run-from-visual-studio" class="xliff"></a>
-
-## Локальное выполнение из Visual Studio
+## <a name="use-local-run-from-visual-studio"></a>Локальное выполнение из Visual Studio
 
 Средства Data Lake для Visual Studio предоставляют возможность локального выполнения U-SQL в Visual Studio. Это позволит вам:
 
@@ -61,9 +55,7 @@ ms.lasthandoff: 06/20/2017
 
 Установщик средств Data Lake создает папку C:\LocalRunRoot, которая по умолчанию используется в качестве корневой папки данных. По умолчанию для локального выполнения используется коэффициент параллелизма 1.
 
-<a id="to-configure-local-run-in-visual-studio" class="xliff"></a>
-
-### Настройка локального выполнения в Visual Studio
+### <a name="to-configure-local-run-in-visual-studio"></a>Настройка локального выполнения в Visual Studio
 
 1. Откройте Visual Studio.
 2. Откройте **обозреватель сервера**.
@@ -75,9 +67,7 @@ ms.lasthandoff: 06/20/2017
 
 Для локального выполнения требуется создать проект U-SQL для Visual Studio. Эта часть выполняется не так, как при запуске скриптов U-SQL в Azure.
 
-<a id="to-run-a-u-sql-script-locally" class="xliff"></a>
-
-### Локальное выполнение скрипта U-SQL
+### <a name="to-run-a-u-sql-script-locally"></a>Локальное выполнение скрипта U-SQL
 1. В Visual Studio откройте нужный проект U-SQL.   
 2. В обозревателе решений щелкните правой кнопкой мыши скрипт U-SQL и выберите команду **Submit Script** (Отправить скрипт).
 3. Выберите **(Local)** в качестве учетной записи аналитики для локального выполнения скрипта.
@@ -85,15 +75,11 @@ ms.lasthandoff: 06/20/2017
 
     ![Отправка заданий для локального выполнения средств Data Lake для Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 
-<a id="debug-scripts-and-c-assemblies-locally" class="xliff"></a>
-
-### Локальная отладка скриптов и сборок C#
+### <a name="debug-scripts-and-c-assemblies-locally"></a>Локальная отладка скриптов и сборок C#
 
 Можно выполнять отладку сборок C# без их отправки и регистрации в службе Azure Data Lake Analytics. Точки останова можно установить в файле кода и в ссылочном проекте C#.
 
-<a id="to-debug-local-code-in-code-behind-file" class="xliff"></a>
-
-#### Отладка локального кода в файле кода
+#### <a name="to-debug-local-code-in-code-behind-file"></a>Отладка локального кода в файле кода
 
 1. Установите точки останова в файле кода.
 2. Нажмите клавишу F5 для запуска локальной отладки сценария.
@@ -103,9 +89,7 @@ ms.lasthandoff: 06/20/2017
    >
    >
 
-<a id="to-debug-local-code-in-a-referenced-c-project" class="xliff"></a>
-
-#### Отладка локального кода в указанном проекте C#
+#### <a name="to-debug-local-code-in-a-referenced-c-project"></a>Отладка локального кода в указанном проекте C#
 
 1. Создайте проект сборки C# и постройте его для создания выходной библиотеки DLL.
 2. Зарегистрируйте библиотеку DLL с помощью инструкции U-SQL:
@@ -115,18 +99,14 @@ ms.lasthandoff: 06/20/2017
 3. Установите точки останова в коде C#.
 4. Нажмите клавишу F5 для локальной отладки сценария со ссылками на библиотеку DLL C#.
 
-<a id="use-local-run-from-the-data-lake-u-sql-sdk" class="xliff"></a>
-
-## Использование локального выполнения из пакета SDK U-SQL для Data Lake
+## <a name="use-local-run-from-the-data-lake-u-sql-sdk"></a>Использование локального выполнения из пакета SDK U-SQL для Data Lake
 
 Для локального выполнения скриптов U-SQL можно использовать не только Visual Studio, но и пакет SDK U-SQL для Azure Data Lake. В последнем случае используется интерфейс командной строки или программные интерфейсы. Это позволяет масштабировать сценарии локального тестирования U-SQL.
 
 Узнайте больше о [пакете SDK Azure Data Lake для U-SQL](data-lake-analytics-u-sql-sdk.md).
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 * Более сложный запрос см. в руководстве [Анализ журналов веб-сайта с помощью службы Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Для просмотра сведений о заданиях см. статью [Использование браузера и представления для заданий Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).

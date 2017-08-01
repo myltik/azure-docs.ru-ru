@@ -23,9 +23,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 06/20/2017
 
 ---
-<a id="create-a-function-app-in-an-app-service-plan" class="xliff"></a>
-
-# Создание приложения-функции в плане службы приложений
+# <a name="create-a-function-app-in-an-app-service-plan"></a>Создание приложения-функции в плане службы приложений
 
 Этот пример сценария создает приложение-функцию Azure, которое является контейнером для ваших функций. Приложение-функция создается с помощью выделенного плана службы приложений. Это означает, что ресурсы сервера всегда включены.
 
@@ -35,9 +33,7 @@ ms.lasthandoff: 06/20/2017
 
 Если вы решили установить и использовать интерфейс командной строки локально, для работы с этим руководством вам понадобится Azure CLI 2.0 или более поздней версии. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить установку или обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-<a id="sample-script" class="xliff"></a>
-
-## Пример скрипта
+## <a name="sample-script"></a>Пример скрипта
 
 Этот скрипт создает приложение-функцию Azure с помощью выделенного [плана службы приложений](../functions-scale.md#app-service-plan).
 
@@ -45,9 +41,7 @@ ms.lasthandoff: 06/20/2017
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-<a id="script-explanation" class="xliff"></a>
-
-## Описание скрипта
+## <a name="script-explanation"></a>Описание скрипта
 
 Для каждой команды в таблице приведены ссылки на соответствующую документацию. Этот сценарий использует следующие команды:
 
@@ -58,9 +52,7 @@ ms.lasthandoff: 06/20/2017
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#create) | Создает план службы приложений. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#delete) | Создает приложение-функцию Azure. |
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об Azure CLI см. в [документации по Azure CLI](https://docs.microsoft.com/cli/azure/overview).
 
