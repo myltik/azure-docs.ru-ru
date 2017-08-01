@@ -1,14 +1,14 @@
 ## <a name="prerequisites"></a>Предварительные требования
 Набор средств Azure для Eclipse требует установки следующих программных компонентов:
 
-* Интегрированная среда разработки Eclipse для разработчиков Java EE, версия Mars или выше. Ее можно скачать на странице <http://www.eclipse.org/downloads/>.
+* Интегрированная среда разработки Eclipse для разработчиков Java EE, версия Mars или выше. Его можно скачать с [веб-сайта Eclipse](http://www.eclipse.org/downloads/).
 
 * Java Developer Kit (JDK) версии 1.8 или более поздней.
 
 * Операционная система. Набор средств Azure для Eclipse проверен в следующих операционных системах:
   
-  * Windows 10, Windows 8 и 8.1, Windows 7
-  * Windows Server 2012 и 2012 R2, Windows Server 2008 и 2008 R2
+  * Windows 10, Windows 8.1, Windows 8 и Windows 7;
+  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 и Windows Server 2008;
   * [Mac OS X](http://www.apple.com/osx) версии Yosemite и выше;
   * [Ubuntu Linux](http://www.ubuntu.com) версии 14, 15 и 16.
 
