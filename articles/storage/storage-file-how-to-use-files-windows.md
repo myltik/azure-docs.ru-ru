@@ -15,33 +15,31 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: a6d3a6f6e3457c84c5a7dc7d3601ef9495c060fe
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e911e787cd1e29b2bbeaa648869c50245f2dd9ba
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/22/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Подключение общей папки Azure и получение доступа к этой папке в Windows
 [Хранилище файлов Azure](storage-dotnet-how-to-use-files.md) — это простая в использовании облачная файловая система Майкрософт. Файловые ресурсы Azure можно подключить в Windows и Windows Server. В этой статье описывается три разных способа подключения общей папки Azure в Windows: с помощью пользовательского интерфейса проводника, PowerShell, а также командной строки. 
 
-Чтобы подключить общую папку Azure за пределами региона Azure (где она размещается), например локально или в другом регионе Azure, операционная система должна поддерживать протокол SMB версии 3.x. В таблице ниже приведены версии SMB для последних версий Windows:
+Чтобы подключить общую папку Azure за пределами региона Azure, в котором она размещается, например локально или в другом регионе Azure, операционная система должна поддерживать протокол SMB 3.0. 
 
-| Версия Windows | Версия SMB | Поддержка подключения из виртуальной машины Azure | Поддержка локального подключения | Минимальная рекомендуемая версия KB |
-|----|----|----|----|----|
-| Windows 10 версии 1703 | SMB 3.1.1 | Да | Да | |
-| Windows Server 2016 | SMB 3.1.1 | Да | Да | [KB4015438](https://support.microsoft.com/help/4015438) |
-| Windows 10 версии 1607 | SMB 3.1.1 | Да | Да | [KB4015438](https://support.microsoft.com/help/4015438) | 
-| Windows 10 версии 1511 | SMB 3.1.1 | Да | Да | [KB4013198](https://support.microsoft.com/help/4013198) |
-| Windows 10 версии 1507 | SMB 3.1.1 | Да | Да | [KB4012606](https://support.microsoft.com/help/4012606) | 
-| Windows 8.1 | SMB 3.0.2 | Да | Да | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 R2 | SMB 3.0.2 | Да | Да | [KB4012216](https://support.microsoft.com/help/4012216) |
-| Windows Server 2012 | SMB 3.0 | Да | Да | [KB4012214](https://support.microsoft.com/help/4012214) |
-| Windows 7 | SMB 2.1 | Да | Нет | [KB4012215](https://support.microsoft.com/help/4012215) |
-| Windows Server 2008 R2 | SMB 2.1 | Да | Нет | [KB4012215](https://support.microsoft.com/help/4012215) |
+В зависимости от версии операционной системы общую папку Azure можно подключить локально на компьютере под управлением Windows или на виртуальной машине Azure. Для иллюстрации воспользуйтесь следующей таблицей. 
+
+| Версия Windows        | Версия SMB |Возможность подключения на виртуальной машине Azure|Возможность подключения в локальной среде|
+|------------------------|-------------|---------------------|---------------------|
+| Windows 7              | SMB 2.1     | Да                 | Нет                  |
+| Windows Server 2008 R2 | SMB 2.1     | Да                 | Нет                  |
+| Windows 8              | SMB 3.0     | Да                 | Да                 |
+| Windows Server 2012    | SMB 3.0     | Да                 | Да                 |
+| Windows Server 2012 R2 | SMB 3.0     | Да                 | Да                 |
+| Windows 10             | SMB 3.0     | Да                 | Да                 |
 
 > [!Note]  
-> Мы всегда рекомендуем использовать последнюю версию KB для своей версии Windows. Минимальная рекомендуемая версия KB предоставляет последний пакет с исправлениями SMB для ИТ-администраторов, которые не заинтересованы в установке обновлений.
+> Мы всегда рекомендуем использовать последнюю версию KB для своей версии Windows.
 
 ## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Предварительные требования для подключения общей папки Azure с помощью Windows 
 * **Имя учетной записи хранения**: чтобы подключить общую папку Azure, вам потребуется имя учетной записи хранения.
@@ -144,3 +142,4 @@ ms.lasthandoff: 07/12/2017
 ### <a name="reference"></a>Справочные материалы
 * [Справочник по клиентской библиотеке хранилища для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Справочник по REST API службы файлов](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+
