@@ -21,9 +21,7 @@ ms.contentlocale: ru-ru
 ms.lasthandoff: 04/27/2017
 
 ---
-<a id="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses" class="xliff"></a>
-
-# Удаление кластера Service Fabric в Azure и используемых им ресурсов
+# <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Удаление кластера Service Fabric в Azure и используемых им ресурсов
 Кластер Service Fabric состоит из многих других ресурсов Azure помимо собственно ресурса кластера. Чтобы полностью удалить кластер Service Fabric, необходимо также удалить все ресурсы, из которых он состоит.
 Вы можете сделать это одним из двух способов: удалить группу ресурсов, в которой находится кластер (при этом будет удален ресурс кластера и другие ресурсы в группе ресурсов), или удалить ресурс кластера и связанные с ним ресурсы по отдельности (но не другие ресурсы в группе ресурсов).
 
@@ -32,14 +30,10 @@ ms.lasthandoff: 04/27/2017
 > 
 > 
 
-<a id="delete-the-entire-resource-group-rg-that-the-service-fabric-cluster-is-in" class="xliff"></a>
-
-## Удаление всей группы ресурсов, в которой находится кластер Service Fabric
+## <a name="delete-the-entire-resource-group-rg-that-the-service-fabric-cluster-is-in"></a>Удаление всей группы ресурсов, в которой находится кластер Service Fabric
 Это самый простой способ, который гарантирует удаление всех ресурсов, связанных с кластером, включая группу ресурсов. Группу ресурсов можно удалить с помощью PowerShell или через портал Azure. Если выбранная группа ресурсов содержит ресурсы, которые не относятся к кластеру Service Fabric, можно удалить отдельные ресурсы.
 
-<a id="delete-the-resource-group-using-azure-powershell" class="xliff"></a>
-
-### Удаление группы ресурсов с помощью Azure PowerShell
+### <a name="delete-the-resource-group-using-azure-powershell"></a>Удаление группы ресурсов с помощью Azure PowerShell
 Группу ресурсов также можно удалить, выполнив следующие командлеты Azure PowerShell. Убедитесь, что на компьютере установлена среда Azure PowerShell 1.0 или более поздней версии. Если вы не сделали этого ранее, выполните инструкции в статье [Как установить и настроить Azure PowerShell](/powershell/azure/overview)
 
 Откройте PowerShell и выполните следующие командлеты PowerShell:
@@ -52,9 +46,7 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 Будет выведен запрос на подтверждение удаления, если вы не использовали параметр *-Force* . После подтверждения группа ресурсов и все содержащиеся в ней ресурсы будут удалены.
 
-<a id="delete-a-resource-group-in-the-azure-portal" class="xliff"></a>
-
-### Удаление группы ресурсов на портале Azure
+### <a name="delete-a-resource-group-in-the-azure-portal"></a>Удаление группы ресурсов на портале Azure
 1. Войдите на [портал Azure](https://portal.azure.com).
 2. Перейдите к нужному кластеру Service Fabric.
 3. Щелкните имя группы ресурсов на странице "Основные компоненты" кластера.
@@ -64,9 +56,7 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 ![Удаление группы ресурсов][ResourceGroupDelete]
 
-<a id="delete-the-cluster-resource-and-the-resources-it-uses-but-not-other-resources-in-the-resource-group" class="xliff"></a>
-
-## Удаление ресурса кластера и используемых им ресурсов, но не других ресурсов в группе ресурсов
+## <a name="delete-the-cluster-resource-and-the-resources-it-uses-but-not-other-resources-in-the-resource-group"></a>Удаление ресурса кластера и используемых им ресурсов, но не других ресурсов в группе ресурсов
 Если в группе ресурсов содержатся только ресурсы, связанные с кластером Service Fabric, который требуется удалить, проще всего будет удалить группу ресурсов целиком. Если требуется выборочно удалить ресурсы в группе ресурсов, выполните следующие действия.
 
 Если кластер развернут с помощью портала или с помощью одного из шаблонов Resource Manager для Service Fabric из коллекции шаблонов, то все ресурсы, используемые кластером, помечены следующими двумя тегами. С их помощью можно определить, какие ресурсы требуется удалить.
@@ -75,9 +65,7 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 ***Тег 2:*** ключ = resourceName, значение = ServiceFabric.
 
-<a id="delete-specific-resources-in-the-azure-portal" class="xliff"></a>
-
-### Удаление отдельных ресурсов на портале Azure
+### <a name="delete-specific-resources-in-the-azure-portal"></a>Удаление отдельных ресурсов на портале Azure
 1. Войдите на [портал Azure](https://portal.azure.com).
 2. Перейдите к нужному кластеру Service Fabric.
 3. В колонке "Основные компоненты" перейдите к элементу **Все параметры** .
@@ -89,9 +77,7 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
    
     ![Ресурсы с тегами][TaggedResources]
 
-<a id="delete-the-resources-using-azure-powershell" class="xliff"></a>
-
-### Удаление ресурсов с помощью Azure PowerShell
+### <a name="delete-the-resources-using-azure-powershell"></a>Удаление ресурсов с помощью Azure PowerShell
 Отдельные ресурсы также можно удалить, выполнив следующие командлеты Azure PowerShell. Убедитесь, что на компьютере установлена среда Azure PowerShell 1.0 или более поздней версии. Если вы не сделали этого ранее, выполните инструкции в статье [Как установить и настроить Azure PowerShell](/powershell/azure/overview)
 
 Откройте PowerShell и выполните следующие командлеты PowerShell:
@@ -111,9 +97,7 @@ Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Re
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Дополнительные сведения об обновлении кластера и секционировании служб см. в следующих статьях.
 
 * [Узнайте об обновлениях кластера.](service-fabric-cluster-upgrade.md)
