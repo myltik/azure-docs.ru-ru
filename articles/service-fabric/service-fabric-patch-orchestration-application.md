@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 3fc66d775f97333ad497cf3773643c188ec7c1d6
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: db6e654de074fc6651fd0d7479ee52038f944745
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -60,7 +60,7 @@ ms.lasthandoff: 06/08/2017
 #### <a name="azure-clusters"></a>Кластеры Azure
 Приложение для управления исправлениями должно выполняться в кластерах Azure со средой выполнения Service Fabric версии 5.5 или выше.
 
-#### <a name="standalone-on-premise-clusters"></a>Автономные локальные кластеры
+#### <a name="standalone-on-premises-clusters"></a>Автономные локальные кластеры
 Приложение для управления исправлениями должно выполняться в автономных кластерах со средой выполнения Service Fabric версии 5.6 или выше.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Включение службы Repair Manager (если она еще не запущена)
@@ -128,7 +128,7 @@ ms.lasthandoff: 06/08/2017
         ],
     ```
 
-3. Обновите манифест кластера, добавив изменения с помощью манифеста обновления кластера [Создание кластера](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) или [Обновление конфигурации кластера](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Как только кластер запустится с обновленным манифестом, вы увидите, что системная служба Repair Manager выполняется в кластере, который называется `fabric:/System/RepairManagerService`, в разделе системных служб в Service Fabric Explorer.
+3. Обновите манифест кластера, добавив эти изменения с помощью манифеста обновления кластера [Создание кластера](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) или [Обновление конфигурации кластера](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration). Как только кластер запустится с обновленным манифестом, вы увидите, что системная служба Repair Manager выполняется в кластере, который называется `fabric:/System/RepairManagerService`, в разделе системных служб в Service Fabric Explorer.
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Отключение автоматического обновления Windows на всех узлах
 
@@ -149,10 +149,9 @@ ms.lasthandoff: 06/08/2017
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-В разделе `WadCfg` шаблона Azure Resource Manager добавьте следующий раздел: 
+В шаблоне Resource Manager перейдите к разделу `EtwEventSourceProviderConfiguration` в группе `WadCfg` и добавьте следующие записи:
 
 ```json
-"PatchOrchestrationApplication": [
   {
     "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
     "scheduledTransferPeriod": "PT5M",
@@ -180,8 +179,7 @@ ms.lasthandoff: 06/08/2017
     "DefaultEvents": {
     "eventDestination": " PatchOrchestrationApplicationTable"
     }
-  },
-]
+  }
 ```
 
 > [!NOTE]
@@ -293,7 +291,7 @@ ms.lasthandoff: 06/08/2017
 ### <a name="collect-patch-orchestration-app-logs"></a>Сбора журналов приложения для управления исправлениями
 
 В среде выполнения версии `5.6.220.9494` и выше журналы приложения для управления исправлениями собираются как часть журналов Service Fabric.
-Для кластеров под управлением среды выполнения Service Fabric более ранней версии, чем `5.6.220.9494`, для сбора журналов можно использовать один из методов ниже.
+Для кластеров под управлением среды выполнения Service Fabric более ранней версии, чем `5.6.220.9494`, для сбора журналов можно использовать один из указанных ниже методов.
 
 #### <a name="locally-on-each-node"></a>Локально на каждом узле
 

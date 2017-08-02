@@ -3,7 +3,7 @@ title: "Самостоятельный доступ к приложениям и
 description: "В этой статье описывается самостоятельный доступ к приложениям и делегированное управление приложениями с помощью Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 448a7fe8-a162-475e-9ba2-2e3ab59302bc
@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 57093159c0b9c63b6e2dc0971e3aea645a33aa55
+ms.date: 07/13/2017
+ms.author: curtand
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 1724376c55d196f1b2b0b82180e4f59432e506ed
 ms.contentlocale: ru-ru
-ms.lasthandoff: 12/08/2016
-
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Самостоятельный доступ к приложениям и делегированное управление приложениями с помощью Azure Active Directory
 Обеспечение возможности самообслуживания для пользователей — это распространенный сценарий в корпоративных ИТ-решениях. При наличии большого количества пользователей и приложений может оказаться, что у администратора каталога нет достаточного количества данных для принятия решений о предоставлении доступа. Часто случается так, что руководитель группы или другой делегированный администратор может лучше других справиться с решением о предоставлении доступа к приложению. Но в конечном счете именно пользователи работают в приложении, и поэтому им лучше всех известно, какие возможности нужны для выполнения работы.
 
-Самостоятельный доступ к приложению — это функция платформы [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) , дающая администраторам каталогов следующие возможности:
+Самостоятельный доступ к приложению — это функция платформы [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) (лицензирование P1 и P2), дающая администраторам каталогов следующие возможности:
 
-* разрешать пользователям запрашивать доступ к приложениям с помощью элемента «Дополнительные приложения» на [панели доступа Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* разрешать пользователям запрашивать доступ к приложениям с помощью элемента "Дополнительные приложения" на [панели доступа Azure AD](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users);
 * задавать приложения, к которым пользователи могут запрашивать доступ;
 * задавать в настройках, требуется ли пользователям утверждение для самостоятельного назначения доступа к приложению;
 * устанавливать, кто будет утверждать запросы и управлять доступом к каждому приложению.

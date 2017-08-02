@@ -3,7 +3,7 @@ title: "Вопросы безопасности при перемещении д
 description: "Узнайте о безопасном перемещении данных в фабрике данных Azure."
 services: data-factory
 documentationcenter: 
-author: abnarain
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
-ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: de9453e6764279c481e569542433d095772f304d
+ms.date: 07/27/2017
+ms.author: abnarain
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 33ccb820b786b9aa28f9e10c35ef1d2c00eaf7f1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/11/2017
 
 ---
 
@@ -142,7 +141,7 @@ SalesForce поддерживает шифрование Shield Platform Encrypt
 
 ### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Параметры конфигурации брандмауэра и добавление IP-адреса шлюза в список разрешенных
 
-#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>Требования к брандмауэру для локальной или частной сети   
+#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Требования к брандмауэру для локальной или частной сети  
 На предприятии **корпоративный брандмауэр** работает на центральном маршрутизаторе организации. А **брандмауэр Windows** работает как управляющая программа на локальном компьютере, на котором установлен шлюз. 
 
 В таблице ниже представлены **исходящий порт** и требования к домену для **корпоративного брандмауэра**.

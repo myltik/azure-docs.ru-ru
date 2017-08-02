@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 83bb2090d3a2fbd4fabdcd660c72590557cfcafc
-ms.openlocfilehash: 46702abb229ba0a6512f336cb0aa4e4a75b51771
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: c211c59b00d445a62ebe3ae9334101c983e05c57
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/18/2017
-
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="azure-ad-token-reference"></a>Справочник по токенам в Azure AD
@@ -98,7 +97,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 ## <a name="validating-tokens"></a>Проверка маркеров
 
-Для проверки маркера id_token или access_token приложение должно проверить подпись маркера и содержащиеся в нем утверждения. Чтобы проверить маркеры доступа, приложению также следует проверить издателя, аудиторию и маркеры подписывания. Они должны проверяться на соответствие значениям в документе обнаружения OpenID. Например, независимая от клиента версия этого документа находится здесь: [https://login.windows.net/common/.well-known/openid-configuration](https://login.windows.net/common/.well-known/openid-configuration). ПО промежуточного слоя Azure AD имеет встроенные возможности для проверки маркеров доступа, и вы можете ознакомиться с нашими [примерами](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples), чтобы найти пример для выбранного вами языка. Чтобы получить дополнительные сведения о том, как явно проверить токен JWT, ознакомьтесь с [примером проверки JWT вручную](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Для проверки маркера id_token или access_token приложение должно проверить подпись маркера и содержащиеся в нем утверждения. Чтобы проверить маркеры доступа, приложению также следует проверить издателя, аудиторию и маркеры подписывания. Они должны проверяться на соответствие значениям в документе обнаружения OpenID. Например, независимая от клиента версия этого документа находится здесь: [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). ПО промежуточного слоя Azure AD имеет встроенные возможности для проверки маркеров доступа, и вы можете ознакомиться с нашими [примерами](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples), чтобы найти пример для выбранного вами языка. Чтобы получить дополнительные сведения о том, как явно проверить токен JWT, ознакомьтесь с [примером проверки JWT вручную](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Мы предоставляем библиотеки и примеры кода, демонстрирующие удобный способ проверки токенов. Дальнейшие сведения приведены специально для желающих понять суть происходящего.  Для проверки токенов JWT также доступны несколько сторонних библиотек с открытым исходным кодом. Среди них вы найдете как минимум один вариант для каждой платформы и языка. Дополнительные сведения о библиотеках аутентификации Azure AD и примеры кода см. в статье [Библиотеки проверки подлинности Azure Active Directory](active-directory-authentication-libraries.md).
 

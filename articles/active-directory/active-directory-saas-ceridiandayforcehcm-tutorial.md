@@ -2,53 +2,54 @@
 title: "Руководство. Интеграция Azure Active Directory с Ceridian Dayforce HCM | Документация Майкрософт"
 description: "Узнайте, как настроить единый вход Azure Active Directory в Ceridian Dayforce HCM."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
+ms.reviewer: joflore
 ms.assetid: 7adf1eb3-d063-45d6-96a8-fd53b329b3f3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/19/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
-ms.openlocfilehash: dba809c8d7021357142ec2832b4660c6fb10ec96
-
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: b2ea3d92f233dab5bd6814e4875f881117eac8e3
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Учебник. Интеграция Azure Active Directory с Ceridian Dayforce HCM
-Цель этого учебника — показать, как интегрировать Azure Active Directory (Azure AD) с приложением Ceridian Dayforce HCM.  
+
+В этом учебнике описано, как интегрировать Ceridian Dayforce HCM с Azure Active Directory (Azure AD).
+
 Интеграция Azure AD с приложением Ceridian Dayforce HCM обеспечивает следующие преимущества.
 
-* С помощью Azure AD вы можете контролировать доступ к Ceridian Dayforce HCM.
-* Вы можете включить автоматический вход пользователей в Ceridian Dayforce HCM (единый вход) под учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+- С помощью Azure AD вы можете контролировать доступ к Ceridian Dayforce HCM.
+- Вы можете включить автоматический вход пользователей в Ceridian Dayforce HCM (единый вход) с учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — на портале Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 Чтобы настроить интеграцию Azure AD с Ceridian Dayforce HCM, вам потребуется:
 
-* подписка Azure AD;
-* подписка Ceridian Dayforce HCM с поддержкой единого входа.
+- подписка Azure AD;
+- подписка Ceridian Dayforce HCM с поддержкой единого входа.
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
-> 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-* Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
-Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление Ceridian Dayforce HCM из коллекции
 2. Настройка и проверка единого входа в Azure AD
@@ -58,185 +59,223 @@ ms.openlocfilehash: dba809c8d7021357142ec2832b4660c6fb10ec96
 
 **Чтобы добавить Ceridian Dayforce HCM из коллекции, выполните следующие действия:**
 
-1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**. 
-   
-    ![Active Directory][1]
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-    ![Приложения][2]
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-    ![Приложения][3]
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Приложения][4]
-6. В поле поиска введите **Ceridian Dayforce HCM**.
-   
-    ![Приложения](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_01.png)
-7. В области результатов выберите **Ceridian Dayforce HCM** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-    ![Приложения](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Ceridian Dayforce HCM с использованием тестового пользователя Britta Simon.
+    ![Кнопка "Azure Active Directory"][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Колонка "Корпоративные приложения"][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
+    ![Кнопка "Новое приложение"][3]
+
+4. В поле поиска введите **Ceridian Dayforce HCM**, на панели результатов выберите **Ceridian Dayforce HCM**, а затем нажмите кнопку **Добавить**, чтобы добавить приложение.
+
+    ![Ceridian Dayforce HCM в списке результатов](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+
+В этом разделе описана настройка и проверка единого входа Azure AD в Ceridian Dayforce HCM с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в Ceridian Dayforce HCM соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Ceridian Dayforce HCM.
 
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Ceridian Dayforce HCM.
+
 Чтобы настроить и проверить единый вход Azure AD в Ceridian Dayforce HCM, вам потребуется выполнить действия в следующих стандартных блоках:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Ceridian Dayforce HCM](#creating-a-ceridian-dayforce-hcm-test-user)** требуется для создания пользователя Britta Simon в Ceridian Dayforce HCM, связанного с соответствующим представлением в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Ceridian Dayforce HCM](#create-a-ceridian-dayforce-hcm-test-user)** требуется для создания пользователя Britta Simon в Ceridian Dayforce HCM, связанного с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-В этом разделе описано, как включить единый вход Azure AD на классическом портале Azure AD и настроить единый вход в приложении Ceridian Dayforce HCM.
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
 
-Приложение Ceridian Dayforce HCM ожидает утверждения SAML в определенном формате. Сначала обратитесь в службу поддержки Dayforce HCM, чтобы определить правильный идентификатор пользователя. Корпорация Майкрософт рекомендует использовать атрибут **"name"** в качестве идентификатора пользователя. Управлять значением этого атрибута можно в диалоговом окне **Атрибут** . На следующем снимке экрана приведен пример. 
-
-![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_02.png) 
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Ceridian Dayforce HCM.
 
 **Чтобы настроить единый вход Azure AD в Ceridian Dayforce HCM, выполните следующие действия:**
 
-1. На странице интеграции с приложением **Ceridian Dayforce HCM** классического портала Azure в меню в верхней части страницы щелкните **Атрибуты**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_81.png) 
-2. В списке **Атрибуты токена SAML** выберите имя атрибута и нажмите кнопку **Изменить**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_06.png) 
-3. В диалоговом окне **Изменить атрибут пользователя** выполните следующие действия.
-   
-    а. В списке **Значение атрибута** выберите атрибут пользователя, который хотите использовать в своей реализации.  
-    Например, если в качестве уникального идентификатора пользователя вы хотите использовать EmployeeID и сохранили значение атрибута в ExtensionAttribute2, выберите **user.extensionattribute2**. 
-   
-    b. Нажмите **Завершено**.    
-4. В меню вверху щелкните **Быстрый запуск**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-hightail-tutorial/tutorial_general_83.png)  
-5. На классическом портале Azure на странице интеграции с приложением **Ceridian Dayforce HCM** щелкните **Настройка единого входа**.
-   
-    ![Настройка единого входа][6] 
-6. На странице **Как пользователи должны входить в Ceridian Dayforce HCM?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_03.png) 
-7. На странице диалогового окна **Настройка параметров приложения** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_04.png) 
+1. На портале Azure на странице интеграции с приложением **Ceridian Dayforce HCM** щелкните **Единый вход**.
 
-    а. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Ceridian Dayforce HCM. Для рабочих сред используйте следующий формат URL-адреса: `https://sso.dayforcehcm.com/DayforcehcmNamespace`
+    ![Ссылка "Настройка единого входа"][4]
 
-    Для ясности замените DayforcehcmNamespace пространством имен своей среды или идентификатором компании, например: `https://sso.dayforcehcm.com/contoso`
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_samlbase.png)
 
-    Для тестовых сред используйте следующий формат URL-адреса: `https://ssotest.dayforcehcm.com/DayforcehcmNamespace` 
+3. В разделе **Домены и URL-адреса приложения Ceridian Dayforce HCM** выполните указанные ниже действия.
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес, используемый Azure AD для размещения ответа.  
-    Для рабочих сред используйте `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2`  
-    Для сред тестирования используйте `https://fs-test.dayforcehcm.com/sp/ACS.saml2`  
+    ![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_url.png)
+    
+    а. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Ceridian Dayforce HCM.
+    
+    | Среда | URL-адрес |
+    | :-- | :-- |
+    | Рабочая среда | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
+    | Тестирование | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
+    
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате:
+    
+    | Среда | URL-адрес |
+    | :-- | :-- |
+    | Рабочая среда | `https://ncpingfederate.dayforcehcm.com/sp` |
+    | Тестирование | `https://fs-test.dayforcehcm.com/sp` |
+    
+    c. В текстовом поле **URL-адрес ответа** введите URL-адрес, используемый Azure AD для размещения ответа.
+    
+    | Среда | URL-адрес |
+    | :-- | :-- |
+    | Рабочая среда | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
+    | Тестирование | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
+    
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените их на фактические значения идентификатора, URL-адреса ответа и URL-адреса входа. Чтобы получить эти значения, обратитесь в [службу поддержки Ceridian Dayforce HCM](https://www.ceridian.com/contact-us/index.html).
 
-1. На странице **Настройка единого входа в Ceridian Dayforce HCM** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_05.png) 
-   
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
-2. Чтобы настроить единый вход для своего приложения, обратитесь в службу поддержки Ceridian Dayforce HCM по электронной почте и предоставьте следующие сведения:
-   
-   * Скачанный файл сертификата
-   *  **URL-адрес издателя**
-   *  **URL-адрес единого входа SAML** 
-   *  **URL-адрес службы единого выхода** 
-3. На классическом портале Azure подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
-   
-    ![единого входа Azure AD][10]
-4. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
-   
-    ![единого входа Azure AD][11]
+4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
 
-### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_certificate.png) 
 
-![Создание пользователя Azure AD][20]
+5. Приложение Ceridian Dayforce HCM ожидает утверждения SAML в определенном формате. Сначала обратитесь в [службу поддержки Ceridian Dayforce HCM](https://www.ceridian.com/contact-us/index.html), чтобы определить правильный идентификатор пользователя. Корпорация Майкрософт рекомендует использовать атрибут **"name"** в качестве идентификатора пользователя. Управлять значениями этих атрибутов можно в разделе **Атрибуты пользователя** на странице интеграции приложения. На следующем снимке экрана приведен пример.  
+
+    ![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_07.png)
+
+6. В разделе **Атрибуты пользователя** диалогового окна **Единый вход** настройте атрибут токена SAML, как показано на рисунке выше, и выполните следующие действия:
+    
+    | Имя атрибута  | Значение атрибута |
+    | --------------- | -------------------- |    
+    | name  | user.extensionattribute2 |    
+
+    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+
+    ![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_attribute_04.png)
+
+    ![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_attribute_05.png)
+    
+    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+
+    c. В списке **Значение** выберите атрибут пользователя, который вы хотите использовать в своей реализации.
+    Например, если в качестве уникального идентификатора пользователя вы хотите использовать EmployeeID и сохранили значение атрибута в ExtensionAttribute2, выберите **user.extensionattribute2**.
+    
+    г) Нажмите кнопку **ОК**.
+
+7. Нажмите кнопку **Сохранить** .
+
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_400.png)
+    
+8. В разделе **Настройка Ceridian Dayforce HCM** щелкните **Настроить Ceridian Dayforce HCM**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+
+    ![Настройка Ceridian Dayforce HCM](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_configure.png) 
+
+9. Чтобы настроить единый вход на стороне **Ceridian Dayforce HCM**, нужно отправить скачанный **XML-файл метаданных**, **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML** в [службу поддержки Ceridian Dayforce HCM](https://www.ceridian.com/contact-us/index.html).
+
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+   ![Создание тестового пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_09.png) 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_03.png) 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_04.png) 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_05.png) 
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_06.png) 
-   
-    а. В текстовом поле **Имя** введите **Britta**.  
-   
-    b. В текстовом поле **Фамилия** введите **Simon**.
-   
-    c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-    d. В списке **Роль** выберите **Пользователь**.
-   
-    д. Нажмите кнопку **Далее**.
+1. На портале Azure в области слева нажмите кнопку **Azure Active Directory**.
 
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_07.png) 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_08.png) 
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_01.png)
 
-### <a name="creating-a-ceridian-dayforce-hcm-test-user"></a>Создание тестового пользователя Ceridian Dayforce HCM
-Цель этого раздела — создать пользователя с именем Britta Simon в Ceridian Dayforce HCM. 
+2. Чтобы открыть список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
 
-Обратитесь в службу поддержки Ceridian Dayforce HCM, чтобы добавить пользователей в свое приложение Ceridian Dayforce HCM. 
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_02.png)
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна **Все пользователи** щелкните **Добавить**.
+
+    ![Кнопка "Добавить"](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_03.png)
+
+4. В диалоговом окне **Пользователь** сделайте следующее.
+
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_04.png)
+
+    а. В поле **Имя** введите **BrittaSimon**.
+
+    b. В поле **Имя пользователя** введите адрес электронной почты для пользователя Britta Simon.
+
+    c. Установите флажок **Показать пароль** и запишите значение, которое отображается в поле **Пароль**.
+
+    г) Щелкните **Создать**.
+ 
+### <a name="create-a-ceridian-dayforce-hcm-test-user"></a>Создание тестового пользователя Ceridian Dayforce HCM
+
+Цель этого раздела — создать пользователя с именем Britta Simon в Ceridian Dayforce HCM. Обратитесь в [службу поддержки Ceridian Dayforce HCM](https://www.ceridian.com/contact-us/index.html), чтобы добавить пользователей в приложение Ceridian Dayforce HCM. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — позволить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к Ceridian Dayforce HCM.
+
+В этом разделе описано, как предоставить пользователю Britta Simon доступ к Ceridian Dayforce HCM, чтобы он мог использовать единый вход Azure.
 
 ![Назначение пользователя][200] 
 
 **Чтобы назначить пользователя Britta Simon в Ceridian Dayforce HCM, выполните следующие действия:**
 
-1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
-   
-    ![Назначение пользователя][201] 
-2. В списке приложений выберите **Ceridian Dayforce HCM**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_50.png) 
-3. В меню в верхней части страницы щелкните **Пользователи**.
-   
-    ![Назначение пользователя][203] 
-4. В списке пользователей выберите **Britta Simon**.
-5. На панели инструментов внизу щелкните **Назначить**.
-   
-    ![Назначение пользователя][205]
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
-### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
-Щелкнув элемент Ceridian Dayforce HCM на панели доступа, вы автоматически войдете в приложение Ceridian Dayforce HCM.
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Ceridian Dayforce HCM**.
+
+    ![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+
+В этом разделе описано, как предоставить пользователю Britta Simon доступ к Ceridian Dayforce HCM, чтобы он мог использовать единый вход Azure.
+
+![Назначение роли пользователя][200] 
+
+**Чтобы назначить пользователя Britta Simon в Ceridian Dayforce HCM, выполните следующие действия:**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Ceridian Dayforce HCM**.
+
+    ![Ссылка "Ceridian Dayforce HCM" в списке приложений](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_app.png)  
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Ссылка "Пользователи и группы"][202]
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Область "Добавление назначения"][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="test-single-sign-on"></a>Проверка единого входа
+
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
+Щелкнув элемент Ceridian Dayforce HCM на панели доступа, вы автоматически войдете в приложение Ceridian Dayforce HCM. 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
+
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -247,19 +286,11 @@ ms.openlocfilehash: dba809c8d7021357142ec2832b4660c6fb10ec96
 [3]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

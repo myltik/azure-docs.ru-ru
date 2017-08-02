@@ -1,179 +1,277 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с Tinfoil Security | Документация Майкрософт"
-description: "Узнайте, как использовать Tinfoil Security вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
+title: "Руководство по интеграции Azure Active Directory с TINFOIL SECURITY | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в TINFOIL SECURITY."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: da02da92-e3b0-4c09-ad6c-180882b0f9f8
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 07/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
-ms.openlocfilehash: e3a93cc039d4e24d19f2df2d859c5899cd2a402e
-ms.lasthandoff: 02/23/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 614e4de3335574f4b56c7d641af4fcfafdb17d12
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Учебник. Интеграция Azure Active Directory с Tinfoil Security
-Цель данного учебника — показать интеграцию Azure и Tinfoil Security.  
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+# <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Руководство по интеграции Azure Active Directory с TINFOIL SECURITY
 
-* Действующая подписка на Azure
-* Подписка Tinfoil Security с поддержкой единого входа.
+В этом руководстве описано, как интегрировать TINFOIL SECURITY с Azure Active Directory (Azure AD).
 
-После завершения этого руководства пользователи Azure AD, назначенные Tinfoil Security, будут иметь возможность единого входа в приложение на веб-сайте компании Tinfoil Security (вход, инициированный поставщиком удостоверений) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Интеграция TINFOIL SECURITY с Azure AD имеет следующие преимущества:
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+- С помощью Azure AD вы можете контролировать, у кого есть доступ к приложению TINFOIL SECURITY.
+- Вы можете включить автоматический вход пользователей в TINFOIL SECURITY (единый вход) с помощью учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-1. Включение интеграции приложений для Tinfoil Security
-2. Настройка единого входа
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798965.png "Настройка единого входа")
+## <a name="prerequisites"></a>Предварительные требования
 
-## <a name="enabling-the-application-integration-for-tinfoil-security"></a>Включение интеграции приложений для Tinfoil Security
-В этом разделе показано, как включить интеграцию приложений для Tinfoil Security.
+Чтобы настроить интеграцию Azure AD с приложением TINFOIL SECURITY, вам потребуется:
 
-### <a name="to-enable-the-application-integration-for-tinfoil-security-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Tinfoil Security, выполните следующие действия:
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+- подписка Azure AD;
+- подписка TINFOIL SECURITY с поддержкой единого входа.
+
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
+
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+
+1. Добавление TINFOIL SECURITY из коллекции.
+2. Настройка и проверка единого входа в Azure AD
+
+## <a name="add-tinfoil-security-from-the-gallery"></a>Добавление TINFOIL SECURITY из коллекции
+Чтобы настроить интеграцию TINFOIL SECURITY с Azure AD, вам нужно добавить TINFOIL SECURITY из коллекции в список управляемых приложений SaaS.
+
+**Чтобы добавить TINFOIL SECURITY из коллекции, сделайте следующее.**
+
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Приложения][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
+    ![Приложения][3]
+
+4. В поле поиска введите **TINFOIL SECURITY**, выберите **TINFOIL SECURITY** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+
+    ![Добавление TINFOIL SECURITY из коллекции](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_addfromgallery.png)
+
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в TINFOIL SECURITY с использованием тестового пользователя Britta Simon.
+
+Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в TINFOIL SECURITY соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в TINFOIL SECURITY.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в TINFOIL SECURITY.
+
+Чтобы настроить и проверить единый вход Azure AD в TINFOIL SECURITY, выполните следующие действия.
+
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя TINFOIL SECURITY](#create-a-tinfoil-security-test-user)** требуется для того, чтобы в TINFOIL SECURITY существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении TINFOIL SECURITY.
+
+**Чтобы настроить единый вход Azure AD в TINFOIL SECURITY, сделайте следующее.**
+
+1. На портале Azure на странице интеграции с приложением **TINFOIL SECURITY** щелкните **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Вход на основе SAML](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения TINFOIL SECURITY** не нужно выполнять никаких действий, так как это приложение предварительно интегрировано с Azure.
+
+    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_url.png)
+
+
+4. В разделе **Сертификат подписи SAML** скопируйте значение **Отпечаток**.
+
+    ![Раздел "Сертификат подписи SAML"](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_certificate.png) 
+
+5. Чтобы добавить обязательные сопоставления атрибутов, выполните следующие действия.
+    
+    ![Атрибуты](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_attribute1.png "Атрибуты")
+    
+    | Имя атрибута    |   Значение атрибута |
+    | ------------------- | -------------------- |
+    | accountid | UXXXXXXXXXXXXX |
+    
+    а. Щелкните **добавить атрибут пользователя**.
+    
+    ![Добавление атрибута](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_attribute.png "Атрибуты")
+    
+    ![Добавление атрибута](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_addatt.png "Атрибуты")
+    
+    b. В текстовом поле **Имя атрибута** введите **accountid**.
+    
+    c. В текстовое поле **Значение атрибута** следует вставить идентификатор учетной записи, который вы получите позже при работе с этим руководством.
+    
+    г) Нажмите кнопку **ОК**.    
+
+6. Нажмите кнопку **Сохранить** .
+
+    ![Кнопка "Сохранить"](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_400.png)
+
+7. В разделе **Конфигурация TINFOIL SECURITY** щелкните **Настроить TINFOIL SECURITY**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+
+    ![Конфигурация TINFOIL SECURITY](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_configure.png) 
+
+8. В другом окне веб-браузера войдите на свой корпоративный веб-сайт TINFOIL SECURITY в качестве администратора.
+
+9. На панели инструментов в верхней части экрана щелкните **Моя учетная запись**.
    
-    ![Active Directory](./media/active-directory-saas-tinfoil-security-tutorial/IC700993.png "Active Directory")
+    ![Панель мониторинга](./media/active-directory-saas-tinfoil-security-tutorial/ic798971.png "Панель мониторинга")
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+10. Выберите пункт **Безопасность**.
    
-    ![Приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC700994.png "Приложения")
+    ![Безопасность](./media/active-directory-saas-tinfoil-security-tutorial/ic798972.png "Безопасность")
 
-4. В нижней части страницы нажмите кнопку **Добавить** .
+11. На странице настроек **Единый вход** выполните следующие действия.
    
-    ![Добавление приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Добавление приложения")
-
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Добавление приложения из коллекции](./media/active-directory-saas-tinfoil-security-tutorial/IC749322.png "Добавление приложения из коллекции")
-
-6. В **поле поиска** введите **Tinfoil Security**.
-   
-    ![Коллекция приложений](./media/active-directory-saas-tinfoil-security-tutorial/IC798966.png "Коллекция приложений")
-
-7. В области результатов выберите **Tinfoil Security** и щелкните **Завершить**, чтобы добавить приложение.
-   
-    ![Tinfoil Security](./media/active-directory-saas-tinfoil-security-tutorial/IC802771.png "Tinfoil Security")
-
-## <a name="configuring-single-sign-on"></a>Настройка единого входа
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Tinfoil Security с помощью своей учетной записи Azure AD, используя федерацию на основе протокола SAML.  
-Чтобы настроить единый вход для Tinfoil Security, необходимо извлечь значение отпечатка из сертификата.  
-Если вы не знакомы с этой процедурой, просмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
-
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
-1. На странице интеграции с приложением **Tinfoil Security** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798967.png "Настройка единого входа")
-
-2. На странице **Как пользователи будут входить в Tinfoil Security** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Настройка единого входа")
-
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес ответа Tinfoil Security** введите свой URL-адрес службы Assertion Consumer Service (ACS) для Tinfoil Security (например, *https://www.tinfoilsecurity.com/saml/consume*), а затем нажмите кнопку **Далее**.
-   
-    > [!NOTE]
-    > URL-адрес ACS можно получить из метаданных Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata).
-    > 
-    > 
-   
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC798969.png "Настройка URL-адреса приложения")
-
-4. На странице **Настройка единого входа в Tinfoil Security** щелкните **Скачать сертификат**, а затем сохраните файл сертификата локально как **c:\\Tinfoil Security.cer**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798970.png "Настройка единого входа")
-
-5. В другом окне веб-браузера войдите на свой корпоративный веб-сайт Tinfoil Security в качестве администратора.
-
-6. На панели инструментов в верхней части экрана щелкните **Моя учетная запись**.
-   
-    ![Панель мониторинга](./media/active-directory-saas-tinfoil-security-tutorial/IC798971.png "Панель мониторинга")
-
-7. Выберите пункт **Безопасность**.
-   
-    ![Безопасность](./media/active-directory-saas-tinfoil-security-tutorial/IC798972.png "Безопасность")
-
-8. На странице настроек **Единый вход** выполните следующие действия.
-   
-    ![Единый вход](./media/active-directory-saas-tinfoil-security-tutorial/IC798973.png "Единый вход")
+    ![Единый вход](./media/active-directory-saas-tinfoil-security-tutorial/ic798973.png "Единый вход")
    
     а. Выберите **Включить SAML**.
    
     b. Щелкните **Настроить вручную**.
    
-    c. На странице **Настройка единого входа в Tinfoil Security** классического портала Azure скопируйте значение поля **URL-адрес единого входа SAML** и вставьте его в текстовое поле **SAML Post URL** (URL-адрес записи SAML).
+    c. В текстовое поле **SAML Post URL** (URL-адрес POST SAML) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
    
-    d. Скопируйте значение поля **Отпечаток** из экспортированного сертификата и вставьте его в текстовое поле **SAML Certificate Fingerprint** (Отпечаток сертификата SAML).  
-      
-    > [!TIP]
-    > Дополнительные сведения можно найти в видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI)
-    > 
-    > 
+    г) В текстовое поле **SAML Certificate Fingerprint** (Отпечаток сертификата SAML) вставьте значение **Отпечаток**, скопированное в разделе **Сертификат подписи SAML**.
+  
+    д. Скопируйте значение **Your Account ID** (Ваш идентификатор учетной записи) и вставьте его в текстовое поле **Значение атрибута** в разделе **Добавление атрибута** на портале Azure.
    
-    д. Скопируйте **идентификатор вашей учетной записи**.
-   
-    Е. Щелкните **Сохранить**.
+    f. Щелкните **Сохранить**.
 
-9. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798974.png "Настройка единого входа")
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
-10. В меню в верхней части экрана выберите пункт **Атрибуты** to open the **SAML Token Атрибуты** .
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+![Создание пользователя Azure AD][100]
+
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_01.png) 
+
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
     
-    ![Атрибуты](./media/active-directory-saas-tinfoil-security-tutorial/IC795920.png "Атрибуты")
+    ![Выберите "Пользователи и группы" > "Все пользователи". ](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_02.png) 
 
-11. Чтобы добавить обязательные сопоставления атрибутов, выполните следующие действия.
-    
-    ![Атрибуты](./media/active-directory-saas-tinfoil-security-tutorial/IC798975.png "Атрибуты")
-    
-    а. Щелкните **добавить атрибут пользователя**.
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Пользователь](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_03.png) 
 
-    b. В текстовом поле **Имя атрибута** введите **accountid**.
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-tinfoil-security-tutorial/create_aaduser_04.png) 
 
-    c. В текстовом поле **Значение атрибута** вставьте идентификатор учетной записи, который вы скопировали в предыдущем разделе.
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
 
-    d. Нажмите **Завершено**.
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
-12. Нажмите кнопку **Применить изменения**.
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
-Чтобы пользователи Azure AD могли выполнять вход в систему Tinfoil Security, они должны быть подготовлены для нее.  
-В случае с Tinfoil Security подготовка выполняется вручную.
+    d. Щелкните **Создать**.
+ 
+### <a name="create-a-tinfoil-security-test-user"></a>Создание тестового пользователя TINFOIL SECURITY
 
-### <a name="to-get-a-user-provisioned-perform-the-following-steps"></a>Для подготовки пользователей выполните следующие действия:
-1. Если пользователь является частью корпоративной учетной записи, для получения созданной учетной записи пользователя вам необходимо обратиться в службу поддержки безопасности Tinfoil Security.
-2. Если пользователь является обычным пользователем Tinfoil Security SaaS, то он может добавить взаимодействующие объекты к любому из своих сайтов. Это вызывает процесс, который отправляет приглашение по указанному адресу электронной почты, чтобы создать учетную запись пользователя Tinfoil Security.
+Чтобы пользователи Azure AD могли выполнить вход в TINFOIL SECURITY, они должны быть подготовлены для TINFOIL SECURITY. В случае TINFOIL SECURITY подготовка выполняется вручную.
+
+**Чтобы подготовить пользователя, выполните следующие действия.**
+
+1. Если пользователь является частью учетной записи Enterprise, то для создания учетной записи пользователя необходимо обратиться к [группе поддержки TINFOIL SECURITY](https://www.tinfoilsecurity.com/contact).
+
+2. Если пользователь является обычным пользователем SaaS TINFOIL SECURITY, то он может добавить участника совместной работы на любой из своих сайтов. Это активирует процесс, который отправит приглашение по указанному электронному адресу для создания учетной записи пользователя TINFOIL SECURITY.
 
 > [!NOTE]
-> Вы можете использовать любые другие средства создания учетной записи пользователя Tinfoil Security или API-интерфейсы, предоставляемые Tinfoil Security для подготовки учетных записей пользователя AAD.
+> Вы можете использовать любые другие инструменты создания учетных записей пользователя TINFOIL SECURITY или API, предоставляемые TINFOIL SECURITY для подготовки учетных записей пользователя Azure Active Directory.
 > 
 > 
 
-## <a name="assigning-users"></a>Назначение пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-### <a name="to-assign-users-to-tinfoil-security-perform-the-following-steps"></a>Чтобы назначить пользователей для Tinfoil Security, выполните следующие действия:
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции с приложением **Tinfoil Security** нажмите кнопку **Назначить пользователей**.
-   
-    ![Назначение пользователей](./media/active-directory-saas-tinfoil-security-tutorial/IC798976.png "Назначение пользователей")
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к TINFOIL SECURITY.
 
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-    ![Да](./media/active-directory-saas-tinfoil-security-tutorial/IC767830.png "Да")
+![Назначение пользователя][200] 
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+**Чтобы назначить пользователя Britta Simon в TINFOIL SECURITY, выполните следующие действия.**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. Из списка приложений выберите **TINFOIL SECURITY**.
+
+    ![Выбор TINFOIL SECURITY](./media/active-directory-saas-tinfoil-security-tutorial/tutorial_tinfoil-security_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="test-single-sign-on"></a>Проверка единого входа
+
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув элемент "TINFOIL SECURITY" на панели доступа, вы автоматически войдете в приложение TINFOIL SECURITY. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-tinfoil-security-tutorial/tutorial_general_203.png
 
 

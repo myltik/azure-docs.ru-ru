@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 07/13/2017
 ms.author: glenga, donnam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8b569727c51589bd622d41465bb3565220c19fca
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 0de18c51914409df0bb690c2a4e3d8bf429cce66
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Инструменты Функций Azure для Visual Studio  
@@ -56,7 +56,7 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="create-an-azure-functions-project"></a>Создание проекта Функций Azure 
 
-[!INCLUDE [Create a project using the Azure Functions ](../../includes/functions-vstools-create.md)]
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
 
 ## <a name="configure-the-project-for-local-development"></a>Настройка проекта для локальной разработки
@@ -65,13 +65,17 @@ ms.lasthandoff: 06/28/2017
 
 * **host.json**: позволяет настроить узел Функций. Эти параметры применяются как в локальном режиме, так и в Azure. Дополнительные сведения см. в справочной статье о [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
     
-* **local.settings.json**: содержит параметры, используемые при выполнении функций локально. Эти параметры не используются в Azure, они используются основными инструментами Функций Azure. Используйте этот файл для указания параметров, таких как строки подключения к другим службам Azure. Добавьте новый ключ в массив **Values** для каждого подключения, которое необходимо для функций в проекте. Дополнительные сведения см. в разделе [Local settings file](functions-run-local.md#local-settings-file) (Файл локальных параметров) статьи, посвященной основным инструментам Функций Azure.
+* **local.settings.json**: содержит параметры, используемые при выполнении функций локально. Эти параметры не используются в Azure, они используются [основными инструментами Функций Azure](functions-run-local.md). Используйте этот файл для указания параметров, таких как строки подключения к другим службам Azure. Добавьте новый ключ в массив **Values** для каждого подключения, которое необходимо для функций в проекте. Дополнительные сведения см. в разделе [Local settings file](functions-run-local.md#local-settings-file) (Файл локальных параметров) статьи, посвященной основным инструментам Функций Azure.
 
-Среде выполнения Функций Azure необходима учетная запись хранения Azure для внутреннего использования. Для всех типов триггеров, кроме HTTP и веб-перехватчиков, необходимо задать в качестве ключа **Values.AzureWebJobsStorage** допустимую строку подключения к учетной записи хранения Azure. Чтобы задать строку подключения к учетной записи хранения, выполните следующие действия:
+Среде выполнения Функций Azure необходима учетная запись хранения Azure для внутреннего использования. Для всех типов триггеров, кроме HTTP и веб-перехватчиков, необходимо задать в качестве ключа **Values.AzureWebJobsStorage** допустимую строку подключения к учетной записи хранения Azure.
 
-1. На [портале Azure](https://portal.azure.com/) перейдите к учетной записи хранения, щелкните **Все параметры** > **Ключи доступа**, а затем скопируйте **строку подключения** для одного из ключей. 
+[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-2. В проекте в Visual Studio откройте файл проекта local.settings.json и задайте в качестве значения ключа **AzureWebJobsStorage** скопированную вами строку подключения.
+ Чтобы задать строку подключения к учетной записи хранения, выполните следующие действия:
+
+1. В Visual Studio откройте **Cloud Explorer**, разверните узел **Учетная запись хранения** > **Ваша учетная запись хранения**, а затем выберите **Свойства** и скопируйте значение параметра **Основная строка подключения**.   
+
+2. В своем проекте откройте файл проекта local.settings.json и задайте в качестве значения ключа **AzureWebJobsStorage** скопированную вами строку подключения.
 
 3. Повторите предыдущий шаг, чтобы добавить уникальные ключи в массив **Values** для всех других подключений, которые необходимы для функций.  
 
@@ -85,7 +89,7 @@ ms.lasthandoff: 06/28/2017
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    Указан ключ строки подключения **QueueStorage**, который определен в файле local.settings.json. Имя класса 
+    Указан ключ строки подключения **QueueStorage**, который определен в файле local.settings.json. 
  
 3. Проверьте добавленный класс. Вы видите статический метод **Run**, который имеет атрибут **FunctionName**. Этот атрибут указывает, что метод является точкой входа для функции. 
 
@@ -125,8 +129,17 @@ ms.lasthandoff: 06/28/2017
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
+>[!NOTE]  
+>Все параметры, которые вы добавили в файл local.settings.json, необходимо также добавить в приложение-функцию в Azure. Эти параметры не добавляются автоматически. Добавить необходимые параметры в приложение-функцию можно одним из следующих способов:
+>
+>* [С помощью портала Azure](functions-how-to-use-azure-function-app-settings.md#settings).
+>* [С помощью параметра публикации `--publish-local-settings` в основных инструментах Функций Azure](functions-run-local.md#publish).
+>* [С помощью Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
+
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения об инструментах Функций Azure см. в разделе часто задаваемых вопросов записи блога [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) (Инструменты Visual Studio 2017 для Функций Azure).
 
-Дополнительные сведения об основных инструментах Функций Azure см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md).
+Дополнительные сведения об основных инструментах Функций Azure см. в статье [Как программировать и тестировать функции Azure в локальной среде](functions-run-local.md).  
+Дополнительные сведения о разработке функций, таких как библиотек классов .NET, см. в статье [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md) (Использование библиотек классов .NET с помощью Функций Azure). Здесь также приведены примеры того, как использовать атрибуты для объявления различных типов привязок, поддерживаемых Функциями Azure.    
+

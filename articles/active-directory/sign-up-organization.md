@@ -1,6 +1,6 @@
 ---
 title: "Подпишитесь на Azure как организация"
-description: "Узнайте, как с помощью учетной записи на работе или в школе можно использовать существующие учетные записи пользователей, политики, параметры или локальные развертывания серверов для улучшения эффективного взаимодействия локальной инфраструктуры удостоверений вашей организации и Azure AD."
+description: "Узнайте, как с помощью рабочей или учебной учетной записи можно использовать существующие учетные записи пользователей, политики, параметры или локальные развертывания серверов и повышать эффективность взаимодействия локальной инфраструктуры удостоверений вашей организации и Azure AD."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bdbe25307b8b5e811dad374583d9ba3b96e212a5
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 07ad266ad87028996c4a7b3e4365c11b019f8529
 ms.contentlocale: ru-ru
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 07/11/2017
 
 
 ---

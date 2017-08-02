@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/24/2017
+ms.date: 07/10/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 84cdc5eec5567c9c6905eee285afd2426607ff08
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 14130a87a7a4262307f9e8d9c0d0f8c057e9810b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-windows-vm"></a>Как шифровать виртуальные диски на виртуальной машине Windows
 Для улучшения уровня безопасности и соответствия требованиям виртуальной машины содержание виртуальных дисков в Azure можно зашифровать. Диски можно зашифровать с использованием криптографических ключей, защищенных в хранилище ключей Azure. Вы будете управлять этими криптографическими ключами и проводить аудит их использования. В этой статье описывается шифрование дисков на виртуальной машине Windows с помощью Azure PowerShell. Вы также можете [зашифровать виртуальную машину Linux с помощью Azure CLI 2.0](../linux/encrypt-disks.md).
 
 ## <a name="overview-of-disk-encryption"></a>Общие сведения о шифровании дисков
-Виртуальные диски на виртуальных машинах Windows шифруются в неактивном состоянии с помощью Bitlocker. В Azure за шифрование виртуальных дисков плата не взимается. Криптографические ключи хранятся в хранилище ключей Azure с применением защиты программного обеспечения. В качестве альтернативы можно импортировать или создать ключи аппаратных модулей безопасности (HSM), сертифицированных по стандартам уровня 2 FIPS 140-2. Вы сохраняете контроль над этими криптографическими ключами и можете проводить аудит их использования. Эти криптографические ключи используются для шифрования и расшифровки виртуальных дисков, подключенных к виртуальной машине. Субъект-служба Azure Active Directory предоставляет безопасный механизм для выдачи этих криптографических ключей при включении и отключении виртуальных машин.
+Виртуальные диски на виртуальных машинах Windows шифруются в неактивном состоянии с помощью Bitlocker. В Azure за шифрование виртуальных дисков плата не взимается. Криптографические ключи хранятся в хранилище ключей Azure с применением защиты программного обеспечения. В качестве альтернативы можно импортировать или создать ключи аппаратных модулей безопасности (HSM), сертифицированных по стандартам уровня 2 FIPS 140-2. Эти криптографические ключи используются для шифрования и расшифровки виртуальных дисков, подключенных к виртуальной машине. Вы сохраняете контроль над этими криптографическими ключами и можете проводить аудит их использования. Субъект-служба Azure Active Directory предоставляет безопасный механизм для выдачи этих криптографических ключей при включении и отключении виртуальных машин.
 
 Процесс шифрования виртуальной машины выполняется следующим образом.
 
@@ -65,85 +65,113 @@ ms.lasthandoff: 04/27/2017
 * интеграция с локальной службой управления ключами.
 
 ## <a name="create-azure-key-vault-and-keys"></a>Создание Azure Key Vault и ключей
-Перед началом работы убедитесь, что у вас установлена последняя версия модуля Azure PowerShell. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview). В примерах команд замените все примеры параметров собственными именами, расположением и значениями ключей. В следующих примерах используется соглашение `myResourceGroup`, `myKeyVault`, `myVM` и т. д.
+Перед началом работы убедитесь, что у вас установлена последняя версия модуля Azure PowerShell. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](/powershell/azure/overview). В примерах команд замените все примеры параметров собственными именами, расположением и значениями ключей. В следующих примерах используется соглашение *myResourceGroup*, *myKeyVault*, *myVM* и т. д.
 
 Первым делом создайте хранилище ключей Azure для хранения криптографических ключей. В хранилище ключей Azure можно хранить ключи, секреты или пароли, что позволяет безопасно реализовать их в приложениях и службах. Для шифрования виртуальных дисков создайте Key Vault, чтобы хранить криптографический ключ, используемый для шифрования или расшифровки виртуальных дисков. 
 
-Включите поставщик Azure Key Vault в подписке Azure и создайте группу ресурсов. В следующем примере создается имя группы ресурсов `myResourceGroup` в расположении `West US`.
+Включите поставщик Azure Key Vault в подписке Azure, выполнив команду [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider), и создайте группу ресурсов с помощью команды [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). В следующем примере создается имя группы ресурсов *myResourceGroup* в расположении *East US*:
 
 ```powershell
 $rgName = "myResourceGroup"
-$location = "West US"
+$location = "East US"
 
 Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"
 New-AzureRmResourceGroup -Location $location -Name $rgName
 ```
 
-Хранилище ключей Azure, содержащее криптографические ключи и связанные вычислительные ресурсы, такие как хранилище и виртуальная машина, должны находиться в одном и том же регионе. Создайте Azure Key Vault и включите Key Vault для использования при шифровании дисков. Укажите уникальное имя Key Vault для параметра `keyVaultName`, выполнив следующую команду:
+Хранилище ключей Azure, содержащее криптографические ключи и связанные вычислительные ресурсы, такие как хранилище и виртуальная машина, должны находиться в одном и том же регионе. Создайте Azure Key Vault, выполнив команду [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault), и включите Key Vault для использования при шифровании дисков. Укажите уникальное имя Key Vault для параметра *keyVaultName*, выполнив следующую команду:
 
 ```powershell
 $keyVaultName = "myUniqueKeyVaultName"
-New-AzureRmKeyVault -Location $location -ResourceGroupName $rgName -VaultName $keyVaultName -EnabledForDiskEncryption
+New-AzureRmKeyVault -Location $location `
+    -ResourceGroupName $rgName `
+    -VaultName $keyVaultName `
+    -EnabledForDiskEncryption
 ```
 
-Хранить криптографические ключи можно с помощью программного обеспечения или защиты HSM. Для использования HSM требуется хранилище ключей уровня "Премиум". Создание хранилища ключей уровня "Премиум" осуществляется за дополнительную плату в отличие от хранилища ключей уровня "Стандартный", в котором хранятся ключи, защищенные программным обеспечением. Чтобы создать Key Vault уровня "Премиум", на предыдущем шаге добавьте параметры `-Sku "Premium"`. В следующем примере используются ключи, защищенные программным обеспечением, так как мы создали хранилище ключей уровня "Стандартный". 
+Хранить криптографические ключи можно с помощью программного обеспечения или защиты HSM. Для использования HSM требуется хранилище ключей уровня "Премиум". Создание хранилища ключей уровня "Премиум" осуществляется за дополнительную плату в отличие от хранилища ключей уровня "Стандартный", в котором хранятся ключи, защищенные программным обеспечением. Чтобы создать Key Vault уровня "Премиум", на предыдущем шаге добавьте параметры *-Sku "Premium"* к команде. В следующем примере используются ключи, защищенные программным обеспечением, так как мы создали хранилище ключей уровня "Стандартный". 
 
-Для обеих моделей защиты платформе Azure необходимо предоставить доступ на запрос криптографических ключей при загрузке виртуальной машины для расшифровки виртуальных дисков. Создайте криптографический ключ в Key Vault. В следующем примере создается ключ с именем `myKey`.
+Для обеих моделей защиты платформе Azure необходимо предоставить доступ на запрос криптографических ключей при загрузке виртуальной машины для расшифровки виртуальных дисков. Создайте криптографический ключ в своем Key Vault, выполнив команду [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey). В следующем примере создается ключ с именем *myKey*:
 
 ```powershell
-Add-AzureKeyVaultKey -VaultName $keyVaultName -Name "myKey" -Destination "Software"
+Add-AzureKeyVaultKey -VaultName $keyVaultName `
+    -Name "myKey" `
+    -Destination "Software"
 ```
 
 
 ## <a name="create-the-azure-active-directory-service-principal"></a>Создание субъекта-службы Azure Active Directory
 При шифровании или расшифровке виртуальных дисков укажите учетную запись, чтобы выполнять проверку подлинности и обмен криптографическими ключами из Key Vault. Эта учетная запись, субъект-служба Azure Active Directory, позволяет платформе Azure запрашивать соответствующие криптографические ключи от имени виртуальной машины. Экземпляр Azure Active Directory по умолчанию доступен в вашей подписке, хотя во многих организациях есть выделенные каталоги Azure Active Directory.
 
-Создайте субъект-службу в Azure Active Directory. Чтобы указать надежный пароль, выполните указания из статьи [Политики и ограничения для паролей в Azure Active Directory](../../active-directory/active-directory-passwords-policy.md):
+Создайте субъект-службу в Azure Active Directory, выполнив команду [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). Чтобы указать надежный пароль, выполните указания из статьи [Политики и ограничения для паролей в Azure Active Directory](../../active-directory/active-directory-passwords-policy.md):
 
 ```powershell
 $appName = "My App"
 $securePassword = "P@ssword!"
-$app = New-AzureRmADApplication -DisplayName $appName -HomePage "https://myapp.contoso.com" `
-    -IdentifierUris "https://contoso.com/myapp" -Password $securePassword
+$app = New-AzureRmADApplication -DisplayName $appName `
+    -HomePage "https://myapp.contoso.com" `
+    -IdentifierUris "https://contoso.com/myapp" `
+    -Password $securePassword
 New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 ```
 
-Для успешного шифрования или расшифровки виртуальных дисков необходимо настроить разрешения на криптографические ключи, которые хранятся в Key Vault, так чтобы субъект-служба Azure Active Directory могла читать их. Задайте разрешение для Key Vault:
+Для успешного шифрования или расшифровки виртуальных дисков необходимо настроить разрешения на криптографические ключи, которые хранятся в Key Vault, так чтобы субъект-служба Azure Active Directory могла читать их. Задайте разрешение для Key Vault, выполнив команду [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy):
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName -ServicePrincipalName $app.ApplicationId `
-    -PermissionsToKeys "all" -PermissionsToSecrets "all"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName `
+    -ServicePrincipalName $app.ApplicationId `
+    -PermissionsToKeys "WrapKey" `
+    -PermissionsToSecrets "Set"
 ```
 
 
 ## <a name="create-virtual-machine"></a>Создание виртуальной машины
-Чтобы проверить процесс шифрования, давайте создадим виртуальную машину. В следующем примере создается виртуальная машина `myVM` с использованием образа **Windows Server 2016 Datacenter**:
+Чтобы проверить процесс шифрования, давайте создадим виртуальную машину. В следующем примере создается виртуальная машина *myVM* с использованием образа *Windows Server 2016 Datacenter*:
 
 ```powershell
-subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $rgName -Location $location `
-    -Name myVnet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $rgName `
+    -Location $location `
+    -Name myVnet `
+    -AddressPrefix 192.168.0.0/16 `
+    -Subnet $subnetConfig
 
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $rgName -Location $location `
-    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName $rgName `
+    -Location $location `
+    -AllocationMethod Static `
+    -IdleTimeoutInMinutes 4 `
+    -Name "mypublicdns$(Get-Random)"
 
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
-    -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 -Access Allow
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 1000 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 3389 `
+    -Access Allow
 
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
-    -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName `
+    -Location $location `
+    -Name myNetworkSecurityGroup `
+    -SecurityRules $nsgRuleRDP
 
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $rgName -Location $location `
-    -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+$nic = New-AzureRmNetworkInterface -Name myNic `
+    -ResourceGroupName $rgName `
+    -Location $location `
+    -SubnetId $vnet.Subnets[0].Id `
+    -PublicIpAddressId $pip.Id `
+    -NetworkSecurityGroupId $nsg.Id
 
 $cred = Get-Credential
 
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
+Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
@@ -158,7 +186,7 @@ New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 3. Укажите криптографические ключи для фактического шифрования и расшифровки.
 4. Укажите, что следует шифровать: диск ОС, диски данных или и то, и другое.
 
-Зашифруйте виртуальную машину с помощью ключа Azure Key Vault и учетных данных субъекта-службы Azure Active Directory. Следующий пример извлекает все сведения о ключе, а затем шифрует виртуальную машину `myVM`:
+Зашифруйте виртуальную машину, выполнив команду [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) и используя ключ Azure Key Vault и учетные данные субъекта-службы Azure Active Directory. В следующем примере извлекаются все сведения о ключе, а затем шифруется виртуальная машина *myVM*:
 
 ```powershell
 $keyVault = Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
@@ -166,13 +194,17 @@ $diskEncryptionKeyVaultUrl = $keyVault.VaultUri;
 $keyVaultResourceId = $keyVault.ResourceId;
 $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
 
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName -VMName $vmName -AadClientID $app.ApplicationId `
-    -AadClientSecret $securePassword -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
-    -DiskEncryptionKeyVaultId $keyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl `
+Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgName `
+    -VMName $vmName `
+    -AadClientID $app.ApplicationId `
+    -AadClientSecret $securePassword `
+    -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl `
+    -DiskEncryptionKeyVaultId $keyVaultResourceId `
+    -KeyEncryptionKeyUrl $keyEncryptionKeyUrl `
     -KeyEncryptionKeyVaultId $keyVaultResourceId
 ```
 
-Примите приглашение, чтобы продолжить шифрование виртуальной машины. Во время этого процесса виртуальная машина перезагружается. После завершения процесса шифрования и перезагрузки виртуальной машины просмотрите состояние шифрования:
+Примите приглашение, чтобы продолжить шифрование виртуальной машины. Во время этого процесса виртуальная машина перезагружается. После завершения процесса шифрования и перезагрузки виртуальной машины просмотрите состояние шифрования, выполнив команду [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus):
 
 ```powershell
 Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
