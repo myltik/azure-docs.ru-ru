@@ -1,6 +1,6 @@
 ---
-title: "Выполнение запроса Hive с помощью инструментов Hadoop для Visual Studio | Документация Майкрософт"
-description: "Узнайте, как использовать Hive с Hadoop в HDInsight с помощью инструментов Visual Studio Hadoop."
+title: "Использование Hive со Средствами Data Lake (Hadoop) для Visual Studio в Azure HDInsight | Документы Майкрософт"
+description: "Узнайте, как использовать Средства Data Lake для Visual Studio с целью выполнения запросов Apache Hive с Apache Hadoop в Azure HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,33 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/28/2017
+ms.date: 07/07/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 125531d8d52d4e27951a9e6cae0c50582c5b110e
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 3411c59fee73aa2e26a05d70e1dae11cdfc865ff
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
-# <a name="run-hive-queries-using-the-hdinsight-tools-for-visual-studio"></a>Выполнение запросов Hive с помощью инструментов HDInsight для Visual Studio
+# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Выполнение запросов Hive с помощью Средств Data Lake для Visual Studio
 
-[!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
-
-Узнайте, как отправлять запросы Hive к кластеру HDInsight с помощью средств HDInsight для Visual Studio.
+Узнайте, как использовать Средства Data Lake для Visual Studio с целью выполнения запросов Apache Hive. Средства Data Lake позволяют легко создавать, отправлять и отслеживать запросы Hive к Hadoop в Azure HDInsight.
 
 ## <a id="prereq"></a>Предварительные требования
-
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
 * Кластер Azure HDInsight (Hadoop в HDInsight).
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Одна из следующих версий Visual Studio:
 
-    * Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921)
+    * Visual Studio 2013 Community, Professional, Premium или Ultimate с обновлением 4
 
     * Visual Studio 2015 (любой выпуск)
 
@@ -70,7 +66,7 @@ ms.lasthandoff: 04/12/2017
    * `CREATE EXTERNAL TABLE`: создает новую "внешнюю" таблицу в Hive. Внешние таблицы хранят только определение самой таблицы в Hive, в то время как данные остаются в исходном расположении.
 
      > [!NOTE]
-     > Внешние таблицы необходимо использовать в тех случаях, когда ожидается, что исходные данные будут обновляться внешним источником, таким как автоматизированный процесс передачи данных или другой операцией MapReduce, при этом нужно, чтобы запросы Hive использовали самые последние данные.
+     > Внешние таблицы следует использовать, если исходные данные должны обновляться с использованием внешних источников. Например, с помощью задания MapReduce или службы Azure.
      >
      > Удаление внешней таблицы **не** приводит к удалению данных, будет удалено только определение таблицы.
 
@@ -115,7 +111,7 @@ ms.lasthandoff: 04/12/2017
 
 8. На панели инструментов щелкните **Отправить** , чтобы выполнить задание. Определить, было ли задание выполнено успешно, можно по значению в поле **Состояние задания** .
 
-9. Убедитесь, что задание создало таблицу. Для этого в **обозревателе сервера** и разверните **Azure** > **HDInsight** > ваш кластер HDInsight > **Базы данных Hive** > **По умолчанию**. Должны быть отображены таблицы **errorLogs** и **log4jLogs**.
+9. Убедитесь в том, что задание создало таблицу. Для этого в **обозревателе сервера** разверните **Azure** > **HDInsight** > ваш кластер HDInsight > **Базы данных Hive** > **По умолчанию**. Должны быть отображены таблицы **errorLogs** и **log4jLogs**.
 
 ## <a id="nextsteps"></a>Дальнейшие действия
 

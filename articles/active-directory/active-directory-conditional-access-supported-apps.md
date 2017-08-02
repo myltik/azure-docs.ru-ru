@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 40eb1d80830818a492c78d5091aaa9cca8d48f16
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 38c8cb00b21416add28eeb06187b89f64518dc92
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Приложения и браузеры, использующие правила условного доступа в Azure Active Directory
@@ -38,21 +38,30 @@ ms.lasthandoff: 05/04/2017
 
 Следующие приложения поддерживают условный доступ к Office 365 и другим приложениям служб, подключенных к Azure AD:
 
-| Целевая служба | Платформа | Приложение |
+
+| Целевая служба| Платформа| Приложение |
 | --- | --- | --- |
-| Office 365 Exchange Online |Windows 10 |Приложения "Почта", "Календарь" и "Люди", Outlook 2016, Outlook 2013 (с современной проверкой подлинности), Skype для бизнеса (с современной проверкой подлинности) |
-| Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013 (с современной проверкой подлинности), Skype для бизнеса (с современной проверкой подлинности) |
-| Office 365 Exchange Online |iOS, Android |Приложение Outlook Mobile |
-| Office 365 Exchange Online |Mac OS X |Outlook 2016 для многофакторной идентификации (только по расположению). Поддержка политик на основе устройств и поддержка Skype для бизнеса ожидается в будущем. |
-| Office 365 SharePoint Online |Windows 10 |Приложения Office 2016, универсальные приложения Office, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), групп Office и приложения SharePoint ожидается в будущем |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Приложения Office 2016, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
-| Office 365 SharePoint Online |iOS, Android |Мобильные приложения Office |
-| Office 365 SharePoint Online |Mac OS X |Приложения Office 2016 для многофакторной идентификации (только по расположению). Поддержка политик на основе устройств ожидается в будущем. |
-| Office 365 Yammer |Windows 10, iOS. Поддержка Android запланирована на будущее. |Приложение Office Yammer |
-| Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS и Android |Приложение Dynamics CRM |
-| Служба PowerBI |Windows 10, Windows 8.1, Windows 7, iOS и Android |Приложение PowerBI |
-| Удаленная служба приложений Azure |Windows 10, Windows 8.1, Windows 7, iOS, Android и Mac OS X |Azure RemoteApp |
-| Все службы приложения "Мои приложения" |Android и iOS |Все службы приложения "Мои приложения" |
+| Все службы приложения "Мои приложения"| Android и iOS| MFA и политика расположения для приложений Политики на основе устройств не поддерживаются. |
+| Удаленная служба приложений Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android и Mac OS X| Azure RemoteApp|
+| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS и Android| Приложение Dynamics CRM|
+| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android и Mac OS X| Microsoft Teams Services — контролируют все службы, которые поддерживают Microsoft Teams, и все их клиентские приложения: для Windows Desktop, MAC OS X, iOS, Android, WP, а также веб-клиент.|
+| Office 365 Exchange Online| Windows 10| Приложения "Почта", "Календарь" и "Люди", Outlook 2016, Outlook 2013 (с современной проверкой подлинности), Skype для бизнеса (с современной проверкой подлинности)|
+| Office 365 Exchange Online| Windows 8.1, Windows 7| Outlook 2016, Outlook 2013 (с современной проверкой подлинности), Skype для бизнеса (с современной проверкой подлинности)|
+| Office 365 Exchange Online| iOS| Приложение Outlook Mobile|
+| Office 365 Exchange Online| Mac OS X| Outlook 2016 для многофакторной идентификации (только по расположению). Поддержка политик на основе устройств и поддержка Skype для бизнеса ожидается в будущем.|
+| Office 365 SharePoint Online| Windows 10| Приложения Office 2016, универсальные приложения Office, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), групп Office и приложения SharePoint ожидается в будущем|
+| Office 365 SharePoint Online| Windows 8.1, Windows 7| Приложения Office 2016, Office 2013 (с современной проверкой подлинности), клиент синхронизации OneDrive (см. [заметки](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|
+| Office 365 SharePoint Online| iOS, Android| Мобильные приложения Office|
+| Office 365 SharePoint Online| Mac OS X| Приложения Office 2016 для многофакторной идентификации (только по расположению). Поддержка политик на основе устройств ожидается в будущем.|
+| Office 365 Yammer| Windows 10, iOS, Android| Приложение Office Yammer|
+| Служба PowerBI| Windows 10, Windows 8.1, Windows 7 и iOS.| Приложение PowerBI. Приложение Power BI для Android в настоящее время не поддерживает условный доступ на основе устройств.|
+| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS и Android| Приложение Visual Studio Team Services|
+
+
+
+
+
+
 
 ## <a name="applications-that-do-not-use-modern-authentication"></a>Приложения, не использующие современную проверку подлинности
 В настоящее время доступ к приложениям, не использующим современную проверку подлинности, должен блокироваться с помощью других методов. Это связано с тем, что при условном доступе правила доступа не применяются к приложениям, не использующим современную проверку подлинности. Это в первую очередь касается доступа к Exchange и SharePoint. В предыдущих версиях этих приложений используются более старые протоколы контроля доступа.
@@ -60,7 +69,7 @@ ms.lasthandoff: 05/04/2017
 ### <a name="control-access-in-office-365-sharepoint-online"></a>Управление доступом в Office 365 SharePoint Online
 Устаревшие протоколы, используемые для доступа к SharePoint, можно отключить с помощью командлета Set-SPOTenant. Этот командлет блокирует доступ клиентов Office, использующих устаревшие протоколы проверки подлинности, к ресурсам SharePoint Online.
 
-**Пример команды**:     `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
+**Пример команды**: `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
 
 ### <a name="control-access-in-office-365-exchange-online"></a>Управление доступом в Office 365 Exchange Online
 В Exchange существуют две основные категории протоколов. Проанализируйте следующие варианты и выберите правильную политику для своей организации.
@@ -113,12 +122,14 @@ ms.lasthandoff: 05/04/2017
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-## <a name="supported-browsers"></a>Поддерживаемые браузеры
+## <a name="supported-browsers-for-device-based-policies"></a>Поддерживаемые браузеры для политик на основе устройств 
+
+Доступ к политикам на основе устройств, проверяющим соответствие устройств требованиям и присоединение к домену, возможен, только если Azure AD может определить устройство и выполнить для него проверку подлинности. В то время как большинство проверок, таких как проверка расположения и MFA, могут выполняться почти на всех устройствах и почти во всех браузерах, для политик устройств требуются перечисленные ниже версии ОС и браузеры. Если настроена политика устройств, то для пользователей неподдерживаемых браузеров и операционных систем доступ блокируется. 
 
 | ОС                     | Браузеры                 | Поддержка     |
 | :--                    | :--                      | :-:         |
 | Windows 10                 | IE, Edge                 | ![Проверка][1] |
-| Windows 10                 | Chrome                   | Скоро |
+| Windows 10                 | Chrome                   | Предварительный просмотр     |
 | Windows 8, Windows 8.1            | Internet Explorer, Chrome               | ![Проверка][1] |
 | Windows 7                  | Internet Explorer, Chrome               | ![Проверка][1] |
 | iOS                    | Safari                   | ![Проверка][1] |
@@ -131,10 +142,15 @@ ms.lasthandoff: 05/04/2017
 | MacOS                 | Safari                   | ![Проверка][1] |
 | MacOS                 | Chrome                   | Скоро |
 
+> [!NOTE]
+> Для поддержки Chrome необходимо использовать Windows 10 Creators Update и установить расширение, которое можно найти [здесь](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+>
+>
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 Дополнительные сведения см. в разделе [Условный доступ в Azure Active Directory](active-directory-conditional-access.md).
+
 
 
 

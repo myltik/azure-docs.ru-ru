@@ -15,23 +15,25 @@ ms.workload: NA
 ms.date: 07/02/2017
 ms.author: vturecek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 102ede8d2aafaf485a5212faad47de6781d84578
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ca36f42897cd44d6da1a3cb6db53f656cf6256ee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="service-fabric-programming-model-overview"></a>Общие сведения о модели программирования Service Fabric
 Service Fabric предлагает несколько способов записи и управления службами. Службы могут использовать API-интерфейсы платформы Service Fabric, чтобы в полной мере использовать компоненты платформы и платформы приложений. Службы также могут представлять любую скомпилированную исполняемую программу, написанную на любом языке или с помощью любого кода, выполняемого в контейнере, размещенную в кластере Service Fabric.
 
-### <a name="guest-executables"></a>Гостевые исполняемые файлы
-[Гостевой исполняемый файл](service-fabric-deploy-existing-app.md) — это произвольный существующий исполняемый файл (написанный на любом языке), который размещен в кластере Service Fabric среди других служб. Гостевые исполняемые файлы не интегрируются с интерфейсами API Service Fabric напрямую. Однако они по-прежнему используют преимущества предлагаемых платформой функций, такие как настраиваемые отчеты о работоспособности и загрузке, а также возможности обнаружения службы путем вызова REST API. Они также имеют поддержку полного жизненного цикла приложения.
+## <a name="guest-executables"></a>Гостевые исполняемые файлы
+[Гостевой исполняемый файл](service-fabric-deploy-existing-app.md) — это произвольный существующий исполняемый файл (написанный на любом языке), который может выполняться как служба в вашем приложении. Гостевые исполняемые файлы не вызывают интерфейсы API пакета SDK для Service Fabric напрямую. Однако они по-прежнему используют преимущества предлагаемых платформой функций, такие как возможности обнаружения службы и настраиваемые отчеты о работоспособности и загрузке, путем вызова интерфейсов REST API, предоставляемых Service Fabric. Они также имеют поддержку полного жизненного цикла приложения.
 
 Начните работать с такими приложениями, развернув свое первое [гостевое исполняемое приложение](service-fabric-deploy-existing-app.md).
 
-### <a name="containers"></a>Контейнеры
-По умолчанию Service Fabric развертывает и активирует службы как процессы. Service Fabric также позволяет развертывать службы в [контейнерах](service-fabric-containers-overview.md). Service Fabric поддерживает развертывание контейнеров Linux и контейнеров Windows на Windows Server 2016. В контейнерах можно развернуть имеющиеся приложения, службы без отслеживания состояния или службы с отслеживанием состояния. Вы также можете использовать в одном приложении разные службы в процессах и контейнерах.
+## <a name="containers"></a>Контейнеры
+По умолчанию Service Fabric развертывает и активирует службы как процессы. Service Fabric также позволяет развертывать службы в [контейнерах](service-fabric-containers-overview.md). Service Fabric поддерживает развертывание контейнеров Linux и контейнеров Windows на Windows Server 2016. Образы контейнеров можно извлечь из любого репозитория контейнеров и развернуть на компьютере. В контейнерах можно развертывать имеющиеся приложения как гостевые исполняемые файлы, а также развертывать службы Reliable Services и Reliable Actors Service Fabric без отслеживания состояния или с отслеживанием состояния. Вы также можете использовать в одном приложении разные службы в процессах и контейнерах.
+
+[Дополнительные сведения о развертывании служб в контейнерах в Windows или Linux](service-fabric-deploy-container.md)
 
 ## <a name="reliable-services"></a>Надежные службы
 Надежные службы — это легкая платформа для записи служб, которые интегрируются с платформой Service Fabric и используют весь набор функций платформы. Надежные службы обеспечивают минимальный набор API, который позволяет среде выполнения Service Fabric управлять жизненным циклом служб, а службам — взаимодействовать со средой выполнения. Платформа приложений минимальна, но обеспечивает полный контроль над вариантами параметров проектирования и реализации и может использоваться для размещения любой другой платформы приложений, включая ASP.NET Core.
@@ -47,13 +49,23 @@ Service Fabric предлагает несколько способов запи
 
 Поскольку надежные субъекты сами по себе являются платформой приложений, построенной на базе надежных служб, они полностью интегрируются с платформой Service Fabric и задействуют весь набор предлагаемых этой платформой функций.
 
-### <a name="aspnet-core"></a>ASP.NET Core;
-Service Fabric интегрируется с [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) для создания веб-приложений и приложений API. 
+[Узнайте больше о надежных субъектах](service-fabric-reliable-actors-introduction.md) или начните с [написания первой службы надежного субъекта](service-fabric-reliable-actors-get-started.md).
+
+## <a name="aspnet-core"></a>ASP.NET Core;
+Service Fabric интегрируется с [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) для создания веб-службы и служб API, которые можно включать в приложения. 
+
+[Создание внешнего интерфейса веб-службы для приложения с помощью ASP.NET Core](service-fabric-add-a-web-frontend.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Узнайте больше о Reliable Actors](service-fabric-reliable-actors-introduction.md) или начните с [написания первой службы Reliable Actor](service-fabric-reliable-actors-get-started.md)
-[Развертывание контейнера Windows в Service Fabric](service-fabric-deploy-container.md)
-[Создание внешнего интерфейса веб-службы для приложения с помощью ASP.NET Core](service-fabric-add-a-web-frontend.md)
+[Общие сведения о Service Fabric и контейнерах](service-fabric-containers-overview.md)
+
+[Общие сведения о Reliable Services](service-fabric-reliable-services-introduction.md)
+
+[Общие сведения о Reliable Services](service-fabric-reliable-actors-introduction.md)
+
+[Service Fabric и ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+
+
 
 
 

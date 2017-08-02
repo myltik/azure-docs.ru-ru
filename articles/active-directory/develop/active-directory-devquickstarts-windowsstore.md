@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3a78fe76119d1c748b5b75c00148a3e2a6f4a2b8
-ms.openlocfilehash: adfc28c7e41f49ce65309a316703fba57463040f
+ms.translationtype: HT
+ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
+ms.openlocfilehash: 6b5189dc06d7f8b0ed4426944948b904feba847e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/17/2017
-
+ms.lasthandoff: 07/15/2017
 
 ---
 # <a name="integrate-azure-ad-with-windows-store-apps"></a>Интеграция Azure AD с приложениями Магазина Windows
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+> [!NOTE]
+> Проекты для Магазина Windows 8.1 и более ранних версий не поддерживаются в Visual Studio 2017.  Дополнительные сведения см. в статье [Целевая платформа и совместимость для Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 При разработке приложений для Магазина Windows система Azure Active Directory (Azure AD) позволяет легко и просто осуществлять аутентификацию пользователей с помощью их учетных записей в Active Directory. Благодаря интеграции с Azure AD приложение может безопасно использовать любые веб-API, защищаемые с помощью Azure AD, например интерфейсы API Office 365 или Azure.
 

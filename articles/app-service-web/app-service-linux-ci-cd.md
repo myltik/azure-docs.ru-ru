@@ -1,7 +1,7 @@
 ---
-title: "Непрерывное развертывание Docker Hub для веб-приложения Azure на платформе Linux | Документация Майкрософт"
+title: "Непрерывное развертывание для веб-приложения Azure на платформе Linux | Документы Майкрософт"
 description: "Как настроить непрерывное развертывание в веб-приложении Azure на платформе Linux."
-keywords: "служба приложений azure, linux, oss"
+keywords: "служба приложений azure, linux, oss, acr"
 services: app-service
 documentationcenter: 
 author: ahmedelnably
@@ -15,21 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 68e11f07520bbe8da6812a34fe95708fc9e932ac
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 6b6c173c6c4bb3f670c54208c80e6d966a1f396e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="docker-hub-continuous-deployment-with-azure-web-app-on-linux"></a>Непрерывное развертывание Docker Hub для веб-приложения Azure на платформе Linux
+# <a name="continuous-deployment-with-azure-web-app-on-linux"></a>Непрерывное развертывание для веб-приложения Azure на платформе Linux
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-В этом руководстве описывается настройка непрерывного развертывания для настраиваемого образа контейнера из [Docker Hub](https://hub.docker.com).
+В этом руководстве описывается настройка непрерывного развертывания для настраиваемого образа контейнера из управляемых репозиториев [реестра контейнеров Azure](https://azure.microsoft.com/en-us/services/container-registry/) или [Docker Hub](https://hub.docker.com).
 
-## <a name="step-1---log-in-to-azure"></a>Шаг 1. Вход в Azure
+## <a name="step-1---sign-in-to-azure"></a>Шаг 1. Вход в Azure
 
 Войдите на портал Azure по адресу http://portal.azure.com.
 
@@ -43,25 +42,42 @@ ms.lasthandoff: 05/10/2017
 
 ![Изображение добавления параметра приложения](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
-## <a name="step-3---add-a-web-hook-to-docker-hub"></a>Шаг 3. Добавление webhook для Docker Hub
+## <a name="step-3---prepare-webhook-url"></a>Шаг 3 . Подготовка URL-адреса Webhook
+
+Для URL-адреса webhook необходима следующая конечная точка: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+
+Вы можете получить `publishingusername` и `publishingpwd`, скачав профиль публикации веб-приложения с помощью портала Azure.
+
+![Изображение добавления webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
+
+## <a name="step-4---add-a-web-hook"></a>Шаг 4. Добавление webhook
+
+### <a name="azure-container-registry"></a>Реестр контейнеров Azure
+
+В колонке реестра щелкните **Webhooks** (Объекты webhook), создайте webhook, нажав кнопку **Добавить**. В колонке **Создание webhook** задайте имя для webhook. В качестве URI webhook необходимо указать URL-адрес, полученный на **шаге 3**.
+
+Убедитесь, что вы определили область в качестве репозитория, который содержит образ контейнера.
+
+![изображение webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
+
+При обновлении образа веб-приложение будет автоматически обновлено с использованием нового образа.
+
+### <a name="docker-hub"></a>Docker Hub
 
 На своей странице Docker Hub щелкните **Webhooks** (Объекты webhook), затем щелкните **CREATE A WEBHOOK** (Создать webhook).
 
 ![Изображение добавления webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
 
-Для URL-адреса webhook необходима следующая конечная точка: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
+В качестве URL-адреса Webhook необходимо указать URL-адрес, полученный на **шаге 3**.
 
 ![Изображение добавления webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
-
-Вы можете получить `publishingusername` и `publishingpwd`, скачав профиль публикации веб-приложения с помощью портала Azure.
-
-![Изображение добавления webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
 
 При обновлении образа веб-приложение будет автоматически обновлено с использованием нового образа.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Что такое веб-приложение Azure на платформе Linux?](./app-service-linux-intro.md)
 * [Создание приложений в веб-приложении Azure на платформе Linux](./app-service-linux-how-to-create-web-app.md)
+* [Реестр контейнеров Azure](https://azure.microsoft.com/en-us/services/container-registry/)
 * [Использование конфигурации PM2 для Node.js в веб-приложении Azure на платформе Linux](app-service-linux-using-nodejs-pm2.md)
 * [Использование .NET Core в веб-приложении Azure на платформе Linux](app-service-linux-using-dotnetcore.md)
 * [Использование Ruby в веб-приложении Azure на платформе Linux](app-service-linux-ruby-get-started.md)

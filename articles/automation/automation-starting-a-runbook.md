@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/08/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0bacd2ccb08d20c4e0457d9fc83468e747cde870
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: a0cc641d5c2667b22ded2da8f803199cc959dc58
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -190,10 +192,5 @@ jsmith
 ## <a name="next-steps"></a>Дальнейшие действия
 * В текущей статье описана общая архитектура Runbook для управления ресурсами в Azure и локальной среде с помощью гибридной рабочей роли Runbook.  Дополнительные сведения о выполнении модулей Runbook службы автоматизации Azure в центре обработки данных см. в статье о [гибридных рабочих ролях Runbook](automation-hybrid-runbook-worker.md).
 * Чтобы узнать больше о создании модульных Runbook, используемых другими модулями Runbook для выполнения конкретных или общих функций, ознакомьтесь с [дочерними модулями Runbook](automation-child-runbooks.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

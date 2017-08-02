@@ -16,10 +16,10 @@ ms.date: 05/04/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 89174dad8fcd3bcceafd728feb2211926266720a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 44867f16acb620fd29957eae90311ef6c8fde559
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/28/2017
 С помощью управления привилегированными пользователями в Azure Active Directory (AD) можно администрировать, контролировать и отслеживать доступ в пределах организации, в том числе доступ к ресурсам в Azure AD и остальным веб-службам Microsoft, таким как Office 365 или Microsoft Intune.  
 
 > [!NOTE]
-> Управление привилегированными пользователями доступно только в выпуске Azure Active Directory Premium P2. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md).
+> Управление привилегированными пользователями доступно для всей организации, если администраторам назначены лицензии на выпуск Premium P2 службы Azure Active Directory. Дополнительные сведения см. в разделе [Выпуски Azure Active Directory](active-directory-editions.md).
 
 Организациям необходимо свести к минимуму число пользователей, имеющих доступ к защищенным сведениям или ресурсам. Это снижает вероятность того, что такой доступ получит злоумышленник. Однако пользователям иногда требуется выполнять привилегированные операции в приложениях Azure, Office 365 или SaaS. Организации предоставляют пользователям привилегированный доступ в Azure AD, не отслеживая, как именно пользователи используют свои права администратора. Azure AD Privileged Identity Management помогает устранить этот риск.  
 
@@ -37,6 +37,7 @@ ms.lasthandoff: 02/28/2017
 * своевременно включать административный доступ по требованию к службам Microsoft Online Services, таким как Office 365 и Intune;
 * получать отчеты по данным журнала доступа администраторов и изменениям в назначениях администраторов;
 * получать оповещения о доступе к привилегированным ролям;
+* Требовать утверждения для активации (предварительная версия)
 
 Azure AD Privileged Identity Management позволяет управлять встроенными ролями Azure AD в организации, включая следующие роли (но не ограничиваясь ими):  
 
@@ -64,13 +65,13 @@ Azure AD Privileged Identity Management позволяет управлять в
 
 Управлять правами доступа других администраторов может только администратор привилегированных ролей. Вы можете [предоставить другим пользователям возможность управлять PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
-## <a name="privileged-identity-management-dashboard"></a>Панель мониторинга Azure AD Privileged Identity Management
-Диспетчер привилегированных удостоверений Azure AD предоставляет панель мониторинга, на которой отображается такая важная информация, как:
+## <a name="privileged-identity-management-admin-dashboard"></a>Панель мониторинга управления привилегированными пользователями
+Диспетчер привилегированных удостоверений Azure AD предоставляет панель мониторинга администратора, на которой отображается такая важная информация, как:
 
 * оповещения, показывающие, как можно повысить уровень безопасности;
 * количество пользователей, которые назначены в каждую привилегированную роль;  
 * количество временных и постоянных администраторов;
-* регулярные проверки доступа.
+* граф активации привилегированных ролей в каталоге.
 
 ![Снимок экрана: панель мониторинга управления привилегированными пользователями (PIM)][2]
 
@@ -84,11 +85,13 @@ Azure AD Privileged Identity Management позволяет управлять в
 
 * длительность периода активации роли;
 * уведомления об активации роли;
-* данные, которые нужно указать пользователю во время активации роли.  
+* данные, которые нужно указать пользователю во время активации роли.
+* Запрос на обслуживание или номер инцидента
+* [Требования для рабочего процесса утверждения — предварительная версия](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
 
 ![Снимок экрана: параметры PIM — активация администратора][4]
 
-Обратите внимание, что на изображении кнопки для **Multi-Factor Authentication** неактивны. Для некоторых ролей с высоким уровнем привилегий требуется использование MFA для дополнительной защиты.
+Обратите внимание, что на изображении кнопки для **Многофакторной Идентификации** неактивны. Для некоторых ролей с высоким уровнем привилегий требуется использование MFA для дополнительной защиты.
 
 ## <a name="role-activation"></a>Активация роли
 Чтобы [активировать роль](active-directory-privileged-identity-management-how-to-activate-role.md), временный администратор отправляет запрос на активацию роли с привязкой по времени. Запрос на активацию можно отправить, используя параметр **Активировать мою роль** в Azure AD Privileged Identity Management.
@@ -100,14 +103,14 @@ Azure AD Privileged Identity Management позволяет управлять в
 ![Снимок экрана: запрос администратора — активация роли][5]
 
 ## <a name="review-role-activity"></a>Действие проверки роли
-Отследить, как сотрудники и администраторы используют привилегированные роли, можно двумя способами. Первый способ — с помощью [журнала аудита](active-directory-privileged-identity-management-how-to-use-audit-log.md). В журналах аудита отслеживаются изменения в назначениях привилегированных ролей и журнале активации ролей.
+Отследить, как сотрудники и администраторы используют привилегированные роли, можно двумя способами. Первый способ — с помощью [журнала аудита ролей каталога](active-directory-privileged-identity-management-how-to-use-audit-log.md). В журналах аудита отслеживаются изменения в назначениях привилегированных ролей и журнале активации ролей.
 
 ![Снимок экрана: журнал активации PIM][6]
 
 Второй способ — настроить регулярные [проверки доступа](active-directory-privileged-identity-management-how-to-start-security-review.md). Эти проверки может выполнять назначенный проверяющий (например, руководитель группы); также сотрудники могут проверять сами себя. Это лучший способ отследить, кому по-прежнему требуется доступ, а кому уже нет.
 
 ## <a name="azure-ad-pim-at-subscription-expiration"></a>Azure AD PIM по истечении срока действия подписки
-Перед выпуском общедоступной версии технология Azure AD PIM была доступна в предварительной версии. Проверки лицензии клиента для использования предварительной версии Azure AD PIM не выполнялись.  Теперь, когда вышла общедоступная версия Azure AD PIM, для использования PIM после декабря 2016 г. необходимо наличие в клиенте пробной или платной подписки.  Если ваша организация не приобрела Azure AD Premium P2 или срок действия подписки истекает, технология Azure AD PIM больше не будет доступна в вашем клиенте.  Дополнительные сведения см. на странице [требований к подписке для Azure AD PIM](./privileged-identity-management/subscription-requirements.md)
+Перед выпуском общедоступной версии технология Azure AD PIM была доступна в предварительной версии. Проверки лицензии клиента для использования предварительной версии Azure AD PIM не выполнялись.  Теперь, когда вышла общедоступная версия Azure AD PIM, для дальнейшего использования PIM необходимо назначить администраторам клиента пробные или платные лицензии.  Если ваша организация не приобрела Azure AD Premium P2 или срок действия пробной версии истекает, большинство функций Azure AD PIM больше не будет доступно в вашем клиенте.  Дополнительные сведения см. на странице [требований к подписке для Azure AD PIM](./privileged-identity-management/subscription-requirements.md)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
@@ -115,9 +118,9 @@ Azure AD Privileged Identity Management позволяет управлять в
 <!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Dash.png
+[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png
 [3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png
-[4]: ./media/active-directory-privileged-identity-management-configure/PIM_RoleActivationSettings.png
+[4]: ./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 

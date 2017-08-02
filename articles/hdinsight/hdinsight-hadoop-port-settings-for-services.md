@@ -1,5 +1,5 @@
 ---
-title: "Порты, используемые службой HDInsight | Документация Майкрософт"
+title: "Порты, используемые службами Hadoop в HDInsight — Azure | Документы Майкрософт"
 description: "Список портов, которые используются службами Hadoop, работающими в кластере HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/17/2017
+ms.date: 06/02/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 3bf5ff732b03a1ecffb4e149d7805a6216ab0019
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: b1a4ca17a53a6d337d704bc4eef6d441de1f32d8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/14/2017
 
 ---
-# <a name="ports-and-uris-used-by-hdinsight"></a>Порты и универсальные коды ресурсов (URI), используемые кластерами HDInsight
+# <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Порты, используемые службами Hadoop в HDInsight
 
 В этом документе представлен список портов, которые используются службами Hadoop, работающими в кластерах HDInsight под управлением Linux. Кроме того, в статье содержатся сведения о портах, которые используются для подключения к кластеру с помощью протокола SSH.
 
@@ -76,6 +75,14 @@ ms.lasthandoff: 05/17/2017
 > [!NOTE]
 > Некоторые службы доступны только в кластерах определенных типов. Например, служба HBase доступна только на кластерах типа HBase.
 
+### <a name="ambari"></a>Ambari
+
+| служба | Nodes | Порт | Путь | Протокол | 
+| --- | --- | --- | --- | --- |
+| Веб-интерфейс Ambari | Головные узлы | 8080 | / | HTTP |
+| Ambari REST API | Головные узлы | 8080 | /api/v1 | HTTP |
+
+
 ### <a name="hdfs-ports"></a>Порты HDFS
 
 | служба | Nodes | Порт | Протокол | Описание |
@@ -105,8 +112,8 @@ ms.lasthandoff: 05/17/2017
 
 | служба | Nodes | Порт | Протокол | Описание |
 | --- | --- | --- | --- | --- |
-| HiveServer2 |Головные узлы |10001 |Thrift |Служба для подключения к Hive программным способом (с помощью протокола Thrift или JDBC) |
-| Метахранилище Hive |Головные узлы |9083 |Thrift |Служба для подключения к метаданным Hive программным способом (с помощью протокола Thrift или JDBC) |
+| HiveServer2 |Головные узлы |10001 |Thrift |Служба для подключения к Hive (с помощью протокола Thrift или JDBC) |
+| Метахранилище Hive |Головные узлы |9083 |Thrift |Служба для подключения к метаданным Hive (с помощью протокола Thrift или JDBC) |
 
 ### <a name="webhcat-ports"></a>Порты WebHCat
 
@@ -152,4 +159,8 @@ ms.lasthandoff: 05/17/2017
 | Broker |Рабочие узлы |9092 |[Сетевой протокол Kafka](http://kafka.apache.org/protocol.html) |Используется для связи с клиентами |
 | &nbsp; |Узлы Zookeeper |2181 |&nbsp; |Порт, используемый клиентами для подключения к ZooKeeper |
 
+### <a name="spark-ports"></a>Порты Spark
 
+| служба | Nodes | Порт | Протокол | Описание |
+| --- | --- | --- | --- | --- |
+| Серверы Thrift Spark |Головные узлы |10002 |Thrift |Служба для подключения к Spark SQL (с помощью протокола Thrift или JDBC) |

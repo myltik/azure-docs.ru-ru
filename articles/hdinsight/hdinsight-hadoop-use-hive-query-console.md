@@ -1,5 +1,5 @@
 ---
-title: "Использование Hadoop Hive в консоли запросов в HDInsight | Документация Майкрософт"
+title: "Использование Hadoop Hive в консоли запросов в HDInsight — Azure | Документы Майкрософт"
 description: "Узнайте, как выполнять запросы Hive в кластере HDInsight Hadoop из браузера с помощью консоли запросов HDInsight для Интернета."
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,10 @@ ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3000f8db8357793c68f49b47cb5a1df16bb8df51
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9e3b4dbda4ba753ac93540d121b3831a6ed3b75e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Выполнение запросов Hive с помощью консоли запросов
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/18/2017
 В этой статье вы узнаете, как выполнять запросы Hive в кластере HDInsight Hadoop из браузера с помощью консоли запросов HDInsight.
 
 > [!IMPORTANT]
-> Консоль запросов HDInsight доступна только в кластерах HDInsight на платформе Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Консоль запросов HDInsight доступна только в кластерах HDInsight на платформе Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > При использовании HDInsight 3.4 или более поздней версии см. сведения о выполнении запросов Hive из браузера: [Использование представления Hive с Hadoop в HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
@@ -52,7 +51,7 @@ ms.lasthandoff: 05/18/2017
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     Эти операторы выполняют следующие действия.

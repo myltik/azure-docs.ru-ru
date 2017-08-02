@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: be00cb8f117fcbd2d137197f7dbe9713540cea61
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4065727aef04d7969d438c6ef79127bb44568be1
 ms.contentlocale: ru-ru
 
 
@@ -29,7 +29,7 @@ ms.contentlocale: ru-ru
 
 Приложение, созданное в этом руководстве, предоставляет кнопку для графа, а также отображает результаты на экране и кнопку выхода.
 
-> Предпочитаете скачать этот пример проекта Visual Studio? [Скачайте проект](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) и перейдите к [настройке](#create-an-application-express "Configuration Step"), чтобы настроить пример кода перед выполнением.
+> Предпочитаете скачать этот пример проекта Visual Studio? [Скачайте проект](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) и перейдите к [настройке](#create-an-application-express), чтобы настроить пример кода перед выполнением.
 
 
 ### <a name="create-your-application"></a>Создание приложения
@@ -77,7 +77,7 @@ public partial class App : Application
 ## <a name="create-your-applications-ui"></a>Создание пользовательского интерфейса приложения
 В разделе ниже описывается, как приложение может запрашивать защищенный внутренний сервер, например Microsoft Graph. Файл MainWindow.xaml должен создаваться автоматически как часть шаблона проекта. Откройте этот файл и выполните приведенные далее инструкции.
 
-1.  Вставьте в раздел `<Grid>` приложения следующий код:
+Вставьте в раздел `<Grid>` приложения следующий код:
 
 ```xml
 <Grid>

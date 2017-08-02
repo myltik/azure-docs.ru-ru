@@ -3,8 +3,8 @@ title: "Добавление проверки подлинности в прил
 description: "Узнайте, как использовать мобильные приложения службы приложений Azure, чтобы выполнять аутентификацию пользователей приложения универсальной платформы Windows (UWP) с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
 services: app-service\mobile
 documentationcenter: windows
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: panarasi
 editor: 
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
 ms.service: app-service-mobile
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 96b87d4d6cc1adbc9700102ffd4a989451676d81
-ms.lasthandoff: 03/09/2017
-
+ms.date: 07/05/2017
+ms.author: panarasi
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6f6b09f8135c03febe50ab734adf326a7b4ae19a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Добавление проверки подлинности в приложение Windows
@@ -31,6 +31,20 @@ ms.lasthandoff: 03/09/2017
 ## <a name="register"></a>Регистрация приложения для проверки подлинности и настройка службы приложений
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
+## <a name="redirecturl"></a>Добавление приложения в список разрешенных URL-адресов внешнего перенаправления
+
+Для безопасной аутентификации требуется определить новую схему URL-адресов для своего приложения. Это позволяет системе аутентификации выполнять перенаправление обратно в приложение после завершения процесса аутентификации. В этом руководстве мы повсеместно используем схему URL-адресов _appname_. Тем не менее можно использовать любую схему URL-адресов на свой выбор. Она должна быть уникальной для мобильного приложения. Вот как можно включить перенаправление на стороне сервера.
+
+1. На портале Azure выберите свою службу приложений.
+
+2. Выберите пункт меню **Аутентификация или авторизация**.
+
+3. В поле **Разрешенные URL-адреса внешнего перенаправления** введите `url_scheme_of_your_app://easyauth.callback`.  **url_scheme_of_your_app** в этой строке — это схема URL-адресов для вашего мобильного приложения.  Она должна соответствовать обычной спецификации URL-адресов для протокола (можно использовать буквы и цифры, и адрес должен начинаться с буквы).  Необходимо записать выбранную строку, так как потребуется в нескольких местах настроить код мобильного приложения с использованием схемы URL-адресов.
+
+4. Нажмите кнопку **ОК**.
+
+5. Щелкните **Сохранить**.
+
 ## <a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
@@ -39,7 +53,7 @@ ms.lasthandoff: 03/09/2017
 Далее вы обновите приложение, чтобы оно выполняло проверку подлинности пользователей перед запросом ресурсов из службы приложений.
 
 ## <a name="add-authentication"></a>Добавление проверки подлинности в приложение
-1. Откройте файл проекта приложения UWP MainPage.cs и добавьте следующий фрагмент кода в класс MainPage:
+1. В файле MainPage.xaml.cs проекта приложения UWP добавьте следующий фрагмент кода:
    
         // Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -55,7 +69,7 @@ ms.lasthandoff: 03/09/2017
                 // Change 'MobileService' to the name of your MobileServiceClient instance.
                 // Sign-in using Facebook authentication.
                 user = await App.MobileService
-                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                 message =
                     string.Format("You are now signed in - {0}", user.UserId);
    
@@ -73,8 +87,17 @@ ms.lasthandoff: 03/09/2017
         }
    
     Этот код выполняет проверку подлинности пользователя с помощью имени входа в Facebook. Если используется поставщик удостоверений, отличный от Facebook, измените значение **MobileServiceAuthenticationProvider** выше на значение для вашего поставщика.
-2. Закомментируйте или удалите вызов метода **ButtonRefresh_Click** (или метода **InitLocalStoreAsync**) в имеющемся переопределении метода **OnNavigatedTo**. Это позволяет предотвратить загрузку данных до того, как пользователь прошел проверку подлинности. Затем добавьте кнопку **Вход** в приложение, которое запускает проверку подлинности.
-3. Добавьте в класс MainPage следующий фрагмент кода:
+2. Замените метод **OnNavigatedTo()** в файле MainPage.xaml.cs. Затем добавьте кнопку **Вход** в приложение, которое запускает проверку подлинности.
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is Uri)
+            {
+                App.MobileService.ResumeWithURL(e.Parameter as Uri);
+            }
+        }
+
+3. Добавьте в файл MainPage.xaml.cs следующий фрагмент кода:
    
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -104,7 +127,24 @@ ms.lasthandoff: 03/09/2017
                 <TextBlock Margin="5">Sign in</TextBlock> 
             </StackPanel>
         </Button>
-5. Нажмите клавишу F5, чтобы запустить приложение, нажмите кнопку **Вход** и войдите в приложение с помощью выбранного поставщика удостоверений. После успешного входа приложение работает без ошибок, а вы должны быть в состоянии выполнять запросы к серверной части и обновлять данные.
+5. Добавьте в файл App.xaml.cs следующий фрагмент кода:
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
+                Frame content = Window.Current.Content as Frame;
+                if (content.Content.GetType() == typeof(MainPage))
+                {
+                    content.Navigate(typeof(MainPage), protocolArgs.Uri);
+                }
+            }
+            Window.Current.Activate();
+            base.OnActivated(args);
+        }
+6. Откройте файл Package.appxmanifest, перейдите к разделу **Объявления**, в раскрывающемся списке **Доступные объявления** выберите пункт **Протокол** и нажмите кнопку **Добавить**. Далее настройте **свойства** объявления **протокола**. В поле **Отображаемое имя** добавьте имя, которое должно отображаться для пользователей приложения. В поле **Имя** добавьте {url_scheme_of_your_app}.
+7. Нажмите клавишу F5, чтобы запустить приложение, нажмите кнопку **Вход** и войдите в приложение с помощью выбранного поставщика удостоверений. После успешного входа приложение работает без ошибок, а вы должны быть в состоянии выполнять запросы к серверной части и обновлять данные.
 
 ## <a name="tokens"></a>Сохранение токена проверки подлинности в клиенте
 В предыдущем примере был показан стандартный вход, при котором клиенту нужно подключаться к поставщику удостоверений и службе приложений каждый раз, когда приложение запускается. Мало того что этот метод неэффективен, вы можете столкнуться с проблемами, связанными с использованием приложения, если большое количество клиентов попытаются запустить приложение одновременно. Лучше кэшировать токен авторизации, который возвратила служба приложений, причем делать это до входа через поставщика.
@@ -126,5 +166,4 @@ ms.lasthandoff: 03/09/2017
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Анализ данных о задержке рейсов с помощью Hive в HDInsight на основе Linux | Документация Майкрософт"
+title: "Анализ данных по задержке рейсов с помощью Hive в HDInsight — Azure | Документы Майкрософт"
 description: "Узнайте, как анализировать данные о задержке рейсов с помощью Hive в HDInsight под управлением Linux, а затем экспортировать их в Базу данных SQL с помощью Sqoop."
 services: hdinsight
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: cf460eed4bd290fbdcb9670a4ec4999f4c96c275
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 88031b3698ec575eb48531b118c45f11ef7f19c0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Анализ данных о задержке рейсов с помощью Hive в HDInsight на платформе Linux
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/05/2017
 Узнайте, как анализировать данные о задержке рейсов с помощью Hive в HDInsight под управлением Linux, а затем экспортировать их в Базу данных SQL Azure с помощью Sqoop.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### <a name="prerequisites"></a>Предварительные требования
 
@@ -163,7 +163,7 @@ ms.lasthandoff: 05/05/2017
 3. Для запуска Hive и выполнения файла **flightdelays.hql** используйте следующую команду:
 
     ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
    > [!NOTE]
@@ -172,7 +172,7 @@ ms.lasthandoff: 05/05/2017
 4. По завершении выполнения сценария __flightdelays.hql__ используйте следующую команду, чтобы открыть интерактивный сеанс Beeline:
 
     ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
 5. При появлении командной строки `jdbc:hive2://localhost:10001/>` используйте приведенный ниже запрос, чтобы извлечь информацию из импортированных данных о задержке рейсов.

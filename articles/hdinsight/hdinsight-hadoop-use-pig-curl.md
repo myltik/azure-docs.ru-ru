@@ -1,5 +1,5 @@
 ---
-title: "Использование Hadoop Pig с REST в HDInsight | Документы Майкрософт"
+title: "Использование Hadoop Pig с помощью REST в HDInsight — Azure | Документы Майкрософт"
 description: "Узнайте, как с помощью REST выполнять задания Pig Latin в кластере Hadoop в Azure HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 1c719a33001654755ec8d83f4bf43ca1fc52954e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b7a4772180225fc6be48ab5c75dcc334d3431e75
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 05/18/2017
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Linux или Windows).
 
   > [!IMPORTANT]
-  > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Curl](http://curl.haxx.se/)
 

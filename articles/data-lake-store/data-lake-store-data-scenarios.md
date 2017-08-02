@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: a1349e53774732ffbfacefc7bd8dcc493f78fbd6
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: f173111fb827a1f25fad857596fef13447bcca38
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -42,7 +42,7 @@ ms.lasthandoff: 05/08/2017
 
 | Источник данных | Средство для приема |
 | --- | --- |
-| Локальный компьютер |<ul> <li>[Портал Azure](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Межплатформенный интерфейс командной строки Azure](data-lake-store-get-started-cli.md)</li> <li>[Data Lake Tools для Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md#upload-source-data-files) </li></ul> |
+| Локальный компьютер |<ul> <li>[Портал Azure](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Кроссплатформенный интерфейс командной строки Azure 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Data Lake Tools для Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Большой двоичный объект хранилища Azure |<ul> <li>[Фабрика данных Azure](../data-factory/data-factory-azure-datalake-connector.md)</li> <li>[инструмента AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp, запущенный на кластере HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Потоковые данные
@@ -63,7 +63,7 @@ ms.lasthandoff: 05/08/2017
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Данные журналов веб-сервера (отправка с помощью настраиваемых приложений)
 Этот тип набора данных вызывается специально, так как анализ данных журналов веб-сервера часто используется в приложениях по работе с большими данными, и для его выполнения требуется отправка больших объемов файлов журналов в хранилище озера данных. Для отправки таких данных воспользуйтесь следующими средствами или напишите собственные сценарии или приложения.
 
-* [Межплатформенный интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
+* [Кроссплатформенный интерфейс командной строки Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Пакет SDK для .NET хранилища озера данных Azure](data-lake-store-get-started-net-sdk.md)
 * [Фабрика данных Azure](../data-factory/data-factory-data-movement-activities.md)
@@ -77,13 +77,13 @@ ms.lasthandoff: 05/08/2017
 * [Служба AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 * [Фабрика данных Azure](../data-factory/data-factory-azure-datalake-connector.md)
 
-### <a name="data-stored-in-on-premise-or-iaas-hadoop-clusters"></a>Данные, хранящиеся в локальных кластерах Hadoop или кластерах Hadoop в IaaS
-Большие объемы данных могут храниться в кластерах Hadoop, размещенных локально на компьютерах, использующих HDFS. Кластеры Hadoop могут быть развернуты локально или могу работать в кластере IaaS в Azure. К копированию таких данных в хранилище озера данных Azure могут предъявляться требования, в зависимости от того, является ли эта операция одноразовой или повторяющейся. Существуют различные возможности выполнить их. Ниже приведен список альтернативных вариантов и связанные с ними компромиссы.
+### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Данные, хранящиеся в локальных кластерах Hadoop или кластерах Hadoop в IaaS
+Большие объемы данных могут храниться в кластерах Hadoop, размещенных локально на компьютерах, использующих HDFS. Кластеры Hadoop могут быть развернуты локально или работать в кластере IaaS в Azure. К копированию таких данных в хранилище озера данных Azure могут предъявляться требования, в зависимости от того, является ли эта операция одноразовой или повторяющейся. Существуют различные возможности выполнить их. Ниже приведен список альтернативных вариантов и связанные с ними компромиссы.
 
 | Подход | Сведения | Преимущества | Рекомендации |
 | --- | --- | --- | --- |
 | Использование фабрики данных Azure (ADF) для копирования данных напрямую из кластеров Hadoop в хранилище озера данных Azure. |[ADF поддерживает HDFS в качестве источника данных.](../data-factory/data-factory-hdfs-connector.md) |ADF реализована готовая поддержка HDFS, а также первоклассные инструменты комплексного управления и мониторинга. |Требуется развернуть шлюз управления данными в локальном кластере или кластере IaaS. |
-| Экспорт данных из Hadoop в виде файлов. Затем — копирование этих файлов в хранилище озера данных Azure с помощью соответствующего механизма. |Скопировать файлы в Azure Data Lake Store можно с помощью:  <ul><li>[Azure PowerShell только для Windows](data-lake-store-get-started-powershell.md)</li><li>[Кроссплатформенный интерфейс командной строки Azure для ОС, отличных от Windows](data-lake-store-get-started-cli.md)</li><li>Пользовательское приложение, использующее любой пакет SDK Data Lake Store</li></ul> |Можно быстро приступить к работе. Возможны настраиваемые передачи данных. |Многоэтапный процесс с использованием нескольких технологий. Учитывая настраиваемый характер инструментов, со временем будет все сложнее осуществлять управление и мониторинг. |
+| Экспорт данных из Hadoop в виде файлов. Затем — копирование этих файлов в хранилище озера данных Azure с помощью соответствующего механизма. |Скопировать файлы в Azure Data Lake Store можно с помощью:  <ul><li>[Azure PowerShell только для Windows](data-lake-store-get-started-powershell.md)</li><li>[Кроссплатформенный интерфейс командной строки Azure 2.0 для ОС, отличных от Windows](data-lake-store-get-started-cli-2.0.md)</li><li>Пользовательское приложение, использующее любой пакет SDK Data Lake Store</li></ul> |Можно быстро приступить к работе. Возможны настраиваемые передачи данных. |Многоэтапный процесс с использованием нескольких технологий. Учитывая настраиваемый характер инструментов, со временем будет все сложнее осуществлять управление и мониторинг. |
 | Использование Distcp для копирования данных из Hadoop в службу хранилища Azure. Затем — копирование данных из службы хранилища Azure в хранилище озера данных с помощью соответствующего механизма. |Скопировать данные из службы хранилища Azure в Data Lake Store можно с помощью:  <ul><li>[Фабрика данных Azure](../data-factory/data-factory-data-movement-activities.md)</li><li>[инструмента AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp, запущенный в кластерах HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |Можно использовать инструменты с открытым кодом. |Многоэтапный процесс с использованием нескольких технологий. |
 
 ### <a name="really-large-datasets"></a>Очень большие наборы данных
@@ -123,7 +123,7 @@ ms.lasthandoff: 05/08/2017
 
 Для написания сценария или приложения для загрузки данных из хранилища озера данных можно воспользоваться следующими средствами.
 
-* [Межплатформенный интерфейс командной строки Azure](data-lake-store-get-started-cli.md)
+* [Кроссплатформенный интерфейс командной строки Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Пакет SDK для .NET хранилища озера данных Azure](data-lake-store-get-started-net-sdk.md)
 

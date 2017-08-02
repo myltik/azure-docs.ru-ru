@@ -12,23 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 07/19/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7f6d82d211e9b3d25b0efe62ab8dd32f827b08ef
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: f1875582476c3817b9eb0082b6548cc15043cb98
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# Поиск отчетов о действиях на портале Azure
-<a id="find-activity-reports-in-the-azure-portal" class="xliff"></a>
+# <a name="find-activity-reports-in-the-azure-portal"></a>Поиск отчетов о действиях на портале Azure
 
 При перемещении с классического портала Azure на портал Azure вы получаете новое представление журналов действий Azure Active Directory (Azure AD). В недавней [записи блога](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/) мы рассказывали, как просмотреть журналы действий в контексте ресурса, c которым вы работаете на портале Azure. В этой статье мы объясним, как находить на портале Azure отчеты, которые вы использовали на классическом портале Azure.
 
-## Новые возможности
-<a id="whats-new" class="xliff"></a>
+## <a name="whats-new"></a>Новые возможности
 
 Отчеты на классическом портале Azure разделены на различные категории.
 
@@ -36,8 +34,7 @@ ms.lasthandoff: 05/09/2017
 2.  Отчеты об активности
 3.  Отчеты интегрированных приложений
 
-### Отчеты о действиях и отчеты интегрированных приложений
-<a id="activity-and-integrated-app-reports" class="xliff"></a>
+### <a name="activity-and-integrated-app-reports"></a>Отчеты о действиях и отчеты интегрированных приложений
 
 Существующие отчеты на портале Azure объединяются в единое представление, чтобы их можно было просматривать в контексте. Один базовый API предоставляет данные для представления.
 
@@ -65,13 +62,11 @@ ms.lasthandoff: 05/09/2017
 
 ![Корпоративные приложения](./media/active-directory-reporting-migration/484.png "Корпоративные приложения")
 
-## Доступ к конкретному отчету
-<a id="access-a-specific-report" class="xliff"></a>
+## <a name="access-a-specific-report"></a>Доступ к конкретному отчету
 
 На портале Azure доступно единое представление, но вы также можете просматривать конкретные отчеты.
 
-### Журналы аудита
-<a id="audit-logs" class="xliff"></a>
+### <a name="audit-logs"></a>Журналы аудита
 
 В ответ на отзывы клиентов на портале Azure появилась расширенная фильтрация для доступа к нужным данным. Вы можете использовать в качестве фильтра *категорию действий*, которая содержит различные типы журналов действий в Azure AD. Чтобы ограничить результаты, вы можете выбрать категорию.
 
@@ -86,18 +81,15 @@ ms.lasthandoff: 05/09/2017
 - "Self-service Group Management" (Самостоятельное управление группами);
 - "Account Provisioning" (Подготовка учетных записей).
 
-### Использование приложений
-<a id="application-usage" class="xliff"></a>
+### <a name="application-usage"></a>Использование приложений
 
 Чтобы просмотреть подробные сведения об использовании приложения для всех приложений или для отдельного приложения, в разделе **ДЕЙСТВИЕ** выберите **События входа**. Чтобы ограничить результаты, вы можете их отфильтровать по имени пользователя или приложения.
 
 ![Страница фильтрации событий входа](./media/active-directory-reporting-migration/07.png "Страница фильтрации событий входа")
 
-### Отчеты о безопасности
-<a id="security-reports" class="xliff"></a>
+### <a name="security-reports"></a>Отчеты о безопасности
 
-#### Отчеты Azure AD об аномальных действиях
-<a id="azure-ad-anomalous-activity-reports" class="xliff"></a>
+#### <a name="azure-ad-anomalous-activity-reports"></a>Отчеты Azure AD об аномальных действиях
 
 Отчеты системы безопасности Azure AD об аномальных действиях с классического портала Azure объединены в единое централизованное представление. В этом представлении отображаются все события, связанные с угрозами безопасности, которые Azure AD может обнаружить и о которых может сообщить.
 
@@ -122,8 +114,7 @@ ms.lasthandoff: 05/09/2017
 Дополнительные сведения см. в статье [События риска Azure Active Directory](active-directory-identity-protection-risk-events.md).  
 
 
-#### Обнаруженные события риска
-<a id="detected-risk-events" class="xliff"></a>
+#### <a name="detected-risk-events"></a>Обнаруженные события риска
 
 На портале Azure вы можете просмотреть отчеты об обнаруженных событиях риска в разделе **БЕЗОПАСНОСТЬ** колонки **Azure Active Directory**. Обнаруженные события риска отслеживаются в следующих отчетах:   
 
@@ -138,8 +129,7 @@ ms.lasthandoff: 05/09/2017
 - [Отчет о событиях входа, представляющих риск, на портале Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 
-## Сравнение отчетов о действиях на классическом портале Azure и на портале Azure
-<a id="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal" class="xliff"></a>
+## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Сравнение отчетов о действиях на классическом портале Azure и на портале Azure
 
 В таблице в этом разделе перечислены существующие отчеты на классическом портале Azure. В ней также объясняется, как найти те же сведения на портале Azure.
 
@@ -162,4 +152,8 @@ ms.lasthandoff: 05/09/2017
 
 
 ![Отчет о событиях входа в корпоративные приложения](./media/active-directory-reporting-migration/199.png "Отчет о событиях входа в корпоративные приложения")
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+Общие сведения об отчетах Azure Active Directory см. в [этой статье](active-directory-reporting-azure-portal.md).
 

@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: fd221f624e64e6b1ffcc4d28608b8fa2936400ae
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: bb0bdf071e6fefa62efc134ae2eb2f29cd70ae9d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="documentdb-nodejs-sdk-release-notes-and-resources"></a>Пакет SDK Node.js для DocumentDB: заметки о выпуске и материалы
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Веб-канал изменений в .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)

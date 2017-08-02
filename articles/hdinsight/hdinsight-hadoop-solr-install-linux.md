@@ -1,5 +1,5 @@
 ---
-title: "Использование действия скрипта для установки Solr в кластере HDInsight на основе Linux | Документация Майкрософт"
+title: "Использование действия скрипта для установки Solr в кластере HDInsight на основе Linux — Azure | Документы Майкрософт"
 description: "Узнайте, как устанавливать Solr в кластерах HDInsight Hadoop на основе Linux с помощью действий сценария."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 07/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 9035dd639433f1edc628db85f1663add4abfdbd3
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: ad930ca023a36fa5874483873c82fdba11d117c7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Установка и использование Solr на кластерах HDInsight Hadoop
@@ -29,10 +28,10 @@ ms.lasthandoff: 05/18/2017
 Узнайте, как установить Solr в Azure HDInsight с помощью действия сценария. Solr представляет собой многофункциональную платформу поиска и предоставляет возможности поиска корпоративного уровня на основе данных, управляемых Hadoop.
 
 > [!IMPORTANT]
-    > Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!IMPORTANT]
-> Пример сценария, используемый в данном документе, создает кластер Solr с определенной конфигурацией. Если вы хотите настроить кластер Solr для использования других коллекций, сегментов, схем, реплик и т. п., необходимо соответствующим образом изменить сценарий и двоичные файлы Solr.
+> Пример скрипта, используемый в этом документе, устанавливает кластер Solr 4.9 с определенной конфигурацией. Если вы хотите настроить кластер Solr для использования других коллекций, сегментов, схем, реплик и т. п., необходимо соответствующим образом изменить сценарий и двоичные файлы Solr.
 
 ## <a name="whatis"></a>Что такое Solr
 
@@ -47,7 +46,7 @@ ms.lasthandoff: 05/18/2017
 
 Этот сценарий вносит следующие изменения в кластер HDInsight:
 
-* Устанавливает Solr в `/usr/hdp/current/solr`
+* Устанавливает Solr 4.9 в `/usr/hdp/current/solr`.
 * Создает пользователя **solrusr**, используемого для запуска службы Solr.
 * Делает пользователя **solrusr** владельцем `/usr/hdp/current/solr`.
 * Добавляет конфигурацию [Upstart](http://upstart.ubuntu.com/), которая автоматически запускает Solr.
@@ -321,7 +320,7 @@ sudo start solr
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Дополнительные сведения о резервном копировании и восстановлении Solr см. в статье [Making and restoring backups of SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores) (Создание и восстановление резервных копий SolrCore).
+Дополнительные сведения о резервном копировании и восстановлении Solr см. на странице [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

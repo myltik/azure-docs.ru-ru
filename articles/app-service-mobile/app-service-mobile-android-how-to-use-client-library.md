@@ -3,8 +3,8 @@ title: "Как использовать пакет SDK для мобильных
 description: "Сведения об использовании пакета SDK для мобильных приложений Azure в клиенте Android."
 services: app-service\mobile
 documentationcenter: android
-author: adrianhall
-manager: adrianhall
+author: ggailey777
+manager: syntaxc4
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: adrianha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 2709a67f1586f9c43d5d696909aef8ca945583f8
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 4ede35cf96e88a6f0c4f6622f6319f26a47d64fc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Как использовать пакет SDK для мобильных приложений Azure в клиенте Android
@@ -1099,7 +1099,7 @@ dependencies {
 
 1. Добавьте указанный ниже код в приложение, выполнив следующие замены.
 
-* Замените строку **INSERT-AUTHORITY-HERE** именем клиента, в котором подготовлено приложение. Формат должен быть следующим: https://login.windows.net/contoso.onmicrosoft.com.
+* Замените строку **INSERT-AUTHORITY-HERE** именем клиента, в котором подготовлено приложение. Формат должен быть следующим: https://login.microsoftonline.com/contoso.onmicrosoft.com.
 * Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Идентификатор клиента можно скопировать на портале в разделе **Настройки Azure Active Directory** на вкладке **Дополнительно**.
 * Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
 * Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта */.auth/login/done* , используя схему HTTPS. Это значение должно быть похоже на *https://contoso.azurewebsites.net/.auth/login/done*.

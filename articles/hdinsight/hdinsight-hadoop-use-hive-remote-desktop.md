@@ -1,5 +1,5 @@
 ---
-title: "Использование Hadoop Hive и удаленного рабочего стола в HDInsight | Документация Майкрософт"
+title: "Использование Hadoop Hive и удаленного рабочего стола в HDInsight — Azure | Документы Майкрософт"
 description: "Узнайте, как подключиться к кластеру HDInsight с помощью удаленного рабочего стола, а затем выполнить запросы Hive с помощью интерфейса командной строки Hive."
 services: hdinsight
 documentationcenter: 
@@ -17,11 +17,10 @@ ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 0ff59627fe0e8db409f1404ee8397f3da3a56569
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0be8ba4cfdf0686e14e70d0688085af5455de43a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Использование Hive с Hadoop в HDInsight с помощью удаленного рабочего стола
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/18/2017
 В этой статье вы узнаете, как подключиться к кластеру HDInsight с помощью удаленного рабочего стола, а затем выполнить запросы Hive с помощью интерфейса командной строки Hive.
 
 > [!IMPORTANT]
-> Удаленный рабочий стол доступен только в кластерах HDInsight под управлением операционной системы Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Удаленный рабочий стол доступен только в кластерах HDInsight под управлением операционной системы Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > При использовании HDInsight 3.4 или более поздней версии см. сведения о выполнении запросов Hive непосредственно в кластере из командной строки: [Использование Hive с Hadoop в HDInsight с применением Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
@@ -58,7 +57,7 @@ ms.lasthandoff: 05/18/2017
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     Эти операторы выполняют следующие действия.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 40164cfba8b54634278194c599a4493a5b7910b2
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: 4153056bd21006061c6ad8ff9cf3c17de9248628
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Руководство по интеграции Azure Active Directory с FilesAnywhere
@@ -117,6 +117,8 @@ ms.lasthandoff: 04/03/2017
     ![Настройка единого входа](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url.png)
     
     а. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`.
+> [!NOTE]
+> Обратите внимание, что значение **215** представляет собой **clientid** и является всего лишь примером. Его необходимо заменить фактическим значением clientid.
 
 4. Если вы хотите настроить приложение в **режиме, инициированном поставщиком услуг**, то в разделе **Домены и URL-адреса приложения FilesAnywhere** выполните следующие действия:
     
@@ -170,7 +172,7 @@ ms.lasthandoff: 04/03/2017
 
     ![Настройка единого входа](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
 
-10.    Чтобы настроить единый вход для своего приложения на стороне FilesAnywhere, обратитесь в [службу поддержки FilesAnywhere](mailto:support@FilesAnywhere.com) и предоставьте скачанный сертификат подписи токена SAML и URL-адрес единого входа (SSO).
+10. Чтобы настроить единый вход для своего приложения на стороне FilesAnywhere, обратитесь в [службу поддержки FilesAnywhere](mailto:support@FilesAnywhere.com) и предоставьте скачанный сертификат подписи токена SAML и URL-адрес единого входа (SSO).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
 Цель этого раздела — создать на портале управления Azure тестового пользователя с именем Britta Simon.

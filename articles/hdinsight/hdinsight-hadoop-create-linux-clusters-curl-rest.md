@@ -1,5 +1,5 @@
 ---
-title: "Создание кластеров HDInsight (Hadoop) с помощью Azure REST API | Документация Майкрософт"
+title: "Создание кластеров Hadoop с помощью REST API Azure | Документы Майкрософт"
 description: "Узнайте, как создавать кластеры HDInsight, отправив шаблоны Azure Resource Manager в Azure REST API."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/17/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 85d241d7c81d1c40abb6f98b84983aca8240463d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1b257b5a021a682990fb615d7c9aae4fc9160dd4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/18/2017
 Azure REST API позволяет управлять службами, размещенными на платформе Azure, в том числе создавать ресурсы, например кластеры HDInsight.
 
 > [!IMPORTANT]
-> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]
 > В описанных в этом документе инструкциях для связи с Azure REST API используется служебная программа [curl (https://curl.haxx.se/)](https://curl.haxx.se/).

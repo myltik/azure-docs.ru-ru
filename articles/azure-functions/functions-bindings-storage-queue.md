@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: donnam, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 85a3386c8159eb1abf01ccd35c6aea04f5710d5c
+ms.translationtype: HT
+ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
+ms.openlocfilehash: f39f674bf576a2661a0e03710b9005b0515b3aa5
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Привязки хранилища очередей для Функций Azure
@@ -75,7 +74,7 @@ ms.lasthandoff: 05/31/2017
 * **ExpirationTime** — тип `DateTimeOffset?`. Время истечения срока действия сообщения.
 * **Id** — тип `string`. Идентификатор сообщения в очереди.
 * **InsertionTime** — тип `DateTimeOffset?`. Время, когда сообщение было добавлено в очередь.
-* **NextVisibleTime** — тип `DateTimeOffset?. Время, когда сообщение станет видимым в следующий раз.
+* **NextVisibleTime** — введите `DateTimeOffset?`. Время, когда сообщение станет видимым в следующий раз.
 * **PopReceipt** — тип `string`. Уведомление о получении сообщения.
 
 Сведения об использовании метаданных очереди см. в разделе [Пример триггера](#triggersample)
@@ -294,3 +293,4 @@ module.exports = function(context) {
 <!-- LINKS -->
 
 [`CloudQueueMessage`]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+

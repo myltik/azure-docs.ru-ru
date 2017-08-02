@@ -1,5 +1,5 @@
 ---
-title: "Добавление библиотек Hive во время создания кластера HDInsight | Документация Майкрософт"
+title: "Добавление библиотек Hive во время создания кластера HDInsight — Azure | Документы Майкрософт"
 description: "Узнайте, как добавлять библиотеки Hive (JAR-файлы) в кластер HDInsight во время создания кластера."
 services: hdinsight
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 6f6d7bf50878cc6938f19ba7f79f968f44f82ed6
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 9bd95113616cc8e943f20e8a3795933ac9e99cc8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Добавление пользовательских библиотек Hive при создании кластера HDInsight
@@ -47,7 +47,7 @@ ms.lasthandoff: 05/18/2017
 Для **кластеров под управлением Windows** — [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1).
 
 > [!IMPORTANT]
-> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 **Требования**
 
