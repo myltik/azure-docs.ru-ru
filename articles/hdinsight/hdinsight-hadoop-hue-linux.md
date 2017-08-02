@@ -1,6 +1,7 @@
 ---
-title: "Использование Hue с Hadoop в кластерах HDInsight на платформе Linux | Документация Майкрософт"
-description: "Узнайте, как установить и использовать Hue с кластерами Hadoop в HDInsight на платформе Linux."
+title: "Использование Hue с Hadoop в кластерах HDInsight на платформе Linux — Azure | Документы Майкрософт"
+description: "Узнайте, как установить Hue на кластер HDInsight и задействовать туннелирование для направления запросов на Hue. Используйте Hue для просмотра хранилища и выполнения Hive или Pig."
+keywords: hue hadoop
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -8,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 66884a73a8ea1cbf72a48f9a776fa45ae1976591
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9bccb28934415d3ff6d363d35b604056b28cb6b9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,10 +29,10 @@ ms.lasthandoff: 05/18/2017
 Узнайте, как установить Hue на кластер HDInsight и задействовать туннелирование для направления запросов на Hue.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-is-hue"></a>Что такое Hue
-Hue — это набор веб-приложений, используемых для взаимодействия с кластером Hadoop. Hue позволяет просматривать хранилище, связанное с кластером Hadoop (WASB в случае кластеров HDInsight), выполнять задания Hive, сценарии Pig и т. д. Установив Hue на кластер HDInsight Hadoop, вы получите доступ к следующим компонентам:
+Hue — это набор веб-приложений, используемых для взаимодействия с кластером Hadoop. Hue позволяет просматривать хранилище, связанное с кластером Hadoop (WASB в случае кластеров HDInsight), выполнять задания Hive, скрипты Pig и т. д. Установив Hue на кластер HDInsight Hadoop, вы получите доступ к следующим компонентам:
 
 * редактор Beeswax Hive,
 * Pig,
@@ -51,7 +52,7 @@ Hue — это набор веб-приложений, используемых 
 
 Сценарий для установки Hue в кластере HDInsight под управлением Linux доступен по адресу https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. С его помощью можно установить Hue в кластерах с Azure Storage Blob (WASB) или Azure Data Lake Store в качестве хранилища по умолчанию.
 
-Этот раздел содержит указания по использованию сценария при подготовке кластера с помощью портала Azure.
+Этот раздел содержит инструкции по использованию скрипта при подготовке кластера с помощью портала Azure.
 
 > [!NOTE]
 > Для выполнения действий этого сценария также можно использовать Azure PowerShell, Azure CLI, пакет SDK .NET для HDInsight или шаблоны Azure Resource Manager. Действия сценария также можно применять к уже работающим кластерам. Дополнительные сведения см. в статье [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
@@ -138,7 +139,7 @@ Hue — это набор веб-приложений, используемых 
 2. Во время установки некоторые службы Hadoop (HDFS, YARN, MR2, Oozie) перезапускаются для обновления конфигурации. После того как сценарий завершает установку Hue, для запуска прочих служб Hadoop иногда требуется некоторое время. Это может повлиять на первоначальную производительность Hue. После запуска всех служб набор Hue полностью готов к работе.
 3. Hue не может работать с заданиями Tez, которые по умолчанию используются в Hive. Если в качестве подсистемы выполнения в Hive вы хотите задействовать MapReduce, измените сценарий, добавив в него следующую команду.
 
-         set hive.execution.engine=mr;
+        set hive.execution.engine=mr;
 
 4. Кластеры под управлением Linux можно настроить так, чтобы службы выполнялись на основном головном узле, а Resource Manager — на дополнительном. При таком сценарии попытка использования Hue для просмотра сведений о ЗАПУЩЕННЫХ заданиях на кластере может привести к ошибкам (показаны ниже). Тем не менее после завершения заданий вы можете просматривать сведения о них.
 

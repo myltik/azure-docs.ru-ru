@@ -1,5 +1,5 @@
 ---
-title: "Анализ данных Twitter с помощью Hadoop в HDInsight | Документация Майкрософт"
+title: "Анализ данных Twitter с помощью Hadoop в HDInsight — Azure | Документы Майкрософт"
 description: "Узнайте, как использовать Hive для анализа данных Twitter с помощью Hadoop в HDInsight, чтобы определить частоту употребления конкретного слова."
 services: hdinsight
 documentationcenter: 
@@ -12,13 +12,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 159e41f3d1b43abc830b79e1ea0bed05e05505a2
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fa22c0dd4da1117980adb43c937197274f08760b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/11/2017
 В этом учебнике вы будете получать твиты с помощью API потоковой передачи Twitter, а затем с помощью Apache Hive в Azure HDInsight будете получать список пользователей Twitter, отправивших большинство твитов, которые содержат определенное слово.
 
 > [!IMPORTANT]
-> Действия, описанные в этом документе, требуют наличия кластера HDInsight на основе Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date). Инструкции по работе с кластером под управлением Linux см. в статье [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data-linux.md).
+> Действия, описанные в этом документе, требуют наличия кластера HDInsight на основе Windows. Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement). Инструкции по работе с кластером под управлением Linux см. в статье [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:

@@ -3,8 +3,8 @@ title: "Начало работы с языком U-SQL | Документац�
 description: "Основы языка U-SQL."
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 4884d96e8126337f62af23316935978cfe219ec8
+ms.date: 06/23/2017
+ms.author: saveenr
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: a193590504fc3706a7c1f1562e94a8a80da03e75
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -27,9 +27,9 @@ U-SQL — это язык, который объединяет декларат
 
 ## <a name="learning-resources"></a>Учебные материалы
 
-Дополнительные сведения о **синтаксисе языка U-SQL** см. в [справочнике по языку U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
-
-Чтобы понять **принципы разработки на U-SQL**, см. запись блога Visual Studio, посвященную [использованию языка U-SQL для простой обработки больших данных](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+* В [учебнике по U-SQL] приводятся пошаговые инструкции по выполнению большинства операций с языком U-SQL. Этот документ рекомендуется к ознакомлению всем разработчикам, которые хотят освоить U-SQL.
+* Дополнительные сведения о **синтаксисе языка U-SQL** см. в [справочнике по языку U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+* Чтобы понять **принципы разработки на U-SQL**, см. запись блога Visual Studio, посвященную [использованию языка U-SQL для простой обработки больших данных](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
@@ -37,7 +37,7 @@ U-SQL — это язык, который объединяет декларат
 
 ## <a name="your-first-u-sql-script"></a>Первый скрипт U-SQL
 
-Это очень простой скрипт U-SQL, который помогает понять различные аспекты языка U-SQL.
+Ниже приведен очень простой скрипт U-SQL, который помогает понять различные аспекты языка U-SQL.
 
 ```
 @searchlog =
@@ -69,20 +69,13 @@ OUTPUT @searchlog
 
 Операторы EXTRACT и OUTPUT используют пути к файлам. Пути к файлам могут быть абсолютными или относительными.
 
-Этот абсолютный путь к файлу ссылается на файл `mystore` в Data Lake Store:
+Следующий абсолютный путь к файлу ссылается на файл `mystore` в Data Lake Store:
 
     adl://mystore.azuredatalakestore.net/Samples/Data/SearchLog.tsv
 
-Этот абсолютный путь к файлу ссылается на файл `myblobaccount` в учетной записи хранения BLOB-объектов Azure и файл `mycontainer` в контейнере:
+Следующий относительный путь к файлу начинается с `"/"`. Он указывает на файл в учетной записи Data Lake Store по умолчанию:
 
-    wasb://mycontainer@myblobaccount.blob.core.windows.net/Samples/Data/SearchLog.tsv
-
- >[!NOTE]
- >Контейнеры хранилища BLOB-объектов Azure с разрешениями на доступ к общедоступным большим двоичным объектам или общедоступным контейнерам сейчас не поддерживаются.
-
-Этот относительный путь начинается с `"/"`. Он ссылается на файл в учетной записи Data Lake Store по умолчанию, связанной с учетной записью Data Lake Analytics:
-
-    TO "/output/SearchLog-first-u-sql.csv"
+    /output/SearchLog-first-u-sql.csv
 
 ## <a name="use-scalar-variables"></a>Использование скалярных переменных
 
@@ -192,15 +185,16 @@ U-SQL поддерживает знакомые предложения ORDER BY,
     GROUP BY Region;
 
     @res =
-    SELECT *
-    FROM @rs1
-    ORDER BY TotalDuration DESC
-    FETCH 5 ROWS;
+        SELECT *
+        FROM @rs1
+        ORDER BY TotalDuration DESC
+        FETCH 5 ROWS;
 
     OUTPUT @rs1
         TO @out1
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
+
     OUTPUT @res
         TO @out2
         ORDER BY TotalDuration DESC
@@ -226,21 +220,17 @@ U-SQL поддерживает знакомые предложения ORDER BY,
             Region,
             SUM(Duration) AS TotalDuration
         FROM @searchlog
-    GROUP BY Region
-    HAVING SUM(Duration) > 200;
+        GROUP BY Region
+        HAVING SUM(Duration) > 200;
 
     OUTPUT @res
         TO "/output/Searchlog-having.csv"
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-## <a name="see-also"></a>См. также
+Сведения о расширенных сценариях агрегирования см. в справочной документации U-SQL по [статистическим, аналитическим и ссылочным функциям](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx).
+
+## <a name="next-steps"></a>Дальнейшие действия
 * [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
 * [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
-
-## <a name="let-us-know-what-you-think"></a>Сообщите нам свое мнение
-* [Отправить запрос на функцию](http://aka.ms/adlafeedback)
-* [Получить помощь на форумах](http://aka.ms/adlaforums)
-* [Отправить отзыв о U-SQL](http://aka.ms/usqldiscuss)
 

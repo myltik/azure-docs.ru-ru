@@ -1,5 +1,5 @@
 ---
-title: "Динамическое заполнение групп на основе атрибутов пользователя в Azure Active Directory | Документация Майкрософт"
+title: "Динамическое заполнение групп на основе атрибутов объекта в Azure Active Directory | Документы Майкрософт"
 description: "Узнайте, как создать расширенные правила для членства в группе, используя поддерживаемые операторы и параметры правил выражения."
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 06/19/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b0c8eb46b6c01662f0b53213843f8a7ad295e5aa
+ms.reviewer: rodejo
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 720fd28f7ff5d1bc1c3a32cb98d5d7e1eb88e816
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
-# <a name="populate-groups-dynamically-based-on-user-attributes"></a>Динамическое заполнение групп на основе атрибутов пользователя 
+
+# <a name="populate-groups-dynamically-based-on-object-attributes"></a>Динамическое заполнение групп на основе атрибутов объекта 
 Классический портал Azure предоставляет возможность поддержки более сложного динамического членства в группах Azure Active Directory (Azure AD) на основе атрибутов.  
 
-При изменении любых атрибутов пользователя система оценивает все правила динамических групп в каталоге, чтобы определить, приведет ли это к добавлению или удалению в группе. Если пользователь отвечает условиям правила в группе, он добавляется в эту группу. Если он больше не отвечает условиям правила группы, в которую он входит, он удаляется из этой группы.
+При изменении любых атрибутов пользователя или устройства система оценивает все правила динамических групп в каталоге, чтобы определить, приведет ли это событие к добавлению или удалению в группе. Если пользователь или устройство отвечает условиям правила в группе, они добавляются в эту группу. Если он больше не отвечает условиям правила группы, в которую он входит, он удаляется из этой группы.
 
 > [!NOTE]
 > Вы можете настроить правило динамического членства для групп безопасности или групп Office 365. 
@@ -57,6 +59,7 @@ ms.lasthandoff: 05/16/2017
 
 Полный список поддерживаемых параметров и операторов выражений правил см. в приведенных ниже разделах.
 
+
 Обратите внимание, что для свойства в качестве префикса должен быть указан правильный тип объекта: пользователь или устройство.
 Следующее правило не пройдет проверку: mail –ne null.
 
@@ -86,6 +89,8 @@ user.mail –ne null.
 | Содержит |-contains |
 | Не соответствует |-notMatch |
 | Соответствует |-match |
+| В | -in |
+| Не входит | -notIn |
 
 ## <a name="operator-precedence"></a>Приоритет операторов
 
@@ -100,6 +105,14 @@ user.mail –ne null.
 эквивалентно правилу
 
    (user.department –eq "Marketing") –and (user.country –eq "US").
+
+## <a name="using-the--in-and--notin-operators"></a>Использование операторов -In и -notIn
+
+Чтобы сравнить значение атрибута пользователя с рядом различных значений, можно использовать оператор -In или -notIn. Ниже приведен пример использования оператора -In.
+
+    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+
+Обратите внимание на символы "[" и "]" в начале и конце списка значений. Это условие принимает значение True, если значение user.department равно одному из значений в списке.
 
 ## <a name="query-error-remediation"></a>Исправление ошибки запроса
 В следующей таблице перечислены потенциальные ошибки и способы их исправления, если они встречаются
@@ -151,6 +164,7 @@ user.mail –ne null.
 | mailNickName |Любое строковое значение (псевдоним электронной почты пользователя) |(user.mailNickName -eq "value") |
 | mobile |Любое строковое значение или $null |(user.mobile -eq "value") |
 | objectId |GUID объекта пользователя. |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier; | Локальный идентификатор безопасности (SID) для пользователей, которые были синхронизированы из локальной среды в облако. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None, DisableStrongPassword, DisablePasswordExpiration, DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Любое строковое значение или $null |(user.physicalDeliveryOfficeName -eq "value") |
 | postalCode |Любое строковое значение или $null |(user.postalCode -eq "value") |
@@ -184,7 +198,7 @@ user.mail –ne null.
 ## <a name="extension-attributes-and-custom-attributes"></a>Атрибуты расширения и настраиваемые атрибуты
 Атрибуты расширения и настраиваемые атрибуты поддерживаются в правилах динамического членства.
 
-Атрибуты расширения синхронизируются из локального каталога Windows Server AD и принимают формат ExtensionAttributeX, где X равно 1–15.
+Атрибуты расширения синхронизируются из локального каталога Windows Server AD и принимают формат ExtensionAttributeX, где X равно 1–15.
 Пример правила, которое использует атрибут расширения:
 
 (user.extensionAttribute15 -eq "Marketing")
@@ -219,11 +233,12 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
     где "62e19b97-8b3d-4d4a-a106-4ce66896a863" — идентификатор объекта руководителя. Идентификатор объекта можно найти в Azure AD на **вкладке профиля** пользователя, который является руководителем.
 5. После сохранения этого правила все пользователи, которые отвечают правилу, будут присоединены как члены группы. Процесс первоначального заполнения группы может занять несколько минут.
 
-## <a name="using-attributes-to-create-rules-for-device-objects"></a>Создание правил для объектов устройств с помощью атрибутов
+# <a name="using-attributes-to-create-rules-for-device-objects"></a>Создание правил для объектов устройств с помощью атрибутов
 Можно также создать правило, которое выбирает объекты устройств для членства в группе. Можно использовать следующие атрибуты устройства:
 
 | Свойства | Допустимые значения | Использование |
 | --- | --- | --- |
+| AccountEnabled |true, false |(device.accountEnabled -eq true) |
 | displayName |Любое строковое значение |(device.displayName -eq "Rob Iphone”) |
 | deviceOSType |Любое строковое значение |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |Любое строковое значение |(device.OSVersion -eq "9.1") |
@@ -239,7 +254,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 | isRooted |true, false, null |(device.isRooted -eq true) |
 | managementType |Любое строковое значение. |(device.managementType -eq "") |
 | organizationalUnit |Любое строковое значение. |(device.organizationalUnit -eq "") |
-| deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+| deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId |Допустимый идентификатор objectId в AAD |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > Эти правила устройств невозможно создать с помощью раскрывающегося списка "Простое правило" на классическом портале Azure.

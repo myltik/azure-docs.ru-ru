@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 07/16/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 957fb7bf1bd646ae5e4d27350502bdf14b0f00c3
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: aeddf1aba1e8df74750538ba798d34a1a957e83f
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="custom-script-extension-for-windows"></a>Расширение Custom Script в ОС Windows
@@ -37,7 +36,7 @@ ms.lasthandoff: 05/12/2017
 
 ### <a name="script-location"></a>Расположение сценария
 
-Сценарий нужно хранить в службе хранилища Azure или любом другом месте, к которому можно получить доступ по допустимому URL-адресу.
+Сценарий нужно хранить в хранилище BLOB-объектов Azure или любом другом месте, к которому можно получить доступ по допустимому URL-адресу.
 
 ### <a name="internet-connectivity"></a>Подключение к Интернету
 

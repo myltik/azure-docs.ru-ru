@@ -1,6 +1,6 @@
 ---
 title: "Доменные службы Azure Active Directory: создание группы администраторов контроллера домена Azure AD | Документация Майкрософт"
-description: "Приступая к работе с доменными службами Azure Active Directory"
+description: "Включение доменных служб Azure Active Directory с помощью классического портала Azure"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,17 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 07/13/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 99607cf642bb6767c845ceb6fb4e62b1c15834f9
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 5ed0125e05928cf0f6d9941e099b433ecb46e6e2
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
-# <a name="get-started-with-azure-active-directory-domain-services"></a>Приступая к работе с доменными службами Azure Active Directory
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>Включение доменных служб Azure Active Directory с помощью классического портала Azure
 В этой статье описываются и демонстрируются задачи по настройке, которые необходимо выполнить, чтобы включить доменные службы Azure Active Directory (Azure AD DS) для клиента Azure Active Directory (Azure AD).
+
+> [!NOTE]
+> [**Попробуйте новый интерфейс предварительной версии портала Azure**](active-directory-ds-getting-started.md). 
+>
 
 ## <a name="task-1-create-the-azure-ad-dc-administrators-group"></a>Задача 1. Создание группы администраторов контроллера домена Azure AD
 Первой задачей является создание административной группы в клиенте Azure AD. Эта специальная административная группа называется *Администраторы контроллера домена AAD*. Участникам этой группы предоставляются разрешения администратора для компьютеров, присоединенных к управляемому домену доменных служб Azure Active Directory. На компьютерах, присоединенных к домену, эта группа добавляется в группу "Администраторы". Кроме того, участники этой группы могут подключаться по протоколу удаленного рабочего стола к компьютерам, присоединенным к домену.  
@@ -51,7 +55,7 @@ ms.lasthandoff: 04/12/2017
 
     ![Диалоговое окно "Добавление группы"](./media/active-directory-domain-services-getting-started/create-admin-group.png)
 7. В поле **Описание** введите описание, которое позволит другим пользователям понять, что эта группа предоставляет разрешения администратора в доменных службах Active Directory Azure.
-8. После создания группы щелкните имя группы, чтобы просмотреть ее свойства. 
+8. После создания группы щелкните имя группы, чтобы просмотреть ее свойства.
 9. В нижней части окна нажмите кнопку **Добавить участников**, чтобы добавить пользователей в качестве участников этой группы.
 
     ![Кнопка "Добавить участников"](./media/active-directory-domain-services-getting-started/add-group-members-button.png)
@@ -59,7 +63,7 @@ ms.lasthandoff: 04/12/2017
 
     ![Добавление пользователей в группу администраторов](./media/active-directory-domain-services-getting-started/add-group-members.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
-Задача 2. [Создание или выбор виртуальной сети Azure](active-directory-ds-getting-started-vnet.md)
-  
+
+## <a name="next-step"></a>Дальнейшие действия
+[Задача 2. Создание или выбор виртуальной сети Azure](active-directory-ds-getting-started-vnet.md)
 

@@ -1,5 +1,5 @@
 ---
-title: "Использование Hadoop Pig с .NET в HDInsight | Документация Майкрософт"
+title: "Выполнение заданий Apache Pig с помощью пакета SDK для .NET для Hadoop в Azure HDInsight | Документы Майкрософт"
 description: "Информация об использовании пакета SDK для .NET для Hadoop для отправки заданий Pig в Hadoop в HDInsight."
 services: hdinsight
 documentationcenter: .net
@@ -14,19 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 05/25/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 10e2f35bdaf1b6e00e3d8dde34dd5809a89cde30
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c0c120a457e9eaf0e7ea44f3fc6502fa71d673e7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Выполнение заданий Pig с помощью пакета SDK для .NET для Hadoop в HDInsight
+
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-В этом документе приведен пример использования пакета SDK для .NET для Hadoop для отправки заданий Pig в Hadoop в кластере HDInsight.
+Узнайте, как использовать пакет SDK для .NET для Hadoop с целью отправки заданий Apache Pig в Hadoop в Azure HDInsight.
 
 Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Pig позволяет создавать операции MapReduce путем моделирования ряда преобразований данных. В этом документе вы узнаете, как отправлять задания Pig в кластер HDInsight с помощью базового приложения C#.
 
@@ -37,7 +39,7 @@ ms.lasthandoff: 04/12/2017
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux).
 
   > [!IMPORTANT]
-  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > Linux — единственная операционная система, используемая для работы с HDInsight 3.4 или более поздней версии. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio 2012, 2013, 2015 или 2017.
 

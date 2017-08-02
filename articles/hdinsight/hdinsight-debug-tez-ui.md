@@ -1,5 +1,5 @@
 ---
-title: "Использование пользовательского интерфейса Tez в HDInsight на платформе Windows | Документация Майкрософт"
+title: "Использование пользовательского интерфейса Tez в HDInsight на платформе Windows — Azure | Документы Майкрософт"
 description: "Узнайте, как отладить задания Tez в HDInsight на платформе Windows с помощью пользовательского интерфейса Tez."
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 870d8001b67b43d09427a626761ede1833101ddf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3889fa1c3523eb0330cbe3b7640fd8590a5ceadf
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/18/2017
 Пользовательский веб-интерфейс Tez является веб-страницей, которую можно использовать для получения общих сведений о заданиях и отладки заданий, использующих Tez в качестве подсистемы выполнения на кластерах HDInsight под управлением Windows. Пользовательский интерфейс Tez позволяет визуализировать задание в виде схемы связанных элементов, выполнять детализацию каждого элемента и получать статистические данные и данные журнала.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Предварительные требования
 * Кластер HDInsight на платформе Windows Инструкции по созданию кластера см. в статье [Приступая к работе с HDInsight на платформе Windows](hdinsight-hadoop-tutorial-get-started-windows.md).

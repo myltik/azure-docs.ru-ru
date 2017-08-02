@@ -1,5 +1,5 @@
 ---
-title: "Настройка кластеров HDInsight с помощью действий скрипта | Документация Майкрософт"
+title: "Настройка кластеров HDInsight с помощью действий скрипта — Azure | Документы Майкрософт"
 description: "Дополнительные сведения о настройке кластеров HDInsight с помощью действия скрипта."
 services: hdinsight
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: e6af6f915a4356ae137ba3b92dd0331f7b5411c0
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: ec95b6d66c71b4278dd1e16807fcc75f5e8b1c36
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Настройка кластеров HDInsight под управлением Windows с помощью действия сценария
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/18/2017
 Информация, приведенная в этой статье, относится только к кластерам HDInsight под управлением Windows. О кластерах под управлением Linux читайте в статье [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
 
 > [!IMPORTANT]
-> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Кластеры HDInsight можно настраивать множеством других способов, например включая дополнительные учетные записи хранения Azure, изменяя файлы конфигурации Hadoop (core-site.xml, hive-site.xml и т. д.) или добавляя общие библиотеки (например, Hive, Oozie) в стандартные расположения в кластере. Эти настройки можно выполнить с помощью Azure PowerShell, пакета SDK для Azure для HDInsight .NET или на портале Azure. Дополнительные сведения см. в статье [Создание кластеров Hadoop в HDInsight][hdinsight-provision-cluster].
 
@@ -239,11 +238,7 @@ HDInsight предоставляет несколько скриптов для 
                 ClusterType = NewClusterType,
                 OSType = NewClusterOSType,
                 Version = NewClusterVersion,
-
-                DefaultStorageAccountName = ExistingStorageName,
-                DefaultStorageAccountKey = ExistingStorageKey,
-                DefaultStorageContainer = ExistingContainer,
-
+                DefaultStorageInfo = new AzureStorageInfo(ExistingStorageName, ExistingStorageKey, ExistingContainer),
                 UserName = NewClusterUsername,
                 Password = NewClusterPassword,
             };

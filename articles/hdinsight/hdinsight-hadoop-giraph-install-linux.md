@@ -1,5 +1,5 @@
 ---
-title: "Установка и использование Giraph в кластерах HDInsight (Hadoop) под управлением Linux | Документация Майкрософт"
+title: "Установка и использование Giraph в кластерах HDInsight (Hadoop) — Azure | Документы Майкрософт"
 description: "Узнайте, как устанавливать Giraph в кластерах HDInsight на основе Linux с помощью действий сценария. Действия сценария позволяют настроить кластер во время создания, изменяя его конфигурацию или устанавливая службы и служебные программы."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/31/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: c59da3ab9b02f4177272dc3a1194d46b6172a05e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 658616d1979e617a7d80a989b8e80246a9091fdf
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Установка Giraph в кластерах HDInsight Hadoop и использование Giraph для обработки диаграмм больших объемов
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/18/2017
 Узнайте, как установить Apache Giraph в кластере HDInsight. Действие сценария в HDInsight позволяет настроить кластер с помощью сценария bash. Сценарии можно использовать для настройки кластеров во время и после создания кластера.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>Что такое Giraph
 
@@ -98,19 +97,21 @@ ms.lasthandoff: 05/18/2017
 
 1. Подключитесь к кластеру HDInsight с помощью протокола SSH:
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
     См. дополнительные сведения об [использовании SSH в HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Создайте файл **tiny_graph.txt**, используя следующую команду.
 
-    ```
+    ```bash
     nano tiny_graph.txt
     ```
 
     В качестве содержимого файла добавьте следующий текст:
 
-    ```
+    ```text
     [0,0,[[1,1],[3,3]]]
     [1,0,[[0,1],[2,2],[3,1]]]
     [2,0,[[1,2],[4,4]]]
@@ -128,13 +129,13 @@ ms.lasthandoff: 05/18/2017
 
 4. Чтобы сохранить данные в основном хранилище в кластере HDInsight, используйте следующую команду:
 
-    ```
+    ```bash
     hdfs dfs -put tiny_graph.txt /example/data/tiny_graph.txt
     ```
 
 5. Запустите пример SimpleShortestPathsComputation, используя следующую команду:
 
-    ```
+    ```bash
     yarn jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnodehost:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
     ```
 
@@ -156,7 +157,7 @@ ms.lasthandoff: 05/18/2017
 
 6. После завершения задания результаты сохраняются в каталоге **/example/out/shotestpaths**. Имена выходных файлов будут начинаться с **part-m-** и заканчиваться числом, указывающим номер файла (первый, второй и т. д.). Чтобы просмотреть выходные данные, используйте следующую команду:
 
-    ```
+    ```bash
     hdfs dfs -text /example/output/shortestpaths/*
     ```
 

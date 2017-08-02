@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0764b9f3ac262b7c65944d6e2c82490daefa54c3
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Устранение неполадок с помощью системы диагностики Azure
@@ -43,6 +42,7 @@ ms.lasthandoff: 06/17/2017
 | **Файл конфигурации агента мониторинга** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Пакет расширений системы диагностики Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<версия> |
 | **Путь к служебной программе сбора журналов** | %SystemDrive%\Packages\GuestAgent\ |
+| **Файл журнала MonAgentHost** | C:\Resources\Directory\<ИД_разверт._облачн._службы>.\<имя_роли>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<текущ._номер>.log |
 
 ### <a name="virtual-machines"></a>Виртуальные машины
 | Артефакт | Путь |
@@ -54,9 +54,12 @@ ms.lasthandoff: 06/17/2017
 | **Состояние файла** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<версия>\Status |
 | **Пакет расширений системы диагностики Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<версия_системы_диагностики>|
 | **Путь к служебной программе сбора журналов** | C:\WindowsAzure\Packages |
+| **Файл журнала MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<версия_системы_диагностики>\WAD0107\Configuration\MonAgentHost.<текущ._номер>.log |
 
 ## <a name="azure-diagnostics-is-not-starting"></a>Система диагностики Azure не запускается
-Сведения о том, почему диагностика не запускается, можно просмотреть в файлах журнала **DiagnosticsPluginLauncher.log** и **DiagnosticsPlugin.log**. Их расположение указано выше.  
+Сведения о том, почему диагностика не запускается, можно просмотреть в файлах журнала **DiagnosticsPluginLauncher.log** и **DiagnosticsPlugin.log**. Их расположение указано выше. 
+
+Если эти журналы указывают `Monitoring Agent not reporting success after launch`, это означает, что произошел сбой запуска MonAgentHost.exe. Просмотрите журналы этого события в расположении, указанном для `MonAgentHost log file` в предыдущем разделе.
 
 В последней строке файлов журнала указан код выхода.  
 
@@ -86,7 +89,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 - **Счетчики производительности.** Откройте системный монитор и проверьте значение счетчика.
 - **Журналы трассировки.** Подключитесь к удаленному рабочему столу виртуальной машины и добавьте экземпляр TextWriterTraceListener в файл конфигурации приложения.  Сведения о настройке прослушивателя трассировки см. в этой статье: http://msdn.microsoft.com/en-us/library/sk36c28t.aspx.  Проверьте, имеет ли элемент `<trace>` значение `<trace autoflush="true">`.<br />
 Если журналы трассировки не создаются, см. сведения в разделе [Подробные сведения об отсутствии журналов трассировки](#more-about-trace-logs-missing).
- - **Трассировка событий Windows.** Подключитесь к удаленному рабочему столу виртуальной машины и установите PerfView.  Откройте средство PerfView и выберите File (Файл) > User Command (Пользовательская команда), а затем выполните команду Listen, указав при этом необходимых поставщиков ETW.  Обратите внимание, что команда Listen учитывает регистр. Поставщиков ETW следует указывать через запятые без пробелов.  Если выполнение этой команды завершилось сбоем, нажмите кнопку Log (Журнал) в правом нижнем углу средства Perfview, чтобы просмотреть попытки и результаты запуска.  Если все входные данные верны, через несколько секунд откроется новое окно с событиями трассировки событий Windows.
+- **Трассировка событий Windows.** Подключитесь к удаленному рабочему столу виртуальной машины и установите PerfView.  Откройте средство PerfView и выберите File (Файл) > User Command (Пользовательская команда), а затем выполните команду Listen, указав при этом необходимых поставщиков ETW.  Обратите внимание, что команда Listen учитывает регистр. Поставщиков ETW следует указывать через запятые без пробелов.  Если выполнение этой команды завершилось сбоем, нажмите кнопку Log (Журнал) в правом нижнем углу средства Perfview, чтобы просмотреть попытки и результаты запуска.  Если все входные данные верны, через несколько секунд откроется новое окно с событиями трассировки событий Windows.
 - **Журналы событий.** Подключитесь к удаленному рабочему столу виртуальной машины. Откройте `Event Viewer` и проверьте, записаны ли там события.
 #### <a name="is-data-getting-captured-locally"></a>Проверка локального сохранения данных
 Проверьте, сохраняются ли данные локально.
@@ -241,4 +244,3 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 - Если вы используете подстановочные знаки (\*) в именах счетчиков производительности, портал не сможет отслеживать настроенные и собранные показатели счетчика.
 
 **Устранение.** Изменить язык системных учетных записей виртуальной машины на английский. Для этого откройте панель управления, выберите "Регион > Дополнительно > Настройка копирования" и снимите флажок "Экран приветствия и системные учетные записи". После этого пользовательские параметры языка не будут применяться к системной учетной записи. Кроме того, удалите подстановочные знаки, если хотите, чтобы данные о потреблении отображались на портале.
-

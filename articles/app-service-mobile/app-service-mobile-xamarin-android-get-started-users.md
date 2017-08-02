@@ -3,8 +3,8 @@ title: "Начало работы с проверкой подлинности �
 description: "Узнайте, как использовать мобильные приложения для проверки подлинности пользователей приложения Xamarin для Android с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: panarasi
 editor: 
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.service: app-service-mobile
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4c0ba82ca010f1ee571424fa3d650718e5acdd8b
-ms.lasthandoff: 11/17/2016
-
+ms.date: 07/05/2017
+ms.author: panarasi
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 210def15c339c7349d1c868fe144e58303a2157e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Добавление проверки подлинности в приложение Xamarin.Android
@@ -30,6 +30,20 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="register"></a>Регистрация приложения для проверки подлинности и настройка служб приложений
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
+
+## <a name="redirecturl"></a>Добавление приложения в список разрешенных URL-адресов внешнего перенаправления
+
+Для безопасной аутентификации требуется определить новую схему URL-адресов для своего приложения. Это позволяет системе аутентификации выполнять перенаправление обратно в приложение после завершения процесса аутентификации. В этом руководстве мы повсеместно используем схему URL-адресов _appname_. Тем не менее можно использовать любую схему URL-адресов на свой выбор. Она должна быть уникальной для мобильного приложения. Вот как можно включить перенаправление на стороне сервера.
+
+1. На портале Azure выберите свою службу приложений.
+
+2. Выберите пункт меню **Аутентификация или авторизация**.
+
+3. В поле **Разрешенные URL-адреса внешнего перенаправления** введите `url_scheme_of_your_app://easyauth.callback`.  **url_scheme_of_your_app** в этой строке — это схема URL-адресов для вашего мобильного приложения.  Она должна соответствовать обычной спецификации URL-адресов для протокола (можно использовать буквы и цифры, и адрес должен начинаться с буквы).  Необходимо записать выбранную строку, так как потребуется в нескольких местах настроить код мобильного приложения с использованием схемы URL-адресов.
+
+4. Нажмите кнопку **ОК**.
+
+5. Щелкните **Сохранить**.
 
 ## <a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -52,7 +66,7 @@ ms.lasthandoff: 11/17/2016
                 {
                     // Sign in with Facebook login using a server-managed flow.
                     user = await client.LoginAsync(this,
-                        MobileServiceAuthenticationProvider.Facebook);
+                        MobileServiceAuthenticationProvider.Facebook, "{url_scheme_of_your_app}");
                     CreateAndShowDialog(string.Format("you are now logged in - {0}",
                         user.UserId), "Logged in!");
    
@@ -99,10 +113,18 @@ ms.lasthandoff: 11/17/2016
 4. Добавьте следующий элемент в файл ресурсов Strings.xml:
    
         <string name="login_button_text">Sign in</string>
-5. В Visual Studio или Xamarin Studio запустите клиентский проект на устройстве или в эмуляторе либо выполните вход с помощью выбранного поставщика удостоверений.
-   
-       When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
+5. Откройте файл AndroidManifest.xml и добавьте следующий код в XML-элемент `<application>`:
+
+        <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
+          <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
+          </intent-filter>
+        </activity>
+
+6. В Visual Studio или Xamarin Studio запустите клиентский проект на устройстве или в эмуляторе либо выполните вход с помощью выбранного поставщика удостоверений. После успешного выполнения входа в приложении отобразится ваш идентификатор для входа и список элементов задач, и вы сможете внести изменения в данные.
 
 <!-- URLs. -->
 [Создание приложения Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
-

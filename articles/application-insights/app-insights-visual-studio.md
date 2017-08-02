@@ -1,5 +1,5 @@
 ---
-title: "Работа с Azure Application Insights в Visual Studio |Документация Майкрософт"
+title: "Отладка приложений с помощью Azure Application Insights в Visual Studio |Документы Майкрософт"
 description: "Анализ производительности веб-приложения и диагностика во время отладки и в рабочей среде."
 services: application-insights
 documentationcenter: .net
@@ -11,17 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2016
+ms.date: 07/7/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 7fe1b572104416fec62261c60228fa966d197dd9
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 93e97cbc5d9bf55334a481183f40083a6f3b99a4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
-# <a name="working-with-azure-application-insights-in-visual-studio"></a>Работа с Azure Application Insights в Visual Studio
+# <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Отладка приложений с помощью Azure Application Insights в Visual Studio
 В Visual Studio 2015 и более поздних версиях можно анализировать производительность веб-приложения ASP.NET и диагностировать проблемы во время отладки и в рабочей среде с помощью телеметрии из [Azure Application Insights](app-insights-overview.md).
 
 Если вы создали веб-приложение ASP.NET с помощью Visual Studio 2017 или более поздней версии, оно уже содержит пакет SDK Application Insights. Если вы используете другую версию, [добавьте Application Insights в свое приложение](app-insights-asp-net.md), если вы еще это не сделали.
@@ -31,14 +31,14 @@ ms.lasthandoff: 03/21/2017
 ## <a name="run"></a> Отладка проекта
 Нажмите клавишу F5, чтобы запустить веб-приложение в режиме локальной отладки. Откройте разные страницы, чтобы создать некоторый объем данных телеметрии.
 
-В Visual Studio вы увидите число событий, которые были зарегистрированы в модуле Application Insights вашего проекта.
+В Visual Studio вы видите число событий, которые были зарегистрированы модулем Application Insights в вашем проекте.
 
 ![В Visual Studio кнопка Application Insights доступна во время отладки.](./media/app-insights-visual-studio/appinsights-09eventcount.png)
 
 Нажмите эту кнопку для поиска данных телеметрии. 
 
 ## <a name="application-insights-search"></a>Поиск Application Insights
-В окне поиска Application Insights отображаются события, которые были зарегистрированы. Если во время настройки Application Insights вы вошли в Azure, эти же события вы сможете найти на портале Azure.
+В окне поиска Application Insights отображаются события, которые были зарегистрированы. (Если во время настройки Application Insights вы вошли в Azure, эти же события вы можете найти на портале Azure.)
 
 ![Щелкните проект правой кнопкой мыши и последовательно выберите пункты "Application Insights" и "Поиск".](./media/app-insights-visual-studio/34.png)
 
@@ -58,15 +58,15 @@ ms.lasthandoff: 03/21/2017
 
 ![В разделе сведений о запросе прокрутите страницу вниз до связанных элементов](./media/app-insights-visual-studio/41.png)
 
-## <a name="exceptions-and-failed-requests"></a>Исключения и неудачно завершенные запросы
+## <a name="view-exceptions-and-failed-requests"></a>Просмотр исключений и неудачно завершенных запросов
 Отчеты об исключениях отображаются в окне поиска. В некоторых типах приложений ASP.NET предыдущих версий необходимо [настроить отслеживание исключений](app-insights-asp-net-exceptions.md), чтобы просматривать исключения, которые обрабатываются платформой.
 
 Щелкните исключение, чтобы просмотреть трассировку стека. Если код приложения открыт в среде Visual Studio, можно щелкнуть трассировку стека в соответствующей строке кода.
 
 ![Трассировка стека исключений](./media/app-insights-visual-studio/17.png)
 
-## <a name="request-and-exception-summaries-in-the-code"></a>Сводные данные запросов и исключений в коде
-В строке группы связанных элементов кода над каждым методом-обработчиком указано число исключений, зарегистрированных Application Insights за последние 24 часа.
+## <a name="view-request-and-exception-summaries-in-the-code"></a>Просмотр сводки по запросам и исключениям в коде
+В строке CodeLens над каждым методом-обработчиком указано число запросов и исключений, зарегистрированных Application Insights за последние 24 часа.
 
 ![Трассировка стека исключений](./media/app-insights-visual-studio/21.png)
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 03/21/2017
 [Дополнительные сведения о тенденциях](app-insights-visual-studio-trends.md)
 
 ## <a name="local-monitoring"></a>Локальный мониторинг
-(Относится к Visual Studio 2015 с обновлением 2) Если ваш пакет SDK не отправляет данные телеметрии на портал Application Insights (то есть в файле ApplicationInsights.config нет ключа инструментирования), окно диагностики отображает данные телеметрии, полученные в ходе последнего сеанса отладки. 
+(Относится к Visual Studio 2015 с обновлением 2) Если ваш пакет SDK не отправляет данные телеметрии на портал Application Insights (то есть в файле ApplicationInsights.config нет ключа инструментирования), в окне диагностики выводятся данные телеметрии, полученные в ходе последнего сеанса отладки. 
 
 Это предпочтительно, если вы уже опубликовали предыдущую версию своего приложения. Кроме того, не рекомендуется, чтобы данные телеметрии, полученные на ваших сеансах отладки, смешивались с данными телеметрии на портале Application Insights, полученными от опубликованного приложения.
 
@@ -100,10 +100,10 @@ ms.lasthandoff: 03/21/2017
   * Чтобы остановить отправку данных телеметрии на портал, закомментируйте строку `<instrumentationkey>...` в файле ApplicationInsights.config. Когда данные телеметрии будут готовы к отправке на портал, раскомментируйте ее.
 
 
-## <a name="whats-next"></a>Что дальше?
+## <a name="next-steps"></a>Дальнейшие действия
 |  |  |
 | --- | --- |
 | **[Добавление данных](app-insights-asp-net-more.md)**<br/>Мониторинг использования, доступности, зависимостей и исключений. Интеграция трассировок из платформ ведения журналов. Написание пользовательской телеметрии. |![Visual studio](./media/app-insights-visual-studio/64.png) |
-| **[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Панели мониторинга, эффективные средства диагностики и анализа, оповещения, карта динамических зависимостей приложения, а также экспорт данных телеметрии. |![Visual studio](./media/app-insights-visual-studio/62.png) |
+| **[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Просмотр панелей мониторинга, эффективных средств диагностики и анализа, оповещений, карты динамических зависимостей приложения, а также экспортированных данных телеметрии. |![Visual studio](./media/app-insights-visual-studio/62.png) |
 
 

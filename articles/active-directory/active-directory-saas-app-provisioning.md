@@ -1,9 +1,9 @@
 ---
-title: "Автоматическая подготовка пользователей для приложения SaaS в Azure AD | Документация Майкрософт"
+title: "Автоматическая подготовка пользователей для приложения SaaS в Azure AD | Документы Майкрософт"
 description: "Общие сведения об использовании Azure AD для автоматической подготовки, отзыва и постоянного обновления учетных записей пользователей в нескольких приложениях SaaS сторонних разработчиков."
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2016
-ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 39714145f84f5f9229dbf4bbe136103d4d102bed
-ms.lasthandoff: 03/31/2017
-
+ms.date: 07/13/2017
+ms.author: curtand
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 7cb780117d64d67449146b9757f8162e23e65d1e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory

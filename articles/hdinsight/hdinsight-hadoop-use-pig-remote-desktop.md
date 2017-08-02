@@ -1,5 +1,5 @@
 ---
-title: "Использование Hadoop Pig и удаленного рабочего стола в HDInsight | Документация Майкрософт"
+title: "Использование Hadoop Pig и удаленного рабочего стола в HDInsight — Azure | Документы Майкрософт"
 description: "Узнайте, использовать команду Pig для выполнения операторов Pig Latin через подключение к удаленному рабочему столу, установленное с кластером Hadoop под управлением Windows в HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 543483b08b32b7a280979502c5548702995f90af
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9ab67d21b65323b7f927cb2197c0e123ebe3351e
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Выполнение заданий Pig через подключение к удаленному рабочему столу
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/12/2017
 Этот документ содержит пошаговое руководство по использованию команды Pig для выполнения операторов Pig Latin через подключение к удаленному рабочему столу, установленное с кластером HDInsight под управлением Windows. Pig Latin позволяет создавать приложения MapReduce, описывая преобразования данных, а не функции сопоставления и приведения.
 
 > [!IMPORTANT]
-> Удаленный рабочий стол доступен только в кластерах HDInsight под управлением операционной системы Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. См. дополнительные сведения о [нерекомендуемых версиях HDInsight в Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Удаленный рабочий стол доступен только в кластерах HDInsight под управлением операционной системы Windows. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > При использовании HDInsight 3.4 или более поздней версии см. сведения о выполнении интерактивных заданий Pig непосредственно в кластере из командной строки: [Use Pig with HDInsight and SSH](hdinsight-hadoop-use-pig-ssh.md) (Использование Pig в HDInsight с помощью SSH).
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/12/2017
     Откроется командная строка `grunt>` .
 3. Введите следующий оператор:
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
 
     Эта команда загружает содержимое файла sample.log в файл LOGS. Вы можете просмотреть содержимое файла с помощью следующей команды:
 
@@ -80,9 +80,9 @@ ms.lasthandoff: 04/12/2017
     <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Упорядочивает уровни ведения журнала по количеству (по убыванию) и сохраняет данные в RESULT.</td>
     </tr>
     </table>
-6. Можно также сохранить результаты преобразования с помощью оператора `STORE` . Например, следующий оператор сохраняет `RESULT` в каталог **/example/data/pigout** в используемом по умолчанию контейнере хранилища для кластера:
+6. Можно также сохранить результаты преобразования с помощью оператора `STORE`. Например, следующий оператор сохраняет `RESULT` в каталог **/example/data/pigout** в используемом по умолчанию контейнере хранилища для кластера:
 
-        STORE RESULT into 'wasbs:///example/data/pigout'
+        STORE RESULT into 'wasb:///example/data/pigout'
 
    > [!NOTE]
    > Данные хранятся в указанном каталоге в файлах с именем **part-№№№№№**. Если каталог уже существует, появится сообщение об ошибке.
@@ -98,7 +98,7 @@ ms.lasthandoff: 04/12/2017
 1. После выхода из командной строки grunt откройте **Блокнот** и создайте новый файл с именем **pigbatch.pig** в каталоге **%PIG_HOME%**.
 2. Введите или вставьте следующие строки в файл **pigbatch.pig** , а затем сохраните его:
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
         GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;

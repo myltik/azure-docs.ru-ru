@@ -1,5 +1,5 @@
 ---
-title: "Создание кластеров Azure HDInsight (Hadoop) с помощью командной строки | Документация Майкрософт"
+title: "Создание кластеров Hadoop с помощью командной строки в Azure HDInsight | Документы Майкрософт"
 description: "Узнайте, как создавать кластеры HDInsight с кроссплатформенного Azure CLI 1.0."
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: ccb2c827aa95ea967d740860ed17e6cc7bd3b392
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f2fcb46789d000cd66164508f1159338dcae5f9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/18/2017
 Это пошаговое руководство содержит инструкции по созданию кластера HDInsight 3.5 с помощью Azure CLI 1.0.
 
 > [!IMPORTANT]
-> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/18/2017
 
 * **Подписка Azure**. См. страницу [бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Интерфейс командной строки Azure**. Действия, описанные в этом документе, проверены с помощью Azure CLI версии 0.10.1.
+* **Azure CLI**. Действия, описанные в этом документе, проверены с помощью Azure CLI версии 0.10.14.
 
     > [!IMPORTANT]
     > Инструкции, приведенные в этом документе, не подходят для Azure CLI 2.0. Azure CLI 2.0 не поддерживает создание кластера HDInsight.
@@ -51,7 +51,7 @@ ms.lasthandoff: 05/18/2017
 
 ## <a name="create-a-cluster"></a>Создание кластера
 
-После установки и настройки Azure CLI в командной строке, оболочке или сеансе терминала сделайте следующее.
+Описанные ниже действия следует выполнять в командной строке, например PowerShell или Bash.
 
 1. Выполните следующую команду для аутентификации в подписке Azure.
 
@@ -67,21 +67,21 @@ ms.lasthandoff: 05/18/2017
 
         azure group create groupname location
 
-    * Замените **groupname** на уникальное имя для группы.
+    * Замените `groupname` на уникальное имя группы.
 
-    * Замените **location** на географический регион, в котором нужно создать группу.
+    * Замените `location` на географический регион, в котором нужно создать группу.
 
-       Для получения списка допустимых расположений выполните команду `azure location list` , а затем воспользуйтесь одним из расположений из столбца **Имя** .
+       Для получения списка допустимых расположений выполните команду `azure location list`, а затем воспользуйтесь одним из расположений из столбца `Name`.
 
 4. Создайте учетную запись хранения. Эта учетная запись хранения будет использоваться как хранилище по умолчанию для кластера HDInsight.
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
 
-    * Замените **groupname** на имя группы, созданной на предыдущем этапе.
+    * Замените `groupname` на имя группы, созданной на предыдущем этапе.
 
-    * Замените **location** на расположение, которое использовалось на предыдущем этапе.
+    * Замените `location` на расположение, которое использовалось на предыдущем этапе.
 
-    * Замените **storagename** на уникальное имя учетной записи хранения.
+    * Замените `storagename` на уникальное имя учетной записи хранения.
 
         > [!NOTE]
         > Дополнительные сведения о параметрах, используемых в этой команде, используйте `azure storage account create -h`, чтобы открыть справку по этой команде.
@@ -90,36 +90,36 @@ ms.lasthandoff: 05/18/2017
 
         azure storage account keys list -g groupname storagename
 
-    * Замените **groupname** на имя группы ресурсов.
-    * Замените **storagename** на имя учетной записи хранения.
+    * Замените `groupname` на имя группы ресурсов.
+    * Замените `storagename` на имя учетной записи хранения.
 
-     Из полученных данных сохраните значение **key** параметра **key1**.
+     Из полученных данных сохраните значение `key` параметра `key1`.
 
 6. Создание кластера HDInsight.
 
-        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 3 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    * Замените **groupname** на имя группы ресурсов.
+    * Замените `groupname` на имя группы ресурсов.
 
-    * Замените **Hadoop** типом кластера, который хотите создать. Например, Hadoop, HBase, Storm или Spark.
+    * Замените `Hadoop` типом кластера, который хотите создать. Примеры: `Hadoop`, `HBase`, `Kafka`, `Spark` или `Storm`.
 
      > [!IMPORTANT]
      > Кластеры HDInsight бывают разных типов, которые соответствуют рабочей нагрузке или технологии, для которой предназначен кластер. Создать кластер, в котором бы объединились несколько типов, например Storm и HBase, нельзя.
 
-    * Замените **location** на расположение, которое использовалось на предыдущем этапе.
+    * Замените `location` на расположение, которое использовалось на предыдущих этапах.
 
-    * Замените **storagename** на имя учетной записи хранения.
+    * Замените `storagename` на имя учетной записи хранения.
 
-    * Замените **storagekey** на ключ, полученный при выполнении предыдущего шага.
+    * Замените `storagekey` на ключ, полученный на предыдущем этапе.
 
     * Для параметра `--defaultStorageContainer` используйте то же имя, что и для кластера.
 
-    * Замените **admin** и **httppassword** именем пользователя и паролем, которые нужно использовать для доступа к кластеру по протоколу HTTPS.
+    * Замените `admin` и `httppassword` именем и паролем, которые нужно использовать для доступа к кластеру по протоколу HTTPS.
 
-    * Замените **sshuser** и **sshuserpassword** именем пользователя и паролем, которые нужно использовать для доступа к кластеру по протоколу SSH.
+    * Замените `sshuser` и `sshuserpassword` именем пользователя и паролем, которые нужно использовать для доступа к кластеру по протоколу SSH.
 
     > [!IMPORTANT]
-    > Этот пример создает кластер с 2 рабочими узлами. Если вы планируете использовать более 32 рабочих узлов (при создании или масштабировании кластера), то для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ. Настроить размер головного узла можно с помощью параметра `--headNodeSize`.
+    > Этот пример создает кластер с 2 рабочими узлами. После создания кластера можно изменить число рабочих узлов, выполнив операцию масштабирования. Если вы планируете использовать более 32 рабочих узлов, для головного узла необходимо выбрать по крайней мере 8-ядерный процессор и 14 ГБ ОЗУ. Настроить размер головного узла можно с помощью параметра `--headNodeSize` во время создания кластера.
     >
     > Дополнительные сведения о размерах узлов и их стоимости см. на странице с [ценами на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 

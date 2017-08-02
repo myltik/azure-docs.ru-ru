@@ -1,166 +1,244 @@
 ---
 title: "Руководство по интеграции Azure Active Directory с Citrix GoToMeeting | Документация Майкрософт"
-description: "Узнайте, как использовать Citrix GoToMeeting вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Citrix GoToMeeting."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 7d7897f6-b88e-4dd5-8f3a-e612337b1413
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 05/19/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
-ms.openlocfilehash: d81de30a46f7b849e70b99e7f7423cbc90f25326
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c1ac144c4fa43312ec26fce03cd0ee1bfcf73d4b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-gotomeeting"></a>Учебник. Интеграция Azure Active Directory с Citrix GoToMeeting
 
-Цель данного учебника — показать интеграцию Azure и Citrix GoToMeeting. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+В этом руководстве описано, как интегрировать Citrix GoToMeeting с Azure Active Directory (Azure AD).
 
-* Действующая подписка на Azure
-* Клиент Citrix GoToMeeting
+Интеграция Azure AD с Citrix GoToMeeting обеспечивает перечисленные ниже преимущества.
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+- С помощью Azure AD вы можете контролировать доступ к Citrix GoToMeeting.
+- Вы можете включить автоматический вход пользователей в Citrix GoToMeeting (единый вход) с учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-1. Включение интеграции приложений для Citrix GoToMeeting
-2. Настройка единого входа
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Конфигурация](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768996.png "Конфигурация")
+## <a name="prerequisites"></a>Предварительные требования
 
-## <a name="enabling-the-application-integration-for-citrix-gotomeeting"></a>Включение интеграции приложений для Citrix GoToMeeting
-В этом разделе показано, как включить интеграцию приложений для Citrix GoToMeeting.
+Чтобы настроить интеграцию Azure AD с Citrix GoToMeeting, вам потребуется:
 
-### <a name="to-enable-the-application-integration-for-citrix-gotomeeting-perform-the-following-steps"></a>Чтобы включить интеграцию приложений для Citrix GoToMeeting, выполните следующие действия.
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
-   
-    ![Active Directory](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700993.png "Active Directory")
+- подписка Azure AD;
+- подписка Citrix GoToMeeting с поддержкой единого входа.
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
-    ![Приложения](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700994.png "Приложения")
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-    ![Добавление приложения](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749321.png "Добавление приложения")
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Добавление приложения из коллекции](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749322.png "Добавление приложения из коллекции")
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
-6. В **поле поиска** введите **Citrix GoToMeeting**.
-   
-    ![Citrix GoToMeeting](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC701006.png "Citrix GoToMeeting")
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-7. В области результатов выберите **Citrix GoToMeeting** и щелкните **Завершить**, чтобы добавить приложение.
-   
-    ![Citrix GoToMeeting](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC701012.png "Citrix GoToMeeting")
-   
-## <a name="configuring-single-sign-on"></a>Настройка единого входа
+1. Добавление Citrix GoToMeeting из коллекции
+2. Настройка и проверка единого входа в Azure AD
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Citrix GoToMeeting со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
-В рамках этой процедуры потребуется передать в клиент Citrix GoToMeeting сертификат в кодировке Base-64.  
-Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+## <a name="adding-citrix-gotomeeting-from-the-gallery"></a>Добавление Citrix GoToMeeting из коллекции
+Чтобы настроить интеграцию Citrix GoToMeeting с Azure AD, вам нужно добавить Citrix GoToMeeting из коллекции в список управляемых приложений SaaS.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Чтобы настроить единый вход, выполните следующие действия.
-1. На странице интеграции с приложением **Citrix GoToMeeting** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-    ![Разрешить единый вход](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Разрешить единый вход")
+**Чтобы добавить Citrix GoToMeeting из коллекции, выполните указанные ниже действия.**
 
-2. На странице **Как пользователи должны входить в Citrix GoToMeeting?** выберите **Единый вход Microsoft Azure AD**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Настройка единого входа")
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-3. На странице **Настроить параметры приложения** нажмите кнопку **Далее**. 
-   
-    ![Разрешить единый вход](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Разрешить единый вход")
+    ![Active Directory][1]
 
-4. На странице **Настройка единого входа в Citrix GoToMeeting** щелкните **Скачать сертификат**, а затем сохраните файл сертификата на компьютере.
-   
-    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768999.png "Настройка единого входа")
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-5. В другом окне браузера войдите в [центр организации Citrix](https://account.citrixonline.com/organization/administration/).
+    ![Приложения][2]
+    
+3. В верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-6. Щелкните вкладку **Конфигурация поставщика удостоверений** и выполните следующие действия.  
+    ![Приложения][3]
+
+4. В поле поиска введите **Citrix GoToMeeting**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_citrix-gotomeeting_search.png)
+
+5. На панели результатов выберите **Citrix GoToMeeting** и нажмите кнопку **Добавить**, чтобы добавить приложение.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_citrix-gotomeeting_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в Citrix GoToMeeting с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Citrix GoToMeeting соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем Citrix GoToMeeting.
+
+Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Citrix GoToMeeting.
+
+Чтобы настроить и проверить единый вход Azure AD в Citrix GoToMeeting, вам нужно выполнить действия в перечисленных ниже стандартных блоках.
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Citrix GoToMeeting](#creating-a-citrix-gotomeeting-test-user)** требуется для создания в Citrix GoToMeeting пользователя Britta Simon, связанного с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Citrix GoToMeeting.
+
+**Чтобы настроить единый вход Azure AD в Citrix GoToMeeting, выполните указанные ниже действия.**
+
+1. На портале Azure на странице интеграции с приложением **Citrix GoToMeeting** щелкните **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_citrix-gotomeeting_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения Citrix GoToMeeting** не нужно выполнять никаких действий.
+
+    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_citrix-gotomeeting_url.png)
+
+
+3. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_citrix-gotomeeting_certificate.png) 
+
+4. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_400.png)
+    
+5. В разделе "Настройка SAML Citrix GoToMeeting" щелкните "Настроить SAML Citrix GoToMeeting", чтобы открыть окно "Настройка единого входа". Скопируйте **URL-адрес выхода, идентификатор сущности SAML и URL-адрес службы единого входа SAML**  из раздела **Краткий справочник**.
+
+6. В другом окне браузера войдите в [центр организации Citrix](https://account.citrixonline.com/organization/administration/).
+
+7. Щелкните вкладку **Конфигурация поставщика удостоверений** и выполните следующие действия.  
    
     ![Настройка SAML](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "Настройка SAML")
    
     а. Выберите **Вручную**
 
-    b. На диалоговой странице **Настройка единого входа в Citrix GoToMeeting** классического портала Azure скопируйте значение поля **URL-адрес страницы входа** и вставьте его в текстовое поле **URL-адрес страницы входа**. 
+    b. На диалоговой странице **Настройка единого входа в Citrix GoToMeeting** портала Azure скопируйте значение поля **URL-адрес службы единого входа SAML** и вставьте его в текстовое поле **Sign-in page URL** (URL-адрес страницы входа). 
 
-    c. На диалоговой странице **Настройка единого входа в Citrix GoToMeeting** классического портала Azure скопируйте значение поля **URL-адрес страницы выхода** и вставьте его в текстовое поле **URL-адрес страницы выхода**.
+    c. На диалоговой странице **Настройка единого входа в Citrix GoToMeeting** портала Azure скопируйте значение поля **URL-адрес выхода** и вставьте его в текстовое поле **Sign-out page URL** (URL-адрес страницы выхода).
 
-    d. На диалоговой странице **Настройка единого входа в Citrix GoToMeeting** классического портала Azure скопируйте значение поля **Идентификатор сущности** и вставьте его в текстовое поле **Identity Provider Entity ID** (Идентификатор сущности поставщика удостоверений).
+    г) На диалоговой странице **Настройка единого входа в Citrix GoToMeeting** портала Azure скопируйте значение поля **Идентификатор сущности SAML** и вставьте его в текстовое поле **Identity Provider Entity ID** (Идентификатор сущности поставщика удостоверений).
 
     д. Для передачи загруженного сертификата нажмите кнопку **Отправить**.
 
     Е. Щелкните **Сохранить**.
 
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
-1. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Настройка единого входа")
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-2. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
-   
-    ![Настройка SAML](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "Настройка SAML")
+![Создание пользователя Azure AD][100]
 
-## <a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
-В этом разделе показано, как включить подготовку учетных записей пользователей Active Directory для Citrix GoToMeeting.
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
-1. На странице интеграции приложения **Citrix GoToMeeting** классического портала Azure щелкните **Настроить подготовку учетных записей пользователей**, чтобы открыть диалоговое окно **Configure user provisioning** (Настройка подготовки учетных записей пользователей).
-   
-    ![Настройка подготовки пользователей](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "Настройка подготовки пользователей")
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
 
-2. На странице **Параметры и учетные данные администратора** выполните следующие действия.
-   
-    ![Настройка подготовки пользователей](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "Настройка подготовки пользователей")
-   
-    а. В текстовом поле **Имя пользователя администратора Citrix GoToMeeting** введите имя пользователя администратора.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-citrix-gotomeeting-tutorial/create_aaduser_01.png) 
 
-    b. В текстовом поле **Пароль администратора Citrix GoToMeeting** введите пароль администратора.
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-citrix-gotomeeting-tutorial/create_aaduser_02.png) 
 
-    c. Нажмите кнопку **Далее**.
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-citrix-gotomeeting-tutorial/create_aaduser_03.png) 
 
-1. На странице **Подтверждение** установите флажок, чтобы сохранить конфигурацию.
-2. Нажмите кнопку **Проверить** , чтобы проверить конфигурацию.
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-citrix-gotomeeting-tutorial/create_aaduser_04.png) 
 
-## <a name="assigning-users"></a>Назначение пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
 
-### <a name="to-assign-users-to-citrix-gotomeeting-perform-the-following-steps"></a>Чтобы назначить пользователей Citrix GoToMeeting, выполните следующие действия.
-1. На классическом портале Azure создайте тестовую учетную запись.
-2. На странице интеграции приложения **Citrix GoToMeeting** щелкните **Назначить пользователей**.
-   
-    ![Назначение пользователей](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769003.png "Назначение пользователей")
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-    ![Да](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC767830.png "Да")
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-Подождите 10 минут и убедитесь, что учетная запись синхронизирована с Dropbox for Business.
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-a-citrix-gotomeeting-test-user"></a>Создание тестового пользователя Citrix GoToMeeting
 
-В качестве первого шага проверки можно проверить состояние подготовки, щелкнув "Панель мониторинга" в разделе D на странице интеграции приложения **Citrix GoToMeeting** на классическом портале Azure.
+В этом разделе вы создадите в Citrix GoToMeeting пользователя с именем Britta Simon. Приложение Citrix GoToMeeting поддерживает JIT-подготовку. Эта функция включена по умолчанию.
 
-![Панель мониторинга](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769004.png "Панель мониторинга")
+В этом разделе никакие действия с вашей стороны не требуются. Если пользователь в Citrix GoToMeeting еще не существует, он создается при попытке доступа к приложению Citrix GoToMeeting.
 
-Об успешном завершении цикла подготовки пользователя говорит соответствующий статус:
+>[!Note]
+>Чтобы создать пользователя вручную, обратитесь в [службу поддержки Citrix GoToMeeting](https://care.citrixonline.com/gotomeeting). 
 
-![Состояние интеграции](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769005.png "Состояние интеграции")
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа.
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+В этом разделе описано, как настроить для пользователя Britta Simon единый вход Azure, предоставив доступ к Citrix GoToMeeting.
+
+![Назначение пользователя][200] 
+
+**Чтобы назначить пользователя Britta Simon в Citrix GoToMeeting, выполните указанные ниже действия.**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Citrix GoToMeeting**.
+
+    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_citrix-gotomeeting_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Настройка подготовки пользователей](active-directory-saas-citrixgotomeeting-provisioning-tutorial.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-citrix-gotomeeting-tutorial/tutorial_general_203.png
 
 

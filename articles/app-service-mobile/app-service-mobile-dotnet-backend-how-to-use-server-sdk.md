@@ -4,8 +4,8 @@ description: "Узнайте, как работать с пакетом SDK дл
 keywords: "служба приложений, служба приложений azure, мобильное приложение, мобильная служба, масштабировать, масштабируемый, разработка приложений, разработка приложений azure"
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: fcbaa0df29fac22917695046ebc4015f3abf108f
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: ebaeee9b68810d0e5d47da20373e7951c57147d4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure
@@ -118,17 +117,12 @@ ms.lasthandoff: 05/02/2017
 Следующие пакеты расширений на основе NuGet предоставляют различные возможности мобильных устройств, которые может использовать ваше приложение. Вы можете включить расширения во время инициализации с помощью объекта **MobileAppConfiguration** .
 
 * [Microsoft.Azure.Mobile.Server.Quickstart] поддерживает базовую настройку мобильных приложений. Чтобы добавить его в конфигурацию, во время инициализации необходимо вызвать метод расширения **UseDefaultConfiguration**. Это расширение включает в себя следующие расширения: пакеты Notifications, Authentication, Entity, Tables, Crossdomain и Home. Этот пакет используется в кратком руководстве по созданию мобильных приложений, доступном на портале Azure.
-* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/)
-   — реализует стандартную *страницу запуска и выполнения мобильного приложения* для корневого каталога веб-сайта. Чтобы добавить его в конфигурацию, вызовите метод расширения   **AddMobileAppHomeController**.
-* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/)
-   — содержит классы для работы с данными и настраивает конвейер данных. Чтобы добавить его в конфигурацию, вызовите метод расширения **AddTables** .
-* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/)
-   — предоставляет платформе Entity Framework доступ к данным в Базе данных SQL. Чтобы добавить его в конфигурацию, вызовите метод расширения **AddTablesWithEntityFramework** .
-* [Microsoft.Azure.Mobile.Server.Authentication] включает функцию проверки подлинности и настраивает ПО промежуточного слоя OWIN, используемое для проверки токенов. Чтобы добавить его в конфигурацию, вызовите метод расширения**AddAppServiceAuthentication**
-   и **IAppBuilder**.**UseAppServiceAuthentication**.
+* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) реализует стандартную *страницу «Это мобильное приложение запущено и работает»* для корневого каталога веб-сайта. Чтобы добавить его в конфигурацию, вызовите метод расширения **AddMobileAppHomeController** .
+* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) содержит классы для работы с данными и настраивает конвейер данных. Чтобы добавить его в конфигурацию, вызовите метод расширения **AddTables** .
+* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) позволяет платформе Entity Framework получать доступ к данным в базе данных SQL. Чтобы добавить его в конфигурацию, вызовите метод расширения **AddTablesWithEntityFramework** .
+* [Microsoft.Azure.Mobile.Server.Authentication] включает функцию проверки подлинности и настраивает ПО промежуточного слоя OWIN, используемое для проверки токенов. Чтобы добавить его в конфигурацию, вызовите методы расширения **AddAppServiceAuthentication** и **IAppBuilder**.**UseAppServiceAuthentication**.
 * [Microsoft.Azure.Mobile.Server.Notifications] включает push-уведомления и определяет их конечную точку регистрации. Чтобы добавить его в конфигурацию, вызовите метод расширения **AddPushNotifications** .
-* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/)
-   — создает контроллер, который передает устаревшим веб-браузерам данные из мобильного приложения. Чтобы добавить его в конфигурацию, вызовите метод расширения   **MapLegacyCrossDomainController**.
+* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) создает контроллер, который передает устаревшим веб-браузерам данные из вашего мобильного приложения. Чтобы добавить его в конфигурацию, вызовите метод расширения **MapLegacyCrossDomainController** .
 * [Microsoft.Azure.Mobile.Server.Login] предоставляет статический метод AppServiceLoginHandler.CreateToken(), используемый во время пользовательской проверки подлинности.
 
 ## <a name="publish-server-project"></a>Практическое руководство. Публикация серверного проекта
@@ -478,5 +472,4 @@ SID является производным от идентификатора п
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
-
 

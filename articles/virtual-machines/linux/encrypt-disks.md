@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/23/2017
+ms.date: 07/05/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 62122105288d9d625079c385edb9760be31071dd
+ms.translationtype: HT
+ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
+ms.openlocfilehash: 3dc48f5dcb50db81d9f461c41570640839fcce26
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 07/10/2017
 
 
 ---
@@ -29,24 +29,27 @@ ms.lasthandoff: 05/03/2017
 ## <a name="quick-commands"></a>Быстрые команды
 Если вам необходимо быстро выполнить задачу, в следующем разделе описаны основные команды для шифрования виртуальных дисков на вашей виртуальной машине. Более подробные сведения и контекст для каждого этапа можно найти в остальной части документа [начиная отсюда](#overview-of-disk-encryption).
 
-Вам нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure, выполнив команду [az login](/cli/azure/#login). В следующих примерах замените имена параметров собственными значениями. Используемые имена параметров: `myResourceGroup`, `myKey` и `myVM`.
+Вам нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure, выполнив команду [az login](/cli/azure/#login). В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *myKey* и *myVM*.
 
-Сначала включите поставщик Azure Key Vault в подписке Azure, выполнив команду [az provider register](/cli/azure/provider#register), и создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается имя группы ресурсов `myResourceGroup` в расположении `WestUS`.
+Сначала включите поставщик Azure Key Vault в подписке Azure, выполнив команду [az provider register](/cli/azure/provider#register), и создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается имя группы ресурсов *myResourceGroup* в расположении *eastus*:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
-az group create --name myResourceGroup --location WestUS
+az group create --name myResourceGroup --location eastus
 ```
 
-Создайте Azure Key Vault, выполнив команду [az keyvault create](/cli/azure/keyvault#create), и включите Key Vault для использования при шифровании дисков. Укажите уникальное имя Key Vault для параметра `keyvault_name`, выполнив следующую команду:
+Создайте Azure Key Vault, выполнив команду [az keyvault create](/cli/azure/keyvault#create), и включите Key Vault для использования при шифровании дисков. Укажите уникальное имя Key Vault для параметра *keyvault_name*, выполнив следующую команду:
 
 ```azurecli
-keyvault_name=myUniqueKeyVaultName
-az keyvault create --name $keyvault_name --resource-group myResourceGroup \
-  --location WestUS --enabled-for-disk-encryption True
+keyvault_name=mykeyvaultikf
+az keyvault create \
+    --name $keyvault_name \
+    --resource-group myResourceGroup \
+    --location eastus \
+    --enabled-for-disk-encryption True
 ```
 
-Создайте криптографический ключ в своем Key Vault, выполнив команду [az keyvault key create](/cli/azure/keyvault/key#create). В следующем примере создается ключ с именем `myKey`.
+Создайте криптографический ключ в своем Key Vault, выполнив команду [az keyvault key create](/cli/azure/keyvault/key#create). В следующем примере создается ключ с именем *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
@@ -64,29 +67,35 @@ read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
-  --key-permissions all \
-  --secret-permissions all
+    --key-permissions wrapKey \
+    --secret-permissions set
 ```
 
 Создайте виртуальною машину, выполнив команду [az vm create](/cli/azure/vm#create), и подключите диск данных емкостью 5 ГБ. Только некоторые образы Marketplace поддерживают шифрование диска. В следующем примере создается виртуальная машина `myVM` с использованием образа **CentOS 7.2n**:
 
 ```azurecli
-az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
-  --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-  --data-disk-sizes-gb 5
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image OpenLogic:CentOS:7.2n:7.2.20160629 \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --data-disk-sizes-gb 5
 ```
 
-Установите SSH-подключение к виртуальной машине. Создайте раздел и файловую систему, а затем подключите диск данных. Дополнительные сведения см. в разделе [Подключение к виртуальной машине Linux для подключения нового диска](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Закройте сеанс SSH.
+Установите SSH-подключение к виртуальной машине с помощью `publicIpAddress` из выходных данных предыдущей команды. Создайте раздел и файловую систему, а затем подключите диск данных. Дополнительные сведения см. в разделе [Подключение к виртуальной машине Linux для подключения нового диска](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Закройте сеанс SSH.
 
 Зашифруйте виртуальную машину, выполнив команду [az vm encryption enable](/cli/azure/vm/encryption#enable). В следующем примере используются переменные `$sp_id` и `$sp_password` из предыдущей команды `ad sp create-for-rbac`:
 
 ```azurecli
-az vm encryption enable --resource-group myResourceGroup --name myVM \
-  --aad-client-id $sp_id \
-  --aad-client-secret $sp_password \
-  --disk-encryption-keyvault $keyvault_name \
-  --key-encryption-key myKey \
-  --volume-type all
+az vm encryption enable \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --aad-client-id $sp_id \
+    --aad-client-secret $sp_password \
+    --disk-encryption-keyvault $keyvault_name \
+    --key-encryption-key myKey \
+    --volume-type all
 ```
 
 Для завершения шифрования диска потребуется некоторое время. Состояние процесса можно контролировать с помощью команды [az vm encryption show](/cli/azure/vm/encryption#show):
@@ -107,7 +116,7 @@ az vm restart --resource-group myResourceGroup --name myVM
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
- Теперь состояние диска операционной системы и диска данных должно быть **Encrypted**.
+Теперь состояние диска операционной системы и диска данных должно быть **Encrypted**.
 
 ## <a name="overview-of-disk-encryption"></a>Общие сведения о шифровании дисков
 Виртуальные диски на виртуальных машинах Linux шифруются с помощью [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). В Azure за шифрование виртуальных дисков плата не взимается. Криптографические ключи хранятся в хранилище ключей Azure с применением защиты программного обеспечения. В качестве альтернативы можно импортировать или создать ключи аппаратных модулей безопасности (HSM), сертифицированных по стандартам уровня 2 FIPS 140-2. Вы сохраняете контроль над этими криптографическими ключами и можете проводить аудит их использования. Эти криптографические ключи используются для шифрования и расшифровки виртуальных дисков, подключенных к виртуальной машине. Субъект-служба Azure Active Directory предоставляет безопасный механизм для выдачи этих криптографических ключей при включении и отключении виртуальных машин.
@@ -146,30 +155,31 @@ az vm encryption show --resource-group myResourceGroup --name myVM
 * обновление криптографических ключей на уже зашифрованных виртуальных машинах Linux.
 
 ## <a name="create-azure-key-vault-and-keys"></a>Создание Azure Key Vault и ключей
-Вам нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure, выполнив команду [az login](/cli/azure/#login). В примерах команд замените все примеры параметров собственными именами, расположением и значениями ключей. В следующих примерах используется соглашение `myResourceGroup`, `myKeyVault`, `myAADApp` и т. д.
-
-В примерах команд замените все примеры параметров собственными именами, расположением и значениями ключей. В следующих примерах используется соглашение `myResourceGroup`, `myKey`, `myVM` и т. д.
+Вам нужно установить последнюю версию [Azure CLI 2.0](/cli/azure/install-az-cli2) и войти в учетную запись Azure с помощью команды [az login](/cli/azure/#login). В следующих примерах замените имена параметров собственными значениями. Примеры имен параметров: *myResourceGroup*, *myKey* и *myVM*.
 
 Первым делом создайте хранилище ключей Azure для хранения криптографических ключей. В хранилище ключей Azure можно хранить ключи, секреты или пароли, что позволяет безопасно реализовать их в приложениях и службах. Для шифрования виртуальных дисков используйте хранилище ключей, чтобы хранить криптографический ключ, используемый для шифрования или расшифровки виртуальных дисков.
 
-Включите поставщик Azure Key Vault в подписке Azure, выполнив команду [az provider register](/cli/azure/provider#register), и создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается имя группы ресурсов `myResourceGroup` в расположении `WestUS`.
+Включите поставщик Azure Key Vault в подписке Azure, выполнив команду [az provider register](/cli/azure/provider#register), и создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). В следующем примере создается имя группы ресурсов *myResourceGroup* в расположении `eastus`:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
-az group create --name myResourceGroup --location WestUS
+az group create --name myResourceGroup --location eastus
 ```
 
-Хранилище ключей Azure, содержащее криптографические ключи и связанные вычислительные ресурсы, такие как хранилище и виртуальная машина, должны находиться в одном и том же регионе. Создайте Azure Key Vault, выполнив команду [az keyvault create](/cli/azure/keyvault#create), и включите Key Vault для использования при шифровании дисков. Укажите уникальное имя Key Vault для параметра `keyvault_name`, выполнив следующую команду:
+Хранилище ключей Azure, содержащее криптографические ключи и связанные вычислительные ресурсы, такие как хранилище и виртуальная машина, должны находиться в одном и том же регионе. Создайте Azure Key Vault, выполнив команду [az keyvault create](/cli/azure/keyvault#create), и включите Key Vault для использования при шифровании дисков. Укажите уникальное имя Key Vault для параметра *keyvault_name*, выполнив следующую команду:
 
 ```azurecli
 keyvault_name=myUniqueKeyVaultName
-az keyvault create --name $keyvault_name --resource-group myResourceGroup \
-  --location WestUS --enabled-for-disk-encryption True
+az keyvault create \
+    --name $keyvault_name \
+    --resource-group myResourceGroup \
+    --location eastus \
+    --enabled-for-disk-encryption True
 ```
 
 Хранить криптографические ключи можно с помощью программного обеспечения или защиты HSM. Для использования HSM требуется хранилище ключей уровня "Премиум". Создание хранилища ключей уровня "Премиум" осуществляется за дополнительную плату в отличие от хранилища ключей уровня "Стандартный", в котором хранятся ключи, защищенные программным обеспечением. Чтобы создать хранилище ключей уровня "Премиум", на предыдущем шаге добавьте `--sku Premium` к команде. В следующем примере используются ключи, защищенные программным обеспечением, так как мы создали хранилище ключей уровня "Стандартный".
 
-Для обеих моделей защиты платформе Azure необходимо предоставить доступ на запрос криптографических ключей при загрузке виртуальной машины для расшифровки виртуальных дисков. Создайте криптографический ключ в своем Key Vault, выполнив команду [az keyvault key create](/cli/azure/keyvault/key#create). В следующем примере создается ключ с именем `myKey`.
+Для обеих моделей защиты платформе Azure необходимо предоставить доступ на запрос криптографических ключей при загрузке виртуальной машины для расшифровки виртуальных дисков. Создайте криптографический ключ в своем Key Vault, выполнив команду [az keyvault key create](/cli/azure/keyvault/key#create). В следующем примере создается ключ с именем *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
@@ -191,20 +201,25 @@ read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
-  --key-permissions all \
-  --secret-permissions all
+  --key-permissions wrapKey \
+  --secret-permissions set
 ```
 
 
 ## <a name="create-virtual-machine"></a>Создание виртуальной машины
-Чтобы зашифровать некоторые виртуальные диски, создайте виртуальную машину и добавьте диск данных. Создайте виртуальною машину, которую необходимо зашифровать, выполнив команду [az vm create](/cli/azure/vm#create), и подключите диск данных емкостью 5 ГБ. Только некоторые образы Marketplace поддерживают шифрование диска. В следующем примере создается виртуальная машина `myVM` с использованием образа **CentOS 7.2n**:
+Чтобы зашифровать некоторые виртуальные диски, создайте виртуальную машину и добавьте диск данных. Создайте виртуальною машину, которую необходимо зашифровать, выполнив команду [az vm create](/cli/azure/vm#create), и подключите диск данных емкостью 5 ГБ. Только некоторые образы Marketplace поддерживают шифрование диска. В следующем примере создается виртуальная машина с именем *myVM* с использованием образа **CentOS 7.2n**:
 
 ```azurecli
-az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.20160629 \
-  --data-disk-sizes-gb 5
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image OpenLogic:CentOS:7.2n:7.2.20160629 \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --data-disk-sizes-gb 5
 ```
 
-Подключитесь к своей виртуальной машине по протоколу SSH, чтобы создать раздел и файловую систему, и подключите диск данных. Дополнительные сведения см. в разделе [Подключение к виртуальной машине Linux для подключения нового диска](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Закройте сеанс SSH.
+Установите SSH-подключение к виртуальной машине с помощью `publicIpAddress` из выходных данных предыдущей команды. Создайте раздел и файловую систему, а затем подключите диск данных. Дополнительные сведения см. в разделе [Подключение к виртуальной машине Linux для подключения нового диска](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk). Закройте сеанс SSH.
 
 
 ## <a name="encrypt-virtual-machine"></a>Шифрование виртуальной машины
@@ -218,12 +233,14 @@ az vm create -g myResourceGroup -n myVM --image OpenLogic:CentOS:7.2n:7.2.201606
 Зашифруйте виртуальную машину, выполнив команду [az vm encryption enable](/cli/azure/vm/encryption#enable). В следующем примере используются переменные `$sp_id` и `$sp_password` из предыдущей команды `ad sp create-for-rbac`:
 
 ```azurecli
-az vm encryption enable --resource-group myResourceGroup --name myVM \
-  --aad-client-id $sp_id \
-  --aad-client-secret $sp_password \
-  --disk-encryption-keyvault $keyvault_name \
-  --key-encryption-key myKey \
-  --volume-type all
+az vm encryption enable \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --aad-client-id $sp_id \
+    --aad-client-secret $sp_password \
+    --disk-encryption-keyvault $keyvault_name \
+    --key-encryption-key myKey \
+    --volume-type all
 ```
 
 Для завершения шифрования диска потребуется некоторое время. Состояние процесса можно контролировать с помощью команды [az vm encryption show](/cli/azure/vm/encryption#show):
@@ -268,13 +285,15 @@ az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-
 Повторно выполните команду для шифрования виртуальных дисков, в этот раз добавив параметр `--sequence-version` и увеличив значение, применяемое при первом выполнении, следующим образом:
 
 ```azurecli
-az vm encryption enable --resource-group myResourceGroup --name myVM \
-  --aad-client-id $sp_id \
-  --aad-client-secret $sp_password \
-  --disk-encryption-keyvault $keyvault_name \
-  --key-encryption-key myKey \
-  --volume-type all \
-  --sequence-version 2
+az vm encryption enable \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --aad-client-id $sp_id \
+    --aad-client-secret $sp_password \
+    --disk-encryption-keyvault $keyvault_name \
+    --key-encryption-key myKey \
+    --volume-type all \
+    --sequence-version 2
 ```
 
 

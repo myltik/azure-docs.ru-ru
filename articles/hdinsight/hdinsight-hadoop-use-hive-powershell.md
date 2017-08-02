@@ -1,5 +1,5 @@
 ---
-title: "Выполнения запросов Hive Hadoop в кластере HDInsight с помощью PowerShell | Документация Майкрософт"
+title: "Использование Hive Hadoop с помощью PowerShell в HDInsight — Azure | Документы Майкрософт"
 description: "Использование PowerShell для выполнения запросов Hive в Hadoop в HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 897358e87937f9094d312cc88f630c81e7d46f4f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a235496728b4eeacb6b3e11d1d33363d28420fa8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/18/2017
 * **Кластер Azure HDInsight**. Не имеет значения, какой кластер используется — под управлением Windows или Linux.
 
   > [!IMPORTANT]
-  > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * <seg>
   **Рабочая станция с Azure PowerShell**.</seg>

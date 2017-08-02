@@ -1,5 +1,5 @@
 ---
-title: "Разработка действий скриптов с помощью HDInsight на основе Linux | Документация Майкрософт"
+title: "Разработка действий скриптов с помощью HDInsight на основе Linux — Azure | Документы Майкрософт"
 description: "Как настроить кластеры HDInsight на основе Linux с помощью действия скрипта. Действия сценариев предназначены для настройки кластеров Azure HDInsight. Для этого либо задаются параметры конфигурации кластера, либо в кластере устанавливаются дополнительные службы, инструменты или другое программное обеспечение. "
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/02/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: aaa5134fafea387e63fc9c9819422d24de6baed0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc4326a72e2124034606e25fe8f75b330726e68e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/18/2017
 Узнайте, как настроить кластер HDInsight с помощью сценариев Bash. Действия сценариев предназначены для настройки HDInsight во время или после создания кластера.
 
 > [!IMPORTANT]
-> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Для выполнения действий, описанных в этом документе, необходим кластер HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Что такое действия сценариев?
 

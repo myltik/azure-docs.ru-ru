@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 04810ffa33d90d31003d0919c3edb2710fed453c
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB. Памятка по SQL-запросам API DocumentDB в формате PDF
@@ -40,7 +39,7 @@ Cosmos DB поддерживает реляционные, иерархичес�
 
 ## <a name="more-help-with-writing-sql-queries"></a>Дополнительная справка по созданию SQL-запросов
 * Подробное описание параметров запросов, доступных в DocumentDB, см. в статье [SQL-запросы и синтаксис SQL в Cosmos DB](documentdb-sql-query.md).
-* Сопутствующую справочную документацию см. в статье о [языке SQL-запросов Cosmos DB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+* Связанную справочную документацию см. в разделе [Справочник по синтаксису SQL-запросов API DocumentDB в Azure Cosmos DB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
 ## <a name="release-notes"></a>Заметки о выпуске
 Обновлено 29.07.2016 г.

@@ -3,7 +3,7 @@ title: "Поддержка языка Gremlin в базе данных Azure Cos
 description: "Дополнительные сведения о языке Gremlin из TinkerPop Apache, функции и этапы которого доступны в базе данных Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: dennyglee
 manager: jhubbard
 editor: 
 tags: 
@@ -14,18 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/10/2017
-ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: acea54d202d1117cf2dfb1d35ad48346daa9053d
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
+ms.openlocfilehash: 3f2d2af1d6be41d98f9780b4cf9ca4cd79de0fd7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/17/2017
 
 ---
 
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Поддержка графа Gremlin в базе данных Azure Cosmos DB
-Azure Cosmos DB поддерживает [Gremlin]([Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)) — язык обхода графов [Apache TinkerpPop](http://tinkerpop.apache.org), предназначенный для создания сущностей графа и выполнения операций запросов графов Graph API. Вы можете использовать язык Gremlin, чтобы создать сущности графа (вершины и ребра), изменить свойства в этих сущностях, выполнить запросы и обходы графа, а также удалить сущности. 
+Azure Cosmos DB поддерживает [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) — язык обхода графов [Apache TinkerpPop](http://tinkerpop.apache.org), предназначенный для создания сущностей графа и выполнения операций запросов графов Graph API. Вы можете использовать язык Gremlin, чтобы создать сущности графа (вершины и ребра), изменить свойства в этих сущностях, выполнить запросы и обходы графа, а также удалить сущности. 
 
 База данных Azure Cosmos DB предоставляет возможности корпоративного уровня для баз данных графа. Эти возможности включают глобальное распределение, независимое масштабирование хранилища и пропускной способности, прогнозируемую задержку операций менее 10 миллисекунд, автоматическое индексирование и гарантированный уровень производительности в 99,99 % случаях согласно соглашениям об уровне обслуживания. Так как база данных Azure Cosmos DB поддерживает TinkerPop и Gremlin, вы можете легко перемещать приложения, написанные с помощью другой базы данных графа, без необходимости изменять код. Кроме того, благодаря поддержке языка Gremlin база данных Azure Cosmos DB быстро и эффективно интегрируется с платформами аналитики, совместимыми с TinkerPop, например с [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
@@ -150,7 +149,7 @@ TinkerPop — это стандартная платформа, которая 
 | --- | --- |
 | id | Идентификатор ребра. Должен иметь уникальное значение (если применимо — со значением _partition). |
 | label | Метка ребра. Это свойство является необязательным и используется для описания типа связи. |
-| inV | Набор определенных пользователем свойств, связанных с ребром. Каждое свойство может иметь несколько значений. |
+| inV | Содержит список вершин для ребра. Хранение смежных сведений с помощью ребра обеспечивает быстрое выполнение обхода графов. Вершины сгруппированы на основе меток. |
 | properties | Набор определенных пользователем свойств, связанных с ребром. Каждое свойство может иметь несколько значений. |
 
 Каждое свойство может хранить несколько значений в массиве. 
@@ -210,3 +209,4 @@ TinkerPop — это стандартная платформа, которая 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Создайте приложение графа [с использованием пакетов SDK](create-graph-dotnet.md). 
 * Ознакомьтесь с [поддержкой графов в базе данных Azure Cosmos DB](graph-introduction.md).
+

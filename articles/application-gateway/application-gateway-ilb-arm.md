@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db097fd947112dc4747523693f89c80d984bd26d
-
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: d218eab7e9f124e4825a8a781b4eeb0dcca58b4a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>Создание шлюза приложений с внутренним балансировщиком нагрузки (ILB) с помощью диспетчера ресурсов Azure
@@ -137,10 +138,10 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 ### <a name="step-2"></a>Шаг 2
 
 ```powershell
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
-На этом шаге выполняется настройка внутреннего пула IP-адресов pool01 с IP-адресами 134.170.185.46, 134.170.188.221,134.170.185.50. Эти адреса будут использоваться для получения сетевого трафика от конечной точки с интерфейсным IP-адресом. Замените приведенные выше IP-адреса и добавьте IP-адреса конечных точек своего приложения.
+В этом шаге выполняется настройка внутреннего пула IP-адресов pool01 с IP-адресами 10.1.1.8, 10.1.1.9, 10.1.1.10. Эти адреса будут использоваться для получения сетевого трафика от конечной точки с интерфейсным IP-адресом. Замените приведенные выше IP-адреса и добавьте IP-адреса конечных точек своего приложения.
 
 ### <a name="step-3"></a>Шаг 3.
 
@@ -274,10 +275,5 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 * [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

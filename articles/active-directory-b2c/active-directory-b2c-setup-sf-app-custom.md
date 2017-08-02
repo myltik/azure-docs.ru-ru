@@ -1,107 +1,159 @@
 ---
-title: "Azure Active Directory B2C. Добавление поставщика SAML Salesforce с помощью пользовательских политик | Документация Майкрософт"
-description: "В этой статье описываются пользовательские политики Azure Active Directory B2C"
+title: "Azure Active Directory B2C. Добавление поставщика SAML Salesforce с помощью пользовательских политик | Документы Майкрософт"
+description: "В этой статье содержатся сведения о создании пользовательских политик Azure Active Directory B2C и управлении ими."
 services: active-directory-b2c
 documentationcenter: 
-author: gsacavdm
+author: parakhj
 manager: krassk
-editor: gsacavdm
+editor: parakhj
 ms.assetid: d7f4143f-cd7c-4939-91a8-231a4104dc2c
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/30/2017
-ms.author: gsacavdm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 1d97c75f3130ea6fdacbc6335b6e70677b4d226e
+ms.date: 06/11/2017
+ms.author: parakhj
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 269cbd80fb6e861fa8588025eec70b6c6e2890d7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
-# <a name="azure-active-directory-b2c-log-in-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C. Выполнение входа с помощью учетных записей Salesforce через SAML
+# <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C. Выполнение входа с помощью учетных записей Salesforce через SAML
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-В этой статье описывается выполнение входа для пользователей из определенной организации Salesforce с помощью [пользовательских политик](active-directory-b2c-overview-custom.md).
+В этой статье описывается настройка входа для пользователей из определенной организации Salesforce с помощью [пользовательских политик](active-directory-b2c-overview-custom.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 ### <a name="azure-ad-b2c-setup"></a>Настройка Azure AD B2C
-Убедитесь, что вы выполнили все действия, связанные с [началом работы с пользовательскими политиками](active-directory-b2c-get-started-custom.md).
 
-А именно:
+Убедитесь, что вы выполнили все действия, связанные с [началом работы с пользовательскими политиками](active-directory-b2c-get-started-custom.md) в Azure Active Directory B2C (Azure AD B2C).
 
-1. Создание клиента Azure AD B2C.
-1. Создание приложения Azure AD B2C.
-1. Регистрация двух приложений подсистемы политик.
-1. Настройка ключей.
-1. Настройка начального пакета.
+В частности, описаны такие возможности:
+
+* Создание клиента Azure AD B2C.
+* Создание приложения Azure AD B2C.
+* Регистрация двух приложений подсистемы политик.
+* Настройка ключей.
+* Настройка начального пакета.
 
 ### <a name="salesforce-setup"></a>Настройка Salesforce
-Для выполнения действий, описанных в этом учебнике, вам необходимо следующее.
-1. Подписка на учетную запись Salesforce. Вы можете подписаться на [бесплатный выпуск Developer Edition](https://developer.salesforce.com/signup). 
-1. [Настройка собственного домена](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0) для организации Salesforce.
 
-## <a name="get-the-salesforce-saml-metadata"></a>Получение метаданных SAML Salesforce
->[!NOTE]
-> В этом руководстве предполагается, что вы используете [Salesforce Lighting Experience](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
+Для выполнения действий, описанных в этой статье, вам необходимо следующее.
+
+* Подписка на учетную запись Salesforce. Вы можете зарегистрироваться для получения [бесплатной учетной записи Developer Edition](https://developer.salesforce.com/signup).
+* [Настройка собственного домена](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0) для организации Salesforce.
+
+## <a name="set-up-salesforce-so-users-can-federate"></a>Настройка Salesforce для федерации пользователей
+
+Чтобы обеспечить взаимодействие Azure AD B2C с Salesforce, необходимо получить URL-адрес метаданных Salesforce.
+
+### <a name="set-up-salesforce-as-an-identity-provider"></a>Настройка Salesforce в качестве поставщика удостоверений
+
+> [!NOTE]
+> В этой статье предполагается, что вы используете [Salesforce Lightning Experience](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
 
 1. [Войдите в Salesforce](https://login.salesforce.com/). 
-1. В меню слева в разделе **Параметры** выберите **Удостоверение** и щелкните **Поставщик удостоверений**.
-1. Щелкните **Enable Identity Provider** (Включить поставщик удостоверений).
-1. **Выберите сертификат**, который необходимо использовать в Salesforce при взаимодействии с Azure AD B2C, и нажмите кнопку **Сохранить**. Вы можете использовать сертификат по умолчанию.
-1. Нажмите кнопку **Download Metadata** (Скачать метаданные) и сохраните файл метаданных. Он потребуется вам в дальнейшем.
+2. В меню слева в разделе **Параметры** разверните узел **Удостоверение** и щелкните **Поставщик удостоверений**.
+3. Щелкните **Enable Identity Provider** (Включить поставщик удостоверений).
+4. В разделе **Select the certificate** (Выберите сертификат) выберите сертификат, который необходимо использовать в Salesforce при взаимодействии с Azure AD B2C. Вы можете использовать сертификат по умолчанию. Щелкните **Сохранить**. 
 
-## <a name="add-a-saml-signing-certificate-to-azure-ad-b2c"></a>Добавление сертификата для подписи SAML в Azure AD B2C
-Вам необходимо отправить сертификат SAML в клиент Azure AD B2C для использования при подписывании запросов SAML. Для этого:
+### <a name="create-a-connected-app-in-salesforce"></a>Создание подключенного приложения в Salesforce
 
-1. Перейдите к клиенту Azure AD B2C, откройте **параметры B2C и выберите Identity Experience Framework (Инфраструктура процедур идентификации) > Policy Keys (Ключи политики)**.
-1. Щелкните **+Добавить**.
-1. Параметры:
- * Выберите **Параметры > Отправить**
- * **Имя**: > `ContosoIdpSamlCert`.  Префикс B2C_1A_ будет автоматически добавлен к имени ключа. Запишите полное имя (включая элемент B2C_1A_), так как позднее вы будете указывать его в политике.
- * С помощью **элемента управления для отправки файлов** выберите сертификат и при необходимости укажите пароль сертификата.
-1. Нажмите кнопку **Создать**
-1. Подтвердите созданный ключ `B2C_1A_ContosoIdpSamlCert`.
+1. На странице **Поставщик удостоверений** перейдите в раздел **Поставщики услуг**.
+2. Щелкните **Service Providers are now created via Connected Apps. Click here** (Поставщики услуг теперь создаются с помощью подключенных приложений. Щелкните здесь).
+3. В разделе **Основные сведения** введите нужные значения для подключенного приложения.
+4. В разделе **Параметры веб-приложения** установите флажок **Включить SAML**.
+5. В поле **Идентификатор сущности** введите следующий URL-адрес. Проверьте, заменено ли значение `tenantName`.
+      ```
+      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      ```
+6. В поле **ACS URL** (URL-адрес ACS) введите приведенный ниже URL-адрес. Проверьте, заменено ли значение `tenantName`.
+      ```
+      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      ```
+7. Для остальных параметров оставьте значения по умолчанию.
+8. Прокрутите до нижней части списка и нажмите кнопку **Сохранить**.
+
+### <a name="get-the-metadata-url"></a>Получить URL-адреса метаданных
+
+1. На странице общих сведений о подключенном приложении щелкните **Управление**.
+2. Скопируйте значение **конечной точки обнаружения метаданных**, а затем сохраните его. Оно будет использоваться далее в этой статье.
+
+### <a name="set-up-salesforce-users-to-federate"></a>Настройка пользователей Salesforce для федерации
+
+1. На странице **Управление** подключенного приложения перейдите в раздел **Профили**.
+2. Щелкните **Управление профилями**.
+3. Выберите профили (или группы пользователей) для федерации с Azure AD B2C. Используя права системного администратора, установите флажок **Системный администратор** для федерации с помощью учетной записи Salesforce.
+
+## <a name="generate-a-signing-certificate-for-azure-ad-b2c"></a>Создание сертификата подписи для Azure AD B2C
+
+Запросы, отправляемые в Salesforce, должны быть подписаны Azure AD B2C. Чтобы создать сертификат подписи, откройте Azure PowerShell и выполните следующие команды.
+
+> [!NOTE]
+> Обновите имя клиента и пароль в первых двух строках.
+
+```PowerShell
+$tenantName = "<YOUR TENANT NAME>.onmicrosoft.com"
+$pwdText = "<YOUR PASSWORD HERE>"
+
+$Cert = New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName "SamlIdp.$tenantName" -Subject "B2C SAML Signing Cert" -HashAlgorithm SHA256 -KeySpec Signature -KeyLength 2048
+
+$pwd = ConvertTo-SecureString -String $pwdText -Force -AsPlainText
+
+Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
+```
+
+## <a name="add-the-saml-signing-certificate-to-azure-ad-b2c"></a>Добавление сертификата подписи SAML в Azure AD B2C
+
+Отправьте сертификат подписи в клиент Azure AD B2C: 
+
+1. Перейдите в клиент Azure AD B2C. Последовательно выберите **Settings** > **Identity Experience Framework** > **Policy Keys** (Параметры, Инфраструктура процедур идентификации, Ключи политики).
+2. Щелкните **+Добавить**, а затем:
+    1. Щелкните **Параметры** > **Отправить**.
+    2. Введите **имя** (например, SAMLSigningCert). Префикс *B2C_1A_* будет автоматически добавлен к имени ключа.
+    3. Чтобы выбрать сертификат, выберите **элемент управления отправкой файла**. 
+    4. Введите пароль сертификата, который задан в скрипте PowerShell.
+3. Щелкните **Создать**.
+4. Убедитесь, что ключ создан (например, B2C_1A_SAMLSigningCert). Запишите полное имя (включая *B2C_1A_*). Вы будете ссылаться на этот ключ позднее в политике.
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>Создание поставщика утверждений SAML Salesforce в базовой политике
 
-Чтобы разрешить пользователям выполнять вход с помощью Salesforce, необходимо определить Salesforce в качестве поставщика утверждений. Другими словами, необходимо указать конечную точку, с которой будет взаимодействовать Azure AD B2C. Конечная точка *предоставит* набор *утверждений*, используемых Azure AD B2C, чтобы проверить, была ли выполнена проверка подлинности определенного пользователя. Это можно сделать, добавив `<ClaimsProvider>` Salesforce в файл расширения политики.
+Чтобы пользователи могли выполнять вход с помощью Salesforce, необходимо определить Salesforce в качестве поставщика утверждений. Другими словами, необходимо указать конечную точку, с которой будет взаимодействовать Azure AD B2C. Конечная точка *предоставит* набор *утверждений*, используемых Azure AD B2C, чтобы проверить, была ли выполнена проверка подлинности определенного пользователя. Это можно сделать, добавив `<ClaimsProvider>` для Salesforce в файл расширения политики.
 
-1. Откройте файл расширения из рабочего каталога (TrustFrameworkExtensions.xml).
-1. Найдите раздел `<ClaimsProviders>`. Если он не существует, добавьте его в корневой узел.
-1. Добавьте новый `<ClaimsProvider>`, как показано ниже.
+1. Откройте файл расширения (TrustFrameworkExtensions.xml) из рабочего каталога.
+2. Найдите раздел `<ClaimsProviders>`. Если он не существует, создайте его в корневом узле.
+3. Добавьте новый `<ClaimsProvider>`:
 
     ```XML
     <ClaimsProvider>
-      <Domain>contoso</Domain>
-      <DisplayName>Contoso</DisplayName>
+      <Domain>salesforce</Domain>
+      <DisplayName>Salesforce</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Contoso">
-          <DisplayName>Contoso</DisplayName>
-          <Description>Login with your Contoso account</Description>
+        <TechnicalProfile Id="salesforce">
+          <DisplayName>Salesforce</DisplayName>
+          <Description>Login with your Salesforce account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
             <Item Key="RequestsSigned">false</Item>
             <Item Key="WantsEncryptedAssertions">false</Item>
-            <Item Key="PartnerEntity">
-    <![CDATA[ <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://contoso.com" validUntil="2026-10-05T23:57:13.854Z" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:KeyDescriptor use="signing"><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIErDCCA….qY9SjVXdu7zy8tZ+LqnwFSYIJ4VkE9UR1vvvnzO</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://contoso.com/idp/endpoint/HttpPost"/><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://contoso.com/idp/endpoint/HttpRedirect"/></md:IDPSSODescriptor></md:EntityDescriptor>]]>
-            </Item>
-          </Metadata>       
+            <Item Key="WantsSignedAssertions">false</Item>
+            <Item Key="PartnerEntity">https://contoso-dev-ed.my.salesforce.com/.well-known/samlidp.xml</Item>
+          </Metadata>
           <CryptographicKeys>
-            <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ContosoIdpSamlCert"/>
-            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ContosoIdpSamlCert "/>
+            <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_SAMLSigningCert"/>
+            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SAMLSigningCert"/>
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userId"/>
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
-            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name"/>
+            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="externalIdp"/>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
           </OutputClaims>
@@ -117,112 +169,91 @@ ms.lasthandoff: 05/11/2017
     </ClaimsProvider>
     ```
 
-1. В узле `<ClaimsProvider>` укажите для `<Domain>` уникальное значение, позволяющее отличить этот поставщик удостоверений.
-1. В узле `<ClaimsProvider>` задайте для `<DisplayName>` понятное имя поставщика утверждений. В настоящее время это значение не используется.
+В узле `<ClaimsProvider>`:
+
+1. Укажите для `<Domain>` уникальное значение, позволяющее отличить этот `<ClaimsProvider>` от других.
+2. Задайте для `<DisplayName>` отображаемое имя поставщика утверждений. Сейчас это значение не используется.
 
 ### <a name="update-the-technical-profile"></a>Обновление технического профиля
 
-Чтобы получить токен SAML из Salesforce, вам необходимо определить протоколы, используемые Azure AD B2C для взаимодействия с Azure AD. Этот процесс происходит внутри элемента `<TechnicalProfile>` поставщика `<ClaimsProvider>`.
+Чтобы получить токен SAML из Salesforce, определите протоколы, используемые Azure AD B2C для взаимодействия с Active Directory (Azure AD). Сделайте в элементе `<TechnicalProfile>` поставщика `<ClaimsProvider>` следующее:
 
 1. Обновите идентификатор узла `<TechnicalProfile>`. Этот идентификатор используется для ссылки на этот технический профиль из других частей политики.
-1. Обновите значение для `<DisplayName>`. Это значение будет отображаться на кнопке входа на экране входа в систему.
-1. Обновите значение для `<Description>`.
-1. Azure AD использует протокол OpenID Connect, поэтому для `<Protocol>` должно быть задано значение SAML2.
+2. Обновите значение для `<DisplayName>`. Это значение отображается на кнопке входа на экране входа.
+3. Обновите значение для `<Description>`.
+4. Salesforce использует протокол SAML 2.0. Убедитесь, что значение для `<Protocol>` — **SAML2**.
 
-Вам следует обновить раздел `<Metadata>` в приведенном выше коде XML, чтобы добавить параметры конфигурации для определенного клиента Azure AD. В коде XML обновите значения метаданных следующим образом:
+Обновите раздел `<Metadata>` в предыдущем коде XML в соответствии с параметрами для определенной учетной записи Salesforce. В коде XML обновите значения метаданных:
 
-1. Обновите значение `<Item Key="PartnerEntity">`, использовав содержимое файла Metadata.xml, скачанного из Salesforce. **Убедитесь, что оно инкапсулировано в <![CDATA[ …metadata… ]]>**.
+1. Измените значение `<Item Key="PartnerEntity">` на скопированный ранее URL-адрес метаданных Salesforce. В нем используется следующий формат: 
 
-1. В разделе `<CryptographicKeys>` в приведенном выше коде XML задайте для `StorageReferenceId` определенный идентификатор сертификата (например, ContosoSalesforceCert).
+    `https://contoso-dev-ed.my.salesforce.com/.well-known/samlidp/connectedapp.xml`
+
+2. В разделе `<CryptographicKeys>` измените значение для обоих экземпляров `StorageReferenceId` на имя ключа сертификата подписи (например, B2C_1A_SAMLSigningCert).
 
 ### <a name="upload-the-extension-file-for-verification"></a>Отправка файла расширения для проверки
 
-К этому моменту политика будет настроена, так что Azure AD B2C будет знать, как взаимодействовать с каталогом Azure AD. Попробуйте отправить файл расширения политики, чтобы убедиться, что все в порядке. Для этого выполните следующие действия:
+Теперь политика настроена, а Azure AD B2C известно, как взаимодействовать с Salesforce. Попробуйте отправить файл расширения политики, чтобы убедиться, что все в порядке. Чтобы отправить файл расширения политики:
 
-1. Перейдите в колонку **Все политики** в клиенте Azure AD B2C.
-1. Установите флажок для параметра **Перезаписать политику, если она существует**.
-1. Отправьте файл расширения (TrustFrameworkExtensions.xml) и немного подождите, чтобы удостовериться в отсутствии сбоя при проверке.
+1. В клиенте Azure AD B2C перейдите в колонку **Все политики**.
+2. Установите флажок **Перезаписать политику, если она существует**.
+3. Отправьте файл расширения (TrustFrameworkExtensions.xml). Убедитесь, что проверка пройдена.
 
 ## <a name="register-the-salesforce-saml-claims-provider-to-a-user-journey"></a>Регистрация поставщика утверждений SAML Salesforce для пути взаимодействия пользователя
 
-Теперь вам необходимо добавить поставщик удостоверений SAML Salesforce в один из путей взаимодействия пользователя. На этом этапе поставщик удостоверений уже настроен, но еще недоступен ни на одном экране регистрации или входа. Чтобы сделать его доступным, необходимо создать дубликат существующего шаблона пути взаимодействия пользователя, а затем изменить его таким образом, чтобы он также содержал поставщик удостоверений Azure AD.
+Теперь вам необходимо добавить поставщик удостоверений SAML Salesforce в один из путей взаимодействия пользователя. На этом этапе поставщик удостоверений уже настроен, но еще не доступен ни на одной странице регистрации или входа пользователя. Чтобы добавить поставщик на страницу входа, сначала создайте копию существующего шаблона пути пользователя. Затем измените шаблон, чтобы у него также был поставщик удостоверений Azure AD.
 
 1. Откройте базовый файл политики (например, TrustFrameworkBase.xml).
-1. Найдите элемент `<UserJourneys>` и скопируйте полный `<UserJourney>` с Id=”SignUpOrSignIn”.
-1. Откройте файл расширения (например, TrustFrameworkExtensions.xml) и найдите элемент `<UserJourneys>`. Если элемент не существует, добавьте его.
-1. Вставьте весь скопированный `<UserJourney>` как дочерний элемент `<UserJourneys>`.
-1. Переименуйте идентификатор нового `<UserJourney>` (например, SignUpOrSignUsingContoso).
+2. Найдите элемент `<UserJourneys>` и скопируйте полное значение `<UserJourney>`, включая Id="SignUpOrSignIn".
+3. Откройте файл расширения (например, TrustFrameworkExtensions.xml). Найдите элемент `<UserJourneys>`. Если элемент не существует, создайте его.
+4. Вставьте весь скопированный путь `<UserJourney>` как дочерний элемент `<UserJourneys>`.
+5. Переименуйте идентификатор нового пути `<UserJourney>` (например, SignUpOrSignUsingContoso).
 
-### <a name="display-the-button"></a>Отображение кнопки
+### <a name="display-the-identity-provider-button"></a>Отображение кнопки поставщика удостоверений
 
-Элемент `<ClaimsProviderSelection>` является аналогом кнопки поставщика удостоверений на экране регистрации или входа. Если вы добавите для Salesforce элемент `<ClaimsProviderSelection>`, новая кнопка отобразится при переходе пользователя на страницу. Для этого:
+Элемент `<ClaimsProviderSelection>` является аналогом кнопки поставщика удостоверений на странице регистрации или входа. Если вы добавите для Salesforce элемент `<ClaimsProviderSelection>`, новая кнопка отобразится при переходе пользователя на эту страницу. Чтобы отобразить кнопку поставщика удостоверений:
 
-1. Найдите `<OrchestrationStep>` со значением `Order="1"` в только что созданном `<UserJourney>`.
-1. Добавьте следующий код:
+1. В созданном `<UserJourney>` найдите `<OrchestrationStep>` со значением `Order="1"`.
+2. Добавьте следующий код XML:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
     ```
 
-1. Задайте для параметра `TargetClaimsExchangeId` соответствующее значение. Мы советуем следовать общему соглашению: *\[ClaimProviderName\]Exchange*.
+3. Задайте для `TargetClaimsExchangeId` логическое значение. Мы советуем следовать общему соглашению: (например, *\[ClaimProviderName\]Exchange*).
 
-### <a name="link-the-button-to-an-action"></a>Связывание кнопки с действием
+### <a name="link-the-identity-provider-button-to-an-action"></a>Связывание кнопки поставщика удостоверений с действием
 
-Теперь, когда у вас есть кнопка, вам необходимо связать ее с действием. В этом случае действие — это возможность взаимодействия Azure AD B2C с Salesforce для получения токена SAML. Чтобы получить эту возможность, необходимо связать технический профиль для поставщика утверждений SAML Salesforce.
+Теперь, когда у вас есть кнопка поставщика удостоверений, свяжите ее с действием. В этом случае действие — это возможность взаимодействия Azure AD B2C с Salesforce для получения токена SAML. Чтобы получить эту возможность, необходимо связать технический профиль для поставщика утверждений SAML Salesforce.
 
-1. Найдите `<OrchestrationStep>` со значением `Order="2"` в узле `<UserJourney>`.
-1. Добавьте следующий код:
+1. В узле `<UserJourney>` найдите `<OrchestrationStep>` со значением `Order="2"`.
+2. Добавьте следующий код XML:
 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
     ```
 
-1. Задайте для `Id` то же значение, что и для `TargetClaimsExchangeId` выше.
-1. Задайте для `TechnicalProfileReferenceId` значение `Id` ранее созданного технического профиля (например, ContosoProfile).
+3. Измените `Id` на то же значение, которое ранее использовалось для `TargetClaimsExchangeId`.
+4. Задайте для `TechnicalProfileReferenceId` значение `Id` ранее созданного технического профиля (например, ContosoProfile).
 
 ### <a name="upload-the-updated-extension-file"></a>Передача обновленного файла расширения
 
-Вы внесли все необходимые изменения в файл расширения. Сохраните и отправьте этот файл. Подождите немного, чтобы убедиться, что все проверки завершены успешно.
+Вы внесли все необходимые изменения в файл расширения. Сохраните и отправьте этот файл. Убедитесь, что все проверки пройдены успешно.
 
-### <a name="update-the-rp-file"></a>Обновление файла проверяющей стороны
+### <a name="update-the-relying-party-file"></a>Обновление файла проверяющей стороны
 
-Теперь необходимо обновить файл проверяющей стороны, который активирует созданный путь взаимодействия пользователя.
+Теперь обновите файл проверяющей стороны, который активирует созданный путь взаимодействия пользователя.
 
-1. Создайте копию SignUpOrSignIn.xml в рабочем каталоге и переименуйте его (например, на SignUpOrSignInWithAAD.xml).
-1. Откройте новый файл и задайте для атрибута `PolicyId` `<TrustFrameworkPolicy>` уникальное значение. Это будет имя политики (например, SignUpOrSignInWithAAD).
-1. Задайте для атрибута `ReferenceId` в `<DefaultUserJourney>` идентификатор созданного пути взаимодействия пользователя (например, SignUpOrSignUsingContoso).
-1. Сохраните изменения и отправьте файл.
+1. Создайте копию SignUpOrSignIn.xml в рабочем каталоге. Затем переименуйте ее (например, SignUpOrSignInWithAAD.xml).
+2. Откройте новый файл и задайте для атрибута `PolicyId` `<TrustFrameworkPolicy>` уникальное значение. Это имя вашей политики (например, SignUpOrSignInWithAAD).
+3. Измените атрибут `ReferenceId` в `<DefaultUserJourney>` для соответствия `Id` нового созданного пути взаимодействия пользователя (например, SignUpOrSignUsingContoso).
+4. Сохраните изменения и отправьте файл.
 
-## <a name="create-a-connected-app-in-salesforce"></a>Создание подключенного приложения в Salesforce
-В Salesforce необходимо зарегистрировать Azure AD B2C как подключенное приложение.
+## <a name="test-and-troubleshoot"></a>Тестирование и устранение неполадок
 
-1. [Войдите в Salesforce](https://login.salesforce.com/). 
-1. В меню слева в разделе **Параметры** выберите **Удостоверение** и щелкните **Поставщик удостоверений**.
-1. В нижней части раздела **Service Providers** (Поставщики услуг) щелкните **Service Providers are now created via Connected Apps. Click here** (Поставщики услуг теперь создаются с помощью подключенных приложений. Щелкните здесь).
-1. Укажите необходимые **основные сведения** для подключенного приложения.
-1. Теперь в разделе **Параметры веб-приложения** выполните следующие действия:
-    1. Установите флажок **Включить SAML**.
-    1. Введите приведенный ниже URL-адрес в поле **Идентификатор сущности**. Проверьте, заменен ли `tenantName`. 
-    
-        ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
-        ```
-
-    1. Введите приведенный ниже URL-адрес в поле **ACS URL** (URL-адрес ACS). Проверьте, заменен ли `tenantName`. 
-        ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
-        ```
-
-    1. Для других параметров оставьте значения по умолчанию.
-1. Прокрутите к нижней части страницы и нажмите кнопку **Сохранить**.
-
-
-## <a name="troubleshooting"></a>Устранение неполадок
-
-Проверьте пользовательскую политику, которую вы отправили. Для этого откройте ее колонку и щелкните "Запустить сейчас". В случае возникновения каких-либо ошибок ознакомьтесь со статьей [по устранению неполадок](active-directory-b2c-troubleshoot-custom.md).
+Чтобы протестировать отправленную настраиваемую политику, на портале Azure перейдите к колонке политики и нажмите кнопку **Выполнить**. В случае неудачи см. сведения в разделе [Устранение неполадок пользовательских политик](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="next-steps"></a>Дальнейшие действия
- 
-Свои отзывы отправляйте сюда: [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).
 
+Свои отзывы отправляйте сюда: [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com).
 

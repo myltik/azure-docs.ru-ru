@@ -1,5 +1,5 @@
 ---
-title: "Включение дампов кучи для служб Hadoop в HDInsight | Документация Майкрософт"
+title: "Включение дампов кучи для служб Hadoop в HDInsight — Azure | Документы Майкрософт"
 description: "Включение дампов кучи для служб Hadoop с кластеров HDInsight, работающих под управлением Linux, для отладки и анализа."
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3811e3ee1a741230c4499d18f48a5208905cf300
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 59942e989d622c2486edf181d76e13344c71e6f9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Включение дампов кучи для служб Hadoop в HDInsight под управлением Linux
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/18/2017
 Дампы кучи содержат снимок памяти приложения, включая значения переменных на момент создания дампа. Поэтому они полезны для диагностики проблем, возникающих во время выполнения.
 
 > [!IMPORTANT]
-> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+> Шаги, описанные в этом документе, можно применять только к кластерам HDInsight под управлением Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whichServices"></a>Службы
 

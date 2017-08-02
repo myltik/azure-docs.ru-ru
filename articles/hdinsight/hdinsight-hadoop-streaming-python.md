@@ -1,7 +1,8 @@
 ---
-title: "Разработка заданий Python MapReduce в HDInsight | Документация Майкрософт"
-description: "Информация о создании и выполнении заданий Python MapReduce в кластерах HDInsight на платформе Linux."
+title: "Разработка заданий потоковой передачи Python MapReduce в HDInsight — Azure | Документы Майкрософт"
+description: "Узнайте, как использовать Python для заданий потоковой передачи MapReduce. Hadoop предоставляет интерфейс API потоковой передачи для MapReduce с целью написания заданий на языках, отличных от Java."
 services: hdinsight
+keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: 
 author: Blackmist
 manager: jhubbard
@@ -9,7 +10,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,23 +18,23 @@ ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: ce96113ad979997c555bc64698c0b78822b525ad
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 72d7aefc6a51944eac8075760486dc1a583a171d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="develop-python-streaming-programs-for-hdinsight"></a>Разработка программ потоковой передачи на Python для HDInsight
+# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Разработка программ MapReduce с потоковой передачей Python для HDInsight
 
-Узнайте, как использовать Python в операциях MapReduce. Hadoop предоставляет API-интерфейс для MapReduce, позволяющий создавать функции map и reduce на языках, отличных от Java. Действия, описанные в этом документе, предназначены для реализации компонентов Map и Reduce на языке Python.
+Узнайте, как использовать Python для операций потоковой передачи MapReduce. Hadoop предоставляет API-интерфейс для MapReduce, позволяющий создавать функции map и reduce на языках, отличных от Java. Действия, описанные в этом документе, предназначены для реализации компонентов Map и Reduce на языке Python.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
 * Hadoop в кластере HDInsight на платформе Linux
 
   > [!IMPORTANT]
-  > Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Текстовый редактор
 

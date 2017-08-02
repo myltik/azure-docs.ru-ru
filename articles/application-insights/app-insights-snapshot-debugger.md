@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: a499f1d5f3a53a0cafb9056c9b5a4d164f80d8c5
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: dcc5cc0be4c03ad661cf1539cb98a7d4fc94e778
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Отладочные моментальные снимки для исключений в приложениях .NET
@@ -71,16 +70,39 @@ ms.lasthandoff: 07/04/2017
 
 2. Добавьте в приложение пакет NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector).
 
-3. Измените метод `ConfigureServices` в классе `Startup` приложения, чтобы добавить обработчик телеметрии сборщика моментальных снимков.
+3. Измените метод `ConfigureServices` в классе `Startup` приложения, чтобы добавить обработчик телеметрии сборщика моментальных снимков. Код, который следует добавить, зависит от указанной версии пакета NuGet Microsoft.ApplicationInsights.ASPNETCore.
+
+   Для Microsoft.ApplicationInsights.AspNetCore 2.1.0 добавьте:
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
    ...
    class Startup
    {
-       // This method gets called by the runtime. Use this method to add services to the container.
+       // This method is called by the runtime. Use it to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
            services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
+           // TODO: Add any other services your application needs here.
+       }
+   }
+   ```
+
+   Для Microsoft.ApplicationInsights.AspNetCore 2.1.1 добавьте:
+   ```C#
+   using Microsoft.ApplicationInsights.SnapshotCollector;
+   ...
+   class Startup
+   {
+       private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
+       {
+           public ITelemetryProcessor Create(ITelemetryProcessor next) =>
+               new SnapshotCollectorTelemetryProcessor(next);
+       }
+
+       // This method is called by the runtime. Use it to add services to the container.
+       public void ConfigureServices(IServiceCollection services)
+       {
+            services.AddSingleton<ITelemetryProcessorFactory>(new SnapshotCollectorTelemetryProcessorFactory());
            // TODO: Add any other services your application needs here.
        }
    }
@@ -117,11 +139,14 @@ Owners of the Azure subscription can inspect snapshots. Other users must be gran
 
 To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
 
-1. On the Application Insights navigation menu, select **Access Control (IAM)**.
-2. Click **Roles** > **Application Insights Snapshot Debugger**.
-3. Click **Add**, and then select a user or group.
+1. Open the Access Control (IAM) blade.
+1. Click the +Add button.
+1. Select Application Insights Snapshot Debugger from the Roles drop-down list.
+1. Search for and enter a name for the user to add.
+1. Click the Save button to add the user to the role.
 
-    >[!IMPORTANT] 
+
+[!IMPORTANT]
     Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
 
 ## Debug snapshots in the Application Insights portal

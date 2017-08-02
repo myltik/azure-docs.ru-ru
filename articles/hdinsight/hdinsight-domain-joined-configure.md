@@ -1,5 +1,5 @@
 ---
-title: "Настройка присоединенных к домену кластеров HDInsight | Документация Майкрософт"
+title: "Управление присоединенными к домену кластерами HDInsight в Azure | Документы Майкрософт"
 description: "Узнайте, как установить и настроить присоединенные к домену кластеры HDInsight"
 services: hdinsight
 documentationcenter: 
@@ -15,15 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1fb13d60eebbaf45ca9cb394c073c834bbe59bb9
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Настройка присоединенных к домену кластеров HDInsight (предварительная версия)
+
 Узнайте, как настроить кластер Azure HDInsight с помощью Azure Active Directory (Azure AD) и [Apache Ranger](http://hortonworks.com/apache/ranger/), чтобы воспользоваться преимуществами политик строгой проверки подлинности и управления доступа на основе ролей (RBAC) с широкими возможностями.  Присоединенный к домену кластер HDInsight можно настроить только с помощью кластеров под управлением Linux. Дополнительные сведения см. в статье [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Введение в присоединенные к домену кластеры HDInsight).
+
+> [!IMPORTANT]
+> Oozie не включен в присоединенном к домену кластере HDInsight.
 
 Эта статья является первым руководством в серии:
 
@@ -71,8 +76,8 @@ ms.lasthandoff: 04/15/2017
 
 Есть скрипт PowerShell, который автоматизирует выполнение шагов 3–7.  Дополнительные сведения см. в статье [Configure Domain-joined HDInsight clusters use Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md) (Настройка присоединенных к домену кластеров HDInsight с использованием Azure PowerShell).
 
-## <a name="create-an-azure-classic-vnet"></a>Создание классической виртуальной сети Azure
-В этом разделе вы создадите классическую виртуальную сеть с помощью портала Azure. В следующем разделе вы включите доменные службы Azure Active Directory для Azure AD в классической виртуальной сети. Дополнительные сведения о следующей процедуре и использовании других методов создания виртуальной сети см. в статье [Создание (классической) виртуальной сети с помощью портала Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+## <a name="create-an-azure-virtual-network-classic"></a>Создание виртуальной сети Azure (классической)
+В этом разделе вы создадите виртуальную сеть (классическую) с помощью портала Azure. В следующем разделе вы включите доменные службы Azure Active Directory для Azure AD в виртуальной сети. Дополнительные сведения об описанной ниже процедуре и использовании других методов создания виртуальной сети см. в статье [Создание (классической) виртуальной сети с помощью портала Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 **Создание классической виртуальной сети**
 
@@ -250,7 +255,7 @@ ms.lasthandoff: 04/15/2017
      
      * **Тип кластера**: Hadoop. В настоящее время присоединенный к домену кластер HDInsight поддерживают только кластеры Hadoop.
      * **Операционная система**: Linux.  Присоединенный к домену кластер HDInsight поддерживают только кластеры HDInsight под управлением Linux.
-     * **Версия**: Hadoop 2.7.3 (HDI 3.5). Присоединенный к домену кластер HDInsight поддерживает только кластер HDInsight версии 3.5.
+     * **Версия**: HDI 3.6. Присоединенный к домену кластер HDInsight поддерживает только кластер HDInsight версии 3.6.
      * **Тип кластера**: PREMIUM.
        
        Щелкните **Выбрать**, чтобы сохранить изменения.
