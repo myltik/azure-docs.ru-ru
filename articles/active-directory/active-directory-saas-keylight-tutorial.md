@@ -1,240 +1,267 @@
 ---
-title: "Учебник. Интеграция Azure Active Directory с Keylight | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход Azure Active Directory в Keylight."
+title: "Руководство по интеграции Azure Active Directory с LockPath Keylight | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход Azure Active Directory в LockPath Keylight."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: 234a32f1-9f56-4650-9e31-7b38ad734b1a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 07/05/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
-ms.openlocfilehash: f58c0967890ee99c574957f0cdfe1bb412f7f9e8
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e64a966f24411818abc4cc4ab29a428b5577d012
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-keylight"></a>Учебник. Интеграция Azure Active Directory с Keylight
-В этом учебнике описано, как интегрировать Keylight с Azure Active Directory (Azure AD).
+# <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Руководство по интеграции Azure Active Directory с LockPath Keylight
 
-Интеграция Keylight с Azure AD дает приведенные далее преимущества.
+В этом руководстве описано, как интегрировать LockPath Keylight с Azure Active Directory (Azure AD).
 
-* С помощью Azure AD вы можете контролировать доступ к Keylight.
-* Вы можете включить автоматический вход пользователей в Keylight (единый вход) с использованием учетной записи Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+Интеграция Azure AD с приложением LockPath Keylight обеспечивает следующие преимущества:
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+- С помощью Azure AD вы можете контролировать доступ к LockPath Keylight.
+- Вы можете включить автоматический вход пользователей в LockPath Keylight (единый вход) с использованием учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
+
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Чтобы настроить интеграцию Azure AD с Keylight, вам потребуется:
 
-* Подписка Azure
-* подписка Keylight с поддержкой единого входа.
+Чтобы настроить интеграцию Azure AD с LockPath Keylight, вам потребуется:
 
->[!NOTE]
->Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике. 
-> 
+- подписка Azure AD;
+- подписка LockPath Keylight с поддержкой единого входа.
+
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-* Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. 
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
-
-1. Добавление Keylight из коллекции
+1. Добавление LockPath Keylight из коллекции.
 2. Настройка и проверка единого входа в Azure AD
 
-## <a name="add-keylight-from-the-gallery"></a>Добавление Keylight из коллекции
-Чтобы настроить интеграцию Keylight с Azure AD, необходимо добавить Keylight из коллекции в список управляемых приложений SaaS.
+## <a name="adding-lockpath-keylight-from-the-gallery"></a>Добавление LockPath Keylight из коллекции
+Чтобы настроить интеграцию LockPath Keylight с Azure AD, необходимо добавить LockPath Keylight из коллекции в список управляемых приложений SaaS.
 
-**Чтобы добавить Keylight из коллекции, выполните следующие действия:**
+**Чтобы добавить LockPath Keylight из коллекции, выполните следующие действия.**
 
-1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**. 
-   
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
     ![Active Directory][1]
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
     ![Приложения][2]
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
     ![Приложения][3]
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Приложения][4]
-6. В поле поиска введите **Keylight**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_01.png)
-7. В области результатов выберите **Keylight** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_02.png)
 
-## <a name="configure-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа Azure AD
-В этом разделе описана настройка и проверка единого входа Azure AD в Keylight с использованием тестового пользователя Britta Simon.
+4. В поле поиска введите **LockPath Keylight**.
 
-Чтобы настроить и проверить единый вход Azure AD в Keylight, вам потребуется выполнить действия в следующих стандартных блоках:
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_search.png)
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+5. На панели результатов выберите **LockPath Keylight** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в LockPath Keylight с использованием тестового пользователя Britta Simon.
+
+Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в LockPath Keylight соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в LockPath Keylight.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в LockPath Keylight.
+
+Чтобы настроить и проверить единый вход Azure AD в LockPath Keylight, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Keylight](#creating-a-keylight-test-user)** требуется для создания пользователя Britta Simon в Keylight, связанного с представлением этого же пользователя в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+3. **[Создание тестового пользователя LockPath Keylight](#creating-a-lockpath-keylight-test-user)** требуется для того, чтобы в LockPath Keylight существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
-В данном разделе описано, как включить единый вход Azure AD на классическом портале Azure и настроить его в приложении Keylight.
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
-**Чтобы настроить единый вход Azure AD в Keylight, выполните следующие действия:**
+В данном разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении LockPath Keylight.
 
-1. На странице интеграции с приложением **Keylight** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа][6] 
-2. На странице **Как пользователи должны входить в Keylight?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_03.png) 
-3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_04.png) 
+**Чтобы настроить единый вход Azure AD в LockPath Keylight, выполните следующие действия.**
 
-    * В текстовом поле "URL-адрес для входа" введите URL-адрес, используемый для входа в приложение Keylight, в следующем формате: **https://\<название_компании\>.keylightgrc.com/Login.aspx?saml=1**.
+1. На портале Azure на странице интеграции с приложением **LockPath Keylight** щелкните **Единый вход**.
 
-4. На странице **Настройка единого входа в Keylight** сделайте следующее:
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения LockPath Keylight** выполните следующие действия.
+
+    ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_url.png)
+
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<company name>.keylightgrc.com/`
+
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<company name>.keylightgrc.com`
+
+    c. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<company name>.keylightgrc.com/Login.aspx`.
+    
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените их фактическими значениями идентификатора, URL-адреса ответа и URL-адреса входа. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов LockPath Keylight](https://www.lockpath.com/contact/). 
+
+4. В разделе **Сертификат подписи SAML** щелкните **Сертификат (необработанный)**, а затем сохраните файл сертификата на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/tutorial_general_400.png)
+    
+6. В разделе **Конфигурация LockPath Keylight** щелкните **Настроить LockPath Keylight**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес выхода и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+
+    ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_configure.png) 
+
+7. Чтобы включить единый вход в LockPath Keylight, выполните следующие действия.
    
-    ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_05.png) 
-   
-    1. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
-    2. Нажмите кнопку **Далее**.
-5. Чтобы включить единый вход в Keylight, выполните следующие действия:
-   
-    1. Войдите в учетную запись Keylight от имени администратора.
-    2. В меню вверху щелкните **Person** (Пользователь) и выберите **Keylight Setup** (Настройка Keylight).
+    а. Войдите в учетную запись LockPath Keylight в качестве администратора.
+    
+    b. В меню вверху щелкните **Person** (Пользователь) и выберите **Keylight Setup** (Настройка Keylight).
    
     ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/401.png) 
-    3. В представлении в виде дерева слева щелкните **SAML**.
+
+    c. В представлении в виде дерева слева щелкните **SAML**.
    
     ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/402.png) 
-    4. В диалоговом окне **SAML Settings** (Параметры SAML) нажмите кнопку **Edit** (Изменить).
+
+    d. В диалоговом окне **SAML Settings** (Параметры SAML) нажмите кнопку **Edit** (Изменить).
    
     ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/404.png) 
-6. На странице диалогового окна **Изменение параметров SAML** выполните следующие действия:
+
+8. На странице диалогового окна **Изменение параметров SAML** выполните следующие действия:
    
     ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/405.png) 
    
-    1. Задайте для параметра **SAML authentication** (Аутентификация SAML) значение **Active** (Активно).
-    2. На классическом портале Azure AD скопируйте значение поля **URL-адрес единого входа SAML** и вставьте его в текстовое поле **Identity Provider Login URL** (URL-адрес входа поставщика удостоверений).
-    3. На классическом портале Azure AD скопируйте значение поля **URL-адрес службы единого выхода** и вставьте его в текстовое поле **Identity Provider Logout URL** (URL-адрес выхода поставщика удостоверений).
-    4. Щелкните **Choose File** (Выбрать файл), чтобы выбрать скачанный сертификат Keylight, а затем нажмите кнопку **Open** (Открыть), чтобы передать сертификат.
-    5. В поле **SAML User Id location** (Расположение идентификатора пользователя SAML) выберите значение **NameIdentifier element of the subject statement** (Элемент NameIdentifier оператора Subject).
-    6. Введите значение **Keylight Service Provider (Поставщик услуг Keylight), используя следующий формат: **https://&lt;название_компании&gt;.keylightgrc.com**.
-    7. Задайте следующие параметры:
-     * для параметра **Auto-provision users** (Автоматическая подготовка пользователей) — значение **Активно**;
-     * для параметра **Auto-provision account type** (Тип учетной записи для автоматической подготовки) — значение **Full User** (С полным доступом);
-     * для параметра **Auto-provision security role** (Роль безопасности для автоматической подготовки) — значение **Standard User with SAML** (Права обычного пользователя с SAML);
-     * для параметра **Auto-provision security config** (Конфигурация безопасности для автоматической подготовки) — значение **Standard User Configuration** (Конфигурация обычного пользователя).
-    8. Заполните следующие поля:    
-     * В текстовом поле "Email attribute" (Атрибут адреса электронной почты) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-     * В текстовом поле **First name attribute** (Атрибут имени) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-     * В текстовом поле **Last name attribute** (Атрибут фамилии) введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-    9. Щелкните **Сохранить**.
+    а. Задайте для параметра **SAML authentication** (Аутентификация SAML) значение **Active** (Активно).
 
-7. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
-   
-    ![единого входа Azure AD][10]
-8. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
-   
-    ![единого входа Azure AD][11]
+    b. Вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure, в текстовое поле **Identity Provider Login URL** (URL-адрес входа поставщика удостоверений).
 
-### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-В этом разделе описано, как создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+    c. Вставьте значение **URL-адрес службы единого выхода**, скопированное на портале Azure, в текстовое поле **Identity Provider Logout URL** (URL-адрес выхода поставщика удостоверений).
 
-* В списке пользователей выберите **Britta Simon**.
+    г) Щелкните **Choose File** (Выбрать файл), чтобы выбрать скачанный сертификат LockPath Keylight, а затем нажмите кнопку **Open** (Открыть), чтобы передать этот сертификат.
 
-![Создание пользователя Azure AD][20]
+    д. В поле **SAML User Id location** (Расположение идентификатора пользователя SAML) выберите значение **NameIdentifier element of the subject statement** (Элемент NameIdentifier оператора Subject).
+    
+    f. Введите значение **Keylight Service Provider** (Поставщик услуг Keylight), используя следующий формат: **https://&lt;название_компании&gt;.keylightgrc.com**.
+    
+    g. Задайте для параметра **Auto-provision users** (Автоматическая подготовка пользователей) значение **Active** (Активно).
+
+    h. Задайте для параметра **Auto-provision account type** (Тип учетной записи для автоматической подготовки) значение **Full User** (С полным доступом).
+
+    i. Задайте для параметра **Auto-provision security role** (Роль безопасности для автоматической подготовки) значение **Standard User with SAML** (Права обычного пользователя с SAML).
+    
+    j. Задайте для параметра **Auto-provision security config** (Конфигурация безопасности для автоматической подготовки) значение **Standard User Configuration** (Конфигурация обычного пользователя).
+     
+    k. В текстовое поле **Email Attribute** (Атрибут электронной почты) введите `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    
+    l. В текстовое поле **First name attribute** (Атрибут имени) введите значение `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    
+    m. В текстовое поле **Last name attribute** (Атрибут фамилии) введите значение `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    
+    n. Щелкните **Сохранить**.
+
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+![Создание пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_09.png) 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
-   
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_01.png) 
+
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_02.png) 
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_03.png) 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
-   
+
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_04.png) 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_05.png) 
-   
-   1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   3. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
-   
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_06.png) 
-   
-   1. В текстовом поле **Имя** введите **Britta**.    
-   2. В текстовом поле **Фамилия** введите **Simon**.
-   3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   4. В списке **Роль** выберите **Пользователь**.
-   5. Нажмите кнопку **Далее**.
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_07.png) 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-keylight-tutorial/create_aaduser_08.png) 
-   
-    1. Запишите значение поля **Новый пароль**.
-    2. Нажмите **Завершено**.   
 
-### <a name="create-a-keylight-test-user"></a>Создание тестового пользователя Keylight
-В этом разделе описано, как создать пользователя Britta Simon в приложении Keylight. Приложение Keylight поддерживает JIT-подготовку. Эта функция включена по умолчанию.
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
 
-В этом разделе никакие действия с вашей стороны не требуются. Новый пользователь, если он еще не существует, создается при доступе к Keylight. 
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-a-lockpath-keylight-test-user"></a>Создание тестового пользователя LockPath Keylight
+
+В этом разделе описано, как создать пользователя Britta Simon в приложении LockPath Keylight. LockPath Keylight поддерживает JIT-подготовку. Эта функция включена по умолчанию.
+
+В этом разделе никакие действия с вашей стороны не требуются. Если пользователь не существует, то он создается при доступе к LockPath Keylight. 
 
 >[!NOTE]
->Если вам нужно вручную создать пользователя, необходимо обратиться в службу поддержки Keylight. 
-> 
+>Если вам нужно вручную создать пользователя, необходимо обратиться к [группе поддержки клиентов LockPath Keylight](https://www.lockpath.com/contact/). 
 
-### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-В этом разделе описано, как позволить пользователю Britta Simon использовать единый вход Azure, предоставив доступ к Keylight.
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к LockPath Keylight.
 
 ![Назначение пользователя][200] 
 
-**Чтобы назначить пользователя Britta Simon в Keylight, выполните следующие действия:**
+**Чтобы назначить пользователя Britta Simon в LockPath Keylight, выполните следующие действия.**
 
-1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в верхнем меню.
-   
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
     ![Назначение пользователя][201] 
-2. В списке приложений выберите **Keylight**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_50.png) 
-3. В меню в верхней части страницы щелкните **Пользователи**.
-   
-    ![Назначение пользователя][203] 
-4. В списке пользователей выберите **Britta Simon**.
-5. На панели инструментов внизу щелкните **Назначить**.
-   
-    ![Назначение пользователя][205]
 
-### <a name="test-single-sign-on"></a>Проверка единого входа
+2. Из списка приложений выберите **LockPath Keylight**.
+
+    ![Настройка единого входа](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
 В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
-Щелкнув элемент Keylight на панели доступа, вы автоматически войдете в приложение Keylight.
+Щелкнув элемент "LockPath Keylight" на панели доступа, вы автоматически войдете в приложение LockPath Keylight. 
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
+
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -245,14 +272,11 @@ ms.lasthandoff: 02/17/2017
 [3]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_205.png
+
 

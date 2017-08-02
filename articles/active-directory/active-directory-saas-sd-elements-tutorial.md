@@ -2,54 +2,54 @@
 title: "Руководство по интеграции Azure Active Directory с SD Elements | Документация Майкрософт"
 description: "Узнайте, как настроить единый вход между Azure Active Directory и SD Elements."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: f0386307-bb3b-4810-8d4b-d0bfebda04f4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 07/08/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
-ms.openlocfilehash: 7166f4d3046f573d2f60d747edf2eefbbd0439c2
-ms.lasthandoff: 02/16/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 624eff0a0da8f548877e4a4346b21df89cd37b67
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/11/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Учебник. Интеграция Azure Active Directory с SD Elements
-Цель этого учебника — показать, как интегрировать приложение SD Elements с Azure Active Directory (Azure AD).  
+
+В этом руководстве описано, как интегрировать SD Elements с Azure Active Directory (Azure AD).
+
 Интеграция Azure AD с приложением SD Elements обеспечивает следующие преимущества.
 
-* С помощью Azure AD вы можете контролировать доступ к приложению SD Elements.
-* Вы можете включить автоматический вход пользователей в SD Elements (единый вход) под учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через Azure Active Directory. 
+- С помощью Azure AD вы можете контролировать доступ к приложению SD Elements.
+- Вы можете включить автоматический вход пользователей в SD Elements (единый вход) под учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 Чтобы настроить интеграцию Azure AD с SD Elements, вам потребуется:
 
-* подписка Azure AD;
-* подписка на SD Elements с поддержкой единого входа.
+- подписка Azure AD;
+- подписка SD Elements с поддержкой единого входа.
 
 > [!NOTE]
 > Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
-> 
-> 
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-* Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.  
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление SD Elements из коллекции.
 2. Настройка и проверка единого входа в Azure AD
@@ -59,237 +59,229 @@ ms.lasthandoff: 02/16/2017
 
 **Чтобы добавить SD Elements из коллекции, выполните следующие действия.**
 
-1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**. 
-   
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
     ![Active Directory][1]
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
     ![Приложения][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
     ![Приложения][3]
 
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Приложения][4]
+4. В поле поиска введите **SD Elements**.
 
-6. В поле поиска введите **SD Elements**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_01.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_search.png)
 
-7. В области результатов выберите **SD Elements** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_02.png)
+5. На панели результатов выберите **SD Elements** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в SD Elements с использованием тестового пользователя Britta Simon.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_addfromgallery.png)
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в SD Elements соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователям Azure AD и соответствующим пользователем в SD Elements.  
-Чтобы установить эту связь, следует указать **имя пользователя** в Azure AD в качестве значения **имени пользователя** в SD Elements.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в SD Elements с использованием тестового пользователя Britta Simon.
+
+Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в SD Elements соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователям Azure AD и соответствующим пользователем в SD Elements.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в SD Elements.
 
 Чтобы настроить и проверить единый вход Azure AD в SD Elements, вам потребуется выполнить действия в следующих стандартных блоках.
 
-1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя SD Elements](#creating-a-sd-elements-test-user)** требуется для создания пользователя Britta Simon в SD Elements, связанного с соответствующим представлением в Azure AD.
+3. **[Создание тестового пользователя SD Elements](#creating-a-sd-elements-test-user)** требуется для того, чтобы в SD Elements существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение SD Elements.
 
-Приложение SD Elements ожидает проверочных утверждений SAML в определенном формате, поэтому следует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию **атрибутов токена SAML** . На следующем снимке экрана приведен пример.
-
-![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_14.png) 
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении SD Elements.
 
 **Чтобы настроить единый вход Azure AD в SD Elements, выполните следующие действия.**
 
-1. На классическом портале Azure на странице интеграции с приложением **SD Elements** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа][6] 
+1. На портале Azure на странице интеграции с приложением **SD Elements** щелкните **Единый вход**.
 
-2. На странице **Как пользователи должны входить в SD Elements?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_03.png) 
+    ![Настройка единого входа][4]
 
-3. На странице диалогового окна **Настройка параметров приложения** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_04.png) 
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_samlbase.png)
 
-    а. В текстовом поле **Издатель** введите URL-адрес издателя клиента в следующем формате: *https://\<имя вашего клиента>\\>.sdelements.com/sso/saml2/metadata*.
+3. В разделе **Домены и URL-адреса приложения SD Elements** сделайте следующее.
 
-    b. В текстовом поле **URL-адрес ответа** введите URL-адрес ответа клиента в следующем формате: *https://\<имя вашего клиента\>.sdelements.com/sso/saml2/acs/*.       
+    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_url.png)
+
+    а. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
+
+    b. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<tenantname>.sdelements.com/sso/saml2/acs/`.
 
     > [!NOTE] 
-    > Если вам нужен действительный URL-адрес и URL-адрес ответа вашего клиента, обратитесь в [службу поддержки SD Elements](mailto:support@sdelements.com).
+    > Эти значения приведены в качестве примера. Измените их на фактические значения идентификатора и URL-адреса ответа. Чтобы получить эти значения, обратитесь к [группе поддержки SD Elements](mailto:support@sdelements.com).
 
-    c. Нажмите кнопку **Далее**.
+4. SD Elements ожидает утверждения SAML в определенном формате. Настройте следующие утверждения для этого приложения. Управлять значениями этих атрибутов можно на вкладке **Атрибуты пользователя** приложения. На следующем снимке экрана приведен пример.
 
+    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_attribute.png)
 
-1. На странице **Настройка единого входа в SD Elements** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_05.png) 
-   
-    а. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.
-   
-    b. Нажмите кнопку **Далее**.
-2. Чтобы включить единый вход, обратитесь в [службу поддержки SD Elements](mailto:support@sdelements.com) и предоставьте загруженный файл сертификата.
-3. В отдельном окне браузера войдите в клиент SD Elements под учетной записью администратора.
-4. В верхнем меню выберите пункт "Система", а затем — "Единый вход". 
+5. В разделе **Атрибуты пользователя** диалогового окна **Единый вход** настройте атрибут токена SAML, как показано на рисунке, и выполните следующие действия. 
+
+    | Имя атрибута | Значение атрибута |
+    | --- | --- |
+    | email |user.mail |
+    | firstname |user.givenname |
+    | lastname |user.surname |
+
+    а. Щелкните **Добавить атрибут**, чтобы открыть диалоговое окно **Добавление атрибута**.
+
+    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_officespace_04.png)
+
+    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_officespace_05.png)
+
+    b. В текстовом поле **Имя** введите имя атрибута, отображаемое для этой строки.
+
+    c. В списке **Значение** выберите значение атрибута, отображаемое для этой строки.
+
+    г) Нажмите кнопку **ОК**.
+ 
+6. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_certificate.png) 
+
+7. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_general_400.png)
+
+8. В разделе **Конфигурация SD Elements** щелкните **Настроить SD Elements**, чтобы открыть окно **Настройка единого входа**. Скопируйте **идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+
+    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_configure.png)
+
+9. Чтобы включить единый вход, обратитесь в [службу поддержки SD Elements](mailto:support@sdelements.com) и предоставьте загруженный файл сертификата. 
+
+10. В другом окне браузера войдите в клиент SD Elements в качестве администратора.
+
+11. В верхнем меню выберите **System** (Система) и щелкните **Single Sign-on** (Единый вход). 
    
     ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_09.png) 
-5. В диалоговом окне **Параметры единого входа** выполните следующие действия.
+
+12. В диалоговом окне **Параметры единого входа** выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_10.png) 
    
     а. Для параметра **SSO Type** (Тип SSO) выберите значение **SAML**.
    
-    b. На странице диалогового окна **Настройка единого входа в SD Elements** классического портала Azure скопируйте значение поля **URL-адрес издателя** и вставьте его в текстовое поле **Identity Provider Entity ID** (Идентификатор сущности поставщика удостоверений).
+    b. В текстовое поле **Identity Provider Entity ID** (Идентификатор сущности поставщика удостоверений) вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure. 
    
-    c. На странице диалогового окна **Настройка единого входа в SD Elements** классического портала Azure скопируйте значение поля **URL-адрес службы единого входа** и вставьте его в текстовое поле **Identity Provider Single Sign-On Service** (Служба единого входа поставщика удостоверений).
+    c. В текстовое поле **Identity Provider Single Sign-On Service** (Служба единого входа поставщика удостоверений) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure. 
    
-    d. Щелкните **Сохранить**.
-6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
-   
-    ![единого входа Azure AD][10]
-7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
-   
-    ![единого входа Azure AD][11]
-8. В меню в верхней части экрана выберите пункт **Атрибуты** to open the **SAML Token Атрибуты** . 
-   
-    ![Настройка единого входа][21]
-9. Для каждой строки в приведенной ниже таблице выполните следующие действия.
-   
-   | Имя атрибута | Значение атрибута |
-   | --- | --- |
-   | email |user.mail |
-   | firstname |user.givenname |
-   | lastname |user.surname |
+    г) Щелкните **Сохранить**.
 
-    а. Щелкните **добавить атрибут пользователя**. 
-
-    ![Настройка единого входа][23]
-
-    b. В текстовом поле **Имя атрибута** введите **имя атрибута**, а в поле **Значение атрибута** выберите значение атрибута, указанное в этой строке.
-
-    ![Настройка единого входа][22]
-
-    c. Щелкните **добавить атрибут пользователя**. 
-
-    ![Настройка единого входа][23]
-
-1. Нажмите кнопку **Применить изменения**. 
-   
-    ![Настройка единого входа][24]
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.  
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-![Создание пользователя Azure AD][20]
+![Создание пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_09.png) 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_03.png) 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png) 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_05.png) 
-   
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
-   
-    b. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-   
-    c. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
-   
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_06.png) 
-   
-   а. В текстовом поле **Имя** введите **Britta**.  
-   
-   b. В текстовом поле **Фамилия** введите **Simon**.
-   
-   c. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-   
-   d. В списке **Роль** выберите **Пользователь**.
-   
-   д. Нажмите кнопку **Далее**.
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_07.png) 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_08.png) 
-   
-    а. Запишите значение поля **Новый пароль**.
-   
-    b. Нажмите **Завершено**.   
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_01.png) 
+
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_02.png) 
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_03.png) 
+
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png) 
+
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
+
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**.
+ 
 ### <a name="creating-a-sd-elements-test-user"></a>Создание тестового пользователя SD Elements
+
 Цель этого раздела — создать в приложении SD Elements пользователя с именем Britta Simon. Пользователи SD Elements создаются вручную.
 
 **Чтобы создать пользователя с именем Britta Simon в SD Elements, выполните следующие действия.**
 
 1. Откройте браузер и войдите на корпоративный сайт SD Elements с правами администратора.
-2. На панели инструментов вверху щелкните "Управление пользователями", а затем "Пользователи".
+
+2. На панели инструментов вверху щелкните **User Management** (Управление пользователями), а затем щелкните **Users** (Пользователи).
    
-   ![Создание тестового пользователя SD Elements](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_11.png) 
-3. Нажмите кнопку "Добавить нового пользователя".
+    ![Создание тестового пользователя SD Elements](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_11.png) 
+
+3. Нажмите кнопку **Add New User**(Добавить нового пользователя).
    
-   ![Создание тестового пользователя SD Elements](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_12.png) 
-4. В диалоговом окне добавления нового пользователя выполните следующие действия.
+    ![Создание тестового пользователя SD Elements](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_12.png)
+ 
+4. В диалоговом окне **Add New User** (Добавление нового пользователя) выполните следующие действия.
    
-   ![Создание тестового пользователя SD Elements](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_13.png) 
+    ![Создание тестового пользователя SD Elements](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_13.png) 
    
-   а. В текстовом поле **Электронная почта** введите адрес электронной почты пользователя Britta Simon в Azure AD.
+    а. В текстовое поле **E-mail** (Электронная почта) введите адрес электронной почты пользователя, например **brittasimon@contoso.com**.
    
-   b. В текстовом поле **Имя** введите **Britta**.
+    b. В текстовое поле **First Name** (Имя) введите имя пользователя, например **Britta**.
    
-   c. В текстовом поле **Фамилия** введите **Simon**.
+    c. В текстовое поле **Last Name** (Фамилия) введите фамилию пользователя, например **Simon**.
    
-   d. Для параметра **Role** (Роль) выберите значение **User** (Пользователь). 
+    г) Для параметра **Role** (Роль) выберите значение **User** (Пользователь). 
    
-   д. Нажмите кнопку **Создать пользователя**.
+    д. Нажмите кнопку **Создать пользователя**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — позволить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к SD Elements.
+
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к SD Elements.
 
 ![Назначение пользователя][200] 
 
 **Чтобы назначить пользователя Britta Simon в SD Elements, выполните следующие действия.**
 
-1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
-   
-    ![Назначение пользователя][201] 
-2. В списке приложений выберите **SD Elements**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_50.png) 
-3. В меню в верхней части страницы щелкните **Пользователи**.
-   
-    ![Назначение пользователя][203] 
-4. В списке **Пользователи** выберите **Britta Simon**.
-5. На панели инструментов внизу щелкните **Назначить**.
-   
-    ![Назначение пользователя][205]
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **SD Elements**.
+
+    ![Настройка единого входа](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
 ### <a name="testing-single-sign-on"></a>Проверка единого входа
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
+
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+  
 Щелкнув элемент SD Elements на панели доступа, вы автоматически войдете в приложение SD Elements.
 
-## <a name="additional-resources"></a>дополнительные ресурсы.
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -298,20 +290,11 @@ ms.lasthandoff: 02/16/2017
 [3]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_100.png
-
-[21]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_80.png
-[22]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_82.png
-[23]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_81.png
-[24]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_83.png
-
+[100]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_205.png
+
 

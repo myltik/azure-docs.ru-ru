@@ -2,235 +2,267 @@
 title: "Руководство по интеграции Azure Active Directory со Small Improvements | Документация Майкрософт"
 description: "Узнайте, как настроить единый вход между Azure Active Directory и Small Improvements."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: 59c8a112-41e1-4337-9ef3-3d7029780d61
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 07/12/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 4a07f946d396a9263d5b00202cd5229ddc86d1be
-ms.openlocfilehash: 3599d44a3349efbc62dde97a7862a0656d1eb226
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 49a8cd3acfc6df15ef6a51171c8421162bc94efc
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/14/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Учебник. Интеграция Azure Active Directory со Small Improvements
-Цель этого учебника — показать, как интегрировать приложение Small Improvements с Azure Active Directory (Azure AD).  
+
+В этом руководстве описано, как интегрировать Small Improvements с Azure Active Directory (Azure AD).
 
 Интеграция Azure AD с приложением Small Improvements обеспечивает следующие преимущества.
 
-* С помощью Azure AD вы можете контролировать доступ к приложению Small Improvements.
-* Вы можете включить автоматический вход пользователей в Small Improvements (единый вход) с использованием учетной записи Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+- С помощью Azure AD вы можете контролировать доступ к приложению Small Improvements.
+- Вы можете включить автоматический вход пользователей в Small Improvements (единый вход) с использованием учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
+
 Чтобы настроить интеграцию Azure AD со Small Improvements, вам потребуется:
 
-* подписка Azure AD;
-* подписка на Small Improvements с поддержкой единого входа.
+- подписка Azure AD;
+- подписка Small Improvements с поддержкой единого входа.
 
->[!NOTE]
->Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике. 
-> 
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-* Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого руководства — научить вас проверять единый вход Azure AD в тестовой среде.  
-
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление Small Improvements из коллекции
-2. Настройка и проверка единого входа Azure AD.
+2. Настройка и проверка единого входа в Azure AD
 
 ## <a name="adding-small-improvements-from-the-gallery"></a>Добавление Small Improvements из коллекции
 Чтобы настроить интеграцию Small Improvements с Azure AD, необходимо добавить Small Improvements из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить Small Improvements из коллекции, выполните следующие действия.**
 
-1. На **классическом портале Azure**в области навигации слева щелкните **Active Directory**. 
-   
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
     ![Active Directory][1]
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
     ![Приложения][2]
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
     ![Приложения][3]
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Приложения][4]
-6. В поле поиска введите **Small Improvements**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_01.png)
-7. В области результатов выберите **Small Improvements** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_02.png)
 
-## <a name="configure-and-test-azure-ad-sso"></a>Настройка и проверка единого входа Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Small Improvements с использованием тестового пользователя Britta Simon.
+4. В поле поиска введите **Small Improvements**.
 
-Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь в Small Improvements соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Small Improvements.  
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_search.png)
 
-Чтобы установить эту связь, следует указать **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Small Improvements.
+5. На панели результатов выберите **Small Improvements** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-Чтобы настроить и проверить единый вход Azure AD в Small Improvements, вам потребуется выполнить действия в следующих стандартных блоках:
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_addfromgallery.png)
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в Small Improvements с использованием тестового пользователя Britta Simon.
+
+Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в Small Improvements соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Small Improvements.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Small Improvements.
+
+Чтобы настроить и проверить единый вход Azure AD в Small Improvements, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя Small Improvements](#creating-a-small-improvements-test-user)** требуется для создания пользователя Britta Simon в Small Improvements, связанного с соответствующим представлением в Azure AD.
+3. **[Создание тестового пользователя Small Improvements](#creating-a-small-improvements-test-user)** требуется для того, чтобы в Small Improvements существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### <a name="configure-azure-ad-sso"></a>Настройка единого входа Azure AD
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложении Small Improvements.
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
 
-**Чтобы настроить единый вход Azure AD в Small Improvements, сделайте следующее:**
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Small Improvements.
 
-1. На классическом портале Azure на странице интеграции с приложением **Small Improvements** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа][6] 
-2. На странице **Как пользователи должны входить в Small Improvements?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_03.png) 
-3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_04.png) 
-   
-     >[!NOTE]
-     >Обратитесь в службу поддержки Small Improvements по адресу [Support@small-improvements.com](mailto:support@small-improvements.com) , чтобы настроить доменное имя для своей учетной записи. Это необходимо для работы единого входа.
-     >  
+**Чтобы настроить единый вход Azure AD в Small Improvements, выполните следующие действия.**
 
-  1. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Small Improvements.  
-  2. Нажмите кнопку **Далее**.
-4. На странице **Настройка единого входа в Small Improvements** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_05.png) 
- 1. Нажмите **Загрузить сертификат**и сохраните файл сертификата на свой компьютер.  
- 2. Нажмите кнопку **Далее**.
-2. В другом окне браузера войдите на корпоративный сайт Small Improvements с правами администратора.
-3. На главной странице панели мониторинга нажмите слева кнопку **Администрирование** .
+1. На портале Azure на странице интеграции с приложением **Small Improvements** щелкните **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения Small Improvements** сделайте следующее.
+
+    ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_url.png)
+
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<subdomain>.small-improvements.com`
+
+    b. В текстовом поле **Идентификатор** введите URL-адрес в следующем формате: `https://<subdomain>.small-improvements.com`
+
+    > [!NOTE] 
+    > Эти значения приведены в качестве примера. Замените эти значения фактическим URL-адресом для входа и идентификатором. Чтобы получить эти значения, обратитесь к [группе поддержки клиентов Small Improvements](mailto:support@small-improvements.com). 
+ 
+4. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_400.png)
+
+6. В разделе **Настройка Small Improvements** щелкните **Настроить Small Improvements**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+
+    ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_configure.png) 
+
+7. В другом окне браузера войдите на корпоративный сайт Small Improvements с правами администратора.
+
+8. На главной странице панели мониторинга нажмите слева кнопку **Администрирование** .
    
     ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
-4. Нажмите кнопку **SAML SSO** (Единый вход SAML) в разделе **Integrations** (Интеграции).
+
+9. Нажмите кнопку **SAML SSO** (Единый вход SAML) в разделе **Integrations** (Интеграции).
    
     ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
-5. На странице настройки единого входа выполните следующие действия.
+
+10. На странице настройки единого входа выполните следующие действия.
    
     ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
- 1. На странице диалогового окна **Настройка единого входа в Small Improvements** портала Azure скопируйте значение поля **URL-адрес единого входа SAML** и вставьте его в текстовое поле **Конечная точка HTTP**.  
- 2. Откройте загруженный сертификат в блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат X.509** . 
- 3. Если вы хотите предоставить пользователям единый вход и возможность проверки подлинности через форму входа, установите флажок **Включить также доступ по имени входа и паролю** .  
- 4. Введите значение имени единого входа в текстовом поле **SAML Prompt** (Приглашение SAML).  
- 5. Щелкните **Сохранить**.
-6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
-   
-    ![единого входа Azure AD][10]
-7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
-   
-    ![Единый вход в Azure AD][11]
 
-### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.  
+    а. В текстовое поле **HTTP Endpoint** (Конечная точка HTTP) вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
 
-![Создание пользователя Azure AD][20]
+    b. Откройте загруженный сертификат в блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат X.509** . 
+
+    c. Если вы хотите предоставить пользователям возможность единого входа и аутентификации через форму входа, установите флажок **Enable access via login/password too** (Включить также доступ по имени входа и паролю).  
+
+    г) Введите значение имени единого входа в текстовом поле **SAML Prompt** (Приглашение SAML).  
+
+    д. Щелкните **Сохранить**.
+
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
+
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
+
+![Создание пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_09.png) 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
-   
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_01.png) 
+
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_02.png) 
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_03.png) 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
-   
+
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_04.png) 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_05.png) 
- 1. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».  
- 2. В текстовом поле **Имя пользователя** введите **BrittaSimon**. 
- 3. Нажмите кнопку **Далее**.
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
-   
-   ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_06.png)  
- 1. В текстовом поле **Имя** введите **Britta**.   
- 2. В текстовом поле **Фамилия** введите **Simon**. 
- 3. В текстовом поле **Отображаемое имя** введите **Britta Simon**. 
- 4. В списке **Роль** выберите **Пользователь**. 
- 5. Нажмите кнопку **Далее**.
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_07.png) 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_08.png) 
- 1. Запишите значение поля **Новый пароль**. 
- 2. Нажмите **Завершено**.   
 
-### <a name="create-a-small-improvements-test-user"></a>Создание тестового пользователя Small Improvements
-Цель этого раздела — создать в приложении Small Improvements пользователя с именем Britta Simon.
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
 
-Эта функция уже включена в ходе [настройки единого входа в Azure AD](#configuring-azure-ad-single-single-sign-on).
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
-**Чтобы создать в приложении Small Improvements пользователя с именем Britta Simon, выполните следующие действия.**
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-a-small-improvements-test-user"></a>Создание тестового пользователя Small Improvements
+
+Чтобы пользователи Azure AD могли выполнять вход в Small Improvements, они должны быть подготовлены в Small Improvements. В случае Small Improvements подготовка выполняется вручную.
+
+**Чтобы подготовить учетную запись пользователя, сделайте следующее:**
 
 1. Войдите на корпоративный сайт Small Improvements с правами администратора.
+
 2. На главной странице перейдите к меню в левой части страницы и щелкните **Администрирование**.
+
 3. Нажмите кнопку **Каталог пользователей** в разделе "Управление пользователями". 
    
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
-4. Щелкните **Add Team Member**(Добавить участника команды).
+
+4. Щелкните **Add users** (Добавить пользователей).
+
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
-5. Введите в текстовые поля **First Name** (Имя), **Last Name** (Фамилия) и **Email Address** (Адрес электронной почты) соответствующие данные допустимого пользователя, которого вы хотите подготовить. 
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_12.png) 
-6. Кроме того, вы можете ввести персональное сообщение в поле **Отправить уведомление по электронной почте** . Если уведомление отправлять не нужно, снимите этот флажок.
-7. Щелкните **Создать пользователей**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — предоставить пользователю Britta Simon доступ к Small Improvements, чтобы он мог использовать единый вход Azure.
+5. В диалоговом окне **Add Users** (Добавление пользователей) сделайте следующее. 
 
-    ![Assign User][200] 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_12.png)
+    
+    а. В текстовое поле **First name** (Имя) введите имя пользователя, например **Britta**.
+
+    b. В текстовое поле **Last name** (Фамилия) введите фамилию пользователя, например **Simon**.
+
+    c. В текстовое поле **Email** (Электронная почта) введите электронную почту пользователя, например **brittasimon@contoso.com**. 
+
+    г) Кроме того, вы можете ввести персональное сообщение в поле **Отправить уведомление по электронной почте** . Если уведомление отправлять не нужно, снимите этот флажок.
+
+    д. Щелкните **Создать пользователей**.
+
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Small Improvements.
+
+![Назначение пользователя][200] 
 
 **Чтобы назначить пользователя Britta Simon в Small Improvements, выполните следующие действия.**
 
-1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
-   
-    ![Назначение пользователя][201] 
-2. Из списка приложений выберите **Small Improvements**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_50.png) 
-3. В меню в верхней части страницы щелкните **Пользователи**.
-   
-    ![Назначение пользователя][203] 
-4. В списке пользователей выберите **Britta Simon**.
-5. На панели инструментов внизу щелкните **Назначить**.
-   
-    ![Назначение пользователя][205]
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
-### <a name="test-single-sign-on"></a>Проверка единого входа
+    ![Назначение пользователя][201] 
+
+2. Из списка приложений выберите **Small Improvements**.
+
+    ![Настройка единого входа](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
 Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
 
 Щелкнув элемент Small Improvements на панели доступа, вы автоматически войдете в приложение Small Improvements.
 
-## <a name="additional-resources"></a>дополнительные ресурсы.
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -239,14 +271,11 @@ ms.lasthandoff: 03/01/2017
 [3]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_205.png
+
 

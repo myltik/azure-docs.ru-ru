@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 67e2e7906df78ff3e57765e0a6706f98123c3428
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/08/2017
 
 --- 
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Руководство по публикации Cortana Intelligence в AppSource
@@ -30,11 +30,13 @@ AppSource — это единственная площадка, где лица,
 - ваше решение или приложение предназначено для решения определенной бизнес-проблемы;
 - вы создали модули или интеллектуальную собственность, которую клиенты могут повторно использовать предсказуемым образом в сравнительно краткие строки.
 
+Взгляните на [решения Cortana Intelligence](https://appsource.microsoft.com/en-us/marketplace/apps?product=cortana-intelligence&page=1), опубликованные в AppSource. 
+
 В этой статье приводится пошаговое руководство по публикации партнерского решения Cortana Intelligence в AppSource.
 
 ## <a name="getting-started"></a>Приступая к работе
 1. В [руководстве для сообщества партнеров](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) (PDF) перейдите на страницу 9, чтобы стать партнером по углубленной аналитике.
-1. Заполните форму [Отправить приложение](https://appsource.microsoft.com/en-us/).
+1. Заполните форму [Отправить приложение](https://appsource.microsoft.com/en-us/partners/list-an-app).
 
     При отображении вопроса *Choose the products that your app is built for* (Выберите продукты, для которых предназначено ваше приложение) установите флажок **Другое** и укажите "Cortana Intelligence" в элементе управления "Поле ввода".
 1. Прежде чем приложение Cortana Intelligence будет подключено к AppSource, его должна сертифицировать технологическая команда по решениям партнеров Cortana Intelligence. Чтобы начать процесс, поделитесь сведениями о своем приложении, заполнив форму опроса на странице [Cortana Intelligence solution evaluation for AppSource publishing](https://aka.ms/cisappsrceval) (Оценка решения Cortana Intelligence для публикации в AppSource). Этот веб-сайт защищен паролем и содержит инструкции о том, как его получить.
@@ -63,7 +65,7 @@ AppSource — это единственная площадка, где лица,
 1. Использование Power BI в решении: необязательно, но настоятельно рекомендуется, так как это привлекает множество потенциальных клиентов.
 
 ## <a name="devcenter-account-setup"></a>Настройка учетной записи центра разработчиков
-Это процесс регистрации вашей компании, чтобы стать издателем через корпорацию Майкрософт. Если вы уже зарегистрированный издатель с имеющейся учетной записью центра разработчиков, предоставьте связанный с ней идентификатор адреса электронной почты. 
+Это процесс регистрации вашей компании, чтобы стать издателем через корпорацию Майкрософт. Если вы уже зарегистрированный издатель с имеющейся учетной записью центра разработчиков, предоставьте связанный с ней идентификатор адреса электронной почты. Когда приложение будет утверждено для публикации, вы получите доступ к полной документации по [управлению профилем издателя облачного портала](https://cloudpartner.azure.com/#documentation/manage-publisher-profile).
 
 Если у вас нет учетной записи, ниже приведены основные шаги для настройки учетной записи центра разработчиков.
 1. Создайте учетную запись Майкрософт [здесь](https://signup.live.com/signup.aspx).

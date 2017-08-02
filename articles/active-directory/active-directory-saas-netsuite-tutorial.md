@@ -1,225 +1,317 @@
 ---
 title: "Руководство по интеграции Azure Active Directory с NetSuite | Документация Майкрософт"
-description: "Сведения об использовании NetSuite вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
+description: "Узнайте, как настроить единый вход Azure Active Directory в Netsuite."
 services: active-directory
-documentationcenter: 
-author: asmalser-msft
+documentationCenter: na
+author: jeevansd
 manager: femila
-editor: 
 ms.assetid: dafa0864-aef2-4f5e-9eac-770504688ef4
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/16/2016
-ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 74ef08108a5ff27a50f928781f906b6d769f1085
+ms.date: 05/19/2017
+ms.author: jeedes
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a19ab310212b93a53495a6fc6c25c77dfb82e79
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Руководство по интеграции Azure Active Directory с NetSuite
-В этом руководстве показано, как подключить среду NetSuite к Azure Active Directory. Вы узнаете, как настроить единый вход в NetSuite, включить автоматическую подготовку пользователей и предоставить пользователям доступ к NetSuite. 
+
+В этом руководстве описано, как интегрировать Netsuite с Azure Active Directory (Azure AD).
+
+Интеграция Azure AD с приложением Netsuite обеспечивает следующие преимущества:
+
+- С помощью Azure AD вы можете контролировать доступ к Netsuite.
+- Вы можете включить автоматический вход пользователей в Netsuite (единый вход) с учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
+
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-1. Для доступа к Azure Active Directory через [классический портал Azure](https://manage.windowsazure.com)необходима действующая подписка Azure.
-2. Требуется административный доступ к подписке [NetSuite](http://www.netsuite.com/portal/home.shtml). Для любой из этих служб можно воспользоваться бесплатной пробной учетной записью.
 
-## <a name="step-1-add-netsuite-to-your-directory"></a>Этап 1. Добавление NetSuite в каталог
-1. На [классическом портале Azure](https://manage.windowsazure.com) в области навигации слева щелкните **Active Directory**.
-   
-    ![Выберите Active Directory в области навигации слева.][0]
-2. В списке **Каталог** выберите каталог, в который хотите добавить NetSuite.
-3. Щелкните **Приложения** в верхнем меню.
-   
-    ![Щелкните "Приложения".][1]
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-    ![Нажмите кнопку "Добавить", чтобы добавить новое приложение.][2]
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Нажмите кнопку "Добавить приложение из коллекции".][3]
-6. В **поле поиска** введите **NetSuite**. Выберите **NetSuite** из списка результатов и щелкните **Завершить**, чтобы добавить приложение.
-   
-    ![Добавление NetSuite][4]
-7. Вы увидите страницу быстрого запуска NetSuite.
-   
-    ![Страница быстрого запуска NetSuite в Azure AD][5]
+Чтобы настроить интеграцию Azure AD с Netsuite, вам потребуется:
 
-## <a name="step-2-enable-single-sign-on"></a>Шаг 2. Включение единого входа
-1. На странице быстрого запуска NetSuite в Azure AD нажмите кнопку **Настройка единого входа**.
-   
-    ![Кнопка "Настроить единый вход"][6]
-2. Откроется диалоговое окно, и вы увидите экран с вопросом "Как пользователи должны входить в NetSuite?". Выберите **Единый вход Azure AD**, а затем нажмите кнопку **Далее**.
-   
-    ![Выберите "Единый вход Azure AD".][7]
-   
-   > [!NOTE]
-   > Для получения дополнительных сведений о вариантах единого входа [щелкните здесь](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
-   > 
-   > 
-3. На странице **Configure App Settings** (Настройка параметров приложения) введите в поле **URL-адрес ответа** URL-адрес клиента NetSuite в одном из следующих форматов:
-   
-   * `https://<tenant-name>.netsuite.com/saml2/acs`
-   * `https://<tenant-name>.na1.netsuite.com/saml2/acs`
-   * `https://<tenant-name>.na2.netsuite.com/saml2/acs`
-   * `https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
-   * `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
-   * `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
-     
-     ![Введите URL-адрес клиента.][8]
-4. На странице **Настройка единого входа в NetSuite** щелкните **Скачать метаданные**, а затем сохраните файл сертификата на локальном компьютере.
-   
-    ![Загрузите метаданные.][9]
-5. Откройте новую вкладку в браузере и войдите как администратор корпоративного сайта NetSuite.
-6. На панели инструментов в верхней части страницы щелкните **Setup** (Настройка) и выберите **Setup Manager** (Диспетчер настройки).
-   
-    ![Перейдите в диспетчер настройки][10]
-7. Из списка **Setup Tasks** (Задачи настройки) выберите пункт **Integration** (Интеграция).
-   
-    ![Перейдите в раздел "Интеграция"][11]
-8. В разделе **Manage Authentication** (Управление аутентификацией) щелкните **SAML Single Sign-on** (Единый вход на основе SAML).
-   
-    ![Перейдите в раздел "Единый вход SAML"][12]
-9. На странице **Настройка SAML** выполните следующие действия.
-   
-   * В Azure Active Directory скопируйте значение из поля **URL-адрес удаленного входа** и вставьте его в поле **Identity Provider Login Page** (Страница входа поставщика удостоверений) в NetSuite.
-     
-       ![Страница настройки SAML.][13]
-   * В NetSuite выберите раздел **Primary Authentication Method** (Основной метод проверки подлинности).
-   * В поле **SAMLV2 Identity Provider Metadata** (Метаданные поставщика удостоверений на основе SAMLv2) выберите **Upload IDP Metadata File** (Передать файл метаданных поставщика удостоверений). Затем нажмите кнопку **Обзор** , чтобы добавить файл метаданных, загруженный на шаге 4.
-     
-       ![Загрузите метаданные][16]
-   * Нажмите кнопку **Submit**(Отправить).
-10. В Azure AD установите флажок подтверждения настройки единого входа, чтобы включить сертификат, который вы загрузили в NetSuite. Нажмите кнопку **Далее**.
-    
-     ![Установите флажок подтверждения.][14]
-11. Если вы хотите получать уведомления об ошибках и предупреждения, связанные с обслуживанием конфигурации единого входа, введите адрес электронной почты на последней странице. 
-    
-    ![Введите адрес электронной почты.][15]
-12. Нажмите кнопку **Завершить** , чтобы закрыть диалоговое окно. Затем щелкните **Атрибуты** в верхней части страницы.
-    
-    ![Щелкните "Атрибуты".][17]
-13. Щелкните **Добавить атрибут пользователя**.
-    
-    ![Щелкните "Добавить атрибут пользователя".][18]
-14. В поле **Имя атрибута** введите `account`. В поле **Значение атрибута** введите идентификатор учетной записи NetSuite. Инструкции по поиску идентификатора учетной записи приведены ниже.
-    
-    ![Добавьте идентификатор учетной записи NetSuite.][19]
-    
-    * В верхнем меню навигации NetSuite щелкните **Setup** (Настройка).
-    * Щелкните **Setup Tasks** (Задачи настройки) в меню навигации слева, выберите раздел **Integration** (Интеграция), а затем щелкните **Web Services Preferences** (Параметры веб-служб).
-    * Скопируйте идентификатор своей учетной записи NetSuite и вставьте его в поле **Значение атрибута** в Azure AD.
-      
-        ![Получите идентификатор учетной записи][20]
-15. В Azure AD нажмите кнопку **Завершить** , чтобы завершить добавление атрибута SAML. Нажмите кнопку **Применить изменения** в нижнем меню.
-    
-    ![Сохраните изменения.][21]
-16. Прежде чем пользователи смогут выполнять единый вход в NetSuite, необходимо назначить им соответствующие разрешения в NetSuite. Чтобы предоставить необходимые разрешения, выполните следующие инструкции.
-    
-    * В верхнем меню навигации выберите **Setup** (Настройка) и щелкните **Setup Manager** (Диспетчер настройки).
-      
-        ![Перейдите в диспетчер настройки][10]
-    * В меню навигации слева выберите **Users/Roles** (Пользователи и роли), а затем — **Manage Roles** (Управление ролями).
-      
-        ![Перейдите в раздел "Управление ролями"][22]
-    * Нажмите кнопку **Создать роль**.
-    * Введите **имя** новой роли и установите флажок **Single Sign-On Only** (Только единый вход).
-      
-        ![Присвойте имя новой роли.][23]
-    * Щелкните **Сохранить**.
-    * В верхнем меню щелкните **Разрешения**. Затем щелкните **Настройка**.
-      
-        ![Перейдите в раздел "Разрешения"][24]
-    * Выберите **Set Up SAM Single Sign-on** (Настройка единого входа управления лицензиями) и нажмите кнопку **Add** (Добавить).
-    * Щелкните **Сохранить**.
-    * В верхнем меню навигации выберите **Setup** (Настройка) и щелкните **Setup Manager** (Диспетчер настройки).
-      
-        ![Перейдите в диспетчер настройки][10]
-    * В меню навигации слева выберите **Users/Roles** (Пользователи и роли), а затем — **Manage Users** (Управление пользователями).
-      
-        ![Перейдите в раздел "Управление пользователями"][25]
-    * Выберите тестового пользователя. Нажмите кнопку **Изменить**.
-      
-        ![Перейдите в раздел "Управление пользователями"][26]
-    * В диалоговом окне "Роли" выберите роль, которую вы создали, и нажмите кнопку **Добавить**.
-      
-        ![Перейдите в раздел "Управление пользователями"][27]
-    * Щелкните **Сохранить**.
-17. Сведения о проверке конфигурации см. в разделе [Назначение пользователей NetSuite](#step-4-assign-users-to-netsuite) ниже.
+- подписка Azure AD;
+- подписка Netsuite с поддержкой единого входа.
 
-## <a name="step-3-enable-automated-user-provisioning"></a>Шаг 3. Включение автоматической подготовки пользователей
 > [!NOTE]
-> По умолчанию подготовленные пользователи будут добавлены в дочерний корневой раздел среды NetSuite.
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
+
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+
+1. Добавление Workrite из коллекции.
+2. Настройка и проверка единого входа в Azure AD
+
+## <a name="adding-netsuite-from-the-gallery"></a>Добавление Workrite из коллекции
+Чтобы настроить интеграцию Netsuite с Azure AD, необходимо добавить Netsuite из коллекции в список управляемых приложений SaaS.
+
+**Чтобы добавить Netsuite из коллекции, выполните следующие действия.**
+
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
+    ![Active Directory][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Приложения][2]
+    
+3. В верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
+    ![Приложения][3]
+
+4. В поле поиска введите **Netsuite**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_search.png)
+
+5. На панели результатов выберите **Netsuite** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в приложение Netsuite с использованием тестового пользователя Britta Simon.
+
+Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в Netsuite соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Netsuite.
+
+Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Netsuite.
+
+Чтобы настроить и проверить единый вход Azure AD в Netsuite, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Netsuite](#creating-a-netsuite-test-user)** требуется для того, чтобы в Netsuite существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
+
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Netsuite.
+
+**Чтобы настроить единый вход Azure AD в Netsuite, выполните следующие действия.**
+
+1. На портале Azure на странице интеграции с приложением **Netsuite** щелкните **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения Netsuite** сделайте следующее.
+
+    ![Настройка единого входа](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_url.png)
+
+    В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`.
+
+    > [!NOTE] 
+    > Это значение приведено для примера. Вместо него нужно указать фактический URL-адрес ответа. Чтобы получить это значение, обратитесь к [группе поддержки Netsuite](http://www.netsuite.com/portal/services/support.shtml).
+ 
+4. В разделе **Сертификат подписи SAML** щелкните **XML метаданных** и сохраните XML-файл на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-netsuite-tutorial/tutorial_general_400.png)
+
+6. В разделе **Конфигурация Netsuite** щелкните **Настроить Netsuite**, чтобы открыть окно **Настройка единого входа**. Скопируйте **URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+
+    ![Настройка единого входа](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_configure.png) 
+
+7. Откройте новую вкладку в браузере и войдите как администратор корпоративного сайта NetSuite.
+
+8. На панели инструментов в верхней части страницы щелкните **Setup** (Настройка) и выберите **Setup Manager** (Диспетчер настройки).
+
+    ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
+
+9. Из списка **Setup Tasks** (Задачи настройки) выберите пункт **Integration** (Интеграция).
+
+    ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-integration.png)
+
+10. В разделе **Manage Authentication** (Управление аутентификацией) щелкните **SAML Single Sign-on** (Единый вход на основе SAML).
+
+    ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-saml.png)
+
+11. На странице **Настройка SAML** выполните следующие действия.
+   
+    а. Скопируйте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML) из раздела **Краткий справочник** на странице **Настройка единого входа** и вставьте его в поле **Identity Provider Login Page** (Страница входа поставщика удостоверений) в Netsuite.
+
+    ![Настройка единого входа](./media/active-directory-saas-netsuite-tutorial/ns-saml-setup.png)
+  
+    b. В NetSuite выберите раздел **Primary Authentication Method** (Основной метод проверки подлинности).
+
+    c. В поле **SAMLV2 Identity Provider Metadata** (Метаданные поставщика удостоверений на основе SAMLv2) выберите **Upload IDP Metadata File** (Передать файл метаданных поставщика удостоверений). Затем нажмите кнопку **Обзор**, чтобы добавить файл метаданных, скачанный с портала Azure.
+
+    ![Настройка единого входа](./media/active-directory-saas-netsuite-tutorial/ns-sso-setup.png)
+
+    г) Нажмите кнопку **Submit**(Отправить).
+
+12. В Azure AD установите флажок **Просмотреть и изменить все другие атрибуты пользователей** и добавьте атрибут.
+
+    ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
+
+13. В поле **Имя атрибута** введите `account`. В поле **Attribute Value** (Значение атрибута) введите идентификатор учетной записи Netsuite. Это значение является константой, которая изменяется вместе с учетной записью. Инструкции по поиску идентификатора учетной записи приведены ниже.
+
+      ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
+
+    а. В верхнем меню навигации NetSuite щелкните **Setup** (Настройка).
+
+    b. Щелкните **Setup Tasks** (Задачи настройки) в меню навигации слева, выберите раздел **Integration** (Интеграция), а затем щелкните **Web Services Preferences** (Параметры веб-служб).
+
+    c. Скопируйте идентификатор своей учетной записи NetSuite и вставьте его в поле **Значение атрибута** в Azure AD.
+
+    ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-account-id.png)
+
+14. Прежде чем пользователи смогут выполнять единый вход в NetSuite, необходимо назначить им соответствующие разрешения в NetSuite. Чтобы предоставить необходимые разрешения, выполните следующие инструкции.
+
+    а. В верхнем меню навигации выберите **Setup** (Настройка) и щелкните **Setup Manager** (Диспетчер настройки).
+      
+      ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
+
+    b. В меню навигации слева выберите **Users/Roles** (Пользователи и роли), а затем — **Manage Roles** (Управление ролями).
+      
+      ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-manage-roles.png)
+
+    c. Нажмите кнопку **Создать роль**.
+
+    г) Введите **имя** новой роли и установите флажок **Single Sign-On Only** (Только единый вход).
+      
+      ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
+
+    д. Щелкните **Сохранить**.
+
+    f. В верхнем меню щелкните **Разрешения**. Затем щелкните **Настройка**.
+      
+       ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
+
+    g. Выберите **Set Up SAM Single Sign-on** (Настройка единого входа управления лицензиями) и нажмите кнопку **Add** (Добавить).
+
+    h. Щелкните **Сохранить**.
+
+    i. В верхнем меню навигации выберите **Setup** (Настройка) и щелкните **Setup Manager** (Диспетчер настройки).
+      
+       ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
+
+    j. В меню навигации слева выберите **Users/Roles** (Пользователи и роли), а затем — **Manage Users** (Управление пользователями).
+      
+       ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-manage-users.png)
+
+    k. Выберите тестового пользователя. Нажмите кнопку **Изменить**.
+      
+       ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-edit-user.png)
+
+    l. В диалоговом окне "Роли" выберите роль, которую вы создали, и нажмите кнопку **Добавить**.
+      
+       ![Настройка единого входа](./media/active-directory-saas-Netsuite-tutorial/ns-add-role.png)
+
+    m. Щелкните **Сохранить**.
+    
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
-> 
 
-1. На странице быстрого запуска NetSuite в Azure Active Directory нажмите кнопку **Настроить подготовку учетных записей пользователей**.
-   
-    ![Настроить подготовку учетных записей пользователей][28]
-2. В открывшемся диалоговом окне введите учетные данные администратора NetSuite, а затем нажмите кнопку **Далее**.
-   
-    ![Введите учетные данные администратора в NetSuite.][29]
-3. На странице подтверждения введите свой адрес электронной почты для получения уведомлений о сбоях при подготовке.
-   
-    ![Подтвердите выбор.][30]
-4. Нажмите кнопку **Завершить** , чтобы закрыть диалоговое окно.
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-## <a name="step-4-assign-users-to-netsuite"></a>Этап 4. Назначение пользователей NetSuite
-1. Чтобы проверить конфигурацию, создайте тестовую учетную запись в каталоге.
-2. На странице быстрого запуска NetSuite нажмите кнопку **Назначить пользователей**.
-   
-    ![Щелкните "Назначить пользователей".][31]
-3. Выберите тестового пользователя и нажмите кнопку **Назначить** в нижней части экрана.
-   
-   * Если вы еще не включили автоматическую подготовку пользователей, то появится следующее сообщение:
-     
-        ![Подтвердите назначение.][32]
-   * Если автоматическая подготовка пользователей включена, появится запрос на выбор роли, которую нужно назначить пользователю в NetSuite. Через несколько минут подготовленные пользователи появятся в вашей среде NetSuite.
-4. Чтобы проверить параметры единого входа, откройте панель доступа по адресу [https://myapps.microsoft.com](https://myapps.microsoft.com/), выполните вход с тестовой учетной записью и щелкните **NetSuite**.
+![Создание пользователя Azure AD][100]
 
-## <a name="related-articles"></a>Связанные статьи
-* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-* [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-[0]: ./media/active-directory-saas-netsuite-tutorial/azure-active-directory.png
-[1]: ./media/active-directory-saas-netsuite-tutorial/applications-tab.png
-[2]: ./media/active-directory-saas-netsuite-tutorial/add-app.png
-[3]: ./media/active-directory-saas-netsuite-tutorial/add-app-gallery.png
-[4]: ./media/active-directory-saas-netsuite-tutorial/add-netsuite.png
-[5]: ./media/active-directory-saas-netsuite-tutorial/quick-start-netsuite.png
-[6]: ./media/active-directory-saas-netsuite-tutorial/config-sso.png
-[7]: ./media/active-directory-saas-netsuite-tutorial/sso-netsuite.png
-[8]: ./media/active-directory-saas-netsuite-tutorial/sso-config-netsuite.png
-[9]: ./media/active-directory-saas-netsuite-tutorial/config-sso-netsuite.png
-[10]: ./media/active-directory-saas-netsuite-tutorial/ns-setup.png
-[11]: ./media/active-directory-saas-netsuite-tutorial/ns-integration.png
-[12]: ./media/active-directory-saas-netsuite-tutorial/ns-saml.png
-[13]: ./media/active-directory-saas-netsuite-tutorial/ns-saml-setup.png
-[14]: ./media/active-directory-saas-netsuite-tutorial/ns-sso-confirm.png
-[15]: ./media/active-directory-saas-netsuite-tutorial/sso-email.png
-[16]: ./media/active-directory-saas-netsuite-tutorial/ns-sso-setup.png
-[17]: ./media/active-directory-saas-netsuite-tutorial/ns-attributes.png
-[18]: ./media/active-directory-saas-netsuite-tutorial/ns-add-attribute.png
-[19]: ./media/active-directory-saas-netsuite-tutorial/ns-add-account.png
-[20]: ./media/active-directory-saas-netsuite-tutorial/ns-account-id.png
-[21]: ./media/active-directory-saas-netsuite-tutorial/ns-save-saml.png
-[22]: ./media/active-directory-saas-netsuite-tutorial/ns-manage-roles.png
-[23]: ./media/active-directory-saas-netsuite-tutorial/ns-new-role.png
-[24]: ./media/active-directory-saas-netsuite-tutorial/ns-sso.png
-[25]: ./media/active-directory-saas-netsuite-tutorial/ns-manage-users.png
-[26]: ./media/active-directory-saas-netsuite-tutorial/ns-edit-user.png
-[27]: ./media/active-directory-saas-netsuite-tutorial/ns-add-role.png
-[28]: ./media/active-directory-saas-netsuite-tutorial/netsuite-provisioning.png
-[29]: ./media/active-directory-saas-netsuite-tutorial/ns-creds.png
-[30]: ./media/active-directory-saas-netsuite-tutorial/ns-confirm.png
-[31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
-[32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
+
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_01.png) 
+
+2.  Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_02.png) 
+
+3. В верхней части диалогового окна щелкните **Добавить**, чтобы открыть диалоговое окно **Пользователь**.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_03.png) 
+
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-netsuite-tutorial/create_aaduser_04.png) 
+
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
+
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
+
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
+
+    d. Щелкните **Создать**. 
+
+### <a name="creating-a-netsuite-test-user"></a>Создание тестового пользователя Netsuite
+
+В этом разделе вы создадите в Netsuite пользователя с именем Britta Simon. Netsuite поддерживает JIT-подготовку. Эта функция включена по умолчанию.
+В этом разделе никакие действия с вашей стороны не требуются. Если пользователь еще не существует в Netsuite, то он создается при попытке доступа к приложению Netsuite.
 
 
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-<!--HONumber=Dec16_HO2-->
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Netsuite.
+
+![Назначение пользователя][200] 
+
+**Чтобы назначить пользователя Britta Simon в Netsuite, выполните следующие действия.**
+
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
+    ![Назначение пользователя][201] 
+
+2. Из списка приложений выберите **Netsuite**.
+
+    ![Настройка единого входа](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Чтобы проверить параметры единого входа, откройте панель доступа по адресу [https://myapps.microsoft.com](https://myapps.microsoft.com/), выполните вход с тестовой учетной записью и щелкните **Netsuite**.
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Руководство по настройке Netsuite для автоматической подготовки пользователей](active-directory-saas-netsuite-provisioning-tutorial.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-netsuite-tutorial/tutorial_general_203.png
 
 

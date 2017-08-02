@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
-ms.lasthandoff: 02/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 6d4379248cff45b601e32e8554f86bb7a1846570
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="azure-security-services-and-technologies"></a>Службы и технологии безопасности Azure
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/17/2017
 * [Шифрование Azure на стороне клиента](../storage/storage-client-side-encryption.md)
 * [Подписанные URL-адреса службы хранилища Azure](../storage/storage-dotnet-shared-access-signature-part-1.md)
 * [Ключи учетной записи хранения Azure](../storage/storage-create-storage-account.md)
-* [Общие файлы Azure с шифрованием SMB 3.0](../storage/storage-dotnet-how-to-use-files.md)
+* [Разработка для хранилища файлов Azure с помощью .NET](../storage/storage-dotnet-how-to-use-files.md)
 * [Аналитика службы хранилища Azure](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Безопасность базы данных Azure
