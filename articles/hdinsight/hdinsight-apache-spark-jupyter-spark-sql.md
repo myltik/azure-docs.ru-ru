@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 0625984bf10588fe50a2632285f565eb79b66ab7
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Создание кластера Apache Spark в Azure HDInsight
 
-Из этой статьи вы узнаете, как создать кластер Apache Spark в Azure HDInsight.
+Из этой статьи вы узнаете, как создать кластер Apache Spark в Azure HDInsight. Сведения о Spark в HDInsight см. в [этой статье](hdinsight-apache-spark-overview.md).
 
    ![Схема быстрого руководства, описывающая шаги по созданию кластера Apache Spark в Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Краткое руководство по Spark с использованием Apache Spark в HDInsight. Описанные действия: создание кластера; выполнение интерактивного запроса Spark")
 
@@ -115,10 +115,17 @@ ms.lasthandoff: 07/22/2017
 
 7. Завершив работу с приложением, можно закрыть записную книжку, чтобы освободить ресурсы кластера. Для этого в записной книжке в меню **Файл** выберите пункт **Close and Halt** (Закрыть и остановить).
 
-## <a name="next-step"></a>Дальнейшие действия
+8. Если вы планируете выполнить следующие действия позже, обязательно удалите кластер HDInsight, созданный во время работы с этой статьей. 
 
-Из этой статьи вы узнали, как создать кластер HDInsight Spark и выполнить базовый запрос Spark SQL. Теперь узнайте, как [загружать данные в HDInsight Spark и выполнять интерактивный запрос](hdinsight-apache-spark-load-data-run-query.md).
+    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Если вы планируете выполнить следующие действия позже, обязательно удалите кластер HDInsight. 
+## <a name="next-step"></a>Дальнейшие действия 
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+Из этой статьи вы узнали, как создать кластер HDInsight Spark и выполнить базовый запрос Spark SQL. Из следующей статьи вы узнаете, как с помощью кластера HDInsight Spark выполнять интерактивные запросы, используя пример данных.
+
+> [!div class="nextstepaction"]
+>[Выполнение интерактивных запросов в кластере HDInsight Spark](hdinsight-apache-spark-load-data-run-query.md)
+
+
+
+

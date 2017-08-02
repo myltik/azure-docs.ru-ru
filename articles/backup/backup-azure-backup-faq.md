@@ -1,7 +1,7 @@
 
 ---
 title: "Часто задаваемые вопросы о службе архивации Azure | Документация Майкрософт"
-description: "Ответы на часто задаваемые вопросы о хранилище служб восстановления, хранящихся в нем резервных копиях, принципе работы, шифровании и ограничениях."
+description: "Ответы на часто задаваемые вопросы о возможностях службы Azure Backup, в частности о хранилищах служб восстановления, объектах, для которых можно создавать резервные копии, принципе работы, шифровании и ограничениях. "
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -14,13 +14,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/10/2017
-ms.author: markgal;giridham;arunak;trinadhk;
+ms.date: 7/21/2017
+ms.author: markgal;arunak;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 865d8faef47e333e30c5d4084a93a52efc5eb2ad
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 6f204f2f0dca33e68b9853af3c94934af65ca1f9
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Вопросы о службе архивации Azure
@@ -61,6 +61,13 @@ ms.lasthandoff: 07/20/2017
 
 ## <a name="azure-vm-backup"></a>Резервное копирование виртуальных машин Azure
 Подробный список вопросов см. на странице [часто задаваемых вопросов о резервном копировании виртуальных машин Azure](backup-azure-vm-backup-faq.md).
+
+## <a name="back-up-vmware-servers"></a>Резервное копирование серверов VMware
+
+### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Можно ли выполнять резервное копирование серверов VMware vCenter в облако Azure?
+
+Да. Для резервного копирования VMware vCenter и ESXi в облако Azure можно использовать Azure Backup Server. Сведения о поддерживаемых версиях VMware см. в статье [Таблица защиты посредством Azure Backup Server](backup-mabs-protection-matrix.md). Пошаговые инструкции см. в статье [Резервное копирование сервера VMware в Azure](backup-azure-backup-server-vmware.md).
+
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure Backup Server и System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Можно ли использовать сервер службы архивации Azure, чтобы создать резервную копию для восстановления исходного состояния физического сервера? <br/>
