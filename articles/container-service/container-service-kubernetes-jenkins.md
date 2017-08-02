@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 ms.author: briar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 3d206ebb6deeaa40f8e792ec12304c99c0abe684
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
+ms.openlocfilehash: dfbf4d90bed4e60cc6c1663ee3743b320319a881
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 
@@ -58,9 +58,9 @@ CLUSTER_NAME=any-acs-cluster-name
 
 az acs create \
 --orchestrator-type=kubernetes \
---resource-group $RESOURCE_GROUP \ 
+--resource-group $RESOURCE_GROUP \
 --name=$CLUSTER_NAME \
---dns-prefix=$DNS_PREFIX \ 
+--dns-prefix=$DNS_PREFIX \
 --ssh-key-value ~/.ssh/id_rsa.pub \
 --admin-username=azureuser \
 --master-count=1 \
@@ -71,18 +71,17 @@ az acs create \
 ## <a name="set-up-jenkins-and-configure-access-to-container-service"></a>Настройка Jenkins и настройка доступа к службе контейнеров
 
 ### <a name="step-1-install-jenkins"></a>Шаг 1. Установка Jenkins
-1. Создайте виртуальную машину Azure с Ubuntu 16.04 LTS. 
-2. Установите Jenkins, используя эти [инструкции](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu).
-3. Более подробное руководство находится на сайте [howtoforge.com](https://www.howtoforge.com/tutorial/how-to-install-jenkins-with-apache-on-ubuntu-16-04).
-4. Обновите группу безопасности сети Azure, чтобы разрешить порт 8080, и выберите общедоступный IP-адрес на порте 8080 для управления Jenkins в браузере.
-5. Начальный пароль администратора хранится в папке /var/lib/jenkins/secrets/initialAdminPassword.
-6. Установите Docker на компьютер с Jenkins с помощью этих [инструкций](https://docs.docker.com/cs-engine/1.13/#install-on-ubuntu-1404-lts-or-1604-lts). Это позволит выполнять команды Docker в заданиях Jenkins.
-7. Настройте разрешения Docker таким образом, чтобы предоставить Jenkins возможность доступа к конечной точке.
+1. Создайте виртуальную машину Azure с Ubuntu 16.04 LTS.  Так как позднее в этом руководстве потребуется подключиться к данной виртуальной машине с помощью Bash на локальном компьютере, задайте для параметра "Тип проверки подлинности" значение "Открытый ключ SSH" и вставьте открытый ключ SSH, хранящийся на локальном компьютере в папке ~/.ssh.  Кроме того, запишите указываемое имя пользователя, так как позже оно понадобится для просмотра панели мониторинга Jenkins и подключения к виртуальной машине Jenkins.
+2. Установите Jenkins, используя эти [инструкции](https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu). Более подробное руководство находится на сайте [howtoforge.com](https://www.howtoforge.com/tutorial/how-to-install-jenkins-with-apache-on-ubuntu-16-04).
+3. Для просмотра панели мониторинга Jenkins на локальном компьютере измените параметры группы безопасности сети Azure, чтобы открыть порт 8080, добавив правило входящего трафика, разрешающее доступ к порту 8080.  Кроме того, можно задать перенаправление портов командой `ssh -i ~/.ssh/id_rsa -L 8080:localhost:8080 <your_jenkins_user>@<your_jenkins_public_ip`.
+4. Подключитесь к серверу Jenkins в браузере, перейдя по общедоступному IP-адресу (http://<ваш_общедоступный_IP-адрес_Jenkins>:8080), и разблокируйте панель мониторинга Jenkins в первый раз, воспользовавшись начальным паролем администратора.  Пароль администратора хранится в папке /var/lib/jenkins/secrets/initialAdminPassword на виртуальной машине Jenkins.  Простой способ получить этот пароль — подключиться по протоколу SSH к виртуальной машине Jenkins: `ssh <your_jenkins_user>@<your_jenkins_public_ip>`.  Затем следует выполнить команду `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
+5. Установите Docker на компьютер с Jenkins с помощью этих [инструкций](https://docs.docker.com/cs-engine/1.13/#install-on-ubuntu-1404-lts-or-1604-lts). Это позволит выполнять команды Docker в заданиях Jenkins.
+6. Настройте разрешения Docker таким образом, чтобы предоставить Jenkins доступ к конечной точке Docker.
 
     ```bash
     sudo chmod 777 /run/docker.sock
     ```
-8. Установите интерфейс командной строки `kubectl` на платформе Jenkins. Дополнительные сведения см. в статье [Installing and Setting up kubectl](https://kubernetes.io/docs/tasks/kubectl/install/) (Установка и настройка Kubectl).
+8. Установите интерфейс командной строки `kubectl` на платформе Jenkins. Дополнительные сведения см. в статье [Installing and Setting up kubectl](https://kubernetes.io/docs/tasks/kubectl/install/) (Установка и настройка Kubectl).  Задания Jenkins будут использовать kubectl для управления кластером Kubernetes и его развертывания.
 
     ```bash
     curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
@@ -98,21 +97,19 @@ az acs create \
 > Описанные ниже действия можно выполнить несколькими способами. Мы советуем использовать самый простой для вас.
 >
 
-1. Скопируйте файл конфигурации `kubectl` на компьютер с Jenkins.
+1. Скопируйте файл конфигурации `kubectl` на компьютер Jenkins, чтобы у заданий Jenkins был доступ к кластеру Kubernetes. Эти инструкции предполагают, что вы используете Bash с компьютера, отличного от виртуальной машины Jenkins, и что локальный открытый ключ SSH хранится в папке ~/.ssh на этом компьютере.
 
-    ```bash
-    export KUBE_MASTER=<your_cluster_master_fqdn>
+```bash
+export KUBE_MASTER=<your_cluster_master_fqdn>
+export JENKINS_USER=<your_jenkins_user>
+export JENKINS_SERVER=<your_jenkins_public_ip>
+sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir -m 777 /home/$JENKINS_USER/.kube/ \
+&& sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir /var/lib/jenkins/.kube/ \
+&& sudo scp -3 -i ~/.ssh/id_rsa azureuser@$KUBE_MASTER:.kube/config $JENKINS_USER@$JENKINS_SERVER:~/.kube/config \
+&& sudo ssh -i ~/.ssh/id_rsa $JENKINS_USER@$JENKINS_SERVER sudo cp /home/$JENKINS_USER/.kube/config /var/lib/jenkins/.kube/config \
+```
         
-    sudo scp -3 -i ~/.ssh/id_rsa azureuser@$KUBE_MASTER:.kube/config user@<your_jenkins_server>:~/.kube/config
-        
-    sudo ssh user@<your_jenkins_server> sudo chmod 777 /home/user/.kube/config
-
-    sudo ssh -i ~/.ssh/id_rsa user@<your_jenkins_server> sudo chmod 777 /home/user/.kube/config
-        
-    sudo ssh -i ~/.ssh/id_rsa user@<your_jenkins_server> sudo cp /home/user/.kube/config /var/lib/jenkins/config
-    ```
-        
-2. Из среды с Jenkins проверьте, что кластер Kubernetes доступен.
+2. Из среды с Jenkins проверьте, что кластер Kubernetes доступен.  Для этого подключитесь по протоколу SSH к виртуальной машине Jenkins: `ssh <your_jenkins_user>@<your_jenkins_public_ip>`.  Затем убедитесь, что Jenkins может подключиться к кластеру: `kubectl cluster-info`.
     
 
 ## <a name="create-a-jenkins-workflow"></a>Создание рабочего процесса Jenkins

@@ -1,6 +1,6 @@
 ---
-title: "Управление приложениями Service Fabric с помощью Azure CLI 2.0"
-description: "Здесь описывается процесс развертывания и удаления приложений из кластера Service Fabric с помощью Azure CLI 2.0."
+title: "Управление приложениями Azure Service Fabric с помощью Azure CLI 2.0"
+description: "Узнайте, как развертывать приложения и удалить их из кластера с Azure Service Fabric с помощью Azure CLI 2.0."
 services: service-fabric
 author: samedder
 manager: timlt
@@ -8,37 +8,37 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: edwardsa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: a99819f6a1c0ef31e14c95b6bd47138feb05053f
+ms.translationtype: HT
+ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
+ms.openlocfilehash: 5728339236e3819b301e428f9d7a8add08f02b3e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/14/2017
 
 ---
-# <a name="manage-service-fabric-application-using-azure-cli-20"></a>Управление приложением Service Fabric с помощью Azure CLI 2.0
+# <a name="manage-an-azure-service-fabric-application-by-using-azure-cli-20"></a>Управление приложением Azure Service Fabric с помощью Azure CLI 2.0
 
-Следуйте инструкциям в этой документации, чтобы научиться создавать и удалять приложения, выполняющиеся в кластере Service Fabric.
+Узнайте, как создавать и удалять приложения, выполняющиеся в кластере Azure Service Fabric.
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Не забудьте установить Azure CLI 2.0 и выбрать кластер Service Fabric. Дополнительные сведения можно найти в документации по [началу работы с Azure CLI 2.0](service-fabric-azure-cli-2-0.md).
+* Установите Azure CLI 2.0 и выберите кластер Service Fabric. Дополнительные сведения можно найти в документации по [началу работы с Azure CLI 2.0](service-fabric-azure-cli-2-0.md).
 
-Вам также необходимо иметь готовый к развертыванию пакет приложения Service Fabric. Дополнительные сведения о том, как создавать и упаковывать приложения, можно найти в [документации по модели приложения](service-fabric-application-model.md).
+* Также требуется готовый к развертыванию пакет приложения Service Fabric. Дополнительные сведения о том, как создавать и упаковывать приложения, представлены в [документации по модели приложения Service Fabric](service-fabric-application-model.md).
 
 ## <a name="overview"></a>Обзор
 
-Развертывание нового приложения состоит из четырех шагов:
+Чтобы развернуть новое приложение, выполните указанные ниже действия.
 
-1. Отправка пакета приложения в хранилище образов Service Fabric.
-1. Подготовка типа приложения.
-1. Указание и создание приложения.
-1. Указание и создание служб.
+1. Отправьте пакет приложения в хранилище образов Service Fabric.
+2. Подготовьте тип приложения.
+3. Укажите приложение и создайте его.
+4. Укажите службы и создайте их.
 
-Удаление имеющегося приложения состоит из трех шагов:
+Чтобы удалить существующее приложение, выполните следующие действия.
 
-1. Удаление приложения
-1. Отмена подготовки связанного типа приложения.
-1. Удаление содержимого хранилища образов.
+1. Удалите приложение.
+2. Отмените подготовку связанного типа приложения.
+3. Удалите содержимое из хранилища образов.
 
 ## <a name="deploy-a-new-application"></a>Развертывание нового приложения
 
@@ -46,8 +46,9 @@ ms.lasthandoff: 07/01/2017
 
 ### <a name="upload-a-new-application-package-to-the-image-store"></a>Передача нового пакета приложения в хранилище образов
 
-Прежде чем создавать приложение, необходимо передать пакет приложения в хранилище образов Service Fabric.
-Предположим, что пакет приложения существует в каталоге `app_package_dir`. Чтобы передать каталог, выполните следующие команды:
+Прежде чем создавать приложение, необходимо отправить пакет приложения в хранилище образов Service Fabric. 
+
+Предположим, что пакет приложения существует в каталоге `app_package_dir`. Чтобы отправить каталог, выполните следующие команды:
 
 ```azurecli
 az sf application upload --path ~/app_package_dir
@@ -55,19 +56,19 @@ az sf application upload --path ~/app_package_dir
 
 Для больших пакетов приложений вы можете указать параметр `--show-progress`, чтобы отобразить ход передачи.
 
-### <a name="provision-application-type"></a>Подготовка типа приложения
+### <a name="provision-the-application-type"></a>Подготовка типа приложения
 
-После завершения передачи необходимо подготовить приложение. Чтобы подготовить приложение, выполните следующую команду:
+По завершении отправки необходимо подготовить приложение. Чтобы подготовить приложение, выполните следующую команду:
 
 ```azurecli
 az sf application provision --application-type-build-path app_package_dir
 ```
 
-`application-type-build-path` должен совпадать с именем каталога, содержащего пакет приложения, который был передан ранее.
+Параметр `application-type-build-path` должен совпадать с именем каталога, содержащего пакет приложения, который был отправлен ранее.
 
-### <a name="create-application-from-application-type"></a>Создание приложения из типа приложения
+### <a name="create-an-application-from-an-application-type"></a>Создание приложения из типа приложения
 
-После подготовки приложения вы можете назвать и создать приложение, выполнив следующую команду:
+После подготовки приложения можно присвоить ему имя и создать приложение, выполнив следующую команду:
 
 ```azurecli
 az sf application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
@@ -86,9 +87,9 @@ az sf service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-t
 --stateless --instance-count 1 --singleton-scheme
 ```
 
-## <a name="verify-application-creation-and-health"></a>Проверка создания и работоспособности приложения
+## <a name="verify-application-deployment-and-health"></a>Проверка развертывания и работоспособности приложения
 
-Чтобы проверить, что приложение и служба были успешно развернуты, убедитесь, что они отображаются, выполнив следующие команды:
+Чтобы проверить, что приложение и служба были успешно развернуты, убедитесь, что они отображаются:
 
 ```azurecli
 az sf application list
@@ -118,7 +119,7 @@ az sf application delete --application-id TestEdApp
 
 ### <a name="unprovision-the-application-type"></a>Отмена подготовки типа приложения
 
-После удаления приложения можно также отменить подготовку типа приложения (если он не больше требуется). Чтобы отменить подготовку типа приложения, выполните следующую команду:
+После удаления приложения можно также отменить подготовку типа приложения (если он больше не требуется). Для этого выполните следующую команду:
 
 ```azurecli
 az sf application unprovision --application-type-name TestAppTye --application-type-version 1.0
@@ -126,18 +127,20 @@ az sf application unprovision --application-type-name TestAppTye --application-t
 
 Имя и версия типа должны соответствовать имени и версии в манифесте приложения, который был подготовлен ранее.
 
-### <a name="delete-application-package"></a>Удаление пакета приложения
+### <a name="delete-the-application-package"></a>Удаление пакета приложения
 
-После того как подготовка типа приложения была отменена, пакет приложения можно удалить из хранилища образов (если он больше не требуется). Удалите пакеты приложения, чтобы освободить место на диске. Чтобы удалить пакет приложения из хранилища образов, выполните следующую команду:
+После того как подготовка типа приложения была отменена, пакет приложения можно удалить из хранилища образов (если он больше не требуется). Удалите пакеты приложения, чтобы освободить место на диске. 
+
+Чтобы удалить пакет приложения из хранилища образов, выполните следующую команду:
 
 ```azurecli
 az sf application package-delete --content-path app_package_dir
 ```
 
-`content-path` должен совпадать с именем каталога, загруженного при создании приложения.
+Параметр `content-path` должен совпадать с именем каталога, загруженного при создании приложения.
 
 ## <a name="related-articles"></a>Связанные статьи
 
-* [Service Fabric и Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
+* [Service Fabric и Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
 * [Использование интерфейса командной строки Azure для взаимодействия с кластером Service Fabric](service-fabric-azure-cli.md)
 

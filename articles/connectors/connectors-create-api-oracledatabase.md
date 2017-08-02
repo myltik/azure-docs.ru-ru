@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 014b726c2e960029cf5896e07063e807e9ae1915
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -71,7 +71,7 @@ ms.lasthandoff: 05/10/2017
     > [!TIP]
     > Это самый быстрый способ просмотреть триггеры и действия, доступные для определенного соединителя. Введите часть имени соединителя, например `oracle`. Конструктор выведет полный список триггеров и действий. 
 
-5. Выберите одно из этих действий, например **База данных Oracle — Получение строки**. Установите флажок **Подключиться через локальный шлюз данных**. Введите имя сервера Oracle, метод аутентификации, имя пользователя и пароль, а также выберите шлюз:
+5. Выберите одно из этих действий, например **База данных Oracle — Получение строки**. Установите флажок **Connect via on-premises data gateway** (Подключение через локальный шлюз данных). Введите имя сервера Oracle, метод аутентификации, имя пользователя и пароль, а также выберите шлюз:
 
     ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -124,8 +124,9 @@ ms.lasthandoff: 05/10/2017
 * таблицы с составными ключами;
 * типы вложенных объектов в таблицах.
  
-## <a name="view-the-swagger"></a>Просмотр Swagger
-Ознакомьтесь с [дополнительными сведениями о Swagger](/connectors/oracle/). 
+## <a name="connector-specific-details"></a>Сведения о соединителях
+
+Информацию о существующих ограничениях, а также о триггерах и действиях, определенных в Swagger, см. в статье со [сведениями о соединителях](/connectors/oracle/). 
 
 ## <a name="get-some-help"></a>Справочные сведения
 

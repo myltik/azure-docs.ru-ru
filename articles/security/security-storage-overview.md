@@ -1,6 +1,6 @@
 ---
 title: "Функции безопасности, которые могут использоваться со службой хранилища Azure | Документация Майкрософт"
-description: " В этой статье содержатся общие сведения о базовых функциях безопасности Azure, которые можно использовать в службе хранилища Azure.. "
+description: " В этой статье содержатся общие сведения о базовых функциях безопасности Azure, которые можно использовать в службе хранилища Azure. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
-ms.openlocfilehash: 2db6effdaf2e23d00eefdde82d074dd5d47857d7
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
+ms.openlocfilehash: 1386d16cf0e7f6fd324d0779e9ad54ecd88b3166
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/12/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Общие сведения о безопасности при использовании службы хранилища Azure
@@ -56,7 +57,7 @@ ms.openlocfilehash: 2db6effdaf2e23d00eefdde82d074dd5d47857d7
 Подробнее.
 
 * [Основные сведения о модели SAS.](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Подписанные URL-адреса. Часть&2;: создание и использование подписанного URL-адреса в службе BLOB-объектов](../storage/storage-dotnet-shared-access-signature-part-2.md)
+* [Подписанные URL-адреса. Часть 2: создание и использование подписанного URL-адреса в службе BLOB-объектов](../storage/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>Шифрование при передаче
 Шифрование при передаче — это механизм защиты данных, передаваемых по сетям. Служба хранилища Azure позволяет применять для защиты данных:
@@ -98,9 +99,4 @@ ms.openlocfilehash: 2db6effdaf2e23d00eefdde82d074dd5d47857d7
 
 * [Что такое хранилище ключей Azure?](../key-vault/key-vault-whatis.md)
 * [Приступая к работе с хранилищем ключей Azure](../key-vault/key-vault-get-started.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

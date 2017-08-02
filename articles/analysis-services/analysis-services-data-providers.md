@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/14/2016
+ms.date: 06/14/2016
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 6457b7d30b12a7bb138f9912e21418742814be09
+ms.translationtype: HT
+ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
+ms.openlocfilehash: 949f34158f4fc8ee6d86cf3dd408c3c903234109
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 07/13/2017
 
 ---
 
@@ -30,19 +29,11 @@ ms.lasthandoff: 05/05/2017
 
 Службы Analysis Services используют три типа клиентских библиотек. ADOMD.NET и объекты управления служб Analysis Services — это управляемые клиентские библиотеки. Поставщик OLE DB служб Analysis Services (MSOLAP DLL) — это собственная клиентская библиотека. Как правило, все три библиотеки устанавливаются одновременно. Службам Azure Analysis Services требуются последние версии библиотек. 
 
-Клиентские приложения Майкрософт, такие как Power BI Desktop и Excel, устанавливают все три клиентские библиотеки. Однако в зависимости от версии Excel или от того, обновляются ли новые версии Excel и Power BI Desktop ежемесячно, установленные клиентские библиотеки могут не обновиться до последней версии, требуемой службам Azure Analysis Services. Это же касается и пользовательских приложений или других интерфейсов, таких как AsCmd, TOM, ADOMD.NET. Для этих приложений клиентские библиотеки требуется устанавливать вручную. Клиентские библиотеки, устанавливаемые вручную, включены в пакеты дополнительных компонентов SQL Server в качестве распространяемых пакетов. Однако они зависят от версии SQL Server, поэтому версия в пакетах может быть не последней.  
+Клиентские приложения Майкрософт, такие как Power BI Desktop и Excel, устанавливают все три клиентские библиотеки. Однако в зависимости от версии или частоты обновлений могут устанавливаться устаревшие, а не новые версии клиентских библиотек, необходимые для служб Azure Analysis Services. Это же касается и пользовательских приложений или других интерфейсов, таких как AsCmd, TOM, ADOMD.NET. Для этих приложений клиентские библиотеки требуется устанавливать вручную. Клиентские библиотеки, устанавливаемые вручную, включены в пакеты дополнительных компонентов SQL Server в качестве распространяемых пакетов. Однако они зависят от версии SQL Server, поэтому версия в пакетах может быть не последней.  
 
 Клиентские библиотеки для клиентских подключений отличаются от поставщиков данных, требуемых для подключения с сервера служб Azure Analysis Services к источнику данных. Дополнительные сведения о подключениях к источнику данных см. в [этой статье](analysis-services-datasource.md).
 
-## <a name="download-the-latest-preview-client-libraries"></a>Скачивание последних **предварительных версий** клиентских библиотек  
-Используйте перечисленные ниже клиентские библиотеки для получения последних исправлений ошибок и обновлений. Их рекомендуется использовать при подключении к службам Azure Analysis Services или SQL Server 2017 Analysis Services.
-
-[Предварительная версия MSOLAP (amd64)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/amd64/SQL_AS_OLEDB.msi)</br>
-[Предварительная версия MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/x86/SQL_AS_OLEDB.msi)</br>
-[Предварительная версия AMO](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/SQL_AS_AMO.msi)</br>
-[Предварительная версия ADOMD](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/SQL_AS_ADOMD.msi)</br>
-
-## <a name="download-the-latest-rtm-client-libraries"></a>Скачивание последних **RTM-версий** клиентских библиотек  
+## <a name="download-the-latest-client-libraries"></a>Скачивание последних версий клиентских библиотек  
 Используйте перечисленные ниже клиентские библиотеки, если в рабочей среде требуются полностью выпущенные и поддерживаемые версии.
 
 [MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
@@ -51,5 +42,6 @@ ms.lasthandoff: 05/05/2017
 [ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
 
 ## <a name="next-steps"></a>Дальнейшие действия
-[Подключение к службам Azure Analysis Services](analysis-services-connect.md).
+[Подключение с помощью Excel](analysis-services-connect-excel.md)    
+[Подключение с помощью Power BI](analysis-services-connect-pbi.md)
 

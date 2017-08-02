@@ -1,6 +1,6 @@
 ---
-title: "Источники данных, поддерживаемые каталогом данных Azure | Документация Майкрософт"
-description: "Спецификация источников данных, поддерживаемых на данный момент."
+title: "Источники данных, поддерживаемые в каталоге данных Azure | Документация Майкрософт"
+description: "В этой статье перечислены спецификации источников данных, поддерживаемых в настоящее время."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -16,23 +16,22 @@ ms.workload: data-catalog
 ms.date: 05/15/2017
 ms.author: maroche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d68ed62022834c9417d820a7a64e30b47f71a1bd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1ef3903bc4c401988c0f8b27dc9f9f0f3ec99466
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
 
-# <a name="azure-data-catalog-supported-data-sources"></a>Источники данных, поддерживаемые каталогом данных Azure
+# <a name="supported-data-sources-in-azure-data-catalog"></a>Источники данных, поддерживаемые в каталоге данных Azure
 
-Вы можете публиковать метаданные с помощью общедоступного API, средства быстрой регистрации или вручную, указав данные непосредственно на веб-портале каталога данных. В приведенной ниже таблице указаны все источники, поддерживаемые каталогом на сегодняшний день, а также соответствующие каждому из них возможности публикации.  Здесь же перечислены внешние средства работы с данными, которые каждый источник может запускать из портала. Во второй таблице содержатся более технические характеристики свойств подключения каждого источника данных.
+Вы можете публиковать метаданные с помощью общедоступного API или средства быстрой регистрации, или вручную, указав данные непосредственно на веб-портале каталога данных Azure. В следующей таблице перечислены все источники данных, поддерживаемые каталогом в настоящее время, и возможности публикации для каждого из них. Здесь же перечислены внешние средства работы с данными, которые каждый источник данных может запускать из портала. Во второй таблице содержатся технические характеристики свойств подключения каждого источника данных.
 
 
 ## <a name="list-of-supported-data-sources"></a>Список поддерживаемых источников данных
 
 <table>
-
     <tr>
        <td><b>Объект источника данных</b></td>
        <td><b>API</b></td>
@@ -41,48 +40,43 @@ ms.lasthandoff: 03/31/2017
        <td><b>Средства Open-In</b></td>
        <td><b>Примечания</b></td>
     </tr>
-
     <tr>
-      <td>Каталог хранилища озера данных Azure</td>
-      <td>✓</td>
+      <td>Каталог Azure Data Lake Store</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>Файл хранилища озера данных Azure</td>
-      <td>✓</td>
+      <td>Файл Azure Data Lake Store</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>Большой двоичный объект хранилища Azure</td>
-      <td>✓</td>
+      <td>Хранилище больших двоичных объектов Azure</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>PowerBI</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Power BI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>Каталог хранилища Azure</td>
-      <td>✓</td>
+      <td>Каталог службы хранилища Azure</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>PowerBI</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Power BI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>Таблица хранилища Azure</td>
-      <td>✓</td>
+      <td>Таблица служба хранилища Azure</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td>
         <font size="2"></font>
       </td>
@@ -90,340 +84,302 @@ ms.lasthandoff: 03/31/2017
         <font size="2"></font>
       </td>
     </tr>
-
     <tr>
       <td>Каталог HDFS</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Файл HDFS</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Таблица Hive</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Представление Hive</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Таблица MySQL</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Представление MySQL</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>таблица базы данных Oracle;</td>
-      <td>✓</td>
+      <td>Таблица базы данных Oracle</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>представление базы данных Oracle;</td>
-      <td>✓</td>
+      <td>Представление базы данных Oracle</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>Другие (универсальный актив)</td>
-      <td>✓</td>
-      <td>✓</td>
+      <td>Другие (универсальный ресурс)</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td></td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>Таблица хранилища данных SQL</td>
-      <td>✓</td>
+      <td>Таблица хранилища данных SQL Azure</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Представление хранилища данных SQL</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Размерность SQL Server Analysis Services</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Ключевые показатели эффективности SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Измерение SQL Server Analysis Services</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Таблица SQL Server Analysis Services</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>отчет для служб SQL Server Reporting Services.</td>
-      <td>✓</td>
+      <td>Отчет для служб SQL Server Reporting Services</td>
+      <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2>"Обзор"</font></td>
       <td><font size=2>Только серверы в основном режиме. Режим SharePoint не поддерживается.</font></td>
     </tr>
-
     <tr>
-      <td>таблица SQL Server;</td>
-      <td>✓</td>
+      <td>Таблица SQL Server</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>представление SQL Server;</td>
-      <td>✓</td>
+      <td>Представление SQL Server</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>Excel, PowerBI, SQL Server Data Tools</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Таблица Teradata</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Представление Teradata</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2>Excel</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Представление SAP Hana</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
-      <td><font size=2>PowerBI</font></td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2>Power BI</font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>Таблица Db2</td>
-      <td>✓</td>
+      <td>Таблица DB2</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
-      <td>Представление Db2</td>
-      <td>✓</td>
+      <td>Представление DB2</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Файл файловой системы</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td></td>
       <td></td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Каталог FTP</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Файл FTP</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Отчет HTTP</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td></td>
       <td></td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Конечная точка HTTP</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td></td>
       <td></td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Файл HTTP</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td></td>
       <td></td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Набор сущностей OData</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td></td>
       <td></td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Функция OData</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td></td>
       <td></td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Таблица PostgreSQL</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Представление PostgreSQL</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Представление SAP Hana</td>
-      <td>✓</td>
+      <td>✓ </td>
       <td></td>
       <td></td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td> Объект SalesForce</td>
-      <td>✓</td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Список SharePoint </td>
-      <td>✓</td>
+      <td>✓ </td>
       <td></td>
       <td></td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-  
     <tr>
-      <td>Коллекция Azure DocumentDB</td>
-      <td>✓</td>
+      <td>Коллекция Azure Cosmos DB</td>
+      <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Универсальная таблица ODBC</td>
       <td>✓ </td>
@@ -432,26 +388,71 @@ ms.lasthandoff: 03/31/2017
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
     <tr>
       <td>Универсальное представление ODBC</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓</td>
+      <td>✓ </td>
       <td><font size=2></font></td>
       <td><font size=2></font></td>
     </tr>
-
+    <tr>
+      <td>Таблица Cassandra</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2>Публикация в качестве ресурса ODBC</font></td>
+    </tr>
+    <tr>
+      <td>Представление Cassandra</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2>Публикация в качестве ресурса ODBC</font></td>
+    </tr>
+    <tr>
+      <td>Таблица Sybase</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+    <tr>
+      <td>Представление Sybase</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+    <tr>
+      <td>Таблица MongoDB</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2>Публикация в качестве ресурса ODBC</font></td>
+    </tr>
+    <tr>
+      <td>Представление MongoDB</td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td>✓ </td>
+      <td><font size=2></font></td>
+      <td><font size=2>Публикация в качестве ресурса ODBC</font></td>
+    </tr>
 </table>
 
-Если вам требуется поддержка дополнительных источников, отправьте запрос функции с помощью [форума по каталогу данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Если вам требуется поддержка дополнительных источников, отправьте запрос функции на [форум по каталогу данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 
-<br>
-<br>
 ## <a name="data-source-reference-specification"></a>Спецификация ссылки на источник данных
 > [!NOTE]
-> Столбец "Структура DSL" в приведенной ниже таблице содержит только свойства подключения для контейнера свойств address, используемые каталогом данных Azure. Т. е. контейнер свойств address может содержать другие свойства подключения источника данных, которые хранятся в каталоге данных Azure, но не используются.
+> Столбец **Структура DSL** в приведенной ниже таблице содержит только свойства подключения для контейнера свойств address, используемые каталогом данных Azure. Т. е. контейнер свойств address может содержать другие свойства подключения источника данных, которые хранятся в каталоге данных Azure, но не используются.
+
 <table>
     <tr>
        <td><b>Тип источника</b></td>
@@ -464,7 +465,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>Озеро данных</td>
       <td>
-        <font size=2> протокол: webhdfs <br>аутентификация: {basic, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: webhdfs <br>Аутентификация: {basic, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -472,7 +473,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Каталог, файл</td>
       <td>
-        <font size=2> протокол: webhdfs <br>аутентификация: {basic, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: webhdfs <br>Аутентификация: {basic, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -480,7 +481,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>Контейнер</td>
       <td>
-        <font size=2> протокол: azure-blobs <br>проверка подлинности: {azure-access-key} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container </font>
+        <font size=2> Протокол: azure-blobs <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container </font>
       </td>
     </tr>
     <tr>
@@ -488,7 +489,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Большой двоичный объект, каталог</td>
       <td>
-        <font size=2> протокол: azure-blobs <br>проверка подлинности: {azure-access-key} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name </font>
+        <font size=2> Протокол: azure-blobs <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name </font>
       </td>
     </tr>
     <tr>
@@ -496,7 +497,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>Контейнер</td>
       <td>
-        <font size=2> протокол: azure-tables <br>проверка подлинности: {azure-access-key} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account </font>
+        <font size=2> Протокол: azure-tables <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account </font>
       </td>
     </tr>
     <tr>
@@ -504,7 +505,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Таблица</td>
       <td>
-        <font size=2> протокол: azure-tables <br>проверка подлинности: {azure-access-key} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name </font>
+        <font size=2> Протокол: azure-tables <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name </font>
       </td>
     </tr>
     <tr>
@@ -512,7 +513,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>Виртуальный кластер</td>
       <td>
-        <font size=2> протокол: cosmos <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: cosmos <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -520,7 +521,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Поток, набор потоков, представление</td>
       <td>
-        <font size=2> протокол: cosmos <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: cosmos <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -528,7 +529,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>Сайт</td>
       <td>
-        <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -536,23 +537,23 @@ ms.lasthandoff: 03/31/2017
       <td>Отчет</td>
       <td>Отчет, панель мониторинга</td>
       <td>
-        <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Контейнер</td>
       <td>База данных</td>
       <td>
-        <font size=2> протокол: db2 <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        <font size=2> Протокол: DB2 <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
-      <td>Db2</td>
+      <td>DB2</td>
       <td>Таблица</td>
       <td>Таблица, представление</td>
       <td>
-        <font size=2> протокол: db2 <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema </font>
+        <font size=2> Протокол: DB2 <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema </font>
       </td>
     </tr>
     <tr>
@@ -560,7 +561,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Файл</td>
       <td>
-        <font size=2> протокол: файл <br>проверка подлинности: {none, basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path </font>
+        <font size=2> Протокол: файл <br>Аутентификация: {none, basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path </font>
       </td>
     </tr>
     <tr>
@@ -568,7 +569,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Каталог, файл</td>
       <td>
-        <font size=2> протокол: ftp <br>проверка подлинности: {none, basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: ftp <br>Аутентификация: {none, basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -576,7 +577,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>HDInsight</td>
       <td>
-        <font size=2> протокол: webhdfs <br>аутентификация: {basic, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: webhdfs <br>Аутентификация: {basic, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -584,7 +585,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Каталог, файл</td>
       <td>
-        <font size=2> протокол: webhdfs <br>аутентификация: {basic, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: webhdfs <br>Аутентификация: {basic, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -592,7 +593,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>База данных</td>
       <td>
-        <font size=2> протокол: hive <br>проверка подлинности: {hdinsight, basic, username, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+        <font size=2> Протокол: hive <br>Аутентификация: {hdinsight, basic, username, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
       </td>
     </tr>
     <tr>
@@ -600,7 +601,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Таблица, представление</td>
       <td>
-        <font size=2> протокол: hive <br>проверка подлинности: {hdinsight, basic, username, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+        <font size=2> Протокол: hive <br>Аутентификация: {hdinsight, basic, username, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
       </td>
     </tr>
     <tr>
@@ -608,7 +609,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>Сайт</td>
       <td>
-        <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -616,7 +617,7 @@ ms.lasthandoff: 03/31/2017
       <td>Отчет</td>
       <td>Отчет, панель мониторинга</td>
       <td>
-        <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -624,7 +625,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Конечная точка, файл</td>
       <td>
-        <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -632,7 +633,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>База данных</td>
       <td>
-        <font size=2> протокол: mysql <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        <font size=2> Протокол: mysql <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -640,7 +641,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Таблица, представление</td>
       <td>
-        <font size=2> протокол: mysql <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        <font size=2> Протокол: mysql <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -648,7 +649,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>Контейнер сущностей</td>
       <td>
-        <font size=2> протокол: odata <br>проверка подлинности: {none, basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: odata <br>Аутентификация: {none, basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -656,7 +657,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Набор сущностей, функция</td>
       <td>
-        <font size=2> протокол: odata <br>проверка подлинности: {none, basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resource </font>
+        <font size=2> Протокол: odata <br>Аутентификация: {none, basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resource </font>
       </td>
     </tr>
     <tr>
@@ -664,7 +665,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>База данных</td>
       <td>
-        <font size=2> протокол: oracle <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        <font size=2> Протокол: oracle <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -672,7 +673,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Таблица, представление</td>
       <td>
-        <font size=2> протокол: oracle <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        <font size=2> Протокол: oracle <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -680,7 +681,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>База данных</td>
       <td>
-        <font size=2> протокол: postgresql <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        <font size=2> Протокол: postgresql <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -688,7 +689,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Таблица, представление</td>
       <td>
-        <font size=2> протокол: postgresql <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        <font size=2> Протокол: postgresql <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -696,7 +697,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>Сайт</td>
       <td>
-        <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -704,15 +705,15 @@ ms.lasthandoff: 03/31/2017
       <td>Отчет</td>
       <td>Отчет, панель мониторинга</td>
       <td>
-        <font size=2> протокол: http <br>аутентификация: {none, basic, windows, oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: http <br>Аутентификация: {none, basic, windows, oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
       <td>Power Query</td>
       <td>Таблица</td>
       <td>Гибридные данные</td>
-      <td>Протокол 
-        <font size=2>: Power Query <br>Аутентификация: {oauth} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+      <td>
+        <font size=2> Протокол: power-query <br>Аутентификация: {oauth} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -720,23 +721,23 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Объект</td>
       <td>
-        <font size=2> протокол: salesforce-com <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
+        <font size=2> Протокол: salesforce-com <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
       </td>
     </tr>
     <tr>
-      <td>SAP Hana</td>
+      <td>SAP HANA</td>
       <td>Контейнер</td>
       <td>сервер;</td>
       <td>
-        <font size=2> протокол: sap-hana-sql <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server </font>
+        <font size=2> Протокол: sap-hana-sql <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server </font>
       </td>
     </tr>
     <tr>
-      <td>SAP Hana</td>
+      <td>SAP HANA</td>
       <td>Таблица</td>
       <td>Просмотр</td>
       <td>
-        <font size=2> протокол: sap-hana-sql <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        <font size=2> Протокол: sap-hana-sql <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -744,7 +745,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>список</td>
       <td>
-        <font size=2> протокол: sharepoint-list <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        <font size=2> Протокол: sharepoint-list <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
       </td>
     </tr>
     <tr>
@@ -752,7 +753,7 @@ ms.lasthandoff: 03/31/2017
       <td>Команда</td>
       <td>Хранимая процедура</td>
       <td>
-        <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -760,7 +761,7 @@ ms.lasthandoff: 03/31/2017
       <td>TableValuedFunction</td>
       <td>Функция с табличным значением</td>
       <td>
-        <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -768,7 +769,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>База данных</td>
       <td>
-        <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -776,7 +777,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Таблица, представление</td>
       <td>
-        <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -784,7 +785,7 @@ ms.lasthandoff: 03/31/2017
       <td>Команда</td>
       <td>Хранимая процедура</td>
       <td>
-        <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -792,7 +793,7 @@ ms.lasthandoff: 03/31/2017
       <td>TableValuedFunction</td>
       <td>Функция с табличным значением</td>
       <td>
-        <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -800,7 +801,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>База данных</td>
       <td>
-        <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -808,7 +809,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Таблица, представление</td>
       <td>
-        <font size=2> протокол: tds <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        <font size=2> Протокол: tds <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -816,7 +817,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>Модель</td>
       <td>
-        <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model </font>
+        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model </font>
       </td>
     </tr>
     <tr>
@@ -824,7 +825,7 @@ ms.lasthandoff: 03/31/2017
       <td>Ключевой показатель эффективности</td>
       <td>Ключевой показатель эффективности</td>
       <td>
-        <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
       </td>
     </tr>
     <tr>
@@ -832,7 +833,7 @@ ms.lasthandoff: 03/31/2017
       <td>Measure</td>
       <td>Measure</td>
       <td>
-        <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
+        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
       </td>
     </tr>
     <tr>
@@ -840,39 +841,39 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Измерение</td>
       <td>
-        <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension} </font>
+        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension} </font>
       </td>
     </tr>
     <tr>
-      <td>Таблица служб аналитики SQL Server</td>
+      <td>Таблица SQL Server Analysis Services</td>
       <td>Контейнер</td>
       <td>Модель</td>
       <td>
-        <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model </font>
+        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model </font>
       </td>
     </tr>
     <tr>
-      <td>Таблица служб аналитики SQL Server</td>
+      <td>Таблица SQL Server Analysis Services</td>
       <td>Ключевой показатель эффективности</td>
       <td>Ключевой показатель эффективности</td>
       <td>
-        <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
       </td>
     </tr>
     <tr>
-      <td>Таблица служб аналитики SQL Server</td>
+      <td>Таблица SQL Server Analysis Services</td>
       <td>Measure</td>
       <td>Measure</td>
       <td>
-        <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
+        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure} </font>
       </td>
     </tr>
     <tr>
-      <td>Таблица служб аналитики SQL Server</td>
+      <td>Таблица SQL Server Analysis Services</td>
       <td>Таблица</td>
       <td>Таблица</td>
       <td>
-        <font size=2> протокол: analysis-services <br>аутентификация: {windows, basic, anonymous, none} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table} </font>
+        <font size=2> Протокол: analysis-services <br>Аутентификация: {windows, basic, anonymous, none} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table} </font>
       </td>
     </tr>
     <tr>
@@ -880,7 +881,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>сервер;</td>
       <td>
-        <font size=2> протокол: reporting-services <br>проверка подлинности: {windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
+        <font size=2> Протокол: reporting-services <br>Аутентификация: {windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
       </td>
     </tr>
     <tr>
@@ -888,7 +889,7 @@ ms.lasthandoff: 03/31/2017
       <td>Отчет</td>
       <td>Отчет</td>
       <td>
-        <font size=2> протокол: reporting-services <br>проверка подлинности: {windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
+        <font size=2> Протокол: reporting-services <br>Аутентификация: {windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010} </font>
       </td>
     </tr>
     <tr>
@@ -896,7 +897,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>База данных</td>
       <td>
-        <font size=2> протокол: teradata <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        <font size=2> Протокол: teradata <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -904,7 +905,7 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Таблица, представление</td>
       <td>
-        <font size=2> протокол: teradata <br>проверка подлинности: {protocol, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
+        <font size=2> Протокол: teradata <br>Аутентификация: {protocol, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -912,7 +913,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>Модель</td>
       <td>
-        <font size="2"> протокол: mssql-mds <br>проверка подлинности: {windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version </font>
+        <font size="2"> Протокол: mssql-mds <br>Аутентификация: {windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version </font>
       </td>
     </tr>
     <tr>
@@ -920,23 +921,23 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Сущность</td>
       <td>
-        <font size="2"> протокол: mssql-mds <br>проверка подлинности: {windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity </font>
+        <font size="2"> Протокол: mssql-mds <br>Аутентификация: {windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity </font>
       </td>
     </tr>
     <tr>
-      <td>Azure DocumentDB.</td>
+      <td>Azure Cosmos DB</td>
       <td>Контейнер</td>
       <td>База данных</td>
       <td>
-        <font size=2> протокол: document-db <br>проверка подлинности: {azure-access-key} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        <font size=2> Протокол: document-db <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
-      <td>Azure DocumentDB.</td>
+      <td>Azure Cosmos DB</td>
       <td>Коллекция</td>
       <td>Коллекция</td>
       <td>
-        <font size=2> протокол: document-db <br>проверка подлинности: {azure-access-key} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; collection </font>
+        <font size=2> Протокол: document-db <br>Аутентификация: {azure-access-key} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; collection </font>
       </td>
     </tr>
     <tr>
@@ -944,7 +945,7 @@ ms.lasthandoff: 03/31/2017
       <td>Контейнер</td>
       <td>База данных</td>
       <td>
-        <font size=2> protocol: odbc <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+        <font size=2> Протокол: odbc <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
       </td>
     </tr>
     <tr>
@@ -952,7 +953,23 @@ ms.lasthandoff: 03/31/2017
       <td>Таблица</td>
       <td>Таблица, представление</td>
       <td>
-        <font size=2> protocol: odbc <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema </font>
+        <font size=2> Протокол: odbc <br>Аутентификация: {basic, windows} <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Sybase</td>
+      <td>Контейнер</td>
+      <td>База данных</td>
+      <td>
+        <font size=2> Протокол: sybase <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database </font>
+      </td>
+    </tr>
+    <tr>
+      <td>Sybase</td>
+      <td>Таблица</td>
+      <td>Таблица, представление</td>
+      <td>
+        <font size=2> Протокол: sybase <br>Проверка подлинности: {basic, windows} <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object </font>
       </td>
     </tr>
     <tr>
@@ -960,7 +977,7 @@ ms.lasthandoff: 03/31/2017
       <td>\*</td>
       <td>\*</td>
       <td>
-        <font size=2> протокол: generic-asset <br>адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
+        <font size=2> Протокол: generic-asset <br>Адрес: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
       </td>
     </tr>
 </table>

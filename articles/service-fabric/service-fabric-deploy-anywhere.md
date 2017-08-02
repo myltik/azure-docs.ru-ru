@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 8e487cd33bef73ac66e1b1b6ee614b5a1376d772
-ms.lasthandoff: 04/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: dcc7c088d7b6db7af334977315f122dca3c17f69
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/11/2017
 
 
 ---
@@ -36,7 +37,7 @@ Service Fabric позволяет создавать кластеры Service Fa
 * Windows Server 2016 
 * Ubuntu Linux 16.04 (общедоступная предварительная версия). 
 
-## <a name="create-service-fabric-standalone-clusters-on-premise-or-with-any-cloud-provider"></a>Создание автономных кластеров Service Fabric локально или у другого поставщика облачных служб
+## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Создание автономных кластеров Service Fabric локально или у другого поставщика облачных служб
 Для Service Fabric предусмотрен установочный пакет, с помощью которого можно создать автономный кластер Service Fabric в локальной среде и у любого поставщика облачных служб.
 
 Дополнительные сведения о настройке автономных кластеров Service Fabric в Windows Server см. в статье [Создание кластера под управлением Windows Server и управление им](service-fabric-cluster-creation-for-windows-server.md).
