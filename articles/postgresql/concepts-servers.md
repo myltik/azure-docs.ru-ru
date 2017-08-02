@@ -8,20 +8,18 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql-database
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/06/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 5197a3f44a085d25d964f355154d92b08e65560b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 43123486f21178a5ba657caa9d4b090922435913
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Серверы базы данных Azure для PostgreSQL
-
 В этой статье приведены рекомендации и указания по работе с серверами базы данных Azure для PostgreSQL.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Что такое сервер базы данных Azure для PostgreSQL?
-
 Сервер базы данных Azure для PostgreSQL является центральной точкой администрирования нескольких баз данных. Подобная серверная конструкция PostgreSQL может быть вам знакома по работе в локальной среде. В частности, служба PostgreSQL является управляемой, предоставляет гарантии производительности, обеспечивает доступ и функциональность на уровне сервера.
 
 Сервер базы данных Azure для PostgreSQL:
@@ -36,8 +34,9 @@ ms.lasthandoff: 06/17/2017
 - доступен в нескольких версиях (дополнительные сведения см. в статье [Поддерживаемые версии в базе данных Azure для PostgreSQL](concepts-supported-versions.md));
 - расширяется пользователями (дополнительные сведения см. в статье [Использование расширений PostgreSQL в базе данных Azure для PostgreSQL](concepts-extensions.md)).
 
-## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Как подключиться к серверу базы данных Azure для PostgreSQL и выполнить аутентификацию?
+На сервере базы данных Azure для PostgreSQL можно создать одну или несколько баз данных. Можно создать по одной базе данных на каждом сервере, чтобы использовать все ресурсы, или несколько баз данных, чтобы предоставить общий доступ к ресурсам. Цена формируется для каждого сервера, исходя из конфигурации ценовой категории, единиц вычислений и хранилища (ГБ). Дополнительные сведения см. в разделе [Ценовые категории](./concepts-service-tiers.md).
 
+## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Как подключиться к серверу базы данных Azure для PostgreSQL и выполнить аутентификацию?
 Ниже перечислены элементы, которые помогают обеспечить безопасный доступ к базе данных.
 
 |||
@@ -49,11 +48,9 @@ ms.lasthandoff: 06/17/2017
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Как управлять сервером?
-
 Управлять серверами базы данных Azure для PostgreSQL можно с помощью портала Azure или [Azure CLI](/cli/azure/postgres).
 
 ## <a name="next-steps"></a>Дальнейшие действия
-
 - Обзор службы содержится в статье [Что такое база данных Azure для PostgreSQL](overview.md).
 - Сведения о квотах и ограничениях для конкретных ресурсов с учетом вашего **уровня служб** представлены в статье [Уровни служб в базе данных Azure для MySQL](concepts-service-tiers.md).
 - Сведения о подключении к службе см. в статье [Библиотеки подключений для базы данных Azure для PostgreSQL](concepts-connection-libraries.md).

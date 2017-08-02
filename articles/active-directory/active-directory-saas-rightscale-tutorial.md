@@ -1,253 +1,250 @@
 ---
-title: "Руководство по интеграции Azure Active Directory с RightScale | Документация Майкрософт"
-description: "Узнайте, как настроить единый вход между Azure Active Directory и RightScale."
+title: "Руководство по интеграции Azure Active Directory с Rightscale | Документация Майкрософт"
+description: "Узнайте, как настроить единый вход между Azure Active Directory и Rightscale."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: 3a8d376d-95fb-4dd7-832a-4fdd4dd7c87c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 07/08/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: adcc4e35f8febe1d0dc1bc093954dee56bf34652
-ms.lasthandoff: 03/28/2017
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 222c4414a9f736a3589b4cdd0ed934696f6c31ef
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/11/2017
 
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Учебник. Интеграция Azure Active Directory с RightScale
-Цель этого учебника — показать, как интегрировать Azure Active Directory (Azure AD) с приложением RightScale.
+# <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Руководство по интеграции Azure Active Directory с Rightscale
 
-Интеграция RightScale с Azure AD обеспечивает следующие преимущества.
+В этом руководстве описано, как интегрировать Rightscale с Azure Active Directory (Azure AD).
 
-* С помощью Azure AD вы можете контролировать доступ к RightScale.
-* Вы можете включить автоматический вход пользователей в RightScale (единый вход) с учетной записью Azure AD.
-* Вы можете управлять учетными записями централизованно — через классический портал Azure.
+Интеграция Rightscale с Azure AD обеспечивает следующие преимущества:
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+- С помощью Azure AD вы можете контролировать доступ к Rightscale.
+- Вы можете включить автоматический вход пользователей в Rightscale (единый вход) с учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
+
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
-Чтобы настроить интеграцию Azure AD с приложением RightScale, вам потребуется:
 
-* подписка Azure AD;
-* подписка RightScale с поддержкой единого входа.
+Чтобы настроить интеграцию Azure AD с приложением Rightscale, вам потребуется:
 
->[!NOTE]
->Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
->  
+- подписка Azure AD;
+- подписка Rightscale с поддержкой единого входа.
+
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-* Не следует использовать рабочую среду при отсутствии необходимости.
-* Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Описание сценария
-Цель этого руководства — научить вас проверять единый вход Azure AD в тестовой среде. 
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+1. Добавление Rightscale из коллекции.
+2. Настройка и проверка единого входа в Azure AD
 
-1. Добавление RightScale из коллекции
-2. Настройка и проверка единого входа Azure AD
+## <a name="adding-rightscale-from-the-gallery"></a>Добавление Rightscale из коллекции
+Чтобы настроить интеграцию Rightscale с Azure AD, необходимо добавить Rightscale из коллекции в список управляемых приложений SaaS.
 
-## <a name="add-rightscale-from-the-gallery"></a>Добавление RightScale из коллекции
-Чтобы настроить интеграцию RightScale с Azure AD, необходимо добавить RightScale из коллекции в список управляемых приложений SaaS.
+**Чтобы добавить Rightscale из коллекции, выполните следующие действия.**
 
-**Чтобы добавить RightScale из коллекции, выполните следующие действия.**
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
-   
     ![Active Directory][1]
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
 
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
-   
     ![Приложения][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
 
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
     ![Приложения][3]
 
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Приложения][4]
+4. В поле поиска введите **Rightscale**.
 
-6. В поле поиска введите **RightScale**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_01.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_search.png)
 
-7. В области результатов выберите **RightScale** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-   
+5. На панели результатов выберите **Rightscale** и нажмите кнопку **Добавить**, чтобы добавить это приложение.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в RightScale с использованием тестового пользователя Britta Simon.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_addfromgallery.png)
 
-Чтобы единый вход работал, в Azure AD необходимо указать, какой пользователь в RightScale соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в RightScale.  
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в Rightscale с использованием тестового пользователя Britta Simon.
 
-Чтобы настроить и проверить единый вход Azure AD в RightScale, вам потребуется выполнить действия в следующих стандартных блоках.
+Чтобы единый вход работал, Azure AD необходима информация о том, какой пользователь в Rightscale соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Rightscale.
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Rightscale.
+
+Чтобы настроить и проверить единый вход Azure AD в Rightscale, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа в Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
 2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
-3. **[Создание тестового пользователя RightScale](#creating-a-rightscale-test-user)** требуется для создания пользователя Britta Simon в RightScale, связанного с соответствующим представлением в Azure AD.
+3. **[Создание тестового пользователя Rightscale](#creating-a-rightscale-test-user)** требуется для того, чтобы в Rightscale существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Настройка единого входа в Azure AD
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложении RightScale.
 
-**Чтобы настроить единый вход Azure AD в RightScale, выполните следующие действия.**
+В этом разделе описано, как включить единый вход Azure AD на портале Azure и настроить его в приложении Rightscale.
 
-1. На классическом портале на странице интеграции с приложением **RightScale** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа][6] 
+**Чтобы настроить единый вход Azure AD в Rightscale, выполните следующие действия.**
 
-2. На странице **Как пользователи должны входить в RightScale?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_03.png) 
+1. На портале Azure на странице интеграции с приложением **Rightscale** щелкните **Единый вход**.
 
-3. Если вы хотите настроить приложение в **режиме, инициированном поставщиком удостоверений**, то на странице диалогового окна **Настроить параметры приложения** выполните следующие действия и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_04.png) 
-  1. В текстовом поле "URL-адрес ответа" введите URL-адрес в следующем формате: `https://login.rightscale.com/login/saml2/consume`
-  2. Нажмите кнопку **Далее**.
+    ![Настройка единого входа][4]
 
-1. Если вы хотите настроить приложение в **режиме, инициированном поставщиком услуг**, то на странице диалогового окна **Настроить параметры приложения** щелкните **Показать дополнительные параметры (необязательно)**, а затем введите **URL-адрес для входа** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_06.png) 
-  1. В текстовом поле "URL-адрес входа" введите URL-адрес, используемый пользователями для входа в приложение RightScale, применяя следующий шаблон: `https://login.rightscale.com/`
-  2. Нажмите кнопку **Далее**.
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_samlbase.png)
 
-2. На странице **Настройка единого входа в RightScale** выполните указанные ниже действия и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_05.png) 
-  1. Нажмите **Скачать сертификат**и сохраните файл сертификата в кодировке Base 64 на свой компьютер.
-  2. Нажмите кнопку **Далее**.
+3. Если вы хотите настроить приложение в **режиме, инициируемом IdP**, то в разделе **Домены и URL-адреса приложения Rightscale** не нужно ничего делать, так как это приложение уже предварительно интегрировано в Azure.
 
-3. Чтобы настроить для приложения единый вход, нужно войти в клиент приложения RightScale с правами администратора.
-  1. В меню в верхней части откройте вкладку **Параметры** и выберите **Единый вход**.
+    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_url.png)
+
+4. В разделе **Домены и URL-адреса приложения Rightscale** выполните приведенные ниже действия, если вы хотите настроить приложение в **режиме, инициируемом поставщиком услуг**.
+    
+    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_url1.png)
+
+    а. Установите флажок **Показать дополнительные параметры URL-адресов**.
+
+    b. В текстовое поле **URL-адрес для входа** введите URL-адрес `https://login.rightscale.com/`.
+
+5. В разделе **Сертификат для подписи токена SAML** щелкните **Certificate (Base64)** (Сертификат (Base64)), а затем сохраните файл сертификата на компьютере.
+
+    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_certificate.png) 
+
+6. Нажмите кнопку **Сохранить** .
+
+    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_general_400.png)
+
+7. В разделе **Конфигурация Rightscale** щелкните **Настроить Rightscale**, чтобы открыть окно **Настройка единого входа**. Скопируйте **идентификатор сущности SAML и URL-адрес службы единого входа SAML** из раздела **Краткий справочник**.
+
+    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_configure.png) 
+<CS>
+8. Чтобы настроить для приложения единый вход, нужно войти в клиент приложения RightScale с правами администратора.
+
+    а. В меню в верхней части откройте вкладку **Параметры** и выберите **Единый вход**.
    
     ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_001.png) 
-  2. Нажмите кнопку **Новый** и добавьте свои поставщики удостоверений SAML в области **Your SAML Identity Providers** (Ваши поставщики удостоверений SAML).
+
+    b. Нажмите кнопку **Новый** и добавьте свои поставщики удостоверений SAML в области **Your SAML Identity Providers** (Ваши поставщики удостоверений SAML).
    
-    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_002.png)  
-  3. В текстовом поле **Отображаемое имя** введите название своей компании.
+    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_002.png) 
+ 
+    В. В текстовом поле **Отображаемое имя** введите название своей компании.
    
-    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_003.png) 
-  4. Выберите **Allow RightScale-initiated SSO using a discovery hint** (Разрешить единый вход, инициированный RightScale, с использованием подсказки обнаружения) и в приведенном ниже текстовом поле введите **имя домена**.
+    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_003.png)
+ 
+    d. Выберите **Allow RightScale-initiated SSO using a discovery hint** (Разрешить единый вход, инициированный RightScale, с использованием подсказки обнаружения) и в приведенном ниже текстовом поле введите **имя домена**.
    
     ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_004.png)
-  5. Скопируйте URL-адрес единого входа SAML из Azure AD в поле **SAML SSO Endpoint** (Конечная точка единого входа SAML) в RightScale.
-   
-    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_005.png)
+
+    д. В текстовое поле **SAML SSO Endpoint** (Конечная точка единого входа SAML) в Rightscale вставьте значение **SAML Single Sign-On Service URL** (URL-адрес службы единого входа SAML), скопированное на портале Azure.
    
     ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_006.png)
-  6. Скопируйте идентификатор сущности из Azure AD в поле **SAML EntityID** (идентификатор сущности SAML) в RightScale.
-   
-    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_007.png)
+
+    f. В текстовое поле **SAML EntityID** (Идентификатор сущности SAML) в Rightscale вставьте значение **SAML Entity ID** (Идентификатор сущности SAML), скопированное на портале Azure.
    
     ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_008.png)
-  7. Нажмите кнопку **Браузер** , чтобы отправить сертификат, скачанный в шаге 4.
+
+    g. Нажмите кнопку **Browse** (Обзор), чтобы передать сертификат, скачанный с портала Azure.
    
     ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_009.png)
-  8. Щелкните **Сохранить**.
 
-4. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
-   
-    ![единого входа Azure AD][10]
+    h. Щелкните **Сохранить**.
+<CE>
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
-5. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.  
-   
-    ![единого входа Azure AD][11]
+### <a name="creating-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
-
-![Создание пользователя Azure AD][20]
+![Создание пользователя Azure AD][100]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_09.png) 
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_01.png) 
 
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
-   
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_02.png) 
+
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_03.png) 
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
-   
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
     ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_04.png) 
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_05.png) 
-  1. В поле **Тип пользователя** выберите значение **Новый пользователь в вашей организации**.
-  2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
-  3. Нажмите кнопку **Далее**.
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
 
-6. На странице диалогового окна **Профиль пользователя** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
-  1. В текстовом поле **Имя** введите **Britta**.  
-  2. В текстовом поле **Фамилия** введите **Simon**.
-  3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
-  4. В списке **Роль** выберите **Пользователь**.
-  5. Нажмите кнопку **Далее**.
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_07.png) 
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
-   
-    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-rightscale-tutorial/create_aaduser_08.png)  
-  1. Запишите значение поля **Новый пароль**.
-  2. Нажмите **Завершено**.   
+    d. Щелкните **Создать**.
+ 
+### <a name="creating-a-rightscale-test-user"></a>Создание тестового пользователя Rightscale
 
-### <a name="create-a-rightscale-test-user"></a>Создание тестового пользователя RightScale
-В этом разделе описано, как создать пользователя Britta Simon в приложении RightScale. Обратитесь в службу поддержки RightScale по адресу support@rightscale.com , чтобы добавить пользователей в платформу RightScale.
+В этом разделе описано, как создать пользователя Britta Simon в приложении RightScale. Обратитесь к [группе поддержки клиентов Rightscale](mailto:support@rightscale.com), чтобы добавить пользователей на платформу Rightscale.
 
-### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
-Цель этого раздела — позволить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к RightScale.
+### <a name="assigning-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
+
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Rightscale.
 
 ![Назначение пользователя][200] 
 
-**Чтобы назначить пользователя Britta Simon в RightScale, выполните следующие действия.**
+**Чтобы назначить пользователя Britta Simon в Rightscale, выполните следующие действия.**
 
-1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в меню вверху.
-   
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
+
     ![Назначение пользователя][201] 
 
-2. В списке приложений выберите **RightScale**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_50.png) 
+2. Из списка приложений выберите **Rightscale**.
 
-3. В меню в верхней части страницы щелкните **Пользователи**.
-   
-    ![Назначение пользователя][203] 
+    ![Настройка единого входа](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_app.png) 
 
-4. В списке пользователей выберите **Britta Simon**.
+3. В меню слева выберите **Пользователи и группы**.
 
-5. На панели инструментов внизу щелкните **Назначить**.
-   
-    ![Назначение пользователя][205]
+    ![Назначение пользователя][202] 
 
-### <a name="test-single-sign-on"></a>Проверка единого входа
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Назначение пользователя][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="testing-single-sign-on"></a>Проверка единого входа
+
 Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.  
 
 Щелкнув элемент RightScale на панели доступа, вы автоматически войдете в приложение RightScale.
 
-## <a name="additional-resources"></a>дополнительные ресурсы.
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -256,14 +253,11 @@ ms.lasthandoff: 03/28/2017
 [3]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_205.png
+
 

@@ -8,16 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/06/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 33508edb1b1aee058bff4b186f76d172f11f272f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2556206ac53829fcd6ab92ffe292859349790d7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Основные понятия работы с сервером в базе данных Azure для MySQL
-
 В этой статье приведены рекомендации и указания по работе с серверами базы данных Azure для MySQL.
 
 ## <a name="what-is-an-azure-database-for-mysql-server"></a>Что такое сервер базы данных Azure для MySQL?
@@ -34,6 +33,8 @@ ms.lasthandoff: 05/10/2017
 - предоставляет конечную точку подключения к серверу и базе данных;
 - обеспечивает область для политик управления, применяемых к базам данных: имена входа, брандмауэр, пользователи, роли, конфигурации и т. д.;
 - доступен в нескольких версиях (дополнительные сведения см. в статье [Поддерживаемые версии в базе данных Azure для MySQL](./concepts-supported-versions.md)).
+
+На сервере базы данных Azure для MySQL можно создать одну или несколько баз данных. Можно создать по одной базе данных на каждом сервере, чтобы использовать все ресурсы, или несколько баз данных, чтобы предоставить общий доступ к ресурсам. Цена формируется для каждого сервера, исходя из конфигурации ценовой категории, единиц вычислений и хранилища (ГБ). Дополнительные сведения см. в разделе [Ценовые категории](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Как подключиться к серверу базы данных Azure для MySQL и выполнить аутентификацию?
 

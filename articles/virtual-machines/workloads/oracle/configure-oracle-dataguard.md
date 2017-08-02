@@ -15,30 +15,31 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: e87485fc2e5adce1ed8d85dc424ef95102c849c3
+ms.translationtype: HT
+ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
+ms.openlocfilehash: 11492b85e95ddb39489e36c572af2a168b4c7af8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/11/2017
 
 ---
 
-# <a name="implement-oracle-data-guard-on-azure-linux-vm"></a>Реализация Oracle Data Guard на виртуальной машине Azure под управлением Linux 
+# <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Реализация Oracle Data Guard на виртуальной машине Azure под управлением Linux 
 
-Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью скриптов. В данном руководстве описывается, как с помощью Azure CLI развернуть базу данных Oracle 12c, используя образ из коллекции Marketplace. В этом документе показано пошаговое руководство по установке и настройке Data Guard на виртуальной машине Azure после создания базы данных Oracle.
+Azure CLI используется для создания ресурсов Azure и управления ими из командной строки или с помощью сценариев. В этой статье описывается, как с помощью Azure CLI развернуть базу данных Oracle Database 12c из образа Azure Marketplace. В этой статье представлено пошаговое руководство по установке и настройке Data Guard на виртуальной машине Azure.
 
-Перед началом работы убедитесь, что вы установили Azure CLI. Дополнительные сведения см. в [руководстве по установке Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Прежде чем начать, убедитесь, что установлен интерфейс командной строки Azure CLI. Дополнительные сведения см. в [руководстве по установке Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Подготовка среды
 ### <a name="assumptions"></a>Предположения
 
-Чтобы выполнить установку Oracle Data Guard, вам необходимо создать две виртуальные машины Azure в одной и той же группе доступности. Образ Marketplace, который вы будете использовать для создания виртуальных машин, — "Oracle:Oracle-Database-Ee:12.1.0.2:latest".
+Чтобы установить Oracle Data Guard, необходимо создать две виртуальные машины Azure в одной группе доступности:
 
-На основной виртуальной машине (myVM1) выполняется экземпляр Oracle.
+- На основной виртуальной машине (myVM1) выполняется экземпляр Oracle.
+- На резервной виртуальной машине (myVM2) установлено только программное обеспечение Oracle.
 
-На резервной виртуальной машине (myVM2) установлено только программное обеспечение Oracle.
+Образ Marketplace, который вы будете использовать для создания виртуальных машин, — Oracle:Oracle-Database-Ee:12.1.0.2:latest.
 
-### <a name="log-in-to-azure"></a>Вход в Azure 
+### <a name="sign-in-to-azure"></a>Вход в Azure 
 
 Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране.
 
@@ -50,15 +51,15 @@ az login
 
 Создайте группу ресурсов с помощью команды [az group create](/cli/azure/group#create). Группа ресурсов Azure является логическим контейнером, в котором происходит развертывание ресурсов Azure и управление ими. 
 
-В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `westus`.
+В следующем примере создается группа ресурсов с именем `myResourceGroup` в расположении `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-### <a name="create-availability-set"></a>Создание группы доступности
+### <a name="create-an-availability-set"></a>"Создать группу доступности"
 
-Этот шаг необязателен, но мы советуем его выполнить. Дополнительные сведения см. в статье [Рекомендации по группам доступности Azure для виртуальных машин Windows](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+Создавать группу доступности необязательно, но мы рекомендуем это сделать. Дополнительные сведения см. в статье [Рекомендации по группам доступности Azure для виртуальных машин Windows](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
 
 ```azurecli
 az vm availability-set create \
@@ -68,11 +69,11 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-### <a name="create-virtual-machine"></a>Создание виртуальной машины
+### <a name="create-a-virtual-machine"></a>Создание виртуальной машины
 
 Создайте виртуальную машину с помощью команды [az vm create](/cli/azure/vm#create). 
 
-В следующем примере создаются 2 виртуальные машины — `myVM1` и `myVM2`, а также ключи SSH, если они еще не существуют в расположении ключей по умолчанию. Чтобы использовать определенный набор ключей, используйте параметр `--ssh-key-value`.
+В следующем примере создаются две виртуальные машины — `myVM1` и `myVM2`, Также создаются ключи SSH, если они не существуют в расположении ключей по умолчанию. Чтобы использовать определенный набор ключей, используйте параметр `--ssh-key-value`.
 
 Создайте myVM1 (основная):
 ```azurecli
@@ -86,7 +87,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-После создания виртуальной машины в Azure CLI отображается информация, как показано ниже. Запишите значение `publicIpAddress`. Этот адрес используется для доступа к виртуальной машине.
+После создания виртуальной машины в Azure CLI отображается информация следующего вида. Запишите значение `publicIpAddress`. Этот адрес используется для доступа к виртуальной машине.
 
 ```azurecli
 {
@@ -113,23 +114,23 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Также запишите значение `publicIpAddress` после его создания.
+После создания виртуальной машины myVM2 запишите значение `publicIpAddress`.
 
 ### <a name="open-the-tcp-port-for-connectivity"></a>Открытие TCP-порта для возможности подключения
 
-На этом шаге настраиваются внешние конечные точки, которые позволяют осуществлять удаленный доступ к базе данных Oracle. Вам нужно выполнить следующую команду.
+На этом шаге настраиваются внешние конечные точки, которые обеспечивают удаленный доступ к базе данных Oracle.
 
 Откройте порт для myVM1:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
-    --nsg-name myVmN1SG --name allow-oracle\
+    --nsg-name myVM1NSG --name allow-oracle\
     --protocol tcp --direction inbound --priority 999 \
     --source-address-prefix '*' --source-port-range '*' \
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-Результат должен выглядеть следующим образом.
+Результат должен выглядеть следующим образом:
 
 ```bash
 {
@@ -154,29 +155,31 @@ az network nsg rule create --resource-group myResourceGroup\
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
-    --nsg-name myVm2N1SG --name allow-oracle\
+    --nsg-name myVM2NSG --name allow-oracle\
     --protocol tcp --direction inbound --priority 999 \
     --source-address-prefix '*' --source-port-range '*' \
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-virtual-machine"></a>Подключение к виртуальной машине
+### <a name="connect-to-the-virtual-machine"></a>Подключение к виртуальной машине
 
 Используйте следующую команду для создания сеанса SSH с виртуальной машиной. Замените IP-адрес общедоступным IP-адресом виртуальной машины (значение `publicIpAddress`).
 
 ```bash 
-ssh azureuser@<publicIpAddress>
+$ ssh azureuser@<publicIpAddress>
 ```
 
-### <a name="create-database-on-myvm1-primary"></a>Создание базы данных на myVM1 (основная)
+### <a name="create-the-database-on-myvm1-primary"></a>Создание базы данных на myVM1 (основная)
 
-Программное обеспечение Oracle уже установлено в образе Marketplace, поэтому следующим шагом является установка базы данных. Сначала необходимо войти как суперпользователь oracle.
+Программное обеспечение Oracle уже установлено в образе Marketplace, поэтому следующим шагом является установка базы данных. 
+
+Переключитесь на суперпользователя Oracle:
 
 ```bash
-sudo su - oracle
+$ sudo su - oracle
 ```
 
-Создайте базу данных:
+Создание базы данных
 
 ```bash
 $ dbca -silent \
@@ -236,7 +239,7 @@ $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 $ ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-При необходимости можно добавить ORACLE_HOME и ORACLE_SID в файл BASHRC, чтобы эти параметры сохранились для последующих входов в систему.
+При необходимости можно добавить ORACLE_HOME и ORACLE_SID в файл /home/oracle/.bashrc, чтобы эти параметры сохранились для последующих входов в систему:
 
 ```bash
 # add oracle home
@@ -245,7 +248,7 @@ export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 export ORACLE_SID=cdb1
 ```
 
-## <a name="data-guard-configurations"></a>Настройка Data Guard
+## <a name="configure-data-guard"></a>Настройка Data Guard
 
 ### <a name="enable-archive-log-mode-on-myvm1-primary"></a>Включение режима журнала архивирования на myVM1 (основная)
 
@@ -262,7 +265,7 @@ SQL> STARTUP MOUNT;
 SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
-Включите принудительное ведение журнала и убедитесь, что имеется хотя бы один файл журнала:
+Включите принудительное ведение журнала и убедитесь, что есть хотя бы один файл журнала:
 
 ```bash
 SQL> ALTER DATABASE FORCE LOGGING;
@@ -278,14 +281,15 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Включите переключение базы данных (в результате чего восстановление начнется намного раньше) и задайте для параметра STANDBY_FILE_MANAGEMENT значение AUTO:
+Включите переключение базы данных (FLASHBACK), что значительно упростит восстановление, и задайте для параметра STANDBY\_FILE\_MANAGEMENT значение AUTO. Затем выйдите из SQL*Plus.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
 SQL> ALTER SYSTEM SET STANDBY_FILE_MANAGEMENT=AUTO;
+SQL> EXIT;
 ```
 
-### <a name="service-setup-on-myvm1-primary"></a>Настройка службы на myVM1 (основная)
+### <a name="set-up-service-on-myvm1-primary"></a>Настройка службы на myVM1 (основная)
 
 Измените файл tnsnames.ora, расположенный в папке $ORACLE_HOME\network\admin, или создайте его.
 
@@ -336,73 +340,6 @@ SID_LIST_LISTENER =
   )
 
 ADR_BASE_LISTENER = /u01/app/oracle
-```
-
-Запустите прослушиватель:
-
-```bash
-$ lsnrctl stop
-$ lsnrctl start
-```
-
-### <a name="service-setup-on-myvm2-standby"></a>Настройка службы на myVM2 (резервная)
-
-Измените файл tnsnames.ora, расположенный в папке $ORACLE_HOME\network\admin, или создайте его.
-
-Добавьте следующие записи:
-
-```bash
-cdb1 =
-  (DESCRIPTION =
-    (ADDRESS_LIST =
-      (ADDRESS = (PROTOCOL = TCP)(HOST = myVM1)(PORT = 1521))
-    )
-    (CONNECT_DATA =
-      (SID = cdb1)
-    )
-  )
-
-cdb1_stby =
-  (DESCRIPTION =
-    (ADDRESS_LIST =
-      (ADDRESS = (PROTOCOL = TCP)(HOST = myVM2)(PORT = 1521))
-    )
-    (CONNECT_DATA =
-      (SID = cdb1)
-    )
-  )
-```
-
-Измените файл listener.ora, расположенный в папке $ORACLE_HOME\network\admin, или создайте его.
-
-Добавьте следующие записи:
-
-```bash
-LISTENER =
-  (DESCRIPTION_LIST =
-    (DESCRIPTION =
-      (ADDRESS = (PROTOCOL = TCP)(HOST = myVM2)(PORT = 1521))
-      (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1521))
-    )
-  )
-
-SID_LIST_LISTENER =
-  (SID_LIST =
-    (SID_DESC =
-      (GLOBAL_DBNAME = cdb1_DGMGRL)
-      (ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1)
-      (SID_NAME = cdb1)
-    )
-  )
-
-ADR_BASE_LISTENER = /u01/app/oracle
-```
-
-Запустите прослушиватель:
-
-```bash
-$ lsnrctl stop
-$ lsnrctl start
 ```
 
 Включите брокер Data Guard:
@@ -411,8 +348,87 @@ $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
+Запустите прослушиватель:
 
-### <a name="restore-database-to-myvm2-standby"></a>Восстановление базы данных на myVM2 (резервная)
+```bash
+$ lsnrctl stop
+$ lsnrctl start
+```
+
+### <a name="set-up-service-on-myvm2-standby"></a>Настройка службы на myVM2 (резервная)
+
+Подключитесь к виртуальной машине myVM2 по протоколу SSH:
+
+```bash 
+$ ssh azureuser@<publicIpAddress>
+```
+
+Выполните вход в качестве пользователя Oracle:
+
+```bash
+$ sudo su - oracle
+```
+
+Измените файл tnsnames.ora, расположенный в папке $ORACLE_HOME\network\admin, или создайте его.
+
+Добавьте следующие записи:
+
+```bash
+cdb1 =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = myVM1)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SID = cdb1)
+    )
+  )
+
+cdb1_stby =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = myVM2)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SID = cdb1)
+    )
+  )
+```
+
+Измените файл listener.ora, расположенный в папке $ORACLE_HOME\network\admin, или создайте его.
+
+Добавьте следующие записи:
+
+```bash
+LISTENER =
+  (DESCRIPTION_LIST =
+    (DESCRIPTION =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = myVM2)(PORT = 1521))
+      (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1521))
+    )
+  )
+
+SID_LIST_LISTENER =
+  (SID_LIST =
+    (SID_DESC =
+      (GLOBAL_DBNAME = cdb1_DGMGRL)
+      (ORACLE_HOME = /u01/app/oracle/product/12.1.0/dbhome_1)
+      (SID_NAME = cdb1)
+    )
+  )
+
+ADR_BASE_LISTENER = /u01/app/oracle
+```
+
+Запустите прослушиватель:
+
+```bash
+$ lsnrctl stop
+$ lsnrctl start
+```
+
+
+### <a name="restore-the-database-to-myvm2-standby"></a>Восстановление базы данных на myVM2 (резервная)
 
 Создайте файл параметров /tmp/initcdb1_stby.ora со следующим содержимым:
 ```bash
@@ -431,7 +447,7 @@ mkdir -p /u01/app/oracle/admin/cdb1/adump
 Создайте файл пароля:
 
 ```bash
-$ orapwd file=/u01/app/oracle/product/12.1.0.2/db_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
+$ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
 Запустите базу данных на myVM2:
 
@@ -443,13 +459,13 @@ SQL> STARTUP NOMOUNT PFILE='/tmp/initcdb1_stby.ora';
 SQL> EXIT;
 ```
 
-Восстановите базу данных с помощью служебной программы RMAN:
+Восстановите базу данных с помощью инструмента RMAN:
 
 ```bash
 $ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
-Выполните следующие команды RMAN:
+Выполните следующие команды в RMAN:
 ```bash
 DUPLICATE TARGET DATABASE
   FOR STANDBY
@@ -458,6 +474,24 @@ DUPLICATE TARGET DATABASE
   SPFILE
     SET db_unique_name='CDB1_STBY' COMMENT 'Is standby'
   NOFILENAMECHECK;
+```
+
+После выполнения команды должны отобразиться сообщения, аналогичные приведенным ниже. Выйдите из RMAN.
+```bash
+media recovery complete, elapsed time: 00:00:00
+Finished recover at 29-JUN-17
+Finished Duplicate Db at 29-JUN-17
+
+RMAN> EXIT;
+```
+
+При необходимости можно добавить ORACLE_HOME и ORACLE_SID в файл /home/oracle/.bashrc, чтобы эти параметры сохранились для последующих входов в систему:
+
+```bash
+# add oracle home
+export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+# add oracle sid
+export ORACLE_SID=cdb1
 ```
 
 Включите брокер Data Guard:
@@ -469,7 +503,7 @@ SQL> EXIT;
 
 ### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Настройка брокера Data Guard на myVM1 (основная)
 
-Запустите диспетчер Data Guard и войдите, используя SYS и пароль (не используйте проверку подлинности операционной системы). Выполните следующие действия:
+Запустите диспетчер Data Guard и войдите, используя SYS и пароль. (Не используйте аутентификацию операционной системы.) Выполните следующие действия.
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -506,11 +540,11 @@ SUCCESS   (status updated 26 seconds ago)
 
 Настройка Oracle Data Guard завершена. В следующем разделе показано, как проверить подключение и переключение.
 
-### <a name="connect-database-from-client-machine"></a>Подключение базы данных с клиентского компьютера
+### <a name="connect-the-database-from-the-client-machine"></a>Подключение базы данных с клиентского компьютера
 
-Обновите файл tnsnames.ora на клиентском компьютере, который обычно находится в папке $ORACLE_HOME\network\admin, или создайте его.
+Обновите файл tnsnames.ora на клиентском компьютере или создайте его. Этот файл обычно находится в папке $ORACLE_HOME\network\admin.
 
-Замените IP-адрес вашим `publicIpAddress` для myVM1 и myVM2:
+Замените IP-адреса своими значениями `publicIpAddress` для myVM1 и myVM2:
 
 ```bash
 cdb1=
@@ -540,7 +574,7 @@ cdb1_stby=
   )
 ```
 
-Запустите sqlplus:
+Запустите SQL*Plus:
 
 ```bash
 $ sqlplus sys/OraPasswd1@cdb1
@@ -554,11 +588,11 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 
 SQL>
 ```
-## <a name="test-data-guard-configuration"></a>Проверка конфигурации Data Guard
+## <a name="test-the-data-guard-configuration"></a>Проверка конфигурации Data Guard
 
-### <a name="database-switchover-on-myvm1-primary"></a>Переключение базы данных на myVM1 (основная)
+### <a name="switch-over-the-database-on-myvm1-primary"></a>Переключение базы данных на виртуальной машине myVM1 (основная)
 
-Для переключения с базы данных-источника на резервную (с cdb1 на cdb1_stby):
+Переключитесь с основной базы данных на резервную (с cdb1 на cdb1_stby):
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -582,9 +616,9 @@ Switchover succeeded, new primary is "cdb1_stby"
 DGMGRL>
 ```
 
-Теперь вы можете подключиться к резервной базе данных:
+Теперь можно подключиться к резервной базе данных.
 
-Запустите sqlplus:
+Запустите SQL*Plus:
 
 ```bash
 
@@ -600,9 +634,9 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 SQL>
 ```
 
-### <a name="database-switch-back-on-myvm2-standby"></a>Переключение базы данных обратно на myVM2 (резервная)
+### <a name="switch-over-the-database-on-myvm2-standby"></a>Переключение базы данных на виртуальной машине myVM2 (резервная)
 
-Чтобы переключиться обратно, выполните следующее на myVM2:
+Чтобы переключиться обратно, на виртуальной машине myVM2 выполните следующее:
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
@@ -624,9 +658,9 @@ Database mounted.
 Switchover succeeded, new primary is "cdb1"
 ```
 
-Опять же, теперь вы имеете возможность подключиться к базе данных-источнику.
+Теперь вы снова имеете возможность подключиться к основной базе данных.
 
-Запустите sqlplus:
+Запустите SQL*Plus:
 
 ```bash
 
@@ -642,12 +676,12 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 SQL>
 ```
 
-Теперь вы завершили установку и настройку Data Guard на Oracle Linux.
+Вы завершили установку и настройку Data Guard на Oracle Linux.
 
 
-## <a name="delete-virtual-machine"></a>Удаление виртуальной машины
+## <a name="delete-the-virtual-machine"></a>Удаление виртуальной машины
 
-Можно удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, использовав следующую команду.
+Вы можете удалить ставшие ненужными группу ресурсов, виртуальную машину и все связанные с ней ресурсы, использовав следующую команду:
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -655,7 +689,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Изучите [руководство по созданию высокодоступных виртуальных машин](../../linux/create-cli-complete.md).
+[Создание полной среды Linux с помощью Azure CLI 2.0](../../linux/create-cli-complete.md)
 
-[Изучите примеры развертывания виртуальных машин с помощью интерфейса командной строки](../../linux/cli-samples.md).
+[Примеры Azure CLI для виртуальных машин Linux](../../linux/cli-samples.md).
 

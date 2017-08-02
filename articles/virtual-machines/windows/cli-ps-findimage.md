@@ -1,6 +1,6 @@
 ---
-title: "Поиск и выбор образов виртуальных машин Windows | Документация Майкрософт"
-description: "Узнайте, как определить издателя, предложение и номер SKU для образов при создании виртуальной машины Windows с помощью развертывания посредством диспетчера ресурсов."
+title: "Выбор образов виртуальных машин Windows в Azure | Документация Майкрософт"
+description: "Узнайте, как использовать Azure PowerShell для определения издателя, предложения, номера SKU и версии для образов виртуальных машин из Marketplace."
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -13,43 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/23/2016
+ms.date: 07/12/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 28bb214570fcca94c5ceb6071c4851b81ec00c8d
+ms.translationtype: HT
+ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
+ms.openlocfilehash: 630f555b003b0efc45b372a7009dbf036aa8c737
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/14/2017
 
 ---
-<a id="navigate-and-select-windows-virtual-machine-images-in-azure-with-powershell" class="xliff"></a>
+# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Поиск образов виртуальных машин Windows в Azure Marketplace с помощью Azure PowerShell
 
-# Просмотр и выбор образов виртуальных машин Windows в Azure с помощью PowerShell
-В этой статье описывается, как найти сведения об издателях образов виртуальных машин, предложениях, номерах SKU и версиях для каждого расположения, в котором может выполняться развертывание. Для примера вот некоторые часто используемые образы виртуальных машин Windows:
+В этой статье описывается, как с помощью Azure PowerShell находить образы виртуальных машин в Azure Marketplace. Воспользуйтесь этими сведениями, чтобы указать образ из Marketplace при создании виртуальной машины Windows.
 
-<a id="table-of-commonly-used-windows-images" class="xliff"></a>
+Убедитесь, что у вас установлена и настроена последняя версия [модуля Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-## Таблица часто используемых образов Windows
+
+
+## <a name="table-of-commonly-used-windows-images"></a>Таблица часто используемых образов Windows
 | PublisherName | ПРЕДЛОЖЕНИЕ | Sku |
 |:--- |:--- |:--- |:--- |
-| MicrosoftDynamicsNAV |DynamicsNAV |2015 |
-| MicrosoftSharePoint |MicrosoftSharePointServer |2013 |
-| MicrosoftSQLServer |SQL2014 WS2012R2 |Enterprise-Optimized-for-DW |
-| MicrosoftSQLServer |SQL2014 WS2012R2 |Enterprise-Optimized-for-OLTP |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
-| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
-| MicrosoftWindowsServer |WindowsServer |Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
+| MicrosoftDynamicsNAV |DynamicsNAV |2017 |
+| MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
+| MicrosoftSQLServer |SQL2016-WS2016 |Enterprise |
+| MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
+| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
 
-<a id="find-azure-images-with-powershell" class="xliff"></a>
+## <a name="find-specific-images"></a>Поиск определенных образов
 
-## Поиск образов Azure с помощью PowerShell
-> [!NOTE]
-> Установите и настройте [последнюю версию Azure PowerShell](/powershell/azure/overview). Если вы используете модули Azure PowerShell версии ниже 1.0, то можете использовать приведенные ниже команды. Но сначала необходимо выполнить команду `Switch-AzureMode AzureResourceManager`. 
-> 
-> 
 
 При создании виртуальной машины с помощью диспетчера ресурсов Azure иногда бывает нужно указать образ по сочетанию следующих свойств:
 
@@ -57,9 +55,9 @@ ms.lasthandoff: 04/27/2017
 * ПРЕДЛОЖЕНИЕ
 * SKU
 
-Например, эти значения нужны при вызове командлета PowerShell `Set-AzureRMVMSourceImage` либо при использовании файла шаблона группы ресурсов, в котором необходимо указать тип создаваемой виртуальной машины.
+Например, используйте эти значения с командлетом PowerShell [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) либо с шаблоном группы ресурсов, в котором необходимо указать тип создаваемой виртуальной машины.
 
-Чтобы определить эти значения для нужного образа, необходимо выполнить указанные ниже действия.
+Чтобы определить эти значения для определенных образов, можно выполнить командлеты [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) и [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku). Определите эти значения:
 
 1. Получить список издателей образов.
 2. Получить список предложений нужного издателя.
@@ -86,14 +84,19 @@ $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-Команда `Get-AzureRMVMImageSku` возвращает всю информацию, необходимую для указания образа для новой виртуальной машины.
+Выходные данные команды `Get-AzureRMVMImageSku` содержат всю информацию, необходимую для указания образа для новой виртуальной машины.
 
 Ниже представлен полный пример.
 
 ```powershell
-PS C:\> $locName="West US"
-PS C:\> Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
+$locName="West US"
+Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
+```
+
+Выходные данные:
+
+```
 PublisherName
 -------------
 a10networks
@@ -112,34 +115,48 @@ Canonical
 Для издателя MicrosoftWindowsServer:
 
 ```powershell
-PS C:\> $pubName="MicrosoftWindowsServer"
-PS C:\> Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+$pubName="MicrosoftWindowsServer"
+Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+```
 
+Выходные данные:
+
+```
 Offer
 -----
+Windows-HUB
 WindowsServer
+WindowsServer-HUB
 ```
 
 Для предложения WindowsServer:
 
 ```powershell
-PS C:\> $offerName="WindowsServer"
-PS C:\> Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+$offerName="WindowsServer"
+Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+```
 
+Выходные данные:
+
+```
 Skus
 ----
 2008-R2-SP1
+2008-R2-SP1-smalldisk
 2012-Datacenter
+2012-Datacenter-smalldisk
 2012-R2-Datacenter
-2016-Nano-Server-Technical-Previe
-2016-Technical-Preview-with-Conta
-Windows-Server-Technical-Preview
+2012-R2-Datacenter-smalldisk
+2016-Datacenter
+2016-Datacenter-Server-Core
+2016-Datacenter-Server-Core-smalldisk
+2016-Datacenter-smalldisk
+2016-Datacenter-with-Containers
+2016-Nano-Server
 ```
 
 Скопируйте выбранное наименование SKU из этого списка. Теперь у вас есть все необходимые сведения, чтобы использовать командлет PowerShell `Set-AzureRMVMSourceImage` или шаблон группы ресурсов.
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
-Теперь мы можем выбрать именно тот образ, который нам нужен. Инструкции по быстрому созданию виртуальной машины на основе полученных данных образа или с помощью шаблона с этими данными см. в статье [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="next-steps"></a>Дальнейшие действия
+Теперь мы можем выбрать именно тот образ, который нам нужен. Инструкции по быстрому созданию виртуальной машины на основе полученных данных образа см. в статье [Создание виртуальной машины Windows с помощью PowerShell](quick-create-powershell.md).
 

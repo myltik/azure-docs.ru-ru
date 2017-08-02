@@ -12,133 +12,110 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 07/11/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
-ms.openlocfilehash: ddb9e7909eb4ab97204059d21690795ceb6ff9e8
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
+ms.openlocfilehash: 7ac9a67fe79cbbc73300f9b43b6af0d9ec143b65
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/13/2017
 
 ---
-# <a name="restore-an-encrypted-virtual-machine-from-an-azure-backup-recovery-point"></a>Восстановление зашифрованной виртуальной машины из точки восстановления службы архивации Azure
+# <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Восстановление ключа и секрета в хранилище ключей для зашифрованных виртуальных машин с помощью службы архивации Azure
 В этой статье рассказывается об использовании службы архивации виртуальных машин Azure для восстановления зашифрованных виртуальных машин Azure, когда ключ и секрет отсутствуют в хранилище ключей. Эта процедура будет также полезной, если нужно хранить отдельную копию ключа (ключ шифрования ключа) и секрета (ключ шифрования BitLocker) для восстанавливаемой виртуальной машины.
 
-## <a name="pre-requisites"></a>Предварительные требования
-1. **Резервная копия зашифрованных виртуальных машин** — выполнять резервное копирование зашифрованных виртуальных машин Azure нужно с помощью службы архивации Azure. Резервное копирование зашифрованных виртуальных машин Azure см. в статье [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md) (Управление резервным копированием и восстановлением виртуальных машин Azure с помощью PowerShell).
-2. **Настроенное хранилище ключей Azure** — убедитесь, что хранилище ключей, в которое нужно восстановить ключи и секреты, существует. Управление хранилищами ключей описано в статье [Приступая к работе с хранилищем ключей Azure](../key-vault/key-vault-get-started.md).
+## <a name="prerequisites"></a>Предварительные требования
+* **Резервная копия зашифрованных виртуальных машин** — выполнять резервное копирование зашифрованных виртуальных машин Azure нужно с помощью службы архивации Azure. Резервное копирование зашифрованных виртуальных машин Azure см. в статье [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md) (Управление резервным копированием и восстановлением виртуальных машин Azure с помощью PowerShell).
+* **Настроенное хранилище ключей Azure** — убедитесь, что хранилище ключей, в которое нужно восстановить ключи и секреты, существует. Управление хранилищами ключей описано в статье [Приступая к работе с хранилищем ключей Azure](../key-vault/key-vault-get-started.md).
+* **Восстановление диска** — убедитесь, что запущено задание восстановления дисков для зашифрованной виртуальной машины с помощью [PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm). Это связано с тем, что данное задание создает JSON-файл в учетной записи хранения, которая содержит ключи и секреты для восстанавливаемой зашифрованной виртуальной машины.
 
-## <a name="setup-recovery-services-vault"></a>Настройка хранилища служб восстановления
-Выполните следующие действия, чтобы войти в PowerShell и настроить контекст хранилища службы восстановления.
+## <a name="get-key-and-secret-from-azure-backup"></a>Получение ключа и секрета из службы Azure Backup
 
-### <a name="log-in-to-azure-powershell"></a>Вход в Azure PowerShell
-Войдите в учетную запись Azure с помощью следующего командлета.
+> [!NOTE]
+> После восстановления диска для зашифрованной виртуальной машины убедитесь, что выполняются следующие требования:
+> 1. Переменная $details заполняется сведениями о задании восстановления диска, как описано в [разделе о восстановлении дисков с помощью PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
+> 2. Создавать виртуальную машину из восстановленных дисков следует только **после восстановления ключа и секрета в хранилище ключей**.
+>
+>
 
-```
-PS C:\> Login-AzureRmAccount
-```
-
-### <a name="set-recovery-services-vault-context"></a>Настройка контекста для хранилища служб восстановления
-Войдя в систему, используйте следующий командлет, чтобы получить список доступных подписок.
-
-```
-PS C:\> Get-AzureRmSubscription
-```
-
-Выберите подписку, в которой доступны ресурсы.
+Запросите свойства восстановленного диска для получения сведений о задании.
 
 ```
-PS C:\> Set-AzureRmContext -SubscriptionId "<subscription-id>"
+PS C:\> $properties = $details.properties
+PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
+PS C:\> $containerName = $properties["Config Blob Container Name"]
+PS C:\> $encryptedBlobName = $properties["Encryption Info Blob Name"]
+PS C:\> $containerName = $properties["Config Blob Container Name"]
 ```
 
-Определите контекст хранилища, используя сведения о хранилище служб восстановления, в которое выполняется резервное копирование зашифрованных виртуальных машин.
+Задайте контекст хранилища Azure и восстановите файл конфигурации JSON, который содержит ключ и секрет для зашифрованной виртуальной машины.
 
 ```
-PS C:\> Get-AzureRmRecoveryServicesVault -ResourceGroupName "<rg-name>" -Name "<rs-vault-name>" | Set-AzureRmRecoveryServicesVaultContext
+PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
+PS C:\> $destination_path = 'C:\vmencryption_config.json'
+PS C:\> Get-AzureStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Destination $destination_path
+PS C:\> $encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-Json
 ```
 
-### <a name="get-recovery-point"></a>Получение точки восстановления
-Выберите в хранилище контейнер, который представляет зашифрованную виртуальную машину Azure.
+## <a name="restore-key"></a>Ключ восстановления
+Когда JSON-файл создан в упомянутом выше конечном пути, создайте из этого JSON-файла ключ в виде файла большого двоичного объекта и укажите его при выполнении командлета восстановления ключа, чтобы поместить ключ (KEK) обратно в хранилище ключей.
 
 ```
-PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -Name "<vm-name>"
+PS C:\> $keyDestination = 'C:\keyDetails.blob'
+PS C:\> [io.file]::WriteAllBytes($keyDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyBackupData))
+PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
 ```
 
-С помощью этого контейнера получите резервный элемент для соответствующей виртуальной машины.
+## <a name="restore-secret"></a>Восстановление секрета
+Используйте созданный выше JSON-файл для получения имени и значения секрета и укажите его при выполнении командлета настройки секрета, чтобы поместить секрет (BEK) обратно в хранилище ключей.
 
 ```
-PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
-```
-
-Получите массив точек восстановления для выбранного резервного элемента в переменной rp.
-
-```
-PS C:\> $startDate = (Get-Date).AddDays(-7)
-PS C:\> $endDate = Get-Date
-PS C:\> $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
-```
-
-## <a name="restore-encrypted-virtual-machine"></a>Восстановление зашифрованной виртуальной машины
-Выполните следующие действия для восстановления зашифрованной виртуальной машины с соответствующими ключом и секретом.
-
-### <a name="restore-key"></a>Ключ восстановления
-Упомянутый выше массив $rp сортируется по времени в обратном порядке, так что последняя точка восстановления получает индекс 0. Например, $rp[0] обозначает последнюю точку восстановления.
-
-```
-PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation "C:\Users\downloads"
+PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
+PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
+PS C:\> $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
+PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = $encryptionObject.OsDiskKeyAndSecretDetails.KeyUrl;'MachineName' = 'vm-name'}
+PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
 > [!NOTE]
-> После успешного выполнения этого командлета в указанной папке на локальном компьютере создается файл большого двоичного объекта. Этот файл большого двоичного объекта содержит ключ шифрования ключа в зашифрованном виде.
+> 1. Значение переменной $secretname можно получить из выходных данных параметра $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl, используя текст после secrets/. Например, выходной URL-адрес секрета — https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163, а имя секрета — B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.
+> 2. Значение тега DiskEncryptionKeyFileName совпадает с именем секрета.
 >
 >
 
-Восстановите ключ в хранилище ключей с помощью следующего командлета.
+## <a name="create-virtual-machine-from-restored-disk"></a>Создание виртуальной машины на основе восстановленного диска
+Указанные выше командлеты PowerShell позволяют восстановить ключ и секрет в хранилище ключей, если ранее была создана резервная копия зашифрованной виртуальной машины с помощью службы архивации виртуальных машин Azure. После их восстановления см. статью [Архивация виртуальных машин с помощью командлетов AzureRM.RecoveryServices.Backup](backup-azure-vms-automation.md#create-a-vm-from-restored-disks), в которой описано, как создать зашифрованные виртуальные машины, используя восстановленный диск, ключ и секрет.
+
+## <a name="legacy-approach"></a>Устаревший подход
+Описанный выше подход подойдет для всех точек восстановления, однако более старый подход получения сведений о ключе и секрете из точки восстановления можно по-прежнему использовать для точек восстановления, созданных до 11 июля 2017 г. После выполнения задания восстановления диска для зашифрованной виртуальной машины с помощью [PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm) убедитесь, что переменная $rp заполняется допустимым значением.
+
+### <a name="restore-key"></a>Ключ восстановления
+Используйте следующие командлеты для получения из точки восстановления сведений о ключе (KEK) и укажите его при выполнении командлета восстановления ключа, чтобы поместить его обратно в хранилище ключей.
 
 ```
-PS C:\> Restore-AzureKeyVaultKey -VaultName "contosokeyvault" -InputFile "C:\Users\downloads\key.blob"
+PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation 'C:\Users\downloads'
+PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile 'C:\Users\downloads'
 ```
 
 ### <a name="restore-secret"></a>Восстановление секрета
-Восстановите секретные данные из точки восстановления, полученной ранее.
+Используйте следующие командлеты для получения из точки восстановления сведений о секрете (BEK) и укажите его при выполнении командлета настройки секрета, чтобы поместить его обратно в хранилище ключей.
 
 ```
-PS C:\> $rp1.KeyAndSecretDetails.SecretUrl
-
-https://contosokeyvault.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/20aaae9eaa99996d89d99a29990d999a
-```
-
-> [!NOTE]
-> Текст перед строкой vault.azure.net содержит исходное имя хранилища ключей. Текст после строки secrets/ содержит имя секрета.
->
->
-
-Если вы хотите и далее использовать это же имя секрета, получите имя и значение секрета из выходных данных выполненного выше командлета. В других случаях обновите переменную $secretname, как показано ниже, чтобы установить новое имя секрета.
-
-```
-PS C:\> $secretname = "B3284AAA-DAAA-4AAA-B393-60CAA848AAAA"
+PS C:\> $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
 PS C:\> $secretdata = $rp1.KeyAndSecretDetails.SecretData
 PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
-```
-
-Определите для секрета теги, если нужно одновременно восстановить виртуальную машину. Значение тега DiskEncryptionKeyFileName должно содержать имя секрета, который вы хотите использовать.
-
-```
-PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://contosokeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
+PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://mykeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
+PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $secret -Tags $Tags -SecretValue $Secret -ContentType  'Wrapped BEK'
 ```
 
 > [!NOTE]
-> Значение для DiskEncryptionKeyFileName совпадает с именем секрета, полученным ранее. Значение для DiskEncryptionKeyEncryptionKeyURL можно получить из хранилища ключей после восстановления ключей с помощью командлета [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx).    
+> 1. Значение переменной $secretname можно получить из выходных данных параметра $rp1.KeyAndSecretDetails.SecretUrl, используя текст после secrets/. Например, выходной URL-адрес секрета — https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163, а имя секрета — B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.
+> 2. Значение тега DiskEncryptionKeyFileName совпадает с именем секрета.
+> 3. Значение для DiskEncryptionKeyEncryptionKeyURL можно получить из хранилища ключей после восстановления ключей с помощью командлета [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx).
 >
 >
 
-Поместите секрет обратно в хранилище ключей.
-
-```
-PS C:\> Set-AzureKeyVaultSecret -VaultName "contosokeyvault" -Name $secretname -SecretValue $secret -Tags $Tags -SecretValue $Secret -ContentType  "Wrapped BEK"
-```
-
-### <a name="restore-virtual-machine"></a>Восстановление виртуальной машины
-Указанные выше командлеты PowerShell позволяют восстановить ключ и секрет в хранилище ключей, если ранее была создана резервная копия зашифрованной виртуальной машины с помощью службы архивации виртуальных машин Azure. После их восстановления переходите к статье [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md) (Управление резервным копированием и восстановлением виртуальных машин Azure с помощью PowerShell), в которой описано, как восстанавливать зашифрованные виртуальные машины.
+## <a name="next-steps"></a>Дальнейшие действия
+После восстановления ключа и секрета в хранилище ключей см. статью [Архивация виртуальных машин с помощью командлетов AzureRM.RecoveryServices.Backup](backup-azure-vms-automation.md#create-a-vm-from-restored-disks), в которой описано, как создать зашифрованные виртуальные машины, используя восстановленный диск, ключ и секрет.
 

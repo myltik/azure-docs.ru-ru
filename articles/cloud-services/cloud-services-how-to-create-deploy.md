@@ -1,6 +1,6 @@
 ---
 title: "Создание и развертывание облачной службы | Документация Майкрософт"
-description: "Узнайте, как создать и развернуть облачную службу с помощью функции &quot;Быстрое создание&quot; в Azure."
+description: "Узнайте, как создать и развернуть облачную службу с помощью функции \"Быстрое создание\" в Azure."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 71863e52dca951b1fc3847e1bba47977a6e49c7c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
+ms.openlocfilehash: 2a2172a78bfd3ac923edbc9de366b035629dd27b
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Создание и развертывание облачной службы
@@ -32,7 +33,7 @@ ms.openlocfilehash: 71863e52dca951b1fc3847e1bba47977a6e49c7c
 В этом разделе описывается быстрое создание облачной службы, а также последующая передача и развертывание соответствующего пакета в Azure с помощью функции **Отправить** . При выборе этого способа на классическом портале Azure отображаются все необходимые для работы ссылки. Чтобы одновременно выполнить развертывание создаваемой облачной службы, воспользуйтесь функцией **Настраиваемое создание**.
 
 > [!NOTE]
-> Если вы планируете опубликовать облачную службу из Visual Studio Team Services (VSTS), воспользуйтесь функцией "Быстрое создание", а затем настройте публикацию VSTS на странице **Быстрый запуск** или на панели мониторинга. Дополнительные сведения см. в статье [Непрерывная доставка в Azure с использованием Visual Studio Team Services][TFSTutorialForCloudService], а также в справке для страницы **Быстрый запуск**.
+> Если вы планируете опубликовать облачную службу из Visual Studio Team Services (VSTS), то воспользуйтесь функцией **Быстрое создание**, а затем настройте публикацию VSTS на странице **Быстрый запуск** или на панели мониторинга.
 > 
 > 
 
@@ -120,17 +121,11 @@ ms.openlocfilehash: 71863e52dca951b1fc3847e1bba47977a6e49c7c
    
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
-[TFSTutorialForCloudService]: cloud-services-continuous-delivery-use-vso.md
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [Общая настройка облачной службы](cloud-services-how-to-configure.md).
 * Настройка [пользовательского имени домена](cloud-services-custom-domain-name.md).
 * [Управление облачной службой](cloud-services-how-to-manage.md).
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 
