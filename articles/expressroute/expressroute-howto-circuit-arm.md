@@ -15,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: ganesr;cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7254217bc6a7b782eb19c8f062c46923dc5e7506
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8bfae39d84aaac3b9527084df9dcfbd51f591dfe
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Создание и изменение канала ExpressRoute с помощью PowerShell
 > [!div class="op_single_selector"]
-> * [Resource Manager — портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Resource Manager — PowerShell](expressroute-howto-circuit-arm.md)
+> * [Портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [Интерфейс командной строки Azure](howto-circuit-cli.md)
 > * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> 
+> * [PowerShell (классическая модель)](expressroute-howto-circuit-classic.md)
 >
 
 В этой статье объясняется, как создать канал Azure ExpressRoute, используя командлеты PowerShell и модель развертывания с помощью Azure Resource Manager. В этой статье описывается, как проверить состояние канала, обновить его или удалить и отозвать.

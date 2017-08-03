@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 2776f640bc192b0775b0ccbaaf62bb719b3bb790
-ms.lasthandoff: 04/18/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: dfccb182ffdc43d5437efd7e4f736998c5fa9433
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/26/2017
 
 ---
 
-# <a name="diagnose-on-premise-connectivity-via-vpn-gateways"></a>Диагностика локальных подключений через VPN-шлюзы
+# <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Диагностика локальных подключений через VPN-шлюзы
 
-VPN-шлюз Azure позволяет создать гибридное решение, устраняющее необходимость в безопасном подключении между локальной сетью и виртуальной сетью Azure. Ваши требования являются уникальными, как и выбираемое локальное VPN-устройство. В настоящее время Azure поддерживает [несколько VPN-устройств](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides), которые постоянно проверяются совместно с поставщиками устройств. Просмотрите параметры конфигурации устройства перед началом настройки локального VPN-устройства. VPN-шлюз Azure настраивается с помощью набора [поддерживаемых параметров IPsec](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-nameipsecaipsecike-parameters), которые используются для установления подключений. В данный момент нет какого-либо способа указать или выбрать определенное сочетание параметров IPsec для VPN-шлюза Azure. Для успешного установления подключения между локальной средой и Azure параметры локального VPN-устройства должны соответствовать параметрам IPsec, предписанным VPN-шлюзом Azure. В противном случае подключение будет утрачено. На данный момент устранение этих неполадок является нетривиальным, и на выявление и устранение проблемы обычно требуется несколько часов.
+VPN-шлюз Azure позволяет создать гибридное решение, устраняющее необходимость в безопасном подключении между локальной сетью и виртуальной сетью Azure. Ваши требования являются уникальными, как и выбираемое локальное VPN-устройство. В настоящее время Azure поддерживает [несколько VPN-устройств](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable), которые постоянно проверяются совместно с поставщиками устройств. Просмотрите параметры конфигурации устройства перед началом настройки локального VPN-устройства. VPN-шлюз Azure настраивается с помощью набора [поддерживаемых параметров IPsec](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec), которые используются для установления подключений. В данный момент нет какого-либо способа указать или выбрать определенное сочетание параметров IPsec для VPN-шлюза Azure. Для успешного установления подключения между локальной средой и Azure параметры локального VPN-устройства должны соответствовать параметрам IPsec, предписанным VPN-шлюзом Azure. В противном случае подключение будет утрачено. На данный момент устранение этих неполадок является нетривиальным, и на выявление и устранение проблемы обычно требуется несколько часов.
 
 С помощью функции устранения неполадок Наблюдателя за сетями Azure можно диагностировать проблемы шлюза и подключений и за несколько минут получить достаточно информации, чтобы принять обоснованное решение для устранения проблемы.
 
@@ -33,7 +34,7 @@ VPN-шлюз Azure позволяет создать гибридное реше
 
 1. Шлюз виртуальной сети — VPN-шлюз в Azure.
 1. Шлюз локальной сети — представление [локального VPN-шлюза (CISCO ASA)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) в облаке Azure.
-1. Подключение типа "сеть — сеть" (на основе политики) — [подключение между VPN-шлюзом и локальным устройством CISCO ASA](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#a-namecreateconnectiona8-create-a-site-to-site-vpn-connection).
+1. Подключение типа "сеть — сеть" (на основе политики) — [подключение между VPN-шлюзом и локальным устройством CISCO ASA](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection).
 1. [Настройка CISCO ASA](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA).
 
 Подробное пошаговое руководство по настройке конфигурации "сеть — сеть" можно найти в статье [Создание виртуальной сети с подключением типа "сеть — сеть" с помощью портала Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/27/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 2f76d23fc80e0050bf5fb1460a58f56dee57a90b
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 6acbc347d7b187a6aac603dd05cf95c6aba54475
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -33,6 +33,9 @@ ms.lasthandoff: 07/13/2017
 ![Сквозная аутентификация Azure AD](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
 Вы можете использовать сквозную проверку подлинности вместе с функцией [простого единого входа](active-directory-aadconnect-sso.md). Таким образом, когда пользователи обращаются к приложениям на корпоративных компьютерах, входящих в корпоративную сеть, им не нужно вводить пароль для входа.
+
+>[!IMPORTANT]
+>Сквозная проверка подлинности Azure AD доступна в предварительной версии.
 
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Основные преимущества сквозной проверки подлинности Azure AD
 

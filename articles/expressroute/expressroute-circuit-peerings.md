@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/14/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: cb88ce2960d63b8a1c5861913b2095bcc977938f
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 3742fb37016db5e6230bc2b7ce11f0270d9d58b3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Каналы ExpressRoute и домены маршрутизации
@@ -83,8 +83,7 @@ ms.lasthandoff: 06/15/2017
 * Найти поставщика услуг. Ознакомьтесь с разделом [Поставщики услуг и расположения ExpressRoute](expressroute-locations.md).
 * Убедитесь, что выполнены все необходимые условия. Ознакомьтесь с разделом [Предварительные требования и контрольный список для ExpressRoute](expressroute-prerequisites.md).
 * Настройте подключение ExpressRoute.
-  * [Создание канала ExpressRoute](expressroute-howto-circuit-classic.md)
-  * [Настройка маршрутизации (пиринг каналов)](expressroute-howto-routing-classic.md)
-  * [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
+  * [Создание каналов ExpressRoute и управление ими](expressroute-howto-circuit-portal-resource-manager.md)
+  * [Настройка маршрутизации (пиринга) для каналов ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 
 

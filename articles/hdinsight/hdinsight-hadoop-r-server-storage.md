@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 017a66ae1ade5e0f64fc799b7bb6aa97b67791a8
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 02bf921222917a50af8e28e62514e167901743b8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Решения службы хранилища Azure для R Server в HDInsight
@@ -77,14 +76,14 @@ Microsoft R Server в HDInsight включает в себя множество 
         #Specify the input file to analyze in HDFS:
         inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-Все ссылки на каталоги и файлы указывают на учетную запись хранения wasbs://container1@storage1.blob.core.windows.net. Это **учетная запись хранения по умолчанию**, связанная с кластером HDInsight.
+Все ссылки на каталоги и файлы указывают на учетную запись хранения wasb://container1@storage1.blob.core.windows.net. Это **учетная запись хранения по умолчанию**, связанная с кластером HDInsight.
 
 Теперь предположим, что вы хотите обработать файл с именем mySpecial.csv, расположенный в каталоге /private контейнера **container2** в учетной записи хранения **storage2**.
 
 В коде R измените ссылку на узел имени так, чтобы она указывала на учетную запись хранения **storage2** .
 
 
-    myNameNode <- "wasbs://container2@storage2.blob.core.windows.net"
+    myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
     myPort <- 0
 
     #Location of the data:
@@ -102,14 +101,14 @@ Microsoft R Server в HDInsight включает в себя множество 
     #Specify the input file to analyze in HDFS:
     inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
-Теперь все ссылки на каталоги и файлы указывают на учетную запись хранения wasbs://container2@storage2.blob.core.windows.net. Это указанный вами **узел имени**.
+Теперь все ссылки на каталоги и файлы указывают на учетную запись хранения wasb://container2@storage2.blob.core.windows.net. Это указанный вами **узел имени**.
 
 В учетной записи хранения **storage2** следует настроить каталог /user/RevoShare/<SSH username> указанным ниже образом.
 
 
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
+    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
 
 

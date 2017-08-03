@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 13453a831c3d42a9e291976a4d5cc80ced5c4755
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 045c4cd49e7b7b1e0b02cc7dc6ede636d0622208
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Оптимизация среды SQL Server с помощью решения оценки SQL в Log Analytics
@@ -170,6 +169,8 @@ Log Analytics в OMS использует агент Operations Manager и гр�
 
 ## <a name="ignore-recommendations"></a>Игнорирование рекомендаций
 Если вы хотите проигнорировать какие-то рекомендации, создайте текстовый файл, который OMS будет использовать для того, чтобы убрать рекомендации из результатов оценки.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Указание рекомендаций, которые нужно проигнорировать
 1. Войдите в рабочую область и откройте поиск по журналам. Выполните следующий запрос, чтобы получить список рекомендаций, не выполненных на компьютерах в вашей среде.
