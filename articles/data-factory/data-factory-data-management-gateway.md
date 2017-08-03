@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/27/2017
 ms.author: abnarain
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 01f3ef6d0e8e43e702b8292a7c215d3df58817f2
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: e05563c8ef705b823199703795baa86dcb665b00
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="data-management-gateway"></a>Шлюз управления данными
@@ -379,8 +378,8 @@ ms.lasthandoff: 05/09/2017
                 "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
                 "gatewayName": "adftutorialgateway"
             }
-         }
-     }
+        }
+    }
     ```
 Если для доступа к порталу используется компьютер, отличный от компьютера шлюза, необходимо убедиться в том, что диспетчер учетных данных может подключиться к компьютеру шлюза. Если приложению не удается подключиться к компьютеру шлюза, вы не сможете задать учетные данные для источника данных и проверить подключение к нему.  
 

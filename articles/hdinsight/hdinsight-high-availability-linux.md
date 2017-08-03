@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 07/28/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: f8f58f7007b6a52f0955232ad1492b25f3e851f0
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 56dd07de81e322aa66587ee160beb734811285dc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Доступность и надежность кластеров Hadoop в HDInsight
@@ -36,12 +35,10 @@ ms.lasthandoff: 07/08/2017
 
 ## <a name="availability-and-reliability-of-nodes"></a>Доступность и надежность узлов
 
-Узлы в кластере HDInsight реализуются с помощью виртуальных машин Azure. В случае сбоя узел переводится в автономный режим и взамен неисправного создается новый узел. Когда узел находится в автономном режиме, используется другой узел такого же типа, пока не будет подключен новый узел.
+Узлы в кластере HDInsight реализуются с помощью виртуальных машин Azure. В следующих разделах рассматриваются отдельные типы узлов, которые используются с HDInsight. 
 
 > [!NOTE]
-> Если сбой узла происходит в процессе анализа данных, ход выполнения этого задания будет утрачен. Задание передается на другой узел.
-
-В следующих разделах рассматриваются отдельные типы узлов, которые используются с HDInsight. Не все типы узлов используются для определенного типа кластера. Например, тип кластера Hadoop не содержит узлы Nimbus. Дополнительные сведения об узлах, используемых типами кластеров HDInsight, см. в разделе "Типы кластеров" статьи [Создание кластеров Hadoop в HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+> Не все типы узлов используются для определенного типа кластера. Например, тип кластера Hadoop не содержит узлы Nimbus. Дополнительные сведения об узлах, используемых типами кластеров HDInsight, см. в разделе "Типы кластеров" статьи [Создание кластеров Hadoop в HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 ### <a name="head-nodes"></a>Головные узлы
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: f8e6e1da776d680d48737ecb5ac7b9319901f121
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 13a3da67da28a1cdebd784e9e33021bb2c2668ce
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="media-encoder-standard-schema"></a>Схема Media Encoder Standard
@@ -64,11 +64,11 @@ ms.lasthandoff: 06/30/2017
 ### <a name="attributes"></a>Атрибуты
 | Имя | Тип | Описание |
 | --- | --- | --- |
-| **Condition** |**xs:string** | Если входные данные не содержат видео, может потребоваться указать кодировщику принудительно вставлять монохромную видеодорожку. Чтобы сделать это, добавьте Condition="InsertBlackIfNoVideoBottomLayerOnly" (для вставки видео только с наименьшей скоростью) или Condition="InsertBlackIfNoVideo" (для вставки видео с каждой из выходных скоростей). Чтобы узнать больше, ознакомьтесь с [этим](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) разделом.|
+| **Condition** |**xs:string** | Если входные данные не содержат видео, может потребоваться указать кодировщику принудительно вставлять монохромную видеодорожку. Чтобы сделать это, добавьте Condition="InsertBlackIfNoVideoBottomLayerOnly" (для вставки видео только с наименьшей скоростью) или Condition="InsertBlackIfNoVideo" (для вставки видео с каждой из выходных скоростей). Чтобы узнать больше, ознакомьтесь с [этим](media-services-advanced-encoding-with-mes.md#no_video) разделом.|
 
 ## <a name="H264Layers"></a> H264Layers
 
-По умолчанию в случае отправки кодировщику входных данных, которые содержат только звук и не содержат видео, выходной ресурс-контейнер будет содержать файлы только с аудиоданными. Некоторые проигрыватели не смогут обработать такие выходные потоки. Можно указать атрибут **InsertBlackIfNoVideo** H264Video, чтобы кодировщик принудительного добавлял видеодорожку в выходные данные в этом сценарии. Чтобы узнать больше, ознакомьтесь с [этим](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) разделом.
+По умолчанию в случае отправки кодировщику входных данных, которые содержат только звук и не содержат видео, выходной ресурс-контейнер будет содержать файлы только с аудиоданными. Некоторые проигрыватели не смогут обработать такие выходные потоки. Можно указать атрибут **InsertBlackIfNoVideo** H264Video, чтобы кодировщик принудительного добавлял видеодорожку в выходные данные в этом сценарии. Чтобы узнать больше, ознакомьтесь с [этим](media-services-advanced-encoding-with-mes.md#no_video) разделом.
               
 ### <a name="elements"></a>Элементы
 | Имя | Тип | Описание |

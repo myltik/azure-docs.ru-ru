@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: b57a157bc47b09af34684b0d85ce4538782a5ff2
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 383e04f91eec2f465b381ce30f2d6d24c488b731
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Защита доступа к данным Azure Cosmos DB
@@ -46,7 +45,7 @@ ms.lasthandoff: 06/07/2017
 
 Помимо двух главных ключей в учетной записи Cosmos DB существует еще два ключа только для чтения. Эти ключи разрешают только операции чтения в учетной записи. Ключи только для чтения не предоставляют доступ к ресурсам разрешений на чтение.
 
-Главные ключи (первичные, вторичные, с доступом только для чтения и с доступом для чтения и записи) можно получить и повторно создать с помощью портала Azure. Дополнительные сведения см. в разделе [Просмотр, копирование и повторное создание ключей доступа](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+Главные ключи (первичные, вторичные, с доступом только для чтения и с доступом для чтения и записи) можно получить и повторно создать с помощью портала Azure. Дополнительные сведения см. в разделе [Просмотр, копирование и повторное создание ключей доступа](manage-account.md#keys).
 
 ![Управление доступом (IAM) на портале Azure: демонстрация безопасности базы данных NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -59,7 +58,7 @@ ms.lasthandoff: 06/07/2017
 В следующем примере кода показано, как использовать конечную точку учетной записи Cosmos DB и главный ключ для создания экземпляра DocumentClient и построения базы данных. 
 
 ```csharp
-//Read the DocumentDB endpointUrl and authorization keys from config.
+//Read the Azure Cosmos DB endpointUrl and authorization keys from config.
 //These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
@@ -183,6 +182,6 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * Дополнительные сведения о безопасности базы данных Cosmos DB см. в статье [Безопасность базы данных в Azure Cosmos DB](database-security.md).
-* Сведения об управлении главными ключами и ключами только для чтения см. в разделе [Просмотр, копирование и повторное создание ключей доступа](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+* Сведения об управлении главными ключами и ключами только для чтения см. в разделе [Просмотр, копирование и повторное создание ключей доступа](manage-account.md#keys).
 * Сведения о создании маркеров проверки подлинности Azure Cosmos DB см. в статье [Access control in the DocumentDB API](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) (Управление доступом в API DocumentDB).
 
