@@ -3,7 +3,7 @@ title: "Размеры виртуальных машин Windows в Azure, оп�
 description: "Список различных размеров виртуальных машин Windows в Azure, оптимизированных для хранилища."
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
-ms.author: cynthn
-translationtype: Human Translation
+ms.date: 07/28/2017
+ms.author: jonbeck
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 42c3fb7acd0bf3dd1940cd046f6d6bee6ca05c40
+ms.contentlocale: ru-ru
 ms.lasthandoff: 03/31/2017
-
 
 ---
 

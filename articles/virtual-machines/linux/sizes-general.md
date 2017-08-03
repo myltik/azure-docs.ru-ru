@@ -3,7 +3,7 @@ title: "Размеры виртуальных машин Linux общего на
 description: "Список различных размеров виртуальных машин Linux общего назначения в Azure."
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: cynthn
+ms.date: 07/28/2017
+ms.author: jonbeck
 ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 409d2df32906ee75eaa85042e8b1278dc31f0638
