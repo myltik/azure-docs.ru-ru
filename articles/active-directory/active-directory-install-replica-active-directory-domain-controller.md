@@ -12,18 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 2adf6d6758c260f539277dafe8b9fadc3d9acb8b
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 5a663bc8290d056b89a929c17722e3c233cdbad7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Установка реплики контроллера домена Active Directory в виртуальной сети Azure
 В этом разделе показано, как устанавливать дополнительные контроллеры домена (также известные как реплики контроллеров домена) для локального домена Active Directory на виртуальных машинах Azure (ВМ) в виртуальной сети Azure.
+
+> [!IMPORTANT]
+> Для управления службой Azure AD мы рекомендуем использовать [Центр администрирования Azure AD](https://aad.portal.azure.com) на портале Azure, а не классический портал Azure, который упоминается в этой статье.
 
 Вас также могут заинтересовать следующие связанные статьи.
 

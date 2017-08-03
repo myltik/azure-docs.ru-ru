@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: fa22c0dd4da1117980adb43c937197274f08760b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 711d364c36c3aba699326f4a76d42891ba3219fb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -462,7 +461,7 @@ Twitter использует протокол OAuth для обеспечени�
 Используйте приведенный ниже скрипт Windows PowerShell для запуска скрипта Hive. Вам потребуется задать первую переменную.
 
 > [!NOTE]
-> Чтобы использовать tweets и скрипт HiveQL, загруженный в последних двух разделах, установите для переменной $hqlScriptFile значение /tutorials/twitter/twitter.hql. Чтобы использовать те, которые были переданы в общедоступный большой двоичный объект, установите для переменной $hqlScriptFile значение wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql.
+> Чтобы использовать tweets и скрипт HiveQL, загруженный в последних двух разделах, установите для переменной $hqlScriptFile значение /tutorials/twitter/twitter.hql. Чтобы использовать те, которые были переданы в общедоступный большой двоичный объект, установите для переменной $hqlScriptFile значение wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql.
 
 ```powershell
 #region variables and constants
@@ -471,7 +470,7 @@ $httpUserName = "admin"
 $httpUserPassword = "<HDInsight Cluster HTTP User Password>"
 
 #use one of the following
-$hqlScriptFile = "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
+$hqlScriptFile = "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
 $hqlScriptFile = "/tutorials/twitter/twitter.hql"
 
 $statusFolder = "/tutorials/twitter/jobstatus"

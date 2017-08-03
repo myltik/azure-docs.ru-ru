@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: chrande, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: fb0925f2d6eb8edede67cf208c735b7b2a0221ac
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 641afd78aae145c5e1b16a08567a22c1aafe59a8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Руководство разработчика JavaScript для Функций Azure
@@ -198,7 +197,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 ```json
 { 
     "tracing": {      
-        "consoleLevel": "verbose"      
+        "consoleLevel": "verbose"     
     }
 }  
 ```
@@ -281,7 +280,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 2. Щелкните **Debug Console** (Консоль отладки)  > **CMD**.
 
 3. Перейдите к `D:\home\site\wwwroot`, а затем перетащите файл package.json в папку **wwwroot** в верхней части страницы.  
-    Существуют другие способы передачи файлов в приложение-функцию. Дополнительные сведения см. в разделе [Как обновить файлы приложения-функции](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+    Существуют другие способы передачи файлов в приложение-функцию. Дополнительные сведения см. в разделе [Как обновить файлы приложения-функции](functions-reference.md#fileupdate). 
 
 4. После загрузки файла package.json запустите команду `npm install` в **консоли удаленного выполнения Kudu**.  
     В результате этого действия будут загружены пакеты, указанные в файле package.json, и перезапущено приложение-функция.

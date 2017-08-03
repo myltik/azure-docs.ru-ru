@@ -15,21 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a0ce5cf6a48d3dfd68e1696d93aac7c55a442900
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 3b12bbb21ebf6a0160227c4a281c420cf192d6f7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell-classic"></a>Создание и изменение канала ExpressRoute с помощью PowerShell (классическая модель)
 > [!div class="op_single_selector"]
-> * [Resource Manager — портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
-> * [Resource Manager — PowerShell](expressroute-howto-circuit-arm.md)
-> * [Классическая модель: PowerShell](expressroute-howto-circuit-classic.md)
+> * [Портал Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-circuit-arm.md)
+> * [Интерфейс командной строки Azure](howto-circuit-cli.md)
 > * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> 
+> * [PowerShell (классическая модель)](expressroute-howto-circuit-classic.md)
 >
 
 В этой статье пошагово описано, как создать канал Azure ExpressRoute, используя командлеты PowerShell и классическую модель развертывания. В этой статье описывается, как проверить состояние, обновить или удалить и отозвать канал ExpressRoute.

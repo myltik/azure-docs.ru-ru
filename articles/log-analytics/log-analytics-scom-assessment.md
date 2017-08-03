@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 6754505e7f58a8e7305987db9204271ca9b93870
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 8094f6e619bde8b25323cddb42bc04b1ead62113
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -223,6 +222,8 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 ## <a name="ignore-recommendations"></a>Игнорирование рекомендаций
 
 Если вы хотите проигнорировать какие-либо рекомендации, создайте текстовый файл, который OMS будет использовать для того, чтобы убрать рекомендации из результатов оценки.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Указание рекомендаций, которые нужно игнорировать
 

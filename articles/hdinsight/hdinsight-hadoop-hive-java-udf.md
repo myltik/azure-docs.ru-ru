@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6fe228ee8967c1d290e9bd515733d8207a721466
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 481d234eaf88bdb210821084ee4154159470eda0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Работа с определяемыми пользователем функциями Java с использованием Hive в HDInsight
@@ -215,12 +214,12 @@ ms.lasthandoff: 07/08/2017
 2. После появления командной строки `jdbc:hive2://localhost:10001/>` введите следующую команду, чтобы добавить определяемую пользователем функцию в Hive и предоставить ее как функцию.
 
     ```hiveql
-    ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
+    ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
 
     > [!NOTE]
-    > В этом примере предполагается, что служба хранилища Azure является хранилищем по умолчанию для кластера. Если же кластер использует Data Lake Store, измените значение `wasbs:///` на `adl:///`.
+    > В этом примере предполагается, что служба хранилища Azure является хранилищем по умолчанию для кластера. Если же кластер использует Data Lake Store, измените значение `wasb:///` на `adl:///`.
 
 3. Используйте определяемую пользователем функцию, чтобы преобразовать значения, полученные из таблицы, в строки нижнего регистра.
 

@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 07/31/2017
 ms.author: billmath
-ms.custom: pim ; H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: be32a7125807905f12699dba92b260d80ac2c4de
+ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 693785d5c9ae64275ae75721fe1f8f143dcd8c36
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/28/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Различные административные роли в Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 В Azure AD пользователям организации можно назначать различные административные роли. Назначения ролей регулируют, какие задачи (например, добавление или удаление пользователей или изменение параметров службы) смогут выполнять пользователи в Azure AD, Office 365 и других службах Microsoft Online Services и подключенных приложениях.  
+
+> [!IMPORTANT]
+> Для управления службой Azure AD мы рекомендуем использовать [Центр администрирования Azure AD](https://aad.portal.azure.com) на портале Azure, а не классический портал Azure, который упоминается в этой статье.
 
 Глобальный администратор может **на постоянной основе** назначить пользователям роли в Azure AD с помощью командлетов PowerShell, таких как `Add-MsolRoleMember` и `Remove-MsolRoleMember`, или с помощью классического портала, как описано в статье [Назначение ролей администратора в Azure Active Directory](active-directory-assign-admin-roles.md).
 

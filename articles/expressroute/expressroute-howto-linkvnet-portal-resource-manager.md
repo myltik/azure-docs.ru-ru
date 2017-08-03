@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 4d86910acca16299627c4202ef073c526bd4fc26
-ms.lasthandoff: 04/14/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 595c30ab5d9adc6061ad753d952adf894ba80b2f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Подключение виртуальной сети к каналу ExpressRoute
 > [!div class="op_single_selector"]
-> * [Resource Manager — портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager — PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Классическая модель: PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Интерфейс командной строки Azure](howto-linkvnet-cli.md)
 > * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [PowerShell (классическая модель)](expressroute-howto-linkvnet-classic.md)
 > 
->  
 
 В этой статье содержатся сведения о связывании виртуальных сетей с каналами Azure ExpressRoute с помощью модели развертывания Resource Manager и портала Azure. Виртуальные сети могут быть в той же или другой подписке.
 
@@ -113,24 +113,24 @@ ms.lasthandoff: 04/14/2017
 
 **Активация разрешения на подключение**
 
-1.    Нажмите кнопку **+Создать**.
+1.  Нажмите кнопку **+Создать**.
 
     ![Нажмите кнопку "Создать"](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 
-2.    Найдите элемент **Подключение** на сайте Marketplace, выберите его и щелкните **Создать**.
+2.  Найдите элемент **Подключение** на сайте Marketplace, выберите его и щелкните **Создать**.
 
     ![Поиск подключений](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 
-3.    Убедитесь, что выбран **тип подключения** ExpressRoute.
+3.  Убедитесь, что выбран **тип подключения** ExpressRoute.
 
 
-4.    Введите необходимые сведения и нажмите кнопку **ОК** в колонке "Основные".
+4.  Введите необходимые сведения и нажмите кнопку **ОК** в колонке "Основные".
 
     ![Колонка «Основные»](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 
-5.    В колонке **Параметры** выберите **Шлюз виртуальной сети** и установите флажок **Redeem authorization** (Активировать авторизацию).
+5.  В колонке **Параметры** выберите **Шлюз виртуальной сети** и установите флажок **Redeem authorization** (Активировать авторизацию).
 
-6.    Введите значения **Ключ авторизации** и **Peer circuit URI** (URI однорангового канала) и присвойте подключению имя. Нажмите кнопку **ОК**.
+6.  Введите значения **Ключ авторизации** и **Peer circuit URI** (URI однорангового канала) и присвойте подключению имя. Нажмите кнопку **ОК**.
 
     ![Колонка "Настройки"](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 
