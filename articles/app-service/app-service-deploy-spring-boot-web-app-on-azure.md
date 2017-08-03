@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 05/20/2017
 ms.author: asirveda;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: ec6982f41d1e04d737c0f47571c30d813a390ea7
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a071cd1933caafce1f176cd5c5c4f41a60c54357
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -35,7 +34,7 @@ ms.lasthandoff: 05/26/2017
 
 * Подписка Azure; если у вас еще нет подписки Azure, вы можете активировать [преимущества для подписчиков MSDN] или зарегистрироваться для получения [бесплатной учетной записи Azure].
 * Актуальная версия [Java Developer Kit (JDK)].
-* Средство сборки [Maven] Apache (версия 3).
+* Средство сборки [Maven] (версия 3) от Apache.
 * Клиент [Git].
 
 ## <a name="create-the-spring-boot-getting-started-web-app"></a>Создание веб-приложения Spring Boot Getting Started
@@ -197,9 +196,9 @@ ms.lasthandoff: 05/26/2017
 
 Дополнительные сведения об использовании приложений Spring Boot в Azure см. в следующих статьях:
 
-* [Запуск приложения Spring Boot в Linux в Службе контейнеров Azure](../container-service/container-service-deploy-spring-boot-app-on-linux.md)
+* [Запуск приложения Spring Boot в Linux в Службе контейнеров Azure](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
 
-* [Запуск приложения Spring Boot в кластере Kubernetes в Службе контейнеров Azure](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
+* [Запуск приложения Spring Boot в кластере Kubernetes в Службе контейнеров Azure](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 

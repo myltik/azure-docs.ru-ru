@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/27/2016
+ms.date: 07/26/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
-ms.openlocfilehash: 0db0af490f03525f4c23c4e9a23e62a1ef9f1c7f
-ms.lasthandoff: 01/26/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 2b627250df62bbe3299869ef3812947afbb8f29f
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="use-the-storsimple-manager-service-to-clone-a-volume-update-2"></a>Клонирование тома с помощью службы диспетчера StorSimple (обновление 2)
@@ -87,7 +87,7 @@ ms.lasthandoff: 01/26/2017
 > 
 > 
 
-Клон, созданный таким способом, является временным. Дополнительные сведения о типах клонов см. в разделе [Сравнение временных и постоянных клонов](#transient-vs.-permanent-clones).
+Клон, созданный таким способом, является временным. Дополнительные сведения о типах клонов см. в разделе [Сравнение временных и постоянных клонов](#transient-vs-permanent-clones).
 
 Клон становится обычным томом, с которым можно выполнять любые действия, доступные для клонов. Необходимо настроить созданный том для всех резервных копий.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: krnese
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 3e9321255b65d46af59d0ee478e214df795664ac
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: cdb88505427cdea05f594277170633183dbe6d3e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Развертывание службы Mobility Service с помощью Azure Automation DSC для репликации виртуальной машины
@@ -59,7 +59,7 @@ ms.lasthandoff: 07/14/2017
 * Компонент Windows Management Framework 5.0 (WMF) должен быть установлен на компьютерах, для которых необходимо включить защиту (требование для Automation DSC).
 
   > [!NOTE]
-  > Сведения об использовании DSC на компьютерах под управлением Windows с установленным компонентом WMF 4.0 см. в разделе [Использование DSC в отключенных средах](#Use DSC in disconnected environments).
+  > Сведения об использовании DSC на компьютерах под управлением Windows с установленным компонентом WMF 4.0 см. в разделе [Использование DSC в отключенных средах](## Use DSC in disconnected environments).
   >
   >
 

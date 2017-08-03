@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: dc501a1c7c0d6a1d70ce368f86a967f889394dc7
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 9a8f3156a62a1a7aa49377349e8a85454efeda50
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Перемещение данных из локальной системы HDFS с помощью фабрики данных Azure
@@ -184,7 +183,7 @@ ms.lasthandoff: 04/12/2017
 
 Сначала настройте шлюз управления данными. Инструкции приведены в статье [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md) .
 
-**Связанная служба HDFS.** В этом примере используется проверка подлинности Windows. Сведения о различных типах аутентификации, которые можно использовать, см. в разделе [Свойства связанной службы HDFS](#linked-service).
+**Связанная служба HDFS.** В этом примере используется проверка подлинности Windows. Сведения о различных типах аутентификации, которые можно использовать, см. в разделе [Свойства связанной службы HDFS](#linked-service-properties).
 
 ```JSON
 {
@@ -480,7 +479,7 @@ ms.lasthandoff: 04/12/2017
 
 **Настройка фабрики данных Azure**
 
-* Настройте соединитель HDFS для использования **аутентификации Windows**, указав учетную запись домена или имя субъекта-службы Kerberos для подключения к источнику данных HDFS. Проверьте сведения о конфигурации — [свойства связанной службы HDFS](#linked-service).
+* Настройте соединитель HDFS для использования **аутентификации Windows**, указав учетную запись домена или имя субъекта-службы Kerberos для подключения к источнику данных HDFS. Проверьте сведения о конфигурации — [свойства связанной службы HDFS](#linked-service-properties).
 
 > [!NOTE]
 > Сведения о сопоставлении столбцов в наборе данных, используемом в качестве источника, со столбцами в приемнике см. в [этой статье](data-factory-map-columns.md).

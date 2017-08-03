@@ -17,10 +17,10 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 1c2437c6eed641a929a7e25265bfc72dc76a9782
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bbd8a838062795ee03ae02dc5e3fd45d841a6e17
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Начало работы с примером Apache HBase в HDInsight
@@ -117,7 +117,7 @@ ms.lasthandoff: 07/18/2017
 
 HBase включает несколько методов загрузки данных в таблицы.  Для получения дополнительных сведений обратитесь к разделу [Массовая загрузка](http://hbase.apache.org/book.html#arch.bulk.load).
 
-Пример файла данных находится в общедоступном контейнере больших двоичных объектов *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Файл данных содержит:
+Пример файла данных находится в общедоступном контейнере больших двоичных объектов *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Файл данных содержит:
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -139,7 +139,7 @@ HBase включает несколько методов загрузки дан
 1. Из SSH выполните указанную ниже команду, чтобы преобразовать файл данных в StoreFiles и сохранить его по относительному пути, указанному в Dimporttsv.bulk.output.  Если вы используете оболочку HBase, выйдите из нее, выполнив команду exit.
 
     ```bash   
-    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
     ```
 
 2. Для передачи данных из /example/data/storeDataFileOutput в таблицу HBase выполните следующую команду:

@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/31/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 0fc176eca038801725492f905442ba4dd9d2fabe
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 453314d603fdc25cfc0e37622e5394fc148a11a6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/28/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Импорт и экспорт данных в кэше Redis для Azure
@@ -108,8 +107,8 @@ ms.lasthandoff: 03/28/2017
 * [Как работает импорт и экспорт в базах данных с пользовательскими настройками?](#how-does-importexport-work-with-a-custom-databases-setting)
 * [Чем отличается функция импорта/экспорта от сохраняемости Redis?](#how-is-importexport-different-from-redis-persistence)
 * [Можно ли автоматизировать функцию импорта/экспорта с помощью PowerShell, интерфейса командной строки или других клиентов управления?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
-* [Возникла ошибка времени ожидания во время операции импорта или экспорта. Что это означает?](#i-received-a-timeout-error-during-my-importexport-operation.-what-does-it-mean)
-* [При экспорте данных в хранилище BLOB-объектов Azure возникла ошибка. Что произошло?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage.-what-happened)
+* [Возникла ошибка времени ожидания во время операции импорта или экспорта. Что это означает?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
+* [При экспорте данных в хранилище BLOB-объектов Azure возникла ошибка. Что произошло?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 
 ### <a name="what-pricing-tiers-can-use-importexport"></a>В каких ценовых категориях можно функцию импорта/экспорта?
 Функция импорта/экспорта доступна только в ценовой категории "Премиум".

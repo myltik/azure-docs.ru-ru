@@ -15,22 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2017
 ms.author: ganesr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 5b0e774e9b6a75d26d0373a473fc577f45e8d82f
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8df8a4c6ff0897c821e13248e0494b17e1a4992d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Подключение виртуальной сети к каналу ExpressRoute с помощью PowerShell (классическая модель)
 > [!div class="op_single_selector"]
-> * [Resource Manager — портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager — PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Классическая модель: PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Портал Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Интерфейс командной строки Azure](howto-linkvnet-cli.md)
 > * [Видео — портал Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> 
-> 
+> * [PowerShell (классическая модель)](expressroute-howto-linkvnet-classic.md)
+>
 
 В этой статье содержатся сведения о связывании виртуальных сетей с каналами Azure ExpressRoute с помощью классической модели развертывания и PowerShell. Виртуальные сети могут быть в той же или другой подписке.
 

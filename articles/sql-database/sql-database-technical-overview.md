@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.date: 06/30/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 17b51afc0c67377dccdef63deacdcc67af8df576
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 54aa8c2f738ef92c211462498103d368e4cb4c5c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Функции службы базы данных SQL Azure 
@@ -98,7 +98,7 @@ ms.lasthandoff: 07/14/2017
 
 ### <a name="adaptive-query-processing"></a>Адаптивная обработка запросов
 
-Мы также добавили в базу данных SQL семейство функций [адаптивной обработки запросов](/sql/relational-databases/performance/adaptive-query-processing.md), включая чередующееся выполнение для функций с табличными значениями и несколькими инструкциями, обратную связь с выделением памяти в пакетном режиме и адаптивные соединения в пакетном режиме. Каждая из этих функций адаптивной обработки запросов применяет сходные методы "обучения и адаптации", чтобы устранить в дальнейшем проблемы производительности, связанные с традиционно трудноразрешимыми проблемами оптимизации запросов.
+Мы также добавили в базу данных SQL семейство функций [адаптивной обработки запросов](/sql/relational-databases/performance/adaptive-query-processing), включая чередующееся выполнение для функций с табличными значениями и несколькими инструкциями, обратную связь с выделением памяти в пакетном режиме и адаптивные соединения в пакетном режиме. Каждая из этих функций адаптивной обработки запросов применяет сходные методы "обучения и адаптации", чтобы устранить в дальнейшем проблемы производительности, связанные с традиционно трудноразрешимыми проблемами оптимизации запросов.
 
 ### <a name="intelligent-threat-detection"></a>Эффективная система обнаружения угроз
 
@@ -160,3 +160,4 @@ ms.lasthandoff: 07/14/2017
 - Примеры использования Azure CLI и PowerShell:
   - [Примеры Azure CLI для базы данных SQL Azure](sql-database-cli-samples.md)
   - [Примеры Azure PowerShell для базы данных SQL Azure](sql-database-powershell-samples.md)
+

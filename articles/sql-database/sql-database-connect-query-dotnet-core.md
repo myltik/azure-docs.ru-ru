@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 708c2d2f40138572c7e65938da6e863cab089cdf
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 046322624d3b89bb983acee863534256fee94b60
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Использование .NET Core (C#) для создания запросов к базе данных SQL Azure
@@ -151,7 +151,7 @@ namespace sqltest
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-- [Начало работы с .NET Core в Windows, Linux и Mac OS с помощью командной строки](/dotnet/core/tutorials/using-with-xplat-cli.md).
+- [Начало работы с .NET Core в Windows, Linux и Mac OS с помощью командной строки](/dotnet/core/tutorials/using-with-xplat-cli).
 - Узнайте, как [подключиться и отправить запрос к базе данных SQL Azure с помощью .NET Framework и Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
 - Узнайте, как спроектировать первую базу данных SQL с помощью [SSMS](sql-database-design-first-database.md) или [.NET](sql-database-design-first-database-csharp.md).
 - Дополнительные сведения о .NET см. в [этой документации](https://docs.microsoft.com/dotnet/).

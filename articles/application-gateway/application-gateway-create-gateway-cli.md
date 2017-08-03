@@ -13,14 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 14dab2197ff7c1eaff012066e321ef1b99f05bb3
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 7776942602e21cd0efc86fd471dc072564bb64a6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Создание шлюза приложений с помощью Azure CLI 2.0
@@ -58,9 +57,6 @@ ms.lasthandoff: 05/02/2017
 * как создать средний шлюз приложений с двумя экземплярами;
 * как создать виртуальную сеть AdatumAppGatewayVNET с зарезервированным блоком CIDR (10.0.0.0/16);
 * как создать подсеть с именем Appgatewaysubnet и блоком CIDR (10.0.0.0/28);
-* как настроить сертификат для разгрузки SSL.
-
-![Пример сценария][scenario]
 
 > [!NOTE]
 > Дополнительная настройка шлюза приложений, включая пользовательские пробы работоспособности, серверный пул адресов и дополнительные правила, осуществляется после настройки шлюза приложений, а не во время первоначального развертывания.
@@ -128,14 +124,12 @@ az network application-gateway create \
 --subnet Appgatewaysubnet \
 ---subnet-address-prefix 10.0.0.0/28 \
 --servers 10.0.0.4 10.0.0.5 \
---cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
---cert-password P@ssw0rd \
 --capacity 2 \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
 --public-ip-address AdatumAppGatewayPIP \
---frontend-port 443 \
+--frontend-port 80 \
 --routing-rule-type Basic \
 --http-settings-port 80
 
@@ -144,7 +138,7 @@ az network application-gateway create \
 > [!NOTE]
 > Чтобы вывести список параметров, которые можно указать во время создания, выполните следующую команду: **az network application-gateway create --help**.
 
-В этом примере создается базовый шлюз приложений с параметрами по умолчанию для прослушивателя, серверного пула, протокола HTTP серверной части и правил. Он также настраивает разгрузку SSL. Вы сможете изменить эти параметры в соответствии с развертыванием после успешного завершения подготовки.
+В этом примере создается базовый шлюз приложений с параметрами по умолчанию для прослушивателя, серверного пула, протокола HTTP серверной части и правил. Вы сможете изменить эти параметры в соответствии с развертыванием после успешного завершения подготовки.
 Если на предыдущем шаге вы уже определили для веб-приложения внутренний пул, то после создания шлюза запускается балансировка нагрузки.
 
 ## <a name="delete-all-resources"></a>Удаление всех ресурсов

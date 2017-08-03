@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ad0e96a91d6d502897953a4c841cbfa40a4852a3
-ms.openlocfilehash: 20b5144cafebc83eb00d191292b34ea550273914
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: e5f3fc57292102afb8f0ffb1f851953e97d7478a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Устранение неполадок при развертывании виртуальных машин Windows в Azure
@@ -129,7 +128,7 @@ productPesIds="1234, 5678"
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>Можно ли добавить существующую классическую виртуальную машину в группу доступности?
 
-Да. Существующую классическую виртуальную машину можно добавить в новую или существующую группу доступности. Дополнительные сведения см. в разделе [Добавление существующей виртуальной машины к группе доступности](classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+Да. Существующую классическую виртуальную машину можно добавить в новую или существующую группу доступности. Дополнительные сведения см. в разделе [Добавление существующей виртуальной машины к группе доступности](classic/configure-availability.md#addmachine).
 
 
 ## <a name="next-steps"></a>Дальнейшие действия

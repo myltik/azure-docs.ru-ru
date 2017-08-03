@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: glenga, donnam
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 0de18c51914409df0bb690c2a4e3d8bf429cce66
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: fab2b3042faf870fe4b9d09d5e96dadb7155c450
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Инструменты Функций Azure для Visual Studio  
@@ -117,7 +117,9 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="testing-functions"></a>Функции тестирования
 
-[!INCLUDE [Test the function locally](../../includes/functions-vstools-test.md)]
+Основные инструменты службы Функции Azure позволяют запускать проекты функций Azure на локальном компьютере разработчика. Вам будет предложено установить эти инструменты при первом запуске функции из Visual Studio.  
+
+Чтобы проверить работу функции, нажмите клавишу F5. Если будет предложено, примите запрос от Visual Studio на скачивание и установку основных инструментов службы Функции Azure (CLI).  Кроме того, вам может понадобиться включить исключение брандмауэра, чтобы инструменты могли обрабатывать HTTP-запросы.
 
 Когда проект запущен, можно протестировать код, как тестируется развернутая функция. Дополнительные сведения см. в статье [Методика тестирования кода с помощью Функций Azure](functions-test-a-function.md). При работе в режиме отладки точки останова срабатывают в Visual Studio должным образом. 
 
