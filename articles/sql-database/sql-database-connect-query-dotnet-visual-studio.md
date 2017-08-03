@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c7d54f8355803933e0d581470804ee98a0172937
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 105dab17823a7e7f6957a604833f4ecad35c14bd
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Использование .NET (C#) с Visual Studio для подключения и создания запросов к базе данных SQL Azure
@@ -74,7 +74,6 @@ ms.lasthandoff: 07/12/2017
 8. Если откроется окно **Прием условий лицензионного соглашения**, щелкните **Я принимаю**.
 
 ## <a name="insert-code-to-query-sql-database"></a>Вставка кода для отправки запроса к базе данных SQL
-
 1. Перейдите к (или откройте при необходимости) **Program.cs**.
 
 2. Замените содержимое **Program.cs** следующим кодом и добавьте соответствующие значения для сервера, базы данных, пользователя и пароля.
@@ -141,7 +140,7 @@ namespace sqltest
 ## <a name="next-steps"></a>Дальнейшие действия
 
 - Узнайте, как [подключиться и отправить запрос к базе данных SQL Azure с помощью .NET Core](sql-database-connect-query-dotnet-core.md) в Windows, Linux и Mac OS.  
-- См. дополнительные сведения о [начале работы с .NET Core в Windows, Linux и Mac OS с помощью командной строки](/dotnet/core/tutorials/using-with-xplat-cli.md).
+- См. дополнительные сведения о [начале работы с .NET Core в Windows, Linux и Mac OS с помощью командной строки](/dotnet/core/tutorials/using-with-xplat-cli).
 - Узнайте, как спроектировать первую базу данных SQL с помощью [SSMS](sql-database-design-first-database.md) или [.NET](sql-database-design-first-database-csharp.md).
 - Дополнительные сведения о .NET см. в [этой документации](https://docs.microsoft.com/dotnet/).
 

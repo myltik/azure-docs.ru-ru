@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/09/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: f637b8617c4a9ed3be1eb0932a94b0ffcc7c8f7e
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 70f94a07b0102e3135eaf85e5877e3502762d7e3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-store-using-net-sdk"></a>Начало работы с хранилищем озера данных Azure с помощью пакета SDK .NET
@@ -35,7 +34,7 @@ ms.lasthandoff: 06/07/2017
 >
 >
 
-Узнайте, как с помощью [пакета SDK .NET для Azure Data Lake Store](https://msdn.microsoft.com/library/mt581387.aspx) выполнять базовые операции, такие как создание папок, отправка и скачивание файлов данных и т. д. Дополнительные сведения об Azure Data Lake Store см. в [этой статье](data-lake-store-overview.md).
+Узнайте, как с помощью [пакета SDK .NET для Azure Data Lake Store](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet) выполнять базовые операции, такие как создание папок, отправка и скачивание файлов данных и т. д. Дополнительные сведения об Azure Data Lake Store см. в [этой статье](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Предварительные требования
 * **Visual Studio 2013, 2015 или 2017**. Для выполнения инструкций ниже использовалась Visual Studio 2015 с обновлением 2.

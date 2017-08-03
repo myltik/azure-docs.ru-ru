@@ -12,10 +12,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/07/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 3cd090b02887857a68271f021e3580e05660d1dc
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>База данных Azure для PostgreSQL: подключение и запрос данных с помощью Python
@@ -50,7 +50,7 @@ pip install psycopg2
 
 ## <a name="how-to-run-python-code"></a>Как выполнять код Python
 - С помощью предпочитаемого текстового редактора создайте файл с именем postgres.py и сохраните его в папку проекта. Скопируйте и вставьте пример кода, показанный ниже, в текстовый файл и сохраните его. При сохранении файла в ОС Windows выберите кодировку UTF-8. 
-- Чтобы выполнить код, запустите командную строку или оболочку Bash. Перейдите в папку проекта, например `cd postgresql`. Затем введите команду python, за которой следует имя файла, например `python postgresql.py`.
+- Чтобы выполнить код, запустите командную строку или оболочку Bash. Перейдите в папку проекта, например `cd postgresql`. Затем введите команду python, за которой следует имя файла, например `python postgres.py`.
 
 > [!NOTE]
 > Начиная с Python версии 3, при выполнении блоков кода ниже может появиться ошибка `SyntaxError: Missing parentheses in call to 'print'`. Если это произойдет, замените каждый вызов к команде `print "string"` вызовом функции, используя скобки, например `print("string")`.
