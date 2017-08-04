@@ -110,7 +110,7 @@ XML-файл события содержит метаданные, как пок
     $xmlconfig | Out-File -Encoding utf8 -FilePath "d:\WADConfig.xml"
 
 ### <a name="modify-the-wad-config"></a>Изменение конфигурации WAD
-В следующем примере показана конфигурация, в которой из журнала событий безопасности собираются только идентификаторы EventID 4624 и EventId 4625. События антивредоносного ПО Майкрософт собираются из журнала системных событий. Сведения об использовании выражений XPath см. в статье [Consuming Events] (Использование событий) (https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85).
+В следующем примере показана конфигурация, в которой из журнала событий безопасности собираются только идентификаторы EventID 4624 и EventId 4625. События антивредоносного ПО Майкрософт собираются из журнала системных событий. Сведения об использовании выражений XPath см. в статье [Использование событий] (https://msdn.microsoft.com/library/windows/desktop/dd996910(v=vs.85).
 
     <WindowsEventLog scheduledTransferPeriod="PT1M">
         <DataSource name="Security!*[System[(EventID=4624 or EventID=4625)]]" />
