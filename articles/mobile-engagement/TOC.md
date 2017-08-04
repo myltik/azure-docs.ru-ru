@@ -130,6 +130,7 @@
 ## [Пример API для .NET](mobile-engagement-dotnet-sdk-service-api.md)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Цены](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Примеры демонстрационных приложений](mobile-engagement-demo-apps.md)
 ## [Соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 ## [Видео и обновления](https://azure.microsoft.com/documentation/services/mobile-engagement/)
