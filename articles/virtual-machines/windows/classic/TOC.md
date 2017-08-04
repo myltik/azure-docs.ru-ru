@@ -98,6 +98,7 @@
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Цены](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Доступность по регионам](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
