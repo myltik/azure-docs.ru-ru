@@ -93,6 +93,7 @@
 ### [Устранение неполадок в работе шлюза управления данными](data-factory-troubleshoot-gateway-issues.md)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)
 ## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
@@ -104,6 +105,7 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Цены](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Заметки о выпуске шлюза управления данными](data-factory-gateway-release-notes.md)
 ## [Запрос функции](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=data-factory)

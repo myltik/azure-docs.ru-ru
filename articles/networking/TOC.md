@@ -64,6 +64,7 @@
 ## [Шаблоны, созданные сообществом](https://azure.microsoft.com/resources/templates/)
 ## [Блог о сетях](http://azure.microsoft.com/blog/topics/networking)
 ## [Цены](https://azure.microsoft.com/pricing)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Доступность по регионам](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)

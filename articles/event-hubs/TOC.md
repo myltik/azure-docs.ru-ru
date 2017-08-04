@@ -42,6 +42,7 @@
 ### [Создание и развертывание концентратора событий c помощью шаблона Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
@@ -60,6 +61,7 @@
 ## [Примеры кода](event-hubs-samples.md)
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [Цены](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)

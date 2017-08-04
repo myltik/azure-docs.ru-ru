@@ -112,5 +112,6 @@
 # Ресурсы
 ## [Регионы Azure](https://azure.microsoft.com/regions/)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Примеры](https://azure.microsoft.com/resources/samples/)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/home/)

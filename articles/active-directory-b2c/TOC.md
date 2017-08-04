@@ -74,6 +74,7 @@
 ### [Заметки о выпуске](active-directory-b2c-developer-notes-custom.md)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Глоссарий
 ### [Типы приложений](active-directory-b2c-apps.md)
 ### [Протоколы аутентификации](active-directory-b2c-reference-protocols.md)
@@ -92,6 +93,7 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Часто задаваемые вопросы](active-directory-b2c-faqs.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Поддержка](active-directory-b2c-support.md)

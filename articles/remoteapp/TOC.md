@@ -71,5 +71,6 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Форум](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
 ## [Цены](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=remoteapp)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)

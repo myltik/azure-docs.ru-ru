@@ -47,6 +47,9 @@
 ### [Включение интерфейса предварительной версии портала Azure](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Устранение ошибок несоответствия клиента](active-directory-ds-mismatched-tenant-error.md)
 
+# Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Сопутствующие материалы
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -57,4 +60,5 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Свяжитесь с нами](active-directory-ds-contact-us.md)
 ## [Цены](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=active-directory-ds)

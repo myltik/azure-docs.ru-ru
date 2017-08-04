@@ -26,6 +26,7 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [Цены](https://azure.microsoft.com/pricing/details/biztalk-services/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Заметки о выпуске](biztalk-release-notes.md)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)

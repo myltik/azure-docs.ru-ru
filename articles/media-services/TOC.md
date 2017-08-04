@@ -215,6 +215,7 @@
 ### [Логика повтора](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (управление службами)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
@@ -224,5 +225,6 @@
 ## [Сообщество служб мультимедиа Azure](media-services-community.md)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Цены](https://azure.microsoft.com/pricing/details/media-services/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Заметки о выпуске](media-services-release-notes.md)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=media-services)

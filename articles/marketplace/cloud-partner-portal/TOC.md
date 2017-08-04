@@ -34,3 +34,4 @@
 ## [Получение поддержки](./cloud-partner-portal-support-for-cloud-partner-portal.md)
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

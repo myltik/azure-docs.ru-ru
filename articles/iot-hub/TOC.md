@@ -17,6 +17,7 @@
 ### [Использование физического устройства](iot-hub-get-started-physical.md)
 #### [Приступая к работе с Raspberry Pi 3 (Node.JS)](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Подключение устройства Raspberry Pi 3 к Центру Интернета вещей с помощью C](iot-hub-raspberry-pi-kit-c-get-started.md)
+#### [Raspberry Pi с Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 
 #### [Подключение устройства Intel Edison к Центру Интернета вещей с помощью Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Подключение устройства Intel Edison к Центру Интернета вещей с помощью C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -84,6 +85,7 @@
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-twin-getstarted.md)
 #### [Серверная часть и устройство .NET](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java: серверный компонент и устройство](iot-hub-java-java-twin-getstarted.md)
 ### Использование прямых методов
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-direct-methods.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-direct-methods.md)
@@ -103,6 +105,7 @@
 ### Планирование и трансляция заданий
 #### [Серверная часть Node.js и устройство Node.js](iot-hub-node-node-schedule-jobs.md)
 #### [Серверная часть .NET и устройство Node.js](iot-hub-csharp-node-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Управление
 ### Создание центра IoT 
 #### [Использование портала](iot-hub-create-through-portal.md)
@@ -150,6 +153,7 @@
 #### [Узел собственного модуля](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Интерфейс командной строки Azure](/cli/azure/iot)
 ## [.NET (служба)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (устройства)](/dotnet/api/microsoft.azure.devices.client)
@@ -180,6 +184,7 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Цены](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Технические примеры использования](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

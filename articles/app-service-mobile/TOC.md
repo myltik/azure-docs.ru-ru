@@ -222,6 +222,7 @@
 ## [Список ресурсов веб-задания](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Форум MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 ## [Цены](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)

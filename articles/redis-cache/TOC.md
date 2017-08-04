@@ -45,8 +45,11 @@
 ## Масштаб
 ###[Обновление до другого размера и уровня](cache-how-to-scale.md)
 ###[Использование кластера Redis для свертывания и развертывания](cache-how-to-premium-clustering.md)
+## Интеграция со Spring Boot
+###[Использование приложения Spring Boot Initializer с кэшем Redis](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Предварительная версия Azure CLI 2.0](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)

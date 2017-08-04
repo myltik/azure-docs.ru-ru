@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-arm-cli.md)
 #### [Шаблон](virtual-networks-create-vnet-arm-template-click.md)
-#### Классический
-##### [Портал](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-classic-cli.md)
 
 ### Группы безопасности сети
 #### [Портал](virtual-networks-create-nsg-arm-pportal.md)
@@ -99,6 +95,12 @@
 ##### [Сеть периметра с брандмауэром, определяемым пользователем маршрутом и группами безопасности сети](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Пример приложения](virtual-networks-sample-app.md)
 
+### Классический
+#### [Виртуальная сеть](create-virtual-network-classic.md)
+##### [Портал](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-networks-create-vnet-classic-cli.md)
+
 ## Настройка
 ### Виртуальные машины
 #### [Добавление и удаление сетевых интерфейсов](virtual-network-network-interface-vm.md)
@@ -140,6 +142,7 @@
 ### [Не удается удалить виртуальные сети](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [PowerShell (классическая модель)](/powershell/module/azure/)
 ## [Интерфейс командной строки Azure](/cli/azure/network)
@@ -162,4 +165,5 @@
 ## [Блог о сетях](http://azure.microsoft.com/blog/topics/networking)
 ## [Форум по сетям](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Цены](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

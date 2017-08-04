@@ -39,6 +39,8 @@
       href: functions-create-serverless-api.md
 - name: Примеры
   items:
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
     - name: Инфраструктура CLI Azure
       href: functions-cli-samples.md
 - name: Основные понятия
@@ -133,6 +135,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Цены
       href: 'https://azure.microsoft.com/pricing/details/functions/'
+    - name: Калькулятор цен
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Доступ по регионам
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Форум MSDN

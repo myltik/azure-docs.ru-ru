@@ -4,10 +4,10 @@ hide_bc: true
 title: "Документация по Microsoft Azure"
 description: "Узнайте, как создавать мощные приложения и управлять ими с помощью облачных служб Microsoft Azure. Вы можете получить документацию, примеры кода, учебники и многое другое."
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 7a642506b97fcf4d3426b9205f4b5e420b0bec59
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 745c7bdc2898d20ac361f4d0fb92b4c1313a89f1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 <div id="main" class="v2">
@@ -105,35 +105,27 @@ ms.lasthandoff: 07/26/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Разработка приложений</h3>
-                                                <div class="ico48Link">
-                                                    <a href="/dotnet/azure/?view=azure-dotnet">
-                                                        <img src="media/index/logo_NET.svg" alt="">
-                                                        <span>.NET</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">
-                                                        <img src="media/index/logo_nodejs.svg" alt="">
-                                                        <span>Node.js</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-php">
-                                                        <img src="media/index/logo_PHP.svg" alt="">
-                                                        <span>PHP</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/java/azure/">
-                                                        <img src="media/index/logo_java.svg" alt="">
-                                                        <span>Java</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/python/azure/">
-                                                        <img src="media/index/logo_python.svg" alt="">
-                                                        <span>Python</span>
-                                                    </a>
+                                                <div class="cols cols2">
+                                                    <div>
+                                                        <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
+                                                            <img src="media/index/logo_NET.svg" alt=""> .NET</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/python/azure/">
+                                                            <img src="media/index/logo_python.svg" alt=""> Python</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/java/azure/">
+                                                            <img src="media/index/logo_java.svg" alt=""> Java</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
+                                                            <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
+                                                            <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
+                                                    </div>
                                                 </div>
                                                 <div>
                                                     <h4>Модели приложения</h4>
@@ -141,7 +133,7 @@ ms.lasthandoff: 07/26/2017
                                                         <li><a class="barLink" href="/azure/app-service-web/">Веб-приложения</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Бессерверные функции</a></li>
                                                         <li><a class="barLink" href="/azure/container-instances/">Экземпляры контейнеров</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Оркестрация контейнеров с помощью Kubernetes</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Контейнеры в Kubernetes</a></li>
                                                         <li><a class="barLink" href="/azure/service-fabric/">Микрослужбы в Service Fabric</a></li>
                                                     </ul>
                                                 </div>
@@ -182,17 +174,15 @@ ms.lasthandoff: 07/26/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Программы командной строки</h3>
-                                                <div class="ico48Link">
-                                                    <a href="/cli/azure/overview">
-                                                        <img src="media/index/azure_dev-7.svg" alt="">
-                                                        <span>Azure<br />CLI</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/powershell/azure/overview">
-                                                        <img src="media/index/azure_dev-8.svg" alt="">
-                                                        <span>Azure<br />PowerShell</span>
-                                                    </a>
+                                                <div class="cols">
+                                                    <div>
+                                                        <a class="barLink" href="/cli/azure/overview">
+                                                            <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/powershell/azure/overview">
+                                                            <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -205,17 +195,15 @@ ms.lasthandoff: 07/26/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Разработка и операции</h3>
-                                                <div class="ico48Link">
-                                                    <a href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
-                                                        <img src="/media/logos/logo_visual-studio.svg" alt="">
-                                                        <span>Visual Studio<br />Team Services</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
-                                                        <img src="/media/logos/logo_jenkins.svg" alt="">
-                                                        <span>Jenkins в<br />виртуальных машинах Azure</span>
-                                                    </a>
+                                                <div class="cols">
+                                                    <div>
+                                                        <a class="barLink" href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_visual-studio.svg" alt=""> Visual Studio Team Services</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt=""> Jenkins на виртуальных машинах Azure</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

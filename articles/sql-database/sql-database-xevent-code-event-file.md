@@ -269,7 +269,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 
 ### <a name="transact-sql-code"></a>Код Transact-SQL
 
-```tsql
+```sql
 ---- TODO: First, run the PowerShell portion of this two-part code sample.
 ---- TODO: Second, find every 'TODO' in this Transact-SQL file, and edit each.
 
@@ -465,7 +465,7 @@ GO
 
 Если при выполнении сценария целевой объект не подхватывается, остановите и перезапустите сеанс события:
 
-```tsql
+```sql
 ALTER EVENT SESSION ... STATE = STOP;
 GO
 ALTER EVENT SESSION ... STATE = START;

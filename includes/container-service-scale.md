@@ -32,7 +32,7 @@ az acs show -g myResourceGroup -n containerservice-myACSName
 Например, чтобы для кластера из предыдущего примера установить значение 10 в качестве количества агентов, введите следующую команду:
 
 ```azurecli
-azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
 Azure CLI 2.0 возвращает строку JSON, представляющую новую конфигурацию службы контейнеров, включая измененное количество агентов.

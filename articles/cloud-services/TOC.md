@@ -107,6 +107,7 @@
 #### [Часто задаваемые вопросы о развертывании](cloud-services-deployment-faq.md)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
 ## [Схема XML в CSDEF-файле](https://msdn.microsoft.com/library/azure/ee758711)
 ## [Схема XML в CSCFG-файле](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
@@ -116,5 +117,6 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Цены](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

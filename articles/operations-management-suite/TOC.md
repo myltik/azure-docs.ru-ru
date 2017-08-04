@@ -29,6 +29,7 @@
 ### [Оценка вредоносных программ](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Оценка системных обновлений](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Подключение средств обеспечения безопасности](oms-security-connect-products.md)
+### [Оценка базовых показателей в Интернете](oms-security-web-baseline-assessment.md)
 
 ## Использование решений
 ### [Решения для управления](operations-management-suite-solutions.md)
@@ -77,3 +78,4 @@
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

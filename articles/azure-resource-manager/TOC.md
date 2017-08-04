@@ -7,10 +7,11 @@
 
 # Начало работы
 ## [Экспорт шаблона](resource-manager-export-template.md)
-## [Создание первого шаблона](resource-manager-create-first-template.md)
+## [Создание и развертывание шаблона](resource-manager-create-first-template.md)
 ## [Использование Visual Studio с Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Примеры
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Развертывание шаблона](resource-manager-samples-powershell-deploy.md)
 
@@ -102,6 +103,7 @@
 ### [Функции массива и объекта](resource-group-template-functions-array.md)
 ### [Функция сравнения](resource-group-template-functions-comparison.md)
 ### [Функции развертывания](resource-group-template-functions-deployment.md)
+### [Логические функции](resource-group-template-functions-logical.md)
 ### [Числовые функции](resource-group-template-functions-numeric.md)
 ### [Функции для работы с ресурсами](resource-group-template-functions-resource.md)
 ### [Строковые функции](resource-group-template-functions-string.md)
@@ -129,6 +131,7 @@
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Запросы на регулирование](resource-manager-request-limits.md)

@@ -5,5 +5,6 @@
 ## [Настройка оповещений для службы работоспособности служб](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 # Ресурсы
 ## [Часто задаваемые вопросы](resource-health-faq.md)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Типы ресурсов и проверок работоспособности, доступные в службе работоспособности ресурсов Azure](resource-health-checks-resource-types.md)
 

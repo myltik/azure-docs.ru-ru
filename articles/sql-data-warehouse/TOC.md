@@ -82,18 +82,22 @@
 
 ## загрузить
 
-### [Обзор](sql-data-warehouse-overview-load.md)
-### [Пример данных](sql-data-warehouse-load-sample-databases.md)
-### [Хранилище озера данных Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
-### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [Фабрика данных](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase;](sql-data-warehouse-get-started-load-with-polybase.md)
-### [Руководство по PolyBase](sql-data-warehouse-load-polybase-guide.md)
-### [PolyBase из хранилища BLOB-объектов](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase из SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [Redgate](sql-data-warehouse-load-with-redgate.md)
-### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### Основные понятия
+#### [Обзор](sql-data-warehouse-overview-load.md)
+#### [Руководство по PolyBase](sql-data-warehouse-load-polybase-guide.md)
+
+### Учебники
+#### [PolyBase;](sql-data-warehouse-get-started-load-with-polybase.md)
+
+### Практические руководства
+#### [Пример данных](sql-data-warehouse-load-sample-databases.md)
+#### [Хранилище озера данных Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
+#### [BCP](sql-data-warehouse-load-with-bcp.md)
+#### [Фабрика данных](sql-data-warehouse-load-with-data-factory.md)
+#### [PolyBase из хранилища BLOB-объектов](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+#### [PolyBase из SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+#### [Redgate](sql-data-warehouse-load-with-redgate.md)
+#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
 ## Миграция
 
@@ -144,6 +148,7 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Форум](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
 ## [Цены](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
