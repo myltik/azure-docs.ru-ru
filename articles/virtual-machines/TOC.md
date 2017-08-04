@@ -5,3 +5,4 @@
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=compute)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

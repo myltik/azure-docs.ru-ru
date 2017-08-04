@@ -24,10 +24,6 @@
 # Практическое руководство
 ## планирование и разработка
 ### [Основы архитектуры Azure AD](active-directory-architecture.md)
-### [Рекомендуемые конфигурации и политики безопасности](secure-email-introduction.md)
-#### [Рекомендуемые политики защиты электронной почты](secure-email-recommended-policies.md)
-##### [Развертывание рекомендуемых политик защиты электронной почты](secure-email-deploy-recommended-policies.md)
-#### [Общие сведения о службах EMS и Office 365](secure-email-ems-office365-service-descriptions.md)
 ### [Развертывание решения для гибридной идентификации](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Сопоставление утверждений в Azure Active Directory](active-directory-claims-mapping.md)
 #### Определение требований
@@ -167,7 +163,6 @@
 ## Управление приложениями
 ### [Обзор](active-directory-enable-sso-scenario.md)
 ### [Приступая к работе](active-directory-integrating-applications-getting-started.md)
-
 ### [Обнаружение облачных приложений](active-directory-cloudappdiscovery-whatis.md)
 #### [Обновление параметров реестра](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Общие сведения о безопасности и конфиденциальности](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -178,7 +173,7 @@
 ##### [Использование прокси приложения](active-directory-application-proxy-enable.md)
 ##### [Публикация приложений](application-proxy-publish-azure-portal.md)
 ##### [Пользовательские домены](active-directory-application-proxy-custom-domains.md)
-#### [Доступ с единым входом](active-directory-appssoaccess-whatis.md)
+#### [Единый вход](application-proxy-sso-overview.md)
 ##### [Единый вход с применением ограниченного делегирования Kerberos](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Единый вход с применением заголовков](application-proxy-ping-access.md)
 ##### [Единый вход с хранением паролей](application-proxy-sso-azure-portal.md)
@@ -219,6 +214,7 @@
 
 ### [Управление доступом к приложениям](active-directory-managing-access-to-apps.md)
 #### [Самостоятельный доступ к приложениям](active-directory-self-service-application-access.md)
+#### [Доступ с единым входом](active-directory-appssoaccess-whatis.md)
 #### [Сертификаты для единого входа](active-directory-sso-certs.md)
 #### [Ограничения клиента](active-directory-tenant-restrictions.md)
 #### [Использование SCIM подготовки пользователей](active-directory-scim-provisioning.md)
@@ -370,6 +366,7 @@
 
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Командлеты PowerShell](/powershell/azure/overview)
 ## [Справочник по API Java](/java/api)
 ## [API .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
@@ -387,6 +384,7 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [Цены](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

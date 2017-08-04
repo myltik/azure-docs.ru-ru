@@ -140,5 +140,6 @@
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)

@@ -30,3 +30,4 @@
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Цены](https://azure.microsoft.com/pricing/details/time-series-insights/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

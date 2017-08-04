@@ -179,6 +179,7 @@
 #### [Архивация манифестов диска](storage-import-export-backing-up-drive-manifests.md)
 #### [Диагностика и восстановление после ошибок для заданий импорта и экспорта](storage-import-export-diagnostics-and-error-recovery.md)
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Интерфейс командной строки Azure](/cli/azure/storage)
 ## .NET
@@ -210,6 +211,7 @@
 ## [Клиентские инструменты службы хранилища Azure](storage-explorers.md)
 ## [Форум](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Цены](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=storage)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -218,6 +220,7 @@
 ### [Обозреватель хранилищ (предварительная версия)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Управление большими двоичными объектами с помощью обозревателя хранилищ (предварительная версия)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Использование обозревателя хранилищ (предварительная версия) с хранилищем файлов Azure](../vs-azure-tools-storage-explorer-files.md)
+### [Заметки о выпуске обозревателя хранилищ (предварительная версия)](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## Пакеты NuGet
 ### [Клиентская библиотека хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

@@ -8,6 +8,7 @@
 ## [Несколько сайтов](application-gateway-multi-site-overview.md)
 ## [Сквозное шифрование SSL](application-gateway-backend-ssl.md)
 ## [Перенаправление](application-gateway-redirect-overview.md)
+## [Поддержка мультитенантного режима](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Ограничения служб](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Начало работы
@@ -16,7 +17,8 @@
 #### [Портал](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Шаблон Resource Manager](application-gateway-create-gateway-arm-template.md)
-#### [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
+#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
+#### [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 #### [PowerShell (классическая модель)](application-gateway-create-gateway.md)
 ### Для Интернета
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -40,6 +42,8 @@
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Настройка перенаправления
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## Настройка веб-приложений в качестве элементов серверного пула
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## Настройка проб работоспособности
 ### [Портал](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
@@ -70,6 +74,7 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Цены](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

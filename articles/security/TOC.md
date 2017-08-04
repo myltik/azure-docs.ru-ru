@@ -3,6 +3,7 @@
 ## [Безопасность базы данных](azure-database-security-overview.md)
 ## [Защита службы хранилища](security-storage-overview.md)
 ## [Защита вычислений](security-virtual-machines-overview.md)
+## [Операционная безопасность](azure-operational-security-overview.md)
 ## [Управление безопасностью и мониторинг](security-management-and-monitoring-overview.md)
 ## [Управление удостоверениями](security-identity-management-overview.md)
 ## [Безопасность Интернета вещей](../iot-suite/iot-security-architecture.md#security-in-iot)
@@ -35,6 +36,8 @@
 ### [Рекомендации для рабочих нагрузок IaaS](azure-security-iaas.md)
 ### [Антивредоносная программа (Майкрософт)](azure-security-antimalware.md)
 ### [Шифрование дисков для виртуальных машин IaaS](azure-security-disk-encryption.md)
+#### [Часто задаваемые вопросы о шифровании дисков](azure-security-disk-encryption-faq.md)
+#### [Устранение неполадок с шифрованием дисков](azure-security-disk-encryption-tsg.md)
 ### [Шифрование виртуальной машины Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Управление безопасностью и мониторинг
@@ -53,8 +56,10 @@
 ## Службы PaaS
 ### [Защита развернутых приложений PaaS](security-paas-deployments.md)
 #### [Защита мобильных приложений и веб-приложений PaaS с помощью SQL](security-paas-applications-using-sql.md)
-#### [Рекомендации по базам данных SQL](azure-database-security-best-practices.md)
+#### [Рекомендации по обеспечению безопасности базы данных SQL](azure-database-security-best-practices.md)
+#### [Контрольный список безопасности базы данных SQL](azure-database-security-checklist.md)
 #### [Защита мобильных приложений и веб-приложений PaaS с помощью служб приложений](security-paas-applications-using-app-services.md)
+####[Контрольный список операционной безопасности](azure-operational-security-checklist.md)
 
 ## Интернет вещей
 ### [Защита развертывания Интернета вещей](../iot-suite/iot-suite-security-deployment.md)
@@ -79,6 +84,7 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Программа специалистов MVP по вопросам обеспечения безопасности в Azure](azure-security-mvp.md)
 ## [Консультация по кибербезопасности](azure-security-cyber-services.md)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Блог по безопасности и соответствию требованиям](http://blogs.msdn.com/b/azuresecurity/)
 ## [Курсы по безопасности от виртуальной академии](security-microsoft-virtual-academy.md)
 ## [Видеоматериалы по безопасности на Channel 9](security-channel-nine.md)

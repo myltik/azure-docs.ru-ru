@@ -15,3 +15,4 @@
 ### [Часто задаваемые вопросы](microsoft-authenticator-app-faq.md)
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

@@ -22,3 +22,5 @@
 # Ресурсы
 ## [Видео о Помощнике по Azure](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
+

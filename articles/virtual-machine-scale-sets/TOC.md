@@ -53,7 +53,8 @@
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=compute)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 ## Цены 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

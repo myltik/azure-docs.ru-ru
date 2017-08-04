@@ -101,3 +101,4 @@
 ## [Дальнейшие действия](azure-operations-guide.md#next-steps)
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

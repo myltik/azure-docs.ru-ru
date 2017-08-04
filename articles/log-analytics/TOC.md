@@ -31,12 +31,22 @@
 #### [Журналы IIS](log-analytics-data-sources-iis-logs.md)
 #### [Пользовательские журналы](log-analytics-data-sources-custom-logs.md)
 #### [Настраиваемые поля](log-analytics-custom-fields.md)
+
 ## Запрос данных
 ### [Обзор поиска по журналу](log-analytics-log-searches.md)
 ### [Справочник по поиску](log-analytics-search-reference.md)
 #### [Регулярные выражения](log-analytics-log-searches-regex.md)
 ### [Выполнение действий на основе результатов поиска](log-analytics-log-search-takeaction.md)
 ### [Группы компьютеров](log-analytics-computer-groups.md)
+
+## Новый поиск по журналам
+### [Обновление рабочей области](log-analytics-log-search-upgrade.md)
+### [Часто задаваемые вопросы](log-analytics-log-search-faq.md)
+### [Обзор поиска по журналу](log-analytics-log-search-new.md)
+### [Порталы поиска по журналам](log-analytics-log-search-portals.md)
+#### [Использование портала поиска по журналам](log-analytics-log-search-log-search-portal.md)
+### [Переход от устаревшего языка](log-analytics-log-search-transition.md)
+
 ## Анализ данных
 ### [Панели мониторинга](log-analytics-dashboards.md)
 ### [Конструктор представлений](log-analytics-view-designer.md)
@@ -101,5 +111,6 @@
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Цены](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Аналитика Windows](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

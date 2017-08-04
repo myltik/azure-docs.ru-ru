@@ -42,6 +42,7 @@
 ## Настройка
 ### Таблицы Azure
 #### [Профилировщик](app-insights-profiler.md)
+#### [Включение профилировщика](enable-profiler-cloud-services.md)
 #### [Диагностика](app-insights-azure-diagnostics.md)
 #### [Предварительные версии](app-insights-previews.md)
 
@@ -140,7 +141,7 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Справочные материалы
-## [Аналитика в Application Insights](app-insights-analytics-reference.md)
+## [Аналитика в Application Insights](https://docs.loganalytics.io/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -154,6 +155,7 @@
 ### [Метрика](application-insights-data-model-metric-telemetry.md)
 ### [Контекст](application-insights-data-model-context.md)
 ## [Корреляция данных телеметрии](application-insights-correlation.md)
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
@@ -161,6 +163,7 @@
 ## [Языки и платформы](app-insights-platforms.md)
 
 ## [Цены](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 
 ## Новости
 

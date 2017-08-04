@@ -2,9 +2,9 @@
 # Обзор
 ## [Что такое служба архивации Azure?](backup-introduction-to-azure-backup.md)
 
-# Приступая к работе
+# Начало работы
 ## [Резервное копирование виртуальных машин Azure](backup-azure-vms-first-look-arm.md)
-## [Резервное копирование файлов и папок](backup-try-azure-backup-in-10-mins.md)
+## [Резервное копирование Windows Server или компьютеров Windows](backup-try-azure-backup-in-10-mins.md)
 ## [Резервное копирование серверов VMware](backup-azure-backup-server-vmware.md)
 
 # Практическое руководство
@@ -27,16 +27,19 @@
 #### [Восстановление виртуальных машин, развернутых с помощью Azure Resource Manager, на портале Azure](backup-azure-arm-restore-vms.md)
 #### [Восстановление зашифрованных виртуальных машин](backup-azure-vms-encryption.md)
 #### [Восстановление виртуальных машин в Azure](backup-azure-restore-vms.md)
-#### [Восстановление ключа и секрета в Key Vault для зашифрованных виртуальных машин с помощью службы архивации Azure](backup-azure-restore-key-secret.md)
+#### [Восстановление ключа и секрета в хранилище ключей для зашифрованных виртуальных машин](backup-azure-restore-key-secret.md)
 
 
-## Файлы и папки Windows
-### [Windows Server: использование модели развертывания Resource Manager](backup-configure-vault.md)
-### [Windows Server: использование классической модели развертывания](backup-configure-vault-classic.md)
+## Windows Server
+### [Резервное копирование файлов и папок Windows Server](backup-configure-vault.md)
+### [Состояние резервного копирования системы Windows Server](backup-azure-system-state.md)
+### [Восстановление файлов из Azure в Windows Server](backup-azure-restore-windows-server.md)
+### [Состояние восстановления системы Windows Server](backup-azure-restore-system-state.md)
 ### [Управление хранилищами служб восстановления и их мониторинг](backup-azure-manage-windows-server.md)
-### [Управление хранилищами службы архивации с помощью классической модели развертывания](backup-azure-manage-windows-server-classic.md)
-### [Восстановление файлов на Windows Server с использованием модели развертывания Resource Manager](backup-azure-restore-windows-server.md)
-### [Восстановление файлов на Windows Server с использованием классической модели развертывания](backup-azure-restore-windows-server-classic.md)
+### Резервное копирование и восстановление с помощью классического портала
+#### [Windows Server: использование классической модели развертывания](backup-configure-vault-classic.md)
+#### [Управление хранилищами службы архивации с помощью классической модели развертывания](backup-azure-manage-windows-server-classic.md)
+#### [Восстановление файлов на Windows Server с использованием классической модели развертывания](backup-azure-restore-windows-server-classic.md)
 
 ## Сервер службы архивации Azure
 ### [Матрица защиты сервера резервного копирования Azure](backup-mabs-protection-matrix.md)
@@ -108,5 +111,6 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [Цены](https://azure.microsoft.com/pricing/details/backup/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=backup)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=backup)

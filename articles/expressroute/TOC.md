@@ -32,6 +32,7 @@
 ### [Портал Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Настройка параллельных подключений ExpressRoute и "сеть — сеть"](expressroute-howto-coexist-resource-manager.md)
+## [Настройка фильтров маршрутов для пиринга Майкрософт](how-to-routefilter-powershell.md)
 ## [Перемещение каналов из классического развертывания в развертывание с помощью Resource Manager](expressroute-howto-move-arm.md)
 ## [Перенос связанных виртуальных сетей из классической модели развертывания в модель развертывания Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Настройка маршрутизатора для ExpressRoute
@@ -67,6 +68,7 @@
 ## [Примеры использования](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Блог о сетях](https://azure.microsoft.com/blog/topics/networking/)
 ## [Цены](https://azure.microsoft.com/pricing/details/expressroute/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=expressroute)
 ## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla/)
 ## [Ограничения подписки и службы](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)

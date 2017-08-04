@@ -30,5 +30,6 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Блог](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Цены](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Примеры](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

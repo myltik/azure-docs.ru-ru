@@ -16,6 +16,7 @@
 ### [2. Развертывание приложения .NET с помощью Docker Compose](service-fabric-host-app-in-a-container.md)
 
 # Примеры
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Интерфейс командной строки Azure](samples-cli.md)
 # Основные понятия
@@ -131,7 +132,6 @@
 ### Создание службы контейнеров
 #### [Создание приложения-контейнера Windows](service-fabric-get-started-containers.md)
 #### [Создание приложения-контейнера Linux](service-fabric-get-started-containers-linux.md)
-#### [Развертывание контейнера Windows](service-fabric-deploy-container.md)
 #### [Развертывание контейнера Linux](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (предварительная версия)](service-fabric-docker-compose.md)
 #### [Управление ресурсами для контейнеров и служб](service-fabric-resource-governance.md)
@@ -328,6 +328,7 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Цены](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Пример кода](http://aka.ms/servicefabricsamples)
 ## [Варианты поддержки](service-fabric-support.md)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=service-fabric)

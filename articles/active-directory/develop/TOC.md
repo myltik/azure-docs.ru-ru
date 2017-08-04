@@ -61,8 +61,9 @@
 ### [Что произошло с моим проектом WebApi?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Библиотеки аутентификации (ADAL)](active-directory-authentication-libraries.md)
-## [Примеры кода](active-directory-code-samples.md)
+## [Статья с примерами кода](active-directory-code-samples.md)
 ## [Глоссарий](active-directory-dev-glossary.md)
 ## [Протоколы аутентификации](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -107,3 +108,4 @@
 ### [Области действия](active-directory-v2-scopes.md)
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

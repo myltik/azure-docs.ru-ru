@@ -5,8 +5,7 @@
     - name: О базе данных Azure Cosmos
       href: introduction.md
     - name: Вступительная часть о DocumentDB
-      href: >-
-        https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
+      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: Быстрое начало работы
   expanded: true
   items:
@@ -138,13 +137,13 @@
               href: documentdb-resources.md
             - name: SQL-запросы
               href: documentdb-sql-query.md
+            - name: Производительность SQL-запросов
+              href: documentdb-sql-query-metrics.md
             - name: SQL Playground
               href: 'https://www.documentdb.com/sql/demo'
             - name: Секционирование
               href: documentdb-partition-data.md
-            - name: >-
-                Хранимые процедуры, триггеры и определяемые пользователем
-                функции
+            - name: 'Хранимые процедуры, триггеры и определяемые пользователем функции'
               href: programming.md
             - name: Тестирование производительности
               href: performance-testing.md
@@ -197,8 +196,7 @@
                 - name: Переполнение стека
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Видеоролики
-                  href: >-
-                    https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
+                  href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Обновления службы
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
                 - name: Портал сообщества
@@ -226,8 +224,7 @@
         - name: API таблицы
           items:
             - name: Хранилище таблиц
-              href: >-
-                https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+              href: 'https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts'
         - name: Веб-канал изменений
           href: change-feed.md
         - name: Геопространственные данные
@@ -286,8 +283,12 @@
           href: powerbi-visualize.md
         - name: Визуализация данных с помощью драйвера ODBC
           href: odbc-driver.md
+        - name: Использование начального приложения Spring Boot с интерфейсами API DocumentDB
+          href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Справочные материалы
   items:
+    - name: Примеры кода
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
     - name: API-интерфейсы DocumentDB
       items:
         - name: Java

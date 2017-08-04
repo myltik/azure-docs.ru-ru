@@ -44,3 +44,4 @@
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/)
 ## [Обратитесь в службу поддержки.](../azure-supportability/how-to-create-azure-support-request.md)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)

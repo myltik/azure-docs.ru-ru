@@ -48,6 +48,7 @@
 ### [Устранение неполадок Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [Azure CLI 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
@@ -69,4 +70,5 @@
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Цены](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=load-balancer)

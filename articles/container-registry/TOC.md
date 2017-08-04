@@ -30,6 +30,7 @@
 # Ресурсы
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=containers)
 ## [Цены](https://azure.microsoft.com/pricing/details/container-registry/)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Регионы доступности](https://azure.microsoft.com/regions/services/)
 ## [Обновления службы](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)

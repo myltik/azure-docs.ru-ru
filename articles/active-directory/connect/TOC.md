@@ -38,6 +38,7 @@
 ##### [Краткое руководство](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Текущие ограничения](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Как это работает?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Обновление предварительной версии агентов](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
 ##### [Смарт-блокировка](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Часто задаваемые вопросы](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Устранение неполадок](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
@@ -82,6 +83,7 @@
 ### [Восстановление из LocalDB с ограничением в 10 ГБ](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Синхронизация удостоверений и устойчивость повторяющихся атрибутов](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Порты и протоколы, необходимые для гибридной идентификации](active-directory-aadconnect-ports.md)
 ## [Возможности предварительной версии](active-directory-aadconnect-feature-preview.md)
@@ -109,3 +111,5 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect: вопросы и ответы](active-directory-aadconnect-faq.md)
 ##[Нерекомендуемая версия DirSync](active-directory-aadconnect-dirsync-deprecated.md)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
+

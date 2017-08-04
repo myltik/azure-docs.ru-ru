@@ -28,7 +28,6 @@
 ## Автоматизация
 ### [Запуск модуля Runbook](automation-starting-a-runbook.md)
 ### [Запуск модуля Runbook с помощью webhook](automation-webhooks.md)
-### [Запуск модулей runbook в гибридной рабочей роли Runbook](automation-hybrid-runbook-worker.md)
 ### [Настройка входных параметров Runbook](automation-runbook-input-parameters.md)
 ### [Обработка ошибок в графических модулях Runbook](automation-runbook-graphical-error-handling.md)
 ### [Отслеживание задания Runbook](automation-runbook-execution.md)
@@ -36,6 +35,9 @@
 ### [Управление данными службы автоматизации Azure](automation-managing-data.md)
 ### [Вызов модуля Runbook службы автоматизации Azure из оповещения Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ### [Передача объекта JSON в модуль runbook службы автоматизации Azure](automation-pass-json-string.md)
+## гибридный компонент Runbook Worker
+### [Развертывание гибридной рабочей роли Runbook](automation-hybrid-runbook-worker.md)
+### [Запуск модулей Runbook в рабочей роли](automation-hrw-run-runbooks.md)
 ## Развертывание управления конфигурацией (DSC)
 ### [Общие сведения о настройке требуемого состояния (DSC)](automation-dsc-overview.md)
 ### [Приступая к работе](automation-dsc-getting-started.md)
@@ -87,6 +89,7 @@
 ## [Схема обучения](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Форум MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Цены](https://azure.microsoft.com/pricing/details/automation/)  
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Заметки о выпуске](https://azure.microsoft.com/updates/?product=automation)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=automation)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)

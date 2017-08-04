@@ -17,7 +17,6 @@
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Интерфейс командной строки Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Портал Azure (классический)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [Классический портал (классическая модель)](vpn-gateway-site-to-site-create.md)
 ## Настройка подключения "точка — сеть"
 ### [Портал Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -59,8 +58,7 @@
 ### [Портал Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (классическая модель)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [Настройка VPN-шлюза (классическая модель)](vpn-gateway-configure-vpn-gateway-mp.md)
-## [SKU шлюзов (старая версия)](vpn-gateway-about-skus-legacy.md)
+## [SKU шлюзов (устаревшая версия)](vpn-gateway-about-skus-legacy.md)
 ## Настройка сторонних VPN-устройств
 ### [Общие сведения и конфигурация Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Пример: устройство Cisco ASA (IKEv2/без BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
@@ -91,5 +89,6 @@
 ## [Блог](https://azure.microsoft.com/blog/topics/networking)
 ## [Форум](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Цены](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ](https://azure.microsoft.com/support/legal/sla)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

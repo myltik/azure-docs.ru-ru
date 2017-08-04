@@ -24,6 +24,7 @@
 ### [Безопасность уровня строк в Power BI Embedded](power-bi-embedded-rls.md)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
 ## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [Использование Azure Resource Manager с .NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Скачивание пакета SDK для .NET](https://www.nuget.org/profiles/powerbi)
@@ -38,5 +39,6 @@
 ## [Репозиторий JavaScript Git](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Репозиторий Power BI C# Git](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Сообщество Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Пример приложения](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)

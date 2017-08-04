@@ -59,6 +59,7 @@
 ### [Устранение неполадок](azure-diagnostics-troubleshooting.md)
 
 # Справочные материалы
+## [Примеры кода](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 ## [Источники данных мониторинга](monitoring-data-sources.md)
 ## [Список поддерживаемых метрик](monitoring-supported-metrics.md)
 ## [Схема событий журнала действий](monitoring-activity-log-schema.md)
@@ -74,5 +75,6 @@
 ## [Примеры для Azure CLI 1.0](insights-cli-samples.md)
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Примеры для PowerShell](insights-powershell-samples.md)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Видеоролики](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Шаблоны быстрого запуска](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)
