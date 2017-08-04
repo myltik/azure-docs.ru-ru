@@ -75,6 +75,7 @@
 ## [Стратегия развития Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Блог по безопасности, конфиденциальности и соответствию нормам Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Цены](security-center-pricing.md)
+## [Калькулятор цен](https://azure.microsoft.com/pricing/calculator/)
 ## [Обзор службы](https://azure.microsoft.com/services/security-center/)
 ## [Обновления службы](https://azure.microsoft.com/updates/?product=security-center)
 ## [Видеоролики](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
