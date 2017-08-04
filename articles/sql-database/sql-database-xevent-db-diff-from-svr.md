@@ -126,7 +126,7 @@ ms.lasthandoff: 07/19/2017
 
 Для получения списка доступных событий, действий и целевых объектов можно выполнить простую SQL-команду **SELECT** .
 
-```tsql
+```sql
 SELECT
         o.object_type,
         p.name         AS [package_name],

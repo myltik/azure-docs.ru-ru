@@ -54,7 +54,7 @@ Install-Package -Id Microsoft.Azure.Graph.RBAC -Version 3.4.0-preview
 
 ## <a name="common-variables"></a>Общие переменные
 
-```
+``` csharp
 string subid = "<Subscription ID>"; // Subscription ID (a GUID)
 string tenantid = "<Tenant ID>"; // AAD tenant ID or domain. For example, "contoso.onmicrosoft.com"
 string rg == "<value>"; // Resource  group name
@@ -65,7 +65,7 @@ string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (t
 
 Существует несколько способов входа в Azure Data Lake Analytics. В приведенном ниже фрагменте кода показан пример проверки подлинности посредством интерактивной проверки подлинности пользователей с помощью всплывающего окна.
 
-```
+``` csharp
 using System;
 using System.IO;
 using System.Threading;
@@ -106,7 +106,7 @@ public static Program
 
 ## <a name="create-the-client-management-objects"></a>Создание объектов управления клиентами
 
-```
+``` csharp
 var resourceManagementClient = new ResourceManagementClient(armCreds) { SubscriptionId = subid };
 
 var adlaAccountClient = new DataLakeAnalyticsAccountManagementClient(armCreds);
@@ -131,7 +131,7 @@ graphClient.TenantID = domain;
 
 Создайте группу ресурсов Azure, если она еще не создана, чтобы создать компоненты Data Lake Analytics. Потребуются учетные данные для проверки подлинности, идентификатор подписки и сведения о расположении. Ниже приведен код, создающий группу ресурсов.
 
-```
+``` csharp
 var resourceGroup = new ResourceGroup { Location = location };
 resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 ```
@@ -141,7 +141,7 @@ resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 
 Для каждой учетной записи ADLA требуется учетная запись ADLS. Если у вас ее еще нет, вы можете создать ее с помощью следующего кода:
 
-```
+``` csharp
 var new_adls_params = new DataLakeStoreAccount(location: _location);
 adlsAccountClient.Account.Create(rg, adls, new_adls_params);
 ```
@@ -150,7 +150,7 @@ adlsAccountClient.Account.Create(rg, adls, new_adls_params);
 
 Приведенный ниже код создает учетную запись ADLS.
 
-```
+``` csharp
 var new_adla_params = new DataLakeAnalyticsAccount()
 {
    DefaultDataLakeStoreAccount = adls,
@@ -162,34 +162,34 @@ adlaClient.Account.Create(rg, adla, new_adla_params);
 
 ### <a name="list-data-lake-store-accounts"></a>Получение списка учетных записей Data Lake Store
 
-```
+``` csharp
 var adlsAccounts = adlsAccountClient.Account.List().ToList();
 foreach (var adls in adlsAccounts)
 {
-   Console.WriteLine("ADLS: {0}", adls.Name);
+   Console.WriteLine($"ADLS: {0}", adls.Name);
 }
 ```
 
 ### <a name="list-data-lake-analytics-accounts"></a>Список учетных записей аналитики озера данных
 
-```
+``` csharp
 var adlaAccounts = adlaClient.Account.List().ToList();
 
 for (var adla in AdlaAccounts)
 {
-   Console.WriteLine("ADLA: {0}, adla.Name");
+   Console.WriteLine($"ADLA: {0}, adla.Name");
 }
 ```
 
 ### <a name="checking-if-an-account-exists"></a>Проверка существования учетной записи
 
-```
+``` csharp
 bool exists = adlaClient.Account.Exists(rg, adla));
 ```
 
 ### <a name="get-information-about-an-account"></a>Получение сведений об учетной записи
 
-```
+``` csharp
 bool exists = adlaClient.Account.Exists(rg, adla));
 if (exists)
 {
@@ -199,7 +199,7 @@ if (exists)
 
 ### <a name="delete-an-account"></a>Удаление учетной записи
 
-```
+``` csharp
 if (adlaClient.Account.Exists(rg, adla))
 {
    adlaClient.Account.Delete(rg, adla);
@@ -210,7 +210,7 @@ if (adlaClient.Account.Exists(rg, adla))
 
 Для каждой учетной записи Data Lake Analytics необходима учетная запись Data Lake Store по умолчанию. Этот код позволяет определить учетную запись хранения по умолчанию для учетной записи Analytics.
 
-```
+``` csharp
 if (adlaClient.Account.Exists(rg, adla))
 {
   var adla_accnt = adlaClient.Account.Get(rg, adla);
@@ -229,7 +229,7 @@ if (adlaClient.Account.Exists(rg, adla))
 
 Можно создать ссылки на учетные записи хранения Azure.
 
-```
+``` csharp
 string storage_key = "xxxxxxxxxxxxxxxxxxxx";
 string storage_account = "mystorageaccount";
 var addParams = new AddStorageAccountParameters(storage_key);            
@@ -238,28 +238,28 @@ adlaClient.StorageAccounts.Add(rg, adla, storage_account, addParams);
 
 ### <a name="list-azure-storage-data-sources"></a>Получение списка источников данных службы хранилища Azure
 
-```
+``` csharp
 var stg_accounts = adlaAccountClient.StorageAccounts.ListByAccount(rg, adla);
 
 if (stg_accounts != null)
 {
   foreach (var stg_account in stg_accounts)
   {
-      Console.WriteLine("Storage account: {0}", stg_account.Name);
+      Console.WriteLine($"Storage account: {0}", stg_account.Name);
   }
 }
 ```
 
 ### <a name="list-data-lake-store-data-sources"></a>Получение списка источников данных Data Lake
 
-```
+``` csharp
 var adls_accounts = adlsClient.Account.List();
 
 if (adls_accounts != null)
 {
   foreach (var adls_accnt in adls_accounts)
   {
-      Console.WriteLine("ADLS account: {0}", adls_accnt.Name);
+      Console.WriteLine($"ADLS account: {0}", adls_accnt.Name);
   }
 }
 ```
@@ -276,13 +276,13 @@ if (adls_accounts != null)
 
 В следующем примере показано, как загрузить папку в Data Lake Store.
 
-```
+``` csharp
 adlsFileSystemClient.FileSystem.DownloadFolder(adls, sourcePath, destinationPath);
 ```
 
 ### <a name="create-a-file-in-a-data-lake-store-account"></a>Создание файла в учетной записи Data Lake Store
 
-```
+``` csharp
 using (var memstream = new MemoryStream())
 {
    using (var sw = new StreamWriter(memstream, UTF8Encoding.UTF8))
@@ -298,7 +298,7 @@ using (var memstream = new MemoryStream())
 ### <a name="verify-azure-storage-account-paths"></a>Проверка путей к учетной записи хранения Azure
 Следующий код проверяет наличие учетной записи хранения Azure (storageAccntName) в учетной записи Data Lake Analytics (analyticsAccountName), а также наличие контейнера (containerName) в учетной записи хранения Azure.
 
-```
+``` csharp
 string storage_account = "mystorageaccount";
 string storage_container = "mycontainer";
 bool accountExists = adlaClient.Account.StorageAccountExists(rg, adla, storage_account));
@@ -311,7 +311,7 @@ bool containerExists = adlaClient.Account.StorageContainerExists(rg, adla, stora
 ### <a name="list-databases-and-schemas"></a>Получение списка баз данных и схем
 Самые распространенные компоненты, список которых можно получить — это базы данных и их схемы. Следующий код получает набор баз данных и перечисляет схемы для каждой из них.
 
-```
+``` csharp
 var databases = adlaCatalogClient.Catalog.ListDatabases(adla);
 foreach (var db in databases)
 {
@@ -328,7 +328,7 @@ foreach (var db in databases)
 ### <a name="list-table-columns"></a>Получение списка столбцов таблицы
 Ниже приведен код, получающий доступ к базе данных с помощью клиента управления каталогами Data Lake Analytics для получения списка столбцов в указанной таблице.
 
-```
+``` csharp
 var tbl = adlaCatalogClient.Catalog.GetTable(adla, "master", "dbo", "MyTableName");
 IEnumerable<USqlTableColumn> columns = tbl.ColumnList;
 
@@ -355,7 +355,7 @@ foreach (USqlTableColumn utc in columns)
 ### <a name="list-failed-jobs"></a>Получение списка невыполненных заданий
 Ниже приведен код, получающий список сведений о невыполненных заданиях.
 
-```
+``` csharp
 var odq = new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" };
 var jobs = adlaJobClient.Job.List(adla, odq);
 foreach (var j in jobs)
@@ -367,7 +367,7 @@ foreach (var j in jobs)
 ### <a name="list-pipelines"></a>Получение списка конвейеров
 Приведенный ниже код выводит сведения о каждом конвейере заданий, переданном в учетную запись.
 
-```
+``` csharp
 var pipelines = adlaJobClient.Pipeline.List(adla);
 foreach (var p in pipelines)
 {
@@ -378,7 +378,7 @@ foreach (var p in pipelines)
 ### <a name="list-recurrences"></a>Получение списка повторений
 Приведенный ниже код выводит сведения о каждом повторении задания, переданном в учетную запись.
 
-```
+``` csharp
 var recurrences = adlaJobClient.Recurrence.List(adla);
 foreach (var r in recurrences)
 {
@@ -390,13 +390,13 @@ foreach (var r in recurrences)
 
 ### <a name="look-up-user-in-the-aad-directory"></a>Поиск пользователя в каталоге AAD
 
-```
+``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );
 ```
 
 ### <a name="get-the-objectid-of-a-user-in-the-aad-directory"></a>Получение идентификатора ObjectId пользователя в каталоге AAD
 
-```
+``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );
 Console.WriteLine( userinfo.ObjectId )
 ```
@@ -407,7 +407,7 @@ Console.WriteLine( userinfo.ObjectId )
 ### <a name="list-compute-policies"></a>Вывод списка политик вычислений
 Следующий код извлекает список политик вычислений для учетной записи Data Lake Analytics.
 
-```
+``` csharp
 var policies = adlaAccountClient.ComputePolicies.ListByAccount(rg, adla);
 foreach (var p in policies)
 {
@@ -418,7 +418,7 @@ foreach (var p in policies)
 ### <a name="create-a-new-compute-policy"></a>Создание новой политики вычислений
 Следующий код создает новую политику вычислений для учетной записи Data Lake Analytics, задавая максимальное количество AU, доступных для указанного пользователя, равным 50 и минимальный приоритет задания равным 250.
 
-```
+``` csharp
 var userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde";
 var newPolicyParams = new ComputePolicyCreateOrUpdateParameters(userAadObjectId, "User", 50, 250);
 adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPolicyParams);

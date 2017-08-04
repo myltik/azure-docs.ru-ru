@@ -22,7 +22,6 @@ ms.openlocfilehash: a49be9d5037af120e429a9cc7ae77ceda5e03236
 ms.contentlocale: ru-ru
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Код целевого объекта "Кольцевой буфер" для расширенных событий в базе данных SQL
 
@@ -67,7 +66,7 @@ ms.lasthandoff: 06/28/2017
 
 &nbsp;
 
-```tsql
+```sql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -324,7 +323,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 По завершении работы с кольцевым буфером его можно удалить и освободить таким образом ресурсы. Для этого используется оператор **ALTER**.
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -334,7 +333,7 @@ GO
 
 Определение сеанса событий обновляется, но не удаляется. Впоследствии в сеанс событий можно добавить еще один экземпляр кольцевого буфера.
 
-```tsql
+```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET

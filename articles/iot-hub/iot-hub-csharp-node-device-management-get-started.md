@@ -20,7 +20,6 @@ ms.openlocfilehash: def3feb2760c0ec2bb9ff39c6ef8a85bb142a0a7
 ms.contentlocale: ru-ru
 ms.lasthandoff: 05/19/2017
 
-
 ---
 # <a name="get-started-with-device-management-netnode"></a>Приступая к работе с управлением устройствами (.NET или Node)
 
@@ -62,6 +61,7 @@ ms.lasthandoff: 05/19/2017
 4. Добавьте следующие инструкции `using` в начало файла **Program.cs** :
    
         using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
         
 5. Добавьте следующие поля в класс **Program** . Замените значение заполнителя строкой подключения Центра Интернета вещей, созданного в предыдущем разделе, и целевого устройства.
    
