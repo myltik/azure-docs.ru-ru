@@ -53,11 +53,7 @@ az group create --name myResourceGroup --location eastus
 В следующем примере создается виртуальная машина с именем *myVM*. В этом примере используются имя администратора *azureuser* и его пароль *myPassword12*. Измените эти значения в соответствии со своей средой. Эти значения нужны для создания подключения к виртуальной машине.
 
 ```azurecli-interactive 
-az vm create `
-  --resource-group myResourceGroup `
-  --name myVM --image win2016datacenter `
-  --admin-username azureuser `
-  --admin-password myPassword12
+az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
 ```
 
 После создания виртуальной машины в Azure CLI отображается информация следующего вида. Запишите значение `publicIpAaddress`. Этот адрес используется для доступа к виртуальной машине.

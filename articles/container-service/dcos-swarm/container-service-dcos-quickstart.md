@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2017
+ms.date: 08/04/2017
 ms.author: nepeters
 ms.translationtype: HT
 ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
@@ -32,13 +32,11 @@ DC/OS предоставляет распределенную платформу
 
 Для этого руководства требуется Azure CLI версии 2.0.4 или более поздней. Чтобы узнать версию, выполните команду `az --version`. Если вам необходимо выполнить обновление, см. статью [Установка Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## <a name="log-in-to-azure"></a>Вход в Azure 
 
 Войдите в подписку Azure с помощью команды [az login](/cli/azure/#login) и следуйте инструкциям на экране.
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -48,7 +46,7 @@ az login
 
 В следующем примере создается группа ресурсов с именем *myResourceGroup* в расположении *eastus*.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -58,7 +56,7 @@ az group create --name myResourceGroup --location eastus
 
 В следующем примере создается кластер DC/OS с именем *myDCOSCluster* и ключи SSH, если они еще не существуют. Чтобы использовать определенный набор ключей, используйте параметр `--ssh-key-value`.  
 
-```azurecli-interactive
+```azurecli
 az acs create \
   --orchestrator-type dcos \
   --resource-group myResourceGroup \
@@ -72,13 +70,13 @@ az acs create \
 
 После создания кластера DC/OS доступ к нему возможен через туннель SSH. Выполните следующую команду, чтобы получить общедоступный IP-адрес главного кластера DC/OS. Этот IP-адрес сохраняется в переменной и будет использоваться на следующем шаге.
 
-```azurecli-interactive
+```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
 Чтобы создать туннель SSH, выполните следующую команду и следуйте инструкциям на экране. Если порт 80 уже используется, команда завершится с ошибкой. Измените туннелированный порт на тот, который не используется, например на `85:localhost:80`. 
 
-```azurecli-interactive
+```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
@@ -94,13 +92,13 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 При запуске интерфейса командной строки Azure в macOS или Linux может потребоваться выполнить эту команду с sudo.
 
-```azurecli-interactive
+```azurecli
 az acs dcos install-cli
 ```
 
 Прежде чем можно будет использовать интерфейс командной строки в кластере, необходимо настроить в нем туннель SSH. Для этого выполните следующую команду, при необходимости изменив порт.
 
-```azurecli-interactive
+```azurecli
 dcos config set core.dcos_url http://localhost
 ```
 
@@ -140,26 +138,26 @@ dcos config set core.dcos_url http://localhost
 
 Выполните следующую команду для планирования работы приложения в кластере DC/OS.
 
-```azurecli-interactive
+```azurecli
 dcos marathon app add marathon-app.json
 ```
 
 Чтобы просмотреть состояние развертывания для приложения, выполните следующую команду.
 
-```azurecli-interactive
+```azurecli
 dcos marathon app list
 ```
 
 Когда значение столбца **WAITING** изменится с *True* на *False*, развертывание приложения завершено.
 
-```azurecli-interactive
+```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
 
 Получите общедоступный IP-адрес агентов кластера DC/OS.
 
-```azurecli-interactive
+```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -171,7 +169,7 @@ az network public-ip list --resource-group myResourceGroup --query "[?contains(n
 
 Вы можете удалить ставшие ненужными группу ресурсов, кластер DC/OS и все связанные с ним ресурсы, выполнив команду [az group delete](/cli/azure/group#delete).
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 
