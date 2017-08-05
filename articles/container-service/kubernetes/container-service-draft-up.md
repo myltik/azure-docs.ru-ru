@@ -197,8 +197,8 @@ waiting for AAD role to propagate.done
   - корневой домен развертывания, который вы настроили для сопоставления с входящим внешним IP-адресом Kubernetes (в этом примере — `squillace.io`).
 
   Вызовите `draft init`, и процесс настройки запросит значения, приведенные выше. При первом запуске процесс будет выглядеть приблизительно так:
-    ```
-    draft init
+ ```bash
+    $ draft init
     Creating pack ruby...
     Creating pack node...
     Creating pack gradle...
