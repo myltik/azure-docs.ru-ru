@@ -1,6 +1,6 @@
 ---
-title: "Создание многоконтейнерной группы при помощи службы \"Экземпляры контейнеров Azure\" | Документация Azure"
-description: "Создание многоконтейнерной группы и ее развертывание в службе \"Экземпляры контейнеров Azure\" из реестра контейнеров Azure"
+title: "Руководство по Экземплярам контейнеров Azure: подготовка приложения | Документация Azure"
+description: "Подготовка приложения для развертывания экземпляров контейнера Azure"
 services: container-instances
 documentationcenter: 
 author: seanmck
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/20/2017
+ms.date: 08/01/2017
 ms.author: seanmck
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: b5f16f0c4b15c02bbc0ee8a9fb9424467a39ee4d
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 07ad1a6edbcb4d6160b37b4923586e23058f3c04
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 

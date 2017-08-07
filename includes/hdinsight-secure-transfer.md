@@ -1,0 +1,2 @@
+> [!NOTE]
+> Функция [Secure transfer required](../articles/storage/storage-require-secure-transfer.md) (Необходима безопасная передача) обеспечивает принудительную передачу всех запросов к вашей учетной записи через безопасное подключение. Эта функция поддерживается только кластером HDInsight версии 3.6 или более новым. Дополнительные сведения см. в статье [Создание кластера Hadoop с помощью безопасной передачи учетных записей хранения в Azure HDInsight](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md).

@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/30/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: ab664eb8803037b0bf09399bf9d28059fec2e204
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: a863cf3ad08040906850f64db6505f30bcfa72eb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Создание базы данных SQL Azure на портале Azure
@@ -59,7 +58,7 @@ ms.lasthandoff: 05/31/2017
    > Необходимо выбрать пример базы данных этой формы, так как она используется в оставшейся части этого руководства.
    > 
 
-4. Заполните форму "SQL Server (логический сервер)", указав следующую информацию, как показано на предыдущем изображении.   
+4. В разделе **Сервер** щелкните **Настроить необходимые параметры** и заполните форму SQL Server (логический сервер), указав следующую информацию, как показано на указанном ниже изображении.   
 
    | Настройка       | Рекомендуемое значение | Описание | 
    | ------------ | ------------------ | ------------------------------------------------- | 

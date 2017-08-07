@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 5f57cbdb1678dd61eda449d2103125d8db83892e
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Анализ использования данных в службе Log Analytics
@@ -141,6 +141,8 @@ Log Analytics содержит сведения об объеме собранн
 + Тип данных **Syslog**
   - `Type=Syslog | measure count() by Facility, SeverityLevel`
   - `Type=Syslog | measure count() by ProcessName`
++ Тип данных **AzureDiagnostics**
+  - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
 
 Чтобы уменьшить объем собранных журналов, сделайте следующее:
 
@@ -150,6 +152,7 @@ Log Analytics содержит сведения об объеме собранн
 | Счетчики производительности       | Измените [конфигурацию счетчика производительности](log-analytics-data-sources-performance-counters.md), чтобы <br> уменьшить частоту сбора или <br> сократить число счетчиков производительности. |
 | Журналы событий                 | Измените [конфигурацию журнала событий](log-analytics-data-sources-windows-events.md), чтобы <br> сократить число собранных журналов событий или <br> выполнять сбор только необходимых уровней событий. Например, не выполняйте сбор событий уровня *сведений*. |
 | syslog                     | Измените [конфигурацию системного журнала](log-analytics-data-sources-syslog.md), чтобы <br> сократить число собранных объектов или <br> выполнять сбор только необходимых уровней событий. Например, не выполняйте сбор событий уровня *сведений* и *отладки*. |
+| AzureDiagnostics           | Измените коллекцию журнала ресурсов, чтобы: <br> Уменьшить число ресурсов, отправляющих журналы в Log Analytics. <br> Выполнять сбор только необходимых журналов. |
 | Данные решений с компьютеров, которым не требуется решение | Используйте [нацеливание решений](../operations-management-suite/operations-management-suite-solution-targeting.md), чтобы выполнять сбор данных только в нужных группах компьютеров. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Проверьте, превышено ли число узлов

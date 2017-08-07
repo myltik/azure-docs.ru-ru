@@ -8,7 +8,7 @@
 Следующие шаги демонстрируют, как создать новую серверную часть веб-API ASP.NET: 
 
 > [!NOTE]
-> **Важно!**Перед тем как начать работу с этим учебником, убедитесь, что у вас установлена последняя версия диспетчера пакетов NuGet. Чтобы проверить, запустите Visual Studio. В меню **Средства** выберите пункт **Расширения и обновления**. Найдите **Диспетчер пакетов NuGet для Visual Studio 2013**и убедитесь, что у вас версия 2.8.50313.46 или более поздняя. Если это не так, переустановите диспетчер пакетов NuGet.
+> **Важно.** Если вы используете Visual Studio 2015 или более ранние версии, перед выполнением действий в этом руководстве убедитесь, что у вас установлена последняя версия диспетчера пакетов NuGet. Чтобы проверить, запустите Visual Studio. В меню **Средства** выберите пункт **Расширения и обновления**. Найдите **диспетчер пакетов NuGet** для вашей версии Visual Studio и убедитесь, что у вас установлена последняя версия. Если это не так, переустановите диспетчер пакетов NuGet.
 > 
 > ![][B4]
 > 
@@ -38,7 +38,9 @@
         using System.Threading;
         using System.Security.Principal;
         using System.Net;
-        using System.Web;
+        using System.Text;
+        using System.Threading.Tasks;
+
 3. В AuthenticationTestHandler.cs замените определение класса `AuthenticationTestHandler` следующим кодом. 
    
     Этот обработчик авторизует запрос, если выполнены все три следующих условия.
@@ -51,12 +53,7 @@
      
      Если сообщение запроса аутентифицируется и авторизуется `AuthenticationTestHandler`, то пользователь обычной проверки подлинности будет подключен к текущему запросу в [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Позднее информацию о пользователе в HttpContext будет использовать другой контроллер (RegisterController), чтобы добавить [тег](https://msdn.microsoft.com/library/azure/dn530749.aspx) в запрос регистрации для получения уведомлений.
      
-       public class AuthenticationTestHandler : DelegatingHandler   {
-     
-           protected override Task<HttpResponseMessage> SendAsync(
-           HttpRequestMessage request, CancellationToken cancellationToken)
-           {
-               var authorizationHeader = request.Headers.GetValues("Authorization").First();
+       public class AuthenticationTestHandler : DelegatingHandler   {       protected override Task<HttpResponseMessage> SendAsync(       HttpRequestMessage request, CancellationToken cancellationToken)       {           var authorizationHeader = request.Headers.GetValues("Authorization").First();
      
                if (authorizationHeader != null && authorizationHeader
                    .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
@@ -266,7 +263,7 @@
    
     Этот код отправляет тип уведомлений, основанный на параметре `pns` Службы уведомлений платформы (PNS). Значение `to_tag` используется для задания тега *имени пользователя* в сообщении. Этот тег должен соответствовать тегу имени пользователя активной регистрации центра уведомлений. Сообщение уведомления извлекается из текста запроса POST и форматируется для целевого PNS. 
    
-    Поддержка форматов уведомлений зависит от того, какую службу отправки уведомлений платформы (PNS) используют поддерживаемые приложения. Например, на устройствах Windows можно использовать [всплывающие уведомления с помощью WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) , которые не поддерживаются другой PNS. В связи с этим серверная часть решения конвертирует уведомление в формат, соответствующий PNS устройств, которые вы собираетесь поддерживать. Затем воспользуйтесь соответствующим API отправки для [класса NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
+    Поддержка форматов уведомлений зависит от того, какую службу отправки уведомлений платформы (PNS) используют поддерживаемые приложения. Например, на устройствах Windows можно использовать [всплывающие уведомления с помощью WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx), которые не поддерживаются другой PNS. В связи с этим серверная часть решения конвертирует уведомление в формат, соответствующий PNS устройств, которые вы собираетесь поддерживать. Затем воспользуйтесь соответствующим API отправки для [класса NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
    
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -309,19 +306,20 @@
    
             return Request.CreateResponse(ret);
         }
-4. Нажмите клавишу **F5** , чтобы запустить приложение и убедиться в правильности своих действий до сих пор. Приложение должно запустить браузер и отобразить домашнюю страницу ASP.NET. 
+4. Нажмите клавишу **F5**, чтобы запустить приложение и убедиться в правильности своих действий до сих пор. Приложение должно запустить браузер и отобразить домашнюю страницу ASP.NET. 
 
 ## <a name="publish-the-new-webapi-backend"></a>Публикация новой серверной части веб-API
 1. После этого развернем это приложение на веб-сайте Azure, чтобы сделать его доступным для всех устройств. Щелкните правой кнопкой мыши проект **AppBackend** и нажмите кнопку **Опубликовать**.
-2. Выберите **Веб-приложения Microsoft Azure** в качестве цели публикации.
-   
+2. Выберите **службу приложений Microsoft Azure** в качестве цели публикации и щелкните **Опубликовать**. Откроется диалоговое окно "Создать службу приложений", с помощью которого вы можете создать все ресурсы Azure, необходимые для запуска веб-приложения ASP.NET в Azure.
+
     ![][B15]
-3. Войдите в учетную запись Azure и выберите существующее или новое веб-приложение.
-   
-    ![][B16]
-4. Запишите свойство **URL-адрес назначения** с вкладки **Подключение**. Далее в учебнике этот URL-адрес будет называться *конечная точка сервера* . Щелкните **Опубликовать**.
-   
-    ![][B18]
+3. В диалоговом окне **Создать службу приложений** выберите свою учетную запись Azure. Щелкните **Изменить тип** и выберите **Веб-приложение**. Используйте данное **имя веб-приложения** и выберите **подписку**, **группу ресурсов** и **план службы приложений**.  Щелкните **Создать**.
+
+4. Запишите свойство **URL-адрес сайта** в разделе **Сводка**. Далее в учебнике этот URL-адрес будет называться *конечная точка сервера* . Щелкните **Опубликовать**.
+
+5. По завершении работы мастера веб-приложение ASP.NET будет опубликовано в Azure и запущено в браузере по умолчанию.  Приложение можно будет просмотреть в службах приложений Azure.
+
+В URL-адресе используется имя веб-приложения, указанное ранее, в формате http://<имя_приложения>.azurewebsites.net.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
@@ -332,6 +330,6 @@
 [B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
 [B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
 [B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
-[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
+[B15]: ./media/notification-hubs-aspnet-backend-notifyusers/publish-to-app-service.png
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG

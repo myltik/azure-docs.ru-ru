@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Пошаговое руководство по работе с предварительно настроенным решением подключенной фабрики
@@ -47,6 +46,13 @@ ms.lasthandoff: 05/26/2017
 На следующей диаграмме показаны логические компоненты предварительно настроенного решения.
 
 ![Логическая архитектура подключенной фабрики][connected-factory-logical]
+
+## <a name="communication-patterns"></a>Модели связи
+
+Решение использует [спецификацию публикации и подписки OPC UA](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) для отправки данных телеметрии OPC UA в Центр Интернета вещей в формате JSON. В решении для этого используется модуль IoT Edge [издателя OPC](https://github.com/Azure/iot-edge-opc-publisher).
+
+Решение также содержит клиент OPC UA, интегрированный в веб-приложение, которое может устанавливать соединение с локальными серверами OPC UA. Клиент использует [обратный прокси-сервер](https://wikipedia.org/wiki/Reverse_proxy) и с помощью Центра Интернета вещей создает подключение без необходимости открывать порты в локальном брандмауэре. Эта модель связи называется [взаимодействием с поддержкой службы](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). В решении для этого используется модуль IoT Edge [прокси OPC](https://github.com/Azure/iot-edge-opc-proxy/).
+
 
 ## <a name="simulation"></a>Моделирование
 
@@ -82,9 +88,9 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-Модуль издателя OPC шлюза подписывается на узлы сервера OPC UA для обнаружения изменений в значениях данных. Если обнаруживается изменение данных на одном из узлов, этот модуль отправляет сообщения в Центр Azure IoT.
+Модуль издателя OPC шлюза подписывается на узлы сервера OPC UA для обнаружения изменений в значениях данных. Если обнаруживается изменение данных на одном из узлов, этот модуль отправляет сообщения в Центр Интернета вещей Azure.
 
-Центр Azure IoT сообщает Azure TSI источник события. TSI хранит данные в течение 30 дней в зависимости от меток времени, вложенных в сообщения. Эти данные включают:
+Центр Интернета вещей передает источник события в Azure TSI. TSI хранит данные в течение 30 дней в зависимости от меток времени, вложенных в сообщения. Эти данные включают:
 
 * OPC UA ApplicationUri;
 * OPC UA NodeId;
@@ -104,7 +110,7 @@ TSI отправляет запрос к данным узла с помощью
 
 Представление временного ряда данных узла извлекается напрямую из TSI с помощью вычисления временного диапазона.
 
-## <a name="iot-hub"></a>Центр IoT
+## <a name="iot-hub"></a>Центр Интернета вещей
 [Центр Интернета вещей][lnk-IoT Hub] принимает данные, отправленные из модуля издателя OPC в облако, и предоставляет к ним доступ службе Azure TSI. 
 
 Центр Интернета вещей также выполняет в решении следующие функции.

@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/30/2017
+ms.date: 07/27/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: db851023c8620bec6583184326029d1a3e99ad88
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 3dfc026490093523446650c510dbebdd660e8b6b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="how-to-use-azure-redis-cache"></a>Как использовать кэш Redis для Azure
@@ -127,7 +126,7 @@ ms.lasthandoff: 05/31/2017
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-Создав подключение, верните ссылку на базу данных кэша Redis с помощью метода `ConnectionMultiplexer.GetDatabase` . Объект, возвращенный из метода `GetDatabase` , – это упрощенный передаваемый объект, не требующий сохранения.
+Создав подключение, верните ссылку на базу данных кэша Redis с помощью метода `ConnectionMultiplexer.GetDatabase` . Объект, возвращенный из метода `GetDatabase`, – это упрощенный передаваемый объект, не требующий сохранения.
 
     // Connection refers to a property that returns a ConnectionMultiplexer
     // as shown in the previous example.
@@ -169,6 +168,17 @@ Redis хранит большинство данных в строках Redis, 
 
         cache.StringSet("key1", value);
     }
+
+Можно также использовать `RedisValue`, как показано в следующем примере. `RedisValue` содержит неявные операторы для работы с целочисленными типами данных и могут быть полезны, если `null` — ожидаемое значение кэшированного элемента.
+
+
+    RedisValue value = cache.StringGet("key1");
+    if (!value.HasValue)
+    {
+        value = GetValueFromDataSource();
+        cache.StringSet("key1", value);
+    }
+
 
 Чтобы указать срок действия объекта в кэше, используйте параметр `TimeSpan` метода `StringSet`.
 

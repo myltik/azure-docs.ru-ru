@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 6/7/2017
 ms.author: mlearned
-ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 748f1994d0ee5b6c6a988bca8e5b694b29c0b8c5
+ms.custom: Jenkins
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: f892ec7bd61124f7958a50ebdfb49c7310d4ee18
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
-<a id="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure" class="xliff"></a>
-
-# Создание первого главного экземпляра Jenkins на виртуальной машине под управлением Linux (Ubuntu) в Azure
+# <a name="create-your-first-jenkins-master-on-a-linux-ubuntu-vm-on-azure"></a>Создание первого главного экземпляра Jenkins на виртуальной машине под управлением Linux (Ubuntu) в Azure
 
 Это краткое руководство посвящено установке последней стабильной версии Jenkins на виртуальной машине под управлением Linux (Ubuntu 14.04 LTS), а также средств и подключаемых модулей, настроенных для работы с Azure. Вот эти средства:
 <ul>
@@ -44,11 +42,9 @@ ms.lasthandoff: 06/30/2017
 > * выполнить начальную настройку для Jenkins;
 > * установить предлагаемые подключаемые модули.
 
-Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , прежде чем начинать работу.
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), прежде чем начинать работу.
 
-<a id="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins" class="xliff"></a>
-
-## Создание виртуальной машины в Azure на основе шаблона решения для Jenkins
+## <a name="create-the-vm-in-azure-by-deploying-the-solution-template-for-jenkins"></a>Создание виртуальной машины в Azure на основе шаблона решения для Jenkins
 
 Шаблоны, представленные в кратком руководстве Azure, позволяют быстро и надежно развертывать комплексные технологии в Azure.  Azure Resource Manager позволяет подготавливать приложения с помощью [декларативного шаблона](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins). В одном шаблоне можно развернуть несколько служб и их зависимые компоненты. Один шаблон используется для развертывания приложения на каждом этапе его жизненного цикла.
 
@@ -70,7 +66,7 @@ ms.lasthandoff: 06/30/2017
 * Тип проверки подлинности: создайте экземпляр, защищенный паролем или [открытым ключом SSH](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). Если используется пароль, он должен содержать по меньшей мере три из следующих символов: одна строчная буква, одна прописная буква, одна цифра и один специальный символ.
 * Оставьте тип выпуска Jenkins **LTS**.
 * Выберите подписку.
-* Создайте новую группу ресурсов или выберите существующую.
+* Создайте группу ресурсов или используйте существующую пустую. 
 * Выберите расположение.
 
 На вкладке **Configure additional options** (Настройка дополнительных параметров) выполните приведенные ниже инструкции.
@@ -85,17 +81,13 @@ ms.lasthandoff: 06/30/2017
 
 Затем выберите **Купить** для подготовки всех ресурсов.
 
-<a id="setup-ssh-port-forwarding" class="xliff"></a>
-
-## Настройка перенаправления портов SSH
+## <a name="setup-ssh-port-forwarding"></a>Настройка перенаправления портов SSH
 
 По умолчанию для экземпляра Jenkins используется протокол HTTP и ожидается передача данных через порт 8080. Пользователи не должны проходить проверку подлинности по незащищенным протоколам.
     
 Настройте перенаправление портов для просмотра пользовательского интерфейса Jenkins на локальном компьютере.
 
-<a id="if-you-are-using-windows" class="xliff"></a>
-
-### При использовании Windows сделайте следующее.
+### <a name="if-you-are-using-windows"></a>При использовании Windows сделайте следующее.
 
 Если для защиты Jenkins используется пароль, установите PuTTY и выполните следующую команду:
 ```
@@ -110,9 +102,7 @@ putty.exe -ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.
 putty -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="if-you-are-using-linux-or-mac" class="xliff"></a>
-
-### При использовании Mac или Linux сделайте следующее.
+### <a name="if-you-are-using-linux-or-mac"></a>При использовании Mac или Linux сделайте следующее.
 
 Если для защиты главного экземпляра Jenkins используется пароль, выполните следующую команду:
 ```
@@ -125,9 +115,7 @@ ssh -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.az
 ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Domain name label>.<location>.cloudapp.azure.com
 ```
 
-<a id="connect-to-jenkins" class="xliff"></a>
-
-## Подключение к Jenkins
+## <a name="connect-to-jenkins"></a>Подключение к Jenkins
 После запуска туннеля перейдите по адресу http://localhost:8080/ на локальном компьютере.
 
 При первом использовании разблокируйте панель мониторинга Jenkins с помощью первоначального пароля администратора.
@@ -146,9 +134,7 @@ ssh -i <private key file including path> -L 8080:localhost:8080 <username>@<Doma
 
 ![Экземпляр Jenkins готов!](./media/install-jenkins-solution-template/jenkins-welcome.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Изучив это руководство, вы:
 
