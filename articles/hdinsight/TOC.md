@@ -94,7 +94,6 @@
 #### [Запись в Data Lake Store](hdinsight-storm-write-data-lake-store.md)
 #### [Разработка топологий на платформе Java с помощью Maven](hdinsight-storm-develop-java-topology.md)
 #### [Разработка топологий C# с помощью инструментов Hadoop](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-#### [Определение популярных тем в Twitter](hdinsight-storm-twitter-trending.md)
 #### [Обработка событий с помощью топологий C#](hdinsight-storm-develop-csharp-event-hub-topology.md)
 #### [Обработка событий с помощью топологий Java](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Использование Power BI с топологией](hdinsight-storm-power-bi-topology.md)

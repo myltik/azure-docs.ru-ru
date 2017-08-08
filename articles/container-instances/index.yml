@@ -37,3 +37,11 @@ sections:
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Упаковка приложения в образ контейнера</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Создание реестра контейнеров Azure и отправка образа контейнера</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Развертывание образа контейнера в службе "Экземпляры контейнеров Azure"</a>
+  - title: Справочные материалы
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Инфраструктура CLI Azure
+            html: "<p><a href=\"/cli/azure/container\">Azure CLI\_2.0</a></p>"
