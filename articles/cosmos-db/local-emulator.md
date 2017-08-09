@@ -13,14 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 07/27/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d2a6af66b6c1e92b8b694685ab8c16781d1ade48
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 2ea15afa857e568a10b0ef802764afd1eab0d3f3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Использование эмулятора Azure Cosmos DB для разработки и тестирования в локальной среде
@@ -157,6 +156,12 @@ powershell .\importcert.ps1
 
 Кроме того, как и настоящая служба Azure Cosmos DB, эмулятор Azure Cosmos DB поддерживает только безопасное подключение по протоколу SSL.
 
+## <a name="running-the-emulator-on-a-local-network"></a>Запуск эмулятора в локальной сети
+
+Вы можете запустить эмулятор в локальной сети. Чтобы разрешить доступ к сети, укажите параметр /AllowNetworkAccess в [командной строке](#command-line-syntax), а также один из обязательных дополнительных параметров /Key=key_string или /KeyFile=file_name. Можно также применить параметр GenKeyFile=file_name, чтобы заранее создать случайный ключ.  Затем передайте этот ключ в параметре /KeyFile=file_name или /Key=contents_of_file.
+
+Чтобы в первый раз получить доступ к сети, пользователь должен завершить работу эмулятора и удалить каталог данных эмулятора (C:\Users\имя_пользователя\AppData\Local\CosmosDBEmulator).
+
 ## <a name="developing-with-the-emulator"></a>Разработка с помощью эмулятора
 Когда эмулятор Azure Cosmos DB будет запущен на рабочем столе, вы сможете работать с ним с помощью любых поддерживаемых [пакетов SDK для Azure Cosmos DB](documentdb-sdk-dotnet.md) или [REST API Azure Cosmos DB](/rest/api/documentdb/). Эмулятор Azure Cosmos DB также содержит встроенный обозреватель данных, позволяющий создавать коллекции для API DocumentDB и MongoDB, а также просматривать и редактировать документы без написания кода.   
 
@@ -167,7 +172,7 @@ powershell .\importcert.ps1
 
 Если вы используете [поддержку протокола Azure Cosmos DB для MongoDB](mongodb-introduction.md), используйте следующую строку подключения:
 
-    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
+    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true&3t.sslSelfSignedCerts=true
 
 Для подключения к эмулятору Azure Cosmos DB вы можете использовать имеющиеся инструменты, такие как [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio). Можно также переносить данные между эмулятором Azure Cosmos DB и службой Azure Cosmos DB с помощью [средства миграции данных Azure Cosmos DB](https://github.com/azure/azure-documentdb-datamigrationtool).
 
@@ -233,7 +238,7 @@ powershell .\importcert.ps1
 </tr>
 <tr>
   <td>MongoPort</td>
-  <td>Указывает номер порта для использования с интерфейсом совместимости с MongoDB. Значение по умолчанию — 10250.</td>
+  <td>Указывает номер порта для использования с интерфейсом совместимости с MongoDB. Значение по умолчанию — 10255.</td>
   <td>CosmosDB.Emulator.exe /MongoPort=&lt;порт_mongo&gt;</td>
   <td>&lt;mongoport&gt;: один номер порта</td>
 </tr>
@@ -278,6 +283,42 @@ powershell .\importcert.ps1
   <td>Указывает максимальное количество секционированных коллекций. Дополнительные сведения см. в разделе [Изменение количества коллекций](#set-partitioncount).</td>
   <td>CosmosDB.Emulator.exe /PartitionCount=&lt;число_разделов&gt;</td>
   <td>&lt;partitioncount&gt;: максимально допустимое количество односекционных коллекций. Значение по умолчанию — 25. Максимально допустимое значение — 250.</td>
+</tr>
+<tr>
+  <td>DefaultPartitionCount</td>
+  <td>Указывает количество секций по умолчанию для секционированной коллекции.</td>
+  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
+  <td>&lt;defaultpartitioncount&gt; Значение по умолчанию — 25.</td>
+</tr>
+<tr>
+  <td>AllowNetworkAccess</td>
+  <td>Разрешает доступ к эмулятору по сети. Для включения сетевого доступа нужно также передать один из параметров: /Key=&lt;строка_ключа&gt; или /KeyFile=&lt;имя_файла&gt;.</td>
+  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;строка_ключа&gt;<br><br>или<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;имя_файла&gt;</td>
+  <td></td>
+</tr>
+<tr>
+  <td>NoFirewall</td>
+  <td>Не изменять правила брандмауэра при использовании /AllowNetworkAccess.</td>
+  <td>CosmosDB.Emulator.exe /NoFirewall</td>
+  <td></td>
+</tr>
+<tr>
+  <td>GenKeyFile</td>
+  <td>Создает новый ключ авторизации и сохраняет его в указанном файле. Созданный ключ можно использовать с параметрами/Key или/KeyFile.</td>
+  <td>CosmosDB.Emulator.exe /GenKeyFile</td>
+  <td></td>
+</tr>
+<tr>
+  <td>Целостность</td>
+  <td>Определяет уровень согласованности по умолчанию для учетной записи.</td>
+  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
+  <td>&lt;consistency&gt;: допускается любое значение из следующих [уровней согласованности](consistency-levels.md): Session (на уровне сеансов), Strong (сильная), Eventual (итоговая) или BoundedStaleness (с ограниченным устареванием).  По умолчанию используется значение Session.</td>
+</tr>
+<tr>
+  <td>?</td>
+  <td>Показывает справочные сообщения.</td>
+  <td></td>
+  <td></td>
 </tr>
 </table>
 

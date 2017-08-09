@@ -1,6 +1,6 @@
 ---
-title: "Интерфейс API, пакет SDK и ресурсы для .NET Core (Azure DocumentDB) | Документация Майкрософт"
-description: "Сведения об API и пакетах SDK для .NET Core, в том числе даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB .NET Core."
+title: "API-интерфейс, пакет SDK и ресурсы для .NET Core (Azure Cosmos DB) | Документация Майкрософт"
+description: "Сведения об API-интерфейсе и пакете SDK для .NET Core, в том числе даты выхода, даты прекращения использования и внесенные изменения по каждой версии пакета SDK .NET Core для Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -16,13 +16,13 @@ ms.date: 06/12/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 4e842bf237bf51b020218d1f612af55939b2deb9
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 28eb505bf58943f7a687b79af3427a0ee74fe9bb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="documentdb-net-core-sdk-release-notes-and-resources"></a>Пакет SDK .NET Core для DocumentDB: заметки о выпуске и материалы
+# <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Пакет SDK .NET Core для Azure Cosmos DB: заметки о выпуске и ресурсы
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Веб-канал изменений в .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -44,19 +44,19 @@ ms.lasthandoff: 07/13/2017
 
 <tr><td>**Примеры**</td><td>[Примеры кода для .NET](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**Начало работы**</td><td>[Начало работы с пакетом SDK для DocumentDB .NET Core](documentdb-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Приступая к работе**</td><td>[Azure Cosmos DB. Приступая к работе с API DocumentDB и .NET Core](documentdb-dotnetcore-get-started.md)</td></tr>
 
-<tr><td>**Учебник по веб-приложениям**</td><td>[Разработка веб-приложений с использованием DocumentDB](documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Учебник по веб-приложениям**</td><td>[Руководство по ASP.NET MVC. Разработка веб-приложений в Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
 <tr><td>**Текущая поддерживаемая платформа**</td><td>[.NET Standard 1.6 и .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Заметки о выпуске
 
-Пакет SDK DocumentDB для .NET Core имеет те же функции, что и последняя версия [пакета SDK для DocumentsDB .NET](documentdb-sdk-dotnet.md).
+Пакет SDK .NET Core для Azure Cosmos DB функционально полностью эквивалентен последней версии [пакета SDK .NET для Azure Cosmos DB](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> Пакет SDK для DocumentDB .NET Core несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+> Пакет SDK .NET Core для Azure Cosmos DB пока несовместим с приложениями универсальной платформы Windows (UWP). Чтобы получить пакет SDK для .NET Core, который поддерживает приложения UWP, отправьте сообщение по адресу [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 07/13/2017
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 
-*   Устранена проблема, возникающая на компьютерах x64, которые не поддерживают инструкции SSE4 и отправляют исключение SEHException при выполнении запросов DocumentDB.
+*   Устранена проблема, возникающая на компьютерах под управлением 64-разрядной ОС без поддержки инструкций SSE4, которая приводила к исключению SEHException при выполнении запросов Azure Cosmos DB.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
@@ -107,13 +107,13 @@ ms.lasthandoff: 07/13/2017
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
-Пакет SDK для DocumentDB .NET Core позволяет создавать быстрые кроссплатформенные приложения [ASP.NET Core](https://www.asp.net/core) и [ .NET Core](https://www.microsoft.com/net/core#windows) для Windows, Mac и Linux. Последний выпуск пакета SDK для DocumentDB .NET Core полностью совместим с [Хamarin](https://www.xamarin.com) и используется для создания приложений для iOS, Android и Mono (Linux).  
+Пакет SDK .NET Core для Azure Cosmos DB позволяет создавать быстрые кроссплатформенные приложения [ASP.NET Core](https://www.asp.net/core) и [.NET Core](https://www.microsoft.com/net/core#windows) для Windows, Mac и Linux. Последний выпуск пакета SDK .NET Core для Azure Cosmos DB полностью совместим с [Хamarin](https://www.xamarin.com) и пригоден для создания приложений для iOS, Android и Mono (Linux).  
 
 ### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 
-Пакет SDK для предварительной версии DocumentDB .NET Core позволяет создавать быстрые кроссплатформенные приложения [ASP.NET Core](https://www.asp.net/core) и [.NET Core](https://www.microsoft.com/net/core#windows) для среды Windows, Maс и Linux.
+Пакет SDK .NET Core для Azure Cosmos DB (предварительная версия) позволяет создавать быстрые кроссплатформенные приложения [ASP.NET Core](https://www.asp.net/core) и [.NET Core](https://www.microsoft.com/net/core#windows) для Windows, Mac и Linux.
 
-Пакет SDK для предварительной версии DocumentDB .NET Core имеет те же функции, что и последняя версия [пакета SDK для DocumentDB .NET](documentdb-sdk-dotnet.md), и поддерживает следующее:
+Пакет SDK .NET Core для Azure Cosmos DB (предварительная версия) функционально полностью эквивалентен последней версии [пакета SDK .NET для Azure Cosmos DB](documentdb-sdk-dotnet.md) и поддерживает следующие возможности:
 * все [режимы подключения](performance-tips.md#networking): режим шлюза, прямые TCP- и HTTP-подключения; 
 * все [уровни согласованности](consistency-levels.md): строгая, ограниченное устаревание, согласованность сеанса, окончательная;
 * [секционированные коллекции](partition-data.md); 

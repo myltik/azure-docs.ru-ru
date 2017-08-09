@@ -1,6 +1,6 @@
 ---
 title: "Что такое виртуальная машина для обработки и анализа данных? | Документация Майкрософт"
-description: "Узнайте об основных сценариях и функциях виртуальной машины для обработки и анализа данных, среды и набора средств, готовых для анализа, а также о том, как начать работу с ней."
+description: "Начало работы с основными аналитическими сценариями с помощью виртуальных машин для обработки и анализа данных."
 keywords: "средства анализа и обработки данных, виртуальная машина для анализа и обработки данных, средства для анализа и обработки данных, анализ и обработка данных Linux"
 services: machine-learning
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2017
-ms.author: gokuma
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 77b4f634c2a30d0cbec92d34a7f83866541d7d84
-ms.lasthandoff: 04/15/2017
-
+ms.date: 07/21/2017
+ms.author: gokuma;bradsev
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: d6346419756cb0841c23f3ba63e479ba2397af54
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="introduction-to-the-cloud-based-data-science-virtual-machine-for-linux-and-windows"></a>Введение в облачные виртуальные машины для анализа и обработки данных для Linux и Windows
-Виртуальная машина для анализа и обработки данных (DSVM) — это настроенный образ в облаке Microsoft Azure. В ней предварительно установлено и настроено множество популярных средств для анализа и обработки данных, а также других средств, позволяющих быстро приступить к созданию интеллектуальных приложений для расширенной аналитики. Она доступна на платформах Windows Server 2012 и Linux. Мы предлагаем выпуск DSVM для Linux в дистрибутивах Ubuntu 16.04 LTS или Linux на базе OpenLogic 7.2 CentOS. 
+Виртуальная машина для анализа и обработки данных (DSVM) — это настроенный образ в облаке Microsoft Azure. В ней предварительно установлено и настроено множество популярных средств для анализа и обработки данных, а также других средств, позволяющих быстро приступить к созданию интеллектуальных приложений для расширенной аналитики. Она доступна на платформах Windows Server и Linux. Версия DSVM для операционных систем Windows работает в Windows Server 2016 и Windows Server 2012. Версия DSVM для Linux предлагается в Ubuntu 16.04 LTS и в дистрибутивах Linux на базе OpenLogic 7.2 CentOS. 
 
 В этом разделе обсуждаются возможности, которые предоставляет виртуальная машина для анализа и обработки данных. Здесь также описаны некоторые основные сценарии ее использования, перечислены ее ключевые функции, доступные в версиях Windows и Linux, а также инструкции о том, как приступить к работе с ними.
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 04/15/2017
 Виртуальную машину для обработки и анализа данных можно использовать для оценки таких средств, как Microsoft R Server, SQL Server, инструментов Visual Studio, Jupyter, наборов средств глубокого и машинного обучения, новых средств, популярных в сообществе, а также обучения им при минимальной необходимости в настройке. Так как виртуальную машину для обработки и анализа данных можно быстро настроить, ее можно использовать и в других краткосрочных сценариях, к примеру для репликации опубликованных экспериментов, демонстрации, выполнения пошаговых учебников в рамках онлайн-сеансов или руководств на конференциях.
 
 ### <a name="deep-learning"></a>Глубокое обучение
-ВМ для обработки и анализа данных можно применять в модели обучения, использующей алгоритмы глубокого обучения на оборудовании с GPU (графическими процессорами). DSVM позволяет использовать такое оборудование в облаке только по мере необходимости, когда требуется обучить большие модели или обеспечить высокую скорость вычислений, для которых можно использовать возможности графического процессора.  В Windows [набор средств глубокого обучения для DSVM](http://aka.ms/dsvm/deeplearning) в настоящее время предоставляется в виде отдельной надстройки над DSVM. Она автоматически устанавливает драйверы GPU, платформы и версию алгоритмов глубокого обучения для GPU при создании экземпляра виртуальной машины. В Linux глубокое обучение на GPU включено только в [выпуске виртуальной машины для анализа и обработки данных для Linux (Ubuntu)](http://aka.ms/dsvm/ubuntu). Выпуск виртуальной машины для анализа и обработки данных для Ubuntu можно развернуть на виртуальной машине Azure, не использующей графические процессоры. В этом случае все платформы глубокого обучения будут переведены в режим ЦП. Выпуск DSVM для Linux на основе CentOS содержит сборки некоторых инструментов глубокого обучения, использующих только ЦП (CNTK, Tensorflow, MXNet), но в нем отсутствуют предварительно установленные платформы и драйверы GPU. 
+ВМ для обработки и анализа данных можно применять в модели обучения, использующей алгоритмы глубокого обучения на оборудовании с GPU (графическими процессорами). DSVM использует возможности облака Azure по масштабированию виртуальных машин, что позволяет предоставлять вам оборудование GPU в таких объемах, которые требуются в конкретный момент. Вы можете переключаться на виртуальные машины с GPU, когда обучаете большие модели или выполняете высокоскоростные вычисления, не меняя диск операционной системы.  Версия DSVM для Windows Server 2016 содержит предустановленные драйверы GPU, платформы и версии GPU для алгоритмов глубокого обучения. В Linux глубокое обучение на GPU включено только в [выпуске виртуальной машины для анализа и обработки данных для Linux (Ubuntu)](http://aka.ms/dsvm/ubuntu). Версия DSVM для Ubuntu или Windows 2016 можно развернуть на виртуальной машине Azure без GPU. В этом случае все платформы глубокого обучения будут переведены в режим ЦП. Ранее мы публиковали [набор инструментов для глубокого изучения](http://aka.ms/dsvm/deeplearning) для Windows Server 2012. Теперь же мы рекомендуем использовать Windows Server 2016 для рабочих нагрузок глубокого обучения на платформе Windows. Выпуск DSVM для Linux на основе CentOS содержит сборки некоторых инструментов глубокого обучения, использующих только ЦП (CNTK, Tensorflow, MXNet), но в нем отсутствуют предварительно установленные платформы и драйверы GPU. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Что предусмотрено в виртуальной машине для обработки и анализа данных?
 В этой виртуальной машине уже установлено и настроено множество популярных средств для обработки и анализа данных, а также глубокого обучения. Среди них также есть средства, упрощающие работу с различными данными и продуктами для анализа Azure. Вы можете просматривать и создавать прогнозные модели на основе наборов данных большого масштаба, используя Microsoft R Server или SQL Server 2016. Эта виртуальная машина включает в себя узел других средств, предоставленных корпорацией Майкрософт и сообществом открытого исходного кода, а также здесь предусмотрены приложения Notebook и образец кода. В следующей таблице перечислены основные компоненты выпусков Windows и Linux виртуальной машины для обработки и анализа данных.
@@ -58,6 +58,7 @@ ms.lasthandoff: 04/15/2017
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) с предустановленными популярными пакетами   |Да                      | Да             |
 | [Microsoft R Server](https://msdn.microsoft.com/microsoft-r/) Developer Edition включает в себя: <br />  параллельную платформу &nbsp;&nbsp;&nbsp;&nbsp;* [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-getting-started) и распределенную высокопроизводительную платформу R;<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml-introduction) — новые передовые алгоритмы ML от Майкрософт; <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [средства операционализации R](https://msdn.microsoft.com/microsoft-r/operationalize/about).                                            |Да                      | Да <br/> (пакет MicrosoftML пока недоступен)|
+| [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro Plus с общей активацией — Excel, Word и PowerPoint   |Да                      |Нет              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 с предустановленными популярными пакетами    |Да                      |Да              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) с предварительно установленными популярными пакетами для языка Julia                         |Да                      |Да              |
 | Реляционные базы данных                                                            | [SQL Server 2016 SP1](https://www.microsoft.com/sql-server/sql-server-2016) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) |
@@ -72,7 +73,7 @@ ms.lasthandoff: 04/15/2017
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | Нет | Да |
 | JupyterHub (многопользовательский сервер блокнотов)| Нет | Да |
 | **Инструменты разработки, редакторы кода и интегрированные среды разработки**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2015 (Community Edition)](https://www.visualstudio.com/community/) с инструментами для подключаемого модуля Git, Azure HDInsight (Hadoop), Data Lake, данных SQL Server, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) и [инструменты R для Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Да | Нет |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) с подключаемым модулем Git, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools (SSDT), [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) и [инструментами R для Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Да | Нет |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | Нет | Да |
@@ -103,7 +104,7 @@ ms.lasthandoff: 04/15/2017
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | Нет | Да (только Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | Нет | Да (только Ubuntu) |
-| **Инструменты глубокого обучения на основе графического процессора** |Используйте [набор средств глубокого обучения для DSVM](http://aka.ms/dsvm/deeplearning) |Только в выпуске для Ubuntu|
+| **Инструменты глубокого обучения на основе графического процессора** |Версия для Windows Server 2016  |Версия для Ubuntu |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](http://cntk.ai) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Tensorflow](https://www.tensorflow.org/) | Да | Да |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | Да | Да|
@@ -120,14 +121,25 @@ ms.lasthandoff: 04/15/2017
 
 
 ## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Как приступить к работе с виртуальной машиной Windows для обработки и анализа данных
-* Создайте экземпляр виртуальной машины под управлением Windows. Для этого перейдите на [эту страницу](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) и нажмите зеленую кнопку **Создание виртуальной машины**.
+* Создайте экземпляр нужной версии DSVM для Windows, перейдя к странице, посвященной
+  * [DSVM на платформе Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm)
+  
+  или 
+  * [DSVM на платформе Windows Server 2012](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/). 
+* Нажмите кнопку **Получить сейчас**.
 * Войдите в виртуальную машину из удаленного рабочего стола, используя учетные данные, указанные при ее создании.
 * Чтобы обнаружить и запустить средства, выберите меню **Запустить**.
 
 ## <a name="get-started-with-the-linux-data-science-vm"></a>Приступая к работе с виртуальной машиной Linux для обработки и анализа данных
-* Создание экземпляра виртуальной машины на платформе Linux
-  * Если вы используете выпуск на основе OpenLogic CentOS, перейдите на [эту страницу](http://aka.ms/dsvm/centos) и нажмите кнопку **ПОЛУЧИТЬ**.
-  * Если вы используете выпуск для Ubuntu, перейдите на [эту страницу](http://aka.ms/dsvm/ubuntu) и нажмите кнопку **ПОЛУЧИТЬ**.
+* Создайте экземпляр нужной версии DSVM для Linux, перейдя к странице, посвященной 
+  * [DSVM на платформе Ubuntu](http://aka.ms/dsvm/ubuntu)
+
+  или
+
+  * [DSVM на платформе OpenLogic CentOS](http://aka.ms/dsvm/centos).
+
+  
+* Нажмите кнопку **Получить сейчас**.
 * Войдите в виртуальную машину из клиента SSH, такого как PuTTY, с помощью команды SSH или используйте учетные данные, указанные при создании этой виртуальной машины.
 * В командной строке оболочки введите dsvm-more-info.
 * Для графического рабочего стола скачайте [отсюда](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) клиент X2Go в зависимости от его платформы и выполните инструкции в документе [Подготовка виртуальной машины Linux для обработки и анализа данных](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).

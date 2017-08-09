@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/16/2017
+ms.date: 07/12/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 4ce302095fc36f046785ac45d1a9452de321113c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Источники данных о производительности Windows и Linux в Log Analytics
@@ -48,8 +47,8 @@ ms.lasthandoff: 06/17/2017
 
 1. Введите в текстовое поле имя счетчика в формате *объект(экземпляр)\счетчик*.  По мере ввода вы увидите соответствующий список распространенных счетчиков.  Выберите счетчик из списка или введите собственный.  Кроме того, вы можете получить все экземпляры определенного счетчика, указав *объект\счетчик*.  
 
-    При сборе данных счетчиков производительности SQL Server из именованных экземпляров имена всех этих счетчиков начинаются с *MSSQL$*, после чего следует имя экземпляра.  Например, чтобы собрать показатели счетчика "Коэффициент попаданий в кэш журнала" для всех баз данных из объекта производительности базы данных для экземпляра SQL (INST2), укажите `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`. 
- 
+    При сборе данных счетчиков производительности SQL Server из именованных экземпляров имена всех этих счетчиков начинаются с *MSSQL$*, после чего следует имя экземпляра.  Например, чтобы собрать показатели счетчика "Коэффициент попаданий в кэш журнала" для всех баз данных из объекта производительности базы данных для экземпляра SQL (INST2), укажите `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
+
 2. Щелкните **+** или нажмите клавишу **ВВОД**, чтобы добавить счетчик в список.
 3. При добавлении счетчика по умолчанию устанавливается **интервал выборки** 10 секунд.  Вы можете увеличить это значение до 1800 секунд (30 минут), уменьшив таким образом объем собираемых данных по производительности.
 4. Закончив добавление счетчиков, нажмите кнопку **Сохранить** в верхней части экрана, чтобы сохранить конфигурацию.
@@ -67,7 +66,7 @@ ms.lasthandoff: 06/17/2017
 5. Закончив добавление счетчиков, нажмите кнопку **Сохранить** в верхней части экрана, чтобы сохранить конфигурацию.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Настройка счетчиков производительности Linux в файле конфигурации
-Вместо настройки счетчиков производительности Linux с помощью портала OMS можно отредактировать файлы конфигурации на агенте Linux.  Собираемые метрики производительности определяются конфигурацией в файле **/etc/opt/microsoft/omsagent/\<ИД_рабочей_области\>/conf/omsagent.conf**. 
+Вместо настройки счетчиков производительности Linux с помощью портала OMS можно отредактировать файлы конфигурации на агенте Linux.  Собираемые метрики производительности определяются конфигурацией в файле **/etc/opt/microsoft/omsagent/\<ИД_рабочей_области\>/conf/omsagent.conf**.
 
 Каждый объект или категорию метрики производительности для сбора следует определить в файле конфигурации в качестве одного элемента `<source>` . Синтаксис соответствует шаблону ниже.
 
@@ -90,7 +89,7 @@ ms.lasthandoff: 06/17/2017
 | interval | Частота сбора счетчиков объекта. |
 
 
-В следующей таблице перечислены объекты и счетчики, которые можно указать в файле конфигурации.  Для определенных приложений доступны дополнительные счетчики, как описано в статье [Collect performance counters for Linux applications in Log Analytics](log-analytics-data-sources-linux-applications.md) (Сбор данных счетчиков производительности для приложений Linux в Log Analytics). 
+В следующей таблице перечислены объекты и счетчики, которые можно указать в файле конфигурации.  Для определенных приложений доступны дополнительные счетчики, как описано в статье [Collect performance counters for Linux applications in Log Analytics](log-analytics-data-sources-linux-applications.md) (Сбор данных счетчиков производительности для приложений Linux в Log Analytics).
 
 | Имя объекта | Имя счетчика |
 |:--|:--|
@@ -158,7 +157,7 @@ ms.lasthandoff: 06/17/2017
       counter_name_regex ".*"
       interval 5m
     </source>
-    
+
     <source>
       type oms_omi
       object_name "Logical Disk"
@@ -166,7 +165,7 @@ ms.lasthandoff: 06/17/2017
       counter_name_regex ".*"
       interval 5m
     </source>
-    
+
     <source>
       type oms_omi
       object_name "Processor"
@@ -174,7 +173,7 @@ ms.lasthandoff: 06/17/2017
       counter_name_regex ".*"
       interval 30s
     </source>
-    
+
     <source>
       type oms_omi
       object_name "Memory"
@@ -222,6 +221,23 @@ ms.lasthandoff: 06/17/2017
 | Type=Perf CounterName="% Processor Time" InstanceName="_Total" (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Почасовые средние, минимальные, максимальные значения и 75-е процентили по загрузке ЦП для конкретного компьютера |
 | Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | Все данные производительности из объекта производительности базы данных master именованного экземпляра SQL Server (INST2).  
 
+>[!NOTE]
+> Если для рабочей области обновлен [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом.
+
+> | Запрос | Описание |
+|:--- |:--- |
+| Perf |Все данные о производительности. |
+| Perf &#124; where Computer == "MyComputer" |Все данные о производительности с определенного компьютера |
+| Perf &#124; where CounterName == "Current Disk Queue Length" |Все данные о производительности с определенного счетчика |
+| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(Average) by Computer |Средний объем использования ЦП на всех компьютерах |
+| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(Max) by Computer |Максимальный объем использования ЦП на всех компьютерах |
+| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |Средняя длина текущей дисковой очереди по всем экземплярам заданного компьютера |
+| Perf &#124; where CounterName == "DiskTransfers/sec" &#124; summarize AggregatedValue = percentile(Average, 95) by Computer |95-й процентиль для обращений к диску/с на всех компьютерах |
+| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Средняя почасовая нагрузка на ЦП по всем компьютерам |
+| Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | Почасовые 70-е процентили по каждому процентному счетчику для конкретного компьютера |
+| Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Почасовые средние, минимальные, максимальные значения и 75-е процентили по загрузке ЦП для конкретного компьютера |
+| Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | Все данные производительности из объекта производительности базы данных master именованного экземпляра SQL Server (INST2).  
+
 ## <a name="viewing-performance-data"></a>Просмотр данных о производительности
 При выполнении поиска данных о производительности по журналам по умолчанию отображается представление **Список**.  Чтобы представить данные в графической форме, щелкните **Метрики**.  Чтобы получить подробное графическое представление, щелкните **+** рядом со счетчиком.  
 
@@ -234,3 +250,4 @@ ms.lasthandoff: 06/17/2017
 * [Сбор данных счетчиков производительности из приложений Linux](log-analytics-data-sources-linux-applications.md), включая MySQL и сервер HTTP Apache.
 * Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений.  
 * Экспортируйте собранные данные в [Power BI](log-analytics-powerbi.md) для дополнительной визуализации и анализа.
+
