@@ -1,6 +1,6 @@
 ---
 title: "Использование API MongoDB для создания приложений Azure Cosmos DB | Документация Майкрософт"
-description: "Руководство, в котором создается оперативная база данных с помощью API DocumentDB для MongoDB."
+description: "Руководство, в котором создается оперативная база данных с помощью интерфейсов API Azure Cosmos DB для MongoDB."
 keywords: "примеры mongodb"
 services: cosmos-db
 author: AndrewHoh
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5afe7e716bc33e2d6d07edf15ab1686466c05bb8
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 433d2e585c884a10e7e923a0b27c179a95410d01
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Создание приложения API для MongoDB в Azure Cosmos DB с помощью Node.js
@@ -49,7 +48,7 @@ ms.lasthandoff: 05/31/2017
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
 
     var insertDocument = function(db, callback) {
     db.collection('families').insertOne( {
@@ -127,7 +126,7 @@ ms.lasthandoff: 05/31/2017
 2. Замените следующие переменные в файле *app.js* параметрами учетной записи (узнайте, как найти [строку подключения](connect-mongodb-account.md)):
    
     ```nodejs
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
     ```
      
 3. Откройте удобный для вас терминал, выполните команду **npm install mongodb --save**, а затем запустите приложение с помощью **node app.js**.

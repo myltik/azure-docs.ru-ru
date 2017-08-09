@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 7af00e78536907a983285ef271e7945b83bd5619
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: eaf6278f97cd5ddd7e049ff4745181f39d7949a0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Использование MapReduce с Hadoop в HDInsight с помощью SSH
@@ -46,11 +45,15 @@ ms.lasthandoff: 07/08/2017
 
 Подключитесь к кластеру с помощью SSH. Например, следующая команда позволяет подключиться к кластеру с именем **myhdinsight**:
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **Если вы используете ключ сертификата для аутентификации SSH**, возможно, потребуется указать расположение закрытого ключа в клиентской системе. Пример:
 
-    ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **Если вы используете пароль для аутентификации SSH**, его необходимо ввести при запросе.
 
@@ -93,7 +96,7 @@ ms.lasthandoff: 07/08/2017
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    Она отобразит список слов, содержащихся в файле **wasb://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого из них. Ниже приведен пример данных, содержащихся в файле.
+    Она отобразит список слов, содержащихся в файле **wasb://example/data/gutenberg/davinci.txt**, а также число вхождений каждого из них. Ниже приведен пример данных, содержащихся в файле.
 
         wreathed        3
         wreathing       1

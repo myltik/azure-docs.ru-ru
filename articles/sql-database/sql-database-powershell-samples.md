@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c7daedd68992402ad2b165a95c263d3659a3ea1a
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b54775ec0bd3497e9700db0e3d1428dcc75cc119
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -46,5 +46,9 @@ ms.lasthandoff: 06/28/2017
 | [Восстановление базы данных](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Этот скрипт PowerShell восстанавливает базу данных SQL Azure из геоизбыточной резервной копии и восстанавливает последнюю резервную копию удаленной базы данных SQL Azure. |
 | [Копирование базы данных на новый сервер](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Этот скрипт PowerShell создает копию существующей базы данных SQL Azure на новом сервере SQL Azure. |
 | [Импорт базы данных из BACPAC-файла](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Этот скрипт PowerShell импортирует базу данных из BACPAC-файла на сервер SQL Azure. |
+| **Синхронизация данных между базами данных**||
+| [Синхронизация данных между базами данных SQL](scripts/sql-database-sync-data-between-sql-databases.md) | Этот скрипт PowerShell настраивает синхронизацию данных между несколькими базами данных SQL Azure. |
+| [Синхронизация данных между базой данных SQL и локальной базой данных SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md) | Этот скрипт PowerShell настраивает синхронизацию данных между базой данных SQL Azure и локальной базой данных SQL Server. |
+|||
 |||
 

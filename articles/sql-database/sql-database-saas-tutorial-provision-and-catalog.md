@@ -5,7 +5,7 @@ keywords: "руководство по базе данных sql"
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: f6beb62246aaf59bfd81467f07d347913a20677b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 658c316d8d9d14ce11dbb92188afbf0e68c00493
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Подготовка новых клиентов и их регистрация в каталоге
@@ -70,7 +69,7 @@ ms.lasthandoff: 06/14/2017
 1. Откройте файл **Demo-ProvisionAndCatalog.ps1** в интегрированной среде сценариев PowerShell и задайте следующие значения:
    * **$TenantName** — имя нового мероприятия (например, *Bushwillow Blues*).
    * **$VenueType** — один из предопределенных типов мероприятия: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
-   * **$DemoScenario** — 1. Оставьте значение _1_ для **подготовки одного клиента**.
+   * **$DemoScenario** — 1. Оставьте значение _1_ для *подготовки одного клиента*.
 
 1. Нажмите клавишу **F5** для запуска скрипта.
 
@@ -83,15 +82,15 @@ ms.lasthandoff: 06/14/2017
 
 В этом упражнении подготавливается пакет дополнительных клиентов. Рекомендуется подготовить пакет клиентов перед выполнением других руководств по SaaS Wingtip, чтобы вы могли работать не только с несколькими базами данных.
 
-1. Откройте файл ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* в *интегрированной среде сценариев PowerShell* и задайте следующие значения:
-   * **$DemoScenario** = **3**. Установите значение **3** для **подготовки пакета клиентов**.
+1. Откройте файл …\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* в *интегрированной среде сценариев PowerShell* и задайте для параметра *$DemoScenario* значение 3:
+   * **$DemoScenario** = **3**. Установите значение **3** для *подготовки пакета клиентов*.
 1. Нажмите клавишу **F5** для запуска скрипта.
 
 Скрипт подготовит пакет дополнительных клиентов. Он использует [шаблон Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md), который управляет пакетом, а затем подготавливает каждую базу данных в связанном шаблоне. При использовании шаблонов таким способом Azure Resource Manager выступает в качестве посредника в процессе подготовки скрипта. Шаблоны подготавливают базы данных в параллельном режиме, когда это возможно, и выполняют повторные попытки в случае необходимости, чтобы оптимизировать общий процесс. Сценарий является идемпотентным, поэтому, если при его выполнении произойдет сбой или по какой-либо причине он остановится, запустите его еще раз.
 
 ### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>Проверка успешного развертывания пакета клиентов
 
-* Откройте сервер *tenants1* на [портале Azure](https://portal.azure.com) и щелкните **Базы данных SQL**:
+* Откройте сервер *tenants1*, перейдя к списку серверов на [портале Azure](https://portal.azure.com), щелкните **Базы данных SQL** и проверьте пакет из 17 дополнительных баз данных в списке.
 
    ![список баз данных](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
@@ -103,13 +102,13 @@ ms.lasthandoff: 06/14/2017
 1. Откройте файл …\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1 и задайте следующие параметры.
    * **$TenantName** — имена клиентов должны быть уникальными, поэтому задайте имя, отличное от имен имеющихся клиентов (например, *Hackberry Hitters*).
    * **$VenueType** — используйте один из предопределенных типов мероприятия (например, *judo*).
-   * **$DemoScenario** — 1. Установите значение **1** для **подготовки одного клиента**.
+   * **$DemoScenario** = **1**. Установите значение **1** для *подготовки одного клиента*.
 
 1. Добавьте точку останова, поместив курсор в любом месте строки *New-Tenant `* и нажмите клавишу **F9**.
 
    ![точка останова](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. Нажмите клавишу **F5** для запуска сценария. По достижении точки останова нажмите клавишу **F11**, чтобы перейти к нужному компоненту. Отслеживайте выполнение скрипта и используйте клавиши **F10** и **F11**, чтобы обойти вызываемую функцию или перейти в нее. [Отладка сценариев в интегрированной среде сценариев Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+1. Нажмите клавишу **F5** для запуска сценария. По достижении точки останова нажмите клавишу **F11**, чтобы перейти к нужному компоненту. Отслеживайте выполнение сценария и используйте клавиши **F10** и **F11** (меню "Отладка"), чтобы обойти вызываемые функции или перейти в них по очереди. Дополнительные сведения об отладке сценариев PowerShell см. в разделе [Отладка сценариев в интегрированной среде сценариев Windows PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ### <a name="examine-the-provision-and-catalog-implementation-in-detail-by-stepping-through-the-script"></a>Получение дополнительных сведений о подготовке и каталогизации в процессе выполнения скрипта
 

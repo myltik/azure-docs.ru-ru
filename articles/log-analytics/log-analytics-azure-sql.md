@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f5f9aa186480926df1110928983566e05f79efb8
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: cab45cc6dd621eb4a95ef5f1842ec38c25e980b6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -104,19 +103,31 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ### <a name="analyze-data-and-create-alerts"></a>Анализ данных и создание оповещений
 
-Решение включает полезные запросы для выполнения анализа данных. Если прокрутить вправо, на панели мониторинга отображается несколько общих запросов, которые можно щелкнуть для выполнения [поиска по журналам](log-analytics-log-searches.md) для данных SQL Azure.
+Оповещения можно легко создать с помощью данных, поступающих из ресурсов базы данных SQL Azure. Вот несколько полезных запросов для [поиска по журналам](log-analytics-log-searches.md), которые можно использовать для предупреждений.
 
-![Запросы](./media/log-analytics-azure-sql/azure-sql-queries.png)
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-Решение включает некоторые *запросы на основе оповещений* (как показано выше), используя которые можно создать предупреждения по определенным пороговым значениям для баз данных и эластичных пулов SQL Azure.
+
+*Высокий уровень DTU в базе данных SQL Azure*
+
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+```
+
+*Высокий уровень DTU в эластичном пуле базы данных SQL Azure*
+
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+```
+
+Используя запросы на основе оповещений, можно создавать предупреждения об определенных пороговых значениях для баз данных и эластичных пулов SQL Azure. Чтобы настроить оповещение для рабочей области OMS, сделайте следующее.
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>Чтобы настроить оповещение для рабочей области, сделайте следующее.
 
 1. Перейдите на [портал OMS](http://mms.microsoft.com/) и войдите в систему.
 2. Откройте рабочую область, настроенную для решения.
 3. На странице обзора щелкните элемент **Службы анализа SQL Azure (предварительная версия)**.
-4. Чтобы приступить к созданию оповещения, прокрутите вправо и щелкните запрос.  
-![Запрос на оповещение](./media/log-analytics-azure-sql/alert-query.png)
+4. Выполните один из примеров запросов.
 5. В поиске по журналам щелкните **Оповещение**.  
 ![Создание оповещения в поиске](./media/log-analytics-azure-sql/create-alert01.png)
 6. На странице **Добавить правило оповещения** настройте соответствующие свойства и определенные пороговые значения, а затем нажмите кнопку **Сохранить**.  
@@ -131,6 +142,11 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 ```
 Type=AzureMetrics ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource | display LineChart
 ```
+
+>[!NOTE]
+> Если ваша рабочая область переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), приведенный выше запрос будет изменен следующим образом.
+>
+>`search in (AzureMetrics) isnotempty(ResourceId) and "/ELASTICPOOLS/" and MetricName == "dtu_consumption_percent" | summarize AggregatedValue = avg(Average) by bin(TimeGenerated, 1h), Resource | render timechart`
 
 Как видно из примера ниже, в одном эластичном пуле используется практически 100 % единиц DTU, тогда как показатели других чрезвычайно низкие. С помощью журналов действий Azure вы можете устранить потенциальные последние изменения в окружении.
 

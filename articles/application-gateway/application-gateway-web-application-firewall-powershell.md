@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: c23e7404f9eee6f1246cafc72c6733546cc82934
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 8a2281cea551092be4b5c628c1e541b04021523d
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Настройка брандмауэра веб-приложения на новом или существующем шлюзе приложений
@@ -125,7 +124,7 @@ New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
 ### <a name="configure-virtual-network"></a>Настройка виртуальной сети
 
-Шлюзу приложений требуется собственная подсеть. На этом шаге создается виртуальная сеть с адресным пространством 10.0.0.0/16 и две подсети: одна для шлюза приложений и одна для членов серверного пула.
+Шлюзу приложений требуется собственная подсеть. На этом шаге создается виртуальная сеть с адресным пространством 10.0.0.0/16 и две подсети: одна для шлюза приложений и одна для членов внутреннего пула.
 
 ```powershell
 # Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
@@ -192,7 +191,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="get-application-gateway-dns-name"></a>Получение DNS-имени шлюза приложений
 
-После создания шлюза следует настроить внешний интерфейс для обмена данными. Если вы используете общедоступный IP-адрес, шлюзу приложений требуется динамически назначаемое непонятное имя DNS. Чтобы гарантировать попадание пользователей на шлюз приложений, можно использовать запись CNAME, чтобы указать общедоступную конечную точку шлюза приложений. [Настройка пользовательского имени домена в Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Получите информацию о шлюзе приложений и соответствующее IP- или DNS-имя с помощью элемента PublicIPAddress, связанного со шлюзом приложений. DNS-имя шлюза приложений должно использоваться для создания записи CNAME, указывающей двум веб-приложениям на это DNS-имя. Использование записи A не рекомендуется, так как виртуальный IP-адрес может измениться после перезапуска приложения шлюза.
+После создания шлюза следует настроить внешний интерфейс для обмена данными. Если вы используете общедоступный IP-адрес, шлюзу приложений требуется динамически назначаемое непонятное имя DNS. Чтобы гарантировать попадание пользователей на шлюз приложений, можно использовать запись CNAME, чтобы указать общедоступную конечную точку шлюза приложений. Получите информацию о шлюзе приложений и соответствующее IP- или DNS-имя с помощью элемента PublicIPAddress, связанного со шлюзом приложений. Это можно сделать с помощью Azure DNS или других поставщиков DNS, создав запись CNAME, которая указывает на [общедоступный IP-адрес](../dns/dns-custom-domain.md#public-ip-address). Использование записи A не рекомендуется, так как виртуальный IP-адрес может измениться после перезапуска приложения шлюза.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01

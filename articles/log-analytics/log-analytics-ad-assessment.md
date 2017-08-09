@@ -12,22 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 07/13/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: fa214f1c8d7cfb4b3b1d475183a63a3028f2306f
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 5dbb669d9f78ef7ba3f2668855b08750b7447040
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Оптимизация среды Active Directory с помощью решения оценки Active Directory в Log Analytics
 
 ![Символ "Оценка AD"](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
 
-Решение оценки Active Directory можно использовать для оценки риска и работоспособности серверной среды с постоянной периодичностью. Эта статья поможет вам установить и использовать решение таким образом, чтобы в случае проблем вы могли предпринять коррективные меры.
+Решение оценки Active Directory можно использовать для оценки риска и работоспособности серверной среды с постоянной периодичностью. Эта статья поможет вам установить и использовать это решение таким образом, чтобы в случае проблем вы могли выполнить корректирующие действия.
 
 Это решение предоставляет приоритетный список рекомендаций, относящихся к развернутой серверной инфраструктуре. Рекомендации сгруппированы в четыре приоритетные области, помогающие быстро оценить риски и принять меры.
 
@@ -63,12 +62,12 @@ ms.lasthandoff: 06/09/2017
 | Windows |![Да](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Да](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Нет](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Нет](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Да](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 дней |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Основные сведения о приоритизации рекомендаций
-Каждая рекомендация получает взвешенное значение, определяющее относительную важность рекомендаций. Отображаются только десять наиболее важных рекомендаций.
+Каждая рекомендация получает взвешенное значение, определяющее относительную важность рекомендаций. Отображаются только 10 наиболее важных рекомендаций.
 
 ### <a name="how-weights-are-calculated"></a>Процесс вычисления взвешенного значения
 Взвешенные значения являются статистическими значениями, основанными на трех ключевых факторах.
 
-* *Вероятность* возникновения проблемы. Более высокие значения вероятности приравниваются к более высокой общей оценке для рекомендации.
+* *Вероятность* возникновения проблем. Более высокие значения вероятности приравниваются к более высокой общей оценке для рекомендации.
 * *Влияние* на работу организации, если она является причиной проблемы. Более высокая степень влияния приравнивается к более высокой общей оценке для рекомендации.
 * *Усилия* , необходимые для реализации рекомендации. Более высокое значение усилий приравнивается к меньшей общей оценке рекомендации.
 
@@ -109,6 +108,10 @@ ms.lasthandoff: 06/09/2017
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
+>[!NOTE]
+> Если ваша рабочая область переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), приведенный выше запрос будет изменен следующим образом.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
    Вот снимок экрана с запросом на поиск по журналам: ![невыполненные рекомендации](./media/log-analytics-ad-assessment/ad-failed-recommendations.png).
 2. Выберите рекомендации, которые нужно проигнорировать. Эти значения будут использоваться для параметра RecommendationId в следующей процедуре.
@@ -128,7 +131,12 @@ ms.lasthandoff: 06/09/2017
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
-2. Если вы решите позже просмотреть игнорируемые рекомендации, удалите все файлы IgnoreRecommendations.txt или RecommendationIDs из них.
+>[!NOTE]
+> Если ваша рабочая область переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), приведенный выше запрос будет изменен следующим образом.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
+2. Если вы решите позже просмотреть игнорируемые рекомендации, удалите все файлы IgnoreRecommendations.txt или RecommendationIDs можно удалить из них.
 
 ## <a name="ad-assessment-solutions-faq"></a>Часто задаваемые вопросы по решениям оценки AD
 *Как часто выполняется оценка?*

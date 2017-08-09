@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 3823cfc0696c917a66d41e9dbde4349f635a4011
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 06/29/2017
 * Скачайте файл *mongoimport.exe* или *mongorestore.exe* из [центра скачивания MongoDB](https://www.mongodb.com/download-center).
 * Получите [строку подключения API для MongoDB](connect-mongodb-account.md).
 
-Если вы импортируете данные из MongoDB и планируете использовать их с API DocumentDB, используйте [средство переноса данных](import-data.md) для их импорта.
+Если вы импортируете данные из MongoDB и планируете использовать их с Azure Cosmos DB, то используйте [средство переноса данных](import-data.md) для их импорта.
 
 В рамках этого руководства рассматриваются следующие задачи:
 
@@ -130,7 +130,7 @@ ms.lasthandoff: 06/29/2017
     
     * Если полученное значение *batchSize* > 24, то задайте значение *batchSize* равное 24.
     
-    * Для расчета *numInsertionWorkers* используйте следующую формулу:   *numInsertionWorkers = (подготовленная пропускная способность * задержка в секундах) / (размер пакета * число ЕЗ, использованных для одной операции записи)*.
+    * Для расчета *numInsertionWorkers* используйте следующую формулу: *numInsertionWorkers = (подготовленная пропускная способность * задержка в секундах) / (размер пакета * число ЕЗ, использованных для одной операции записи)*.
         
     |Свойство|Значение|
     |--------|-----|

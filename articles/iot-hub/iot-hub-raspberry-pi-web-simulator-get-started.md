@@ -12,14 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2017
+ms.date: 7/28/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: fcba6f37f4a71da78f0e8b1c83c7a60711bbed09
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 3b80bf35d6af91d5bdb196d97668dc0f837b92cc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 
@@ -31,10 +30,21 @@ ms.lasthandoff: 06/28/2017
 
 Если вы используете физические устройства, ознакомьтесь со статьей [Подключение Raspberry Pi к Центру Интернета вещей Azure (Node.js)](iot-hub-raspberry-pi-kit-node-get-started.md), чтобы приступить к работе. 
 
+<p>
+<div id="diag" style="width:100%; text-align:center">
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
+<img src="media/iot-hub-raspberry-pi-web-simulator/3_banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
+</div>
+<p>
+<div id="button" style="width:100%; text-align:center">
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted" target="_blank">
+<img src="media/iot-hub-raspberry-pi-web-simulator/6_button_default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5_button_click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6_button_default.png';">
+</div>
+
 ## <a name="what-you-do"></a>В рамках этого руководства мы:
 
 * Изучим основы использования онлайн-симулятора Raspberry Pi.
-* Создайте центр IoT.
+* Создайте Центр Интернета вещей.
 * Зарегистрируем устройство для Pi в Центре Интернета вещей.
 * Запустим пример приложения на Pi для отправки симулированных данных датчика в Центр Интернета вещей.
 
@@ -51,12 +61,12 @@ ms.lasthandoff: 06/28/2017
 Нажмите кнопку, чтобы запустить онлайн-симулятор Raspberry Pi.
 
 > [!div class="button"]
-[Запустить симулятор Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/)
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Запустить симулятор Raspberry Pi</a>
 
 В веб-симуляторе есть 3 области.
-* Область сборки. В стандартной схеме Pi соединяется с датчиком BME280 и светодиодным индикатором. В предварительной версии эта область заблокирована, поэтому вы не можете выполнить настройку.
-* Область кодирования. Интерактивный редактор кода, позволяющий писать код, используя Raspberry Pi. Стандартный пример приложения позволяет выполнить сбор данных датчика BME280 и отправить их в Центр Интернета вещей. Приложение полностью совместимо с реальными устройствами Pi. 
-* Встроенное окно консоли. Показывает выходные данные вашего кода. В верхней части этого окна есть 3 кнопки.
+1. Область сборки. В стандартной схеме Pi соединяется с датчиком BME280 и светодиодным индикатором. В предварительной версии эта область заблокирована, поэтому вы не можете выполнить настройку.
+2. Область кодирования. Интерактивный редактор кода, позволяющий писать код, используя Raspberry Pi. Стандартный пример приложения позволяет выполнить сбор данных датчика BME280 и отправить их в Центр Интернета вещей. Приложение полностью совместимо с реальными устройствами Pi. 
+3. Встроенное окно консоли. Показывает выходные данные вашего кода. В верхней части этого окна есть 3 кнопки.
    * **Запуск.** Запуск приложения в области кодирования.
    * **Сброс.** Сброс параметров области кодирования до стандартных параметров примера приложения.
    * **Fold/Expand** (Свернуть или развернуть). В правой части расположена кнопка, с помощью которой можно свернуть или развернуть окно консоли.

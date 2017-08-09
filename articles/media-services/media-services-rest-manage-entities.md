@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
-ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
-ms.lasthandoff: 02/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 68391677b1724f23d52086be0c810385e93c7196
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Управление сущностями служб мультимедиа с помощью REST 
@@ -32,7 +32,6 @@ ms.lasthandoff: 02/10/2017
 
 В этой статье показано, как управлять сущностями служб мультимедиа с помощью REST.
 
-
 >[!NOTE]
 > Начиная с 1 апреля 2017 г. все записи задания в вашей учетной записи и связанные с ней записи задач старше 90 дней будут автоматически удалены, даже если общее число записей не превышает значение максимальной квоты. Например, 1 апреля 2017 г. будет автоматически удалена любая запись задания в вашей учетной записи, созданная ранее 31 декабря 2016 г. Если необходимо архивировать данные задания или задачи, то можно использовать код, описанный в этой статье.
 
@@ -43,8 +42,7 @@ ms.lasthandoff: 02/10/2017
 > [!NOTE]
 > При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в статье [Обзор интерфейса REST API служб мультимедиа](media-services-rest-how-to-use.md).
 > 
-> После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect-programmatically.md). 
-> 
+> После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI. Сведения о подключении к API AMS см. в разделе [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 
 ## <a name="adding-entities"></a>Добавление сущностей
@@ -64,7 +62,6 @@ ms.lasthandoff: 02/10/2017
     Expect: 100-continue
 
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
-
 
 ## <a name="querying-entities"></a>Запрашивание сущностей
 Запрашивание и перечисление сущностей выполняется просто. Для этого используется только запрос HTTP GET и необязательные операции OData.
@@ -172,8 +169,6 @@ ms.lasthandoff: 02/10/2017
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
     Host: media.windows.net
     Content-Length: 0
-
-
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: b53e351bfd27d3e54174425f4a5a0eb3c263e8bc
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9b2257917e2368478beb75957677de23d4157865
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Подготовка вычислительных узлов Linux в пулах пакетной службы
@@ -40,7 +39,9 @@ ms.lasthandoff: 07/08/2017
 **Virtual Machine Configuration** предоставляет образы Windows и Linux для вычислительных узлов. Доступные размеры вычислительных узлов перечислены в статьях [Размеры виртуальных машин в Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) и [Размеры виртуальных машин в Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). При создании пула, содержащего узлы конфигурации виртуальных машин, необходимо указать размер узлов, ссылку на образ виртуальной машины и номер SKU агента узла пакетной службы для установки на узлах.
 
 ### <a name="virtual-machine-image-reference"></a>Ссылка на образ виртуальной машины
-Для предоставления вычислительных узлов Linux пакетная служба использует [масштабируемые наборы виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Образы операционной системы для этих виртуальных машин доступны в [Azure Marketplace][vm_marketplace]. При настройке ссылки на образ виртуальной машины задаются свойства образа виртуальной машины из Marketplace. Приведенные ниже свойства являются обязательными при создании ссылки на образ виртуальной машины.
+Для предоставления вычислительных узлов Linux пакетная служба использует [масштабируемые наборы виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Вы можете указать образ из [Azure Marketplace][vm_marketplace] или подготовленный пользовательский образ. Дополнительные сведения о пользовательских образах см. в руководстве по [разработке решений для крупномасштабных параллельных вычислений с помощью пакетной службы](batch-api-basics.md#pool).
+
+При настройке ссылки на образ виртуальной машины задаются свойства образа виртуальной машины. Приведенные ниже свойства являются обязательными при создании ссылки на образ виртуальной машины.
 
 | **Свойства ссылки на образ** | **Пример** |
 | --- | --- |

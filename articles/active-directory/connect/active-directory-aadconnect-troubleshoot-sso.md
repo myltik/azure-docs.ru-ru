@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4466a5aa1d55b178a584832d03f68d307767d167
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 39dd859d60e7f1dcf697e3c59b8f084e400bbae0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 06/16/2017
 
 ![Отчет о входе](./media/active-directory-aadconnect-sso/sso9.png)
 
-Перейдите в раздел **Azure Active Directory** -> **Вход в систему** в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/) и щелкните конкретное действие пользователя при входе. Найдите поле **Код ошибки входа**. Сопоставьте значение этого поля c причиной сбоя и способом разрешения с помощью следующей таблицы:
+Перейдите в раздел **Azure Active Directory** -> **Вход в систему** в [центре администрирования Azure Active Directory](https://aad.portal.azure.com/) и щелкните конкретное действие пользователя при входе. Найдите поле **КОД ОШИБКИ ВХОДА**. Сопоставьте значение этого поля c причиной сбоя и способом разрешения с помощью следующей таблицы:
 
 |Код ошибки входа|Причина ошибки входа|Способы устранения:
 | --- | --- | ---
@@ -83,7 +83,7 @@ ms.lasthandoff: 06/16/2017
 
 ## <a name="manual-reset-of-azure-ad-seamless-sso"></a>Ручной сброс простого единого входа Azure AD
 
-Если устранение неполадок не помогло, выполните следующие действия, чтобы сбросить вручную эту функцию на клиенте:
+Если устранение неполадок не помогло, можно сбросить вручную эту функцию на клиенте. Выполните следующие действия на локальном сервере, на котором выполняется Azure AD Connect:
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Шаг 1. Импортируйте модуль PowerShell для простого единого входа
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 06/16/2017
 
 ### <a name="step-2-get-the-list-of-ad-forests-on-which-seamless-sso-has-been-enabled"></a>Шаг 2. Получение списка лесов AD, для которых включен простой единый вход
 
-1. В PowerShell вызовите `New-AzureADSSOAuthenticationContext`. При запросе введите свои учетные данные администратора клиента Azure AD.
+1. Запустите PowerShell от имени администратора. В PowerShell вызовите `New-AzureADSSOAuthenticationContext`. При запросе введите свои учетные данные глобального администратора клиента.
 2. Вызовите `Get-AzureADSSOStatus`. Эта команда выводит список лесов AD (см. список "Домены"), в которых включена эта функция.
 
 ### <a name="step-3-disable-seamless-sso-for-each-ad-forest-that-it-was-set-it-up-on"></a>Шаг 3. Отключите простой единый вход для каждого леса AD, где он был настроен

@@ -1,6 +1,6 @@
 ---
 title: "Создание базовой инфраструктуры в Azure с помощью Terraform | Документация Майкрософт"
-description: "Узнайте, как создать ресурсы Azure с помощью Terraform."
+description: "Узнайте, как создать ресурсы Azure с помощью Terraform"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: echuvyrov
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 8b8b3b0b46f79058ee69b9a2014581df433f8d3f
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 9660a95b440c2e4311829979e270d9f10099f624
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
-# <a name="create-basic-infrastructure-in-azure-using-terraform"></a>Создание базовой инфраструктуры в Azure с помощью Terraform
-В этой статье описано, какие шаги необходимо выполнить для подготовки в Azure виртуальной машины вместе с базовой инфраструктурой. Вы узнаете, как создать сценарии Terraform и визуализировать изменения перед их внесением в облачной инфраструктуре. Вы также узнаете, как создать инфраструктуру в Azure с помощью Terraform.
+# <a name="create-basic-infrastructure-in-azure-by-using-terraform"></a>Создание базовой инфраструктуры в Azure с помощью Terraform
+В этой статье описано, какие шаги необходимо выполнить для подготовки виртуальной машины вместе с базовой инфраструктурой в Azure. Вы узнаете, как написать скрипты Terraform и визуализировать изменения перед их внесением в облачной инфраструктуре. Вы также узнаете, как создать инфраструктуру в Azure с помощью Terraform.
 
-Чтобы начать работу, в любом текстовом редакторе (Visual Studio Code, Sublime, Vim или др.) создайте файл с именем _terraform_azure101.tf_. Точное имя файла не имеет значения, так как Terraform принимает имя папки в качестве параметра — выполняются все сценарии в папке. Скопируйте приведенный ниже код и вставьте его в новый файл:
+Чтобы начать работу, в любом текстовом редакторе (Visual Studio Code, Sublime, Vim или др.) создайте файл с именем \terraform_azure101.tf. Точное имя файла не имеет значения, так как Terraform принимает имя папки в качестве параметра — выполняются все скрипты в папке. Скопируйте приведенный ниже код и вставьте его в новый файл:
 
 ~~~~
 # Configure the Microsoft Azure Provider
 # NOTE: if you defined these values as environment variables, you do not have to include this block
 provider "azurerm" {
   subscription_id = "your_subscription_id_from_script_execution"
-  client_id       = "your_client_id_from_script_execution"
-  client_secret   = "your_client_secret_from_script_execution"
+  client_id       = "your_appId_from_script_execution"
+  client_secret   = "your_password_from_script_execution"
   tenant_id       = "your_tenant_id_from_script_execution"
 }
 
@@ -44,34 +44,46 @@ resource "azurerm_resource_group" "helloterraform" {
     location = "West US"
 }
 ~~~~
-В разделе "provider" сценария вы указываете Terraform использовать поставщик Azure для подготовки ресурсов в сценарии. Воспользуйтесь руководством по [установке и настройке Terraform](terraform-install-configure.md), чтобы получить значения для параметров subscription_id, client_id, client_secret и tenant_id. Обратите также внимание, что если вы создали переменные среды для значений в этом блоке, то не следует его включать. 
+В разделе `provider` скрипта вы указываете Terraform использовать поставщик Azure для подготовки ресурсов в скрипте. Воспользуйтесь руководством по [установке и настройке Terraform](terraform-install-configure.md), чтобы получить значения для параметров subscription_id, appId, password и tenant_id. Если вы создали переменные среды для значений в этом блоке, то не следует его включать. 
 
-Ресурс "azure_rm_resource_group" указывает Terraform создать группу ресурсов. Ниже приводятся другие типы ресурсов, которые также доступны в Terraform.
+Ресурс `azurerm_resource_group` указывает Terraform создать группу ресурсов. Ниже приведены другие типы ресурсов, которые также доступны в Terraform.
 
-## <a name="executing-the-script"></a>Выполнение сценария
-Когда сценарий сохранен, перейдите в консоль или командную строку и введите следующую команду:
+## <a name="execute-the-script"></a>Выполнение скрипта
+Когда скрипт сохранен, перейдите в консоль или командную строку и введите следующую команду:
+```
+terraform init
+```
+для инициализации поставщика Terraform для Azure. Затем введите следующее:
 ```
 terraform plan terraformscripts
 ```
-В приведенной выше команде предполагается, что "terraformscripts" — это папка, в которой был сохранен сценарий. Мы использовали команду Terraform "plan", которая просматривает ресурсы, определенные в сценарии, сравнивает их со сведениями о состоянии, сохраненными Terraform, а затем выводит запланированное выполнение, фактически _не_ создавая ресурсов в Azure. 
+В приведенной выше команде предполагается, что `terraformscripts` — это папка, в которую был сохранен скрипт. Мы использовали команду Terraform `plan`, которая просматривает ресурсы, определенные в скрипте. Она сравнивает их со сведениями о состоянии, сохраненными Terraform, а затем выводит запланированное выполнение _без_ фактического создания ресурсов в Azure. 
 
-После выполнения приведенной выше команды должно отобразиться нечто вроде этого:
+После выполнения предыдущей команды вы должны увидеть что-то вроде этого:
 
-![Снимок экрана Terraform: команда "plan"](linux/media/terraform/tf_plan2.png)
+![План Terraform](linux/media/terraform/tf_plan2.png)
 
-Все выглядит правильно, поэтому можете перейти к подготовке новой группы ресурсов в Azure. Для этого выполните следующую команду: 
+Если все выглядит правильно, подготовьте эту новую группу ресурсов в Azure, выполнив следующее: 
 ```
 terraform apply terraformscripts
 ```
-Если теперь взглянуть на портал Azure, то вы должны увидеть новую пустую группу ресурсов с именем "terraformtest". В следующем разделе показано, как добавить виртуальную машину и всю вспомогательную инфраструктуру для виртуальной машины в эту группу ресурсов.
+На портале Azure вы должны увидеть новую пустую группу ресурсов с именем `terraformtest`. В следующем разделе показано, как добавить виртуальную машину и всю поддерживающую инфраструктуру для этой виртуальной машины в группу ресурсов.
 
-## <a name="provisioning-ubuntu-vm-with-terraform"></a>Подготовка виртуальной машины Ubuntu с помощью Terraform
-Давайте расширим сценарий Terraform, который мы создали выше, добавив в него сведения, необходимые для подготовки виртуальной машины под управлением Ubuntu. Список ресурсов, которые будут подготовлены в следующих разделах: сеть с одной подсетью, сетевая карта, учетная запись хранения с контейнером хранилища, общедоступный IP-адрес и виртуальная машина, использующая все выше перечисленные ресурсы. Подробная документация по каждому из ресурсов Azure Terraform доступна в [документации Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).
+## <a name="provision-an-ubuntu-vm-with-terraform"></a>Подготовка виртуальной машины Ubuntu с помощью Terraform
+Давайте расширим скрипт Terraform, который мы создали выше, добавив в него сведения, необходимые для подготовки виртуальной машины под управлением Ubuntu. В следующих разделах вы подготовите такие ресурсы:
+
+* сеть с одной подсетью;
+* сетевая карта; 
+* учетная запись хранения с контейнером хранилища;
+* общедоступный IP-адрес;
+* виртуальная машина, использующая все перечисленные выше ресурсы. 
+
+Подробную документацию по каждому из ресурсов Azure Terraform см. в разделе [документация Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).
 
 Для удобства также предоставляется полная версия [сценария подготовки](#complete-terraform-script).
 
-### <a name="extending-the-terraform-script"></a>Расширение сценария Terraform
-Вы можете расширить ранее созданный сценарий, используя следующие ресурсы: 
+### <a name="extend-the-terraform-script"></a>Расширение скрипта Terraform
+Вы можете расширить ранее созданный скрипт, используя следующие ресурсы: 
 ~~~~
 # create a virtual network
 resource "azurerm_virtual_network" "helloterraformnetwork" {
@@ -89,7 +101,7 @@ resource "azurerm_subnet" "helloterraformsubnet" {
     address_prefix = "10.0.2.0/24"
 }
 ~~~~
-Приведенный выше сценарий создает виртуальную сеть и подсеть внутри этой виртуальной сети. Обратите внимание на ссылку на уже созданную группу ресурсов ("${azurerm_resource_group.helloterraform.name}"), которая есть в определениях виртуальной сети и подсети.
+Предыдущий скрипт создает виртуальную сеть и подсеть внутри этой виртуальной сети. Обратите внимание на ссылку на уже созданную группу ресурсов ("${azurerm_resource_group.helloterraform.name}"), которая есть в определениях виртуальной сети и подсети.
 
 ~~~~
 # create public IP
@@ -119,12 +131,17 @@ resource "azurerm_network_interface" "helloterraformnic" {
     }
 }
 ~~~~
-Фрагменты сценария, приведенные выше, создают общедоступный IP-адрес и сетевой интерфейс, который использует созданный общедоступный IP-адрес. Обратите внимание на ссылки на subnet_id и public_ip_address_id. Terraform обладает встроенной системой аналитики, позволяющей понять, что сетевой интерфейс имеет зависимость от ресурсов, которые должны быть созданы до создания сетевого интерфейса.
+Предыдущие фрагменты скрипта создают общедоступный IP-адрес и сетевой интерфейс, который использует созданный публичный IP-адрес. Обратите внимание на ссылки на subnet_id и public_ip_address_id. Terraform обладает встроенной системой аналитики, позволяющей понять, что сетевой интерфейс имеет зависимость от ресурсов, которые должны быть созданы раньше него.
 
 ~~~~
+# create a random id
+resource "random_id" "randomId" {
+  byte_length = 4
+}
+
 # create storage account
 resource "azurerm_storage_account" "helloterraformstorage" {
-    name = "helloterraformstorage"
+    name                = "tfstorage${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
     location = "westus"
     account_type = "Standard_LRS"
@@ -143,7 +160,7 @@ resource "azurerm_storage_container" "helloterraformstoragestoragecontainer" {
     depends_on = ["azurerm_storage_account.helloterraformstorage"]
 }
 ~~~~
-Здесь была создана учетная запись хранения и определен контейнер хранилища в этой учетной записи хранения. Это то место, где хранятся виртуальные жесткие диски для создаваемой виртуальной машины.
+Здесь вы создали учетную запись хранения и определили в ней контейнер хранилища. В этой учетной записи хранения хранятся виртуальные жесткие диски (VHD) для создаваемой виртуальной машины.
 
 ~~~~
 # create virtual machine
@@ -183,16 +200,18 @@ resource "azurerm_virtual_machine" "helloterraformvm" {
     }
 }
 ~~~~
-Наконец, приведенный выше фрагмент создает виртуальную машину, которая использует все ресурсы, которые мы уже подготовили: учетную запись хранения и контейнер для виртуального жесткого диска (VHD), сетевой интерфейс с указанными общедоступным IP-адресом и подсетью, а также созданную вами группу ресурсов. Обратите внимание на свойство vm_size, в котором сценарий указывает номер SKU Azure (A0).
+Наконец, предыдущий фрагмент создает виртуальную машину, которая использует все подготовленные ресурсы. Это учетная запись хранения и контейнер для VHD, сетевой интерфейс с указанным общедоступным IP-адресом и подсетью и группа ресурсов, которую вы уже создали. Обратите внимание на свойство vm_size, в котором сценарий указывает номер SKU Azure (A0).
 
-### <a name="executing-the-script"></a>Выполнение сценария
-Когда полный сценарий сохранен, перейдите в консоль или командную строку и введите следующую команду:
+### <a name="execute-the-script"></a>Выполнение скрипта
+Когда скрипт будет сохранен, перейдите в консоль или командную строку и введите следующее:
 ```
 terraform apply terraformscripts
 ```
-Через некоторое время вы должны увидеть ресурсы, включая виртуальную машину, которые отобразятся в группе ресурсов "terraformtest" на портале Azure.
+Через некоторое время ресурсы, включая виртуальную машину, появятся в группе ресурсов `terraformtest` на портале Azure.
 
-## <a name="complete-terraform-script"></a>Полный сценарий Terraform
+## <a name="complete-terraform-script"></a>Полный скрипт Terraform
+
+Для удобства ниже приведен полный скрипт Terraform, который подготавливает всю инфраструктуру, рассмотренную в этой статье.
 
 ```
 variable "resourcesname" {
@@ -257,9 +276,14 @@ resource "azurerm_network_interface" "helloterraformnic" {
     }
 }
 
+# create a random id
+resource "random_id" "randomId" {
+  byte_length = 4
+}
+
 # create storage account
 resource "azurerm_storage_account" "helloterraformstorage" {
-    name = "helloterraformstorage"
+    name                = "tfstorage${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.helloterraform.name}"
     location = "westus"
     account_type = "Standard_LRS"
@@ -317,4 +341,5 @@ resource "azurerm_virtual_machine" "helloterraformvm" {
 ```
 
 ## <a name="next-steps"></a>Дальнейшие действия
-Вы создали базовую инфраструктуру в Azure с помощью Terraform. Более сложные сценарии, включая примеры использования подсистемы балансировки нагрузки и масштабируемых наборов виртуальных машин, доступны в многочисленных [примерах Terraform для Azure](https://github.com/hashicorp/terraform/tree/master/examples). В [документации Terraform](https://www.terraform.io/docs/providers/azurerm/index.html) содержится полный актуальный список поддерживаемых поставщиков Azure.
+Вы создали базовую инфраструктуру в Azure с помощью Terraform. Для более сложных сценариев, включая примеры с использованием подсистемы балансировки нагрузки и масштабируемых наборов виртуальных машин, см. многочисленные [примеры Terraform для Azure](https://github.com/hashicorp/terraform/tree/master/examples). Обновленный список поддерживаемых поставщиков Azure см. в [документации Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).
+

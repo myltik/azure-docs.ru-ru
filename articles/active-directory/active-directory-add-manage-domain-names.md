@@ -12,17 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/26/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: b1ea25a3ec4c10d1821ea876055b15e38d269432
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 5ae19bb370064de96cf466ca09b13d02563d65a4
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Управление личными доменными именами в Azure Active Directory
-Доменное имя является важной частью идентификатора для различных ресурсов каталога: имени пользователя, адреса электронной почты пользователя и адреса группы. Оно также может входить в URI идентификатора приложения. Для использования в ресурсе Azure Active Directory (Azure AD) доменное имя должно принадлежать каталогу, содержащему ресурс. Задачи управления доменами в Azure AD может выполнять только глобальный администратор.
+Доменное имя может выступать важным идентификатором для многих ресурсов каталога как часть:
+
+* имени или адреса электронной почты пользователя;
+* адреса группы;
+* URI идентификатора приложения.
+
+Для использования в ресурсе Azure Active Directory (Azure AD) доменное имя должно принадлежать каталогу, содержащему ресурс. Задачи управления доменами в Azure AD может выполнять только глобальный администратор.
+
+> [!IMPORTANT]
+> Для управления службой Azure AD мы рекомендуем использовать [Центр администрирования Azure AD](https://aad.portal.azure.com) на портале Azure, а не классический портал Azure, который упоминается в этой статье. Сведения об управлении доменными именами в центре администрирования Azure AD см. в статье [Управление личными доменными именами в Azure Active Directory](active-directory-domains-manage-azure-portal.md).
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Установка основного доменного имени для каталога Azure AD
 При создании каталога исходное доменное имя, например "contoso.onmicrosoft.com", также становится основным именем домена для каталога. При создании нового пользователя на [классическом портале Azure](https://manage.windowsazure.com/)или на других порталах, таких как портал администрирования Office 365, основной домен становится доменным именем по умолчанию для пользователя. Это упрощает процесс создания новых пользователей на портале для администратора.

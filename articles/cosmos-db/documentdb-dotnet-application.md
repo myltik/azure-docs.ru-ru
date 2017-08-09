@@ -4,7 +4,7 @@ description: "Это руководство по MVC для ASP.NET поможе
 keywords: "руководство по asp.net mvc, разработка веб-приложений, веб-приложение mvc, пошаговое руководство asp net mvc"
 services: cosmos-db
 documentationcenter: .net
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/25/2016
-ms.author: syamk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 6623265ea98370db74fd9e2061d1128c44e9cd0e
+ms.author: mimig
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: cc8d26864f455572ad4e2652afbff7447f87f726
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="_Toc395809351"></a>Руководство по ASP.NET MVC. Разработка веб-приложений в Azure Cosmos DB
@@ -101,7 +100,7 @@ ms.lasthandoff: 06/20/2017
 ## <a name="_Toc395637767"></a>Шаг 3. Добавление Azure Cosmos DB в проект веб-приложения MVC
 Теперь, когда мы установили большую часть коммуникаций MVC для ASP.NET, необходимых для этого решения, перейдем к основной цели этого руководства, т. е. к добавлению Azure Cosmos DB в веб-приложение MVC.
 
-1. DocumentDB .NET SDK комплектуется и распространяется как пакет NuGet. Чтобы получить пакет NuGet в Visual Studio, используйте диспетчер пакетов NuGet в Visual Studio: щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Управление пакетами NuGet**.
+1. Пакет .NET SDK для Azure Cosmos DB комплектуется и распространяется как пакет NuGet. Чтобы получить пакет NuGet в Visual Studio, используйте диспетчер пакетов NuGet в Visual Studio: щелкните правой кнопкой мыши проект в **обозревателе решений** и выберите **Управление пакетами NuGet**.
    
       ![Снимок экрана параметров контекстного меню проекта веб-приложения в обозревателе решений с выделенным параметром "Управление пакетами NuGet".](./media/documentdb-dotnet-application/image21.png)
    
@@ -110,7 +109,7 @@ ms.lasthandoff: 06/20/2017
    
     В результатах поиска найдите пакет **клиентской библиотеки Microsoft Azure Cosmos DB** и установите его. При этом будет загружен и установлен пакет Azure Cosmos DB, а также все зависимости, такие как Newtonsoft.Json. В окне **предварительного просмотра** щелкните **ОК**, после чего в окне **Принятие условий лицензионного соглашения** выберите **Принять**. Установка будет завершена.
    
-      ![Снимок экрана: окно "Управление пакетами NuGet" с выделенной библиотекой клиента Microsoft Azure DocumentDB](./media/documentdb-dotnet-application/nuget.png)
+      ![Снимок экрана: окно "Управление пакетами NuGet" с выделенной библиотекой клиента Microsoft Azure Cosmos DB](./media/documentdb-dotnet-application/nuget.png)
    
       Для установки пакета можно также воспользоваться консолью диспетчера пакетов. Для этого в меню **Инструменты** щелкните **Диспетчер пакетов NuGet**, а затем выберите **Консоль диспетчера пакетов**. Когда появится запрос, введите следующую команду.
    
@@ -329,7 +328,7 @@ ms.lasthandoff: 06/20/2017
         <add key="collection" value="Items"/>
 4. Теперь обновите значения для параметров *endpoint* и *authKey*, используя колонку "Ключи" на портале Azure. Используйте **URI** из колонки "Ключи" в качестве значения параметра endpoint. Что касается значения параметра authKey, то в этом качестве используйте значение **первичного ключа** или **вторичного** из колонки "Ключи".
 
-    Это касается подключения репозитория DocumentDB. Теперь можно добавить логику приложения.
+    Это касается подключения репозитория Azure Cosmos DB. Теперь можно добавить логику приложения.
 
 1. Первое, что мы хотим сделать с приложением списка заданий, — отображение незавершенных элементов.  Скопируйте и вставьте следующий фрагмент кода в любом месте в класса **DocumentDBRepository** .
    
@@ -404,7 +403,7 @@ ms.lasthandoff: 06/20/2017
            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
        }
    
-   Этот метод просто принимает любой объект, переданный ему, и сохраняет его в DocumentDB.
+   Этот метод просто принимает любой объект, переданный ему, и сохраняет его в Azure Cosmos DB.
 2. Откройте файл ItemController.cs и добавьте следующий фрагмент кода в класс. Теперь приложение ASP.NET MVC будет знать, что делать с действием **Создать** . В этом случае просто выводится связанное представление Create.cshtml, которое было создано ранее.
    
         [ActionName("Create")]
@@ -559,7 +558,7 @@ ms.lasthandoff: 06/20/2017
     - "Регион" — выберите ближайший к пользователям приложения регион.
     - "Сервер базы данных" — щелкните "Без базы данных", а затем **Создать**. 
 
-4. На экране todo-net-app  **щелкните** Проверить подключение. После проверки подключения щелкните **Опубликовать***. 
+4. На экране todo-net-app **щелкните** Проверить подключение. После проверки подключения щелкните **Опубликовать***. 
     
     Затем приложение отобразится в браузере.
 
@@ -567,7 +566,7 @@ ms.lasthandoff: 06/20/2017
 ## <a name="_Toc395637775"></a>Дальнейшие действия
 Поздравляем! Вы только что создали свое первое веб-приложение ASP.NET MVC с помощью Azure Cosmos DB и опубликовали его на веб-сайтах Azure. Исходный код полного приложения, включая функции детализации и удаления, не описанные в этом руководстве, можно скачать или клонировать с портала [GitHub][GitHub]. Поэтому, если вы хотите добавить эти функции в приложение, скопируйте код и добавьте его в это приложение.
 
-Чтобы добавить дополнительные функции в приложение, ознакомьтесь с интерфейсами API, доступными в [библиотеке DocumentDB .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet). Вы также можете быть соавтором библиотеки DocumentDB .NET на портале [GitHub][GitHub]. 
+Чтобы добавить дополнительные функции в приложение, ознакомьтесь с API-интерфейсами, доступными в [библиотеке .NET для Azure Cosmos DB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet). Вы также можете стать соавтором библиотеки .NET для Azure Cosmos DB на портале [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx

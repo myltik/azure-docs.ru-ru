@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/05/2017
+ms.date: 07/21/2017
 ms.author: markscu
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 0f839072d9603e83b0ca493c9a7bab0e71a682c5
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bf0ac322020d8a8453011c3207c1930175db6d3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -171,6 +171,22 @@ pool.Resize(targetDedicatedComputeNodes: 0, targetLowPriorityComputeNodes: 25);
 -   Виртуальная машина удаляется, что приводит к потере всех ее локальных данных.
 -   Пул постоянно будет пытаться подключиться к целевым доступным низкоприоритетным узлам. При обнаружении замены идентификаторы узлов сохраняются, но узлы повторно инициализируются и их состояние меняется на **Создание** и **Запуск** перед тем, как они станут доступными для планирования задач.
 -   Счетчики замещения доступны в качестве метрики на портале Azure.
+
+## <a name="metrics"></a>Метрики
+
+На [портале Azure](https://portal.azure.com) доступны новые метрики для узлов с низким приоритетом. Это такие метрики:
+
+- Low-Priority Node Count
+- Low-Priority Core Count; 
+- Preempted Node Count
+
+Для просмотра метрик на портале Azure сделайте следующее.
+
+1. Перейдите к своей учетной записи пакетной службы на портале и просмотрите параметры этой учетной записи.
+2. В разделе **Мониторинг** щелкните **Метрики**.
+3. Выберите требуемые метрики в списке **Доступные метрики**.
+
+![Метрики для узлов с низким приоритетом](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

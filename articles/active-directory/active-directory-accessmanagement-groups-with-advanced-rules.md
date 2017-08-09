@@ -16,30 +16,28 @@ ms.date: 06/19/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 720fd28f7ff5d1bc1c3a32cb98d5d7e1eb88e816
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: b9b5ddf42958a2b4e241d0252101d979009e7dc0
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
-# <a name="populate-groups-dynamically-based-on-object-attributes"></a>Динамическое заполнение групп на основе атрибутов объекта 
+# <a name="populate-groups-dynamically-based-on-object-attributes"></a>Динамическое заполнение групп на основе атрибутов объекта
 Классический портал Azure предоставляет возможность поддержки более сложного динамического членства в группах Azure Active Directory (Azure AD) на основе атрибутов.  
 
-При изменении любых атрибутов пользователя или устройства система оценивает все правила динамических групп в каталоге, чтобы определить, приведет ли это событие к добавлению или удалению в группе. Если пользователь или устройство отвечает условиям правила в группе, они добавляются в эту группу. Если он больше не отвечает условиям правила группы, в которую он входит, он удаляется из этой группы.
+Когда изменяются любые атрибуты пользователя, система оценивает все правила динамических групп в каталоге, чтобы определить, приведет ли это изменение к добавлению или удалению в группах. Если пользователь или устройство отвечает правилу, установленному для группы, они добавляются в эту группу. Они удаляются из группы, когда перестают отвечать этому правилу.
 
 > [!NOTE]
-> Вы можете настроить правило динамического членства для групп безопасности или групп Office 365. 
+> - Вы можете настроить правило динамического членства для групп безопасности или групп Office 365.
 >
-> Для динамического членства в группах нужно, чтобы лицензия Azure AD Premium была назначена:
+> - Этот компонент требует наличия лицензии Azure AD Premium P1 для каждого члена, добавленного хотя бы в одну из динамических групп.
 >
-> * администратору, который управляет правилом в группе;
-> * всем участникам группы.
->
-> Обратите внимание, несмотря на то что можно создать динамическую группу устройств или пользователей, нельзя создать правило, которое выбирает объекты и пользователей, и устройств. 
+> - Вы можете создать динамическую группу как для устройств, так и для пользователей, но невозможно создать правило, которое включает объекты пользователей и устройств одновременно.
 
-## <a name="to-create-the-advanced-rule"></a>Создание расширенного правила
+> - Сейчас невозможно создать группу устройств на основе атрибутов пользователей, которым принадлежат эти устройства. Правила членства для устройств могут ссылаться только на непосредственные атрибуты объектов устройств в каталоге.
+
+## <a name="to-create-an-advanced-rule"></a>Создание расширенного правила
 1. На [классическом портале Azure](https://manage.windowsazure.com)щелкните **Active Directory**и откройте каталог своей организации.
 2. Перейдите на вкладку **Группы** , а затем откройте группу, которую нужно изменить.
 3. Перейдите на вкладку **Настройка**, выберите параметр **Расширенное правило** и введите расширенное правило в текстовое поле.
@@ -94,7 +92,7 @@ user.mail –ne null.
 
 ## <a name="operator-precedence"></a>Приоритет операторов
 
-Все операторы перечислены ниже в порядке приоритета. Операторы в одной строке имеют равный приоритет: -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch.
+Все операторы перечислены ниже в порядке повышения приоритета. Операторы в одной строке имеют равный приоритет: -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn.
 
 Все операторы можно использовать с дефисом в качестве префикса и без него.
 
@@ -121,7 +119,7 @@ user.mail –ne null.
 | --- | --- | --- |
 | Ошибка: атрибут не поддерживается. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/>Свойство должно соответствовать одному из свойств [в списке поддерживаемых свойств](#supported-properties). |
 | Ошибка: не поддерживается оператор для атрибута. |(user.accountEnabled -contains true) |(user.accountEnabled - eq true)<br/>Свойство имеет логический тип. Используйте поддерживаемые операторы (-eq и - ne) для логического типа из списка выше. |
-| Ошибка: ошибка компиляции запроса. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Логический оператор должен соответствовать одному из свойств в приведенном выше списке поддерживаемых свойств. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")  — ошибка в регулярном выражении. |
+| Ошибка: ошибка компиляции запроса. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Логический оператор должен соответствовать одному из свойств в приведенном выше списке поддерживаемых свойств. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") — ошибка в регулярном выражении. |
 | Ошибка: неправильный формат двоичного выражения. |(user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
 | Ошибка: неизвестная ошибка при настройке динамического членства. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
 
@@ -136,8 +134,8 @@ user.mail –ne null.
 
 | Свойства | Допустимые значения | Использование |
 | --- | --- | --- |
-| AccountEnabled |true, false |(user.accountEnabled -eq true) |
-| dirSyncEnabled |true, false, null |(user.dirSyncEnabled -eq true) |
+| AccountEnabled |true, false |user.accountEnabled -eq true |
+| dirSyncEnabled |true, false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Свойства строкового типа
 Допустимые операторы
@@ -150,11 +148,14 @@ user.mail –ne null.
 * -notContains
 * -match
 * -notMatch
+* -in
+* -notIn
 
 | Свойства | Допустимые значения | Использование |
 | --- | --- | --- |
 | city |Любое строковое значение или $null |(user.city -eq "value") |
 | country |Любое строковое значение или $null |(user.country -eq "value") |
+| companyName | Любое строковое значение или $null | (user.companyName -eq "value") |
 | department |Любое строковое значение или $null |(user.department -eq "value") |
 | displayName |Любое строковое значение. |(user.displayName -eq "value") |
 | facsimileTelephoneNumber |Любое строковое значение или $null |(user.facsimileTelephoneNumber -eq "value") |
@@ -189,6 +190,34 @@ user.mail –ne null.
 | otherMails |Любое строковое значение. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain, smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## <a name="multi-value-properties"></a>Многозначные свойства
+Допустимые операторы
+
+* -any (выполняется, когда условию соответствует хотя бы один элемент в коллекции)
+* -all (выполняется, когда условию соответствуют все элементы в коллекции)
+
+| Свойства | Значения | Использование |
+| --- | --- | --- |
+| assignedPlans |Каждый объект в коллекции предоставляет следующие строковые параметры: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+
+Многозначные свойства являются коллекциями объектов того же типа. Вы можете использовать операторы -any и -all для применения условия к одному или ко всем элементам в коллекции соответственно. Например:
+
+assignedPlans — это многозначное свойство, которое перечисляет все сервисные планы, назначенные пользователю. Представленное ниже выражение выбирает пользователей, которым назначен план обслуживания Exchange Online (План 2) и для которых этот план находится в состоянии Enabled:
+
+```
+user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+(Идентификатор Guid обозначает план обслуживания Exchange Online (План 2)).
+
+> [!NOTE]
+> Это полезно, если вы хотите найти всех пользователей, которым разрешено использовать Office 365 (или другую службу Microsoft Online), например, чтобы применить к ним некоторый набор политик.
+
+Следующее выражение выбирает всех пользователей, которым назначен любой план обслуживания, связанный со службой Intune (это определяется по имени службы "SCO"):
+```
+user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
 ## <a name="use-of-null-values"></a>Использование значений Null
 
 Чтобы указать значение Null в правиле, можно использовать null или $null. Пример:
@@ -210,52 +239,47 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 Имя настраиваемого атрибута можно найти в каталоге, отправив запрос на атрибут пользователя с помощью обозревателя графов и выполнив поиск по имени атрибута.
 
-## <a name="support-for-multi-value-properties"></a>Поддержка многозначных свойств
+## <a name="direct-reports-rule"></a>Правило "Непосредственные подчиненные"
+Вы можете создать группу, в которую войдут все непосредственные подчиненные определенного руководителя. Если в будущем состав подчиненных этого руководителя изменится, членство в группе будет скорректировано автоматически.
 
-Чтобы включить в правило многозначное свойство, используйте оператор -any, как в правиле
+> [!NOTE]
+> 1. Чтобы такое правило работало, следите за правильностью заполнения свойства **Manager ID** (Идентификатор руководителя) для всех пользователей в арендаторе. Текущее значение свойства можно проверить на **вкладке профиля** для каждого пользователя.
+> 2. Это правило учитывает только **непосредственных** подчиненных. Сейчас невозможно создать группу с учетом вложенной иерархии, в которую будут входить не только непосредственные подчиненные, но и их подчиненные.
 
-  user.assignedPlans -any assignedPlan.service -startsWith "SCO".
+**Настройка группы**
 
-## <a name="direct-reports-rule"></a>Правило Direct Reports
-Вы можете включать членов в группу на основе атрибута руководителя пользователя.
+1. Выполните шаги 1–5 из раздела [Создание расширенного правила](#to-create-the-advanced-rule) и для параметра **Тип членства** выберите значение **Динамический пользователь**.
+2. В колонке **Dynamic membership rules** (Правила динамического членства) введите правило, используя приведенный ниже синтаксис.
 
-**Настройка группы в качестве группы «Руководитель»**
+    *Direct Reports for "{идентификатор_объекта_руководителя}"*
 
-1. На классическом портале Azure щелкните **Active Directory**, а затем выберите имя каталога своей организации.
-2. Перейдите на вкладку **Группы** , а затем откройте группу, которую нужно изменить.
-3. Перейдите на вкладку **Настройка**, а затем щелкните **РАСШИРЕННОЕ ПРАВИЛО**.
-4. Введите правило, используя следующий синтаксис:
+    Пример допустимого правила:
+```
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
+3. Когда вы сохраните это правило, в группу будут добавлены все пользователи с выбранным значением идентификатора руководителя.
 
-    Direct Reports for *Direct Reports for {obectID_of_manager}*. Пример допустимого правила для Direct Reports:
-
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-
-    где "62e19b97-8b3d-4d4a-a106-4ce66896a863" — идентификатор объекта руководителя. Идентификатор объекта можно найти в Azure AD на **вкладке профиля** пользователя, который является руководителем.
-5. После сохранения этого правила все пользователи, которые отвечают правилу, будут присоединены как члены группы. Процесс первоначального заполнения группы может занять несколько минут.
-
-# <a name="using-attributes-to-create-rules-for-device-objects"></a>Создание правил для объектов устройств с помощью атрибутов
+## <a name="using-attributes-to-create-rules-for-device-objects"></a>Создание правил для объектов устройств с помощью атрибутов
 Можно также создать правило, которое выбирает объекты устройств для членства в группе. Можно использовать следующие атрибуты устройства:
 
-| Свойства | Допустимые значения | Использование |
-| --- | --- | --- |
-| AccountEnabled |true, false |(device.accountEnabled -eq true) |
-| displayName |Любое строковое значение |(device.displayName -eq "Rob Iphone”) |
-| deviceOSType |Любое строковое значение |(device.deviceOSType -eq "IOS") |
-| deviceOSVersion |Любое строковое значение |(device.OSVersion -eq "9.1") |
-| isDirSynced |true, false, null |(device.isDirSynced -eq true) |
-| isManaged |true, false, null |(device.isManaged -eq false) |
-| isCompliant |true, false, null |(device.isCompliant -eq true) |
-| deviceCategory |Любое строковое значение. |(device.deviceCategory -eq "") |
-| deviceManufacturer |Любое строковое значение. |(device.deviceManufacturer -eq "Microsoft") |
-| deviceModel |Любое строковое значение. |(device.deviceModel -eq "IPhone 7+") |
-| deviceOwnership |Любое строковое значение. |(device.deviceOwnership -eq "") |
-| domainName |Любое строковое значение. |(device.domainName -eq "contoso.com") |
-| enrollmentProfileName |Любое строковое значение. |(device.enrollmentProfileName -eq "") |
-| isRooted |true, false, null |(device.isRooted -eq true) |
-| managementType |Любое строковое значение. |(device.managementType -eq "") |
-| organizationalUnit |Любое строковое значение. |(device.organizationalUnit -eq "") |
-| deviceId |a valid deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId |Допустимый идентификатор objectId в AAD |(device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+| Свойства              | Допустимые значения                  | Использование                                                       |
+|-------------------------|---------------------------------|-------------------------------------------------------------|
+| AccountEnabled          | true, false                      | (device.accountEnabled -eq true)                            |
+| displayName             | Любое строковое значение                | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | Любое строковое значение                | (device.deviceOSType -eq "IOS")                             |
+| deviceOSVersion         | Любое строковое значение                | (device.OSVersion -eq "9.1")                                |
+| deviceCategory          | Любое строковое значение.                | (device.deviceCategory -eq "")                              |
+| deviceManufacturer      | Любое строковое значение.                | (device.deviceManufacturer -eq "Microsoft")                 |
+| deviceModel             | Любое строковое значение.                | (device.deviceModel -eq "IPhone 7+")                        |
+| deviceOwnership         | Любое строковое значение.                | (device.deviceOwnership -eq "")                             |
+| domainName              | Любое строковое значение.                | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Любое строковое значение.                | (device.enrollmentProfileName -eq "")                       |
+| isRooted                | true, false                      | (device.deviceOSType -eq true)                              |
+| managementType          | Любое строковое значение.                | (device.managementType -eq "")                              |
+| organizationalUnit      | Любое строковое значение.                | (device.organizationalUnit -eq "")                          |
+| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | Допустимый идентификатор objectId в AAD            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
 > Эти правила устройств невозможно создать с помощью раскрывающегося списка "Простое правило" на классическом портале Azure.

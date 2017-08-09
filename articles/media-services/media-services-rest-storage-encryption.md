@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: d649ce6bcb5629cb820befd3478afa3f70293ccb
-ms.lasthandoff: 02/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: bc7e49c49e9b1b3cd919e665cd0f012c33f312f6
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Шифрование содержимого с шифрованием хранилища, используя API REST AMS
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/11/2017
 > 
 > При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в статье [Обзор интерфейса REST API служб мультимедиа](media-services-rest-how-to-use.md).
 > 
-> После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect-programmatically.md). 
+> После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI. Сведения о подключении к API AMS см. в разделе [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 > 
 
@@ -92,7 +92,6 @@ ms.lasthandoff: 02/11/2017
             return Convert.ToBase64String(retVal);
         }
 
-
 1. Создайте ключ содержимого, используя значения **EncryptedContentKey** (преобразуется в строку с кодировкой base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** и **Checksum**, полученные на предыдущих шагах.
 
     Для шифрования хранилища в текст запроса необходимо включить указанные ниже свойства.
@@ -120,7 +119,6 @@ ms.lasthandoff: 02/11/2017
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
     x-ms-version: 2.11
     Host: media.windows.net
-
 
 Ответ:
 
@@ -153,8 +151,6 @@ ms.lasthandoff: 02/11/2017
     x-ms-version: 2.11
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
-
-
 
 Ответ:
 
@@ -203,7 +199,6 @@ ms.lasthandoff: 02/11/2017
     "Checksum":"calculated checksum"
     }
 
-
 Ответ:
 
     HTTP/1.1 201 Created
@@ -246,7 +241,6 @@ ms.lasthandoff: 02/11/2017
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
-
 
 **HTTP-ответ**
 
@@ -292,7 +286,6 @@ ms.lasthandoff: 02/11/2017
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
     x-ms-version: 2.11
     Host: media.windows.net
-
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
 

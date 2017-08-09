@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/28/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: e49801f458a248b2bc53b2f085d5fb2096390b7e
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: b8a08eb8fd036ad07ee6ce4cf624e8b5bc4c3ddc
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Можно ли установить соединитель [прокси приложения Azure AD](../active-directory-application-proxy-get-started.md) на одном сервере с агентом сквозной проверки подлинности?
 
-Нет, эта конфигурация _не_ поддерживается.
+Да, эта конфигурация поддерживается в переработанной версии агента сквозной аутентификации (версия 1.5.193.0 или более поздняя).
 
 ## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>Какие версии Azure AD Connect и агента сквозной проверки подлинности необходимы?
 

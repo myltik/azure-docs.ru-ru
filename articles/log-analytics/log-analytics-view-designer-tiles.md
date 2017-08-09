@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 806aba12d07c10816a106b9b2af0e824ceb25ade
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Справочник по элементам конструктора представлений Log Analytics
@@ -26,7 +27,10 @@ ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
 Ниже перечислены другие статьи о конструкторе представлений:
 
 * [Log Analytics View Designer](log-analytics-view-designer.md) (Конструктор представлений Log Analytics). Обзор конструктора представлений и процедур создания и редактирования пользовательских представлений.
-* [Log Analytics View Designer visualization part reference](log-analytics-view-designer-parts.md) (Справка по элементам визуализации в конструкторе представлений Log Analytics). Справочник по параметрам всех плиток, которые можно использовать при создании пользовательских представлений. 
+* [Log Analytics View Designer visualization part reference](log-analytics-view-designer-parts.md) (Справка по элементам визуализации в конструкторе представлений Log Analytics). Справочник по параметрам всех плиток, которые можно использовать при создании пользовательских представлений.
+
+>[!NOTE]
+> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), запросы во всех представлениях должны создаваться на [новом языке запросов](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Все представления, созданные до обновления рабочей области, будут автоматически преобразованы.
 
 В приведенной ниже таблице перечислены различные типы плиток, доступных в конструкторе представлений.  В следующих разделах подробно описаны все типы плиток и их свойства.
 
@@ -176,10 +180,4 @@ ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о [поиске по журналу](log-analytics-log-searches.md) для поддержки запросов на плитках.
 * Добавьте [элементы визуализации](log-analytics-view-designer-parts.md) к пользовательскому представлению.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

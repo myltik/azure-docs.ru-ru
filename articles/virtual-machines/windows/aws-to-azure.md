@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 22f5dda489f94ebb5a22e017b72c2524a8f22d6a
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: b382e545e47353a177b3b02b3931001ab22d53c8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
+
 
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Перемещение виртуальной машины Windows из Amazon Web Services (AWS) в Azure с помощью PowerShell
 
@@ -57,7 +57,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-По завершении экспорта VHD следуйте инструкциям в разделе о [скачивании объекта из контейнера S3](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html), чтобы скачать VHD-файл из контейнера. 
+По завершении экспорта VHD следуйте инструкциям в разделе о [How Do I Download an Object from an S3 Bucket?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) (Как скачать объект из контейнера S3?), чтобы скачать VHD-файл из контейнера S3. 
 
 > [!IMPORTANT]
 > В AWS взимается плата за передачу данных при скачивании VHD-файла. Дополнительные сведения см. на странице [Цены на Amazon S3](https://aws.amazon.com/s3/pricing/).

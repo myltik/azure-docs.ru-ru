@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: b7a4772180225fc6be48ab5c75dcc334d3431e75
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: a86864a779b0de1c6d5669cfbba0f3e1a27f1ff1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>Выполнение заданий Pig с помощью REST с использованием Hadoop в HDInsight
@@ -106,7 +105,7 @@ ms.lasthandoff: 07/08/2017
 
 ## <a id="results"></a>Просмотр результатов
 
-После изменения состояния задания на **Успешно** результаты задания можно получить из хранилища по умолчанию, которое использует кластер. Параметр `statusdir`, передаваемый с помощью запроса, содержит расположение выходного файла. В данном случае это `/example/pigcurl`.
+Когда состояние задания изменится на **SUCCEEDED**, вы можете получить результаты задания. Параметр `statusdir`, передаваемый с помощью запроса, содержит расположение выходного файла. В данном случае это `/example/pigcurl`.
 
 В качестве хранилища данных по умолчанию HDInsight может использовать хранилище Azure или Azure Data Lake Store. Существуют различные способы получения данных в зависимости от их используемого типа. Дополнительные сведения см. в разделе о хранилище в документе [Linux-based HDInsight information](hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) (Сведения о HDInsight на базе Linux).
 

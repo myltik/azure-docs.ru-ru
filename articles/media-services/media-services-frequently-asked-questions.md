@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 9a6d772bddc4417004c99f319ec7592d026efdb1
-ms.lasthandoff: 01/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 1f0c5cf93b44433aab2163548de916626a7fa480
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
@@ -52,11 +52,11 @@ ms.lasthandoff: 01/27/2017
 
 Вопрос. Какие знаки поддерживаются в именах файлов при работе с AMS?
 
-Службы мультимедиа используют значение свойства IAssetFile.Name при создании URL-адресов для потоковой передачи содержимого (например, http://{учетная запись AMS}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) По этой причине кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать такие [знаки, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Кроме того, может использоваться только один знак ".". Кроме того, может использоваться только один символ "." для расширения имени файла.
+Службы мультимедиа используют значение свойства IAssetFile.Name при создании URL-адресов для потоковой передачи содержимого (например, http://{учетная запись AMS}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) По этой причине кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать такие [зарезервированные знаки, используемые для кодировки URL-адресов](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Кроме того, может использоваться только один знак ".". Кроме того, может использоваться только один символ "." для расширения имени файла.
 
 Вопрос. Как можно подключиться с помощью REST?
 
-Ответ. После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect-programmatically.md).
+Ответ. Сведения о подключении к API AMS см. в разделе [Доступ к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md). После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI. 
 
 Вопрос. Как повернуть видео в процессе кодирования?
 
@@ -74,8 +74,6 @@ ms.lasthandoff: 01/27/2017
     "Codecs": [
 
     ...
-
-
 
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа

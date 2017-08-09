@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 0691d6730fddbf9b6145d4a39da94a1762516c2c
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: c77357b2cefc8081728cb20d08b00656ba60bea6
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Использование социальных сетей с помощью Azure Cosmos DB
@@ -201,7 +200,7 @@ Azure Cosmos DB обеспечивает индексирование всех 
 ## <a name="the-search-box"></a>Поле поиска
 К счастью, пользователи будут формировать много содержимого. И мы должны дать возможность искать и находить содержимое, которое может отсутствовать непосредственно в их потоках содержимого, возможно, потому, что они не подписались на их авторов или просто пытаются найти старую запись, созданную 6 месяцев назад.
 
-Благодаря тому, что мы используем Azure DocumentDB, мы можем всего за несколько минут легко реализовать механизм поиска с помощью [Поиска Azure](https://azure.microsoft.com/services/search/) , не вводя ни одной строки кода (кроме, разумеется, процесса поиска и пользовательского интерфейса).
+Благодаря тому, что мы используем Azure Cosmos DB, мы можем всего за несколько минут легко реализовать механизм поиска с помощью [Поиска Azure](https://azure.microsoft.com/services/search/), не вводя ни одной строки кода (кроме, разумеется, процесса поиска и пользовательского интерфейса).
 
 Почему это так просто?
 

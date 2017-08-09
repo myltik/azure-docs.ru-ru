@@ -12,15 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 07/24/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7870e2aebf6c142b0f3103a500ca73d691e6d3e6
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 98befb16d27387e8f65a27771a2a32c264119d74
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>Экспорт данных Log Analytics в Power BI
+
+>[!NOTE]
+> Если ваша рабочая область переведена на [новый язык запросов Log Analytics](log-analytics-log-search-upgrade.md), этот процесс экспорта данных Log Analytics в Power BI больше не будет работать.  Все существующие расписания, созданные перед обновлением, будут отключены. 
+>
+> После обновления в Azure Log Analytics работает та же платформа, что и в Application Insights, и вы можете использовать для экспорта запросов Log Analytics в Power BI тот же процесс, что и для [экспорта запросов Application Insights в Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  Чтобы экспортировать запрос, можно воспользоваться консолью Analytics, как описано в этой статье, или нажать кнопку **Power BI** в верхней части экрана на портале поиска по журналам.
+
+
+
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) — это облачная служба бизнес-аналитики от Майкрософт, предоставляющая расширенную визуализацию данных и отчеты по анализу различных наборов данных.  Log Analytics может автоматически экспортировать данные из репозитория OMS в Power BI, чтобы вы могли использовать предоставляемые службой визуализации и средства анализа.
 
 Настраивая Power BI с использованием службы Log Analytics, вы создаете запросы журналов, экспортирующие свои результаты в соответствующие наборы данных в Power BI.  Запросы и экспорт продолжают автоматически выполняться по расписанию, установленному вами для обновления набора данных в соответствии с последними данными, собранными службой Log Analytics.
@@ -34,8 +43,8 @@ ms.openlocfilehash: 7870e2aebf6c142b0f3103a500ca73d691e6d3e6
 
 > [!NOTE]
 > Запрос поиска по журналу, возвращающий необработанные данные, более предпочтителен, чем консолидация с использованием таких команд, как [Measure](log-analytics-search-reference.md#measure).  На основе необработанных данных в Power BI можно выполнять любые операции агрегирования и расчеты.
-> 
-> 
+>
+>
 
 ## <a name="connecting-oms-workspace-to-power-bi"></a>Подключение рабочей области OMS к Power BI
 Прежде чем экспортировать данные из службы Log Analytics в Power BI, необходимо подключить рабочую область OMS к учетной записи Power BI, выполнив указанные ниже действия.  
@@ -117,10 +126,4 @@ ms.openlocfilehash: 7870e2aebf6c142b0f3103a500ca73d691e6d3e6
 ## <a name="next-steps"></a>Дальнейшие действия
 * Узнайте больше о [запросах поиска по журналам](log-analytics-log-searches.md) , чтобы создавать запросы, которые можно экспортировать в Power BI.
 * Узнайте больше о [Power BI](http://powerbi.microsoft.com), чтобы создавать визуализации на основе экспорта Log Analytics.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

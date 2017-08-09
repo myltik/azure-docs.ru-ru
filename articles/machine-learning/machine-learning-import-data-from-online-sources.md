@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
-translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: afecdde0cbc0bcbe0932b23dc1a8e067d02ded12
-ms.lasthandoff: 12/20/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: a102b5f5ea04169d1992cad6d53c0a45de69b645
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Импорт данных в Студию машинного обучения Azure из разных сетевых источников данных с помощью модуля "Импорт данных"
@@ -44,6 +44,7 @@ ms.lasthandoff: 12/20/2016
 * базу данных SQL Azure или сервер SQL Server на виртуальной машине Azure;
 * локальная база данных SQL Server;
 * поставщик веб-канала данных (в настоящее время OData).
+* Azure CosmosDB (прежнее название — DocumentDB).
 
 Чтобы получить доступ к сетевым источникам данных, добавьте в эксперимент Студии модуль [Импорт данных][import-data], выберите **источник данных**, а затем укажите параметры, необходимые для доступа к данным. Поддерживаемые сетевые источники данных описаны в таблице ниже. Кроме того, в этой таблице перечислены поддерживаемые форматы файлов и параметры, используемые для доступа к данным.
 

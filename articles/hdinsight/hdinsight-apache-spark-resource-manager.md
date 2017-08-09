@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/21/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 7acd83cf477f9294c75e1bf11f093be50c32e786
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 952fa15162a40bccb3f8c7a88508556757ca6675
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Управление ресурсами для кластера Apache Spark в Azure HDInsight 
@@ -135,14 +134,14 @@ ms.lasthandoff: 06/07/2017
 5. Повторите эти действия на другом головном узле.
 
 ## <a name="my-jupyter-notebooks-are-not-running-as-expected-how-can-i-restart-the-service"></a>Мои записные книжки Jupyter работают не так, как ожидалось. Как я могу перезапустить службу?
-1. Запустите веб-интерфейс Ambari, как показано выше. В левой области навигации щелкните **Jupyter**, **Service Actions** (Действия службы), а затем — **Перезапустить все**. При этом служба Jupyter запускается на всех головных узлах.
+Запустите веб-интерфейс Ambari, как показано выше. В левой области навигации щелкните **Jupyter**, **Service Actions** (Действия службы), а затем — **Перезапустить все**. При этом служба Jupyter запускается на всех головных узлах.
 
-    ![Перезапуск Jupyter](./media/hdinsight-apache-spark-resource-manager/restart-jupyter.png "Перезапуск Jupyter")
+    ![Restart Jupyter](./media/hdinsight-apache-spark-resource-manager/restart-jupyter.png "Restart Jupyter")
 
-## <a name="how-do-i-know-if-i-am-running-out-of-resource"></a>Как узнать, что ресурс заканчивается?
-1. Запустите пользовательский интерфейс Yarn, как показано выше. В таблице метрик кластера в верхней части экрана проверьте значения столбцов **Memory Used** (Используемая память) и **Memory Total** (Всего памяти). Если эти два значения очень близки, то для запуска следующего приложения может не хватить ресурсов. То же самое относится к столбцам **VCores Used** (Используемые ядра VCore) и **VCores Total** (Всего ядер VCore). Кроме того, если в главном представлении есть приложение с состоянием **ACCEPTED** (Принято), которое не переходит в состояние **RUNNING** (Выполняется) или **FAILED** (Сбой), то это также может означать, что для его запуска недостаточно ресурсов.
+## <a name="how-do-i-know-if-i-am-running-out-of-resources"></a>Как узнать, что ресурсы заканчиваются?
+Запустите пользовательский интерфейс Yarn, как показано выше. В таблице метрик кластера в верхней части экрана проверьте значения столбцов **Memory Used** (Используемая память) и **Memory Total** (Всего памяти). Если эти два значения очень близки, то для запуска следующего приложения может не хватить ресурсов. То же самое относится к столбцам **VCores Used** (Используемые ядра VCore) и **VCores Total** (Всего ядер VCore). Кроме того, если в главном представлении есть приложение с состоянием **ACCEPTED** (Принято), которое не переходит в состояние **RUNNING** (Выполняется) или **FAILED** (Сбой), то это также может означать, что для его запуска недостаточно ресурсов.
 
-    ![Ограничение ресурсов](./media/hdinsight-apache-spark-resource-manager/resource-limit.png "Ограничение ресурсов")
+    ![Resource Limit](./media/hdinsight-apache-spark-resource-manager/resource-limit.png "Resource Limit")
 
 ## <a name="how-do-i-kill-a-running-application-to-free-up-resource"></a>Как завершить работу запущенного приложения, чтобы освободить ресурс?
 1. В пользовательском интерфейсе Yarn на левой панели щелкните **Running** (Выполняется). В списке выполняющихся приложений определите приложение, работу которого необходимо завершить, и щелкните **ID** (Идентификатор).
@@ -153,38 +152,26 @@ ms.lasthandoff: 06/07/2017
 
     ![Завершение работы приложения 2](./media/hdinsight-apache-spark-resource-manager/kill-app2.png "Завершение работы приложения 2")
 
-## <a name="seealso"></a>Дополнительные материалы
-* [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
+## <a name="see-also"></a>См. также
+* [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-### <a name="scenarios"></a>Сценарии
-* [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
+### <a name="for-data-analysts"></a>Для специалистов по анализу данных
+
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для анализа температуры в здании на основе данных системы кондиционирования](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
 * [Анализ журнала веб-сайта с использованием Spark в HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Analyze Application Insights telemetry logs with Spark on HDInsight (Анализ журналов телеметрии Application Insights с помощью Spark в HDInsight)](hdinsight-spark-analyze-application-insight-logs.md)
+* [Использование Caffe в кластере Azure HDInsight Spark для распределенного глубокого обучения](hdinsight-deep-learning-caffe-spark.md)
 
-### <a name="create-and-run-applications"></a>Создание и запуск приложений
+### <a name="for-spark-developers"></a>Для разработчиков Spark
+
 * [Создание автономного приложения с использованием Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Удаленный запуск заданий с помощью Livy в кластере Spark](hdinsight-apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Средства и расширения
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
 * [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>Управление ресурсами
-* [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
-
-[hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-create-storageaccount]: storage-create-storage-account.md
 

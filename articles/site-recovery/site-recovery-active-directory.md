@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/17/2017
+ms.date: 7/20/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 9b2e78ff55ed23732892d605f3edef6a5afdf7ad
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>Защита Active Directory и DNS с Azure Site Recovery
@@ -83,8 +82,7 @@ Site Recovery — это служба Azure, которая обеспечива
 1. Создайте изолированную сеть. Любая виртуальная сеть, созданная в Azure, по умолчанию изолируется от другой сети. Рекомендуем использовать для этой сети такой же диапазон IP-адресов, как у вашей рабочей сети. Не включайте для этой сети подключение между сайтами.
 1. В качестве IP-адреса DNS в созданной сети укажите IP-адрес, который должна получить виртуальная машина с DNS. При репликации в Azure в разделе **Вычисления и сеть** в поле **Целевой IP-адрес** укажите IP-адрес виртуальной машины, которая будет использоваться для отработки отказа. 
 
-    ![Целевой IP-адрес](./media/site-recovery-active-directory/DNS-Target-IP.png)
-    **Целевой IP-адрес**
+    ![Целевой IP-адрес](./media/site-recovery-active-directory/DNS-Target-IP.png) **Целевой IP-адрес**
 
     ![Тестовая сеть Azure](./media/site-recovery-active-directory/azure-test-network.png)
 

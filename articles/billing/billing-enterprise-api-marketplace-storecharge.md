@@ -15,26 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 9f084dce3f01466aaa0e4c32d339c925d9faccd3
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 5539623f7ae35e14b6dafe6fdf9efe4bcaba4fd3
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-# <a name="reporting-apis-for-enterprise-customers---marketplace-charges-preview"></a>Интерфейсы API отчетов для корпоративных клиентов: платежи в Marketplace (предварительная версия)
+# <a name="reporting-apis-for-enterprise-customers---marketplace-store-charge"></a>API-интерфейсы отчетов для корпоративных клиентов: платежи в Marketplace
 
 Интерфейс API платежей в Marketplace предоставляет сводку о расходах в Marketplace с разбивкой по дням. Данные основаны на фактическом использовании и отображаются для указанного расчетного периода или дат начала и окончания (однократные сборы не включаются).
 
 ##<a name="request"></a>Запрос 
-Общие свойства заголовка, которые необходимо добавить, указываются [здесь](billing-enterprise-api.md). Если расчетный период не указан, то возвращаются данные за текущий расчетный период. Настраиваемые диапазоны времени можно указать с помощью параметров даты начала и окончания, которые вводятся в формате гггг-ММ-дд. Максимальный поддерживаемый диапазон времени — 36 месяцев.  
+Общие свойства заголовка, которые необходимо добавить, указываются [здесь](billing-enterprise-api.md). Если расчетный период не указан, то возвращаются данные за текущий расчетный период. Настраиваемые диапазоны времени можно указать с помощью параметров даты начала и окончания, которые вводятся в формате гггг-ММ-дд. Максимальный поддерживаемый диапазон времени — 36 месяцев.  
 
 |Метод | URI запроса|
 |-|-|
-|ПОЛУЧЕНИЕ|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacecharges|
-|ПОЛУЧЕНИЕ|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
-|ПОЛУЧЕНИЕ|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+|ПОЛУЧЕНИЕ|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacecharges|
+|ПОЛУЧЕНИЕ|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
+|ПОЛУЧЕНИЕ|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+
+> [!Note]
+> Чтобы использовать предварительную версию API, измените v2 на v1 в URL-адресе выше.
+>
 
 ## <a name="response"></a>Ответ
  
@@ -100,6 +103,7 @@ ms.lasthandoff: 05/03/2017
 |extendedCost|decimal|Оценка расходов на основе потребленного объема и расширенных затрат|
 <br/>
 ## <a name="see-also"></a>См. также
+
 * [Интерфейсы API для выставления счетов Azure корпоративным клиентам: расчетные периоды](billing-enterprise-api-billing-periods.md)
 
 * [Интерфейсы API для выставления счетов Azure корпоративным клиентам: сведения об использовании](billing-enterprise-api-usage-detail.md) 

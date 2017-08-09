@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 07/12/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c6e2ecebf6cd1b246c155c158d12d4d83bd1feda
-ms.openlocfilehash: bda2da933accb769bae4c9b420ae330014fc2ba0
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 2114bdafb3b9fe2eb0632271840b8b70a76d10f1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/27/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="iis-logs-in-log-analytics"></a>Журналы IIS в службе Log Analytics
@@ -78,9 +77,19 @@ Log Analytics собирает записи в журналах IIS из каж�
 | Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Число записей в журнале IIS по URL-адресу для узла www.contoso.com. |
 | Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Общее количество байтов, полученных каждым компьютером IIS. |
 
+>[!NOTE]
+> Если ваша рабочая область переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом.
+
+> | Запрос | Описание |
+|:--- |:--- |
+| W3CIISLog |Все записи в журнале IIS. |
+| W3CIISLog &#124; where scStatus==500 |Все записи журнала IIS с состоянием возврата 500. |
+| W3CIISLog &#124; summarize count() by cIP |Число записей в журнале IIS по IP-адресу клиента. |
+| W3CIISLog &#124; where csHost=="www.contoso.com" &#124; summarize count() by csUriStem |Число записей в журнале IIS по URL-адресу для узла www.contoso.com. |
+| W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Общее количество байтов, полученных каждым компьютером IIS. |
+
 ## <a name="next-steps"></a>Дальнейшие действия
 * Настройте службу Log Analytics для сбора других [источников данных](log-analytics-data-sources.md) для анализа.
 * Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений.
 * Настройте оповещения в службе Log Analytics для получения заблаговременных уведомлений о важных условиях, обнаруженных в журналах IIS.
-
 

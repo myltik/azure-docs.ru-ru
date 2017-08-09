@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/26/2017
 ms.author: rodejo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 81fdae033afd90b77d3725f8c39b8a6c6bbc3812
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7dd4833000e8550b172e0451c48788b1e627a1fb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Настройка параметров групп с помощью командлетов Azure Active Directory
 
 > [!IMPORTANT]
-> Это содержимое относится только к единым группам, также известным как группы Office 365. 
+> Это содержимое применяется только к группам Office 365. 
 
 Параметры групп Office 365 настраиваются с помощью объектов Settings и SettingsTemplate. Изначально в каталоге не отображаются объекты Settings. Это означает, что каталог настроен с параметрами по умолчанию. Чтобы изменить параметры по умолчанию, необходимо с помощью шаблона параметров создать объект параметров. Шаблоны параметров определены корпорацией Майкрософт. Поддерживается несколько разных шаблонов параметров. Для настройки параметров группы для каталога будет использован шаблон Group.Unified. Для настройки параметров отдельной группы используйте шаблон Group.Unified.Guest. Этот шаблон используется для управления гостевым доступом к группе. 
 

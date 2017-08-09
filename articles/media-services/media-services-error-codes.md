@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: eae360dd3e627a82986cef32ef39860f60ffe51f
-ms.lasthandoff: 02/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 668ba10474fc1b01d5ebccbff1f50fe09ade5f30
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-media-services-error-codes"></a>Коды ошибок служб мультимедиа Azure
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/11/2017
 Запрос содержит недопустимые сведения и отклонен по одной из причин ниже:
 
 * Указана неподдерживаемая версия API. Дополнительные сведения см. в статье [Обзор интерфейса REST API служб мультимедиа](media-services-rest-how-to-use.md).
-* Не указана версия API служб мультимедиа. Сведения о том, как указать версию API, см. в статье [Подключение к учетной записи служб мультимедиа с помощью REST API служб мультимедиа](media-services-rest-connect-programmatically.md).
+* Не указана версия API служб мультимедиа. Сведения о том, как указать версию API, см. в статье [Media Services Operations REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) (Справочник по REST API операций служб мультимедиа).
   
   > [!NOTE]
   > Если для подключения к службам мультимедиа используются пакеты SDK для .NET или Java, версия API указывается автоматически при каждой попытке и выполнении некоторых операций в службах мультимедиа.
@@ -48,8 +48,8 @@ ms.lasthandoff: 02/11/2017
 
 * Отсутствует заголовок проверки подлинности.
 * Недопустимое значение в заголовке проверки подлинности.
-  * Истек срок действия маркера. Если вы напрямую используете REST API, см. статью [Подключение к учетной записи служб мультимедиа с помощью REST API служб мультимедиа](media-services-rest-connect-programmatically.md), чтобы узнать, как создать новый маркер проверки подлинности. Если используется пакет SDK для .NET или Java, создайте объект cloudMediaContext или mediaContract, чтобы создать маркер. Дополнительные сведения о том, как это сделать, см. в статье [Подключение к учетной записи служб мультимедиа с помощью пакета SDK служб мультимедиа для .NET](media-services-dotnet-connect-programmatically.md).
-  * Маркер содержит недопустимую подпись.</li></ul></li></ul>
+  * Истек срок действия маркера. 
+  * Маркер содержит недопустимую подпись.
 
 ## <a name="403-forbidden"></a>403. Запрещено
 Запрос запрещен по одной из следующих причин:

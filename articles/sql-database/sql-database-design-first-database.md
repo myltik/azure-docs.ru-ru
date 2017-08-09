@@ -3,7 +3,7 @@ title: "Проектирование первой базы данных SQL Azur
 description: "Проектирование первой базы данных SQL Azure."
 services: sql-database
 documentationcenter: 
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/20/2017
-ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8af9ea0a76b9a0606284505195ee3f52b1964604
+ms.date: 07/31/2017
+ms.author: carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: ec3b2debcd65f733041462940196a61c109bf051
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -42,13 +41,15 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="prerequisites"></a>Предварительные требования
 
-Для работы с этим руководством у вас должна быть установлена последняя версия [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). 
+Для работы с этим руководством вам потребуются:
+- Последняя версия [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
+- Последняя версия [BCP и SQLCMD] [https://www.microsoft.com/download/details.aspx?id=36433].
 
 ## <a name="log-in-to-the-azure-portal"></a>Войдите на портал Azure.
 
 Войдите на [портал Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database-in-the-azure-portal"></a>Создание пустой базы данных SQL на портале Azure
+## <a name="create-a-blank-sql-database"></a>Создание пустой базы данных SQL
 
 База данных Azure SQL создается с определенным набором [вычислительных ресурсов и ресурсов хранения](sql-database-service-tiers.md). База данных создается в пределах [группы ресурсов Azure](../azure-resource-manager/resource-group-overview.md) и [логического сервера базы данных SQL Azure](sql-database-features.md). 
 
@@ -75,7 +76,7 @@ ms.lasthandoff: 06/28/2017
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Server name** (Имя сервера) | Любое глобально уникальное имя | Допустимые имена серверов см. в статье о [правилах и ограничениях именования](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Имя для входа администратора сервера** | Любое допустимое имя | Допустимые имена входа см. в статье об [идентификаторах базы данных](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Пароль** | Любой допустимый пароль | Длина пароля должна составлять минимум 8 символов. Пароль должен содержать символы трех категорий из перечисленных: прописные буквы, строчные буквы, цифры и специальные символы. |
+   | **Пароль** | Любой допустимый пароль | Длина пароля должна составлять минимум 8 символов. Пароль должен содержать символы трех категорий из перечисленных: прописные буквы, строчные буквы, цифры и символы, не являющиеся буквами или цифрами. |
    | **Расположение** | Любое допустимое расположение | Дополнительные сведения о регионах Azure см. [здесь](https://azure.microsoft.com/regions/). |
 
    ![Создание базы данных — сервер](./media//sql-database-design-first-database/create-database-server.png)
@@ -96,12 +97,12 @@ ms.lasthandoff: 06/28/2017
 
    ![уведомление](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Создание правила брандмауэра на уровне сервера с помощью портала Azure
+## <a name="create-a-server-level-firewall-rule"></a>создадим правило брандмауэра на уровне сервера;
 
 Служба базы данных SQL создает брандмауэр уровня сервера, который не позволяет внешним приложениям и средствам подключаться к серверу или любой базе данных на сервере, если не создано правило брандмауэра, открывающее брандмауэр для определенных IP-адресов. Выполните следующие действия, чтобы создать [правило брандмауэра уровня сервера базы данных SQL](sql-database-firewall-configure.md) для IP-адреса вашего клиента и разрешить внешнее подключение через брандмауэр базы данных SQL только с вашего IP-адреса. 
 
 > [!NOTE]
-> База данных SQL обменивается данными через порт 1433. Если вы пытаетесь подключиться из корпоративной сети, исходящий трафик через порт 1433 может быть запрещен сетевым брандмауэром. В таком случае вы не сможете подключиться к серверу базы данных SQL Azure, пока ваш ИТ-отдел не откроет порт 1433.
+> База данных SQL обменивается данными через порт 1433. Если вы пытаетесь подключиться из корпоративной сети, исходящий трафик через порт 1433 может быть запрещен сетевым брандмауэром. В таком случае вы не сможете подключиться к серверу базы данных SQL Azure, пока ваш ИТ-отдел не откроет порт 1433.
 >
 
 1. По завершении развертывания щелкните раздел **Базы данных SQL** в меню слева и выберите **mySampleDatabase** на странице **баз данных SQL**. Откроется страница с общими сведениями о базе данных, где будет указано полное имя сервера (например, **mynewserver20170313.database.windows.net**) и предоставлены параметры для дальнейшей настройки. Скопируйте полное имя сервера для использования в дальнейшем.
@@ -110,7 +111,7 @@ ms.lasthandoff: 06/28/2017
    > Полное имя сервера понадобится вам при работе с последующими руководствами для подключения к серверу и к базам данных.
    > 
 
-   ![Имя сервера](./media/sql-database-get-started-portal/server-name.png) 
+   ![Имя сервера](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Щелкните **Настройка брандмауэра для сервера** на панели инструментов, как показано на предыдущем рисунке. Откроется страница **параметров брандмауэра** для сервера базы данных SQL. 
 
@@ -130,7 +131,7 @@ ms.lasthandoff: 06/28/2017
 > [!IMPORTANT]
 > По умолчанию доступ через брандмауэр базы данных SQL включен для всех служб Azure. На этой странице щелкните **Откл.**, чтобы отключить доступ для всех служб Azure.
 
-## <a name="get-connection-information-in-the-azure-portal"></a>Получение сведений о подключении на портале Azure
+## <a name="sql-server-connection-information"></a>Сведения о подключении SQL Server
 
 Получите полное имя сервера для сервера базы данных SQL Azure на портале Azure. Используйте полное имя сервера, чтобы подключиться к серверу с помощью SQL Server Management Studio.
 
@@ -138,7 +139,7 @@ ms.lasthandoff: 06/28/2017
 2. В меню слева выберите **Базы данных SQL** и на странице **Базы данных SQL** щелкните имя своей базы данных. 
 3. На странице портала Azure вашей базы данных в области **Основные компоненты** найдите и скопируйте **имя сервера**.
 
-   ![Сведения о подключении](./media/sql-database-get-started-portal/server-name.png)
+   ![Сведения о подключении](./media/sql-database-connect-query-dotnet/server-name.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Подключение к базе данных с помощью SQL Server Management Studio.
 
@@ -168,7 +169,7 @@ ms.lasthandoff: 06/28/2017
 
    ![Объекты базы данных](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="create-tables-in-the-database-with-ssms"></a>Создание таблиц в базе данных с помощью SSMS 
+## <a name="create-tables-in-the-database"></a>Создание таблиц в базе данных 
 
 Создайте схему базы данных с четырьмя таблицами, моделирующими систему управления студентами для университетов, с помощью [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
@@ -239,7 +240,7 @@ ms.lasthandoff: 06/28/2017
 
    ![Создание таблиц в SSMS](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="load-data-into-the-tables-with-ssms"></a>Загрузка данных в таблицы с помощью SSMS
+## <a name="load-data-into-the-tables"></a>Загрузка данных в таблицу
 
 1. В папке скачиваний создайте папку с именем **SampleTableData** для хранения примеров данных базы данных. 
 
@@ -263,7 +264,7 @@ ms.lasthandoff: 06/28/2017
 
 Итак, вы загрузили пример данных в созданные ранее таблицы.
 
-## <a name="query-the-tables-with-ssms"></a>Запрос таблиц с помощью SSMS
+## <a name="query-data"></a>Запрос данных
 
 Чтобы извлечь сведения из таблиц базы данных, выполните приведенные ниже запросы. Дополнительные сведения о создании запросов SQL см. в [этой статье](https://technet.microsoft.com/library/bb264565.aspx). Первый запрос объединяет четыре таблицы для поиска всех студентов, посещающих занятия у преподавателя Dominick Pope и оценки которых выше, чем у 75 % учащихся в этом классе. Второй запрос объединяет четыре таблицы и находит все курсы, на которые когда-либо записывался Noe Coleman.
 
@@ -300,7 +301,7 @@ ms.lasthandoff: 06/28/2017
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time-using-the-azure-portal"></a>Восстановление базы данных до предшествующей точки во времени с помощью портала Azure
+## <a name="restore-a-database-to-a-previous-point-in-time"></a>Восстановление базы данных до предыдущей точки во времени
 
 Представьте, что вы случайно удалили таблицу. Восстановить ее будет не просто. База данных SQL Azure позволяет вернуться в любой момент времени в течение последних 35 дней и восстановить данные на определенный момент времени в новой базе данных. С помощью этой базы данных можно восстановить удаленные данные. Ниже приведены действия по восстановлению базы данных до точки во времени, когда были созданы таблицы.
 
@@ -329,8 +330,10 @@ ms.lasthandoff: 06/28/2017
 > * создание таблиц.
 > * Массовая загрузка данных.
 > * Запрос данных.
-> * Восстановление базы данных на более ранний момент времени с использованием возможности [восстановления до точки во времени](sql-database-recovery-using-backups.md#point-in-time-restore) базы данных SQL. Перейдите к следующему руководству, чтобы узнать о миграции данных.
+> * Восстановление базы данных на более ранний момент времени с использованием возможности [восстановления до точки во времени](sql-database-recovery-using-backups.md#point-in-time-restore) базы данных SQL.
+
+Дополнительные сведения о проектировании базы данных с помощью Visual Studio и C# см. в следующем руководстве.
 
 > [!div class="nextstepaction"]
->[Перенос базы данных SQL Server в базу данных SQL Azure](sql-database-migrate-your-sql-server-database.md)
+>[Проектирование базы данных SQL Azure и подключение к ней с помощью C# и ADO.NET](sql-database-design-first-database-csharp.md)
 

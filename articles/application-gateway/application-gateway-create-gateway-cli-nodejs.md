@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 07/31/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: f550ec9a8d254378d165f0c842459fd50ade7945
-ms.openlocfilehash: 9ea999ea483543beda8d258f58dc8fba479aa603
-ms.lasthandoff: 03/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: e7b16e789e0f241aa8ca2292aacb2bccde8777ee
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Создание шлюза приложений с помощью интерфейса командной строки Azure
@@ -50,11 +50,8 @@ ms.lasthandoff: 03/30/2017
 Вы узнаете:
 
 * как создать средний шлюз приложений с двумя экземплярами;
-* как создать виртуальную сеть AdatumAppGatewayVNET с зарезервированным блоком CIDR (10.0.0.0/16);
-* как создать подсеть с именем Appgatewaysubnet и блоком CIDR (10.0.0.0/28);
-* как настроить сертификат для разгрузки SSL.
-
-![Пример сценария][scenario]
+* как создать виртуальную сеть ContosoVNET с зарезервированным блоком CIDR (10.0.0.0/16);
+* как создать подсеть subnet01 с блоком CIDR (10.0.0.0/28).
 
 > [!NOTE]
 > Дополнительная настройка шлюза приложений, включая пользовательские пробы работоспособности, серверный пул адресов и дополнительные правила, осуществляется после настройки шлюза приложений, а не во время первоначального развертывания.
@@ -67,7 +64,7 @@ ms.lasthandoff: 03/30/2017
 
 Откройте **командную строку Microsoft Azure**, и выполните вход. 
 
-```azurecli
+```azurecli-interactive
 azure login
 ```
 
@@ -85,7 +82,7 @@ azure login
 
 ## <a name="switch-to-resource-manager-mode"></a>Переключение в режим Resource Manager
 
-```azurecli
+```azurecli-interactive
 azure config mode arm
 ```
 
@@ -93,38 +90,63 @@ azure config mode arm
 
 Перед созданием шлюза приложений создается группа ресурсов, которая будет содержать шлюз приложений. Ниже показана команда для создания группы ресурсов.
 
-```azurecli
-azure group create -n AdatumAppGatewayRG -l eastus
+```azurecli-interactive
+azure group create \
+--name ContosoRG \
+--location eastus
 ```
 
 ## <a name="create-a-virtual-network"></a>Создать виртуальную сеть
 
 Сразу после создания группы ресурсов создается виртуальная сеть для шлюза приложений.  В примере ниже использовалось адресное пространство 10.0.0.0/16, определенное в предыдущих заметках о сценарии.
 
-```azurecli
-azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
+```azurecli-interactive
+azure network vnet create \
+--name ContosoVNET \
+--address-prefixes 10.0.0.0/16 \
+--resource-group ContosoRG \
+--location eastus
 ```
 
 ## <a name="create-a-subnet"></a>Создание подсети
 
 После создания виртуальной сети добавляется подсеть для шлюза приложений.  Если вы планируете использовать шлюз приложений с веб-приложением, размещенным в той же виртуальной сети, что и шлюз приложений, оставьте место для другой подсети.
 
-```azurecli
-azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
+```azurecli-interactive
+azure network vnet subnet create \
+--resource-group ContosoRG \
+--name subnet01 \
+--vnet-name ContosoVNET \
+--address-prefix 10.0.0.0/28 
 ```
 
 ## <a name="create-the-application-gateway"></a>Создание шлюза приложений
 
 После создания виртуальной сети и подсети можно считать, что все предварительные требования для шлюза приложений соблюдены. Кроме того, далее вам понадобятся ранее экспортированный PFX-сертификат и пароль для сертификата. IP-адреса, используемые для серверной части, — это IP-адреса для внутреннего сервера. Эти значения могут быть частными IP-адресами в виртуальной сети, общедоступными IP-адресами или полными доменными именами для внутренних серверов.
 
-```azurecli
-azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
+```azurecli-interactive
+azure network application-gateway create \
+--name AdatumAppGateway \
+--location eastus \
+--resource-group ContosoRG \
+--vnet-name ContosoVNET \
+--subnet-name subnet01 \
+--servers 134.170.185.46,134.170.188.221,134.170.185.50 \
+--capacity 2 \
+--sku-tier Standard \
+--routing-rule-type Basic \
+--frontend-port 80 \
+--http-settings-cookie-based-affinity Enabled \
+--http-settings-port 80 \
+--http-settings-protocol http \
+--frontend-port http \
+--sku-name Standard_Medium
 ```
 
 > [!NOTE]
 > Чтобы вывести список параметров, которые можно указать во время создания, выполните следующую команду: **azure network application-gateway create --help**.
 
-В этом примере создается базовый шлюз приложений с параметрами по умолчанию для прослушивателя, серверного пула, протокола HTTP серверной части и правил. Он также настраивает разгрузку SSL. Вы сможете изменить эти параметры в соответствии с развертыванием после успешного завершения подготовки.
+В этом примере создается базовый шлюз приложений с параметрами по умолчанию для прослушивателя, серверного пула, протокола HTTP серверной части и правил. Вы сможете изменить эти параметры в соответствии с развертыванием после успешного завершения подготовки.
 Если на предыдущем шаге вы уже определили для веб-приложения внутренний пул, то после создания шлюза запускается балансировка нагрузки.
 
 ## <a name="next-steps"></a>Дальнейшие действия
@@ -135,8 +157,8 @@ azure network application-gateway create -n AdatumAppGateway -l eastus -g Adatum
 
 <!--Image references-->
 
-[scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
-[1]: ./media/application-gateway-create-gateway-cli/figure1.png
-[2]: ./media/application-gateway-create-gateway-cli/figure2.png
-[3]: ./media/application-gateway-create-gateway-cli/figure3.png
+[scenario]: ./media/application-gateway-create-gateway-cli-nodejs/scenario.png
+[1]: ./media/application-gateway-create-gateway-cli-nodejs/figure1.png
+[2]: ./media/application-gateway-create-gateway-cli-nodejs/figure2.png
+[3]: ./media/application-gateway-create-gateway-cli-nodejs/figure3.png
 

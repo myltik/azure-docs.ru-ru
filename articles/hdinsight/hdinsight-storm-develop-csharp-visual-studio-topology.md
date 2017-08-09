@@ -14,14 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/23/2017
+ms.date: 08/02/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 9447cf1919cacee5319afe559e7745e5d218fb0d
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 3ee89b6644ba395e0a6c28ecc2c082c2f7393ac8
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Разработка топологий для Apache Storm на C# с помощью средств Data Lake для Visual Studio
@@ -121,6 +120,9 @@ namespace ConsoleApplication2
 | Пример модуля записи Storm HBase |Запись в HBase в кластерах HDInsight. |
 | Пример Storm Hybrid |Использование компонентов Java. |
 | Пример Storm |Базовая топология подсчета слов. |
+
+> [!WARNING]
+> Не все шаблоны будут работать с HDInsight под управлением Linux. Пакеты NuGet, используемые в шаблонах, могут оказаться несовместимыми с Mono. Проверьте документацию по [совместимости с Mono](http://www.mono-project.com/docs/about-mono/compatibility/) и используйте [анализатор переносимости .NET](hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis), чтобы определить возможные проблемы.
 
 На данном этапе в этом документе используется базовый тип проекта приложения Storm для создания топологии.
 

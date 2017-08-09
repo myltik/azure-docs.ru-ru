@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/28/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 0848e05f53c130b671dab6b8946f0bdb2920bbc3
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: fcca9c9bb0aca96d740feb9450458a7c3b8de379
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Развертывание приложений на вычислительных узлах с помощью пакетов приложений пакетной службы
@@ -32,6 +31,8 @@ ms.lasthandoff: 07/08/2017
 > [!NOTE]
 > 
 > Пакеты приложений поддерживаются во всех пулах пакетной службы, созданных после 5 июля 2017 г. Если пул создан с помощью конфигурации облачной службы, пакеты приложений также поддерживаются в пулах пакетной службы, созданных между 10 марта 2016 г. и 5 июля 2017 г. Пулы пакетной службы, созданные до 10 марта 2016 г., не поддерживают пакеты приложений.
+>
+> API-интерфейсы для создания пакетов приложений и управления ими входят в библиотеку [.NET для управления пакетной службой] [[api_net_mgmt]]. API-интерфейсы для установки пакетов приложений в вычислительном узле входят в библиотеку [.NET для пакетной службы][api_net].  
 >
 > Компонент "Пакеты приложений", описываемый в этой статье, заменяет компонент "Приложения пакетной службы", доступный в предыдущих версиях службы.
 > 
@@ -348,11 +349,11 @@ foreach (ApplicationSummary app in applications)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 * [REST API пакетной службы][api_rest] также поддерживает работу с пакетами приложения. В качестве примера изучите элемент [applicationPackageReferences][rest_add_pool_with_packages] в статье [Добавление учетной записи пула][rest_add_pool]. Сведения, описанные в этой статье, помогут вам определить пакеты для установки с помощью REST API. Дополнительные сведения о получении сведений о приложении с помощью REST API пакетной службы см. в статье [Приложения][rest_applications].
-* Узнайте больше о программном [управлении квотами и учетными записями пакетной службы Azure с помощью библиотеки .NET для управления пакетной службой](batch-management-dotnet.md). С помощью [библиотеки .NET для управления пакетной службой][api_net_mgmt] можно включить функции создания и удаления учетной записи для пакетной службы или приложения.
+* Узнайте больше о программном [управлении квотами и учетными записями пакетной службы Azure с помощью библиотеки .NET для управления пакетной службой](batch-management-dotnet.md). С помощью библиотеки [.NET для управления пакетной службой][api_net_mgmt] можно включить функции создания и удаления учетной записи для пакетной службы или приложения.
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
-[api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
+[api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet
+[api_rest]: https://docs.microsoft.com/en-us/rest/api/batchservice/
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [storage_pricing]: https://azure.microsoft.com/pricing/details/storage/

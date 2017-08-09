@@ -1,116 +1,178 @@
 ---
 title: "Руководство по интеграции Azure Active Directory с Thoughtworks Mingle | Документация Майкрософт"
-description: "Узнайте, как использовать Thoughtworks Mingle вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач."
+description: "Узнайте, как настроить единый вход Azure Active Directory в Thoughtworks Mingle."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 69d859d9-b7f7-4c42-bc8c-8036138be586
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 3/09/2017
+ms.date: 07/19/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 3a58f6d2d3bc39af650f5d62acdf09d769cd7ad0
-ms.lasthandoff: 03/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 268ae5affb88a718f68c08daa94fe7aba4a99c11
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Учебник. Интеграция Azure Active Directory с Thoughtworks Mingle
-Цель данного учебника — показать интеграцию Azure и Thoughtworks Mingle.  
 
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+В этом руководстве описано, как интегрировать Thoughtworks Mingle с Azure Active Directory (Azure AD).
 
-* Действующая подписка на Azure
-* Клиент Thoughtworks Mingle
+Интеграция Azure AD с Thoughtworks Mingle обеспечивает следующие преимущества.
 
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+- С помощью Azure AD вы можете контролировать доступ к Thoughtworks Mingle.
+- Вы можете включить автоматический вход пользователей в Thoughtworks Mingle (единый вход) с применением учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure.
 
-1. Включение интеграции приложений для Thoughtworks Mingle
-2. Настройка единого входа.
-3. Настройка подготовки учетных записей пользователей
-4. Назначение пользователей
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в разделе [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Сценарий](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785150.png "Сценарий")
+## <a name="prerequisites"></a>Предварительные требования
 
-## <a name="enable-the-application-integration-for-thoughtworks-mingle"></a>Включение интеграции приложений для Thoughtworks Mingle
-В этом разделе показано, как включить интеграцию приложений для Thoughtworks Mingle.
+Чтобы настроить интеграцию Azure AD с Thoughtworks Mingle, вам потребуется:
 
-**Чтобы включить интеграцию приложений для Thoughtworks Mingle, выполните следующее.**
+- подписка Azure AD;
+- подписка Thoughtworks Mingle с поддержкой единого входа.
 
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+> [!NOTE]
+> Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
+
+- Не используйте рабочую среду без необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете [получить пробную версию на один месяц](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+
+1. Добавление Thoughtworks Mingle из коллекции
+2. Настройка и проверка единого входа в Azure AD
+
+## <a name="adding-thoughtworks-mingle-from-the-gallery"></a>Добавление Thoughtworks Mingle из коллекции
+Чтобы настроить интеграцию Thoughtworks Mingle с Azure AD, необходимо добавить Thoughtworks Mingle из коллекции в список управляемых приложений SaaS.
+
+**Чтобы добавить Thoughtworks Mingle из коллекции, выполните следующие действия.**
+
+1. На **[портале Azure](https://portal.azure.com)** в области навигации слева щелкните значок **Azure Active Directory**. 
+
+    ![Кнопка "Azure Active Directory"][1]
+
+2. Перейдите к разделу **Корпоративные приложения**. Затем выберите **Все приложения**.
+
+    ![Колонка "Корпоративные приложения"][2]
+    
+3. Чтобы добавить новое приложение, в верхней части диалогового окна нажмите кнопку **Создать приложение**.
+
+    ![Кнопка "Новое приложение"][3]
+
+4. В поле поиска введите **Thoughtworks Mingle**, выберите **Thoughtworks Mingle** на панели результатов и нажмите кнопку **Добавить**, чтобы добавить это приложение.
+
+    ![ThoughtWorks Mingle в списке результатов](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_addfromgallery.png)
+
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в Thoughtworks Mingle с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Thoughtworks Mingle соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Thoughtworks Mingle.
+
+Чтобы установить эту связь, назначьте **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Thoughtworks Mingle.
+
+Чтобы настроить и проверить единый вход Azure AD в Thoughtworks Mingle, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа Azure AD](#configure-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#create-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Thoughtworks Mingle](#create-a-thoughtworks-mingle-test-user)** требуется для того, чтобы в Thoughtworks Mingle существовал пользователь Britta Simon, связанный с одноименным пользователем в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assign-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#test-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Настройка единого входа Azure AD
+
+В этом разделе мы включим на портале Azure единый вход Azure AD и настроим его в приложении Thoughtworks Mingle.
+
+**Чтобы настроить единый вход Azure AD в Thoughtworks Mingle, выполните следующие действия.**
+
+1. На портале Azure на странице интеграции с приложением **Thoughtworks Mingle** щелкните **Единый вход**.
+
+    ![Настройка единого входа][4]
+
+2. В диалоговом окне **Единый вход** в разделе **Режим** выберите **Вход на основе SAML**, чтобы включить функцию единого входа.
+ 
+    ![Диалоговое окно "Единый вход"](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_samlbase.png)
+
+3. В разделе **Домены и URL-адреса приложения Thoughtworks Mingle** выполните следующие действия.
+
+    ![Сведения о домене и URL-адресах единого входа для приложения Thoughtworks Mingle](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_url.png)
+
+    В текстовом поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<companyname>.mingle.thoughtworks.com`
+
+    > [!NOTE] 
+    > Это значение приведено для примера. Вместо него необходимо указать фактический URL-адрес входа. Чтобы получить это значение, обратитесь в [службу поддержки клиентов Thoughtworks Mingle](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support). 
+ 
+4. В разделе **Сертификат подписи SAML** щелкните **Metadata XML** (Метаданные XML) и сохраните файл метаданных на компьютере.
+
+    ![Ссылка для скачивания сертификата](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_certificate.png) 
+
+5. Нажмите кнопку **Сохранить** .
+
+    ![Кнопка "Сохранить" в окне настройки единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_400.png)
+
+6. Войдите на корпоративный веб-сайт **Thoughtworks Mingle** в качестве администратора.
+
+7. Откройте вкладку **Admin** (Администратор), а затем щелкните **SSO Config** (Конфигурация единого входа).
    
-    ![Active Directory](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC700993.png "Active Directory")
+    ![Вкладка Admin](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785157.png "Настройка единого входа")
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+8. В разделе **Конфигурация единого входа** выполните следующие действия.
    
-    ![Приложения](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC700994.png "Приложения")
+    ![Настройка единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785158.png "Настройка единого входа")
+    
+    а. Чтобы отправить файл метаданных, нажмите кнопку **Выбрать файл**. 
 
-4. В нижней части страницы нажмите кнопку **Добавить** .
-   
-    ![Добавление приложения](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC749321.png "Добавление приложения")
+    b. Нажмите кнопку **Сохранить изменения**.
 
-5. В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
-   
-    ![Добавление приложения из коллекции](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC749322.png "Добавление приложения из коллекции")
+> [!TIP]
+> Краткую версию этих инструкций теперь можно также прочитать на [портале Azure](https://portal.azure.com) во время настройки приложения.  После добавления этого приложения из раздела **Active Directory > Корпоративные приложения** просто выберите вкладку **Единый вход** и откройте встроенную документацию через раздел **Настройка** в нижней части страницы. Дополнительные сведения о встроенной документации см. в разделе [Встроенная документация Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> 
 
-6. В **поле поиска** введите **thoughtworks mingle**.
-   
-    ![Коллекция приложений](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785151.png "Коллекция приложений")
+### <a name="create-an-azure-ad-test-user"></a>Создание тестового пользователя Azure AD
+Цель этого раздела — создать на портале Azure тестового пользователя с именем Britta Simon.
 
-7. В области результатов выберите **Thoughtworks Mingle** и щелкните **Завершить**, чтобы добавить приложение.
-   
-    ![ThoughtWorks Mingle](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785152.png "Thoughtworks Mingle")
+![Создание тестового пользователя Azure AD][100]
 
-## <a name="configure-single-sign-on"></a>Настройка единого входа
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Thoughtworks Mingle с помощью своей учетной записи Azure AD, используя федерацию на основе протокола SAML.  
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-В рамках этой процедуры потребуется отправить сертификат в Thoughtworks Mingle.
+1. На **портале Azure** в области навигации слева щелкните значок **Azure Active Directory**.
 
-**Чтобы настроить единый вход, выполните следующие действия:**
+    ![Кнопка "Azure Active Directory"](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_01.png) 
 
-1. На странице интеграции с приложением **Thoughtworks Mingle** на классическом портале Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Настройка единого входа")
+2. Чтобы отобразить список пользователей, перейдите в раздел **Пользователи и группы** и щелкните **Все пользователи**.
+    
+    ![Ссылки "Пользователи и группы" и "Все пользователи"](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_02.png) 
 
-2. На странице **Как пользователи будут входить в Thoughtworks Mingle** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Настройка единого входа")
+3. Чтобы открыть диалоговое окно **Пользователь**, в верхней части диалогового окна щелкните **Добавить**.
+ 
+    ![Кнопка "Добавить"](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_03.png) 
 
-3. На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес клиента Thoughtworks Mingle** введите свой URL-адрес в формате *http://company.mingle.thoughtworks.com*, а затем нажмите кнопку **Далее**.
-   
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785155.png "Настройка URL-адреса приложения")
+4. На странице диалогового окна **Пользователь** выполните следующие действия.
+ 
+    ![Диалоговое окно "Пользователь"](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_04.png) 
 
-4. На странице **Настройка единого входа в Thoughtworks Mingle** нажмите кнопку "Загрузить метаданные", а затем сохраните эти данные локально на компьютере.
-   
-    ![Настройка единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785156.png "Настройка единого входа")
+    а. В текстовом поле **Имя** введите **BrittaSimon**.
 
-5. Войдите на корпоративный веб-сайт **Thoughtworks Mingle** в качестве администратора.
+    b. В текстовом поле **Имя пользователя** введите **адрес электронной почты** учетной записи BrittaSimon.
 
-6. Откройте вкладку **Admin** (Администратор), а затем щелкните **SSO Config** (Конфигурация единого входа).
-   
-    ![Настройка единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785157.png "Настройка единого входа")
+    c. Выберите **Показать пароль** и запишите значение поля **Пароль**.
 
-7. В разделе **Конфигурация единого входа** выполните следующие действия.
-   
-    ![Настройка единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785158.png "Настройка единого входа")   
- 1. Чтобы отправить файл метаданных, нажмите кнопку **Выбрать файл**. 
- 2. Нажмите кнопку **Сохранить изменения**.
+    d. Щелкните **Создать**.
+ 
+### <a name="create-a-thoughtworks-mingle-test-user"></a>Создание тестового пользователя Thoughtworks Mingle
 
-8. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
-   
-    ![Настройка единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785159.png "Настройка единого входа")
-
-## <a name="configure-user-provisioning"></a>Настроить подготовку учетных записей пользователей
-Чтобы пользователи AAD могли войти систему, они должны быть подготовлены для приложения Thoughtworks Mingle с использованием их имен пользователей Azure Active Directory.  
-
-* В случае с Thoughtworks Mingle подготовка выполняется вручную.
+Чтобы пользователи AAD могли войти систему, их необходимо подготовить для приложения Thoughtworks Mingle, используя их имена пользователей Azure Active Directory. В случае с Thoughtworks Mingle подготовка выполняется вручную.
 
 **Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.**
 
@@ -118,42 +180,85 @@ ms.lasthandoff: 03/28/2017
 
 2. Щелкните **Профиль**.
    
-    ![Ваш первый проект](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785160.png "Ваш первый проект")
+    ![Ваш первый проект](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785160.png "Ваш первый проект")
 
 3. Откройте вкладку **Admin** (Администратор), а затем щелкните **Users** (Пользователи).
    
-    ![Пользователи](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785161.png "Пользователи")
+    ![Пользователи](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785161.png "Пользователи")
 
 4. Щелкните **Новый пользователь**.
    
-    ![Новый пользователь](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785162.png "Новый пользователь")
+    ![Новый пользователь](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785162.png "Новый пользователь")
 
 5. На странице диалогового окна **Новый пользователь** выполните следующие действия.
    
-    ![Новый пользователь](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785163.png "Новый пользователь")   
-  1. Введите в текстовые поля **Sign-in name** (Учетное имя), **Display name** (Отображаемое имя), **Choose password** (Выберите пароль) и **Confirm password** (Подтвердите пароль) соответствующие данные действующей учетной записи AAD, которую вы хотите подготовить. 
-  2. В поле **User type** (Тип пользователя) выберите значение **Full user** (С полным доступом).
-  3. Щелкните **Создать этот профиль**.
+    ![Диалоговое окно нового пользователя](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785163.png "Новый пользователь")  
+ 
+    а. Введите в текстовые поля **Sign-in name** (Учетное имя), **Display name** (Отображаемое имя), **Choose password** (Выберите пароль) и **Confirm password** (Подтвердите пароль) соответствующие данные действующей учетной записи Azure AD, которую вы хотите подготовить. 
+
+    b. В поле **User type** (Тип пользователя) выберите значение **Full user** (С полным доступом).
+
+    c. Щелкните **Создать этот профиль**.
 
 >[!NOTE]
 >Вы можете использовать любые другие инструменты создания учетных записей пользователя Thoughtworks Mingle или API-интерфейсы, предоставляемые Thoughtworks Mingle для подготовки учетных записей пользователей AAD.
->  
+> 
 
-## <a name="assign-users"></a>Назначить пользователей
-Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
+### <a name="assign-the-azure-ad-test-user"></a>Назначение тестового пользователя Azure AD
 
-**Чтобы назначить пользователей Thoughtworks Mingle, выполните следующее.**
+В этом разделе описано, как предоставить пользователю Britta Simon доступ к Thoughtworks Mingle, чтобы он мог использовать единый вход Azure.
 
-1. На классическом портале Azure создайте тестовую учетную запись.
+![Назначение роли пользователя][200] 
 
-2. На странице интеграции с приложением **Thoughtworks Mingle** нажмите кнопку **Назначить пользователей**.
-   
-    ![Назначение пользователей](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785164.png "Назначение пользователей")
+**Чтобы назначить пользователя Britta Simon в Thoughtworks Mingle, выполните указанные ниже действия.**
 
-3. Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
-   
-    ![Да](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC767830.png "Да")
+1. На портале Azure откройте представление приложений, перейдите к представлению каталога, а затем выберите **Корпоративные приложения** и щелкните **Все приложения**.
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+    ![Назначение пользователя][201] 
+
+2. В списке приложений выберите **Thoughtworks Mingle**.
+
+    ![Ссылка на Thoughtworks Mingle в списке "Приложения"](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_app.png) 
+
+3. В меню слева выберите **Пользователи и группы**.
+
+    ![Ссылка "Пользователи и группы"][202] 
+
+4. Нажмите кнопку **Добавить**. Затем в диалоговом окне **Добавление назначения** выберите **Пользователи и группы**.
+
+    ![Область "Добавление назначения"][203]
+
+5. В диалоговом окне **Пользователи и группы** в списке пользователей выберите **Britta Simon**.
+
+6. В диалоговом окне **Пользователи и группы** нажмите кнопку **Выбрать**.
+
+7. В диалоговом окне **Добавление назначения** нажмите кнопку **Назначить**.
+    
+### <a name="test-single-sign-on"></a>Проверка единого входа
+
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув элемент Thoughtworks Mingle на панели доступа, вы автоматически войдете в приложение Thoughtworks Mingle.
+
+## <a name="additional-resources"></a>Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_203.png
 
 

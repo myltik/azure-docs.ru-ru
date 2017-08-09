@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c31abf49a05f7911d4ec82db59efa2724ab7b49b
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 43733e452126c85ab9e19b6036aea96f56fc4d12
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Настройка Application Insights: отслеживание зависимостей
@@ -134,7 +133,7 @@ ms.lasthandoff: 05/10/2017
 ![Щелкните тип запроса, а затем его экземпляр, чтобы открыть этот же экземпляр в другом представлении. Щелкните его еще раз, чтобы просмотреть подробную информацию об исключении.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Аналитика
-Вы можете отслеживать зависимости, используя [язык запросов аналитики](app-insights-analytics.md). Ниже приведены некоторые примеры.
+Вы можете отслеживать зависимости, используя [язык запросов Log Analytics](https://docs.loganalytics.io/). Ниже приведены некоторые примеры.
 
 * Поиск неудачно завершенных вызовов зависимостей:
 

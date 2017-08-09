@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: ad18896548449d85e2af8a91ddd90c8192db1ab2
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 
@@ -106,7 +106,7 @@ Visual Studio добавляет в файл ресурсов ресурс `Micr
 
 ### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Добавление ссылок на зависимые ресурсы в шаблоны развертывания Visual Studio
 
-Если вам нужно, чтобы приложение логики ссылалось на зависимые ресурсы, вы можете использовать [функции шаблонов Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) в качестве параметров в шаблоне развертывания приложения логики. Например, приложение логики может ссылаться на определенную функцию Azure или учетную запись интеграции, которая должна автоматически развертываться вместе с приложением логики. Здесь приводятся рекомендации по использованию параметров в шаблоне развертывания, которые позволят конструктору Logic App правильно их отображать. 
+Если нужно, чтобы приложение логики ссылалось на зависимые ресурсы, вы можете использовать [функции шаблонов Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) в шаблоне развертывания приложения логики. Например, приложение логики может ссылаться на определенную функцию Azure или учетную запись интеграции, которая должна автоматически развертываться вместе с приложением логики. Здесь приводятся рекомендации по использованию параметров в шаблоне развертывания, которые позволят конструктору Logic App правильно их отображать. 
 
 Параметры приложений логики можно использовать в следующих типах триггеров и действий.
 
@@ -114,15 +114,16 @@ Visual Studio добавляет в файл ресурсов ресурс `Micr
 *   Приложение-функция
 *   Вызов APIM
 *   URL-адрес API среды выполнения
+*   Путь для подключения к API.
 
-Вы можете использовать функции шаблонов: list below, includes parameters, variables, resourceId, concat и т. п. Например, этот пример кода может заменить идентификатор ресурса функции Azure:
+Вы также можете использовать функции шаблонов: parameters, variables, resourceId, concat и т. п. Например, этот пример кода может заменить идентификатор ресурса функции Azure:
 
 ```
 "parameters":{
     "functionName": {
-    "type":"string",
-    "minLength":1,
-    "defaultValue":"<FunctionName>"
+        "type":"string",
+        "minLength":1,
+        "defaultValue":"<FunctionName>"
     }
 },
 ```
@@ -131,16 +132,43 @@ Visual Studio добавляет в файл ресурсов ресурс `Micr
 
 ```
 "MyFunction": {
-        "type": "Function",
-        "inputs": {
+    "type": "Function",
+    "inputs": {
         "body":{},
         "function":{
-        "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
         }
     },
     "runAfter":{}
 }
 ```
+В качестве другого примера можно параметризовать операцию отправки сообщений в служебной шине:
+
+```
+"Send_message": {
+    "type": "ApiConnection",
+        "inputs": {
+            "host": {
+                "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                }
+            },
+            "method": "post",
+            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+            "body": {
+                "ContentData": "@{base64(triggerBody())}"
+            },
+            "queries": {
+                "systemProperties": "None"
+            }
+        },
+        "runAfter": {}
+    }
+```
+> [!NOTE] 
+> Параметр host.runtimeUrl является необязательным, его можно удалить из шаблона.
+> 
+
 
 > [!NOTE] 
 > Чтобы конструктор Logic App мог работать с этими параметрами, ему нужно предоставить значения по умолчанию, например так:

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 89cd987cee841ea24dce85c0249e0eb3489c8d90
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 3fea93f558d5a4ef62550fd1f6486903cb812930
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -36,9 +36,7 @@ ms.lasthandoff: 05/03/2017
 
 - Скачайте последнюю версию клиентской библиотеки SAP и установите ее на компьютере, на котором установлен шлюз данных. Можно использовать любую из следующих версий SAP: 
     - SAP Server
-        - SAP ECC 6.0 Unicode
-        - SAP ECC 6.0 Unicode c установленным EHP 4.0
-        - SAP ECC 6.0 c установленным EHP 7.0 или EHP любых предыдущих версий
+        - Любой сервер SAP, поддерживающий соединитель .NET (NCo) 3.0
  
     - SAP Client
         - Соединитель SAP .NET (NCo) 3.0

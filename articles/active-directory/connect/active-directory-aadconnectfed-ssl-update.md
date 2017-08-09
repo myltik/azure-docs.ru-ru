@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/02/2017
 ms.author: anandy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9bb29624324305f5295e0a50ef79d8f4c6d063c0
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---    
 
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Обновление SSL-сертификата для фермы служб федерации Active Directory (AD FS)
 
 ## <a name="overview"></a>Обзор
-В этой статье описывается обновление SSL-сертификата для фермы служб федерации Active Directory (AD FS) с помощью Azure AD Connect. Если в качестве метода входа в Azure AD Connect задано использование служб AD FS, с помощью инструмента Azure AD Connect можно легко обновить SSL-сертификат для фермы AD FS на всех серверах федерации и WAP-серверах, выполнив три простых шага.
+В этой статье описывается обновление SSL-сертификата для фермы служб федерации Active Directory (AD FS) с помощью Azure AD Connect. С помощью инструмента Azure AD Connect можно легко обновить SSL-сертификат для фермы AD FS, даже если заданный метод входа пользователей отличается от AD FS.
+
+Операцию обновления SSL-сертификата для фермы AD FS во всей федерации и на серверах прокси-службы веб-приложения (WAP) можно полностью выполнить за три простых шага.
 
 ![Три шага](./media/active-directory-aadconnectfed-ssl-update/threesteps.png)
 

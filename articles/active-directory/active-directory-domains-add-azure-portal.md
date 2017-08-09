@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8f61e947d9667f5047729ac19dc2bf1e03a48c6b
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: ad72f768add7edc1d34a85c27dc2aa1b4e4b3a50
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="add-a-custom-domain-name-to-azure-active-directory"></a>Добавление имени личного домена в Azure Active Directory
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/08/2017
 > * [классическом портале Azure](active-directory-add-domain.md)
 > 
 
-В вашей организации для работы используется одно или несколько доменных имен, при этом пользователи выполняют вход в корпоративную сеть, используя имя корпоративного домена. Используя Azure Active Directory (Azure AD), вы можете также добавить в эту службу корпоративное доменное имя организации. После этого вы сможете назначать в каталоге привычные имена пользователей, например alice@contoso.com. Процесс прост:
+Используя Azure Active Directory (Azure AD), вы можете также добавить в эту службу корпоративное доменное имя организации. Возможно, у вас есть доменные имена, которые использует ваша организации для бизнеса, и пользователи, выполняющие вход с помощью корпоративного доменного имени. Добавив доменное имя в Azure AD, вы сможете назначать в каталоге привычные имена пользователей, например alice@contoso.com. Процесс прост:
 
 1. Добавьте имя личного домена в каталог.
 2. Добавьте DNS-запись доменного имени в регистратор доменных имен.

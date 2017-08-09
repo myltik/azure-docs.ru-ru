@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 72b5217bd8de29fdad753d89f34934f64c551ff2
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: c4cd80c50dca5b97c36f1c9785d8ea347b35285c
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -35,14 +35,14 @@ ms.lasthandoff: 06/16/2017
 >[!NOTE]
 >Эта функция _не_ применима к службам федерации Active Directory (AD FS), в которых она уже реализована.
 
-## <a name="key-benefits-of-using-azure-ad-seamless-sso"></a>Основные преимущества использования простого единого входа Azure AD
+## <a name="key-benefits"></a>Основные преимущества
 
 - *Удобство работы для пользователей*
   - Пользователи автоматически входят как в локальные, так и в облачные приложения.
   - Пользователям не нужно вводить пароль несколько раз.
 - *Простота развертывания и администрирования*
   - Дополнительные локальные компоненты не требуются.
-  - Эта функция работает с любым методом управляемой проверки подлинности: [синхронизацией хэша паролей](active-directory-aadconnectsync-implement-password-synchronization.md) и [сквозной проверкой подлинности](active-directory-aadconnect-pass-through-authentication.md).
+  - Эта функция работает с любым методом аутентификации в облаке: [синхронизацией хэша паролей](active-directory-aadconnectsync-implement-password-synchronization.md) и [сквозной аутентификацией](active-directory-aadconnect-pass-through-authentication.md).
   - Ее можно развернуть для всех пользователей или их части с помощью групповой политики.
   - Регистрация устройств с ОС, отличной от Windows 10, в Azure AD. Для этого требуется версия 2.1 или более поздняя версия [клиента подключения к рабочему месту](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -57,11 +57,11 @@ ms.lasthandoff: 06/16/2017
 
 | Операционная система и браузер |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Да|Не поддерживается|Да|Да\*|Недоступно
-|Windows 8.1|Да|Не поддерживается|Да|Да\*|Недоступно
-|Windows 8|Да|Не поддерживается|Да|Да\*|Недоступно
-|Windows 7|Да|Не поддерживается|Да|Да\*|Недоступно
-|Mac OS X|Недоступно|Недоступно|Да\*|Да\*|Не поддерживается
+|Windows 10|Да|Да|Да|Да\*|Недоступно
+|Windows 8.1|Да|Недоступно|Да|Да\*|Недоступно
+|Windows 8|Да|Недоступно|Да|Да\*|Недоступно
+|Windows 7|Да|Недоступно|Да|Да\*|Недоступно
+|Mac OS X|Недоступно|Недоступно|Да\*|Да\*|Да\*
 
 \*Требуется [дополнительная настройка](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 255cc9f08862ff7babf8d8847c88a72a4c88582c
-ms.lasthandoff: 01/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 9a22608f63d749c9e28640485698d77a17fcb1b7
+ms.contentlocale: ru-ru
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="configuring-asset-delivery-policies"></a>Настройка политик доставки ресурсов-контейнеров
@@ -67,12 +67,12 @@ MPEG DASH
 > 
 > При доступе к сущностям в службах мультимедиа необходимо задать определенные поля и значения заголовков в HTTP-запросах. Дополнительную информацию см. в статье [Обзор интерфейса REST API служб мультимедиа](media-services-rest-how-to-use.md).
 > 
-> После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Последующие вызовы необходимо осуществлять к новому универсальному коду ресурса (URI), как описано в статье [Подключение к службам мультимедиа с помощью REST API](media-services-rest-connect-programmatically.md).
+> После успешного подключения к https://media.windows.net вы получите ошибку 301 (перенаправление), в которой будет указан другой URI служб мультимедиа. Используйте для последующих вызовов новый URI. См. дополнительные сведения о [получении доступа к API служб мультимедиа Azure с помощью аутентификации Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 > 
 
 ## <a name="clear-asset-delivery-policy"></a>Политики доставки незашифрованных ресурсов
-### <a name="a-idcreateassetdeliverypolicyacreate-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>Создание политики доставки активов
+### <a id="create_asset_delivery_policy"></a>Создание политики доставки активов
 Следующий HTTP-запрос создает политику доставки ресурсов-контейнеров, указывающую, что не следует применять динамическое шифрование, а доставку следует осуществлять с использованием потоковой передачи по одному из следующих протоколов: MPEG DASH, HLS или Smooth Streaming. 
 
 Сведения о том, какие значения можно задать при создании политики доставки ресурсов-контейнеров, см. в разделе [Типы, используемые при определении AssetDeliveryPolicy](#types).   
@@ -121,7 +121,7 @@ MPEG DASH
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a name="a-idlinkassetwithassetdeliverypolicyalink-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>Привязка ресурса к политике доставки ресурсов
+### <a id="link_asset_with_asset_delivery_policy"></a>Привязка ресурса к политике доставки ресурсов
 Следующий запрос HTTP связывает указанный ресурс с политикой доставки ресурсов.
 
 Запрос:
@@ -148,7 +148,7 @@ MPEG DASH
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Создание ключа содержимого типа EnvelopeEncryption и связывание его с ресурсом
 При определении политики доставки DynamicEnvelopeEncryption необходимо обязательно связать ресурс с ключом содержимого типа EnvelopeEncryption. Дополнительные сведения см. в статье, посвященной [созданию ключей содержимого](media-services-rest-create-contentkey.md).
 
-### <a name="a-idgetdeliveryurlaget-delivery-url"></a><a id="get_delivery_url"></a>Получение URL-адреса доставки
+### <a id="get_delivery_url"></a>Получение URL-адреса доставки
 Получите URL-адрес доставки для указанного метода доставки ключа содержимого, созданного на предыдущем шаге. Клиент использует возвращенный URL-адрес для запроса ключа AES или лицензии PlayReady, чтобы воспроизвести защищенное содержимое.
 
 Укажите тип URL-адреса, который необходимо получить в тексте HTTP-запроса. Если необходимо обеспечить защиту содержимого с помощью PlayReady, запросите URL-адрес для получения лицензии PlayReady служб мультимедиа, используя для параметра keyDeliveryType значение 1: {"keyDeliveryType":1}. Если необходимо обеспечить защиту содержимого с помощью конвертного шифрования, запросите URL-адрес для получения ключа, указав для параметра keyDeliveryType значение 2: {"keyDeliveryType":2}.
@@ -273,11 +273,12 @@ MPEG DASH
 ### <a name="link-asset-with-asset-delivery-policy"></a>Привязка ресурса к политике доставки ресурсов
 См. раздел [Привязка ресурса к политике доставки ресурсов](#link_asset_with_asset_delivery_policy).
 
-## <a name="a-idtypesatypes-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>Типы, используемые при определении AssetDeliveryPolicy
+## <a id="types"></a>Типы, используемые при определении AssetDeliveryPolicy
+
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
-    /// <summary>
-    /// Delivery protocol for an asset delivery policy.
-    /// </summary>
+
+Следующее перечисление описывает значения, которые можно указать для протокола доставки ресурсов.
+
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -301,6 +302,8 @@ MPEG DASH
         /// </summary>
         HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+ 
         /// <summary>
         /// Include all protocols.
         /// </summary>
@@ -308,9 +311,9 @@ MPEG DASH
     }
 
 ### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
-    /// <summary>
-    /// Policy type for dynamic encryption of assets.
-    /// </summary>
+
+Следующее перечисление описывает значения, которые можно указать для типа политики доставки ресурсов.  
+
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -341,10 +344,9 @@ MPEG DASH
         }
 
 ### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
-    /// <summary>
-    /// Delivery method of the content key to the client.
-    ///
-    </summary>
+
+Следующее перечисление описывает значения, с помощью которых можно настроить способ доставки ключей содержимого на клиент.
+    
     public enum ContentKeyDeliveryType
     {
         /// <summary>
@@ -375,9 +377,8 @@ MPEG DASH
 
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
-    /// <summary>
-    /// Keys used to get specific configuration for an asset delivery policy.
-    /// </summary>
+
+Следующее перечисление описывает значения, с помощью которых можно настроить ключи, используемые для получения конкретной конфигурации для политики доставки ресурсов.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -421,7 +422,6 @@ MPEG DASH
         /// </summary>
         WidevineLicenseAcquisitionUrl
     }
-
 
 ## <a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

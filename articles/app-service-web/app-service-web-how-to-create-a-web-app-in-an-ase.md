@@ -1,6 +1,6 @@
 ---
-title: "Создание веб-приложения в среде служб приложений"
-description: "Создание веб-приложений и планов службы приложений в среде службы приложений"
+title: "Создание веб-приложения в среде служб приложений версии 1"
+description: "Узнайте, как создавать веб-приложения и планы службы приложений в среде службы приложений версии 1."
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -12,18 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 7/11/2017
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: a78d37ee59663896acc3192f8ae03575270101a8
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 0779486b040b8dc51cdd42521ba965e58388425a
+ms.contentlocale: ru-ru
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="create-a-web-app-in-an-app-service-environment"></a>Создание веб-приложения в среде служб приложений
+# <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Создание веб-приложения в среде служб приложений версии 1
+
+> [!NOTE]
+> Эта статья посвящена среде службы приложений версии 1.  Имеется более новая версия среды службы приложений, которая проще в использовании и которая работает на более мощной инфраструктуре. Чтобы узнать больше о новой версии, начните с изучения статьи [Введение в среду службы приложения](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Обзор
-В этом учебнике показано, как создавать веб-приложения и планы обслуживания службы приложений в [среде службы приложений](app-service-app-service-environment-intro.md) (ASE). 
+В этом руководстве показано, как создавать веб-приложения и планы обслуживания службы приложений в [среде службы приложений версии 1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
 > Если вы хотите научиться создавать веб-приложения, но не хотите делать это в среде службы приложений, ознакомьтесь со статьей [Создание веб-приложения .NET](app-service-web-get-started-dotnet.md) или одним из связанных учебников, описывающих другие языки и платформы.

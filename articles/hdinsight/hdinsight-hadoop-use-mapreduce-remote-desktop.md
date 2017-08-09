@@ -16,12 +16,11 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: edb7e6153060bf4b5471bf6c360b16672d5f759d
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b56674857b013f9bb3d4dd4b6e97b34e0a97b1b2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Использование MapReduce в Hadoop в HDInsight с помощью удаленного рабочего стола
@@ -54,7 +53,7 @@ ms.lasthandoff: 07/08/2017
    >
 2. Чтобы выполнить пример задания MapReduce с помощью команды **Hadoop** , используйте следующую команду:
 
-        hadoop jar hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
+        hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
     При этом запустится класс **wordcount**, содержащийся в текущем каталоге в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **wasb://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются в **wasb:///example/data/WordCountOutput**.
 
@@ -70,7 +69,7 @@ ms.lasthandoff: 07/08/2017
         Bytes Written=337623
 4. После завершения используйте следующую команду, чтобы вывести список выходных файлов, сохраненных в **wasb://example/data/WordCountOutput**.
 
-        hadoop fs -ls wasbs:///example/data/WordCountOutput
+        hadoop fs -ls wasb:///example/data/WordCountOutput
 
     Должно отобразиться два файла: **_SUCCESS** и **part-r-00000**. Файл **part-r-00000** содержит выходные данные этого задания.
 
@@ -80,9 +79,9 @@ ms.lasthandoff: 07/08/2017
    >
 5. Чтобы просмотреть выходные данные, используйте следующую команду:
 
-        hadoop fs -cat wasbs:///example/data/WordCountOutput/part-r-00000
+        hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-    Она отобразит список слов, содержащихся в файле **wasb://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого из них. Ниже приведен пример данных, которые будут содержаться в файле.
+    При этом отобразится список слов, содержащихся в файле **wasb://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого из них. Ниже приведен пример данных, которые будут содержаться в файле.
 
         wreathed        3
         wreathing       1

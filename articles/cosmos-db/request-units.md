@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 95adddc01ee2814515c20f36e8503de30454a8f4
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 88edb489d967a5bc5cc1c4aa1aeb5abcd6539d12
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Единицы запросов в базе данных Azure Cosmos DB
@@ -191,7 +191,7 @@ await client.ReplaceOfferAsync(offer);
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Использование заголовка ответа на запрос Azure Cosmos DB о затратах
-Каждый ответ от службы Azure Cosmos DB включает пользовательский заголовок (`x-ms-request-charge`), который содержит количество используемых на данный запрос единиц запросов. Этот заголовок также доступен и в пакетах SDK для DocumentDB. В пакете .NET SDK RequestCharge является свойством объекта ResourceResponse.  В обозревателе запросов Azure Cosmos DB на портале Azure содержится информация о затратах на выполненные запросы.
+Каждый ответ от службы Azure Cosmos DB включает пользовательский заголовок (`x-ms-request-charge`), который содержит количество используемых на данный запрос единиц запросов. Этот заголовок также доступен в пакетах SDK для Azure Cosmos DB. В пакете .NET SDK RequestCharge является свойством объекта ResourceResponse.  В обозревателе запросов Azure Cosmos DB на портале Azure содержится информация о затратах на выполненные запросы.
 
 ![Анализ затрат единиц расходов в обозревателе запросов][1]
 

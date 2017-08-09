@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/01/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 936064959ac9dd6422619076fabbbba887d17bb6
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 524c63d358ce22c10b7a23e5bcf0b33e9f2e5f26
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="containers-preview-solution-in-log-analytics"></a>Решение "Контейнеры" (предварительная версия) в Log Analytics
@@ -33,6 +32,49 @@ ms.lasthandoff: 06/30/2017
 На схеме ниже показаны связи между разными узлами контейнера и агентами с OMS.
 
 ![Схема контейнеров](./media/log-analytics-containers/containers-diagram.png)
+
+## <a name="system-requirements"></a>Требования к системе
+Сначала необходимо выполнить следующие требования.
+
+### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Поддержка решений для мониторинга контейнеров: оркестратор Docker и платформа ОС 
+Ниже представлена таблица поддержки мониторинга операционных систем и оркестрации Docker с помощью Log Analytics. В частности, в таблице описана поддержка мониторинга списка контейнеров, производительности и журналов.   
+
+| | ACS | Linux | Windows | Контейнер<br>Список | Образ —<br>Список | Узел<br>Список | Контейнер<br>Производительность | Контейнер<br>Событие | Событие<br>Журнал | Контейнер<br>Журнал | 
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| kubernetes | Да | Да | | Да | Да | Да | Да | Да | Да | Да | 
+| Mesosphere<br>DC/OS | Да | Да | | Да | Да | Да | Да| Да | Да | Да | 
+| Docker<br>Swarm | Да | Да | Да | Да | Да | Да | Да | Да | | Да |
+| Service<br>Fabric | | | Да | Да | Да | Да | Да | Да | Да | Да | 
+| Red Hat Open<br>Shift | | Да | | Да | Да| Да | Да | Да | | Да | 
+| Windows Server<br>(изолированный) | | | Да | Да | Да | Да | Да | Да | | Да |
+| Linux Server<br>(изолированный) | | Да | | Да | Да | Да | Да | Да | | Да |
+
+
+### <a name="supported-linux-operating-system"></a>Поддерживаемая операционная система Linux
+
+- Docker 1.11–1.13
+- Docker CE и EE v17.03
+
+В качестве узлов контейнера поддерживаются следующие дистрибутивы Linux (x64):
+
+- Ubuntu 14.04 LTS, 16.04 LTS;
+- CoreOS (стабильный выпуск);
+- Amazon Linux 2016.09.0;
+- openSUSE 13.2
+- openSUSE LEAP 42.2
+- CentOS 7.2, 7.3
+- SLES 12
+- RHEL 7.2, 7.3
+
+### <a name="supported-windows-operating-system"></a>Поддерживаемая операционная система Windows
+
+- Windows Server 2016
+- Юбилейный выпуск Windows 10 (профессиональный или корпоративный)
+
+### <a name="docker-versions-supported-on-windows"></a>Версии Docker, поддерживаемые в Windows
+
+- Docker 1.12–1.13
+- Docker 17.03.0 
 
 ## <a name="installing-and-configuring-the-solution"></a>Установка и настройка решения
 Для установки и настройки решений используйте указанные ниже данные.
@@ -50,14 +92,14 @@ Docker с OMS можно установить и использовать нес
 
 ### <a name="container-services"></a>Служба контейнеров
 
-- При наличии кластера Kubernetes, использующего службу контейнеров Azure, дополнительные сведения см. в статье [Мониторинг кластера службы контейнеров Azure с помощью Microsoft Operations Management Suite (OMS)](../container-service/container-service-kubernetes-oms.md).
-- При наличии кластера DC/OS в службе контейнеров Azure дополнительные сведения см. в статье [Мониторинг кластера DC/OS в службе контейнеров Azure с помощью Operations Management Suite](../container-service/container-service-monitoring-oms.md).
+- При наличии кластера Kubernetes, использующего службу контейнеров Azure, дополнительные сведения см. в статье [Мониторинг кластера службы контейнеров Azure с помощью Microsoft Operations Management Suite (OMS)](../container-service/kubernetes/container-service-kubernetes-oms.md).
+- При наличии кластера DC/OS в службе контейнеров Azure дополнительные сведения см. в статье [Мониторинг кластера DC/OS в службе контейнеров Azure с помощью Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
 - При наличии среды режима Docker Swarm ознакомьтесь с разделом [Настройка агента OMS для Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
 - При использовании контейнеров в Service Fabric см. дополнительные сведения в разделе [Общие сведения о Service Fabric](../service-fabric/service-fabric-overview.md).
 - Дополнительные сведения о том, как установить и настроить модули Docker на компьютерах под управлением Windows, см. в [этой статье](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
 > [!IMPORTANT]
-> Docker необходимо запустить **перед** установкой [агента OMS для Linux](log-analytics-linux-agents.md) на узлах контейнера. Если вы уже установили агент перед установкой Docker, необходимо переустановить агент OMS для Linux. Дополнительные сведения о Docker см. на [веб-сайте Docker](https://www.docker.com).
+> Docker необходимо запустить **перед** установкой [агента OMS для Linux](log-analytics-agent-linux.md) на узлах контейнера. Если вы уже установили агент перед установкой Docker, необходимо переустановить агент OMS для Linux. Дополнительные сведения о Docker см. на [веб-сайте Docker](https://www.docker.com).
 >
 >
 
@@ -65,30 +107,12 @@ Docker с OMS можно установить и использовать нес
 
 ## <a name="linux-container-hosts"></a>Узлы контейнера Linux
 
-Поддерживаемые версии Linux:
-
-- Docker 1.11–1.13
-- Docker CE и EE v17.03
-
-
-В качестве узлов контейнера поддерживаются следующие дистрибутивы Linux (x64):
-
-- Ubuntu 14.04 LTS, 16.04 LTS;
-- CoreOS (стабильный выпуск);
-- Amazon Linux 2016.09.0;
-- openSUSE 13.2
-- openSUSE LEAP 42.2
-- CentOS 7.2, 7.3
-- SLES 12
-- RHEL 7.2, 7.3
-
-
-После установки Docker используйте приведенные ниже параметры узла контейнера, чтобы настроить агент для использования с Docker. Вам потребуется [идентификатор и ключ рабочей области OMS](log-analytics-linux-agents.md).
+После установки Docker используйте приведенные ниже параметры узла контейнера, чтобы настроить агент для использования с Docker. Вам потребуется [идентификатор и ключ рабочей области OMS](log-analytics-agent-linux.md).
 
 
 ### <a name="for-all-linux-container-hosts-except-coreos"></a>Для всех узлов контейнера Linux, за исключением CoreOS
 
-- Дополнительные указания см. в разделе [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) (Инструкции по установке агента OMS для Linux).
+- Дополнительные сведения и инструкции по установке агента OMS для Linux см. в статье [Подключение компьютеров Linux к Operations Management Suite (OMS)](log-analytics-agent-linux.md).
 
 ### <a name="for-all-linux-container-hosts-including-coreos"></a>Для всех узлов контейнера Linux, включая CoreOS
 
@@ -108,7 +132,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 
 ### <a name="switching-from-using-an-installed-linux-agent-to-one-in-a-container"></a>Переход от использования установленного агента Linux к использованию агента в контейнере
-Если ранее вы использовали установленный напрямую агент и теперь вместо него хотите использовать агент, работающий в контейнере, необходимо сначала удалить агент OMS. См. раздел [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md) (Шаги по установке агента OMS для Linux).
+Если ранее вы использовали установленный напрямую агент и теперь вместо него хотите использовать агент, работающий в контейнере, сначала необходимо удалить агент OMS для Linux. См. раздел [Удаление агента OMS для Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux).
 
 ### <a name="configure-an-oms-agent-for-docker-swarm"></a>Настройка агента OMS для Docker Swarm
 
@@ -254,16 +278,6 @@ KEY:    88 bytes
 
 
 ## <a name="windows-container-hosts"></a>Узлы контейнеров Windows
-
-Поддерживаемые версии Windows:
-
-- Windows Server 2016
-- Юбилейный выпуск Windows 10 (профессиональный или корпоративный)
-
-### <a name="docker-versions-supported-on-windows"></a>Версии Docker, поддерживаемые в Windows
-
-- Docker 1.12–1.13
-- Docker 17.03.0 [стабильная]
 
 ### <a name="preparation-before-installing-windows-agents"></a>Подготовка к установке агентов Windows
 
@@ -425,7 +439,10 @@ Type=Perf <containerName>
 ## <a name="example-log-search-queries"></a>Примеры запросов для поиска по журналам
 При создании запросов часто бывает полезно начать с одного-двух примеров, внося затем в них изменения в соответствии с конкретной средой. Сначала можно поэкспериментировать с колонкой **Заметные запросы**, чтобы научиться создавать более сложные запросы.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![Запросы по контейнерам](./media/log-analytics-containers/containers-queries.png)
+
 
 ## <a name="saving-log-search-queries"></a>Сохранение запросов для поиска по журналам
 Сохранение запросов — это стандартная функция в Log Analytics. Она позволяет сохранять полезные запросы для использования в будущем.

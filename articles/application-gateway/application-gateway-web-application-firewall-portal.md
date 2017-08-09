@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 224aa0db2feb7a83bec5b4ec46140046d10f012e
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 3ee146a0be3c3338cf0037e2ec92a3b8d0c05a4e
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -152,6 +151,8 @@ ms.lasthandoff: 05/04/2017
 > Для защиты шлюзов приложений, созданных с помощью базовой конфигурации брандмауэра веб-приложения, настраивается CRS 3.0.
 
 ## <a name="next-steps"></a>Дальнейшие действия
+
+Далее вы можете узнать, как настроить псевдоним личного домена для [общедоступного IP-адреса](../dns/dns-custom-domain.md#public-ip-address) с помощью Azure DNS или другого поставщика DNS.
 
 Узнайте, как настроить ведение журнала диагностики и как регистрировать в журнале события, которые обнаружил или предотвратил брандмауэр веб-приложения, посетив страницу [Мониторинг работоспособности серверной части, ведение журнала диагностики и метрики для шлюза приложений](application-gateway-diagnostics.md).
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: c2bbb8058ce335c7568d5260ddd0274ca36c9c52
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: fb4302f028ecacf095adbe1b52e31e0432102776
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C. Создание и использование настраиваемых атрибутов в пользовательской политике изменения профиля
@@ -50,7 +50,7 @@ ms.lasthandoff: 06/01/2017
 >Свойства расширения существуют только в контексте зарегистрированного приложения в клиенте. Идентификатор объекта приложения должен содержаться в техническом профиле, использующем его.
 
 >[!NOTE]
->Каталог Azure AD B2C обычно включает приложение веб-API с именем `b2c-extensions-app`.  Это приложение главным образом используется встроенными политиками B2C для пользовательских утверждений, созданных с помощью портала Azure.  Мы рекомендуем регистрировать расширения для пользовательских политик B2C с помощью этого приложения только для опытных пользователей.
+>Каталог Azure AD B2C обычно включает веб-API с именем `b2c-extensions-app`.  Это приложение главным образом используется встроенными политиками B2C для пользовательских утверждений, созданных с помощью портала Azure.  Мы рекомендуем регистрировать расширения для пользовательских политик B2C с помощью этого приложения только для опытных пользователей.  Соответствующие инструкции включены в разделе `NEXT STEPS` в этой статье.
 
 
 ## <a name="creating-a-new-application-to-store-the-extension-properties"></a>Создание приложения для хранения свойств расширения
@@ -71,6 +71,8 @@ ms.lasthandoff: 06/01/2017
 1. Скопируйте в буфер обмена и сохраните следующие идентификаторы из раздела "WebApp-GraphAPI-DirectoryExtensions > Параметры > Свойства".
 *  **Идентификатор приложения**. Пример: `103ee0e6-f92d-4183-b576-8c3739027780`
 * **Идентификатор объекта**. Пример: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+
+
 
 ## <a name="modifying-your-custom-policy-to-add-the-applicationobjectid"></a>Изменение пользовательской политики для добавления `ApplicationObjectId`
 
@@ -270,11 +272,38 @@ ms.lasthandoff: 06/01/2017
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Добавьте новое утверждение в рабочий процесс входа с использованием учетных записей социальных сетей, изменив технические профили, указанные ниже. Эти два технических профиля используются при входе с использованием учетной записи социальной сети или федеративной учетной записи для записи и чтения данных пользователя с применением alternativeSecurityId в качестве указателя объекта пользователя.
+### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>Добавьте новое утверждение в рабочий процесс входа с использованием учетных записей социальных сетей, изменив технические профили, указанные ниже. Эти два технических профиля используются при входе с использованием учетной записи социальной сети или федеративной учетной записи для записи и чтения данных пользователя с применением alternativeSecurityId в качестве указателя объекта пользователя.
 ```
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
+```
+### <a name="using-the-same-extension-attributes-between-built-in-and-custom-policies"></a>Использование одинаковых атрибутов расширения во встроенных и пользовательских политиках
+При добавлении атрибутов расширения (пользовательских атрибутов) на портале они регистрируются с помощью приложения **b2c-extensions-app**, который имеется в каждом клиенте B2C.  Чтобы использовать эти атрибуты расширения в пользовательской политике, сделайте следующее:
+1. В клиенте B2C на сайте portal.azure.com перейдите к **Azure Active Directory** и выберите **Регистрация приложений**
+2. Найдите свое приложение **b2c-extensions-app** и выберите его.
+3. В разделе "Основные компоненты" запишите **идентификатор приложения** и **идентификатор объекта**.
+4. Добавьте их в метаданные технического профиля AAD-Common следующим образом:
+
+```xml
+    <ClaimsProviders>
+        <ClaimsProvider>
+              <DisplayName>Azure Active Directory</DisplayName>
+            <TechnicalProfile Id="AAD-Common">
+              <DisplayName>Azure Active Directory</DisplayName>
+              <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+              <!-- Provide objectId and appId before using extension properties. -->
+              <Metadata>
+                <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
+                <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+              </Metadata>
+```
+
+5. Чтобы обеспечить согласованность с интерфейсом портала, создайте эти атрибуты с помощью пользовательского интерфейса портала *прежде чем* использовать их в пользовательских политиках.  При создании атрибута ActivationStatus на портале необходимо обратиться к нему следующим образом:
+
+```
+extension_ActivationStatus in the custom policy
+extension_<app-guid>_ActivationStatus via the Graph API.
 ```
 
 

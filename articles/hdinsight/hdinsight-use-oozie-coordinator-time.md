@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: b43ea48b9b34f3ab6980f7bdc5c21a19d20fd5b6
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: ce145585b31585fdc6a60eb8a8dd933a81a46bd1
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Используйте учитывающий время координатор Oozie с Hadoop в HDInsight для определения рабочих процессов и координации заданий
@@ -66,8 +65,7 @@ Apache Oozie — это система рабочих процессов и ко
 ## <a name="prerequisites"></a>Предварительные требования
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-* <seg>
-  **Рабочая станция с Azure PowerShell**.</seg>
+* **Рабочая станция с Azure PowerShell**.
 
     > [!IMPORTANT]
     > Поддержка Azure PowerShell для управления ресурсами HDInsight с помощью диспетчера служб Azure (ASM) объявлена **устаревшей** и будет прекращена с 1 января 2017 г. В описанных в этом документе инструкциях используются новые командлеты HDInsight, которые работают с Azure Resource Manager.
@@ -200,7 +198,7 @@ Apache Oozie — это система рабочих процессов и ко
     <table border = "1">
     <tr><th>Переменные рабочего процесса</th><th>Описание</th></tr>
     <tr><td>${jobTracker}</td><td>Укажите URL-адрес средства отслеживания заданий Hadoop. Используйте <strong>jobtrackerhost:9010</strong> в кластере HDInsight версии 3.0 и 2.0.</td></tr>
-    <tr><td>${nameNode}</td><td>Укажите URL-адрес узла имен заданий Hadoop. Используйте стандартный адрес для файловой системы wasbs://, например <i>wasbs://&lt;имя_контейнера&gt;@&lt;имя_учетной_записи_хранения&gt;.blob.core.windows.net</i>.</td></tr>
+    <tr><td>${nameNode}</td><td>Укажите URL-адрес узла имен заданий Hadoop. Используйте стандартный адрес для файловой системы wasb://, например <i>wasb://&lt;имя_контейнера&gt;@&lt;имя_учетной_записи_хранения&gt;.blob.core.windows.net</i>.</td></tr>
     <tr><td>${queueName}</td><td>Указывает имя очереди, в которую будет отправлено задание. Используйте <strong>значение по умолчанию</strong>.</td></tr>
     </table>
 
@@ -218,7 +216,7 @@ Apache Oozie — это система рабочих процессов и ко
     <table border = "1">
     <tr><th>Переменная действия Sqoop</th><th>Описание</th></tr>
     <tr><td>${sqlDatabaseConnectionString}</td><td>Строка подключения для базы данных SQL.</td></tr>
-    <tr><td>${sqlDatabaseTableName}</td><td>Таблица базы данных  Azure SQL, в которую будут экспортированы данные.</td></tr>
+    <tr><td>${sqlDatabaseTableName}</td><td>Таблица базы данных Azure SQL, в которую будут экспортированы данные.</td></tr>
     <tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции Hive INSERT OVERWRITE. Это та же папка, что и каталог для экспорта Sqoop (export-dir).</td></tr>
     </table>
 
@@ -254,15 +252,15 @@ Apache Oozie — это система рабочих процессов и ко
 ## <a name="deploy-the-oozie-project-and-prepare-the-tutorial"></a>Развертывание проекта Oozie и подготовка учебника
 Вы выполните скрипт Azure PowerShell для достижения следующих результатов:
 
-* Копирование скрипта HiveQL (useoozie.hql) в хранилище BLOB-объектов Azure, wasbs:///tutorials/useoozie/useoozie.hql.
-* Копирование файла workflow.xml в wasbs:///tutorials/useoozie/workflow.xml.
-* Копирование файла coordinator.xml в wasbs:///tutorials/useoozie/coordinator.xml.
-* Копирование файла данных (/example/data/sample.log) в wasbs:///tutorials/useoozie/data/sample.log.
+* Копирование скрипта HiveQL (useoozie.hql) в хранилище BLOB-объектов Azure, wasb:///tutorials/useoozie/useoozie.hql.
+* Копирование файла workflow.xml в wasb:///tutorials/useoozie/workflow.xml.
+* Копирование файла coordinator.xml в wasb:///tutorials/useoozie/coordinator.xml.
+* Копирование файла данных (/example/data/sample.log) в wasb:///tutorials/useoozie/data/sample.log.
 * Создайте таблицу базы данных Azure SQL для хранения данных экспорта Sqoop. Имя таблицы — *log4jLogCount*.
 
 **Общие сведения о хранилище HDInsight**
 
-HDInsight использует для хранения данных хранилище BLOB-объектов Azure. wasbs:// — это реализация распределенной файловой системы Hadoop (HDFS) в хранилище BLOB-объектов Azure, предоставляемая корпорацией Майкрософт. Дополнительные сведения см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
+HDInsight использует для хранения данных хранилище BLOB-объектов Azure. wasb:// — это реализация распределенной файловой системы Hadoop (HDFS) в хранилище BLOB-объектов Azure, предоставляемая корпорацией Майкрософт. Дополнительные сведения см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
 
 В процессе подготовки кластера HDInsight в качестве файловой системы по умолчанию устанавливаются учетная запись хранения BLOB-объектов Azure и конкретный контейнер из этой учетной записи, так же как и в HDFS. Помимо этой учетной записи хранения в процессе подготовки можно добавить дополнительные учетные записи хранения из той же или других подписок Azure. Инструкции по добавлению дополнительных учетных записей хранения см. в статье [Создание кластеров Hadoop под управлением Windows в HDInsight][hdinsight-provision]. Чтобы упростить скрипт Azure PowerShell, используемый в этом руководстве, все файлы хранятся в контейнере файловой системы по умолчанию, расположенном в */tutorials/useoozie*. Имя контейнера по умолчанию совпадает с именем кластера HDInsight.
 Синтаксис:
@@ -276,8 +274,8 @@ HDInsight использует для хранения данных хранил
 
 Доступ к файлу, хранящемуся в контейнере файловой системы по умолчанию, из HDInsight может осуществляться с помощью любого из следующих URI (workflow.xml используется в качестве примера):
 
-    wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/workflow.xml
-    wasbs:///tutorials/useoozie/workflow.xml
+    wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/workflow.xml
+    wasb:///tutorials/useoozie/workflow.xml
     /tutorials/useoozie/workflow.xml
 
 Если требуется доступ к этому файлу непосредственно из учетной записи хранения, имя BLOB-объекта для файла имеет следующее значение:
@@ -412,7 +410,7 @@ HDInsight использует для хранения данных хранил
     #Azure Blob storage (WASB) variables
     $storageAccountName = "<StorageAccountName>"
     $storageContainerName = "<BlobContainerName>"
-    $storageUri="wasbs://$storageContainerName@$storageAccountName.blob.core.windows.net"
+    $storageUri="wasb://$storageContainerName@$storageAccountName.blob.core.windows.net"
 
     #Azure SQL database variables
     $sqlDatabaseServer = "<SQLDatabaseServerName>"

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 55c195754f18cd52fc098061f0e16607292a1948
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 18fd43d0b1d6276ebc41a0ad33d861a27a472551
 ms.contentlocale: ru-ru
-ms.lasthandoff: 03/17/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Обновление с бесплатной пробной версии или подписки Azure Microsoft Imagine до подписки с оплатой по мере использования
@@ -35,6 +35,6 @@ ms.lasthandoff: 03/17/2017
    
     ![Снимок экрана, на котором показано, что нужно выбрать для подтверждения обновления подписки](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-Используйте все преимущества, которыми вы не успели воспользоваться в бесплатной пробной версии, такие как период ее предоставления 30 дней или кредит 200 долл. США. Когда будут использованы все эти преимущества, произойдет обновление подписки.
+Используйте все преимущества, которыми вы не успели воспользоваться в бесплатной пробной версии, включая 30-дневный период ее предоставления или кредит. Когда будут использованы все эти преимущества, произойдет обновление подписки.
 
 

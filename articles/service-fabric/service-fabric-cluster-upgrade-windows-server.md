@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a6f74374582d551e2540d1ebd5e9677c92330e09
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 5075f7e7f082a31be3ed30cdce57e89da070dfdb
 ms.contentlocale: ru-ru
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>Обновление автономной службы Azure Service Fabric в кластере Windows Server
@@ -188,6 +187,23 @@ ms.lasthandoff: 07/06/2017
 
 
 ## <a name="upgrade-the-cluster-configuration"></a>Обновление конфигурации кластера
+Прежде чем начинать обновление конфигурации, можно протестировать новый JSON-файл конфигурации кластера, выполнив сценарий Powershell в изолированном пакете.
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File>
+
+```
+или
+
+```powershell
+
+    TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
+
+```
+
+Некоторые конфигурации невозможно обновить, например конечные точки, имена кластеров, IP-адреса узлов и т. д. Таким образом мы протестируем новый JSON-файл конфигурации кластера, используя старый файл. При наличии каких-либо проблем в окне Powershell отобразятся сведения об ошибках.
+
 Чтобы обновить конфигурацию кластера, выполните команду **Start-ServiceFabricClusterConfigurationUpgrade**. Обновление конфигурации обрабатывает домен обновления.
 
 ```powershell

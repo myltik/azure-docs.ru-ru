@@ -12,35 +12,32 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: f8917ca67aa5f15ccc11030fd0292ac803d9e994
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Обработка сообщений Центра Интернета вещей, отправляемых с устройства в облако, с использованием маршрутов (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-## <a name="introduction"></a>Введение
-Центр IoT Azure —это полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств IoT и серверной частью решения. В других руководствах ([Приступая к работе с Центром Интернета вещей Azure (Java)] и [Учебник: как обрабатывать сообщения, отправляемые с устройства центра IoT в облако, с помощью Java][lnk-c2d]) описаны базовые функции Центра Интернета вещей по обмену сообщениями между облаком и устройством в обоих направлениях.
+Это руководство создано на основе руководства [Подключение устройства к Центру Интернета вещей с помощью .NET]. Из этого руководства вы узнаете:
 
-Эта статья основана на руководстве [Приступая к работе с Центром Интернета вещей Azure (Java)]. Из статьи вы узнаете, как можно использовать правила маршрутизации для перенаправления сообщений, отправляемых с устройства в облако. Это простой способ, реализуемый через настройки системы. Руководство демонстрирует, как выделять для дополнительной обработки сообщения, которые требуют немедленных действий от серверной части решения. Например, устройство может отправить аварийный сигнал, который активирует вставку билета в системе CRM. При этом обычные сообщения от точек данных просто поступают в модуль аналитики. Например, телеметрическое сообщение о температуре с устройства, которое должно быть сохранено для последующего анализа, является сообщением точки данных.
+* как при помощи настроек системы можно использовать правила маршрутизации для перенаправления сообщений, отправляемых с устройства в облако;
+* как выделять для дополнительной обработки интерактивные сообщения, которые требуют немедленных действий от серверной части решения. Например, устройство может отправить аварийный сигнал, который активирует вставку билета в системе CRM. При этом обычные сообщения от точек данных, такие как данные телеизмерения температуры, поступают в модуль аналитики.
 
 В конце этого руководства запускаются три консольных приложения для .NET:
 
-* **SimulatedDevice**, измененная версия приложения, созданного в руководстве [Приступая к работе с Центром Интернета вещей Azure (Java)]. Приложение отправляет сообщения точек данных с устройства в облако каждую секунду и интерактивные сообщения с устройства в облако каждые 10 секунд. Это приложение использует протокол AMQP для обмена данными с Центром Интернета вещей.
-* **ReadDeviceToCloudMessages** — отображает некритические данные телеметрии, отправленные приложением имитации устройства.
-* **ReadCriticalQueue** — извлекает важные сообщения, отправленные приложением виртуального устройства, из очереди служебной шины, присоединенной к Центру Интернета вещей.
+* **SimulatedDevice**, измененная версия приложения, созданного в руководстве [Подключение устройства к Центру Интернета вещей с помощью .NET]. Приложение отправляет сообщения точек данных с устройства в облако каждую секунду и интерактивные сообщения с устройства в облако каждые 10 секунд.
+* **ReadDeviceToCloudMessages** — отображает некритические данные телеметрии, отправленные приложением устройства.
+* **ReadCriticalQueue** — извлекает важные сообщения, отправленные приложением устройства, из очереди служебной шины. Эта очередь присоединяется к Центру Интернета вещей.
 
 > [!NOTE]
-> Для центра IoT существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и JavaScript). Чтобы узнать, как заменить имитацию устройства в этом руководстве физическим устройством, а также подключить устройства к Центру Интернета вещей Azure, см. [Центр разработчиков для Azure IoT].
-> 
-> 
+> Для Центра Интернета вещей существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и JavaScript). Чтобы узнать, как заменить виртуальное устройство в этом руководстве физическим, см. [Центр разработчиков для Azure IoT].
 
 Для работы с этим учебником требуется:
 
@@ -49,12 +46,13 @@ ms.lasthandoff: 05/26/2017
 
 Кроме того, у вас должны быть базовые знания о [службе хранилища Azure] и [служебной шине Azure].
 
-## <a name="send-interactive-messages-from-a-simulated-device-app"></a>Отправка интерактивных сообщений из приложения для имитации устройства
-В этом разделе вы измените приложение виртуального устройства, созданное в руководстве [Приступая к работе с Центром Интернета вещей Azure (Java)], чтобы оно умело отправлять сообщения, требующие немедленной обработки.
+## <a name="send-interactive-messages"></a>Отправка интерактивных сообщений
+
+Измените приложение устройства, созданное в руководстве [Подключение устройства к Центру Интернета вещей с помощью .NET], чтобы оно по мере необходимости отправляло интерактивные сообщения.
 
 В Visual Studio в проекте **SimulatedDevice** замените метод `SendDeviceToCloudMessagesAsync` следующим кодом:
 
-```
+```csharp
 private static async void SendDeviceToCloudMessagesAsync()
 {
     double minTemperature = 20;
@@ -104,7 +102,8 @@ private static async void SendDeviceToCloudMessagesAsync()
 > [!NOTE]
 > Для упрощения в этом руководстве не реализуются какие-либо политики повтора. В рабочем коде следует реализовать политику повтора (например, экспоненциальную задержку), как предлагается в статье MSDN [Transient Fault Handling](Обработка временного сбоя).
 
-## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>Добавление очереди в Центре Интернета вещей и маршрутизация сообщений
+## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Маршрутизация сообщений в очередь в Центре Интернета вещей
+
 В этом разделе выполняются следующие действия:
 
 * Создается очередь служебной шины.
@@ -135,6 +134,7 @@ private static async void SendDeviceToCloudMessagesAsync()
     ![Резервный маршрут][33]
 
 ## <a name="read-from-the-queue-endpoint"></a>Чтение сообщений из конечной точки очереди
+
 В этом разделе вы организуете чтение сообщений из конечной точки очереди.
 
 1. В Visual Studio добавьте в текущее решение проект классического приложения Windows на языке Visual C# с помощью шаблона проекта **консольного приложения (.NET Framework)**. Присвойте проекту имя **ReadCriticalQueue**.
@@ -145,14 +145,14 @@ private static async void SendDeviceToCloudMessagesAsync()
 
 4. Добавьте следующие инструкции **using** в начало файла **Program.cs**:
    
-    ```
+    ```csharp
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
 
 5. Наконец, добавьте следующие строки в метод **Main** . Подставьте для очереди строку подключения с разрешениями на **прослушивание**:
    
-    ```
+    ```csharp
     Console.WriteLine("Receive critical messages. Ctrl-C to exit.\n");
     var connectionString = "{service bus listen string}";
     var queueName = "{queue name}";
@@ -181,7 +181,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 ## <a name="next-steps"></a>Дальнейшие действия
 В этом руководстве вы узнали, как надежно перенаправлять сообщения, отправляемые с устройства в облако, с использованием функции маршрутизации сообщений Центра Интернета вещей.
 
-В статье [Учебник: как отправлять сообщения из облака на устройства с помощью центра IoT и .Net][lnk-c2d] описано, как отправлять сообщения на устройства из серверной части решения.
+В статье [Учебник: как отправлять сообщения из облака на устройства с помощью Центра Интернета вещей и .Net][lnk-c2d] описано, как отправлять сообщения на устройства из серверной части решения.
 
 Примеры комплексных решений, в которых используется Центр Интернета вещей, см. в [документации по Azure IoT Suite][lnk-suite].
 
@@ -191,46 +191,20 @@ private static async void SendDeviceToCloudMessagesAsync()
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
-[10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
-
 [30]: ./media/iot-hub-csharp-csharp-process-d2c/click-endpoints.png
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/endpoint-creation.png
 [32]: ./media/iot-hub-csharp-csharp-process-d2c/route-creation.png
 [33]: ./media/iot-hub-csharp-csharp-process-d2c/fallback-route.png
 
 <!-- Links -->
-
-[Azure blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-
-[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
-
 [службе хранилища Azure]: https://azure.microsoft.com/documentation/services/storage/
 [служебной шине Azure]: https://azure.microsoft.com/documentation/services/service-bus/
-
 [руководстве разработчика для Центра Интернета вещей]: iot-hub-devguide.md
-[Приступая к работе с Центром Интернета вещей Azure (Java)]: iot-hub-csharp-csharp-getstarted.md
+[Подключение устройства к Центру Интернета вещей с помощью .NET]: iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Центр разработчиков для Azure IoT]: https://azure.microsoft.com/develop/iot
-[lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
-[lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
-
-<!-- Links -->
-[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Get Started with Event Hubs]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
-[Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
-[Event Hubs]: ../event-hubs/event-hubs-overview.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
-[Обработка временного сбоя]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Build multi-tier applications with Service Bus]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-
-[lnk-classic-portal]: https://manage.windowsazure.com
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 

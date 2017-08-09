@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: ab8d7fefb64b1358bb1b9667d280cb53fc2f636c
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: c6880b79189e0683387a7aafbd6fa4805b3b42ef
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-# <a name="reporting-apis-for-enterprise-customers---billing-periods-preview"></a>Интерфейсы API отчетов для корпоративных клиентов: расчетные периоды (предварительная версия)
+# <a name="reporting-apis-for-enterprise-customers---billing-periods"></a>Интерфейсы API отчетов для корпоративных клиентов: расчетные периоды
 
 API расчетных периодов возвращает список расчетных периодов, которые содержат данные о потреблении для определенной регистрации, приведенные в обратном хронологическом порядке. Каждый период содержит свойство, указывающее на маршрут API к четырем наборам данных: BalanceSummary, UsageDetails, MarketplaceCharges и PriceSheet. Если период не содержит данных, то соответствующее свойство имеет значение null. 
 
@@ -33,25 +32,28 @@ API расчетных периодов возвращает список рас
 
 |Метод | URI запроса|
 |-|-|
-|ПОЛУЧЕНИЕ| https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingperiods|
+|ПОЛУЧЕНИЕ| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingperiods|
 
+> [!Note]
+> Чтобы использовать предварительную версию API, измените v2 на v1 в приведенном выше URL-адресе.
+>
 
 ## <a name="response"></a>Ответ
  
     
     
-        [
+      [
             {
-                  "billingPeriodId": "201704",
-                  "billingStart": "2017-04-01T00:00:00Z",
-                  "billingEnd": "2017-04-30T11:59:59Z",
+                "billingPeriodId": "201704",
+                "billingStart": "2017-04-01T00:00:00Z",
+                "billingEnd": "2017-04-30T11:59:59Z",
                 "balanceSummary": "/v1/enrollments/100/billingperiods/201704/balancesummary",
-                  "usageDetails": "/v1/enrollments/100/billingperiods/201704/usagedetails",
-                  "marketplaceCharges": "/v1/enrollments/100/billingperiods/201704/marketplacecharges",
-                  "priceSheet": "/v1/enrollments/100/billingperiods/201704/pricesheet"
-            },            
+                "usageDetails": "/v1/enrollments/100/billingperiods/201704/usagedetails",
+                "marketplaceCharges": "/v1/enrollments/100/billingperiods/201704/marketplacecharges",
+                "priceSheet": "/v1/enrollments/100/billingperiods/201704/pricesheet"
+            },          
             ....
-        ]
+      ]
     
 
 **Определения свойств ответа**
@@ -68,6 +70,7 @@ API расчетных периодов возвращает список рас
 
 <br/>
 ## <a name="see-also"></a>См. также
+
 * [Интерфейсы API отчетов для корпоративных клиентов: баланс и сводка](billing-enterprise-api-balance-summary.md)
 
 * [Интерфейсы API для выставления счетов Azure корпоративным клиентам: сведения об использовании](billing-enterprise-api-usage-detail.md) 

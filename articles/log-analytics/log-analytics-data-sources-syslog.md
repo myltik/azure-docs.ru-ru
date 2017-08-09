@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2017
+ms.date: 07/12/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 783b9b48251c5f092121288af8834e2caf31f5d7
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Источники данных системного журнала в Log Analytics
@@ -27,8 +26,8 @@ ms.lasthandoff: 06/13/2017
 
 > [!NOTE]
 > Log Analytics поддерживает сбор сообщений, отправленных rsyslog или syslog-ng, где rsyslog является управляющей программой по умолчанию. Управляющая программа syslog по умолчанию не поддерживается для сбора событий системного журнала в Red Hat Enterprise Linux версии 5, CentOS и Oracle Linux (sysklog). Чтобы собирать данные системного журнала из дистрибутивов этих версий, требуется установить и настроить [управляющую программу rsyslog](http://rsyslog.com) , которая заменит sysklog.
-> 
-> 
+>
+>
 
 ![Сбор сообщений системного журнала](media/log-analytics-data-sources-syslog/overview.png)
 
@@ -49,8 +48,8 @@ ms.lasthandoff: 06/13/2017
 
 > [!NOTE]
 > При изменении конфигурации системного журнала требуется перезапустить управляющую программу syslog, чтобы изменения вступили в силу.
-> 
-> 
+>
+>
 
 #### <a name="rsyslog"></a>rsyslog
 Файл конфигурации для rsyslog находится в расположении **/etc/rsyslog.d/95-omsagent.conf**.  Его содержимое по умолчанию приведено ниже.  В данном случае собираются сообщения системного журнала, отправленные из локального агента для всех устройств и имеющие уровень серьезности "предупреждение" или выше.
@@ -138,7 +137,7 @@ ms.lasthandoff: 06/13/2017
 
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Сбор данных из дополнительных портов системного журнала
-Агент OMS прослушивает сообщения системного журнала на локальном клиенте через порт 25224.  При установке агента применяется конфигурация системного журнала по умолчанию. Файл конфигурации расположен в следующем расположении: 
+Агент OMS прослушивает сообщения системного журнала на локальном клиенте через порт 25224.  При установке агента применяется конфигурация системного журнала по умолчанию. Файл конфигурации расположен в следующем расположении:
 
 * rsyslog: `/etc/rsyslog.d/95-omsagent.conf`;
 * syslog-ng: `/etc/syslog-ng/syslog-ng.conf`.
@@ -162,7 +161,7 @@ ms.lasthandoff: 06/13/2017
 
     > [!NOTE]
     > Если изменить это значение в файле конфигурации `95-omsagent.conf`, он перезаписывается, когда агент применяет конфигурацию по умолчанию.
-    > 
+    >
 
         # OMS Syslog collection for workspace %WORKSPACE_ID%
         kern.warning              @127.0.0.1:%SYSLOG_PORT%
@@ -174,7 +173,7 @@ ms.lasthandoff: 06/13/2017
 
     > [!NOTE]
     > Если изменить эти значения по умолчанию в файле конфигурации, он перезаписывается, когда агент применяет конфигурацию по умолчанию.
-    > 
+    >
 
         filter f_custom_filter { level(warning) and facility(auth; };
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
@@ -206,9 +205,18 @@ ms.lasthandoff: 06/13/2017
 | Type=Syslog &#124; measure count() by Computer |Число записей системного журнала по компьютеру. |
 | Type=Syslog &#124; measure count() by Facility |Число записей системного журнала по устройству. |
 
-## <a name="next-steps"></a>Дальнейшие действия
-* Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений. 
-* Используйте [настраиваемые поля](log-analytics-custom-fields.md) для анализа данных из записей системного журнала в отдельных полях.
-* [Настройте агенты Linux](log-analytics-linux-agents.md) для сбора других типов данных. 
+>[!NOTE]
+> Если ваша рабочая область переведена на [язык запросов Log Analytics](log-analytics-log-search-upgrade.md), указанные выше запросы будут изменены следующим образом.
 
+> | Запрос | Описание |
+|:--- |:--- |
+| syslog |Все записи системного журнала. |
+| Syslog &#124; where SeverityLevel == "error" |Все записи системного журнала с уровнем серьезности "ошибка". |
+| Syslog &#124; summarize AggregatedValue = count() by Computer |Число записей системного журнала по компьютеру. |
+| Syslog &#124; summarize AggregatedValue = count() by Facility |Число записей системного журнала по устройству. |
+
+## <a name="next-steps"></a>Дальнейшие действия
+* Узнайте больше об [операциях поиска по журналу](log-analytics-log-searches.md) , которые можно применять для анализа данных, собираемых из источников данных и решений.
+* Используйте [настраиваемые поля](log-analytics-custom-fields.md) для анализа данных из записей системного журнала в отдельных полях.
+* [Настройте агенты Linux](log-analytics-linux-agents.md) для сбора других типов данных.
 

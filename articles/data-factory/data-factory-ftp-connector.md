@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 1c37802e2b908747773afa093a28ea218dd60509
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: f8f31f3a2ee02c964737dd32145499f3dcfd0624
 ms.contentlocale: ru-ru
-ms.lasthandoff: 04/18/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Перемещение данных с FTP-сервера с использованием фабрики данных Azure
@@ -200,7 +199,7 @@ ms.lasthandoff: 04/18/2017
 | --- | --- | --- | --- |
 | recursive |Указывает, следует ли читать данные рекурсивно из вложенных папок или только из указанной папки. |True, False (по умолчанию) |Нет |
 
-## <a name="json-example-copy-data-from-ftp-server-to-azure-blob-storage"></a>Пример JSON. Копирование данных с FTP-сервера в хранилище BLOB-объектов Azure
+## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Пример JSON. Копирование данных с FTP-сервера в большой двоичный объект Azure
 В этом примере показано, как скопировать данные с FTP-сервера в хранилище BLOB-объектов Azure. Однако данные можно напрямую копировать в любые приемники, указанные в статье [Поддерживаемые хранилища данных и форматы](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Для этого применяется действие копирования в фабрике данных.  
 
 Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).

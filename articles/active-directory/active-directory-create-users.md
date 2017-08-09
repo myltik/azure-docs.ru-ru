@@ -11,20 +11,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/26/2017
-ms.author: curtand;jeffsta
-ms.reviewer: asteen
-ms.custom: oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
+ms.author: curtand
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ff4b742e772a6062885313e9bb49e55907fe125a
 ms.contentlocale: ru-ru
-ms.lasthandoff: 02/11/2017
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>Добавление новых пользователей или пользователей с учетными записями Майкрософт в Azure Active Directory
+# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Добавление новых пользователей или пользователей с учетными записями Майкрософт в Azure Active Directory
 Добавление пользователей позволяет заполнить каталог. В этой статье объясняется, как добавить новых корпоративных пользователей, а также пользователей с учетными записями Майкрософт. Дополнительные сведения о добавлении пользователей из других каталогов в Azure Active Directory или пользователей из компаний-партнеров см. в статье [Добавление пользователей из других каталогов или компаний-партнеров в Azure Active Directory](active-directory-create-users-external.md). По умолчанию добавленные пользователи не имеют прав администратора, но вы можете назначать им роли в любое время.
+
+> [!IMPORTANT]
+> Для управления службой Azure AD мы рекомендуем использовать [Центр администрирования Azure AD](https://aad.portal.azure.com) на портале Azure, а не классический портал Azure, который упоминается в этой статье. См. дополнительные сведения о [добавлении новых пользователей в центре администрирования Azure Active Directory](active-directory-users-create-azure-portal.md).
 
 ## <a name="add-a-user"></a>Добавление пользователей
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с помощью учетной записи глобального администратора каталога.
@@ -41,7 +45,7 @@ ms.lasthandoff: 02/11/2017
 > [!IMPORTANT]
 > Если в организации используется более одного домена, при добавлении учетной записи пользователя необходимо учитывать следующие моменты:
 >
-> * Чтобы добавить учетные записи пользователей с тем же именем участника-пользователя (UPN) в разных доменах, **сначала** добавьте, например, geoffgrisso@contoso.onmicrosoft.com,, а **затем** — geoffgrisso@contoso.com.
+> * Чтобы добавить учетные записи пользователей с тем же именем участника-пользователя (UPN) в разных доменах, **сначала** добавьте, например, geoffgrisso@contoso.onmicrosoft.com, а **затем** — geoffgrisso@contoso.com.
 > * **Не** добавляйте geoffgrisso@contoso.com, пока не добавите geoffgrisso@contoso.onmicrosoft.com. Порядок добавления важен: если вы допустите ошибку сейчас, потом ее может быть сложно исправить.
 >
 >

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: andrl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 53b9cdd948e6b4c1d4da9fe52f81816050332a62
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 8cddc7a8c9aa677b9c93bee3a7e05c226cc1f655
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Программирование Azure Cosmos DB на стороне сервера: хранимые процедуры, триггеры баз данных и определяемые пользователем функции
@@ -55,7 +54,7 @@ ms.lasthandoff: 06/20/2017
   * Добавление уровня абстракции поверх исходных данных, что позволяет архитекторам данных развивать свои приложения независимо от данных. Это особенно выгодно, когда данные не имеют схемы, в связи с предположениями, что, возможно, потребуется реализованная в приложении схема, если придется работать с данными напрямую.  
   * Эта абстракция позволяет предприятиям сохранить свои данные в безопасности, упрощая доступ к ним из сценариев.  
 
-Создание и выполнение триггеров баз данных, хранимых процедур и операторов пользовательских запросов поддерживается с помощью [REST API](/rest/api/documentdb/), [Azure Document DB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) и [клиентских пакетов SDK](documentdb-sdk-dotnet.md) на различных платформах, включая .NET, Node.js и JavaScript.
+Создание и выполнение триггеров баз данных, хранимых процедур и операторов пользовательских запросов поддерживается с помощью [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) и [клиентских пакетов SDK](documentdb-sdk-dotnet.md) на различных платформах, включая .NET, Node.js и JavaScript.
 
 Для иллюстрации синтаксиса и использования хранимых процедур, триггеров и пользовательских функций в этом учебнике используется [пакет SDK для Node.js с обещаниями Q](http://azure.github.io/azure-documentdb-node-q/).   
 

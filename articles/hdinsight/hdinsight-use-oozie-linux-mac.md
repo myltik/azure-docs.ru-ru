@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3ca1184bfbd6af3a63e62bce9dfe1baf1729b4ac
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 2327945b5f5fe6b6e63660fd5d607d3cc8092f8b
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Использование Oozie с Hadoop для определения и запуска рабочих процессов в HDInsight под управлением Linux
@@ -33,12 +32,15 @@ ms.lasthandoff: 05/18/2017
 > [!NOTE]
 > Еще один способ определения рабочих процессов в HDInsight - Azure Data Factory. Дополнительные сведения об использовании действий Pig и Hive см. в статье [Преобразование данных в фабрике данных Azure][azure-data-factory-pig-hive].
 
+> [!IMPORTANT]
+> Диспетчер Oozie не включен в присоединенном к домену кластере HDInsight.
+
 ## <a name="prerequisites"></a>Предварительные требования
 
 * **Кластер HDInsight**: ознакомьтесь с [началом работы с HDInsight в Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
   > [!IMPORTANT]
-  > Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+  > Для выполнения действий, описанных в этом документе, необходим кластер HDInsight, который использует Linux. Linux — это единственная операционная система, используемая для работы с HDInsight 3.4 или более поздних версий. Дополнительные сведения см. в разделе [Приближается дата прекращения сопровождения HDI версии 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="example-workflow"></a>Пример рабочего процесса
 
@@ -63,7 +65,7 @@ ms.lasthandoff: 05/18/2017
 
 ## <a name="create-the-working-directory"></a>Создайте рабочий каталог
 
-Ресурсы, необходимые для выполнения задания, должны находиться в том же каталоге. В этом примере используется **wasbs:///tutorials/useoozie**. Для создания этого каталога и каталога данных для новой таблицы Hive, которую создаст этот рабочий процесс, воспользуйтесь следующей командой:
+Ресурсы, необходимые для выполнения задания, должны находиться в том же каталоге. В этом примере используется каталог **wasb:///tutorials/useoozie**. Для создания этого каталога и каталога данных для новой таблицы Hive, которую создаст этот рабочий процесс, воспользуйтесь следующей командой:
 
 ```
 hdfs dfs -mkdir -p /tutorials/useoozie/data
@@ -128,7 +130,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
 4. Нажмите CTRL+X, чтобы закрыть редактор. При появлении запроса нажмите **Y** для сохранения файла, затем нажмите клавишу **ВВОД**, чтобы использовать имя файла **useooziewf.hql**.
 
-5. Используйте приведенные ниже команды для копирования **useooziewf.hql** в **wasbs:///tutorials/useoozie/useooziewf.hql**.
+5. Используйте следующие команды для копирования **useooziewf.hql** в **wasb:///tutorials/useoozie/useooziewf.hql**.
 
     ```
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -292,11 +294,11 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
     ```xml
     <name>fs.defaultFS</name>
-    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
+    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
     > [!NOTE]
-    > Если кластер HDInsight использует службу хранилища Azure в качестве хранилища по умолчанию, содержимое элемента `<value>` начинается с `wasbs://`. Если же используется Azure Data Lake Store, оно начинается с `adl://`.
+    > Если кластер HDInsight использует службу хранилища Azure в качестве хранилища по умолчанию, содержимое элемента `<value>` начинается с `wasb://`. Если же используется Azure Data Lake Store, оно начинается с `adl://`.
 
     Сохраните содержимое элемента `<value>`, которое потребуется нам на следующих шагах.
 
@@ -326,7 +328,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
         <property>
         <name>nameNode</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
         </property>
 
         <property>
@@ -346,7 +348,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
         <property>
         <name>hiveScript</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
         </property>
 
         <property>
@@ -356,7 +358,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
         <property>
         <name>hiveDataFolder</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
         </property>
 
         <property>
@@ -376,12 +378,12 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
         <property>
         <name>oozie.wf.application.path</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
     </configuration>
     ```
 
-   * Замените все вхождения **wasbs://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее для хранилища по умолчанию.
+   * Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее для хранилища по умолчанию.
 
      > [!WARNING]
      > Если используется путь `wasb`, его необходимо указать полностью. Не сокращайте его до строки `wasb:///`.
@@ -452,7 +454,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
     Job ID : 0000005-150622124850154-oozie-oozi-W
     ------------------------------------------------------------------------------------------------------------------------------------
     Workflow Name : useooziewf
-    App Path      : wasbs:///tutorials/useoozie
+    App Path      : wasb:///tutorials/useoozie
     Status        : PREP
     Run           : 0
     User          : USERNAME
@@ -620,11 +622,11 @@ Oozie REST API позволяет создавать собственные ут
         ```xml
         <property>
             <name>workflowPath</name>
-            <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+            <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
         ```
 
-       Замените текст `wasbs://mycontainer@mystorageaccount.blob.core.windows` значением, которое используется в других записях файла job.xml.
+       Замените текст `wasb://mycontainer@mystorageaccount.blob.core.windows` значением, которое используется в других записях файла job.xml.
 
    * Добавьте указанный ниже код XML. Он определяет время запуска, завершения и интервала запуска для использования в файле coordinator.xml.
 
@@ -695,7 +697,7 @@ Oozie REST API позволяет создавать собственные ут
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Причина**. WASB-адреса, используемые в файле **job.xml**, не содержат контейнер хранилища или имя учетной записи хранения. Формат адреса WASB должен быть следующим `wasbs://containername@storageaccountname.blob.core.windows.net`.
+**Причина**. WASB-адреса, используемые в файле **job.xml**, не содержат контейнер хранилища или имя учетной записи хранения. Формат адреса WASB должен быть следующим `wasb://containername@storageaccountname.blob.core.windows.net`.
 
 **Решение**: Измените адреса WASB, используемые заданием.
 
@@ -707,7 +709,7 @@ Oozie REST API позволяет создавать собственные ут
 
 **Причина**: Текущие права доступа не позволяют Oozie работать от имени учетной записи указанного пользователя.
 
-**Решение**. Oozie не разрешено работать от имени пользователей из группы **users**. Для просмотра групп, в которые входит данный пользователь, воспользуйтесь командой `groups USERNAME` . Если пользователь не является членом группы **users** , добавьте его в  группу следующей командой:
+**Решение**. Oozie не разрешено работать от имени пользователей из группы **users**. Для просмотра групп, в которые входит данный пользователь, воспользуйтесь командой `groups USERNAME` . Если пользователь не является членом группы **users**, добавьте его в группу следующей командой:
 
     sudo adduser USERNAME users
 

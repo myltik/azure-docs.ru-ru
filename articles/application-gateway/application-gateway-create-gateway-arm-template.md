@@ -6,20 +6,18 @@ services: application-gateway
 author: georgewallace
 manager: timlt
 editor: tysonn
-ms.assetid: 8192ee25-d9f0-4b32-a45e-1d74629c54e5
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 07/31/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 46a036c5f1646197522874b1302b95947e90cdd8
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: f44e33ef722cd30787a9d2942ec55ceb73174978
 ms.contentlocale: ru-ru
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Создание шлюза приложений с помощью шаблона диспетчера ресурсов Azure
@@ -31,12 +29,9 @@ ms.lasthandoff: 06/29/2017
 > * [Шаблон диспетчера ресурсов Azure](application-gateway-create-gateway-arm-template.md)
 > * [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
 
-Шлюз приложений — это балансировщик нагрузки уровня 7. Он отвечает за отработку отказов и эффективную маршрутизацию HTTP-запросов между разными серверами (облачными и локальными).
-Шлюз приложений выполняет многие функции контроллера доставки приложений (ADC), включая балансировку нагрузки HTTP, определение сходства сеансов на основе файлов cookie, разгрузку SSL, выполнение пользовательской проверки работоспособности, поддержку нескольких сайтов и т. д.
+Шлюз приложений — это балансировщик нагрузки уровня 7. Он отвечает за отработку отказов и эффективную маршрутизацию HTTP-запросов между разными серверами (облачными и локальными). Шлюз приложений выполняет многие функции контроллера доставки приложений (ADC), включая балансировку нагрузки HTTP, определение сходства сеансов на основе файлов cookie, разгрузку SSL, выполнение пользовательской проверки работоспособности, поддержку нескольких сайтов и т. д. Полный список поддерживаемых функций представлен в [обзоре шлюза приложений](application-gateway-introduction.md).
 
-Полный список поддерживаемых функций представлен в [обзоре шлюза приложений](application-gateway-introduction.md).
-
-Вы узнаете, как скачивать и изменять существующий шаблон Azure Resource Manager из GitHub, а также развертывать шаблон из GitHub, PowerShell и интерфейса командной строки Azure.
+В этой статье вы узнаете, как скачать и изменить существующий шаблон Azure Resource Manager из GitHub, а также развернуть шаблон из GitHub, PowerShell и интерфейса командной строки Azure (Azure CLI).
 
 Если вы развертываете шаблон ARM непосредственно из GitHub без изменений, перейдите к соответствующему разделу.
 

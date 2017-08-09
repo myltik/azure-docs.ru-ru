@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 9b26ade6c3a90e6ebe49bfbc6f3fa801dc7f8d20
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: d8b466caba7201a5bb8612e773ad61943f6d1cf2
 ms.contentlocale: ru-ru
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Мониторинг приложений с несколькими компонентами с помощью Application Insights (предварительная версия)
@@ -30,7 +29,9 @@ ms.lasthandoff: 05/19/2017
 
 ### <a name="sharing-a-single-application-insights-resource"></a>Совместное использование одного ресурса Application Insights 
 
-Ключевой метод здесь — отправлять телеметрию каждого компонента в приложении в тот же ресурс Application Insights, но использовать свойство `cloud_RoleName`, чтобы различать компоненты, когда это необходимо. 
+Ключевой метод здесь — отправлять телеметрию каждого компонента в приложении в тот же ресурс Application Insights, но использовать свойство `cloud_RoleName`, чтобы различать компоненты, когда это необходимо. Пакет SDK для Application Insights добавляет свойство `cloud_RoleName` в данные телеметрии, выдаваемые компонентами. Например, пакет SDK добавит имя веб-сайта или роли службы в свойство `cloud_RoleName`. Это значение можно переопределить с помощью telemetryinitializer. В схеме сопоставления приложений свойство `cloud_RoleName` используется для идентификации компонентов в схеме.
+
+Дополнительные сведения о том, как переопределить свойство `cloud_RoleName`, см. в разделе [Добавление свойств: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
 В некоторых случаях это может быть неуместным, и вы можете использовать отдельные ресурсы для разных групп компонентов. Например, вам может потребоваться использовать разные ресурсы для управления и выставления счетов. Использование отдельных ресурсов означает, что вы не видите все отображаемые компоненты на единой схеме сопоставления приложений и не можете запрашивать по компонентам в [аналитике](app-insights-analytics.md). Кроме того, отдельные ресурсы необходимо настроить.
 
