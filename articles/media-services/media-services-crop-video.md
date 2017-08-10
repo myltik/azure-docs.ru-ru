@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 08/09/2017
 ms.author: anilmur;juliako;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
+ms.contentlocale: ru-ru
 ms.lasthandoff: 01/27/2017
-
 
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Обрезка видео с помощью стандартного кодировщика мультимедиа

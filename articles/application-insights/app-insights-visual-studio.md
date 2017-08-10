@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/7/2017
-ms.author: cfreeman
+ms.author: sewhee
 ms.translationtype: HT
 ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 93e97cbc5d9bf55334a481183f40083a6f3b99a4
 ms.contentlocale: ru-ru
 ms.lasthandoff: 07/11/2017
-
 
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Отладка приложений с помощью Azure Application Insights в Visual Studio

@@ -3,8 +3,8 @@ title: "Подключение к базе данных SQL с помощью C 
 description: "Используйте приведенный в этом кратком руководстве пример кода, чтобы с помощью базы данных SQL Azure разработать современное приложение на C++ на основе мощной облачной реляционной базы данных."
 services: sql-database
 documentationcenter: 
-author: asthana86
-manager: danmoth
+author: edmacauley
+manager: jhubbard
 editor: 
 ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
 ms.service: sql-database
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: tobiast
+ms.author: edmacauley
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
 ms.openlocfilehash: 713e4a29550f37b03af3547bead42146a84a417f
 ms.contentlocale: ru-ru
 ms.lasthandoff: 04/15/2017
-
 
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Подключение к базе данных SQL с помощью C и C++

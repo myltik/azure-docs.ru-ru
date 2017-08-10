@@ -1,5 +1,4 @@
 ---
-
 title: "Управление конечными точками потоковой передачи с помощью портала Azure | Документация Майкрософт"
 description: "В этой статье рассказывается, как управлять конечными точками потоковой передачи с помощью портала Azure."
 services: media-services
@@ -14,12 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
 ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
-
+ms.contentlocale: ru-ru
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -62,7 +62,7 @@ ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
     ![конечной точки потоковой передачи](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a name="a-idconfigurestreamingendpointsaconfiguring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Настройка конечной точки потоковой передачи
+## <a id="configure_streaming_endpoints"></a>Настройка конечной точки потоковой передачи
 Конечная точка потоковой передачи позволяет настроить следующие свойства:
 
 * управление доступом;
@@ -88,7 +88,7 @@ ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
 
 Чтобы узнать больше, ознакомьтесь с [этим](media-services-portal-scale-streaming-endpoints.md) разделом.
 
-## <a name="a-idenablecdnaenable-azure-cdn-integration"></a><a id="enable_cdn"></a>Включение интеграции Azure CDN
+## <a id="enable_cdn"></a>Включение интеграции Azure CDN
 
 При создании учетной записи интеграция Azure CDN с конечной точкой потоковой передачи включена по умолчанию.
 
@@ -121,10 +121,5 @@ ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
 
 ## <a name="provide-feedback"></a>Отзывы
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
