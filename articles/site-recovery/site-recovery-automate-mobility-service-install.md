@@ -12,7 +12,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/01/2017
 ms.author: krnese
 ms.translationtype: HT
 ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
@@ -60,8 +60,7 @@ ms.lasthandoff: 08/01/2017
 
   > [!NOTE]
   > Сведения об использовании DSC на компьютерах под управлением Windows с установленным компонентом WMF 4.0 см. в разделе [Использование DSC в отключенных средах](## Use DSC in disconnected environments).
-  >
-  >
+  
 
 Службу Mobility Service можно установить с помощью командной строки. Соответствующая команда принимает несколько аргументов. Поэтому нам нужны двоичные файлы (после извлечения из пакета установки). Эти файлы необходимо сохранить в расположение, из которого их можно извлечь с помощью конфигурации DSC.
 
